@@ -42,6 +42,7 @@ updatecls:
 	cp *.cls $(shell kpsewhich -var-value=TEXMFHOME)/tex/latex/local/class
 
 %.pdf: %.tex
+	latex -C -outdir=$(shell dirname $(MAKECMDGOALS)) $<
 	latexmk $(LATEXMK_PREVIEW) -outdir=$(shell dirname $(MAKECMDGOALS)) $<
 
 # remove auxiliary files and pdf, dvi files

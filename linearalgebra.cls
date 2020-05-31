@@ -1,10 +1,11 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{custom}
+\ProvidesClass{linearalgebra}
 
 \LoadClass[oneside]{book}
 
 \RequirePackage{import}
 \RequirePackage[subpreambles=true]{standalone}
+\RequirePackage[utf8]{vietnam}
 
 \RequirePackage{fancyhdr}
 \RequirePackage{xcolor}
