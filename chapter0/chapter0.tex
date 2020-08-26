@@ -4,4 +4,165 @@
 
 \chapter{Kiến thức chuẩn bị}
 
+\section*{Bài tập}
+
+\setcounter{exercise}{0}
+
+\begin{exercise}Chứng minh các tính chất kết hợp, giao hoán, phân phối của các phép toán hợp và giao trên tập hợp. Chứng minh công thức đối ngẫu De Morgan cho hiệu của hợp và giao của một họ tùy ý các tập hợp.
+\end{exercise}
+
+\begin{proof}Ta sử dụng các tập hợp $A, B, C$. Nhắc lại rằng, trên tập hợp các mệnh đề, phép toán $\text{and}$, $\text{or}$ có tính chất kết hợp, giao hoán và phân phối.
+
+    \par \textit{Tính chất kết hợp}.
+
+    \begin{gather*}
+        (A\cup B)\cup C = \{ x\ |\ (x\in A \text{ or } x\in B) \text{ or } x\in C \} \\
+        A\cup (B\cup C) = \{ x\ |\ x\in A \text{ or } (x\in B \text{ or } x\in C) \}
+    \end{gather*}
+
+    \par Toán tử $\text{or}$ có tính chất kết hợp, do đó $(A\cup B)\cup C = A\cup (B\cup C)$.
+
+    \begin{gather*}
+        (A\cap B)\cap C = \{ x\ |\ (x\in A \text{ and } x\in B) \text{ and } x\in C \} \\
+        A\cap (B\cap C) = \{ x\ |\ x\in A \text{ and } (x\in B \text{ and } x\in C) \}
+    \end{gather*}
+
+    \par Toán tử $\text{and}$ có tính chất kết hợp, do đó $(A\cap B)\cap C = A\cap (B\cap C)$.
+
+    \bigskip
+
+    \par \textit{Tính chất giao hoán}.
+
+    \begin{gather*}
+        A\cup B = \{ x\ |\ x\in A \text{ or } x\in B \} \\
+        B\cup A = \{ x\ |\ x\in B \text{ or } x\in A \}
+    \end{gather*}
+
+    \par Toán tử $\text{or}$ có tính chất giao hoán, do đó $A\cup B = B\cup A$.
+
+    \begin{gather*}
+        A\cap B = \{ x\ |\ x\in A \text{ and } x\in B \} \\
+        B\cap A = \{ x\ |\ x\in B \text{ and } x\in A \}
+    \end{gather*}
+
+    \par Toán tử  $\text{and}$ có tính chất giao hoán, do đó $A\cap B = B\cap A$.
+
+    \bigskip
+
+    \par \textit{Tính chất phân phối}.
+
+    \begin{align*}
+        A\cap (B\cup C) &= \{ x\ |\ x\in A \text{ and } (x\in B \text{ or } x\in C) \} \\
+                        &= \{ x\ |\ (x\in A \text{ and } x\in B) \text{ or } (x\in A \text{ and } x\in C) \} \\
+                        & \text{(do phép $\text{and}, \text{or}$ có tính chất phân phối)} \\
+                        &= (A\cap B)\cup (A\cap C)
+    \end{align*}
+
+    \begin{align*}
+        A\cup (B\cap C) &= \{ x\ |\ x\in A \text{ or } (x\in B \text{ and } x\in C) \} \\
+                        &= \{ x\ |\ (x\in A \text{ or } x\in B) \text{ and } (x\in A \text{ or } x\in C) \} \\
+                        & \text{(do phép $\text{and}, \text{or}$ có tính chất phân phối)} \\
+                        &= (A\cup B)\cap (A\cup C)
+    \end{align*}
+
+    \par Trong chứng minh công thức De Morgan, chúng ta sẽ sử dụng họ tập hợp $A_{i}$ với $i\in I$ nào đó.
+
+    \begin{align*}
+        X\setminus\bigcup_{i\in I} A_{i} &= \{ x\ |\ \overline{\exists i\in I, x\in A_{i}} \} \\
+                                         &= \{ x\ |\ \forall i\in I, x\not\in A_{i} \} \\
+                                         &= \{ x\ |\ \forall i\in I, x\in (X\setminus A_{i}) \} \\
+                                         &= \bigcap_{i\in I}(X\setminus A_{i})
+    \end{align*}
+
+    \begin{align*}
+        X\setminus\bigcap_{i\in I} A_{i} &= \{ x\ |\ \overline{\forall i\in I, x\in A_{i}} \} \\
+                                         &= \{ x\ |\ \exists i\in I, x\not\in A_{i} \} \\
+                                         &= \{ x\ |\ \exists i\in I, x\in (X\setminus A_{i}) \} \\
+                                         &= \bigcup_{i\in I}(X\setminus A_{i})
+    \end{align*}
+
+\end{proof}
+
+\begin{exercise}Chứng minh rằng
+    \begin{enumerate}[itemsep=0pt,label = (\alph*)]
+        \item $(A\setminus B) \cup (B\setminus A) = \emptyset \Longleftrightarrow A = B$,
+        \item $A = (A\setminus B)\cup (A\cap B)$,
+        \item $(A\setminus B) \cup (B\setminus A) = (A\cup B)\setminus (A\cap B)$,
+        \item $A\cap (B\setminus C) = (A\cap B) \setminus (A\cap C)$,
+        \item $A\cup (B\setminus A) = A\cup B$,
+        \item $A\setminus (A\setminus B) = A\cap B$
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label = (\alph*)]
+        \item Nếu $A = B$ thì $A\setminus B = B\setminus A = \emptyset$
+
+        \par $\Rightarrow (A\setminus B)\cup (B\setminus A) = \emptyset$
+
+        \par Nếu $(A\setminus B)\cup (B\setminus A) = \emptyset$ thì $A\setminus B = B\setminus A = \emptyset$
+
+        \par $\Rightarrow A\subset B, B\subset A\Rightarrow A = B$.
+
+        \item Đẳng thức đúng nếu $A$ là tập rỗng.
+
+        \par Ngược lại, $A$ không rỗng, chọn $x$ là một phần tử của $A$.
+
+        \par Có hai khả năng, $x\in B$ hoặc $x\not\in B$.
+
+        \begin{align*}
+            A &= \{ x\ |\ (x\in A \text{ and } x\in B)\text{ or }(x\in A \text{ and } x\not\in B) \} \\
+              &= (A\cap B) \cup (A\setminus B)
+        \end{align*}
+
+        \item $a(x)$ là mệnh đề $x \in A$, $b(x)$ là mệnh đề $x\in B$.
+
+        \[
+            (A\setminus B)\cup (B\setminus A)=\{ x\ |\ (a(x) \text{ and } \overline{b(x)}) \text{ or } (\overline{a(x)} \text{ and } b(x)) \}
+        \]
+
+        \begin{align*}
+            (a(x) \wedge \overline{b(x)}) \vee (\overline{a(x)} \wedge b(x)) &= ((a(x)\wedge \overline{b(x)})\vee \overline{a(x)}) \wedge ((a(x)\wedge \overline{b(x)})\vee b(x)) \\
+            &= ((a(x)\vee \overline{a(x)}) \wedge (\overline{b(x)}\vee\overline{a(x)}))\wedge \\
+            &\quad ((a(x)\vee b(x))\wedge (b(x)\vee \overline{b(x)})) \\
+            &= (\overline{a(x)}\vee\overline{b(x)}) \wedge (a(x) \vee b(x)) \\
+            &= \overline{a(x)\wedge b(x)} \wedge (a(x)\vee b(x)) \\
+            &= (x\in A\cup B) \wedge (x\not\in A\cap B)
+        \end{align*}
+
+        $\Rightarrow (A\setminus B)\cup (B\setminus A) = (A\cup B)\setminus (A\cap B)$
+
+        \item $a(x)$ là mệnh đề $x \in A$, $b(x)$ là mệnh đề $x\in B$, $c(x)$ là mệnh đề $x\in C$.
+
+        \begin{align*}
+            A\cap (B\setminus C) &= \{ x\ |\ a(x) \wedge (b(x) \wedge \overline{c(x)}) \} \\
+                                 &= \{ x\ |\ (a(x) \wedge b(x)) \wedge (a(x) \wedge\overline{c(x)}) \} \\
+                                 &= (A\cap B) \cap (A\setminus C) \\
+                                 &= (A\cap B) \cap (A\setminus (A\cap C)) \\
+                                 &= (A\cap B) \cap A \cap (X \setminus (A\cap C)) \\
+                                 &= (A\cap B) \cap (X \setminus (A\cap C)) \\
+                                 &= (A\cap B) \setminus (A\cap C)
+        \end{align*}
+
+        \item
+
+        \begin{align*}
+            A\cup (B\setminus A) &= \{ x\ |\ a(x) \vee (b(x) \wedge \overline{a(x)}) \} \\
+                                 &= \{ x\ |\ (a(x) \vee b(x)) \wedge (a(x) \vee \overline{a(x)}) \} \\
+                                 &= \{ x\ |\ a(x)\vee b(x) \} \\
+                                 &= A\cup B
+        \end{align*}
+
+        \item
+
+        \begin{align*}
+            A\setminus (A\setminus B)&= \{ x\ |\ a(x) \wedge \overline{a(x)\wedge \overline{b(x)}} \} \\
+                                     &= \{ x\ |\ a(x) \wedge (\overline{a(x)} \vee b(x)) \} \\
+                                     &= \{ x\ |\ (a(x) \wedge \overline{a(x)}) \vee (a(x) \wedge b(x)) \} \\
+                                     &= \{ x\ |\ a(x) \wedge b(x) \} \\
+                                     &= A\cap B
+        \end{align*}
+    \end{enumerate}
+\end{proof}
+
 \end{document}

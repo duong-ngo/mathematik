@@ -7,6 +7,14 @@
 \RequirePackage[subpreambles=true]{standalone}
 \RequirePackage[utf8]{vietnam}
 
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{amssymb}
+\RequirePackage{amsthm}
+\RequirePackage{amscdx}
+\RequirePackage{mathtools}
+\RequirePackage{mathrsfs}
+
 \RequirePackage{fancyhdr}
 \RequirePackage{xcolor}
 \RequirePackage{titlesec}
@@ -15,8 +23,8 @@
 \RequirePackage{caption}
 \RequirePackage{subcaption}
 \RequirePackage{booktabs}
+\RequirePackage{enumitem}
 
-\renewcommand{\familydefault}{\sfdefault}
 \setcounter{chapter}{-1}
 
 \pagestyle{fancy}
@@ -35,3 +43,6 @@
 \captionsetup{labelfont={bf},labelsep=period}
 \counterwithin{figure}{chapter}
 \counterwithin{table}{chapter}
+
+\theoremstyle{definition}
+\newtheorem{exercise}{Bài}
