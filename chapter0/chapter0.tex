@@ -130,7 +130,7 @@
             &= (x\in A\cup B) \wedge (x\not\in A\cap B)
         \end{align*}
 
-        $\Rightarrow (A\setminus B)\cup (B\setminus A) = (A\cup B)\setminus (A\cap B)$
+        \par $\Rightarrow (A\setminus B)\cup (B\setminus A) = (A\cup B)\setminus (A\cap B)$
 
         \item $a(x)$ là mệnh đề $x \in A$, $b(x)$ là mệnh đề $x\in B$, $c(x)$ là mệnh đề $x\in C$.
 
@@ -163,6 +163,113 @@
                                      &= A\cap B
         \end{align*}
     \end{enumerate}
+\end{proof}
+
+\begin{exercise}Chứng minh rằng
+    \begin{enumerate}[itemsep=0pt,label = (\alph*)]
+        \item $(A\times B)\cap (B\times A) = \emptyset \Longleftrightarrow A\cap B = \emptyset$
+        \item $(A\times C)\cap (B\times D) = (A\cap B)\times (C\cap D)$
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label = (\alph*)]
+        \item Giả sử tập hợp $(A\times B)\cap (B\times A)\ne\emptyset$. Tức là tồn tại bộ có thứ tự $(a, b)$ thuộc tập hợp này.
+        \par Điều này kéo theo $(a, b)$ thuộc $A\times B$ lẫn $B\times A$.
+        \par Theo định nghĩa của tích trực tiếp thì $a \in A$, $a\in B$. Dẫn đến việc $A\cap B \ne \emptyset$.
+        \par Như vậy:
+        \begin{align*}
+            & (A\times B)\cap (B\times A)\ne\emptyset \Longleftrightarrow A\cap B\ne\emptyset \\
+            \Leftrightarrow\quad & (A\times B)\cap (B\times A) = \emptyset \Longleftrightarrow A\cap B = \emptyset
+        \end{align*}
+
+        \item Nếu có một bộ có thứ tự $(x, y)$ sao cho $(x, y)\in (A\times B)\cap (C\times D)$ thì theo định nghĩa của tích trực tiếp, $x\in A$ và $x\in C$, $y\in B$ và $y\in D$.
+        \par Từ điều này, ta suy ra $x\in A\cap C$ và $y\in B\cap D$.
+        \par Cũng theo định nghĩa của tích trực tiếp, $(x, y)\in (A\cap C)\times(B\cap D)$.
+        \par Do đó $(A\times B)\cap (C\times D) \subset (A\cap C)\times(B\cap D)$.
+
+        \par Ngược lại, nếu có một bộ có thứ tự $(x, y)$ sao cho $(x, y)\in (A\cap C)\times(B\cap D)$ thì $x\in A\cap C$ và $y\in B\cap D$.
+        \par Tức là $x\in A$, $y\in B$, $x\in C$, $y\in D$.
+        \par Theo định nghĩa của tích trực tiếp, $(x, y)\in A\times B$, $(x, y)\in C\times D$. Như vậy là $(x, y)\in (A\times B)\cap (C\times D)$.
+        \par Theo đó, $(A\cap C)\times (B\cap D) \subset (A\times B)\cap (C\times D)$.
+
+        \par Hai điều vừa chứng minh cho thấy $(A\times C)\cap (B\times D) = (A\cap B)\times (C\cap D)$.
+
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}Giả sử $f: X\rightarrow Y$ là một ánh xạ và $A, B\subset X$. Chứng minh rằng
+    \begin{enumerate}[itemsep=0pt,label = (\alph*)]
+        \item $f(A\cup B) = f(A)\cup f(B)$
+        \item $f(A\cap B) \subset f(A)\cap f(B)$
+        \item $f(A\setminus B) \supset f(A)\setminus f(B)$
+    \end{enumerate}
+    \par Hãy tìm các ví dụ để chứng tỏ rằng không có dấu bằng ở các mục (b) và (c).
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label = (\alph*)]
+        \item $y$ là một phần tử của $Y$.
+        \par Giả sử $y\in f(A\cup B)$. Khi đó, $\exists x\in A\cup B\subset X$ sao cho $f(x) = y$.
+        \par $x\in A\cup B$ thì $x\in A$ hoặc $x\in B$, dẫn đến $f(x)\in f(A)$ hoặc $f(x)\in f(B)$.
+        \par Như vậy, $y = f(x) \in f(A)\cup f(B)$.
+        \par Do đó $f(A\cup B)\subset f(A)\cup f(B)$.
+
+        \bigskip
+
+        \par Giả sử $y\in f(A)\cup f(B)$ thì $y\in f(A)$ hoặc $y\in f(B)$.
+        \par Suy ra tồn tại $x\in A$ hoặc $x\in B$ (tức là $x\in A\cup B$) sao cho $y = f(x) \in f(A)\cup f(B)$
+        \par $x\in A\cup B$ nên $y = f(x) \in f(A\cup B)$.
+        \par Do đó $f(A)\cup f(B)\subset f(A\cup B)$.
+
+        \bigskip
+        \par Từ hai điều trên, suy ra $f(A)\cup f(B) = f(A\cup B)$.
+
+        \item $y$ là một phần tử của $Y$.
+
+        \par Giả sử $y\in f(A\cap B)$. Khi đó $\exists x\in A\cap B$ sao cho $y = f(x) \in f(A\cap B)$.
+        \par $x\in A\cap B$ nên $x\in A$ và $x\in B$, dẫn đến $f(x) \in f(A)$ và $f(x)\in f(B)$.
+        \par Từ đó, $y = f(x) \in f(A)\cap f(B)$.
+        \par Do đó, $f(A\cap B)\subset f(A)\cap f(B)$.
+
+        \bigskip
+        \par Ví dụ cho việc dấu bằng không thể xảy ra:
+        \par Ánh xạ:
+        \begin{align*}
+            f:\quad& \mathbb{R}\rightarrow \{0\} \\
+                   & x\mapsto 0
+        \end{align*}
+        \par Chọn $A = (1, 2)$ và $B = (3, 4)$.
+        \par Lúc này $f(A\cap B) = f(\emptyset) = \emptyset$, còn $f(A)\cap f(B) = \{ 0 \}$.
+
+        \item $y$ là một phần tử của $Y$.
+
+        \par Giả sử $y\in f(A)\setminus f(B)$. Khi đó, $\exists x\in A$ sao cho $y = f(x)$.
+        \par Nhưng $x\not\in B$ -- vì nếu $x\in B$ thì $y = f(x)\in f(B)$, trái với giả thiết.
+        \par Như vậy, $x\in A\setminus B$, tức là $y = f(x)\in f(A\setminus B)$.
+        \par Do đó, $f(A\setminus B)\supset f(A)\setminus f(B)$.
+
+        \bigskip
+        \par Ví dụ cho việc dấu bằng không thể xảy ra:
+        \par Ánh xạ:
+        \begin{align*}
+            f:\quad& \mathbb{R}\rightarrow \{0\} \\
+                   & x\mapsto 0
+        \end{align*}
+        \par Chọn $A = (1, 2)$ và $B = (3, 4)$.
+        \par Lúc này $f(A)\setminus f(B) = \{0\}\setminus \{0\} = \emptyset$, còn $f(A\setminus B) = \{ 0 \}$.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}Cho ánh xạ $f: X\rightarrow Y$ và các tập con $A, B\subset Y$. Chứng minh rằng:
+    \begin{enumerate}[itemsep=0pt,label = (\alph*)]
+        \item $f^{-1}(A\cup B) = f^{-1}(A)\cup f^{-1}(B)$,
+        \item $f^{-1}(A\cap B) = f^{-1}(A)\cap f^{-1}(B)$,
+        \item $f^{-1}(A\setminus B) = f^{-1}(A)\setminus f^{-1}(B)$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
 \end{proof}
 
 \end{document}
