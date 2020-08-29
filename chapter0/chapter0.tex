@@ -269,7 +269,171 @@
     \end{enumerate}
 \end{exercise}
 
-\begin{proof}
+\begin{proof}$x\in X$.
+    \begin{enumerate}[label = (\alph*)]
+        \item
+        \begin{align*}
+            & x\in f^{-1}(A\cup B) \\
+            \Leftrightarrow\quad & f(x) \in A\cup B \\
+            \Leftrightarrow\quad & f(x)\in A \vee f(x)\in B \\
+            \Leftrightarrow\quad & x\in f^{-1}(A) \vee x\in f^{-1}(B) \\
+            \Leftrightarrow\quad & x\in f^{-1}(A)\cup f^{-1}(B)
+        \end{align*}
+
+        \par Do đó, $f^{-1}(A\cup B) = f^{-1}(A)\cup f^{-1}(B)$.
+
+        \item
+        \begin{align*}
+            & x\in f^{-1}(A\cap B) \\
+            \Leftrightarrow\quad & f(x) \in A\cap B \\
+            \Leftrightarrow\quad & f(x) \in A \wedge f(x) \in B \\
+            \Leftrightarrow\quad & x\in f^{-1}(A) \wedge x\in f^{-1}(B) \\
+            \Leftrightarrow\quad & x\in f^{-1}(A)\cap f^{-1}(B)
+        \end{align*}
+
+        \par Do đó, $f^{-1}(A\cap B) = f^{-1}(A)\cap f^{-1}(B)$.
+
+        \item
+        \begin{align*}
+            & x\in f^{-1}(A\setminus B) \\
+            \Leftrightarrow\quad & f(x) \in A\setminus B \\
+            \Leftrightarrow\quad & f(x) \in A \wedge f(x) \not\in B \\
+            \Leftrightarrow\quad & x\in f^{-1}(A) \wedge x \not\in f^{-1}(B) \\
+            \Leftrightarrow\quad & x\in f^{-1}(A)\setminus f^{-1}(B)
+        \end{align*}
+
+        \par Do đó, $f^{-1}(A\setminus B) = f^{-1}(A)\setminus f^{-1}(B)$.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}Chứng minh hai mệnh đề về ánh xạ ởi cuối $\S{2}$.
+\end{exercise}
+
+\begin{proof}\textbf{Mệnh đề 2.8.} \textit{Hợp thành của hai đơn ánh lại là một đơn ánh. Hợp thành của hai toàn ánh lại là một toàn ánh. Hợp thành của hai song ánh lại là một song ánh.}
+    \par Chọn hai ánh xạ $f, g$:
+    \begin{gather*}
+        f:\ X \rightarrow Y \\
+        g:\ Y \rightarrow Z
+    \end{gather*}
+    \par Ánh xạ hợp:
+    \[ g\circ f:\ X \rightarrow Z \]
+
+    \begin{itemize}
+        \item \textit{$f$ và $g$ là đơn ánh}
+
+        \par Chọn $x_{1}\ne x_{2}$ và $x_{1}, x_{2} \in X$.
+        \par Vì $f$ là đơn ánh nên $f(x_{1}) \ne f(x_{2})$.
+        \par Vì $g$ là đơn ánh nên $g(f(x_{1})) \ne g(f(x_{2}))$.
+        \par Theo định nghĩa về đơn ánh thì $g\circ f$ là đơn ánh.
+
+        \item \textit{$f$ và $g$ là toàn ánh}
+
+        \par Chọn $z \in Z$.
+        \par Vì $g$ là toàn ánh nên $\exists y\in Y$ sao cho $g(y) = z$.
+        \par Vì $f$ là toàn ánh nên $\exists x\in X$ sao cho $f(x) = y$.
+        \par Như vậy, $\exists x\in X$ sao cho $g(f(x)) = z$.
+        \par Theo định nghĩa về toàn ánh thì $g\circ f$ là toàn ánh.
+
+        \item \textit{$f$ và $g$ là song ánh}
+
+        \par $f$ và $g$ vừa là đơn ánh, vừa là toàn ánh.
+        \par Theo hai ý trên, $g\circ f$ vừa là đơn ánh, vừa là toàn ánh, do đó cũng là song ánh.
+    \end{itemize}
+
+    \par \textbf{Mệnh đề 2.9.} \textit{(i) Giả sử $f: X\rightarrow Y$ và $g: Y\rightarrow Z$ là các ánh xạ. Khi đó, nếu $g\circ f$ là một đơn ánh thì $f$ cũng vậy; nếu $g\circ f$ là một toàn ánh thì $g$ cũng vậy.}
+    \par \textit{(ii) Ánh xạ $f: X\rightarrow Y$ là một song ánh nếu và chỉ nếu tồn tại một ánh xạ $g: Y\rightarrow X$ sao cho $g\circ f = id_{X}$, $f\circ g = id_{Y}$}.
+
+    \begin{enumerate}[label = (\roman*)]
+        \item
+        \begin{itemize}
+            \item Chọn $x_{1}\ne x_{2}$ và $x_{1}, x_{2} \in X$.
+            \par Do $g\circ f$ là đơn ánh nên $g(f(x_{1})) \ne g(f(x_{2}))$.
+            \par Điều này dẫn đến việc $f(x_{1}) \ne f(x_{2})$.
+            \par Theo định nghĩa về đơn ánh thì $f$ cũng là đơn ánh.
+
+            \item Chọn $z\in Z$.
+            \par Cho $g\circ f$ là toàn ánh nên $\exists x\in X$ sao cho $g(f(x)) = z$.
+            \par Chọn $y = f(x)$ thì $g(y) = z$.
+            \par Theo định nghĩa về toàn ánh thì $g$ cũng là toàn ánh.
+        \end{itemize}
+
+    \item \textit{Chiều thuận.} $f: X\rightarrow Y$ là song ánh thì $x\mapsto f(x)$ là tương ứng 1--1, $f(x)\mapsto x$ cũng là một tương ứng 1--1, ký hiệu ánh xạ này bởi $f^{-1}$.
+    \par $f^{-1}(f(x)) = x$, $f(f^{-1}(y)) = y$.
+    \par Do đó tồn tại ánh xạ $g = f^{-1}: Y\rightarrow X$ sao cho $g\circ f = id_{X}$ và $f\circ g = id_{Y}$.
+
+    \bigskip
+    \par \textit{Chiều đảo.} Tồn tại ánh xạ $g = f^{-1}: Y\rightarrow X$ sao cho $g\circ f = id_{X}$ và $f\circ g = id_{Y}$.
+    \par Ánh xạ đồng nhất là song ánh, do đó, $f, g$ đều vừa là đơn ánh, vừa là toàn ánh, kéo theo $f$, $g$ là các song ánh.
+
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}Xét xem ánh xạ $f: \mathbb{R}\rightarrow \mathbb{R}$ xác định bởi công thức $f(x) = x^{2} - 3x + 2$ có phải một đơn ánh hay toàn ánh hay không. Tìm $f(\mathbb{R})$, $f(0)$, $f^{-1}(0)$, $f([0,5])$, $f^{-1}([0,5])$.
+\end{exercise}
+
+\begin{proof}Với $x = 1$ hay $x = 2$ thì $f(x) = 0$, do đó $f$ không phải đơn ánh. Không tồn tại $x\in \mathbb{R}$ để $f(x) = -1$ (vì phương trình $x^{2} - 3x + 3 = 0$ vô nghiệm) nên $f$ cũng không phải toàn ánh.
+    \par $x^{2} - 3x + 2 = \left(x - \frac{3}{2}\right){}^{2} - \frac{1}{4} \ge \frac{1}{4}$. Như vậy $f(\mathbb{R}) = \{ \frac{-1}{4} \}\cup(\frac{-1}{4},+\infty){}$.
+    \par $f(0) = 2$.
+    \par $x^{2} - 3x + 2 = (x - 1)(x - 2)$ nên $f^{-1}(0) = \{1, 2\}$.
+    \par $f([0, 5]) = \left[\frac{-1}{4}, 12\right]$.
+    \par $f^{-1}([0,5]) = \left[\frac{3 - \sqrt{21}}{2}, \frac{3 + \sqrt{21}}{2}\right]$.
+\end{proof}
+
+\begin{exercise}Giả sử $A$ là một tập hợp gồm đúng $n$ phần tử. Chứng minh rằng tập hợp $\mathcal{P}(A)$ các tập con của $A$ có đúng $2^{n}$ phần tử.
+\end{exercise}
+
+\begin{proof}Đặt $A = \{ a_{1}, a_{2}, \ldots a_{n} \}$.
+    \par Một tập con của $A$ có thể được biểu thị bằng một dãy nhị phân độ dài $n$. Trong đó, vị trí thứ $i$ cũng dãy nhị phân bằng $0$ có nghĩa là tập con không chứa $a_{i}$, bằng $1$ có nghĩa là tập con chứa $a_{i}$.
+    \par Phép tương ứng giữa các tập con của $A$ và các dãy nhị phân độ dài $n$ như trên là một tương ứng 1--1, tức là song ánh.
+    \par Do đó, số phần tử của $\mathcal{P}(A)$ bằng số dãy nhị phân độ dài $n$. Theo quy tắc nhân, số dãy nhị phân độ dài $n$ là $2^{n}$.
+    \par Vậy $|\mathcal{P}(A)| = 2^{n}$.
+\end{proof}
+
+\begin{exercise}Chứng minh rằng tập hợp $\mathbb{R}^{+}$ các số thực dương có lực lượng continum.
+\end{exercise}
+
+\begin{proof}Xét ánh xạ $f$:
+    \begin{align*}
+        f:\ &\mathbb{R} \rightarrow \mathbb{R}^{+} \\
+            &x\mapsto e^{x}
+    \end{align*}
+    \par $f$ có ánh xạ ngược là $g$:
+    \begin{align*}
+        g:\ &\mathbb{R}^{+} \rightarrow \mathbb{R} \\
+            &x\mapsto \ln x
+    \end{align*}
+    \par Như vậy, $f$ là song ánh. Do đó hai tập hợp $\mathbb{R}^{+}$, $\mathbb{R}$ có cùng lực lượng, tức là $\mathbb{R}^{+}$ cũng có lực lượng continum.
+\end{proof}
+
+\begin{exercise}Cho hai số thực $a, b$ với $a < b$. Chứng minh rằng khoảng số thực $(a, b) = \{ x\in \mathbb{R}|\ a < x < b \}$ có lực lượng continum.
+\end{exercise}
+
+\begin{proof}Ánh xạ $f_{1}$:
+    \[
+        \begin{split}
+            f_{1}:\ & (a, b) \rightarrow \left(\frac{a - b}{2}, \frac{b - a}{2}\right) \\
+                    & x \mapsto x - \frac{a + b}{2}
+        \end{split}
+    \]
+    \par là song ánh. Do đó, $(a, b)$ và $\left(\frac{a - b}{2}, \frac{b - a}{2}\right)$ có cùng lực lượng.
+    \par Ánh xạ $f_{2}$:
+    \[
+        \begin{split}
+            f_{2}:\ & \left(\frac{a - b}{2}, \frac{b - a}{2}\right) \rightarrow \left(-\frac{\pi}{2}, \frac{\pi}{2}\right) \\
+                    & x \mapsto \frac{\pi x}{b - a}
+        \end{split}
+    \]
+    \par là song ánh. Do đó, $\left(\frac{a - b}{2}, \frac{b - a}{2}\right)$ và $\left(-\frac{\pi}{2}, \frac{\pi}{2}\right)$ có cùng lực lượng.
+    \par Ánh xạ $f_{3}$:
+    \[
+        \begin{split}
+            f_{3}:\ & \left(-\frac{\pi}{2}, \frac{\pi}{2}\right) \rightarrow \mathbb{R} \\
+                    & x\mapsto \tan x
+        \end{split}
+    \]
+    \par là song ánh. Do đó, $\left(-\frac{\pi}{2}, \frac{\pi}{2}\right)$ và $\mathbb{R}$ có cùng lực lượng.
+
+    \par Cùng lực lượng là một quan hệ tương đương, do đó $(a, b)$ và $\mathbb{R}$ có cùng lực lượng, tức là $(a, b)$ có lực lượng continum.
 \end{proof}
 
 \end{document}
