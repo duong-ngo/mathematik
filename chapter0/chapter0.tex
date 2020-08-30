@@ -1,4 +1,7 @@
 \documentclass[class=linearalgebra,crop=false]{standalone}
+\usepackage{cases}
+
+\newtheorem{lemma}{Bổ đề}
 
 \begin{document}
 
@@ -434,6 +437,250 @@
     \par là song ánh. Do đó, $\left(-\frac{\pi}{2}, \frac{\pi}{2}\right)$ và $\mathbb{R}$ có cùng lực lượng.
 
     \par Cùng lực lượng là một quan hệ tương đương, do đó $(a, b)$ và $\mathbb{R}$ có cùng lực lượng, tức là $(a, b)$ có lực lượng continum.
+\end{proof}
+
+\begin{exercise}Một số thực được gọi là một \textit{số đại số} nếu nó là nghiệm của một phương trình đa thức nào đó với các hệ số nguyên. Chứng minh rằng tập hợp các số đại số là một tập vô hạn đếm được. Từ đó suy ra rằng tập hợp các số thực không phải là số đại số là một tập vô hạn không đếm được.
+\end{exercise}
+
+\begin{lemma}Hợp của hai tập vô hạn đếm được cũng là một tập vô hạn đếm được.
+\end{lemma}
+
+\begin{proof}[Chứng minh bổ đề] Đặt hai tập vô hạn đếm được là:
+    \begin{gather*}
+        A = \{ a_{1}, a_{2}, \ldots \} \\
+        B = \{ b_{1}, b_{2}, \ldots \}
+    \end{gather*}
+
+    \par Ta liệt kê các phần tử của $A\cup B$ như sau:
+    \begin{gather*}
+        a_{1} \rightarrow 1 \\
+        b_{1} \rightarrow 2 \\
+        a_{2} \rightarrow 3 \\
+        b_{2} \rightarrow 4 \\
+        \vdots \\
+        a_{n} \rightarrow 2n - 1 \\
+        b_{n} \rightarrow 2n \\
+        \vdots
+    \end{gather*}
+    \par Như vậy $A\cup B$ vô hạn đếm được.
+\end{proof}
+
+\begin{lemma}Hợp của vô hạn đếm được các tập vô hạn đến được là một tập vô hạn đếm được.
+\end{lemma}
+
+\begin{proof}[Chứng minh bổ đề]Ta có các tập hợp $A_{1}, A_{2}, A_{3} \ldots$, trong đó:
+    \[ A_{i} = \{ a_{i.1}, a_{i.2}, \ldots \} \]
+    \par Các phần tử của $\cup_{i\in \mathbb{N}}A_{i}$ được liệt kê như sau:
+    \begin{align*}
+        & a_{1.1} \rightarrow 1 \\
+        & a_{1.2} \rightarrow 2,\ a_{2.1} \rightarrow 3 \\
+        & a_{1.3} \rightarrow 4,\ a_{2.2} \rightarrow 5,\ a_{3.1} \rightarrow 6 \\
+        & \qquad\vdots \\
+        & a_{1.n} \rightarrow \binom{n}{2} + 1,\ a_{2.(n-1)} \rightarrow \binom{n}{2} + 2, \ldots,\ a_{n.1} \rightarrow \binom{n + 1}{2} \\
+        & \qquad\vdots
+    \end{align*}
+\end{proof}
+
+\begin{lemma}Tập hợp các tập con hữu hạn phần tử của một tập vô hạn đếm được cũng là một tập vô hạn đếm được.
+\end{lemma}
+
+\begin{proof}[Chứng minh bổ đề]Đặt $A$ là tập vô hạn đếm được.
+    \par $A_{i}$ là tập các tập con có số phần tử bằng $i$ của $A$.
+    \par Như vậy $A_{i}$ là một tập vô hạn đến được.
+    \par Theo bổ đề 2 thì $\cup_{i\in\mathbb{N}}A_{i}$ là tập vô hạn đếm được.
+\end{proof}
+
+\begin{proof}Xét đa thức $f(X) \in \mathbb{Z}[X]$ có bậc $n \in \mathbb{N}$:
+    \[ f(X) = a_{0} + a_{1}X + a_{2}X^{2} + \cdots + a_{n-1}X^{n-1} + a_{n}X^{n} \]
+    \par Theo định lý cơ bản của đại số, phương trình này có $n$ nghiệm phức (nếu tính cả nghiệm bội). Nếu không tính nghiệm bội, giả sử phương trình có $k$ nghiệm. Ta thiết lập một đơn ánh từ tập các số phức là nghiệm của một đa thức hệ số nguyên vào tập các số hữu tỷ $\mathbb{Q}$ như sau:
+    \[ x\longmapsto 2^{h - 1}\cdot 3^{a_{0}}\cdot 5^{a_{1}}\cdots p_{n+2}^{a_{n}} \]
+    \par trong đó $x$ là nghiệm thứ $h$ của đa thức $f(X)$ và $p_{n}$ là số nguyên tố thứ $n$.
+    \par Do $\mathbb{Q}$ vô hạn đếm được nên tập các số phức là nghiệm của một đa thức hệ số nguyên bậc $n$ là vô hạn đếm được.
+    \par Theo các bổ đề trên, tập các số phức là nghiệm của một đa thức hệ số nguyên bậc dương (tạm gọi là số phức đại số) là vô hạn đếm được.
+    \par Tập các số đại số là tập con của tập các số phức đại số. Thế nhưng tập các số đại số là vô hạn (vì các số nguyên đều là số đại số) nên tập các số đại số là vô hạn đếm được.
+\end{proof}
+
+\begin{exercise}Lập bảng cộng và bảng nhân của vành $\mathbb{Z}/n$ với $n = 12$ và $n = 15$. Dựa vào bảng, tìm các phần tử khả nghịch đối với phép nhân trong vành đó.
+\end{exercise}
+
+\begin{proof}Đối với vành $\mathbb{Z}/12$: \\
+
+    \par Bảng cộng
+    \\
+    % chktex-file 44
+    \begin{tabular}{c|cccccccccccc}
+        + & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 \\
+        \hline
+        0 & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 \\
+        1 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 0 \\
+        2 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 0 & 1 \\
+        3 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 0 & 1 & 2 \\
+        4 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 0 & 1 & 2 & 3 \\
+        5 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 0 & 1 & 2 & 3 & 4 \\
+        6 & 6 & 7 & 8 & 9 & 10 & 11 & 0 & 1 & 2 & 3 & 4 & 5 \\
+        7 & 7 & 8 & 9 & 10 & 11 & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\
+        8 & 8 & 9 & 10 & 11 & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+        9 & 9 & 10 & 11 & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+        10 & 10 & 11 & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+        11 & 11 & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10
+    \end{tabular}
+
+    \bigskip
+
+    \par Bảng nhân
+    \\
+    % chktex-file 44
+    \begin{tabular}{c|cccccccccccc}
+        $\cdot$ & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 \\
+        \hline
+        0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+        1 & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 \\
+        2 & 0 & 2 & 4 & 6 & 8 & 10 & 0 & 2 & 4 & 6 & 8 & 10 \\
+        3 & 0 & 3 & 6 & 9 & 0 & 3 & 6 & 9 & 0 & 3 & 6 & 9 \\
+        4 & 0 & 4 & 8 & 0 & 4 & 8 & 0 & 4 & 8 & 0 & 4 & 8 \\
+        5 & 0 & 5 & 10 & 3 & 8 & 1 & 6 & 11 & 4 & 9 & 2 & 7 \\
+        6 & 0 & 6 & 0 & 6 & 0 & 6 & 0 & 6 & 0 & 6 & 0 & 6 \\
+        7 & 0 & 7 & 2 & 9 & 4 & 11 & 6 & 1 & 8 & 3 & 10 & 5 \\
+        8 & 0 & 8 & 4 & 0 & 8 & 4 & 0 & 8 & 4 & 0 & 8 & 4 \\
+        9 & 0 & 9 & 6 & 3 & 0 & 9 & 6 & 3 & 0 & 9 & 6 & 3 \\
+        10 & 0 & 10 & 8 & 6 & 4 & 2 & 0 & 10 & 8 & 6 & 4 & 2 \\
+        11 & 0 & 11 & 10 & 9 & 8 & 7 & 6 & 5 & 4 & 3 & 2 & 1
+    \end{tabular}
+
+    \par Các phần tử khả nghịch của $\mathbb{Z}/12$ gồm $1, 5, 7, 11$.
+
+    \bigskip
+    \bigskip
+
+    \par Đối với vành $\mathbb{Z}/15$:
+
+    \bigskip
+
+    \par Bảng cộng
+    \\
+    \begin{tabular}{c|ccccccccccccccc}
+        + & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 \\
+        \hline
+        0 & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14  \\
+        1 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 0  \\
+        2 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 0 & 1  \\
+        3 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 0 & 1 & 2  \\
+        4 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 0 & 1 & 2 & 3 \\
+        5 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 0 & 1 & 2 & 3 & 4 \\
+        6 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 0 & 1 & 2 & 3 & 4 & 5 \\
+        7 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\
+        8 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+        9 & 9 & 10 & 11 & 12 & 13 & 14 & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+        10 & 10 & 11 & 12 & 13 & 14 & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+        11 & 11 & 12 & 13 & 14 & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
+        12 & 12 & 13 & 14 & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 \\
+        13 & 13 & 14 & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\
+        14 & 14 & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13
+    \end{tabular}
+    \bigskip
+
+    \par Bảng nhân
+    \\
+    \begin{tabular}{c|ccccccccccccccc}
+        $\cdot$ & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 \\
+        \hline
+        0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+        1 & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 \\
+        2 & 0 & 2 & 4 & 6 & 8 & 10 & 12 & 14 & 1 & 3 & 5 & 7 & 9 & 11 & 13 \\
+        3 & 0 & 3 & 6 & 9 & 12 & 0 & 3 & 6 & 9 & 12 & 0 & 3 & 6 & 9 & 12 \\
+        4 & 0 & 4 & 8 & 12 & 1 & 5 & 9 & 13 & 2 & 6 & 10 & 14 & 3 & 7 & 11 \\
+        5 & 0 & 5 & 10 & 0 & 5 & 10 & 0 & 5 & 10 & 0 & 5 & 10 & 0 & 5 & 10 \\
+        6 & 0 & 6 & 12 & 3 & 9 & 0 & 6 & 12 & 3 & 9 & 0 & 6 & 12 & 3 & 9 \\
+        7 & 0 & 7 & 14 & 6 & 13 & 5 & 12 & 4 & 11 & 3 & 10 & 2 & 9 & 1 & 8 \\
+        8 & 0 & 8 & 1 & 9 & 2 & 10 & 3 & 11 & 4 & 12 & 5 & 13 & 6 & 14 & 7 \\
+        9 & 0 & 9 & 3 & 12 & 6 & 0 & 9 & 3 & 12 & 6 & 0 & 9 & 3 & 12 & 6 \\
+        10 & 0 & 10 & 5 & 0 & 10 & 5 & 0 & 10 & 5 & 0 & 10 & 5 & 0 & 10 & 5 \\
+        11 & 0 & 11 & 7 & 3 & 14 & 10 & 6 & 2 & 13 & 9 & 5 & 1 & 12 & 8 & 4 \\
+        12 & 0 & 12 & 9 & 6 & 3 & 0 & 12 & 9 & 6 & 3 & 0 & 12 & 9 & 6 & 3 \\
+        13 & 0 & 13 & 11 & 9 & 7 & 5 & 3 & 1 & 14 & 12 & 10 & 8 & 6 & 4 & 2 \\
+        14 & 0 & 14 & 13 & 12 & 11 & 10 & 9 & 8 & 7 & 6 & 5 & 4 & 3 & 2 & 1
+    \end{tabular}
+
+    \bigskip
+    \par Các phần tử khả nghịch của $\mathbb{Z}/15$ bao gồm $1, 2, 4, 7, 8, 11, 13, 14$.
+\end{proof}
+
+\begin{exercise}Gọi $(\mathbb{Z}/n){}^{*}$ là tập hợp các phần tử khả nghịch đối với phép nhân trong $\mathbb{Z}/n$. Chứng minh rằng:
+    \[ (\mathbb{Z}/n){}^{*} = \{ [x]\ |\ \text{$x$ và $n$ nguyên tố cùng nhau} \}. \]
+\end{exercise}
+
+\begin{lemma}Với $a, b, c \in \mathbb{Z}, a, b\ne 0$. Phương trình $ax + by = c$ có nghiệm nguyên khi và chỉ khi $\gcd(a, b)\ |\ c$.
+\end{lemma}
+
+\begin{proof}$a$ là một số nguyên khác $0$. Theo bổ đề trên, phương trình $ax + ny = 1$ có nghiệm nguyên khi và chỉ khi $(a, n) = 1$.
+    \par Mà việc $ax + ny = 1$ có nghiệm nguyên khi và chỉ khi $a$ khả nghịch.
+    \par Do đó ta có được điều phải chứng minh.
+\end{proof}
+
+\begin{exercise}Cho $R$ là một vành có đơn vị. Gọi $R^{*}$ là tập hợp các phần tử khả nghịch đối với phép nhân trong $R$. Chứng minh rằng $R^{*}$ là một nhóm với các phép nhân của $R$.
+\end{exercise}
+
+\begin{proof}$R$ là một vành, tức là phép nhân trên $R$ có tính kết hợp.
+    \par Gọi $x, y$ là hai phần tử khả nghịch.
+    \par Khi đó, $x\cdot x^{-1} = x^{-1}\cdot x = 1$, $y\cdot y^{-1} = y^{-1}\cdot y = 1$.
+    \[ (xy)\cdot (y^{-1}x^{-1}) = x(y\cdot y^{-1})x^{-1} = x\cdot x^{-1} = 1 \]
+    \[ (y^{-1}x^{-1})\cdot (xy) = y^{-1}(x^{-1}\cdot x)y = y^{-1}\cdot y = 1 \]
+    \par Do đó, $xy$ khả nghịch.
+
+    \par Điều này dẫn đến phép nhân trên $R^{*}$ là đóng trên tập $R^{*}$.
+    \par Phép nhân trên $R^{*}$ có tính chất kết hợp (là phép nhân trên $R$ nhưng bị hạn chế trên $R^{*}$).
+    \par Phép nhân trên $R^{*}$ có phần tử trung lập là phần tử đơn vị trong phép nhân của $R$.
+    \par Do vậy, $R^{*}$ là một nhóm đối với phép nhân của $R$.
+\end{proof}
+
+\begin{exercise}Cho $R$ là một vành có đơn vị $1\ne 0$ và các phần tử $x, y\in R$. Chứng minh rằng
+    \begin{enumerate}[label = (\alph*)]
+        \item Nếu $xy$ và $yx$ khả nghịch thì $x$ và $y$ khả nghịch.
+        \item Nếu $R$ không có ước của không và $xy$ khả nghịch thì $x$ và $y$ khả nghịch.
+    \end{enumerate}
+\end{exercise}
+
+\begin{lemma}Trên một vành, phần tử $x$ khả nghịch khi và chỉ khi nó khả nghịch bên phải lẫn bên trái.
+\end{lemma}
+
+\begin{proof}[Chứng minh bổ đề]\textit{Chiều thuận.} $x$ khả nghịch thì tồn tại $x'$ sao cho $xx' = x'x = 1$. Điều này nghĩa là $x$ khả nghịch cả bên phải lẫn bên trái.
+    \par\textit{Chiều đảo.} $x$ khả nghịch bên trái thì tồn tại $a$ sao cho $ax = 1$. $x$ khả nghịch bên phải thì tồn tại $b$ sao cho $xb = 1$.
+    \begin{align*}
+        axb &= (ax)\cdot b = b \\
+        axb &= a\cdot (xb) = a
+    \end{align*}
+    \par Từ điều trên, ta suy ra $a = b$, tức là $ax = xa = 1$. Như vậy $x$ khả nghịch.
+\end{proof}
+
+\begin{lemma}Trên một vành, phần tử $x$ khả nghịch khi và chỉ khi tồn tại $a, b$ sao cho $xa$ khả nghịch bên phải, $bx$ khả nghịch bên trái.
+\end{lemma}
+
+\begin{proof}[Chứng minh bổ đề]\textit{Chiều thuận.} $x$ khả nghịch.
+    \par Chọn $a = b = 1$. Khi đó $xa$ khả nghịch bên phải, $bx$ khả nghịch bên trái.
+    \par \textit{Chiều đảo.} Tồn tại $a, b$ sao cho $xa$ khả nghịch bên phải, $bx$ khả nghịch bên trái.
+    \par $xa$ khả nghịch bên phải thì tồn tại $c$ sao cho $xa\cdot c = 1\Rightarrow x \cdot (ac) = 1$.
+    \par $bx$ khả nghịch bên trái thì tồn tại $d$ sao cho $d\cdot bx = 1\Rightarrow (db)\cdot x = 1$.
+    \par Như vậy, $x$ khả nghịch từ cả hai phía, dẫn đến $x$ khả nghịch.
+\end{proof}
+
+\begin{proof}
+    \begin{enumerate}[label = (\alph*)]
+        \item $xy$ và $yx$ khả nghịch nên tồn tại $a, b$ sao cho:
+        \[ axy = xya = 1\qquad byx = yxb = 1 \]
+        \[
+            \begin{cases}
+                x\cdot (ya) = 1 \\
+                (by)\cdot x = 1
+            \end{cases}
+            \qquad
+            \begin{cases}
+                (ax)\cdot y = 1 \\
+                y\cdot (xb) = 1
+            \end{cases}
+        \]
+        \par $x, y$ khả nghịch từ cả hai phía nên theo bổ đề trên, $x, y$ khả nghịch.
+        \item
+    \end{enumerate}
 \end{proof}
 
 \end{document}
