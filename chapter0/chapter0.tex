@@ -2,6 +2,7 @@
 \usepackage{cases}
 
 \newtheorem{lemma}{Bổ đề}
+\renewcommand{\phi}{\varphi}
 
 \begin{document}
 
@@ -681,6 +682,119 @@
         \par $x, y$ khả nghịch từ cả hai phía nên theo bổ đề trên, $x, y$ khả nghịch.
         \item
     \end{enumerate}
+\end{proof}
+
+\begin{exercise}Cho $R$ là một vành hữu hạn. Chứng minh rằng
+    \begin{enumerate}[label = (\alph*)]
+        \item Nếu $R$ không có ước của không thì nó có đơn vị và mọi phần tử khác không của $R$ đều khả nghịch.
+        \item Nếu $R$ có đơn vị thì mọi phần tử khả nghịch một phía trong $R$ đều khả nghịch.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label = (\alph*)]
+        \item Chọn $a, x, y \in R$ sao cho $a\ne 0$.
+        \par Đặt $R = \{ 0, x_{1}, x_{2}, \ldots, x_{n} \} = \{ 0 \} \cup R^{*}$
+        \par Ta định nghĩa phép toán trừ trong một nhóm là phép cộng với phần tử đối.
+        \par $ax - ay = a(x - y)$. $R$ không có ước của không nên $ax = ay$ khi và chỉ khi $x = y$ (vì giả thiết $a\ne 0$).
+        \par Như vậy nếu $x\ne y$ thì $ax \ne ay$.
+        \par Do đó ánh xạ $f_{a}: R\rightarrow R, x\mapsto ax$ là một đơn ánh với $a\ne 0$.
+        \par Tương tự, ánh xạ $g_{a}: R\rightarrow R, x\mapsto xa$ là một đơn ánh với $a\ne 0$.
+        \par $R$ có hữu hạn phần tử $x_{1}, x_{2}, \ldots, x_{n}$ ($n$ là hữu hạn). Ảnh của các phần tử qua từng ánh xạ trên là khác nhau đôi một. Do đó tập ảnh của hai ánh xạ trùng với $R$. Do vậy hai ánh xạ trên đều là song ánh.
+
+        \item
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}Chứng minh rằng tập hợp các số thực
+    \[ \mathbb{Q}(\sqrt{2}) = \{ a + b\sqrt{2}\ |\ a, b\in\mathbb{Q} \} \]
+    \par lập nên một trường với các phép toán cộng và nhân thông thường.
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label = (\roman*)]
+        \item $(a_{1} + b_{1}\sqrt{2}) + (a_{2} + b_{2}\sqrt{2}) = (a_{1} + a_{2}) + (b_{1} + b_{2})\sqrt{2}$. Do đó, $\mathbb{Q}(\sqrt{2})$ đóng kín với phép cộng thông thường.
+        \item Phép cộng trên $\mathbb{Q}(\sqrt{2})$ có tính kết hợp.
+        \begin{gather*}
+            ((a_{1} + b_{1}\sqrt{2}) + (a_{2} + b_{2}\sqrt{2})) + (a_{3} + b_{3}\sqrt{2}) \\
+            = (a_{1} + b_{1}\sqrt{2}) + ((a_{2} + b_{2}\sqrt{2}) + (a_{3} + b_{3}\sqrt{2}))
+        \end{gather*}
+        \item Phép cộng trên $\mathbb{Q}(\sqrt{2})$ có phần tử trung lập.
+        \begin{gather*}
+            (a + b\sqrt{2}) + 0 = 0 + (a + b\sqrt{2}) = a + b\sqrt{2}
+        \end{gather*}
+        \item Mọi phần tử đều có phần tử đối:
+        \begin{gather*}
+            (a + b\sqrt{2}) + (-a - b\sqrt{2}) = (-a - b\sqrt{2}) + (a + b\sqrt{2}) = 0
+        \end{gather*}
+        \item Phép cộng trên $\mathbb{Q}(\sqrt{2})$ có tính giao hoán.
+        \begin{gather*}
+            (a_{1} + b_{1}\sqrt{2}) + (a_{2} + b_{2}\sqrt{2}) \\
+            = (a_{2} + b_{2}\sqrt{2}) + (a_{1} + b_{1}\sqrt{2}) \\
+            = (a_{1} + a_{2}) + (b_{1} + b_{2})\sqrt{2}
+        \end{gather*}
+        \item $\mathbb{Q}(\sqrt{2})$ đóng kín với phép nhân thông thường.
+        \item Phép nhân trên $\mathbb{Q}(\sqrt{2})$ có tính kết hợp.
+        \begin{gather*}
+            ((a_{1} + b_{1}\sqrt{2}) \cdot (a_{2} + b_{2}\sqrt{2}))\cdot(a_{3} + b_{3}\sqrt{2}) \\
+            = (a_{1} + b_{1}\sqrt{2}) \cdot ((a_{2} + b_{2}\sqrt{2})\cdot(a_{3} + b_{3}\sqrt{2}))
+        \end{gather*}
+        \item Phép nhân trên $\mathbb{Q}(\sqrt{2})$ có tính phân phối từ cả hai phía với phép cộng.
+        \begin{gather*}
+            (a_{1} + b_{1}\sqrt{2})((a_{2} + b_{2}\sqrt{2}) + (a_{3} + b_{3}\sqrt{2})) \\
+            = (a_{1} + b_{1}\sqrt{2})(a_{2} + b_{2}\sqrt{2}) + (a_{1} + b_{1}\sqrt{2})(a_{3} + b_{3}\sqrt{2})
+        \end{gather*}
+        \begin{gather*}
+            ((a_{1} + b_{1}\sqrt{2}) + (a_{2} + b_{2}\sqrt{2}))(a_{3} + b_{3}\sqrt{2}) \\
+            = (a_{1} + b_{1}\sqrt{2})(a_{3} + b_{3}\sqrt{2}) + (a_{2} + b_{2}\sqrt{2})(a_{3} + b_{3}\sqrt{2})
+        \end{gather*}
+        \item Phép nhân trên $\mathbb{Q}(\sqrt{2})$ có phần tử đơn vị.
+        \begin{gather*}
+            (a + b\sqrt{2})\cdot 1 = 1\cdot (a + b\sqrt{2}) = a + b\sqrt{2}
+        \end{gather*}
+        \item Phép nhân trên $\mathbb{Q}(\sqrt{2})$ có tính giao hoán:
+        \begin{gather*}
+            (a_{1} + b_{1}\sqrt{2})(a_{2} + b_{2}\sqrt{2}) = (a_{2} + b_{2}\sqrt{2})(a_{1} + b_{1}\sqrt{2})
+        \end{gather*}
+        \item Các phần tử khác không của $\mathbb{Q}$ có phần tử nghịch đảo.
+        \begin{gather*}
+            (a + b\sqrt{2})\left(\frac{a}{a^{2} - 2b^{2}} + \frac{-b}{a^{2}-2b^{2}}\sqrt{2}\right) \\
+            =\left(\frac{a}{a^{2} - 2b^{2}} + \frac{-b}{a^{2}-2b^{2}}\sqrt{2}\right)(a + b\sqrt{2}) = 1
+        \end{gather*}
+    \end{enumerate}
+    \par Như vậy, $\mathbb{Q}(\sqrt{2})$ lập nên một trường với hai phép toán cộng và nhân thông thường.
+\end{proof}
+
+\begin{exercise}Chứng minh rằng các trường $\mathbb{Q}(\sqrt{2})$ và $\mathbb{Q}(\sqrt{3})$ không đẳng cấu với nhau.
+\end{exercise}
+
+\begin{proof}Giả sử ngược lại là hai trường này đẳng cấu. Khi đó tồn tại một ánh xạ đẳng cấu $\phi$:
+    \begin{gather*}
+        \phi: \mathbb{Q}(\sqrt{2})\rightarrow \mathbb{Q}(\sqrt{3}) \\
+        \phi(x) + \phi(y) = \phi(x + y) \\
+        \phi(x)\phi(y) = \phi(xy)
+    \end{gather*}
+    \par Từ điều này ta suy ra $\phi$ biến phần tử trung lập, phần tử đơn vị của $\mathbb{Q}(\sqrt{2})$, lần lượt thành phần tử trung lập, phần tử đơn vị của $\mathbb{Q}(\sqrt{3})$ tức là $\phi(0) = 0, \phi(1) = 1$.
+    \par $\phi(1) = 1$. Mà $\phi(x + 1) = \phi(x) + \phi(1) = \phi(x) + 1$ và $\phi(0) = 0$ nên bằng nguyên lý quy nạp, ta suy ra $\phi(n) = n$ với $n$ là một số nguyên.
+    \bigskip
+    \par Chọn lấy một số hữu tỷ không nguyên, đặt là $\frac{p}{q}$, trong đó $(p, q) = 1, q\ne 0$.
+    \par $\phi$ cũng là một đẳng cấu vành nên $\phi\left(\frac{p}{q}\right)\phi(q) = \phi(p)$, tức là $\phi(\frac{p}{q}) = \frac{p}{q}$.
+    \par Do đó, với mọi $x\in\mathbb{Q}$, $\phi(x) = x$.
+    \bigskip
+    \begin{align*}
+        \phi(\sqrt{2})\phi(\sqrt{2})&= \phi(2) \\
+        \Leftrightarrow \phi(\sqrt{2})^{2}&= 2
+    \end{align*}
+    \par Suy ra $\phi(\sqrt{2}) = \pm\sqrt{2}$. Nhưng cho dù $\phi(\sqrt{2})$ bằng $\sqrt{2}$ hay $-\sqrt{2}$ thì $\phi(\sqrt{2})$ cũng không thể thuộc trường $\mathbb{Q}(\sqrt{3})$.
+    \par Như vậy giả sử phản chứng là sai. Hai trường $\mathbb{Q}(\sqrt{2})$ và $\mathbb{Q}(\sqrt{3})$ không đẳng cấu.
+\end{proof}
+
+\begin{exercise}Chứng minh rằng nếu số phức $z\not\in\mathbb{R}$ thì trường gồm các phần tử có dạng
+    \[ \mathbb{R}(z) = \{ a + bz\ |\ a, b\in\mathbb{R} \} \]
+    \par trùng với trường số phức $\mathbb{C}$.
+\end{exercise}
+
+\begin{proof}
 \end{proof}
 
 \end{document}
