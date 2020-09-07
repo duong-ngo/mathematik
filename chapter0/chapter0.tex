@@ -310,7 +310,7 @@
     \end{enumerate}
 \end{proof}
 
-\begin{exercise}Chứng minh hai mệnh đề về ánh xạ ởi cuối $\S{2}$.
+\begin{exercise}Chứng minh hai mệnh đề về ánh xạ ở cuối $\S{2}$.
 \end{exercise}
 
 \begin{proof}\textbf{Mệnh đề 2.8.} \textit{Hợp thành của hai đơn ánh lại là một đơn ánh. Hợp thành của hai toàn ánh lại là một toàn ánh. Hợp thành của hai song ánh lại là một song ánh.}
@@ -792,6 +792,248 @@
 \begin{exercise}Chứng minh rằng nếu số phức $z\not\in\mathbb{R}$ thì trường gồm các phần tử có dạng
     \[ \mathbb{R}(z) = \{ a + bz\ |\ a, b\in\mathbb{R} \} \]
     \par trùng với trường số phức $\mathbb{C}$.
+\end{exercise}
+
+\begin{proof}Trước tiên, ta chứng minh $\mathbb{z}$ là một trường.
+    \begin{enumerate}[label = (\roman*)]
+        \item $\mathbb{R}(z)$ đóng với phép cộng thông thường:
+        \[ (a_{1} + b_{1}z) + (a_{2} + b_{2}z) = (a_{1} + a_{2}) + (b_{1} + b_{2})z \]
+        \item $\mathbb{R}(z)$ đóng với phép nhân thông thường:
+        \begin{align*}
+            (a_{1} + b_{1}z)(a_{2} + b_{2}z) &= (a_{1}a_{2} + b_{1}b_{2}z^{2}) + (a_{1}b_{2} + a_{2}b_{1})z \\
+                                             &= (a_{1}a_{2} - b_{1}b_{2}z\overline{z}) + (a_{1}b_{2} + a_{2}b_{1} + b_{1}b_{2}(z + \overline{z}))z
+        \end{align*}
+        \item $\mathbb{R}(z) \subset \mathbb{C}$ nên phép cộng trên $\mathbb{R}(z)$ cũng có tính kết hợp, giao hoán, có phần tử trung lập, mọi phần tử đều có phần tử đối; phép nhân có tính kết hợp, phân phối với phép cộng, giao hoán, có đơn vị, phần tử khác 0 có nghịch đảo.
+    \end{enumerate}
+    \par Do đó $\mathbb{R}(z)$ là một trường với phép toán cộng và nhân thông thường.
+    \par Đặt $z = p + q\iota \quad (q\ne 0)$.
+    \par Ta sẽ chứng minh mọi số phức $a + b\iota$ đều biểu diễn được duy nhất dưới dạng $x + yz$.
+    \begin{align*}
+        &x + yz = a + b\iota \\
+        \Leftrightarrow\quad& x + y(p + q\iota) = a + b\iota \\
+        \Leftrightarrow\quad& (x + py) + qy\iota = a + b\iota \\
+        \Leftrightarrow\quad&
+        \begin{cases}
+            x + py = a \\
+            qy = b
+        \end{cases}
+        \Leftrightarrow\quad
+        \begin{cases}
+            y = \frac{b}{q} \\
+            x = a - \frac{bp}{q}
+        \end{cases}
+    \end{align*}
+    \par Như vậy, mọi số phức đều biểu diễn được dưới dạng $x + yz$, giả sử $x_{1} + y_{1}z = x_{2} + y_{2}z$.
+    \begin{align*}
+        &x_{1} + y_{1}z = x_{2} + y_{2}z \\
+        \Leftrightarrow\quad&(x_{1} + y_{1}p) + y_{1}q\iota = (x_{2} + y_{2}p) + y_{2}q\iota \\
+        \Leftrightarrow\quad&
+        \begin{cases}
+            qy_{1} = qy_{2}\quad\text{($q\ne 0$)} \\
+            x_{1} + y_{1}p = x_{2} + y_{2}p
+        \end{cases}
+        \Leftrightarrow\quad
+        \begin{cases}
+            y_{1} = y_{2} \\
+            x_{1} = x_{2}
+        \end{cases}
+    \end{align*}
+    \par Do đó, biểu diễn $x + yz$ là duy nhất với mọi số phức.
+
+    \par Từ những điều trên, ta kết luận $\mathbb{R}(z) = \mathbb{C}$.
+\end{proof}
+
+\begin{exercise}Chứng minh rằng các trường $\mathbb{C}$ và $\mathbb{Z}/p$, với $p$ nguyên tố, không là trường được sắp toàn phần đối với bất kỳ thứ tự nào.
+\end{exercise}
+
+\begin{proof}\textit{Đối với trường $\mathbb{C}$.}
+    \par Giả sử phản chứng, $\mathbb{C}$ được sắp toàn phần.
+    \par Ta xét các phần tử $0, 1, \iota, -1$.
+    \begin{itemize}
+        \item Trường hợp 1. $0\le 1 \le \iota$ (hiểu là $1$ bị kẹp bởi $0$ và $\iota$, nên việc đảo thứ tự sẽ tương tự).
+            \par $0\le 1\Rightarrow -1\le 0$. Mà $\iota\ge 0$ nên $1\cdot\iota \le \iota^{2} \Rightarrow \iota \le -1$. Điều này mâu thuẫn với $-1 \le 0 \le \iota$.
+        \item Trường hợp 2. $0\le\iota\le 1$
+            \par $1\ge\iota\Rightarrow 1 - \iota\ge 0$.
+            \par $1\ge 0, \iota\ge 0\Rightarrow 1 + \iota \ge 0$
+            \par $\Rightarrow \iota(1+\iota)\ge 0\Rightarrow \iota - 1\ge 0$. Điều này mâu thuẫn với $1 - \iota \ge 0$.
+        \item Trường hợp 3. $\iota \le 0 \le 1$
+            \par $\Rightarrow-\iota \ge 0\Rightarrow (-\iota)(-\iota)\ge (-\iota)\cdot (-1) \Rightarrow -1\ge\iota \Rightarrow 1 + \iota \le 0\Rightarrow\iota\le -1$
+            \par $-\iota \ge 1\Rightarrow (-\iota)(-\iota) \ge -\iota \Rightarrow -1 \ge -\iota \Rightarrow \iota\ge 1$
+            \par $1\le -1$, điều này mâu thuẫn với giả thiết.
+    \end{itemize}
+    \par Vậy $\mathbb{C}$ không được sắp toàn phần với bất kỳ thứ tự nào.
+    \bigskip
+    \par\textit{Đối với trường $\mathbb{Z}/p$.}
+    \par $\mathbb{Z}/p$ là trường hữu hạn. Ta đặt $\mathbb{Z}/p = \{ 0, 1, \ldots, p - 1 \}$.
+    \par Giả sử phản chứng, $\mathbb{Z}/p$ được sắp toàn phần.
+    \begin{itemize}
+        \item Trường hợp 1. $0\le 1$.
+        \begin{align*}
+            \Rightarrow\quad& 1\le 2 \\
+            \Rightarrow\quad& 2\le 3 \\
+                            & \vdots \\
+            \Rightarrow\quad& p-2\le p-1 \\
+            \Rightarrow\quad& p-1\le 0
+        \end{align*}
+        \par Điều cuối cùng mâu thuẫn với giả thiết.
+        \item Trường hợp 2. $1\le 0$.
+        \begin{align*}
+            \Rightarrow\quad& 2\le 1 \\
+            \Rightarrow\quad& 3\le 2 \\
+                            & \vdots \\
+            \Rightarrow\quad& p-1\le p-2 \\
+            \Rightarrow\quad& 0\le p-1
+        \end{align*}
+        \par Điều cuối cùng mâu thuẫn với giả thiết.
+    \end{itemize}
+    \par Vậy $\mathbb{Z}/p$ không được sắp toàn phần với bất kỳ thứ tự nào.
+\end{proof}
+
+\begin{exercise}Chứng minh rằng ánh xạ $\phi: \mathbb{R}\rightarrow\mathbb{C}^{*}$ xác định bởi $\phi(x) = \cos x + \iota\sin x$ là một đồng cấu từ nhóm $\mathbb{R}$ với phép cộng vào nhóm $\mathbb{C}^{*}$ với phép nhân. Tìm tập giá trị của $\phi$. Đồng cấu $\phi$ có phải là một toàn cấu hay một đơn cấu không?
+\end{exercise}
+
+\begin{proof}
+    \begin{align*}
+        \phi(x)\phi(y) &= (\cos x + \iota\sin x)(\cos y + \iota\sin y) \\
+                       &= (\cos x\cos y - \sin x\sin y) + (\sin x\cos y + \cos x\sin y)\iota \\
+                       &= \cos (x + y) + \iota\sin(x + y) \\
+                       &= \phi(x + y)
+    \end{align*}
+    \par Do đó $\phi$ là một đồng cấu từ $(\mathbb{R},+)$ vào $(\mathbb{C}^{*},\cdot)$.
+    \par Tập giá trị của $\phi$ là các số phức có module bằng 1.
+    \par $\phi$ không phải đơn cấu vì $\phi(x) = \phi(x + 2k\pi)$.
+    \par $\phi$ không phải toàn cấu vì không tồn tại $x\in\mathbb{R}$ sao cho $\phi(x) = 0$.
+\end{proof}
+
+\begin{exercise}Chứng minh rằng đối với số phức $z$:
+    \begin{align*}
+        z = \overline{z} &\Longleftrightarrow z\in\mathbb{R} \\
+        z = -\overline{z}&\Longleftrightarrow \text{$z$ là thuần ảo}
+    \end{align*}
+\end{exercise}
+
+\begin{proof}Đặt $z = a + b\iota$.
+    \par $\Rightarrow\overline{z} = a - b\iota$.
+    \par $\Rightarrow a = \frac{1}{2}(z + \overline{z}), b = \frac{1}{2\iota}(z - \overline{z})$.
+    \begin{align*}
+        &z \in \mathbb{R} \Leftrightarrow b = 0 \Leftrightarrow z = \overline{z} \\
+        &\text{$z$ là thuần ảo}\Leftrightarrow a = 0 \Leftrightarrow z = -\overline{z}
+    \end{align*}
+\end{proof}
+
+\begin{exercise}Khi nào thì tích hai số phức là một số thực? Khi nào thì tổng và tích hai số phức đều là số thực?
+\end{exercise}
+
+\begin{proof}Đặt $z_{1} = r_{1}(\cos\phi_{1} + \iota\sin\phi_{1}), z_{2} = r_{2}(\cos\phi_{2} + \iota\sin\phi_{2})$.
+    \par $z_{1}z_{2} = r_{1}r_{2}(\cos(\phi_{1} + \phi_{2}) + \iota\sin(\phi_{1} + \phi_{2}))$.
+    \par $z_{1}z_{2}\in\mathbb{R}$ khi và chỉ khi $\sin(\phi_{1} + \phi_{2}) = 0\Leftrightarrow\phi_{1} + \phi_{2}\equiv 0\pmod\pi$
+    \par Tức là $\arg(z_{1}) + \arg(z_{2}) = k\pi\quad (k\in\mathbb{Z})$.
+    \par Vậy tích hai số phức là một số thực khi và chỉ khi tổng argument của chúng có dạng $k\pi\ (k\in\mathbb{Z})$.
+
+    \bigskip
+    \par $z_{1} + z_{2}, z_{1}z_{2}\in\mathbb{Z}$ nên $z_{1}, z_{2}$ là nghiệm của một đa thức bậc 2, hệ số thực: $aX^{2} + bX + c$.
+    \par Theo công thức nghiệm phương trình bậc hai:
+    \[ z_{1} = \frac{-b + \sqrt{b^{2} - 4ac}}{2a}\qquad z_{2} = \frac{-b - \sqrt{b^{2} - 4ac}}{2a} \]
+    \par Theo đó, $z_{1}$ và $z_{2}$ là hai số phức liên hợp.
+    \par Ngược lại, tổng và tích của hai số phức liên hợp là các số thực.
+    \par Vậy tổng và tích hai số phức là một số thực khi và chỉ khi chúng là hai số phức liên hợp.
+\end{proof}
+
+\begin{exercise}Tính $\iota^{77}, \iota^{99}, \iota^{-57}, \iota^{n}, (1 + \iota){}^{n}$
+\end{exercise}
+
+\begin{proof}
+    \begin{align*}
+        \iota^{77}&= \iota^{4\cdot 19 + 1} = (\iota^{4}){}^{19}\cdot\iota = \iota
+    \end{align*}
+    \begin{align*}
+        \iota^{99}&= \iota^{4\cdot 24 + 3} = (\iota^{4}){}^{24}\cdot\iota^{3} = \iota^{3} = -\iota
+    \end{align*}
+    \begin{align*}
+        \iota^{-57}&= \iota^{4\cdot(-14) - 1} = (\iota^{4}){}^{-14}\cdot\iota^{-1} = \iota^{-1} = -\iota
+    \end{align*}
+    \begin{align*}
+        \iota^{n}&= \left(\cos\frac{\pi}{2} + \iota\sin\frac{\pi}{2}\right){}^{n}= \cos\frac{n\pi}{2} + \iota\sin\frac{n\pi}{2}
+    \end{align*}
+    \begin{align*}
+        (1+\iota){}^{n}&= \left(\sqrt{2}\left(\cos\frac{\pi}{4} + \iota\sin\frac{\pi}{4}\right)\right){}^{n} \\
+                     &= \sqrt{2^{n}}\left(\cos\frac{n\pi}{4} + \iota\sin\frac{n\pi}{4}\right)
+    \end{align*}
+\end{proof}
+
+\begin{exercise}Chứng minh các đẳng thức
+    \begin{align*}
+        (1+\iota){}^{8n} &= 2^{4n} \\
+        (1+\iota){}^{4n} &= (-1){}^{n}2^{2n},\quad(n\in\mathbb{Z})
+    \end{align*}
+\end{exercise}
+
+\begin{proof}Sử dụng đẳng thức ở bài tập trước.
+    \begin{align*}
+        (1+\iota){}^{8n} &= \sqrt{2^{8n}}\left(\cos\frac{8n\pi}{4} + \sin\frac{8n\pi}{4}\right) \\
+                         &= 2^{4n}\left(\cos 2n\pi + \iota\sin 2n\pi\right) \\
+                         &= 2^{4n}
+    \end{align*}
+
+    \begin{align*}
+        (1+\iota){}^{4n} &= \sqrt{2^{4n}}\left(\cos\frac{4n\pi}{4} + \sin\frac{4n\pi}{4}\right) \\
+                         &= 2^{2n}\left(\cos n\pi + \iota\sin n\pi\right) \\
+                         &= (-1){}^{n}2^{2n}
+    \end{align*}
+\end{proof}
+
+\begin{exercise}Chứng minh rằng nếu $z + z^{-1} = 2\cos\phi$ trong đó $\phi\in\mathbb{R}$ thì $z^{n} + z^{-n} = 2\cos n\phi$, với mọi $n\in\mathbb{N}$.
+\end{exercise}
+
+\begin{proof}Ta chứng minh bằng quy nạp. Mệnh đề $z^{n} + z^{-n} = 2\cos n\phi$ đúng với $n = 1$.
+    \par Giả sử mệnh đề đúng với $n = k$.
+    \begin{align*}
+        z^{k+1} + z^{-k-1} &= (z^{k} + z^{-k})(z + z^{-1}) - (z^{k-1} + z^{1-k}) \\
+                           &= 2\cos k\phi \cdot 2\cos\phi - 2\cos (k-1)\phi \\
+                           &= 2\cos(k+1)\phi + 2\cos(k-1)\phi - 2\cos(k-1)\phi \\
+                           &= 2\cos(k+1)\phi
+    \end{align*}
+    \par Vậy mệnh đề đúng với $n = k + 1$, do đó đúng với mọi $n\in\mathbb{N}$.
+\end{proof}
+
+\begin{exercise}Tính
+    \begin{enumerate}[label = (\alph*)]
+        \item $\dfrac{1 - 2\iota}{4 + 3\iota}$
+        \item $\dfrac{(1 - \iota){}^{n}}{(1 - \sqrt{3}\iota){}^{n}}$
+        \item $\dfrac{(1 + \sqrt{3}\iota){}^{n}}{(1 + \iota){}^{n + 1}}$
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label = (\alph*)]
+        \item \begin{align*}
+            \frac{1 - 2\iota}{4 + 3\iota} &= \frac{(1 - 2\iota)(4 - 3\iota)}{25} \\
+                                              &= \frac{-2 - 11\iota}{25}
+        \end{align*}
+        \item \begin{align*}
+            \frac{(1 - \iota){}^{n}}{(1 - \sqrt{3}\iota){}^{n}} &= \frac{\sqrt{2^{n}}\left(\cos\dfrac{-\pi}{4} +\iota\sin\dfrac{-\pi}{4}\right){}^{n}}{2^{n}\left(\cos\dfrac{-\pi}{3} + \iota\sin\dfrac{-\pi}{3}\right){}^{n}} \\
+                &=\frac{1}{\sqrt{2^{n}}}\left(\cos\frac{n\pi}{12}+\iota\sin\frac{n\pi}{12}\right)
+        \end{align*}
+        \item \begin{align*}
+            \frac{(1 + \sqrt{3}\iota){}^{n}}{(1+\iota){}^{n+1}} &= \frac{2^{n}\left(\cos\dfrac{\pi}{3} + \iota\sin\dfrac{\pi}{3}\right){}^{n}}{\sqrt{2^{n}}\left(\cos\dfrac{\pi}{4} + \iota\sin\dfrac{\pi}{4}\right){}^{n+1}} \\
+            &= \sqrt{2^{n}}\left(\cos\left(\frac{n\pi}{12}-\frac{\pi}{4}\right) + \iota\sin\left(\frac{n\pi}{12} - \frac{\pi}{4}\right)\right)
+        \end{align*}
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
 \end{exercise}
 
 \begin{proof}
