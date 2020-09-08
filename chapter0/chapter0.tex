@@ -680,7 +680,19 @@
             \end{cases}
         \]
         \par $x, y$ khả nghịch từ cả hai phía nên theo bổ đề trên, $x, y$ khả nghịch.
-        \item
+        \item $xy$ khả nghịch nên tồn tại $a$ là phần tử nghịch đảo của $xy$, tức là
+            \[ axy = xya = 1 \]
+            \begin{align*}
+                &axy\cdot ax = ax \\
+                \Leftrightarrow\quad& ax(yax - 1) = 0
+            \end{align*}
+            \par $R$ không có ước của không nên $a = 0$ hoặc $x = 0$ hoặc $yax = 1$. Nhưng bất cứ phần tử nào nhân với $0$ cũng bằng $0$ nên $a \ne 0, x\ne 0$. Do đó $yax = 1$.
+            \par Điều này kéo theo $axy = yax = 1$, tức là $y$ khả nghịch.
+            \begin{align*}
+                &yax\cdot ya = ya \\
+                \Leftrightarrow\quad& (yax - 1)ya = 0 
+            \end{align*}
+            \par $R$ không có ước của không, $a, x \ne 0$ nên $yax = 1$. Do đó $yax = xya = 1$. Tức là $x$ khả nghịch.
     \end{enumerate}
 \end{proof}
 
@@ -1022,21 +1034,135 @@
 \end{proof}
 
 \begin{exercise}
+    \begin{enumerate}[label = (\alph*)]
+        \item Tìm dạng lượng giác của số phức $(1 + \iota\tan\phi)/(1 - \iota\tan\phi)$,
+        \item Trên mặt phẳng phức, tìm tập hợp các điểm tương ứng với
+            \[ \{ z = (1 + \iota t)/(1 - \iota t)\ |\ t\in\mathbb{R} \} \]
+    \end{enumerate}
 \end{exercise}
 
 \begin{proof}
+    \begin{enumerate}[label = (\alph*)]
+        \item
+            \begin{align*}
+                \frac{1 + \iota\tan\phi}{1 - \iota\tan\phi} &= \frac{\cos\phi + \iota\sin\phi}{\cos\phi - \iota\sin\phi} \\
+                                                            &= \frac{\cos\phi + \iota\sin\phi}{\cos(-\phi) + \iota\sin(-\phi)} \\
+                                                            &= \cos(2\phi) + \iota\sin(2\phi)
+            \end{align*}
+        \item Vì $t\in\mathbb{R}$ nên tồn tại $\phi\in\left(-\frac{\pi}{2},\frac{\pi}{2}\right)$ sao cho $\tan\phi = t$.
+            \par Theo ý (a), $z = \cos (2\phi) + \iota(2\phi)$. Do đó, tập hợp điểm $z$ là đường tròn đơn vị, loại đi hai điểm $-1$.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}Đẳng thức sau đây có đúng không: $\sqrt[ns]{z^{s}} = \sqrt[n]{z}$, trong đó $z\in\mathbb{C}, n, s\in\mathbb{N}$?
+\end{exercise}
+
+\begin{proof}Với $s = 1$, đẳng thức luôn đúng.
+    \par Với $s > 1$, ta chỉ cần xét trường hợp $z = 1$. Căn bậc $ns$ của $1$ gồm $ns$ giá trị, trong khi đó, căn bậc $n$ của $1$ chỉ có $n$ giá trị. $ns$ giá trị trên khác nhau. Do đó khi $s > 1$ thì đẳng thức trên không đúng.
 \end{proof}
 
 \begin{exercise}
+    \begin{enumerate}[label = (\alph*)]
+        \item Tìm các căn bậc ba của $1 + \iota$, $1 - \sqrt{3}\iota$.
+        \item Tìm các căn bậc $n$ của $\iota$, $1 - \iota$, $1 + \sqrt{3}\iota$.
+    \end{enumerate}
 \end{exercise}
 
 \begin{proof}
+    \begin{enumerate}[label = (\alph*)]
+        \item $1 + \iota = \sqrt{2}\left(\cos\frac{\pi}{4} + \iota\sin\frac{\pi}{4}\right)$. Các căn bậc ba của $1 + \iota$ bao gồm
+            \[
+                \begin{cases}
+                    \sqrt[6]{2}\left(\cos\frac{\pi}{12} + \iota\sin\frac{\pi}{12}\right) \\
+                    \sqrt[6]{2}\left(\cos\frac{3\pi}{4} + \iota\sin\frac{3\pi}{4}\right) \\
+                    \sqrt[6]{2}\left(\cos\frac{17\pi}{12} + \iota\sin\frac{17\pi}{12}\right)
+                \end{cases}
+            \]
+            \par $1 - \sqrt{3}\iota = 2\left(\cos\frac{-\pi}{3} + \iota\sin\frac{-\pi}{3}\right)$. Các căn bậc ba của $1 - \sqrt{3}\iota$ bao gồm
+            \[
+                \begin{cases}
+                    \sqrt[3]{2}\left(\cos\frac{-\pi}{9} + \iota\sin\frac{-\pi}{9}\right) \\
+                    \sqrt[3]{2}\left(\cos\frac{5\pi}{9} + \iota\sin\frac{5\pi}{9}\right) \\
+                    \sqrt[3]{2}\left(\cos\frac{11\pi}{9} + \iota\sin\frac{11\pi}{9}\right)
+                \end{cases}
+            \]
+        \item
+            \begin{align*}
+                \sqrt[n]{\iota} &= \left\{ \cos\left(\frac{\pi}{2n} + \frac{2k\pi}{n}\right) + \iota\sin\left(\frac{\pi}{2n} + \frac{2k\pi}{n}\right)\ \Big{|} \ k = \overline{0, n-1} \right\} \\
+                \sqrt[n]{1-\iota} &= \left\{ \sqrt[2n]{2}\left(\cos\left(\frac{-\pi}{4n} + \frac{2k\pi}{n}\right) + \iota\sin\left(\frac{-\pi}{4n} + \frac{2k\pi}{n}\right)\right)\ \Big{|} \ k = \overline{0, n-1} \right\} \\
+                \sqrt[n]{1 + \sqrt{3}\iota} &= \left\{ \sqrt[n]{2}\left(\cos\left(\frac{\pi}{3n} + \frac{2k\pi}{n}\right) + \iota\sin\left(\frac{\pi}{3n} + \frac{2k\pi}{n}\right)\right)\ \Big{|}\ k = \overline{0, n-1} \right\}
+            \end{align*}
+    \end{enumerate}
 \end{proof}
 
-\begin{exercise}
+\begin{exercise}Chứng minh rằng tổng các căn bậc $n$ của một số phức bất kỳ đều bằng $0$.
+\end{exercise}
+
+\begin{proof}Với số phức $z = 0$, chỉ có một căn bậc $n$ là chính số $0$.
+    \par Xét trường hợp $z\ne 0$. $z = |z|(\cos\phi + \iota\sin\phi)$. Các căn bậc $n$ của $z$ bao gồm
+    \[ \sqrt[n]{|z|}\left(\cos\left(\frac{\phi}{n} + \frac{2k\pi}{n}\right) + \iota\sin\left(\frac{\phi}{n} + \frac{2k\pi}{n}\right)\right),\quad k = \overline{0, n-1} \]
+    \par Các điểm biểu diễn căn bậc $n$ của $z$ trên mặt phẳng phức, theo công thức trên là các đỉnh của một đa giác đều $n$ đỉnh. Đặt các đỉnh đó là
+    \[ A_{0}(a_{0}), A_{1}(a_{1}), \ldots, A_{n-1}(a_{n-1}) \]
+    \par Sử dụng phép quay tâm $O$, góc $\frac{2\pi}{n}$:
+    \begin{align*}
+        A_{0}&\mapsto A_{1} \\
+        A_{1}&\mapsto A_{2} \\
+        &\vdots \\
+        A_{n-1}&\mapsto A_{0}
+    \end{align*}
+    \par Như vậy, phép quay trên biến vector $\sum\limits^{n-1}_{i=0}\overrightarrow{OA_{i}}$ thành chính nó. Mà góc quay của phép quay này $\not\equiv 0\pmod{2\pi}$ nên vector này là vector không.
+    \par Do đó $\sum\limits^{n-1}_{i=0}a_{i} = 0$. Đây là điều cần chứng minh.
+\end{proof}
+
+\begin{exercise}Phân tích các đa thức sau thành nhân tử bất khả quy trong các vành $\mathbb{R}[X]$ và $\mathbb{C}[X]$:
+    \begin{enumerate}[label = (\alph*)]
+        \item $X^{3} + 3X^{2} + 5X + 3$
+        \item $X^{3} - X^{2} - X - 2$
+    \end{enumerate}
 \end{exercise}
 
 \begin{proof}
+    \begin{enumerate}[label = (\alph*)]
+        \item
+            \begin{align*}
+                X^{3} + 3X^{2} + 5X + 3 &= X^{3} + X^{2} + 2X^{2} + 2X + 3X + 3 \\
+                                        &= X^{2}(X + 1) + 2X(X + 1) + 3(X + 1) \\
+                                        &= (X + 1)(X^{2} + 2X + 3) \\
+                                        &= (X + 1)(X + 1 + \sqrt{2}\iota)(X + 1 - \sqrt{2}\iota)
+            \end{align*}
+        \item
+            \begin{align*}
+                X^{3} - X^{2} - X - 2 &= X^{3} - 2X^{2} + X^{2} - 2X + X - 2 \\
+                                      &= X^{2}(X - 2) + X(X - 2) + (X - 2) \\
+                                      &= (X - 2)(X^{2} + X + 1) \\
+                                      &= (X - 2)(X - \frac{-1 - \sqrt{3}\iota}{2})(X - \frac{-1 + \sqrt{3}\iota}{2})
+            \end{align*}
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}Chứng minh rằng đa thức $X^{3m} + X^{3n + 1} + X^{3p  + 2}$ chia hết cho đa thức $X^{2} + X + 1$, với mọi $m, n, p$ nguyên dương.
+\end{exercise}
+
+\begin{proof}Đặt $j$ là nghiệm của $X^{2} + X + 1$, khi đó $j^{3} = 1$
+    \begin{align*}
+        j^{3m} + j^{3n + 1} + j^{3p + 2} &= 1 + j + j^{2} \\
+                                         &= 0
+    \end{align*}
+    \par Như vậy, nghiệm của $X^{2} + X + 1$ cũng là nghiệm của $X^{3m} + X^{3n + 1} + X^{3p + 2}$.
+    \par Do đó $X^{3m} + X^{3n + 1} + X^{3p +2}$ chia hết cho $X^{2} + X + 1$, với mọi $m, n, p$ nguyên dương.
+\end{proof}
+
+\begin{exercise}Tìm tất cả các bộ ba nguyên dương $m, n, p$ sao cho đa thức $X^{3m} - X^{3n + 1} + X^{3p + 2}$ chia hết cho đa thức $X^{2} - X + 1$.
+\end{exercise}
+
+\begin{proof}Đa thức $X^{3m} - X^{3n + 1} + X^{3p + 2}$ chia hết cho đa thức $X^{2} - X + 1$ khi và chỉ khi nghiệm của $X^{2} - X + 1$ cũng là nghiệm của $X^{3m} - X^{3n + 1} + X^{3p + 2}$.
+    \par Đặt $j$ là nghiệm của đa thức $X^{2} - X + 1$ thì $j^{3} = -1$.
+    \begin{align*}
+        j^{3m} - j^{3n + 1} + j^{3p + 2} &= (-1){}^{m} - (-1){}^{n}j + (-1){}^{p}j^{2}
+    \end{align*}
+    \par Nếu $m, n, p$ cùng tính chẵn lẻ thì biểu thức trên bằng không.
+    \par Nếu $m, n, p$ không cùng tính chẵn lẻ thì biểu thức trên khác không.
+    \par Bộ số $m, n, p$ nguyên dương cần tìm là các số nguyên dương cùng tính chẵn lẻ.
 \end{proof}
 
 \end{document}
