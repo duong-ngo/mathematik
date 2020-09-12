@@ -14,6 +14,7 @@
 \RequirePackage{amscdx}
 \RequirePackage{mathtools}
 \RequirePackage{mathrsfs}
+\RequirePackage{cases}
 
 \RequirePackage{fancyhdr}
 \RequirePackage{xcolor}
