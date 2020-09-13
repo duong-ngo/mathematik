@@ -503,7 +503,7 @@
 \begin{exercise}Lập bảng cộng và bảng nhân của vành $\mathbb{Z}/n$ với $n = 12$ và $n = 15$. Dựa vào bảng, tìm các phần tử khả nghịch đối với phép nhân trong vành đó.
 \end{exercise}
 
-\begin{proof}Đối với vành $\mathbb{Z}/12$: \\
+\begin{proof}Đối với vành $\mathbb{Z}/12$:
 
     \par Bảng cộng
     \\
@@ -629,6 +629,23 @@
         a\cdot 0 + 0 &= a\cdot 0 = a\cdot (0 + 0) = a\cdot 0 + a\cdot 0 \\
         \Rightarrow 0 &= a\cdot 0\quad\text{(luật giản ước)}
     \end{align*}
+    \par Đó là điều cần chứng minh.
+\end{proof}
+
+\begin{lemma}Trong một vành $R$ có đơn vị, phần tử đối của $a$ là $(-1)\cdot a = a\cdot(-1) = -a$.
+\end{lemma}
+
+\begin{proof}$R$ cũng là một nhóm nên phần tử $a$ bất kỳ của $R$ luôn có phần tử đối, ký hiệu $-a$.
+    \par $-1$ là phần tử đối của $1$.
+    \begin{align*}
+        a + (-1)\cdot a &= 1\cdot a + (-1)\cdot a \\
+                        &= (1 + (-1))\cdot a \\
+                        &= 0\cdot a = 0 \\
+        a + a\cdot (-1) &= a\cdot 1 + a\cdot (-1) \\
+                        &= a\cdot (1 + (-1)) \\
+                        &= a\cdot 0 = 0
+    \end{align*}
+    \par Đó là điều cần chứng minh.
 \end{proof}
 
 \begin{exercise}Cho $R$ là một vành có đơn vị. Gọi $R^{*}$ là tập hợp các phần tử khả nghịch đối với phép nhân trong $R$. Chứng minh rằng $R^{*}$ là một nhóm với các phép nhân của $R$.
@@ -739,7 +756,7 @@
                 &\ddots \\
                 a^{n-1}a_{i_{1}} &= \cdots = aa_{i_{n-1}} = a_{i_{n}}
             \end{align*}
-            \par Các phần tử $a_{i_{1}}, a_{i_{2}}, \ldots, a_{i_{n}} \ne 0$, đây chính là một hoán vị của $a_{1}, a_{2}, \ldots, a_{n}$.
+            \par Các phần tử $a_{i_{1}}, a_{i_{2}}, \ldots, a_{i_{n}} \ne 0$ và đôi một khác nhau, đây chính là một hoán vị của $a_{1}, a_{2}, \ldots, a_{n}$.
             \par $a^{n}a_{i_{1}} = aa_{i_{n}}$ khác $a_{i_{1}}, a_{i_{2}}, \ldots, a_{i_{n}}$, do đó $aa_{i_{n}} = 0$. Điều này mâu thuẫn với giả thiết vành $R$ không có ước của không nên giả sử phản chứng là sai. Như vậy, $\forall x\in R, \exists a\ne 0: ax = x$. Phần tử $a$ như thế với mỗi $x$ là duy nhất vì $ax - bx = (a - b)x = 0 \Leftrightarrow a = b$ (do $R$ không có ước của không).
             \par Không mất tính tổng quát, giả sử $a$ là phần tử thỏa mãn $aa_{1} = a_{1}$. Xét ánh xạ $\ell_{a}: x\mapsto ax$. Do $R$ không có ước của không nên $\ell_{a}$ là đơn ánh, $R$ hữu hạn nên $\ell_{a}(R)$ là một hoán vị của $R$, do đó $\ell_{a}$ cũng là song ánh. Ta sẽ chứng minh $\ell_{a}$ là ánh xạ đồng nhất.
             \par $\ell_{a}$ có ít nhất 2 phần tử cố định là $0, a_{1}$. Giả sử phản chứng rằng $\ell_{a}$ không cố định phần tử nào khác.
@@ -752,11 +769,22 @@
                 \item Phần tử cuối cùng chưa được chọn $a_{i_{n - 1}}$ thỏa mãn $aa_{i_{n-2}} = a_{i_{n-1}}$
             \end{itemize}
             \par Do $\ell_{a}$ là đơn ánh nên $aa_{i_{n-1}}\not\in\{0, a_{1}, a_{i_{1}}, \ldots, a_{i_{n-1}}\}$. Điều này là vô lý. Do đó $\ell_{a}$ phải có ít nhất một phần tử cố định nữa. Không giảm tổng quát, giả sử phần tử cố định này là $a_{2}$.
-            \par Do $R$ có hữu hạn phần tử, ta có thể lặp lại lập luận trên hữu hạn lần nhằm đi tới khẳng định $\ell_{a}$ cố định mọi phần tử. Điều này có nghĩa là tồn tại $a\ne 0$ sao cho $\forall x\in R, ax = x$.
+            \par Do $R$ có hữu hạn phần tử, ta có thể lặp lại lập luận trên hữu hạn lần nhằm đi tới khẳng định $\ell_{a}$ cố định mọi phần tử. Điều này có nghĩa là $\forall x\in R, ax = x$.
             \par Tương tự, ta cũng chứng minh được tồn tại $b\ne 0$ sao cho $\forall x\in R, xb = x$.
             \par Như vậy, $\exists a,b\ne 0:\ \forall x\in R, ax = x, xb = x$.
-            \par Áp dụng cho hai phần tử $a, b$, ta được $b = ab = a$. Do đó $x = ax = xa$, kéo theo $R$ có đơn vị.
-        \item
+            \par Áp dụng cho hai phần tử $a, b$, ta được $b = ab = a$. Do đó $x = ax = xa$ nên $a$ là phần tử đơn vị của $R$, kéo theo $R$ có đơn vị.
+            \par ---
+            \par $c$ là một phần tử khác không của $R$.
+            \par $\{ ca_{1}, ca_{2}, \ldots, ca_{n} \}$ là một hoán vị của $R\setminus\{0\}$.
+            \par $\{ a_{1}c, a_{2}c, \ldots, a_{n}c \}$ là một hoán vị của $R\setminus\{0\}$.
+            \par $R$ có đơn vị, do đó tồn tại $a_{i}, a_{j}$ sao cho $ca_{i} = a_{j}c = 1$. Như vậy $c$ khả nghịch bên phải lẫn bên trái nên $c$ khả nghịch.
+            \par Vậy mọi phần tử khác không của $R$ đều khả nghịch.
+        \item Ta sẽ chứng minh nếu $ab = 1$ thì $ba = 1$.
+            \par Xét ánh xạ $f: R\rightarrow R, x\mapsto bx$
+            \par $x = y$ thì $f(x) = f(y)$
+            \par $f(x) = f(y)$ thì $bx = by$, suy ra $abx = aby \Leftrightarrow x = y$.
+            \par Như vậy, $f$ là đơn ánh. Nhưng vì $R$ hữu hạn nên $f$ cũng là song ánh, do đó tồn tại $z$ sao cho $f(z) = 1$, tức là $bz = 1$ mà $ab = 1$ nên $a = abz = z$, tức là $z = a$. Do đó $ab = ba = 1$.
+            \par Điều trên có nghĩa là $a, b$ khả nghịch.
     \end{enumerate}
 \end{proof}
 
