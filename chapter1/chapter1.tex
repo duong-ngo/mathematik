@@ -6,7 +6,43 @@
 
 \chapter{Không gian vector}
 
-\begin{exercise}
+\begin{exercise}Xét xem các tập hợp sau đây có lập thành $\mathbb{F}$--không gian vector hay không đối với các phép toán thông thường (được định nghĩa theo từng thành phần):
+    \begin{enumerate}[itemsep=0pt,topsep=0pt,label = (\alph*)]
+        \item Tập hợp tất cả các dãy $(x_{1},\ldots,x_{n})\in\mathbb{F}_{n}$ thỏa mãn điều kiện $x_{1} + \cdots + x_{n} = 0$.
+        \item Tập hợp tất cả các dãy $(x_{1},\ldots,x_{n})\in\mathbb{F}_{n}$ thỏa mãn điều kiện $x_{1} + \cdots + x_{n} = 1$.
+        \item Tập hợp tất cả các dãy $(x_{1},\ldots,x_{n})\in\mathbb{F}_{n}$ thỏa mãn điều kiện $x_{1} = x_{n} = -1$.
+        \item Tập hợp tất cả các dãy $(x_{1},\ldots,x_{n})\in\mathbb{F}_{n}$ thỏa mãn điều kiện $x_{1} = x_{3} = x_{5} = \cdots$, $x_{2} = x_{4} = x_{6} = \cdots$.
+        \item Tập hợp các ma trận vuông $(a_{ij}){}_{n\times n}$ \textit{đối xứng} cỡ $n$, nghĩa là các ma trận thỏa mãn $a_{ij} = a_{ji}$, với $1\le i, n\le n$.
+    \end{enumerate}
 \end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label = (\alph*)]
+        \item Đây đúng là một không gian vector với các phép toán thông thường.
+        \item Đây không phải một không gian vector với các phép toán thông thường vì phép cộng không đóng.
+        \item Đây không phải một không gian vector với các phép toán thông thường vì phép cộng không đóng.
+        \item Đây đúng là một không gian vector với các phép toán thông thường.
+        \item Đây đúng là một không gian vector với các phép toán thông thường.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}Tập hợp tất cả các dãy $(x_{1},\ldots, x_{n})\in\mathbb{R}_{n}$ với tất cả các thành phần $x_{1}, \ldots, x_{n}$ đều nguyên có lập thành một $\mathbb{R}$--không gian vector hay không?
+\end{exercise}
+
+\begin{proof}Không. Bởi phép nhân vector với vô hướng không đóng trong tập này.
+\end{proof}
+
+\begin{exercise}Với các phép toán thông thường, $\mathbb{Q}$ có là một $\mathbb{R}$--không gian vector hay không? $\mathbb{R}$ có là một $\mathbb{C}$ không gian vector hay không?
+\end{exercise}
+
+\begin{proof}$\mathbb{Q}$ không phải là một $\mathbb{R}$--không gian vector vì phép nhân một số hữu tỷ với một số thực có thể là một số vô tỷ. Ví dụ: $\sqrt{2}\cdot 1 = \sqrt{2}\not\in\mathbb{Q}$.
+    \par $\mathbb{R}$ không phải là một $\mathbb{C}$--không gian vector vì phép nhân một số thực với một số phức có thể là một số phức nhưng lại không phải số thực. Ví dụ $\iota\cdot 1 = \iota\not\in\mathbb{R}$.
+\end{proof}
+
+\begin{exercise}Chứng minh rằng nhóm $\mathbb{Z}$ không đẳng cấu với nhóm cộng của bất kỳ một không gian vector trên bất kỳ trường nào.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
 
 \end{document}
