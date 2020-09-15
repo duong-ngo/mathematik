@@ -1,6 +1,8 @@
 \documentclass[class=linearalgebra,crop=false]{standalone}
 
 \setcounter{exercise}{0}
+\newtheorem{lemma}{Bổ đề}
+\setcounter{lemma}{0}
 
 \begin{document}
 
@@ -42,7 +44,48 @@
 \begin{exercise}Chứng minh rằng nhóm $\mathbb{Z}$ không đẳng cấu với nhóm cộng của bất kỳ một không gian vector trên bất kỳ trường nào.
 \end{exercise}
 
-\begin{proof}
+\begin{lemma}Xét không gian vector $(V, \mathbb{F})$. $a\cdot\alpha = 0$ khi và chỉ khi $a = 0$ hoặc $\alpha$ là vector-không.
+\end{lemma}
+
+\begin{proof}[Chứng minh bổ đề]$(\Rightarrow)$ $a = 0$ thì:
+    \[ 0\cdot\alpha + 0 = 0\cdot\alpha = (0 + 0)\cdot\alpha = 0\cdot\alpha + 0\cdot\alpha \]
+    \par Theo luật giản ước, $0\cdot\alpha = 0$.
+    \par Nếu $\alpha = 0 thì$
+    \[ a\cdot 0 + 0 = a\cdot 0 = a\cdot (0 + 0) = a\cdot 0 + a\cdot 0 \]
+    \par Theo luật giản ước, $a\cdot 0 = 0$.
+    \bigskip
+    \par $(\Leftarrow)$ $a\cdot\alpha = 0$.
+    \par Giả sử $a$ khác không. Khi đó $a$ khả nghịch.
+    \[ \Rightarrow (a^{-1}a)\alpha = 0 \Rightarrow \alpha = 0\]
+    \par Chứng minh hoàn tất.
+\end{proof}
+
+\begin{proof}Giả sử phản chứng, tồn tại một không gian vector $V$ trên trường $\mathbb{F}$ đẳng cấu với $\mathbb{Z}$.
+    \par Khi đó, tồn tại một đồng cấu $\varphi: \mathbb{Z}\rightarrow V$ sao cho:
+    \[ \varphi(x) + \varphi(y) = \varphi(x + y)\quad\forall x, y\in\mathbb{Z} \]
+    \par và đồng cấu này là song ánh -- đẳng cấu nhóm.
+    \par Một đồng cấu nhóm biến phần tử trung lập của nhóm này thành phần tử trung lập của nhóm kia, do đó $\varphi(0)$ là vector-không trên $V$.
+    \par $\varphi$ là đẳng cấu nên các phần tử của $V$ liệt kê được, bao gồm:
+    \[ V = \{ \cdots, \varphi(-2), \varphi(-1), \varphi(0), \varphi(1), \varphi(2), \cdots \} \]
+    \par $\mathbb{F}$ có thể là một trường chỉ gồm phần tử không với các phép toán được định nghĩa như sau:
+    \begin{align*}
+        0 + 0 = 0 \\
+        0\cdot 0 = 0
+    \end{align*}
+    \par Trong trường này, phần tử đơn vị trùng với phần tử không, do đó mọi vector trên trường này đều là vector-không. Điều này mâu thuẫn với giả sử vì $\mathbb{Z}$ vô hạn đếm được, trong khi $V$ chỉ có đúng một phần tử.
+    \par Do vậy, trường $\mathbb{F}$ phải có phần tử khác không.
+    \par $n$ là một số nguyên dương.
+    \begin{align*}
+        \varphi(n)&=\underbrace{\varphi(1) + \cdots + \varphi(1)}_{n} \\
+                  &=(\underbrace{1 + \cdots + 1}_{n})\varphi(1) =a_{n}\varphi(1) \\
+        \varphi(-n)&=-a_{n}\varphi(1)
+    \end{align*}
+    \par Như vậy $a_{1} = 1$, quy ước $a_{0} = 0$. Các vector của $V$ được tương ứng một-một với $a_{n}$ -- đây là một song ánh.
+    \par Nếu $\text{Char}(\mathbb{F}) = p$ thì $a_{n + p} = a_{n}$, mâu thuẫn với song ánh. Do đó $\text{Char}(\mathbb{F}) = 0$.
+    \par $a_{m}$ là một phần tử khác không và khác đơn vị, phần tử đối của đơn vị ($m > 0$). Như vậy $a_{m}$ khả nghịch. Giả sử phần tử khả nghịch là $a_{k}$.
+    \par Nếu $a_{k}a_{m} = a_{km} = 1 \Leftrightarrow km = 1 \Leftrightarrow k = m = 1 \vee k = m = -1$, mâu thuẫn với phép chọn $a_{m}$.
+    \par Vậy giả sử phản chứng là sai.
+    \par Do đó ta kết luận $\mathbb{Z}\not\cong (V, \mathbb{F}), \forall V, \mathbb{F}$.
 \end{proof}
 
 \end{document}
