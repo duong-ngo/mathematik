@@ -6,6 +6,7 @@
 \RequirePackage{import}
 \RequirePackage[subpreambles=true]{standalone}
 \RequirePackage[utf8]{vietnam}
+\RequirePackage[left=3cm,right=3cm]{geometry}
 
 \RequirePackage{amsmath}
 \RequirePackage{amsfonts}

@@ -167,4 +167,210 @@
     \end{enumerate}
 \end{proof}
 
+\begin{exercise}Chứng minh rằng hai hệ vector sau đây là các cơ sở của $\mathbb{C}_{3}$. Tìm ma trận chuyển từ cơ sở thứ nhất sang cơ sở thứ hai:
+    \par $e_{1} = (1, 2, 1), e_{2} = (2, 3, 3), e_{3} = (3, 7, 1)$;
+    \par $e'_{1} = (3, 1, 4), e'_{2} = (5, 2, 1), e'_{3} = (1, 1, -6)$.
+\end{exercise}
+
+\begin{proof}Xét ràng buộc tuyến tính $x_{1}e_{1} + x_{2}e_{2} + x_{3}e_{3} = (0, 0, 0)$.
+    \begin{align*}
+        &\begin{cases}
+            1x_{1} + 2x_{2} + 3x_{3} = 0 \\
+            2x_{1} + 3x_{2} + 7x_{3} = 0 \\
+            1x_{1} + 3x_{2} + 1x_{3} = 0
+        \end{cases} \\
+        \Leftrightarrow\quad&
+        \begin{cases}
+            1x_{1} + 2x_{2} + 3x_{3} = 0 \\
+            0x_{1} + (-1)x_{2} + 1x_{3} = 0 \\
+            0x_{1} + 1x_{2} + (-2)x_{3} = 0
+        \end{cases} \\
+        \Leftrightarrow\quad&
+        \begin{cases}
+            1x_{1} + 2x_{2} + 3x_{3} = 0 \\
+            0x_{1} + (-1)x_{2} + 1x_{3} = 0 \\
+            0x_{1} + 0x_{2} + (-1)x_{3} = 0
+        \end{cases}
+    \end{align*}
+    \par Hệ phương trình trên chỉ có nghiệm tầm thường $(x_{1}, x_{2}, x_{3}) = (0, 0, 0)$ do đó hệ $e_{1}, e_{2}, e_{3}$ độc lập tuyến tính và cực đại (vì $\dim\mathbb{C}_{3} = 3$) nên hệ này cũng là một cơ sở của $\mathbb{C}_{3}$.
+
+    \bigskip
+    \par Xét ràng buộc tuyến tính $x_{1}e'_{1} + x_{2}e'_{2} + x_{3}e'_{3} = (0, 0, 0)$.
+    \begin{align*}
+        &\begin{cases}
+            3x_{1} + 5x_{2} + 1x_{3} = 0 \\
+            1x_{1} + 2x_{2} + 1x_{3} = 0 \\
+            4x_{1} + 1x_{2} + (-6)x_{3} = 0
+        \end{cases} \\
+        \Leftrightarrow\quad&
+        \begin{cases}
+            3x_{1} + 5x_{2} + 1x_{3} = 0 \\
+            0x_{1} + 1x_{2} + 2x_{3} = 0 \\
+            0x_{1} + (-6)x_{2} + (-8)x_{3} = 0
+        \end{cases} \\
+        \Leftrightarrow\quad&
+        \begin{cases}
+            3x_{1} + 5x_{2} + 1x_{3} = 0 \\
+            0x_{1} + 1x_{2} + 2x_{3} = 0 \\
+            0x_{1} + 0x_{2} + 4x_{3} = 0
+        \end{cases}
+    \end{align*}
+    \par Hệ phương trình trên chỉ có nghiệm tầm thường $(x_{1}, x_{2}, x_{3}) = (0, 0, 0)$ do đó hệ $e_{1}, e_{2}, e_{3}$ độc lập tuyến tính và cực đại (vì $\dim\mathbb{C}_{3} = 3$) nên hệ này cũng là một cơ sở của $\mathbb{C}_{3}$.
+
+    \par $(e_{1}, e_{2}, e_{3})$ là một cơ sở của $\mathbb{C}_{3}$ nên vector $(a_{1}, a_{2}, a_{3})$ biểu thị tuyến tính được duy nhất theo cơ sở này.
+    \par Bằng việc giải hệ phương trình sau:
+    \[
+        \begin{cases}
+            1x_{1} + 2x_{2} + 3x_{3} = a_{1} \\
+            2x_{1} + 3x_{2} + 7x_{3} = a_{2} \\
+            1x_{1} + 3x_{2} + 1x_{3} = a_{3}
+        \end{cases}
+    \]
+    \par ta thu được nghiệm:
+    \[
+        (x_{1}, x_{2}, x_{3}) = (-18a_{1} + 7a_{2} + 5a_{3}, 5a_{1} - 2a_{2} - a_{3}, 3a_{1} - a_{2} - a_{3})
+    \]
+    \par Thay số, ta biểu diễn được $(e'_{1}, e'_{2}, e'_{3})$ qua $(e_{1}, e_{2}, e_{3})$ như sau:
+    \[
+        \begin{cases}
+            e'_{1} = (-27)e_{1} + 9e_{2} + 4e_{3} \\
+            e'_{2} = (-71)e_{1} + 20e_{2} + 12e_{3} \\
+            e'_{3} = (-41)e_{1} + 9e_{2} + 8e_{3}
+        \end{cases}
+    \]
+    \par Như vậy, ma trận chuyển cơ sở $(e_{1}, e_{2}, e_{3}) \rightarrow (e'_{1}, e'_{2}, e'_{3})$ là:
+    \[
+        \begin{pmatrix}
+            -27 & 9 & 4 \\
+            -71 & 20 & 12 \\
+            -41 & 9 & 8
+        \end{pmatrix}
+    \]
+\end{proof}
+
+\begin{exercise}Chứng minh rằng hai hệ vector sau đây là các cơ sở của $\mathbb{C}_{4}$. Tìm mối liên hệ giữa tọa độ của cùng một vector trong hai cơ sở đó:
+    \par $e_{1} = (1, 1, 1, 1), e_{2} = (1, 2, 1, 1), e_{3} = (1, 1, 2, 1), e_{4} = (1, 3, 2, 3)$;
+    \par $e'_{1} = (1, 0, 3, 3), e'_{2} = (2, 3, 5, 4), e'_{3} = (2, 2, 5, 4), e'_{4} = (2, 3, 4, 4)$.
+\end{exercise}
+
+\begin{proof}Xét ràng buộc tuyến tính $x_{1}e_{1} + x_{2}e_{2} + x_{3}e_{3} + x_{4}e_{4} = (0,0,0,0)$.
+    \begin{align*}
+        &\begin{cases}
+            1x_{1} + 1x_{2} + 1x_{3} + 1x_{4} = 0 \\
+            1x_{1} + 2x_{2} + 1x_{3} + 3x_{4} = 0 \\
+            1x_{1} + 1x_{2} + 2x_{3} + 2x_{4} = 0 \\
+            1x_{1} + 1x_{2} + 1x_{3} + 3x_{4} = 0
+        \end{cases} \\
+        \Leftrightarrow\quad&
+        \begin{cases}
+            1x_{1} + 1x_{2} + 1x_{3} + 1x_{4} = 0 \\
+            0x_{1} + 1x_{2} + 0x_{3} + 2x_{4} = 0 \\
+            0x_{1} + 0x_{2} + 1x_{3} + 1x_{4} = 0 \\
+            0x_{1} + 0x_{2} + 0x_{3} + 2x_{4} = 0
+        \end{cases}
+    \end{align*}
+
+    \par Hệ phương trình trên chỉ có nghiệm tầm thường $(x_{1}, x_{2}, x_{3}, x_{4}) = (0, 0, 0, 0)$.
+    \par Do đó hệ vector $e_{1}, e_{2}, e_{3}, e_{4}$ độc lập tuyến tính.
+    \par Số chiều của không gian vector $\mathbb{C}_{4}$ bằng 4 nên hệ vector $e_{1}, e_{2}, e_{3}, e_{4}$ độc lập tuyến tính cực đại, nên cũng là cơ sở của $\mathbb{C}_{4}$.
+
+    \bigskip
+    \par Xét ràng buộc tuyến tính $x_{1}e'_{1} + x_{2}e'_{2} + x_{3}e'_{3} + x_{4}e'_{4} = (0,0,0,0)$.
+    \begin{align*}
+        &\begin{cases}
+            1x_{1} + 2x_{2} + 2x_{3} + 2x_{4} = 0 \\
+            0x_{1} + 3x_{2} + 2x_{3} + 3x_{4} = 0 \\
+            3x_{1} + 5x_{2} + 5x_{3} + 4x_{4} = 0 \\
+            3x_{1} + 4x_{2} + 4x_{3} + 4x_{4} = 0
+        \end{cases} \\
+        \Leftrightarrow\quad&
+        \begin{cases}
+            1x_{1} + 2x_{2} + 2x_{3} + 2x_{4} = 0 \\
+            0x_{1} + 3x_{2} + 2x_{3} + 3x_{4} = 0 \\
+            0x_{1} + (-1)x_{2} + (-1)x_{3} + (-2)x_{4} = 0 \\
+            0x_{1} + (-2)x_{2} + (-2)x_{3} + (-2)x_{4} = 0
+        \end{cases} \\
+        \Leftrightarrow\quad&
+        \begin{cases}
+            1x_{1} + 2x_{2} + 2x_{3} + 2x_{4} = 0 \\
+            0x_{1} + 3x_{2} + 2x_{3} + 3x_{4} = 0 \\
+            0x_{1} + 0x_{2} + (-1)x_{3} + (-3)x_{4} = 0 \\
+            0x_{1} + 0x_{2} + 0x_{3} + 2x_{4} = 0
+        \end{cases}
+    \end{align*}
+
+    \par Hệ phương trình trên chỉ có nghiệm tầm thường $(x_{1}, x_{2}, x_{3}, x_{4}) = (0, 0, 0, 0)$.
+    \par Do đó hệ vector $e'_{1}, e'_{2}, e'_{3}, e'_{4}$ độc lập tuyến tính.
+    \par Số chiều của không gian vector $\mathbb{C}_{4}$ bằng 4 nên hệ vector $e'_{1}, e'_{2}, e'_{3}, e'_{4}$ độc lập tuyến tính cực đại, nên cũng là cơ sở của $\mathbb{C}_{4}$.
+
+    \bigskip
+    \par Từ việc giải các hệ phương trình tuyến tính, ta được:
+    \[
+        \begin{cases}
+            e'_{1} = 1e_{1} + (-3)e_{2} + 1e_{3} + 1e_{4} \\
+            e'_{2} = 0e_{1} + (-1)e_{2} + 2e_{3} + 1e_{4} \\
+            e'_{3} = 1e_{1} + (-2)e_{2} + 2e_{3} + 1e_{4} \\
+            e'_{4} = 1e_{1} + (-1)e_{2} + 1e_{3} + 1e_{4}
+        \end{cases}
+    \]
+    \[
+        \begin{cases}
+            e_{1} = (-1)e'_{1} + (-2)e'_{2} + 2e'_{3} + 1e'_{4} \\
+            e_{2} = (-1)e'_{1} + 0e'_{2} + 0e'_{3} + 1e'_{4} \\
+            e_{3} = 1e'_{1} + (-1)e'_{2} + 2e'_{3} + 0e'_{4} \\
+            e_{4} = 1e'_{1} + 2e'_{2} + (-3)e'_{3} + 1e'_{4} \\
+        \end{cases}
+    \]
+
+    \par Với một vector bất kỳ $\alpha = (a_{1}, a_{2}, a_{3}, a_{4})$:
+
+    \begin{align*}
+        \alpha &= (a_{1} - a_{2} - a_{3} + a_{4})e_{1} + (a_{2} - a_{4})e_{2} + \left(\frac{1}{2}a_{1} + a_{3} - \frac{1}{2}a_{4} \right)e_{3} + \left(\frac{1}{2}a_{4} - \frac{1}{2}a_{1}\right)e_{4} \\
+        \alpha &= (-2a_{1} + a_{4})e'_{1} + \left(\frac{-9}{2}a_{1} + a_{2} + a_{3} + \frac{1}{2}a_{4}\right)e_{2} + \left(\frac{9}{2}a_{1} - a_{2} - \frac{3}{2}a_{4}\right)e'_{3} + \left(\frac{3}{2}a_{1} - a_{3} + \frac{1}{2}a_{4}\right)e'_{4} \\
+    \end{align*}
+\end{proof}
+
+\begin{exercise}Xét xem các tập hợp hàm số thực sau đây có lập thành không gian vector đối với các phép toán thông thường hay không? Nếu có, hãy tìm số chiều của các không gian đó.
+    \begin{enumerate}[label*= (\alph*),itemsep=0pt]
+        \item Tập $\mathbb{R}[X]$ các đa thức của một ẩn $X$.
+        \item Tập $C^{\infty}(\mathbb{R})$ các hàm thực khả vi vô hạn trên $\mathbb{R}$.
+        \item Tập $C^{0}(\mathbb{R})$ các hàm thực liên tục trên $\mathbb{R}$.
+        \item Tập các hàm thực bị chặn trên $\mathbb{R}$.
+        \item Tập các hàm $f: \mathbb{R}\rightarrow\mathbb{R}$ sao cho $\sup_{x\in\mathbb{R}}|f(x)| \le 1$.
+        \item Tập các hàm $f: \mathbb{R}\rightarrow\mathbb{R}$ thỏa mãn điều kiện $f(0) = 0$.
+        \item Tập các hàm $f: \mathbb{R}\rightarrow\mathbb{R}$ thỏa mãn điều kiện $f(0) = -1$.
+        \item Tập các hàm thực đơn điệu trên $\mathbb{R}$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label*= (\alph*),itemsep=0pt]
+        \item $\mathbb{R}[X]$ là một không gian vector trên $\mathbb{R}$.
+            \par Xét hệ vector $(1, X, X^{2}, \ldots , X^{n})$
+            \par Hệ này là độc lập tuyến tính vì $\displaystyle\sum^{n}_{k=0}a_{k}X^{k} = 0$ khi và chỉ khi $a_{k} = 0, \forall k\in\{0, 1, \ldots, n\}$
+            \par Với $n$ tự nhiên, bất kỳ thì hệ $(1, X, X^{2}, \ldots, X^{n})$ độc lập tuyến tính.
+            \par Giả sử $\mathbb{R}[X]$ hữu hạn sinh, $\dim\mathbb{R}[X] = m, m\in\mathbb{N}$.
+            \par Mà hệ vector $(1, X, X^{2}, \ldots, X^{m})$ độc lập tuyến tính, gồm $m + 1$ phần tử. Điều này mâu thuẫn.
+            \par Do đó $\dim\mathbb{R}[X] = \infty$.
+        \item $C^{\infty}(\mathbb{R})$ là một không gian vector trên $\mathbb{R}$.
+            \par $C^{\infty}(\mathbb{R})\supset\mathbb{R}[X]$ nên $\dim C^{\infty}(\mathbb{R}) = \infty$.
+        \item $C^{0}(\mathbb{R})$ là một không gian vector trên $\mathbb{R}$.
+            \par $C^{0}(\mathbb{R})\supset\mathbb{R}[X]$ nên $\dim C^{0}(\mathbb{R}) = \infty$.
+        \item Tập các hàm thực bị chặn trên $\mathbb{R}$ là một không gian vector.
+            \par Xét dãy hàm $f_{n} = \cos (nx)$. Từng hàm này đều bị chặn. Cụ thể là $|f_{n}(x)| \le 1$.
+            \par $f_{n}(x)$ là một đa thức bậc $n$ với biến $\cos x$.
+            \par Bằng quy nạp theo $n$, ta chứng minh được hệ $(f_{0}, f_{1}, \ldots, f_{n})$ độc lập tuyến tính.
+            \par Như vậy không gian vector các hàm thực bị chặn trên $\mathbb{R}$ có số chiều là $\infty$.
+        \item Tập các hàm này không lập thành không gian vector. Lấy ví dụ:
+            \par $f(x) = \cos x \Rightarrow 2f(x) = 2\cos x$. Mà $\sup_{x\in\mathbb{R}}|2\cos x| = 2$. Tức là phép nhân vector với số thực không đóng trên tập này.
+        \item Tập các hàm $f: \mathbb{R}\rightarrow\mathbb{R}$ thỏa mãn điều kiện $f(0) = 0$ tạo thành một không gian vector trên $\mathbb{R}$.
+            \par Hệ $(X, X^{2}, \ldots, X^{n})$ độc lập tuyến tính với mọi $n\in\mathbb{N}$
+            \par Do đó không gian vector này có số chiều là $\infty$.
+        \item Tập các hàm $f: \mathbb{R}\rightarrow\mathbb{R}$ thỏa mãn điều kiện $f(0) = -1$ không tạo thành không gian vector trên $\mathbb{R}$.
+            \par Lấy ví dụ, $f(x) = -\cos (x)\Rightarrow g(x) = 2f(x) = -2\cos (x)\Rightarrow g(0) = -2$.
+        \item Tập các hàm thực đơn điệu trên $\mathbb{R}$ không tạo thành một không gian vector trên $\mathbb{R}$.
+            \par Lấy ví dụ, $f(x) = x^{3}, g(x) = -3x$, hàm $f(x) + g(x) = x^{3} - 3x$ không phải hàm đơn điệu trên $\mathbb{R}$.
+    \end{enumerate}
+\end{proof}
+
 \end{document}
