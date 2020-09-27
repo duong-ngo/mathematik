@@ -373,4 +373,231 @@
     \end{enumerate}
 \end{proof}
 
+\begin{exercise}Định nghĩa hai phép toán cộng và nhân với vô hướng trên tập hợp
+    \[ V = \{ (x, y)\in\mathbb{R}\times\mathbb{R}\mid y > 0 \} \]
+    \par như sau:
+    \begin{align*}
+        (x, y) + (u, v) &= (x + u, yv) \\
+                a(x, y) &= (ax, y^{a})
+    \end{align*}
+    \par Xét xem $V$ có là một không gian vector thực đối với hai phép toán đó không. Nếu có, hãy tìm một cơ sở của không gian ấy.
+\end{exercise}
+
+\begin{proof}Đầu tiên, $V$ đóng với hai phép toán đã được định nghĩa. Bây giờ ta kiểm tra 8 tiên đề:
+    \begin{enumerate}[label = (V\arabic*)]
+        \item
+            \begin{align*}
+                ((x_{1}, y_{1}) + (x_{2}, y_{2})) + (x_{3}, y_{3}) &= (x_{1} + x_{2}, y_{1}y_{2}) + (x_{3}, y_{3}) \\
+                                                                   &= ((x_{1} + x_{2}) + x_{3}, (y_{1}y_{2})y_{3}) \\
+                                                                   &= (x_{1} + (x_{2} + x_{3}), y_{1}(y_{1}y_{3})) \\
+                                                                   &= (x_{1}, y_{1}) + (x_{2} + x_{3}, y_{2}y_{3}) \\
+                                                                   &= (x_{1}, y_{1}) + ((x_{2}, y_{2}) + (x_{3}, y_{3}))
+            \end{align*}
+        \item Phần tử trung lập là $(0, 1)$.
+            \begin{align*}
+                (x, y) + (0, 1) &= (x + 0, y) = (x, y) \\
+                (0, 1) + (x, y) &= (0 + x, y) = (x, y)
+            \end{align*}
+        \item
+            \begin{align*}
+                (x, y) + (-x, y^{-1}) &= (x + (-x), yy^{-1}) = (0, 1) \\
+                (-x, y^{-1}) + (x, y) &= (-x + x, y^{-1}y) = (0, 1)
+            \end{align*}
+        \item
+            \begin{align*}
+                (x_{1}, y_{1}) + (x_{2}, y_{2}) &= (x_{1} + x_{2}, y_{1}y_{2}) \\
+                                                &= (x_{2} + x_{1}, y_{2}y_{1}) \\
+                                                &= (x_{2}, y_{2}) + (x_{1}, y_{1})
+            \end{align*}
+        \item
+            \begin{align*}
+                (a + b)(x, y) &= ((a + b)x, y^{a + b}) \\
+                              &= (ax + bx, y^{a}y^{b}) \\
+                              &= (ax, y^{a}) + (bx, y^{b}) \\
+                              &= a(x, y) + b(x, y)
+            \end{align*}
+        \item
+            \begin{align*}
+                a((x_{1}, y_{1}) + (x_{2}, y_{2})) &= a(x_{1} + x_{2}, y_{1}y_{2}) \\
+                                                   &= (a(x_{1} + x_{2}), y^{a}_{1}y^{a}_{2}) \\
+                                                   &= (ax_{1} + ax_{2}, y^{a}_{1}y^{a}_{2}) \\
+                                                   &= (ax_{1}, y^{a}_{1}) + (ax_{2}, y^{a}_{2}) \\
+                                                   &= a(x_{1},y_{1}) + a(x_{2}, y_{2})
+            \end{align*}
+        \item
+            \begin{align*}
+                a(b(x, y)) &= a(bx, y^{b}) \\
+                           &= (a(bx), (y^{b}){}^{a}) \\
+                           &= ((ab)x, y^{ab}) \\
+                           &= ab(x, y)
+            \end{align*}
+        \item
+            \begin{align*}
+                1(x, y) &= (1x, y^{1}) = (x, y)
+            \end{align*}
+    \end{enumerate}
+    \par Như vậy, $V$ là một không gian vector thực.
+
+    \begin{align*}
+        (x, y) &= (x, 1) + (0, y) \\
+               &= (x, 1^{x}) + (0, e^{\ln y}) \\
+               &= x(1, 1) + \ln y (0, e)
+    \end{align*}
+    \par Xét hệ vector $((1, 1), (0, e))$ và ràng buộc tuyến tính $a(1, 1) + b(0, e) = (0, 1)$
+    \begin{align*}
+        &a(1, 1) + b(0, e) = (0, 1) \\
+        \Leftrightarrow\quad&(a, 1) + (0, e^{b}) = (0, 1) \\
+        \Leftrightarrow\quad&(a, e^{b}) = (0, 1) \\
+        \Leftrightarrow\quad&
+        \begin{cases}
+            a = 0 \\
+            e^{b} = 1
+        \end{cases}\Leftrightarrow a = b = 0
+    \end{align*}
+    \par Như vậy, $((1, 1), (0, e))$ là một hệ sinh độc lập tuyến tính của $V$, do đó đây cũng là một cơ sở của $V$.
+\end{proof}
+
+\begin{exercise}Ma trận chuyển từ một cơ sở sang một cơ sở khác thay đổi thế nào nếu:
+    \begin{enumerate}[label = (\alph*),itemsep=0pt]
+        \item Đổi chỗ hai vector trong cơ sở thứ nhất?
+        \item Đổi chỗ hai vector trong cơ sở thứ hai?
+        \item Đổi các vector trong mỗi cơ sở theo thứ tự ngược lại?
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}Lấy hai cơ sở $(\alpha_{1},\ldots, \alpha_{n})$, $(\beta_{1},\ldots,\beta_{n})$.
+    \par Ta xét ma trận chuyển cơ sở $(c_{ij}){}_{n\times n}$ chuyển từ cơ sở thứ nhất sang cơ sở thứ hai.
+    \[
+        \beta_{j} = \sum^{n}_{i=1}c_{ij}\alpha_{i}
+    \]
+    \begin{enumerate}[label = (\alph*),itemsep=0pt]
+        \item Đổi chỗ hai vector $\alpha_{i}$ và $\alpha_{j}$ thì hai hàng thứ $i$ và $j$ trong ma trận chuyển cơ sở đổi chỗ.
+        \item Đổi chỗ hai vector $\beta_{i}$ và $\beta_{j}$ thì hai cột thứ $i$ và $j$ trong ma trận chuyển cơ sở đổi chỗ.
+        \item Phép đảo thứ tự vector là hợp thành của nhiều phép đổi chỗ hai vector. Như vậy, khi đảo các vector $\alpha_{i}$ theo thứ tự ngược lại thì thứ tự các vector hàng ngược lại. Sau khi đảo tiếp các vector $\beta_{i}$ theo thứ tự ngược lại thì thứ tự các vector cột ngược lại.
+            \par Cụ thể hơn, $(c_{ij}){}_{n\times n} \mapsto (d_{ij}){}_{n\times n}$ thì:
+            \[ d_{ij} = c_{(n+1-i)(n+1-j)} \]
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}Chứng minh rằng hai hệ vector $(1, X, X^{2}, \ldots, X^{n})$ và $(1, (X - a), (X - a){}^{2}, \ldots, (X - a){}^{n})$, trong đó $a$ là một số thực, là các cơ sở của không gian $\mathbb{R}[X]{}_{n}$ các đa thức hệ số thực với bậc không vượt quá $n$. Tìm ma trận chuyển từ cơ sở thứ nhất sang cơ sở thứ hai.
+\end{exercise}
+
+\begin{proof}Lấy một đa thức có bậc không quá $n$:
+    \[ P(X) = a_{0} + a_{1}X + a_{2}X^{2} + \cdots + a_{n}X^{n} \]
+    \par Rõ ràng $P(X)$ biểu thị tuyến tính được theo hệ vector $(1, X, X^{2}, \ldots, X^{n})$.
+    \par Giả sử $P(X) = b_{0} + b_{1}X + b_{2}X^{2} + \cdots + b_{n}X^{n}$.
+    \par Đồng nhất hai đa thức, ta được $a_{i} = b_{i}, \forall i\in\{0, 1, \ldots, n\}$. Như vậy $P(X)$ biểu thị tuyến tính được theo hệ vector $(1, X, X^{2}, \ldots, X^{n})$ theo cách duy nhất. Do đó hệ này là một cơ sở và $\dim_{\mathbb{R}}\mathbb{R}[X]{}_{n} = n + 1$.
+
+    \par Nếu $a = 0$ thì hệ vector $(1, (X - a), (X - a){}^{2}, \ldots, (X - a){}^{n})$ trở thành hệ $(1, X, X^{2}, \ldots, X^{n})$, đây là một cơ sở.
+    \par Do đó ta chỉ xem xét trường hợp $a\ne 0$.
+    \par Ta xét ràng buộc tuyến tính $\displaystyle\sum^{n}_{k=0}x_{k}(X-a){}^{k} = 0$
+    \par Khai triển ràng buộc trên bằng khai triển Newton, hệ số của hạng tử $X^{k}$ bằng:
+    \[ \sum^{n}_{i=k}x_{i}\binom{i}{i-k}(-a){}^{i-k} \]
+    \par Từ ràng buộc tuyến tính và khai triển trên, ta đồng nhất hệ số và thu được hệ phương trình tuyến tính thuần nhất (theo thứ tự, đồng nhất các hệ số của $X^{n}, X^{n-1}, \ldots, X, 1$):
+    \[
+        \begin{cases}
+            x_{n}\dbinom{n}{0} = 0 \\
+            x_{n}\dbinom{n}{1}(-a){}^{1} + x_{n-1}\dbinom{n-1}{0}(-a){}^{0} = 0 \\
+            x_{n}\dbinom{n}{2}(-a){}^{2} + x_{n-1}\dbinom{n-1}{1}(-a){}^{1} + x_{n-2}\dbinom{n-2}{0}(-a){}^{0} = 0 \\
+            \vdots \\
+            x_{n}\dbinom{n}{k}(-a){}^{k} + x_{n-1}\dbinom{n-1}{k-1}(-a){}^{k-1} + \cdots + x_{n-k}\dbinom{n-k}{0}(-a){}^{0} = 0 \\
+            \vdots \\
+            x_{n}\dbinom{n}{n}(-a){}^{n} + x_{n-1}\dbinom{n-1}{n-1}(-a){}^{n-1} + \cdots + x_{0}\dbinom{0}{0}(-a){}^{0} = 0
+        \end{cases}
+    \]
+    \par Giải phương trình trên, thay vào phương trình dưới, ta thu được nghiệm duy nhất của hệ là $(x_{n}, x_{n-1},\ldots, x_{0}) = (0,0,\ldots, 0)$.
+    \par Như vậy $x_{n} = x_{n-1} = \cdots = x_{1} = x_{0} = 0$ nên hệ vector $(1, (X - a), (X - a){}^{2}, \ldots, (X - a){}^{n})$ độc lập tuyến tính.
+    \par Không gian vector $\mathbb{R}[X]{}_{n}$ hữu hạn sinh nên $(1, (X-a), (X-a){}^{2},\ldots, (X-a){}^{n})$ cũng là một cơ sở của $\mathbb{R}[X]{}_{n}$.
+
+    \bigskip
+    \par Bằng khai triển Newton, ta thu được ma trận chuyển cơ sở từ $(1, X, X^{2}, \ldots, X^{n})$ sang $(1, (X-a), (X-a){}^{2}, \ldots, (X-a){}^{n})$ là:
+    \[
+        \begin{pmatrix}
+            1 & \binom{1}{1}(-a) & \binom{2}{2}(-a){}^{2} & \cdots & \binom{n}{n}(-a){}^{n} \\
+            0 & 1 & \binom{2}{1}(-a){}^{1} & \cdots & \binom{n}{n-1}(-a){}^{n-1} \\
+            0 & 0 & 1 & \cdots & \binom{n}{n-2}(-a){}^{n-2} \\
+            \vdots & \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & 0 & \cdots & 1
+        \end{pmatrix}
+    \]
+    \par Các yếu tố của ma trận $(c_{ij}){}_{(n+1)\times(n+1)}$, trong đó, $0\le i, j \le n$ này có thể được xác định nhanh chóng như sau:
+    \[
+        \begin{cases}
+            c_{ij} = \dbinom{j}{i}(-a){}^{j - i}&,\quad\text{if $i\le j$}\\
+            c_{ij} = 0&,\quad\text{if $i > j$}
+        \end{cases}
+    \]
+\end{proof}
+
+\begin{exercise}Tìm các tọa độ của đa thức $f(X) = a_{0} + a_{1}X + \cdots + a_{n}X^{n}$ đối với hai cơ sở nói trên.
+\end{exercise}
+
+\begin{proof}Tọa độ của $f(X)$ đối với cơ sở $(1, X, \ldots, X^{n})$ là:
+    \[ (a_{0}, a_{1}, \ldots, a_{n}) \]
+    \par Theo bài toán trên, $(1, (X - a), (X - a){}^{2}, \ldots, (X - a){}^{n})$ cũng là một cơ sở của không gian vector $\mathbb{R}[X]{}_{n}$.
+    \par Từng vector trong cơ sở thứ nhất có thể biểu thị tuyến tính duy nhất theo cơ sở thứ hai.
+    \[
+        \begin{cases}
+            1 &= 1 \\
+            X &= a + (X-a) \\
+            X^{2} &= a^{2} + 2a(X-a) + (X-a){}^{2} \\
+            X^{3} &= a^{3} + 3a^{2}(X-a) + 3a(X-a){}^{2} + (X-a){}^{3} \\
+            &\vdots \\
+            X^{n} &= a^{n} + \binom{n}{1}a^{n-1}(X-a) + \binom{n}{2}a^{n-2}(X-a){}^{2} + \cdots + \binom{n}{n-1}(X-a){}^{n-1} + (X-a){}^{n}
+        \end{cases}
+    \]
+    \par Nhân hai vế của phương trình thứ $k$ với $a_{k}$, rồi cộng vế theo vế, ta thu được
+    \[
+        f(X) = \sum^{n}_{k=0}b_{k}(X-a){}^{k}
+    \]
+    \par trong đó:
+    \[
+        b_{k} = \sum^{n}_{i=k}a_{i}\binom{k+i}{i}a^{i}
+    \]
+\end{proof}
+
+\begin{exercise}Cho không gian vector con $L$ của không gian $\mathbb{R}[X]$ các đa thức hệ số thực. Chứng minh rằng nếu $L$ chứa ít nhất một đa thức bậc $k$ với mọi $k = 0, 1,\ldots, n$, nhưng không chứa đa thức nào với bậc lớn hơn $n$ thì $L$ chính là không gian con $\mathbb{R}[X]{}_{n}$ tất cả các đa thức bậc không vượt quá $n$.
+\end{exercise}
+
+\begin{proof}Đặt các đa thức bậc $0, 1, 2,\ldots, n$ trong $L$ lần lượt là:
+    \[
+        \begin{cases}
+            f_{0}(X) = a_{00} \\
+            f_{1}(X) = a_{10} + a_{11}X \\
+            f_{2}(X) = a_{20} + a_{21}X + a_{22}X^{2} \\
+            \vdots \\
+            f_{k}(X) = a_{k0} + a_{k1}X + a_{k2}X^{2} + \cdots + a_{k(k-1)}X^{k-1} + a_{kk}X^{k} \\
+            \vdots \\
+            f_{n}(X) = a_{n0} + a_{n1}X + a_{n2}X^{2} + \cdots + a_{n(n-1)}X^{n-1} + a_{nn}X^{n}
+        \end{cases}
+    \]
+    \par trong đó, $a_{ii}\ne 0, \forall i\in\{0, 1, 2,\ldots, n\}$
+    \par Ta sẽ chứng minh $X^{k}$ có thể biểu thị tuyến tính được theo hệ vector $(f_{0}(X), f_{1}(X), \ldots, f_{n}(X))$, với mọi $k\in\{0,1,\ldots, n\}$. Cụ thể hơn, ta chứng minh điều này bằng quy nạp.
+    \[ X^{0} = 1 = a^{-1}_{00}a_{00} = a^{-1}_{00}f_{0}(X) \]
+    \par Giả sử điều trên đúng từ $0$ đến $k-1$, với $k-1 < n$.
+    \begin{align*}
+        &f_{k}(X) = a_{k0} + a_{k1}X + a_{k2}X^{2} + \cdots + a_{k(k-1)}X^{k-1} + a_{kk}X^{k} \\
+        \Rightarrow\quad&X^{k} = a^{-1}_{kk}(f_{k}(X) - a_{k0} - a_{k1}X - a_{k2}X^{2} - \cdots a_{k(k-1)}X^{k-1})
+    \end{align*}
+    \par Theo giả thiết quy nạp, các đa thức $1, X, \ldots, X^{k-1}$ biểu thị tuyến tính được theo $f_{0}(X)$, $f_{1}(X)$, $\ldots$, $f_{n}(X)$ nên đẳng thức trên cho thấy giả thiết vẫn đúng với $k$.
+    \par Như vậy, hệ $(1, X, \ldots, X^{n})$ biểu thị tuyến tính được theo $(f_{0}(X), f_{1}(X), \ldots, f_{n}(X))$.
+    \par Xét một đa thức bất kỳ với bậc không quá $n$:
+        \[ f(X) = a_{0} + a_{1}X + a_{2}X^{2} + \cdots + a_{n}X^{n} \]
+    \par Hiển nhiên $f(X)$ biểu thị tuyến tính được theo $(1, X, \ldots, X^{n})$. Quan hệ \textit{biểu thị tuyến tính} có tính bắc cầu nên $f(X)$ cũng biểu thị tuyến tính được theo $(f_{0}(X), f_{1}(X), \ldots, f_{n}(X))$.
+    \par Do đó $\mathcal{L}(\{f_{0}(X), f_{1}(X),\ldots, f_{n}(X)\}) = \mathbb{R}[X]{}_{n}$.
+    \par $L$ không chứa đa thức nào có bậc lớn hơn $n$, cùng với điều trên, ta kết luận $L = \mathbb{R}[X]{}_{n}$.
+\end{proof}
+
+\begin{exercise}Chứng minh rằng tập hợp các vector $(x_{1}, x_{2}, \ldots, x_{n})\in\mathbb{R}_{n}$ thỏa mãn hệ thức $x_{1} + 2x_{2} + \cdots + nx_{n} = 0$ là một không gian vector con của $\mathbb{R}_{n}$. Tìm số chiều và một cơ sở của không gian vector con đó.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}Tìm tất cả các $\mathbb{F}_{2}$-không gian vector con một và hai chiều của $\mathbb{F}^{3}_{2}$. Giải bài toán tương tự đối với không gian $\mathbb{F}^{3}_{p}$, trong đó $p$ là một số nguyên tố.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
 \end{document}
