@@ -92,7 +92,53 @@
     \[ px = \underbrace{x + x + \cdots + x}_{p} = 0,\quad \forall x\in A. \]
 \end{exercise}
 
-\begin{proof}
+\begin{proof}Một nhóm abel $A$ với phép cộng đã thỏa mãn 4 tiên đề đầu tiên của không gian vector.
+    \par($\Rightarrow$) $A$ là một không gian vector trên trường $\mathbb{F}_{p}$.
+        \[ \underbrace{x + x + \cdots + x}_{p} = \underbrace{1x + 1x + \cdots + 1x}_{p} = \underbrace{(1 + 1 + \cdots + 1)}_{p}x = 0x = 0 \]
+    \par($\Leftarrow$) $\underbrace{x + x + \cdots + x}_{p} = 0$
+    \par Ta định nghĩa phép nhân $nx$ với $x\in A, n\in\mathbb{Z}$ như sau:
+    \[
+        nx =
+        \begin{cases}
+            \underbrace{x + x + \cdots + x}_{n}, & n > 0 \\
+            0, & n = 0 \\
+            \underbrace{(-x) + (-x) + \cdots + (-x)}_{-n}, & n < 0
+        \end{cases}
+    \]
+    \par Cùng với điều kiện $\underbrace{x + \cdots + x}_{p} = 0$, ta suy ra $nx = (n\bmod{p})x$
+    \par Ta kiểm tra 4 tiên đề còn lại:
+    \begin{enumerate}[label= (V\arabic*)]
+        \setcounter{enumi}{4}
+        \item $(a + b)x$
+            \par Nếu $a > 0, b > 0$:
+            \[ (a + b)x = \underbrace{x + x + \cdots + x}_{a+b} = \underbrace{x + \cdots + x}_{a} + \underbrace{x + \cdots + x}_{b} = ax + bx \]
+            \par Nếu $a < 0, b < 0$:
+            \[ (a + b)x = \underbrace{(-x) + \cdots + (-x)}_{-a-b} = \underbrace{(-x) + \cdots + (-x)}_{-a} + \underbrace{(-x) + \cdots + (-x)}_{-b} = ax + bx \]
+            \par Nếu $a = 0$ hoặc $b = 0$
+            \[ (a + b)x = ax + bx \]
+            \par Nếu $a > 0, b < 0$ và $a + b > 0$
+            \[ (a + b)x = \underbrace{x + \cdots + x}_{a+b} = \underbrace{x + \cdots + x}_{a} + \underbrace{(-x) + \cdots + (-x)}_{-b} = ax + bx \]
+            \par Nếu $a > 0, b < 0$ và $a + b < 0$
+            \[ (a + b)x = \underbrace{(-x) + \cdots + (-x)}_{-a-b} = \underbrace{x + \cdots + x}_{a} + \underbrace{(-x) + \cdots + (-x)}_{b} = ax + bx \]
+            \par Nếu $a > 0, b < 0$ và $a + b = 0$
+            \[ (a + b)x = 0 = \underbrace{(x + \cdots + x)}_{a} + \underbrace{(-x) + \cdots + (-x)}_{-b} = ax + bx \]
+            \par Trường hợp $a < 0, b > 0$ được chứng minh tương tự.
+        \item $a(x + y)$
+            \par Nếu $a = 0$:
+            \[ a(x + y) = 0 = 0 + 0 = 0x + 0y = ax + ay \]
+            \par Nếu $a > 0$:
+            \[ a(x + y) = \underbrace{(x+y)+\cdots+(x+y)}_{a} = \underbrace{x + \cdots + x}_{a} + \underbrace{y + \cdots + y}_{a} = ax + ay \]
+            \par Nếu $a < 0$:
+            \[ a(x + y) = \underbrace{(-x-y)+\cdots+(-x-y)}_{-a} = \underbrace{(-x) + \cdots + (-x)}_{-a} + \underbrace{(-y) + \cdots + (-y)}_{-a} = ax + ay \]
+        \item $(ab)x$
+            \par Nếu $a = 0$ hoặc $b = 0$:
+            \[ (ab)x = 0 = a(bx) \]
+            \par Nếu $a > 0, b > 0$:
+            \[ (ab)x = \underbrace{x + \cdots + x}_{ab} = \underbrace{\underbrace{(x + \cdots + x)}_{b} + \cdots + \underbrace{(x + \cdots + x)}_{b}}_{a} = a(bx) \]
+            \par Các trường hợp còn lại được quy về $a\ge 0, b\ge 0$ vì $nx = (n\bmod p)x$.
+        \item $1x = x$
+    \end{enumerate}
+    \par Do đó $A$ là một không gian vector trên trường $\mathbb{F}_{p}$.
 \end{proof}
 
 \begin{exercise}Xét xem các vector sau đây độc lập hay phụ thuộc tuyến tính trong $\mathbb{R}_{4}$:
@@ -591,10 +637,75 @@
 \begin{exercise}Chứng minh rằng tập hợp các vector $(x_{1}, x_{2}, \ldots, x_{n})\in\mathbb{R}_{n}$ thỏa mãn hệ thức $x_{1} + 2x_{2} + \cdots + nx_{n} = 0$ là một không gian vector con của $\mathbb{R}_{n}$. Tìm số chiều và một cơ sở của không gian vector con đó.
 \end{exercise}
 
-\begin{proof}
+\begin{proof}Ta chứng minh bài toán tổng quát hơn: \textit{tập hợp $U$ các vector $(x_{1}, x_{2}, \ldots, x_{n})\in\mathbb{R}_{n}$ thỏa mãn hệ thức $\displaystyle\sum^{n}_{i=1}a_{i}x_{i} = 0$ là một không gian vector con của $\mathbb{R}_{n}$}.
+    \par $\mathbf{x} = (x_{1}, x_{2}, \ldots, x_{n}), \mathbf{y} = (y_{1}, y_{2}, \ldots, y_{n})$.
+    \par $\mathbf{x} + \mathbf{y} = (x_{1} + y_{1}, x_{2} + y_{2}, \ldots, x_{n} + y_{n})$.
+    \par $\displaystyle\sum^{n}_{i=0}a_{i}(x_{i} + y_{i}) = \displaystyle\sum^{n}_{i=0}a_{i}x_{i} + \displaystyle\sum^{n}_{i=0}a_{i}y_{i} = 0 + 0 = 0$.
+    \par $\displaystyle\sum^{n}_{i=0}a_{i}(ax_{i}) = a\displaystyle\sum^{n}_{i=0}a_{i}x_{i} = a\cdot 0 = 0$.
+    \par Do đó $U$ là một không gian vector con của $\mathbb{R}_{n}$.
+    \par Xét không gian con $W = \mathcal{L}(\{(a_{1},\ldots, a_{n})\})$. $\dim W = 1$.
+    \par $\mathbf{x} = (x_{1}, \ldots, x_{n}) \in \mathbb{R}_{n}$.
+        \[
+            \underbrace{(x_{1},\ldots, x_{n})}_{\in\mathbb{R}_{n}} = \underbrace{\left(x_{1} - \frac{a_{1}\sum^{n}_{i=1} a_{i}x_{i}}{\sum^{n}_{i=1} a^{2}_{i}},\ldots, x_{n} - \frac{a_{n}\sum^{n}_{i=1}a_{i}x_{i}}{\sum^{n}_{i=1}a^{2}_{i}}\right)}_{\in U} + \underbrace{\frac{\sum^{n}_{i=1}a_{i}x_{i}}{\sum^{n}_{i=1}a^{2}_{i}}(a_{1},\ldots,a_{n})}_{\in W}
+        \]
+    \par Do đó $\mathbb{R}_{n} = U + W$. Mà $U\cap W = \{ (0,\ldots, 0) \}$ nên $\mathbb{R}_{n} = U\oplus W$.
+    \par $\dim\mathbb{R}_{n} = \dim U + \dim W \Rightarrow \dim U = n - \dim W$.
+    \par Nếu $(a_{1},\ldots, a_{n}) = (0,\ldots,0)$ thì $\dim W = 0 \Rightarrow \dim U = n$.
+    \par Lúc này một cơ sở của $U$ là cơ sở của $\mathbb{R}_{n}$.
+    \par Còn nếu $(a_{1},\ldots, a_{n}) \ne (0,\ldots,0)$ thì $\dim W = 1\Rightarrow \dim U = n - 1$.
+    \par Không mất tính tổng quát, giả sử $a_{1}\ne 0$, xét hệ vector sau:
+    \[
+        \begin{cases}
+            (-a_{2}, a_{1}, 0, \ldots, 0) \\
+            (-a_{3}, 0, a_{1}, \ldots, 0) \\
+            \ddots \\
+            (-a_{n}, 0, 0, \ldots, a_{1})
+        \end{cases}
+    \]
+    \par Xét biểu thị tuyến tính:
+        \[ b_{2}(-a_{2}, a_{1}, 0, \ldots, 0) + b_{3}(-a_{3}, 0, a_{1}, \ldots, 0) + \cdots + b_{n}(-a_{n}, 0, 0, \ldots, a_{1}) = (0,0,0,\ldots, 0) \]
+    \par Đồng nhất các yếu tố, ta suy ra $b_{2}a_{1} = b_{3}a_{1} = \cdots = b_{n}a_{1} = 0$ nên $b_{2} = b_{3} = \cdots = b_{n}$ nên hệ vector trên độc lập tuyến tính. Số vector trong hệ này bằng $n - 1$, bằng số chiều của $U$ nên đây là một cơ sở của $U$.
 \end{proof}
 
 \begin{exercise}Tìm tất cả các $\mathbb{F}_{2}$-không gian vector con một và hai chiều của $\mathbb{F}^{3}_{2}$. Giải bài toán tương tự đối với không gian $\mathbb{F}^{3}_{p}$, trong đó $p$ là một số nguyên tố.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}Chứng minh rằng các ma trận vuông đối xứng cỡ $n$ với các yếu tố trong trường $\mathbb{F}$ lập thành một không gian vector con của $M(n\times n,\mathbb{F})$. Tìm số chiều và một cơ sở của $\mathbb{F}$-không gian vector con đó.
+\end{exercise}
+
+\begin{proof}$P = (p_{ij}){}_{n\times n}, Q = (q_{ij}){}_{n\times n}$ là hai ma trận đối xứng.
+    \par $P + Q = (p_{ij} + q_{ij}){}_{n\times n}$.
+    \par Vì $p_{ij} = p_{ji}, q_{ij} = q_{ji}$ nên $p_{ij} + q_{ij} = p_{ji} + q_{ji}$, do đó $P + Q$ cũng là ma trận đối xứng.
+    \par $aP = (ap_{ij}){}_{n\times n}$.
+    \par Vì $p_{ij} = p_{ji}$ nên $ap_{ij} = ap_{ji}$, do đó $aP$ cũng là ma trận đối xứng.
+    \par Như vậy tập hợp các ma trận đối xứng cỡ $n$ với các yếu tố trong trường $\mathbb{F}$ là một không gian vector con của $M(n\times n,\mathbb{F})$.
+    \par Đặt $S_{ij}$ là ma trận vuông cỡ $n$ sao cho yếu tố hàng $i$, cột $j$ và yếu tố hàng $j$, cột $i$ bằng $1$, các yếu tố còn lại bằng $0$.
+    \par $P = \displaystyle\sum_{1\le i\le j \le n}p_{ij}S_{ij}$.
+    \par Xét biểu thị tuyến tính $0 = \displaystyle\sum_{1\le i\le j\le n}s_{ij}S_{ij}$.
+    \[
+        \Rightarrow
+        \begin{pmatrix}
+            0 & 0 & \cdots & 0 \\
+            0 & 0 & \cdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \cdots & 0
+        \end{pmatrix} =
+        \begin{pmatrix}
+            s_{11} & s_{12} & \cdots & s_{1n} \\
+            s_{12} & s_{22} & \cdots & s_{2n} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            s_{1n} & s_{2n} & \cdots & s_{nn}
+        \end{pmatrix}
+    \]
+    \par Đồng nhất các yếu tố, ta suy ra $s_{ij} = 0,\forall i, j$, tức là hệ $\{S_{ij}\}$ độc lập tuyến tính.
+    \par $P$ luôn biểu thị tuyến tính được theo hệ độc lập tuyến tính $\{S_{ij}\}$ nên đây chính là một cơ sở.
+    \par Số chiều của không gian vector các ma trận vuông đối xứng cỡ $n$ là $\dfrac{n(n + 1)}{2} = \dbinom{n+1}{2}$.
+\end{proof}
+
+\begin{exercise}Chứng minh rằng các ma trận vuông phản đối xứng cỡ $n$ lập thành một không gian vector con của $M(n\times n,\mathbb{F})$. Tìm số chiều và một cơ sở của $\mathbb{F}$-không gian vector con đó.
 \end{exercise}
 
 \begin{proof}
