@@ -683,7 +683,7 @@
     \par Vì $p_{ij} = p_{ji}$ nên $ap_{ij} = ap_{ji}$, do đó $aP$ cũng là ma trận đối xứng.
     \par Như vậy tập hợp các ma trận đối xứng cỡ $n$ với các yếu tố trong trường $\mathbb{F}$ là một không gian vector con của $M(n\times n,\mathbb{F})$.
     \par Đặt $S_{ij}$ là ma trận vuông cỡ $n$ sao cho yếu tố hàng $i$, cột $j$ và yếu tố hàng $j$, cột $i$ bằng $1$, các yếu tố còn lại bằng $0$.
-    \par $P = \displaystyle\sum_{1\le i\le j \le n}p_{ij}S_{ij}$.
+        \[ P = \displaystyle\sum_{1\le i\le j \le n}p_{ij}S_{ij} \]
     \par Xét biểu thị tuyến tính $0 = \displaystyle\sum_{1\le i\le j\le n}s_{ij}S_{ij}$.
     \[
         \Rightarrow
@@ -700,15 +700,123 @@
             s_{1n} & s_{2n} & \cdots & s_{nn}
         \end{pmatrix}
     \]
-    \par Đồng nhất các yếu tố, ta suy ra $s_{ij} = 0,\forall i, j$, tức là hệ $\{S_{ij}\}$ độc lập tuyến tính.
-    \par $P$ luôn biểu thị tuyến tính được theo hệ độc lập tuyến tính $\{S_{ij}\}$ nên đây chính là một cơ sở.
+    \par Đồng nhất các yếu tố, ta suy ra $s_{ij} = 0,\forall i, j$, tức là hệ $\{S_{ij}\}{}_{1\le i \le j \le n}$ độc lập tuyến tính.
+    \par $P$ luôn biểu thị tuyến tính được theo hệ độc lập tuyến tính $\{S_{ij}\}{}_{1\le i \le j \le n}$ nên đây chính là một cơ sở.
     \par Số chiều của không gian vector các ma trận vuông đối xứng cỡ $n$ là $\dfrac{n(n + 1)}{2} = \dbinom{n+1}{2}$.
 \end{proof}
 
 \begin{exercise}Chứng minh rằng các ma trận vuông phản đối xứng cỡ $n$ lập thành một không gian vector con của $M(n\times n,\mathbb{F})$. Tìm số chiều và một cơ sở của $\mathbb{F}$-không gian vector con đó.
 \end{exercise}
 
-\begin{proof}
+\begin{proof}$P = (p_{ij}){}_{n\times n}$ và $Q = (q_{ij}){}_{n\times n}$ là hai ma trận phản đối xứng.
+    \par $P + Q = (p_{ij} + q_{ij}){}_{n\times n}$.
+    \par Vì $p_{ij} + p_{ji} = 0$, $q_{ij} + q_{ji} = 0$ nên $(p_{ij} + q_{ij}) + (p_{ji} + q_{ji}) = 0$. Do đó $P + Q$ cũng là ma trận phản đối xứng.
+    \par $aP = (ap_{ij}){}_{n\times n}$.
+    \par Vì $p_{ij} + p_{ji} = 0$ nên $ap_{ij} + ap_{ji} = 0$. Do đó $aP$ cũng là ma trận phản đối xứng.
+    \par Vậy các ma trận phản đối xứng lập thành một không gian vector con của $M(n\times n,\mathbb{F})$.
+    \par Để tìm số chiều và cơ sở của không gian vector con này, chúng ta chia làm hai trường hợp.
+    \begin{enumerate}
+        \item $\text{Char}(\mathbb{F})\ne 2$
+            \par $P$ là ma trận phản đối xứng nên $p_{ii} + p_{ii} = 0$. Mà đặc số của $\mathbb{F}$ khác $2$ nên $p_{ii} = 0$.
+            \par Đặt $A_{ij}$ là ma trận vuông cỡ $n$ mà yếu tố hàng $i$, cột $j$ bằng $1$, yếu tố hàng $j$, cột $i$ bằng $-1$, các yếu tố còn lại bằng $0$.
+                \[ P = \sum_{1\le i < j \le n}p_{ij}A_{ij} \]
+            \par Xét biểu thị tuyến tính $0 = \displaystyle\sum_{1\le i < j\le n}a_{ij}A_{ij}$
+            \[
+                \Rightarrow
+                \begin{pmatrix}
+                    0 & 0 & \cdots & 0 \\
+                    0 & 0 & \cdots & 0 \\
+                    \vdots & \vdots & \ddots & \vdots \\
+                    0 & 0 & \cdots & 0
+                \end{pmatrix} =
+                \begin{pmatrix}
+                    0 & a_{12} & \cdots & a_{1n} \\
+                    -a_{12} & 0 & \cdots & a_{2n} \\
+                    \vdots & \vdots & \ddots & \vdots \\
+                    -a_{1n} & -a_{2n} & \cdots & 0
+                \end{pmatrix}
+            \]
+            \par Đồng nhất hệ số, ta được $a_{ij} = 0$. Do đó hệ vector $\{ A_{ij} \}{}_{1\le i < j \le n}$ độc lập tuyến tính.
+            \par Mọi ma trận phản đối xứng $P$ biểu thị tuyến tính được qua hệ độc lập tuyến tính $\{ A_{ij} \}{}_{1\le i < j \le n}$ nên $\{ A_{ij} \}{}_{1\le i < j \le n}$ là một cơ sở.
+            \par Vậy số chiều của không gian vector các ma trận phản đối xứng là $\dfrac{n(n-1)}{2} = \dbinom{n}{2}$, cơ sở là hệ các vector $\{ A_{ij} \}{}_{1\le i < j \le n}$.
+        \item $\text{Char}(\mathbb{F}) = 2$
+            \par Đặc số của $\mathbb{F}$ bằng $2$ nên $p_{ii} + p_{ii} = 0, \forall p_{ii}$.
+            \par Đặt $A_{ij} (1\le i < j\le n)$ là ma trận vuông cỡ $n$ mà yếu tố hàng $i$, cột $j$ bằng $1$, yếu tố hàng $j$, cột $i$ bằng $-1$, các yếu tố còn lại bằng $0$. $A_{ii}$ là ma trận vuông cỡ $n$, yếu tố hàng $i$, cột $i$ bằng $1$, các yếu tố còn lại bằng $0$.
+                \[ P = \sum^{n}_{i=1}p_{ii}A_{ii} + \sum_{1\le i < j \le n}p_{ij}A_{ij} \]
+            \par Xét biểu thị tuyến tính $0 = \sum^{n}_{i=1}a_{ii}A_{ii} + \sum^{1\le i < j \le n}a_{ij}A_{ij}$
+            \[
+                \Rightarrow
+                \begin{pmatrix}
+                    0 & 0 & \cdots & 0 \\
+                    0 & 0 & \cdots & 0 \\
+                    \vdots & \vdots & \ddots & \vdots \\
+                    0 & 0 & \cdots & 0
+                \end{pmatrix} =
+                \begin{pmatrix}
+                    a_{11} & a_{12} & \cdots & a_{1n} \\
+                    -a_{12} & a_{22} & \cdots & a_{2n} \\
+                    \vdots & \vdots & \ddots & \vdots \\
+                    -a_{1n} & -a_{2n} & \cdots & a_{nn}
+                \end{pmatrix}
+            \]
+            \par Đồng nhất hệ số, ta được $a_{ij} = 0, \forall 1\le i\le j\le n$. Do đó hệ vector $\{ A_{ij} \}{}_{1\le i \le j \le n}$ độc lập tuyến tính.
+            \par Mọi ma trận phản đối xứng $P$ đều biểu thị tuyến tính được qua hệ độc lập tuyến tính $\{ A_{ij} \}{}_{1\le i \le j \le n}$ nên $\{ A_{ij} \}{}_{1\le i \le j\le n}$ là một cơ sở
+            \par Vậy số chiều của không gian vector các ma trận phản đối xứng là $\dfrac{n(n + 1)}{2} = \dbinom{n+1}{2}$.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}Giả sử $V_{1}\subset V_{2}$ là các không gian vector con của $V$. Chứng minh rằng $\dim V_{1} \le \dim V_{2}$, đẳng thức xảy ra khi và chỉ khi $V_{1} = V_{2}$. Khẳng định ``đẳng thức xảy ra khi và chỉ khi $V_{1} = V_{2}$'' có còn đúng không nếu $V_{1}$ và $V_{2}$ là các không gian vector con bất kì của $V$?
+\end{exercise}
+
+\begin{proof}$V_{1}\subset V_{2}$ thì mọi hệ độc lập tuyến tính trong $V_{1}$ cũng độc lập tuyến tính trong $V_{2}$.
+    \par Như vậy, cơ sở của $V_{1}$ cũng độc lập tuyến tính trong $V_{2}$.
+    \par Nếu cơ sở của $V_{1}$ là độc lập tuyến tính cực đại trong $V_{2}$ thì $V_{1}$ và $V_{2}$ có cùng cơ sở, do đó $V_{1} = V_{2}$ và $\dim V_{1} = \dim V_{2}$.
+    \par Nếu cơ sở của $V_{1}$ chưa phải độc lập tuyến tính cực đại trong $V_{2}$ thì $\dim V_{1} < \dim V_{2}$.
+    \par Lập luận trên cho thấy $\dim V_{1} \le \dim V_{2}$, đẳng thức xảy ra khi và chỉ khi $V_{1} = V_{2}$.
+    \par Khẳng định ``đẳng thức xảy ra khi và chỉ khi $V_{1} = V_{2}$'' nói chung không đúng. Ví dụ:
+    \par Trên trường số thực, hai không gian vector con của $\mathbb{R}_{2}$ là $\mathcal{L}(\{ (1,0) \})$ và $\mathcal{L}(\{ (0,1) \})$ đều có số chiều bằng $1$ nhưng hai không gian này lại không bằng nhau.
+\end{proof}
+
+\begin{exercise}Giả sử $V_{1}, V_{2}$ là các không gian vector con của $V$. Chứng minh rằng nếu $\dim V_{1} + \dim V_{2} > \dim V$ thì $V_{1}\cap V_{2}$ chứa ít nhất một vector khác không.
+\end{exercise}
+
+\begin{proof}Giả sử phản chứng, $V_{1}\cap V_{2} = \{ 0 \}$.
+    \par Suy ra $V_{1} + V_{2} = V_{1}\oplus V_{2}$.
+    \par Thế nhưng $V_{1}\oplus V_{2}$ là một không gian vector con của $V$ nên $\dim V_{1} + \dim V_{2} = \dim V_{1}\oplus V_{2} \le \dim V$.
+    \par Điều này mâu thuẫn với giả thiết.
+    \par Do đó $V_{1}\cap V_{2} \supsetneq \{ 0 \}$.
+\end{proof}
+
+\begin{exercise}Với giả thiết như bài tập trước, chứng minh rằng nếu $\dim(V_{1} + V_{2}) = \dim(V_{1}\cap V_{2}) + 1$ thì $V_{1} + V_{2}$ trùng với một trong hai không gian con đã cho, còn $V_{1}\cap V_{2}$ trùng với không gian con còn lại.
+\end{exercise}
+
+\begin{proof}Đặt $(\alpha_{1}, \ldots, \alpha_{r})$ là một cơ sở của $V_{1}\cap V_{2}$.
+    \par Ta bổ sung vào cơ sở trên để thu được cơ sở của $V_{1}$ là $(\alpha_{1}, \ldots, \alpha_{r}, \beta_{1}, \ldots, \beta_{s})$, cơ sở của $V_{2}$ là $(\alpha_{1}, \ldots, \alpha_{r}, \gamma_{1}, \ldots, \gamma_{t})$.
+    \par Ta sẽ chỉ ra $(\alpha_{1}, \ldots, \alpha_{r}, \beta_{1},\ldots,\beta_{s},\gamma_{1},\ldots,\gamma_{t})$ là một cơ sở của $V_{1} + V_{2}$.
+    \par Lấy vector $v \in V_{1} + V_{2}$. Theo định nghĩa tổng của hai không gian vector, $v$ có thể viết dưới dạng $v_{1} + v_{2}$.
+    \par Ta biểu thị $v_{1}, v_{2}$ theo các cơ sở của $V_{1}, V_{2}$:
+    \begin{align*}
+        \Rightarrow v &= v_{1} + v_{2} = (a_{11}\alpha_{1} + \cdots + a_{1r}\alpha_{r})  + (b_{1}\beta_{1} + \cdots + b_{s}\beta_{s}) \\
+                      &+ (a_{21}\alpha_{1} + \cdots + a_{2r}\alpha_{r}) + (c_{1}\gamma_{1} + \cdots + c_{t}\gamma_{t}) \\
+                      &= (a_{11} + a_{21})\alpha_{1} + \cdots + (a_{1r} + a_{2r})\alpha_{r} + (b_{1}\beta_{1} + \cdots + b_{s}\beta_{s}) + (c_{1}\gamma_{1} + \cdots + c_{t}\gamma_{t})
+    \end{align*}
+    \par Như vậy, $v$ biểu thị tuyến tính được qua hệ $(\alpha_{1},\ldots,\alpha_{r},\beta_{1},\ldots,\beta_{s},\gamma_{1},\ldots,\gamma_{t})$.
+    \par Xét biểu thị tuyến tính sau:
+        \[ 0 = (a_{1}\alpha_{1} + \cdots + \alpha_{r}\alpha_{r}) + (b_{1}\beta_{1} + \cdots + b_{s}\beta_{s}) + (c_{1}\gamma_{1} + \cdots + c_{t}\gamma_{t}) \]
+    \par $c_{1}\gamma_{1} + \cdots + c_{t}\gamma_{t}$ biểu thị tuyến tính được qua cơ sở của $V_{1}$, tức là $c_{1}\gamma_{1} + \cdots + c_{t}\gamma_{t} \in V_{1}$. Mà $c_{1}\gamma_{1} + \cdots + c_{t}\gamma_{t} \in V_{2}$ nên $c_{1}\gamma_{1} + \cdots + c_{t}\gamma_{t} \in V_{1} \cap V_{2}$. Do đó tồn tại biểu thị tuyến tính:
+        \[ c_{1}\gamma_{1} + \cdots + c_{t}\gamma_{t} = d_{1}\alpha_{1} + \cdots + d_{r}\alpha_{r} \]
+    \par Mà hệ $(\alpha_{1},\ldots,\alpha_{r},\gamma_{1},\ldots,\gamma_{t})$ độc lập tuyến tính nên $c_{1}, \ldots, c_{t}, d_{1}, \ldots, d_{r}$ đồng thời bằng không. Thay vào biểu thị tuyến tính trên, ta được:
+        \[ 0 = a_{1}\alpha_{1} + \cdots + \alpha_{r}\alpha_{r} + b_{1}\beta_{1} + \cdots + b_{s}\beta_{s} \]
+    \par Mà hệ $(\alpha_{1},\ldots,\alpha_{r},\beta_{1},\ldots,\beta_{s})$ là cơ sở của $V_{1}$ nên $a_{1}, \ldots, a_{r}, b_{1}, \ldots, b_{s}$ đồng thời bằng không. Do đó $(\alpha_{1}, \ldots, \alpha_{r}, \beta_{1}, \ldots, \beta_{s}, \gamma_{1}, \ldots, \gamma_{t})$ là một hệ độc lập tuyến tính của $V_{1} + V_{2}$.
+    \par Mà $v\in V_{1} + V_{2}$ biểu thị tuyến tính được theo hệ này nên hệ này là một cơ sở của $V_{1} + V_{2}$.
+    \begin{align*}
+        \dim (V_{1} + V_{2}) &= \dim(V_{1}\cap V_{2}) + 1 \\
+        \Leftrightarrow r + s + t &= r + 1 \\
+        \Leftrightarrow s + t &= 1
+    \end{align*}
+    \par $s, t$ là các số nguyên không âm nên $s = 1, t = 0$ hoặc $s = 0, t = 1$.
+    \par $s = 1, t = 0$ thì $V_{2} = V_{1}\cap V_{2}, V_{1} = V_{1} + V_{2}$.
+    \par $s = 0, t = 1$ thì $V_{1} = V_{1}\cap V_{2}, V_{2} = V_{1} + V_{2}$.
 \end{proof}
 
 \end{document}
