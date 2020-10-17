@@ -48,3 +48,5 @@
 
 \theoremstyle{definition}
 \newtheorem{exercise}{Bài}
+\theoremstyle{plain}
+\newtheorem{lemma}{Bổ đề}
