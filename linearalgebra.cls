@@ -6,7 +6,7 @@
 \RequirePackage{import}
 \RequirePackage[subpreambles=true]{standalone}
 \RequirePackage[utf8]{vietnam}
-\RequirePackage[left=3cm,right=3cm]{geometry}
+\RequirePackage[left=2cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
 
 \RequirePackage{amsmath}
 \RequirePackage{amsfonts}
@@ -50,3 +50,15 @@
 \newtheorem{exercise}{Bài}
 \theoremstyle{plain}
 \newtheorem{lemma}{Bổ đề}
+\newenvironment{sqcases}{%
+  \matrix@check\sqcases\env@sqcases
+}{%
+  \endarray\right.%
+}
+\def\env@sqcases{%
+  \let\@ifnextchar\new@ifnextchar
+  \left\lbrack{}
+  \def\arraystretch{1.2}%
+  \array{@{}l@{\quad}l@{}}%
+}
+\newcommand{\rank}{\text{rank}}

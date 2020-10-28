@@ -1,8 +1,8 @@
 \documentclass[class=linearalgebra,crop=false]{standalone}
 
-\setcounter{exercise}{0}
-
 \begin{document}
+
+\setcounter{exercise}{0}
 
 \chapter{Không gian vector}
 
@@ -949,6 +949,14 @@ $\alpha_{1} = (1,1,1,1)$, $\alpha_{2} = (1,3,1,3)$, $\alpha_{3} = (1,2,0,2)$, $\
     \par Như vậy, $\text{rank}(\alpha_{1},\alpha_{2},\alpha_{3},\alpha_{4},\alpha_{5}) = 3$.
 \end{proof}
 
+
+\begin{lemma}
+    $V$ là một không gian vector.
+    \par $\alpha_{1},\ldots,\alpha_{n},\beta_{1},\ldots,\beta_{n}\in V$.
+    \par $A = \text{span}(\alpha_{1},\ldots,\alpha_{r})$, $B = \text{span}(\beta_{1},\ldots,\beta_{s})$.
+    \par Khi đó $A + B = \text{span}(\alpha_{1},\ldots,\alpha_{r},\beta_{1},\ldots,\beta_{s})$.
+\end{lemma}
+
 \par Tìm một cơ sở của tổng và một cơ sở của giao của các không gian vector con sinh bởi các hệ vector $\alpha_{1},\ldots,\alpha_{k}$ và $\beta_{1},\ldots,\beta_{\ell}$ sau đây:
 
 \begin{exercise}$\alpha_{1} = (1,2,1), \alpha_{2} = (1,1,-1), \alpha_{3} = (1,3,3)$,
@@ -1008,7 +1016,7 @@ $\alpha_{1} = (1,1,1,1)$, $\alpha_{2} = (1,3,1,3)$, $\alpha_{3} = (1,2,0,2)$, $\
     \par Tương tự phương pháp tính hạng của hệ vector, ta tính được
         \[ \text{rank}((2,3,-1),(1,2,1),(0,1,5),(0,-1,-2)) = 3. \]
     \par Vậy $\dim (A + B) = 3 = \dim\mathbb{C}_{3}$ nên một cơ sở của $A + B$ là $(1,0,0), (0,1,0), (0,0,1)$.
-    \par Ta tìm $A\cap B$. Một vector thuộc $A\cap B$ biểu thị tuyến tính được theo $A$ hoặc $B$. Xét ràng buộc sau
+    \par Ta tìm $A\cap B$. Một vector thuộc $A\cap B$ biểu thị tuyến tính được theo $\alpha_{1}, \alpha_{2}, \alpha_{3}$ và $\beta_{1}, \beta_{2}, \beta_{3}$. Xét ràng buộc sau
         \[ a_{1}(1,2,1) + a_{2}(0,-1,-2) = b_{1}(2,3,-1) + b_{2}(0,1,5) \]
     \par Giải ra ta được
         \[
@@ -1026,6 +1034,206 @@ $\alpha_{1} = (1,1,1,1)$, $\alpha_{2} = (1,3,1,3)$, $\alpha_{3} = (1,2,0,2)$, $\
 \end{exercise}
 
 \begin{proof}[Lời giải]$A = \text{span}(\alpha_{1},\alpha_{2},\alpha_{3})$, $B = \text{span}(\beta_{1},\beta_{2},\beta_{3})$.
+    \begin{align*}
+        \begin{bmatrix}
+            \alpha_{1} \\
+            \alpha_{2} \\
+            \alpha_{3}
+        \end{bmatrix}=
+        \begin{pmatrix}
+            1 & 2 & 1 & -2 \\
+            2 & 3 & 1 & 0 \\
+            1 & 2 & 2 & -3
+        \end{pmatrix}
+        \Longrightarrow
+        \begin{bmatrix}
+            \alpha_{1} \\
+            \alpha_{2} - 2\alpha_{1} \\
+            \alpha_{3} - \alpha_{1}
+        \end{bmatrix}=
+        \begin{pmatrix}
+            1 & 2 & 1 & -2 \\
+            0 & -1 & -1 & 4 \\
+            0 & 0 & 1 & -1
+        \end{pmatrix}
+    \end{align*}
+    \par $\Rightarrow\text{rank}(\alpha_{1}, \alpha_{2}, \alpha_{3}) = 3$.
+    \begin{align*}
+        \begin{bmatrix}
+            \beta_{1} \\
+            \beta_{2} \\
+            \beta_{3}
+        \end{bmatrix}=
+        \begin{pmatrix}
+            1 & 1 & 1 & 1 \\
+            1 & 0 & 1 & -1 \\
+            1 & 3 & 0 & -4
+        \end{pmatrix}
+        \Longrightarrow
+        \begin{bmatrix}
+            \beta_{1} \\
+            \beta_{2} - \beta_{1} \\
+            \beta_{3} + 2\beta_{2} - 3\beta_{1}
+        \end{bmatrix}=
+        \begin{pmatrix}
+            1 & 1 & 1 & 1 \\
+            0 & -1 & 0 & -2 \\
+            0 & 0 & -1 & -9
+        \end{pmatrix}
+    \end{align*}
+    \par $\Rightarrow\text{rank}(\beta_{1}, \beta_{2}, \beta_{3}) = 3$.
+    \par $(\alpha_{1}, \alpha_{2}, \alpha_{3})$ là một cơ sở của $A$. $(\beta_{1}, \beta_{2}, \beta_{3})$ là một cơ sở của $B$.
+    \begin{align*}
+        &\begin{bmatrix}
+            \alpha_{1} \\
+            \beta_{1} \\
+            \alpha_{2} \\
+            \beta_{2} \\
+            \alpha_{3} \\
+            \beta_{3}
+        \end{bmatrix}=
+        \begin{pmatrix}
+            1 & 2 & 1 & -2 \\
+            1 & 1 & 1 & 1 \\
+            2 & 3 & 1 & 0 \\
+            1 & 0 & 1 & -1 \\
+            1 & 2 & 2 & -3 \\
+            1 & 3 & 0 & -4
+        \end{pmatrix}
+        \Longrightarrow
+        \begin{bmatrix}
+            \alpha_{1} \\
+            \beta_{1} \\
+            \alpha_{2} - 2\alpha_{1} \\
+            \beta_{2} - \beta_{1} \\
+            \alpha_{3} - \alpha_{1} \\
+            \beta_{3} + 2\beta_{2} - 3\beta_{1}
+        \end{bmatrix}=
+        \begin{pmatrix}
+            1 & 2 & 1 & -2 \\
+            1 & 1 & 1 & 1 \\
+            0 & -1 & -1 & 4 \\
+            0 & -1 & 0 & -2 \\
+            0 & 0 & 1 & -1 \\
+            0 & 0 & -1 & -9
+        \end{pmatrix} \\
+        \Longrightarrow&
+        \begin{bmatrix}
+            \alpha_{1} \\
+            \beta_{1} - \alpha_{1} \\
+            \alpha_{2} - 2\alpha_{1} \\
+            \beta_{2} - \beta_{1} - \alpha_{2} + 2\alpha_{1} \\
+            \alpha_{3} - \alpha_{1} \\
+            \beta_{3} + 2\beta_{2} - 3\beta_{1} - \alpha_{3} + \alpha_{1}
+        \end{bmatrix}=
+        \begin{pmatrix}
+            1 & 2 & 1 & -2 \\
+            0 & -1 & 0 & 3 \\
+            0 & -1 & -1 & 4 \\
+            0 & 0 & 1 & -6 \\
+            0 & 0 & 1 & -1 \\
+            0 & 0 & 0 & -10
+        \end{pmatrix} \\
+        \Longrightarrow&
+        \begin{bmatrix}
+            \alpha_{1} \\
+            \beta_{1} - \alpha_{1} \\
+            \alpha_{2} - \beta_{1} - \alpha_{1} \\
+            \beta_{2} - \beta_{1} - \alpha_{2} + 2\alpha_{1} \\
+            \alpha_{3} + \alpha_{2} - 3\alpha_{1} + \beta_{1} - \beta_{2} \\
+            \beta_{3} + 2\beta_{2} - 3\beta_{1} - \alpha_{3} + \alpha_{1}
+        \end{bmatrix}=
+        \begin{pmatrix}
+            1 & 2 & 1 & -2 \\
+            0 & -1 & 0 & 3 \\
+            0 & 0 & -1 & 1 \\
+            0 & 0 & 1 & -6 \\
+            0 & 0 & 0 & 5 \\
+            0 & 0 & 0 & -10
+        \end{pmatrix} \\
+        \Longrightarrow&
+        \begin{bmatrix}
+            \alpha_{1} \\
+            \beta_{1} - \alpha_{1} \\
+            \alpha_{2} - \beta_{1} - \alpha_{1} \\
+            \beta_{2} - 2\beta_{1} + \alpha_{1} \\
+            \alpha_{3} + \alpha_{2} - 3\alpha_{1} + \beta_{1} - \beta_{2} \\
+            \beta_{3} - \beta_{1} + \alpha_{3} + \alpha_{1} + 2\alpha_{2}
+        \end{bmatrix}=
+        \begin{pmatrix}
+            1 & 2 & 1 & -2 \\
+            0 & -1 & 0 & 3 \\
+            0 & 0 & -1 & 1 \\
+            0 & 0 & 0 & -5 \\
+            0 & 0 & 0 & 5 \\
+            0 & 0 & 0 & 0
+        \end{pmatrix} \\
+        \Longrightarrow&
+        \begin{bmatrix}
+            \alpha_{1} \\
+            \beta_{1} - \alpha_{1} \\
+            \alpha_{2} - \beta_{1} - \alpha_{1} \\
+            \beta_{2} - 2\beta_{1} + \alpha_{1} \\
+            \alpha_{3} + \alpha_{2} - 2\alpha_{1} - \beta_{1}  \\
+            \beta_{3} - \beta_{1} + \alpha_{3} + \alpha_{1} + 2\alpha_{2}
+        \end{bmatrix}=
+        \begin{pmatrix}
+            1 & 2 & 1 & -2 \\
+            0 & -1 & 0 & 3 \\
+            0 & 0 & -1 & 1 \\
+            0 & 0 & 0 & -5 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0
+        \end{pmatrix}
+    \end{align*}
+    \par $\Rightarrow\text{rank}(\alpha_{1},\alpha_{2},\alpha_{3},\beta_{1},\beta_{2},\beta_{3}) = 4$.
+    \par Vậy số chiều của $A + B$ là $4$ và một cơ sở của $A + B$ là:
+        \[ (1, 2, 1, -2), (0, -1, 0, 3), (0, 0, -1, 1), (0, 0, 0, -5) \]
+    \par Ta tìm $A\cap B$. Một vector thuộc $A\cap B$ biểu thị tuyến tính được theo $\alpha_{1}, \alpha_{2}, \alpha_{3}$ và $\beta_{1}, \beta_{2}, \beta_{3}$. Xét ràng buộc sau
+        \[ a_{1}\underbrace{(1,2,1,-2)}_{\alpha'_{1}} + a_{2}\underbrace{(0,-1,-1,4)}_{\alpha'_{2}} + a_{3}\underbrace{(0,0,1,-1)}_{\alpha'_{3}} = b_{1}\underbrace{(1,1,1,1)}_{\beta'_{1}} + b_{2}\underbrace{(0,-1,0,-2)}_{\beta'_{2}} + b_{3}\underbrace{(0,0,-1,-9)}_{\beta'_{3}} \]
+    \par Giải ra ta được
+        \begin{align*}
+            &\begin{cases}
+                a_{1} = b_{1} \\
+                2a_{1} - a_{2} = b_{1} - b_{2} \\
+                a_{1} - a_{2} + a_{3} = b_{1} - b_{3} \\
+                -2a_{1} + 4a_{2} - a_{3} = b_{1} - 2b_{2} - 9b_{3}
+            \end{cases}
+            \Longleftrightarrow
+            \begin{cases}
+                a_{1} = b_{1} \\
+                a_{2} = b_{1} + b_{2} \\
+                a_{3} = b_{1} + b_{2} - b_{3} \\
+                a_{3} = b_{1} + 6b_{2} + 9b_{3}
+            \end{cases}
+            \Longleftrightarrow
+            \begin{cases}
+                a_{1} = b_{1} \\
+                a_{2} = b_{1} + b_{2} \\
+                a_{3} = b_{1} + b_{2} - b_{3} \\
+                b_{1} + b_{2} - b_{3} = b_{1} + 6b_{2} + 9b_{3}
+            \end{cases} \\
+            &\Longleftrightarrow\begin{cases}
+                a_{1} = b_{1} \\
+                a_{2} = b_{1} + b_{2} \\
+                a_{3} = b_{1} + b_{2} - b_{3} \\
+                b_{2} + 2b_{3} = 0
+            \end{cases}
+            \Longleftrightarrow
+            \begin{cases}
+                a_{1} = b_{1} \\
+                a_{2} = b_{1} + b_{2} \\
+                a_{3} = b_{1} + \frac{3}{2}b_{2} \\
+                b_{2} + 3b_{3} = 0
+            \end{cases}
+        \end{align*}
+    \par Như vậy,
+    \begin{align*}
+        b_{1}\beta'_{1} + b_{2}\beta'_{2} + b_{3}\beta'_{3}
+        &= b_{1}\beta'_{1} - 3b_{3}\beta'_{2} + b_{3}\beta'_{3} \\
+        &= b_{1}\beta'_{1} + b_{3}(-3\beta'_{2} + \beta'_{3})
+    \end{align*}
+    \par Một cơ sở của $A\cap B$ là $\beta'_{1} = (1,1,1,1), -3\beta'_{2} + \beta'_{3} = (0, 3, -1, -3)$.
 \end{proof}
 
 \begin{exercise}$\alpha_{1} = (1,1,0,0), \alpha_{2} = (0,1,1,0), \alpha_{3} = (0,0,1,1)$,
@@ -1033,6 +1241,258 @@ $\alpha_{1} = (1,1,1,1)$, $\alpha_{2} = (1,3,1,3)$, $\alpha_{3} = (1,2,0,2)$, $\
 \end{exercise}
 
 \begin{proof}[Lời giải]$A = \text{span}(\alpha_{1},\alpha_{2},\alpha_{3})$, $B = \text{span}(\beta_{1},\beta_{2},\beta_{3})$.
+    \par Hệ $\alpha_{1}, \alpha_{2}, \alpha_{3}$ độc lập tuyến tính nên $\text{rank}(\alpha_{1}, \alpha_{2}, \alpha_{3}) = 3$.
+    \begin{align*}
+        \begin{bmatrix}
+            \beta_{1} \\
+            \beta_{2} \\
+            \beta_{3}
+        \end{bmatrix}=
+        \begin{pmatrix}
+            1 & 0 & 1 & 0 \\
+            0 & 2 & 1 & 1 \\
+            1 & 2 & 1 & 2 \\
+        \end{pmatrix}
+        \Longleftarrow
+        \begin{bmatrix}
+            \beta_{1} \\
+            \beta_{2} \\
+            \beta_{3} - \beta_{1} - \beta_{2}
+        \end{bmatrix}=
+        \begin{pmatrix}
+            1 & 0 & 1 & 0 \\
+            0 & 2 & 1 & 1 \\
+            0 & 0 & -1 & 1
+        \end{pmatrix}
+    \end{align*}
+    \par Như vậy, hệ $\beta_{1}, \beta_{2}, \beta_{3}$ độc lập tuyến tính nên $\text{rank}(\beta_{1}, \beta_{2}, \beta_{3}) = 3$.
+    \begin{align*}
+        &\begin{bmatrix}
+            \alpha_{1} \\
+            \beta_{1} \\
+            \alpha_{2} \\
+            \beta_{1} \\
+            \alpha_{3} \\
+            \beta_{3}
+        \end{bmatrix}=
+        \begin{pmatrix}
+            1 & 1 & 0 & 0 \\
+            1 & 0 & 1 & 0 \\
+            0 & 1 & 1 & 0 \\
+            0 & 2 & 1 & 1 \\
+            0 & 0 & 1 & 1 \\
+            1 & 2 & 1 & 2
+        \end{pmatrix}
+        \Longrightarrow
+        \begin{bmatrix}
+            \alpha_{1} \\
+            \beta_{1} \\
+            \alpha_{2} \\
+            \beta_{2} \\
+            \alpha_{3} \\
+            \beta_{3} - \beta_{1} - \beta_{2}
+        \end{bmatrix}=
+        \begin{pmatrix}
+            1 & 1 & 0 & 0 \\
+            1 & 0 & 1 & 0 \\
+            0 & 1 & 1 & 0 \\
+            0 & 2 & 1 & 1 \\
+            0 & 0 & 1 & 1 \\
+            0 & 0 & -1 & 1
+        \end{pmatrix} \\
+        \Longrightarrow&
+        \begin{bmatrix}
+            \alpha_{1} \\
+            \beta_{1} - \alpha_{1} \\
+            \alpha_{2} \\
+            \beta_{2} - 2\alpha_{2} \\
+            \alpha_{3} \\
+            \beta_{3} + \alpha_{3} - \beta_{1} - \beta_{2}
+        \end{bmatrix}=
+        \begin{pmatrix}
+            1 & 1 & 0 & 0 \\
+            0 & -1 & 1 & 0 \\
+            0 & 1 & 1 & 0 \\
+            0 & 0 & -1 & 1 \\
+            0 & 0 & 1 & 1 \\
+            0 & 0 & 0 & 2
+        \end{pmatrix}
+        \Longrightarrow
+        \begin{bmatrix}
+            \alpha_{1} \\
+            \beta_{1} - \alpha_{1} \\
+            \alpha_{2} - \alpha_{1} + \beta_{1} \\
+            \beta_{2} - 2\alpha_{2} \\
+            \alpha_{3} + \beta_{2} - 2\alpha_{2} \\
+            \beta_{3} + \alpha_{3} - \beta_{1} - \beta_{2}
+        \end{bmatrix}=
+        \begin{pmatrix}
+            1 & 1 & 0 & 0 \\
+            0 & -1 & 1 & 0 \\
+            0 & 0 & 2 & 0 \\
+            0 & 0 & -1 & 1 \\
+            0 & 0 & 0 & 2 \\
+            0 & 0 & 0 & 2
+        \end{pmatrix} \\
+        \Longrightarrow&
+        \begin{bmatrix}
+            \alpha_{1} \\
+            \beta_{1} - \alpha_{1} \\
+            \alpha_{2} - \alpha_{1} + \beta_{1} \\
+            2\beta_{2} - 3\alpha_{2} - \alpha_{1} + \beta_{1} \\
+            \alpha_{3} + \beta_{2} - 2\alpha_{2} \\
+            \beta_{3} + \alpha_{3} - \beta_{1} - \beta_{2}
+        \end{bmatrix}=
+        \begin{pmatrix}
+            1 & 1 & 0 & 0 \\
+            0 & -1 & 1 & 0 \\
+            0 & 0 & 2 & 0 \\
+            0 & 0 & 0 & 2 \\
+            0 & 0 & 0 & 2 \\
+            0 & 0 & 0 & 2
+        \end{pmatrix}
+        \Longrightarrow
+        \begin{bmatrix}
+            \alpha_{1} \\
+            \beta_{1} - \alpha_{1} \\
+            \alpha_{2} - \alpha_{1} + \beta_{1} \\
+            2\beta_{2} - 3\alpha_{2} - \alpha_{1} + \beta_{1} \\
+            \alpha_{1} + \alpha_{2} + \alpha_{3} - \beta_{1} - \beta_{2} \\
+            2\alpha_{2} - \beta_{1} - 2\beta_{2} + \beta_{3}
+        \end{bmatrix}=
+        \begin{pmatrix}
+            1 & 1 & 0 & 0 \\
+            0 & -1 & 1 & 0 \\
+            0 & 0 & 2 & 0 \\
+            0 & 0 & 0 & 2 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0
+        \end{pmatrix}
+    \end{align*}
+    \par Một cơ sở của $A + B$ là $(1,1,0,0), (0,-1,1,0), (0,0,2,0), (0,0,0,2)$.
+    \par Một vector của $A\cap B$ biểu thị tuyến tính được theo $\alpha_{1}, \alpha_{2}, \alpha_{3}$ và $\beta_{1}, \beta_{2}, \beta_{3}$. Xét ràng buộc tuyến tính sau
+        \[ a_{1}(1,1,0,0) + a_{2}(0,1,1,0) + a_{3}(0,0,1,1) = b_{1}(1,0,1,0) + b_{2}(0,2,1,1) + b_{3}(0,0,-1,1) \]
+    \par Giải ra ta được
+        \[
+            \begin{cases}
+                a_{1} = b_{1} \\
+                a_{1} + a_{2} = 2b_{2} \\
+                a_{2} + a_{3} = b_{1} + b_{2} - b_{3} \\
+                a_{3} = b_{2} + b_{3}
+            \end{cases}
+            \Longrightarrow
+            \begin{cases}
+                a_{1} = b_{1} \\
+                a_{2} = 2b_{2} - b_{1} \\
+                a_{3} = b_{2} + b_{3} \\
+                a_{3} = 2b_{1} - b_{2} - b_{3}
+            \end{cases}
+            \Longrightarrow
+            b_{1} - b_{2} - b_{3} = 0
+        \]
+        \[
+            \Rightarrow b_{1}(1,0,1,0) + b_{2}(0,2,1,1) + b_{3}(0,0,-1,1) = b_{2}(1,2,2,1) + b_{3}(1,0,0,1)
+        \]
+    \par Một cơ sở của $A\cap B$ là $(1,2,2,1), (1,0,0,1)$.
+\end{proof}
+
+\begin{exercise}
+    Chứng minh rằng với mọi không gian vector con $V_{1}$ của $V$, tồn tại một không gian vector con $V_{2}$ của $V$ sao cho $V = V_{1}\oplus V_{2}$. Không gian $V_{2}$ có xác định duy nhất không?
+\end{exercise}
+
+\begin{proof}
+    Giả sử $\alpha_{1}, \ldots, \alpha_{n}$ là một cơ sở của $V_{1}$.
+    \par Nếu $V_{1} = V$ thì ta chọn $V_{2} = \{ 0 \}$. Như vậy, $V = V \oplus V_{2} = V_{1}\oplus V_{2}$.
+    \par Nếu $V_{1}\subsetneq V$, ta có thể bổ sung vào hệ vector trên đến khi hệ độc lập tuyến tính cực đại.
+    \par Các vector được bổ sung vào hệ là $\beta_{1}, \ldots, \beta_{m}$.
+    \par Chọn $V_{2} = \text{span}(\beta_{1}, \ldots, \beta_{m})$ thì $V = V_{1} \oplus V_{2}$.
+    \par Trong trường hợp $V_{1} = V$ hoặc $V_{1} = \{ 0 \}$ thì $V_{2}$ là duy nhất.
+    \par Còn nếu $V_{1}\subsetneq V$ thì $V_{2}$ không duy nhất. Chẳng hạn ta chọn:
+        \[
+            \begin{sqcases}
+                V_{2} = \text{span}(\beta_{1}, \ldots, \beta_{m}) \\
+                V_{2} = \text{span}(\beta_{1} + \alpha_{1}, \beta_{2}, \ldots, \beta_{m})
+            \end{sqcases}
+        \]
+\end{proof}
+
+\begin{exercise}
+    Chứng minh rằng không gian $\mathbb{C}_{n}$ là tổng trực tiếp của không gian vector con $U$ xác định bởi phương trình $x_{1} + \cdots + x_{n} = 0$ và không gian vector con $V$ xác định bởi phương trình $x_{1} = \cdots = x_{n}$. Tìm hình chiếu của các vector có cơ sở chính tắc của $\mathbb{C}_{n}$ lên $U$ theo phương $V$ và lên $V$ theo phương $U$.
+\end{exercise}
+
+\begin{proof}
+    $(z_{1}, \ldots, z_{n})$ là một vector của $\mathbb{C}_{n}$.
+    \[
+        (z_{1}, \ldots, z_{n}) = \underbrace{(z_{1} - \frac{1}{n}\sum^{n}_{k=1}z_{k}, \ldots, z_{n} - \frac{1}{n}\sum^{n}_{k=1}z_{k})}_{\in U} + \frac{1}{n}\sum^{n}_{k=1}z_{k}\underbrace{(1,\ldots, 1)}_{\in V}
+    \]
+    \par Mà $U\cap V = \{ (0,\ldots, 0) \}$ nên $\mathbb{C}_{n} = U\oplus V$.
+        \[ pr_{U}((z_{1}, \ldots, z_{n})) = \left(z_{1} - \frac{1}{n}\sum^{n}_{k=1}z_{k}, \ldots, z_{n} - \frac{1}{n}\sum^{n}_{k=1}z_{k}\right) \]
+        \[ pr_{V}((z_{1}, \ldots, z_{n})) = \left(\frac{1}{n}\sum^{n}_{k=1}z_{k}, \ldots, \frac{1}{n}\sum^{n}_{k=1}z_{k}\right) \]
+\end{proof}
+
+\begin{exercise}
+    Cho $\mathbb{F}$ là một trường có đặc số khác $2$. Chứng minh rằng không gian $M(n\times n, \mathbb{F})$ các ma trận vuông cỡ $n$ là tổng trực tiếp của không gian $S(n)$ gồm các ma trận đối xứng và không gian $A(n)$ gồm các ma trận phản đối xứng. Tìm hình chiếu của ma trận $C\in M(n\times n, \mathbb{F})$ lên $S(n)$ theo phương $A(n)$ và lên $A(n)$ theo phương $S(n)$.
+\end{exercise}
+
+\begin{proof}
+    Theo bài tập 17 và 18, $\dim S(n) = \frac{n(n+1)}{2}$, $\dim A(n) = \frac{n(n-1)}{2}$.
+        \[ \dim S(n) + \dim A(n) = n^{2} = \dim M(n\times n,\mathbb{F}) \]
+    \par Xét ma trận $D = (d_{ij})_{n\times n} \in S(n)\cap A(n)$.
+    \par Vì $D$ đối xứng và phản đối xứng nên
+        \[
+            \begin{cases}
+                d_{ii} = 0 \\
+                d_{ij} = d_{ji} \\
+                d_{ij} = - d_{ji}
+            \end{cases}
+            \Longrightarrow
+            \begin{cases}
+                d_{ii} = 0 \\
+                d_{ij} = 0
+            \end{cases}
+        \]
+    \par Do đó, $S(n) \cap A(n) = (0){}_{n\times n}$. Như vậy, $M(n\times n,\mathbb{F}) = S(n)\oplus A(n)$.
+    \par Xét ma trận vuông $n$ dòng $n$ cột $P = (p_{ij}){}_{n\times n}$.
+        \begin{gather*}
+            \begin{pmatrix}
+                p_{11} & p_{12} & \cdots & p_{1n} \\
+                p_{21} & p_{22} & \cdots & p_{2n} \\
+                \vdots & \vdots & \ddots & \vdots \\
+                p_{n1} & p_{n2} & \cdots & p_{nn}
+            \end{pmatrix} \\
+            =
+            \underbrace{
+                \begin{pmatrix}
+                    p_{11} & \frac{1}{2}(p_{12} + p_{21}) & \cdots & \frac{1}{2}(p_{1n} + p_{n1}) \\
+                    \frac{1}{2}(p_{21} + p_{12}) & p_{22} & \cdots & \frac{1}{2}(p_{2n} + p_{n2}) \\
+                    \vdots & \vdots & \ddots & \vdots \\
+                    \frac{1}{2}(p_{n1} + p_{1n}) & \frac{1}{2}(p_{n2} + p_{2n}) & \cdots & p_{nn}
+                \end{pmatrix}
+            }_{pr_{S(n)}}+
+            \underbrace{
+                \begin{pmatrix}
+                    0 & \frac{1}{2}(p_{12} - p_{21}) & \cdots & \frac{1}{2}(p_{1n} - p_{n1}) \\
+                    \frac{1}{2}(p_{21} - p_{12}) & 0 & \cdots & \frac{1}{2}(p_{2n} - p_{n2}) \\
+                    \vdots & \vdots & \ddots & \vdots \\
+                    \frac{1}{2}(p_{n1} - p_{1n}) & \frac{1}{2}(p_{n2} - p_{2n}) & \cdots & 0
+                \end{pmatrix}
+            }_{pr_{A(n)}}
+        \end{gather*}
+\end{proof}
+
+\begin{exercise}
+    Gọi $\mathbb{F}[X]{}_{n}$ là $\mathbb{F}$-không gian vector các đa thức với hệ số $\mathbb{F}$ có bậc $\le n$. Tìm không gian thương $\mathbb{F}[X]{}_{n}/F[X]{}_{m}$ và số chiều của nó khi $m < n$.
+\end{exercise}
+
+\begin{proof}
+    $1, X, \ldots, X^{n}$ là một cơ sở của $\mathbb{F}[X]{}_{n}$. Do đó, $\dim \mathbb{F}[X]{}_{n} = n + 1$.
+    \par $1, X, \ldots, X^{m}$ là một cơ sở của $\mathbb{F}[X]{}_{m}$.
+    \par Xét quan hệ $\sim$:
+        \[ f(X)\sim g(X) \Longleftrightarrow f(X) - g(X) \in \mathbb{F}[X]{}_{m} \]
+    \par $f(X) \sim g(X)$ thì $f(X) - g(X)$ có dạng $a_{m+1}X^{m+1} + a_{m+2}X^{m+2} + \cdots + a_{n}X^{n}$.
+    \par Do đó, không gian thương $\mathbb{F}[X]{}_{n}/\mathbb{F}[X]{}_{m}$ là
+        \[ \{ [a_{m+2}X^{m+1} + \cdots + a_{n}X^{n}] \quad\vert\quad a_{m+2}, \ldots, a_{n}\in\mathbb{F} \} \]
+    \par $\dim\mathbb{F}[X]{}_{n}/\mathbb{F}[X]{}_{m} = (n + 1) - (m + 1) = n - m$.
 \end{proof}
 
 \end{document}
