@@ -1,0 +1,273 @@
+\documentclass[class=linearalgebra,crop=false]{standalone}
+
+\begin{document}
+
+\setcounter{exercise}{0}
+
+\chapter{Ma trận và ánh xạ tuyến tính}
+
+\begin{exercise}
+    Tính tích của hai ma trận sau đây:
+    \[
+        \begin{pmatrix}
+            0 & 4 & 7 & 1 \\
+            2 & 1 & 7 & 6 \\
+            1 & 0 & 8 & 3 \\
+            0 & 1 & 9 & 6
+        \end{pmatrix}
+        \begin{pmatrix}
+            -2 & 8 & -5 & 4 \\
+            7  & 8 &  5 & 5 \\
+            0  & 3 &  8 & 4 \\
+            -8 & 9 & -8 & 9
+        \end{pmatrix}
+    \]
+\end{exercise}
+
+\begin{proof}[Lời giải]
+    \[
+        \begin{pmatrix}
+            20  & 62 & -68 & 57 \\
+            -45 & 99 & 3   & 95 \\
+            -26 & 59 & 35  & 63 \\
+            -41 & 89 & 29  & 95 
+        \end{pmatrix}
+    \]
+\end{proof}
+
+\par Tính các lũy thừa sau đây
+
+\begin{exercise}
+    \[
+        \begin{pmatrix}
+            \cos\phi & -\sin\phi \\
+            \sin\phi &  \cos\phi
+        \end{pmatrix}^{n},\quad
+        \begin{pmatrix}
+            \lambda & 1 \\
+                  0 & \lambda
+        \end{pmatrix}^{n}.
+    \]
+\end{exercise}
+
+\begin{proof}[Lời giải]
+    \begin{enumerate}
+        \item 
+            \[
+                A = \begin{pmatrix}
+                    \cos\phi & -\sin\phi \\
+                    \sin\phi & \cos\phi
+                \end{pmatrix}
+            \]
+            \par Ta sẽ chứng minh bằng quy nạp rằng:
+            \[
+                A^{n} =
+                \begin{pmatrix}
+                    \cos(n\phi) & -\sin(n\phi) \\
+                    \sin(n\phi) & \cos(n\phi)
+                \end{pmatrix}
+                \tag{*}
+            \]
+            \par (*) đúng với $n = 1$, giả sử (*) cũng đúng với $n = k$.
+            \begin{align*}
+                A^{k+1} & =
+                \begin{pmatrix}
+                    \cos(k\phi) & -\sin(k\phi) \\
+                    \sin(k\phi) & \cos(k\phi)
+                \end{pmatrix}
+                \begin{pmatrix}
+                    \cos\phi & -\sin\phi \\
+                    \sin\phi & \cos\phi
+                \end{pmatrix} \\
+                        & =
+                \begin{pmatrix}
+                    \cos(k\phi)\cos\phi - \sin(k\phi)\sin\phi & -\sin(k\phi)\cos\phi - \cos(k\phi)\sin\phi \\
+                    \sin(k\phi)\cos\phi + \cos(k\phi)\sin\phi & \cos(k\phi)\cos\phi - \sin(k\phi)\sin\phi
+                \end{pmatrix} \\
+                        & = 
+                \begin{pmatrix}
+                    \cos((k+1)\phi) & -\sin((k+1)\phi) \\
+                    \sin((k+1)\phi) & \cos((k+1)\phi)
+                \end{pmatrix}
+            \end{align*}
+            \par Vậy (*) vẫn đúng với $n = k+1$. Theo nguyên lý quy nạp, (*) đúng với mọi $n\in\mathbb{N}$.
+        \item
+            \[
+                B =
+                \begin{pmatrix}
+                    \lambda & 1 \\
+                    0       & \lambda
+                \end{pmatrix}
+            \]
+            \par Ta sẽ chứng minh bằng quy nạp rằng:
+            \[
+                B^{n} =
+                \begin{pmatrix}
+                    \lambda^{n} & n\lambda^{n-1} \\
+                    0           & \lambda^{n}
+                \end{pmatrix}
+                \tag{**}
+            \]
+            \par (**) đúng với $n=1$, giả sử (**) cũng đúng với $n = k$.
+            \begin{align*}
+                A^{k+1} & =
+                \begin{pmatrix}
+                    \lambda^{k} & k\lambda^{k-1} \\
+                    0           & \lambda^{k}
+                \end{pmatrix}
+                \begin{pmatrix}
+                    \lambda & 1       \\
+                    0       & \lambda
+                \end{pmatrix}
+                =
+                \begin{pmatrix}
+                    \lambda^{k+1} & (k+1)\lambda^{k} \\
+                    0             & \lambda^{k+1}
+                \end{pmatrix}
+            \end{align*}
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    \[
+        \begin{pmatrix}
+             a_{1} & 0      & \cdots & 0      \\
+                 0 & a_{2}  & \cdots & 0      \\
+            \vdots & \vdots & \ddots & \vdots \\
+                 0 & 0      & \cdots & a_{n}
+        \end{pmatrix}^{k}
+    \]
+\end{exercise}
+
+\begin{proof}[Lời giải]
+    Từ định nghĩa tích ma trận, ta có đẳng thức sau:
+    \[
+        \begin{pmatrix}
+            x_{1}  & 0      & \cdots & 0      \\
+            0      & x_{2}  & \cdots & 0      \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0      & 0      & \cdots & x_{n}
+        \end{pmatrix}
+        \begin{pmatrix}
+            y_{1}  & 0      & \cdots & 0      \\
+            0      & y_{2}  & \cdots & 0      \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0      & 0      & \cdots & y_{n}
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            x_{1}y_{1}  & 0      & \cdots & 0      \\
+            0      & x_{2}y_{2}  & \cdots & 0      \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0      & 0      & \cdots & x_{n}y_{n}
+        \end{pmatrix}
+    \]
+    \par Áp dụng vào bài toán, ta được:
+    \[
+        \begin{pmatrix}
+            a_{1}  & 0      & \cdots & 0      \\
+            0      & a_{2}  & \cdots & 0      \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0      & 0      & \cdots & a_{n}
+        \end{pmatrix}^{k}
+        =
+        \begin{pmatrix}
+            a^{k}_{1}  & 0      & \cdots & 0      \\
+            0      & a^{k}_{2}  & \cdots & 0      \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0      & 0      & \cdots & a^{k}_{n}
+        \end{pmatrix}
+    \]
+\end{proof}
+
+\begin{exercise}
+    \[
+        \begin{pmatrix}
+            1 & 1 & 0 & 0 & \cdots & 0 & 0 \\
+            0 & 1 & 1 & 0 & \cdots & 0 & 0 \\
+            0 & 0 & 1 & 1 & \cdots & 0 & 0 \\
+            \vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+            0 & 0 & 0 & 0 & \cdots & 1 & 1 \\
+            0 & 0 & 0 & 0 & \cdots & 0 & 1
+        \end{pmatrix}^{n-1}
+    \]
+\end{exercise}
+
+\begin{proof}[Lời giải]
+\end{proof}
+
+\begin{exercise}
+    Cho hai ma trận $A$ và $B$ với các yếu tố trong $\mathbb{F}$. Chứng minh rằng nếu các tích $AB$ và $BA$ đều có nghĩa và $AB = BA$, thì $A$ và $B$ là các ma trận vuông cùng cỡ.
+\end{exercise}
+
+\begin{proof}
+    Tích $AB$ và $BA$ có nghĩa, tức là số cột của $A$ bằng số hàng của $B$ và số cột của $B$ bằng số hàng của $A$.
+    \par Vậy $A\in M(m\times n,\mathbb{F})$ thì $B\in M(n\times m, \mathbb{F})$.
+    \par Suy ra $AB\in M(m\times m,\mathbb{F})$, $BA\in M(n\times n,\mathbb{F})$.
+    \par Mà $AB = BA$ nên $m = n$.
+    \par Do đó $A$ và $B$ là hai ma trận vuông cùng cỡ.
+\end{proof}
+
+\begin{exercise}
+    Ma trận tích $AB$ sẽ thay đổi thế nào nếu ta
+    \begin{enumerate}[label = (\alph*)]
+        \item đổi chỗ các hàng thứ $i$ và thứ $j$ của ma trận $A$?
+        \item cộng vào hàng thứ $i$ của $A$ tích của vô hướng $c$ với hàng thứ $j$ của $A$?
+        \item đổi chỗ các cột thứ $i$ và thứ $j$ của ma trận $B$.
+        \item cộng vào cột thứ $i$ của $B$ tích của vô hướng $c$ với cột thứ $j$ của $B$?
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}[Lời giải]
+    \begin{enumerate}[label = (\alph*)]
+        \item Hàng thứ $i$ và thứ $j$ của ma trận tích đổi chỗ.
+        \item Hàng thứ $i$ của $AB$ được cộng thêm tích của vô hướng $c$ với hàng thứ $j$ của $AB$.
+        \item Cột thứ $i$ và thứ $j$ của ma trận tích đổi chỗ.
+        \item Cột thứ $i$ của $AB$ được cộng thêm tích của vô hướng $c$ với cột thứ $j$ của $AB$.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    \textit{Vết} của một ma trận vuông là tổng của tất cả các yếu tố nằm trên đường chéo chính của ma trận đó. Chứng minh rằng vết của $AB$ bằng vết của $BA$.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+    Chứng minh rằng nếu $A$ và $B$ là các ma trận vuông cùng cấp, với $AB\ne BA$, thì
+    \begin{enumerate}[label = (\alph*)]
+        \item $(A+B){}^{2}\ne A^{2} + 2AB + B^{2}$,
+        \item $(A+B)(A-B)\ne A^{2} - B^{2}$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label = (\alph*)]
+        \item
+             \begin{align*}
+                 (A+B){}^{2} & = (A+B)(A+B) \\
+                             & = A^{2} + AB + BA + B^{2} \\
+                             & \ne A^{2} + AB + AB + B^{2} \\
+                             & = A^{2} + 2AB + B^{2}
+             \end{align*}
+        \item
+             \begin{align*}
+                 (A+B)(A-B) & = A^{2} - AB + BA - B^{2} \\
+                            & = A^{2} - B^{2} + (BA - AB) \\
+                            & \ne A^{2} - B^{2}
+             \end{align*}
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    Chứng minh rằng nếu $A$ và $B$ là các ma trận vuông với $AB = BA$ thì
+    \[
+        (A+B){}^{n} = A^{n} + nA^{n-1}B + \frac{n(n-1)}{2}A^{n-2}B^{2} + \cdots + B^{n}.
+    \]
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\end{document}
