@@ -125,6 +125,7 @@
                     0             & \lambda^{k+1}
                 \end{pmatrix}
             \end{align*}
+            \par Vậy (**) vẫn đúng với $n = k+1$. Theo nguyên lý quy nạp, (**) đúng với mọi $n\in\mathbb{N}$.
     \end{enumerate}
 \end{proof}
 
@@ -181,6 +182,7 @@
 \end{proof}
 
 \begin{exercise}
+    Ma trận sau đây có $n$ hàng, $n$ cột.
     \[
         \begin{pmatrix}
             1 & 1 & 0 & 0 & \cdots & 0 & 0 \\
@@ -194,6 +196,53 @@
 \end{exercise}
 
 \begin{proof}[Lời giải]
+    \[
+        A =
+        \begin{pmatrix}
+            1 & 1 & 0 & 0 & \cdots & 0 \\
+            0 & 1 & 1 & 0 & \cdots & 0 & 0 \\
+            0 & 0 & 1 & 1 & \cdots & 0 & 0 \\
+            \vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+            0 & 0 & 0 & 0 & \cdots & 1 & 1 \\
+            0 & 0 & 0 & 0 & \cdots & 0 & 1
+        \end{pmatrix}
+    \]
+    \par Ma trận $A$ được viết lại như sau:
+    \[
+        A =
+        \begin{pmatrix}
+            \binom{1}{0} & \binom{1}{1} & 0 & 0 & \cdots & 0 & 0 \\
+            0 & \binom{1}{0} & \binom{1}{1} & 0 & \cdots & 0 & 0 \\
+            0 & 0 & \binom{1}{0} & \binom{1}{1} & \cdots & 0 & 0 \\
+            \vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+            0 & 0 & 0 & 0 & \ddots & \binom{1}{0} & \binom{1}{1} \\
+            0 & 0 & 0 & 0 & \cdots & 0 & \binom{1}{0}
+        \end{pmatrix}
+    \]
+    \par Sử dụng quy tắc nhân ma trận và đẳng thức Pascal, ta được:
+    \[
+        A^{2} =
+        \begin{pmatrix}
+            \binom{2}{0} & \binom{2}{1} & \binom{2}{2} & 0 & \cdots & 0 & 0 \\
+            0 & \binom{2}{0} & \binom{2}{1} & \binom{2}{2} & \cdots & 0 & 0 \\
+            0 & 0 & \binom{2}{0} & \binom{2}{1} & \cdots & 0 & 0 \\
+            \vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+            0 & 0 & 0 & 0 & \cdots & \binom{2}{0} & \binom{2}{1} \\
+            0 & 0 & 0 & 0 & \cdots & 0 & \binom{2}{0}
+        \end{pmatrix}
+    \]
+    \par Nhân liên tiếp với $A$, đến cuối cùng ta được:
+    \[
+        A^{n-1} =
+        \begin{pmatrix}
+            \binom{n-1}{0} & \binom{n-1}{1} & \binom{n-1}{2} & \binom{n-1}{3} & \cdots & \binom{n-1}{n-2} & \binom{n-1}{n-1} \\
+            0 & \binom{n-1}{0} & \binom{n-1}{1} & \binom{n-1}{2} & \cdots & \binom{n-1}{n-3} & \binom{n-1}{n-2} \\
+            0 & 0 & \binom{n-1}{0} & \binom{n-1}{1} & \cdots & \binom{n-1}{n-4} & \binom{n-1}{n-3} \\
+            \vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+            0 & 0 & 0 & 0 & \cdots & \binom{n-1}{0} & \binom{n-1}{1} \\
+            0 & 0 & 0 & 0 & \cdots & 0 & \binom{n-1}{0}
+        \end{pmatrix}
+    \]
 \end{proof}
 
 \begin{exercise}
@@ -227,11 +276,42 @@
     \end{enumerate}
 \end{proof}
 
-\begin{exercise}
+\begin{exercise}\label{trace-of-products}
     \textit{Vết} của một ma trận vuông là tổng của tất cả các yếu tố nằm trên đường chéo chính của ma trận đó. Chứng minh rằng vết của $AB$ bằng vết của $BA$.
 \end{exercise}
 
 \begin{proof}
+    Tích $AB$ và $BA$ có nghĩa, vậy là số cột của $A$ bằng số hàng của $B$, số cột của $B$ bằng số hàng của $A$.
+    \par Giả sử $A\in M(m\times n, \mathbb{F})$. Khi đó, $B\in M(n\times m, \mathbb{F})$. Ta đặt
+    \[
+        A =
+        \begin{pmatrix}
+            a_{11} & a_{12} & \cdots & a_{1n} \\
+            a_{21} & a_{22} & \cdots & a_{2n} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            a_{m1} & a_{m2} & \cdots & a_{mn}
+        \end{pmatrix}
+        \quad
+        B =
+        \begin{pmatrix}
+            b_{11} & b_{12} & \cdots & b_{1m} \\
+            b_{21} & b_{22} & \cdots & b_{2m} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            b_{n1} & b_{n2} & \cdots & b_{nm}
+        \end{pmatrix}
+    \]
+    \par Kí hiệu $(AB){}_{ij}$ là yếu tố hàng $i$, cột $j$ của $AB$. Kí hiệu $Tr(X)$ là vết của ma trận $X$.
+    \[
+        Tr(AB) = \sum^{m}_{i=1}(AB){}_{ii} = \sum^{m}_{i=1}\sum^{n}_{j=1}a_{ij}b_{ji}.
+    \]
+    \[
+        Tr(BA) = \sum^{n}_{i=1}(BA){}_{ii} = \sum^{n}_{i=1}\sum^{m}_{j=1}b_{ij}a_{ji}.
+    \]
+    \par Đổi thứ tự lấy tổng, ta được:
+    \[
+        \sum^{m}_{i=1}\sum^{n}_{j=1}a_{ij}b_{ji} = \sum^{n}_{i=1}\sum^{m}_{j=1}b_{ij}a_{ji}.
+    \]
+    \par Do đó, $Tr(AB) = Tr(BA)$.
 \end{proof}
 
 \begin{exercise}
@@ -264,10 +344,606 @@
     Chứng minh rằng nếu $A$ và $B$ là các ma trận vuông với $AB = BA$ thì
     \[
         (A+B){}^{n} = A^{n} + nA^{n-1}B + \frac{n(n-1)}{2}A^{n-2}B^{2} + \cdots + B^{n}.
+        \tag{(*)}
+    \]
+\end{exercise}
+
+\begin{proof}Ta chứng minh bằng quy nạp theo $n$.
+    \par (*) đúng với $n = 1$.
+    \par Giả sử (*) đúng với $n = k$.
+    \begin{align*}
+        (A+B)^{k} & = \sum^{k}_{j=0}\binom{k}{j}A^{k-j}B^{j} \\
+        \Rightarrow (A+B)^{k+1} & = \sum^{k}_{j=0}A^{k+1-j}B^{j} + \sum^{k}_{j=0}A^{k-j}B^{j+1}
+    \end{align*}
+    \par Sử dụng đẳng thức Pascal $\binom{n}{k} = \binom{n-1}{k} + \binom{n-1}{k-1}$, ta suy ra
+    \[
+        (A+B)^{k+1} = A^{k+1} + \sum^{k+1}_{j=1}\binom{k+1}{j}A^{k+1-j}B^{j} = \sum^{k+1}_{j=0}\binom{k+1}{j}A^{k+1-j}B^{j}.
+    \]
+    \par Vậy (*) đúng với $n = k + 1$.
+    \par Do đó (*) với mọi số tự nhiên $n$.
+\end{proof}
+
+\begin{exercise}
+    Hai ma trận vuông $A$ và $B$ được gọi là \textit{giao hoán} với nhau nếu $AB = BA$. Chứng minh rằng $A$ giao hoán với mọi ma trận vuông cùng cỡ với nó nếu và chỉ nếu nó là một ma trận vô hướng, tức là $A = cE$ trong đó $c\in\mathbb{F}$ và $E$ là ma trận đơn vị cùng cỡ với $A$.
+\end{exercise}
+
+\begin{proof}
+    $(\Rightarrow)$
+    \par $A = cE$. $B = (b_{ij}){}_{n\times n}$.
+    \[
+        \begin{pmatrix}
+            b_{11} & b_{12} & \cdots & b_{1n} \\
+            b_{21} & b_{22} & \cdots & b_{2n} \\
+            \cdots & \cdots & \ddots & \vdots \\
+            b_{n1} & b_{n2} & \cdots & b_{nn}
+        \end{pmatrix}
+    \]
+    \par $(\Leftarrow)$
+    \par $A = (a_{ij}){}_{n\times n}$. $S_{ij}$ là ma trận vuông cỡ $n$ với yếu tố hàng $i$ cột $j$ và hàng $j$ cột $i$ bằng đơn vị, các yếu tố còn lại bằng $0$. Không mất tính tổng quát, giả sử $i < j$.
+    \[
+        AS_{ij} =
+        \begin{pmatrix}
+            * & * & \cdots & * & * \\
+            * & a_{ij} & * & a_{ii} & * \\
+            * & * & \ddots & * & * \\
+            * & a_{jj} & * & a_{ji} & * \\
+            * & * & \cdots & * & *
+        \end{pmatrix}
+        \qquad
+        S_{ij}A =
+        \begin{pmatrix}
+            * & * & \cdots & * & * \\
+            * & a_{ji} & * & a_{jj} & * \\
+            * & * & \ddots & * & * \\
+            * & a_{ii} & * & a_{ij} & * \\
+            * & * & \cdots & * & *
+        \end{pmatrix}
+    \]
+    \par trong đó $*$ là các phần tử không.
+    \par $AS_{ij} = S_{ij}A$. Đồng nhất hệ số hai ma trận tích này, ta được $a_{ii} = a_{jj}$ và $a_{ij} = a_{ji}$.
+    \par Như vậy, $A$ có các yếu tố trên đường chéo chính bằng nhau, các yếu tố ngoài đường chéo chính bằng nhau.
+    \par Ta viết lại ma trận $A$ như sau:
+    \[
+        A =
+        \begin{pmatrix}
+            a & b & \cdots & b \\
+            b & a & \cdots & b \\
+            \vdots & \vdots & \ddots & \vdots \\
+            b & b & \cdots & a
+        \end{pmatrix}
+    \]
+    \par $E_{1}$ là ma trận vuông cỡ $n$ có yếu tố hàng $1$, cột $1$ bằng đơn vị, các yếu tố còn lại bằng không.
+    \[
+        AE_{1} =
+        \begin{pmatrix}
+            a & 0 & \cdots & 0 \\
+            b & 0 & \cdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            b & 0 & \cdots & 0
+        \end{pmatrix}
+        \qquad
+        E_{1}A =
+        \begin{pmatrix}
+            a & b & \cdots & b \\
+            0 & 0 & \cdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \cdots & 0
+        \end{pmatrix}
+    \]
+    \par $AE_{1} = E_{1}A$. Đồng nhất hệ số ta được $b = 0$.
+    \par Vậy $A = aE$, trong đó $E$ là ma trận đơn vị cùng cỡ với $A$.
+\end{proof}
+
+\begin{exercise}
+    Ma trận vuông $A$ được gọi là \textit{ma trận chéo} nếu các yếu tố nằm ngoài đường chéo chính của nó đều bằng không. Chứng minh rằng ma trận vuông $A$ giao hoán với mọi ma trận chéo cùng cỡ với nó nếu và chỉ nếu chính $A$ là một ma trận chéo.
+\end{exercise}
+
+\begin{proof}
+    $(\Rightarrow)$
+    \par $A$ và $B$ là các ma trận chéo.
+    \[
+        \begin{pmatrix}
+            a_{11} & 0 & \cdots & 0 \\
+            0 & a_{22} & \cdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \vdots & a_{nn}
+        \end{pmatrix}
+        \begin{pmatrix}
+            b_{11} & 0 & \cdots & 0 \\
+            0 & b_{22} & \cdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \cdots & b_{nn}
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            a_{11}b_{11} & 0 & \cdots & 0 \\
+            0 & a_{22}b_{22} & \cdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \cdots & a_{n}b_{n}
+        \end{pmatrix}
+    \]
+    \[
+        \begin{pmatrix}
+            b_{11} & 0 & \cdots & 0 \\
+            0 & b_{22} & \cdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \vdots & b_{nn}
+        \end{pmatrix}
+        \begin{pmatrix}
+            a_{11} & 0 & \cdots & 0 \\
+            0 & a_{22} & \cdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \cdots & a_{nn}
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            a_{11}b_{11} & 0 & \cdots & 0 \\
+            0 & a_{22}b_{22} & \cdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \cdots & a_{n}b_{n}
+        \end{pmatrix}
+    \]
+    \par Như vậy, $A$ giao hoán với mọi ma trận chéo.
+    \par $(\Leftarrow)$
+    \par $A = (a_{ij}){}_{n\times n}$. $E_{i}$ là ma trận vuông cỡ $n$ với yếu tố hàng $i$ cột $i$ bằng đơn vị và các yếu tố còn lại bằng không. $E_{i}$ là ma trận chéo.
+    \[
+        AE_{i} =
+        \begin{pmatrix}
+            0 & \cdots & a_{1i} & \cdots & 0 \\
+            \vdots & \ddots & \vdots & \ddots & \vdots \\
+            0 & \cdots & a_{ii} & \cdots & 0 \\
+            \vdots & \ddots & \vdots & \ddots & \vdots \\
+            0 & \cdots & a_{ni} & \cdots & 0
+        \end{pmatrix}
+    \]
+    \[
+        E_{i}A =
+        \begin{pmatrix}
+            0 & \cdots & 0 & \cdots & 0 \\
+            \vdots & \ddots & \vdots & \ddots & \vdots \\
+            a_{i1} & \cdots & a_{ii} & \cdots & a_{in} \\
+            \vdots & \ddots & \vdots & \ddots & \vdots \\
+            0 & \cdots & 0 & \cdots & 0
+        \end{pmatrix}
+    \]
+    \par Do $AE_{i} = E_{i}A$ nên $a_{ij} = a_{ji} = 0, \forall j\ne i$.
+    \par Như vậy, $A$ là một ma trận chéo.
+\end{proof}
+
+\begin{exercise}
+    Chứng minh rằng nếu $A$ là một ma trận chéo với các yếu tố trên đường chéo chính đôi một khác nhau, thì mọi ma trận giao hoán với $A$ cũng là một ma trận chéo.
+\end{exercise}
+
+\begin{proof}
+    \[
+        A =
+        \begin{pmatrix}
+            a_{1} & 0 & \cdots & 0 \\
+            0 & a_{2} & \cdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \vdots & a_{n}
+        \end{pmatrix}
+    \]
+    \par trong đó, $a_{i}\ne a_{j},\forall i\ne j$.
+    \par $B = (b_{ij}){}_{n\times n}$.
+    \[
+        AB =
+        \begin{pmatrix}
+            a_{1}b_{11} & a_{1}b_{12} & \cdots & a_{1}b_{1n} \\
+            a_{2}b_{21} & a_{2}b_{22} & \cdots & a_{2}b_{2n} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            a_{n}b_{n1} & a_{n}b_{n2} & \cdots & a_{n}b_{nn}
+        \end{pmatrix}
+        \qquad
+        BA =
+        \begin{pmatrix}
+            a_{1}b_{11} & a_{2}b_{12} & \cdots & a_{n}b_{1n} \\
+            a_{1}b_{21} & a_{2}b_{22} & \cdots & a_{n}b_{2n} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            a_{1}b_{n1} & a_{2}b_{n2} & \cdots & a_{n}b_{nn}
+        \end{pmatrix}
+    \]
+    \par $AB = BA$ thì $a_{i}b_{ij} = a_{j}b_{ij},\forall i\ne j$. Vì $a_{i} \ne a_{j}$ nên $b_{ij} = 0,\forall i\ne j$.
+    \par Vậy $B$ là một ma trận chéo. Tức là mọi ma trận giao hoán với $A$ cũng là ma trận chéo.
+\end{proof}
+
+\begin{exercise}
+    Gọi $D = \text{diag}(a_{1},a_{2},\ldots,a_{n})$ là ma trận chéo với các yếu tố trên đường chéo chính lần lượt bằng $a_{1}, a_{2}, \ldots, a_{n}$. Chứng minh rằng nhân $D$ với $A$ từ bên trái có nghĩa là nhân các hàng của $A$ theo thứ tự với $a_{1}, a_{2},\ldots,a_{n}$; còn nhân $D$ với $A$ từ bên phải có nghĩa là nhân với các cột của $A$ theo thứ tự với $a_{1}, a_{2}, \ldots, a_{n}$.
+\end{exercise}
+
+\begin{proof}
+    $A = (a_{ij}){}_{n\times n}$.
+    \[
+        DA =
+        \begin{pmatrix}
+            a_{1} & 0 & \cdots & 0 \\
+            0 & a_{2} & \cdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \cdots & a_{n}
+        \end{pmatrix}
+        \begin{pmatrix}
+            a_{11} & a_{12} & \cdots & a_{1n} \\
+            a_{21} & a_{22} & \cdots & a_{2n} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            a_{n1} & a_{n2} & \cdots & a_{nn}
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            a_{1}a_{11} & a_{1}a_{12} & \cdots & a_{1}a_{1n} \\
+            a_{2}a_{21} & a_{2}a_{22} & \cdots & a_{2}a_{2n} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            a_{n}a_{n1} & a_{n}a_{n2} & \cdots & a_{n}a_{nn}
+        \end{pmatrix}
+    \]
+    \[
+        AD =
+        \begin{pmatrix}
+            a_{11} & a_{12} & \cdots & a_{1n} \\
+            a_{21} & a_{22} & \cdots & a_{2n} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            a_{n1} & a_{n2} & \cdots & a_{nn}
+        \end{pmatrix}
+        \begin{pmatrix}
+            a_{1} & 0 & \cdots & 0 \\
+            0 & a_{2} & \cdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \cdots & a_{n}
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            a_{1}a_{11} & a_{2}a_{12} & \cdots & a_{n}a_{1n} \\
+            a_{1}a_{21} & a_{2}a_{22} & \cdots & a_{n}a_{2n} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            a_{1}a_{n1} & a_{2}a_{n2} & \cdots & a_{n}a_{nn}
+        \end{pmatrix}
+    \]
+\end{proof}
+
+\begin{exercise}
+    Tìm tất cả các ma trận giao hoán với ma trận sau đây:
+    \[
+        \begin{pmatrix}
+            3 & 1 & 0 \\
+            0 & 3 & 1 \\
+            0 & 0 & 3
+        \end{pmatrix}
+    \]
+\end{exercise}
+
+\begin{proof}[Lời giải]
+    Đặt ma trận cần tìm là $A = (a_{ij}){}_{n\times n}$.
+    \[
+        \begin{pmatrix}
+            3 & 1 & 0 \\
+            0 & 3 & 1 \\
+            0 & 0 & 3
+        \end{pmatrix}
+        \begin{pmatrix}
+            a_{11} & a_{12} & a_{13} \\
+            a_{21} & a_{22} & a_{23} \\
+            a_{31} & a_{32} & a_{33}
+        \end{pmatrix}=
+        \begin{pmatrix}
+            3a_{11} + a_{21} & 3a_{12} + a_{22} & 3a_{13} + a_{23} \\
+            3a_{21} + a_{31} & 3a_{22} + a_{32} & 3a_{23} + a_{33} \\
+            3a_{31} & 3a_{32} & 3a_{33}
+        \end{pmatrix}
+    \]
+    \[
+        \begin{pmatrix}
+            a_{11} & a_{12} & a_{13} \\
+            a_{21} & a_{22} & a_{23} \\
+            a_{31} & a_{32} & a_{33}
+        \end{pmatrix}
+        \begin{pmatrix}
+            3 & 1 & 0 \\
+            0 & 3 & 1 \\
+            0 & 0 & 3
+        \end{pmatrix}=
+        \begin{pmatrix}
+            3a_{11} & a_{11} + 3a_{12} & a_{12} + 3a_{13} \\
+            3a_{21} & a_{21} + 3a_{22} & a_{22} + 3a_{23} \\
+            3a_{31} & a_{31} + 3a_{32} & a_{32} + 3a_{33}
+        \end{pmatrix}
+    \]
+    \par Đồng nhất hệ số hai ma trận tích:
+    \[
+        \Rightarrow
+        \begin{cases}
+            3a_{11} + a_{21} = 3a_{11} \Leftrightarrow a_{21} = 0 \\
+            3a_{12} + a_{22} = a_{11} + 3a_{12} \Leftrightarrow a_{11} = a_{22} \\
+            3a_{13} + a_{23} = a_{12} + 3a_{13} \Leftrightarrow a_{12} = a_{23} \\
+            3a_{21} + a_{31} = 3a_{21} \Leftrightarrow a_{31} = 0 \\
+            3a_{22} + a_{32} = a_{21} + 3a_{22} \Leftrightarrow a_{21} = a_{32} \\
+            3a_{23} + a_{33} = a_{22} + 3a_{23} \Leftrightarrow a_{22} = a_{33} \\
+            3a_{32} = a_{31} + 3a_{32} \Leftrightarrow a_{31} = 0 \\
+            3a_{33} = a_{32} + 3a_{33} \Leftrightarrow a_{32} = 0
+        \end{cases}
+    \]
+    \par Vậy các ma trận giao hoán với ma trận
+    $\begin{pmatrix}
+        3 & 1 & 0 \\
+        0 & 3 & 1 \\
+        0 & 0 & 3
+    \end{pmatrix}$
+    có dạng:
+    \[
+        \begin{pmatrix}
+            a & b & c \\
+            0 & a & b \\
+            0 & 0 & a
+        \end{pmatrix}
+    \]
+\end{proof}
+
+\begin{exercise}\label{characteristic-poly}
+    Chứng minh rằng ma trận
+    $A = \begin{pmatrix}a & b \\ c & d\end{pmatrix}$ thỏa mãn phương trình
+    \[
+        X^{2} - (a+d)X + (ad-bc) = 0
     \]
 \end{exercise}
 
 \begin{proof}
+    \[
+        A^{2} =
+        \begin{pmatrix}
+            a^{2}+bc & b(a+d) \\
+            c(a+d)   & d^{2}+bc
+        \end{pmatrix}
+    \]
+    \begin{align*}
+        A^{2} - (a+d)A + (ad-bc) & = \begin{pmatrix}a^{2}+bc & b(a+d) \\ c(a+d) & d^{2}+bc\end{pmatrix} - (a+d)\begin{pmatrix}a & b \\ c & d\end{pmatrix} + (ad-bc)\begin{pmatrix}1 & 0 \\ 0 & 1\end{pmatrix} \\
+            & = \begin{pmatrix}a^{2}+bc - a(a+d) + (ad-bc) & b(a+d) - b(a+d) \\ c(a+d) - c(a+d) & d^{2}+bc - d(a+d) + (ad-bc)\end{pmatrix} \\
+            & = \begin{pmatrix}0 & 0 \\ 0 & 0 \end{pmatrix} = 0.
+    \end{align*}
+\end{proof}
+
+\begin{exercise}\label{minimal-poly}
+    Chứng minh rằng đối với mỗi ma trận vuông $A$, tồn tại một đa thức khác không $f(X)$ sao cho $f(A) = 0$. Hơn nữa, mọi đa thức có tính chất đó đều là bội của một đa thức $f_{0}(X)$ như thế.
+\end{exercise}
+
+\begin{proof}
+    Giả sử $A\in M(n\times n,\mathbb{F})$.
+    \par $M(n\times n,\mathbb{F})$ là một không gian vector với số chiều là $n^{2}$.
+    \par Do đó hệ $(E_{n}, A, A^{2}, \ldots, A^{n^{2}})$ phụ thuộc tuyến tính, tức là tồn tại các yếu tố $a_{0}, a_{1}, a_{2}, \ldots, a_{n^{2}}$ trong trường $\mathbb{F}$, không đồng thời bằng không sao cho:
+    \[
+        a_{0} + a_{1}A + a_{2}A^{2} + \cdots + a_{n^{2}}A^{n^{2}} = 0
+    \]
+    \par Điều đó có nghĩa là đa thức $f(X) = a_{0} + a_{1}X + a_{2}X^{2} + \ldots + a_{n^{2}}X^{n^{2}}$ khác không và thỏa mãn $f(A) = 0$.
+    \par Như vậy tập hợp các đa thức khác không nhận $A$ làm nghiệm là tập khác rỗng. Theo nguyên lý sắp thứ tự tốt, tập hợp này chứa đa thức có bậc nhỏ nhất. Đặt đa thức như vậy là $f_{0}(X)$.
+    \par Giả sử đa thức $p(X)$ thỏa mãn $p(A) = 0$. Ta thực hiện phép chia cho đa thức $f_{0}(X)$.
+    \[
+        p(X) = f_{0}(X)q(X) + r(X)
+    \]
+    \par trong đó $\deg r(X) < \deg f_{0}(X)$.
+    \par $p(A) = 0\Rightarrow f_{0}(A)q(A) + r(A) = 0 \Rightarrow r(A) = 0$.
+    \par Đa thức $r(X)$ có bậc bé hơn $f_{0}(X)$, do đó $r(X) = 0$. Vậy $p(X)$ là bội của $f_{0}(X)$.
+\end{proof}
+
+\begin{exercise}
+    Giả sử $n$ không chia hết cho đặc số $p$ của trường $\mathbb{F}$. Chứng minh rằng không tồn tại các ma trận $A, B\in M(n\times n, \mathbb{F})$ sao cho $AB - BA = E_{n}$.
+\end{exercise}
+
+\begin{proof}
+    Ánh xạ vết $Tr: M(n\times n, \mathbb{F})\rightarrow \mathbb{F}$ là một ánh xạ tuyến tính.
+    \par Theo Bài~\ref{trace-of-products}, $Tr(AB - BA) = Tr(AB) - Tr(BA) = 0$.
+    \par Mà $Tr(E_{n}) = n$ và $n$ không là bội của đặc số của trường $\mathbb{F}$ nên $n\ne 0$. Do đó $Tr(AB - BA)\ne Tr(E_{n})$.
+    \par Điều đó cũng có nghĩa là $AB - BA \ne E_{n}$.
+\end{proof}
+
+\begin{exercise}
+    Giả sử $A$ là một ma trận vuông cỡ 2 và $k$ là một số nguyên $\ge 2$. Chứng minh rằng $A^{k} = 0$ nếu và chỉ nếu $A^{2} = 0$.
+\end{exercise}
+
+\begin{proof}
+    $A = \begin{pmatrix}a & b \\ c & d\end{pmatrix}$
+    \par $(\Rightarrow)$
+    \par $A^{2} = 0$ thì $A^{k} = 0,\forall k\ge 2$.
+    \par $(\Leftarrow)$
+    \par Nếu $k = 2$, ta có ngay điều phải chứng minh.
+    \par Nếu $k > 2$.
+    \par Theo Bài~\ref{characteristic-poly}:
+    \[
+        A^{2} - (a+d)A + (ad - bc) = 0
+    \]
+    \begin{enumerate}[label = Trường hợp \arabic*:,itemindent=2cm]
+        \item $ad - bc = 0, a + d = 0$.
+            \[
+                \Rightarrow A^{2} = 0
+            \]
+        \item $ad - bc = 0, a + d \ne 0$.
+            \[
+                \Rightarrow A^{2} = (a+d)A \Rightarrow A^{k} = (a+d)A^{k-1} \Rightarrow A^{k-1} = 0\Rightarrow A^{k-2} = 0 \Rightarrow \cdots \Rightarrow A^{2} = 0
+            \]
+        \item $ad - bc \ne 0$.
+            \par $A^{k} = 0\Rightarrow A^{k+1} = 0$.
+            \[
+                \Rightarrow A^{k+1} - (a+d)A^{k} + (ad-bc)A^{k-1} = 0 \Rightarrow A^{k-1} = 0 \Rightarrow \cdots \Rightarrow A^{2} = 0.
+            \]
+    \end{enumerate}
+    \par Tóm lại, trong tất cả các trường hợp, ta đều có $A^{2} = 0$.
+\end{proof}
+
+\begin{exercise}
+    Tìm tất cả các ma trận vuông $A$ cỡ 2 sao cho $A^{2} = 0$.
+\end{exercise}
+
+\begin{proof}[Lời giải]
+    $A = \begin{pmatrix}a & b \\ c & d\end{pmatrix}\Rightarrow A^{2} = \begin{pmatrix}a^{2}+bc & b(a+d) \\ c(a+d) & d^{2}+bc\end{pmatrix}$.
+    \[
+        A^{2} = 0
+        \Rightarrow
+        \begin{cases}
+            a^{2}+bc = 0 \\
+            d^{2}+bc = 0 \\
+            b(a + d) = 0 \\
+            c(a + d) = 0 \\
+        \end{cases}
+    \]
+    \begin{enumerate}[label = Trường hợp \arabic*:,itemindent=2cm]
+        \item $a + d \ne 0$.
+            \par $b(a+d) = c(a+d) = 0$ và $a+d\ne 0$ nên $b = c = 0$.
+            \par $a^{2} + bc = d^{2} + bc = b = c = 0$ nên $a = b = c = d = 0$. 
+        \item $a + d = 0$.
+            \par Nếu $a = d = 0$ thì $bc = 0$.
+            \par $A = \begin{pmatrix}0 & t \\ 0 & 0\end{pmatrix}$ hoặc $A = \begin{pmatrix}0 & 0 \\ t & 0\end{pmatrix}$.
+            \par Nếu $a, d\ne 0$ thì
+            \par $A = \begin{pmatrix}t & u \\ \frac{-t^{2}}{u} & -t\end{pmatrix}$ trong đó $t \ne 0$.
+    \end{enumerate}
+    \par Như vậy $A$ thuộc một trong các dạng sau:
+    \[
+        \begin{pmatrix}
+            0 & t \\
+            0 & 0
+        \end{pmatrix}
+        \qquad
+        \begin{pmatrix}
+            0 & 0 \\
+            t & 0
+        \end{pmatrix}
+        \qquad
+        \begin{pmatrix}
+            t & u \\
+            \frac{-t^{2}}{u} & -t
+        \end{pmatrix}
+    \]
+\end{proof}
+
+\begin{exercise}
+    Tìm tất cả các ma trận vuông $A$ cỡ 2 sao cho $A^{2} = E_{2}$.
+\end{exercise}
+
+\begin{proof}[Lời giải]
+    $A = \begin{pmatrix}a & b \\ c & d\end{pmatrix}\Rightarrow A^{2} = \begin{pmatrix}a^{2}+bc & b(a+d) \\ c(a+d) & d^{2}+bc\end{pmatrix}$.
+    \begin{enumerate}[label = Trường hợp \arabic*:,itemindent=2cm]
+        \item $a + d\ne 0$.
+            \par Suy ra $b = c = 0$, $a^{2} = d^{2} = 1$.
+            \par $(a,d)\in\{  (1,1), (-1,-1), (1,-1), (-1,1) \}$.
+        \item $a + d = 0$.
+            \par $a = t, d = -t$, suy ra $bc = 1 - t^{2}$.
+            \par Nếu $t^{2} = 1$ thì $bc = 0$.
+            \par Nếu $t^{2} \ne 1$ thì $b = u, c = \frac{1-t^{2}}{u}$.
+    \end{enumerate}
+    \par Như vậy $A$ thuộc một trong các dạng sau:
+    \[
+        \begin{pmatrix}
+            1 & 0 \\
+            0 & 1
+        \end{pmatrix}
+        \quad
+        \begin{pmatrix}
+            -1 & 0 \\
+            0 & -1
+        \end{pmatrix}
+        \quad
+        \begin{pmatrix}
+            1 & 0 \\
+            t & -1
+        \end{pmatrix}
+        \quad
+        \begin{pmatrix}
+            1 & t \\
+            0 & -1
+        \end{pmatrix}
+        \quad
+        \begin{pmatrix}
+            -1 & 0 \\
+            t & 1
+        \end{pmatrix}
+        \quad
+        \begin{pmatrix}
+            -1 & t \\
+            0 & 1
+        \end{pmatrix}
+    \]
+    \[
+        \begin{pmatrix}
+            t & u \\
+            \frac{1-t^{2}}{u} & -t
+        \end{pmatrix} \quad (t\ne\pm{1})
+    \]
+\end{proof}
+
+\begin{exercise}
+    Giải phương trình $AX = 0$, trong đó $A$ là ma trận vuông cỡ 2 đã cho còn $X$ là ma trận vuông cỡ 2 cần tìm.
+\end{exercise}
+
+\begin{proof}[Lời giải]
+    $A = \begin{pmatrix}a & b \\ c & d\end{pmatrix}$; $X = \begin{pmatrix}x_{11} & x_{12} \\ x_{21} & x_{22}\end{pmatrix}$.
+    \[
+        AX =
+        \begin{pmatrix}
+            ax_{11}+bx_{21} & ax_{12}+bx_{22} \\
+            cx_{11}+dx_{21} & cx_{12}+dx_{22}
+        \end{pmatrix}
+    \]
+    \begin{enumerate}[label = Trường hợp \arabic*:,itemindent=2cm]
+        \item $a = b = c = d = 0$.
+            \par Mọi ma trận vuông cỡ 2 đều thỏa mãn.
+        \item $a = b = c = 0, d\ne 0$.
+            \par $x_{21} = x_{22} = 0$.
+        \item $a = b = d = 0, c\ne 0$.
+            \par $x_{11} = x_{12} = 0$.
+        \item $a = c = d = 0, b\ne 0$.
+            \par $x_{21} = x_{22} = 0$.
+        \item $b = c = d = 0, a\ne 0$.
+            \par $x_{11} = x_{12} = 0$.
+        \item $a = b = 0; c, d\ne 0$.
+            \par $x_{11} = dp, x_{21} = -cp, x_{12} = dq, x_{22} = -cq$.
+        \item $a, b\ne 0; c = d = 0$.
+            \par $x_{11} = bp, x_{21} = -ap, x_{12} = bq, x_{22} = -aq$.
+        \item $a = c = 0; b, d\ne 0$.
+            \par $x_{21} = x_{22} = 0$.
+        \item $a, c\ne 0; b = d = 0$.
+            \par $x_{11} = x_{12} = 0$.
+        \item $a = d = 0; b, c\ne 0$.
+            \par $x_{21} = x_{22} = x_{11} = x_{12} = 0$.
+        \item $a, d\ne 0; b = c = 0$.
+            \par $x_{11} = x_{12} = x_{21} = x_{22} = 0$.
+        \item $a = 0\vee b = 0 \vee c = 0 \vee d = 0$.
+            \par $x_{11} = x_{12} = x_{21} = x_{22} = 0$.
+        \item $a,b,c,d\ne 0$.
+            \par Nếu $ad - bc = 0$ thì $x_{11} = bp, x_{21} = -ap, x_{12} = bq, x_{22} = -aq$.
+            \par Nếu $ad - bc \ne 0$ thì $x_{11} = x_{12} = x_{21} = x_{22} = 0$.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    Tìm ma trận nghịch đảo (nếu có) của ma trận
+    \[
+        A =
+        \begin{pmatrix}
+            a & b \\
+            c & d
+        \end{pmatrix}
+    \]
+\end{exercise}
+
+\begin{proof}
+    Theo Bài~\ref{characteristic-poly}:
+    \[
+        A^{2} - (a+d)A + (ad-bc) = 0
+    \]
+    \begin{enumerate}[label = Trường hợp \arabic*:,itemindent=2cm]
+        \item $ad - bc = 0$.
+            \par Giả sử $A$ khả nghịch.
+            \[
+                A^{-1}(A^{2} - (a+d)A) = 0 \Rightarrow A = (a+d)E
+            \]
+            \par Đồng nhất hệ số của $A$ và $(a+d)E$, ta suy ra $a = b = c =d = 0$. Ma trận này không khả nghịch.
+            \par Vậy khi $ad - bc = 0$ thì $A$ không khả nghịch.
+        \item $ad - bc \ne 0$
+            \par Giả sử $A$ khả nghịch.
+            \[
+                A^{-1}(A^{2} - (a+d)A + (ad-bc)) = 0 \Rightarrow A^{-1} = \frac{1}{ad-bc}((a+d) - A) = \frac{1}{ad-bc}\begin{pmatrix}d & -b \\ -c & a\end{pmatrix}
+            \]
+            \par Kiểm tra lại, ta thấy ma trận này thỏa mãn.
+    \end{enumerate}
+    \par Như vậy, khi $ad - bc = 0$, ma trận $A$ không khả nghịch. Khi $ad - bc \ne 0$, $A$ khả nghịch và
+    \[
+        A^{-1} = \frac{1}{ad-bc}\begin{pmatrix}d & -b \\ -c & a\end{pmatrix}
+    \]
 \end{proof}
 
 \end{document}

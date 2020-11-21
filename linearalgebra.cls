@@ -7,6 +7,7 @@
 \RequirePackage[subpreambles=true]{standalone}
 \RequirePackage[utf8]{vietnam}
 \RequirePackage[left=2cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
+\RequirePackage[unicode=true,hidelinks]{hyperref}
 
 \RequirePackage{amsmath}
 \RequirePackage{amsfonts}
@@ -62,3 +63,4 @@
   \array{@{}l@{\quad}l@{}}%
 }
 \newcommand{\rank}{\text{rank}}
+\renewcommand{\phi}{\varphi}
