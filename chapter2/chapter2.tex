@@ -17,8 +17,8 @@
         \end{pmatrix}
         \begin{pmatrix}
             -2 & 8 & -5 & 4 \\
-            7  & 8 &  5 & 5 \\
-            0  & 3 &  8 & 4 \\
+            7  & 8 & 5  & 5 \\
+            0  & 3 & 8  & 4 \\
             -8 & 9 & -8 & 9
         \end{pmatrix}
     \]
@@ -30,7 +30,7 @@
             20  & 62 & -68 & 57 \\
             -45 & 99 & 3   & 95 \\
             -26 & 59 & 35  & 63 \\
-            -41 & 89 & 29  & 95 
+            -41 & 89 & 29  & 95
         \end{pmatrix}
     \]
 \end{proof}
@@ -41,101 +41,101 @@
     \[
         \begin{pmatrix}
             \cos\phi & -\sin\phi \\
-            \sin\phi &  \cos\phi
+            \sin\phi & \cos\phi
         \end{pmatrix}^{n},\quad
         \begin{pmatrix}
-            \lambda & 1 \\
-                  0 & \lambda
+            \lambda & 1       \\
+            0       & \lambda
         \end{pmatrix}^{n}.
     \]
 \end{exercise}
 
 \begin{proof}[Lời giải]
     \begin{enumerate}
-        \item 
-            \[
-                A = \begin{pmatrix}
-                    \cos\phi & -\sin\phi \\
-                    \sin\phi & \cos\phi
-                \end{pmatrix}
-            \]
-            \par Ta sẽ chứng minh bằng quy nạp rằng:
-            \[
-                A^{n} =
-                \begin{pmatrix}
-                    \cos(n\phi) & -\sin(n\phi) \\
-                    \sin(n\phi) & \cos(n\phi)
-                \end{pmatrix}
-                \tag{*}
-            \]
-            \par (*) đúng với $n = 1$, giả sử (*) cũng đúng với $n = k$.
-            \begin{align*}
-                A^{k+1} & =
-                \begin{pmatrix}
-                    \cos(k\phi) & -\sin(k\phi) \\
-                    \sin(k\phi) & \cos(k\phi)
-                \end{pmatrix}
-                \begin{pmatrix}
-                    \cos\phi & -\sin\phi \\
-                    \sin\phi & \cos\phi
-                \end{pmatrix} \\
-                        & =
-                \begin{pmatrix}
-                    \cos(k\phi)\cos\phi - \sin(k\phi)\sin\phi & -\sin(k\phi)\cos\phi - \cos(k\phi)\sin\phi \\
-                    \sin(k\phi)\cos\phi + \cos(k\phi)\sin\phi & \cos(k\phi)\cos\phi - \sin(k\phi)\sin\phi
-                \end{pmatrix} \\
-                        & = 
-                \begin{pmatrix}
-                    \cos((k+1)\phi) & -\sin((k+1)\phi) \\
-                    \sin((k+1)\phi) & \cos((k+1)\phi)
-                \end{pmatrix}
-            \end{align*}
-            \par Vậy (*) vẫn đúng với $n = k+1$. Theo nguyên lý quy nạp, (*) đúng với mọi $n\in\mathbb{N}$.
         \item
-            \[
-                B =
-                \begin{pmatrix}
-                    \lambda & 1 \\
-                    0       & \lambda
-                \end{pmatrix}
-            \]
-            \par Ta sẽ chứng minh bằng quy nạp rằng:
-            \[
-                B^{n} =
-                \begin{pmatrix}
-                    \lambda^{n} & n\lambda^{n-1} \\
-                    0           & \lambda^{n}
-                \end{pmatrix}
-                \tag{**}
-            \]
-            \par (**) đúng với $n=1$, giả sử (**) cũng đúng với $n = k$.
-            \begin{align*}
-                A^{k+1} & =
-                \begin{pmatrix}
-                    \lambda^{k} & k\lambda^{k-1} \\
-                    0           & \lambda^{k}
-                \end{pmatrix}
-                \begin{pmatrix}
-                    \lambda & 1       \\
-                    0       & \lambda
-                \end{pmatrix}
-                =
-                \begin{pmatrix}
-                    \lambda^{k+1} & (k+1)\lambda^{k} \\
-                    0             & \lambda^{k+1}
-                \end{pmatrix}
-            \end{align*}
-            \par Vậy (**) vẫn đúng với $n = k+1$. Theo nguyên lý quy nạp, (**) đúng với mọi $n\in\mathbb{N}$.
+              \[
+                  A = \begin{pmatrix}
+                      \cos\phi & -\sin\phi \\
+                      \sin\phi & \cos\phi
+                  \end{pmatrix}
+              \]
+              \par Ta sẽ chứng minh bằng quy nạp rằng:
+              \[
+                  A^{n} =
+                  \begin{pmatrix}
+                      \cos(n\phi) & -\sin(n\phi) \\
+                      \sin(n\phi) & \cos(n\phi)
+                  \end{pmatrix}
+                  \tag{*}
+              \]
+              \par (*) đúng với $n = 1$, giả sử (*) cũng đúng với $n = k$.
+              \begin{align*}
+                  A^{k+1} & =
+                  \begin{pmatrix}
+                      \cos(k\phi) & -\sin(k\phi) \\
+                      \sin(k\phi) & \cos(k\phi)
+                  \end{pmatrix}
+                  \begin{pmatrix}
+                      \cos\phi & -\sin\phi \\
+                      \sin\phi & \cos\phi
+                  \end{pmatrix}  \\
+                          & =
+                  \begin{pmatrix}
+                      \cos(k\phi)\cos\phi - \sin(k\phi)\sin\phi & -\sin(k\phi)\cos\phi - \cos(k\phi)\sin\phi \\
+                      \sin(k\phi)\cos\phi + \cos(k\phi)\sin\phi & \cos(k\phi)\cos\phi - \sin(k\phi)\sin\phi
+                  \end{pmatrix} \\
+                          & =
+                  \begin{pmatrix}
+                      \cos((k+1)\phi) & -\sin((k+1)\phi) \\
+                      \sin((k+1)\phi) & \cos((k+1)\phi)
+                  \end{pmatrix}
+              \end{align*}
+              \par Vậy (*) vẫn đúng với $n = k+1$. Theo nguyên lý quy nạp, (*) đúng với mọi $n\in\mathbb{N}$.
+        \item
+              \[
+                  B =
+                  \begin{pmatrix}
+                      \lambda & 1       \\
+                      0       & \lambda
+                  \end{pmatrix}
+              \]
+              \par Ta sẽ chứng minh bằng quy nạp rằng:
+              \[
+                  B^{n} =
+                  \begin{pmatrix}
+                      \lambda^{n} & n\lambda^{n-1} \\
+                      0           & \lambda^{n}
+                  \end{pmatrix}
+                  \tag{**}
+              \]
+              \par (**) đúng với $n=1$, giả sử (**) cũng đúng với $n = k$.
+              \begin{align*}
+                  A^{k+1} & =
+                  \begin{pmatrix}
+                      \lambda^{k} & k\lambda^{k-1} \\
+                      0           & \lambda^{k}
+                  \end{pmatrix}
+                  \begin{pmatrix}
+                      \lambda & 1       \\
+                      0       & \lambda
+                  \end{pmatrix}
+                  =
+                  \begin{pmatrix}
+                      \lambda^{k+1} & (k+1)\lambda^{k} \\
+                      0             & \lambda^{k+1}
+                  \end{pmatrix}
+              \end{align*}
+              \par Vậy (**) vẫn đúng với $n = k+1$. Theo nguyên lý quy nạp, (**) đúng với mọi $n\in\mathbb{N}$.
     \end{enumerate}
 \end{proof}
 
 \begin{exercise}
     \[
         \begin{pmatrix}
-             a_{1} & 0      & \cdots & 0      \\
-                 0 & a_{2}  & \cdots & 0      \\
+            a_{1}  & 0      & \cdots & 0      \\
+            0      & a_{2}  & \cdots & 0      \\
             \vdots & \vdots & \ddots & \vdots \\
-                 0 & 0      & \cdots & a_{n}
+            0      & 0      & \cdots & a_{n}
         \end{pmatrix}^{k}
     \]
 \end{exercise}
@@ -157,10 +157,10 @@
         \end{pmatrix}
         =
         \begin{pmatrix}
-            x_{1}y_{1}  & 0      & \cdots & 0      \\
-            0      & x_{2}y_{2}  & \cdots & 0      \\
-            \vdots & \vdots & \ddots & \vdots \\
-            0      & 0      & \cdots & x_{n}y_{n}
+            x_{1}y_{1} & 0          & \cdots & 0          \\
+            0          & x_{2}y_{2} & \cdots & 0          \\
+            \vdots     & \vdots     & \ddots & \vdots     \\
+            0          & 0          & \cdots & x_{n}y_{n}
         \end{pmatrix}
     \]
     \par Áp dụng vào bài toán, ta được:
@@ -173,10 +173,10 @@
         \end{pmatrix}^{k}
         =
         \begin{pmatrix}
-            a^{k}_{1}  & 0      & \cdots & 0      \\
-            0      & a^{k}_{2}  & \cdots & 0      \\
-            \vdots & \vdots & \ddots & \vdots \\
-            0      & 0      & \cdots & a^{k}_{n}
+            a^{k}_{1} & 0         & \cdots & 0         \\
+            0         & a^{k}_{2} & \cdots & 0         \\
+            \vdots    & \vdots    & \ddots & \vdots    \\
+            0         & 0         & \cdots & a^{k}_{n}
         \end{pmatrix}
     \]
 \end{proof}
@@ -185,12 +185,12 @@
     Ma trận sau đây có $n$ hàng, $n$ cột.
     \[
         \begin{pmatrix}
-            1 & 1 & 0 & 0 & \cdots & 0 & 0 \\
-            0 & 1 & 1 & 0 & \cdots & 0 & 0 \\
-            0 & 0 & 1 & 1 & \cdots & 0 & 0 \\
+            1      & 1      & 0      & 0      & \cdots & 0      & 0      \\
+            0      & 1      & 1      & 0      & \cdots & 0      & 0      \\
+            0      & 0      & 1      & 1      & \cdots & 0      & 0      \\
             \vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
-            0 & 0 & 0 & 0 & \cdots & 1 & 1 \\
-            0 & 0 & 0 & 0 & \cdots & 0 & 1
+            0      & 0      & 0      & 0      & \cdots & 1      & 1      \\
+            0      & 0      & 0      & 0      & \cdots & 0      & 1
         \end{pmatrix}^{n-1}
     \]
 \end{exercise}
@@ -199,36 +199,36 @@
     \[
         A =
         \begin{pmatrix}
-            1 & 1 & 0 & 0 & \cdots & 0 \\
-            0 & 1 & 1 & 0 & \cdots & 0 & 0 \\
-            0 & 0 & 1 & 1 & \cdots & 0 & 0 \\
+            1      & 1      & 0      & 0      & \cdots & 0               \\
+            0      & 1      & 1      & 0      & \cdots & 0      & 0      \\
+            0      & 0      & 1      & 1      & \cdots & 0      & 0      \\
             \vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
-            0 & 0 & 0 & 0 & \cdots & 1 & 1 \\
-            0 & 0 & 0 & 0 & \cdots & 0 & 1
+            0      & 0      & 0      & 0      & \cdots & 1      & 1      \\
+            0      & 0      & 0      & 0      & \cdots & 0      & 1
         \end{pmatrix}
     \]
     \par Ma trận $A$ được viết lại như sau:
     \[
         A =
         \begin{pmatrix}
-            \binom{1}{0} & \binom{1}{1} & 0 & 0 & \cdots & 0 & 0 \\
-            0 & \binom{1}{0} & \binom{1}{1} & 0 & \cdots & 0 & 0 \\
-            0 & 0 & \binom{1}{0} & \binom{1}{1} & \cdots & 0 & 0 \\
-            \vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
-            0 & 0 & 0 & 0 & \ddots & \binom{1}{0} & \binom{1}{1} \\
-            0 & 0 & 0 & 0 & \cdots & 0 & \binom{1}{0}
+            \binom{1}{0} & \binom{1}{1} & 0            & 0            & \cdots & 0            & 0            \\
+            0            & \binom{1}{0} & \binom{1}{1} & 0            & \cdots & 0            & 0            \\
+            0            & 0            & \binom{1}{0} & \binom{1}{1} & \cdots & 0            & 0            \\
+            \vdots       & \vdots       & \vdots       & \vdots       & \ddots & \vdots       & \vdots       \\
+            0            & 0            & 0            & 0            & \ddots & \binom{1}{0} & \binom{1}{1} \\
+            0            & 0            & 0            & 0            & \cdots & 0            & \binom{1}{0}
         \end{pmatrix}
     \]
     \par Sử dụng quy tắc nhân ma trận và đẳng thức Pascal, ta được:
     \[
         A^{2} =
         \begin{pmatrix}
-            \binom{2}{0} & \binom{2}{1} & \binom{2}{2} & 0 & \cdots & 0 & 0 \\
-            0 & \binom{2}{0} & \binom{2}{1} & \binom{2}{2} & \cdots & 0 & 0 \\
-            0 & 0 & \binom{2}{0} & \binom{2}{1} & \cdots & 0 & 0 \\
-            \vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
-            0 & 0 & 0 & 0 & \cdots & \binom{2}{0} & \binom{2}{1} \\
-            0 & 0 & 0 & 0 & \cdots & 0 & \binom{2}{0}
+            \binom{2}{0} & \binom{2}{1} & \binom{2}{2} & 0            & \cdots & 0            & 0            \\
+            0            & \binom{2}{0} & \binom{2}{1} & \binom{2}{2} & \cdots & 0            & 0            \\
+            0            & 0            & \binom{2}{0} & \binom{2}{1} & \cdots & 0            & 0            \\
+            \vdots       & \vdots       & \vdots       & \vdots       & \ddots & \vdots       & \vdots       \\
+            0            & 0            & 0            & 0            & \cdots & \binom{2}{0} & \binom{2}{1} \\
+            0            & 0            & 0            & 0            & \cdots & 0            & \binom{2}{0}
         \end{pmatrix}
     \]
     \par Nhân liên tiếp với $A$, đến cuối cùng ta được:
@@ -236,11 +236,11 @@
         A^{n-1} =
         \begin{pmatrix}
             \binom{n-1}{0} & \binom{n-1}{1} & \binom{n-1}{2} & \binom{n-1}{3} & \cdots & \binom{n-1}{n-2} & \binom{n-1}{n-1} \\
-            0 & \binom{n-1}{0} & \binom{n-1}{1} & \binom{n-1}{2} & \cdots & \binom{n-1}{n-3} & \binom{n-1}{n-2} \\
-            0 & 0 & \binom{n-1}{0} & \binom{n-1}{1} & \cdots & \binom{n-1}{n-4} & \binom{n-1}{n-3} \\
-            \vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
-            0 & 0 & 0 & 0 & \cdots & \binom{n-1}{0} & \binom{n-1}{1} \\
-            0 & 0 & 0 & 0 & \cdots & 0 & \binom{n-1}{0}
+            0              & \binom{n-1}{0} & \binom{n-1}{1} & \binom{n-1}{2} & \cdots & \binom{n-1}{n-3} & \binom{n-1}{n-2} \\
+            0              & 0              & \binom{n-1}{0} & \binom{n-1}{1} & \cdots & \binom{n-1}{n-4} & \binom{n-1}{n-3} \\
+            \vdots         & \vdots         & \vdots         & \vdots         & \ddots & \vdots           & \vdots           \\
+            0              & 0              & 0              & 0              & \cdots & \binom{n-1}{0}   & \binom{n-1}{1}   \\
+            0              & 0              & 0              & 0              & \cdots & 0                & \binom{n-1}{0}
         \end{pmatrix}
     \]
 \end{proof}
@@ -325,18 +325,18 @@
 \begin{proof}
     \begin{enumerate}[label = (\alph*)]
         \item
-             \begin{align*}
-                 (A+B){}^{2} & = (A+B)(A+B) \\
-                             & = A^{2} + AB + BA + B^{2} \\
-                             & \ne A^{2} + AB + AB + B^{2} \\
-                             & = A^{2} + 2AB + B^{2}
-             \end{align*}
+              \begin{align*}
+                  (A+B){}^{2} & = (A+B)(A+B)                \\
+                              & = A^{2} + AB + BA + B^{2}   \\
+                              & \ne A^{2} + AB + AB + B^{2} \\
+                              & = A^{2} + 2AB + B^{2}
+              \end{align*}
         \item
-             \begin{align*}
-                 (A+B)(A-B) & = A^{2} - AB + BA - B^{2} \\
-                            & = A^{2} - B^{2} + (BA - AB) \\
-                            & \ne A^{2} - B^{2}
-             \end{align*}
+              \begin{align*}
+                  (A+B)(A-B) & = A^{2} - AB + BA - B^{2}   \\
+                             & = A^{2} - B^{2} + (BA - AB) \\
+                             & \ne A^{2} - B^{2}
+              \end{align*}
     \end{enumerate}
 \end{proof}
 
@@ -352,12 +352,12 @@
     \par (*) đúng với $n = 1$.
     \par Giả sử (*) đúng với $n = k$.
     \begin{align*}
-        (A+B)^{k} & = \sum^{k}_{j=0}\binom{k}{j}A^{k-j}B^{j} \\
-        \Rightarrow (A+B)^{k+1} & = \sum^{k}_{j=0}A^{k+1-j}B^{j} + \sum^{k}_{j=0}A^{k-j}B^{j+1}
+        (A+B){}^{k}               & = \sum^{k}_{j=0}\binom{k}{j}A^{k-j}B^{j}                      \\
+        \Rightarrow (A+B){}^{k+1} & = \sum^{k}_{j=0}A^{k+1-j}B^{j} + \sum^{k}_{j=0}A^{k-j}B^{j+1}
     \end{align*}
     \par Sử dụng đẳng thức Pascal $\binom{n}{k} = \binom{n-1}{k} + \binom{n-1}{k-1}$, ta suy ra
     \[
-        (A+B)^{k+1} = A^{k+1} + \sum^{k+1}_{j=1}\binom{k+1}{j}A^{k+1-j}B^{j} = \sum^{k+1}_{j=0}\binom{k+1}{j}A^{k+1-j}B^{j}.
+        (A+B){}^{k+1} = A^{k+1} + \sum^{k+1}_{j=1}\binom{k+1}{j}A^{k+1-j}B^{j} = \sum^{k+1}_{j=0}\binom{k+1}{j}A^{k+1-j}B^{j}.
     \]
     \par Vậy (*) đúng với $n = k + 1$.
     \par Do đó (*) với mọi số tự nhiên $n$.
@@ -383,20 +383,20 @@
     \[
         AS_{ij} =
         \begin{pmatrix}
-            * & * & \cdots & * & * \\
-            * & a_{ij} & * & a_{ii} & * \\
-            * & * & \ddots & * & * \\
-            * & a_{jj} & * & a_{ji} & * \\
-            * & * & \cdots & * & *
+            * & *      & \cdots & *      & * \\
+            * & a_{ij} & *      & a_{ii} & * \\
+            * & *      & \ddots & *      & * \\
+            * & a_{jj} & *      & a_{ji} & * \\
+            * & *      & \cdots & *      & *
         \end{pmatrix}
         \qquad
         S_{ij}A =
         \begin{pmatrix}
-            * & * & \cdots & * & * \\
-            * & a_{ji} & * & a_{jj} & * \\
-            * & * & \ddots & * & * \\
-            * & a_{ii} & * & a_{ij} & * \\
-            * & * & \cdots & * & *
+            * & *      & \cdots & *      & * \\
+            * & a_{ji} & *      & a_{jj} & * \\
+            * & *      & \ddots & *      & * \\
+            * & a_{ii} & *      & a_{ij} & * \\
+            * & *      & \cdots & *      & *
         \end{pmatrix}
     \]
     \par trong đó $*$ là các phần tử không.
@@ -406,28 +406,28 @@
     \[
         A =
         \begin{pmatrix}
-            a & b & \cdots & b \\
-            b & a & \cdots & b \\
+            a      & b      & \cdots & b      \\
+            b      & a      & \cdots & b      \\
             \vdots & \vdots & \ddots & \vdots \\
-            b & b & \cdots & a
+            b      & b      & \cdots & a
         \end{pmatrix}
     \]
     \par $E_{1}$ là ma trận vuông cỡ $n$ có yếu tố hàng $1$, cột $1$ bằng đơn vị, các yếu tố còn lại bằng không.
     \[
         AE_{1} =
         \begin{pmatrix}
-            a & 0 & \cdots & 0 \\
-            b & 0 & \cdots & 0 \\
+            a      & 0      & \cdots & 0      \\
+            b      & 0      & \cdots & 0      \\
             \vdots & \vdots & \ddots & \vdots \\
-            b & 0 & \cdots & 0
+            b      & 0      & \cdots & 0
         \end{pmatrix}
         \qquad
         E_{1}A =
         \begin{pmatrix}
-            a & b & \cdots & b \\
-            0 & 0 & \cdots & 0 \\
+            a      & b      & \cdots & b      \\
+            0      & 0      & \cdots & 0      \\
             \vdots & \vdots & \ddots & \vdots \\
-            0 & 0 & \cdots & 0
+            0      & 0      & \cdots & 0
         \end{pmatrix}
     \]
     \par $AE_{1} = E_{1}A$. Đồng nhất hệ số ta được $b = 0$.
@@ -443,44 +443,44 @@
     \par $A$ và $B$ là các ma trận chéo.
     \[
         \begin{pmatrix}
-            a_{11} & 0 & \cdots & 0 \\
-            0 & a_{22} & \cdots & 0 \\
+            a_{11} & 0      & \cdots & 0      \\
+            0      & a_{22} & \cdots & 0      \\
             \vdots & \vdots & \ddots & \vdots \\
-            0 & 0 & \vdots & a_{nn}
+            0      & 0      & \vdots & a_{nn}
         \end{pmatrix}
         \begin{pmatrix}
-            b_{11} & 0 & \cdots & 0 \\
-            0 & b_{22} & \cdots & 0 \\
+            b_{11} & 0      & \cdots & 0      \\
+            0      & b_{22} & \cdots & 0      \\
             \vdots & \vdots & \ddots & \vdots \\
-            0 & 0 & \cdots & b_{nn}
+            0      & 0      & \cdots & b_{nn}
         \end{pmatrix}
         =
         \begin{pmatrix}
-            a_{11}b_{11} & 0 & \cdots & 0 \\
-            0 & a_{22}b_{22} & \cdots & 0 \\
-            \vdots & \vdots & \ddots & \vdots \\
-            0 & 0 & \cdots & a_{n}b_{n}
+            a_{11}b_{11} & 0            & \cdots & 0          \\
+            0            & a_{22}b_{22} & \cdots & 0          \\
+            \vdots       & \vdots       & \ddots & \vdots     \\
+            0            & 0            & \cdots & a_{n}b_{n}
         \end{pmatrix}
     \]
     \[
         \begin{pmatrix}
-            b_{11} & 0 & \cdots & 0 \\
-            0 & b_{22} & \cdots & 0 \\
+            b_{11} & 0      & \cdots & 0      \\
+            0      & b_{22} & \cdots & 0      \\
             \vdots & \vdots & \ddots & \vdots \\
-            0 & 0 & \vdots & b_{nn}
+            0      & 0      & \vdots & b_{nn}
         \end{pmatrix}
         \begin{pmatrix}
-            a_{11} & 0 & \cdots & 0 \\
-            0 & a_{22} & \cdots & 0 \\
+            a_{11} & 0      & \cdots & 0      \\
+            0      & a_{22} & \cdots & 0      \\
             \vdots & \vdots & \ddots & \vdots \\
-            0 & 0 & \cdots & a_{nn}
+            0      & 0      & \cdots & a_{nn}
         \end{pmatrix}
         =
         \begin{pmatrix}
-            a_{11}b_{11} & 0 & \cdots & 0 \\
-            0 & a_{22}b_{22} & \cdots & 0 \\
-            \vdots & \vdots & \ddots & \vdots \\
-            0 & 0 & \cdots & a_{n}b_{n}
+            a_{11}b_{11} & 0            & \cdots & 0          \\
+            0            & a_{22}b_{22} & \cdots & 0          \\
+            \vdots       & \vdots       & \ddots & \vdots     \\
+            0            & 0            & \cdots & a_{n}b_{n}
         \end{pmatrix}
     \]
     \par Như vậy, $A$ giao hoán với mọi ma trận chéo.
@@ -489,21 +489,21 @@
     \[
         AE_{i} =
         \begin{pmatrix}
-            0 & \cdots & a_{1i} & \cdots & 0 \\
+            0      & \cdots & a_{1i} & \cdots & 0      \\
             \vdots & \ddots & \vdots & \ddots & \vdots \\
-            0 & \cdots & a_{ii} & \cdots & 0 \\
+            0      & \cdots & a_{ii} & \cdots & 0      \\
             \vdots & \ddots & \vdots & \ddots & \vdots \\
-            0 & \cdots & a_{ni} & \cdots & 0
+            0      & \cdots & a_{ni} & \cdots & 0
         \end{pmatrix}
     \]
     \[
         E_{i}A =
         \begin{pmatrix}
-            0 & \cdots & 0 & \cdots & 0 \\
+            0      & \cdots & 0      & \cdots & 0      \\
             \vdots & \ddots & \vdots & \ddots & \vdots \\
             a_{i1} & \cdots & a_{ii} & \cdots & a_{in} \\
             \vdots & \ddots & \vdots & \ddots & \vdots \\
-            0 & \cdots & 0 & \cdots & 0
+            0      & \cdots & 0      & \cdots & 0
         \end{pmatrix}
     \]
     \par Do $AE_{i} = E_{i}A$ nên $a_{ij} = a_{ji} = 0, \forall j\ne i$.
@@ -518,10 +518,10 @@
     \[
         A =
         \begin{pmatrix}
-            a_{1} & 0 & \cdots & 0 \\
-            0 & a_{2} & \cdots & 0 \\
+            a_{1}  & 0      & \cdots & 0      \\
+            0      & a_{2}  & \cdots & 0      \\
             \vdots & \vdots & \ddots & \vdots \\
-            0 & 0 & \vdots & a_{n}
+            0      & 0      & \vdots & a_{n}
         \end{pmatrix}
     \]
     \par trong đó, $a_{i}\ne a_{j},\forall i\ne j$.
@@ -531,7 +531,7 @@
         \begin{pmatrix}
             a_{1}b_{11} & a_{1}b_{12} & \cdots & a_{1}b_{1n} \\
             a_{2}b_{21} & a_{2}b_{22} & \cdots & a_{2}b_{2n} \\
-            \vdots & \vdots & \ddots & \vdots \\
+            \vdots      & \vdots      & \ddots & \vdots      \\
             a_{n}b_{n1} & a_{n}b_{n2} & \cdots & a_{n}b_{nn}
         \end{pmatrix}
         \qquad
@@ -539,7 +539,7 @@
         \begin{pmatrix}
             a_{1}b_{11} & a_{2}b_{12} & \cdots & a_{n}b_{1n} \\
             a_{1}b_{21} & a_{2}b_{22} & \cdots & a_{n}b_{2n} \\
-            \vdots & \vdots & \ddots & \vdots \\
+            \vdots      & \vdots      & \ddots & \vdots      \\
             a_{1}b_{n1} & a_{2}b_{n2} & \cdots & a_{n}b_{nn}
         \end{pmatrix}
     \]
@@ -556,10 +556,10 @@
     \[
         DA =
         \begin{pmatrix}
-            a_{1} & 0 & \cdots & 0 \\
-            0 & a_{2} & \cdots & 0 \\
+            a_{1}  & 0      & \cdots & 0      \\
+            0      & a_{2}  & \cdots & 0      \\
             \vdots & \vdots & \ddots & \vdots \\
-            0 & 0 & \cdots & a_{n}
+            0      & 0      & \cdots & a_{n}
         \end{pmatrix}
         \begin{pmatrix}
             a_{11} & a_{12} & \cdots & a_{1n} \\
@@ -571,7 +571,7 @@
         \begin{pmatrix}
             a_{1}a_{11} & a_{1}a_{12} & \cdots & a_{1}a_{1n} \\
             a_{2}a_{21} & a_{2}a_{22} & \cdots & a_{2}a_{2n} \\
-            \vdots & \vdots & \ddots & \vdots \\
+            \vdots      & \vdots      & \ddots & \vdots      \\
             a_{n}a_{n1} & a_{n}a_{n2} & \cdots & a_{n}a_{nn}
         \end{pmatrix}
     \]
@@ -584,16 +584,16 @@
             a_{n1} & a_{n2} & \cdots & a_{nn}
         \end{pmatrix}
         \begin{pmatrix}
-            a_{1} & 0 & \cdots & 0 \\
-            0 & a_{2} & \cdots & 0 \\
+            a_{1}  & 0      & \cdots & 0      \\
+            0      & a_{2}  & \cdots & 0      \\
             \vdots & \vdots & \ddots & \vdots \\
-            0 & 0 & \cdots & a_{n}
+            0      & 0      & \cdots & a_{n}
         \end{pmatrix}
         =
         \begin{pmatrix}
             a_{1}a_{11} & a_{2}a_{12} & \cdots & a_{n}a_{1n} \\
             a_{1}a_{21} & a_{2}a_{22} & \cdots & a_{n}a_{2n} \\
-            \vdots & \vdots & \ddots & \vdots \\
+            \vdots      & \vdots      & \ddots & \vdots      \\
             a_{1}a_{n1} & a_{2}a_{n2} & \cdots & a_{n}a_{nn}
         \end{pmatrix}
     \]
@@ -626,7 +626,7 @@
         \begin{pmatrix}
             3a_{11} + a_{21} & 3a_{12} + a_{22} & 3a_{13} + a_{23} \\
             3a_{21} + a_{31} & 3a_{22} + a_{32} & 3a_{23} + a_{33} \\
-            3a_{31} & 3a_{32} & 3a_{33}
+            3a_{31}          & 3a_{32}          & 3a_{33}
         \end{pmatrix}
     \]
     \[
@@ -650,22 +650,22 @@
     \[
         \Rightarrow
         \begin{cases}
-            3a_{11} + a_{21} = 3a_{11} \Leftrightarrow a_{21} = 0 \\
+            3a_{11} + a_{21} = 3a_{11} \Leftrightarrow a_{21} = 0               \\
             3a_{12} + a_{22} = a_{11} + 3a_{12} \Leftrightarrow a_{11} = a_{22} \\
             3a_{13} + a_{23} = a_{12} + 3a_{13} \Leftrightarrow a_{12} = a_{23} \\
-            3a_{21} + a_{31} = 3a_{21} \Leftrightarrow a_{31} = 0 \\
+            3a_{21} + a_{31} = 3a_{21} \Leftrightarrow a_{31} = 0               \\
             3a_{22} + a_{32} = a_{21} + 3a_{22} \Leftrightarrow a_{21} = a_{32} \\
             3a_{23} + a_{33} = a_{22} + 3a_{23} \Leftrightarrow a_{22} = a_{33} \\
-            3a_{32} = a_{31} + 3a_{32} \Leftrightarrow a_{31} = 0 \\
+            3a_{32} = a_{31} + 3a_{32} \Leftrightarrow a_{31} = 0               \\
             3a_{33} = a_{32} + 3a_{33} \Leftrightarrow a_{32} = 0
         \end{cases}
     \]
     \par Vậy các ma trận giao hoán với ma trận
     $\begin{pmatrix}
-        3 & 1 & 0 \\
-        0 & 3 & 1 \\
-        0 & 0 & 3
-    \end{pmatrix}$
+            3 & 1 & 0 \\
+            0 & 3 & 1 \\
+            0 & 0 & 3
+        \end{pmatrix}$
     có dạng:
     \[
         \begin{pmatrix}
@@ -688,14 +688,14 @@
     \[
         A^{2} =
         \begin{pmatrix}
-            a^{2}+bc & b(a+d) \\
+            a^{2}+bc & b(a+d)   \\
             c(a+d)   & d^{2}+bc
         \end{pmatrix}
     \]
     \begin{align*}
         A^{2} - (a+d)A + (ad-bc) & = \begin{pmatrix}a^{2}+bc & b(a+d) \\ c(a+d) & d^{2}+bc\end{pmatrix} - (a+d)\begin{pmatrix}a & b \\ c & d\end{pmatrix} + (ad-bc)\begin{pmatrix}1 & 0 \\ 0 & 1\end{pmatrix} \\
-            & = \begin{pmatrix}a^{2}+bc - a(a+d) + (ad-bc) & b(a+d) - b(a+d) \\ c(a+d) - c(a+d) & d^{2}+bc - d(a+d) + (ad-bc)\end{pmatrix} \\
-            & = \begin{pmatrix}0 & 0 \\ 0 & 0 \end{pmatrix} = 0.
+                                 & = \begin{pmatrix}a^{2}+bc - a(a+d) + (ad-bc) & b(a+d) - b(a+d) \\ c(a+d) - c(a+d) & d^{2}+bc - d(a+d) + (ad-bc)\end{pmatrix}                                                                       \\
+                                 & = \begin{pmatrix}0 & 0 \\ 0 & 0 \end{pmatrix} = 0.
     \end{align*}
 \end{proof}
 
@@ -710,7 +710,7 @@
     \[
         a_{0} + a_{1}A + a_{2}A^{2} + \cdots + a_{n^{2}}A^{n^{2}} = 0
     \]
-    \par Điều đó có nghĩa là đa thức $f(X) = a_{0} + a_{1}X + a_{2}X^{2} + \ldots + a_{n^{2}}X^{n^{2}}$ khác không và thỏa mãn $f(A) = 0$.
+    \par Điều đó có nghĩa là đa thức $f(X) = a_{0} + a_{1}X + a_{2}X^{2} + \cdots + a_{n^{2}}X^{n^{2}}$ khác không và thỏa mãn $f(A) = 0$.
     \par Như vậy tập hợp các đa thức khác không nhận $A$ làm nghiệm là tập khác rỗng. Theo nguyên lý sắp thứ tự tốt, tập hợp này chứa đa thức có bậc nhỏ nhất. Đặt đa thức như vậy là $f_{0}(X)$.
     \par Giả sử đa thức $p(X)$ thỏa mãn $p(A) = 0$. Ta thực hiện phép chia cho đa thức $f_{0}(X)$.
     \[
@@ -749,18 +749,18 @@
     \]
     \begin{enumerate}[label = Trường hợp \arabic*:,itemindent=2cm]
         \item $ad - bc = 0, a + d = 0$.
-            \[
-                \Rightarrow A^{2} = 0
-            \]
+              \[
+                  \Rightarrow A^{2} = 0
+              \]
         \item $ad - bc = 0, a + d \ne 0$.
-            \[
-                \Rightarrow A^{2} = (a+d)A \Rightarrow A^{k} = (a+d)A^{k-1} \Rightarrow A^{k-1} = 0\Rightarrow A^{k-2} = 0 \Rightarrow \cdots \Rightarrow A^{2} = 0
-            \]
+              \[
+                  \Rightarrow A^{2} = (a+d)A \Rightarrow A^{k} = (a+d)A^{k-1} \Rightarrow A^{k-1} = 0\Rightarrow A^{k-2} = 0 \Rightarrow \cdots \Rightarrow A^{2} = 0
+              \]
         \item $ad - bc \ne 0$.
-            \par $A^{k} = 0\Rightarrow A^{k+1} = 0$.
-            \[
-                \Rightarrow A^{k+1} - (a+d)A^{k} + (ad-bc)A^{k-1} = 0 \Rightarrow A^{k-1} = 0 \Rightarrow \cdots \Rightarrow A^{2} = 0.
-            \]
+              \par $A^{k} = 0\Rightarrow A^{k+1} = 0$.
+              \[
+                  \Rightarrow A^{k+1} - (a+d)A^{k} + (ad-bc)A^{k-1} = 0 \Rightarrow A^{k-1} = 0 \Rightarrow \cdots \Rightarrow A^{2} = 0.
+              \]
     \end{enumerate}
     \par Tóm lại, trong tất cả các trường hợp, ta đều có $A^{2} = 0$.
 \end{proof}
@@ -783,13 +783,13 @@
     \]
     \begin{enumerate}[label = Trường hợp \arabic*:,itemindent=2cm]
         \item $a + d \ne 0$.
-            \par $b(a+d) = c(a+d) = 0$ và $a+d\ne 0$ nên $b = c = 0$.
-            \par $a^{2} + bc = d^{2} + bc = b = c = 0$ nên $a = b = c = d = 0$. 
+              \par $b(a+d) = c(a+d) = 0$ và $a+d\ne 0$ nên $b = c = 0$.
+              \par $a^{2} + bc = d^{2} + bc = b = c = 0$ nên $a = b = c = d = 0$.
         \item $a + d = 0$.
-            \par Nếu $a = d = 0$ thì $bc = 0$.
-            \par $A = \begin{pmatrix}0 & t \\ 0 & 0\end{pmatrix}$ hoặc $A = \begin{pmatrix}0 & 0 \\ t & 0\end{pmatrix}$.
-            \par Nếu $a, d\ne 0$ thì
-            \par $A = \begin{pmatrix}t & u \\ \frac{-t^{2}}{u} & -t\end{pmatrix}$ trong đó $t \ne 0$.
+              \par Nếu $a = d = 0$ thì $bc = 0$.
+              \par $A = \begin{pmatrix}0 & t \\ 0 & 0\end{pmatrix}$ hoặc $A = \begin{pmatrix}0 & 0 \\ t & 0\end{pmatrix}$.
+              \par Nếu $a, d\ne 0$ thì
+              \par $A = \begin{pmatrix}t & u \\ \frac{-t^{2}}{u} & -t\end{pmatrix}$ trong đó $t \ne 0$.
     \end{enumerate}
     \par Như vậy $A$ thuộc một trong các dạng sau:
     \[
@@ -804,7 +804,7 @@
         \end{pmatrix}
         \qquad
         \begin{pmatrix}
-            t & u \\
+            t                & u  \\
             \frac{-t^{2}}{u} & -t
         \end{pmatrix}
     \]
@@ -818,12 +818,12 @@
     $A = \begin{pmatrix}a & b \\ c & d\end{pmatrix}\Rightarrow A^{2} = \begin{pmatrix}a^{2}+bc & b(a+d) \\ c(a+d) & d^{2}+bc\end{pmatrix}$.
     \begin{enumerate}[label = Trường hợp \arabic*:,itemindent=2cm]
         \item $a + d\ne 0$.
-            \par Suy ra $b = c = 0$, $a^{2} = d^{2} = 1$.
-            \par $(a,d)\in\{  (1,1), (-1,-1), (1,-1), (-1,1) \}$.
+              \par Suy ra $b = c = 0$, $a^{2} = d^{2} = 1$.
+              \par $(a,d)\in\{  (1,1), (-1,-1), (1,-1), (-1,1) \}$.
         \item $a + d = 0$.
-            \par $a = t, d = -t$, suy ra $bc = 1 - t^{2}$.
-            \par Nếu $t^{2} = 1$ thì $bc = 0$.
-            \par Nếu $t^{2} \ne 1$ thì $b = u, c = \frac{1-t^{2}}{u}$.
+              \par $a = t, d = -t$, suy ra $bc = 1 - t^{2}$.
+              \par Nếu $t^{2} = 1$ thì $bc = 0$.
+              \par Nếu $t^{2} \ne 1$ thì $b = u, c = \frac{1-t^{2}}{u}$.
     \end{enumerate}
     \par Như vậy $A$ thuộc một trong các dạng sau:
     \[
@@ -833,33 +833,33 @@
         \end{pmatrix}
         \quad
         \begin{pmatrix}
-            -1 & 0 \\
-            0 & -1
+            -1 & 0  \\
+            0  & -1
         \end{pmatrix}
         \quad
         \begin{pmatrix}
-            1 & 0 \\
+            1 & 0  \\
             t & -1
         \end{pmatrix}
         \quad
         \begin{pmatrix}
-            1 & t \\
+            1 & t  \\
             0 & -1
         \end{pmatrix}
         \quad
         \begin{pmatrix}
             -1 & 0 \\
-            t & 1
+            t  & 1
         \end{pmatrix}
         \quad
         \begin{pmatrix}
             -1 & t \\
-            0 & 1
+            0  & 1
         \end{pmatrix}
     \]
     \[
         \begin{pmatrix}
-            t & u \\
+            t                 & u  \\
             \frac{1-t^{2}}{u} & -t
         \end{pmatrix} \quad (t\ne\pm{1})
     \]
@@ -880,32 +880,32 @@
     \]
     \begin{enumerate}[label = Trường hợp \arabic*:,itemindent=2cm]
         \item $a = b = c = d = 0$.
-            \par Mọi ma trận vuông cỡ 2 đều thỏa mãn.
+              \par Mọi ma trận vuông cỡ 2 đều thỏa mãn.
         \item $a = b = c = 0, d\ne 0$.
-            \par $x_{21} = x_{22} = 0$.
+              \par $x_{21} = x_{22} = 0$.
         \item $a = b = d = 0, c\ne 0$.
-            \par $x_{11} = x_{12} = 0$.
+              \par $x_{11} = x_{12} = 0$.
         \item $a = c = d = 0, b\ne 0$.
-            \par $x_{21} = x_{22} = 0$.
+              \par $x_{21} = x_{22} = 0$.
         \item $b = c = d = 0, a\ne 0$.
-            \par $x_{11} = x_{12} = 0$.
+              \par $x_{11} = x_{12} = 0$.
         \item $a = b = 0; c, d\ne 0$.
-            \par $x_{11} = dp, x_{21} = -cp, x_{12} = dq, x_{22} = -cq$.
+              \par $x_{11} = dp, x_{21} = -cp, x_{12} = dq, x_{22} = -cq$.
         \item $a, b\ne 0; c = d = 0$.
-            \par $x_{11} = bp, x_{21} = -ap, x_{12} = bq, x_{22} = -aq$.
+              \par $x_{11} = bp, x_{21} = -ap, x_{12} = bq, x_{22} = -aq$.
         \item $a = c = 0; b, d\ne 0$.
-            \par $x_{21} = x_{22} = 0$.
+              \par $x_{21} = x_{22} = 0$.
         \item $a, c\ne 0; b = d = 0$.
-            \par $x_{11} = x_{12} = 0$.
+              \par $x_{11} = x_{12} = 0$.
         \item $a = d = 0; b, c\ne 0$.
-            \par $x_{21} = x_{22} = x_{11} = x_{12} = 0$.
+              \par $x_{21} = x_{22} = x_{11} = x_{12} = 0$.
         \item $a, d\ne 0; b = c = 0$.
-            \par $x_{11} = x_{12} = x_{21} = x_{22} = 0$.
+              \par $x_{11} = x_{12} = x_{21} = x_{22} = 0$.
         \item $a = 0\vee b = 0 \vee c = 0 \vee d = 0$.
-            \par $x_{11} = x_{12} = x_{21} = x_{22} = 0$.
+              \par $x_{11} = x_{12} = x_{21} = x_{22} = 0$.
         \item $a,b,c,d\ne 0$.
-            \par Nếu $ad - bc = 0$ thì $x_{11} = bp, x_{21} = -ap, x_{12} = bq, x_{22} = -aq$.
-            \par Nếu $ad - bc \ne 0$ thì $x_{11} = x_{12} = x_{21} = x_{22} = 0$.
+              \par Nếu $ad - bc = 0$ thì $x_{11} = bp, x_{21} = -ap, x_{12} = bq, x_{22} = -aq$.
+              \par Nếu $ad - bc \ne 0$ thì $x_{11} = x_{12} = x_{21} = x_{22} = 0$.
     \end{enumerate}
 \end{proof}
 
@@ -927,23 +927,173 @@
     \]
     \begin{enumerate}[label = Trường hợp \arabic*:,itemindent=2cm]
         \item $ad - bc = 0$.
-            \par Giả sử $A$ khả nghịch.
-            \[
-                A^{-1}(A^{2} - (a+d)A) = 0 \Rightarrow A = (a+d)E
-            \]
-            \par Đồng nhất hệ số của $A$ và $(a+d)E$, ta suy ra $a = b = c =d = 0$. Ma trận này không khả nghịch.
-            \par Vậy khi $ad - bc = 0$ thì $A$ không khả nghịch.
+              \par Giả sử $A$ khả nghịch.
+              \[
+                  A^{-1}(A^{2} - (a+d)A) = 0 \Rightarrow A = (a+d)E
+              \]
+              \par Đồng nhất hệ số của $A$ và $(a+d)E$, ta suy ra $a = b = c =d = 0$. Ma trận này không khả nghịch.
+              \par Vậy khi $ad - bc = 0$ thì $A$ không khả nghịch.
         \item $ad - bc \ne 0$
-            \par Giả sử $A$ khả nghịch.
-            \[
-                A^{-1}(A^{2} - (a+d)A + (ad-bc)) = 0 \Rightarrow A^{-1} = \frac{1}{ad-bc}((a+d) - A) = \frac{1}{ad-bc}\begin{pmatrix}d & -b \\ -c & a\end{pmatrix}
-            \]
-            \par Kiểm tra lại, ta thấy ma trận này thỏa mãn.
+              \par Giả sử $A$ khả nghịch.
+              \[
+                  A^{-1}(A^{2} - (a+d)A + (ad-bc)) = 0 \Rightarrow A^{-1} = \frac{1}{ad-bc}((a+d) - A) = \frac{1}{ad-bc}\begin{pmatrix}d & -b \\ -c & a\end{pmatrix}
+              \]
+              \par Kiểm tra lại, ta thấy ma trận này thỏa mãn.
     \end{enumerate}
     \par Như vậy, khi $ad - bc = 0$, ma trận $A$ không khả nghịch. Khi $ad - bc \ne 0$, $A$ khả nghịch và
     \[
         A^{-1} = \frac{1}{ad-bc}\begin{pmatrix}d & -b \\ -c & a\end{pmatrix}
     \]
+\end{proof}
+
+\begin{exercise}
+    Giả sử $V = V_{1}\oplus V_{2}$, trong đó $V_{1}$ có cơ sở $(\alpha_{1}, \ldots, \alpha_{k})$, $V_{2}$ có cơ sở $(\alpha_{k+1}, \ldots, \alpha_{n})$. Tìm ma trận của phép chiếu lên $V_{1}$ theo phương $V_{2}$ đối với cơ sở $(\alpha_{1}, \ldots, \alpha_{n})$.
+\end{exercise}
+
+\begin{proof}[Lời giải]
+    $pr_{V_{1}}$ là phép chiếu lên $V_{1}$ theo phương $V_{2}$.
+    \[
+        pr_{V_{1}}(\alpha_{i}) =
+        \begin{cases}
+            \alpha_{i} (i = \overline{1, k}) \\
+            0 (i = \overline{k+1,n})
+        \end{cases}
+    \]
+    \par Vậy ma trận của $pr_{V_{1}}$ đối với cơ sở $(\alpha_{1}, \ldots, \alpha_{n})$ của $V$ và cơ sở $(\alpha_{1}, \ldots, \alpha_{k})$ của $V_{1}$ là:
+    \[
+        \begin{pmatrix}
+            1      & 0      & \cdots & 0      & \cdots & 0      \\
+            0      & 1      & \cdots & 0      & \cdots & 0      \\
+            \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+            0      & 0      & \cdots & 1      & \cdots & 0      \\
+            \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+            0      & 0      & \cdots & 0      & \cdots & 0
+        \end{pmatrix}
+    \]
+\end{proof}
+
+\begin{exercise}
+    Chứng minh rằng nếu $V = V_{1}\oplus V_{2}$, thì $V$ đẳng cấu với tích trực tiếp $V_{1}\times V_{2}$.
+\end{exercise}
+
+\begin{proof}
+    $v, \alpha, \beta \in V$. Giả sử
+    \[
+        v = \underbrace{v_{1}}_{\in V_{1}} + \underbrace{v_{2}}_{\in V_{2}}
+        \qquad
+        \alpha = \underbrace{\alpha_{1}}_{\in V_{1}} + \underbrace{\alpha_{2}}_{\in V_{2}}
+        \qquad
+        \beta = \underbrace{\beta_{1}}_{\in V_{1}} + \underbrace{\beta_{2}}_{\in V_{2}}
+    \]
+    \par Ta xét ánh xạ:
+    \[
+        \begin{split}
+            \phi:\ & V_{1}\oplus V_{2} \to V_{1}\times V_{2} \\
+            & v = v_{1} + v_{2} \mapsto (v_{1}, v_{2})
+        \end{split}
+    \]
+    \par Ánh xạ này là một đồng cấu tuyến tính vì:
+    \[
+        \begin{split}
+            \phi(\alpha + \beta) & = (\alpha_{1} + \beta_{1}, \alpha_{2} + \beta_{2}) = (\alpha_{1}, \alpha_{2}) + (\beta_{1}, \beta_{2}) = \phi(\alpha) + \phi(\beta) \\
+            \phi(a\alpha) & = (a\alpha_{1}, a\alpha_{2}) = a(\alpha_{1}, \alpha_{2}) = a\phi(\alpha)
+        \end{split}
+    \]
+    \par Ánh xạ này là đơn cấu vì nếu $\phi(\alpha) = \phi(\beta)$ khi và chỉ khi $\alpha_{1} = \beta_{1}, \alpha_{2} = \beta_{2}$, tức là $\alpha = \beta$ (theo định nghĩa tổng trực tiếp).
+    \par Ánh xạ này là toàn cấu vì $\forall (v_{1}, v_{2})\in V_{1}\times V_{2}$ thì $\phi(v_{1} + v_{2}) = (v_{1}, v_{2})$.
+    \par Do đó $\phi$ là đẳng cấu.
+    \par Như vậy, $V = V_{1}\oplus V_{2} \cong V_{1}\times V_{2}$.
+\end{proof}
+
+\begin{exercise}
+    Chứng minh rằng tồn tại duy nhất tự đồng cấu $\mathbb{R}_{3}\to\mathbb{R}_{3}$ chuyển các vector $\alpha_{1} = (2,3,5)$, $\alpha_{2} = (0, 1, 2)$, $\alpha_{3} = (1, 0, 0)$ tương ứng thành các vector $\beta_{1} = (1, 1, 1)$, $\beta_{2} = (1, 1, -1)$, $\beta_{3} = (2, 1, 2)$. Tìm ma trận của $f$ đối với cơ sở chính tắc của không gian.
+\end{exercise}
+
+\begin{proof}
+    Xét ràng buộc tuyến tính sau:
+    \[
+        a_{1}\alpha_{1} + a_{2}\alpha_{2} + a_{3}\alpha_{3} = (0,0,0)
+    \]
+    \begin{align*}
+        \Leftrightarrow & (2a_{1} + a_{3}, 3a_{1} + a_{2}, 5a_{1} + 2a_{3}) = (0,0,0)                                   \\
+        \Leftrightarrow & (2a_{1} + a_{3}, 3a_{1} + a_{2}, 5a_{1} + 2a_{3} - 2a_{1} - a_{3} - 3a_{1} - a_{2}) = (0,0,0) \\
+        \Leftrightarrow & (2a_{1} + a_{3}, 3a_{1} + a_{2}, a_{3} - a_{2}) = (0,0,0)                                     \\
+        \Leftrightarrow & (2a_{1} + a_{3}, a_{1} + a_{2} - a_{3}, a_{3} - a_{2}) = (0,0,0)                              \\
+        \Leftrightarrow & (2a_{1} + a_{3}, a_{1}, a_{3} - a_{2}) = (0,0,0)                                              \\
+        \Leftrightarrow & (a_{3}, a_{1}, a_{2}) = (0,0,0)
+    \end{align*}
+    \par Vậy hệ $(\alpha_{1}, \alpha_{2}, \alpha_{3})$ độc lập tuyến tính.
+    \par Không gian vector $\mathbb{R}_{3}$ có số chiều là 3, do đó $(\alpha_{1}, \alpha_{2}, \alpha_{3})$ là một cơ sở của $\mathbb{R}_{3}$.
+    \par Một ánh xạ tuyến tính được xác định duy nhất bởi tác động của nó lên một cơ sở, do đó tồn tại duy nhất tự đồng cấu $f: \mathbb{R}_{3}\to\mathbb{R}_{3}$ chuyển $\alpha_{1}\mapsto\beta_{1}$, $\alpha_{2}\mapsto\beta_{2}$, $\alpha_{3}\mapsto\beta_{3}$.
+    \[
+        \begin{cases}
+            \beta_{1} = 1\alpha_{1} + (-2)\alpha_{2} + (-1)\alpha_{3} \\
+            \beta_{2} = 3\alpha_{1} + (-8)\alpha_{2} + (-5)\alpha_{3} \\
+            \beta_{3} = 0\alpha_{1} + 1\alpha_{2} + 2\alpha_{3}
+        \end{cases}
+    \]
+    \par Như vậy ma trận của tự đồng cấu $f$ đối với cơ sở $(\alpha_{1}, \alpha_{2}, \alpha_{3})$ là:
+    \[
+        A =
+        \begin{pmatrix}
+            1  & 3  & 0 \\
+            -2 & -8 & 1 \\
+            -1 & -5 & 2
+        \end{pmatrix}
+    \]
+    \par Ma trận chuyển từ cơ sở $(\alpha_{1}, \alpha_{2}, \alpha_{3})$ sang cơ sở chính tắc là:
+    \[
+        C =
+        \begin{pmatrix}
+            0 & 2  & -1 \\
+            0 & -5 & 3  \\
+            1 & -4 & 2
+        \end{pmatrix}
+    \]
+    \[
+        \begin{cases}
+            f(e_{1}) = f(\alpha_{3}) = \beta_{3} = (2,1,2)                                                               \\
+            f(e_{2}) = f(2\alpha_{1} - 5\alpha_{2} - 4\alpha_{3}) = 2\beta_{1} - 5\beta_{2} - 4\beta_{3} = (-11, -7, -1) \\
+            f(e_{3}) = f(-\alpha_{1} + 3\alpha_{2} + 2\alpha_{3}) = -\beta_{1} + 3\beta_{2} + 2\beta_{3} = (6, 4, 0)
+        \end{cases}
+    \]
+    \par Vậy ma trận của $f$ đối với cơ sở chính tắc là:
+    \[
+        \begin{pmatrix}
+            2 & -11 & 6 \\
+            1 & -7  & 4 \\
+            2 & -1  & 0
+        \end{pmatrix}
+    \]
+\end{proof}
+
+\begin{exercise}
+    Tự đồng cấu $f$ của không gian vector $\mathbb{F}^{n}$ chuyển các vector độc lập tuyến tính $(\alpha_{1}, \ldots, \alpha_{n})$ tương ứng thành các vector $\beta_{1}, \ldots, \beta_{n}$. Chứng minh rằng ma trận $M(f)$ của $f$ đối với một cơ sở nào đó $(e_{1},\ldots, e_{n})$ thỏa mãn hệ thức $M(f) = BA^{-1}$, trong đó các cột của ma trận $A$ và ma trận $B$ là tọa độ tương ứng của các vector $\alpha_{1}, \ldots, \alpha_{n}$ và $\beta_{1}, \ldots, \beta_{n}$ đối với cơ sở $(e_{1}, \ldots, e_{n})$.
+\end{exercise}
+
+\begin{proof}
+    Theo định nghĩa của $M(f)$:
+    \[
+        (\beta_{1} \ldots \beta_{n}) = (\alpha_{1} \ldots \alpha_{n})M(f)
+        \tag{*}
+    \]
+    \par $(\alpha_{1}, \ldots, \alpha_{n})$ độc lập tuyến tính trong không gian vector $\mathbb{F}^{n}$ nên $(\alpha_{1}, \ldots, \alpha_{n})$ là một cơ sở.
+    \par $A$ là ma trận mà các cột lần lượt là tọa độ của các vector $\alpha_{1}, \ldots, \alpha_{n}$ đối với cơ sở $(e_{1}, \ldots, e_{n})$.
+    \par $B$ là ma trận mà các cột lần lượt là tọa độ của các vector $\beta_{1}, \ldots, \beta_{n}$ đối với cơ sở $(e_{1}, \ldots, e_{n})$.
+    \par Suy ra
+    \[
+        \begin{split}
+            (\alpha_{1} \ldots \alpha_{n}) = (e_{1} \ldots e_{n})A \\
+            (\beta_{1} \ldots \beta_{n}) = (e_{1} \ldots e_{n})B
+        \end{split}
+        \tag{**}
+    \]
+    \par Từ (*) và (**), suy ra:
+    \[
+        (e_{1}\ldots e_{n})B = (e_{1}\ldots e_{n})AM(f)
+    \]
+    \par Điều này có nghĩa là $B = AM(f)$.
+    \par Mà $A$ cũng chính là ma trận chuyển từ cơ sở $(e_{1}, \ldots, e_{n})$ sang cơ sở $(\alpha_{1}, \ldots, \alpha_{n})$ nên $A$ khả nghịch. Do đó $M(f) = BA^{-1}$.
 \end{proof}
 
 \end{document}

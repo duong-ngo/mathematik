@@ -54,33 +54,33 @@
     \par \textit{Tính chất phân phối}.
 
     \begin{align*}
-        A\cap (B\cup C) &= \{ x\ |\ x\in A \text{ and } (x\in B \text{ or } x\in C) \} \\
-                        &= \{ x\ |\ (x\in A \text{ and } x\in B) \text{ or } (x\in A \text{ and } x\in C) \} \\
-                        & \text{(do phép $\text{and}, \text{or}$ có tính chất phân phối)} \\
-                        &= (A\cap B)\cup (A\cap C)
+        A\cap (B\cup C) & = \{ x\ |\ x\in A \text{ and } (x\in B \text{ or } x\in C) \}                       \\
+                        & = \{ x\ |\ (x\in A \text{ and } x\in B) \text{ or } (x\in A \text{ and } x\in C) \} \\
+                        & \text{(do phép $\text{and}, \text{or}$ có tính chất phân phối)}                     \\
+                        & = (A\cap B)\cup (A\cap C)
     \end{align*}
 
     \begin{align*}
-        A\cup (B\cap C) &= \{ x\ |\ x\in A \text{ or } (x\in B \text{ and } x\in C) \} \\
-                        &= \{ x\ |\ (x\in A \text{ or } x\in B) \text{ and } (x\in A \text{ or } x\in C) \} \\
-                        & \text{(do phép $\text{and}, \text{or}$ có tính chất phân phối)} \\
-                        &= (A\cup B)\cap (A\cup C)
+        A\cup (B\cap C) & = \{ x\ |\ x\in A \text{ or } (x\in B \text{ and } x\in C) \}                      \\
+                        & = \{ x\ |\ (x\in A \text{ or } x\in B) \text{ and } (x\in A \text{ or } x\in C) \} \\
+                        & \text{(do phép $\text{and}, \text{or}$ có tính chất phân phối)}                    \\
+                        & = (A\cup B)\cap (A\cup C)
     \end{align*}
 
     \par Trong chứng minh công thức De Morgan, chúng ta sẽ sử dụng họ tập hợp $A_{i}$ với $i\in I$ nào đó.
 
     \begin{align*}
-        X\setminus\bigcup_{i\in I} A_{i} &= \{ x\ |\ \overline{\exists i\in I, x\in A_{i}} \} \\
-                                         &= \{ x\ |\ \forall i\in I, x\not\in A_{i} \} \\
-                                         &= \{ x\ |\ \forall i\in I, x\in (X\setminus A_{i}) \} \\
-                                         &= \bigcap_{i\in I}(X\setminus A_{i})
+        X\setminus\bigcup_{i\in I} A_{i} & = \{ x\ |\ \overline{\exists i\in I, x\in A_{i}} \}   \\
+                                         & = \{ x\ |\ \forall i\in I, x\not\in A_{i} \}          \\
+                                         & = \{ x\ |\ \forall i\in I, x\in (X\setminus A_{i}) \} \\
+                                         & = \bigcap_{i\in I}(X\setminus A_{i})
     \end{align*}
 
     \begin{align*}
-        X\setminus\bigcap_{i\in I} A_{i} &= \{ x\ |\ \overline{\forall i\in I, x\in A_{i}} \} \\
-                                         &= \{ x\ |\ \exists i\in I, x\not\in A_{i} \} \\
-                                         &= \{ x\ |\ \exists i\in I, x\in (X\setminus A_{i}) \} \\
-                                         &= \bigcup_{i\in I}(X\setminus A_{i})
+        X\setminus\bigcap_{i\in I} A_{i} & = \{ x\ |\ \overline{\forall i\in I, x\in A_{i}} \}   \\
+                                         & = \{ x\ |\ \exists i\in I, x\not\in A_{i} \}          \\
+                                         & = \{ x\ |\ \exists i\in I, x\in (X\setminus A_{i}) \} \\
+                                         & = \bigcup_{i\in I}(X\setminus A_{i})
     \end{align*}
 
 \end{proof}
@@ -100,70 +100,70 @@
     \begin{enumerate}[label = (\alph*)]
         \item Nếu $A = B$ thì $A\setminus B = B\setminus A = \emptyset$
 
-        \par $\Rightarrow (A\setminus B)\cup (B\setminus A) = \emptyset$
+              \par $\Rightarrow (A\setminus B)\cup (B\setminus A) = \emptyset$
 
-        \par Nếu $(A\setminus B)\cup (B\setminus A) = \emptyset$ thì $A\setminus B = B\setminus A = \emptyset$
+              \par Nếu $(A\setminus B)\cup (B\setminus A) = \emptyset$ thì $A\setminus B = B\setminus A = \emptyset$
 
-        \par $\Rightarrow A\subset B, B\subset A\Rightarrow A = B$.
+              \par $\Rightarrow A\subset B, B\subset A\Rightarrow A = B$.
 
         \item Đẳng thức đúng nếu $A$ là tập rỗng.
 
-        \par Ngược lại, $A$ không rỗng, chọn $x$ là một phần tử của $A$.
+              \par Ngược lại, $A$ không rỗng, chọn $x$ là một phần tử của $A$.
 
-        \par Có hai khả năng, $x\in B$ hoặc $x\not\in B$.
+              \par Có hai khả năng, $x\in B$ hoặc $x\not\in B$.
 
-        \begin{align*}
-            A &= \{ x\ |\ (x\in A \text{ and } x\in B)\text{ or }(x\in A \text{ and } x\not\in B) \} \\
-              &= (A\cap B) \cup (A\setminus B)
-        \end{align*}
+              \begin{align*}
+                  A & = \{ x\ |\ (x\in A \text{ and } x\in B)\text{ or }(x\in A \text{ and } x\not\in B) \} \\
+                    & = (A\cap B) \cup (A\setminus B)
+              \end{align*}
 
         \item $a(x)$ là mệnh đề $x \in A$, $b(x)$ là mệnh đề $x\in B$.
 
-        \[
-            (A\setminus B)\cup (B\setminus A)=\{ x\ |\ (a(x) \text{ and } \overline{b(x)}) \text{ or } (\overline{a(x)} \text{ and } b(x)) \}
-        \]
+              \[
+                  (A\setminus B)\cup (B\setminus A)=\{ x\ |\ (a(x) \text{ and } \overline{b(x)}) \text{ or } (\overline{a(x)} \text{ and } b(x)) \}
+              \]
 
-        \begin{align*}
-            (a(x) \wedge \overline{b(x)}) \vee (\overline{a(x)} \wedge b(x)) &= ((a(x)\wedge \overline{b(x)})\vee \overline{a(x)}) \wedge ((a(x)\wedge \overline{b(x)})\vee b(x)) \\
-            &= ((a(x)\vee \overline{a(x)}) \wedge (\overline{b(x)}\vee\overline{a(x)}))\wedge \\
-            &\quad ((a(x)\vee b(x))\wedge (b(x)\vee \overline{b(x)})) \\
-            &= (\overline{a(x)}\vee\overline{b(x)}) \wedge (a(x) \vee b(x)) \\
-            &= \overline{a(x)\wedge b(x)} \wedge (a(x)\vee b(x)) \\
-            &= (x\in A\cup B) \wedge (x\not\in A\cap B)
-        \end{align*}
+              \begin{align*}
+                  (a(x) \wedge \overline{b(x)}) \vee (\overline{a(x)} \wedge b(x)) & = ((a(x)\wedge \overline{b(x)})\vee \overline{a(x)}) \wedge ((a(x)\wedge \overline{b(x)})\vee b(x)) \\
+                                                                                   & = ((a(x)\vee \overline{a(x)}) \wedge (\overline{b(x)}\vee\overline{a(x)}))\wedge                    \\
+                                                                                   & \quad ((a(x)\vee b(x))\wedge (b(x)\vee \overline{b(x)}))                                            \\
+                                                                                   & = (\overline{a(x)}\vee\overline{b(x)}) \wedge (a(x) \vee b(x))                                      \\
+                                                                                   & = \overline{a(x)\wedge b(x)} \wedge (a(x)\vee b(x))                                                 \\
+                                                                                   & = (x\in A\cup B) \wedge (x\not\in A\cap B)
+              \end{align*}
 
-        \par $\Rightarrow (A\setminus B)\cup (B\setminus A) = (A\cup B)\setminus (A\cap B)$
+              \par $\Rightarrow (A\setminus B)\cup (B\setminus A) = (A\cup B)\setminus (A\cap B)$
 
         \item $a(x)$ là mệnh đề $x \in A$, $b(x)$ là mệnh đề $x\in B$, $c(x)$ là mệnh đề $x\in C$.
 
-        \begin{align*}
-            A\cap (B\setminus C) &= \{ x\ |\ a(x) \wedge (b(x) \wedge \overline{c(x)}) \} \\
-                                 &= \{ x\ |\ (a(x) \wedge b(x)) \wedge (a(x) \wedge\overline{c(x)}) \} \\
-                                 &= (A\cap B) \cap (A\setminus C) \\
-                                 &= (A\cap B) \cap (A\setminus (A\cap C)) \\
-                                 &= (A\cap B) \cap A \cap (X \setminus (A\cap C)) \\
-                                 &= (A\cap B) \cap (X \setminus (A\cap C)) \\
-                                 &= (A\cap B) \setminus (A\cap C)
-        \end{align*}
+              \begin{align*}
+                  A\cap (B\setminus C) & = \{ x\ |\ a(x) \wedge (b(x) \wedge \overline{c(x)}) \}              \\
+                                       & = \{ x\ |\ (a(x) \wedge b(x)) \wedge (a(x) \wedge\overline{c(x)}) \} \\
+                                       & = (A\cap B) \cap (A\setminus C)                                      \\
+                                       & = (A\cap B) \cap (A\setminus (A\cap C))                              \\
+                                       & = (A\cap B) \cap A \cap (X \setminus (A\cap C))                      \\
+                                       & = (A\cap B) \cap (X \setminus (A\cap C))                             \\
+                                       & = (A\cap B) \setminus (A\cap C)
+              \end{align*}
 
         \item
 
-        \begin{align*}
-            A\cup (B\setminus A) &= \{ x\ |\ a(x) \vee (b(x) \wedge \overline{a(x)}) \} \\
-                                 &= \{ x\ |\ (a(x) \vee b(x)) \wedge (a(x) \vee \overline{a(x)}) \} \\
-                                 &= \{ x\ |\ a(x)\vee b(x) \} \\
-                                 &= A\cup B
-        \end{align*}
+              \begin{align*}
+                  A\cup (B\setminus A) & = \{ x\ |\ a(x) \vee (b(x) \wedge \overline{a(x)}) \}             \\
+                                       & = \{ x\ |\ (a(x) \vee b(x)) \wedge (a(x) \vee \overline{a(x)}) \} \\
+                                       & = \{ x\ |\ a(x)\vee b(x) \}                                       \\
+                                       & = A\cup B
+              \end{align*}
 
         \item
 
-        \begin{align*}
-            A\setminus (A\setminus B)&= \{ x\ |\ a(x) \wedge \overline{a(x)\wedge \overline{b(x)}} \} \\
-                                     &= \{ x\ |\ a(x) \wedge (\overline{a(x)} \vee b(x)) \} \\
-                                     &= \{ x\ |\ (a(x) \wedge \overline{a(x)}) \vee (a(x) \wedge b(x)) \} \\
-                                     &= \{ x\ |\ a(x) \wedge b(x) \} \\
-                                     &= A\cap B
-        \end{align*}
+              \begin{align*}
+                  A\setminus (A\setminus B) & = \{ x\ |\ a(x) \wedge \overline{a(x)\wedge \overline{b(x)}} \}     \\
+                                            & = \{ x\ |\ a(x) \wedge (\overline{a(x)} \vee b(x)) \}               \\
+                                            & = \{ x\ |\ (a(x) \wedge \overline{a(x)}) \vee (a(x) \wedge b(x)) \} \\
+                                            & = \{ x\ |\ a(x) \wedge b(x) \}                                      \\
+                                            & = A\cap B
+              \end{align*}
     \end{enumerate}
 \end{proof}
 
@@ -177,25 +177,25 @@
 \begin{proof}
     \begin{enumerate}[label = (\alph*)]
         \item Giả sử tập hợp $(A\times B)\cap (B\times A)\ne\emptyset$. Tức là tồn tại bộ có thứ tự $(a, b)$ thuộc tập hợp này.
-        \par Điều này kéo theo $(a, b)$ thuộc $A\times B$ lẫn $B\times A$.
-        \par Theo định nghĩa của tích trực tiếp thì $a \in A$, $a\in B$. Dẫn đến việc $A\cap B \ne \emptyset$.
-        \par Như vậy:
-        \begin{align*}
-            & (A\times B)\cap (B\times A)\ne\emptyset \Longleftrightarrow A\cap B\ne\emptyset \\
-            \Leftrightarrow\quad & (A\times B)\cap (B\times A) = \emptyset \Longleftrightarrow A\cap B = \emptyset
-        \end{align*}
+              \par Điều này kéo theo $(a, b)$ thuộc $A\times B$ lẫn $B\times A$.
+              \par Theo định nghĩa của tích trực tiếp thì $a \in A$, $a\in B$. Dẫn đến việc $A\cap B \ne \emptyset$.
+              \par Như vậy:
+              \begin{align*}
+                                       & (A\times B)\cap (B\times A)\ne\emptyset \Longleftrightarrow A\cap B\ne\emptyset \\
+                  \Leftrightarrow\quad & (A\times B)\cap (B\times A) = \emptyset \Longleftrightarrow A\cap B = \emptyset
+              \end{align*}
 
         \item Nếu có một bộ có thứ tự $(x, y)$ sao cho $(x, y)\in (A\times B)\cap (C\times D)$ thì theo định nghĩa của tích trực tiếp, $x\in A$ và $x\in C$, $y\in B$ và $y\in D$.
-        \par Từ điều này, ta suy ra $x\in A\cap C$ và $y\in B\cap D$.
-        \par Cũng theo định nghĩa của tích trực tiếp, $(x, y)\in (A\cap C)\times(B\cap D)$.
-        \par Do đó $(A\times B)\cap (C\times D) \subset (A\cap C)\times(B\cap D)$.
+              \par Từ điều này, ta suy ra $x\in A\cap C$ và $y\in B\cap D$.
+              \par Cũng theo định nghĩa của tích trực tiếp, $(x, y)\in (A\cap C)\times(B\cap D)$.
+              \par Do đó $(A\times B)\cap (C\times D) \subset (A\cap C)\times(B\cap D)$.
 
-        \par Ngược lại, nếu có một bộ có thứ tự $(x, y)$ sao cho $(x, y)\in (A\cap C)\times(B\cap D)$ thì $x\in A\cap C$ và $y\in B\cap D$.
-        \par Tức là $x\in A$, $y\in B$, $x\in C$, $y\in D$.
-        \par Theo định nghĩa của tích trực tiếp, $(x, y)\in A\times B$, $(x, y)\in C\times D$. Như vậy là $(x, y)\in (A\times B)\cap (C\times D)$.
-        \par Theo đó, $(A\cap C)\times (B\cap D) \subset (A\times B)\cap (C\times D)$.
+              \par Ngược lại, nếu có một bộ có thứ tự $(x, y)$ sao cho $(x, y)\in (A\cap C)\times(B\cap D)$ thì $x\in A\cap C$ và $y\in B\cap D$.
+              \par Tức là $x\in A$, $y\in B$, $x\in C$, $y\in D$.
+              \par Theo định nghĩa của tích trực tiếp, $(x, y)\in A\times B$, $(x, y)\in C\times D$. Như vậy là $(x, y)\in (A\times B)\cap (C\times D)$.
+              \par Theo đó, $(A\cap C)\times (B\cap D) \subset (A\times B)\cap (C\times D)$.
 
-        \par Hai điều vừa chứng minh cho thấy $(A\times C)\cap (B\times D) = (A\cap B)\times (C\cap D)$.
+              \par Hai điều vừa chứng minh cho thấy $(A\times C)\cap (B\times D) = (A\cap B)\times (C\cap D)$.
 
     \end{enumerate}
 \end{proof}
@@ -212,54 +212,54 @@
 \begin{proof}
     \begin{enumerate}[label = (\alph*)]
         \item $y$ là một phần tử của $Y$.
-        \par Giả sử $y\in f(A\cup B)$. Khi đó, $\exists x\in A\cup B\subset X$ sao cho $f(x) = y$.
-        \par $x\in A\cup B$ thì $x\in A$ hoặc $x\in B$, dẫn đến $f(x)\in f(A)$ hoặc $f(x)\in f(B)$.
-        \par Như vậy, $y = f(x) \in f(A)\cup f(B)$.
-        \par Do đó $f(A\cup B)\subset f(A)\cup f(B)$.
+              \par Giả sử $y\in f(A\cup B)$. Khi đó, $\exists x\in A\cup B\subset X$ sao cho $f(x) = y$.
+              \par $x\in A\cup B$ thì $x\in A$ hoặc $x\in B$, dẫn đến $f(x)\in f(A)$ hoặc $f(x)\in f(B)$.
+              \par Như vậy, $y = f(x) \in f(A)\cup f(B)$.
+              \par Do đó $f(A\cup B)\subset f(A)\cup f(B)$.
 
-        \bigskip
+              \bigskip
 
-        \par Giả sử $y\in f(A)\cup f(B)$ thì $y\in f(A)$ hoặc $y\in f(B)$.
-        \par Suy ra tồn tại $x\in A$ hoặc $x\in B$ (tức là $x\in A\cup B$) sao cho $y = f(x) \in f(A)\cup f(B)$
-        \par $x\in A\cup B$ nên $y = f(x) \in f(A\cup B)$.
-        \par Do đó $f(A)\cup f(B)\subset f(A\cup B)$.
+              \par Giả sử $y\in f(A)\cup f(B)$ thì $y\in f(A)$ hoặc $y\in f(B)$.
+              \par Suy ra tồn tại $x\in A$ hoặc $x\in B$ (tức là $x\in A\cup B$) sao cho $y = f(x) \in f(A)\cup f(B)$
+              \par $x\in A\cup B$ nên $y = f(x) \in f(A\cup B)$.
+              \par Do đó $f(A)\cup f(B)\subset f(A\cup B)$.
 
-        \bigskip
-        \par Từ hai điều trên, suy ra $f(A)\cup f(B) = f(A\cup B)$.
-
-        \item $y$ là một phần tử của $Y$.
-
-        \par Giả sử $y\in f(A\cap B)$. Khi đó $\exists x\in A\cap B$ sao cho $y = f(x) \in f(A\cap B)$.
-        \par $x\in A\cap B$ nên $x\in A$ và $x\in B$, dẫn đến $f(x) \in f(A)$ và $f(x)\in f(B)$.
-        \par Từ đó, $y = f(x) \in f(A)\cap f(B)$.
-        \par Do đó, $f(A\cap B)\subset f(A)\cap f(B)$.
-
-        \bigskip
-        \par Ví dụ cho việc dấu bằng không thể xảy ra:
-        \par Ánh xạ:
-        \begin{align*}
-            f:\quad& \mathbb{R}\rightarrow \{0\} \\
-                   & x\mapsto 0
-        \end{align*}
-        \par Chọn $A = (1, 2)$ và $B = (3, 4)$.
-        \par Lúc này $f(A\cap B) = f(\emptyset) = \emptyset$, còn $f(A)\cap f(B) = \{ 0 \}$.
+              \bigskip
+              \par Từ hai điều trên, suy ra $f(A)\cup f(B) = f(A\cup B)$.
 
         \item $y$ là một phần tử của $Y$.
 
-        \par Giả sử $y\in f(A)\setminus f(B)$. Khi đó, $\exists x\in A$ sao cho $y = f(x)$.
-        \par Nhưng $x\not\in B$ -- vì nếu $x\in B$ thì $y = f(x)\in f(B)$, trái với giả thiết.
-        \par Như vậy, $x\in A\setminus B$, tức là $y = f(x)\in f(A\setminus B)$.
-        \par Do đó, $f(A\setminus B)\supset f(A)\setminus f(B)$.
+              \par Giả sử $y\in f(A\cap B)$. Khi đó $\exists x\in A\cap B$ sao cho $y = f(x) \in f(A\cap B)$.
+              \par $x\in A\cap B$ nên $x\in A$ và $x\in B$, dẫn đến $f(x) \in f(A)$ và $f(x)\in f(B)$.
+              \par Từ đó, $y = f(x) \in f(A)\cap f(B)$.
+              \par Do đó, $f(A\cap B)\subset f(A)\cap f(B)$.
 
-        \bigskip
-        \par Ví dụ cho việc dấu bằng không thể xảy ra:
-        \par Ánh xạ:
-        \begin{align*}
-            f:\quad& \mathbb{R}\rightarrow \{0\} \\
-                   & x\mapsto 0
-        \end{align*}
-        \par Chọn $A = (1, 2)$ và $B = (3, 4)$.
-        \par Lúc này $f(A)\setminus f(B) = \{0\}\setminus \{0\} = \emptyset$, còn $f(A\setminus B) = \{ 0 \}$.
+              \bigskip
+              \par Ví dụ cho việc dấu bằng không thể xảy ra:
+              \par Ánh xạ:
+              \begin{align*}
+                  f:\quad & \mathbb{R}\rightarrow \{0\} \\
+                          & x\mapsto 0
+              \end{align*}
+              \par Chọn $A = (1, 2)$ và $B = (3, 4)$.
+              \par Lúc này $f(A\cap B) = f(\emptyset) = \emptyset$, còn $f(A)\cap f(B) = \{ 0 \}$.
+
+        \item $y$ là một phần tử của $Y$.
+
+              \par Giả sử $y\in f(A)\setminus f(B)$. Khi đó, $\exists x\in A$ sao cho $y = f(x)$.
+              \par Nhưng $x\not\in B$ -- vì nếu $x\in B$ thì $y = f(x)\in f(B)$, trái với giả thiết.
+              \par Như vậy, $x\in A\setminus B$, tức là $y = f(x)\in f(A\setminus B)$.
+              \par Do đó, $f(A\setminus B)\supset f(A)\setminus f(B)$.
+
+              \bigskip
+              \par Ví dụ cho việc dấu bằng không thể xảy ra:
+              \par Ánh xạ:
+              \begin{align*}
+                  f:\quad & \mathbb{R}\rightarrow \{0\} \\
+                          & x\mapsto 0
+              \end{align*}
+              \par Chọn $A = (1, 2)$ và $B = (3, 4)$.
+              \par Lúc này $f(A)\setminus f(B) = \{0\}\setminus \{0\} = \emptyset$, còn $f(A\setminus B) = \{ 0 \}$.
     \end{enumerate}
 \end{proof}
 
@@ -274,37 +274,37 @@
 \begin{proof}$x\in X$.
     \begin{enumerate}[label = (\alph*)]
         \item
-        \begin{align*}
-            & x\in f^{-1}(A\cup B) \\
-            \Leftrightarrow\quad & f(x) \in A\cup B \\
-            \Leftrightarrow\quad & f(x)\in A \vee f(x)\in B \\
-            \Leftrightarrow\quad & x\in f^{-1}(A) \vee x\in f^{-1}(B) \\
-            \Leftrightarrow\quad & x\in f^{-1}(A)\cup f^{-1}(B)
-        \end{align*}
+              \begin{align*}
+                                       & x\in f^{-1}(A\cup B)               \\
+                  \Leftrightarrow\quad & f(x) \in A\cup B                   \\
+                  \Leftrightarrow\quad & f(x)\in A \vee f(x)\in B           \\
+                  \Leftrightarrow\quad & x\in f^{-1}(A) \vee x\in f^{-1}(B) \\
+                  \Leftrightarrow\quad & x\in f^{-1}(A)\cup f^{-1}(B)
+              \end{align*}
 
-        \par Do đó, $f^{-1}(A\cup B) = f^{-1}(A)\cup f^{-1}(B)$.
-
-        \item
-        \begin{align*}
-            & x\in f^{-1}(A\cap B) \\
-            \Leftrightarrow\quad & f(x) \in A\cap B \\
-            \Leftrightarrow\quad & f(x) \in A \wedge f(x) \in B \\
-            \Leftrightarrow\quad & x\in f^{-1}(A) \wedge x\in f^{-1}(B) \\
-            \Leftrightarrow\quad & x\in f^{-1}(A)\cap f^{-1}(B)
-        \end{align*}
-
-        \par Do đó, $f^{-1}(A\cap B) = f^{-1}(A)\cap f^{-1}(B)$.
+              \par Do đó, $f^{-1}(A\cup B) = f^{-1}(A)\cup f^{-1}(B)$.
 
         \item
-        \begin{align*}
-            & x\in f^{-1}(A\setminus B) \\
-            \Leftrightarrow\quad & f(x) \in A\setminus B \\
-            \Leftrightarrow\quad & f(x) \in A \wedge f(x) \not\in B \\
-            \Leftrightarrow\quad & x\in f^{-1}(A) \wedge x \not\in f^{-1}(B) \\
-            \Leftrightarrow\quad & x\in f^{-1}(A)\setminus f^{-1}(B)
-        \end{align*}
+              \begin{align*}
+                                       & x\in f^{-1}(A\cap B)                 \\
+                  \Leftrightarrow\quad & f(x) \in A\cap B                     \\
+                  \Leftrightarrow\quad & f(x) \in A \wedge f(x) \in B         \\
+                  \Leftrightarrow\quad & x\in f^{-1}(A) \wedge x\in f^{-1}(B) \\
+                  \Leftrightarrow\quad & x\in f^{-1}(A)\cap f^{-1}(B)
+              \end{align*}
 
-        \par Do đó, $f^{-1}(A\setminus B) = f^{-1}(A)\setminus f^{-1}(B)$.
+              \par Do đó, $f^{-1}(A\cap B) = f^{-1}(A)\cap f^{-1}(B)$.
+
+        \item
+              \begin{align*}
+                                       & x\in f^{-1}(A\setminus B)                 \\
+                  \Leftrightarrow\quad & f(x) \in A\setminus B                     \\
+                  \Leftrightarrow\quad & f(x) \in A \wedge f(x) \not\in B          \\
+                  \Leftrightarrow\quad & x\in f^{-1}(A) \wedge x \not\in f^{-1}(B) \\
+                  \Leftrightarrow\quad & x\in f^{-1}(A)\setminus f^{-1}(B)
+              \end{align*}
+
+              \par Do đó, $f^{-1}(A\setminus B) = f^{-1}(A)\setminus f^{-1}(B)$.
     \end{enumerate}
 \end{proof}
 
@@ -323,23 +323,23 @@
     \begin{itemize}
         \item \textit{$f$ và $g$ là đơn ánh}
 
-        \par Chọn $x_{1}\ne x_{2}$ và $x_{1}, x_{2} \in X$.
-        \par Vì $f$ là đơn ánh nên $f(x_{1}) \ne f(x_{2})$.
-        \par Vì $g$ là đơn ánh nên $g(f(x_{1})) \ne g(f(x_{2}))$.
-        \par Theo định nghĩa về đơn ánh thì $g\circ f$ là đơn ánh.
+              \par Chọn $x_{1}\ne x_{2}$ và $x_{1}, x_{2} \in X$.
+              \par Vì $f$ là đơn ánh nên $f(x_{1}) \ne f(x_{2})$.
+              \par Vì $g$ là đơn ánh nên $g(f(x_{1})) \ne g(f(x_{2}))$.
+              \par Theo định nghĩa về đơn ánh thì $g\circ f$ là đơn ánh.
 
         \item \textit{$f$ và $g$ là toàn ánh}
 
-        \par Chọn $z \in Z$.
-        \par Vì $g$ là toàn ánh nên $\exists y\in Y$ sao cho $g(y) = z$.
-        \par Vì $f$ là toàn ánh nên $\exists x\in X$ sao cho $f(x) = y$.
-        \par Như vậy, $\exists x\in X$ sao cho $g(f(x)) = z$.
-        \par Theo định nghĩa về toàn ánh thì $g\circ f$ là toàn ánh.
+              \par Chọn $z \in Z$.
+              \par Vì $g$ là toàn ánh nên $\exists y\in Y$ sao cho $g(y) = z$.
+              \par Vì $f$ là toàn ánh nên $\exists x\in X$ sao cho $f(x) = y$.
+              \par Như vậy, $\exists x\in X$ sao cho $g(f(x)) = z$.
+              \par Theo định nghĩa về toàn ánh thì $g\circ f$ là toàn ánh.
 
         \item \textit{$f$ và $g$ là song ánh}
 
-        \par $f$ và $g$ vừa là đơn ánh, vừa là toàn ánh.
-        \par Theo hai ý trên, $g\circ f$ vừa là đơn ánh, vừa là toàn ánh, do đó cũng là song ánh.
+              \par $f$ và $g$ vừa là đơn ánh, vừa là toàn ánh.
+              \par Theo hai ý trên, $g\circ f$ vừa là đơn ánh, vừa là toàn ánh, do đó cũng là song ánh.
     \end{itemize}
 
     \par \textbf{Mệnh đề 2.9.} \textit{(i) Giả sử $f: X\rightarrow Y$ và $g: Y\rightarrow Z$ là các ánh xạ. Khi đó, nếu $g\circ f$ là một đơn ánh thì $f$ cũng vậy; nếu $g\circ f$ là một toàn ánh thì $g$ cũng vậy.}
@@ -347,25 +347,25 @@
 
     \begin{enumerate}[label = (\roman*)]
         \item
-        \begin{itemize}
-            \item Chọn $x_{1}\ne x_{2}$ và $x_{1}, x_{2} \in X$.
-            \par Do $g\circ f$ là đơn ánh nên $g(f(x_{1})) \ne g(f(x_{2}))$.
-            \par Điều này dẫn đến việc $f(x_{1}) \ne f(x_{2})$.
-            \par Theo định nghĩa về đơn ánh thì $f$ cũng là đơn ánh.
+              \begin{itemize}
+                  \item Chọn $x_{1}\ne x_{2}$ và $x_{1}, x_{2} \in X$.
+                        \par Do $g\circ f$ là đơn ánh nên $g(f(x_{1})) \ne g(f(x_{2}))$.
+                        \par Điều này dẫn đến việc $f(x_{1}) \ne f(x_{2})$.
+                        \par Theo định nghĩa về đơn ánh thì $f$ cũng là đơn ánh.
 
-            \item Chọn $z\in Z$.
-            \par Cho $g\circ f$ là toàn ánh nên $\exists x\in X$ sao cho $g(f(x)) = z$.
-            \par Chọn $y = f(x)$ thì $g(y) = z$.
-            \par Theo định nghĩa về toàn ánh thì $g$ cũng là toàn ánh.
-        \end{itemize}
+                  \item Chọn $z\in Z$.
+                        \par Cho $g\circ f$ là toàn ánh nên $\exists x\in X$ sao cho $g(f(x)) = z$.
+                        \par Chọn $y = f(x)$ thì $g(y) = z$.
+                        \par Theo định nghĩa về toàn ánh thì $g$ cũng là toàn ánh.
+              \end{itemize}
 
-    \item \textit{Chiều thuận.} $f: X\rightarrow Y$ là song ánh thì $x\mapsto f(x)$ là tương ứng 1--1, $f(x)\mapsto x$ cũng là một tương ứng 1--1, ký hiệu ánh xạ này bởi $f^{-1}$.
-    \par $f^{-1}(f(x)) = x$, $f(f^{-1}(y)) = y$.
-    \par Do đó tồn tại ánh xạ $g = f^{-1}: Y\rightarrow X$ sao cho $g\circ f = id_{X}$ và $f\circ g = id_{Y}$.
+        \item \textit{Chiều thuận.} $f: X\rightarrow Y$ là song ánh thì $x\mapsto f(x)$ là tương ứng 1--1, $f(x)\mapsto x$ cũng là một tương ứng 1--1, ký hiệu ánh xạ này bởi $f^{-1}$.
+              \par $f^{-1}(f(x)) = x$, $f(f^{-1}(y)) = y$.
+              \par Do đó tồn tại ánh xạ $g = f^{-1}: Y\rightarrow X$ sao cho $g\circ f = id_{X}$ và $f\circ g = id_{Y}$.
 
-    \bigskip
-    \par \textit{Chiều đảo.} Tồn tại ánh xạ $g = f^{-1}: Y\rightarrow X$ sao cho $g\circ f = id_{X}$ và $f\circ g = id_{Y}$.
-    \par Ánh xạ đồng nhất là song ánh, do đó, $f, g$ đều vừa là đơn ánh, vừa là toàn ánh, kéo theo $f$, $g$ là các song ánh.
+              \bigskip
+              \par \textit{Chiều đảo.} Tồn tại ánh xạ $g = f^{-1}: Y\rightarrow X$ sao cho $g\circ f = id_{X}$ và $f\circ g = id_{Y}$.
+              \par Ánh xạ đồng nhất là song ánh, do đó, $f, g$ đều vừa là đơn ánh, vừa là toàn ánh, kéo theo $f$, $g$ là các song ánh.
 
     \end{enumerate}
 \end{proof}
@@ -396,13 +396,13 @@
 
 \begin{proof}Xét ánh xạ $f$:
     \begin{align*}
-        f:\ &\mathbb{R} \rightarrow \mathbb{R}^{+} \\
-            &x\mapsto e^{x}
+        f:\  & \mathbb{R} \rightarrow \mathbb{R}^{+} \\
+             & x\mapsto e^{x}
     \end{align*}
     \par $f$ có ánh xạ ngược là $g$:
     \begin{align*}
-        g:\ &\mathbb{R}^{+} \rightarrow \mathbb{R} \\
-            &x\mapsto \ln x
+        g:\  & \mathbb{R}^{+} \rightarrow \mathbb{R} \\
+             & x\mapsto \ln x
     \end{align*}
     \par Như vậy, $f$ là song ánh. Do đó hai tập hợp $\mathbb{R}^{+}$, $\mathbb{R}$ có cùng lực lượng, tức là $\mathbb{R}^{+}$ cũng có lực lượng continum.
 \end{proof}
@@ -414,7 +414,7 @@
     \[
         \begin{split}
             f_{1}:\ & (a, b) \rightarrow \left(\frac{a - b}{2}, \frac{b - a}{2}\right) \\
-                    & x \mapsto x - \frac{a + b}{2}
+            & x \mapsto x - \frac{a + b}{2}
         \end{split}
     \]
     \par là song ánh. Do đó, $(a, b)$ và $\left(\frac{a - b}{2}, \frac{b - a}{2}\right)$ có cùng lực lượng.
@@ -422,7 +422,7 @@
     \[
         \begin{split}
             f_{2}:\ & \left(\frac{a - b}{2}, \frac{b - a}{2}\right) \rightarrow \left(-\frac{\pi}{2}, \frac{\pi}{2}\right) \\
-                    & x \mapsto \frac{\pi x}{b - a}
+            & x \mapsto \frac{\pi x}{b - a}
         \end{split}
     \]
     \par là song ánh. Do đó, $\left(\frac{a - b}{2}, \frac{b - a}{2}\right)$ và $\left(-\frac{\pi}{2}, \frac{\pi}{2}\right)$ có cùng lực lượng.
@@ -430,7 +430,7 @@
     \[
         \begin{split}
             f_{3}:\ & \left(-\frac{\pi}{2}, \frac{\pi}{2}\right) \rightarrow \mathbb{R} \\
-                    & x\mapsto \tan x
+            & x\mapsto \tan x
         \end{split}
     \]
     \par là song ánh. Do đó, $\left(-\frac{\pi}{2}, \frac{\pi}{2}\right)$ và $\mathbb{R}$ có cùng lực lượng.
@@ -471,12 +471,12 @@
     \[ A_{i} = \{ a_{i.1}, a_{i.2}, \ldots \} \]
     \par Các phần tử của $\cup_{i\in \mathbb{N}}A_{i}$ được liệt kê như sau:
     \begin{align*}
-        & a_{1.1} \rightarrow 1 \\
-        & a_{1.2} \rightarrow 2,\ a_{2.1} \rightarrow 3 \\
-        & a_{1.3} \rightarrow 4,\ a_{2.2} \rightarrow 5,\ a_{3.1} \rightarrow 6 \\
-        & \qquad\vdots \\
-        & a_{1.n} \rightarrow \binom{n}{2} + 1,\ a_{2.(n-1)} \rightarrow \binom{n}{2} + 2, \ldots,\ a_{n.1} \rightarrow \binom{n + 1}{2} \\
-        & \qquad\vdots
+         & a_{1.1} \rightarrow 1                                                                                                          \\
+         & a_{1.2} \rightarrow 2,\ a_{2.1} \rightarrow 3                                                                                  \\
+         & a_{1.3} \rightarrow 4,\ a_{2.2} \rightarrow 5,\ a_{3.1} \rightarrow 6                                                          \\
+         & \qquad\vdots                                                                                                                   \\
+         & a_{1.n} \rightarrow \binom{n}{2} + 1,\ a_{2.(n-1)} \rightarrow \binom{n}{2} + 2, \ldots,\ a_{n.1} \rightarrow \binom{n + 1}{2} \\
+         & \qquad\vdots
     \end{align*}
 \end{proof}
 
@@ -508,20 +508,20 @@
     \\
     % chktex-file 44
     \begin{tabular}{c|cccccccccccc}
-        + & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 \\
+        +  & 0  & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9  & 10 & 11 \\
         \hline
-        0 & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 \\
-        1 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 0 \\
-        2 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 0 & 1 \\
-        3 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 0 & 1 & 2 \\
-        4 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 0 & 1 & 2 & 3 \\
-        5 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 0 & 1 & 2 & 3 & 4 \\
-        6 & 6 & 7 & 8 & 9 & 10 & 11 & 0 & 1 & 2 & 3 & 4 & 5 \\
-        7 & 7 & 8 & 9 & 10 & 11 & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\
-        8 & 8 & 9 & 10 & 11 & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\
-        9 & 9 & 10 & 11 & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
-        10 & 10 & 11 & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
-        11 & 11 & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10
+        0  & 0  & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9  & 10 & 11 \\
+        1  & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9  & 10 & 11 & 0  \\
+        2  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9  & 10 & 11 & 0  & 1  \\
+        3  & 3  & 4  & 5  & 6  & 7  & 8  & 9  & 10 & 11 & 0  & 1  & 2  \\
+        4  & 4  & 5  & 6  & 7  & 8  & 9  & 10 & 11 & 0  & 1  & 2  & 3  \\
+        5  & 5  & 6  & 7  & 8  & 9  & 10 & 11 & 0  & 1  & 2  & 3  & 4  \\
+        6  & 6  & 7  & 8  & 9  & 10 & 11 & 0  & 1  & 2  & 3  & 4  & 5  \\
+        7  & 7  & 8  & 9  & 10 & 11 & 0  & 1  & 2  & 3  & 4  & 5  & 6  \\
+        8  & 8  & 9  & 10 & 11 & 0  & 1  & 2  & 3  & 4  & 5  & 6  & 7  \\
+        9  & 9  & 10 & 11 & 0  & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  \\
+        10 & 10 & 11 & 0  & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9  \\
+        11 & 11 & 0  & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9  & 10
     \end{tabular}
 
     \bigskip
@@ -530,20 +530,20 @@
     \\
     % chktex-file 44
     \begin{tabular}{c|cccccccccccc}
-        $\cdot$ & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 \\
+        $\cdot$ & 0 & 1  & 2  & 3 & 4 & 5  & 6 & 7  & 8 & 9 & 10 & 11 \\
         \hline
-        0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-        1 & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 \\
-        2 & 0 & 2 & 4 & 6 & 8 & 10 & 0 & 2 & 4 & 6 & 8 & 10 \\
-        3 & 0 & 3 & 6 & 9 & 0 & 3 & 6 & 9 & 0 & 3 & 6 & 9 \\
-        4 & 0 & 4 & 8 & 0 & 4 & 8 & 0 & 4 & 8 & 0 & 4 & 8 \\
-        5 & 0 & 5 & 10 & 3 & 8 & 1 & 6 & 11 & 4 & 9 & 2 & 7 \\
-        6 & 0 & 6 & 0 & 6 & 0 & 6 & 0 & 6 & 0 & 6 & 0 & 6 \\
-        7 & 0 & 7 & 2 & 9 & 4 & 11 & 6 & 1 & 8 & 3 & 10 & 5 \\
-        8 & 0 & 8 & 4 & 0 & 8 & 4 & 0 & 8 & 4 & 0 & 8 & 4 \\
-        9 & 0 & 9 & 6 & 3 & 0 & 9 & 6 & 3 & 0 & 9 & 6 & 3 \\
-        10 & 0 & 10 & 8 & 6 & 4 & 2 & 0 & 10 & 8 & 6 & 4 & 2 \\
-        11 & 0 & 11 & 10 & 9 & 8 & 7 & 6 & 5 & 4 & 3 & 2 & 1
+        0       & 0 & 0  & 0  & 0 & 0 & 0  & 0 & 0  & 0 & 0 & 0  & 0  \\
+        1       & 0 & 1  & 2  & 3 & 4 & 5  & 6 & 7  & 8 & 9 & 10 & 11 \\
+        2       & 0 & 2  & 4  & 6 & 8 & 10 & 0 & 2  & 4 & 6 & 8  & 10 \\
+        3       & 0 & 3  & 6  & 9 & 0 & 3  & 6 & 9  & 0 & 3 & 6  & 9  \\
+        4       & 0 & 4  & 8  & 0 & 4 & 8  & 0 & 4  & 8 & 0 & 4  & 8  \\
+        5       & 0 & 5  & 10 & 3 & 8 & 1  & 6 & 11 & 4 & 9 & 2  & 7  \\
+        6       & 0 & 6  & 0  & 6 & 0 & 6  & 0 & 6  & 0 & 6 & 0  & 6  \\
+        7       & 0 & 7  & 2  & 9 & 4 & 11 & 6 & 1  & 8 & 3 & 10 & 5  \\
+        8       & 0 & 8  & 4  & 0 & 8 & 4  & 0 & 8  & 4 & 0 & 8  & 4  \\
+        9       & 0 & 9  & 6  & 3 & 0 & 9  & 6 & 3  & 0 & 9 & 6  & 3  \\
+        10      & 0 & 10 & 8  & 6 & 4 & 2  & 0 & 10 & 8 & 6 & 4  & 2  \\
+        11      & 0 & 11 & 10 & 9 & 8 & 7  & 6 & 5  & 4 & 3 & 2  & 1
     \end{tabular}
 
     \par Các phần tử khả nghịch của $\mathbb{Z}/12$ gồm $1, 5, 7, 11$.
@@ -558,46 +558,46 @@
     \par Bảng cộng
     \\
     \begin{tabular}{c|ccccccccccccccc}
-        + & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 \\
+        +  & 0  & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9  & 10 & 11 & 12 & 13 & 14 \\
         \hline
-        0 & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14  \\
-        1 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 0  \\
-        2 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 0 & 1  \\
-        3 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 0 & 1 & 2  \\
-        4 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 0 & 1 & 2 & 3 \\
-        5 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 0 & 1 & 2 & 3 & 4 \\
-        6 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 0 & 1 & 2 & 3 & 4 & 5 \\
-        7 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\
-        8 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\
-        9 & 9 & 10 & 11 & 12 & 13 & 14 & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
-        10 & 10 & 11 & 12 & 13 & 14 & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
-        11 & 11 & 12 & 13 & 14 & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\
-        12 & 12 & 13 & 14 & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 \\
-        13 & 13 & 14 & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\
-        14 & 14 & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13
+        0  & 0  & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9  & 10 & 11 & 12 & 13 & 14 \\
+        1  & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9  & 10 & 11 & 12 & 13 & 14 & 0  \\
+        2  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9  & 10 & 11 & 12 & 13 & 14 & 0  & 1  \\
+        3  & 3  & 4  & 5  & 6  & 7  & 8  & 9  & 10 & 11 & 12 & 13 & 14 & 0  & 1  & 2  \\
+        4  & 4  & 5  & 6  & 7  & 8  & 9  & 10 & 11 & 12 & 13 & 14 & 0  & 1  & 2  & 3  \\
+        5  & 5  & 6  & 7  & 8  & 9  & 10 & 11 & 12 & 13 & 14 & 0  & 1  & 2  & 3  & 4  \\
+        6  & 6  & 7  & 8  & 9  & 10 & 11 & 12 & 13 & 14 & 0  & 1  & 2  & 3  & 4  & 5  \\
+        7  & 7  & 8  & 9  & 10 & 11 & 12 & 13 & 14 & 0  & 1  & 2  & 3  & 4  & 5  & 6  \\
+        8  & 8  & 9  & 10 & 11 & 12 & 13 & 14 & 0  & 1  & 2  & 3  & 4  & 5  & 6  & 7  \\
+        9  & 9  & 10 & 11 & 12 & 13 & 14 & 0  & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  \\
+        10 & 10 & 11 & 12 & 13 & 14 & 0  & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9  \\
+        11 & 11 & 12 & 13 & 14 & 0  & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9  & 10 \\
+        12 & 12 & 13 & 14 & 0  & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9  & 10 & 11 \\
+        13 & 13 & 14 & 0  & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9  & 10 & 11 & 12 \\
+        14 & 14 & 0  & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9  & 10 & 11 & 12 & 13
     \end{tabular}
     \bigskip
 
     \par Bảng nhân
     \\
     \begin{tabular}{c|ccccccccccccccc}
-        $\cdot$ & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 \\
+        $\cdot$ & 0 & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9  & 10 & 11 & 12 & 13 & 14 \\
         \hline
-        0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-        1 & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 \\
-        2 & 0 & 2 & 4 & 6 & 8 & 10 & 12 & 14 & 1 & 3 & 5 & 7 & 9 & 11 & 13 \\
-        3 & 0 & 3 & 6 & 9 & 12 & 0 & 3 & 6 & 9 & 12 & 0 & 3 & 6 & 9 & 12 \\
-        4 & 0 & 4 & 8 & 12 & 1 & 5 & 9 & 13 & 2 & 6 & 10 & 14 & 3 & 7 & 11 \\
-        5 & 0 & 5 & 10 & 0 & 5 & 10 & 0 & 5 & 10 & 0 & 5 & 10 & 0 & 5 & 10 \\
-        6 & 0 & 6 & 12 & 3 & 9 & 0 & 6 & 12 & 3 & 9 & 0 & 6 & 12 & 3 & 9 \\
-        7 & 0 & 7 & 14 & 6 & 13 & 5 & 12 & 4 & 11 & 3 & 10 & 2 & 9 & 1 & 8 \\
-        8 & 0 & 8 & 1 & 9 & 2 & 10 & 3 & 11 & 4 & 12 & 5 & 13 & 6 & 14 & 7 \\
-        9 & 0 & 9 & 3 & 12 & 6 & 0 & 9 & 3 & 12 & 6 & 0 & 9 & 3 & 12 & 6 \\
-        10 & 0 & 10 & 5 & 0 & 10 & 5 & 0 & 10 & 5 & 0 & 10 & 5 & 0 & 10 & 5 \\
-        11 & 0 & 11 & 7 & 3 & 14 & 10 & 6 & 2 & 13 & 9 & 5 & 1 & 12 & 8 & 4 \\
-        12 & 0 & 12 & 9 & 6 & 3 & 0 & 12 & 9 & 6 & 3 & 0 & 12 & 9 & 6 & 3 \\
-        13 & 0 & 13 & 11 & 9 & 7 & 5 & 3 & 1 & 14 & 12 & 10 & 8 & 6 & 4 & 2 \\
-        14 & 0 & 14 & 13 & 12 & 11 & 10 & 9 & 8 & 7 & 6 & 5 & 4 & 3 & 2 & 1
+        0       & 0 & 0  & 0  & 0  & 0  & 0  & 0  & 0  & 0  & 0  & 0  & 0  & 0  & 0  & 0  \\
+        1       & 0 & 1  & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9  & 10 & 11 & 12 & 13 & 14 \\
+        2       & 0 & 2  & 4  & 6  & 8  & 10 & 12 & 14 & 1  & 3  & 5  & 7  & 9  & 11 & 13 \\
+        3       & 0 & 3  & 6  & 9  & 12 & 0  & 3  & 6  & 9  & 12 & 0  & 3  & 6  & 9  & 12 \\
+        4       & 0 & 4  & 8  & 12 & 1  & 5  & 9  & 13 & 2  & 6  & 10 & 14 & 3  & 7  & 11 \\
+        5       & 0 & 5  & 10 & 0  & 5  & 10 & 0  & 5  & 10 & 0  & 5  & 10 & 0  & 5  & 10 \\
+        6       & 0 & 6  & 12 & 3  & 9  & 0  & 6  & 12 & 3  & 9  & 0  & 6  & 12 & 3  & 9  \\
+        7       & 0 & 7  & 14 & 6  & 13 & 5  & 12 & 4  & 11 & 3  & 10 & 2  & 9  & 1  & 8  \\
+        8       & 0 & 8  & 1  & 9  & 2  & 10 & 3  & 11 & 4  & 12 & 5  & 13 & 6  & 14 & 7  \\
+        9       & 0 & 9  & 3  & 12 & 6  & 0  & 9  & 3  & 12 & 6  & 0  & 9  & 3  & 12 & 6  \\
+        10      & 0 & 10 & 5  & 0  & 10 & 5  & 0  & 10 & 5  & 0  & 10 & 5  & 0  & 10 & 5  \\
+        11      & 0 & 11 & 7  & 3  & 14 & 10 & 6  & 2  & 13 & 9  & 5  & 1  & 12 & 8  & 4  \\
+        12      & 0 & 12 & 9  & 6  & 3  & 0  & 12 & 9  & 6  & 3  & 0  & 12 & 9  & 6  & 3  \\
+        13      & 0 & 13 & 11 & 9  & 7  & 5  & 3  & 1  & 14 & 12 & 10 & 8  & 6  & 4  & 2  \\
+        14      & 0 & 14 & 13 & 12 & 11 & 10 & 9  & 8  & 7  & 6  & 5  & 4  & 3  & 2  & 1
     \end{tabular}
 
     \bigskip
@@ -621,12 +621,12 @@
 
 \begin{proof}
     \begin{align*}
-        0\cdot a + 0 &= 0\cdot a = (0 + a)\cdot a = 0\cdot a + 0\cdot a \\
-        \Rightarrow 0 &= 0\cdot a\quad\text{(luật giản ước)}
+        0\cdot a + 0  & = 0\cdot a = (0 + a)\cdot a = 0\cdot a + 0\cdot a \\
+        \Rightarrow 0 & = 0\cdot a\quad\text{(luật giản ước)}
     \end{align*}
     \begin{align*}
-        a\cdot 0 + 0 &= a\cdot 0 = a\cdot (0 + 0) = a\cdot 0 + a\cdot 0 \\
-        \Rightarrow 0 &= a\cdot 0\quad\text{(luật giản ước)}
+        a\cdot 0 + 0  & = a\cdot 0 = a\cdot (0 + 0) = a\cdot 0 + a\cdot 0 \\
+        \Rightarrow 0 & = a\cdot 0\quad\text{(luật giản ước)}
     \end{align*}
     \par Đó là điều cần chứng minh.
 \end{proof}
@@ -637,12 +637,12 @@
 \begin{proof}$R$ cũng là một nhóm nên phần tử $a$ bất kỳ của $R$ luôn có phần tử đối, ký hiệu $-a$.
     \par $-1$ là phần tử đối của $1$.
     \begin{align*}
-        a + (-1)\cdot a &= 1\cdot a + (-1)\cdot a \\
-                        &= (1 + (-1))\cdot a \\
-                        &= 0\cdot a = 0 \\
-        a + a\cdot (-1) &= a\cdot 1 + a\cdot (-1) \\
-                        &= a\cdot (1 + (-1)) \\
-                        &= a\cdot 0 = 0
+        a + (-1)\cdot a & = 1\cdot a + (-1)\cdot a \\
+                        & = (1 + (-1))\cdot a      \\
+                        & = 0\cdot a = 0           \\
+        a + a\cdot (-1) & = a\cdot 1 + a\cdot (-1) \\
+                        & = a\cdot (1 + (-1))      \\
+                        & = a\cdot 0 = 0
     \end{align*}
     \par Đó là điều cần chứng minh.
 \end{proof}
@@ -676,8 +676,8 @@
 \begin{proof}[Chứng minh bổ đề]\textit{Chiều thuận.} $x$ khả nghịch thì tồn tại $x'$ sao cho $xx' = x'x = 1$. Điều này nghĩa là $x$ khả nghịch cả bên phải lẫn bên trái.
     \par\textit{Chiều đảo.} $x$ khả nghịch bên trái thì tồn tại $a$ sao cho $ax = 1$. $x$ khả nghịch bên phải thì tồn tại $b$ sao cho $xb = 1$.
     \begin{align*}
-        axb &= (ax)\cdot b = b \\
-        axb &= a\cdot (xb) = a
+        axb & = (ax)\cdot b = b \\
+        axb & = a\cdot (xb) = a
     \end{align*}
     \par Từ điều trên, ta suy ra $a = b$, tức là $ax = xa = 1$. Như vậy $x$ khả nghịch.
 \end{proof}
@@ -696,32 +696,32 @@
 \begin{proof}
     \begin{enumerate}[label = (\alph*)]
         \item $xy$ và $yx$ khả nghịch nên tồn tại $a, b$ sao cho:
-        \[ axy = xya = 1\qquad byx = yxb = 1 \]
-        \[
-            \begin{cases}
-                x\cdot (ya) = 1 \\
-                (by)\cdot x = 1
-            \end{cases}
-            \qquad
-            \begin{cases}
-                (ax)\cdot y = 1 \\
-                y\cdot (xb) = 1
-            \end{cases}
-        \]
-        \par $x, y$ khả nghịch từ cả hai phía nên theo bổ đề trên, $x, y$ khả nghịch.
+              \[ axy = xya = 1\qquad byx = yxb = 1 \]
+              \[
+                  \begin{cases}
+                      x\cdot (ya) = 1 \\
+                      (by)\cdot x = 1
+                  \end{cases}
+                  \qquad
+                  \begin{cases}
+                      (ax)\cdot y = 1 \\
+                      y\cdot (xb) = 1
+                  \end{cases}
+              \]
+              \par $x, y$ khả nghịch từ cả hai phía nên theo bổ đề trên, $x, y$ khả nghịch.
         \item $xy$ khả nghịch nên tồn tại $a$ là phần tử nghịch đảo của $xy$, tức là
-            \[ axy = xya = 1 \]
-            \begin{align*}
-                &axy\cdot ax = ax \\
-                \Leftrightarrow\quad& ax(yax - 1) = 0
-            \end{align*}
-            \par $R$ không có ước của không nên $a = 0$ hoặc $x = 0$ hoặc $yax = 1$. Nhưng bất cứ phần tử nào nhân với $0$ cũng bằng $0$ nên $a \ne 0, x\ne 0$. Do đó $yax = 1$.
-            \par Điều này kéo theo $axy = yax = 1$, tức là $y$ khả nghịch.
-            \begin{align*}
-                &yax\cdot ya = ya \\
-                \Leftrightarrow\quad& (yax - 1)ya = 0
-            \end{align*}
-            \par $R$ không có ước của không, $a, x \ne 0$ nên $yax = 1$. Do đó $yax = xya = 1$. Tức là $x$ khả nghịch.
+              \[ axy = xya = 1 \]
+              \begin{align*}
+                                       & axy\cdot ax = ax \\
+                  \Leftrightarrow\quad & ax(yax - 1) = 0
+              \end{align*}
+              \par $R$ không có ước của không nên $a = 0$ hoặc $x = 0$ hoặc $yax = 1$. Nhưng bất cứ phần tử nào nhân với $0$ cũng bằng $0$ nên $a \ne 0, x\ne 0$. Do đó $yax = 1$.
+              \par Điều này kéo theo $axy = yax = 1$, tức là $y$ khả nghịch.
+              \begin{align*}
+                                       & yax\cdot ya = ya \\
+                  \Leftrightarrow\quad & (yax - 1)ya = 0
+              \end{align*}
+              \par $R$ không có ước của không, $a, x \ne 0$ nên $yax = 1$. Do đó $yax = xya = 1$. Tức là $x$ khả nghịch.
     \end{enumerate}
 \end{proof}
 
@@ -735,55 +735,55 @@
 \begin{proof}
     \begin{enumerate}[label = (\alph*)]
         \item Trên nhóm $R$, ta định nghĩa phép trừ là phép cộng với phần tử đối:
-            \begin{align*}
-                -:\quad& R\times R \rightarrow R \\
-                  & x - y \mapsto x + (-y)
-            \end{align*}
-            \par Trên vành $R$, ta định nghĩa phép lũy thừa:
-            \begin{align*}
-                x^{n} &= \underbrace{x\cdot x \cdots x}_{\text{$n$ phần tử $x$}}
-            \end{align*}
-            \par $R$ hữu hạn, ta đặt $R = \{0\}\cup \{a_{1},a_{2},\ldots, a_{n}\}$.
-            \par Giả sử phản chứng, $\forall x\in R, \nexists a\ne 0: ax = x$.
-            \par Do $R$ không có ước của không nên $\{ aa_{1}, aa_{2}, \ldots, aa_{n} \}$ đôi một khác nhau và khác không.
-            \par Chọn $a_{i_{1}}\ne 0$. Theo giả sử phản chứng, $aa_{i_{1}} \ne a_{i_{1}}$, đặt $aa_{i_{1}} = a_{i_{2}}$.
-            \par Theo giả sử phản chứng, $a^{2}a_{i_{1}} = aa_{i_{2}}$ khác $a_{i_{1}}, a_{i_{2}}$, đặt $a^{2}a_{i_{1}} = aa_{i_{2}} = a_{i_{3}}$.
-            \par Lặp lại lập luận trên, ta được dãy đẳng thức sau:
-            \begin{align*}
-                aa_{i_{1}} &= a_{i_{2}} \\
-                a^{2}a_{i_{1}} &= aa_{i_{2}} = a_{i_{3}} \\
-                &\ddots \\
-                a^{n-1}a_{i_{1}} &= \cdots = aa_{i_{n-1}} = a_{i_{n}}
-            \end{align*}
-            \par Các phần tử $a_{i_{1}}, a_{i_{2}}, \ldots, a_{i_{n}} \ne 0$ và đôi một khác nhau, đây chính là một hoán vị của $a_{1}, a_{2}, \ldots, a_{n}$.
-            \par $a^{n}a_{i_{1}} = aa_{i_{n}}$ khác $a_{i_{1}}, a_{i_{2}}, \ldots, a_{i_{n}}$, do đó $aa_{i_{n}} = 0$. Điều này mâu thuẫn với giả thiết vành $R$ không có ước của không nên giả sử phản chứng là sai. Như vậy, $\forall x\in R, \exists a\ne 0: ax = x$. Phần tử $a$ như thế với mỗi $x$ là duy nhất vì $ax - bx = (a - b)x = 0 \Leftrightarrow a = b$ (do $R$ không có ước của không).
-            \par Không mất tính tổng quát, giả sử $a$ là phần tử thỏa mãn $aa_{1} = a_{1}$. Xét ánh xạ $\ell_{a}: x\mapsto ax$. Do $R$ không có ước của không nên $\ell_{a}$ là đơn ánh, $R$ hữu hạn nên $\ell_{a}(R)$ là một hoán vị của $R$, do đó $\ell_{a}$ cũng là song ánh. Ta sẽ chứng minh $\ell_{a}$ là ánh xạ đồng nhất.
-            \par $\ell_{a}$ có ít nhất 2 phần tử cố định là $0, a_{1}$. Giả sử phản chứng rằng $\ell_{a}$ không cố định phần tử nào khác.
-            \par Trong các phần tử của $R\setminus\{0, a_{1}\}$, chọn $a_{i_{1}}$.
-            \par $aa_{i_{1}}\ne 0, a_{1}$ vì $\ell_{a}$ là một đơn ánh, do đó tồn tại $a_{i_{2}} \in R\setminus\{0, a_{1}, a_{i_{1}}\}$ sao cho $aa_{i_{1}} = a_{i_{2}}$. Lập luận liên tiếp như vậy, ta được:
-            \begin{itemize}
-                \item $\exists a_{i_{3}} \in R\setminus \{ 0, a_{1}, a_{i_{1}}, a_{i_{2}} \}$ sao cho $aa_{i_{2}} = a_{i_{3}}$.
-                \item $\exists a_{i_{4}} \in R\setminus \{ 0, a_{1}, a_{i_{1}}, a_{i_{2}}, a_{i_{3}} \}$ sao cho $aa_{i_{3}} = a_{i_{4}}$.
-                \item $\ldots$
-                \item Phần tử cuối cùng chưa được chọn $a_{i_{n - 1}}$ thỏa mãn $aa_{i_{n-2}} = a_{i_{n-1}}$
-            \end{itemize}
-            \par Do $\ell_{a}$ là đơn ánh nên $aa_{i_{n-1}}\not\in\{0, a_{1}, a_{i_{1}}, \ldots, a_{i_{n-1}}\}$. Điều này là vô lý. Do đó $\ell_{a}$ phải có ít nhất một phần tử cố định nữa. Không giảm tổng quát, giả sử phần tử cố định này là $a_{2}$.
-            \par Do $R$ có hữu hạn phần tử, ta có thể lặp lại lập luận trên hữu hạn lần nhằm đi tới khẳng định $\ell_{a}$ cố định mọi phần tử. Điều này có nghĩa là $\forall x\in R, ax = x$.
-            \par Tương tự, ta cũng chứng minh được tồn tại $b\ne 0$ sao cho $\forall x\in R, xb = x$.
-            \par Như vậy, $\exists a,b\ne 0:\ \forall x\in R, ax = x, xb = x$.
-            \par Áp dụng cho hai phần tử $a, b$, ta được $b = ab = a$. Do đó $x = ax = xa$ nên $a$ là phần tử đơn vị của $R$, kéo theo $R$ có đơn vị.
-            \par ---
-            \par $c$ là một phần tử khác không của $R$.
-            \par $\{ ca_{1}, ca_{2}, \ldots, ca_{n} \}$ là một hoán vị của $R\setminus\{0\}$.
-            \par $\{ a_{1}c, a_{2}c, \ldots, a_{n}c \}$ là một hoán vị của $R\setminus\{0\}$.
-            \par $R$ có đơn vị, do đó tồn tại $a_{i}, a_{j}$ sao cho $ca_{i} = a_{j}c = 1$. Như vậy $c$ khả nghịch bên phải lẫn bên trái nên $c$ khả nghịch.
-            \par Vậy mọi phần tử khác không của $R$ đều khả nghịch.
+              \begin{align*}
+                  -:\quad & R\times R \rightarrow R \\
+                          & x - y \mapsto x + (-y)
+              \end{align*}
+              \par Trên vành $R$, ta định nghĩa phép lũy thừa:
+              \begin{align*}
+                  x^{n} & = \underbrace{x\cdot x \cdots x}_{\text{$n$ phần tử $x$}}
+              \end{align*}
+              \par $R$ hữu hạn, ta đặt $R = \{0\}\cup \{a_{1},a_{2},\ldots, a_{n}\}$.
+              \par Giả sử phản chứng, $\forall x\in R, \nexists a\ne 0: ax = x$.
+              \par Do $R$ không có ước của không nên $\{ aa_{1}, aa_{2}, \ldots, aa_{n} \}$ đôi một khác nhau và khác không.
+              \par Chọn $a_{i_{1}}\ne 0$. Theo giả sử phản chứng, $aa_{i_{1}} \ne a_{i_{1}}$, đặt $aa_{i_{1}} = a_{i_{2}}$.
+              \par Theo giả sử phản chứng, $a^{2}a_{i_{1}} = aa_{i_{2}}$ khác $a_{i_{1}}, a_{i_{2}}$, đặt $a^{2}a_{i_{1}} = aa_{i_{2}} = a_{i_{3}}$.
+              \par Lặp lại lập luận trên, ta được dãy đẳng thức sau:
+              \begin{align*}
+                  aa_{i_{1}}       & = a_{i_{2}}                         \\
+                  a^{2}a_{i_{1}}   & = aa_{i_{2}} = a_{i_{3}}            \\
+                                   & \ddots                              \\
+                  a^{n-1}a_{i_{1}} & = \cdots = aa_{i_{n-1}} = a_{i_{n}}
+              \end{align*}
+              \par Các phần tử $a_{i_{1}}, a_{i_{2}}, \ldots, a_{i_{n}} \ne 0$ và đôi một khác nhau, đây chính là một hoán vị của $a_{1}, a_{2}, \ldots, a_{n}$.
+              \par $a^{n}a_{i_{1}} = aa_{i_{n}}$ khác $a_{i_{1}}, a_{i_{2}}, \ldots, a_{i_{n}}$, do đó $aa_{i_{n}} = 0$. Điều này mâu thuẫn với giả thiết vành $R$ không có ước của không nên giả sử phản chứng là sai. Như vậy, $\forall x\in R, \exists a\ne 0: ax = x$. Phần tử $a$ như thế với mỗi $x$ là duy nhất vì $ax - bx = (a - b)x = 0 \Leftrightarrow a = b$ (do $R$ không có ước của không).
+              \par Không mất tính tổng quát, giả sử $a$ là phần tử thỏa mãn $aa_{1} = a_{1}$. Xét ánh xạ $\ell_{a}: x\mapsto ax$. Do $R$ không có ước của không nên $\ell_{a}$ là đơn ánh, $R$ hữu hạn nên $\ell_{a}(R)$ là một hoán vị của $R$, do đó $\ell_{a}$ cũng là song ánh. Ta sẽ chứng minh $\ell_{a}$ là ánh xạ đồng nhất.
+              \par $\ell_{a}$ có ít nhất 2 phần tử cố định là $0, a_{1}$. Giả sử phản chứng rằng $\ell_{a}$ không cố định phần tử nào khác.
+              \par Trong các phần tử của $R\setminus\{0, a_{1}\}$, chọn $a_{i_{1}}$.
+              \par $aa_{i_{1}}\ne 0, a_{1}$ vì $\ell_{a}$ là một đơn ánh, do đó tồn tại $a_{i_{2}} \in R\setminus\{0, a_{1}, a_{i_{1}}\}$ sao cho $aa_{i_{1}} = a_{i_{2}}$. Lập luận liên tiếp như vậy, ta được:
+              \begin{itemize}
+                  \item $\exists a_{i_{3}} \in R\setminus \{ 0, a_{1}, a_{i_{1}}, a_{i_{2}} \}$ sao cho $aa_{i_{2}} = a_{i_{3}}$.
+                  \item $\exists a_{i_{4}} \in R\setminus \{ 0, a_{1}, a_{i_{1}}, a_{i_{2}}, a_{i_{3}} \}$ sao cho $aa_{i_{3}} = a_{i_{4}}$.
+                  \item $\ldots$
+                  \item Phần tử cuối cùng chưa được chọn $a_{i_{n - 1}}$ thỏa mãn $aa_{i_{n-2}} = a_{i_{n-1}}$
+              \end{itemize}
+              \par Do $\ell_{a}$ là đơn ánh nên $aa_{i_{n-1}}\not\in\{0, a_{1}, a_{i_{1}}, \ldots, a_{i_{n-1}}\}$. Điều này là vô lý. Do đó $\ell_{a}$ phải có ít nhất một phần tử cố định nữa. Không giảm tổng quát, giả sử phần tử cố định này là $a_{2}$.
+              \par Do $R$ có hữu hạn phần tử, ta có thể lặp lại lập luận trên hữu hạn lần nhằm đi tới khẳng định $\ell_{a}$ cố định mọi phần tử. Điều này có nghĩa là $\forall x\in R, ax = x$.
+              \par Tương tự, ta cũng chứng minh được tồn tại $b\ne 0$ sao cho $\forall x\in R, xb = x$.
+              \par Như vậy, $\exists a,b\ne 0:\ \forall x\in R, ax = x, xb = x$.
+              \par Áp dụng cho hai phần tử $a, b$, ta được $b = ab = a$. Do đó $x = ax = xa$ nên $a$ là phần tử đơn vị của $R$, kéo theo $R$ có đơn vị.
+              \par ---
+              \par $c$ là một phần tử khác không của $R$.
+              \par $\{ ca_{1}, ca_{2}, \ldots, ca_{n} \}$ là một hoán vị của $R\setminus\{0\}$.
+              \par $\{ a_{1}c, a_{2}c, \ldots, a_{n}c \}$ là một hoán vị của $R\setminus\{0\}$.
+              \par $R$ có đơn vị, do đó tồn tại $a_{i}, a_{j}$ sao cho $ca_{i} = a_{j}c = 1$. Như vậy $c$ khả nghịch bên phải lẫn bên trái nên $c$ khả nghịch.
+              \par Vậy mọi phần tử khác không của $R$ đều khả nghịch.
         \item Ta sẽ chứng minh nếu $ab = 1$ thì $ba = 1$.
-            \par Xét ánh xạ $f: R\rightarrow R, x\mapsto bx$
-            \par $x = y$ thì $f(x) = f(y)$
-            \par $f(x) = f(y)$ thì $bx = by$, suy ra $abx = aby \Leftrightarrow x = y$.
-            \par Như vậy, $f$ là đơn ánh. Nhưng vì $R$ hữu hạn nên $f$ cũng là song ánh, do đó tồn tại $z$ sao cho $f(z) = 1$, tức là $bz = 1$ mà $ab = 1$ nên $a = abz = z$, tức là $z = a$. Do đó $ab = ba = 1$.
-            \par Điều trên có nghĩa là $a, b$ khả nghịch.
+              \par Xét ánh xạ $f: R\rightarrow R, x\mapsto bx$
+              \par $x = y$ thì $f(x) = f(y)$
+              \par $f(x) = f(y)$ thì $bx = by$, suy ra $abx = aby \Leftrightarrow x = y$.
+              \par Như vậy, $f$ là đơn ánh. Nhưng vì $R$ hữu hạn nên $f$ cũng là song ánh, do đó tồn tại $z$ sao cho $f(z) = 1$, tức là $bz = 1$ mà $ab = 1$ nên $a = abz = z$, tức là $z = a$. Do đó $ab = ba = 1$.
+              \par Điều trên có nghĩa là $a, b$ khả nghịch.
     \end{enumerate}
 \end{proof}
 
@@ -796,52 +796,52 @@
     \begin{enumerate}[label = (\roman*)]
         \item $(a_{1} + b_{1}\sqrt{2}) + (a_{2} + b_{2}\sqrt{2}) = (a_{1} + a_{2}) + (b_{1} + b_{2})\sqrt{2}$. Do đó, $\mathbb{Q}(\sqrt{2})$ đóng kín với phép cộng thông thường.
         \item Phép cộng trên $\mathbb{Q}(\sqrt{2})$ có tính kết hợp.
-        \begin{gather*}
-            ((a_{1} + b_{1}\sqrt{2}) + (a_{2} + b_{2}\sqrt{2})) + (a_{3} + b_{3}\sqrt{2}) \\
-            = (a_{1} + b_{1}\sqrt{2}) + ((a_{2} + b_{2}\sqrt{2}) + (a_{3} + b_{3}\sqrt{2}))
-        \end{gather*}
+              \begin{gather*}
+                  ((a_{1} + b_{1}\sqrt{2}) + (a_{2} + b_{2}\sqrt{2})) + (a_{3} + b_{3}\sqrt{2}) \\
+                  = (a_{1} + b_{1}\sqrt{2}) + ((a_{2} + b_{2}\sqrt{2}) + (a_{3} + b_{3}\sqrt{2}))
+              \end{gather*}
         \item Phép cộng trên $\mathbb{Q}(\sqrt{2})$ có phần tử trung lập.
-        \begin{gather*}
-            (a + b\sqrt{2}) + 0 = 0 + (a + b\sqrt{2}) = a + b\sqrt{2}
-        \end{gather*}
+              \begin{gather*}
+                  (a + b\sqrt{2}) + 0 = 0 + (a + b\sqrt{2}) = a + b\sqrt{2}
+              \end{gather*}
         \item Mọi phần tử đều có phần tử đối:
-        \begin{gather*}
-            (a + b\sqrt{2}) + (-a - b\sqrt{2}) = (-a - b\sqrt{2}) + (a + b\sqrt{2}) = 0
-        \end{gather*}
+              \begin{gather*}
+                  (a + b\sqrt{2}) + (-a - b\sqrt{2}) = (-a - b\sqrt{2}) + (a + b\sqrt{2}) = 0
+              \end{gather*}
         \item Phép cộng trên $\mathbb{Q}(\sqrt{2})$ có tính giao hoán.
-        \begin{gather*}
-            (a_{1} + b_{1}\sqrt{2}) + (a_{2} + b_{2}\sqrt{2}) \\
-            = (a_{2} + b_{2}\sqrt{2}) + (a_{1} + b_{1}\sqrt{2}) \\
-            = (a_{1} + a_{2}) + (b_{1} + b_{2})\sqrt{2}
-        \end{gather*}
+              \begin{gather*}
+                  (a_{1} + b_{1}\sqrt{2}) + (a_{2} + b_{2}\sqrt{2}) \\
+                  = (a_{2} + b_{2}\sqrt{2}) + (a_{1} + b_{1}\sqrt{2}) \\
+                  = (a_{1} + a_{2}) + (b_{1} + b_{2})\sqrt{2}
+              \end{gather*}
         \item $\mathbb{Q}(\sqrt{2})$ đóng kín với phép nhân thông thường.
         \item Phép nhân trên $\mathbb{Q}(\sqrt{2})$ có tính kết hợp.
-        \begin{gather*}
-            ((a_{1} + b_{1}\sqrt{2}) \cdot (a_{2} + b_{2}\sqrt{2}))\cdot(a_{3} + b_{3}\sqrt{2}) \\
-            = (a_{1} + b_{1}\sqrt{2}) \cdot ((a_{2} + b_{2}\sqrt{2})\cdot(a_{3} + b_{3}\sqrt{2}))
-        \end{gather*}
+              \begin{gather*}
+                  ((a_{1} + b_{1}\sqrt{2}) \cdot (a_{2} + b_{2}\sqrt{2}))\cdot(a_{3} + b_{3}\sqrt{2}) \\
+                  = (a_{1} + b_{1}\sqrt{2}) \cdot ((a_{2} + b_{2}\sqrt{2})\cdot(a_{3} + b_{3}\sqrt{2}))
+              \end{gather*}
         \item Phép nhân trên $\mathbb{Q}(\sqrt{2})$ có tính phân phối từ cả hai phía với phép cộng.
-        \begin{gather*}
-            (a_{1} + b_{1}\sqrt{2})((a_{2} + b_{2}\sqrt{2}) + (a_{3} + b_{3}\sqrt{2})) \\
-            = (a_{1} + b_{1}\sqrt{2})(a_{2} + b_{2}\sqrt{2}) + (a_{1} + b_{1}\sqrt{2})(a_{3} + b_{3}\sqrt{2})
-        \end{gather*}
-        \begin{gather*}
-            ((a_{1} + b_{1}\sqrt{2}) + (a_{2} + b_{2}\sqrt{2}))(a_{3} + b_{3}\sqrt{2}) \\
-            = (a_{1} + b_{1}\sqrt{2})(a_{3} + b_{3}\sqrt{2}) + (a_{2} + b_{2}\sqrt{2})(a_{3} + b_{3}\sqrt{2})
-        \end{gather*}
+              \begin{gather*}
+                  (a_{1} + b_{1}\sqrt{2})((a_{2} + b_{2}\sqrt{2}) + (a_{3} + b_{3}\sqrt{2})) \\
+                  = (a_{1} + b_{1}\sqrt{2})(a_{2} + b_{2}\sqrt{2}) + (a_{1} + b_{1}\sqrt{2})(a_{3} + b_{3}\sqrt{2})
+              \end{gather*}
+              \begin{gather*}
+                  ((a_{1} + b_{1}\sqrt{2}) + (a_{2} + b_{2}\sqrt{2}))(a_{3} + b_{3}\sqrt{2}) \\
+                  = (a_{1} + b_{1}\sqrt{2})(a_{3} + b_{3}\sqrt{2}) + (a_{2} + b_{2}\sqrt{2})(a_{3} + b_{3}\sqrt{2})
+              \end{gather*}
         \item Phép nhân trên $\mathbb{Q}(\sqrt{2})$ có phần tử đơn vị.
-        \begin{gather*}
-            (a + b\sqrt{2})\cdot 1 = 1\cdot (a + b\sqrt{2}) = a + b\sqrt{2}
-        \end{gather*}
+              \begin{gather*}
+                  (a + b\sqrt{2})\cdot 1 = 1\cdot (a + b\sqrt{2}) = a + b\sqrt{2}
+              \end{gather*}
         \item Phép nhân trên $\mathbb{Q}(\sqrt{2})$ có tính giao hoán:
-        \begin{gather*}
-            (a_{1} + b_{1}\sqrt{2})(a_{2} + b_{2}\sqrt{2}) = (a_{2} + b_{2}\sqrt{2})(a_{1} + b_{1}\sqrt{2})
-        \end{gather*}
+              \begin{gather*}
+                  (a_{1} + b_{1}\sqrt{2})(a_{2} + b_{2}\sqrt{2}) = (a_{2} + b_{2}\sqrt{2})(a_{1} + b_{1}\sqrt{2})
+              \end{gather*}
         \item Các phần tử khác không của $\mathbb{Q}$ có phần tử nghịch đảo.
-        \begin{gather*}
-            (a + b\sqrt{2})\left(\frac{a}{a^{2} - 2b^{2}} + \frac{-b}{a^{2}-2b^{2}}\sqrt{2}\right) \\
-            =\left(\frac{a}{a^{2} - 2b^{2}} + \frac{-b}{a^{2}-2b^{2}}\sqrt{2}\right)(a + b\sqrt{2}) = 1
-        \end{gather*}
+              \begin{gather*}
+                  (a + b\sqrt{2})\left(\frac{a}{a^{2} - 2b^{2}} + \frac{-b}{a^{2}-2b^{2}}\sqrt{2}\right) \\
+                  =\left(\frac{a}{a^{2} - 2b^{2}} + \frac{-b}{a^{2}-2b^{2}}\sqrt{2}\right)(a + b\sqrt{2}) = 1
+              \end{gather*}
     \end{enumerate}
     \par Như vậy, $\mathbb{Q}(\sqrt{2})$ lập nên một trường với hai phép toán cộng và nhân thông thường.
 \end{proof}
@@ -863,8 +863,8 @@
     \par Do đó, với mọi $x\in\mathbb{Q}$, $\phi(x) = x$.
     \bigskip
     \begin{align*}
-        \phi(\sqrt{2})\phi(\sqrt{2})&= \phi(2) \\
-        \Leftrightarrow \phi(\sqrt{2})^{2}&= 2
+        \phi(\sqrt{2})\phi(\sqrt{2})       & = \phi(2) \\
+        \Leftrightarrow \phi(\sqrt{2})^{2} & = 2
     \end{align*}
     \par Suy ra $\phi(\sqrt{2}) = \pm\sqrt{2}$. Nhưng cho dù $\phi(\sqrt{2})$ bằng $\sqrt{2}$ hay $-\sqrt{2}$ thì $\phi(\sqrt{2})$ cũng không thể thuộc trường $\mathbb{Q}(\sqrt{3})$.
     \par Như vậy giả sử phản chứng là sai. Hai trường $\mathbb{Q}(\sqrt{2})$ và $\mathbb{Q}(\sqrt{3})$ không đẳng cấu.
@@ -878,22 +878,22 @@
 \begin{proof}Trước tiên, ta chứng minh $\mathbb{R}(z)$ là một trường.
     \begin{enumerate}[label = (\roman*)]
         \item $\mathbb{R}(z)$ đóng với phép cộng thông thường:
-        \[ (a_{1} + b_{1}z) + (a_{2} + b_{2}z) = (a_{1} + a_{2}) + (b_{1} + b_{2})z \]
+              \[ (a_{1} + b_{1}z) + (a_{2} + b_{2}z) = (a_{1} + a_{2}) + (b_{1} + b_{2})z \]
         \item $\mathbb{R}(z)$ đóng với phép nhân thông thường:
-        \begin{align*}
-            (a_{1} + b_{1}z)(a_{2} + b_{2}z) &= (a_{1}a_{2} + b_{1}b_{2}z^{2}) + (a_{1}b_{2} + a_{2}b_{1})z \\
-                                             &= (a_{1}a_{2} - b_{1}b_{2}z\overline{z}) + (a_{1}b_{2} + a_{2}b_{1} + b_{1}b_{2}(z + \overline{z}))z
-        \end{align*}
+              \begin{align*}
+                  (a_{1} + b_{1}z)(a_{2} + b_{2}z) & = (a_{1}a_{2} + b_{1}b_{2}z^{2}) + (a_{1}b_{2} + a_{2}b_{1})z                                        \\
+                                                   & = (a_{1}a_{2} - b_{1}b_{2}z\overline{z}) + (a_{1}b_{2} + a_{2}b_{1} + b_{1}b_{2}(z + \overline{z}))z
+              \end{align*}
         \item $\mathbb{R}(z) \subset \mathbb{C}$ nên phép cộng trên $\mathbb{R}(z)$ cũng có tính kết hợp, giao hoán, có phần tử trung lập, mọi phần tử đều có phần tử đối; phép nhân có tính kết hợp, phân phối với phép cộng, giao hoán, có đơn vị, phần tử khác 0 có nghịch đảo.
     \end{enumerate}
     \par Do đó $\mathbb{R}(z)$ là một trường với phép toán cộng và nhân thông thường.
     \par Đặt $z = p + q\iota \quad (q\ne 0)$.
     \par Ta sẽ chứng minh mọi số phức $a + b\iota$ đều biểu diễn được duy nhất dưới dạng $x + yz$.
     \begin{align*}
-        &x + yz = a + b\iota \\
-        \Leftrightarrow\quad& x + y(p + q\iota) = a + b\iota \\
-        \Leftrightarrow\quad& (x + py) + qy\iota = a + b\iota \\
-        \Leftrightarrow\quad&
+                             & x + yz = a + b\iota             \\
+        \Leftrightarrow\quad & x + y(p + q\iota) = a + b\iota  \\
+        \Leftrightarrow\quad & (x + py) + qy\iota = a + b\iota \\
+        \Leftrightarrow\quad &
         \begin{cases}
             x + py = a \\
             qy = b
@@ -906,9 +906,9 @@
     \end{align*}
     \par Như vậy, mọi số phức đều biểu diễn được dưới dạng $x + yz$, giả sử $x_{1} + y_{1}z = x_{2} + y_{2}z$.
     \begin{align*}
-        &x_{1} + y_{1}z = x_{2} + y_{2}z \\
-        \Leftrightarrow\quad&(x_{1} + y_{1}p) + y_{1}q\iota = (x_{2} + y_{2}p) + y_{2}q\iota \\
-        \Leftrightarrow\quad&
+                             & x_{1} + y_{1}z = x_{2} + y_{2}z                                 \\
+        \Leftrightarrow\quad & (x_{1} + y_{1}p) + y_{1}q\iota = (x_{2} + y_{2}p) + y_{2}q\iota \\
+        \Leftrightarrow\quad &
         \begin{cases}
             qy_{1} = qy_{2}\quad\text{($q\ne 0$)} \\
             x_{1} + y_{1}p = x_{2} + y_{2}p
@@ -932,15 +932,15 @@
     \par Ta xét các phần tử $0, 1, \iota, -1$.
     \begin{itemize}
         \item Trường hợp 1. $0\le 1 \le \iota$ (hiểu là $1$ bị kẹp bởi $0$ và $\iota$, nên việc đảo thứ tự sẽ tương tự).
-            \par $0\le 1\Rightarrow -1\le 0$. Mà $\iota\ge 0$ nên $1\cdot\iota \le \iota^{2} \Rightarrow \iota \le -1$. Điều này mâu thuẫn với $-1 \le 0 \le \iota$.
+              \par $0\le 1\Rightarrow -1\le 0$. Mà $\iota\ge 0$ nên $1\cdot\iota \le \iota^{2} \Rightarrow \iota \le -1$. Điều này mâu thuẫn với $-1 \le 0 \le \iota$.
         \item Trường hợp 2. $0\le\iota\le 1$
-            \par $1\ge\iota\Rightarrow 1 - \iota\ge 0$.
-            \par $1\ge 0, \iota\ge 0\Rightarrow 1 + \iota \ge 0$
-            \par $\Rightarrow \iota(1+\iota)\ge 0\Rightarrow \iota - 1\ge 0$. Điều này mâu thuẫn với $1 - \iota \ge 0$.
+              \par $1\ge\iota\Rightarrow 1 - \iota\ge 0$.
+              \par $1\ge 0, \iota\ge 0\Rightarrow 1 + \iota \ge 0$
+              \par $\Rightarrow \iota(1+\iota)\ge 0\Rightarrow \iota - 1\ge 0$. Điều này mâu thuẫn với $1 - \iota \ge 0$.
         \item Trường hợp 3. $\iota \le 0 \le 1$
-            \par $\Rightarrow-\iota \ge 0\Rightarrow (-\iota)(-\iota)\ge (-\iota)\cdot (-1) \Rightarrow -1\ge\iota \Rightarrow 1 + \iota \le 0\Rightarrow\iota\le -1$
-            \par $-\iota \ge 1\Rightarrow (-\iota)(-\iota) \ge -\iota \Rightarrow -1 \ge -\iota \Rightarrow \iota\ge 1$
-            \par $1\le -1$, điều này mâu thuẫn với giả thiết.
+              \par $\Rightarrow-\iota \ge 0\Rightarrow (-\iota)(-\iota)\ge (-\iota)\cdot (-1) \Rightarrow -1\ge\iota \Rightarrow 1 + \iota \le 0\Rightarrow\iota\le -1$
+              \par $-\iota \ge 1\Rightarrow (-\iota)(-\iota) \ge -\iota \Rightarrow -1 \ge -\iota \Rightarrow \iota\ge 1$
+              \par $1\le -1$, điều này mâu thuẫn với giả thiết.
     \end{itemize}
     \par Vậy $\mathbb{C}$ không được sắp toàn phần với bất kỳ thứ tự nào.
     \bigskip
@@ -949,23 +949,23 @@
     \par Giả sử phản chứng, $\mathbb{Z}/p$ được sắp toàn phần.
     \begin{itemize}
         \item Trường hợp 1. $0\le 1$.
-        \begin{align*}
-            \Rightarrow\quad& 1\le 2 \\
-            \Rightarrow\quad& 2\le 3 \\
-                            & \vdots \\
-            \Rightarrow\quad& p-2\le p-1 \\
-            \Rightarrow\quad& p-1\le 0
-        \end{align*}
-        \par Điều cuối cùng mâu thuẫn với giả thiết.
+              \begin{align*}
+                  \Rightarrow\quad & 1\le 2     \\
+                  \Rightarrow\quad & 2\le 3     \\
+                                   & \vdots     \\
+                  \Rightarrow\quad & p-2\le p-1 \\
+                  \Rightarrow\quad & p-1\le 0
+              \end{align*}
+              \par Điều cuối cùng mâu thuẫn với giả thiết.
         \item Trường hợp 2. $1\le 0$.
-        \begin{align*}
-            \Rightarrow\quad& 2\le 1 \\
-            \Rightarrow\quad& 3\le 2 \\
-                            & \vdots \\
-            \Rightarrow\quad& p-1\le p-2 \\
-            \Rightarrow\quad& 0\le p-1
-        \end{align*}
-        \par Điều cuối cùng mâu thuẫn với giả thiết.
+              \begin{align*}
+                  \Rightarrow\quad & 2\le 1     \\
+                  \Rightarrow\quad & 3\le 2     \\
+                                   & \vdots     \\
+                  \Rightarrow\quad & p-1\le p-2 \\
+                  \Rightarrow\quad & 0\le p-1
+              \end{align*}
+              \par Điều cuối cùng mâu thuẫn với giả thiết.
     \end{itemize}
     \par Vậy $\mathbb{Z}/p$ không được sắp toàn phần với bất kỳ thứ tự nào.
 \end{proof}
@@ -975,10 +975,10 @@
 
 \begin{proof}
     \begin{align*}
-        \phi(x)\phi(y) &= (\cos x + \iota\sin x)(\cos y + \iota\sin y) \\
-                       &= (\cos x\cos y - \sin x\sin y) + (\sin x\cos y + \cos x\sin y)\iota \\
-                       &= \cos (x + y) + \iota\sin(x + y) \\
-                       &= \phi(x + y)
+        \phi(x)\phi(y) & = (\cos x + \iota\sin x)(\cos y + \iota\sin y)                       \\
+                       & = (\cos x\cos y - \sin x\sin y) + (\sin x\cos y + \cos x\sin y)\iota \\
+                       & = \cos (x + y) + \iota\sin(x + y)                                    \\
+                       & = \phi(x + y)
     \end{align*}
     \par Do đó $\phi$ là một đồng cấu từ $(\mathbb{R},+)$ vào $(\mathbb{C}^{*},\cdot)$.
     \par Tập giá trị của $\phi$ là các số phức có module bằng 1.
@@ -988,8 +988,8 @@
 
 \begin{exercise}Chứng minh rằng đối với số phức $z$:
     \begin{align*}
-        z = \overline{z} &\Longleftrightarrow z\in\mathbb{R} \\
-        z = -\overline{z}&\Longleftrightarrow \text{$z$ là thuần ảo}
+        z = \overline{z}  & \Longleftrightarrow z\in\mathbb{R}         \\
+        z = -\overline{z} & \Longleftrightarrow \text{$z$ là thuần ảo}
     \end{align*}
 \end{exercise}
 
@@ -997,8 +997,8 @@
     \par $\Rightarrow\overline{z} = a - b\iota$.
     \par $\Rightarrow a = \frac{1}{2}(z + \overline{z}), b = \frac{1}{2\iota}(z - \overline{z})$.
     \begin{align*}
-        &z \in \mathbb{R} \Leftrightarrow b = 0 \Leftrightarrow z = \overline{z} \\
-        &\text{$z$ là thuần ảo}\Leftrightarrow a = 0 \Leftrightarrow z = -\overline{z}
+         & z \in \mathbb{R} \Leftrightarrow b = 0 \Leftrightarrow z = \overline{z}       \\
+         & \text{$z$ là thuần ảo}\Leftrightarrow a = 0 \Leftrightarrow z = -\overline{z}
     \end{align*}
 \end{proof}
 
@@ -1025,41 +1025,41 @@
 
 \begin{proof}
     \begin{align*}
-        \iota^{77}&= \iota^{4\cdot 19 + 1} = (\iota^{4}){}^{19}\cdot\iota = \iota
+        \iota^{77} & = \iota^{4\cdot 19 + 1} = (\iota^{4}){}^{19}\cdot\iota = \iota
     \end{align*}
     \begin{align*}
-        \iota^{99}&= \iota^{4\cdot 24 + 3} = (\iota^{4}){}^{24}\cdot\iota^{3} = \iota^{3} = -\iota
+        \iota^{99} & = \iota^{4\cdot 24 + 3} = (\iota^{4}){}^{24}\cdot\iota^{3} = \iota^{3} = -\iota
     \end{align*}
     \begin{align*}
-        \iota^{-57}&= \iota^{4\cdot(-14) - 1} = (\iota^{4}){}^{-14}\cdot\iota^{-1} = \iota^{-1} = -\iota
+        \iota^{-57} & = \iota^{4\cdot(-14) - 1} = (\iota^{4}){}^{-14}\cdot\iota^{-1} = \iota^{-1} = -\iota
     \end{align*}
     \begin{align*}
-        \iota^{n}&= \left(\cos\frac{\pi}{2} + \iota\sin\frac{\pi}{2}\right){}^{n}= \cos\frac{n\pi}{2} + \iota\sin\frac{n\pi}{2}
+        \iota^{n} & = \left(\cos\frac{\pi}{2} + \iota\sin\frac{\pi}{2}\right){}^{n}= \cos\frac{n\pi}{2} + \iota\sin\frac{n\pi}{2}
     \end{align*}
     \begin{align*}
-        (1+\iota){}^{n}&= \left(\sqrt{2}\left(\cos\frac{\pi}{4} + \iota\sin\frac{\pi}{4}\right)\right){}^{n} \\
-                     &= \sqrt{2^{n}}\left(\cos\frac{n\pi}{4} + \iota\sin\frac{n\pi}{4}\right)
+        (1+\iota){}^{n} & = \left(\sqrt{2}\left(\cos\frac{\pi}{4} + \iota\sin\frac{\pi}{4}\right)\right){}^{n} \\
+                        & = \sqrt{2^{n}}\left(\cos\frac{n\pi}{4} + \iota\sin\frac{n\pi}{4}\right)
     \end{align*}
 \end{proof}
 
 \begin{exercise}Chứng minh các đẳng thức
     \begin{align*}
-        (1+\iota){}^{8n} &= 2^{4n} \\
-        (1+\iota){}^{4n} &= (-1){}^{n}2^{2n},\quad(n\in\mathbb{Z})
+        (1+\iota){}^{8n} & = 2^{4n}                                 \\
+        (1+\iota){}^{4n} & = (-1){}^{n}2^{2n},\quad(n\in\mathbb{Z})
     \end{align*}
 \end{exercise}
 
 \begin{proof}Sử dụng đẳng thức ở bài tập trước.
     \begin{align*}
-        (1+\iota){}^{8n} &= \sqrt{2^{8n}}\left(\cos\frac{8n\pi}{4} + \sin\frac{8n\pi}{4}\right) \\
-                         &= 2^{4n}\left(\cos 2n\pi + \iota\sin 2n\pi\right) \\
-                         &= 2^{4n}
+        (1+\iota){}^{8n} & = \sqrt{2^{8n}}\left(\cos\frac{8n\pi}{4} + \sin\frac{8n\pi}{4}\right) \\
+                         & = 2^{4n}\left(\cos 2n\pi + \iota\sin 2n\pi\right)                     \\
+                         & = 2^{4n}
     \end{align*}
 
     \begin{align*}
-        (1+\iota){}^{4n} &= \sqrt{2^{4n}}\left(\cos\frac{4n\pi}{4} + \sin\frac{4n\pi}{4}\right) \\
-                         &= 2^{2n}\left(\cos n\pi + \iota\sin n\pi\right) \\
-                         &= (-1){}^{n}2^{2n}
+        (1+\iota){}^{4n} & = \sqrt{2^{4n}}\left(\cos\frac{4n\pi}{4} + \sin\frac{4n\pi}{4}\right) \\
+                         & = 2^{2n}\left(\cos n\pi + \iota\sin n\pi\right)                       \\
+                         & = (-1){}^{n}2^{2n}
     \end{align*}
 \end{proof}
 
@@ -1069,10 +1069,10 @@
 \begin{proof}Ta chứng minh bằng quy nạp. Mệnh đề $z^{n} + z^{-n} = 2\cos n\phi$ đúng với $n = 1$.
     \par Giả sử mệnh đề đúng với $n = k$.
     \begin{align*}
-        z^{k+1} + z^{-k-1} &= (z^{k} + z^{-k})(z + z^{-1}) - (z^{k-1} + z^{1-k}) \\
-                           &= 2\cos k\phi \cdot 2\cos\phi - 2\cos (k-1)\phi \\
-                           &= 2\cos(k+1)\phi + 2\cos(k-1)\phi - 2\cos(k-1)\phi \\
-                           &= 2\cos(k+1)\phi
+        z^{k+1} + z^{-k-1} & = (z^{k} + z^{-k})(z + z^{-1}) - (z^{k-1} + z^{1-k}) \\
+                           & = 2\cos k\phi \cdot 2\cos\phi - 2\cos (k-1)\phi      \\
+                           & = 2\cos(k+1)\phi + 2\cos(k-1)\phi - 2\cos(k-1)\phi   \\
+                           & = 2\cos(k+1)\phi
     \end{align*}
     \par Vậy mệnh đề đúng với $n = k + 1$, do đó đúng với mọi $n\in\mathbb{N}$.
 \end{proof}
@@ -1088,17 +1088,17 @@
 \begin{proof}
     \begin{enumerate}[label = (\alph*)]
         \item \begin{align*}
-            \frac{1 - 2\iota}{4 + 3\iota} &= \frac{(1 - 2\iota)(4 - 3\iota)}{25} \\
-                                              &= \frac{-2 - 11\iota}{25}
-        \end{align*}
+                  \frac{1 - 2\iota}{4 + 3\iota} & = \frac{(1 - 2\iota)(4 - 3\iota)}{25} \\
+                                                & = \frac{-2 - 11\iota}{25}
+              \end{align*}
         \item \begin{align*}
-            \frac{(1 - \iota){}^{n}}{(1 - \sqrt{3}\iota){}^{n}} &= \frac{\sqrt{2^{n}}\left(\cos\dfrac{-\pi}{4} +\iota\sin\dfrac{-\pi}{4}\right){}^{n}}{2^{n}\left(\cos\dfrac{-\pi}{3} + \iota\sin\dfrac{-\pi}{3}\right){}^{n}} \\
-                &=\frac{1}{\sqrt{2^{n}}}\left(\cos\frac{n\pi}{12}+\iota\sin\frac{n\pi}{12}\right)
-        \end{align*}
+                  \frac{(1 - \iota){}^{n}}{(1 - \sqrt{3}\iota){}^{n}} & = \frac{\sqrt{2^{n}}\left(\cos\dfrac{-\pi}{4} +\iota\sin\dfrac{-\pi}{4}\right){}^{n}}{2^{n}\left(\cos\dfrac{-\pi}{3} + \iota\sin\dfrac{-\pi}{3}\right){}^{n}} \\
+                                                                      & =\frac{1}{\sqrt{2^{n}}}\left(\cos\frac{n\pi}{12}+\iota\sin\frac{n\pi}{12}\right)
+              \end{align*}
         \item \begin{align*}
-            \frac{(1 + \sqrt{3}\iota){}^{n}}{(1+\iota){}^{n+1}} &= \frac{2^{n}\left(\cos\dfrac{\pi}{3} + \iota\sin\dfrac{\pi}{3}\right){}^{n}}{\sqrt{2^{n}}\left(\cos\dfrac{\pi}{4} + \iota\sin\dfrac{\pi}{4}\right){}^{n+1}} \\
-            &= \sqrt{2^{n}}\left(\cos\left(\frac{n\pi}{12}-\frac{\pi}{4}\right) + \iota\sin\left(\frac{n\pi}{12} - \frac{\pi}{4}\right)\right)
-        \end{align*}
+                  \frac{(1 + \sqrt{3}\iota){}^{n}}{(1+\iota){}^{n+1}} & = \frac{2^{n}\left(\cos\dfrac{\pi}{3} + \iota\sin\dfrac{\pi}{3}\right){}^{n}}{\sqrt{2^{n}}\left(\cos\dfrac{\pi}{4} + \iota\sin\dfrac{\pi}{4}\right){}^{n+1}} \\
+                                                                      & = \sqrt{2^{n}}\left(\cos\left(\frac{n\pi}{12}-\frac{\pi}{4}\right) + \iota\sin\left(\frac{n\pi}{12} - \frac{\pi}{4}\right)\right)
+              \end{align*}
     \end{enumerate}
 \end{proof}
 
@@ -1106,20 +1106,20 @@
     \begin{enumerate}[label = (\alph*)]
         \item Tìm dạng lượng giác của số phức $(1 + \iota\tan\phi)/(1 - \iota\tan\phi)$,
         \item Trên mặt phẳng phức, tìm tập hợp các điểm tương ứng với
-            \[ \{ z = (1 + \iota t)/(1 - \iota t)\ |\ t\in\mathbb{R} \} \]
+              \[ \{ z = (1 + \iota t)/(1 - \iota t)\ |\ t\in\mathbb{R} \} \]
     \end{enumerate}
 \end{exercise}
 
 \begin{proof}
     \begin{enumerate}[label = (\alph*)]
         \item
-            \begin{align*}
-                \frac{1 + \iota\tan\phi}{1 - \iota\tan\phi} &= \frac{\cos\phi + \iota\sin\phi}{\cos\phi - \iota\sin\phi} \\
-                                                            &= \frac{\cos\phi + \iota\sin\phi}{\cos(-\phi) + \iota\sin(-\phi)} \\
-                                                            &= \cos(2\phi) + \iota\sin(2\phi)
-            \end{align*}
+              \begin{align*}
+                  \frac{1 + \iota\tan\phi}{1 - \iota\tan\phi} & = \frac{\cos\phi + \iota\sin\phi}{\cos\phi - \iota\sin\phi}       \\
+                                                              & = \frac{\cos\phi + \iota\sin\phi}{\cos(-\phi) + \iota\sin(-\phi)} \\
+                                                              & = \cos(2\phi) + \iota\sin(2\phi)
+              \end{align*}
         \item Vì $t\in\mathbb{R}$ nên tồn tại $\phi\in\left(-\frac{\pi}{2},\frac{\pi}{2}\right)$ sao cho $\tan\phi = t$.
-            \par Theo ý (a), $z = \cos (2\phi) + \iota(2\phi)$. Do đó, tập hợp điểm $z$ là đường tròn đơn vị, loại đi hai điểm $-1$.
+              \par Theo ý (a), $z = \cos (2\phi) + \iota(2\phi)$. Do đó, tập hợp điểm $z$ là đường tròn đơn vị, loại đi hai điểm $-1$.
     \end{enumerate}
 \end{proof}
 
@@ -1140,27 +1140,27 @@
 \begin{proof}
     \begin{enumerate}[label = (\alph*)]
         \item $1 + \iota = \sqrt{2}\left(\cos\frac{\pi}{4} + \iota\sin\frac{\pi}{4}\right)$. Các căn bậc ba của $1 + \iota$ bao gồm
-            \[
-                \begin{cases}
-                    \sqrt[6]{2}\left(\cos\frac{\pi}{12} + \iota\sin\frac{\pi}{12}\right) \\
-                    \sqrt[6]{2}\left(\cos\frac{3\pi}{4} + \iota\sin\frac{3\pi}{4}\right) \\
-                    \sqrt[6]{2}\left(\cos\frac{17\pi}{12} + \iota\sin\frac{17\pi}{12}\right)
-                \end{cases}
-            \]
-            \par $1 - \sqrt{3}\iota = 2\left(\cos\frac{-\pi}{3} + \iota\sin\frac{-\pi}{3}\right)$. Các căn bậc ba của $1 - \sqrt{3}\iota$ bao gồm
-            \[
-                \begin{cases}
-                    \sqrt[3]{2}\left(\cos\frac{-\pi}{9} + \iota\sin\frac{-\pi}{9}\right) \\
-                    \sqrt[3]{2}\left(\cos\frac{5\pi}{9} + \iota\sin\frac{5\pi}{9}\right) \\
-                    \sqrt[3]{2}\left(\cos\frac{11\pi}{9} + \iota\sin\frac{11\pi}{9}\right)
-                \end{cases}
-            \]
+              \[
+                  \begin{cases}
+                      \sqrt[6]{2}\left(\cos\frac{\pi}{12} + \iota\sin\frac{\pi}{12}\right) \\
+                      \sqrt[6]{2}\left(\cos\frac{3\pi}{4} + \iota\sin\frac{3\pi}{4}\right) \\
+                      \sqrt[6]{2}\left(\cos\frac{17\pi}{12} + \iota\sin\frac{17\pi}{12}\right)
+                  \end{cases}
+              \]
+              \par $1 - \sqrt{3}\iota = 2\left(\cos\frac{-\pi}{3} + \iota\sin\frac{-\pi}{3}\right)$. Các căn bậc ba của $1 - \sqrt{3}\iota$ bao gồm
+              \[
+                  \begin{cases}
+                      \sqrt[3]{2}\left(\cos\frac{-\pi}{9} + \iota\sin\frac{-\pi}{9}\right) \\
+                      \sqrt[3]{2}\left(\cos\frac{5\pi}{9} + \iota\sin\frac{5\pi}{9}\right) \\
+                      \sqrt[3]{2}\left(\cos\frac{11\pi}{9} + \iota\sin\frac{11\pi}{9}\right)
+                  \end{cases}
+              \]
         \item
-            \begin{align*}
-                \sqrt[n]{\iota} &= \left\{ \cos\left(\frac{\pi}{2n} + \frac{2k\pi}{n}\right) + \iota\sin\left(\frac{\pi}{2n} + \frac{2k\pi}{n}\right)\ \Big{|} \ k = \overline{0, n-1} \right\} \\
-                \sqrt[n]{1-\iota} &= \left\{ \sqrt[2n]{2}\left(\cos\left(\frac{-\pi}{4n} + \frac{2k\pi}{n}\right) + \iota\sin\left(\frac{-\pi}{4n} + \frac{2k\pi}{n}\right)\right)\ \Big{|} \ k = \overline{0, n-1} \right\} \\
-                \sqrt[n]{1 + \sqrt{3}\iota} &= \left\{ \sqrt[n]{2}\left(\cos\left(\frac{\pi}{3n} + \frac{2k\pi}{n}\right) + \iota\sin\left(\frac{\pi}{3n} + \frac{2k\pi}{n}\right)\right)\ \Big{|}\ k = \overline{0, n-1} \right\}
-            \end{align*}
+              \begin{align*}
+                  \sqrt[n]{\iota}             & = \left\{ \cos\left(\frac{\pi}{2n} + \frac{2k\pi}{n}\right) + \iota\sin\left(\frac{\pi}{2n} + \frac{2k\pi}{n}\right)\ \Big{|} \ k = \overline{0, n-1} \right\}                            \\
+                  \sqrt[n]{1-\iota}           & = \left\{ \sqrt[2n]{2}\left(\cos\left(\frac{-\pi}{4n} + \frac{2k\pi}{n}\right) + \iota\sin\left(\frac{-\pi}{4n} + \frac{2k\pi}{n}\right)\right)\ \Big{|} \ k = \overline{0, n-1} \right\} \\
+                  \sqrt[n]{1 + \sqrt{3}\iota} & = \left\{ \sqrt[n]{2}\left(\cos\left(\frac{\pi}{3n} + \frac{2k\pi}{n}\right) + \iota\sin\left(\frac{\pi}{3n} + \frac{2k\pi}{n}\right)\right)\ \Big{|}\ k = \overline{0, n-1} \right\}
+              \end{align*}
     \end{enumerate}
 \end{proof}
 
@@ -1174,10 +1174,10 @@
     \[ A_{0}(a_{0}), A_{1}(a_{1}), \ldots, A_{n-1}(a_{n-1}) \]
     \par Sử dụng phép quay tâm $O$, góc $\frac{2\pi}{n}$:
     \begin{align*}
-        A_{0}&\mapsto A_{1} \\
-        A_{1}&\mapsto A_{2} \\
-        &\vdots \\
-        A_{n-1}&\mapsto A_{0}
+        A_{0}   & \mapsto A_{1} \\
+        A_{1}   & \mapsto A_{2} \\
+                & \vdots        \\
+        A_{n-1} & \mapsto A_{0}
     \end{align*}
     \par Như vậy, phép quay trên biến vector $\sum\limits^{n-1}_{i=0}\overrightarrow{OA_{i}}$ thành chính nó. Mà góc quay của phép quay này $\not\equiv 0\pmod{2\pi}$ nên vector này là vector không.
     \par Do đó $\sum\limits^{n-1}_{i=0}a_{i} = 0$. Đây là điều cần chứng minh.
@@ -1193,19 +1193,19 @@
 \begin{proof}
     \begin{enumerate}[label = (\alph*)]
         \item
-            \begin{align*}
-                X^{3} + 3X^{2} + 5X + 3 &= X^{3} + X^{2} + 2X^{2} + 2X + 3X + 3 \\
-                                        &= X^{2}(X + 1) + 2X(X + 1) + 3(X + 1) \\
-                                        &= (X + 1)(X^{2} + 2X + 3) \\
-                                        &= (X + 1)(X + 1 + \sqrt{2}\iota)(X + 1 - \sqrt{2}\iota)
-            \end{align*}
+              \begin{align*}
+                  X^{3} + 3X^{2} + 5X + 3 & = X^{3} + X^{2} + 2X^{2} + 2X + 3X + 3                  \\
+                                          & = X^{2}(X + 1) + 2X(X + 1) + 3(X + 1)                   \\
+                                          & = (X + 1)(X^{2} + 2X + 3)                               \\
+                                          & = (X + 1)(X + 1 + \sqrt{2}\iota)(X + 1 - \sqrt{2}\iota)
+              \end{align*}
         \item
-            \begin{align*}
-                X^{3} - X^{2} - X - 2 &= X^{3} - 2X^{2} + X^{2} - 2X + X - 2 \\
-                                      &= X^{2}(X - 2) + X(X - 2) + (X - 2) \\
-                                      &= (X - 2)(X^{2} + X + 1) \\
-                                      &= (X - 2)(X - \frac{-1 - \sqrt{3}\iota}{2})(X - \frac{-1 + \sqrt{3}\iota}{2})
-            \end{align*}
+              \begin{align*}
+                  X^{3} - X^{2} - X - 2 & = X^{3} - 2X^{2} + X^{2} - 2X + X - 2                                         \\
+                                        & = X^{2}(X - 2) + X(X - 2) + (X - 2)                                           \\
+                                        & = (X - 2)(X^{2} + X + 1)                                                      \\
+                                        & = (X - 2)(X - \frac{-1 - \sqrt{3}\iota}{2})(X - \frac{-1 + \sqrt{3}\iota}{2})
+              \end{align*}
     \end{enumerate}
 \end{proof}
 
@@ -1214,8 +1214,8 @@
 
 \begin{proof}Đặt $j$ là nghiệm của $X^{2} + X + 1$, khi đó $j^{3} = 1$
     \begin{align*}
-        j^{3m} + j^{3n + 1} + j^{3p + 2} &= 1 + j + j^{2} \\
-                                         &= 0
+        j^{3m} + j^{3n + 1} + j^{3p + 2} & = 1 + j + j^{2} \\
+                                         & = 0
     \end{align*}
     \par Như vậy, nghiệm của $X^{2} + X + 1$ cũng là nghiệm của $X^{3m} + X^{3n + 1} + X^{3p + 2}$.
     \par Do đó $X^{3m} + X^{3n + 1} + X^{3p +2}$ chia hết cho $X^{2} + X + 1$, với mọi $m, n, p$ nguyên dương.
@@ -1227,7 +1227,7 @@
 \begin{proof}Đa thức $X^{3m} - X^{3n + 1} + X^{3p + 2}$ chia hết cho đa thức $X^{2} - X + 1$ khi và chỉ khi nghiệm của $X^{2} - X + 1$ cũng là nghiệm của $X^{3m} - X^{3n + 1} + X^{3p + 2}$.
     \par Đặt $j$ là nghiệm của đa thức $X^{2} - X + 1$ thì $j^{3} = -1$.
     \begin{align*}
-        j^{3m} - j^{3n + 1} + j^{3p + 2} &= (-1){}^{m} - (-1){}^{n}j + (-1){}^{p}j^{2}
+        j^{3m} - j^{3n + 1} + j^{3p + 2} & = (-1){}^{m} - (-1){}^{n}j + (-1){}^{p}j^{2}
     \end{align*}
     \par Nếu $m, n, p$ cùng tính chẵn lẻ thì biểu thức trên bằng không.
     \par Nếu $m, n, p$ không cùng tính chẵn lẻ thì biểu thức trên khác không.

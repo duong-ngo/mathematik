@@ -52,15 +52,15 @@
 \theoremstyle{plain}
 \newtheorem{lemma}{Bổ đề}
 \newenvironment{sqcases}{%
-  \matrix@check\sqcases\env@sqcases
+    \matrix@check\sqcases\env@sqcases
 }{%
-  \endarray\right.%
+    \endarray\right.%
 }
 \def\env@sqcases{%
-  \let\@ifnextchar\new@ifnextchar
-  \left\lbrack{}
-  \def\arraystretch{1.2}%
-  \array{@{}l@{\quad}l@{}}%
+\let\@ifnextchar\new@ifnextchar
+\left\lbrack{}
+\def\arraystretch{1.2}%
+\array{@{}l@{\quad}l@{}}%
 }
 \newcommand{\rank}{\text{rank}}
 \renewcommand{\phi}{\varphi}
