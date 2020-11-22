@@ -1074,26 +1074,324 @@
 \begin{proof}
     Theo định nghĩa của $M(f)$:
     \[
-        (\beta_{1} \ldots \beta_{n}) = (\alpha_{1} \ldots \alpha_{n})M(f)
-        \tag{*}
+        (f(e_{1}) \ldots f(e_{n})) = (e_{1} \ldots e_{n})M(f)
     \]
     \par $(\alpha_{1}, \ldots, \alpha_{n})$ độc lập tuyến tính trong không gian vector $\mathbb{F}^{n}$ nên $(\alpha_{1}, \ldots, \alpha_{n})$ là một cơ sở.
     \par $A$ là ma trận mà các cột lần lượt là tọa độ của các vector $\alpha_{1}, \ldots, \alpha_{n}$ đối với cơ sở $(e_{1}, \ldots, e_{n})$.
     \par $B$ là ma trận mà các cột lần lượt là tọa độ của các vector $\beta_{1}, \ldots, \beta_{n}$ đối với cơ sở $(e_{1}, \ldots, e_{n})$.
-    \par Suy ra
     \[
         \begin{split}
             (\alpha_{1} \ldots \alpha_{n}) = (e_{1} \ldots e_{n})A \\
             (\beta_{1} \ldots \beta_{n}) = (e_{1} \ldots e_{n})B
         \end{split}
-        \tag{**}
     \]
-    \par Từ (*) và (**), suy ra:
+    \begin{align*}
+        (f(\alpha_{1})\ldots f(\alpha_{n})) & = (f(e_{1})\ldots f(e_{n}))A \\
+                                            & = (e_{1}\ldots e_{n})M(f)A
+    \end{align*}
+    \par Bên cạnh đó:
+    \begin{align*}
+        (f(\alpha_{1})\ldots f(\alpha_{n})) & = (\beta_{1} \ldots \beta_{n}) \\
+                                            & = (e_{1} \ldots e_{n})B
+    \end{align*}
+    \par Suy ra $B = M(f)A$. Mà $A$ là ma trận chuyển từ cơ sở $(e_{1}, \ldots, e_{n})$ sang $(\alpha_{1}, \ldots, \alpha_{n})$ nên $A$ khả nghịch.
+    \par Do vậy $M(f) = M(f)AA^{-1} = BA^{-1}$.
+\end{proof}
+
+\begin{exercise}
+    Chứng minh rằng phép nhân với ma trận $\begin{pmatrix}a & b \\ c & d\end{pmatrix}$
+    \begin{enumerate}[label = (\alph*)]
+        \item từ bên trái,
+        \item từ bên phải
+    \end{enumerate}
+    \par là các tự đồng cấu của không gian các ma trận vuông cỡ 2. Hãy tìm ma trận của tự đồng cấu đó đối với cơ sở gồm các ma trận sau đây:
     \[
-        (e_{1}\ldots e_{n})B = (e_{1}\ldots e_{n})AM(f)
+        \begin{pmatrix}
+            1 & 0 \\
+            0 & 0
+        \end{pmatrix},
+        \begin{pmatrix}
+            0 & 1 \\
+            0 & 0
+        \end{pmatrix},
+        \begin{pmatrix}
+            0 & 0 \\
+            1 & 0
+        \end{pmatrix},
+        \begin{pmatrix}
+            0 & 0 \\
+            0 & 1
+        \end{pmatrix}.
     \]
-    \par Điều này có nghĩa là $B = AM(f)$.
-    \par Mà $A$ cũng chính là ma trận chuyển từ cơ sở $(e_{1}, \ldots, e_{n})$ sang cơ sở $(\alpha_{1}, \ldots, \alpha_{n})$ nên $A$ khả nghịch. Do đó $M(f) = BA^{-1}$.
+\end{exercise}
+
+\begin{proof}
+    Phép nhân ma trận có tính phân phối với phép cộng ma trận nên:
+    \[
+        \begin{pmatrix}
+            a & b \\
+            c & d
+        \end{pmatrix}
+        \left(
+        \begin{pmatrix}
+            x_{11} & x_{12} \\
+            x_{21} & x_{22}
+        \end{pmatrix}
+        +
+        \begin{pmatrix}
+            y_{11} & y_{12} \\
+            y_{21} & y_{22}
+        \end{pmatrix}
+        \right)
+        =
+        \begin{pmatrix}
+            a & b \\
+            c & d
+        \end{pmatrix}
+        \begin{pmatrix}
+            x_{11} & x_{12} \\
+            x_{21} & x_{22}
+        \end{pmatrix}
+        +
+        \begin{pmatrix}
+            a & b \\
+            c & d
+        \end{pmatrix}
+        \begin{pmatrix}
+            y_{11} & y_{12} \\
+            y_{21} & y_{22}
+        \end{pmatrix}
+    \]
+    \par Bên cạnh đó, mọi ma trận đều giao hoán với ma trận vô hướng nên:
+    \begin{align*}
+        \begin{pmatrix}
+            a & b \\
+            c & d
+        \end{pmatrix}
+        \begin{pmatrix}
+            tx_{11} & tx_{12} \\
+            tx_{21} & tx_{22}
+        \end{pmatrix} & =
+        \begin{pmatrix}
+            a & b \\
+            c & d
+        \end{pmatrix}
+        \begin{pmatrix}
+            t & 0 \\
+            0 & t
+        \end{pmatrix}
+        \begin{pmatrix}
+            x_{11} & x_{12} \\
+            x_{21} & x_{22}
+        \end{pmatrix} \\
+        & =
+        \begin{pmatrix}
+            t & 0 \\
+            0 & t
+        \end{pmatrix}
+        \begin{pmatrix}
+            a & b \\
+            c & d
+        \end{pmatrix}
+        \begin{pmatrix}
+            x_{11} & x_{12} \\
+            x_{21} & x_{22}
+        \end{pmatrix} \\
+        & =
+        t
+        \begin{pmatrix}
+            a & b \\
+            c & d
+        \end{pmatrix}
+        \begin{pmatrix}
+            x_{11} & x_{12} \\
+            x_{21} & x_{22}
+        \end{pmatrix}
+    \end{align*}
+    \par Như vậy, phép nhân với một ma trận vuông cỡ 2 cho trước từ bên trái là một tự đồng cấu của không gian $M(2\times 2,\mathbb{F})$.
+    \par Điều tương tự cũng đúng với phép nhân với một ma trận vuông cỡ 2 cho trước từ bên phải.
+    \begin{enumerate}[label = (\alph*)]
+        \item
+            \[
+                \begin{cases}
+                    \begin{pmatrix}
+                        a & b \\
+                        c & d
+                    \end{pmatrix}
+                    \begin{pmatrix}
+                        1 & 0 \\
+                        0 & 0
+                    \end{pmatrix}=
+                    \begin{pmatrix}
+                        a & 0 \\
+                        c & 0
+                    \end{pmatrix} \\ 
+                    \begin{pmatrix}
+                        a & b \\
+                        c & d
+                    \end{pmatrix}
+                    \begin{pmatrix}
+                        0 & 1 \\
+                        0 & 0
+                    \end{pmatrix}=
+                    \begin{pmatrix}
+                        0 & a \\
+                        0 & c
+                    \end{pmatrix} \\
+                    \begin{pmatrix}
+                        a & b \\
+                        c & d
+                    \end{pmatrix}
+                    \begin{pmatrix}
+                        0 & 0 \\
+                        1 & 0
+                    \end{pmatrix}=
+                    \begin{pmatrix}
+                        b & 0 \\
+                        d & 0
+                    \end{pmatrix} \\
+                    \begin{pmatrix}
+                        a & b \\
+                        c & d
+                    \end{pmatrix}
+                    \begin{pmatrix}
+                        0 & 0 \\
+                        0 & 1
+                    \end{pmatrix}=
+                    \begin{pmatrix}
+                        0 & b \\
+                        0 & d
+                    \end{pmatrix}
+                \end{cases}
+            \]
+            \par Vậy ma trận của tự đồng cấu này đối với cơ sở chính tắc của $M(2\times 2,\mathbb{F})$ là:
+            \[
+                \begin{pmatrix}
+                    a & 0 & b & 0 \\
+                    0 & a & 0 & b \\
+                    c & 0 & d & 0 \\
+                    0 & c & 0 & d
+                \end{pmatrix}
+            \]
+        \item
+            \[
+                \begin{cases}
+                    \begin{pmatrix}
+                        1 & 0 \\
+                        0 & 0
+                    \end{pmatrix}
+                    \begin{pmatrix}
+                        a & b \\
+                        c & d
+                    \end{pmatrix}=
+                    \begin{pmatrix}
+                        a & b \\
+                        0 & 0
+                    \end{pmatrix} \\
+                    \begin{pmatrix}
+                        0 & 1 \\
+                        0 & 0
+                    \end{pmatrix}
+                    \begin{pmatrix}
+                        a & b \\
+                        c & d
+                    \end{pmatrix}=
+                    \begin{pmatrix}
+                        c & d \\
+                        0 & 0
+                    \end{pmatrix} \\
+                    \begin{pmatrix}
+                        0 & 0 \\
+                        1 & 0
+                    \end{pmatrix}
+                    \begin{pmatrix}
+                        a & b \\
+                        c & d
+                    \end{pmatrix}=
+                    \begin{pmatrix}
+                        0 & 0 \\
+                        a & b
+                    \end{pmatrix} \\
+                    \begin{pmatrix}
+                        0 & 0 \\
+                        0 & 1
+                    \end{pmatrix}
+                    \begin{pmatrix}
+                        a & b \\
+                        c & d
+                    \end{pmatrix}=
+                    \begin{pmatrix}
+                        0 & 0 \\
+                        c & d
+                    \end{pmatrix}
+                \end{cases}
+            \]
+            \par Vậy ma trận của tự đồng cấu này đối với cơ sở chính tắc của $M(2\times 2,\mathbb{F})$ là:
+            \[
+                \begin{pmatrix}
+                    a & c & 0 & 0 \\
+                    b & d & 0 & 0 \\
+                    0 & 0 & a & c \\
+                    0 & 0 & b & d
+                \end{pmatrix}
+            \]
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    Chứng minh rằng đạo hàm là một tự đồng cấu của không gian vector các đa thức hệ số thực có bậc không vượt quá $n$. Tìm ma trận của tự đồng cấu đó với các cơ sở sau đây:
+    \begin{enumerate}[label = (\alph*)]
+        \item $(1, X, \ldots, X^{n})$.
+        \item $(1, (X-c), \ldots, \frac{(X-c){}^{n}}{n!})$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \[
+        \begin{split}
+            a(X) = a_{0} + a_{1}X + \cdots + a_{n}X^{n} \\
+            b(X) = b_{0} + b_{1}X + \cdots + b_{n}X^{n}
+        \end{split}
+    \]
+    \begin{align*}
+        \frac{d}{dX}(a(X) + b(X)) & = \frac{d}{dX}\left(\sum^{n}_{k=0}(a_{k}+b_{k})x^{k}\right) \\
+                                  & = \sum^{n}_{k=1}k(a_{k}+b_{k})X^{k-1} \\
+                                  & = \sum^{n}_{k=1}ka_{k}X^{k-1} + \sum^{n}_{k=1}b_{k}X^{k-1} \\
+                                  & = \frac{d}{dX}a(X) + \frac{d}{dX}b(X).
+    \end{align*}
+    \begin{align*}
+        \frac{d}{dX}(ta(X)) & = \frac{d}{dX}\sum^{n}_{k=0}ta_{k}X^{k} \\
+                            & = t\frac{d}{dX}\sum^{n}_{k=1}ka_{k}X^{k-1} \\
+                            & = t\frac{d}{dX}a(X).
+    \end{align*}
+    \[
+        \deg \frac{d}{dX}a(X) < \deg a(X).
+    \]
+    \par Do đó đạo hàm là một tự đồng cấu của không gian $\mathbb{R}[X]{}_{n}$.
+    \begin{enumerate}[label = (\alph*)]
+        \item Ma trận của đạo hàm đối với cơ sở $(1, X, \ldots, X^{n})$ là:
+            \[
+                \begin{pmatrix}
+                    0 & 1 & 0 & 0 & \cdots & 0 \\
+                    0 & 0 & 2 & 0 & \cdots & 0 \\
+                    0 & 0 & 0 & 3 & \cdots & 0 \\
+                    \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+                    0 & 0 & 0 & 0 & \cdots & n \\
+                    0 & 0 & 0 & 0 & \cdots & 0
+                \end{pmatrix}
+            \]
+        \item Ma trận của đạo hàm đối với cơ sở $(1, (X-c), \ldots, \frac{(X-c)^{n}}{n!})$ là:
+            \[
+                \begin{pmatrix}
+                    0 & \frac{1}{0!} & 0 & 0 & \cdots & 0 \\
+                    0 & 0 & \frac{1}{1!} & 0 & \cdots & 0 \\
+                    0 & 0 & 0 & \frac{1}{2!} & \cdots & 0 \\
+                    \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+                    0 & 0 & 0 & 0 & \cdots & \frac{1}{(n-1)!} \\
+                    0 & 0 & 0 & 0 & \cdots & 0
+                \end{pmatrix}
+            \]
+    \end{enumerate}
 \end{proof}
 
 \end{document}
