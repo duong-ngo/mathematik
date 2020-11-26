@@ -49,8 +49,10 @@
 
 \theoremstyle{definition}
 \newtheorem{exercise}{Bài}
+\counterwithin{exercise}{chapter}
 \theoremstyle{plain}
 \newtheorem{lemma}{Bổ đề}
+\counterwithin{lemma}{chapter}
 \newenvironment{sqcases}{%
     \matrix@check\sqcases\env@sqcases
 }{%

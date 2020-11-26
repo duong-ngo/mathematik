@@ -1225,7 +1225,7 @@
                     \begin{pmatrix}
                         a & 0 \\
                         c & 0
-                    \end{pmatrix} \\ 
+                    \end{pmatrix} \\
                     \begin{pmatrix}
                         a & b \\
                         c & d
@@ -1364,6 +1364,7 @@
                             & = t\frac{d}{dX}\sum^{n}_{k=1}ka_{k}X^{k-1} \\
                             & = t\frac{d}{dX}a(X).
     \end{align*}
+    \par Bên cạnh đó
     \[
         \deg \frac{d}{dX}a(X) < \deg a(X).
     \]
@@ -1380,7 +1381,7 @@
                     0 & 0 & 0 & 0 & \cdots & 0
                 \end{pmatrix}
             \]
-        \item Ma trận của đạo hàm đối với cơ sở $(1, (X-c), \ldots, \frac{(X-c)^{n}}{n!})$ là:
+        \item Ma trận của đạo hàm đối với cơ sở $(1, (X-c), \ldots, \frac{(X-c){}^{n}}{n!})$ là:
             \[
                 \begin{pmatrix}
                     0 & \frac{1}{0!} & 0 & 0 & \cdots & 0 \\
@@ -1392,6 +1393,215 @@
                 \end{pmatrix}
             \]
     \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    Ma trận của một tự đồng cấu đối với cơ sở $(e_{1},\ldots,e_{n})$ thay đổi thế nào nếu ta đổi chỗ các vector $e_{i}$ và $e_{j}$.
+\end{exercise}
+
+\begin{proof}[Lời giải]
+    Đổi chỗ $f(e_{i})$, $f(e_{j})$ thì hai cột thứ $i$, $j$ của $M(f)$ đổi chỗ.
+    \par Đổi chỗ $e_{i}$, $e_{j}$ thì hai hàng thứ $i$, $j$ đổi chỗ.
+    \par Ma trận mới được dựng như sau:
+    \begin{itemize}
+        \item Đổi chỗ cột $i$ và $j$.
+        \item Đổi chỗ hàng $i$ và $j$.
+    \end{itemize}
+    \par hoặc nói cách khác:
+    \begin{itemize}
+        \item Yếu tố hàng $i$ cột $i$ và hàng $j$ cột $i$ đổi chỗ.
+        \item Yếu tố hàng $i$ cột $j$ và hàng $j$ cột $i$ đổi chỗ.
+        \item Yếu tố hàng $i$ cột $k$ và hàng $j$ cột $k$ đổi chỗ $(k\not\in\{ i, j \})$.
+        \item Yếu tố hàng $k$ cột $i$ và hàng $k$ cột $j$ đổi chỗ $(k\not\in\{ i, j \})$.
+    \end{itemize}
+\end{proof}
+
+\begin{exercise}
+    Tự đồng cấu $f$ có ma trận
+    \[
+        A =
+        \begin{pmatrix}
+            1 & 2 & 0  & 1 \\
+            3 & 0 & -1 & 2 \\
+            2 & 5 & 3  & 1 \\
+            1 & 2 & 1  & 3
+        \end{pmatrix}
+    \]
+    \par đối với cơ sở $(e_{1}, e_{2}, e_{3}, e_{4})$. Hãy tìm ma trận của $f$ đối với cơ sở $(e_{1}, e_{1} + e_{2}, e_{1} + e_{2} + e_{3}, e_{1} + e_{2} + e_{3} + e_{4})$.
+\end{exercise}
+
+\begin{proof}[Lời giải]
+    Ma trận chuyển từ cơ sở $(e_{1}, e_{2}, e_{3}, e_{4})$ sang $(e_{1}, e_{1} + e_{2}, e_{1} + e_{2} + e_{3}, e_{1} + e_{2} + e_{3} + e_{4})$ là:
+    \[
+        C =
+        \begin{pmatrix}
+            1 & 1 & 1 & 1 \\
+            0 & 1 & 1 & 1 \\
+            0 & 0 & 1 & 1 \\
+            0 & 0 & 0 & 1
+        \end{pmatrix}
+    \]
+    \par Ma trận chuyển từ cơ sở $(e_{1}, e_{1} + e_{2}, e_{1} + e_{2} + e_{3}, e_{1} + e_{2} + e_{3} + e_{4}) = (e'_{1}, e'_{2}, e'_{3}, e'_{4})$ sang $(e_{1}, e_{2}, e_{3}, e_{4})$ là:
+    \[
+        C^{-1} =
+        \begin{pmatrix}
+            1 & -1 & 0  & 0  \\
+            0 & 1  & -1 & 0  \\
+            0 & 0  & 1  & -1 \\
+            0 & 0  & 0  & 1
+        \end{pmatrix}
+    \]
+    \begin{align*}
+        f(e_{1}) & = 1e_{1} + 3e_{2} + 2e_{3} + 1e_{4} \\
+                 & = 1e'_{1} + 3(e'_{2} - e'_{1}) + 2(e'_{3} - e'_{2}) + 1(e'_{4} - e'_{3}) \\
+                 & = (-2)e'_{1} + 1e'_{2} + 1e'_{3} + 1e'_{4} \\
+        f(e_{2}) & = 2e_{1} + 0e_{2} + 5e_{3} + 2e_{4} \\
+                 & = 2e'_{1} + 0(e'_{2} - e'_{1}) + 5(e'_{3} - e'_{2}) + 2(e'_{4} - e'_{3}) \\
+                 & = 2e'_{1} + (-5)e'_{2} + 3e'_{3} + 2e'_{4} \\
+        f(e_{3}) & = 0e_{1} + (-1)e_{2} + 3e_{3} + 1e_{4} \\
+                 & = 0e'_{1} + (-1)(e'_{2} - e'_{1}) + 3(e'_{3} - e'_{2}) + 1(e'_{4} - e'_{3}) \\
+                 & = 1e'_{1} + (-4)e'_{2} + 2e'_{3} + 1e'_{4} \\
+        f(e_{4}) & = 1e_{1} + 2e_{2} + 1e_{3} + 3e_{4} \\
+                 & = 1e'_{1} + 2(e'_{2} - e'_{1}) + 1(e'_{3} - e'_{2}) + 3(e'_{4} - e'_{3}) \\
+                 & = (-1)e'_{1} + 1e'_{2} + (-2)e'_{3} + 3e'_{4}
+    \end{align*}
+    \begin{align*}
+        f(e'_{1}) & = f(e_{1}) \\
+                  & = (-2)e'_{1} + 1e'_{2} + 1e'_{3} + 1e'_{4} \\
+        f(e'_{2}) & = f(e_{1}) + f(e_{2}) \\
+                  & = 0e'_{1} + (-4)e'_{2} + 4e'_{3} + 2e'_{4} \\
+        f(e'_{3}) & = f(e_{1}) + f(e_{2}) + f(e_{3}) \\
+                  & = 1e'_{1} + (-8)e'_{2} + 6e'_{3} + 4e'_{4} \\
+        f(e'_{4}) & = f(e_{1}) + f(e_{2}) + f(e_{3}) + f(e_{4}) \\
+                  & = 0e'_{1} + (-7)e'_{2} + 4e'_{3} + 7e'_{4}
+    \end{align*}
+    \par Vậy ma trận của tự đồng cấu $f$ đối với cơ sở $(e'_{1}, e'_{2}, e'_{3}, e'_{4})$ là:
+    \[
+        \begin{pmatrix}
+            -2 & 0  & 1  & 0  \\
+            1  & -4 & -8 & -7 \\
+            1  & 4  & 6  & 4  \\
+            1  & 2  & 4  & 7
+        \end{pmatrix}
+    \]
+\end{proof}
+
+\begin{exercise}
+    Tự đồng cấu $\phi$ có ma trận
+    \[
+        \begin{pmatrix}
+            15 & -11 & 5 \\
+            20 & -15 & 8 \\
+            8  & -7  & 6
+        \end{pmatrix}
+    \]
+    \par đối với cơ sở $(e_{1}, e_{2}, e_{3})$. Hãy tìm ma trận của $\phi$ đối với cơ sở gồm các vector $\epsilon_{1} = 2e_{1} + 3e_{2} + e_{3}$, $\epsilon_{2} = 3e_{1} + 4e_{2} + e_{3}$, $\epsilon_{3} = e_{1} + 2e_{2} + 2e_{3}$.
+\end{exercise}
+
+\begin{proof}[Lời giải]
+    \[
+        \begin{cases}
+            e_{1} & = (-6)\epsilon_{1} + 4\epsilon_{2} + 1\epsilon_{3} \\
+            e_{2} & = 5\epsilon_{1} + (-3)\epsilon_{2} + (-1)\epsilon_{3} \\
+            e_{3} & = (-2)\epsilon_{1} + 1\epsilon_{2} + 1\epsilon_{3}
+        \end{cases}
+    \]
+    \begin{align*}
+        f(e_{1}) & = 15e_{1} + 20e_{2} + 8e_{3} \\
+                 & = (-6)\epsilon_{1} + 8\epsilon_{2} + 3\epsilon_{3} \\
+        f(e_{2}) & = (-11)e_{1} + (-15)e_{2} + (-7)e_{3} \\
+                 & = 5\epsilon_{1} + (-6)\epsilon_{2} + (-3)\epsilon_{3} \\
+        f(e_{3}) & = 5e_{1} + 8e_{2} + 6e_{3} \\
+                 & = (-2)\epsilon_{1} + 2\epsilon_{2} + 3\epsilon_{3}
+    \end{align*}
+    \begin{align*}
+        f(\epsilon_{1}) & = 2f(e_{1}) + 3f(e_{2}) + f(e_{3}) \\
+                        & = \epsilon_{1} \\
+        f(\epsilon_{2}) & = 3f(e_{1}) + 4f(e_{2}) + f(e_{3}) \\
+                        & = 2\epsilon_{2} \\
+        f(\epsilon_{3}) & = f(e_{1}) + 2f(e_{2}) + 2f(e_{3}) \\
+                        & = 3\epsilon_{3} \\
+    \end{align*}
+    \par Vậy ma trận của tự đồng cấu $\phi$ đối với cơ sở $(\epsilon_{1}, \epsilon_{2}, \epsilon_{3})$ là:
+    \[
+        \begin{pmatrix}
+            1 & 0 & 0 \\
+            0 & 2 & 0 \\
+            0 & 0 & 3
+        \end{pmatrix}
+    \]
+\end{proof}
+
+\begin{exercise}
+    Đồng cấu $\phi: \mathbb{C}_{3}\to\mathbb{C}_{3}$ có ma trận
+    \[
+        \begin{pmatrix}
+            1  & -18 & 15 \\
+            -1 & -22 & 20 \\
+            1  & -25 & 22
+        \end{pmatrix}
+    \]
+    \par đối với cơ sở gồm các vector $\alpha_{1} = (8, -6, 7)$, $\alpha_{2} = (-16, 7, -13)$, $\alpha_{3} = (9, -3, 7)$. Tìm ma trận của $\phi$ đối với cơ sở gồm các vector
+    \[
+        \beta_{1} = (1, -2, 1),\quad\beta_{2} = (3, -1, 2),\quad\beta_{3} = (2, 1, 2).
+    \]
+\end{exercise}
+
+\begin{proof}[Lời giải]
+    \[
+        \begin{cases}
+            \beta_{1} & = 1\alpha_{1} + 1\alpha_{2} + 1\alpha_{3} \\
+            \beta_{2} & = 1\alpha_{1} + 2\alpha_{2} + 3\alpha_{3} \\
+            \beta_{3} & = (-3)\alpha_{1} + (-5)\alpha_{2} + (-6)\alpha_{3} \\
+        \end{cases}
+    \]
+    \[
+        \begin{cases}
+            \alpha_{1} & = 3\beta_{1} + 1\beta_{2} + 1\beta_{3} \\
+            \alpha_{2} & = (-3)\beta_{1} + (-3)\beta_{2} + (-2)\beta_{3} \\
+            \alpha_{3} & = 1\beta_{1} + 2\beta_{2} + 1\beta_{3}
+        \end{cases}
+    \]
+    \begin{align*}
+        \phi(\alpha_{1}) & = 1\alpha_{1} + (-1)\alpha_{2} + 1\alpha_{3} \\
+                         & = 7\beta_{1} + 6\beta_{2} + 4\beta_{3} \\
+        \phi(\alpha_{2}) & = (-18)\alpha_{1} + (-22)\alpha_{2} + (-25)\alpha_{3} \\
+                         & = (-13)\beta_{1} + (-2)\beta_{2} + 1\beta_{3} \\
+        \phi(\alpha_{3}) & = 15\alpha_{1} + 20\alpha_{2} + 22\alpha_{3} \\
+                         & = 7\beta_{1} + (-1)\beta_{2} + (-3)\beta_{3}
+    \end{align*}
+    \begin{align*}
+        \phi(\beta_{1}) & = \phi(\alpha_{1}) + \phi(\alpha_{2}) + \phi(\alpha_{3}) \\
+                        & = 1\beta_{1} + 3\beta_{2} + 2\beta_{3} \\
+        \phi(\beta_{2}) & = \phi(\alpha_{1}) + 2\phi(\alpha_{2}) + 3\phi(\alpha_{3}) \\
+                        & = 2\beta_{1} + (-1)\beta_{2} + (-3)\beta_{3} \\
+        \phi(\beta_{3}) & = (-3)\phi(\alpha_{1}) + (-5)\phi(\alpha_{2}) + (-6)\phi(\alpha_{3}) \\
+                        & = 2\beta_{1} + (-2)\beta_{2} + 1\beta_{3}
+    \end{align*}
+    \par Vậy ma trận của đồng cấu $\phi$ đối với cơ sở $(\beta_{1}, \beta_{2}, \beta_{3})$ là:
+    \[
+        \begin{pmatrix}
+            1 & 2 & 2 \\
+            3 & -1 & -2 \\
+            2 & -3 & 1
+        \end{pmatrix}
+    \]
+\end{proof}
+
+\begin{exercise}
+    Chứng minh rằng các ma trận của một tự đồng cấu đối với hai cơ sở của không gian là trùng nhau nếu và chỉ nếu ma trận chuyển giữa hai cơ sở đó giao hoán với ma trận của đồng cấu đã cho đối với mỗi cơ sở nói trên.
+\end{exercise}
+
+\begin{proof}
+    Gọi $A$ là ma trận của tự đồng cấu đối với cơ sở thứ nhất, $B$ là ma trận của tự đồng cấu đối với cơ sở thứ hai và $C$ là ma trận chuyển từ cơ sở thứ nhất sang cơ sở thứ hai.
+    \par Theo định lý 2.13, $B = C^{-1}AC$.
+    \par $(\Rightarrow)$
+    \par $AC = CA, BC = CB$.
+    \par Suy ra $C^{-1}AC = A$. Mà $B = C^{-1}AC$ nên $A = B$.
+    \par $(\Leftarrow)$
+    \par $A = B$.
+    \par $B = C^{-1}AC$ suy ra $CB = AC$.
+    \par Mà $A = B$ nên $CA = AC$ và $CB = BC$. Điều này có nghĩa là $C$ giao hoán với cả $A$ và $B$.
 \end{proof}
 
 \end{document}
