@@ -1604,4 +1604,136 @@
     \par Mà $A = B$ nên $CA = AC$ và $CB = BC$. Điều này có nghĩa là $C$ giao hoán với cả $A$ và $B$.
 \end{proof}
 
+\begin{exercise}
+    Tự đồng cấu $\phi\in End(\mathbb{R}_{2})$ có ma trận $\begin{pmatrix}3 & 5 \\ 4 & 3\end{pmatrix}$ đối với cơ sở gồm $\alpha_{1} = (1, 2)$, $\alpha_{2} = (2, 3)$, và tự đồng cấu $\psi\in End(\mathbb{R}_{2})$ có ma trận $\begin{pmatrix}4 & 6 \\ 6 & 9 \end{pmatrix}$ đối với cơ sở gồm $\beta_{1} = (3, 1)$, $\beta_{2} = (4, 2)$. Tìm ma trận của $\phi + \psi$ đối với cơ sở $(\beta_{1}, \beta_{2})$.
+\end{exercise}
+
+\begin{proof}[Lời giải]
+    \par Ma trận chuyển từ cơ sở $(\alpha_{1}, \alpha_{2})$ sang $(\beta_{1}, \beta_{2})$ là:
+    \[
+        \begin{pmatrix}
+            -7 & -8 \\
+            5  & 6
+        \end{pmatrix}
+    \]
+    \par Ma trận chuyển từ cơ sở $(\beta_{1}, \beta_{2})$ sang $(\alpha_{1}, \alpha_{2})$ là:
+    \[
+        \begin{pmatrix}
+            -3 & -4 \\
+            \frac{5}{2} & \frac{7}{2}
+        \end{pmatrix}
+    \]
+    \par Ma trận của tự đồng cấu $\phi$ đối với cơ sở $(\beta_{1}, \beta_{2})$ là:
+    \[
+        \begin{pmatrix}
+            -3 & -4 \\
+            \frac{5}{2} & \frac{7}{2}
+        \end{pmatrix}
+        \begin{pmatrix}
+            3 & 5 \\
+            4 & 3
+        \end{pmatrix}
+        \begin{pmatrix}
+            -7 & -8 \\
+            5 & 6
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            40 & 38 \\
+            -\frac{71}{2} & -34
+        \end{pmatrix}
+    \]
+    \par Vậy ma trận của tự đồng cấu $\phi + \psi$ đối với cơ sở $(\beta_{1}, \beta_{2})$ là:
+    \[
+        \begin{pmatrix}
+            40 & 38 \\
+            -\frac{71}{2} & -34
+        \end{pmatrix}
+        +
+        \begin{pmatrix}
+            4 & 6 \\
+            6 & 9
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            44 & 44 \\
+            -\frac{59}{2} & -25
+        \end{pmatrix}
+    \]
+\end{proof}
+
+\begin{exercise}
+    Tự đồng cấu $\phi\in End(\mathbb{R}_{2})$ có ma trận $\begin{pmatrix} 2 & -1 \\ 5 & -3 \end{pmatrix}$ đối với cơ sở $\alpha_{1} = (-3, 7)$, $\alpha_{2} = (1, -2)$, và tự đồng cấu $\psi\in End(\mathbb{R}_{2})$ có ma trận $\begin{pmatrix} 1 & 3 \\ 2 & 7 \end{pmatrix}$ đối với cơ sở gồm $\beta_{1} = (6, -7)$, $\beta_{2} = (-5, 6)$. Tìm ma trận của $\phi\psi$ đối với cơ sở chính tắc của $\mathbb{R}_{2}$.
+\end{exercise}
+
+\begin{proof}[Lời giải]
+    Ma trận chuyển từ cơ sở $(\alpha_{1}, \alpha_{2})$ sang cơ sở chính tắc là:
+    \[
+        \begin{pmatrix}
+            2 & 1 \\
+            7 & 3
+        \end{pmatrix}
+    \]
+    \par Ma trận của tự đồng cấu $\phi$ đối với cơ sở chính tắc là:
+    \[
+        \begin{pmatrix}
+            -3 & 1 \\
+            7  & -2
+        \end{pmatrix}
+        \begin{pmatrix}
+            2 & -1 \\
+            5 & -3
+        \end{pmatrix}
+        \begin{pmatrix}
+            2 & 1 \\
+            7 & 3
+        \end{pmatrix}=
+        \begin{pmatrix}
+            -2 & -1 \\
+            1  & 1
+        \end{pmatrix}
+    \]
+    \par Ma trận chuyển từ cơ sở $(\beta_{1}, \beta_{2})$ sang cơ sở chính tắc là:
+    \[
+        \begin{pmatrix}
+            6 & 7 \\
+            5 & 6
+        \end{pmatrix}
+    \]
+    \par Ma trận của tự đồng cấu $\psi$ đối với cơ sở chính tắc là:
+    \[
+        \begin{pmatrix}
+            6 & -7 \\
+            -5 & 6
+        \end{pmatrix}
+        \begin{pmatrix}
+            1 & 3 \\
+            2 & 7
+        \end{pmatrix}
+        \begin{pmatrix}
+            6 & 7 \\
+            5 & 6
+        \end{pmatrix}=
+        \begin{pmatrix}
+            -203 & -242 \\
+            177 & 211
+        \end{pmatrix}
+    \]
+    \par Ma trận của $\phi\psi$ đối với cơ sở chính tắc là:
+    \[
+        \begin{pmatrix}
+            -2 & -1 \\
+            1 & 1
+        \end{pmatrix}
+        \begin{pmatrix}
+            -203 & -242 \\
+            177 & 211
+        \end{pmatrix}=
+        \begin{pmatrix}
+            229 & 273 \\
+            -26 & -31
+        \end{pmatrix}
+    \]
+\end{proof}
+
 \end{document}
