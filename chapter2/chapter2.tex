@@ -1736,4 +1736,141 @@
     \]
 \end{proof}
 
+\begin{exercise}
+    Giả sử tự đồng cấu $\phi: V\to V$ thỏa mãn hệ thức $\phi^{2} = \phi$. Chứng minh rằng $V = \text{im}(\phi)\oplus\ker(\phi)$.
+\end{exercise}
+
+\begin{proof}
+    Giả sử $v\in V$.
+    \[
+        v = (v - \phi(v)) + \phi(v)
+    \]
+    \par Rõ ràng $\phi(v)\in\text{im}(\phi)$.
+    \par Bên cạnh đó, $\phi(v - \phi(v)) = \phi(v) - \phi^{2}(v) = 0$ nên $v - \phi(v)\in\ker(\phi)$.
+    \par Như vậy $V = \text{im}(\phi)+\ker(\phi)$.
+    \bigskip
+    \par Giả sử $\alpha\in\text{im}(\phi)\cap\ker(\phi)$. Vì $\alpha\in\text{im}(\phi)$ nên tồn tại $\beta\in V$ sao cho $\phi(\beta) = \alpha$. Vì $\alpha\in\ker(\phi)$ nên $\phi(\alpha) = 0$.
+    \[
+        \alpha = \phi(\beta) = \phi^{2}(\beta) = \phi(\phi(\beta)) = \phi(\alpha) = 0
+    \]
+    \par Do đó $\text{im}(\phi)\cap\ker(\phi) = \{ 0 \}$.
+    \par Vậy $V = \text{im}(\phi)\oplus\ker(\phi)$.
+\end{proof}
+
+\begin{exercise}
+    Cho các tự đồng cấu $\phi, \psi\in End(V)$.
+    \begin{enumerate}[label = (\alph*)]
+        \item Phải chăng nếu $\phi\psi = 0$ thì $\psi\phi = 0$?
+        \item Phải chăng nếu $\phi\psi = \psi\phi = 0$ thì $\phi = 0$ hoặc $\psi = 0$?
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    Giả sử $V$ là không gian vector hữu hạn chiều.
+    \par Gọi ma trận của $\phi, \psi$ đối với cùng một cơ sở của $V$ là $A, B$.
+    \begin{enumerate}[label = (\alph*)]
+        \item $\phi\psi = 0$ khi và chỉ khi $AB = 0$.
+            \par Vì $M(n\times n,\mathbb{F})\cong End(V)$ nên $A, B$ có thể là bất cứ ma trận vuông cỡ $n$ nào. Chọn
+            \[
+                A =
+                \begin{pmatrix}
+                    0 & 0 & \cdots & 0 \\
+                    0 & 1 & \cdots & 0 \\
+                    \vdots & \vdots & \ddots & \vdots \\
+                    0 & 0 & \cdots & 1
+                \end{pmatrix}\qquad
+                B =
+                \begin{pmatrix}
+                    1 & 1 & \cdots & 1 \\
+                    0 & 0 & \cdots & 0 \\
+                    \vdots & \vdots & \ddots & \vdots \\
+                    0 & 0 & \cdots & 0
+                \end{pmatrix}
+            \]
+            \par Khi đó $AB = 0$ nhưng $BA\ne 0$.
+            \par Như vậy, từ $\phi\psi = 0$, không thể suy ra $\psi\phi = 0$.
+        \item Chọn $A = E_{11}$ là ma trận vuông cỡ $n$ có yếu tố hàng 1 cột 1 bằng 1, các yếu tố còn lại bằng 0. $B = E_{22}$ là ma trận vuông cỡ $n$ có yếu tố hàng 2 cột 2 bằng 1, các yếu tố còn lại bằng 0.
+            \par Bằng quy tắc nhân ma trận, ta tính ra được $AB = 0$, $BA = 0$. Thế nhưng $A, B\ne 0$.
+            \par Do đó, nếu $\phi\psi = \psi\phi = 0$ thì không thể suy ra $\phi = 0$ hoặc $\psi = 0$.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    Giả sử $\phi$ và $\psi$ là các tự đồng cấu của không gian vector hữu hạn chiều $V$. Chứng minh rằng $\phi\psi$ là một đẳng cấu nếu và chỉ nếu $\phi$ và $\psi$ là các đẳng cấu. Khi đó
+    \[
+        (\phi\psi){}^{-1} = \psi^{-1}\psi^{-1}
+    \]
+\end{exercise}
+
+\begin{proof}
+    $(\Rightarrow)$ Nếu $\phi$ và $\psi$ là các đẳng cấu thì hiển nhiên $\phi\psi$ cũng là đẳng cấu.
+    \par $(\Leftrightarrow)$ $\phi\psi$ là đẳng cấu thì nó vừa là đơn cấu vừa là toàn cấu.
+    \par Vì $\phi\psi$ là đơn cấu nên $\psi$ là đơn cấu.
+    \par Vì $\phi\psi$ là toàn cấu nên $\phi$ là toàn cấu.
+    \par Mà $\phi$ và $\psi$ là các tự đồng cấu của một không gian vector hữu hạn chiều nên $\phi$ và $\psi$ cũng đồng thời là đẳng cấu nếu là đơn cấu hoặc toàn cấu.
+    \par Do đó $\phi$ và $\psi$ là các đẳng cấu.
+    \bigskip
+    \par $(\phi\psi){}^{-1}$ là đẳng cấu ngược của $\phi\psi$.
+    \[
+        \begin{split}
+            (\phi\psi)\psi^{-1}\phi^{-1} = \phi(\psi\psi^{-1})\phi^{-1} = \phi\phi^{-1} = \text{id}_{V} \\
+            \psi^{-1}\phi^{-1}(\phi\psi) = \psi^{-1}(\phi^{-1}\phi)\psi = \psi^{-1}\psi = \text{id}_{V}
+        \end{split}
+    \]
+    \par Như vậy, $\psi^{-1}\phi^{-1}$ là một đẳng cấu ngược của $\phi\psi$.
+    \par Do tính duy nhất của đẳng cấu ngược, ta suy ra $(\phi\psi){}^{-1} = \psi^{-1}\phi^{-1}$.
+\end{proof}
+
+\begin{exercise}
+    Ký hiệu vết của ma trận vuông $A$ là $\text{tr}(A)$. Chứng minh rằng ánh xạ $\text{tr}: M(n\times n, \mathbb{F}), A\mapsto \text{tr}(A)$ là một đồng cấu. Tìm một cơ sở của nhân của $\text{tr}$.
+\end{exercise}
+
+\begin{proof}
+    $A = (a_{ij}){}_{n\times n}, B = (b_{ij}){}_{n\times n}$.
+    \[
+        \begin{cases}
+            \text{tr}(A+B) = \displaystyle\sum^{n}_{i=1}(a_{ii}+b_{ii}) = \displaystyle\sum^{n}_{i=1}a_{ii} + \displaystyle\sum^{n}_{i=1}b_{ii} = \text{tr}(A) + \text{tr}(B) \\
+            \text{tr}(aA) = \displaystyle\sum^{n}_{i=1}aa_{ii} = a\displaystyle\sum^{n}_{i=1}a_{ii} = a\cdot\text{tr}(A)
+        \end{cases}
+    \]
+    \par Như vậy, $\text{tr}$ là một đồng cấu tuyến tính.
+    \par Giả sử $C = (c_{ij}){}_{n\times n}$ là một ma trận có vết bằng không. $E_{ij}$ là ma trận vuông cỡ $n$ có yếu tố hàng $i$ cột $j$ bằng đơn vị, các yếu tố còn lại bằng không.
+    \[
+        (c_{ij}){}_{n\times n} = \text{diag}(c_{11}, \ldots, c_{nn}) + \sum_{1\le i\ne j\le n}c_{ij}E_{ij}.
+    \]
+    \par Ma trận vuông cỡ $n$ mà thỏa mãn hai điều kiện:
+    \begin{enumerate}[label = (\roman*)]
+        \item là ma trận chéo có vết bằng không
+        \item là ma trận có các yếu tố trên đường chéo chính bằng không
+    \end{enumerate}
+    \par là ma trận không.
+    \par Kết hợp với đẳng thức trên, suy ra $\ker(\text{tr})$ là tổng trực tiếp của không gian các ma trận vuông cỡ $n$ có các yếu tố trên đường chéo chính bằng không và không gian các ma trận vuông chéo cỡ $n$ có vết bằng không.
+    \bigskip
+    \par $(E_{ij}){}_{i\ne j}$ là một cơ sở của không gian các ma trận vuông cỡ $n$ với các yếu tố trên đường chéo chính bằng không. Cơ sở này gồm $n(n-1)$ ma trận.
+    \par Một cơ sở của không gian các ma trận chéo cỡ $n$ có vết bằng không là
+    \[
+        (n-1)\text{ ma trận }
+        \begin{cases}
+            \text{diag}(1, -1, 0,  0,\ldots,  0) \\
+            \text{diag}(1, 0, -1,  0,\ldots,  0) \\
+            \text{diag}(1, 0,  0, -1,\ldots,  0) \\
+            \vdots \\
+            \text{diag}(1, 0,  0,  0,\ldots, -1)
+        \end{cases}
+    \]
+    \par Hợp của hai cơ sở này tạo thành một cơ sở của $\ker(\text{tr})$.
+\end{proof}
+
+\begin{exercise}
+    Chứng minh rằng vết của hai ma trận đồng dạng bằng nhau. (Từ đó người ta định nghĩa \textit{vết của một tự đồng cấu} là vết của ma trận của nó đối với cơ sở bất kỳ của không gian.)
+\end{exercise}
+
+\begin{proof}
+    $A$, $B$ là hai ma trận đồng dạng thì tồn tại ma trận $C$ khả nghịch, cùng cỡ với $A$ và $B$ sao cho $B = C^{-1}AC$.
+    \par Theo Bài~\ref{trace-of-products}:
+    \[
+        \text{tr}(B) = \text{tr}(C^{-1}AC) = \text{tr}(ACC^{-1}) = \text{tr}(A).
+    \]
+\end{proof}
+
 \end{document}
