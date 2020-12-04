@@ -1873,4 +1873,118 @@
     \]
 \end{proof}
 
+\begin{exercise}
+    Chứng minh rằng nếu tích ma trận $AB$ có nghĩa thì
+    \[
+        (AB){}^{T} = B^{T}A^{T}
+    \]
+    \par Từ đó suy ra rằng ma trận vuông $A$ khả nghịch nếu và chỉ nếu $A^{T}$ khả nghịch, và khi đó
+    \[
+        (A^{T}){}^{-1} = (A^{-1}){}^{T}
+    \]
+\end{exercise}
+
+\begin{proof}
+    Đặt $A = (a_{ij}){}_{m\times n}$, $B = (b_{ij}){}_{n\times p}$.
+    \[
+        A =
+        \begin{pmatrix}
+            a_{11} & \cdots & a_{1n} \\
+            \vdots & \ddots & \vdots \\
+            a_{m1} & \cdots & a_{mn}
+        \end{pmatrix}
+        \qquad
+        B =
+        \begin{pmatrix}
+            b_{11} & \cdots & b_{1p} \\
+            \vdots & \ddots & \vdots \\
+            b_{n1} & \cdots & b_{np}
+        \end{pmatrix}
+    \]
+    \par Suy ra $A^{T}\in M(n\times m, \mathbb{F})$, $B^{T}\in M(p\times n, \mathbb{F})$.
+    \par Do đó tích $B^{T}A^{T}$ có nghĩa và hai ma trận $(AB){}^{T}$, $B^{T}A^{T}$ đều có $p$ hàng, $m$ cột.
+    \par Yếu tố hàng $i$, cột $j$ của ma trận $(AB){}^{T}$ là:
+    \[
+        \sum^{n}_{k=1}a_{jk}b_{ki}
+    \]
+    \par Yếu tố hàng $i$, cột $j$ của ma trận $B^{T}A^{T}$ là:
+    \[
+        \sum^{n}_{k=1}b_{ki}a_{jk}
+    \]
+    \par Hai tổng trên bằng nhau, với mọi cặp số tự nhiên $i, j$ thỏa mãn $1\le i\le p$, $1\le j\le m$.
+    \par Như vậy, $(AB){}^{T} = B^{T}A^{T}$.
+    \bigskip
+    \par Nếu ma trận vuông $A$ cỡ $n$ khả nghịch thì
+    \[
+        \begin{split}
+            (A^{-1}){}^{T}A^{T} = (AA^{-1}){}^{T} = I_{n}^{T} = I_{n} \\
+            A^{T}(A^{-1}){}^{T} = (A^{-1}A){}^{T} = I_{n}^{T} = I_{n}
+        \end{split}
+    \]
+    \par Hai đẳng thức trên có nghĩa là $A^{T}$ khả nghịch và $(A^{T}){}^{-1} = (A^{-1}){}^{T}$.
+    \par Ngược lại, $A^{T}$ khả nghịch thì $A$ khả nghịch, bởi vì $(A^{T}){}^{T} = A$.
+\end{proof}
+
+\begin{exercise}
+    Cho các đồng cấu $f: V\to W$ và $g: W\to Z$. Chứng minh mối liên hệ giữa các đồng cấu đối ngẫu:
+    \[
+        (gf){}^{*} = f^{*}g^{*}
+    \]
+    \par Từ đó suy ra rằng đồng cấu $f: V\to W$ khả nghịch nếu và chỉ nếu $f^{*}: W^{*}\to V^{*}$ khả nghịch, và khi đó
+    \[
+        (f^{*}){}^{-1} = (f^{-1}){}^{*}
+    \]
+\end{exercise}
+
+\begin{proof}
+    Giả sử $\rho\in Z^{*}$. Theo định nghĩa của ánh xạ đối ngẫu:
+    \[
+        (gf){}^{*}(\rho) = \rho gf
+    \]
+    \[
+        (f^{*}g^{*})(\rho) = f^{*}(g^{*}(\rho)) = f^{*}(\rho g) = \rho gf
+    \]
+    \par Do đó, $(gf){}^{*}(\rho) = (f^{*}g^{*})(\rho), \forall\rho\in Z^{*}$. Suy ra $(gf){}^{*} = f^{*}g^{*}$.
+    \bigskip
+    \par Giả sử $(\alpha_{1}, \ldots, \alpha_{n})$ là một cơ sở của $V$, $(\beta_{1}, \ldots, \beta_{m})$ là một cơ sở của $W$.
+    \par $(\alpha^{*}_{1}, \ldots, \alpha^{*}_{n})$ là cơ sở đối ngẫu của $(\alpha_{1}, \ldots, \alpha_{n})$.
+    \par $(\beta^{*}_{1}, \ldots, \beta^{*}_{m})$ là cơ sở đối ngẫu của $(\beta_{1}, \ldots, \beta_{m})$.
+    \par Ma trận của $f$ đối với cặp cơ sở $(\alpha_{1}, \ldots, \alpha_{n})$, $(\beta_{1}, \ldots, \beta_{m})$ là $A$
+    \par thì ma trận của $f^{*}$ đối với cặp cơ sở $(\beta^{*}_{1}, \ldots, \beta^{*}_{m})$, $(\alpha^{*}_{1}, \ldots, \alpha^{*}_{n})$ là $A^{T}$.
+    \par $f$ khả nghịch khi và chỉ khi $A$ là ma trận vuông và khả nghịch.
+    \par $f^{*}$ khả nghịch khi và chỉ khi $A^{T}$ là ma trận vuông và khả nghịch.
+    \par Mà $A$ khả nghịch khi và chỉ khi $A^{T}$ khả nghịch nên $f$ khả nghịch khi và chỉ khi $f^{*}$ khả nghịch.
+    \bigskip
+    \par $f$ khả nghịch thì
+    \[
+        \begin{split}
+            \text{id}_{V^{*}} = \text{id}^{*}_{V} = (f^{-1}f){}^{*} = f^{*}(f^{-1}){}^{*} \\
+            \text{id}_{W^{*}} = \text{id}^{*}_{W} = (ff^{-1}){}^{*} = (f^{-1}){}^{*}f^{*}
+        \end{split}
+    \]
+    \par Như vậy, $(f^{*}){}^{-1} = (f^{-1}){}^{*}$.
+\end{proof}
+
+\begin{exercise}
+    Chứng minh rằng ánh xạ $\hom(V, W)\to\hom(W^{*}, V^{*}), f\mapsto f^{*}$ là một đẳng cấu tuyến tính.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\noindent\textbf{Định lý 4.8.} Gọi $f^{*}: W^{*}\to V^{*}$ là đồng cấu đối ngẫu của đồng cấu $f: V\to W$. Khi đó:
+\begin{enumerate}[label = (\arabic*)]
+    \item $f$ là một đơn cấu nếu và chỉ nếu $f^{*}$ là một toàn cấu.
+    \item $f$ là một toàn cấu nếu và chỉ nếu $f^{*}$ là một đơn cấu.
+    \item $f$ là một đẳng cấu nếu và chỉ nếu $f^{*}$ là một đẳng cấu.
+\end{enumerate}
+
+\begin{proof}
+    \begin{enumerate}[label = (\arabic*)]
+        \item
+        \item
+        \item
+    \end{enumerate}
+\end{proof}
+
 \end{document}

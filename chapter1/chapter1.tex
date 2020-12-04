@@ -635,7 +635,7 @@
     \par Xét một đa thức bất kỳ với bậc không quá $n$:
     \[ f(X) = a_{0} + a_{1}X + a_{2}X^{2} + \cdots + a_{n}X^{n} \]
     \par Hiển nhiên $f(X)$ biểu thị tuyến tính được theo $(1, X, \ldots, X^{n})$. Quan hệ \textit{biểu thị tuyến tính} có tính bắc cầu nên $f(X)$ cũng biểu thị tuyến tính được theo $(f_{0}(X), f_{1}(X), \ldots, f_{n}(X))$.
-    \par Do đó $\mathcal{L}(\{f_{0}(X), f_{1}(X),\ldots, f_{n}(X)\}) = \mathbb{R}[X]{}_{n}$.
+    \par Do đó $\text{span}(\{f_{0}(X), f_{1}(X),\ldots, f_{n}(X)\}) = \mathbb{R}[X]{}_{n}$.
     \par $L$ không chứa đa thức nào có bậc lớn hơn $n$, cùng với điều trên, ta kết luận $L = \mathbb{R}[X]{}_{n}$.
 \end{proof}
 
@@ -648,7 +648,7 @@
     \par $\displaystyle\sum^{n}_{i=0}a_{i}(x_{i} + y_{i}) = \displaystyle\sum^{n}_{i=0}a_{i}x_{i} + \displaystyle\sum^{n}_{i=0}a_{i}y_{i} = 0 + 0 = 0$.
     \par $\displaystyle\sum^{n}_{i=0}a_{i}(ax_{i}) = a\displaystyle\sum^{n}_{i=0}a_{i}x_{i} = a\cdot 0 = 0$.
     \par Do đó $U$ là một không gian vector con của $\mathbb{R}_{n}$.
-    \par Xét không gian con $W = \mathcal{L}(\{(a_{1},\ldots, a_{n})\})$. $\dim W = 1$.
+    \par Xét không gian con $W = \text{span}(\{(a_{1},\ldots, a_{n})\})$. $\dim W = 1$.
     \par $\mathbf{x} = (x_{1}, \ldots, x_{n}) \in \mathbb{R}_{n}$.
     \[
         \underbrace{(x_{1},\ldots, x_{n})}_{\in\mathbb{R}_{n}} = \underbrace{\left(x_{1} - \frac{a_{1}\sum^{n}_{i=1} a_{i}x_{i}}{\sum^{n}_{i=1} a^{2}_{i}},\ldots, x_{n} - \frac{a_{n}\sum^{n}_{i=1}a_{i}x_{i}}{\sum^{n}_{i=1}a^{2}_{i}}\right)}_{\in U} + \underbrace{\frac{\sum^{n}_{i=1}a_{i}x_{i}}{\sum^{n}_{i=1}a^{2}_{i}}(a_{1},\ldots,a_{n})}_{\in W}
@@ -857,7 +857,7 @@
     \par Nếu cơ sở của $V_{1}$ chưa phải độc lập tuyến tính cực đại trong $V_{2}$ thì $\dim V_{1} < \dim V_{2}$.
     \par Lập luận trên cho thấy $\dim V_{1} \le \dim V_{2}$, đẳng thức xảy ra khi và chỉ khi $V_{1} = V_{2}$.
     \par Khẳng định ``đẳng thức xảy ra khi và chỉ khi $V_{1} = V_{2}$'' nói chung không đúng. Ví dụ:
-    \par Trên trường số thực, hai không gian vector con của $\mathbb{R}_{2}$ là $\mathcal{L}(\{ (1,0) \})$ và $\mathcal{L}(\{ (0,1) \})$ đều có số chiều bằng $1$ nhưng hai không gian này lại không bằng nhau.
+    \par Trên trường số thực, hai không gian vector con của $\mathbb{R}_{2}$ là $\text{span}(\{ (1,0) \})$ và $\text{span}(\{ (0,1) \})$ đều có số chiều bằng $1$ nhưng hai không gian này lại không bằng nhau.
 \end{proof}
 
 \begin{exercise}Giả sử $V_{1}, V_{2}$ là các không gian vector con của $V$. Chứng minh rằng nếu $\dim V_{1} + \dim V_{2} > \dim V$ thì $V_{1}\cap V_{2}$ chứa ít nhất một vector khác không.
