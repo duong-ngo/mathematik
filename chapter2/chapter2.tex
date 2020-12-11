@@ -1970,6 +1970,29 @@
 \end{exercise}
 
 \begin{proof}
+    Theo định nghĩa của đồng cấu đối ngẫu:
+    \[
+        f^{*}(\phi)(\alpha) = \phi(f(\alpha))\quad\forall\phi\in W^{*},\alpha\in V.
+    \]
+    \begin{align*}
+        (af^{*}+bg^{*})(\phi)(\alpha) & = af^{*}(\phi)(\alpha) + bg^{*}(\phi)(\alpha) \\
+                                      & = a\phi f(\alpha) + b\phi g(\alpha) \\
+                                      & = \phi f(a\alpha) + \phi g(b\alpha) \\
+                                      & = \phi((af + bg)(\alpha))\qquad\forall\phi\in W^{*},\alpha\in V.
+    \end{align*}
+    \par Suy ra đồng cấu $af^{*} + bg^{*}$ là đối ngẫu của đồng cấu $af + bg$.
+    \par Do đó, $f\mapsto f^{*}$ là một đồng cấu tuyến tính.
+    \bigskip
+    \par Giả sử $f^{*}$ là \textit{ánh xạ không}, suy ra $(f^{*}(\phi))(\alpha) = 0,\forall\alpha\in V,\forall\phi\in W^{*}$.
+    \par Suy ra $\phi(f(\alpha)) = 0,\forall\alpha\in V,\forall\phi\in W^{*}$. Vì đẳng thức này đúng với mọi $\phi\in W^{*}$ nên $f(\alpha) = 0,\forall\alpha\in V$, nghĩa là $f$ là \textit{ánh xạ không}.
+    \par Do đó, ánh xạ $f\mapsto f^{*}$ là đơn cấu.
+    \bigskip
+    \par Bên cạnh đó:
+    \[
+        \dim\hom(V, W) = \dim V\times\dim W = \dim W^{*}\times\dim V^{*} = \dim\hom(W^{*}, V^{*})
+    \]
+    \par nên hai không gian $\hom(V, W)$, $\hom(W^{*}, V^{*})$ đẳng cấu.
+    \par Kết hợp với sự kiện $f\mapsto f^{*}$ là đơn cấu, suy ra $f\mapsto f^{*}$ cũng là đẳng cấu.
 \end{proof}
 
 \noindent\textbf{Định lý 4.8.} Gọi $f^{*}: W^{*}\to V^{*}$ là đồng cấu đối ngẫu của đồng cấu $f: V\to W$. Khi đó:
@@ -1979,7 +2002,28 @@
     \item $f$ là một đẳng cấu nếu và chỉ nếu $f^{*}$ là một đẳng cấu.
 \end{enumerate}
 
+\begin{lemma}\label{map-and-double-dual-map}
+    $f\in\hom(V, W)$.
+    \par $f$ là đơn cấu, toàn cấu, đẳng cấu khi và chỉ khi $f^{**}$ là đơn cấu, toàn cấu, đẳng cấu.
+\end{lemma}
+
+\begin{proof}[Chứng minh bổ đề~\ref{map-and-double-dual-map}]
+    $(\alpha_{1}, \ldots, \alpha_{n})$, $(\beta_{1}, \ldots, \beta_{m})$ lần lượt là cơ sở của hai không gian $V$, $W$.
+    \par $(\alpha^{*}_{1}, \ldots, \alpha^{*}_{n})$, $(\beta^{*}_{1}, \ldots, \beta^{*}_{m})$ là các cơ sở đối ngẫu của hai không gian trên.
+    \par Ma trận của $f$ đối với cặp cơ sở $(\alpha_{1},\ldots,\alpha_{n})$ và $(\beta_{1},\ldots,\beta_{m})$ là $A$.
+    \par Ma trận của $f^{*}$ đối với cặp cơ sở $(\beta^{*}_{1},\ldots,\beta^{*}_{m})$ và $(\alpha^{*}_{1},\ldots,\alpha^{*}_{n})$ là $A^{T}$.
+    \par Do đó, ma trận của $f^{**}$ đối với cặp cơ sở $(\alpha^{**}_{1},\ldots,\alpha^{**}_{n})$ và $(\beta^{**}_{1}, \ldots, \beta^{**}_{m})$ là $A$.
+    \bigskip
+    \par $f$ là đơn cấu khi và chỉ khi $\rank(f) = \dim V$, $f^{**}$ là đơn cấu khi và chỉ khi $\rank(f^{**}) = \dim V^{**}$.
+    \par Mà $\dim V = \dim V^{**}$. Do đó $f$ là đơn cấu khi và chỉ khi $f^{**}$ là đơn cấu.
+    \par $f$ là toàn cấu khi và chỉ khi $\rank(f) = \dim W$, $f^{**}$ là toàn cấu khi và chỉ khi $\rank(f^{**}) = \dim W^{**}$.
+    \par Mà $\dim W = \dim W^{**}$. Do đó $f$ là toàn cấu khi và chỉ khi $f^{**}$ là toàn cấu.
+    \par Từ hai điều trên, ta suy ra $f$ là đẳng cấu khi và chỉ khi $f^{**}$ là đẳng cấu.
+\end{proof}
+
 \begin{proof}
+    $(\alpha_{1}, \ldots, \alpha_{n})$, $(\beta_{1}, \ldots, \beta_{m})$ lần lượt là cơ sở của hai không gian $V$, $W$.
+    \par $(\alpha^{*}_{1}, \ldots, \alpha^{*}_{n})$, $(\beta^{*}_{1}, \ldots, \beta^{*}_{m})$ là các cơ sở đối ngẫu của hai không gian trên.
     \begin{enumerate}[label = (\arabic*)]
         \item
         \item

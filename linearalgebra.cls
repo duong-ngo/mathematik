@@ -66,3 +66,4 @@
 }
 \newcommand{\rank}{\text{rank}}
 \renewcommand{\phi}{\varphi}
+\renewcommand{\hom}{\text{Hom}}
