@@ -19,9 +19,6 @@ LATEXINDENT_OPTIONS=--local=indentconfig.yaml $\
 					--overwrite
 
 
-all: updatecls
-	@latexmk $(LATEXMK_OPTIONS) -pdf main.tex
-
 asy:
 	@for asyfile in $(shell find . -name "*.asy"); do \
 		DIR=`dirname $$asyfile`; \
