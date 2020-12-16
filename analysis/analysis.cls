@@ -28,7 +28,7 @@
 \RequirePackage{booktabs}
 \RequirePackage{enumitem}
 
-\setcounter{chapter}{-1}
+\setcounter{chapter}{0}
 
 \pagestyle{fancy}
 \setlength{\headheight}{16pt}

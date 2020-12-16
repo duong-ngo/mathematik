@@ -2,4 +2,4 @@
 
 ## Đại số tuyến tính (Nguyễn Hữu Việt Hưng)
 
-## Giải tích (Nguyễn Duy Tiến)
+## Bài giảng Giải tích tập 1 (Nguyễn Duy Tiến)
