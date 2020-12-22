@@ -64,3 +64,5 @@
 \def\arraystretch{1.2}%
 \array{@{}l@{\quad}l@{}}%
 }
+\newcommand{\floor}[1]{\left\lfloor{#1}\right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil{#1}\right\rceil}

@@ -1,0 +1,177 @@
+\documentclass[class=analysis,crop=false]{standalone}
+
+\begin{document}
+
+\setcounter{exercise}{0}
+
+\chapter{Số thực}
+
+\begin{exercise}
+    Chứng minh rằng:
+    \begin{enumerate}[label = (\roman*)]
+        \item Nếu $A\subset\mathbb{R}$ bị chặn trên thì $z = \sup A$ khi và chỉ khi
+            \[
+                \begin{cases}
+                    x\le z\ \forall x\in A \\
+                    \forall\varepsilon > 0\ \exists x_{\varepsilon}\in A : z - \varepsilon < x_{\varepsilon}.
+                \end{cases}
+            \]
+        \item Nếu $A\subset\mathbb{R}$ bị chặn dưới thì $z = \inf A$ khi và chỉ khi
+            \[
+                \begin{cases}
+                    z\le x\ \forall x\in A \\
+                    \forall\varepsilon > 0\ \exists x_{\varepsilon}\in A : x_{\varepsilon} < z + \varepsilon.
+                \end{cases}
+            \]
+        \item Giữa cận trên đúng và cận dưới đúng có mối liên hệ sau
+            \[
+                \inf A = -\sup(-A),\quad \sup A = -\inf(-A).
+            \]
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label = (\roman*)]
+        \item\textit{Điều kiện cần}.
+             \par $z = \sup A$ thì $z$ là cận trên của $A$, do đó $x\le z\ \forall x\in A$.
+             \par $z$ là cận trên đúng của $A$ nên $z - \varepsilon$ không phải cận trên của $A$, tức là trong $A$ tồn tại một phần tử $x_{\varepsilon} > z - \varepsilon$.
+             \par\textit{Điều kiện đủ}.
+             \par $x\le z\ \forall x\in A$ thì $z$ là một cận trên của $A$.
+             \par $\forall\varepsilon > 0\ \exists x_{\varepsilon}\in A : z - \varepsilon < x_{\varepsilon}$ nghĩa là với mọi $\varepsilon > 0$, $z - \varepsilon$ không phải là cận trên của $A$. Tức là mọi số bé hơn $z$ đều không phải cận trên của $A$.
+             \par Theo định nghĩa \textbf{cận trên đúng} thì $z = \sup A$.
+        \item\textit{Điều kiện cần}.
+             \par $z = \inf A$ thì $z$ là cận dưới của $A$, do đó $z\le x\ \forall x\in A$.
+             \par $z$ là cận dưới đúng của $A$ nên $z + \varepsilon$ không phải cận dưới của $A$, tức là trong $A$ tồn tại một phần tử $x_{\varepsilon} < z + \varepsilon$.
+             \par\textit{Điều kiện đủ}.
+             \par $z\le x\ \forall x\in A$ thì $z$ là một cận dưới của $A$.
+             \par $\forall\varepsilon > 0\ \exists x_{\varepsilon}\in A : x_{\varepsilon} < z + \varepsilon$ nghĩa là với mọi $\varepsilon > 0$, $z + \varepsilon$ không phải cận dưới của $A$. Tức là mọi số lớn hơn $z$ đều không phải cận dưới của $A$.
+             \par Theo định nghĩa \textbf{cận dưới đúng} thì $z = \inf A$.
+        \item $z = \inf A$.
+             \par Theo (ii)
+             \[
+                 \begin{cases}
+                     z\le x\ \forall x\in A \\
+                     \forall\varepsilon > 0\ \exists x_{\varepsilon}\in A : x_{\varepsilon} < z + \varepsilon
+                 \end{cases}
+             \]
+             \par Điều này tương đương với:
+             \[
+                 \begin{cases}
+                     -x\le -z\ \forall -x\in -A \\
+                     \forall\varepsilon > 0\ \exists -x_{\varepsilon}\in -A : -z - \varepsilon < -x_{\varepsilon}.
+                 \end{cases}
+             \]
+             \par Theo (i) thì $-z = \sup(-A)$. Do đó $\inf A = -\sup(-A)$.
+             \par Áp dụng điều này, ta được $-\inf(-A) = -(-\sup A) = \sup A$.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    Thế nào là tập không bị chặn trên, không bị chặn dưới, không bị chặn?
+\end{exercise}
+
+\begin{proof}[Lời giải]
+    Một tập được gọi là không bị chặn trên nếu không tồn tại $z\in\mathbb{R}$ sao cho $z$ lớn hơn hoặc bằng mọi phần tử của tập đó.
+    \par Nói theo cách hình thức, tập $A$ không bị chặn trên nếu $\forall\varepsilon > 0$, tồn tại $x\in A$ sao cho $x > \varepsilon$.
+    \bigskip
+    \par Một tập được gọi là không bị chặn dưới nếu không tồn tại $z\in\mathbb{R}$ sao cho $z$ nhỏ hơn hoặc bằng mọi phần tử của tập đó.
+    \par Nói theo cách hình thức, tập $A$ không bị chặn dưới nếu $\forall\varepsilon > 0$, tồn tại $x\in A$ sao cho $x < -\varepsilon$.
+    \bigskip
+    \par Một tập được gọi là không bị chặn nếu nó không bị chặn trên và cũng không bị chặn dưới.
+\end{proof}
+
+\begin{exercise}
+    Hãy làm sáng tỏ những điều sau đây:
+    \begin{enumerate}[label = (\roman*)]
+        \item Không nhất thiết $\sup A\in A$ hoặc $\inf A\in A$.
+        \item Nếu $A$ có phần tử lớn nhất thì $\sup A = \max A$. Nếu $A$ có phần tử bé nhất thì $\inf A = \min A$.
+        \item Cận trên đúng, cận dưới đúng nếu tồn tại thì duy nhất.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label = (\roman*)]
+        \item $A = \{ \frac{1}{n}\ |\ n\in\mathbb{N}\setminus\{ 0 \} \}$.
+            \par $\forall\varepsilon > 0$, chọn $n = \ceil{\frac{1}{\varepsilon}} + 1$ thì $\frac{1}{n} < \varepsilon$.
+            \par Do đó $\inf A = 0$. Tuy nhiên $0\not\in A$.
+            \par $B = \{ \frac{-1}{n}\ |\ n\in\mathbb{N}\setminus\{ 0 \} \}$.
+            \par $\forall\varepsilon > 0$, chọn $n = \ceil{\frac{1}{\varepsilon}} + 1$ thì $\frac{-1}{n} > -\varepsilon$.
+            \par Do đó $\sup B = 0$. Tuy nhiên $0\not\in B$.
+            \par Nếu $A$, $B$ được bổ sung phần tử $0$ thì $\inf A\in A$ và $\sup B\in B$.
+        \item Nếu $A$ có phần tử lớn nhất thì $\max A$ là một cận trên của $A$. Bên cạnh đó, với mọi $x < \max A$ thì phần tử $\max A > x$, nên $x$ không thể là cận trên của $A$. Do đó, theo định nghĩa cận trên đúng, $\sup A = \max A$.
+            \par Nếu $A$ có phần tử nhỏ nhất thì $\min A$ là một cận dưới của $A$. Mà với mọi $x > \min A$ thì phần tử $\min A < x$, nên $x$ không thể là cận dưới của $A$. Do đó, theo định nghĩa cận dưới đúng, $\inf A = \min A$.
+        \item Cận trên đúng của $A$ tồn tại. Giả sử $A$ có hai cận trên đúng là $x$ và $y$.
+            \par Nếu $x < y$ thì theo định nghĩa cận trên đúng, $x$ không phải cận trên của $A$.
+            \par Nếu $y < x$ thì theo định nghĩa cận trên đúng, $y$ không phải cận trên của $A$.
+            \par Do đó $x = y$, tức là cận trên đúng của $A$ là duy nhất (nếu tồn tại).
+            \bigskip
+            \par Cận dưới đúng của $A$ tồn tại. Giả sử $A$ có hai cận dưới đúng là $x$ và $y$.
+            \par Nếu $x > y$ thì theo định nghĩa cận dưới đúng, $x$ không phải cận dưới của $A$.
+            \par Nếu $y > x$ thì theo định nghĩa cận dưới đúng, $y$ không phải cận dưới của $A$.
+            \par Do đó $x = y$, tức là cận dưới đúng của $A$ là duy nhất (nếu tồn tại).
+     \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    Chứng minh $\sqrt{2}$, $\sqrt{3}$ là các số vô tỷ.
+\end{exercise}
+
+\begin{proof}
+    \begin{itemize}
+        \item Giả sử $\sqrt{2}$ là số hữu tỷ, khi đó tồn tại các số nguyên dương $a$, $b$ sao cho $\gcd(a,b) = 1$ và $\frac{a}{b} = \sqrt{2}$.
+            \par $\frac{a}{b} = \sqrt{2}$, suy ra $a^{2} = 2b^{2}$.
+            \par $2\mid 2b^{2}$ nên $2\mid a^{2}$, suy ra $2\mid a$.
+            \par Đặt $a = 2a_{1}$, trong đó $a_{1}$ là số nguyên dương, ta được $b^{2} = 2a^{2}_{1}$. Điều này dẫn tới $2\mid b^{2}$, tức là $2\mid b$. Do đó $\gcd(a, b)\ge 2$, mâu thuận với giả sử rằng $\gcd(a, b) = 1$.
+            \par Vậy $\sqrt{2}$ là số vô tỷ.
+        \item Giả sử $\sqrt{3}$ là số hữu tỷ, khi đó tồn tại các số nguyên dương $a$, $b$ sao cho $\gcd(a,b) = 1$ và $\frac{a}{b} = \sqrt{3}$.
+            \par $\frac{a}{b} = \sqrt{3}$, suy ra $a^{2} = 3b^{2}$.
+            \par $3\mid 3b^{2}$ nên $3\mid a^{2}$, suy ra $3\mid a$.
+            \par Đặt $a = 3a_{1}$, trong đó $a_{1}$ là số nguyên dương, ta được $b^{2} = 3a^{2}_{1}$. Điều này dẫn tới $3\mid b^{2}$, tức là $3\mid b$. Do đó $\gcd(a, b)\ge 3$, mâu thuẫn với giả sử rằng $\gcd(a, b) = 1$.
+            \par Vậy $\sqrt{3}$ là số vô tỷ.
+    \end{itemize}
+\end{proof}
+
+\begin{exercise}
+    Nếu $n\in\mathbb{N}$ không phải là số chính phương thì $\sqrt{n}$ có phải là số vô tỷ không?
+\end{exercise}
+
+\begin{proof}
+    $n$ không phải là số chính phương nên trong phân tích nguyên tố của $n$, tồn tại ít nhất một ước nguyên tố có số mũ lẻ. Gọi ước nguyên tố đó và số mũ tương ứng của nó trong phân tích nguyên tố của $n$ là $p$ và $2k - 1$.
+    \bigskip
+    \par Giả sử $\sqrt{n}$ là số hữu tỷ, khi đó tồn tại các số nguyên dương $a$, $b$ sao cho $\gcd(a,b) = 1$ và $\frac{a}{b} = \sqrt{n}$.
+    \par $a^{2} = nb^{2}$ nên $n\mid a^{2}$, tức là $p^{2k-1}\mid a^{2}$, suy ra $p^{k}\mid a$.
+    \par Đặt $a = p^{k}a_{1}$, trong đó $a_{1}$ là số nguyên dương, ta được $p^{2k}a^{2}_{1} = nb^{2}$, suy ra $pa^{2}_{1} = \frac{n}{p^{2k-1}}b^{2}$.
+    \par Vì $p\nmid \frac{n}{p^{2k-1}}$ nên $p\mid b^{2}$, tức là $p\mid b$. Do đó, $\gcd(a,b)\ge p > 1$, mâu thuẫn với giả thiết $\gcd(a,b) = 1$.
+    \par Vậy $\sqrt{n}$ là số vô tỷ.
+\end{proof}
+
+\begin{exercise}
+    Chứng minh $\mathbb{N}$ là tập không bị chặn trên và $\mathbb{Z}$ không bị chặn dưới.
+\end{exercise}
+
+\begin{proof}
+    \begin{itemize}
+        \item Theo định lý Archimedes, với mọi $\varepsilon > 0$, tồn tại $n\in\mathbb{Z}$ sao cho $\varepsilon < n$. Do đó $n > 0$, $n\in\mathbb{N}$. Do đó, $\mathbb{N}$ không bị chặn trên.
+        \item Theo định lý Archimedes, với mọi $\varepsilon > 0$, tồn tại $n\in\mathbb{Z}$ sao cho $\varepsilon < n$. Do đó $-n < -\varepsilon$. Do đó, $\mathbb{Z}$ không bị chặn dưới.
+    \end{itemize}
+\end{proof}
+
+\begin{exercise}
+    Chứng minh rằng với mọi $x > 1$, $y > 0$ tồn tại $n\in\mathbb{Z}$ sao cho $x^{n-1}\le y < x^{n}$.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+    Chứng minh rằng với mọi $y > 0$ ta có $\inf\{ y/n\mid n\in\mathbb{N} \} = 0$.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+    Đặt $N_{x} = \{ s\le x\mid s\in\mathbb{Q} \}$, $M_{x} = \{ r\ge x\mid r\in\mathbb{Q} \}$. Chứng minh rằng $\sup N_{x} = x = \inf M_{x}$.
+\end{exercise}
+
+\end{document}

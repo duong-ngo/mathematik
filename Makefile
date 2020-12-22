@@ -56,9 +56,11 @@ format:
 	done
 
 updatecls: cleanaux
-	@if [ ! -z $(shell find . -maxdepth 1 -name "*.cls") ]; then \
+	@if [ ! -z $(shell find . -maxdepth 2 -name "*.cls") ]; then \
 		mkdir -p $(shell kpsewhich -var-value=TEXMFHOME)/tex/latex/local/class; \
-		cp *.cls $(shell kpsewhich -var-value=TEXMFHOME)/tex/latex/local/class; \
+		for file in $(shell find . -maxdepth 2 -name "*.cls"); do \
+		  cp $$file $(shell kpsewhich -var-value=TEXMFHOME)/tex/latex/local/class; \
+		done \
 	fi
 
 %.pdf: %.tex updatecls
