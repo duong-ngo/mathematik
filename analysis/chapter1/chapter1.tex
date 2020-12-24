@@ -6,7 +6,7 @@
 
 \chapter{Số thực}
 
-\begin{exercise}
+\begin{exercise}\label{chapter1:sup-and-inf}
     Chứng minh rằng:
     \begin{enumerate}[label = (\roman*)]
         \item Nếu $A\subset\mathbb{R}$ bị chặn trên thì $z = \sup A$ khi và chỉ khi
@@ -161,6 +161,8 @@
 \end{exercise}
 
 \begin{proof}
+    Theo định lý Archimedes, tồn tại $n\in\mathbb{Z}$ sao cho $(n-1)\le\log_{x}y\le n$.
+    \par Vì $x > 1$ nên $x^{n-1} \le x^{\log_{x}y} \le x^{n}$, tức là $x^{n-1}\le y\le x^{n}$.
 \end{proof}
 
 \begin{exercise}
@@ -168,10 +170,86 @@
 \end{exercise}
 
 \begin{proof}
+    $A = \{ \frac{y}{n}\mid n\in\mathbb{N} \}$.
+    \par $\frac{y}{n} > 0,\ \forall n\in\mathbb{N}$ nên $0$ là một cận dưới của $A$.
+    \par $\forall\varepsilon > 0$, $n_{\varepsilon} = \ceil{\frac{y}{\varepsilon}} + 1$ thì $\frac{y}{n_{\varepsilon}} < \varepsilon$.
+    \par Do đó, theo Bài~\ref{chapter1:sup-and-inf}, $0$ là cận dưới đúng của $A$.
 \end{proof}
 
 \begin{exercise}
     Đặt $N_{x} = \{ s\le x\mid s\in\mathbb{Q} \}$, $M_{x} = \{ r\ge x\mid r\in\mathbb{Q} \}$. Chứng minh rằng $\sup N_{x} = x = \inf M_{x}$.
 \end{exercise}
+
+\begin{proof}
+    Có hai trường hợp cần xem xét.
+    \begin{enumerate}[label = Trường hợp \arabic*.,itemindent=1.5cm]
+        \item $x$ là số hữu tỷ.
+            \par $x$ là số hữu tỷ thì $x\in N_{x}$ và $x = \max N_{x}$, $x\in M_{x}$ và $x = \min M_{x}$.
+            \par Mà $\sup N_{x} = \max N_{x}$, $\inf M_{x} = \min M_{x}$ nên $\sup N_{x} = x = \inf M_{x}$.
+        \item $x$ là số vô tỷ.
+            \par $x$ là số vô tỷ thì $x\notin N_{x}$ và $x\notin M_{x}$.
+            \par Theo định nghĩa của $N_{x}$, $M_{x}$ thì $x$ là cận trên của $N_{x}$ và $x$ là cận dưới của $M_{x}$.
+            \par Chọn $y < x$. Vì giữa hai số thực phân biệt, luôn có số hữu tỷ (số này là phần tử của $N_{x}$) nên $y$ không thể là cận trên của $N_{x}$. Nói cách khác, mọi số nhỏ hơn $x$ đều không phải cận trên của $N_{x}$. Mà $x$ là cận trên của $N_{x}$ nên theo định nghĩa, $x = \sup N_{x}$.
+            \par Chọn $z > x$. Vì giữa hai số thực phân biệt, luôn có số hữu tỷ (số này là phần tử của $M_{x}$) nên $z$ không thể là cận dưới của $M_{x}$. Nói cách khác, mọi số lớn hơn $x$ đều không phải cận dưới của $M_{x}$. Mà $x$ là cận dưới của $M_{x}$ nên theo định nghĩa, $x = \inf M_{x}$.
+    \end{enumerate}
+    \par Tóm lại, $\sup N_{x} = x = \inf M_{x}$.
+\end{proof}
+
+\par\textbf{Nguyên lý Cantor.} Nếu $\{ A_{i}, i\in I \}$ là họ các đoạn lồng nhau thì
+\[
+    \bigcap_{i\in I}A_{i} \ne \varnothing
+\]
+\par tức là, có ít nhất một số thực thuộc tất cả các $A_{i}$, $i\in I$.
+
+\begin{exercise}
+    Hãy chỉ ra trong chứng minh của \textbf{Nguyên lý Cantor}, ta có $[a,b] = \bigcap\limits_{i\in I}A_{i}$ và nếu bỏ điều kiện $A_{i}$ là khoảng đóng thì kết luận của định lý trên sẽ dẫn đến sai.
+\end{exercise}
+
+\begin{proof}
+    $A_{i} = [a_{i}, b_{i}]$, $i\in I$.
+    \par Đặt $A = \{ a_{i}, i\in I \}$, $B = \{ b_{i}, i\in I \}$.
+    \par $a = \sup A$, $b = \inf B$.
+    \par $a_{i}$ là cận dưới của $B$, $\forall i\in I$.
+    \par $b_{i}$ là cận trên của $A$, $\forall i\in I$.
+    \par Nếu $a$ không phải cận dưới của $B$ thì tồn tại $b_{j}$ sao cho $b_{j} < a$. Mà $b_{j}$ là cận trên của $A$, điều này mâu thuẫn với định nghĩa cận trên đúng. Do đó, $a$ là cận dưới của $B$.
+    \par $a$ là cận dưới của $B$, $b$ là cận dưới đúng của $B$ nên $a\le b$.
+    \par $x\in \bigcap\limits_{i\in I}A_{i}$ khi và chỉ khi $x$ là cận trên của $A$ và là cận dưới của $B$. Điều này tương đương với $a = \sup A\le x\inf B = b$.
+    \par Do đó $[a,b] = \bigcap\limits_{i\in I}A_{i}$.
+    \bigskip
+    \par Nếu $A_{i}$ là các khoảng mở, chẳng hạn xét họ $X_{n} = (0,\frac{1}{n})$, $n\in\mathbb{N}$.
+    \par Giao của tất cả các tập thuộc họ này là rỗng.
+    \par Nếu như giao của tất cả các tập này không rỗng, ta chọn lấy một phần tử $x$ thuộc phần giao đó. Do định nghĩa của $X_{n}$ nên $x > 0$. Tuy nhiên $\inf\{ \frac{1}{n} \mid n\in\mathbb{N} \} = 0$ nên với $x > 0$, tồn tại $n_{\varepsilon}$ sao cho $\frac{1}{n_{\varepsilon}} < x$, tức là $x\notin(0, \frac{1}{n_{\varepsilon}})$, mâu thuẫn với định nghĩa của $x$.
+    \par Do đó, giao của $X_{n}$, $\forall n\in\mathbb{N}$ là tập rỗng.
+    \par Như vậy, nếu bỏ đi điều kiện khoảng đóng thì nguyên lý Cantor không còn đúng.
+\end{proof}
+
+\begin{exercise}
+    Từ chứng minh của \textbf{Nguyên lý Cantor}, chứng minh rằng $a = b$ khi và chỉ khi $\inf\{ b_{i} - a_{i}\mid i\in I \} = 0$.
+\end{exercise}
+
+\begin{proof}
+    Kí hiệu $A = \{ a_{i} \mid i\in I \}$, $B = \{ b_{i} \mid i\in I \}$.
+    \par Theo Bài~\ref{chapter1:sup-and-inf}, $\inf(-A) = -\sup A = -a$.
+    \par $b_{i} - a_{i} = b_{i} + (-a_{i}) \ge b - a$ nên $b - a$ là một cận dưới của $\{ b_{i} - a_{i}\mid i\in I \}$.
+    \par Chọn $c = b - a' > b - a$.
+    \par $b - a' > b - a$ nên $a' < a = \sup A$. Theo định nghĩa cận trên đúng, tồn tại $a_{j}$ sao cho $a_{j} > a'$, tức là $-a_{j} < -a'$. Suy ra $b_{j} - a_{j} < b - a'$. Do đó, $c = b - a'$ không phải cận dưới của $\{ b_{i} - a_{i} \mid i\in I \}$.
+    \par Như vậy, mọi số lớn hơn $b - a$ không phải cận dưới của $\{ b_{i} - a_{i}\mid i\in I \}$. Mà $b - a$ là cận dưới của $\{ b_{i} - a_{i} \mid i\in I \}$ nên theo định nghĩa cận dưới đúng, $b - a = \inf\{ b_{i} - a_{i} \mid i\in I \}$.
+    \par Đẳng thức vừa chứng minh cho thấy $a = b$ khi và chỉ khi $\inf\{ b_{i} - a_{i} \mid i\in I \} = 0$.
+\end{proof}
+
+\begin{exercise}
+    Chứng minh rằng tập $A$ không bị chặn trên khi và chỉ khi với mọi $n_{0}\in\mathbb{N}$, tồn tại phần tử $x_{n}$ trong $A$ sao cho $x_{n} > n_{0}$. Tương tự, tập $A$ không bị chặn dưới khi và chỉ khi với mọi $n_{0}\in\mathbb{N}$, tồn tại phần tử $x_{n}$ trong $A$ sao cho $x_{n} < -n$.
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label = (\roman*)]
+        \item \textit{Phần thuận.} $A$ không bị chặn trên thì $\forall\varepsilon > 0$, tồn tại $x_{\varepsilon}\in A$ sao cho $x_{\varepsilon} > \varepsilon$. Do đó, với mọi $n_{0}\in\mathbb{N}$, tồn tại $x_{n}\in A$ sao cho $x_{n} > n_{0}$.
+            \par \textit{Phần đảo.} Với mọi $n_{0}\in\mathbb{N}$, tồn tại $x_{n}\in A$ sao cho $x_{n} > n_{0}$.
+            \par $\forall\varepsilon > 0$, chọn $n_{0} = \ceil{\varepsilon}$ thì tồn tại $x_{n}\in A$ sao cho $x_{n} > n_{0} \ge \varepsilon$. Do đó, $A$ không bị chặn trên.
+        \item \textit{Phần thuận.} $A$ không bị chặn dưới thì $\forall\varepsilon > 0$, tồn tại $x_{\varepsilon}\in A$ sao cho $x_{\varepsilon} < -\varepsilon$. Do đó, với mọi $n_{0}\in\mathbb{N}$, tồn tại $x_{n}\in A$ sao cho $x_{} < -n_{0}$.
+            \par \textit{Phần đảo.} Với mọi $n_{0}\in\mathbb{N}$, tồn tại $x_{n}\in A$ sao cho $x_{n} < -n_{0}$.
+            \par $\forall\varepsilon > 0$, chọn $n_{0} = \floor{\varepsilon}$, tồn tại $x_{\varepsilon}\in A$ sao cho $x_{\varepsilon} < -n_{0} \le -\varepsilon$. Do đó, $A$ không bị chặn dưới.
+    \end{enumerate}
+\end{proof}
 
 \end{document}

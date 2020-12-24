@@ -1970,29 +1970,14 @@
 \end{exercise}
 
 \begin{proof}
-    Theo định nghĩa của đồng cấu đối ngẫu:
-    \[
-        f^{*}(\phi)(\alpha) = \phi(f(\alpha))\quad\forall\phi\in W^{*},\alpha\in V.
-    \]
-    \begin{align*}
-        (af^{*}+bg^{*})(\phi)(\alpha) & = af^{*}(\phi)(\alpha) + bg^{*}(\phi)(\alpha)                    \\
-                                      & = a\phi f(\alpha) + b\phi g(\alpha)                              \\
-                                      & = \phi f(a\alpha) + \phi g(b\alpha)                              \\
-                                      & = \phi((af + bg)(\alpha))\qquad\forall\phi\in W^{*},\alpha\in V.
-    \end{align*}
-    \par Suy ra đồng cấu $af^{*} + bg^{*}$ là đối ngẫu của đồng cấu $af + bg$.
-    \par Do đó, $f\mapsto f^{*}$ là một đồng cấu tuyến tính.
-    \bigskip
-    \par Giả sử $f^{*}$ là \textit{ánh xạ không}, suy ra $(f^{*}(\phi))(\alpha) = 0,\forall\alpha\in V,\forall\phi\in W^{*}$.
-    \par Suy ra $\phi(f(\alpha)) = 0,\forall\alpha\in V,\forall\phi\in W^{*}$. Vì đẳng thức này đúng với mọi $\phi\in W^{*}$ nên $f(\alpha) = 0,\forall\alpha\in V$, nghĩa là $f$ là \textit{ánh xạ không}.
-    \par Do đó, ánh xạ $f\mapsto f^{*}$ là đơn cấu.
-    \bigskip
-    \par Bên cạnh đó:
-    \[
-        \dim\hom(V, W) = \dim V\times\dim W = \dim W^{*}\times\dim V^{*} = \dim\hom(W^{*}, V^{*})
-    \]
-    \par nên hai không gian $\hom(V, W)$, $\hom(W^{*}, V^{*})$ đẳng cấu.
-    \par Kết hợp với sự kiện $f\mapsto f^{*}$ là đơn cấu, suy ra $f\mapsto f^{*}$ cũng là đẳng cấu.
+    \par Gọi $(\alpha_{1}, \ldots, \alpha_{n})$ là một cơ sở của $V$, $(\beta_{1}, \ldots, \beta_{m})$ là một cơ sở của $W$.
+    \par $(\alpha^{*}_{1}, \ldots, \alpha^{*}_{n})$ là cơ sở đối ngẫu của $V$, $(\beta^{*}_{1}, \ldots, \beta^{*}_{m})$ là cơ sở đối ngẫu của $W$.
+    \par $A$ là ma trận của $f$ đối với cặp cơ sở trên của $V$ và $W$.
+    \par $A^{T}$ là ma trận của $f^{*}$ đối với cặp cơ sở trên của $W^{*}$ và $V^{*}$.
+    \par Ánh xạ $\hom(V,W)\to M(m\times n,\mathbb{F})$, $f\mapsto A$ là đẳng cấu tuyến tính.
+    \par Ánh xạ $\hom(W^{*},V^{*})\to M(n\times m,\mathbb{F})$, $f^{*}\mapsto A^{T}$ là đẳng cấu tuyến tính.
+    \par Ánh xạ $A\mapsto A^{T}$ là đẳng cấu tuyến tính.
+    \par Do đó ánh xạ $\hom(V,W)\to\hom(W^{*},V^{*})$, $f\mapsto f^{*}$ là đẳng cấu tuyến tính.
 \end{proof}
 
 \noindent\textbf{Định lý 4.8.} Gọi $f^{*}: W^{*}\to V^{*}$ là đồng cấu đối ngẫu của đồng cấu $f: V\to W$. Khi đó:
@@ -2007,9 +1992,9 @@
     \par $(\alpha^{*}_{1}, \ldots, \alpha^{*}_{n})$, $(\beta^{*}_{1}, \ldots, \beta^{*}_{m})$ là các cơ sở đối ngẫu của hai không gian trên.
     \begin{enumerate}[label = (\arabic*)]
         \item $f$ là đơn ánh thì $(f(\alpha_{1}), \ldots, f(\alpha_{n}))$ độc lập tuyến tính.
-              \par
-              \bigskip
-              \par $f^{*}$ là toàn ánh thì
+            \par
+            \bigskip
+            \par $f^{*}$ là toàn ánh thì
         \item
         \item
     \end{enumerate}
