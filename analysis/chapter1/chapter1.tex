@@ -252,4 +252,88 @@
     \end{enumerate}
 \end{proof}
 
+\begin{exercise}
+    Thế nào là dãy không phải dãy Cauchy?
+\end{exercise}
+
+\begin{proof}[Lời giải]
+    \par Dãy $(x_{n})$ không phải dãy Cauchy nếu:
+    \par $\exists\varepsilon > 0$, $\forall n_{0}$, $\exists m, n > n_{0}$ sao cho $\vert a_{m} - a_{n}\vert \ge \varepsilon$.
+\end{proof}
+
+\begin{exercise}
+    Chứng minh rằng các dãy sau không phải dãy Cauchy:
+    \[
+        a_{n} = (-1){}^{n-1},\quad b_{n} = 1 + \frac{1}{2} + \cdots + \frac{1}{n}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    \par Chọn $\varepsilon = 1$ và $n_{0}$ bất kì. Chọn $n > n_{0}$ và $m = n + 1$ thì $\vert a_{m} - a_{n}\vert = \vert a_{n+1} - a_{n}\vert = 2 > 1 = \varepsilon$. Do đó, dãy $(a_{n})$ không phải dãy Cauchy.
+    \bigskip
+    \par Chọn $\varepsilon = \frac{1}{2}$ và $n_{0}$ bất kì. Chọn $n > n_{0}$ và $m = 2n$.
+    \[
+        \vert b_{2n} - b_{n}\vert = \frac{1}{n+1} + \frac{1}{n+2} + \cdots + \frac{1}{2n} > \frac{n}{2n} = \frac{1}{2} = \varepsilon
+    \]
+    \par Do đó $(b_{n})$ không phải dãy Cauchy.
+\end{proof}
+
+\begin{exercise}
+    Giả sử $(x_{n})$ và $(y_{n})$ là các dãy số thực và
+    \[
+        \lim\limits_{n\to\infty} x_{n} = x,\quad\lim\limits_{n\to\infty} y_{n} = y.
+    \]
+    \par Chứng minh
+    \begin{enumerate}[label = (\roman*)]
+        \item $\lim\limits_{n\to\infty}(x_{n} + y_{n}) = x + y$;
+        \item $\lim\limits_{n\to\infty} ax_{n} = ax$, với mọi $a\in\mathbb{R}$;
+        \item $\lim\limits_{n\to\infty} x_{n}y_{n} = xy$;
+        \item $\lim\limits_{n\to\infty} \dfrac{x_{n}}{y_{n}} = \dfrac{x}{y}$, với điều kiện $y\ne 0$;
+        \item Nếu $x_{n}\le y_{n}$ đối với $n\ge N$ nào đó thì $x\le y$.
+        \item Nếu $x > 0$ thì $x_{n} > 0$ đối với $n\ge N$ nào đó.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label = (\roman*)]
+        \item Theo tiêu chuẩn Cauchy, $\forall\varepsilon > 0$, $\exists n_{x}, n_{y}$ sao cho $\forall n > n_{x}$ thì $\abs{x_{n} - x} < \frac{\varepsilon}{2}$, $\forall n > n_{y}$ thì $\abs{y_{n} - y} < \frac{\varepsilon}{2}$.
+            \par Do đó, nếu $n > \max\{ n_{x}, n_{y} \}$ thì $\abs{x_{n} - x} < \frac{\varepsilon}{2}$, $\abs{y_{n} - y} < \frac{\varepsilon}{2}$.
+            \par Do đó, $\forall\varepsilon > 0$, $\exists n_{0}$ sao cho $\forall n > n_{0}$ thì
+            \[
+                \abs{x_{n} + y_{n} - x - y} \le \abs{x_{n} - x} + \abs{y_{n} - y} < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon
+            \]
+            \par Theo tiêu chuẩn Cauchy, $\lim\limits_{n\to+\infty}(x_{n} + y_{n}) = x + y$.
+        \item Nếu $a = 0$, mệnh đề hiển nhiên đúng vì $(0x_{n})$ là dãy hằng.
+            \par Xét trường hợp $a\ne 0$.
+            \par Theo tiêu chuẩn Cauchy, $\forall\epsilon > 0$, $\exists n_{0}$ sao cho $\forall n > n_{0}$ thì $\abs{x_{n} - x} < \frac{\varepsilon}{\abs{a}}$.
+            \par Suy ra, $\forall\epsilon > 0$, $\exists n_{0}$ sao cho $\forall n > n_{0}$ thì $\abs{ax_{n} - ax} < \varepsilon$.
+        \item Theo tiêu chuẩn Cauchy, $\forall\varepsilon' > 0$, $\exists n_{x}, n_{y}$ sao cho $\forall n > n_{x}$ thì $\abs{x_{n} - x} < \varepsilon'$, $\forall n > n_{y}$ thì $\abs{y_{n} - y} < \varepsilon'$.
+            \par $n_{0} = \max\{ n_{x}, n_{y} \}$ thì $\forall n > n_{0}$, $\abs{x_{n} - x} < \varepsilon'$, $\abs{y_{n} - y} < \varepsilon'$.
+            \par $\forall\epsilon' > 0$, $\exists n_{0}$ sao cho $\forall n > n_{0}$:
+            \[
+                \abs{x_{n}y_{n} - xy} = \abs{(x_{n} - x)(y_{n} - y)} + \abs{y(x_{n} - x)} + \abs{x(y_{n} - y)} < \varepsilon'^{2} + \varepsilon'(\abs{x} + \abs{y})
+            \]
+            \par $\forall\epsilon > 0$, chọn $\varepsilon' < -\dfrac{\vert x\vert + \vert y\vert}{2} + \sqrt{\varepsilon + \left(\dfrac{\vert x\vert + \vert y\vert}{2}\right)^{2}}$ thì $\varepsilon'^{2} + \varepsilon'(|x| + |y|) < \varepsilon$.
+            \par Do đó, $\forall\varepsilon > 0$, $\exists n_{0}$ sao cho $\forall n > n_{0}$ thì $\abs{x_{n}y_{n} - xy} < \varepsilon$.
+        \item
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    Cho ba dãy số $(x_{n})$, $(y_{n})$, $(z_{n})$ sao cho $x_{n} \le y_{n} \le z_{n}$, $\forall n\in\mathbb{N}$ và $\lim\limits_{n\to\infty} x_{n} = \lim\limits_{n\to\infty} y_{n} = a$. Chứng minh $\lim\limits_{n\to\infty} z_{n} = a$.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+    Chứng minh rằng nếu $\lim\limits_{n\to\infty} x_{n} = 0$ và $(y_{n})$ bị chặn thì
+    \[
+        \lim\limits_{n\to\infty} x_{n}y_{n} = 0.
+    \]
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
 \end{document}
