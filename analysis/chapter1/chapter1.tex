@@ -278,7 +278,7 @@
     \par Do đó $(b_{n})$ không phải dãy Cauchy.
 \end{proof}
 
-\begin{exercise}
+\begin{exercise}\label{chapter1:limit-and-operators}
     Giả sử $(x_{n})$ và $(y_{n})$ là các dãy số thực và
     \[
         \lim\limits_{n\to\infty} x_{n} = x,\quad\lim\limits_{n\to\infty} y_{n} = y.
@@ -296,34 +296,87 @@
 
 \begin{proof}
     \begin{enumerate}[label = (\roman*)]
-        \item Theo tiêu chuẩn Cauchy, $\forall\varepsilon > 0$, $\exists n_{x}, n_{y}$ sao cho $\forall n > n_{x}$ thì $\abs{x_{n} - x} < \frac{\varepsilon}{2}$, $\forall n > n_{y}$ thì $\abs{y_{n} - y} < \frac{\varepsilon}{2}$.
-            \par Do đó, nếu $n > \max\{ n_{x}, n_{y} \}$ thì $\abs{x_{n} - x} < \frac{\varepsilon}{2}$, $\abs{y_{n} - y} < \frac{\varepsilon}{2}$.
+        \item Theo định nghĩa, $\forall\varepsilon > 0$, $\exists n_{x}, n_{y}$ sao cho $\forall n > n_{x}$ thì $\abs{x_{n} - x} < \dfrac{\varepsilon}{2}$, $\forall n > n_{y}$ thì $\abs{y_{n} - y} < \dfrac{\varepsilon}{2}$.
+            \par Do đó, nếu $n > \max\{ n_{x}, n_{y} \}$ thì $\abs{x_{n} - x} < \dfrac{\varepsilon}{2}$, $\abs{y_{n} - y} < \dfrac{\varepsilon}{2}$.
             \par Do đó, $\forall\varepsilon > 0$, $\exists n_{0}$ sao cho $\forall n > n_{0}$ thì
             \[
                 \abs{x_{n} + y_{n} - x - y} \le \abs{x_{n} - x} + \abs{y_{n} - y} < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon
             \]
-            \par Theo tiêu chuẩn Cauchy, $\lim\limits_{n\to+\infty}(x_{n} + y_{n}) = x + y$.
+            \par Theo định nghĩa, $\lim\limits_{n\to+\infty}(x_{n} + y_{n}) = x + y$.
         \item Nếu $a = 0$, mệnh đề hiển nhiên đúng vì $(0x_{n})$ là dãy hằng.
             \par Xét trường hợp $a\ne 0$.
-            \par Theo tiêu chuẩn Cauchy, $\forall\epsilon > 0$, $\exists n_{0}$ sao cho $\forall n > n_{0}$ thì $\abs{x_{n} - x} < \frac{\varepsilon}{\abs{a}}$.
+            \par Theo định nghĩa, $\forall\epsilon > 0$, $\exists n_{0}$ sao cho $\forall n > n_{0}$ thì $\abs{x_{n} - x} < \dfrac{\varepsilon}{\abs{a}}$.
             \par Suy ra, $\forall\epsilon > 0$, $\exists n_{0}$ sao cho $\forall n > n_{0}$ thì $\abs{ax_{n} - ax} < \varepsilon$.
-        \item Theo tiêu chuẩn Cauchy, $\forall\varepsilon' > 0$, $\exists n_{x}, n_{y}$ sao cho $\forall n > n_{x}$ thì $\abs{x_{n} - x} < \varepsilon'$, $\forall n > n_{y}$ thì $\abs{y_{n} - y} < \varepsilon'$.
+        \item Theo định nghĩa, $\forall\varepsilon' > 0$, $\exists n_{x}, n_{y}$ sao cho $\forall n > n_{x}$ thì $\abs{x_{n} - x} < \varepsilon'$, $\forall n > n_{y}$ thì $\abs{y_{n} - y} < \varepsilon'$.
             \par $n_{0} = \max\{ n_{x}, n_{y} \}$ thì $\forall n > n_{0}$, $\abs{x_{n} - x} < \varepsilon'$, $\abs{y_{n} - y} < \varepsilon'$.
-            \par $\forall\epsilon' > 0$, $\exists n_{0}$ sao cho $\forall n > n_{0}$:
+            \par $\forall\varepsilon' > 0$, $\exists n_{0}$ sao cho $\forall n > n_{0}$:
             \[
                 \abs{x_{n}y_{n} - xy} = \abs{(x_{n} - x)(y_{n} - y)} + \abs{y(x_{n} - x)} + \abs{x(y_{n} - y)} < \varepsilon'^{2} + \varepsilon'(\abs{x} + \abs{y})
             \]
             \par $\forall\epsilon > 0$, chọn $\varepsilon' < -\dfrac{\vert x\vert + \vert y\vert}{2} + \sqrt{\varepsilon + \left(\dfrac{\vert x\vert + \vert y\vert}{2}\right)^{2}}$ thì $\varepsilon'^{2} + \varepsilon'(|x| + |y|) < \varepsilon$.
             \par Do đó, $\forall\varepsilon > 0$, $\exists n_{0}$ sao cho $\forall n > n_{0}$ thì $\abs{x_{n}y_{n} - xy} < \varepsilon$.
-        \item
+        \item $\lim\limits_{n\to+\infty}y_{n} = y$ nên $\forall\varepsilon > 0$, $\exists n_{0}(\varepsilon)$, $\forall n > n_{0}$, $\abs{y_{n} - y} < \varepsilon$.
+            \par Chọn $\varepsilon = \dfrac{\abs{y}}{2}$. Tồn tại $n_{1}$ sao cho $\forall n > n_{1}$, $\abs{y_{n} - y} < \dfrac{\abs{y}}{2}$.
+            \[
+                \Rightarrow \abs{\abs{y_{n}} - \abs{y}} \le \abs{y_{n} - y} < \frac{\abs{y}}{2} \Rightarrow \abs{y_{n}} > \frac{\abs{y}}{2}
+            \]
+            \par $\forall\varepsilon > 0$, $\dfrac{\abs{y}^{2}\varepsilon}{2} > 0$, $\exists n_{2}$ sao cho $\forall n > n_{2}$ thì $\abs{y_{n} - y} < \dfrac{\abs{y}^{2}\varepsilon}{2}$.
+            \par Do đó, nếu $n > \max\{n_{1}, n_{2}\}$ thì $\abs{y_{n} - y} < \dfrac{\abs{y}^{2}\varepsilon}{2}$ và $\abs{y_{n}} > \dfrac{\abs{y}}{2}$.
+            \par $\forall\varepsilon > 0$, $\exists n_{3}$ sao cho $\forall n > n_{3}$:
+            \[
+                \abs{\frac{1}{y_{n}} - \frac{1}{y}} = \frac{\abs{y_{n} - y}}{\abs{y_{n}}\cdot\abs{y}} < \frac{\abs{y}^{2}\varepsilon}{2}\cdot\frac{2}{\abs{y}\cdot\abs{y}} = \varepsilon
+            \]
+            \par Theo định nghĩa, $\lim\limits_{n\to+\infty}\dfrac{1}{y_{n}} = \dfrac{1}{y}$.
+            \par Theo (iii), $\lim\limits_{n\to+\infty}\dfrac{x_{n}}{y_{n}} = \dfrac{x}{y}$.
+        \item Theo định nghĩa:
+            \[
+                \forall\varepsilon > 0, \exists n_{x}, n_{y}: \forall n > n_{x}, \abs{x_{n} - x} < \varepsilon; \forall n > n_{y}, \abs{y_{n} - y} < \varepsilon
+            \]
+            \par Do đó, $\forall n > \max\{ N, n_{x}, n_{y} \}$ thì:
+            \[
+                \begin{cases}
+                    x_{n} - y_{n} \le 0 \\
+                    -\varepsilon < x - x_{n} < \varepsilon \\
+                    -\varepsilon < y_{n} - y < \varepsilon
+                \end{cases}
+                \Rightarrow
+                x - y < 2\varepsilon
+            \]
+            \par Do đó, $\forall\varepsilon > 0$, $x - y < 2\varepsilon$.
+            \par Nếu $x > y$ thì ta chọn được $\varepsilon$ sao cho $x - y \ge 2\varepsilon$, dẫn đến giả sử phản chứng là sai.
+            \par Vậy $x\le y$.
+        \item Chọn $0 < \varepsilon < x$. Theo định nghĩa, tồn tại $N$ sao cho $\forall n \ge N$, $\abs{x_{n} - x} < \varepsilon$.
+            \[
+                -\varepsilon < x_{n} - x < \varepsilon, \forall n\ge N
+            \]
+            \[
+                \Rightarrow x_{n} > x - \varepsilon > 0, \forall n\ge N
+            \]
+            \par Đó là điều phải chứng minh.
     \end{enumerate}
 \end{proof}
 
 \begin{exercise}
-    Cho ba dãy số $(x_{n})$, $(y_{n})$, $(z_{n})$ sao cho $x_{n} \le y_{n} \le z_{n}$, $\forall n\in\mathbb{N}$ và $\lim\limits_{n\to\infty} x_{n} = \lim\limits_{n\to\infty} y_{n} = a$. Chứng minh $\lim\limits_{n\to\infty} z_{n} = a$.
+    Cho ba dãy số $(x_{n})$, $(z_{n})$, $(y_{n})$ sao cho $x_{n} \le y_{n} \le z_{n}$, $\forall n\in\mathbb{N}$ và $\lim\limits_{n\to\infty} x_{n} = \lim\limits_{n\to\infty} y_{n} = a$. Chứng minh $\lim\limits_{n\to\infty} z_{n} = a$.
 \end{exercise}
 
 \begin{proof}
+    \par Theo định nghĩa
+    \[
+        \forall\varepsilon > 0, \exists n_{x}, n_{y}: \forall n > n_{x}, \abs{x_{n} - a} < \varepsilon; \forall n > n_{y}, \abs{y_{n} - a} < \varepsilon
+    \]
+    \par Do đó:
+    \[
+        \begin{cases}
+            \forall n > n_{x}, -\varepsilon < x_{n} - a < \varepsilon \\
+            \forall n > n_{y}, -\varepsilon < y_{n} - a < \varepsilon
+        \end{cases}
+    \]
+    \par Suy ra, $\forall n > \max\{ n_{x}, n_{y} \}$ thì:
+    \[
+        -\varepsilon < x_{n} - x \le z_{n} - a \le y_{n} - a < \varepsilon \Longrightarrow \abs{z_{n} - a} < \varepsilon
+    \]
+    \par Vậy, $\forall\varepsilon > 0$, $\exists n_{0}$: $\forall n > n_{0}$, $\abs{z_{n} - a} < \varepsilon$. Theo định nghĩa, $\lim\limits_{n\to+\infty}z_{n} = a$.
 \end{proof}
 
 \begin{exercise}
@@ -334,6 +387,11 @@
 \end{exercise}
 
 \begin{proof}
+    \par $(y_{n})$ bị chặn, do đó tồn tại $M > 0$ sao cho $\abs{y_{n}} < M$, $\forall n\in\mathbb{N}$.
+    \par $(x_{n})$ hội tụ đến $x$. $\dfrac{\varepsilon}{M} > 0$.
+    \par Theo định nghĩa, $\exists n_{0}$: $\forall n > n_{0}$, $\abs{x_{n}} < \dfrac{\varepsilon}{M}$.
+    \par Suy ra $\forall\varepsilon > 0$, $\exists n_{0}$: $\forall n > n_{0}$, $\abs{x_{n}y_{n}} < M\cdot\dfrac{\varepsilon}{M} = \varepsilon$.
+    \par Vậy, theo định nghĩa, $\lim\limits_{n\to+\infty} x_{n}y_{n} = 0$.
 \end{proof}
 
 \end{document}
