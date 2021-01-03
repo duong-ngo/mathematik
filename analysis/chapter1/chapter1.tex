@@ -394,4 +394,71 @@
     \par Vậy, theo định nghĩa, $\lim\limits_{n\to+\infty} x_{n}y_{n} = 0$.
 \end{proof}
 
+\begin{exercise}
+    Chứng minh rằng dãy
+    \[
+        a_{n} = \left(1 + \frac{1}{n}\right)^{n+1}
+    \]
+    \par là dãy đơn điệu giảm và bị chặn dưới. Từ đó suy ra rằng dãy
+    \[
+        c_{n} = 1 + \frac{1}{2} + \cdots + \frac{1}{n} - \ln n
+    \]
+    \par có giới hạn hữu hạn.
+\end{exercise}
+
+\begin{proof}
+    \[
+        a_{n} = \left(1 + \frac{1}{n}\right)^{n+1} = \left(1 + \frac{1}{n}\right)\sum^{n}_{k=0}\binom{n}{k}\frac{1}{n^{k}} = \left(1 + \frac{1}{n}\right)\left(2 + \sum^{n}_{k=2}\binom{n}{k}\frac{1}{n^{k}}\right) \ge 2
+    \]
+    \par Sử dụng bất đẳng thức $a^{n} - b^{n} > n(a-b)b^{n-1}$ với điều kiện $a > b > 0$.
+    \begin{align*}
+        a_{n} - a_{n+1} & = \left(1 + \frac{1}{n}\right)^{n+1} - \left(1 + \frac{1}{n+1}\right)^{n+2} \\
+                        & = \left(1 + \frac{1}{n}\right)^{n+1} - \left(1 + \frac{1}{n+1}\right)^{n+1} + \left(1 + \frac{1}{n+1}\right)^{n+1} - \left(1 + \frac{1}{n+1}\right)^{n+2} \\
+                        & > \frac{n+2}{n(n+1)}\left(1 + \frac{1}{n+1}\right)^{n} - \frac{1}{n+1}\left(1 + \frac{1}{n+1}\right)^{n+1} \\
+                        & = \frac{1}{n}\left(1 + \frac{1}{n+1}\right)^{n+1} - \frac{1}{n+1}\left(1 + \frac{1}{n+1}\right)^{n+1} \\
+                        & = \frac{1}{n(n+1)}\left(1 + \frac{1}{n+1}\right)^{n+1} > \frac{1}{n(n+1)} > 0
+    \end{align*}
+    \par Do đó, $(a_{n})$ là dãy giảm và bị chặn dưới, $\inf a_{n} = \lim\limits_{n\to+\infty}a_{n} = e$.
+    \par Dãy $b_{n} = \left(1 + \dfrac{1}{n}\right)^{n}$ tăng và bị chặn trên, có giới hạn là $e$ nên $b_{n} \le e$, suy ra $\ln\left(1 + \dfrac{1}{n}\right) < \dfrac{1}{n}$.
+    \par $a_{n} \ge e$ nên $\ln a_{n} \ge 1$, tức là $\ln\left(1 + \dfrac{1}{n}\right) > \dfrac{1}{n+1}$.
+    \par Mà $c_{n} - c_{n+1} = \ln\left(1 + \dfrac{1}{n}\right) - \dfrac{1}{n+1}$ nên $c_{n} > c_{n+1}$, $\forall n\in\mathbb{N}$. Suy ra $c_{n}$ là dãy giảm.
+    \bigskip
+    \par Từ các bất đẳng thức trên:
+    \[
+        0 < c_{n} - c_{n+1} = \ln\left(1 + \frac{1}{n}\right) - \frac{1}{n+1} < \frac{1}{n} - \frac{1}{n+1} = \frac{1}{n(n+1)} < a_{n} - a_{n+1}, \forall n\in\mathbb{N}
+    \]
+    \[
+        \Longrightarrow 0 < c_{n} - c_{n+p} < a_{n} - a_{n+p}, \forall n, p\in\mathbb{N}
+    \]
+    \par $(a_{n})$ có giới hạn hữu hạn nên, theo định nghĩa:
+    \[
+        \forall\varepsilon > 0, \exists N_{\varepsilon}: \forall n\ge N_{\varepsilon},\forall p, \abs{a_{n} - a_{n+p}} < \varepsilon
+    \]
+    \[
+        \Rightarrow\varepsilon > 0, \exists N_{\varepsilon}: \forall n\ge N_{\varepsilon},\forall p, \abs{c_{n} - c_{n+p}} < \abs{a_{n} - a_{n+p}} < \varepsilon
+    \]
+    \par Vậy, $(c_{n})$ có giới hạn hữu hạn.
+\end{proof}
+
+\begin{exercise}
+    Chứng minh rằng
+    \[
+        e - s_{n} = \sum^{+\infty}_{k=1}\frac{1}{(n+k)!} < \frac{1}{n!n}
+    \]
+    \par Từ đó suy ra $e$ là số vô tỷ.
+\end{exercise}
+
+\begin{proof}
+    \[
+        s_{n} = \sum^{n}_{k=0}\frac{1}{k!}\qquad e = \sum^{+\infty}_{k=0}\frac{1}{k!}
+    \]
+    \[
+        \Rightarrow 0 < e - s_{n} = \sum^{+\infty}_{k=1}\frac{1}{(n+k)!}  < \frac{1}{n!}\sum^{+\infty}_{k=1}\frac{1}{(n+1)^{k}} = \frac{1}{n!}\left(\frac{1}{1 - \dfrac{1}{n+1}} - 1\right) = \frac{1}{n!n}, \forall n\in\mathbb{N}
+    \]
+    \par Giả sử $e$ là số hữu tỷ. Đặt $e = \dfrac{p}{q}$, trong đó, $p, q\in\mathbb{N}$.
+    \par Hiển nhiên là $q!e$, $q!s_{q}$ là các số tự nhiên, do đó, $q!e - q!s_{q}$ cũng là số tự nhiên.
+    \par Nhưng $0 < q!e - q!s_{q} < \dfrac{q!}{q!q} = \dfrac{1}{q} < 1$, điều này mâu thuẫn với việc $q!e - q!s_{q}$ là số tự nhiên.
+    \par Do đó, $e$ là số vô tỷ.
+\end{proof}
+
 \end{document}
