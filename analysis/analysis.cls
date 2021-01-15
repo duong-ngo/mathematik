@@ -48,6 +48,7 @@
 \counterwithin{table}{chapter}
 
 \theoremstyle{definition}
+\newtheorem*{theorem}{Định lý}
 \newtheorem{exercise}{Bài}
 \counterwithin{exercise}{chapter}
 \theoremstyle{plain}
