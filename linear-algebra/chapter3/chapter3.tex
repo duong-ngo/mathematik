@@ -1,5 +1,8 @@
 \documentclass[class=linearalgebra,crop=false]{standalone}
 
+\newcommand{\sgn}[1]{\text{sgn}\left({#1}\right)}
+\setcounter{lemma}{0}
+
 \begin{document}
 
 \chapter{Định thức và hệ phương trình tuyến tính}
@@ -19,6 +22,51 @@
     $.
 \end{exercise}
 
+\begin{proof}[Lời giải]
+    \[
+        \begin{pmatrix}
+            1 & 2 & 3 & 4 & 5 \\
+            2 & 4 & 5 & 1 & 3
+        \end{pmatrix}
+        \begin{pmatrix}
+            1 & 2 & 3 & 4 & 5 \\
+            4 & 3 & 5 & 1 & 2
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            4 & 3 & 5 & 1 & 2 \\
+            1 & 5 & 3 & 2 & 4
+        \end{pmatrix}
+        \begin{pmatrix}
+            1 & 2 & 3 & 4 & 5 \\
+            4 & 3 & 5 & 1 & 2
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            1 & 2 & 3 & 4 & 5 \\
+            1 & 5 & 3 & 2 & 4
+        \end{pmatrix}.
+    \]
+    \[
+        \begin{pmatrix}
+            1 & 2 & 3 & 4 & 5 \\
+            1 & 5 & 3 & 2 & 4
+        \end{pmatrix}
+        =
+        (1)(2,5,4)(3).
+    \]
+    \[
+        \sgn{
+            \begin{matrix}
+                1 & 2 & 3 & 4 & 5 \\
+                1 & 5 & 3 & 2 & 4
+            \end{matrix}
+        }
+        = \sgn{1}\sgn{2,5,4}\sgn{3}
+        = 1.
+    \]
+\end{proof}
+
 \begin{exercise}
     $
         \begin{pmatrix}
@@ -32,13 +80,138 @@
     $.
 \end{exercise}
 
-\begin{exercise}
-    $(1,2)(2,3)\cdots (n-1,n)$.
-\end{exercise}
+\begin{proof}[Lời giải]
+    \[
+        \begin{pmatrix}
+            1 & 2 & 3 & 4 & 5 \\
+            3 & 5 & 4 & 1 & 2
+        \end{pmatrix}
+        \begin{pmatrix}
+            1 & 2 & 3 & 4 & 5 \\
+            4 & 3 & 1 & 5 & 2
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            4 & 3 & 1 & 5 & 2 \\
+            1 & 4 & 3 & 2 & 5
+        \end{pmatrix}
+        \begin{pmatrix}
+            1 & 2 & 3 & 4 & 5 \\
+            4 & 3 & 1 & 5 & 2
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            1 & 2 & 3 & 4 & 5 \\
+            1 & 4 & 3 & 2 & 5
+        \end{pmatrix}.
+    \]
+    \[
+        \begin{pmatrix}
+            1 & 2 & 3 & 4 & 5 \\
+            1 & 4 & 3 & 2 & 5
+        \end{pmatrix}
+        =
+        (1)(2,4)(3)(5).
+    \]
+    \[
+        \sgn{
+            \begin{matrix}
+                1 & 2 & 3 & 4 & 5 \\
+                1 & 4 & 3 & 2 & 5
+            \end{matrix}
+        }
+        = \sgn{1}\sgn{2,4}\sgn{3}\sgn{5}
+        = -1.
+    \]
+\end{proof}
 
 \begin{exercise}
-    $(1,2,3)(2,3,4)(3,4,5)\cdots (n-2,n-1,n)$.
+    $(1,2)(2,3)\ldots (n-1,n)$.
 \end{exercise}
 
+\begin{lemma}\label{chapter3:cycles-product}
+    $(a_{1}, a_{2}, \ldots, a_{k})(a_{k},a_{k+1}) = (a_{1},a_{2},\ldots, a_{k+1})$.
+\end{lemma}
+
+\begin{proof}[Chứng minh bổ đề]
+    \par Xét dãy
+        \[
+            a_{1}, a_{2}, \ldots, a_{k-1}, a_{k}, a_{k+1}.
+        \]
+    \par Sau khi tác động bằng $(a_{k},a_{k+1})$, dãy trên trở thành:
+        \[
+            a_{1}, a_{2}, \ldots, a_{k-1}, a_{k+1}, a_{k}.
+        \]
+    \par Sau khi tác động bằng $(a_{1}, a_{2}, \ldots, a_{k})$, dãy trên (liên trên) trở thành:
+        \[
+            a_{2}, a_{3}, \ldots, a_{k}, a_{k+1}, a_{1}.
+        \]
+    \par Theo định nghĩa về xích, ta có điều phải chứng minh.
+\end{proof}
+
+\begin{proof}[Lời giải]
+    \par Theo bổ đề~\ref{chapter3:cycles-product}:
+        \[
+            (1,2)(2,3)\ldots (n-1,n) = (1,2,\ldots,n)
+            =
+            \begin{pmatrix}
+                1 & 2 & \cdots & n-1 & n \\
+                2 & 3 & \cdots & n   & 1
+            \end{pmatrix}
+        \]
+    \par $(1,2,\ldots, n)$ chính là một xích.
+        \[
+            \sgn{1,2,\ldots,n} = \sgn{1,2}\sgn{2,3}\ldots\sgn{n-1,n} = (-1){}^{n-1}.
+        \]
+\end{proof}
+
+\begin{exercise}
+    $(1,2,3)(2,3,4)(3,4,5)\ldots (n-2,n-1,n)$.
+\end{exercise}
+
+\begin{proof}[Lời giải]
+    \par Theo bổ đề~\ref{chapter3:cycles-product}, nếu $n > 3$:
+    \begin{align*}
+        (1,2,3)(2,3,4)(3,4,5)\ldots (n-2,n-1,n)
+        & = (1,2)(2,3)(2,3)(3,4)(3,4)(4,5) \ldots (n-2,n-1)(n-1,n) \\
+        & = (1,2)(2,3){}^{2}(3,4){}^{2}\ldots (n-2,n-1){}^{2}(n-1,n) \\
+        & = (1,2)(n-1,n)\qquad\text{(đây là 2 xích rời nhau)} \\
+        & =
+        \begin{pmatrix}
+            1 & 2 & 3 & \cdots & n-2 & n-1 & n   \\
+            2 & 1 & 3 & \cdots & n-2 & n   & n-1
+        \end{pmatrix}.
+    \end{align*}
+    \par Nếu $n = 3$:
+    \[
+        (1,2,3) =
+        \begin{pmatrix}
+            1 & 2 & 3 \\
+            2 & 3 & 1
+        \end{pmatrix}.
+    \]
+    \par Trong cả hai trường hợp, dấu của phép thế (kết quả) là 1.
+\end{proof}
+
+\begin{exercise}
+    Cho hai cách sắp thành dãy $a_{1}$, $a_{2}$, \ldots, $a_{n}$ và $b_{1}$, $b_{2}$, \ldots, $b_{n}$ của $n$ số tự nhiên đầu tiên. Chứng minh rằng có thể đưa cách sắp này về cách sắp kia bằng cách sử dụng không quá $n-1$ phép thế sơ cấp.
+\end{exercise}
+
+\begin{lemma}\label{chapter3:product-of-disjoint-cycles}
+    Mọi phép thế đều có thể được viết dưới dạng tích của các xích rời nhau.
+\end{lemma}
+
+\begin{proof}[Chứng minh bổ đề~\ref{chapter3:product-of-disjoint-cycles}]
+\end{proof}
+
+\begin{lemma}\label{chapter3:product-of-transpositions}
+    Một xích độ dài $k$ ($k > 1$) có thể viết được dưới dạng tích của $k-1$ phép thế sơ cấp.
+\end{lemma}
+
+\begin{proof}[Chứng minh bổ đề~\ref{chapter3:product-of-transpositions}]
+\end{proof}
+
+\begin{proof}
+\end{proof}
 
 \end{document}
