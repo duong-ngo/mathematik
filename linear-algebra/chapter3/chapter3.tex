@@ -197,19 +197,117 @@
     Cho hai cách sắp thành dãy $a_{1}$, $a_{2}$, \ldots, $a_{n}$ và $b_{1}$, $b_{2}$, \ldots, $b_{n}$ của $n$ số tự nhiên đầu tiên. Chứng minh rằng có thể đưa cách sắp này về cách sắp kia bằng cách sử dụng không quá $n-1$ phép thế sơ cấp.
 \end{exercise}
 
+\begin{lemma}\label{chapter3:fixed-point}
+    $\forall\sigma,\ \forall x\in\{ 1,2,\ldots,n \}, \exists k\in\mathbb{N}, k\le n$ sao cho $\sigma^{k}(x) = x$.
+\end{lemma}
+
+\begin{proof}[Chứng minh bổ đề~\ref{chapter3:existence-of-cycle}]
+    \par Giả sử phản chứng, $\sigma^{k}(x)\ne x,\ \forall k=\overline{1,n}$.
+    \par Có hai trường hợp cần xem xét.
+    \begin{enumerate}[label = Trường hợp \arabic*:,itemindent=2cm]
+        \item $n$ số $\sigma(x)$, $\sigma^{2}(x)$, \ldots, $\sigma^{n}(x)$ đôi một khác nhau.
+            \par Vì $n$ số này đôi một khác nhau và đều là các phần tử của tập hợp $n$ số tự nhiên đầu tiên nên tồn tại một số tự nhiên $k\le n$ sao cho $\sigma^{k}(x) = x$.
+        \item Trong $n$ số $\sigma(x)$, $\sigma^{2}(x)$, \ldots, $\sigma^{n}(x)$, có hai số bằng nhau.
+            \par Giả sử $\sigma^{a}(x) = \sigma^{a+b}(x)$, trong đó $1\le a < a + b\le n$.
+            \[
+                \begin{split}
+                    &(\underbrace{\sigma\circ\cdots\circ\sigma}_{a})(x) = (\underbrace{\sigma\circ\cdots\circ\sigma}_{a+b})(x) \\
+                    \Leftrightarrow& ((\underbrace{\sigma^{-1}\circ\ldots\circ\sigma^{-1}}_{a})\circ\underbrace{(\sigma\circ\cdots\circ\sigma)}_{a})(x) = ((\underbrace{\sigma^{-1}\circ\ldots\circ\sigma^{-1}}_{a})\circ\underbrace{(\sigma\circ\cdots\circ\sigma)}_{a+b})(x) \\
+                    \Leftrightarrow& x = \sigma^{b}(x).
+                \end{split}
+            \]
+    \end{enumerate}
+    \par Bổ đề được chứng minh.
+\end{proof}
+
+\begin{lemma}\label{chapter3:existence-of-cycle}
+    Mỗi phần tử của $n$ số tự nhiên đầu tiên luôn thuộc một xích nào đó.
+\end{lemma}
+
+\begin{proof}
+    \par Theo bổ đề~\ref{chapter3:fixed-point}, cùng với nguyên lý sắp thứ tự tốt (well-ordering principle), ta suy ra luôn chọn được số tự nhiên $k$ nhỏ nhất sao cho $\sigma^{k}(x) = x$.
+    \par $(x, \sigma(x), \ldots, \sigma^{k-1}(x))$ chính là một xích độ dài $k$.
+\end{proof}
+
 \begin{lemma}\label{chapter3:product-of-disjoint-cycles}
     Mọi phép thế đều có thể được viết dưới dạng tích của các xích rời nhau.
 \end{lemma}
 
 \begin{proof}[Chứng minh bổ đề~\ref{chapter3:product-of-disjoint-cycles}]
+    \par Theo bổ đề~\ref{chapter3:existence-of-cycle}, mỗi phần tử đều thuộc một xích nào đó.
+    \par Nếu hai xích cùng chứa một phần tử $x$ thì hai xích đó trùng nhau.
+    \par Do đó hai xích bất kì hoặc trùng nhau, hoặc rời nhau.
+    \par Ta tiến hành phân tích một phép thế thành các xích rời nhau.
+    \begin{enumerate}[label = (\arabic*)]
+        \item Chọn lấy một phần tử bất kì của tập hợp $n$ số tự nhiên đầu tiên.
+        \item Xác định xích của phần tử đó.
+        \item Chọn lấy một phần tử bất kì không thuộc xích, tiếp xúc xác định xích của phần tử mới này.
+    \end{enumerate}
+    \par Quy trình trên được làm liên tục đến khi không còn phần tử nào để chọn. Quy trình này sẽ dừng lại sau hữu hạn bước vì số phần tử của tập hợp $n$ số tự nhiên là hữu hạn, và độ dài của một xích cũng không vượt quá số phần tử của tập hợp $n$ số tự nhiên đầu tiên.
 \end{proof}
 
 \begin{lemma}\label{chapter3:product-of-transpositions}
-    Một xích độ dài $k$ ($k > 1$) có thể viết được dưới dạng tích của $k-1$ phép thế sơ cấp.
+    Một xích độ dài $k$ ($k > 1$) có thể viết được dưới dạng tích của không dưới $k-1$ phép thế sơ cấp.
 \end{lemma}
 
 \begin{proof}[Chứng minh bổ đề~\ref{chapter3:product-of-transpositions}]
+    \par Một xích độ dài $k$ sẽ tác động lên dãy $x_{1}$, $x_{2}$, \ldots, $x_{k}$ như sau:
+    \[
+        x_{1}\mapsto x_{2} \mapsto x_{3} \mapsto \cdots \mapsto x_{k} \mapsto x_{1}.
+    \]
+    \par Xích trên có thể phân tích được thành tích của $k - 1$ phép thế sơ cấp, theo bổ đề~\ref{chapter3:cycles-product}:
+    \begin{align*}
+        (x_{1}, x_{2}, \ldots, x_{k}) & = (x_{1}, x_{2}, \ldots, x_{k-1})(x_{k-1}, x_{k}) \\
+                                      & = (x_{1}, x_{2}, \ldots, x_{k-2})(x_{k-2}, x_{k-1})(x_{k-1}, x_{k}) \\
+                                      & = \ldots \\
+                                      & = (x_{1}, x_{2})(x_{2}, x_{3})\ldots (x_{k-1}, x_{k}).
+    \end{align*}
+    \par Không có phần tử nào cố định đối với xích này.
+    \par Sau khi tác động bằng xích trên, vị trí mới của $x_{i}$ được gọi là vị trí đích.
+    \par Nếu ta viết xích trên dưới dạng tích của các phép thế sơ cấp và thực hiện chúng lần lượt (phải qua trái) thì một phép sơ cấp có thể tạo ra một trong ba khả năng sau (vì phép thế sơ cấp chỉ tác động lên 2 phần tử):
+    \begin{enumerate}[label = Khả năng \arabic*., itemindent=2cm]
+        \item Không có thêm phần tử nào ở đúng vị trí đích.
+        \item Có thêm đúng 1 phần tử ở đúng vị trí đích.
+        \item Có thêm đúng 2 phần tử ở đúng vị trí đích.
+    \end{enumerate}
+    \par Phép thế sơ cấp cuối cùng trong phân tích trên sẽ tạo ra thêm 2 phần tử ở đúng vị trí đích.
 \end{proof}
+
+\begin{proof}
+    \par Xét phép thế $\sigma$ trên tập hợp $n$ số tự nhiên đầu tiên.
+    \par Theo bổ đề~\ref{chapter3:product-of-disjoint-cycles}, ta phân tích phép thế $\sigma$ thành các xích rời nhau. Tổng độ dài của các xích này bằng $n$. Gọi số lượng xích rời rạc là $\ell$.
+    \par Theo bổ đề~\ref{chapter3:product-of-transpositions}, mỗi xích độ dài $k$ đều phân tích được thành tích của $k-1$ phép thế sơ cấp.
+    \par Kết hợp hai điều trên, một phép thế có thể phân tích được thành tích của $n - \ell$ phép thế sơ cấp. Mà $n - \ell \le n - 1$ nên ta có điều phải chứng minh.
+    \par Điều này tương đương với việc có thể đưa cách sắp dãy $a_{1}$, $a_{2}$, \ldots, $a_{n}$ thành $b_{1}$, $b_{2}$, \ldots, $b_{n}$ và ngược lại bằng cách thực hiện không quá $n - 1$ phép thế sơ cấp.
+\end{proof}
+
+\begin{exercise}
+    Với giả thiết như bài trên, chứng minh rằng có thể đưa cách sắp này về cách sắp kia bằng cách sử dụng không quá $n(n-1)/2$ phép chuyển vị của hai phần tử đứng kề nhau.
+\end{exercise}
+
+\begin{proof}
+    \par Ta chỉ cần chứng minh có thể đưa cách sắp thứ nhất thành cách sắp thứ hai bằng cách sử dụng không quá $n(n-1)/2$ phép chuyển vị của hai phần tử đứng kề nhau.
+    \par Như giả thiết, cách sắp dãy thứ nhất là $a_{1}$, $a_{2}$, \ldots, $a_{n}$; cách sắp dãy thứ hai là $b_{1}$, $b_{2}$, \ldots, $b_{n}$.
+    \par Lưu ý rằng $\{ a_{1}, a_{2}, \ldots, a_{n} \} = \{ b_{1}, b_{2}, \ldots, b_{n} \}$.
+
+    \begin{enumerate}[label = (\arabic*)]
+        \item Tồn tại duy nhất $a_{k_{1}}$ sao cho $a_{k_{1}} = b_{n}$.
+        \item Ta lần lượt thực hiện cách phép chuyển vị hai phần tử kề nhau: $(a_{k_{1}}, a_{k_{1}+1})$, $(a_{k_{1}}, a_{k_{1}+2})$, \ldots $(a_{k_{1}}, a_{n})$.
+        \item Sau khi thực hiện các phép chuyển vị như trên, $a_{k}$ ở vị trí cuối cùng trong dãy.
+    \end{enumerate}
+    \par Trong quy trình trên, ta thực hiện $n - k_{1}$ phép chuyển vị hai phần tử kề nhau.
+    \par Trong $n - 1$ phần tử đầu tiên của dãy $a_{1}$, $a_{2}$, \ldots, $a_{n}$, tồn tại $a_{k_{2}} = b_{n-1}$,  ta thực hiện các phép chuyển vị $(a_{k_{2}}, a_{k_{2}+1})$, $(a_{k_{2}}, a_{k_{2}+2})$, \ldots $(a_{k_{2}}, a_{n-1})$. Ta đã thực hiện $(n - 1) - k_{2}$ phép chuyển vị hai phần tử kề nhau.
+    \par Liên tiếp thực hiện việc dồn dãy như trên, ta đưa được cách sắp thứ nhất về cách sắp thứ hai $-$ chỉ bằng các phép chuyển vị hai phần tử kề nhau.
+    \par Số phép chuyển vị hai phần tử kề nhau đã được sử dụng không vượt quá
+    \[
+        (n - 1) + (n - 2) + \cdots + 2 + 1 = \dfrac{n(n-1)}{2}.
+    \]
+    \par Đó cũng là điều phải chứng minh.
+\end{proof}
+
+\begin{exercise}
+    Cho ví dụ về một cách sắp dãy $n$ số tự nhiên đầu tiên thành dãy sao cho dãy này không thể đưa về dãy sắp tự nhiên bằng cách dùng ít hơn $n - 1$ phép thế sơ cấp.
+\end{exercise}
 
 \begin{proof}
 \end{proof}
