@@ -550,6 +550,7 @@
 \end{proof}
 
 \begin{exercise}
+    \par Hãy
     \begin{enumerate}[label = (\roman*)]
         \item Tìm tất cả các giới hạn riêng của dãy $(x_{n})$ với $x_{n} = (-1)^{n}$.
         \item Chứng minh rằng dãy $(x_{n})$ có giới hạn khi và chỉ khi các dãy con
@@ -561,9 +562,43 @@
 
 \begin{proof}
     \begin{enumerate}[label = (\roman*)]
-        \item
-        \item
-        \item
+        \item Dãy con $(x_{2n})$ hội tụ đến 1. Dãy con $(x_{2n+1})$ hội tụ đến -1. Do đó 1 và -1 là các giới hạn riêng của $(x_{n})$.
+            \par Giả sử $a\ne\pm{1}$ là một giới hạn riêng của $(x_{n})$. Khi đó, tồn tại dãy con $(x_{n_{k}})$ hội tụ đến $a$.
+            \par Theo định nghĩa, $\forall\varepsilon > 0, \exists N_{\varepsilon}$ sao cho:
+            \[
+                \abs{x_{n_{k}} - a} < \varepsilon,\ \forall n_{k}\ge N_{\varepsilon}.
+            \]
+            \par Giả sử $\forall N$, $\exists n_{k}, n_{\ell}\ge N$, $x_{n_{k}}$, $x_{n_{\ell}}$ nhận hai giá trị 1 và -1, thì ta chọn $\varepsilon < \min\{ \abs{1 - a}, \abs{-1 - a} \}$, khi đó $\forall N$, $\forall n_{k}\ge N$, $\abs{x_{n_{k}} - a} > \varepsilon$, tức là dãy con không hội tụ đến $a$ và giả sử phản chứng là sai.
+            \par Như vậy, để dãy con $(x_{n_{k}})$ hội tụ đến $a$ thì điều kiện cần là: $\exists N$, $x_{n_{k}} = 1, \forall n_{k}\ge N$ hoặc $x_{n_{k}} = -1, \forall n_{k}\ge N$. Do đó, $a = 1$ hoặc $a = -1$.
+            \bigskip
+            \par Vậy dãy $(x_{n}) = (-1){}^{n}$ chỉ có hai giới hạn riêng là 1 và -1.
+        \item $(\Leftarrow)$ $(x_{n})$ hội tụ thì mọi dãy con của $(x_{n})$ cũng hội tụ đến giới hạn của $(x_{n})$.
+            \par $(\Rightarrow)$
+            \[
+                \lim\limits_{n\to+\infty}x_{2n} = a;\quad\lim\limits_{n\to+\infty}x_{2n+1} = b;\quad\lim\limits_{n\to+\infty}x_{3n} = c.
+            \]
+            \par $(x_{6n})$ là dãy con của $(x_{2n})$ và $(x_{3n})$, suy ra $a = c$.
+            \par $(x_{6n+3})$ là dãy con của $(x_{2n+1})$ và $(x_{3n})$, suy ra $b = c$.
+            \par Như vậy ba dãy con $(x_{2n})$, $(x_{2n+1})$, $(x_{3n})$ nếu hội tụ thì chúng có cùng giới hạn.
+        \item Xét biểu thức $\abs{\sin\floor{\dfrac{\pi}{2} + 2n\pi} - \sin\floor{2n\pi}}$.
+            \[
+                \abs{\sin\floor{\dfrac{\pi}{2} + 2n\pi} - \sin\floor{2n\pi}} = 2\abs{\sin\left(\dfrac{1}{2}\left(\floor{\dfrac{\pi}{2} + 2n\pi} - \floor{2n\pi}\right)\right)\cos\left(\dfrac{1}{2}\left(\floor{\dfrac{\pi}{2} + 2n\pi} - \floor{2n\pi}\right)\right)}.
+            \]
+            \begin{gather*}
+                \dfrac{\pi}{2} + 2n\pi - 1\le \floor{\dfrac{\pi}{2} + 2n\pi} \le \dfrac{\pi}{2} + 2n\pi \\
+                2n\pi - 1\le \floor{2n\pi} \le 2n\pi \\
+                \Rightarrow
+                \begin{cases}
+                    \dfrac{\pi - 2}{4}\le\dfrac{1}{2}\left(\floor{\dfrac{\pi}{2} + 2n\pi} - \floor{2n\pi}\right) \le \dfrac{\pi + 2}{4} \\
+                    \dfrac{\pi - 4}{4} + 2n\pi\le \dfrac{1}{2}\left(\floor{\pi + 2n\pi} + \floor{2n\pi}\right) \le \dfrac{\pi}{4} + 2n\pi.
+                \end{cases} \\
+                \Rightarrow
+                \begin{cases}
+                    \abs{\sin\left(\dfrac{1}{2}\left(\floor{\dfrac{\pi}{2} + 2n\pi} - \floor{2n\pi}\right)\right)} \ge \sin\left(\dfrac{\pi - 2}{4}\right) \\
+                    \abs{\cos\left(\dfrac{1}{2}\left(\floor{\dfrac{\pi}{2} + 2n\pi} - \floor{2n\pi}\right)\right)}\ge\cos\left(\dfrac{\pi}{4}\right) = \dfrac{\sqrt{2}}{2}.
+                \end{cases}
+            \end{gather*}
+            \par Suy ra$\abs{\sin\floor{\dfrac{\pi}{2} + 2n\pi} - \sin\floor{2n\pi}}\ge \sqrt{2}\sin\left(\dfrac{\pi-2}{4}\right)$, $\forall n\in\mathbb{N}$. Theo định nghĩa, dãy $(\sin n)$ không hội tụ.
     \end{enumerate}
 \end{proof}
 
