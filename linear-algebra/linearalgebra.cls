@@ -67,3 +67,4 @@
 \newcommand{\rank}{\text{rank}}
 \renewcommand{\phi}{\varphi}
 \renewcommand{\hom}{\text{Hom}}
+\newcommand{\abs}[1]{\left|{#1}\right|}
