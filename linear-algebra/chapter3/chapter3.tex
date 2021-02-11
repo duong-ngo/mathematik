@@ -425,11 +425,90 @@
     \begin{enumerate}[label = (\alph*)]
         \item $\begin{vmatrix} 1 & 2 & 3 & \cdots & n \\ -1 & 0 & 3 & \cdots & n \\ -1 & -2 & 0 & \cdots & n \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ -1 & -2 & -3 & \cdots & 0 \end{vmatrix}$,
         \item $\begin{vmatrix} a_{0} & a_{1} & a_{2} & \cdots & a_{n} \\ -x & x & 0 & \cdots & 0 \\ 0 & -x & x & \cdots & 0 \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & \cdots & x \end{vmatrix}$,
-        \item $\begin{vmatrix} a_{0} & a_{1} & a_{2} & \cdots & a_{n} \\ -x_{1} & x_{2} & 0 & \cdots & 0 \\ 0 & -x_{2} & x_{3} & \cdots & 0 \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & \cdots & x_{n} \end{vmatrix}$.
+        \item $\begin{vmatrix} a_{0} & a_{1} & a_{2} & \cdots & a_{n} \\ -x_{1} & x_{2} & 0 & \cdots & 0 \\ 0 & -x_{2} & x_{3} & \cdots & 0 \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & \cdots & x_{n+1} \end{vmatrix}$.
     \end{enumerate}
 \end{exercise}
 
 \begin{proof}[Lời giải]
+    \begin{enumerate}[label = (\alph*)]
+        \item $r_{k} := r_{k} + r_{1}$, $\forall 1 < k\le n$.
+            \begin{align*}
+                \begin{vmatrix}
+                    1  & 2  & 3 & \cdots & n \\
+                    -1 & 0  & 3 & \cdots & n \\
+                    -1 & -2 & 0 & \cdots & n \\
+                    \vdots & \vdots & \vdots & \ddots & \vdots \\
+                    -1 & -2 & -3 & \cdots & 0
+                \end{vmatrix}
+                =
+                \begin{vmatrix}
+                    1 & 2 & 3 & \cdots & n \\
+                    0 & 2 & 6 & \cdots & 2n \\
+                    0 & 0 & 3 & \cdots & 2n \\
+                    \vdots & \vdots & \vdots & \ddots & \vdots \\
+                    0 & 0 & 0 & \cdots & n
+                \end{vmatrix}
+                = n!
+            \end{align*}
+        \item Thực hiện lần lượt các biến đổi sơ cấp sau:
+            \begin{itemize}
+                \item $c_{0} = \displaystyle\sum^{n}_{k=0}c_{k}$.
+                \item $c_{1} = \displaystyle\sum^{n}_{k=1}c_{k}$.
+                \item $\cdots$
+                \item $c_{n} = \displaystyle\sum^{n}_{k=n}c_{k}$.
+            \end{itemize}
+            \begingroup
+            \allowdisplaybreaks{}
+            \begin{align*}
+                \begin{vmatrix}
+                    a_{0}  & a_{1}  & a_{2}  & \cdots & a_{n}  \\
+                    -x     & x      & 0      & \cdots & 0      \\
+                    0      & -x     & x      & \cdots & 0      \\
+                    \vdots & \vdots & \vdots & \ddots & \vdots \\
+                    0      & 0      & 0      & \cdots & x
+                \end{vmatrix}
+                & =
+                \begin{vmatrix}
+                    \sum^{n}_{k=0}a_{k} & a_{1}  & a_{2}  & \cdots & a_{n}  \\
+                    0                   & x      & 0      & \cdots & 0      \\
+                    0                   & -x     & x      & \cdots & 0      \\
+                    \vdots              & \vdots & \vdots & \ddots & 0      \\
+                    0                   & 0      & 0      & \cdots & x
+                \end{vmatrix}
+                =
+                \begin{vmatrix}
+                    \sum^{n}_{k=0}a_{k} & \sum^{n}_{k=1}a_{k} & a_{2}  & \cdots & a_{n}  \\
+                    0                   & x                   & 0      & \cdots & 0      \\
+                    0                   & 0                   & x      & \cdots & 0      \\
+                    \vdots              & \vdots              & \vdots & \ddots & 0      \\
+                    0                   & 0                   & 0      & \cdots & x
+                \end{vmatrix} \\
+                & = 
+                \begin{vmatrix}
+                    \sum^{n}_{k=0}a_{k} & \sum^{n}_{k=1}a_{k} & \sum^{n}_{k=n}a_{k} & \cdots & a_{n}  \\
+                    0                   & x                   & 0                   & \cdots & 0      \\
+                    0                   & 0                   & x                   & \cdots & 0      \\
+                    \vdots              & \vdots              & \vdots              & \ddots & 0      \\
+                    0                   & 0                   & 0                   & \cdots & x
+                \end{vmatrix}
+                = \left(\sum^{n}_{k=0}a_{k}\right)x^{n}.
+            \end{align*}
+            \endgroup
+        \item Áp dụng khai triển Laplace cho dòng thứ nhất.
+            \begingroup
+            \allowdisplaybreaks{}
+            \begin{align*}
+                \begin{vmatrix}
+                    a_{0}  & a_{1}  & a_{2}  & \cdots & a_{n}  \\
+                    -x_{1} & x_{2}  & 0      & \cdots & 0      \\
+                    0      & -x_{2} & x_{3}  & \cdots & 0      \\
+                    \vdots & \vdots & \vdots & \ddots & \vdots \\
+                    0      & 0      & 0      & \cdots & x_{n+1}
+                \end{vmatrix}
+                & = a_{0}x_{2}x_{3}\ldots x_{n} + a_{1}x_{1}x_{3}\ldots x_{n} + \cdots + a_{n}x_{1}x_{2}\ldots x_{n-1}.
+            \end{align*}
+            \endgroup
+    \end{enumerate}
 \end{proof}
 
 \begin{exercise}
@@ -437,6 +516,18 @@
 \end{exercise}
 
 \begin{proof}[Lời giải]
+    \begingroup
+    \allowdisplaybreaks{}
+    \begin{align*}
+        \begin{vmatrix}
+            0 & 1 & 2 & \cdots & n - 1 \\
+            1 & 0 & 1 & \cdots & n - 2 \\
+            2 & 1 & 0 & \cdots & n - 3 \\
+            \vdots & \vdots & \vdots & \ddots & \vdots \\
+            n - 1 & n - 2 & n - 3 & \cdots & 0
+        \end{vmatrix}
+    \end{align*}
+    \endgroup
 \end{proof}
 
 \begin{exercise}
@@ -447,5 +538,7 @@
     \end{enumerate}
 \end{exercise}
 
+\begin{proof}[Lời giải]
+\end{proof}
 
 \end{document}
