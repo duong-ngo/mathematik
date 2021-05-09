@@ -10,59 +10,59 @@
     Chứng minh rằng:
     \begin{enumerate}[label = (\roman*)]
         \item Nếu $A\subset\mathbb{R}$ bị chặn trên thì $z = \sup A$ khi và chỉ khi
-            \[
-                \begin{cases}
-                    x\le z\ \forall x\in A \\
-                    \forall\varepsilon > 0\ \exists x_{\varepsilon}\in A : z - \varepsilon < x_{\varepsilon}.
-                \end{cases}
-            \]
+              \[
+                  \begin{cases}
+                      x\le z\ \forall x\in A \\
+                      \forall\varepsilon > 0\ \exists x_{\varepsilon}\in A : z - \varepsilon < x_{\varepsilon}.
+                  \end{cases}
+              \]
         \item Nếu $A\subset\mathbb{R}$ bị chặn dưới thì $z = \inf A$ khi và chỉ khi
-            \[
-                \begin{cases}
-                    z\le x\ \forall x\in A \\
-                    \forall\varepsilon > 0\ \exists x_{\varepsilon}\in A : x_{\varepsilon} < z + \varepsilon.
-                \end{cases}
-            \]
+              \[
+                  \begin{cases}
+                      z\le x\ \forall x\in A \\
+                      \forall\varepsilon > 0\ \exists x_{\varepsilon}\in A : x_{\varepsilon} < z + \varepsilon.
+                  \end{cases}
+              \]
         \item Giữa cận trên đúng và cận dưới đúng có mối liên hệ sau
-            \[
-                \inf A = -\sup(-A),\quad \sup A = -\inf(-A).
-            \]
+              \[
+                  \inf A = -\sup(-A),\quad \sup A = -\inf(-A).
+              \]
     \end{enumerate}
 \end{exercise}
 
 \begin{proof}
     \begin{enumerate}[label = (\roman*)]
         \item\textit{Điều kiện cần}.
-             \par $z = \sup A$ thì $z$ là cận trên của $A$, do đó $x\le z\ \forall x\in A$.
-             \par $z$ là cận trên đúng của $A$ nên $z - \varepsilon$ không phải cận trên của $A$, tức là trong $A$ tồn tại một phần tử $x_{\varepsilon} > z - \varepsilon$.
-             \par\textit{Điều kiện đủ}.
-             \par $x\le z\ \forall x\in A$ thì $z$ là một cận trên của $A$.
-             \par $\forall\varepsilon > 0\ \exists x_{\varepsilon}\in A : z - \varepsilon < x_{\varepsilon}$ nghĩa là với mọi $\varepsilon > 0$, $z - \varepsilon$ không phải là cận trên của $A$. Tức là mọi số bé hơn $z$ đều không phải cận trên của $A$.
-             \par Theo định nghĩa \textbf{cận trên đúng} thì $z = \sup A$.
+        \par $z = \sup A$ thì $z$ là cận trên của $A$, do đó $x\le z\ \forall x\in A$.
+        \par $z$ là cận trên đúng của $A$ nên $z - \varepsilon$ không phải cận trên của $A$, tức là trong $A$ tồn tại một phần tử $x_{\varepsilon} > z - \varepsilon$.
+        \par\textit{Điều kiện đủ}.
+        \par $x\le z\ \forall x\in A$ thì $z$ là một cận trên của $A$.
+        \par $\forall\varepsilon > 0\ \exists x_{\varepsilon}\in A : z - \varepsilon < x_{\varepsilon}$ nghĩa là với mọi $\varepsilon > 0$, $z - \varepsilon$ không phải là cận trên của $A$. Tức là mọi số bé hơn $z$ đều không phải cận trên của $A$.
+        \par Theo định nghĩa \textbf{cận trên đúng} thì $z = \sup A$.
         \item\textit{Điều kiện cần}.
-             \par $z = \inf A$ thì $z$ là cận dưới của $A$, do đó $z\le x\ \forall x\in A$.
-             \par $z$ là cận dưới đúng của $A$ nên $z + \varepsilon$ không phải cận dưới của $A$, tức là trong $A$ tồn tại một phần tử $x_{\varepsilon} < z + \varepsilon$.
-             \par\textit{Điều kiện đủ}.
-             \par $z\le x\ \forall x\in A$ thì $z$ là một cận dưới của $A$.
-             \par $\forall\varepsilon > 0\ \exists x_{\varepsilon}\in A : x_{\varepsilon} < z + \varepsilon$ nghĩa là với mọi $\varepsilon > 0$, $z + \varepsilon$ không phải cận dưới của $A$. Tức là mọi số lớn hơn $z$ đều không phải cận dưới của $A$.
-             \par Theo định nghĩa \textbf{cận dưới đúng} thì $z = \inf A$.
+        \par $z = \inf A$ thì $z$ là cận dưới của $A$, do đó $z\le x\ \forall x\in A$.
+        \par $z$ là cận dưới đúng của $A$ nên $z + \varepsilon$ không phải cận dưới của $A$, tức là trong $A$ tồn tại một phần tử $x_{\varepsilon} < z + \varepsilon$.
+        \par\textit{Điều kiện đủ}.
+        \par $z\le x\ \forall x\in A$ thì $z$ là một cận dưới của $A$.
+        \par $\forall\varepsilon > 0\ \exists x_{\varepsilon}\in A : x_{\varepsilon} < z + \varepsilon$ nghĩa là với mọi $\varepsilon > 0$, $z + \varepsilon$ không phải cận dưới của $A$. Tức là mọi số lớn hơn $z$ đều không phải cận dưới của $A$.
+        \par Theo định nghĩa \textbf{cận dưới đúng} thì $z = \inf A$.
         \item $z = \inf A$.
-             \par Theo (ii)
-             \[
-                 \begin{cases}
-                     z\le x\ \forall x\in A \\
-                     \forall\varepsilon > 0\ \exists x_{\varepsilon}\in A : x_{\varepsilon} < z + \varepsilon
-                 \end{cases}
-             \]
-             \par Điều này tương đương với:
-             \[
-                 \begin{cases}
-                     -x\le -z\ \forall -x\in -A \\
-                     \forall\varepsilon > 0\ \exists -x_{\varepsilon}\in -A : -z - \varepsilon < -x_{\varepsilon}.
-                 \end{cases}
-             \]
-             \par Theo (i) thì $-z = \sup(-A)$. Do đó $\inf A = -\sup(-A)$.
-             \par Áp dụng điều này, ta được $-\inf(-A) = -(-\sup A) = \sup A$.
+              \par Theo (ii)
+              \[
+                  \begin{cases}
+                      z\le x\ \forall x\in A \\
+                      \forall\varepsilon > 0\ \exists x_{\varepsilon}\in A : x_{\varepsilon} < z + \varepsilon
+                  \end{cases}
+              \]
+              \par Điều này tương đương với:
+              \[
+                  \begin{cases}
+                      -x\le -z\ \forall -x\in -A \\
+                      \forall\varepsilon > 0\ \exists -x_{\varepsilon}\in -A : -z - \varepsilon < -x_{\varepsilon}.
+                  \end{cases}
+              \]
+              \par Theo (i) thì $-z = \sup(-A)$. Do đó $\inf A = -\sup(-A)$.
+              \par Áp dụng điều này, ta được $-\inf(-A) = -(-\sup A) = \sup A$.
     \end{enumerate}
 \end{proof}
 
@@ -92,24 +92,24 @@
 \begin{proof}
     \begin{enumerate}[label = (\roman*)]
         \item $A = \{ \frac{1}{n}\ |\ n\in\mathbb{N}\setminus\{ 0 \} \}$.
-            \par $\forall\varepsilon > 0$, chọn $n = \ceil{\frac{1}{\varepsilon}} + 1$ thì $\frac{1}{n} < \varepsilon$.
-            \par Do đó $\inf A = 0$. Tuy nhiên $0\not\in A$.
-            \par $B = \{ \frac{-1}{n}\ |\ n\in\mathbb{N}\setminus\{ 0 \} \}$.
-            \par $\forall\varepsilon > 0$, chọn $n = \ceil{\frac{1}{\varepsilon}} + 1$ thì $\frac{-1}{n} > -\varepsilon$.
-            \par Do đó $\sup B = 0$. Tuy nhiên $0\not\in B$.
-            \par Nếu $A$, $B$ được bổ sung phần tử $0$ thì $\inf A\in A$ và $\sup B\in B$.
+              \par $\forall\varepsilon > 0$, chọn $n = \ceil{\frac{1}{\varepsilon}} + 1$ thì $\frac{1}{n} < \varepsilon$.
+              \par Do đó $\inf A = 0$. Tuy nhiên $0\not\in A$.
+              \par $B = \{ \frac{-1}{n}\ |\ n\in\mathbb{N}\setminus\{ 0 \} \}$.
+              \par $\forall\varepsilon > 0$, chọn $n = \ceil{\frac{1}{\varepsilon}} + 1$ thì $\frac{-1}{n} > -\varepsilon$.
+              \par Do đó $\sup B = 0$. Tuy nhiên $0\not\in B$.
+              \par Nếu $A$, $B$ được bổ sung phần tử $0$ thì $\inf A\in A$ và $\sup B\in B$.
         \item Nếu $A$ có phần tử lớn nhất thì $\max A$ là một cận trên của $A$. Bên cạnh đó, với mọi $x < \max A$ thì phần tử $\max A > x$, nên $x$ không thể là cận trên của $A$. Do đó, theo định nghĩa cận trên đúng, $\sup A = \max A$.
-            \par Nếu $A$ có phần tử nhỏ nhất thì $\min A$ là một cận dưới của $A$. Mà với mọi $x > \min A$ thì phần tử $\min A < x$, nên $x$ không thể là cận dưới của $A$. Do đó, theo định nghĩa cận dưới đúng, $\inf A = \min A$.
+              \par Nếu $A$ có phần tử nhỏ nhất thì $\min A$ là một cận dưới của $A$. Mà với mọi $x > \min A$ thì phần tử $\min A < x$, nên $x$ không thể là cận dưới của $A$. Do đó, theo định nghĩa cận dưới đúng, $\inf A = \min A$.
         \item Cận trên đúng của $A$ tồn tại. Giả sử $A$ có hai cận trên đúng là $x$ và $y$.
-            \par Nếu $x < y$ thì theo định nghĩa cận trên đúng, $x$ không phải cận trên của $A$.
-            \par Nếu $y < x$ thì theo định nghĩa cận trên đúng, $y$ không phải cận trên của $A$.
-            \par Do đó $x = y$, tức là cận trên đúng của $A$ là duy nhất (nếu tồn tại).
-            \bigskip
-            \par Cận dưới đúng của $A$ tồn tại. Giả sử $A$ có hai cận dưới đúng là $x$ và $y$.
-            \par Nếu $x > y$ thì theo định nghĩa cận dưới đúng, $x$ không phải cận dưới của $A$.
-            \par Nếu $y > x$ thì theo định nghĩa cận dưới đúng, $y$ không phải cận dưới của $A$.
-            \par Do đó $x = y$, tức là cận dưới đúng của $A$ là duy nhất (nếu tồn tại).
-     \end{enumerate}
+              \par Nếu $x < y$ thì theo định nghĩa cận trên đúng, $x$ không phải cận trên của $A$.
+              \par Nếu $y < x$ thì theo định nghĩa cận trên đúng, $y$ không phải cận trên của $A$.
+              \par Do đó $x = y$, tức là cận trên đúng của $A$ là duy nhất (nếu tồn tại).
+              \bigskip
+              \par Cận dưới đúng của $A$ tồn tại. Giả sử $A$ có hai cận dưới đúng là $x$ và $y$.
+              \par Nếu $x > y$ thì theo định nghĩa cận dưới đúng, $x$ không phải cận dưới của $A$.
+              \par Nếu $y > x$ thì theo định nghĩa cận dưới đúng, $y$ không phải cận dưới của $A$.
+              \par Do đó $x = y$, tức là cận dưới đúng của $A$ là duy nhất (nếu tồn tại).
+    \end{enumerate}
 \end{proof}
 
 \begin{exercise}
@@ -119,15 +119,15 @@
 \begin{proof}
     \begin{itemize}
         \item Giả sử $\sqrt{2}$ là số hữu tỷ, khi đó tồn tại các số nguyên dương $a$, $b$ sao cho $\gcd(a,b) = 1$ và $\frac{a}{b} = \sqrt{2}$.
-            \par $\frac{a}{b} = \sqrt{2}$, suy ra $a^{2} = 2b^{2}$.
-            \par $2\mid 2b^{2}$ nên $2\mid a^{2}$, suy ra $2\mid a$.
-            \par Đặt $a = 2a_{1}$, trong đó $a_{1}$ là số nguyên dương, ta được $b^{2} = 2a^{2}_{1}$. Điều này dẫn tới $2\mid b^{2}$, tức là $2\mid b$. Do đó $\gcd(a, b)\ge 2$, mâu thuận với giả sử rằng $\gcd(a, b) = 1$.
-            \par Vậy $\sqrt{2}$ là số vô tỷ.
+              \par $\frac{a}{b} = \sqrt{2}$, suy ra $a^{2} = 2b^{2}$.
+              \par $2\mid 2b^{2}$ nên $2\mid a^{2}$, suy ra $2\mid a$.
+              \par Đặt $a = 2a_{1}$, trong đó $a_{1}$ là số nguyên dương, ta được $b^{2} = 2a^{2}_{1}$. Điều này dẫn tới $2\mid b^{2}$, tức là $2\mid b$. Do đó $\gcd(a, b)\ge 2$, mâu thuận với giả sử rằng $\gcd(a, b) = 1$.
+              \par Vậy $\sqrt{2}$ là số vô tỷ.
         \item Giả sử $\sqrt{3}$ là số hữu tỷ, khi đó tồn tại các số nguyên dương $a$, $b$ sao cho $\gcd(a,b) = 1$ và $\frac{a}{b} = \sqrt{3}$.
-            \par $\frac{a}{b} = \sqrt{3}$, suy ra $a^{2} = 3b^{2}$.
-            \par $3\mid 3b^{2}$ nên $3\mid a^{2}$, suy ra $3\mid a$.
-            \par Đặt $a = 3a_{1}$, trong đó $a_{1}$ là số nguyên dương, ta được $b^{2} = 3a^{2}_{1}$. Điều này dẫn tới $3\mid b^{2}$, tức là $3\mid b$. Do đó $\gcd(a, b)\ge 3$, mâu thuẫn với giả sử rằng $\gcd(a, b) = 1$.
-            \par Vậy $\sqrt{3}$ là số vô tỷ.
+              \par $\frac{a}{b} = \sqrt{3}$, suy ra $a^{2} = 3b^{2}$.
+              \par $3\mid 3b^{2}$ nên $3\mid a^{2}$, suy ra $3\mid a$.
+              \par Đặt $a = 3a_{1}$, trong đó $a_{1}$ là số nguyên dương, ta được $b^{2} = 3a^{2}_{1}$. Điều này dẫn tới $3\mid b^{2}$, tức là $3\mid b$. Do đó $\gcd(a, b)\ge 3$, mâu thuẫn với giả sử rằng $\gcd(a, b) = 1$.
+              \par Vậy $\sqrt{3}$ là số vô tỷ.
     \end{itemize}
 \end{proof}
 
@@ -184,13 +184,13 @@
     Có hai trường hợp cần xem xét.
     \begin{enumerate}[label = Trường hợp \arabic*.,itemindent=1.5cm]
         \item $x$ là số hữu tỷ.
-            \par $x$ là số hữu tỷ thì $x\in N_{x}$ và $x = \max N_{x}$, $x\in M_{x}$ và $x = \min M_{x}$.
-            \par Mà $\sup N_{x} = \max N_{x}$, $\inf M_{x} = \min M_{x}$ nên $\sup N_{x} = x = \inf M_{x}$.
+              \par $x$ là số hữu tỷ thì $x\in N_{x}$ và $x = \max N_{x}$, $x\in M_{x}$ và $x = \min M_{x}$.
+              \par Mà $\sup N_{x} = \max N_{x}$, $\inf M_{x} = \min M_{x}$ nên $\sup N_{x} = x = \inf M_{x}$.
         \item $x$ là số vô tỷ.
-            \par $x$ là số vô tỷ thì $x\notin N_{x}$ và $x\notin M_{x}$.
-            \par Theo định nghĩa của $N_{x}$, $M_{x}$ thì $x$ là cận trên của $N_{x}$ và $x$ là cận dưới của $M_{x}$.
-            \par Chọn $y < x$. Vì giữa hai số thực phân biệt, luôn có số hữu tỷ (số này là phần tử của $N_{x}$) nên $y$ không thể là cận trên của $N_{x}$. Nói cách khác, mọi số nhỏ hơn $x$ đều không phải cận trên của $N_{x}$. Mà $x$ là cận trên của $N_{x}$ nên theo định nghĩa, $x = \sup N_{x}$.
-            \par Chọn $z > x$. Vì giữa hai số thực phân biệt, luôn có số hữu tỷ (số này là phần tử của $M_{x}$) nên $z$ không thể là cận dưới của $M_{x}$. Nói cách khác, mọi số lớn hơn $x$ đều không phải cận dưới của $M_{x}$. Mà $x$ là cận dưới của $M_{x}$ nên theo định nghĩa, $x = \inf M_{x}$.
+              \par $x$ là số vô tỷ thì $x\notin N_{x}$ và $x\notin M_{x}$.
+              \par Theo định nghĩa của $N_{x}$, $M_{x}$ thì $x$ là cận trên của $N_{x}$ và $x$ là cận dưới của $M_{x}$.
+              \par Chọn $y < x$. Vì giữa hai số thực phân biệt, luôn có số hữu tỷ (số này là phần tử của $N_{x}$) nên $y$ không thể là cận trên của $N_{x}$. Nói cách khác, mọi số nhỏ hơn $x$ đều không phải cận trên của $N_{x}$. Mà $x$ là cận trên của $N_{x}$ nên theo định nghĩa, $x = \sup N_{x}$.
+              \par Chọn $z > x$. Vì giữa hai số thực phân biệt, luôn có số hữu tỷ (số này là phần tử của $M_{x}$) nên $z$ không thể là cận dưới của $M_{x}$. Nói cách khác, mọi số lớn hơn $x$ đều không phải cận dưới của $M_{x}$. Mà $x$ là cận dưới của $M_{x}$ nên theo định nghĩa, $x = \inf M_{x}$.
     \end{enumerate}
     \par Tóm lại, $\sup N_{x} = x = \inf M_{x}$.
 \end{proof}
@@ -244,11 +244,11 @@
 \begin{proof}
     \begin{enumerate}[label = (\roman*)]
         \item \textit{Phần thuận.} $A$ không bị chặn trên thì $\forall\varepsilon > 0$, tồn tại $x_{\varepsilon}\in A$ sao cho $x_{\varepsilon} > \varepsilon$. Do đó, với mọi $n_{0}\in\mathbb{N}$, tồn tại $x_{n}\in A$ sao cho $x_{n} > n_{0}$.
-            \par \textit{Phần đảo.} Với mọi $n_{0}\in\mathbb{N}$, tồn tại $x_{n}\in A$ sao cho $x_{n} > n_{0}$.
-            \par $\forall\varepsilon > 0$, chọn $n_{0} = \ceil{\varepsilon}$ thì tồn tại $x_{n}\in A$ sao cho $x_{n} > n_{0} \ge \varepsilon$. Do đó, $A$ không bị chặn trên.
+              \par \textit{Phần đảo.} Với mọi $n_{0}\in\mathbb{N}$, tồn tại $x_{n}\in A$ sao cho $x_{n} > n_{0}$.
+              \par $\forall\varepsilon > 0$, chọn $n_{0} = \ceil{\varepsilon}$ thì tồn tại $x_{n}\in A$ sao cho $x_{n} > n_{0} \ge \varepsilon$. Do đó, $A$ không bị chặn trên.
         \item \textit{Phần thuận.} $A$ không bị chặn dưới thì $\forall\varepsilon > 0$, tồn tại $x_{\varepsilon}\in A$ sao cho $x_{\varepsilon} < -\varepsilon$. Do đó, với mọi $n_{0}\in\mathbb{N}$, tồn tại $x_{n}\in A$ sao cho $x_{} < -n_{0}$.
-            \par \textit{Phần đảo.} Với mọi $n_{0}\in\mathbb{N}$, tồn tại $x_{n}\in A$ sao cho $x_{n} < -n_{0}$.
-            \par $\forall\varepsilon > 0$, chọn $n_{0} = \floor{\varepsilon}$, tồn tại $x_{\varepsilon}\in A$ sao cho $x_{\varepsilon} < -n_{0} \le -\varepsilon$. Do đó, $A$ không bị chặn dưới.
+              \par \textit{Phần đảo.} Với mọi $n_{0}\in\mathbb{N}$, tồn tại $x_{n}\in A$ sao cho $x_{n} < -n_{0}$.
+              \par $\forall\varepsilon > 0$, chọn $n_{0} = \floor{\varepsilon}$, tồn tại $x_{\varepsilon}\in A$ sao cho $x_{\varepsilon} < -n_{0} \le -\varepsilon$. Do đó, $A$ không bị chặn dưới.
     \end{enumerate}
 \end{proof}
 
@@ -297,62 +297,62 @@
 \begin{proof}
     \begin{enumerate}[label = (\roman*)]
         \item Theo định nghĩa, $\forall\varepsilon > 0$, $\exists n_{x}, n_{y}$ sao cho $\forall n > n_{x}$ thì $\abs{x_{n} - x} < \dfrac{\varepsilon}{2}$, $\forall n > n_{y}$ thì $\abs{y_{n} - y} < \dfrac{\varepsilon}{2}$.
-            \par Do đó, nếu $n > \max\{ n_{x}, n_{y} \}$ thì $\abs{x_{n} - x} < \dfrac{\varepsilon}{2}$, $\abs{y_{n} - y} < \dfrac{\varepsilon}{2}$.
-            \par Do đó, $\forall\varepsilon > 0$, $\exists n_{0}$ sao cho $\forall n > n_{0}$ thì
-            \[
-                \abs{x_{n} + y_{n} - x - y} \le \abs{x_{n} - x} + \abs{y_{n} - y} < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon
-            \]
-            \par Theo định nghĩa, $\lim\limits_{n\to+\infty}(x_{n} + y_{n}) = x + y$.
+              \par Do đó, nếu $n > \max\{ n_{x}, n_{y} \}$ thì $\abs{x_{n} - x} < \dfrac{\varepsilon}{2}$, $\abs{y_{n} - y} < \dfrac{\varepsilon}{2}$.
+              \par Do đó, $\forall\varepsilon > 0$, $\exists n_{0}$ sao cho $\forall n > n_{0}$ thì
+              \[
+                  \abs{x_{n} + y_{n} - x - y} \le \abs{x_{n} - x} + \abs{y_{n} - y} < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon
+              \]
+              \par Theo định nghĩa, $\lim\limits_{n\to+\infty}(x_{n} + y_{n}) = x + y$.
         \item Nếu $a = 0$, mệnh đề hiển nhiên đúng vì $(0x_{n})$ là dãy hằng.
-            \par Xét trường hợp $a\ne 0$.
-            \par Theo định nghĩa, $\forall\epsilon > 0$, $\exists n_{0}$ sao cho $\forall n > n_{0}$ thì $\abs{x_{n} - x} < \dfrac{\varepsilon}{\abs{a}}$.
-            \par Suy ra, $\forall\epsilon > 0$, $\exists n_{0}$ sao cho $\forall n > n_{0}$ thì $\abs{ax_{n} - ax} < \varepsilon$.
+              \par Xét trường hợp $a\ne 0$.
+              \par Theo định nghĩa, $\forall\epsilon > 0$, $\exists n_{0}$ sao cho $\forall n > n_{0}$ thì $\abs{x_{n} - x} < \dfrac{\varepsilon}{\abs{a}}$.
+              \par Suy ra, $\forall\epsilon > 0$, $\exists n_{0}$ sao cho $\forall n > n_{0}$ thì $\abs{ax_{n} - ax} < \varepsilon$.
         \item Theo định nghĩa, $\forall\varepsilon' > 0$, $\exists n_{x}, n_{y}$ sao cho $\forall n > n_{x}$ thì $\abs{x_{n} - x} < \varepsilon'$, $\forall n > n_{y}$ thì $\abs{y_{n} - y} < \varepsilon'$.
-            \par $n_{0} = \max\{ n_{x}, n_{y} \}$ thì $\forall n > n_{0}$, $\abs{x_{n} - x} < \varepsilon'$, $\abs{y_{n} - y} < \varepsilon'$.
-            \par $\forall\varepsilon' > 0$, $\exists n_{0}$ sao cho $\forall n > n_{0}$:
-            \[
-                \abs{x_{n}y_{n} - xy} = \abs{(x_{n} - x)(y_{n} - y)} + \abs{y(x_{n} - x)} + \abs{x(y_{n} - y)} < \varepsilon'^{2} + \varepsilon'(\abs{x} + \abs{y})
-            \]
-            \par $\forall\epsilon > 0$, chọn $\varepsilon' < -\dfrac{\vert x\vert + \vert y\vert}{2} + \sqrt{\varepsilon + \left(\dfrac{\vert x\vert + \vert y\vert}{2}\right)^{2}}$ thì $\varepsilon'^{2} + \varepsilon'(|x| + |y|) < \varepsilon$.
-            \par Do đó, $\forall\varepsilon > 0$, $\exists n_{0}$ sao cho $\forall n > n_{0}$ thì $\abs{x_{n}y_{n} - xy} < \varepsilon$.
+              \par $n_{0} = \max\{ n_{x}, n_{y} \}$ thì $\forall n > n_{0}$, $\abs{x_{n} - x} < \varepsilon'$, $\abs{y_{n} - y} < \varepsilon'$.
+              \par $\forall\varepsilon' > 0$, $\exists n_{0}$ sao cho $\forall n > n_{0}$:
+              \[
+                  \abs{x_{n}y_{n} - xy} = \abs{(x_{n} - x)(y_{n} - y)} + \abs{y(x_{n} - x)} + \abs{x(y_{n} - y)} < \varepsilon'^{2} + \varepsilon'(\abs{x} + \abs{y})
+              \]
+              \par $\forall\epsilon > 0$, chọn $\varepsilon' < -\dfrac{\vert x\vert + \vert y\vert}{2} + \sqrt{\varepsilon + \left(\dfrac{\vert x\vert + \vert y\vert}{2}\right)^{2}}$ thì $\varepsilon'^{2} + \varepsilon'(|x| + |y|) < \varepsilon$.
+              \par Do đó, $\forall\varepsilon > 0$, $\exists n_{0}$ sao cho $\forall n > n_{0}$ thì $\abs{x_{n}y_{n} - xy} < \varepsilon$.
         \item $\lim\limits_{n\to+\infty}y_{n} = y$ nên $\forall\varepsilon > 0$, $\exists n_{0}(\varepsilon)$, $\forall n > n_{0}$, $\abs{y_{n} - y} < \varepsilon$.
-            \par Chọn $\varepsilon = \dfrac{\abs{y}}{2}$. Tồn tại $n_{1}$ sao cho $\forall n > n_{1}$, $\abs{y_{n} - y} < \dfrac{\abs{y}}{2}$.
-            \[
-                \Rightarrow \abs{\abs{y_{n}} - \abs{y}} \le \abs{y_{n} - y} < \frac{\abs{y}}{2} \Rightarrow \abs{y_{n}} > \frac{\abs{y}}{2}
-            \]
-            \par $\forall\varepsilon > 0$, $\dfrac{\abs{y}^{2}\varepsilon}{2} > 0$, $\exists n_{2}$ sao cho $\forall n > n_{2}$ thì $\abs{y_{n} - y} < \dfrac{\abs{y}^{2}\varepsilon}{2}$.
-            \par Do đó, nếu $n > \max\{n_{1}, n_{2}\}$ thì $\abs{y_{n} - y} < \dfrac{\abs{y}^{2}\varepsilon}{2}$ và $\abs{y_{n}} > \dfrac{\abs{y}}{2}$.
-            \par $\forall\varepsilon > 0$, $\exists n_{3}$ sao cho $\forall n > n_{3}$:
-            \[
-                \abs{\frac{1}{y_{n}} - \frac{1}{y}} = \frac{\abs{y_{n} - y}}{\abs{y_{n}}\cdot\abs{y}} < \frac{\abs{y}^{2}\varepsilon}{2}\cdot\frac{2}{\abs{y}\cdot\abs{y}} = \varepsilon
-            \]
-            \par Theo định nghĩa, $\lim\limits_{n\to+\infty}\dfrac{1}{y_{n}} = \dfrac{1}{y}$.
-            \par Theo (iii), $\lim\limits_{n\to+\infty}\dfrac{x_{n}}{y_{n}} = \dfrac{x}{y}$.
+              \par Chọn $\varepsilon = \dfrac{\abs{y}}{2}$. Tồn tại $n_{1}$ sao cho $\forall n > n_{1}$, $\abs{y_{n} - y} < \dfrac{\abs{y}}{2}$.
+              \[
+                  \Rightarrow \abs{\abs{y_{n}} - \abs{y}} \le \abs{y_{n} - y} < \frac{\abs{y}}{2} \Rightarrow \abs{y_{n}} > \frac{\abs{y}}{2}
+              \]
+              \par $\forall\varepsilon > 0$, $\dfrac{\abs{y}^{2}\varepsilon}{2} > 0$, $\exists n_{2}$ sao cho $\forall n > n_{2}$ thì $\abs{y_{n} - y} < \dfrac{\abs{y}^{2}\varepsilon}{2}$.
+              \par Do đó, nếu $n > \max\{n_{1}, n_{2}\}$ thì $\abs{y_{n} - y} < \dfrac{\abs{y}^{2}\varepsilon}{2}$ và $\abs{y_{n}} > \dfrac{\abs{y}}{2}$.
+              \par $\forall\varepsilon > 0$, $\exists n_{3}$ sao cho $\forall n > n_{3}$:
+              \[
+                  \abs{\frac{1}{y_{n}} - \frac{1}{y}} = \frac{\abs{y_{n} - y}}{\abs{y_{n}}\cdot\abs{y}} < \frac{\abs{y}^{2}\varepsilon}{2}\cdot\frac{2}{\abs{y}\cdot\abs{y}} = \varepsilon
+              \]
+              \par Theo định nghĩa, $\lim\limits_{n\to+\infty}\dfrac{1}{y_{n}} = \dfrac{1}{y}$.
+              \par Theo (iii), $\lim\limits_{n\to+\infty}\dfrac{x_{n}}{y_{n}} = \dfrac{x}{y}$.
         \item Theo định nghĩa:
-            \[
-                \forall\varepsilon > 0, \exists n_{x}, n_{y}: \forall n > n_{x}, \abs{x_{n} - x} < \varepsilon; \forall n > n_{y}, \abs{y_{n} - y} < \varepsilon
-            \]
-            \par Do đó, $\forall n > \max\{ N, n_{x}, n_{y} \}$ thì:
-            \[
-                \begin{cases}
-                    x_{n} - y_{n} \le 0 \\
-                    -\varepsilon < x - x_{n} < \varepsilon \\
-                    -\varepsilon < y_{n} - y < \varepsilon
-                \end{cases}
-                \Rightarrow
-                x - y < 2\varepsilon
-            \]
-            \par Do đó, $\forall\varepsilon > 0$, $x - y < 2\varepsilon$.
-            \par Nếu $x > y$ thì ta chọn được $\varepsilon$ sao cho $x - y \ge 2\varepsilon$, dẫn đến giả sử phản chứng là sai.
-            \par Vậy $x\le y$.
+              \[
+                  \forall\varepsilon > 0, \exists n_{x}, n_{y}: \forall n > n_{x}, \abs{x_{n} - x} < \varepsilon; \forall n > n_{y}, \abs{y_{n} - y} < \varepsilon
+              \]
+              \par Do đó, $\forall n > \max\{ N, n_{x}, n_{y} \}$ thì:
+              \[
+                  \begin{cases}
+                      x_{n} - y_{n} \le 0                    \\
+                      -\varepsilon < x - x_{n} < \varepsilon \\
+                      -\varepsilon < y_{n} - y < \varepsilon
+                  \end{cases}
+                  \Rightarrow
+                  x - y < 2\varepsilon
+              \]
+              \par Do đó, $\forall\varepsilon > 0$, $x - y < 2\varepsilon$.
+              \par Nếu $x > y$ thì ta chọn được $\varepsilon$ sao cho $x - y \ge 2\varepsilon$, dẫn đến giả sử phản chứng là sai.
+              \par Vậy $x\le y$.
         \item Chọn $0 < \varepsilon < x$. Theo định nghĩa, tồn tại $N$ sao cho $\forall n \ge N$, $\abs{x_{n} - x} < \varepsilon$.
-            \[
-                -\varepsilon < x_{n} - x < \varepsilon, \forall n\ge N
-            \]
-            \[
-                \Rightarrow x_{n} > x - \varepsilon > 0, \forall n\ge N
-            \]
-            \par Đó là điều phải chứng minh.
+              \[
+                  -\varepsilon < x_{n} - x < \varepsilon, \forall n\ge N
+              \]
+              \[
+                  \Rightarrow x_{n} > x - \varepsilon > 0, \forall n\ge N
+              \]
+              \par Đó là điều phải chứng minh.
     \end{enumerate}
 \end{proof}
 
@@ -412,10 +412,10 @@
     \]
     \par Sử dụng bất đẳng thức $a^{n} - b^{n} > n(a-b)b^{n-1}$ với điều kiện $a > b > 0$.
     \begin{align*}
-        a_{n} - a_{n+1} & = \left(1 + \frac{1}{n}\right)^{n+1} - \left(1 + \frac{1}{n+1}\right)^{n+2} \\
+        a_{n} - a_{n+1} & = \left(1 + \frac{1}{n}\right)^{n+1} - \left(1 + \frac{1}{n+1}\right)^{n+2}                                                                               \\
                         & = \left(1 + \frac{1}{n}\right)^{n+1} - \left(1 + \frac{1}{n+1}\right)^{n+1} + \left(1 + \frac{1}{n+1}\right)^{n+1} - \left(1 + \frac{1}{n+1}\right)^{n+2} \\
-                        & > \frac{n+2}{n(n+1)}\left(1 + \frac{1}{n+1}\right)^{n} - \frac{1}{n+1}\left(1 + \frac{1}{n+1}\right)^{n+1} \\
-                        & = \frac{1}{n}\left(1 + \frac{1}{n+1}\right)^{n+1} - \frac{1}{n+1}\left(1 + \frac{1}{n+1}\right)^{n+1} \\
+                        & > \frac{n+2}{n(n+1)}\left(1 + \frac{1}{n+1}\right)^{n} - \frac{1}{n+1}\left(1 + \frac{1}{n+1}\right)^{n+1}                                                \\
+                        & = \frac{1}{n}\left(1 + \frac{1}{n+1}\right)^{n+1} - \frac{1}{n+1}\left(1 + \frac{1}{n+1}\right)^{n+1}                                                     \\
                         & = \frac{1}{n(n+1)}\left(1 + \frac{1}{n+1}\right)^{n+1} > \frac{1}{n(n+1)} > 0
     \end{align*}
     \par Do đó, $(a_{n})$ là dãy giảm và bị chặn dưới, $\inf a_{n} = \lim\limits_{n\to+\infty}a_{n} = e$.
@@ -476,77 +476,77 @@
 \begin{proof}
     \begin{enumerate}[label = (\roman*)]
         \item $\forall\varepsilon > 0$, $N_{\varepsilon} = \ceil{\dfrac{1}{\sqrt[p]{\varepsilon}}}$ thì $\forall n > N_{\varepsilon}$:
-            \[
-                \frac{1}{n} < \frac{1}{N_{\varepsilon}} \le \sqrt[p]{\varepsilon} \Longrightarrow \frac{1}{n^{p}} < \varepsilon
-            \]
-            \par Theo định nghĩa, $\lim\limits_{n\to+\infty} \dfrac{1}{n^{p}} = 0$.
+              \[
+                  \frac{1}{n} < \frac{1}{N_{\varepsilon}} \le \sqrt[p]{\varepsilon} \Longrightarrow \frac{1}{n^{p}} < \varepsilon
+              \]
+              \par Theo định nghĩa, $\lim\limits_{n\to+\infty} \dfrac{1}{n^{p}} = 0$.
         \item
-            \[
-                \abs{\sqrt[n]{p} - 1} = \frac{\abs{p-1}}{\sqrt[n]{p}^{n-1} + \sqrt[n]{p}^{n-2} + \cdots + \sqrt[n]{p} + 1}
-            \]
-            \par Nếu $p = 1$, hiển nhiên là $\lim\limits_{n\to+\infty} \sqrt[n]{p} = 1$.
-            \par Nếu $p > 1$:
-            \[
-                \abs{\sqrt[n]{p} - 1} < \frac{\abs{p-1}}{n}
-            \]
-            \par$\forall\varepsilon > 0$, chọn $N_{\varepsilon} = \dfrac{\abs{p-1}}{\varepsilon}$ thì
-            \[
-                \abs{\sqrt[n]{p} - 1} < \frac{\abs{p-1}}{n} < \varepsilon, \forall n > N_{\varepsilon}
-            \]
-            \par Suy ra $\lim\limits_{n\to+\infty} \sqrt[n]{p} = 1$.
-            \par Nếu $0 < p < 1$:
-            \[
-                \abs{\sqrt{p} - 1} < \frac{\abs{p-1}}{n\sqrt[n]{p}^{n-1}} < \frac{\abs{p-1}}{np}
-            \]
-            \par$\forall\varepsilon > 0$, chọn $N_{\varepsilon} = \dfrac{\abs{p-1}}{p\varepsilon}$ thì
-            \[
-                \abs{\sqrt[n]{p} - 1} < \varepsilon, \forall n > N_{\varepsilon}
-            \]
-            \par Suy ra $\lim\limits_{n\to+\infty} \sqrt[n]{p} = 1$.
-            \par Tóm lại, trong mọi trường hợp, $\lim\limits_{n\to+\infty} \sqrt[n]{p} = 1$.
+              \[
+                  \abs{\sqrt[n]{p} - 1} = \frac{\abs{p-1}}{\sqrt[n]{p}^{n-1} + \sqrt[n]{p}^{n-2} + \cdots + \sqrt[n]{p} + 1}
+              \]
+              \par Nếu $p = 1$, hiển nhiên là $\lim\limits_{n\to+\infty} \sqrt[n]{p} = 1$.
+              \par Nếu $p > 1$:
+              \[
+                  \abs{\sqrt[n]{p} - 1} < \frac{\abs{p-1}}{n}
+              \]
+              \par$\forall\varepsilon > 0$, chọn $N_{\varepsilon} = \dfrac{\abs{p-1}}{\varepsilon}$ thì
+              \[
+                  \abs{\sqrt[n]{p} - 1} < \frac{\abs{p-1}}{n} < \varepsilon, \forall n > N_{\varepsilon}
+              \]
+              \par Suy ra $\lim\limits_{n\to+\infty} \sqrt[n]{p} = 1$.
+              \par Nếu $0 < p < 1$:
+              \[
+                  \abs{\sqrt{p} - 1} < \frac{\abs{p-1}}{n\sqrt[n]{p}^{n-1}} < \frac{\abs{p-1}}{np}
+              \]
+              \par$\forall\varepsilon > 0$, chọn $N_{\varepsilon} = \dfrac{\abs{p-1}}{p\varepsilon}$ thì
+              \[
+                  \abs{\sqrt[n]{p} - 1} < \varepsilon, \forall n > N_{\varepsilon}
+              \]
+              \par Suy ra $\lim\limits_{n\to+\infty} \sqrt[n]{p} = 1$.
+              \par Tóm lại, trong mọi trường hợp, $\lim\limits_{n\to+\infty} \sqrt[n]{p} = 1$.
         \item
-            \begin{align*}
-                &\sqrt[n+1]{n+1} < \sqrt[n]{n}, \forall n\ge 3 \\
-                \Leftrightarrow&(n+1){}^{n} < n^{n+1}, \forall n\ge 3 \\
-                \Leftrightarrow&\left(1 + \frac{1}{n}\right)^{n} < n, \forall n\ge 3
-            \end{align*}
-            \par Bất đẳng thức cuối đúng vì $\left(1+\dfrac{1}{n}\right)^{n}$ bị chặn trên bởi 3.
-            \par Suy ra $(\sqrt[n]{n})$ là dãy giảm, bắt đầu từ $n = 3$. Dãy này bị chặn dưới bởi 1.
-            \par Do đó, $\lim\limits_{n\to+\infty}\sqrt[n]{n} = 1$.
-            \bigskip
-            \par Ta chứng minh bằng quy nạp rằng $n! > \left(\dfrac{n}{3}\right)^{n}, \forall n\in\mathbb{N}$.
-            \par Mệnh đề này đúng với $n = 1$. Giả sử mệnh đề đúng với $n = k$. Chú ý rằng $\left(1 + \dfrac{1}{n}\right)^{n} < 3, \forall n\in\mathbb{N}$.
-            \[
-                (1 + k){}^{k} < 3k^{k}\Rightarrow (1 + k){}^{1 + k} < 3k^{k}(1 + k) \Rightarrow \left(\dfrac{1 + k}{3}\right)^{k+1} < \dfrac{k^{k}(k+1)}{3^{k}} < k!(k+1) = (k+1)!
-            \]
-            \par Do đó, mệnh đề đúng với $n = k + 1$.
-            \bigskip
-            \par Suy ra
-            \[
-                \sqrt[n]{n!} > \dfrac{n}{3} \Longrightarrow \dfrac{1}{\sqrt[n]{n!}} < \dfrac{3}{n}
-            \]
-            \par Theo định lý kẹp, $\lim\limits_{n\to+\infty}\dfrac{1}{\sqrt[n]{n!}} = 0$.
+              \begin{align*}
+                                  & \sqrt[n+1]{n+1} < \sqrt[n]{n}, \forall n\ge 3        \\
+                  \Leftrightarrow & (n+1){}^{n} < n^{n+1}, \forall n\ge 3                \\
+                  \Leftrightarrow & \left(1 + \frac{1}{n}\right)^{n} < n, \forall n\ge 3
+              \end{align*}
+              \par Bất đẳng thức cuối đúng vì $\left(1+\dfrac{1}{n}\right)^{n}$ bị chặn trên bởi 3.
+              \par Suy ra $(\sqrt[n]{n})$ là dãy giảm, bắt đầu từ $n = 3$. Dãy này bị chặn dưới bởi 1.
+              \par Do đó, $\lim\limits_{n\to+\infty}\sqrt[n]{n} = 1$.
+              \bigskip
+              \par Ta chứng minh bằng quy nạp rằng $n! > \left(\dfrac{n}{3}\right)^{n}, \forall n\in\mathbb{N}$.
+              \par Mệnh đề này đúng với $n = 1$. Giả sử mệnh đề đúng với $n = k$. Chú ý rằng $\left(1 + \dfrac{1}{n}\right)^{n} < 3, \forall n\in\mathbb{N}$.
+              \[
+                  (1 + k){}^{k} < 3k^{k}\Rightarrow (1 + k){}^{1 + k} < 3k^{k}(1 + k) \Rightarrow \left(\dfrac{1 + k}{3}\right)^{k+1} < \dfrac{k^{k}(k+1)}{3^{k}} < k!(k+1) = (k+1)!
+              \]
+              \par Do đó, mệnh đề đúng với $n = k + 1$.
+              \bigskip
+              \par Suy ra
+              \[
+                  \sqrt[n]{n!} > \dfrac{n}{3} \Longrightarrow \dfrac{1}{\sqrt[n]{n!}} < \dfrac{3}{n}
+              \]
+              \par Theo định lý kẹp, $\lim\limits_{n\to+\infty}\dfrac{1}{\sqrt[n]{n!}} = 0$.
         \item Đặt $a = 1 + b$. Chọn $k\in\mathbb{N}$ sao cho $k > \alpha$. $\forall n > k + 1$.
-            \[
-                \dfrac{n^{\alpha}}{a^{n}} < \dfrac{n^{k}}{(1 + b){}^{n}} < \dfrac{n^{k}}{\dbinom{n}{k+1}b^{k+1}} = \dfrac{(k+1)!}{b^{k}}\cdot\dfrac{1}{n\left(1 - \dfrac{1}{n}\right)\left(1 - \dfrac{2}{n}\right)\cdots\left(1 - \dfrac{k}{n}\right)}
-            \]
-            \par $\lim\limits_{n\to+\infty}\dfrac{1}{n} = 0$, $\lim\limits_{n\to+\infty}\left(1 - \dfrac{m}{n}\right) = 1$, do đó $\lim\limits_{n\to+\infty}\dfrac{1}{n\left(1 - \dfrac{1}{n}\right)\left(1 - \dfrac{2}{n}\right)\cdots\left(1 - \dfrac{k}{n}\right)} = 0$.
-            \par Theo định lý kẹp, $\lim\limits_{n\to+\infty}\dfrac{n^{\alpha}}{a^{n}} = 0$.
+              \[
+                  \dfrac{n^{\alpha}}{a^{n}} < \dfrac{n^{k}}{(1 + b){}^{n}} < \dfrac{n^{k}}{\dbinom{n}{k+1}b^{k+1}} = \dfrac{(k+1)!}{b^{k}}\cdot\dfrac{1}{n\left(1 - \dfrac{1}{n}\right)\left(1 - \dfrac{2}{n}\right)\cdots\left(1 - \dfrac{k}{n}\right)}
+              \]
+              \par $\lim\limits_{n\to+\infty}\dfrac{1}{n} = 0$, $\lim\limits_{n\to+\infty}\left(1 - \dfrac{m}{n}\right) = 1$, do đó $\lim\limits_{n\to+\infty}\dfrac{1}{n\left(1 - \dfrac{1}{n}\right)\left(1 - \dfrac{2}{n}\right)\cdots\left(1 - \dfrac{k}{n}\right)} = 0$.
+              \par Theo định lý kẹp, $\lim\limits_{n\to+\infty}\dfrac{n^{\alpha}}{a^{n}} = 0$.
         \item $\forall\varepsilon > 0$, $\exists N_{\varepsilon} = \ceil{-\log_{1/\abs{x}}(\varepsilon)}$ sao cho
-            \[
-                \forall n > N_{\varepsilon},\ \abs{x^{n}} < \varepsilon
-            \]
-            \par Theo định nghĩa, $\lim\limits_{n\to+\infty}x^{n} = 0$.
+              \[
+                  \forall n > N_{\varepsilon},\ \abs{x^{n}} < \varepsilon
+              \]
+              \par Theo định nghĩa, $\lim\limits_{n\to+\infty}x^{n} = 0$.
         \item Áp dụng bất đẳng thức $n! > \left(\dfrac{n}{3}\right)^{n}$.
-            \[
-                \abs{\dfrac{a^{n}}{n!}} \le \abs{\dfrac{3a}{n}}^{n}
-            \]
-            \par Nếu $a = 0$, hiển nhiên $\lim\limits_{n\to+\infty}\dfrac{a^{n}}{n!} = 0$.
-            \par Nếu $a\ne 0$,$\forall\varepsilon > 0$, $N_{\varepsilon} = \max\left\{ \abs{3a}, \dfrac{\abs{3a}}{\varepsilon} \right\}$ thì
-            \[
-                \abs{\dfrac{a^{n}}{n!}} \le \abs{\dfrac{3a}{n}}^{n} < \abs{\dfrac{3a}{n}} < \varepsilon,\ \forall n > N_{\varepsilon}
-            \]
-            \par Theo định nghĩa, $\lim\limits_{n\to+\infty}\dfrac{a^{n}}{n!} = 0$.
+              \[
+                  \abs{\dfrac{a^{n}}{n!}} \le \abs{\dfrac{3a}{n}}^{n}
+              \]
+              \par Nếu $a = 0$, hiển nhiên $\lim\limits_{n\to+\infty}\dfrac{a^{n}}{n!} = 0$.
+              \par Nếu $a\ne 0$,$\forall\varepsilon > 0$, $N_{\varepsilon} = \max\left\{ \abs{3a}, \dfrac{\abs{3a}}{\varepsilon} \right\}$ thì
+              \[
+                  \abs{\dfrac{a^{n}}{n!}} \le \abs{\dfrac{3a}{n}}^{n} < \abs{\dfrac{3a}{n}} < \varepsilon,\ \forall n > N_{\varepsilon}
+              \]
+              \par Theo định nghĩa, $\lim\limits_{n\to+\infty}\dfrac{a^{n}}{n!} = 0$.
     \end{enumerate}
 \end{proof}
 
@@ -555,8 +555,8 @@
     \begin{enumerate}[label = (\roman*)]
         \item Tìm tất cả các giới hạn riêng của dãy $(x_{n})$ với $x_{n} = (-1){}^{n}$.
         \item Chứng minh rằng dãy $(x_{n})$ có giới hạn khi và chỉ khi các dãy con
-            \[ (x_{2n}), (x_{2n+1}), (x_{3n}) \]
-            \par hội tụ.
+              \[ (x_{2n}), (x_{2n+1}), (x_{3n}) \]
+              \par hội tụ.
         \item Chứng minh dãy $(\sin n)$ không có giới hạn và tìm tập tất cả các giới hạn riêng của $(\sin n)$.
     \end{enumerate}
 \end{exercise}
@@ -564,42 +564,42 @@
 \begin{proof}
     \begin{enumerate}[label = (\roman*)]
         \item Dãy con $(x_{2n})$ hội tụ đến 1. Dãy con $(x_{2n+1})$ hội tụ đến -1. Do đó 1 và -1 là các giới hạn riêng của $(x_{n})$.
-            \par Giả sử $a\ne\pm{1}$ là một giới hạn riêng của $(x_{n})$. Khi đó, tồn tại dãy con $(x_{n_{k}})$ hội tụ đến $a$.
-            \par Theo định nghĩa, $\forall\varepsilon > 0, \exists N_{\varepsilon}$ sao cho:
-            \[
-                \abs{x_{n_{k}} - a} < \varepsilon,\ \forall n_{k}\ge N_{\varepsilon}.
-            \]
-            \par Giả sử $\forall N$, $\exists n_{k}, n_{\ell}\ge N$, $x_{n_{k}}$, $x_{n_{\ell}}$ nhận hai giá trị 1 và -1, thì ta chọn $\varepsilon < \min\{ \abs{1 - a}, \abs{-1 - a} \}$, khi đó $\forall N$, $\forall n_{k}\ge N$, $\abs{x_{n_{k}} - a} > \varepsilon$, tức là dãy con không hội tụ đến $a$ và giả sử phản chứng là sai.
-            \par Như vậy, để dãy con $(x_{n_{k}})$ hội tụ đến $a$ thì điều kiện cần là: $\exists N$, $x_{n_{k}} = 1, \forall n_{k}\ge N$ hoặc $x_{n_{k}} = -1, \forall n_{k}\ge N$. Do đó, $a = 1$ hoặc $a = -1$.
-            \bigskip
-            \par Vậy dãy $(x_{n}) = (-1){}^{n}$ chỉ có hai giới hạn riêng là 1 và -1.
+              \par Giả sử $a\ne\pm{1}$ là một giới hạn riêng của $(x_{n})$. Khi đó, tồn tại dãy con $(x_{n_{k}})$ hội tụ đến $a$.
+              \par Theo định nghĩa, $\forall\varepsilon > 0, \exists N_{\varepsilon}$ sao cho:
+              \[
+                  \abs{x_{n_{k}} - a} < \varepsilon,\ \forall n_{k}\ge N_{\varepsilon}.
+              \]
+              \par Giả sử $\forall N$, $\exists n_{k}, n_{\ell}\ge N$, $x_{n_{k}}$, $x_{n_{\ell}}$ nhận hai giá trị 1 và -1, thì ta chọn $\varepsilon < \min\{ \abs{1 - a}, \abs{-1 - a} \}$, khi đó $\forall N$, $\forall n_{k}\ge N$, $\abs{x_{n_{k}} - a} > \varepsilon$, tức là dãy con không hội tụ đến $a$ và giả sử phản chứng là sai.
+              \par Như vậy, để dãy con $(x_{n_{k}})$ hội tụ đến $a$ thì điều kiện cần là: $\exists N$, $x_{n_{k}} = 1, \forall n_{k}\ge N$ hoặc $x_{n_{k}} = -1, \forall n_{k}\ge N$. Do đó, $a = 1$ hoặc $a = -1$.
+              \bigskip
+              \par Vậy dãy $(x_{n}) = (-1){}^{n}$ chỉ có hai giới hạn riêng là 1 và -1.
         \item $(\Leftarrow)$ $(x_{n})$ hội tụ thì mọi dãy con của $(x_{n})$ cũng hội tụ đến giới hạn của $(x_{n})$.
-            \par $(\Rightarrow)$
-            \[
-                \lim\limits_{n\to+\infty}x_{2n} = a;\quad\lim\limits_{n\to+\infty}x_{2n+1} = b;\quad\lim\limits_{n\to+\infty}x_{3n} = c.
-            \]
-            \par $(x_{6n})$ là dãy con của $(x_{2n})$ và $(x_{3n})$, suy ra $a = c$.
-            \par $(x_{6n+3})$ là dãy con của $(x_{2n+1})$ và $(x_{3n})$, suy ra $b = c$.
-            \par Như vậy ba dãy con $(x_{2n})$, $(x_{2n+1})$, $(x_{3n})$ nếu hội tụ thì chúng có cùng giới hạn.
+              \par $(\Rightarrow)$
+              \[
+                  \lim\limits_{n\to+\infty}x_{2n} = a;\quad\lim\limits_{n\to+\infty}x_{2n+1} = b;\quad\lim\limits_{n\to+\infty}x_{3n} = c.
+              \]
+              \par $(x_{6n})$ là dãy con của $(x_{2n})$ và $(x_{3n})$, suy ra $a = c$.
+              \par $(x_{6n+3})$ là dãy con của $(x_{2n+1})$ và $(x_{3n})$, suy ra $b = c$.
+              \par Như vậy ba dãy con $(x_{2n})$, $(x_{2n+1})$, $(x_{3n})$ nếu hội tụ thì chúng có cùng giới hạn.
         \item Xét biểu thức $\abs{\sin\floor{\dfrac{\pi}{2} + 2n\pi} - \sin\floor{2n\pi}}$.
-            \[
-                \abs{\sin\floor{\dfrac{\pi}{2} + 2n\pi} - \sin\floor{2n\pi}} = 2\abs{\sin\left(\dfrac{1}{2}\left(\floor{\dfrac{\pi}{2} + 2n\pi} - \floor{2n\pi}\right)\right)\cos\left(\dfrac{1}{2}\left(\floor{\dfrac{\pi}{2} + 2n\pi} - \floor{2n\pi}\right)\right)}.
-            \]
-            \begin{gather*}
-                \dfrac{\pi}{2} + 2n\pi - 1\le \floor{\dfrac{\pi}{2} + 2n\pi} \le \dfrac{\pi}{2} + 2n\pi \\
-                2n\pi - 1\le \floor{2n\pi} \le 2n\pi \\
-                \Rightarrow
-                \begin{cases}
-                    \dfrac{\pi - 2}{4}\le\dfrac{1}{2}\left(\floor{\dfrac{\pi}{2} + 2n\pi} - \floor{2n\pi}\right) \le \dfrac{\pi + 2}{4} \\
-                    \dfrac{\pi - 4}{4} + 2n\pi\le \dfrac{1}{2}\left(\floor{\pi + 2n\pi} + \floor{2n\pi}\right) \le \dfrac{\pi}{4} + 2n\pi.
-                \end{cases} \\
-                \Rightarrow
-                \begin{cases}
-                    \abs{\sin\left(\dfrac{1}{2}\left(\floor{\dfrac{\pi}{2} + 2n\pi} - \floor{2n\pi}\right)\right)} \ge \sin\left(\dfrac{\pi - 2}{4}\right) \\
-                    \abs{\cos\left(\dfrac{1}{2}\left(\floor{\dfrac{\pi}{2} + 2n\pi} - \floor{2n\pi}\right)\right)}\ge\cos\left(\dfrac{\pi}{4}\right) = \dfrac{\sqrt{2}}{2}.
-                \end{cases}
-            \end{gather*}
-            \par Suy ra $\abs{\sin\floor{\dfrac{\pi}{2} + 2n\pi} - \sin\floor{2n\pi}}\ge \sqrt{2}\sin\left(\dfrac{\pi-2}{4}\right)$, $\forall n\in\mathbb{N}$. Theo định nghĩa, dãy $(\sin n)$ không hội tụ.
+              \[
+                  \abs{\sin\floor{\dfrac{\pi}{2} + 2n\pi} - \sin\floor{2n\pi}} = 2\abs{\sin\left(\dfrac{1}{2}\left(\floor{\dfrac{\pi}{2} + 2n\pi} - \floor{2n\pi}\right)\right)\cos\left(\dfrac{1}{2}\left(\floor{\dfrac{\pi}{2} + 2n\pi} - \floor{2n\pi}\right)\right)}.
+              \]
+              \begin{gather*}
+                  \dfrac{\pi}{2} + 2n\pi - 1\le \floor{\dfrac{\pi}{2} + 2n\pi} \le \dfrac{\pi}{2} + 2n\pi \\
+                  2n\pi - 1\le \floor{2n\pi} \le 2n\pi \\
+                  \Rightarrow
+                  \begin{cases}
+                      \dfrac{\pi - 2}{4}\le\dfrac{1}{2}\left(\floor{\dfrac{\pi}{2} + 2n\pi} - \floor{2n\pi}\right) \le \dfrac{\pi + 2}{4} \\
+                      \dfrac{\pi - 4}{4} + 2n\pi\le \dfrac{1}{2}\left(\floor{\pi + 2n\pi} + \floor{2n\pi}\right) \le \dfrac{\pi}{4} + 2n\pi.
+                  \end{cases} \\
+                  \Rightarrow
+                  \begin{cases}
+                      \abs{\sin\left(\dfrac{1}{2}\left(\floor{\dfrac{\pi}{2} + 2n\pi} - \floor{2n\pi}\right)\right)} \ge \sin\left(\dfrac{\pi - 2}{4}\right) \\
+                      \abs{\cos\left(\dfrac{1}{2}\left(\floor{\dfrac{\pi}{2} + 2n\pi} - \floor{2n\pi}\right)\right)}\ge\cos\left(\dfrac{\pi}{4}\right) = \dfrac{\sqrt{2}}{2}.
+                  \end{cases}
+              \end{gather*}
+              \par Suy ra $\abs{\sin\floor{\dfrac{\pi}{2} + 2n\pi} - \sin\floor{2n\pi}}\ge \sqrt{2}\sin\left(\dfrac{\pi-2}{4}\right)$, $\forall n\in\mathbb{N}$. Theo định nghĩa, dãy $(\sin n)$ không hội tụ.
     \end{enumerate}
 \end{proof}
 

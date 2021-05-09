@@ -135,34 +135,34 @@
 
 \begin{proof}[Chứng minh bổ đề]
     \par Xét dãy
-        \[
-            a_{1}, a_{2}, \ldots, a_{k-1}, a_{k}, a_{k+1}.
-        \]
+    \[
+        a_{1}, a_{2}, \ldots, a_{k-1}, a_{k}, a_{k+1}.
+    \]
     \par Sau khi tác động bằng $(a_{k},a_{k+1})$, dãy trên trở thành:
-        \[
-            a_{1}, a_{2}, \ldots, a_{k-1}, a_{k+1}, a_{k}.
-        \]
+    \[
+        a_{1}, a_{2}, \ldots, a_{k-1}, a_{k+1}, a_{k}.
+    \]
     \par Sau khi tác động bằng $(a_{1}, a_{2}, \ldots, a_{k})$, dãy trên (liên trên) trở thành:
-        \[
-            a_{2}, a_{3}, \ldots, a_{k}, a_{k+1}, a_{1}.
-        \]
+    \[
+        a_{2}, a_{3}, \ldots, a_{k}, a_{k+1}, a_{1}.
+    \]
     \par Theo định nghĩa về xích, ta có điều phải chứng minh.
 \end{proof}
 
 \begin{proof}[Lời giải]
     \par Theo bổ đề~\ref{chapter3:cycles-product}:
-        \[
-            (1,2)(2,3)\ldots (n-1,n) = (1,2,\ldots,n)
-            =
-            \begin{pmatrix}
-                1 & 2 & \cdots & n-1 & n \\
-                2 & 3 & \cdots & n   & 1
-            \end{pmatrix}
-        \]
+    \[
+        (1,2)(2,3)\ldots (n-1,n) = (1,2,\ldots,n)
+        =
+        \begin{pmatrix}
+            1 & 2 & \cdots & n-1 & n \\
+            2 & 3 & \cdots & n   & 1
+        \end{pmatrix}
+    \]
     \par $(1,2,\ldots, n)$ chính là một xích.
-        \[
-            \sgn{1,2,\ldots,n} = \sgn{1,2}\sgn{2,3}\ldots\sgn{n-1,n} = (-1){}^{n-1}.
-        \]
+    \[
+        \sgn{1,2,\ldots,n} = \sgn{1,2}\sgn{2,3}\ldots\sgn{n-1,n} = (-1){}^{n-1}.
+    \]
 \end{proof}
 
 \begin{exercise}
@@ -173,10 +173,10 @@
     \par Theo bổ đề~\ref{chapter3:cycles-product}, nếu $n > 3$:
     \begin{align*}
         (1,2,3)(2,3,4)(3,4,5)\ldots (n-2,n-1,n)
-        & = (1,2)(2,3)(2,3)(3,4)(3,4)(4,5) \ldots (n-2,n-1)(n-1,n) \\
-        & = (1,2)(2,3){}^{2}(3,4){}^{2}\ldots (n-2,n-1){}^{2}(n-1,n) \\
-        & = (1,2)(n-1,n)\qquad\text{(đây là 2 xích rời nhau)} \\
-        & =
+         & = (1,2)(2,3)(2,3)(3,4)(3,4)(4,5) \ldots (n-2,n-1)(n-1,n)   \\
+         & = (1,2)(2,3){}^{2}(3,4){}^{2}\ldots (n-2,n-1){}^{2}(n-1,n) \\
+         & = (1,2)(n-1,n)\qquad\text{(đây là 2 xích rời nhau)}        \\
+         & =
         \begin{pmatrix}
             1 & 2 & 3 & \cdots & n-2 & n-1 & n   \\
             2 & 1 & 3 & \cdots & n-2 & n   & n-1
@@ -206,16 +206,16 @@
     \par Có hai trường hợp cần xem xét.
     \begin{enumerate}[label = Trường hợp \arabic*:,itemindent=2cm]
         \item $n$ số $\sigma(x)$, $\sigma^{2}(x)$, \ldots, $\sigma^{n}(x)$ đôi một khác nhau.
-            \par Vì $n$ số này đôi một khác nhau và đều là các phần tử của tập hợp $n$ số tự nhiên đầu tiên nên tồn tại một số tự nhiên $k\le n$ sao cho $\sigma^{k}(x) = x$.
+              \par Vì $n$ số này đôi một khác nhau và đều là các phần tử của tập hợp $n$ số tự nhiên đầu tiên nên tồn tại một số tự nhiên $k\le n$ sao cho $\sigma^{k}(x) = x$.
         \item Trong $n$ số $\sigma(x)$, $\sigma^{2}(x)$, \ldots, $\sigma^{n}(x)$, có hai số bằng nhau.
-            \par Giả sử $\sigma^{a}(x) = \sigma^{a+b}(x)$, trong đó $1\le a < a + b\le n$.
-            \[
-                \begin{split}
-                    &(\underbrace{\sigma\circ\cdots\circ\sigma}_{a})(x) = (\underbrace{\sigma\circ\cdots\circ\sigma}_{a+b})(x) \\
-                    \Leftrightarrow& ((\underbrace{\sigma^{-1}\circ\ldots\circ\sigma^{-1}}_{a})\circ\underbrace{(\sigma\circ\cdots\circ\sigma)}_{a})(x) = ((\underbrace{\sigma^{-1}\circ\ldots\circ\sigma^{-1}}_{a})\circ\underbrace{(\sigma\circ\cdots\circ\sigma)}_{a+b})(x) \\
-                    \Leftrightarrow& x = \sigma^{b}(x).
-                \end{split}
-            \]
+              \par Giả sử $\sigma^{a}(x) = \sigma^{a+b}(x)$, trong đó $1\le a < a + b\le n$.
+              \[
+                  \begin{split}
+                      &(\underbrace{\sigma\circ\cdots\circ\sigma}_{a})(x) = (\underbrace{\sigma\circ\cdots\circ\sigma}_{a+b})(x) \\
+                      \Leftrightarrow& ((\underbrace{\sigma^{-1}\circ\ldots\circ\sigma^{-1}}_{a})\circ\underbrace{(\sigma\circ\cdots\circ\sigma)}_{a})(x) = ((\underbrace{\sigma^{-1}\circ\ldots\circ\sigma^{-1}}_{a})\circ\underbrace{(\sigma\circ\cdots\circ\sigma)}_{a+b})(x) \\
+                      \Leftrightarrow& x = \sigma^{b}(x).
+                  \end{split}
+              \]
     \end{enumerate}
     \par Bổ đề được chứng minh.
 \end{proof}
@@ -257,9 +257,9 @@
     \]
     \par Xích trên có thể phân tích được thành tích của $k - 1$ phép thế sơ cấp, theo bổ đề~\ref{chapter3:cycles-product}:
     \begin{align*}
-        (x_{1}, x_{2}, \ldots, x_{k}) & = (x_{1}, x_{2}, \ldots, x_{k-1})(x_{k-1}, x_{k}) \\
+        (x_{1}, x_{2}, \ldots, x_{k}) & = (x_{1}, x_{2}, \ldots, x_{k-1})(x_{k-1}, x_{k})                   \\
                                       & = (x_{1}, x_{2}, \ldots, x_{k-2})(x_{k-2}, x_{k-1})(x_{k-1}, x_{k}) \\
-                                      & = \ldots \\
+                                      & = \ldots                                                            \\
                                       & = (x_{1}, x_{2})(x_{2}, x_{3})\ldots (x_{k-1}, x_{k}).
     \end{align*}
 \end{proof}
@@ -322,101 +322,101 @@
     Tính các định thức sau đây
     \begin{enumerate}[label = (\alph*)]
         \item $
-            \begin{vmatrix}
-                2  & -5 & 4  & 3 \\
-                3  & -4 & 7  & 5 \\
-                4  & -9 & 8  & 5 \\
-                -3 &  2 & -5 & 3
-            \end{vmatrix}
-            $
+                  \begin{vmatrix}
+                      2  & -5 & 4  & 3 \\
+                      3  & -4 & 7  & 5 \\
+                      4  & -9 & 8  & 5 \\
+                      -3 & 2  & -5 & 3
+                  \end{vmatrix}
+              $
         \item $
-            \begin{vmatrix}
-                3 & -3 & -2 & -5 \\
-                2 & 5 & 4 & 6 \\
-                5 & 5 & 8 & 7 \\
-                4 & 4 & 5 & 6
-            \end{vmatrix}
-            $
+                  \begin{vmatrix}
+                      3 & -3 & -2 & -5 \\
+                      2 & 5  & 4  & 6  \\
+                      5 & 5  & 8  & 7  \\
+                      4 & 4  & 5  & 6
+                  \end{vmatrix}
+              $
     \end{enumerate}
 \end{exercise}
 
 \begin{proof}[Lời giải]
     \begin{enumerate}[label = (\alph*)]
         \item
-            \begin{align*}
-                \begin{vmatrix}
-                    2  & -5 & 4  & 3 \\
-                    3  & -4 & 7  & 5 \\
-                    4  & -9 & 8  & 5 \\
-                    -3 &  2 & -5 & 3
-                \end{vmatrix}
-                & =
-                \begin{vmatrix}
-                    2 & -5 & 4 & 3  \\
-                    3 & -4 & 7 & 5  \\
-                    0 & 1  & 0 & -1 \\
-                    0 & -2 & 2 & 8
-                \end{vmatrix}
-                =
-                \begin{vmatrix}
-                    2 & -5  & 4 & 3   \\
-                    0 & 3.5 & 1 & 0.5 \\
-                    0 & 1   & 0 & -1  \\
-                    0 & -2  & 2 & 8
-                \end{vmatrix}
-                =
-                \begin{vmatrix}
-                    2 & -5  & 4 & 3  \\
-                    0 & 1   & 0 & -1 \\
-                    0 & -2  & 2 & 8  \\
-                    0 & 3.5 & 1 & 0.5
-                \end{vmatrix} \\
-                & =
-                \begin{vmatrix}
-                    2 & -5 & 4 & 3  \\
-                    0 & 1  & 0 & -1 \\
-                    0 & 0  & 2 & 6  \\
-                    0 & 0  & 1 & 4
-                \end{vmatrix}
-                =
-                \begin{vmatrix}
-                    2 & -5 & 4 & 3  \\
-                    0 & 1  & 0 & -1 \\
-                    0 & 0  & 2 & 6  \\
-                    0 & 0  & 0 & 1
-                \end{vmatrix}
-                = 2\cdot 1\cdot 2\cdot 1 = 4.
-            \end{align*}
+              \begin{align*}
+                  \begin{vmatrix}
+                      2  & -5 & 4  & 3 \\
+                      3  & -4 & 7  & 5 \\
+                      4  & -9 & 8  & 5 \\
+                      -3 & 2  & -5 & 3
+                  \end{vmatrix}
+                   & =
+                  \begin{vmatrix}
+                      2 & -5 & 4 & 3  \\
+                      3 & -4 & 7 & 5  \\
+                      0 & 1  & 0 & -1 \\
+                      0 & -2 & 2 & 8
+                  \end{vmatrix}
+                  =
+                  \begin{vmatrix}
+                      2 & -5  & 4 & 3   \\
+                      0 & 3.5 & 1 & 0.5 \\
+                      0 & 1   & 0 & -1  \\
+                      0 & -2  & 2 & 8
+                  \end{vmatrix}
+                  =
+                  \begin{vmatrix}
+                      2 & -5  & 4 & 3   \\
+                      0 & 1   & 0 & -1  \\
+                      0 & -2  & 2 & 8   \\
+                      0 & 3.5 & 1 & 0.5
+                  \end{vmatrix} \\
+                   & =
+                  \begin{vmatrix}
+                      2 & -5 & 4 & 3  \\
+                      0 & 1  & 0 & -1 \\
+                      0 & 0  & 2 & 6  \\
+                      0 & 0  & 1 & 4
+                  \end{vmatrix}
+                  =
+                  \begin{vmatrix}
+                      2 & -5 & 4 & 3  \\
+                      0 & 1  & 0 & -1 \\
+                      0 & 0  & 2 & 6  \\
+                      0 & 0  & 0 & 1
+                  \end{vmatrix}
+                  = 2\cdot 1\cdot 2\cdot 1 = 4.
+              \end{align*}
         \item
-            \begin{align*}
-                \begin{vmatrix}
-                    3 & -3 & -2 & -5 \\
-                    2 & 5  & 4  & 6  \\
-                    5 & 5  & 8  & 7  \\
-                    4 & 4  & 5  & 6
-                \end{vmatrix}
-                & =
-                \begin{vmatrix}
-                    1 & -8 & -6 & -11 \\
-                    2 & 5  & 4  & 6   \\
-                    5 & 5  & 8  & 7   \\
-                    4 & 4  & 5  & 6
-                \end{vmatrix}
-                =
-                \begin{vmatrix}
-                    1 & -8 & -6 & -11 \\
-                    0 & 21 & 16 & 28  \\
-                    0 & 45 & 38 & 62  \\
-                    0 & 36 & 29 & 50
-                \end{vmatrix}
-                =
-                \begin{vmatrix}
-                    21 & 16 & 28 \\
-                    45 & 38 & 62 \\
-                    36 & 29 & 50
-                \end{vmatrix} \\
-                & = 21(38\cdot 50 - 62\cdot 29) + 16(62\cdot 36 - 45\cdot 50) + 28(45\cdot 29 - 36\cdot 38) = 90.
-            \end{align*}
+              \begin{align*}
+                  \begin{vmatrix}
+                      3 & -3 & -2 & -5 \\
+                      2 & 5  & 4  & 6  \\
+                      5 & 5  & 8  & 7  \\
+                      4 & 4  & 5  & 6
+                  \end{vmatrix}
+                   & =
+                  \begin{vmatrix}
+                      1 & -8 & -6 & -11 \\
+                      2 & 5  & 4  & 6   \\
+                      5 & 5  & 8  & 7   \\
+                      4 & 4  & 5  & 6
+                  \end{vmatrix}
+                  =
+                  \begin{vmatrix}
+                      1 & -8 & -6 & -11 \\
+                      0 & 21 & 16 & 28  \\
+                      0 & 45 & 38 & 62  \\
+                      0 & 36 & 29 & 50
+                  \end{vmatrix}
+                  =
+                  \begin{vmatrix}
+                      21 & 16 & 28 \\
+                      45 & 38 & 62 \\
+                      36 & 29 & 50
+                  \end{vmatrix}                                                                         \\
+                   & = 21(38\cdot 50 - 62\cdot 29) + 16(62\cdot 36 - 45\cdot 50) + 28(45\cdot 29 - 36\cdot 38) = 90.
+              \end{align*}
     \end{enumerate}
 \end{proof}
 
@@ -432,82 +432,82 @@
 \begin{proof}[Lời giải]
     \begin{enumerate}[label = (\alph*)]
         \item $r_{k} := r_{k} + r_{1}$, $\forall 1 < k\le n$.
-            \begin{align*}
-                \begin{vmatrix}
-                    1  & 2  & 3 & \cdots & n \\
-                    -1 & 0  & 3 & \cdots & n \\
-                    -1 & -2 & 0 & \cdots & n \\
-                    \vdots & \vdots & \vdots & \ddots & \vdots \\
-                    -1 & -2 & -3 & \cdots & 0
-                \end{vmatrix}
-                =
-                \begin{vmatrix}
-                    1 & 2 & 3 & \cdots & n \\
-                    0 & 2 & 6 & \cdots & 2n \\
-                    0 & 0 & 3 & \cdots & 2n \\
-                    \vdots & \vdots & \vdots & \ddots & \vdots \\
-                    0 & 0 & 0 & \cdots & n
-                \end{vmatrix}
-                = n!
-            \end{align*}
+              \begin{align*}
+                  \begin{vmatrix}
+                      1      & 2      & 3      & \cdots & n      \\
+                      -1     & 0      & 3      & \cdots & n      \\
+                      -1     & -2     & 0      & \cdots & n      \\
+                      \vdots & \vdots & \vdots & \ddots & \vdots \\
+                      -1     & -2     & -3     & \cdots & 0
+                  \end{vmatrix}
+                  =
+                  \begin{vmatrix}
+                      1      & 2      & 3      & \cdots & n      \\
+                      0      & 2      & 6      & \cdots & 2n     \\
+                      0      & 0      & 3      & \cdots & 2n     \\
+                      \vdots & \vdots & \vdots & \ddots & \vdots \\
+                      0      & 0      & 0      & \cdots & n
+                  \end{vmatrix}
+                  = n!
+              \end{align*}
         \item Thực hiện lần lượt các biến đổi sơ cấp sau:
-            \begin{itemize}
-                \item $c_{0} = \displaystyle\sum^{n}_{k=0}c_{k}$.
-                \item $c_{1} = \displaystyle\sum^{n}_{k=1}c_{k}$.
-                \item $\cdots$
-                \item $c_{n} = \displaystyle\sum^{n}_{k=n}c_{k}$.
-            \end{itemize}
-            \begingroup
-            \allowdisplaybreaks{}
-            \begin{align*}
-                \begin{vmatrix}
-                    a_{0}  & a_{1}  & a_{2}  & \cdots & a_{n}  \\
-                    -x     & x      & 0      & \cdots & 0      \\
-                    0      & -x     & x      & \cdots & 0      \\
-                    \vdots & \vdots & \vdots & \ddots & \vdots \\
-                    0      & 0      & 0      & \cdots & x
-                \end{vmatrix}
-                & =
-                \begin{vmatrix}
-                    \sum^{n}_{k=0}a_{k} & a_{1}  & a_{2}  & \cdots & a_{n}  \\
-                    0                   & x      & 0      & \cdots & 0      \\
-                    0                   & -x     & x      & \cdots & 0      \\
-                    \vdots              & \vdots & \vdots & \ddots & 0      \\
-                    0                   & 0      & 0      & \cdots & x
-                \end{vmatrix}
-                =
-                \begin{vmatrix}
-                    \sum^{n}_{k=0}a_{k} & \sum^{n}_{k=1}a_{k} & a_{2}  & \cdots & a_{n}  \\
-                    0                   & x                   & 0      & \cdots & 0      \\
-                    0                   & 0                   & x      & \cdots & 0      \\
-                    \vdots              & \vdots              & \vdots & \ddots & 0      \\
-                    0                   & 0                   & 0      & \cdots & x
-                \end{vmatrix} \\
-                & = 
-                \begin{vmatrix}
-                    \sum^{n}_{k=0}a_{k} & \sum^{n}_{k=1}a_{k} & \sum^{n}_{k=n}a_{k} & \cdots & a_{n}  \\
-                    0                   & x                   & 0                   & \cdots & 0      \\
-                    0                   & 0                   & x                   & \cdots & 0      \\
-                    \vdots              & \vdots              & \vdots              & \ddots & 0      \\
-                    0                   & 0                   & 0                   & \cdots & x
-                \end{vmatrix}
-                = \left(\sum^{n}_{k=0}a_{k}\right)x^{n}.
-            \end{align*}
-            \endgroup
+              \begin{itemize}
+                  \item $c_{0} = \displaystyle\sum^{n}_{k=0}c_{k}$.
+                  \item $c_{1} = \displaystyle\sum^{n}_{k=1}c_{k}$.
+                  \item $\cdots$
+                  \item $c_{n} = \displaystyle\sum^{n}_{k=n}c_{k}$.
+              \end{itemize}
+              \begingroup
+              \allowdisplaybreaks{}
+              \begin{align*}
+                  \begin{vmatrix}
+                      a_{0}  & a_{1}  & a_{2}  & \cdots & a_{n}  \\
+                      -x     & x      & 0      & \cdots & 0      \\
+                      0      & -x     & x      & \cdots & 0      \\
+                      \vdots & \vdots & \vdots & \ddots & \vdots \\
+                      0      & 0      & 0      & \cdots & x
+                  \end{vmatrix}
+                   & =
+                  \begin{vmatrix}
+                      \sum^{n}_{k=0}a_{k} & a_{1}  & a_{2}  & \cdots & a_{n} \\
+                      0                   & x      & 0      & \cdots & 0     \\
+                      0                   & -x     & x      & \cdots & 0     \\
+                      \vdots              & \vdots & \vdots & \ddots & 0     \\
+                      0                   & 0      & 0      & \cdots & x
+                  \end{vmatrix}
+                  =
+                  \begin{vmatrix}
+                      \sum^{n}_{k=0}a_{k} & \sum^{n}_{k=1}a_{k} & a_{2}  & \cdots & a_{n} \\
+                      0                   & x                   & 0      & \cdots & 0     \\
+                      0                   & 0                   & x      & \cdots & 0     \\
+                      \vdots              & \vdots              & \vdots & \ddots & 0     \\
+                      0                   & 0                   & 0      & \cdots & x
+                  \end{vmatrix} \\
+                   & =
+                  \begin{vmatrix}
+                      \sum^{n}_{k=0}a_{k} & \sum^{n}_{k=1}a_{k} & \sum^{n}_{k=n}a_{k} & \cdots & a_{n} \\
+                      0                   & x                   & 0                   & \cdots & 0     \\
+                      0                   & 0                   & x                   & \cdots & 0     \\
+                      \vdots              & \vdots              & \vdots              & \ddots & 0     \\
+                      0                   & 0                   & 0                   & \cdots & x
+                  \end{vmatrix}
+                  = \left(\sum^{n}_{k=0}a_{k}\right)x^{n}.
+              \end{align*}
+              \endgroup
         \item Áp dụng khai triển Laplace cho dòng thứ nhất.
-            \begingroup
-            \allowdisplaybreaks{}
-            \begin{align*}
-                \begin{vmatrix}
-                    a_{0}  & a_{1}  & a_{2}  & \cdots & a_{n}  \\
-                    -x_{1} & x_{2}  & 0      & \cdots & 0      \\
-                    0      & -x_{2} & x_{3}  & \cdots & 0      \\
-                    \vdots & \vdots & \vdots & \ddots & \vdots \\
-                    0      & 0      & 0      & \cdots & x_{n+1}
-                \end{vmatrix}
-                & = a_{0}x_{2}x_{3}\ldots x_{n} + a_{1}x_{1}x_{3}\ldots x_{n} + \cdots + a_{n}x_{1}x_{2}\ldots x_{n-1}.
-            \end{align*}
-            \endgroup
+              \begingroup
+              \allowdisplaybreaks{}
+              \begin{align*}
+                  \begin{vmatrix}
+                      a_{0}  & a_{1}  & a_{2}  & \cdots & a_{n}   \\
+                      -x_{1} & x_{2}  & 0      & \cdots & 0       \\
+                      0      & -x_{2} & x_{3}  & \cdots & 0       \\
+                      \vdots & \vdots & \vdots & \ddots & \vdots  \\
+                      0      & 0      & 0      & \cdots & x_{n+1}
+                  \end{vmatrix}
+                   & = a_{0}x_{2}x_{3}\ldots x_{n} + a_{1}x_{1}x_{3}\ldots x_{n} + \cdots + a_{n}x_{1}x_{2}\ldots x_{n-1}.
+              \end{align*}
+              \endgroup
     \end{enumerate}
 \end{proof}
 
@@ -520,11 +520,11 @@
     \allowdisplaybreaks{}
     \begin{align*}
         \begin{vmatrix}
-            0 & 1 & 2 & \cdots & n - 1 \\
-            1 & 0 & 1 & \cdots & n - 2 \\
-            2 & 1 & 0 & \cdots & n - 3 \\
+            0      & 1      & 2      & \cdots & n - 1  \\
+            1      & 0      & 1      & \cdots & n - 2  \\
+            2      & 1      & 0      & \cdots & n - 3  \\
             \vdots & \vdots & \vdots & \ddots & \vdots \\
-            n - 1 & n - 2 & n - 3 & \cdots & 0
+            n - 1  & n - 2  & n - 3  & \cdots & 0
         \end{vmatrix}
     \end{align*}
     \endgroup
