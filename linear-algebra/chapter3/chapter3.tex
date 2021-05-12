@@ -425,7 +425,7 @@
     \begin{enumerate}[label = (\alph*)]
         \item $\begin{vmatrix} 1 & 2 & 3 & \cdots & n \\ -1 & 0 & 3 & \cdots & n \\ -1 & -2 & 0 & \cdots & n \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ -1 & -2 & -3 & \cdots & 0 \end{vmatrix}$,
         \item $\begin{vmatrix} a_{0} & a_{1} & a_{2} & \cdots & a_{n} \\ -x & x & 0 & \cdots & 0 \\ 0 & -x & x & \cdots & 0 \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & \cdots & x \end{vmatrix}$,
-        \item $\begin{vmatrix} a_{0} & a_{1} & a_{2} & \cdots & a_{n} \\ -x_{1} & x_{2} & 0 & \cdots & 0 \\ 0 & -x_{2} & x_{3} & \cdots & 0 \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & \cdots & x_{n+1} \end{vmatrix}$.
+        \item $\begin{vmatrix} a_{1} & a_{2} & a_{3} & \cdots & a_{n} \\ -x_{1} & x_{2} & 0 & \cdots & 0 \\ 0 & -x_{2} & x_{3} & \cdots & 0 \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & \cdots & x_{n} \end{vmatrix}$.
     \end{enumerate}
 \end{exercise}
 
@@ -494,20 +494,92 @@
                   = \left(\sum^{n}_{k=0}a_{k}\right)x^{n}.
               \end{align*}
               \endgroup
-        \item Áp dụng khai triển Laplace cho dòng thứ nhất.
-              \begingroup
-              \allowdisplaybreaks{}
-              \begin{align*}
-                  \begin{vmatrix}
-                      a_{0}  & a_{1}  & a_{2}  & \cdots & a_{n}   \\
-                      -x_{1} & x_{2}  & 0      & \cdots & 0       \\
-                      0      & -x_{2} & x_{3}  & \cdots & 0       \\
-                      \vdots & \vdots & \vdots & \ddots & \vdots  \\
-                      0      & 0      & 0      & \cdots & x_{n+1}
-                  \end{vmatrix}
-                   & = a_{0}x_{2}x_{3}\ldots x_{n} + a_{1}x_{1}x_{3}\ldots x_{n} + \cdots + a_{n}x_{1}x_{2}\ldots x_{n-1}.
-              \end{align*}
-              \endgroup
+        \item Nếu $x_{1} = 0$
+            \begin{align*}
+                \begin{vmatrix}
+                    a_{1}  & a_{2}  & a_{3}  & \cdots & a_{n}  \\
+                    -x_{1} & x_{2}  & 0      & \cdots & 0      \\
+                    0      & -x_{2} & x_{3}  & \cdots & 0      \\
+                    \vdots & \vdots & \vdots & \ddots & \vdots \\
+                    0      & 0      & 0      & \cdots & x_{n}
+                \end{vmatrix}
+                & =
+                \begin{vmatrix}
+                    a_{1}  & a_{2}  & a_{3}  & \cdots & a_{n}  \\
+                    0      & x_{2}  & 0      & \cdots & 0      \\
+                    0      & -x_{2} & x_{3}  & \cdots & 0      \\
+                    \vdots & \vdots & \vdots & \ddots & \vdots \\
+                    0      & 0      & 0      & \cdots & x_{n}
+                \end{vmatrix} \\
+                & = a_{1} \begin{vmatrix}
+                    x_{2}  & 0      & \cdots & 0    \\
+                    -x_{2} & x_{3}  & \cdots & 0    \\
+                    \vdots & \vdots & \ddots & \vdots \\
+                    0      & 0      & \cdots & x_{n}
+                \end{vmatrix} = a_{1}x_{2}x_{3}\cdots x_{n}
+            \end{align*}
+
+            \par Nếu $x_{k} = 0$
+            \begin{align*}
+                \begin{vmatrix}
+                    a_{1}  & a_{2}  & a_{3}  & \cdots & a_{n}  \\
+                    -x_{1} & x_{2}  & 0      & \cdots & 0      \\
+                    0      & -x_{2} & x_{3}  & \cdots & 0      \\
+                    \vdots & \vdots & \vdots & \ddots & \vdots \\
+                    0      & 0      & 0      & \cdots & x_{n}
+                \end{vmatrix}
+                & = a_{k}\prod^{n}_{i=1,i\ne k} x_{i}
+            \end{align*}
+            \par Nếu $x_{k} \ne 0, \forall k=\overline{1, n}$.
+            \begingroup
+            \allowdisplaybreaks{}
+            \begin{align*}
+                \begin{vmatrix}
+                    a_{1}  & a_{2}  & a_{3}  & \cdots & a_{n}  \\
+                    -x_{1} & x_{2}  & 0      & \cdots & 0      \\
+                    0      & -x_{2} & x_{3}  & \cdots & 0      \\
+                    \vdots & \vdots & \vdots & \ddots & \vdots \\
+                    0      & 0      & 0      & \cdots & x_{n}
+                \end{vmatrix}
+                & =
+                \frac{1}{x_{1}x_{2}}
+                \begin{vmatrix}
+                    a_{1}x_{2}  & a_{2}x_{1}  & a_{3}  & \cdots & a_{n}  \\
+                    -x_{1}x_{2} & x_{1}x_{2}  & 0      & \cdots & 0      \\
+                    0           & -x_{1}x_{2} & x_{3}  & \cdots & 0      \\
+                    \vdots      & \vdots      & \vdots & \ddots & \vdots \\
+                    0           & 0           & 0      & \cdots & x_{n}
+                \end{vmatrix} \\
+                & = \frac{1}{x_{1}x_{2}}
+                \begin{vmatrix}
+                    a_{1}x_{2} + a_{2}x_{1}  & a_{2}x_{1}  & a_{3}  & \cdots & a_{n}  \\
+                    0 & x_{1}x_{2}  & 0      & \cdots & 0      \\
+                    -x_{1}x_{2}           & -x_{1}x_{2} & x_{3}  & \cdots & 0      \\
+                    \vdots      & \vdots      & \vdots & \ddots & \vdots \\
+                    0           & 0           & 0      & \cdots & x_{n}
+                \end{vmatrix} \\
+                & = \frac{1}{x^{2}_{1}x^{2}_{2}x^{2}_{3}}
+                \begin{vmatrix}
+                    a_{1}x_{2}x_{3} + a_{2}x_{1}x_{3}  & a_{2}x_{1}x_{3}  & a_{3}x_{1}x_{2}  & \cdots & a_{n}  \\
+                    0 & x_{1}x_{2}x_{3}  & 0      & \cdots & 0      \\
+                    -x_{1}x_{2}x_{3}           & -x_{1}x_{2}x_{3} & x_{1}x_{2}x_{3}  & \cdots & 0      \\
+                    \vdots      & \vdots      & \vdots & \ddots & \vdots \\
+                    0           & 0           & 0      & \cdots & x_{n}
+                \end{vmatrix} \\
+                & = \frac{1}{x^{2}_{1}x^{2}_{2}x^{2}_{3}}
+                \begin{vmatrix}
+                    a_{1}x_{2}x_{3} + a_{2}x_{1}x_{3} + a_{3}x_{1}x_{2}  & a_{2}x_{1}x_{3}  & a_{3}x_{1}x_{2}  & \cdots & a_{n}  \\
+                    0 & x_{1}x_{2}x_{3}  & 0      & \cdots & 0      \\
+                    0           & -x_{1}x_{2}x_{3} & x_{1}x_{2}x_{3}  & \cdots & 0      \\
+                    \vdots      & \vdots      & \vdots & \ddots & \vdots \\
+                    0           & 0           & 0      & \cdots & x_{n}
+                \end{vmatrix} \\
+                & = \frac{1}{(x_{1}x_{2}\ldots x_{n}){}^{n-1}}(a_{1}x_{2}x_{3}\ldots x_{n} + a_{2}x_{1}x_{3}\ldots x_{n} + \cdots + a_{n}x_{1}x_{2}\ldots x_{n-1}) \\
+                & \times (x_{2}x_{3}\ldots x_{n}) (x_{1}x_{3}\ldots x_{n}) \cdots (x_{1}x_{2}\ldots x_{n-1}) \\
+                & = a_{1}x_{2}x_{3}\ldots x_{n} + a_{2}x_{1}x_{3}\ldots x_{n} + \cdots + a_{n}x_{1}x_{2}\ldots x_{n-1} \\
+                & = \sum^{n}_{k = 1}\left(a_{k}\prod^{n}_{i\ne k}x_{i}\right)
+            \end{align*}
+            \endgroup
     \end{enumerate}
 \end{proof}
 
@@ -526,6 +598,31 @@
             \vdots & \vdots & \vdots & \ddots & \vdots \\
             n - 1  & n - 2  & n - 3  & \cdots & 0
         \end{vmatrix}
+        & =
+        \begin{vmatrix}
+            0      & 1      & 2      & \cdots & n - 1  \\
+            1      & -1     & -1     & \cdots & -1     \\
+            1      & 1      & -1     & \cdots & -1     \\
+            \vdots & \vdots & \vdots & \ddots & \vdots \\
+            1      & 1      & 1      & \cdots & -1
+        \end{vmatrix} (r_{k} := r_{k} - r_{k - 1}) \\
+        & =
+        \begin{vmatrix}
+            n - 1  & 1      & 2      & \cdots & n - 1  \\
+            0      & -1     & -1     & \cdots & -1     \\
+            0      & 1      & -1     & \cdots & -1     \\
+            \vdots & \vdots & \vdots & \ddots & \vdots \\
+            0      & 1      & 1      & \cdots & -1
+        \end{vmatrix} (c_{1} := c_{1} + c_{n}) \\
+        & =
+        \begin{vmatrix}
+            n - 1  & 1      & 2      & \cdots & n - 1  \\
+            0      & -1     & -1     & \cdots & -1     \\
+            0      & 0      & -2     & \cdots & -2     \\
+            \vdots & \vdots & \vdots & \ddots & \vdots \\
+            0      & 0      & 0      & \cdots & -2
+        \end{vmatrix} (r_{k} := r_{k} + r_{k-1}) \\
+        & = (-2){}^{n-1}(n - 1).
     \end{align*}
     \endgroup
 \end{proof}
@@ -533,12 +630,76 @@
 \begin{exercise}
     \par Tính các định thức sau đây bằng \textit{phương pháp rút ra các nhân tử tuyến tính}:
     \begin{enumerate}[label = (\alph*)]
-        \item $\begin{vmatrix} 1 & 2 & 3 & \cdots & n \\ 1 & x + 1 & 3 & \cdots & n \\ 1 & 2 & x + 1 & \cdots & n \\ 1 & 2 & 3 & \cdots & x + 1 \end{vmatrix}$,
+        \item $\begin{vmatrix} 1 & 2 & 3 & \cdots & n \\ 1 & x + 1 & 3 & \cdots & n \\ 1 & 2 & x + 1 & \cdots & n \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 1 & 2 & 3 & \cdots & x + 1 \end{vmatrix}$,
         \item $\begin{vmatrix} 1 + x & 1 & 1 & 1 \\ 1 & 1 - x & 1 & 1 \\ 1 & 1 & 1 + y & 1 \\ 1 & 1 & 1 & 1 - y \end{vmatrix}$.
     \end{enumerate}
 \end{exercise}
 
 \begin{proof}[Lời giải]
+    \begin{enumerate}[label = (\alph*)]
+        \item
+            \begin{align*}
+                \begin{vmatrix}
+                    1      & 2      & 3      & \cdots & n      \\
+                    1      & x + 1  & 3      & \cdots & n      \\
+                    1      & 2      & x + 1  & \cdots & n      \\
+                    \vdots & \vdots & \vdots & \ddots & \vdots \\
+                    1      & 2      & 3      & \cdots & x + 1
+                \end{vmatrix}
+                & =
+                \begin{vmatrix}
+                    1      & 0      & 0      & \cdots & 0           \\
+                    1      & x - 1  & 0      & \cdots & 0           \\
+                    1      & 0      & x - 2  & \cdots & 0           \\
+                    \vdots & \vdots & \vdots & \ddots & \vdots      \\
+                    1      & 0      & 0      & \cdots & x - (n - 1) \\
+                \end{vmatrix} (c_{k} := c_{k} - k\times c_{1}) \\
+                & =
+                \begin{vmatrix}
+                    1      & 0      & 0      & \cdots & 0           \\
+                    0      & x - 1  & 0      & \cdots & 0           \\
+                    0      & 0      & x - 2  & \cdots & 0           \\
+                    \vdots & \vdots & \vdots & \ddots & \vdots      \\
+                    0      & 0      & 0      & \cdots & x - (n - 1) \\
+                \end{vmatrix} (r_{k} := r_{k} - r_{1}) \\
+                & = (x - 1)(x - 2)\cdots (x - n + 1).
+            \end{align*}
+        \item Đặt $\varepsilon_{1} = \begin{pmatrix}1 \\ 0 \\ 0 \\ 0\end{pmatrix}$, $\varepsilon_{2} = \begin{pmatrix}0 \\ 1 \\ 0 \\ 0\end{pmatrix}$, $\varepsilon_{3} = \begin{pmatrix}0 \\ 0 \\ 1 \\ 0\end{pmatrix}$, $\varepsilon_{4} = \begin{pmatrix}0 \\ 0 \\ 0 \\ 1\end{pmatrix}$, $\varepsilon = \begin{pmatrix}1 \\ 1 \\ 1 \\ 1\end{pmatrix}$.
+            \begin{align*}
+                \begin{vmatrix}
+                    1 + x & 1     & 1     & 1     \\
+                    1     & 1 - x & 1     & 1     \\
+                    1     & 1     & 1 + y & 1     \\
+                    1     & 1     & 1     & 1 - y \\
+                \end{vmatrix}
+                & = \det(\varepsilon + x\varepsilon_{1}, \varepsilon - x\varepsilon_{2}, \varepsilon + y\varepsilon_{3}, \varepsilon - y\varepsilon_{4}) \\
+                & = \det(\varepsilon, -x\varepsilon_{2}, y\varepsilon_{3}, -y\varepsilon_{4}) + \det(x\varepsilon_{1}, \varepsilon, y\varepsilon_{3}, -y\varepsilon_{4}) \\
+                & \quad + \det(x\varepsilon_{1}, -x\varepsilon_{2}, \varepsilon, -y\varepsilon_{4}) + \det(x\varepsilon_{1}, -x\varepsilon_{2}, y\varepsilon_{3}, \varepsilon) \\
+                & \quad + \det(x\varepsilon_{1}, -x\varepsilon_{2}, y\varepsilon_{3}, -y\varepsilon_{4}) \\
+                & = xy^{2} - xy^{2} + x^{2}y - x^{2}y + x^{2}y^{2} \\
+                & = x^{2}y^{2}.
+            \end{align*}
+    \end{enumerate}
 \end{proof}
+
+\begin{exercise}
+    \par Tính các định thức sau đây bằng cách \textit{sử dụng các quan hệ hồi quy}:
+    \begin{enumerate}[label = (\alph*)]
+        \item $\begin{vmatrix}
+            a_{1}b_{1} & a_{1}b_{2} & a_{1}b_{3} & \cdots & a_{1}b_{n} \\
+            a_{1}b_{2} & a_{2}b_{2} & a_{2}b_{3} & \cdots & a_{2}b_{n} \\
+            a_{1}b_{3} & a_{2}b_{3} & a_{3}b_{3} & \cdots & a_{3}b_{n} \\
+            \vdots     & \vdots     & \vdots     & \ddots & \vdots     \\
+            a_{1}b_{n} & a_{2}b_{n} & a_{3}b_{n} & \cdots & a_{n}b_{n}
+        \end{vmatrix}$
+        \item $\begin{vmatrix}
+            a_{0}  & a_{1}  & a_{2}  & \cdots & a_{n}  \\
+            -y_{1} & x_{1}  & 0      & \cdots & 0      \\
+            0      & -y_{2} & x_{2}  & \cdots & 0      \\
+            \vdots & \vdots & \vdots & \ddots & \vdots \\
+            0      & 0      & 0      & \cdots & x_{n}
+        \end{vmatrix}$
+    \end{enumerate}
+\end{exercise}
 
 \end{document}
