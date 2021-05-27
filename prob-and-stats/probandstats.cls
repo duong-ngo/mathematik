@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{probability-and-statistics}
+\ProvidesClass{probandstats}
 
 \LoadClass[oneside]{book}
 
@@ -28,7 +28,7 @@
 \RequirePackage{booktabs}
 \RequirePackage{enumitem}
 
-\setcounter{chapter}{-1}
+\setcounter{chapter}{0}
 
 \pagestyle{fancy}
 \setlength{\headheight}{16pt}
@@ -49,10 +49,7 @@
 
 \theoremstyle{definition}
 \newtheorem{exercise}{Bài}
-\counterwithin{exercise}{chapter}
-\theoremstyle{plain}
-\newtheorem{lemma}{Bổ đề}
-\counterwithin{lemma}{chapter}
+\counterwithin{exercise}{section}
 \newenvironment{sqcases}{%
     \matrix@check\sqcases\env@sqcases
 }{%
@@ -64,7 +61,3 @@
 \def\arraystretch{1.2}%
 \array{@{}l@{\quad}l@{}}%
 }
-\newcommand{\rank}{\text{rank}}
-\renewcommand{\phi}{\varphi}
-\renewcommand{\hom}{\text{Hom}}
-\newcommand{\abs}[1]{\left|{#1}\right|}

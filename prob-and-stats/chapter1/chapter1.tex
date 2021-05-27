@@ -1,0 +1,47 @@
+\documentclass[class=probandstats,crop=false]{standalone}
+
+\begin{document}
+
+\chapter{Xác suất}
+
+\section{Các tính chất của xác suất}
+
+\begin{exercise}
+    \par Trong một nhóm các bệnh nhân bị thương, 28\% đến gặp bác sĩ trị liệu vật lý và chấn thương chỉnh hình, 8\% không đến gặp ai. Biết rằng xác suất đến gặp bác sĩ trị liệu vật lý cao hơn xác suất đến gặp bác sĩ chấn thương chỉnh hình là 16\%.
+    \par Xác suất một người được chọn ngẫu nhiên đến gặp bác sĩ trị liệu vật lý là bao nhiêu?
+\end{exercise}
+
+\begin{proof}
+    \par $A$ là sự kiện \textit{bệnh nhân gặp bác sĩ trị liệu vật lý}.
+    \par $B$ là sự kiện \textit{bệnh nhân gặp bác sĩ chấn thương chỉnh hình}.
+    \bigskip
+    \par Theo giả thiết
+    \[
+        \begin{cases}
+            P(A'\cap B') = 0.08 \\
+            P(A\cap B) = 0.28
+        \end{cases}
+    \]
+    \par $P(A'\cap B') = 1 - P(A\cup B) = 1 - P(A) - P(B) + P(A\cap B)$.
+    \par Suy ra $P(A) + P(B) = 1 - P(A'\cap B') + P(A\cap B) = 1 - 0.08 + 0.28 = 0.8$.
+    \par Cùng với việc $P(A) - P(B) = 0.16$, ta thu được $P(A) = 0.48$.
+    \par Vậy xác suất một người được chọn ngẫu nhiên đến gặp bác sĩ trị liệu vật lý là 48\%.
+\end{proof}
+
+
+\section{Các phương pháp liệt kê}
+
+
+
+\section{Xác suất có điều kiện}
+
+
+
+\section{Sự kiện độc lập}
+
+
+
+\section{Định lý Bayes}
+
+
+\end{document}
