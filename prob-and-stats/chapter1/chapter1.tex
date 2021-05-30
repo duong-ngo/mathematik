@@ -11,7 +11,7 @@
     \par Xác suất một người được chọn ngẫu nhiên đến gặp bác sĩ trị liệu vật lý là bao nhiêu?
 \end{exercise}
 
-\begin{proof}
+\begin{proof}[Lời giải]
     \par $A$ là sự kiện \textit{bệnh nhân gặp bác sĩ trị liệu vật lý}.
     \par $B$ là sự kiện \textit{bệnh nhân gặp bác sĩ chấn thương chỉnh hình}.
     \bigskip
@@ -28,6 +28,177 @@
     \par Vậy xác suất một người được chọn ngẫu nhiên đến gặp bác sĩ trị liệu vật lý là 48\%.
 \end{proof}
 
+\begin{exercise}
+    \par Một công ty bảo hiểm quan sát các khách hàng bảo hiểm xe và nhận ra
+    \begin{enumerate}[label = (\alph*)]
+        \item tất cả bảo hiểm ít nhất một xe
+        \item 85\% bảo hiểm nhiều hơn một xe
+        \item 23\% bảo hiểm một xe thể thao
+        \item 17\% bảo hiểm nhiều hơn một xe, bao gồm một xe thể thao
+    \end{enumerate}
+    \par Tìm xác suất một khách hàng được chọn ngẫu nhiên, bảo hiểm đúng một chiếc xe và không phải xe thể thao.
+\end{exercise}
+
+\begin{proof}[Lời giải]
+    \par $A$ là sự kiện \textit{bảo hiểm đúng một xe}.
+    \par $B$ là sự kiện \textit{bảo hiểm xe thể thao}.
+    \par $C$ là sự kiện \textit{bảo hiểm nhiều hơn một xe}.
+    \par Theo giả thiết
+    \[
+        \begin{cases}
+            P(A) + P(C) = 1 \\
+            P(B) = 0.23     \\
+            P(C) = 0.85     \\
+            P(B\cap C) = 0.17
+        \end{cases}
+    \]
+    \par Sự kiện \textit{bảo hiểm đúng một xe và không phải xe thể thao} được biểu thị bằng tập hợp $A\cap C'$
+    \begin{align*}
+        P(A\cap C') & = P(B'\cap C')                 \\
+                    & = 1 - P(B\cup C)               \\
+                    & = 1 - P(B) - P(C) + P(B\cap C) \\
+                    & = 1 - 0.23 - 0.85 + 0.17       \\
+                    & = 0.09.
+    \end{align*}
+    \par Vậy xác suất để một khách hàng được chọn ngẫu nhiên, bảo hiểm đúng một chiếc xe và không phải xe thể thao là 9\%.
+\end{proof}
+
+\begin{exercise}
+    \par Chọn một tấm bài ngẫu nhiên từ một bộ bài chuẩn. Không gian mẫu $S$ là một bộ gồm 52 lá bài.
+    \par Giả sử hàm xác suất gán giá trị 1/52 cho từng khả năng. Đặt
+    \begin{align*}
+        A & = \{ x: J, Q, K \}                 \\
+        B & = \{ x: 9, 10, \text{hoặc J đỏ} \} \\
+        C & = \{ x: \text{nhép} \}             \\
+        D & = \{ x: \text{rô, cơ, bích} \}
+    \end{align*}
+    \par Tính \textbf{(a)} $P(A)$, \textbf{(b)} $P(A\cap B)$, \textbf{(c)} $P(A\cup B)$, \textbf{(d)} $P(C\cup D)$, \textbf{(e)} $P(C\cap D)$.
+\end{exercise}
+
+\begin{proof}[Lời giải]
+    \begin{enumerate}[label = \textbf{(\alph*)}]
+        \item
+              \[
+                  P(A) = \dfrac{3 * 4}{52} = \dfrac{3}{13}.
+              \]
+        \item
+              \[
+                  P(A\cap B) = \dfrac{2}{52} = \dfrac{1}{26}.
+              \]
+        \item
+              \[
+                  P(A\cup B) = P(A) + P(B) - P(A\cap B) = \dfrac{12}{52} + \dfrac{4}{52} - \dfrac{2}{52} = \dfrac{14}{52} = \dfrac{7}{26}.
+              \]
+        \item
+              \[
+                  P(C\cup D) = 1.
+              \]
+        \item
+              \[
+                  P(C\cap D) = 0.
+              \]
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    \par Một đồng xu cân được tung bốn lần, thứ tự ngửa và sấp được quan sát.
+    \begin{enumerate}[label = \textbf{(\alph*)}]
+        \item Liệt kê từng thứ tự có thể trong không gian mẫu $S$.
+        \item $A$ là sự kiện \textit{có ít nhất 3 lần ngửa}, $B$ là sự kiện \textit{có nhiều nhất 2 lần ngửa}, $C$ là sự kiện \textit{ngửa trong lần tung thứ ba} và $D$ là sự kiện \textit{có 1 lần ngửa và 3 lần sấp}. Nếu hàm xác suất gán cho mỗi kết quả trong không gian mẫu giá trị là $1/16$, tìm
+              \begin{enumerate}[label = \textbf{(\arabic*)}]
+                  \item $P(A)$
+                  \item $P(A\cap B)$
+                  \item $P(B)$
+                  \item $P(A\cap C)$
+                  \item $P(D)$
+                  \item $P(A\cup C)$
+                  \item $P(B\cup D)$
+              \end{enumerate}
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}[Lời giải]
+    \begin{enumerate}[label = \textbf{(\alph*)}]
+        \item
+              \[
+                  \begin{matrix}
+                      HHHH & HHHT & HHTH & HHTT \\
+                      HTHH & HTHT & HTTH & HTTT \\
+                      THHH & THHT & THTH & THTT \\
+                      TTHH & TTHT & TTTH & TTTT
+                  \end{matrix}
+              \]
+        \item
+              \begin{enumerate}[label = \textbf{(\arabic*)}]
+                  \item
+                        \[ P(A) = \dfrac{5}{16} \]
+                  \item
+                        \[ P(A\cap B) = 0 \]
+                  \item
+                        \[ P(B) = \dfrac{6 + 4 + 1}{16} = \dfrac{11}{16} \]
+                  \item
+                        \[ P(A\cap C) = \dfrac{4}{16} = \dfrac{1}{4} \]
+                  \item
+                        \[ P(D) = \dfrac{4}{16} = \dfrac{1}{4} \]
+                  \item
+                        \[ P(A\cup C) = P(A) + P(C) - P(A\cap C) = \dfrac{5}{16} + \dfrac{8}{16} - \dfrac{1}{4} = \dfrac{9}{16} \]
+                  \item
+                        \[ P(B\cap D) = P(D) = \dfrac{1}{4} \]
+              \end{enumerate}
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    \par Xét phép thử mà trong đó, mặt 3 xuất hiện khi tung một súc sắc 6-mặt thành công.
+    \par $A$ là sự kiện 3 xuất hiện trong lần thử đầu tiên.
+    \par $B$ là sự kiện 3 xuất hiện sau ít nhất 2 lần thử.
+    \par Giả sử mỗi mặt có xác suất là 1/6, tìm \textbf{(a)} $P(A)$, \textbf{(b)} $P(B)$, và \textbf{(c)} $P(A\cup B)$.
+\end{exercise}
+
+\begin{proof}[Lời giải]
+    \begin{enumerate}[label = \textbf{(\alph*)}]
+        \item
+              \[ P(A) = \dfrac{1}{6} \]
+        \item
+              \[
+                  % chktex-file 3
+                  P(B) = \left(\dfrac{5}{6}\right)^{2}\dfrac{1}{6} = \dfrac{25}{216}
+              \]
+        \item
+              \[
+                  P(A\cup B) = P(A) + P(B) = \dfrac{1}{6} + \dfrac{25}{216} = \dfrac{61}{216}
+              \]
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    \par Nếu $P(A) = 0.4$, $P(B) = 0.5$, và $P(A\cap B) = 0.3$, tìm \textbf{(a)} $P(A\cup B)$, \textbf{(b)} $P(A\cap B')$, \textbf{(c)} $P(A'\cup B')$.
+\end{exercise}
+
+\begin{proof}[Lời giải]
+    \begin{enumerate}[label = \textbf{(\alph*)}]
+        \item
+              \[ P(A\cup B) = P(A) + P(B) - P(A\cap B) = 0.6. \]
+        \item
+              \[ P(A\cap B') = P(A) - P(A\cap B) = 0.1. \]
+        \item
+              \[ P(A'\cup B') = 1 - P(A\cap B) = 0.7. \]
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    \par Biết $P(A\cup B) = 0.76$ và $P(A\cup B') = 0.87$, tìm $P(A)$.
+\end{exercise}
+
+\begin{proof}[Lời giải]
+    \[ P(A\cup B) = P(A) + P(B) - P(A\cap B) \]
+    \[ P(A\cup B') = P(A) + P(B') - P(A\cap B') \]
+    \begin{align*}
+        P(A\cup B) + P(A\cup B') & = 2P(A) + P(B) + P(B') - P(A\cap B) - P(A\cap B') \\
+        0.76 + 0.87              & = 2P(A) + 1 - P(A)                                \\
+        0.63                     & = P(A)
+    \end{align*}
+\end{proof}
 
 \section{Các phương pháp liệt kê}
 
