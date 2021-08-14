@@ -616,12 +616,12 @@
         \Rightarrow y_{n+1} - y_{n} = \left(\dfrac{-1}{2}\right)^{n-1}(y_{2} - y_{1}) = \left(\dfrac{-1}{2}\right)^{n-1}\ln\dfrac{b}{a}
     \]
     \begin{align*}
-        y_{n} - y_{1} &= \sum^{n-1}_{k=1}(y_{k+1} - y_{k}) = \ln\dfrac{b}{a}\sum^{n-1}_{k=1}\left(\dfrac{-1}{2}\right)^{k-1} \\
-                      &= \ln\dfrac{b}{a}\cdot\dfrac{1 - \left(\dfrac{-1}{2}\right)^{n-1}}{1 - \dfrac{-1}{2}} \\
-                      &= \dfrac{2}{3}\ln\dfrac{b}{a}\left(1 - \left(\dfrac{-1}{2}\right)^{n-1}\right) \\
-    \Rightarrow y_{n} &= \ln a + \dfrac{2}{3}\ln\dfrac{b}{a}\left(1 - \left(\dfrac{-1}{2}\right)^{n-1}\right) \\
-    \Rightarrow \lim\limits_{n\to+\infty}y_{n} &= \ln a + \dfrac{2}{3}(\ln b - \ln a) = \dfrac{1}{3}\ln a + \dfrac{2}{3}\ln b \\
-    \Rightarrow \lim\limits_{n\to+\infty}x_{n} &= \sqrt[3]{ab^{2}}.
+        y_{n} - y_{1}                              & = \sum^{n-1}_{k=1}(y_{k+1} - y_{k}) = \ln\dfrac{b}{a}\sum^{n-1}_{k=1}\left(\dfrac{-1}{2}\right)^{k-1} \\
+                                                   & = \ln\dfrac{b}{a}\cdot\dfrac{1 - \left(\dfrac{-1}{2}\right)^{n-1}}{1 - \dfrac{-1}{2}}                 \\
+                                                   & = \dfrac{2}{3}\ln\dfrac{b}{a}\left(1 - \left(\dfrac{-1}{2}\right)^{n-1}\right)                        \\
+        \Rightarrow y_{n}                          & = \ln a + \dfrac{2}{3}\ln\dfrac{b}{a}\left(1 - \left(\dfrac{-1}{2}\right)^{n-1}\right)                \\
+        \Rightarrow \lim\limits_{n\to+\infty}y_{n} & = \ln a + \dfrac{2}{3}(\ln b - \ln a) = \dfrac{1}{3}\ln a + \dfrac{2}{3}\ln b                         \\
+        \Rightarrow \lim\limits_{n\to+\infty}x_{n} & = \sqrt[3]{ab^{2}}.
     \end{align*}
 \end{proof}
 
@@ -636,37 +636,37 @@
 \begin{proof}[Lời giải]
     \begin{enumerate}[label = (\roman*)]
         \item $x_{0} > 0$. Từ hệ thức truy hồi, ta suy ra $x_{n} > 0, \forall n$.
-            \par $x_{n} > 0, \forall n\Rightarrow\dfrac{3x_{n} + 4}{2x_{n} + 3} > 1, \forall n$ 
-            \begin{align*}
-                x_{n+1} - x_{n} & = \dfrac{3x_{n} + 4}{2x_{n} + 3} - \dfrac{3x_{n-1} + 4}{2x_{n-1} + 3} \\
-                                & = \dfrac{x_{n} - x_{n-1}}{(2x_{n} + 3)(2x_{n-1} + 3)}
-            \end{align*}
-            \par $x_{1} = \dfrac{7}{6} > 1 = x_{0}$. Do đó $x_{n+1} > x_{n}\ \forall n$, tức là $(x_{n})$ là dãy tăng.
-            \par Mà $\dfrac{3x_{n} + 4}{2x_{n} + 3} < 2, \forall n$ nên $(x_{n})$ là dãy bị chặn trên.
-            \par Do đó, $x_{n}$ hội tụ. Đặt giới hạn của $(x_{n})$ là $x$.
-            \[
-                \Rightarrow x = \dfrac{3x + 4}{2x + 3} \Rightarrow x = \sqrt{2}. 
-            \]
+              \par $x_{n} > 0, \forall n\Rightarrow\dfrac{3x_{n} + 4}{2x_{n} + 3} > 1, \forall n$
+              \begin{align*}
+                  x_{n+1} - x_{n} & = \dfrac{3x_{n} + 4}{2x_{n} + 3} - \dfrac{3x_{n-1} + 4}{2x_{n-1} + 3} \\
+                                  & = \dfrac{x_{n} - x_{n-1}}{(2x_{n} + 3)(2x_{n-1} + 3)}
+              \end{align*}
+              \par $x_{1} = \dfrac{7}{6} > 1 = x_{0}$. Do đó $x_{n+1} > x_{n}\ \forall n$, tức là $(x_{n})$ là dãy tăng.
+              \par Mà $\dfrac{3x_{n} + 4}{2x_{n} + 3} < 2, \forall n$ nên $(x_{n})$ là dãy bị chặn trên.
+              \par Do đó, $x_{n}$ hội tụ. Đặt giới hạn của $(x_{n})$ là $x$.
+              \[
+                  \Rightarrow x = \dfrac{3x + 4}{2x + 3} \Rightarrow x = \sqrt{2}.
+              \]
         \item $x_{0} = 2 > 0$. Từ  hệ thức truy hồi, ta suy ra $x_{n} > 2, \forall n > 0$
-            \begin{align*}
-                x_{n+1} - x_{n} &= \dfrac{-1}{2}\cdot\dfrac{x_{n} - x_{n-1}}{x_{n}x_{n-1}} \\
-                \Rightarrow \abs{x_{n+1} - x_{n}} &< \dfrac{1}{2}\abs{x_{n} - x_{n-1}}\dfrac{1}{4\times 4} \\
-                                                  &= \dfrac{1}{32}\abs{x_{n} - x_{n-1}} \\
-                                                  &< \dfrac{1}{32^{n}}\abs{x_{1} - x_{0}} \\
-                                                  &= \dfrac{1}{4\times 32^{n}}
-            \end{align*}
-            \begin{align*}
-                \abs{x_{n+p} - x_{n}} &\leq \abs{x_{n+p} - x_{n+p-1}} + \abs{x_{n+p-1} - x_{n+p-2}} + \cdots + \abs{x_{n+1} - x_{n}} \\
-                                      & < \dfrac{1}{4}\left(\dfrac{1}{32^{n+p-1}} + \dfrac{1}{32^{n+p-2}} + \cdots + \dfrac{1}{32^{n}}\right) \\
-                                      & = \dfrac{1}{4\times 32^{n}}\left(1 + \dfrac{1}{32} + \cdots + \dfrac{1}{32^{p-1}}\right) \\
-                                      & = \dfrac{1}{4\times 32^{n}} \cdot\dfrac{1 - \dfrac{1}{32^{p}}}{1 - \dfrac{1}{32}} < \dfrac{1}{4\times 32^{n}}\cdot \dfrac{32}{31} \\
-                                      & = \dfrac{1}{4\times 31\times 32^{n-1}} < \dfrac{1}{4^{n}}
-            \end{align*}
-            \par $\forall\varepsilon > 0$, $\exists N_{\varepsilon}$ sao cho $\forall n > N_{\varepsilon}$ thì $\dfrac{1}{4^{n}} < \varepsilon$.
-            \par Suy ra $\forall\varepsilon > 0$, $\exists N_{\varepsilon}$ sao cho $\forall n > N_{\varepsilon}$, $\forall p$ để $\abs{x_{n+p} - x_{n}} < \varepsilon$.
-            \par Do đó, $(x_{n})$ hội tụ.
-            \par Đặt $x = \lim\limits_{n\to+\infty}x_{n}$.
-            \par Suy ra $x = 2 + \dfrac{1}{2x}$. Giải phương trình này, với điều kiện $x \geq 2$, ta được $x = 1 + \dfrac{\sqrt{6}}{2}$
+              \begin{align*}
+                  x_{n+1} - x_{n}                   & = \dfrac{-1}{2}\cdot\dfrac{x_{n} - x_{n-1}}{x_{n}x_{n-1}} \\
+                  \Rightarrow \abs{x_{n+1} - x_{n}} & < \dfrac{1}{2}\abs{x_{n} - x_{n-1}}\dfrac{1}{4\times 4}   \\
+                                                    & = \dfrac{1}{32}\abs{x_{n} - x_{n-1}}                      \\
+                                                    & < \dfrac{1}{32^{n}}\abs{x_{1} - x_{0}}                    \\
+                                                    & = \dfrac{1}{4\times 32^{n}}
+              \end{align*}
+              \begin{align*}
+                  \abs{x_{n+p} - x_{n}} & \leq \abs{x_{n+p} - x_{n+p-1}} + \abs{x_{n+p-1} - x_{n+p-2}} + \cdots + \abs{x_{n+1} - x_{n}}                                     \\
+                                        & < \dfrac{1}{4}\left(\dfrac{1}{32^{n+p-1}} + \dfrac{1}{32^{n+p-2}} + \cdots + \dfrac{1}{32^{n}}\right)                             \\
+                                        & = \dfrac{1}{4\times 32^{n}}\left(1 + \dfrac{1}{32} + \cdots + \dfrac{1}{32^{p-1}}\right)                                          \\
+                                        & = \dfrac{1}{4\times 32^{n}} \cdot\dfrac{1 - \dfrac{1}{32^{p}}}{1 - \dfrac{1}{32}} < \dfrac{1}{4\times 32^{n}}\cdot \dfrac{32}{31} \\
+                                        & = \dfrac{1}{4\times 31\times 32^{n-1}} < \dfrac{1}{4^{n}}
+              \end{align*}
+              \par $\forall\varepsilon > 0$, $\exists N_{\varepsilon}$ sao cho $\forall n > N_{\varepsilon}$ thì $\dfrac{1}{4^{n}} < \varepsilon$.
+              \par Suy ra $\forall\varepsilon > 0$, $\exists N_{\varepsilon}$ sao cho $\forall n > N_{\varepsilon}$, $\forall p$ để $\abs{x_{n+p} - x_{n}} < \varepsilon$.
+              \par Do đó, $(x_{n})$ hội tụ.
+              \par Đặt $x = \lim\limits_{n\to+\infty}x_{n}$.
+              \par Suy ra $x = 2 + \dfrac{1}{2x}$. Giải phương trình này, với điều kiện $x \geq 2$, ta được $x = 1 + \dfrac{\sqrt{6}}{2}$
     \end{enumerate}
 \end{proof}
 
@@ -705,7 +705,7 @@
     \par Theo tiêu chuẩn Stolz, $\lim\limits_{n\to+\infty}\dfrac{\sqrt{1 + 2^{2}} + \sqrt{1 + 3^{2}} + \cdots + \sqrt{1 + n^{2}}}{1 + n^{2}} = \dfrac{1}{2}$
     \begin{align*}
         \lim\limits_{n\to+\infty}\dfrac{\sin\frac{\pi}{n}}{\ln\left(1 + \dfrac{1}{n-1}\right)} & = \lim\limits_{n\to+\infty}\dfrac{\sin\frac{\pi}{n}}{\frac{\pi}{n}} \times \lim\limits_{n\to+\infty}\dfrac{\pi}{n\ln\left(1 + \dfrac{1}{n-1}\right)} \\
-        & = \pi.
+                                                                                               & = \pi.
     \end{align*}
     \par Theo tiêu chuẩn Stolz, $\lim\limits_{n\to+\infty}\dfrac{\sin\pi + \sin\frac{\pi}{2} + \cdots + \sin\frac{\pi}{n}}{\ln n}$.
 \end{proof}

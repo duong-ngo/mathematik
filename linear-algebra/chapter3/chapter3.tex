@@ -414,7 +414,7 @@
                       21 & 16 & 28 \\
                       45 & 38 & 62 \\
                       36 & 29 & 50
-                  \end{vmatrix}                                                                         \\
+                  \end{vmatrix}                                                                                     \\
                    & = 21(38\cdot 50 - 62\cdot 29) + 16(62\cdot 36 - 45\cdot 50) + 28(45\cdot 29 - 36\cdot 38) = 90.
               \end{align*}
     \end{enumerate}
@@ -510,13 +510,13 @@
                       0      & -x_{2} & x_{3}  & \cdots & 0      \\
                       \vdots & \vdots & \vdots & \ddots & \vdots \\
                       0      & 0      & 0      & \cdots & x_{n}
-                  \end{vmatrix}                                          \\
+                  \end{vmatrix}             \\
                    & = a_{1} \begin{vmatrix}
-                      x_{2}  & 0      & \cdots & 0      \\
-                      -x_{2} & x_{3}  & \cdots & 0      \\
-                      \vdots & \vdots & \ddots & \vdots \\
-                      0      & 0      & \cdots & x_{n}
-                  \end{vmatrix} = a_{1}x_{2}x_{3}\cdots x_{n}
+                                 x_{2}  & 0      & \cdots & 0      \\
+                                 -x_{2} & x_{3}  & \cdots & 0      \\
+                                 \vdots & \vdots & \ddots & \vdots \\
+                                 0      & 0      & \cdots & x_{n}
+                             \end{vmatrix} = a_{1}x_{2}x_{3}\cdots x_{n}
               \end{align*}
 
               \par Nếu $x_{k} = 0$
@@ -549,7 +549,7 @@
                       0           & -x_{1}x_{2} & x_{3}  & \cdots & 0      \\
                       \vdots      & \vdots      & \vdots & \ddots & \vdots \\
                       0           & 0           & 0      & \cdots & x_{n}
-                  \end{vmatrix}                                                                                                                          \\
+                  \end{vmatrix}                                                                                                \\
                    & = \frac{1}{x_{1}x_{2}}
                   \begin{vmatrix}
                       a_{1}x_{2} + a_{2}x_{1} & a_{2}x_{1}  & a_{3}  & \cdots & a_{n}  \\
@@ -557,7 +557,7 @@
                       -x_{1}x_{2}             & -x_{1}x_{2} & x_{3}  & \cdots & 0      \\
                       \vdots                  & \vdots      & \vdots & \ddots & \vdots \\
                       0                       & 0           & 0      & \cdots & x_{n}
-                  \end{vmatrix}                                                                                                                          \\
+                  \end{vmatrix}                                                                                    \\
                    & = \frac{1}{x^{2}_{1}x^{2}_{2}x^{2}_{3}}
                   \begin{vmatrix}
                       a_{1}x_{2}x_{3} + a_{2}x_{1}x_{3} & a_{2}x_{1}x_{3}  & a_{3}x_{1}x_{2} & \cdots & a_{n}  \\
@@ -565,7 +565,7 @@
                       -x_{1}x_{2}x_{3}                  & -x_{1}x_{2}x_{3} & x_{1}x_{2}x_{3} & \cdots & 0      \\
                       \vdots                            & \vdots           & \vdots          & \ddots & \vdots \\
                       0                                 & 0                & 0               & \cdots & x_{n}
-                  \end{vmatrix}                                                                                                                          \\
+                  \end{vmatrix}                                                            \\
                    & = \frac{1}{x^{2}_{1}x^{2}_{2}x^{2}_{3}}
                   \begin{vmatrix}
                       a_{1}x_{2}x_{3} + a_{2}x_{1}x_{3} + a_{3}x_{1}x_{2} & a_{2}x_{1}x_{3}  & a_{3}x_{1}x_{2} & \cdots & a_{n}  \\
@@ -573,7 +573,7 @@
                       0                                                   & -x_{1}x_{2}x_{3} & x_{1}x_{2}x_{3} & \cdots & 0      \\
                       \vdots                                              & \vdots           & \vdots          & \ddots & \vdots \\
                       0                                                   & 0                & 0               & \cdots & x_{n}
-                  \end{vmatrix}                                                                                                                          \\
+                  \end{vmatrix}                                          \\
                    & = \frac{1}{(x_{1}x_{2}\ldots x_{n}){}^{n-1}}(a_{1}x_{2}x_{3}\ldots x_{n} + a_{2}x_{1}x_{3}\ldots x_{n} + \cdots + a_{n}x_{1}x_{2}\ldots x_{n-1}) \\
                    & \times (x_{2}x_{3}\ldots x_{n}) (x_{1}x_{3}\ldots x_{n}) \cdots (x_{1}x_{2}\ldots x_{n-1})                                                       \\
                    & = a_{1}x_{2}x_{3}\ldots x_{n} + a_{2}x_{1}x_{3}\ldots x_{n} + \cdots + a_{n}x_{1}x_{2}\ldots x_{n-1}                                             \\
@@ -613,7 +613,7 @@
             0      & 1      & -1     & \cdots & -1     \\
             \vdots & \vdots & \vdots & \ddots & \vdots \\
             0      & 1      & 1      & \cdots & -1
-        \end{vmatrix} (c_{1} := c_{1} + c_{n})     \\
+        \end{vmatrix} (c_{1} := c_{1} + c_{n}) \\
          & =
         \begin{vmatrix}
             n - 1  & 1      & 2      & \cdots & n - 1  \\
@@ -621,7 +621,7 @@
             0      & 0      & -2     & \cdots & -2     \\
             \vdots & \vdots & \vdots & \ddots & \vdots \\
             0      & 0      & 0      & \cdots & -2
-        \end{vmatrix} (r_{k} := r_{k} + r_{k-1})   \\
+        \end{vmatrix} (r_{k} := r_{k} + r_{k-1}) \\
          & = (-2){}^{n-1}(n - 1).
     \end{align*}
     \endgroup
@@ -661,7 +661,7 @@
                       0      & 0      & x - 2  & \cdots & 0           \\
                       \vdots & \vdots & \vdots & \ddots & \vdots      \\
                       0      & 0      & 0      & \cdots & x - (n - 1) \\
-                  \end{vmatrix} (r_{k} := r_{k} - r_{1})         \\
+                  \end{vmatrix} (r_{k} := r_{k} - r_{1}) \\
                    & = (x - 1)(x - 2)\cdots (x - n + 1).
               \end{align*}
         \item Đặt $\varepsilon_{1} = \begin{pmatrix}1 \\ 0 \\ 0 \\ 0\end{pmatrix}$, $\varepsilon_{2} = \begin{pmatrix}0 \\ 1 \\ 0 \\ 0\end{pmatrix}$, $\varepsilon_{3} = \begin{pmatrix}0 \\ 0 \\ 1 \\ 0\end{pmatrix}$, $\varepsilon_{4} = \begin{pmatrix}0 \\ 0 \\ 0 \\ 1\end{pmatrix}$, $\varepsilon = \begin{pmatrix}1 \\ 1 \\ 1 \\ 1\end{pmatrix}$.
@@ -721,7 +721,7 @@
                       b_{3}  & a_{2}b_{3} & a_{3}b_{3} & \cdots & a_{3}b_{n} \\
                       \vdots & \vdots     & \vdots     & \ddots & \vdots     \\
                       1      & a_{2}      & a_{3}      & \cdots & a_{n}
-                  \end{vmatrix}                               \\
+                  \end{vmatrix}                                            \\
                    & =
                   a_{1}b_{n}
                   \begin{vmatrix}
@@ -730,7 +730,7 @@
                       0      & 0                       & 0                       & \cdots & a_{3}b_{n} - a_{n}b_{3} \\
                       \vdots & \vdots                  & \vdots                  & \ddots & \vdots                  \\
                       1      & a_{2}                   & a_{3}                   & \cdots & a_{n}
-                  \end{vmatrix} (r_{k} := r_{k} - b_{k}r_{n}) \\
+                  \end{vmatrix} (r_{k} := r_{k} - b_{k}r_{n})     \\
                    & =
                   (-1){}^{n-1}a_{1}b_{n}
                   \begin{vmatrix}
@@ -740,7 +740,7 @@
                       0      & 0                       & 0                       & \cdots & a_{3}b_{n} - a_{n}b_{3}     \\
                       \vdots & \vdots                  & \vdots                  & \ddots & \vdots                      \\
                       0      & 0                       & 0                       & \cdots & a_{n-1}b_{n} - a_{n}b_{n-1}
-                  \end{vmatrix}                               \\
+                  \end{vmatrix} \\
                    & =
                   (-1){}^{n-1}a_{1}b_{n}(a_{1}b_{2} - a_{2}b_{1})(a_{2}b_{3} - a_{3}b_{2})\cdots (a_{n-1}b_{n} - a_{n}b_{n-1}).
               \end{align*}
@@ -768,7 +768,7 @@
                       0      & -y_{2} & x_{2}  & \cdots & 0      \\
                       \vdots & \vdots & \vdots & \ddots & \vdots \\
                       0      & 0      & 0      & \cdots & x_{n}
-                  \end{vmatrix}                                                                         \\
+                  \end{vmatrix}                                                         \\
                    & =
                   a_{0}x_{1}x_{2}\cdots x_{n}
                   +
@@ -778,7 +778,7 @@
                       0      & -y_{2} & x_{2}  & \cdots & 0      \\
                       \vdots & \vdots & \vdots & \ddots & \vdots \\
                       0      & 0      & 0      & \cdots & x_{n}
-                  \end{vmatrix}                                                                         \\
+                  \end{vmatrix}                                                         \\
                    & =
                   a_{0}x_{1}x_{2}\cdots x_{n}
                   +
@@ -788,7 +788,7 @@
                       -y_{2} & x_{2}  & \cdots & 0      \\
                       \vdots & \vdots & \ddots & \vdots \\
                       0      & 0      & \cdots & x_{n}
-                  \end{vmatrix} \text{(hệ thức truy hồi)}                                               \\
+                  \end{vmatrix} \text{(hệ thức truy hồi)}                                                            \\
                    & = a_{0}x_{1}x_{2}\cdots x_{n}
                   + y_{1} (a_{1}x_{2}\cdots x_{n})
                   + \cdots
@@ -847,7 +847,7 @@
                       a_{1}                   & (x_{2} - a_{2}) + a_{2} & \cdots & a_{n}                   \\
                       \vdots                  & \vdots                  & \ddots & \vdots                  \\
                       a_{1}                   & a_{2}                   & \cdots & (x_{n} - a_{n}) + a_{n}
-                  \end{vmatrix}                                                                                                                                                \\
+                  \end{vmatrix}                                                                                       \\
                    & = \det((x_{1} - a_{1})\varepsilon_{1} + a_{1}\varepsilon, (x_{2} - a_{2})\varepsilon_{2} + a_{2}\varepsilon, \ldots, (x_{n} - a_{n})\varepsilon_{n} + a_{n}\varepsilon) \\
                    & = (x_{1} - a_{1})\cdots (x_{n} - a_{n})\det(\varepsilon_{1}, \ldots, \varepsilon_{n})                                                                                   \\
                    & + \sum^{n}_{i = 1}a_{i}\left(\prod^{n}_{\stackrel{j=1}{j\ne i}}(x_{j} - a_{j})\right)\det(\ldots, \varepsilon_{i-1}, \varepsilon, \varepsilon_{i+1}, \ldots)            \\
@@ -855,6 +855,24 @@
               \end{align*}
     \end{enumerate}
 \end{proof}
+
+\par Kí hiệu định thức Vandermonde cỡ $n$ với $n$ biến:
+
+\[
+    D_{n} = D_{n}(x_{1}, \ldots, x_{n}) =
+    \begin{vmatrix}
+        1      & x_{1}  & x_{1}^{2} & \cdots & x_{1}^{n-1} \\
+        1      & x_{2}  & x_{2}^{2} & \cdots & x_{2}^{n-1} \\
+        \vdots & \vdots & \vdots    & \ddots & \vdots      \\
+        1      & x_{n}  & x_{n}^{2} & \cdots & x_{1}^{n-1}
+    \end{vmatrix}.
+\]
+
+\par Kí hiệu đa thức đối xứng sơ cấp:
+
+\[
+    e_{k}(x_{1}, \ldots, x_{n}) = \sum_{1\le i_{1} < \ldots < i_{k} \le n}\left(\prod^{k}_{j=1}x_{i_{j}}\right).
+\]
 
 \par Tính các định thức sau đây:
 
@@ -868,17 +886,45 @@
 \end{exercise}
 
 \begin{proof}[Lời giải]
+    \par Khai triển Laplace theo cột thứ nhất:
+    \begin{align*}
+        \begin{vmatrix}
+            a_{1}  & x_{1}  & x_{1}^{2} & \cdots & x_{1}^{n-1} \\
+            a_{2}  & x_{2}  & x_{2}^{2} & \cdots & x_{2}^{n-1} \\
+            \vdots & \vdots & \vdots    & \ddots & \vdots      \\
+            a_{n}  & x_{n}  & x_{n}^{2} & \cdots & x_{n}^{n-1}
+        \end{vmatrix}
+         & =
+        \sum^{n}_{i=1}(-1){}^{1+i}a_{i}
+        \begin{vmatrix}
+            \vdots  & \vdots      & \vdots      & \ddots & \vdots        \\
+            x_{i-1} & x_{i-1}^{2} & x_{i-1}^{3} & \cdots & x_{i-1}^{n-1} \\
+            x_{i+1} & x_{i+1}^{2} & x_{i+1}^{3} & \cdots & x_{i+1}^{n-1} \\
+            \vdots  & \vdots      & \vdots      & \ddots & \vdots
+        \end{vmatrix} \\
+         & =
+        \sum^{n}_{i=1}(-1){}^{1+i}a_{i}\prod^{n}_{j\ne i}
+        \begin{vmatrix}
+            \vdots & \vdots  & \vdots      & \ddots & \vdots        \\
+            1      & x_{i-1} & x_{i-1}^{2} & \cdots & x_{i-1}^{n-2} \\
+            1      & x_{i+1} & x_{i+1}^{2} & \cdots & x_{i+1}^{n-2} \\
+            \vdots & \vdots  & \vdots      & \ddots & \vdots
+        \end{vmatrix}      \\
+         & =
+        \sum^{n}_{i=1}(-1){}^{1+i}a_{i}\left(\prod^{n}_{j\ne i}x_{j}\right)
+        D_{n-1}(\ldots, x_{i-1}, x_{i+1}, \ldots).
+    \end{align*}
 \end{proof}
 
 \begin{exercise}
     \begin{enumerate}[label = (\alph*)]
-        \item $\begin{vmatrix}
+        \item $D^{(1)}_{n} = \begin{vmatrix}
                       1      & x_{1}^{2} & x_{1}^{3} & \cdots & x_{1}^{n} \\
                       1      & x_{2}^{2} & x_{2}^{3} & \cdots & x_{2}^{n} \\
                       \vdots & \vdots    & \vdots    & \ddots & \vdots    \\
                       1      & x_{n}^{2} & x_{n}^{3} & \cdots & x_{n}^{n}
                   \end{vmatrix}$,
-        \item $\begin{vmatrix}
+        \item $D^{(s)}_{n} = \begin{vmatrix}
                       1      & x_{1}  & x_{1}^{2} & \cdots & x_{1}^{s-1} & x_{1}^{s+1} & \cdots & x_{1}^{n} \\
                       1      & x_{2}  & x_{2}^{2} & \cdots & x_{2}^{s-1} & x_{2}^{s+1} & \cdots & x_{2}^{n} \\
                       \vdots & \vdots & \vdots    & \ddots & \vdots      & \vdots      & \ddots & \vdots    \\
@@ -888,6 +934,181 @@
 \end{exercise}
 
 \begin{proof}[Lời giải]
+    \begin{enumerate}[label = (\alph*)]
+        \item
+              \begin{align*}
+                  \begin{vmatrix}
+                      1      & x_{1}^{2} & x_{1}^{3} & \cdots & x_{1}^{n} \\
+                      1      & x_{2}^{2} & x_{2}^{3} & \cdots & x_{2}^{n} \\
+                      \vdots & \vdots    & \vdots    & \ddots & \vdots    \\
+                      1      & x_{n}^{2} & x_{n}^{3} & \cdots & x_{n}^{n}
+                  \end{vmatrix}
+                   & =
+                  \begin{vmatrix}
+                      1      & x_{1}^{2} & x_{1}^{3} & \cdots & x_{1}^{n-1}(x_{1} - x_{n}) \\
+                      1      & x_{2}^{2} & x_{2}^{3} & \cdots & x_{2}^{n-1}(x_{2} - x_{n}) \\
+                      \vdots & \vdots    & \vdots    & \ddots & \vdots                     \\
+                      1      & x_{n}^{2} & x_{n}^{3} & \cdots & 0
+                  \end{vmatrix}\quad(c_{n}:= c_{n} - x_{n}c_{n-1})                                     \\
+                   & = \vdots                                                                                              \\
+                   & =
+                  \begin{vmatrix}
+                      1      & x_{1}^{2} & x_{1}^{2}(x_{1} - x_{n}) & \cdots & x_{1}^{n-1}(x_{1} - x_{n}) \\
+                      1      & x_{2}^{2} & x_{2}^{2}(x_{2} - x_{n}) & \cdots & x_{2}^{n-1}(x_{2} - x_{n}) \\
+                      \vdots & \vdots    & \vdots                   & \ddots & \vdots                     \\
+                      1      & x_{n}^{2} & 0                        & \cdots & 0
+                  \end{vmatrix}\quad(c_{3}:=c_{3} - x_{n}c_{2})                      \\
+                   & =
+                  \begin{vmatrix}
+                      1      & (x_{1} + x_{n})(x_{1} - x_{n}) & x_{1}^{2}(x_{1} - x_{n}) & \cdots & x_{1}^{n-1}(x_{1} - x_{n}) \\
+                      1      & (x_{2} + x_{n})(x_{2} - x_{n}) & x_{2}^{2}(x_{2} - x_{n}) & \cdots & x_{2}^{n-1}(x_{2} - x_{n}) \\
+                      \vdots & \vdots                         & \vdots                   & \ddots & \vdots                     \\
+                      1      & 0                              & 0                        & \cdots & 0
+                  \end{vmatrix}\quad(c_{2}:=c_{2} - x_{n}^{2}c_{1}) \\
+              \end{align*}
+              \par Khai triển Laplace theo cột thứ nhất
+              \begin{align*}
+                   & = (-1){}^{n+1}(x_{1} - x_{n})(x_{2} - x_{n})\cdots (x_{n-1} - x_{n})
+                  \begin{vmatrix}
+                      x_{1} + x_{n}   & x_{1}^{2}   & \cdots & x_{1}^{n-1}   \\
+                      x_{2} + x_{n}   & x_{2}^{2}   & \cdots & x_{2}^{n-1}   \\
+                      \vdots          & \vdots      & \ddots & \vdots        \\
+                      x_{n-1} + x_{n} & x_{n-1}^{2} & \cdots & x_{n-1}^{n-1}
+                  \end{vmatrix}                  \\
+                   & = \prod^{n-1}_{i=1}(x_{n} - x_{i})\left(
+                  \begin{vmatrix}
+                          x_{1}   & x_{1}^{2}   & \cdots & x_{1}^{n-1}   \\
+                          x_{2}   & x_{2}^{2}   & \cdots & x_{2}^{n-1}   \\
+                          \vdots  & \vdots      & \ddots & \vdots        \\
+                          x_{n-1} & x_{n-1}^{2} & \cdots & x_{n-1}^{n-1}
+                      \end{vmatrix}
+                  +
+                  \begin{vmatrix}
+                          x_{n}  & x_{1}^{2}   & \cdots & x_{1}^{n-1}   \\
+                          x_{n}  & x_{2}^{2}   & \cdots & x_{2}^{n-1}   \\
+                          \vdots & \vdots      & \ddots & \vdots        \\
+                          x_{n}  & x_{n-1}^{2} & \cdots & x_{n-1}^{n-1}
+                      \end{vmatrix}
+                  \right)
+              \end{align*}
+              \begingroup
+              \allowdisplaybreaks
+              \begin{align*}
+                  D^{(1)}_{n} & = (x_{n} - x_{1})\cdots(x_{n} - x_{n-1})\left( x_{1}x_{2}\cdots x_{n-1} D_{n-1} + x_{n}D^{(1)}_{n-1}\right)                                                                                        \\
+                              & = x_{n}(x_{n} - x_{1})\cdots(x_{n} - x_{n-1})D^{(1)}_{n-1} + (x_{n} - x_{1})\cdots (x_{n} - x_{n-1}) x_{1}x_{2}\cdots x_{n-1}D_{n-1}                                                               \\
+                              & = x_{n}\prod^{n-1}_{i=1}(x_{n} - x_{i}) \cdot D^{(1)}_{n-1} + \prod^{n-1}_{i=1}x_{i} \cdot D_{n}                                                                                                   \\
+                              & = x_{n}\prod^{n-1}_{i=1}(x_{n} - x_{i}) \cdot \left(x_{n-1}\prod^{n-2}_{i=1}(x_{n-1} - x_{i})\cdot D^{(1)}_{n-2} + \prod^{n-2}_{i=1}x_{i}\cdot D_{n-1}\right) + \prod^{n-1}_{i=1}x_{i} \cdot D_{n} \\
+                              & = x_{n}x_{n-1}\prod^{n-1}_{i=1}(x_{n} - x_{i})\prod^{n-2}_{i=1}(x_{n-1} - x_{i})\cdot D^{(1)}_{n-2} + \prod^{n}_{1\le i\ne n-1}x_{i}\cdot D_{n} + \prod^{n}_{1\le i\ne n}\cdot D_{n}               \\
+                              & = \cdots                                                                                                                                                                                           \\
+                              & = D_{n}x_{1}x_{2}\cdots x_{n}\sum^{n}_{i=1}\frac{1}{x_{i}}                                                                                                                                         \\
+                              & = D_{n}\sum^{n}_{i=1}\left(\prod^{n}_{1\le j\ne i}x_{j}\right) \\
+                              & = D_{n}e_{n-1}(x_{1},\ldots, x_{n}).
+              \end{align*}
+              \endgroup
+        \item
+             \par Ta xét trường hợp đặc biệt
+             \begin{align*}
+                 & D^{(n-1)}_{n} =
+                 \begin{vmatrix}
+                     1      & x_{1}  & \cdots & x_{1}^{n-2} & x_{1}^{n} \\
+                     1      & x_{2}  & \cdots & x_{2}^{n-2} & x_{2}^{n} \\
+                     \vdots & \vdots & \ddots & \cdots      & \vdots    \\
+                     1      & x_{n}  & \cdots & x_{n}^{n-2} & x_{n}^{n}
+                 \end{vmatrix} \\
+                 & =
+                 \begin{vmatrix}
+                     1      & x_{1} - x_{n} & \cdots & x_{1}^{n-3}(x_{1} - x_{n}) & x_{1}^{n-2}(x_{1} + x_{n})(x_{1} - x_{n}) \\
+                     1      & x_{2} - x_{n} & \cdots & x_{2}^{n-3}(x_{2} - x_{n}) & x_{2}^{n-2}(x_{2} + x_{n})(x_{2} - x_{n}) \\
+                     \vdots & \vdots        & \ddots & \vdots                     & \vdots                                    \\
+                     1      & 0             & \cdots & 0                          & 0
+                 \end{vmatrix} \\
+                 & = \prod^{n}_{1\le i\ne n}(x_{n} - x_{i})
+                 \begin{vmatrix}
+                     1      & x_{1}   & \cdots & x_{1}^{n-3}   & x_{1}^{n-1} + x_{1}^{n-2}x_{n}     \\
+                     1      & x_{2}   & \cdots & x_{2}^{n-3}   & x_{2}^{n-1} + x_{2}^{n-2}x_{n}     \\
+                     \vdots & \vdots  & \ddots & \cdots        & \vdots                             \\
+                     1      & x_{n-1} & \cdots & x_{n-1}^{n-3} & x_{n-1}^{n-1} + x_{n-1}^{n-2}x_{n}
+                 \end{vmatrix} \\
+                 & = \prod^{n}_{1\le i\ne n}(x_{n} - x_{i})\cdot D^{(n-2)}_{n-1} + x_{n}\prod^{n}_{1\le i\ne n}(x_{n} - x_{i})\cdot D_{n-1} \\
+                 & = \prod^{n}_{1\le i\ne n}(x_{n} - x_{i})\cdot D^{(n-2)}_{n-1} + x_{n}D_{n} \\
+                 & = \prod^{n}_{1\le i\ne n}(x_{n} - x_{i})\prod^{n-1}_{1\le i\ne n-1}(x_{n-1} - x_{i})\cdot D^{(n-3)}_{n-2} + \prod^{n}_{1\le i\ne n}(x_{n} - x_{i})\prod^{n-1}_{1\le i\ne n-1}(x_{n-1} - x_{i})\cdot x_{n-1}D_{n-2} + x_{n}D_{n} \\
+                 & = \prod^{n}_{1\le i\ne n}(x_{n} - x_{i})\prod^{n-1}_{1\le i\ne n-1}(x_{n-1} - x_{i})\cdot D^{(n-3)}_{n-2} + (x_{n-1} + x_{n})D_{n} \\
+                 & = \prod^{n}_{1\le i\ne n}(x_{n} - x_{i})\cdots \prod^{3}_{1\le i\ne 3}(x_{3} - x_{i})\cdot D^{(1)}_{2} + (x_{3} + \cdots + x_{n})D_{n} \\
+                 & = \prod^{n}_{1\le i\ne n}(x_{n} - x_{i})\cdots \prod^{3}_{1\le i\ne 3}(x_{3} - x_{i})(x_{2} - x_{1})(x_{1} + x_{2}) + (x_{3} + \cdots + x_{n})D_{n} \\
+                 & = D_{n}\sum^{n}_{i=1}x_{i} \\
+                 & = D_{n}e_{1}(x_{1},\ldots, x_{n}).
+             \end{align*}
+
+             \par Ta sẽ chứng minh $D_{n}^{(s)} = D_{n}e_{n-s}(x_{1},\ldots, x_{n})\ \forall n, 0\le s\le n$.
+             \par Khẳng định trên đúng với $n = 1, 2, 3$.
+             \par Nếu khẳng định này đúng với $n - 1, \forall\ 0\le s\le n-1$, ta cần chứng minh khẳng định vẫn đúng với $n, \forall\ 0\le s\le n$.
+              \begin{align*}
+                   & \phantom{=}\begin{vmatrix}
+                                    1      & x_{1}  & x_{1}^{2} & \cdots & x_{1}^{s-1} & x_{1}^{s+1} & \cdots & x_{1}^{n} \\
+                                    1      & x_{2}  & x_{2}^{2} & \cdots & x_{2}^{s-1} & x_{2}^{s+1} & \cdots & x_{2}^{n} \\
+                                    \vdots & \vdots & \vdots    & \ddots & \vdots      & \vdots      & \ddots & \vdots    \\
+                                    1      & x_{n}  & x_{n}^{2} & \cdots & x_{n}^{s-1} & x_{n}^{s+1} & \cdots & x_{n}^{n}
+                                \end{vmatrix}                                          \\
+                   & =
+                  \begin{vmatrix}
+                      1      & x_{1}  & x_{1}^{2} & \cdots & x_{1}^{s-1} & x_{1}^{s+1} & \cdots & x_{1}^{n-1}(x_{1} - x_{n}) \\
+                      1      & x_{2}  & x_{2}^{2} & \cdots & x_{2}^{s-1} & x_{2}^{s+1} & \cdots & x_{2}^{n-1}(x_{2} - x_{n}) \\
+                      \vdots & \vdots & \vdots    & \ddots & \vdots      & \vdots      & \ddots & \vdots                     \\
+                      1      & x_{n}  & x_{n}^{2} & \cdots & x_{n}^{s-1} & x_{n}^{s+1} & \cdots & 0
+                  \end{vmatrix}\quad(c_{s}:=c_{s} - x_{n}c_{s-1})                                       \\
+                   & = \cdots                                                                                                                                  \\
+                   & =
+                  \begin{vmatrix}
+                      1      & x_{1}  & x_{1}^{2} & \cdots & x_{1}^{s-1} & x_{1}^{s-1}(x_{1}^{2} - x_{n}^{2}) & \cdots & x_{1}^{n-1}(x_{1} - x_{n}) \\
+                      1      & x_{2}  & x_{2}^{2} & \cdots & x_{2}^{s-1} & x_{2}^{s-1}(x_{2}^{2} - x_{n}^{2}) & \cdots & x_{2}^{n-1}(x_{2} - x_{n}) \\
+                      \vdots & \vdots & \vdots    & \ddots & \vdots      & \vdots                             & \ddots & \vdots                     \\
+                      1      & x_{n}  & x_{n}^{2} & \cdots & x_{n}^{s-1} & 0                                  & \cdots & 0
+                  \end{vmatrix}\quad(c_{s}:=c_{s} - x_{n}c_{s-1})                \\
+                   & =
+                  \begin{vmatrix}
+                      1      & x_{1}  & x_{1}^{2} & \cdots & x_{1}^{s-2}(x_{1} - x_{n}) & x_{1}^{s-1}(x_{1}^{2} - x_{n}^{2}) & \cdots & x_{1}^{n-1}(x_{1} - x_{n}) \\
+                      1      & x_{2}  & x_{2}^{2} & \cdots & x_{2}^{s-2}(x_{2} - x_{n}) & x_{2}^{s-1}(x_{2}^{2} - x_{n}^{2}) & \cdots & x_{2}^{n-1}(x_{2} - x_{n}) \\
+                      \vdots & \vdots & \vdots    & \ddots & \vdots                     & \vdots                             & \ddots & \vdots                     \\
+                      1      & x_{n}  & x_{n}^{2} & \cdots & 0                          & 0                                  & \cdots & 0
+                  \end{vmatrix} \\
+                   & =
+                  \begin{vmatrix}
+                      1      & x_{1} - x_{n} & x_{1}(x_{1} - x_{n}) & \cdots & x_{1}^{s-2}(x_{1} - x_{n}) & x_{1}^{s-1}(x_{1}^{2} - x_{n}^{2}) & \cdots & x_{1}^{n-1}(x_{1} - x_{n}) \\
+                      1      & x_{2} - x_{n} & x_{2}(x_{2} - x_{n}) & \cdots & x_{2}^{s-2}(x_{2} - x_{n}) & x_{2}^{s-1}(x_{2}^{2} - x_{n}^{2}) & \cdots & x_{2}^{n-1}(x_{2} - x_{n}) \\
+                      \vdots & \vdots        & \vdots               & \ddots & \vdots                     & \vdots                             & \ddots & \vdots                     \\
+                      1      & 0             & 0                    & \cdots & 0                          & 0                                  & \cdots & 0
+                  \end{vmatrix}
+              \end{align*}
+          \par Khai triển Laplace theo dòng thứ $n$:
+          \begin{align*}
+              & = (-1)^{n+1}(x_{1} - x_{n})(x_{2} - x_{n})\cdots (x_{n-1} - x_{n})
+              \begin{vmatrix}
+                  1      & x_{1}   & \cdots & x_{1}^{s-2}   & x_{1}^{s-1}(x_{1} + x_{n})     & \cdots & x_{1}^{n-1}   \\
+                  1      & x_{2}   & \cdots & x_{2}^{s-2}   & x_{2}^{s-1}(x_{2} + x_{n})     & \cdots & x_{2}^{n-1}   \\
+                  \vdots & \vdots  & \ddots & \vdots        & \vdots                         & \ddots & \vdots        \\
+                  1      & x_{n-1} & \cdots & x_{n-1}^{s-2} & x_{n-1}^{s-1}(x_{n-1} + x_{n}) & \cdots & x_{n-1}^{n-1}
+              \end{vmatrix} \\
+              & = (x_{n} - x_{1})\cdots (x_{n} - x_{n-1})
+              \begin{vmatrix}
+                  1      & x_{1}   & \cdots & x_{1}^{s-2}   & x_{1}^{s}   & \cdots & x_{1}^{n-1} \\
+                  1      & x_{2}   & \cdots & x_{2}^{s-2}   & x_{2}^{s}   & \cdots & x_{2}^{n-1} \\
+                  \vdots & \vdots  & \ddots & \vdots        & \vdots      & \ddots & \vdots      \\
+                  1      & x_{n-1} & \cdots & x_{n-1}^{s-2} & x_{n-1}^{s} & \cdots & x_{s}^{n-1}
+              \end{vmatrix} \\
+              & + (x_{n} - x_{1})\cdots (x_{n} - x_{n-1})
+              x_{n}\begin{vmatrix}
+                  1      & x_{1}   & \cdots & x_{1}^{s-1}   & x_{1}^{s+1}   & \cdots & x_{1}^{n-1} \\
+                  1      & x_{2}   & \cdots & x_{2}^{s-1}   & x_{2}^{s+1}   & \cdots & x_{2}^{n-1} \\
+                  \vdots & \vdots  & \ddots & \vdots        & \vdots      & \ddots & \vdots      \\
+                  1      & x_{n-1} & \cdots & x_{n-1}^{s-1} & x_{n-1}^{s+1} & \cdots & x_{s}^{n-1}
+              \end{vmatrix} \\
+              & = \prod^{n}_{1\le i\ne n}(x_{n} - x_{i})\cdot \left(D^{(s-1)}_{n-1} + x_{n}D^{(s)}_{n-1}\right) \\
+              & = \prod^{n}_{1\le i\ne n}(x_{n} - x_{i})\cdot \left( D_{n-1}e_{n-s}(x_{1}, \ldots, x_{n-1}) + x_{n}D_{n-1}e_{n-1-s}(x_{1}, \ldots, x_{n-1}) \right) \\
+              & = \prod^{n}_{1\le i\ne n}(x_{n} - x_{i})\cdot D_{n-1} \left( e_{n-s}(x_{1}, \ldots, x_{n-1}) + x_{n}e_{n-1-s}(x_{1}, \ldots, x_{n-1}) \right) \\
+              & = D_{n} e_{n-s}(x_{1}, \ldots, x_{n-1}, x_{n}).
+          \end{align*}
+          \par Phép chứng minh quy nạp hoàn tất.
+    \end{enumerate}
 \end{proof}
 
 \begin{exercise}
