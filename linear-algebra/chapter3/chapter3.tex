@@ -1296,17 +1296,138 @@
         \end{vmatrix}$.
 \end{exercise}
 
+\begin{lemma}
+    \begin{enumerate}[label = (\roman*)]
+        \item
+              \[
+                  \underbrace{\begin{vmatrix}
+                          0      & 1      & 1      & \cdots & 1      \\
+                          1      & 0      & 1      & \cdots & 1      \\
+                          1      & 1      & 0      & \cdots & 1      \\
+                          \vdots & \vdots & \vdots & \ddots & \vdots \\
+                          1      & 1      & 1      & \cdots & 0
+                      \end{vmatrix}}_{n\times n}
+                  = (-1){}^{n-1}(n-1).
+              \]
+        \item Thay cột thứ $k$ của định thức trên bởi cột $\begin{pmatrix}x_{1} & x_{2} & \cdots & x_{n} \end{pmatrix}^{T}$ thì định thức mới bằng:
+              \[
+                  (-1)^{n-1}\left((1-n)x_{k} + \sum^{n}_{i=1}x_{i}\right)
+              \]
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}[Chứng minh bổ đề]
+    \begin{enumerate}[label = (\roman*)]
+        \item
+              \begingroup
+              \allowdisplaybreaks
+              \begin{align*}
+                  \begin{vmatrix}
+                      0      & 1      & 1      & \cdots & 1      \\
+                      1      & 0      & 1      & \cdots & 1      \\
+                      1      & 1      & 0      & \cdots & 1      \\
+                      \vdots & \vdots & \vdots & \ddots & \vdots \\
+                      1      & 1      & 1      & \cdots & 0
+                  \end{vmatrix}
+                   & =
+                  \begin{vmatrix}
+                      0      & 1      & 1      & \cdots & 1      \\
+                      1      & -1     & 0      & \cdots & 0      \\
+                      1      & 0      & -1     & \cdots & 0      \\
+                      \vdots & \vdots & \vdots & \ddots & \vdots \\
+                      1      & 0      & 0      & \cdots & -1
+                  \end{vmatrix}\quad(r_{i} := r_{i} - r_{1}) \\
+                   & =
+                  \begin{vmatrix}
+                      n-1    & 1      & 1      & \cdots & 1      \\
+                      0      & -1     & 0      & \cdots & 0      \\
+                      0      & 0      & -1     & \cdots & 0      \\
+                      \vdots & \vdots & \vdots & \ddots & \vdots \\
+                      0      & 0      & 0      & \cdots & -1
+                  \end{vmatrix}
+                  = (-1)^{n-1}(n-1).
+              \end{align*}
+              \endgroup
+        \item
+              \par Trường hợp $k = 1$:
+              \begingroup
+              \allowdisplaybreaks
+              \begin{align*}
+                  \begin{vmatrix}
+                      x_{1}  & 1      & 1      & \cdots & 1      \\
+                      x_{2}  & 0      & 1      & \cdots & 1      \\
+                      x_{3}  & 1      & 0      & \cdots & 1      \\
+                      \vdots & \vdots & \vdots & \ddots & \vdots \\
+                      x_{n}  & 1      & 1      & \cdots & 0
+                  \end{vmatrix}
+                   & =
+                  \begin{vmatrix}
+                      x_{1}         & 1      & 1      & \cdots & 1      \\
+                      x_{2} - x_{1} & -1     & 0      & \cdots & 0      \\
+                      x_{3} - x_{1} & 0      & -1     & \cdots & 0      \\
+                      \vdots        & \vdots & \vdots & \ddots & \vdots \\
+                      x_{n} - x_{1} & 0      & 0      & \cdots & -1
+                  \end{vmatrix}\quad(r_{i} := r_{i} - r_{1})                                 \\
+                   & =
+                  \begin{vmatrix}
+                      (1-n)x_{1} + \displaystyle\sum^{n}_{i=1}x_{i} & 0      & 0      & \cdots & 0      \\
+                      x_{2} - x_{1}                                 & -1     & 0      & \cdots & 0      \\
+                      x_{3} - x_{1}                                 & 0      & -1     & \cdots & 0      \\
+                      \vdots                                        & \vdots & \vdots & \ddots & \vdots \\
+                      x_{n} - x_{1}                                 & 0      & 0      & \cdots & -1
+                  \end{vmatrix}\quad(r_{1}:= r_{1} + \sum^{n}_{i=2}r_{i}) \\
+                   & = (-1)^{n-1}\left((1-n)x_{1} + \sum^{n}_{i=1}x_{i}\right).
+              \end{align*}
+              \endgroup
+
+              \par Trường hợp $k\ne 1$:
+              \begingroup
+              \allowdisplaybreaks
+              \begin{align*}
+                  \begin{vmatrix}
+                      0      & 1      & \cdots & x_{1}  & \cdots & 1      \\
+                      1      & 0      & \cdots & x_{2}  & \cdots & 1      \\
+                      \vdots & \vdots & \ddots & \vdots & \ddots & 1      \\
+                      1      & 1      & \cdots & x_{k}  & \cdots & 1      \\
+                      \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+                      1      & 1      & \cdots & x_{n}  & \cdots & 0
+                  \end{vmatrix}
+                   & =
+                  \begin{vmatrix}
+                      x_{1}  & 1      & \cdots & 0      & \cdots & 1      \\
+                      x_{2}  & 0      & \cdots & 1      & \cdots & 1      \\
+                      \vdots & \vdots & \ddots & \vdots & \ddots & 1      \\
+                      x_{k}  & 1      & \cdots & 1      & \cdots & 1      \\
+                      \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+                      x_{n}  & 1      & \cdots & 1      & \cdots & 0
+                  \end{vmatrix}\quad(c_{1} \leftrightarrow c_{k}) \\
+                   & =
+                  \begin{vmatrix}
+                      x_{k}  & 1      & \cdots & 1      & \cdots & 1      \\
+                      x_{2}  & 0      & \cdots & 1      & \cdots & 1      \\
+                      \vdots & \vdots & \ddots & \vdots & \ddots & 1      \\
+                      x_{1}  & 1      & \cdots & 0      & \cdots & 1      \\
+                      \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+                      x_{n}  & 1      & \cdots & 1      & \cdots & 0
+                  \end{vmatrix}\quad(r_{1} \leftrightarrow r_{k}) \\
+                   & =
+                  (-1)^{n-1}\left((1-n)x_{k} + \sum^{n}_{i=1}x_{i}\right) \quad\text{(áp dụng trường hợp $k=1$)}
+              \end{align*}
+              \endgroup
+    \end{enumerate}
+\end{proof}
+
 \begin{proof}[Lời giải]
     \begingroup
     \allowdisplaybreaks
     \begin{align*}
-        \begin{vmatrix}
-            x_{1}y_{1}     & 1 + x_{1}y_{2} & \cdots & 1 + x_{1}y_{n} \\
-            1 + x_{2}y_{1} & x_{2}y_{2}     & \cdots & 1 + x_{2}y_{n} \\
-            \vdots         & \vdots         & \ddots & \vdots         \\
-            1 + x_{n}y_{1} & 1 + x_{n}y_{2} & \cdots & x_{n}y_{n}
-        \end{vmatrix}
-         & =
+          & \begin{vmatrix}
+                x_{1}y_{1}     & 1 + x_{1}y_{2} & \cdots & 1 + x_{1}y_{n} \\
+                1 + x_{2}y_{1} & x_{2}y_{2}     & \cdots & 1 + x_{2}y_{n} \\
+                \vdots         & \vdots         & \ddots & \vdots         \\
+                1 + x_{n}y_{1} & 1 + x_{n}y_{2} & \cdots & x_{n}y_{n}
+            \end{vmatrix}                                                                               \\
+        = &
         \det\begin{pmatrix}
                 \begin{pmatrix}
                 0      \\
@@ -1335,18 +1456,200 @@
                      \vdots \\
                      x_{n}
                  \end{pmatrix}
-            \end{pmatrix} \\
+            \end{pmatrix}                                                                                                        \\
+        = &
+        \begin{vmatrix}
+            0      & 1      & \cdots & 1      \\
+            1      & 0      & \cdots & 1      \\
+            \vdots & \vdots & \ddots & \vdots \\
+            1      & 1      & \cdots & 0
+        \end{vmatrix}
+        +
+        \sum^{n}_{k=1}y_{k}
+        \begin{vmatrix}
+            0      & 1      & \cdots & x_{1}  & \cdots & 1      \\
+            1      & 0      & \cdots & x_{2}  & \cdots & 1      \\
+            \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+            1      & 1      & \cdots & x_{k}  & \cdots & 1      \\
+            \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+            1      & 1      & \cdots & x_{n}  & \cdots & 0
+        \end{vmatrix}                                                                                         \\
+        = &
+        (-1)^{n-1}(n-1) + (-1)^{n-1}\sum^{n}_{k=1}y_{k}\left((1-n)x_{k} + \sum^{n}_{i=1}x_{i}\right)                                                \\
+        = & (-1)^{n-1}(n-1) + (-1)^{n-1}\left(\sum^{n}_{i=1}x_{i}\right)\left(\sum^{n}_{i=1}y_{i}\right) - (-1)^{n-1}(n-1)\sum^{n}_{i=1}x_{i}y_{i}.
     \end{align*}
     \endgroup
 \end{proof}
 
 \begin{exercise}
-    $\begin{vmatrix}
+    $C_{n} = \begin{vmatrix}
             (a_{1} + b_{1}){}^{-1} & (a_{1} + b_{2}){}^{-1} & \cdots & (a_{1} + b_{n}){}^{-1} \\
             (a_{2} + b_{1}){}^{-1} & (a_{2} + b_{2}){}^{-1} & \cdots & (a_{2} + b_{n}){}^{-1} \\
             \vdots                 & \vdots                 & \ddots & \vdots                 \\
             (a_{n} + b_{1}){}^{-1} & (a_{n} + b_{2}){}^{-1} & \cdots & (a_{n} + b_{n}){}^{-1}
         \end{vmatrix}$.
+\end{exercise}
+
+\begin{proof}[Lời giải]
+    \begingroup
+    \allowdisplaybreaks
+    \begin{align*}
+          & \begin{vmatrix}
+                (a_{1} + b_{1}){}^{-1} & (a_{1} + b_{2}){}^{-1} & \cdots & (a_{1} + b_{n}){}^{-1} \\
+                (a_{2} + b_{1}){}^{-1} & (a_{2} + b_{2}){}^{-1} & \cdots & (a_{2} + b_{n}){}^{-1} \\
+                \vdots                 & \vdots                 & \ddots & \vdots                 \\
+                (a_{n} + b_{1}){}^{-1} & (a_{n} + b_{2}){}^{-1} & \cdots & (a_{n} + b_{n}){}^{-1}
+            \end{vmatrix}                                                                 \\
+        = &
+        \begin{vmatrix}
+            (b_{n}-b_{1})(a_{1}+b_{1}){}^{-1}(a_{1}+b_{n}){}^{-1} & (b_{n} - b_{2})(a_{1} + b_{2}){}^{-1}(a_{1} + b_{n}){}^{-1} & \cdots & (a_{1} + b_{n}){}^{-1} \\
+            (b_{n}-b_{1})(a_{2}+b_{1}){}^{-1}(a_{2}+b_{n}){}^{-1} & (b_{n} - b_{2})(a_{2} + b_{2}){}^{-1}(a_{2} + b_{n}){}^{-1} & \cdots & (a_{2} + b_{n}){}^{-1} \\
+            \vdots                                                & \vdots                                                      & \ddots & \vdots                 \\
+            (b_{n}-b_{1})(a_{n}+b_{1}){}^{-1}(a_{n}+b_{n}){}^{-1} & (b_{n} - b_{2})(a_{n} + b_{2}){}^{-1}(a_{n} + b_{n}){}^{-1} & \cdots & (a_{n} + b_{n}){}^{-1} \\
+        \end{vmatrix}\quad (c_{i}:= c_{i} - c_{n}) \\
+        = &
+        \prod^{n}_{1\le i<n}(b_{n} - b_{i})\prod^{n}_{i=1}(a_{i}+b_{n})^{-1}
+        \begin{vmatrix}
+            (a_{1}+b_{1}){}^{-1} & (a_{1} + b_{2}){}^{-1} & \cdots & 1      \\
+            (a_{2}+b_{1}){}^{-1} & (a_{2} + b_{2}){}^{-1} & \cdots & 1      \\
+            \vdots               & \vdots                 & \ddots & \vdots \\
+            (a_{n}+b_{1}){}^{-1} & (a_{n} + b_{2}){}^{-1} & \cdots & 1      \\
+        \end{vmatrix}                                                                                       \\
+        = &
+        \prod^{n}_{1\le i<n}(b_{n} - b_{i})\prod^{n}_{i=1}(a_{i}+b_{n})^{-1}
+        \begin{vmatrix}
+            (a_{n}-a_{1})(a_{1}+b_{1})^{-1}(a_{n}+b_{1})^{-1} & (a_{n}-a_{1})(a_{1}+b_{2})^{-1}(a_{n}+b_{2})^{-1} & \cdots & 0      \\
+            (a_{n}-a_{2})(a_{2}+b_{1})^{-1}(a_{n}+b_{1})^{-1} & (a_{n}-a_{2})(a_{2}+b_{2})^{-1}(a_{n}+b_{2})^{-1} & \cdots & 0      \\
+            \vdots                                            & \vdots                                            & \ddots & \vdots \\
+            (a_{n}+b_{1})^{-1}                                & (a_{n}+b_{2})^{-1}                                & \cdots & 1
+        \end{vmatrix}
+    \end{align*}
+    \par Áp dụng khai triển Laplace cho cột thứ $n$ và tách nhân tử chung:
+    \begin{align*}
+        = &
+        \prod^{n}_{1\le i<n}(b_{n} - b_{i})\prod^{n}_{i=1}(a_{i}+b_{n})^{-1}\prod^{n}_{1\le i<n}(a_{n} - a_{i})\prod^{n}_{i=1}(a_{n} + b_{i})
+        \begin{vmatrix}
+            (a_{1}+b_{1})^{-1}   & (a_{1}+b_{2})^{-1}   & \cdots & (a_{1}+b_{n-1})^{-1}   \\
+            (a_{2}+b_{1})^{-1}   & (a_{2}+b_{2})^{-1}   & \cdots & (a_{2}+b_{n-1})^{-1}   \\
+            \vdots               & \vdots               & \ddots & \vdots                 \\
+            (a_{n-1}+b_{1})^{-1} & (a_{n-1}+b_{2})^{-1} & \cdots & (a_{n-1}+b_{n-1})^{-1}
+        \end{vmatrix}
+    \end{align*}
+    \par Từ hệ thức truy hồi trên, và nhận xét $C_{1} = (a_{1} + b_{1})^{-1}$, ta được:
+    \[
+        C_{n} = \prod_{i>j} (a_{i}-a_{j})(b_{i}-b_{j}) \times \prod_{i\ne j}(a_{i}+b_{j})^{-1}.
+    \]
+    \endgroup
+\end{proof}
+
+\begin{exercise}
+    \par Dãy Fibonacci là dãy số bắt đầu với các số hạng 1, 2 và mỗi số hạng, kể từ số hạng thứ ba, đều bằng tổng của hai số hạng đứng ngay trước nó. Chứng minh rằng số hạng thứ $n$ của dãy Fibonacci bằng định thức cỡ $n$ sau đây:
+    \[
+        \begin{vmatrix}
+            1      & 1      & 0      & \cdots & 0      & 0      \\
+            -1     & 1      & 1      & \cdots & 0      & 0      \\
+            0      & -1     & 1      & \cdots & 0      & 0      \\
+            \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+            0      & 0      & 0      & \cdots & -1     & 1
+        \end{vmatrix}.
+    \]
+\end{exercise}
+
+\begin{proof}[Lời giải]
+    \[
+        F_{1} = 1 = \begin{vmatrix}1\end{vmatrix}
+    \]
+    \[
+        F_{2} = 2 = \begin{vmatrix}1 & 1 \\ -1 & 1 \end{vmatrix}
+    \]
+    \par Ta chứng minh bằng quy nạp, giả sử đẳng thức đúng đến $n-1$.
+    \par Với $n > 2$, áp dụng khai triển Laplace cho hàng thứ nhất:
+    \begingroup
+    \allowdisplaybreaks
+    \begin{align*}
+        \underbrace{\begin{vmatrix}
+                            1      & 1      & 0      & \cdots & 0      & 0      \\
+                            -1     & 1      & 1      & \cdots & 0      & 0      \\
+                            0      & -1     & 1      & \cdots & 0      & 0      \\
+                            \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+                            0      & 0      & 0      & \cdots & -1     & 1
+                        \end{vmatrix}}_{n\times n}
+         & =
+        \underbrace{\begin{vmatrix}
+                            1      & 1      & 0      & \cdots & 0      & 0      \\
+                            -1     & 1      & 1      & \cdots & 0      & 0      \\
+                            0      & -1     & 1      & \cdots & 0      & 0      \\
+                            \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+                            0      & 0      & 0      & \cdots & -1     & 1
+                        \end{vmatrix}}_{(n-1)\times (n-1)}
+        +
+        (-1)^{1+2}
+        \underbrace{\begin{vmatrix}
+                            -1     & 1      & 0      & \cdots & 0      & 0      \\
+                            -1     & 1      & 1      & \cdots & 0      & 0      \\
+                            0      & -1     & 1      & \cdots & 0      & 0      \\
+                            \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+                            0      & 0      & 0      & \cdots & -1     & 1
+                        \end{vmatrix}}_{(n-2)\times (n-2)} \\
+         & =
+        \underbrace{\begin{vmatrix}
+                            1      & 1      & 0      & \cdots & 0      & 0      \\
+                            -1     & 1      & 1      & \cdots & 0      & 0      \\
+                            0      & -1     & 1      & \cdots & 0      & 0      \\
+                            \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+                            0      & 0      & 0      & \cdots & -1     & 1
+                        \end{vmatrix}}_{(n-1)\times (n-1)}
+        +
+        \underbrace{\begin{vmatrix}
+                            1      & 1      & 0      & \cdots & 0      & 0      \\
+                            -1     & 1      & 1      & \cdots & 0      & 0      \\
+                            0      & -1     & 1      & \cdots & 0      & 0      \\
+                            \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+                            0      & 0      & 0      & \cdots & -1     & 1
+                        \end{vmatrix}}_{(n-2)\times (n-2)} \\
+         & = F_{n-1} + F_{n-2}                                          \\
+         & = F_{n}.
+    \end{align*}
+    \endgroup
+    \par Vậy giả thiết quy nạp đúng, ta có được điều phải chứng minh.
+\end{proof}
+
+\begin{exercise}
+    \par Tính định thức sau đây bằng cách \textit{viết nó thành tích của hai định thức:}
+    \[
+        \begin{vmatrix}
+            s_{0}  & s_{1}   & s_{2}   & \cdots & s_{n-1}  & 1      \\
+            s_{1}  & s_{2}   & s_{3}   & \cdots & s_{n}    & x      \\
+            s_{2}  & s_{3}   & s_{4}   & \cdots & s_{n+1}  & x^{2}  \\
+            \vdots & \vdots  & \vdots  & \ddots & \vdots   & \vdots \\
+            s_{n}  & s_{n+1} & s_{n+2} & \cdots & s_{2n-1} & x^{n}
+        \end{vmatrix}.
+    \]
+\end{exercise}
+
+\begin{proof}[Lời giải]
+\end{proof}
+
+\begin{exercise}
+    \par Chứng minh rằng
+    \[
+        \begin{vmatrix}
+            a_{1}   & a_{2}  & a_{3}  & \cdots & a_{n}   \\
+            a_{n}   & a_{1}  & a_{2}  & \cdots & a_{n-1} \\
+            a_{n-1} & a_{n}  & a_{1}  & \cdots & a_{n-2} \\
+            \vdots  & \vdots & \vdots & \ddots & \vdots  \\
+            a_{2}   & a_{3}  & a_{4}  & \cdots & a_{1}
+        \end{vmatrix}
+        = f(\varepsilon_{1})f(\varepsilon_{2})\cdots f(\varepsilon_{n}),
+    \]
+    \par trong đó, $f(X) = a_{1} + a_{2}X + \cdots + a_{n}X^{n-1}$ và $\varepsilon_{1}, \varepsilon_{2}, \ldots,\varepsilon_{n}$ là các căn bậc $n$ khác nhau của 1.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+    \par Dùng khai triển Laplace chứng minh rằng nếu một định thức cỡ $n$ có các yếu tố nằm trên giao của $k$ hàng và $\ell$ cột xác định nào đó đều bằng 0, trong đó $k + \ell > n$, thì định thức đó bằng 0.
 \end{exercise}
 
 \begin{proof}[Lời giải]
