@@ -68,3 +68,4 @@
 \renewcommand{\phi}{\varphi}
 \renewcommand{\hom}{\text{Hom}}
 \newcommand{\abs}[1]{\left|{#1}\right|}
+\newcommand{\dotprod}[1]{\left\langle{#1}\right\rangle}

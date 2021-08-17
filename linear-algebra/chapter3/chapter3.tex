@@ -1625,9 +1625,46 @@
             s_{n}  & s_{n+1} & s_{n+2} & \cdots & s_{2n-1} & x^{n}
         \end{vmatrix}.
     \]
+    \par trong đó $s_{k} = \displaystyle\sum^{n}_{i=1}x_{i}^{k}$.
 \end{exercise}
 
 \begin{proof}[Lời giải]
+    \[
+        \begin{pmatrix}
+            s_{0}  & s_{1}   & s_{2}   & \cdots & s_{n-1}  & 1      \\
+            s_{1}  & s_{2}   & s_{3}   & \cdots & s_{n}    & x      \\
+            s_{2}  & s_{3}   & s_{4}   & \cdots & s_{n+1}  & x^{2}  \\
+            \vdots & \vdots  & \vdots  & \ddots & \vdots   & \vdots \\
+            s_{n}  & s_{n+1} & s_{n+2} & \cdots & s_{2n-1} & x^{n}
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            1           & 1           & 1           & \cdots & 1           & 1      \\
+            x_{1}       & x_{2}       & x_{3}       & \cdots & x_{n}       & x      \\
+            x_{1}^{2}   & x_{2}^{2}   & x_{3}^{2}   & \cdots & x_{n}^{2}   & x^{2}  \\
+            \vdots      & \vdots      & \vdots      & \ddots & \vdots      & \vdots \\
+            x_{1}^{n-1} & x_{2}^{n-1} & x_{3}^{n-1} & \cdots & x_{n}^{n-1} & x^{n}
+        \end{pmatrix}
+        \begin{pmatrix}
+            1      & x_{1}  & x_{1}^{2} & \cdots & x_{1}^{n-1} & 0      \\
+            1      & x_{2}  & s_{2}^{2} & \cdots & x_{2}^{n-1} & 0      \\
+            \vdots & \vdots & \vdots    & \ddots & \vdots      & \vdots \\
+            1      & x_{n}  & x_{n}^{2} & \cdots & x_{n}^{n-1} & 0 \\
+            0      & 0      & 0         & \cdots & 0           & 1
+        \end{pmatrix}
+    \]
+    \[
+        \Rightarrow
+        \begin{vmatrix}
+            s_{0}  & s_{1}   & s_{2}   & \cdots & s_{n-1}  & 1      \\
+            s_{1}  & s_{2}   & s_{3}   & \cdots & s_{n}    & x      \\
+            s_{2}  & s_{3}   & s_{4}   & \cdots & s_{n+1}  & x^{2}  \\
+            \vdots & \vdots  & \vdots  & \ddots & \vdots   & \vdots \\
+            s_{n}  & s_{n+1} & s_{n+2} & \cdots & s_{2n-1} & x^{n}
+        \end{vmatrix}
+        =
+        \prod_{i>j}(x_{i} - x_{j})\prod^{n}_{i=1}(x - x_{i})\prod_{i>j}(x_{i} - x_{j}) = \prod_{i>j}(x_{i}-x_{j})^{2}\prod^{n}_{i=1}(x-x_{i}).
+    \]
 \end{proof}
 
 \begin{exercise}
@@ -1652,7 +1689,127 @@
     \par Dùng khai triển Laplace chứng minh rằng nếu một định thức cỡ $n$ có các yếu tố nằm trên giao của $k$ hàng và $\ell$ cột xác định nào đó đều bằng 0, trong đó $k + \ell > n$, thì định thức đó bằng 0.
 \end{exercise}
 
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+    \par Giải hệ phương trình sau đây bằng phương pháp Cramer và phương pháp khử:
+    \[
+        \begin{array}{ccccccccccc}
+            3x_{1} & + & 4x_{2} & + & x_{3}  & + & 2x_{4} & + & 3 & = & 0, \\
+            3x_{1} & + & 5x_{2} & + & 3x_{3} & + & 5x_{4} & + & 6 & = & 0, \\
+            6x_{1} & + & 8x_{2} & + & x_{3}  & + & 5x_{4} & + & 8 & = & 0, \\
+            3x_{1} & + & 5x_{2} & + & 3x_{3} & + & 7x_{4} & + & 8 & = & 0.
+        \end{array}
+    \]
+\end{exercise}
+
 \begin{proof}[Lời giải]
+\end{proof}
+
+\begin{exercise}
+    \par Chứng minh rằng một đa thức bậc $n$ trong $\mathbb{F}[X]$ được hoàn toàn xác định bởi giá trị của nó lại $(n+1)$ điểm khác nhau của trường $\mathbb{F}$. Tìm ví dụ về hai đa thức khác nhau cùng bậc $n$ nhận các giá trị bằng nhau tại mọi điểm của $\mathbb{F}$, nếu số phần tử của $\mathbb{F}$ không vượt quá $n$.
+\end{exercise}
+
+\begin{proof}[Lời giải]
+\end{proof}
+
+\par Giải các hệ phương trình sau đây bằng phương pháp thích hợp:
+
+\begin{exercise}
+    \begin{align*}
+        \phantom{-}ax + by + cz + dt &= p, \\
+        -bx + ay + dz - ct &= q, \\
+        -cx - dy + az + bt &= r, \\
+        -dx + cy - bz + at &= s.
+    \end{align*}
+\end{exercise}
+
+\begin{proof}[Lời giải]
+\end{proof}
+
+\begin{exercise}
+    \[
+        \begin{array}{ccccccccccccc}
+            x_{n}  & + & a_{1}x_{n-1} & + & a_{1}^{2}x_{n-2} & + & \cdots & + & a_{1}^{n-1}x_{1} & + & a_{1}^{n} & = & 0 \\
+            x_{n}  & + & a_{2}x_{n-1} & + & a_{2}^{2}x_{n-2} & + & \cdots & + & a_{2}^{n-1}x_{1} & + & a_{2}^{n} & = & 0 \\
+            \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots \\
+            x_{n}  & + & a_{n}x_{n-1} & + & a_{n}^{2}x_{n-2} & + & \cdots & + & a_{n}^{n-1}x_{1} & + & a_{n}^{n} & = & 0 \\
+        \end{array}
+    \]
+\end{exercise}
+
+\begin{proof}[Lời giải]
+\end{proof}
+
+\begin{exercise}
+    \par Đặt $s_{n}(k) = 1^{n} + 2^{n} + \cdots + (k-1){}^{n}$. Hãy thiết lập phương trình
+    \[
+        k^{n} = 1 + \binom{n}{n-1}s_{n-1}(k) + \cdots + \binom{n}{1}s_{1}(k) + s_{0}(k)
+    \]
+    \par và chứng minh rằng
+    \[
+        s_{n-1}(k) = \frac{1}{n!}
+        \begin{vmatrix}
+            k^{n}   & \binom{n}{n-2}   & \binom{n}{n-3}   & \cdots & \binom{n}{1}   & 1      \\
+            k^{n-1} & \binom{n-1}{n-2} & \binom{n-1}{n-3} & \cdots & \binom{n-1}{1} & 1      \\
+            k^{n-2} & 0                & \binom{n-2}{n-3} & \cdots & \binom{n-2}{1} & 1      \\
+            \vdots  & \vdots           & \vdots           & \ddots & \vdots         & \vdots \\
+            k^{2}   & 0                & 0                & \cdots & \binom{2}{1}   & 1      \\
+            k       & 0                & 0                & \cdots & 0              & 1
+        \end{vmatrix}.
+    \]
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+    \par Xét khai triển $\frac{x}{e^{x} - 1} = 1 + b_{1}x + b_{2}x^{2} + b_{3}x^{3} + \cdots$. Ta đặt $b_{2n} = \frac{(-1){}^{n-1}B_{2n}}{(2n)!}$, trong đó $B_{n}$ được gọi là số Bernoullia thứ $n$. Chứng minh rằng
+    \[
+        B_{n} = (-1){}^{n-1}(2n)!
+        \begin{vmatrix}
+            \frac{1}{2!}      & 1               & 0                 & 0                 & \cdots & 0            \\
+            \frac{1}{3!}      & \frac{1}{2!}    & 1                 & 0                 & \cdots & 0            \\
+            \frac{1}{4!}      & \frac{1}{3!}    & \frac{1}{2!}      & 1                 & \cdots & 0            \\
+            \vdots            & \vdots          & \vdots            & \vdots            & \ddots & \vdots       \\
+            \frac{1}{(2n+1)!} & \frac{1}{(2n)!} & \frac{1}{(2n-1)!} & \frac{1}{(2n-2)!} & \cdots & \frac{1}{2!}
+        \end{vmatrix},
+    \]
+    \par và chỉ ra rằng
+    \[
+        b_{2n-1} =
+        \begin{vmatrix}
+            \frac{1}{2!}    & 1                 & 0                 & 0                 & \cdots & 0            \\
+            \frac{1}{3!}    & \frac{1}{2!}      & 1                 & 0                 & \cdots & 0            \\
+            \frac{1}{4!}    & \frac{1}{3!}      & \frac{1}{2!}      & 1                 & \cdots & 0            \\
+            \vdots          & \vdots            & \vdots            & \vdots            & \ddots & \vdots       \\
+            \frac{1}{(2n)!} & \frac{1}{(2n-1)!} & \frac{1}{(2n-2)!} & \frac{1}{(2n-3)!} & \cdots & \frac{1}{2!}
+        \end{vmatrix}
+        = 0
+    \]
+    \par với mọi $n > 1$.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+    \par Diễn đạt hệ số $a_{n}$ trong khai triển
+    \[
+        e^{-x} = 1 - a_{1}x + a_{2}x^{2} - a_{3}x^{3} + \cdots ,
+    \]
+    \par như một định thức cỡ $n$, từ đó tính định thức thu được.
+\end{exercise}
+
+\begin{proof}[Lời giải]
+\end{proof}
+
+\begin{exercise}
+    \par Không dùng ma trận của tự đồng cấu, hãy chứng minh trực tiếp rằng nếu $f$ là một tự đồng cấu của không gian vector hữu hạn chiều $V$ và $f^{*}$ là đồng cấu đối ngẫu của $f$, thì $\det(f^{*}) = \det(f)$. (Gợi ý: Xét định thức của ma trận $\left(\dotprod{\alpha_{i},\xi_{j}}\right)_{n\times n}$, trong đó $\alpha_{1},\ldots,\alpha_{n}\in V$, $\xi_{1},\ldots,\xi_{n}\in V^{*}$.)
+\end{exercise}
+
+\begin{proof}
 \end{proof}
 
 \end{document}
