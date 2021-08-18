@@ -1806,6 +1806,28 @@
 \end{exercise}
 
 \begin{proof}
+    \par Chú ý rằng: khi đổi chỗ các hàng, hay đổi chỗ các cột thì giá trị định thức chỉ đổi dấu..
+    \par Do đó, không mất tính tổng quát, ta có thể giả sử các yếu tố nằm trên giao của $k$ hàng đầu tiên và $\ell$ cột đầu tiên đều bằng 0.
+    \par Ma trận khi đó có dạng sau:
+    \[
+        A=
+        \begin{pmatrix}
+            0          & 0          & \cdots & 0             & a_{1(\ell+1)}     & \cdots & a_{1n}     \\
+            0          & 0          & \cdots & 0             & a_{2(\ell+1)}     & \cdots & a_{2n}     \\
+            \vdots     & \vdots     & \ddots & \vdots        & \vdots            & \ddots & \vdots     \\
+            0          & 0          & \cdots & 0             & a_{k(\ell+1)}     & \cdots & a_{kn}     \\
+            a_{(k+1)1} & a_{(k+1)2} & \cdots & a_{(k+1)\ell} & a_{(k+1)(\ell+1)} & \cdots & a_{(k+1)n} \\
+            \vdots     & \vdots     & \ddots & \vdots        & \vdots            & \ddots & \vdots     \\
+            a_{n1}     & a_{n2}     & \cdots & a_{n\ell}     & a_{n(\ell+1)}     & \cdots & a_{nn}
+        \end{pmatrix}.
+    \]
+    \par Áp dụng khai triển Laplace cho $k$ hàng đầu tiên
+    \[
+        \det A = \sum_{1\le j_{1} < \cdots < j_{k}\le n}(-1){}^{1+\cdots+k+j_{1}+\cdots+j_{k}}D_{1,\ldots,k}^{j_{1},\ldots,j_{k}}\overline{D}_{1,\ldots,k}^{j_{1},\ldots,j_{k}}.
+    \]
+    \par Giả sử trong các cột $1\le j_{1} < \cdots < j_{k}\le n$, không có cột nào thuộc $\ell$ cột đầu tiên. Như vậy, số cột của ma trận $A$ sẽ lớn hơn hoặc bằng $k + \ell$, tức là $n \ge k + \ell$. Điều này mâu thuẫn với giả thiết $k + \ell > n$.
+    \par Do đó, trong các cột $1\le j_{1} < \cdots < j_{k}\le n$, có ít nhất một cột thuộc $\ell$ cột đầu tiên. Điều này dẫn tới việc, bất kể chọn $k$ cột nào thì giá trị của định thức con  $D^{j_{1},\ldots,j_{k}}_{1,\ldots,k}$ bằng không.
+    \par Vậy $\det A = 0$.
 \end{proof}
 
 \begin{exercise}
