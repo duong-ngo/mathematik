@@ -874,6 +874,25 @@
     e_{k}(x_{1}, \ldots, x_{n}) = \sum_{1\le i_{1} < \ldots < i_{k} \le n}\left(\prod^{k}_{j=1}x_{i_{j}}\right).
 \]
 
+\par Ví dụ
+\begin{gather*}
+    e_{1}(x_{1}, x_{2}, x_{3}) = x_{1} + x_{2} + x_{3} \\
+    e_{2}(x_{1}, x_{2}, x_{3}, x_{4}) = x_{1}x_{2} + x_{1}x_{3} + x_{1}x_{4} + x_{2}x_{3} + x_{3}x_{4} + x_{2}x_{4} \\
+    e_{3}(x_{1}, x_{2}, x_{3}) = x_{1}x_{2}x_{3}.
+\end{gather*}
+
+\par Kí hiệu đa thức đối xứng thuần nhất đầy đủ:
+\[
+    h_{k}(x_{1}, \ldots, x_{n}) = \sum_{i_{1}+\ldots+i_{n}=k}\prod^{n}_{j=1}x^{i_{j}}_{j}
+\]
+
+\par Ví dụ
+\begin{gather*}
+    h_{1}(x_{1}, x_{2}, x_{3}) = x_{1} + x_{2} + x_{3} \\
+    h_{2}(x_{1}, x_{2}, x_{3}) = x_{1}^{2} + x_{2}^{2} + x_{3}^{2} + x_{1}x_{2} + x_{2}x_{3} + x_{1}x_{3} \\
+    h_{3}(x_{1}, x_{2}, x_{3}) = x_{1}^{3} + x_{2}^{3} + x_{3}^{3} + x_{1}^{2}x_{2} + x_{1}^{2}x_{3} + x_{2}^{2}x_{1} + x_{2}^{2}x_{3} + x_{3}^{2}x_{1} + x_{3}^{2}x_{2} + x_{1}x_{2}x_{3}.
+\end{gather*}
+
 \par Tính các định thức sau đây:
 
 \begin{exercise}
@@ -916,7 +935,7 @@
     \end{align*}
 \end{proof}
 
-\begin{exercise}
+\begin{exercise} \label{chapter4:vandermonde-and-symmetric-polynomials}
     \begin{enumerate}[label = (\alph*)]
         \item $D^{(1)}_{n} = \begin{vmatrix}
                       1      & x_{1}^{2} & x_{1}^{3} & \cdots & x_{1}^{n} \\
@@ -1843,6 +1862,110 @@
 \end{exercise}
 
 \begin{proof}[Lời giải]
+    \par Sử dụng công thức Cramer.
+    \par Định thức của ma trận hệ số:
+    \begingroup
+    \allowdisplaybreaks
+    \begin{align*}
+        \det A & =
+        \begin{vmatrix}
+            3 & 4 & 1 & 2 \\
+            3 & 5 & 3 & 5 \\
+            6 & 8 & 1 & 5 \\
+            3 & 5 & 3 & 7
+        \end{vmatrix}
+        =
+        \begin{vmatrix}
+            3 & 4 & 1  & 2 \\
+            0 & 1 & 2  & 3 \\
+            0 & 0 & -1 & 1 \\
+            0 & 1 & 2  & 5
+        \end{vmatrix} \\
+               & =
+        \begin{vmatrix}
+            3 & 4 & 1  & 2 \\
+            0 & 1 & 2  & 3 \\
+            0 & 0 & -1 & 1 \\
+            0 & 0 & 0  & 2
+        \end{vmatrix}
+        = -6.
+    \end{align*}
+    \endgroup
+    \par Áp dụng công thức Cramer
+    \[
+        x_{1} = \dfrac{
+            \begin{vmatrix}
+                -3 & 4 & 1 & 2 \\
+                -6 & 5 & 3 & 5 \\
+                -8 & 8 & 1 & 5 \\
+                -8 & 5 & 3 & 7
+            \end{vmatrix}
+        }{\det A} = \dfrac{-12}{-6} = 2,
+    \]
+    \[
+        x_{2} = \dfrac{
+            \begin{vmatrix}
+                3 & -3 & 1 & 2 \\
+                3 & -6 & 3 & 5 \\
+                6 & -8 & 1 & 5 \\
+                3 & -8 & 3 & 7
+            \end{vmatrix}
+        }{\det A} = \dfrac{12}{-6} = -2,
+    \]
+    \[
+        x_{3} = \dfrac{
+            \begin{vmatrix}
+                3 & 4 & -3 & 2 \\
+                3 & 5 & -6 & 5 \\
+                6 & 8 & -8 & 5 \\
+                3 & 5 & -8 & 7
+            \end{vmatrix}
+        }{\det A} = \dfrac{-6}{-6} = 1,
+    \]
+    \[
+        x_{4} = \dfrac{
+            \begin{vmatrix}
+                3 & 4 & 1 & -3 \\
+                3 & 5 & 3 & -6 \\
+                6 & 8 & 1 & -8 \\
+                3 & 5 & 3 & -8
+            \end{vmatrix}
+        }{\det A} = \dfrac{6}{-6} = -1.
+    \]
+    \bigskip
+    \par Sử dụng phương pháp khử.
+    \begingroup
+    \allowdisplaybreaks
+    \begin{gather*}
+        \left(
+        \begin{array}{cccc|c}
+            3 & 4 & 1 & 2 & -3 \\
+            3 & 5 & 3 & 5 & -6 \\
+            6 & 8 & 1 & 5 & -8 \\
+            3 & 5 & 3 & 7 & -8
+        \end{array}
+        \right)
+        \Longleftrightarrow
+        \left(
+        \begin{array}{cccc|c}
+            3 & 4 & 1  & 2 & -3 \\
+            0 & 1 & 2  & 3 & -3 \\
+            0 & 0 & -1 & 1 & -2 \\
+            0 & 1 & 2  & 5 & -5
+        \end{array}
+        \right)
+        \Longleftrightarrow
+        \left(
+        \begin{array}{cccc|c}
+            3 & 4 & 1  & 2 & -3 \\
+            0 & 1 & 2  & 3 & -3 \\
+            0 & 0 & -1 & 1 & -2 \\
+            0 & 0 & 0  & 2 & -2
+        \end{array}
+        \right).
+    \end{gather*}
+    \endgroup
+    \par Suy ra $x_{4} = -1$, $x_{3} = 1$, $x_{2} = -2$, $x_{1} = 2$.
 \end{proof}
 
 \begin{exercise}
@@ -1850,6 +1973,28 @@
 \end{exercise}
 
 \begin{proof}[Lời giải]
+    \par Giả sử ta có $n + 1$ cặp giá trị $(x_{i}, y_{i})$, trong đó $i \in \{ 0; 1; \ldots; n \}$ sao cho $x_{i} \ne x_{j}, \forall i\ne j$.
+    \par Một đa thức $f(X) = a_{0} + a_{1}X + \cdots + a_{n}X^{n}$ bậc $n$ thỏa mãn $f(x_{i}) = y_{i}, \forall i$ nếu và chỉ nếu hệ phương trình tuyến tính sau có nghiệm
+    \begin{align*}
+         & a_{0} + a_{1}x_{0} + \cdots + a_{n}x_{0}^{n} = y_{0} \\
+         & a_{0} + a_{1}x_{1} + \cdots + a_{n}x_{1}^{n} = y_{1} \\
+         & a_{0} + a_{1}x_{2} + \cdots + a_{n}x_{2}^{n} = y_{2} \\
+         & \vdots                                               \\
+         & a_{0} + a_{1}x_{n} + \cdots + a_{n}x_{n}^{n} = y_{n} \\
+    \end{align*}
+    \par Hệ phương trình tuyến tính này có $(n+1)$ ẩn $a_{0}, a_{1}, \ldots, a_{n}$ và $(n+1)$ phương trình. Bên cạnh đó, hệ này có ma trận hệ số là ma trận Vandermonde của $(n+1)$ biến đôi một khác nhau, tức là định thức của ma trận hệ số khác không.
+    \par Do đó hệ phương trình tuyến tính trên có nghiệm duy nhất. Điều này cũng chứng tỏ đa thức $f(X)$ bậc $n$ được xác định duy nhất bởi giá trị của nó tại $(n+1)$ điểm khác nhau.
+    \bigskip
+    \bigskip
+    \par Nếu $n < 3$, không có ví dụ nào như vậy, vì số phần tử của một trường luôn lớn hơn hoặc bằng 2.
+    \par Nếu $n\ge 3$, ta chọn trường $\mathbb{F}_{2}$ và lấy hai đa thức phân biệt:
+    \[
+        \begin{cases}
+            f(X) = X(X-1)^{n-1}, \\
+            g(X) = X^{n-1}(X-1).
+        \end{cases}
+    \]
+    \par Hai đa thức này luôn cùng nhận giá trị 0 tại mọi điểm của $\mathbb{F}_{2}$.
 \end{proof}
 
 \par Giải các hệ phương trình sau đây bằng phương pháp thích hợp:
@@ -1864,6 +2009,114 @@
 \end{exercise}
 
 \begin{proof}[Lời giải]
+    \par Ta tính định thức của ma trận hệ số
+    \begingroup
+    \allowdisplaybreaks
+    \begin{align*}
+        \begin{vmatrix}
+            a  & b  & c  & d  \\
+            -b & a  & d  & -c \\
+            -c & -d & a  & b  \\
+            -d & c  & -b & a
+        \end{vmatrix}
+         & = (-1)^{1+2+1+2}
+        \begin{vmatrix}
+            a  & b \\
+            -b & a
+        \end{vmatrix}
+        \begin{vmatrix}
+            a  & b \\
+            -b & a
+        \end{vmatrix}
+        + (-1)^{1+2+1+3}
+        \begin{vmatrix}
+            a  & b  \\
+            -c & -d
+        \end{vmatrix}
+        \begin{vmatrix}
+            d  & -c \\
+            -b & a
+        \end{vmatrix}
+        + (-1)^{1+2+1+4}
+        \begin{vmatrix}
+            a  & b \\
+            -d & c
+        \end{vmatrix}
+        \begin{vmatrix}
+            d & -c \\
+            a & b
+        \end{vmatrix}                                                                                             \\
+         & + (-1)^{1+2+2+3}
+        \begin{vmatrix}
+            -b & a  \\
+            -c & -d
+        \end{vmatrix}
+        \begin{vmatrix}
+            c  & d \\
+            -b & a
+        \end{vmatrix}
+        + (-1)^{1+2+2+4}
+        \begin{vmatrix}
+            -b & a \\
+            -d & c
+        \end{vmatrix}
+        \begin{vmatrix}
+            c & d \\
+            a & b
+        \end{vmatrix}
+        + (-1)^{1+2+3+4}
+        \begin{vmatrix}
+            -c & -d \\
+            -d & c
+        \end{vmatrix}
+        \begin{vmatrix}
+            c & d  \\
+            d & -c
+        \end{vmatrix}                                                                                             \\
+         & = (a^{2}+b^{2}){}^{2} + (ad-bc){}^{2} + (ac+bd)^{2} + (ac+bd)^{2} + (bc-ad){}^{2} + (c^{2}+d^{2}){}^{2} \\
+         & = (a^{2}+b^{2}){}^{2} + (c^{2}+d^{2}){}^{2} + 2(ac+bd)^{2} + 2(ad-bc)^{2}                               \\
+         & = (a^{2}+b^{2}){}^{2} + (c^{2}+d^{2}){}^{2} + 2(a^{2}+b^{2})(c^{2}+d^{2})                               \\
+         & = (a^{2}+b^{2}+c^{2}+d^{2}){}^{2}.
+    \end{align*}
+    \endgroup
+    \par Nếu $a^{2} + b^{2} + c^{2} + d^{2} \ne 0$ thì hệ phương trình tuyến tính trên có nghiệm duy nhất:
+    \[
+        x_{1} = \dfrac{1}{(a^{2} + b^{2} + c^{2} + d^{2}){}^{2}}
+        \begin{vmatrix}
+            p & b  & c  & d  \\
+            q & a  & d  & -c \\
+            r & -d & a  & b  \\
+            s & c  & -b & a
+        \end{vmatrix},
+    \]
+    \[
+        x_{2} = \dfrac{1}{(a^{2} + b^{2} + c^{2} + d^{2}){}^{2}}
+        \begin{vmatrix}
+            a  & p & c  & d  \\
+            -b & q & d  & -c \\
+            -c & r & a  & b  \\
+            -d & s & -b & a
+        \end{vmatrix},
+    \]
+    \[
+        x_{3} = \dfrac{1}{(a^{2} + b^{2} + c^{2} + d^{2}){}^{2}}
+        \begin{vmatrix}
+            a  & b  & p & d  \\
+            -b & a  & q & -c \\
+            -c & -d & r & b  \\
+            -d & c  & s & a
+        \end{vmatrix},
+    \]
+    \[
+        x_{4} = \dfrac{1}{(a^{2} + b^{2} + c^{2} + d^{2}){}^{2}}
+        \begin{vmatrix}
+            a  & b  & c  & p \\
+            -b & a  & d  & q \\
+            -c & -d & a  & r \\
+            -d & c  & -b & s
+        \end{vmatrix}.
+    \]
+    \par Ngược lại, nếu $a^{2} + b^{2} + c^{2} + d^{2} = 0$ thì $a = b = c = d = 0$. Nếu $(p, q, r, s) \ne (0, 0, 0, 0)$ thì hệ phương trình vô nghiệm, ngược lại, tập nghiệm của hệ phương trình là $\mathbb{R}{}^{4}$.
 \end{proof}
 
 \begin{exercise}
@@ -1878,6 +2131,101 @@
 \end{exercise}
 
 \begin{proof}[Lời giải]
+    \par $A$ là ma trận hệ số của hệ phương trình tuyến tính trên.
+    \par Như vậy $A$ là một ma trận Vandermonde.
+
+    \begin{enumerate}[label = \textbf{Trường hợp \arabic*.},itemindent=2cm]
+        \item $a_{1}$, $a_{2}$, \ldots $a_{n}$ đôi một khác nhau.
+              \par Lúc này, định thức Vandermonde của nó khác không.
+              \par Áp dụng công thức Cramer:
+              \[
+                  x_{n-k} = \dfrac{\det A_{k}}{\det A}
+              \]
+              \par trong đó $A_{k}$ là ma trận $A$ sau khi thay cột $\begin{pmatrix} a_{1}^{k} \\ a_{2}^{k} \\ \vdots \\ a_{n}^{k} \end{pmatrix}$ bởi $\begin{pmatrix}-a_{1}^{n} \\ -a_{2}^{n} \\ \vdots \\ -a_{n}^{n} \end{pmatrix}$.
+              \par Sử dụng kết quả từ bài toán~\ref{chapter4:vandermonde-and-symmetric-polynomials}:
+              \[
+                  \det A_{k} = (-1)(-1){}^{n-k-1}
+                  \begin{vmatrix}
+                      1      & a_{1}  & \cdots & a_{1}^{k-1} & a_{1}^{k+1} & \cdots & a_{1}^{n} \\
+                      1      & a_{1}  & \cdots & a_{1}^{k-1} & a_{1}^{k+1} & \cdots & a_{1}^{n} \\
+                      \vdots & \vdots & \ddots & \vdots      & \vdots      & \ddots & \vdots    \\
+                      1      & a_{1}  & \cdots & a_{1}^{k-1} & a_{1}^{k+1} & \cdots & a_{1}^{n} \\
+                  \end{vmatrix}
+                  = (-1){}^{n-k}D_{n}e_{n-k}.
+              \]
+              \par Suy ra $x_{n-k} = (-1){}^{n-k}e_{n-k}(a_{1},\ldots, a_{n})$.
+              \[
+                  \begin{cases}
+                      x_{1} = (-1)e_{1}(a_{1},\ldots,a_{n})       \\
+                      x_{2} = (-1){}^{2}e_{2}(a_{1},\ldots,a_{n}) \\
+                      \vdots                                      \\
+                      x_{n} = (-1){}^{n}e_{n}(a_{1},\ldots,a_{n})
+                  \end{cases}
+              \]
+              \par trong đó, nhắc lại rằng $e_{k}$ là đa thức đối xứng sơ cấp bậc $k$.
+        \item Trong $n$ hệ số $a_{1}$, $a_{2}$, \ldots $a_{n}$, có ít nhất hai hệ số bằng nhau.
+              \par Giả sử rằng, sau khi loại bỏ các hệ số dư thừa, ta còn lại $m$ hệ số ($m < n$). Không giảm tổng quát, có thể đánh số lại các hệ số. $m$ hệ số đôi một khác nhau được đánh số lại là $a_{1}$, $a_{2}$, \ldots $a_{m}$.
+              \par Thực hiện các phép biến đổi sơ cấp trên các hàng của ma trận $m\times(n+1)$ sau:
+              \begingroup
+              \allowdisplaybreaks
+              \begin{align*}
+                                      &
+                  \begin{pmatrix}
+                      1      & a_{1}  & a_{1}^{2} & \cdots & a_{1}^{n-1} & a_{1}^{n} \\
+                      1      & a_{2}  & a_{2}^{2} & \cdots & a_{2}^{n-1} & a_{2}^{n} \\
+                      \vdots & \vdots & \vdots    & \ddots & \vdots      & \vdots    \\
+                      1      & a_{m}  & a_{m}^{2} & \cdots & a_{m}^{n-1} & a_{m}^{n}
+                  \end{pmatrix}                                                                                                                         \\
+                  \Longleftrightarrow &
+                  \begin{pmatrix}
+                      1      & a_{1}         & a_{1}^{2}             & \cdots & a_{1}^{n-1}               & a_{1}^{n}             \\
+                      0      & a_{2} - a_{1} & a_{2}^{2} - a_{1}^{2} & \cdots & a_{2}^{n-1} - a_{1}^{n-1} & a_{2}^{n} - a_{1}^{n} \\
+                      \vdots & \vdots        & \vdots                & \ddots & \vdots                    & \vdots                \\
+                      0      & a_{m} - a_{1} & a_{m}^{2} - a_{1}^{2} & \cdots & a_{m}^{n-1} - a_{1}^{n-1} & a_{m}^{n} - a_{m}^{n}
+                  \end{pmatrix}                                                                            \\
+                  \Longleftrightarrow &
+                  \begin{pmatrix}
+                      1      & a_{1}  & a_{1}^{2}           & a_{1}^{3}           & \cdots & a_{1}^{n-1}           & a_{1}^{n}             \\
+                      0      & 1      & h_{1}(a_{1}, a_{2}) & h_{2}(a_{1}, a_{2}) & \cdots & h_{n-2}(a_{1}, a_{2}) & h_{n-1}(a_{1}, a_{2}) \\
+                      0      & 1      & h_{1}(a_{1}, a_{3}) & h_{2}(a_{1}, a_{3}) & \cdots & h_{n-2}(a_{1}, a_{2}) & h_{n-1}(a_{1}, a_{2}) \\
+                      \vdots & \vdots & \vdots              & \vdots              & \ddots & \vdots                & \vdots                \\
+                      0      & 1      & h_{1}(a_{1}, a_{m}) & h_{2}(a_{1}, a_{m}) & \cdots & h_{n-2}(a_{1}, a_{m}) & h_{n-1}(a_{1}, a_{m})
+                  \end{pmatrix}                                                                   \\
+                  \Longleftrightarrow &
+                  \begin{pmatrix}
+                      1      & a_{1}  & a_{1}^{2}           & a_{1}^{3}                                 & \cdots & a_{1}^{n-1}                                 & a_{1}^{n}                                   \\
+                      0      & 1      & h_{1}(a_{1}, a_{2}) & h_{2}(a_{1}, a_{2})                       & \cdots & h_{n-2}(a_{1}, a_{2})                       & h_{n-1}(a_{1}, a_{2})                       \\
+                      0      & 0      & a_{3} - a_{2}       & (a_{3} - a_{2})h_{1}(a_{1}, a_{2}, a_{3}) & \cdots & (a_{3} - a_{2})h_{n-3}(a_{1}, a_{2}, a_{3}) & (a_{3} - a_{2})h_{n-2}(a_{1}, a_{2}, a_{3}) \\
+                      \vdots & \vdots & \vdots              & \vdots                                    & \ddots & \vdots                                      & \vdots                                      \\
+                      0      & 0      & a_{m} - a_{2}       & (a_{m} - a_{2})h_{1}(a_{1}, a_{2}, a_{m}) & \cdots & (a_{m} - a_{2})h_{n-3}(a_{1}, a_{2}, a_{m}) & (a_{m} - a_{2})h_{n-2}(a_{1}, a_{m})
+                  \end{pmatrix} \\
+                  \Longleftrightarrow &
+                  \begin{pmatrix}
+                      1      & a_{1}  & a_{1}^{2}           & a_{1}^{3}                  & \cdots & a_{1}^{n-1}                  & a_{1}^{n}                    \\
+                      0      & 1      & h_{1}(a_{1}, a_{2}) & h_{2}(a_{1}, a_{2})        & \cdots & h_{n-2}(a_{1}, a_{2})        & h_{n-1}(a_{1}, a_{2})        \\
+                      0      & 0      & 1                   & h_{1}(a_{1}, a_{2}, a_{3}) & \cdots & h_{n-3}(a_{1}, a_{2}, a_{3}) & h_{n-2}(a_{1}, a_{2}, a_{3}) \\
+                      \vdots & \vdots & \vdots              & \vdots                     & \ddots & \vdots                       & \vdots                       \\
+                      0      & 0      & 1                   & h_{1}(a_{1}, a_{2}, a_{m}) & \cdots & h_{n-2}(a_{1}, a_{2}, a_{m}) & h_{n-2}(a_{1}, a_{2}, a_{m})
+                  \end{pmatrix}                                              \\
+                                      & \ddots                                                                                                                                                           \\
+                                      & \Longleftrightarrow
+                  \begin{pmatrix}
+                      1      & a_{1}  & a_{1}^{2}           & \cdots & a_{1}^{m-1}                  & \cdots & a_{1}^{n-1}                  & a_{1}^{n}                    \\
+                      0      & 1      & h_{1}(a_{1}, a_{2}) & \cdots & h_{m-2}(a_{1}, a_{2})        & \cdots & h_{n-2}(a_{1}, a_{2})        & h_{n-1}(a_{1}, a_{2})        \\
+                      0      & 0      & 1                   & \cdots & h_{m-3}(a_{1}, a_{2}, a_{3}) & \cdots & h_{n-3}(a_{1}, a_{2}, a_{3}) & h_{n-2}(a_{1}, a_{2}, a_{3}) \\
+                      \vdots & \vdots & \vdots              & \vdots & \ddots                       & \vdots & \vdots                       & \vdots                               \\
+                      0      & 0      & 0                   & \cdots & 1                            & \cdots & h_{n-m}(a_{1},\ldots, a_{m}) & h_{n-m+1}(a_{1},\ldots, a_{m})
+                  \end{pmatrix}                                   \\
+              \end{align*}
+              \endgroup
+              \par (trong đó, nhắc lại $h_{k}$ là đa thức đối xứng thuần nhất đầy đủ).
+              \par Như vậy, hệ phương trình tuyến tính có nghiệm.
+              \par $x_{n-m}$, $x_{n-m-1}$, \ldots, $x_{0}$ có thể nhận giá trị bất kì.
+              \par $x_{n-m+1}$ được xác định từ phương trình thứ $m$.
+              \par $x_{n-m+2}$ được xác định từ phương trình thứ $m-1$.
+              \par $\ddots$
+              \par $x_{n}$ được xác định từ phương trình thứ 1.
+    \end{enumerate}
 \end{proof}
 
 \begin{exercise}
@@ -1900,6 +2248,66 @@
 \end{exercise}
 
 \begin{proof}
+    \par Áp dụng định lý nhị thức Newton:
+    \begin{align*}
+        k^{n}       & = 1 + \binom{n}{1}(k-1) + \cdots + \binom{n}{n-1}(k-1){}^{n-1} + (k-1){}^{n} \\
+        (k-1){}^{n} & = 1 + \binom{n}{1}(k-2) + \cdots + \binom{n}{n-1}(k-2){}^{n-1} + (k-2){}^{n} \\
+                    & \vdots \\
+        2^{n}       & = 1 + \binom{n}{1}1     + \cdots + \binom{n}{n-1}1^{n-1} + 1^{n}
+    \end{align*}
+    \par Cộng vế theo vế của tất cả đẳng thức trên:
+    \begin{align*}
+        k^{n} + (k-1){}^{n} + \cdots + 2^{n} & = s_{0}(k) + \binom{n}{1}s_{1}(k) + \cdots + \binom{n}{n-1}s_{n-1}(k) + (k-1){}^{n} + \cdots + 1 \\
+        \Longleftrightarrow k^{n} & = s_{0}(k) + \binom{n}{1}s_{1}(k) + \cdots + \binom{n}{n-1}s_{n-1}(k) + 1 \\
+        \Longleftrightarrow k^{n} & = 1 + \binom{n}{n-1}s_{n-1}(k) + \cdots + \binom{n}{1}s_{1}(k) + s_{0}(k).
+    \end{align*}
+
+    \par Áp dụng công thức trên với các giá trị $n$ nhỏ hơn:
+    \begin{align*}
+        k^{n}   & = 1 + \binom{n}{n-1}s_{n-1}(k) + \cdots + \binom{n}{1}s_{1}(k) + s_{0}(k) \\
+        k^{n-1} & = 1 + \binom{n-1}{n-2}s_{n-2}(k) + \cdots + \binom{n-1}{1}s_{1}(k) + s_{0}(k) \\
+                & \ddots \\
+        k       & = 1 + s_{0}(k)
+    \end{align*}
+    \par Đặt $s_{n-1}(k)$, $s_{n-2}(k)$, \ldots, $s_{0}(k)$ là nghiệm của hệ phương trình tuyến tính:
+    \[
+        \begin{array}{ccccccccccc}
+            \binom{n}{n-1}x_{n-1} & + & \binom{n}{n-2}x_{n-2}   & + & \cdots & + & \binom{n}{1}x_{1}   & + & x_{0} & =      & k^{n} - 1 \\
+                                  &   & \binom{n-1}{n-2}x_{n-2} & + & \cdots & + & \binom{n-1}{1}x_{1} & + & x_{0} & =      & k^{n-1} - 1 \\
+                                  &   &                         &   & \ddots &   &                     &   &       & \vdots &  \\
+                                  &   &                         &   &        &   &                     &   & x_{0} & =      & k - 1
+        \end{array}
+    \]
+    \par Định thức của ma trận hệ số bằng:
+    \[
+        \begin{vmatrix}
+            \binom{n}{n-1} & \binom{n}{n-2}   & \cdots & \binom{n}{1}   & 1      \\
+            0              & \binom{n-1}{n-2} & \cdots & \binom{n-1}{1} & 1      \\
+            \vdots         & \vdots           & \ddots & \vdots         & \vdots \\
+            0              & 0                & \cdots & 0              & 1
+        \end{vmatrix}
+        = \binom{n}{n-1}\binom{n-1}{n-2}\cdots\binom{2}{1}
+        = n!
+    \]
+    \par Áp dụng công thức Cramer:
+    \[
+        s_{n-1}(k) = x_{n-1} = \dfrac{1}{n!}
+        \begin{vmatrix}
+            k^{n} - 1   & \binom{n}{n-2} & \binom{n}{n-3}   & \cdots & \binom{n}{1}   & 1      \\
+            k^{n-1} - 1 & 0              & \binom{n-1}{n-3} & \cdots & \binom{n-1}{1} & 1      \\
+            k^{n-2} - 1 & 0              & 0                & \cdots & \binom{n-2}{1} & 1      \\
+            \vdots      & \vdots         & \vdots           & \ddots & \vdots         & \vdots \\
+            k - 1       & 0              & 0                & \cdots & 0              * 1
+        \end{vmatrix}
+        = \dfrac{1}{n!}
+        \begin{vmatrix}
+            k^{n}    & \binom{n}{n-2} & \binom{n}{n-3}   & \cdots & \binom{n}{1}   & 1      \\
+            k^{n-1}  & 0              & \binom{n-1}{n-3} & \cdots & \binom{n-1}{1} & 1      \\
+            k^{n-2}  & 0              & 0                & \cdots & \binom{n-2}{1} & 1      \\
+            \vdots   & \vdots         & \vdots           & \ddots & \vdots         & \vdots \\
+            k        & 0              & 0                & \cdots & 0              & 1
+        \end{vmatrix}.
+    \]
 \end{proof}
 
 \begin{exercise}
