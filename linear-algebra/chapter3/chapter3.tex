@@ -2210,12 +2210,12 @@
                                       & \ddots                                                                                                                                                           \\
                                       & \Longleftrightarrow
                   \begin{pmatrix}
-                      1      & a_{1}  & a_{1}^{2}           & \cdots & a_{1}^{m-1}                  & \cdots & a_{1}^{n-1}                  & a_{1}^{n}                    \\
-                      0      & 1      & h_{1}(a_{1}, a_{2}) & \cdots & h_{m-2}(a_{1}, a_{2})        & \cdots & h_{n-2}(a_{1}, a_{2})        & h_{n-1}(a_{1}, a_{2})        \\
-                      0      & 0      & 1                   & \cdots & h_{m-3}(a_{1}, a_{2}, a_{3}) & \cdots & h_{n-3}(a_{1}, a_{2}, a_{3}) & h_{n-2}(a_{1}, a_{2}, a_{3}) \\
-                      \vdots & \vdots & \vdots              & \vdots & \ddots                       & \vdots & \vdots                       & \vdots                               \\
+                      1      & a_{1}  & a_{1}^{2}           & \cdots & a_{1}^{m-1}                  & \cdots & a_{1}^{n-1}                  & a_{1}^{n}                      \\
+                      0      & 1      & h_{1}(a_{1}, a_{2}) & \cdots & h_{m-2}(a_{1}, a_{2})        & \cdots & h_{n-2}(a_{1}, a_{2})        & h_{n-1}(a_{1}, a_{2})          \\
+                      0      & 0      & 1                   & \cdots & h_{m-3}(a_{1}, a_{2}, a_{3}) & \cdots & h_{n-3}(a_{1}, a_{2}, a_{3}) & h_{n-2}(a_{1}, a_{2}, a_{3})   \\
+                      \vdots & \vdots & \vdots              & \vdots & \ddots                       & \vdots & \vdots                       & \vdots                         \\
                       0      & 0      & 0                   & \cdots & 1                            & \cdots & h_{n-m}(a_{1},\ldots, a_{m}) & h_{n-m+1}(a_{1},\ldots, a_{m})
-                  \end{pmatrix}                                   \\
+                  \end{pmatrix}                                 \\
               \end{align*}
               \endgroup
               \par (trong đó, nhắc lại $h_{k}$ là đa thức đối xứng thuần nhất đầy đủ).
@@ -2252,29 +2252,29 @@
     \begin{align*}
         k^{n}       & = 1 + \binom{n}{1}(k-1) + \cdots + \binom{n}{n-1}(k-1){}^{n-1} + (k-1){}^{n} \\
         (k-1){}^{n} & = 1 + \binom{n}{1}(k-2) + \cdots + \binom{n}{n-1}(k-2){}^{n-1} + (k-2){}^{n} \\
-                    & \vdots \\
+                    & \vdots                                                                       \\
         2^{n}       & = 1 + \binom{n}{1}1     + \cdots + \binom{n}{n-1}1^{n-1} + 1^{n}
     \end{align*}
     \par Cộng vế theo vế của tất cả đẳng thức trên:
     \begin{align*}
         k^{n} + (k-1){}^{n} + \cdots + 2^{n} & = s_{0}(k) + \binom{n}{1}s_{1}(k) + \cdots + \binom{n}{n-1}s_{n-1}(k) + (k-1){}^{n} + \cdots + 1 \\
-        \Longleftrightarrow k^{n} & = s_{0}(k) + \binom{n}{1}s_{1}(k) + \cdots + \binom{n}{n-1}s_{n-1}(k) + 1 \\
-        \Longleftrightarrow k^{n} & = 1 + \binom{n}{n-1}s_{n-1}(k) + \cdots + \binom{n}{1}s_{1}(k) + s_{0}(k).
+        \Longleftrightarrow k^{n}            & = s_{0}(k) + \binom{n}{1}s_{1}(k) + \cdots + \binom{n}{n-1}s_{n-1}(k) + 1                        \\
+        \Longleftrightarrow k^{n}            & = 1 + \binom{n}{n-1}s_{n-1}(k) + \cdots + \binom{n}{1}s_{1}(k) + s_{0}(k).
     \end{align*}
 
     \par Áp dụng công thức trên với các giá trị $n$ nhỏ hơn:
     \begin{align*}
-        k^{n}   & = 1 + \binom{n}{n-1}s_{n-1}(k) + \cdots + \binom{n}{1}s_{1}(k) + s_{0}(k) \\
+        k^{n}   & = 1 + \binom{n}{n-1}s_{n-1}(k) + \cdots + \binom{n}{1}s_{1}(k) + s_{0}(k)     \\
         k^{n-1} & = 1 + \binom{n-1}{n-2}s_{n-2}(k) + \cdots + \binom{n-1}{1}s_{1}(k) + s_{0}(k) \\
-                & \ddots \\
+                & \ddots                                                                        \\
         k       & = 1 + s_{0}(k)
     \end{align*}
-    \par Đặt $s_{n-1}(k)$, $s_{n-2}(k)$, \ldots, $s_{0}(k)$ là nghiệm của hệ phương trình tuyến tính:
+    \par $s_{n-1}(k)$, $s_{n-2}(k)$, \ldots, $s_{0}(k)$ là nghiệm của hệ phương trình tuyến tính:
     \[
         \begin{array}{ccccccccccc}
-            \binom{n}{n-1}x_{n-1} & + & \binom{n}{n-2}x_{n-2}   & + & \cdots & + & \binom{n}{1}x_{1}   & + & x_{0} & =      & k^{n} - 1 \\
+            \binom{n}{n-1}x_{n-1} & + & \binom{n}{n-2}x_{n-2}   & + & \cdots & + & \binom{n}{1}x_{1}   & + & x_{0} & =      & k^{n} - 1   \\
                                   &   & \binom{n-1}{n-2}x_{n-2} & + & \cdots & + & \binom{n-1}{1}x_{1} & + & x_{0} & =      & k^{n-1} - 1 \\
-                                  &   &                         &   & \ddots &   &                     &   &       & \vdots &  \\
+                                  &   &                         &   & \ddots &   &                     &   &       & \vdots &             \\
                                   &   &                         &   &        &   &                     &   & x_{0} & =      & k - 1
         \end{array}
     \]
@@ -2297,21 +2297,21 @@
             k^{n-1} - 1 & 0              & \binom{n-1}{n-3} & \cdots & \binom{n-1}{1} & 1      \\
             k^{n-2} - 1 & 0              & 0                & \cdots & \binom{n-2}{1} & 1      \\
             \vdots      & \vdots         & \vdots           & \ddots & \vdots         & \vdots \\
-            k - 1       & 0              & 0                & \cdots & 0              * 1
+            k - 1       & 0              & 0                & \cdots & 0              & 1
         \end{vmatrix}
         = \dfrac{1}{n!}
         \begin{vmatrix}
-            k^{n}    & \binom{n}{n-2} & \binom{n}{n-3}   & \cdots & \binom{n}{1}   & 1      \\
-            k^{n-1}  & 0              & \binom{n-1}{n-3} & \cdots & \binom{n-1}{1} & 1      \\
-            k^{n-2}  & 0              & 0                & \cdots & \binom{n-2}{1} & 1      \\
-            \vdots   & \vdots         & \vdots           & \ddots & \vdots         & \vdots \\
-            k        & 0              & 0                & \cdots & 0              & 1
+            k^{n}   & \binom{n}{n-2} & \binom{n}{n-3}   & \cdots & \binom{n}{1}   & 1      \\
+            k^{n-1} & 0              & \binom{n-1}{n-3} & \cdots & \binom{n-1}{1} & 1      \\
+            k^{n-2} & 0              & 0                & \cdots & \binom{n-2}{1} & 1      \\
+            \vdots  & \vdots         & \vdots           & \ddots & \vdots         & \vdots \\
+            k       & 0              & 0                & \cdots & 0              & 1
         \end{vmatrix}.
     \]
 \end{proof}
 
 \begin{exercise}
-    \par Xét khai triển $\frac{x}{e^{x} - 1} = 1 + b_{1}x + b_{2}x^{2} + b_{3}x^{3} + \cdots$. Ta đặt $b_{2n} = \frac{(-1){}^{n-1}B_{2n}}{(2n)!}$, trong đó $B_{n}$ được gọi là số Bernoullia thứ $n$. Chứng minh rằng
+    \par Xét khai triển $\frac{x}{e^{x} - 1} = 1 + b_{1}x + b_{2}x^{2} + b_{3}x^{3} + \cdots$. Ta đặt $b_{2n} = \frac{(-1){}^{n-1}B_{n}}{(2n)!}$, trong đó $B_{n}$ được gọi là số Bernoullia thứ $n$. Chứng minh rằng
     \[
         B_{n} = (-1){}^{n-1}(2n)!
         \begin{vmatrix}
@@ -2338,6 +2338,112 @@
 \end{exercise}
 
 \begin{proof}
+    \begingroup
+    \allowdisplaybreaks
+    \begin{align*}
+        \dfrac{x}{e^{x}-1} & = 1 + b_{1}x + b_{2}x^{2} + b_{3}x^{3} + \cdots                                                                                  \\
+        \Leftrightarrow 1  & = (1 + b_{1}x + b_{2}x^{2} + b_{3}x^{3} + \cdots)\left(1 + \dfrac{x}{2!} + \dfrac{x^{2}}{3!} + \dfrac{x^{3}}{4!} + \cdots\right)
+    \end{align*}
+    \endgroup
+    \par Đồng nhất hệ số của $x$, $x^{2}$, $x^{3}$, \ldots, $x^{2n}$ trong khai triển trên, ta được hệ phương trình tuyến tính gồm $(2n)$ phương trình:
+    \begin{align*}
+         & b_{1}                                                               & = \dfrac{-1}{2!}      \\
+         & \dfrac{b_{1}}{2!} + b_{2}                                           & = \dfrac{-1}{3!}      \\
+         & \dfrac{b_{1}}{3!} + \dfrac{b_{2}}{2!} + b_{3}                       & = \dfrac{-1}{4!}      \\
+         &                                                                     & \vdots                \\
+         & \dfrac{b_{1}}{(2n-1)!} + \dfrac{b_{2}}{(2n-2)!} + \cdots + b_{2n-1} & = \dfrac{-1}{(2n)!}   \\
+         & \dfrac{b_{1}}{(2n)!} + \dfrac{b_{2}}{(2n-1)!} + \cdots + b_{2n}     & = \dfrac{-1}{(2n+1)!}
+    \end{align*}
+    \par Định thức của ma trận hệ số của hệ $(2n)$ phương trình tuyến tính này bằng:
+    \[
+        \begin{vmatrix}
+            1               & 0                 & 0                 & \cdots & 0            & 0      \\
+            \frac{1}{2!}    & 1                 & 0                 & \cdots & 0            & 0      \\
+            \frac{1}{3!}    & \frac{1}{2!}      & 1                 & \cdots & 0            & 0      \\
+            \vdots          & \vdots            & \vdots            & \ddots & \vdots       & \vdots \\
+            \frac{1}{(2n)!} & \frac{1}{(2n-1)!} & \frac{1}{(2n-2)!} & \cdots & \frac{1}{2!} & 1
+        \end{vmatrix} = 1 \ne 0.
+    \]
+    \par Áp dụng công thức Cramer
+    \begingroup
+    \allowdisplaybreaks
+    \begin{align*}
+        b_{2n} & =
+        \begin{vmatrix}
+            1               & 0                 & 0                 & \cdots & 0            & \frac{-1}{2!}      \\
+            \frac{1}{2!}    & 1                 & 0                 & \cdots & 0            & \frac{-1}{3!}      \\
+            \frac{1}{3!}    & \frac{1}{2!}      & 1                 & \cdots & 0            & \frac{-1}{4!}      \\
+            \vdots          & \vdots            & \vdots            & \ddots & \vdots       & \vdots             \\
+            \frac{1}{(2n)!} & \frac{1}{(2n-1)!} & \frac{1}{(2n-2)!} & \cdots & \frac{1}{2!} & \frac{-1}{(2n+1)!}
+        \end{vmatrix} \\
+        & = (-1){}^{2n-1}
+        \begin{vmatrix}
+            \frac{-1}{2!}      & 1               & 0                 & 0                 & \cdots & 0            \\
+            \frac{-1}{3!}      & \frac{1}{2!}    & 1                 & 0                 & \cdots & 0            \\
+            \frac{-1}{4!}      & \frac{1}{3!}    & \frac{1}{2!}      & 1                 & \cdots & 0            \\
+            \vdots             & \vdots          & \vdots            & \vdots            & \ddots & \vdots       \\
+            \frac{-1}{(2n+1)!} & \frac{1}{(2n)!} & \frac{1}{(2n-1)!} & \frac{1}{(2n-2)!} & \cdots & \frac{1}{2!}
+        \end{vmatrix} \\
+        & =
+        \begin{vmatrix}
+            \frac{1}{2!}      & 1               & 0                 & 0                 & \cdots & 0            \\
+            \frac{1}{3!}      & \frac{1}{2!}    & 1                 & 0                 & \cdots & 0            \\
+            \frac{1}{4!}      & \frac{1}{3!}    & \frac{1}{2!}      & 1                 & \cdots & 0            \\
+            \vdots             & \vdots          & \vdots            & \vdots            & \ddots & \vdots       \\
+            \frac{1}{(2n+1)!} & \frac{1}{(2n)!} & \frac{1}{(2n-1)!} & \frac{1}{(2n-2)!} & \cdots & \frac{1}{2!}
+        \end{vmatrix} \\
+    \end{align*}
+    \endgroup
+    \par Do đó
+    \[
+        B_{n} = (-1){}^{n-1}(2n)!
+        \begin{vmatrix}
+            \frac{1}{2!}      & 1               & 0                 & 0                 & \cdots & 0            \\
+            \frac{1}{3!}      & \frac{1}{2!}    & 1                 & 0                 & \cdots & 0            \\
+            \frac{1}{4!}      & \frac{1}{3!}    & \frac{1}{2!}      & 1                 & \cdots & 0            \\
+            \vdots             & \vdots          & \vdots            & \vdots            & \ddots & \vdots       \\
+            \frac{1}{(2n+1)!} & \frac{1}{(2n)!} & \frac{1}{(2n-1)!} & \frac{1}{(2n-2)!} & \cdots & \frac{1}{2!}
+        \end{vmatrix}.
+    \]
+
+    \par Áp dụng công thức Cramer cho $2n-1$ phương trình tuyến tính đầu tiên:
+    \begin{align*}
+        b_{2n-1} & =
+        \begin{vmatrix}
+            1                 & 0                 & 0                 & \cdots & 0            & \frac{-1}{2!}      \\
+            \frac{1}{2!}      & 1                 & 0                 & \cdots & 0            & \frac{-1}{3!}      \\
+            \frac{1}{3!}      & \frac{1}{2!}      & 1                 & \cdots & 0            & \frac{-1}{4!}      \\
+            \vdots            & \vdots            & \vdots            & \ddots & \vdots       & \vdots             \\
+            \frac{1}{(2n-1)!} & \frac{1}{(2n-2)!} & \frac{1}{(2n-3)!} & \cdots & \frac{1}{2!} & \frac{-1}{(2n)!}
+        \end{vmatrix} \\
+        & = -
+        \begin{vmatrix}
+            \frac{1}{2!}      & 1                 & 0                 & \cdots & 0            & 0                  \\
+            \frac{1}{3!}      & \frac{1}{2!}      & 1                 & \cdots & 0            & 0                  \\
+            \frac{1}{4!}      & \frac{1}{3!}      & \frac{1}{2!}      & \cdots & 0            & 0                  \\
+            \vdots            & \vdots            & \vdots            & \ddots & \vdots       & \vdots             \\
+            \frac{1}{(2n)!}   & \frac{1}{(2n-1)!} & \frac{1}{(2n-2)!} & \cdots & \frac{1}{3!} & \frac{1}{2!}
+        \end{vmatrix}
+    \end{align*}
+    \begin{align*}
+        \dfrac{x}{e^{x}-1} & = 1 + b_{1}x + b_{2}x^{2} + b_{3}x^{3} + \cdots \\
+        \dfrac{-x}{e^{-x}-1} & = 1 - b_{1}x + b_{2}x^{2} - b_{3}x^{3} + \cdots \\
+        \Longleftrightarrow \dfrac{x}{e^{x} - 1} + \dfrac{x}{e^{-x}-1} & = 2b_{1}x + 2b_{3}x^{3} + \cdots \\
+        \Longleftrightarrow -x & = 2b_{1}x + 2b_{3}x^{3} + \cdots
+    \end{align*}
+    \par Đồng nhất hệ số của hai đa thức, ta được $b_{1} = \dfrac{-1}{2}$, $b_{3} = b_{5} = \cdots = b_{2n-1} = \cdots = 0$.
+    \par Vậy với $n > 1$
+    \[
+        b_{2n-1} =
+        \begin{vmatrix}
+            \frac{1}{2!}      & 1                 & 0                 & \cdots & 0            & 0                  \\
+            \frac{1}{3!}      & \frac{1}{2!}      & 1                 & \cdots & 0            & 0                  \\
+            \frac{1}{4!}      & \frac{1}{3!}      & \frac{1}{2!}      & \cdots & 0            & 0                  \\
+            \vdots            & \vdots            & \vdots            & \ddots & \vdots       & \vdots             \\
+            \frac{1}{(2n)!}   & \frac{1}{(2n-1)!} & \frac{1}{(2n-2)!} & \cdots & \frac{1}{3!} & \frac{1}{2!}
+        \end{vmatrix}
+        = 0.
+    \]
 \end{proof}
 
 \begin{exercise}
@@ -2349,6 +2455,81 @@
 \end{exercise}
 
 \begin{proof}[Lời giải]
+    \begingroup
+    \allowdisplaybreaks
+    \begin{align*}
+        e^{-x} & = 1 - a_{1}x + a_{2}x^{2} - a_{3}x^{3} + \cdots \\
+        1      & = (1 - a_{1}x + a_{2}x^{2} - a_{3}x^{3} + \cdots)\left(1 + x + \dfrac{x^{2}}{2!} + \dfrac{x^{3}}{3!} + \cdots\right) \\
+    \end{align*}
+    \endgroup
+    \par Đồng nhất hệ số của các hạng tử $x$, $x^{2}$, $x^{3}$, \ldots, $x^{n}$, ta thu được hệ phương trình tuyến tính:
+    \begin{align*}
+        (-1){}^{1}a_{1} + \frac{1}{1!} & = 0 \\
+        (-1){}^{2}a_{2} + (-1){}^{1}a_{1}\frac{1}{1!} + \frac{1}{2!} & = 0 \\
+        (-1){}^{3}a_{3} + (-1){}^{2}a_{2}\frac{1}{1!} + (-1){}^{1}a_{1}\frac{1}{2!} + \frac{1}{3!} & = 0 \\
+        & \ddots \\
+        (-1){}^{n}a_{n} + (-1){}^{n-1}a_{n-1}\frac{1}{1!} + \cdots + (-1){}^{1}a_{1}\frac{1}{(n-1)!} + \frac{1}{n!} & = 0
+    \end{align*}
+    \par $(-1){}^{1}a_{1}$, $(-1){}^{2}a_{2}$, \ldots, $(-1){}^{n}a_{n}$ là nghiệm của hệ phương tình tuyến tính:
+    \begin{align*}
+        &x_{1} & = \frac{-1}{1!} \\
+        &\frac{1}{1!}x_{1} + x_{2} & = \frac{-1}{2!} \\
+        &\frac{1}{2!}x_{1} + \frac{1}{1!}x_{2} + x_{3} & = \frac{-1}{3!} \\
+        & \ddots  &  \\
+        &\frac{1}{(n-1)!}x_{1} + \frac{1}{(n-2)!}x_{2} + \cdots + \frac{1}{1!}x_{n-1} + x_{n} & = \frac{-1}{n!}
+    \end{align*}
+    \par Định thức của ma trận hệ số bằng 1. Áp dụng công thức Cramer:
+    \begin{align*}
+        (-1){}^{n}a_{n} = x_{n} & =
+        \begin{vmatrix}
+            1                & 0                & 0                & \cdots & 0            & \frac{-1}{1!} \\
+            \frac{1}{1!}     & 1                & 0                & \cdots & 0            & \frac{-1}{2!} \\
+            \frac{1}{2!}     & \frac{1}{1!}     & 1                & \cdots & 0            & \frac{-1}{3!} \\
+            \vdots           & \vdots           & \vdots           & \ddots & \vdots       & \vdots        \\
+            \frac{1}{(n-1)!} & \frac{1}{(n-2)!} & \frac{1}{(n-3)!} & \cdots & \frac{1}{1!} & \frac{-1}{n!}
+        \end{vmatrix} \\
+        & = (-1)^{n-1}
+        \begin{vmatrix}
+            \frac{-1}{1!}    & 1                & 0                & 0                & \cdots & 0            \\
+            \frac{-1}{2!}    & \frac{1}{1!}     & 1                & 0                & \cdots & 0            \\
+            \frac{-1}{3!}    & \frac{1}{2!}     & \frac{1}{1!}     & 1                & \cdots & 0            \\
+            \vdots           & \vdots           & \vdots           & \vdots           & \ddots & \vdots       \\
+            \frac{-1}{n!}    & \frac{1}{(n-1)!} & \frac{1}{(n-2)!} & \frac{1}{(n-3)!} & \cdots & \frac{1}{1!}
+        \end{vmatrix} \\
+        & = (-1)^{n}
+        \begin{vmatrix}
+            \frac{1}{1!}    & 1                & 0                & 0                & \cdots & 0            \\
+            \frac{1}{2!}    & \frac{1}{1!}     & 1                & 0                & \cdots & 0            \\
+            \frac{1}{3!}    & \frac{1}{2!}     & \frac{1}{1!}     & 1                & \cdots & 0            \\
+            \vdots           & \vdots           & \vdots           & \vdots           & \ddots & \vdots       \\
+            \frac{1}{n!}    & \frac{1}{(n-1)!} & \frac{1}{(n-2)!} & \frac{1}{(n-3)!} & \cdots & \frac{1}{1!}
+        \end{vmatrix} \\
+        \Longleftrightarrow a_{n} & =
+        \begin{vmatrix}
+            \frac{1}{1!}    & 1                & 0                & 0                & \cdots & 0            \\
+            \frac{1}{2!}    & \frac{1}{1!}     & 1                & 0                & \cdots & 0            \\
+            \frac{1}{3!}    & \frac{1}{2!}     & \frac{1}{1!}     & 1                & \cdots & 0            \\
+            \vdots           & \vdots           & \vdots           & \vdots           & \ddots & \vdots       \\
+            \frac{1}{n!}    & \frac{1}{(n-1)!} & \frac{1}{(n-2)!} & \frac{1}{(n-3)!} & \cdots & \frac{1}{1!}
+        \end{vmatrix}.
+    \end{align*}
+
+    \par Áp dụng khai triển Taylor:
+    \[
+        e^{-x} = \sum^{+\infty}_{n=0}\frac{(-1){}^{n}x^{n}}{n!}
+    \]
+    \par Đồng nhất hệ số với $e^{-x} = 1 - a_{1}x + a_{2}x^{2} - a_{3}x^{3} + \cdots$, ta được:
+    \[
+        a_{n} =
+        \begin{vmatrix}
+            \frac{1}{1!}    & 1                & 0                & 0                & \cdots & 0            \\
+            \frac{1}{2!}    & \frac{1}{1!}     & 1                & 0                & \cdots & 0            \\
+            \frac{1}{3!}    & \frac{1}{2!}     & \frac{1}{1!}     & 1                & \cdots & 0            \\
+            \vdots          & \vdots           & \vdots           & \vdots           & \ddots & \vdots       \\
+            \frac{1}{n!}    & \frac{1}{(n-1)!} & \frac{1}{(n-2)!} & \frac{1}{(n-3)!} & \cdots & \frac{1}{1!}
+        \end{vmatrix}
+        = \frac{1}{n!}.
+    \]
 \end{proof}
 
 \begin{exercise}
@@ -2356,6 +2537,63 @@
 \end{exercise}
 
 \begin{proof}
+\end{proof}
+
+\begin{exercise}
+    \par Tính hạng của các ma trận sau đây bằng phương pháp biến đổi sơ cấp và phương pháp dùng định thức con:
+    \begin{enumerate}[label = (\alph*)]
+        \item $
+                  \begin{pmatrix}
+                      2 & -1 & 3 & -2 & 4 \\
+                      4 & -2 & 5 & 1  & 7 \\
+                      2 & -1 & 1 & 8  & 2
+                  \end{pmatrix}
+              $,
+        \item $
+                  \begin{pmatrix}
+                      3 & -1 & 3  & 2 & 5  \\
+                      5 & -3 & 2  & 3 & 4  \\
+                      1 & -3 & -5 & 0 & -7 \\
+                      7 & -5 & 1  & 4 & 1
+                  \end{pmatrix}
+              $.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}[Lời giải]
+    \begin{enumerate}[label = (\alph*)]
+        \item
+        \item
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    \par Tìm giá trị của $\lambda$ sao cho ma trận sau đây có hạng thấp nhất
+    \[
+        \begin{pmatrix}
+            3       & 1 & 1  & 4 \\
+            \lambda & 4 & 10 & 1 \\
+            1       & 7 & 17 & 3 \\
+            2       & 2 & 4  & 3
+        \end{pmatrix}.
+    \]
+\end{exercise}
+
+\begin{proof}[Lời giải]
+\end{proof}
+
+\begin{exercise}
+    \par Tìm hạng của ma trận sau đây như một hàm phụ thuộc $\lambda$:
+    \[
+        \begin{pmatrix}
+            1 & \lambda & -1      & 2 \\
+            2 & -1      & \lambda & 5 \\
+            1 & 10      & -6      & 1
+        \end{pmatrix}.
+    \]
+\end{exercise}
+
+\begin{proof}[Lời giải]
 \end{proof}
 
 \end{document}
