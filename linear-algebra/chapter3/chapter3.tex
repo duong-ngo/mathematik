@@ -2537,6 +2537,61 @@
 \end{exercise}
 
 \begin{proof}
+    \par $(\alpha_{1}, \alpha_{2}, \ldots, \alpha_{n})$ là một cơ sở của $V$.
+    \par $(\xi_{1}, \xi_{2}, \ldots, \xi_{n})$ là một cơ sở đối ngẫu của $(\alpha_{1}, \alpha_{2}, \ldots, \alpha_{n})$.
+    \begingroup
+    \allowdisplaybreaks
+    \begin{align*}
+        \begin{vmatrix}
+            \dotprod{f(\alpha_{1}),\xi_{1}} & \dotprod{f(\alpha_{1}),\xi_{2}} & \cdots & \dotprod{f(\alpha_{1}),\xi_{n}} \\
+            \dotprod{f(\alpha_{2}),\xi_{1}} & \dotprod{f(\alpha_{2}),\xi_{2}} & \cdots & \dotprod{f(\alpha_{2}),\xi_{n}} \\
+            \vdots                          & \vdots                          & \ddots & \vdots                          \\
+            \dotprod{f(\alpha_{n}),\xi_{1}} & \dotprod{f(\alpha_{n}),\xi_{2}} & \cdots & \dotprod{f(\alpha_{n}),\xi_{n}} \\
+        \end{vmatrix}
+         & = \det(f)
+        \begin{vmatrix}
+            \dotprod{\alpha_{1},\xi_{1}} & \dotprod{\alpha_{1},\xi_{2}} & \cdots & \dotprod{\alpha_{1},\xi_{n}} \\
+            \dotprod{\alpha_{2},\xi_{1}} & \dotprod{\alpha_{2},\xi_{2}} & \cdots & \dotprod{\alpha_{2},\xi_{n}} \\
+            \vdots                       & \vdots                       & \ddots & \vdots                       \\
+            \dotprod{\alpha_{n},\xi_{1}} & \dotprod{\alpha_{n},\xi_{2}} & \cdots & \dotprod{\alpha_{n},\xi_{n}} \\
+        \end{vmatrix}, \\
+        \begin{vmatrix}
+            \dotprod{\alpha_{1},f^{*}(\xi_{1})} & \dotprod{\alpha_{1},f^{*}(\xi_{2})} & \cdots & \dotprod{\alpha_{1},f^{*}(\xi_{n})} \\
+            \dotprod{\alpha_{2},f^{*}(\xi_{1})} & \dotprod{\alpha_{2},f^{*}(\xi_{2})} & \cdots & \dotprod{\alpha_{2},f^{*}(\xi_{n})} \\
+            \vdots                              & \vdots                              & \ddots & \vdots                              \\
+            \dotprod{\alpha_{n},f^{*}(\xi_{1})} & \dotprod{\alpha_{n},f^{*}(\xi_{2})} & \cdots & \dotprod{\alpha_{n},f^{*}(\xi_{n})} \\
+        \end{vmatrix}
+         & = \det(f^{*})
+        \begin{vmatrix}
+            \dotprod{\alpha_{1},\xi_{1}} & \dotprod{\alpha_{1},\xi_{2}} & \cdots & \dotprod{\alpha_{1},\xi_{n}} \\
+            \dotprod{\alpha_{2},\xi_{1}} & \dotprod{\alpha_{2},\xi_{2}} & \cdots & \dotprod{\alpha_{2},\xi_{n}} \\
+            \vdots                       & \vdots                       & \ddots & \vdots                       \\
+            \dotprod{\alpha_{n},\xi_{1}} & \dotprod{\alpha_{n},\xi_{2}} & \cdots & \dotprod{\alpha_{n},\xi_{n}} \\
+        \end{vmatrix}, \\
+    \end{align*}
+    \par Theo định nghĩa của đồng cấu tuyến tính đối ngẫu, $f^{*}(\varphi) = \varphi\circ f, \forall\varphi\in V^{*}$, suy ra:
+    \[
+        \det(f)
+        \begin{vmatrix}
+            \dotprod{\alpha_{1},\xi_{1}} & \dotprod{\alpha_{1},\xi_{2}} & \cdots & \dotprod{\alpha_{1},\xi_{n}} \\
+            \dotprod{\alpha_{2},\xi_{1}} & \dotprod{\alpha_{2},\xi_{2}} & \cdots & \dotprod{\alpha_{2},\xi_{n}} \\
+            \vdots                       & \vdots                       & \ddots & \vdots                       \\
+            \dotprod{\alpha_{n},\xi_{1}} & \dotprod{\alpha_{n},\xi_{2}} & \cdots & \dotprod{\alpha_{n},\xi_{n}} \\
+        \end{vmatrix}
+        =
+        \det(f^{*})
+        \begin{vmatrix}
+            \dotprod{\alpha_{1},\xi_{1}} & \dotprod{\alpha_{1},\xi_{2}} & \cdots & \dotprod{\alpha_{1},\xi_{n}} \\
+            \dotprod{\alpha_{2},\xi_{1}} & \dotprod{\alpha_{2},\xi_{2}} & \cdots & \dotprod{\alpha_{2},\xi_{n}} \\
+            \vdots                       & \vdots                       & \ddots & \vdots                       \\
+            \dotprod{\alpha_{n},\xi_{1}} & \dotprod{\alpha_{n},\xi_{2}} & \cdots & \dotprod{\alpha_{n},\xi_{n}} \\
+        \end{vmatrix}
+    \]
+    \par Bên cạnh đó, theo định nghĩa của cơ sở đối ngẫu, $\dotprod{\alpha_{i}, \xi_{j}} = \delta_{ij}, \forall i, j\in \{ 1, 2, \ldots, n \}$. Do đó
+    \[
+        \det(f) = \det(f^{*}).
+    \]
+    \endgroup
 \end{proof}
 
 \begin{exercise}
@@ -2659,16 +2714,16 @@
             0       & -20 & -50 & -5 \\
         \end{pmatrix} \\
         =\rank\begin{pmatrix}
-            \lambda & 4   & 10  & 1 \\
-            1       & 7   & 17  & 3 \\
-            0       & 4   & 10  & 1 \\
-            0       & 4   & 10  & 1 \\
+            \lambda & 4 & 10 & 1 \\
+            1       & 7 & 17 & 3 \\
+            0       & 4 & 10 & 1 \\
+            0       & 4 & 10 & 1 \\
         \end{pmatrix}
         =\rank\begin{pmatrix}
-            \lambda & 0   & 0   & 0 \\
-            1       & 7   & 17  & 3 \\
-            0       & 4   & 10  & 1 \\
-            0       & 0   & 0   & 0 \\
+            \lambda & 0 & 0  & 0 \\
+            1       & 7 & 17 & 3 \\
+            0       & 4 & 10 & 1 \\
+            0       & 0 & 0  & 0 \\
         \end{pmatrix}.
     \end{gather*}
     \endgroup
@@ -2691,26 +2746,26 @@
     \par Do đó hạng của ma trận trên lớn hơn hoặc bằng 2.
     \par Tính tất cả các định thức con cỡ 3:
     \begin{align*}
-        & \begin{vmatrix}
-            1 & \lambda & -1 \\
-            2 & -1      & \lambda \\
-            1 & 10      & -6
-        \end{vmatrix} = (\lambda - 3)(\lambda + 5) \\
-        & \begin{vmatrix}
-            1 & \lambda & 2 \\
-            2 & -1      & 5 \\
-            1 & 10      & 1
-        \end{vmatrix} = 3(\lambda - 3) \\
-        & \begin{vmatrix}
-            1 & -1 & 2 \\
-            2 & \lambda & 5 \\
-            1 & -6 & 1
-        \end{vmatrix} = -(\lambda - 3) \\
-        & \begin{vmatrix}
-            \lambda & -1 & 2 \\
-            -1 & \lambda & 5 \\
-            10 & -6 & 1
-        \end{vmatrix} = (\lambda - 3)(\lambda + 13)
+         & \begin{vmatrix}
+               1 & \lambda & -1      \\
+               2 & -1      & \lambda \\
+               1 & 10      & -6
+           \end{vmatrix} = (\lambda - 3)(\lambda + 5)  \\
+         & \begin{vmatrix}
+               1 & \lambda & 2 \\
+               2 & -1      & 5 \\
+               1 & 10      & 1
+           \end{vmatrix} = 3(\lambda - 3)              \\
+         & \begin{vmatrix}
+               1 & -1      & 2 \\
+               2 & \lambda & 5 \\
+               1 & -6      & 1
+           \end{vmatrix} = -(\lambda - 3)              \\
+         & \begin{vmatrix}
+               \lambda & -1      & 2 \\
+               -1      & \lambda & 5 \\
+               10      & -6      & 1
+           \end{vmatrix} = (\lambda - 3)(\lambda + 13)
     \end{align*}
     \par Vậy hạng của ma trận trên bằng 3 nếu $\lambda \ne 3$, bằng 2 nếu $\lambda = 3$.
 \end{proof}
@@ -2720,6 +2775,70 @@
 \end{exercise}
 
 \begin{proof}
+    \par Giả sử ma trận $A$ đang xét có $m$ hàng và $n$ cột.
+    \par Việc thay đổi thứ tự các hàng hay thay đổi thứ tự các cột không làm ảnh hưởng đến sự độc lập tuyến tính/phụ thuộc tuyến tính của các vector hàng, vector cột mà chỉ thay đổi thứ tự các vector đó, cũng như các yếu tố của các vector đó . Do đó, không mất tính tổng quát, giả sử $r$ hàng đầu tiên của $A$ độc lập tuyến tính và $r$ cột đầu tiên của $A$ độc lập tuyến tính.
+    \par Xét ma trận vuông cỡ $r + 1$ sau đây:
+    \[
+        A_{j} =
+        \begin{pmatrix}
+            a_{11} & a_{12} & \cdots & a_{1r} & a_{1j} \\
+            a_{21} & a_{22} & \cdots & a_{2r} & a_{2j} \\
+            \vdots & \vdots & \ddots & \vdots & \vdots \\
+            a_{r1} & a_{r2} & \cdots & a_{rr} & a_{rj} \\
+            a_{i1} & a_{i2} & \cdots & a_{ir} & a_{ij}
+        \end{pmatrix}
+    \]
+    \par Nếu $1\le i \le r$ thì định thức trên bằng không, do định thức có hai hàng bằng nhau.
+    \par Nếu $i > r$ thì định thức trên bằng không, do $\rank(A) = r$, mà cỡ của định thức trên là $r + 1$.
+    \par Áp dụng khai triển Laplace cho hàng thứ $r + 1$ của ma trận $A_{j}$:
+    \[
+        \lambda_{1}a_{i1} + \lambda_{2}a_{i2} + \cdots + \lambda_{r}a_{ir} + \lambda a_{ij} = 0,\quad\forall 1\le i\le n
+    \]
+    \par trong đó $\lambda_{k}$ là phần bù đại số của $a_{ik}$ trong ma trận $A_{j}$, $\lambda$ là định thức sau:
+    \[
+        \begin{vmatrix}
+            a_{11} & a_{12} & \cdots & a_{1r} \\
+            a_{21} & a_{22} & \cdots & a_{2r} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            a_{r1} & a_{r2} & \cdots & a_{rr}
+        \end{vmatrix}
+    \]
+    \par $n$ đẳng thức trên có thể được viết lại thành ràng buộc tuyến tính sau:
+    \[
+        \lambda_{1}\alpha_{1} + \lambda_{2}\alpha_{2} + \cdots + \lambda_{r}\alpha_{r} + \lambda\alpha_{j} = 0,
+    \]
+    \par trong đó $\alpha_{k}$ là vector cột thứ $k$ của ma trận $A$.
+
+    \bigskip
+    \par Giả sử $\lambda = 0$.
+    \par $\lambda = 0$ thì $\lambda_{1}\alpha_{1} + \lambda_{2}\alpha_{2} + \cdots + \lambda_{r}\alpha_{r} = 0$, dẫn đến $\lambda_{1} = \lambda_{2} = \cdots = \lambda_{r} = 0$ (do $r$ vector cột đầu tiên độc lập tuyến tính).
+    \par Cùng với lưu ý rằng các vector $\alpha_{1}$, $\alpha_{2}$, \ldots, $\alpha_{r}$ độc lập tuyến tính, ta suy ra:
+    \[
+        \begin{cases}
+            \lambda_{1} = 0 \Longleftrightarrow \text{$\alpha_{j}$ biểu thị tuyến tính được qua $\{ \alpha_{1}, \alpha_{2}, \ldots, \alpha_{r} \}\setminus\{ \alpha_{1} \}$} \\
+            \lambda_{2} = 0 \Longleftrightarrow \text{$\alpha_{j}$ biểu thị tuyến tính được qua $\{ \alpha_{1}, \alpha_{2}, \ldots, \alpha_{r} \}\setminus\{ \alpha_{2} \}$} \\
+            \vdots                                                                                                                                                           \\
+            \lambda_{r} = 0 \Longleftrightarrow \text{$\alpha_{j}$ biểu thị tuyến tính được qua $\{ \alpha_{1}, \alpha_{2}, \ldots, \alpha_{r} \}\setminus\{ \alpha_{r} \}$}
+        \end{cases}
+    \]
+    \par Mặt khác, do $\rank(A) = r$ nên $\alpha_{j}$ biểu thị tuyến tính được qua $\{ \alpha_{1}, \alpha_{2}, \ldots, \alpha_{r} \}$. Hơn nữa, những biểu thị tuyến tính này đều là duy nhất, vì $\alpha_{1}, \alpha_{2}, \ldots, \alpha_{r}$ độc lập tuyến tính.
+    \par Những ràng buộc tuyến tính trên cho thấy $\alpha_{j} = 0$. Vậy $\alpha_{j} = 0, \forall j > r$.
+    \bigskip
+    \par Tương tự, với các vector hàng $\alpha'_{1}$, $\alpha'_{2}$, \ldots, $\alpha'_{r}$, $\alpha'_{i}$, ta cũng sẽ thu được kết luận tương tự, tức là $\alpha'_{i} = 0,\ \forall i > r$.
+    \par Do đó, khi $\lambda = 0$, ma trận $A$ trở thành:
+    \[
+        \begin{pmatrix}
+            a_{11} & \cdots & a_{1r} & 0      & \cdots & 0      \\
+            \vdots & \ddots & \vdots & \vdots & \cdots & \vdots \\
+            a_{r1} & \cdots & a_{rr} & 0      & \cdots & 0      \\
+            0      & \cdots & 0      & 0      & \cdots & 0      \\
+            \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+            0      & \cdots & 0      & 0      & \cdots & 0
+        \end{pmatrix}.
+    \]
+    \par $\lambda = 0$ khiến cho mọi định thức con cỡ $r$ của $A$ đều bằng không, mâu thuẫn với giả thiết $\rank(A) = r$.
+    \bigskip
+    \par Vậy giả sử phản chứng là sai, $\lambda \ne 0$, tức là định thức con nằm trên giao của $r$ hàng độc lập tuyến tính và $r$ cột độc lập tuyến tính khác không.
 \end{proof}
 
 \begin{exercise}
@@ -2727,6 +2846,20 @@
 \end{exercise}
 
 \begin{proof}
+    \par Đặt $\tilde{a_{ij}}$ là phần bù đại số của $a_{ij}$ trong ma trận $A$. Khi đó, theo định nghĩa của ma trận phụ hợp:
+    \[
+        \tilde{A} =
+        \begin{pmatrix}
+            \tilde{a_{11}} & \tilde{a_{21}} & \cdots & \tilde{a_{n1}} \\
+            \tilde{a_{12}} & \tilde{a_{22}} & \cdots & \tilde{a_{n2}} \\
+            \vdots         & \vdots         & \ddots & \vdots         \\
+            \tilde{a_{1n}} & \tilde{a_{2n}} & \cdots & \tilde{a_{nn}}
+        \end{pmatrix}
+    \]
+    \par Nếu $\rank(A) = n$ thì $\rank(\tilde{A}) = n$, vì $A\tilde{A} = \tilde{A}A = I_{n}\det(A) \ne 0$.
+    \par Nếu $\rank(A) < n-1$ thì $\tilde{a_{ij}} = 0, \forall 1\le i, j\le n$, suy ra $\rank(\tilde{A}) = 0$.
+    \par Nếu $\rank(A) = n - 1$ thì $A$ có ít nhất một định thức con cỡ $(n-1)$ với giá trị khác không. Khi đó $\rank(\tilde{A})\ge 1$.
+    \par
 \end{proof}
 
 \begin{exercise}
