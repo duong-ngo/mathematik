@@ -26,7 +26,7 @@
 \RequirePackage{caption}
 \RequirePackage{subcaption}
 \RequirePackage{booktabs}
-\RequirePackage{enumitem}
+\RequirePackage[inline]{enumitem}
 
 \setcounter{chapter}{-1}
 
