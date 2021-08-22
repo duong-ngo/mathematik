@@ -2,4 +2,6 @@
 
 ## Đại số tuyến tính (Nguyễn Hữu Việt Hưng)
 
-## Bài giảng Giải tích tập 1 (Nguyễn Duy Tiến)
+## Probability and Statistical Inference (Hogg, Tanis, Zimmerman)
+
+## Understading analysis (Stephen Abbott)

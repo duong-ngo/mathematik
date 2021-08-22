@@ -2,20 +2,21 @@
 
 \begin{document}
 
-\chapter{Xác suất}
+\chapter{Probability}
 
-\section{Các tính chất của xác suất}
+\section{Properties of probabilities}
 
 \begin{exercise}
-    \par Trong một nhóm các bệnh nhân bị thương, 28\% đến gặp bác sĩ trị liệu vật lý và chấn thương chỉnh hình, 8\% không đến gặp ai. Biết rằng xác suất đến gặp bác sĩ trị liệu vật lý cao hơn xác suất đến gặp bác sĩ chấn thương chỉnh hình là 16\%.
-    \par Xác suất một người được chọn ngẫu nhiên đến gặp bác sĩ trị liệu vật lý là bao nhiêu?
+    \par Of a group of patients having injuries, 28\% visit both a physical therapist and a chiropractor and 8\% visit neither.
+    \par Say that the probability of visiting a physical therapist exceeds the probability of visiting a chiropractor by 16\%.
+    \par What is the probability of a randomly selected person from this group visiting a physical therapist?
 \end{exercise}
 
-\begin{proof}[Lời giải]
-    \par $A$ là sự kiện \textit{bệnh nhân gặp bác sĩ trị liệu vật lý}.
-    \par $B$ là sự kiện \textit{bệnh nhân gặp bác sĩ chấn thương chỉnh hình}.
+\begin{proof}[Solution]
+    \par $A$ is the event \textit{patient visiting physical therapist}.
+    \par $B$ is the event \textit{patient visiting chiropractor}.
     \bigskip
-    \par Theo giả thiết
+    \par According to assumption:
     \[
         \begin{cases}
             P(A'\cap B') = 0.08 \\
@@ -23,27 +24,27 @@
         \end{cases}
     \]
     \par $P(A'\cap B') = 1 - P(A\cup B) = 1 - P(A) - P(B) + P(A\cap B)$.
-    \par Suy ra $P(A) + P(B) = 1 - P(A'\cap B') + P(A\cap B) = 1 - 0.08 + 0.28 = 0.8$.
-    \par Cùng với việc $P(A) - P(B) = 0.16$, ta thu được $P(A) = 0.48$.
-    \par Vậy xác suất một người được chọn ngẫu nhiên đến gặp bác sĩ trị liệu vật lý là 48\%.
+    \par Therefore, $P(A) + P(B) = 1 - P(A'\cap B') + P(A\cap B) = 1 - 0.08 + 0.28 = 0.8$.
+    \par Together with $P(A) - P(B) = 0.16$, we obtain that $P(A) = 0.48$.
+    \par Hence probability of a randomly selected patient visiting a physical therapist is 48\%.
 \end{proof}
 
 \begin{exercise}
-    \par Một công ty bảo hiểm quan sát các khách hàng bảo hiểm xe và nhận ra
+    \par An insurance company looks at its auto insurance customers and finds that
     \begin{enumerate}[label = (\alph*)]
-        \item tất cả bảo hiểm ít nhất một xe
-        \item 85\% bảo hiểm nhiều hơn một xe
-        \item 23\% bảo hiểm một xe thể thao
-        \item 17\% bảo hiểm nhiều hơn một xe, bao gồm một xe thể thao
+        \item all insure at least one car,
+        \item 85\% insure more than one car,
+        \item 23\% insure a sports car,
+        \item 17\% insure more than one car, including a sports car.
     \end{enumerate}
-    \par Tìm xác suất một khách hàng được chọn ngẫu nhiên, bảo hiểm đúng một chiếc xe và không phải xe thể thao.
+    \par Find the probability that a customer selected at random insures exactly one car and it is not a sports car.
 \end{exercise}
 
-\begin{proof}[Lời giải]
-    \par $A$ là sự kiện \textit{bảo hiểm đúng một xe}.
-    \par $B$ là sự kiện \textit{bảo hiểm xe thể thao}.
-    \par $C$ là sự kiện \textit{bảo hiểm nhiều hơn một xe}.
-    \par Theo giả thiết
+\begin{proof}[Solution]
+    \par $A$ is the event \textit{a customer insures exactly one car}.
+    \par $B$ is the event \textit{a customer insures sport car}.
+    \par $C$ is the event \textit{a customer insures more than one car}.
+    \par According to assumption:
     \[
         \begin{cases}
             P(A) + P(C) = 1 \\
@@ -52,7 +53,7 @@
             P(B\cap C) = 0.17
         \end{cases}
     \]
-    \par Sự kiện \textit{bảo hiểm đúng một xe và không phải xe thể thao} được biểu thị bằng tập hợp $A\cap C'$
+    \par The event \textit{a customer insures exactly one car and not sports car} is expressed by the set $A\cap C'$
     \begin{align*}
         P(A\cap C') & = P(B'\cap C')                 \\
                     & = 1 - P(B\cup C)               \\
@@ -60,22 +61,23 @@
                     & = 1 - 0.23 - 0.85 + 0.17       \\
                     & = 0.09.
     \end{align*}
-    \par Vậy xác suất để một khách hàng được chọn ngẫu nhiên, bảo hiểm đúng một chiếc xe và không phải xe thể thao là 9\%.
+    \par Hence the probability of a customer selected at random insures exactly one car and it is not a sports car is 9\%.
 \end{proof}
 
 \begin{exercise}
-    \par Chọn một tấm bài ngẫu nhiên từ một bộ bài chuẩn. Không gian mẫu $S$ là một bộ gồm 52 lá bài.
-    \par Giả sử hàm xác suất gán giá trị 1/52 cho từng khả năng. Đặt
+    \par Draw one card at random from a standard deck of cards.
+    \par The sample space $S$ is the collection of the 52 cards.
+    \par Assume that the probability set function assigns 1/52 to each of the 52 outcomes. Let
     \begin{align*}
-        A & = \{ x: J, Q, K \}                 \\
-        B & = \{ x: 9, 10, \text{hoặc J đỏ} \} \\
-        C & = \{ x: \text{nhép} \}             \\
-        D & = \{ x: \text{rô, cơ, bích} \}
+        A & = \{ x: J, Q, K \}                           \\
+        B & = \{ x: 9, 10, \text{or J and $x$ is red} \} \\
+        C & = \{ x: \text{club} \}                       \\
+        D & = \{ x: \text{diamond, heart, or spade} \}
     \end{align*}
-    \par Tính \textbf{(a)} $P(A)$, \textbf{(b)} $P(A\cap B)$, \textbf{(c)} $P(A\cup B)$, \textbf{(d)} $P(C\cup D)$, \textbf{(e)} $P(C\cap D)$.
+    \par Find \textbf{(a)} $P(A)$, \textbf{(b)} $P(A\cap B)$, \textbf{(c)} $P(A\cup B)$, \textbf{(d)} $P(C\cup D)$, \textbf{(e)} $P(C\cap D)$.
 \end{exercise}
 
-\begin{proof}[Lời giải]
+\begin{proof}[Solution]
     \begin{enumerate}[label = \textbf{(\alph*)}]
         \item
               \[
@@ -101,10 +103,11 @@
 \end{proof}
 
 \begin{exercise}
-    \par Một đồng xu cân được tung bốn lần, thứ tự ngửa và sấp được quan sát.
+    \par A fair coin is tossed four times, and the sequence of heads and tails is observed.
     \begin{enumerate}[label = \textbf{(\alph*)}]
-        \item Liệt kê từng thứ tự có thể trong không gian mẫu $S$.
-        \item $A$ là sự kiện \textit{có ít nhất 3 lần ngửa}, $B$ là sự kiện \textit{có nhiều nhất 2 lần ngửa}, $C$ là sự kiện \textit{ngửa trong lần tung thứ ba} và $D$ là sự kiện \textit{có 1 lần ngửa và 3 lần sấp}. Nếu hàm xác suất gán cho mỗi kết quả trong không gian mẫu giá trị là $1/16$, tìm
+        \item List each of the 16 sequences in the sample space $S$.
+        \item Let events $A$, $B$, $C$, and $D$ be given by $A = \{ \text{at least
+                      3 heads} \}$, $B = \{\text{at most 2 heads}\}$, $C = \{\text{heads on the third toss}\}$, and $D = \{\text{1 head and 3 tails}\}$. If the probability set function assigns 1/16 to each outcome in the sample space, find:
               \begin{enumerate}[label = \textbf{(\arabic*)}]
                   \item $P(A)$
                   \item $P(A\cap B)$
@@ -117,7 +120,7 @@
     \end{enumerate}
 \end{exercise}
 
-\begin{proof}[Lời giải]
+\begin{proof}[Solution]
     \begin{enumerate}[label = \textbf{(\alph*)}]
         \item
               \[
@@ -149,13 +152,14 @@
 \end{proof}
 
 \begin{exercise}
-    \par Xét phép thử mà trong đó, mặt 3 xuất hiện khi tung một súc sắc 6-mặt thành công.
-    \par $A$ là sự kiện 3 xuất hiện trong lần thử đầu tiên.
-    \par $B$ là sự kiện 3 xuất hiện sau ít nhất 2 lần thử.
-    \par Giả sử mỗi mặt có xác suất là 1/6, tìm \textbf{(a)} $P(A)$, \textbf{(b)} $P(B)$, và \textbf{(c)} $P(A\cup B)$.
+    \par Consider the trial on which a 3 is first observed in successive rolls of a six-sided die.
+    \par Let A be the event that 3 is observed on the first trial.
+    \par Let B be the event that at least two trials are required to observe a 3.
+    \par Assuming that each side has probability 1/6, find:
+    \par \textbf{(a)} $P(A)$, \textbf{(b)} $P(B)$, và \textbf{(c)} $P(A\cup B)$.
 \end{exercise}
 
-\begin{proof}[Lời giải]
+\begin{proof}[Solution]
     \begin{enumerate}[label = \textbf{(\alph*)}]
         \item
               \[ P(A) = \dfrac{1}{6} \]
@@ -172,10 +176,10 @@
 \end{proof}
 
 \begin{exercise}
-    \par Nếu $P(A) = 0.4$, $P(B) = 0.5$, và $P(A\cap B) = 0.3$, tìm \textbf{(a)} $P(A\cup B)$, \textbf{(b)} $P(A\cap B')$, \textbf{(c)} $P(A'\cup B')$.
+    \par If $P(A) = 0.4$, $P(B) = 0.5$, and $P(A\cap B) = 0.3$, find \textbf{(a)} $P(A\cup B)$, \textbf{(b)} $P(A\cap B')$, \textbf{(c)} $P(A'\cup B')$.
 \end{exercise}
 
-\begin{proof}[Lời giải]
+\begin{proof}[Solution]
     \begin{enumerate}[label = \textbf{(\alph*)}]
         \item
               \[ P(A\cup B) = P(A) + P(B) - P(A\cap B) = 0.6. \]
@@ -187,10 +191,10 @@
 \end{proof}
 
 \begin{exercise}
-    \par Biết $P(A\cup B) = 0.76$ và $P(A\cup B') = 0.87$, tìm $P(A)$.
+    \par Given that $P(A\cup B) = 0.76$ and $P(A\cup B') = 0.87$, find $P(A)$.
 \end{exercise}
 
-\begin{proof}[Lời giải]
+\begin{proof}[Solution]
     \[ P(A\cup B) = P(A) + P(B) - P(A\cap B) \]
     \[ P(A\cup B') = P(A) + P(B') - P(A\cap B') \]
     \begin{align*}
@@ -200,19 +204,198 @@
     \end{align*}
 \end{proof}
 
-\section{Các phương pháp liệt kê}
+\begin{exercise}
+    \par During a visit to a primary care physician’s office, the probability of having neither lab work nor referral to a
+    specialist is 0.21.
+    \par Of those coming to that office, the probability of having lab work is 0.41 and the probability of
+    having a referral is 0.53.
+    \par What is the probability of having both lab work and a referral?
+\end{exercise}
+
+\begin{proof}[Solution]
+    \par $A$ is the event \textit{having lab work}.
+    \par $B$ is the event \textit{having a referral}.
+    \par According to assumption:
+    \[
+        \begin{cases}
+            P(A'\cap B') = 0.21, \\
+            P(A) = 0.41,         \\
+            P(B) = 0.53.
+        \end{cases}
+    \]
+    \par $P(A'\cap B') = 1 - P(A\cup B) = 1 - P(A) - P(B) + P(A\cap B)$.
+    \par Therefore, $P(A\cap B) = P(A'\cap B') + P(A) + P(B) - 1 = 0.15$.
+    \par Hence the probability of having both lab work and a referral is 15\%.
+\end{proof}
+
+\begin{exercise}
+    \par Roll a fair six-sided die three times.
+    \par Let $A_{1} = \{\text{1 or 2 on the first roll}\}$,
+    \par $A_{2} = \{\text{3 or 4 on the second roll}\}$,
+    \par and $A_{3} = \{\text{5 or 6 on the third roll}\}$.
+    \par It is given that $P(A_{i}) = 1/3, \; i = 1,2,3$; $P(A_{i}\cap A_{j}) = (1/3)^{2},\; i\ne j$; and $P(A_{1}\cap A_{2}\cap A_{3}) = (1/3)^{3}$.
+    \begin{enumerate}[label = \textbf{(\alph*)}]
+        \item Find $P(A_{1}\cup A_{2}\cup A_{3})$.
+        \item Show that $P(A_{1}\cup A_{2}\cup A_{3}) = 1 - (1 - 1/3)^{3}$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}[Solution]
+    \begin{enumerate}[label = \textbf{(\alph*)}]
+        \item
+        \begin{align*}
+            P(A_{1}\cup A_{2}\cup A_{3}) & = P(A_{1}) + P(A_{2}) + P(A_{3}) - P(A_{1}\cap A_{2}) - P(A_{2}\cap A_{3}) - P(A_{3}\cap A_{1}) + P(A_{1}\cap A_{2}\cap A_{3}) \\
+                                         & = \frac{1}{3} + \frac{1}{3} + \frac{1}{3} - \frac{1}{9} - \frac{1}{9} - \frac{1}{9} + \frac{1}{27} \\
+                                         & = 1 - \frac{1}{3} + \frac{1}{27} \\
+                                         & = \frac{19}{27}.
+        \end{align*}
+        \item $P(A_{1}\cup A_{2}\cup A_{3}) = 1 - \frac{8}{27} = 1 - \left(1 - \frac{1}{3}\right)^{3}$.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    \par If $A$, $B$, and $C$ are any events, prove that:
+    \[
+        P(A\cup B\cup C) = P(A) + P(B) + P(C) - P(A\cap B) - P(A\cap C) - P(B\cap C) + P(A\cap B\cap C).
+    \]
+\end{exercise}
+
+\begin{proof}
+    \begin{align*}
+        P(A\cup B\cup C) & = P((A\cup B)\cup C) = P(A\cup B) + P(C) - P((A\cup B)\cap C) \\
+                         & = P(A) + P(B) - P(A\cap B) + P(C) - P((A\cap C)\cup (B\cap C)) \\
+                         & = P(A) + P(B) + P(C) - P(A\cap B) - P(A\cap C) - P(B\cap C) + P(A\cap C\cap B\cap C) \\
+                         & = P(A) + P(B) + P(C) - P(A\cap B) - P(A\cap C) - P(B\cap C) + P(A\cap B\cap C).
+    \end{align*}
+\end{proof}
+
+\begin{exercise}
+    \par A typical roulette wheel used in a casino has 38 slots that are numbered 1, 2, 3, \ldots 36, 0, 00, respectively.
+    \par The 0 and 00 slots are colored green. Half of the remaining slots are red and half are black.
+    \par Also, half of the integers between 1 and 36 inclusive are odd, half are even, and 0 and 00 are defined to be neither odd nor even.
+    \par A ball is rolled around the wheel and ends up in one of the slots; we assume that each slot has equal probability of 1/38, and we are interested in the number of the slot into which the ball falls.
+    \begin{enumerate}[label = \textbf{(\alph*)}]
+        \item Define the sample space $S$.
+        \item Let $A = \{0, 00\}$. Give the value of $P(A)$.
+        \item Let $B = \{ 14, 15, 17, 18 \}$. Given the value of $P(B)$.
+        \item Let $D = \{ x : \text{ $x$ is odd } \}$. Give the value of $P(D)$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}[Solution]
+    \begin{enumerate}[label = \textbf{(\alph*)}]
+        \item $S = \{ 1, 2, 3, \ldots 36, 0, 00 \}$.
+        \item $P(A) = \frac{2}{38} = \frac{1}{19}$.
+        \item $P(B) = \frac{4}{38} = \frac{2}{19}$.
+        \item $P(D) = \frac{18}{38} = \frac{9}{19}$.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    \par Let $x$ equal a number that is selected randomly from the closed interval from zero to one, $[0, 1]$.
+    \par Use your intuition to assign values to
+    \begin{enumerate}[label = \textbf{(\alph*)}]
+        \item $P(\{ x: 0\le x\le 1/3 \})$.
+        \item $P(\{ x: 1/3\le x\le 1 \})$.
+        \item $P(\{ x: x = 1/3 \})$.
+        \item $P(\{ x: 1/2 < x < 5 \})$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}[Solution]
+    \begin{enumerate}[label = \textbf{(\alph*)}]
+        \item $P(\{ x: 0\le x\le 1/3 \}) = \frac{1}{3}$.
+        \item $P(\{ x: 1/3\le x\le 1 \}) = \frac{2}{3}$.
+        \item $P(\{ x: x = 1/3 \}) = 0$.
+        \item $P(\{ x: 1/2 < x < 5 \}) = \frac{1}{2}$.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    \par Divide a line segment into two parts by selecting a point at random. Use your intuition to assign a probability to the event that the longer segment is at least two times longer than the shorter segment.
+\end{exercise}
+
+\begin{proof}[Solution]
+    \par Let the line segment be $AB$ and $M$ be a randomly selected point on it.
+    \par Without loss of generality, suppose that $MA > MB$.
+    \par Let $C$ be a point on $AB$ such that $CA = 2CB$.
+    \par If $M\in CA\setminus\{ C \}$, then $\frac{MA}{MB} < \frac{CA}{CB} = 2$.
+    \par If $M\in CB$, then $\frac{MA}{MB}\ge \frac{CA}{CB} = 2$.
+    \par Hence $\frac{MA}{MB}\ge 2$ iff $M\in BC$.
+    \par So the probability of selecting $M$ on $AB$ such that $\frac{MA}{MB}\ge 2$ is $\frac{1}{3}$.
+\end{proof}
+
+\begin{exercise}
+    \par Let the interval $[-r, r]$ be the base of a semicircle.
+    \par If a point is selected at random from this interval, assign a probability to the event that the length of the perpendicular segment from the point to the semicircle is less than $r/2$.
+\end{exercise}
+
+\begin{proof}[Solution]
+    \par On Cartesian, suppose that the semicircle has equation:
+    \[
+        x^{2} + y^{2} = r^{2}\quad (y \ge 0)
+    \]
+    \par Let $A = (-r, 0)$ and $B = (r, 0)$.
+    \par Let $C = (r\cos\varphi, r\sin\varphi)$, where $\varphi\in[0,\pi]$ and $CM\perp AB$.
+    \par $CM < \frac{r}{2}$ iff $\sin\varphi < \frac{1}{2}$.
+    \[
+        \begin{cases}
+            \sin\varphi < \frac{1}{2} \\
+            0\le \varphi\le \pi
+        \end{cases}
+        \Leftrightarrow
+        0\le\varphi < \frac{\pi}{6} \text{ or } \frac{5\pi}{6} < \varphi \le\pi
+        \Leftrightarrow
+        \overline{OM} > \frac{r\sqrt{3}}{2} \text{ or } \overline{OM} < -\frac{r\sqrt{3}}{2}.
+    \]
+    \par Hence the probability of selecting $M$ such that $CM < \frac{r}{2}$ is $\frac{2r - r\sqrt{3}}{2r} = \frac{2 - \sqrt{3}}{2}$.
+\end{proof}
+
+\begin{exercise}
+    \par Let $S = A_{1} \cup A_{2} \cup \cdots \cup A_{m}$, where events $A_{1}, A_{2}, \ldots, A_{m}$ are mutually exclusive and exhaustive.
+    \begin{enumerate}[label = \textbf{(\alph*)}]
+        \item If $P(A_{1}) = P(A_{2}) = \cdots = P(A_{m})$, show that $P(A_{i}) = 1/m$, $i = 1, 2, \ldots, m$.
+        \item If $A = A_{1}\cup A_{2}\cup \cdots\cup A_{h}$, where $h < m$ and (a) holds, prove that $P(A) = h/m$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label = \textbf{(\alph*)}]
+        \item Since $A_{1}$, $A_{2}$, \ldots $A_{m}$ are mutually exclusive and exhaustive, then $\sum^{m}_{i=1}P(A_{i}) = 1$.
+            \par $P(A_{1}) = P(A_{2}) = \cdots = P(A_{m}) \Longrightarrow P(A_{1}) = P(A_{2}) = \cdots = P(A_{m}) = \frac{1}{m}$.
+        \item Since $A_{1}$, $A_{2}$, \ldots $A_{h}$ are mutually exclusive, $P(A) = \sum^{h}_{i=1}P(A_{i}) = \frac[h]{m}$.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    \par Let $p_{n}$, $n = 0, 1, 2,\ldots$, be the probability that an automobile policyholder will file for $n$ claims in five-year period. The actuary involved makes the assumption that $p_{n+1} = (1/4)p_{n}$. What is the probability that the holder will file two or more claims during this period?
+\end{exercise}
+
+\begin{proof}[Solution]
+    \begin{gather*}
+        1 = \sum^{+\infty}_{n=0}p_{n}
+        \Leftrightarrow 1 = \sum^{+\infty}_{n=0}p_{0}\frac{1}{4^{n}}
+        \Leftrightarrow 1 = p_{0}\frac{1}{1 - \dfrac{1}{4}}
+        \Leftrightarrow 1 = p_{0}\times\frac{4}{3}
+        \Leftrightarrow p_{0} = \frac{3}{4}
+    \end{gather*}
+    \par Hence the probability that holder will file at least two claims during this period is $1 - p_{0} - p_{1} = 1 - \frac{3}{4} - \frac{3}{16} = \frac{1}{16}$.
+\end{proof}
+
+
+\section{Methods of Enumeration}
 
 
 
-\section{Xác suất có điều kiện}
+\section{Conditional Probability}
 
 
 
-\section{Sự kiện độc lập}
+\section{Independent Events}
 
 
 
-\section{Định lý Bayes}
+\section{Bayes's Theorem}
 
 
 \end{document}

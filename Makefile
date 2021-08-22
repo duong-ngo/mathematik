@@ -58,6 +58,13 @@ format:
 		latexindent $(LATEXINDENT_OPTIONS) $$file; \
 	done
 
+format-linear-algebra:
+	@find linear-algebra -regex ".*\.\(tex\|cls\|sty\)\$$" -exec latexindent $(LATEXINDENT_OPTIONS) {} \;
+
+format-prob-and-stats:
+	@find prob-and-stats -regex ".*\.\(tex\|cls\|sty\)\$$" -exec latexindent $(LATEXINDENT_OPTIONS) {} \;
+
+
 updatecls: cleanaux
 	@mkdir -p $(shell kpsewhich -var-value=TEXMFHOME)/tex/latex/local/class; \
 	CLSPATH=$(shell kpsewhich -var-value=TEXMFHOME)/tex/latex/local/class;  \
