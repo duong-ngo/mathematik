@@ -935,7 +935,7 @@
     \end{align*}
 \end{proof}
 
-\begin{exercise} \label{vandermonde-and-symmetric-polynomials}
+\begin{exercise}\label{chapter3:vandermonde-and-symmetric-polynomials}
     \begin{enumerate}[label = (\alph*)]
         \item $D^{(1)}_{n} = \begin{vmatrix}
                       1      & x_{1}^{2} & x_{1}^{3} & \cdots & x_{1}^{n} \\
@@ -2142,7 +2142,7 @@
                   x_{n-k} = \dfrac{\det A_{k}}{\det A}
               \]
               \par trong đó $A_{k}$ là ma trận $A$ sau khi thay cột $\begin{pmatrix} a_{1}^{k} \\ a_{2}^{k} \\ \vdots \\ a_{n}^{k} \end{pmatrix}$ bởi $\begin{pmatrix}-a_{1}^{n} \\ -a_{2}^{n} \\ \vdots \\ -a_{n}^{n} \end{pmatrix}$.
-              \par Sử dụng kết quả từ bài toán~\ref{vandermonde-and-symmetric-polynomials}:
+              \par Sử dụng kết quả từ bài toán~\ref{chapter3:vandermonde-and-symmetric-polynomials}:
               \[
                   \det A_{k} = (-1)(-1){}^{n-k-1}
                   \begin{vmatrix}
@@ -2940,7 +2940,7 @@
 \begin{proof}
 \end{proof}
 
-\begin{exercise}
+\begin{exercise}\label{chapter3:rank-of-sum}
     \par Chứng minh rằng nếu $A$ và $B$ là các ma trận cùng số hàng và số cột thì
     \[
         \rank(A + B)\le \rank(A) + \rank(B).
@@ -2948,6 +2948,16 @@
 \end{exercise}
 
 \begin{proof}
+    \par $\alpha_{1}$, \ldots, $\alpha_{n}$ là các vector cột của $A$.
+    \par $\beta_{1}$, \ldots, $\beta_{n}$ là các vector cột của $B$.
+    \par Như vậy, các vector cột của $(A + B)$ là $\alpha_{1} + \beta_{1}$, \ldots, $\alpha_{n} + \beta_{n}$.
+    \par Đặt $V_{A} = \text{span}(\alpha_{1}, \ldots, \alpha_{n})$, $V_{B} = \text{span}(\beta_{1}, \ldots, \beta_{n})$ và $V_{A+B} = \text{span}(\alpha_{1}+\beta_{1}, \ldots, \alpha_{n} + \beta_{n})$.
+    \[
+        \gamma = \underbrace{\sum^{n}_{i=1}c_{i}(\alpha_{i} + \beta_{i})}_{\in V_{A+B}} = \underbrace{\sum^{n}_{i=1}c_{i}\alpha_{i}}_{\in V_{A}} + \underbrace{\sum^{n}_{i=1}c_{i}\beta_{i}}_{\in V_{B}} \in V_{A} + V_{B}.
+    \]
+    \par Do đó $V_{A+B}$ là không gian con của $V_{A} + V_{B}$.
+    \par $\dim V_{A+B}\le \dim(V_{A} + V_{B}) = \dim(V_{A}) + \dim(V_{B}) - \dim(V_{A}\cap V_{B})\le \dim(V_{A}) + \dim(V_{B})$.
+    \par Bất đẳng thức cuối cùng tương đương với $\rank(A + B)\le \rank(A) + \rank(B)$.
 \end{proof}
 
 \begin{exercise}
@@ -2955,6 +2965,40 @@
 \end{exercise}
 
 \begin{proof}
+    \par Giả sử ma trận $A$ có $n$ cột và các vector cột $\alpha_{1}$, \ldots, $\alpha_{r}$ của $A$ độc lập tuyến tính cực đại.
+    \par Khi đó, từng vector cột $\alpha_{r+1}$, \ldots, $\alpha_{n}$ của $A$ có thể biểu thị tuyến tính theo $\alpha_{1}$, \ldots, $\alpha_{r}$. Ta đặt:
+    \[
+        \begin{cases}
+            \alpha_{r+1} = a_{1}^{(r+1)}\alpha_{1} + \cdots + a_{r}^{(r+1)}\alpha_{r}, \\
+            \alpha_{r+2} = a_{1}^{(r+2)}\alpha_{1} + \cdots + a_{r}^{(r+2)}\alpha_{r}, \\
+            \ddots \\
+            \alpha_{n} = a_{1}^{(n)}\alpha_{1} + \cdots + a_{r}^{(n)}\alpha_{r}.
+        \end{cases}
+    \]
+    \par Dựa vào những biểu thị tuyến tính này, ta có thể tách $A$ thành tổng của $r$ ma trận như sau:
+    \begin{align*}
+        A = \begin{pmatrix}
+            \alpha_{1} & \cdots & \alpha_{r} & \alpha_{r+1} & \cdots & \alpha_{n}
+        \end{pmatrix}
+        & =
+        \begin{pmatrix}
+            \alpha_{1} & \cdots & \alpha_{r} & \sum^{r}_{i=1}a_{i}^{(r+1)}\alpha_{i} & \cdots & \sum^{r}_{i=1}a_{i}^{(n)}\alpha_{i}
+        \end{pmatrix} \\
+        & =
+        \begin{pmatrix}
+            \alpha_{1} & \cdots & 0 & a_{1}^{(r+1)}\alpha_{1} & \cdots & a_{1}^{(n)}\alpha_{1}
+        \end{pmatrix} \\
+        &\phantom{=} + \cdots \\
+        &\phantom{=} + \begin{pmatrix}
+            0 & \cdots & \alpha_{r} & a_{r}^{(r+1)}\alpha_{r} & \cdots & a_{r}^{(n)}\alpha_{r}
+        \end{pmatrix}
+    \end{align*}
+    \par Như vậy $A$ có thể viết thành tổng của $r$ ma trận có hạng 1.
+    \bigskip
+    \par Giả sử phản chứng rằng $A$ có thể viết thành tổng của $s$ ma trận $A_{i}$, $i = \overline{1,s}$ có hạng 1, trong đó $s < r$.
+    \par Theo bài toán~\ref{chapter3:rank-of-sum}, $\rank(A)\le \sum^{s}_{i=1}\rank(A_{i}) = s < r$.
+    \par Bất đẳng thức trên là sai vì $\rank(A) = r$.
+    \par Vậy $A$ không thể viết thành tổng của ít hơn $r$ ma trận có hạng 1.
 \end{proof}
 
 \begin{exercise}
@@ -2965,6 +3009,18 @@
 \end{exercise}
 
 \begin{proof}
+    \par Nhận xét rằng:
+    \begin{itemize}
+        \item Nếu đổi chỗ hai hàng của $A$ thì hai hàng tương ứng của $AB$ đổi chỗ,
+        \item Nếu đổi chỗ hai cột của $B$ thì hai cột tương ứng của $AB$ đổi chỗ,
+        \item Nếu cộng một hàng của $A$ với tổ hợp tuyến tính của các hàng còn lại thì hàng tương ứng của $AB$ cũng được cộng với tổ hợp tuyến tính của các hàng tương ứng còn lại (cùng hệ số tổ hợp tuyến tính),
+        \item Nếu cộng một cột của $B$ với tổ hợp tuyến tính của các hàng còn lại thì cột tương ứng của $AB$ cũng được cộng với tổ hợp tuyến tính của các cột tương ứng còn lại (cùng hệ số tổ hợp tuyến tính).
+        \item Nhân một hàng của $A$ với một vô hướng $\lambda$ khác không thì hàng tương ứng của $AB$ cũng được nhân với $\lambda$.
+        \item Nhân một cột của $B$ với một vô hướng $\lambda$ khác không thì cột tương ứng của $AB$ cũng được nhân với $\lambda$.
+    \end{itemize}
+    \par Do đó, nếu thực hiện các phép biến đổi như trên, $\rank(A)$, $\rank(B)$, $\rank(AB)$ không đổi.
+    \bigskip
+    \par
 \end{proof}
 
 \begin{exercise}
