@@ -2774,71 +2774,73 @@
     \par Chứng minh rằng nếu hạng của một ma trận bằng $r$ thì mỗi định thức con nằm trên giao của bất kì $r$ hàng độc lập tuyến tính và $r$ cột độc lập tuyến tính của ma trận đó đều khác 0.
 \end{exercise}
 
+\par\MakeUppercase{Chưa hoàn thành}.
+
 \begin{proof}
     \par Giả sử ma trận $A$ đang xét có $m$ hàng và $n$ cột.
     \par Việc thay đổi thứ tự các hàng hay thay đổi thứ tự các cột không làm ảnh hưởng đến sự độc lập tuyến tính/phụ thuộc tuyến tính của các vector hàng, vector cột mà chỉ thay đổi thứ tự các vector đó, cũng như các yếu tố của các vector đó . Do đó, không mất tính tổng quát, giả sử $r$ hàng đầu tiên của $A$ độc lập tuyến tính và $r$ cột đầu tiên của $A$ độc lập tuyến tính.
-    \par Xét ma trận vuông cỡ $r + 1$ sau đây:
-    \[
-        A_{j} =
-        \begin{pmatrix}
-            a_{11} & a_{12} & \cdots & a_{1r} & a_{1j} \\
-            a_{21} & a_{22} & \cdots & a_{2r} & a_{2j} \\
-            \vdots & \vdots & \ddots & \vdots & \vdots \\
-            a_{r1} & a_{r2} & \cdots & a_{rr} & a_{rj} \\
-            a_{i1} & a_{i2} & \cdots & a_{ir} & a_{ij}
-        \end{pmatrix}
-    \]
-    \par Nếu $1\le i \le r$ thì định thức trên bằng không, do định thức có hai hàng bằng nhau.
-    \par Nếu $i > r$ thì định thức trên bằng không, do $\rank(A) = r$, mà cỡ của định thức trên là $r + 1$.
-    \par Áp dụng khai triển Laplace cho hàng thứ $r + 1$ của ma trận $A_{j}$:
-    \[
-        \lambda_{1}a_{i1} + \lambda_{2}a_{i2} + \cdots + \lambda_{r}a_{ir} + \lambda a_{ij} = 0,\quad\forall 1\le i\le n
-    \]
-    \par trong đó $\lambda_{k}$ là phần bù đại số của $a_{ik}$ trong ma trận $A_{j}$, $\lambda$ là định thức sau:
-    \[
-        \begin{vmatrix}
-            a_{11} & a_{12} & \cdots & a_{1r} \\
-            a_{21} & a_{22} & \cdots & a_{2r} \\
-            \vdots & \vdots & \ddots & \vdots \\
-            a_{r1} & a_{r2} & \cdots & a_{rr}
-        \end{vmatrix}
-    \]
-    \par $n$ đẳng thức trên có thể được viết lại thành ràng buộc tuyến tính sau:
-    \[
-        \lambda_{1}\alpha_{1} + \lambda_{2}\alpha_{2} + \cdots + \lambda_{r}\alpha_{r} + \lambda\alpha_{j} = 0,
-    \]
-    \par trong đó $\alpha_{k}$ là vector cột thứ $k$ của ma trận $A$.
+    % \par Xét ma trận vuông cỡ $r + 1$ sau đây:
+    % \[
+    % A_{j} =
+    % \begin{pmatrix}
+    % a_{11} & a_{12} & \cdots & a_{1r} & a_{1j} \\
+    % a_{21} & a_{22} & \cdots & a_{2r} & a_{2j} \\
+    % \vdots & \vdots & \ddots & \vdots & \vdots \\
+    % a_{r1} & a_{r2} & \cdots & a_{rr} & a_{rj} \\
+    % a_{i1} & a_{i2} & \cdots & a_{ir} & a_{ij}
+    % \end{pmatrix}
+    % \]
+    % \par Nếu $1\le i \le r$ thì định thức trên bằng không, do định thức có hai hàng bằng nhau.
+    % \par Nếu $i > r$ thì định thức trên bằng không, do $\rank(A) = r$, mà cỡ của định thức trên là $r + 1$.
+    % \par Áp dụng khai triển Laplace cho hàng thứ $r + 1$ của ma trận $A_{j}$:
+    % \[
+    % \lambda_{1}a_{i1} + \lambda_{2}a_{i2} + \cdots + \lambda_{r}a_{ir} + \lambda a_{ij} = 0,\quad\forall 1\le i\le n
+    % \]
+    % \par trong đó $\lambda_{k}$ là phần bù đại số của $a_{ik}$ trong ma trận $A_{j}$, $\lambda$ là định thức sau:
+    % \[
+    % \begin{vmatrix}
+    % a_{11} & a_{12} & \cdots & a_{1r} \\
+    % a_{21} & a_{22} & \cdots & a_{2r} \\
+    % \vdots & \vdots & \ddots & \vdots \\
+    % a_{r1} & a_{r2} & \cdots & a_{rr}
+    % \end{vmatrix}
+    % \]
+    % \par $n$ đẳng thức trên có thể được viết lại thành ràng buộc tuyến tính sau:
+    % \[
+    % \lambda_{1}\alpha_{1} + \lambda_{2}\alpha_{2} + \cdots + \lambda_{r}\alpha_{r} + \lambda\alpha_{j} = 0,
+    % \]
+    % \par trong đó $\alpha_{k}$ là vector cột thứ $k$ của ma trận $A$.
 
-    \bigskip
-    \par Giả sử $\lambda = 0$.
-    \par $\lambda = 0$ thì $\lambda_{1}\alpha_{1} + \lambda_{2}\alpha_{2} + \cdots + \lambda_{r}\alpha_{r} = 0$, dẫn đến $\lambda_{1} = \lambda_{2} = \cdots = \lambda_{r} = 0$ (do $r$ vector cột đầu tiên độc lập tuyến tính).
-    \par Cùng với lưu ý rằng các vector $\alpha_{1}$, $\alpha_{2}$, \ldots, $\alpha_{r}$ độc lập tuyến tính, ta suy ra:
-    \[
-        \begin{cases}
-            \lambda_{1} = 0 \Longleftrightarrow \text{$\alpha_{j}$ biểu thị tuyến tính được qua $\{ \alpha_{1}, \alpha_{2}, \ldots, \alpha_{r} \}\setminus\{ \alpha_{1} \}$} \\
-            \lambda_{2} = 0 \Longleftrightarrow \text{$\alpha_{j}$ biểu thị tuyến tính được qua $\{ \alpha_{1}, \alpha_{2}, \ldots, \alpha_{r} \}\setminus\{ \alpha_{2} \}$} \\
-            \vdots                                                                                                                                                           \\
-            \lambda_{r} = 0 \Longleftrightarrow \text{$\alpha_{j}$ biểu thị tuyến tính được qua $\{ \alpha_{1}, \alpha_{2}, \ldots, \alpha_{r} \}\setminus\{ \alpha_{r} \}$}
-        \end{cases}
-    \]
-    \par Mặt khác, do $\rank(A) = r$ nên $\alpha_{j}$ biểu thị tuyến tính được qua $\{ \alpha_{1}, \alpha_{2}, \ldots, \alpha_{r} \}$. Hơn nữa, những biểu thị tuyến tính này đều là duy nhất, vì $\alpha_{1}, \alpha_{2}, \ldots, \alpha_{r}$ độc lập tuyến tính.
-    \par Những ràng buộc tuyến tính trên cho thấy $\alpha_{j} = 0$. Vậy $\alpha_{j} = 0, \forall j > r$.
-    \bigskip
-    \par Tương tự, với các vector hàng $\alpha'_{1}$, $\alpha'_{2}$, \ldots, $\alpha'_{r}$, $\alpha'_{i}$, ta cũng sẽ thu được kết luận tương tự, tức là $\alpha'_{i} = 0,\ \forall i > r$.
-    \par Do đó, khi $\lambda = 0$, ma trận $A$ trở thành:
-    \[
-        \begin{pmatrix}
-            a_{11} & \cdots & a_{1r} & 0      & \cdots & 0      \\
-            \vdots & \ddots & \vdots & \vdots & \cdots & \vdots \\
-            a_{r1} & \cdots & a_{rr} & 0      & \cdots & 0      \\
-            0      & \cdots & 0      & 0      & \cdots & 0      \\
-            \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
-            0      & \cdots & 0      & 0      & \cdots & 0
-        \end{pmatrix}.
-    \]
-    \par $\lambda = 0$ khiến cho mọi định thức con cỡ $r$ của $A$ đều bằng không, mâu thuẫn với giả thiết $\rank(A) = r$.
-    \bigskip
-    \par Vậy giả sử phản chứng là sai, $\lambda \ne 0$, tức là định thức con nằm trên giao của $r$ hàng độc lập tuyến tính và $r$ cột độc lập tuyến tính khác không.
+    % \bigskip
+    % \par Giả sử $\lambda = 0$.
+    % \par $\lambda = 0$ thì $\lambda_{1}\alpha_{1} + \lambda_{2}\alpha_{2} + \cdots + \lambda_{r}\alpha_{r} = 0$, dẫn đến $\lambda_{1} = \lambda_{2} = \cdots = \lambda_{r} = 0$ (do $r$ vector cột đầu tiên độc lập tuyến tính).
+    % \par Cùng với lưu ý rằng các vector $\alpha_{1}$, $\alpha_{2}$, \ldots, $\alpha_{r}$ độc lập tuyến tính, ta suy ra:
+    % \[
+    % \begin{cases}
+    % \lambda_{1} = 0 \Longleftrightarrow \text{$\alpha_{j}$ biểu thị tuyến tính được qua $\{ \alpha_{1}, \alpha_{2}, \ldots, \alpha_{r} \}\setminus\{ \alpha_{1} \}$} \\
+    % \lambda_{2} = 0 \Longleftrightarrow \text{$\alpha_{j}$ biểu thị tuyến tính được qua $\{ \alpha_{1}, \alpha_{2}, \ldots, \alpha_{r} \}\setminus\{ \alpha_{2} \}$} \\
+    % \vdots                                                                                                                                                           \\
+    % \lambda_{r} = 0 \Longleftrightarrow \text{$\alpha_{j}$ biểu thị tuyến tính được qua $\{ \alpha_{1}, \alpha_{2}, \ldots, \alpha_{r} \}\setminus\{ \alpha_{r} \}$}
+    % \end{cases}
+    % \]
+    % \par Mặt khác, do $\rank(A) = r$ nên $\alpha_{j}$ biểu thị tuyến tính được qua $\{ \alpha_{1}, \alpha_{2}, \ldots, \alpha_{r} \}$. Hơn nữa, những biểu thị tuyến tính này đều là duy nhất, vì $\alpha_{1}, \alpha_{2}, \ldots, \alpha_{r}$ độc lập tuyến tính.
+    % \par Những ràng buộc tuyến tính trên cho thấy $\alpha_{j} = 0$. Vậy $\alpha_{j} = 0, \forall j > r$.
+    % \bigskip
+    % \par Tương tự, với các vector hàng $\alpha'_{1}$, $\alpha'_{2}$, \ldots, $\alpha'_{r}$, $\alpha'_{i}$, ta cũng sẽ thu được kết luận tương tự, tức là $\alpha'_{i} = 0,\ \forall i > r$.
+    % \par Do đó, khi $\lambda = 0$, ma trận $A$ trở thành:
+    % \[
+    % \begin{pmatrix}
+    % a_{11} & \cdots & a_{1r} & 0      & \cdots & 0      \\
+    % \vdots & \ddots & \vdots & \vdots & \cdots & \vdots \\
+    % a_{r1} & \cdots & a_{rr} & 0      & \cdots & 0      \\
+    % 0      & \cdots & 0      & 0      & \cdots & 0      \\
+    % \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+    % 0      & \cdots & 0      & 0      & \cdots & 0
+    % \end{pmatrix}.
+    % \]
+    % \par $\lambda = 0$ khiến cho mọi định thức con cỡ $r$ của $A$ đều bằng không, mâu thuẫn với giả thiết $\rank(A) = r$.
+    % \bigskip
+    % \par Vậy giả sử phản chứng là sai, $\lambda \ne 0$, tức là định thức con nằm trên giao của $r$ hàng độc lập tuyến tính và $r$ cột độc lập tuyến tính khác không.
 \end{proof}
 
 \begin{exercise}
@@ -2869,8 +2871,8 @@
                   \item Đổi chỗ hai hàng $i$ và $i'$ của $A$ thì ma trận phụ hợp mới là ma trận phụ hợp cũ sau khi đổi chỗ hai cột $i$ và $i'$.
               \end{itemize}
               \par Như vậy, không mất tính tổng quát, giả sử $(n-1)$ cột đầu tiên của $A$ độc lập tuyến tính và $(n-1)$ hàng đầu tiên của $A$ độc lập tuyến tính.
-              \par Khi đó, $\tilde{a}_{nn}\ne 0$ và hàng cuối cùng biểu thị tuyến tính được duy nhất theo $(n-1)$ hàng đầu tiên.
-              \par Đặt $\alpha'_{n} = \lambda_{1}\alpha'_{1} + \lambda_{2}\alpha'_{2} + \cdots + \lambda_{n-1}\alpha'_{n-1}$, trong đó $\alpha'_{k}$ và vector hàng thứ $k$, $\lambda_{i}$ là các vô hướng thuộc trường $\mathbb{F}$.
+              \par Khi đó, $\tilde{a}_{nn}\ne 0$ và trong ma trận $A$, hàng cuối cùng biểu thị tuyến tính được duy nhất theo $(n-1)$ hàng đầu tiên.
+              \par Đặt $\alpha'_{n} = \lambda_{1}\alpha'_{1} + \lambda_{2}\alpha'_{2} + \cdots + \lambda_{n-1}\alpha'_{n-1}$, trong đó $\alpha'_{k}$ và vector hàng thứ $k$ của $A$, $\lambda_{i}$ là các vô hướng thuộc trường $\mathbb{F}$.
               \[
                   \tilde{A} =
                   \begin{pmatrix}
@@ -2936,6 +2938,8 @@
     \]
     \par thỏa mãn điều kiện $\abs{a_{jj}} > \sum_{i\ne j}\abs{a_{ij}}$, thì chúng độc lập tuyến tính.
 \end{exercise}
+
+\par\MakeUppercase{Chưa hoàn thành}.
 
 \begin{proof}
 \end{proof}
