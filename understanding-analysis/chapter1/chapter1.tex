@@ -18,16 +18,16 @@
 \begin{proof}
     \begin{enumerate}
         \item Suppose that $\sqrt{3}$ is rational. Then there exists two coprime integers $a$, $b$ such that $a, b\ne 0$ and $a^{2} = 3b^{2}$.
-            \par $3b^{2}$ is divided by 3 then so is $a^{2}$ and $a$. Let $a = 3a_{1}$, which leads to $3a_{1}^{2} = b^{2}$.
-            \par $3a_{1}^{2}$ is divided by 3 then so is $b^{2}$ and $b$.
-            \par This implies that $a$ and $b$ are divided by 3, which means $a$ and $b$ are not coprime.
-            \par Hence $\sqrt{3}$ is irrational.
-            \bigskip
-            \par Suppose that $\sqrt{6}$ is rational. Then there exists two coprime integers $a$, $b$ such that $a, b \ne 0$ and $a^{2} = 6b^{2}$.
-            \par $3b^{2}$ is divided by 3 then so is $a^{2}$ and $a$. Let $a = 3a_{1}$, then $3a_{1}^{2} = 2b^{2}$.
-            \par $3a_{1}^{2}$ is divided by 3 then so is $b^{2}$ and $b$.
-            \par Therefore, $a$ and $b$ are divided by 3, which means they are not coprime.
-            \par Hence $\sqrt{6}$ is irrational.
+              \par $3b^{2}$ is divided by 3 then so is $a^{2}$ and $a$. Let $a = 3a_{1}$, which leads to $3a_{1}^{2} = b^{2}$.
+              \par $3a_{1}^{2}$ is divided by 3 then so is $b^{2}$ and $b$.
+              \par This implies that $a$ and $b$ are divided by 3, which means $a$ and $b$ are not coprime.
+              \par Hence $\sqrt{3}$ is irrational.
+              \bigskip
+              \par Suppose that $\sqrt{6}$ is rational. Then there exists two coprime integers $a$, $b$ such that $a, b \ne 0$ and $a^{2} = 6b^{2}$.
+              \par $3b^{2}$ is divided by 3 then so is $a^{2}$ and $a$. Let $a = 3a_{1}$, then $3a_{1}^{2} = 2b^{2}$.
+              \par $3a_{1}^{2}$ is divided by 3 then so is $b^{2}$ and $b$.
+              \par Therefore, $a$ and $b$ are divided by 3, which means they are not coprime.
+              \par Hence $\sqrt{6}$ is irrational.
         \item When we try to prove $\sqrt{4}$ is irrational by contradiction, the proof breaks down after we conclude that the numerator ($a$) is divided by 2 and reduce the equation $a^{2} = 4b^{2}$.
     \end{enumerate}
 \end{proof}
@@ -41,7 +41,7 @@
     \par If $\dfrac{p}{q} \le 0$, then $2^{r} \le 1$. Therefore, $\frac{p}{q} > 0$.
     \par Without loss of generality, suppose that $p, q > 0$.
     \begin{align*}
-        2^{p/q} & = 3 \\
+        2^{p/q}                   & = 3     \\
         \Longleftrightarrow 2^{p} & = 3^{q}
     \end{align*}
     \par $p$ are positive integers, therefore $2^{p}$ is divided by 2. But $3^{q}$ is not divided by 2.
@@ -62,16 +62,16 @@
 \begin{proof}
     \begin{enumerate}[label = (\alph*)]
         \item This is false.
-            \par For example, let $A_{n} = \{ x : x\in\mathbb{N}, x\ge n \}$.
-            \par Then $\bigcap^{\infty}_{n=1}A_{n} = \emptyset$.
+              \par For example, let $A_{n} = \{ x : x\in\mathbb{N}, x\ge n \}$.
+              \par Then $\bigcap^{\infty}_{n=1}A_{n} = \emptyset$.
         \item This is true.
-            \par Suppose that $A_{1}$ has $a_{1}$ elements.
-            \par The number of elements of $A_{2}$ ($a_{2}$) does not exceed the number of elements of $A_{1}$.
-            \par The number of elements of $A_{n+1}$ ($a_{n+1}$) does not exceed the number of elements of $A_{n}$ ($a_{n}$).
-            \par $a_{1}, a_{2}, \ldots$ are positive integers and they don't exceed $a_{1}$. Hence there exists $a_{k}$ such that $a_{k}$ is the smallest, and consequently, $a_{k} = a_{k+1} = a_{k+2} = \cdots$
-            \par This implies that $\bigcap^{\infty}_{n=1}A_{n} = A_{k}$, where $A_{k}$ is finite and nonempty.
+              \par Suppose that $A_{1}$ has $a_{1}$ elements.
+              \par The number of elements of $A_{2}$ ($a_{2}$) does not exceed the number of elements of $A_{1}$.
+              \par The number of elements of $A_{n+1}$ ($a_{n+1}$) does not exceed the number of elements of $A_{n}$ ($a_{n}$).
+              \par $a_{1}, a_{2}, \ldots$ are positive integers and they don't exceed $a_{1}$. Hence there exists $a_{k}$ such that $a_{k}$ is the smallest, and consequently, $a_{k} = a_{k+1} = a_{k+2} = \cdots$
+              \par This implies that $\bigcap^{\infty}_{n=1}A_{n} = A_{k}$, where $A_{k}$ is finite and nonempty.
         \item This is false.
-            \par For example, $A = \emptyset$, and $B$, $C$ are nonempty set, then $A\cap (B\cup C)$ is empty while $(A\cap B)\cup C$ is not.
+              \par For example, $A = \emptyset$, and $B$, $C$ are nonempty set, then $A\cap (B\cup C)$ is empty while $(A\cap B)\cup C$ is not.
         \item This is true.
         \item This is true.
     \end{enumerate}
@@ -101,66 +101,66 @@
 \begin{proof}
     \begin{enumerate}[label = (\alph*)]
         \item $x\in (A\cap B){}^{c}$, then $x\notin A\cap B$.
-            \[
-                \Rightarrow
-                \begin{sqcases}
-                    x\in A^{c}\cap B \\
-                    x\in B^{c}\cap A \\
-                    x\in A^{c}\cap B^{c}
-                \end{sqcases}
-                \Rightarrow
-                \begin{sqcases}
-                    x\in A^{c}, x\notin B^{c} \\
-                    x\in B^{c}, x\notin A^{c} \\
-                    x\in A^{c}\cap B^{c}
-                \end{sqcases}
-                \Rightarrow x\in A^{c}\cup B^{c}.
-            \]
-            \par So $x\in (A\cap B){}^{c}$ implies $x\in A^{c}\cup B^{c}$, therefore $(A\cap B){}^{c}\subseteq A^{c}\cup B^{c}$.
+              \[
+                  \Rightarrow
+                  \begin{sqcases}
+                      x\in A^{c}\cap B \\
+                      x\in B^{c}\cap A \\
+                      x\in A^{c}\cap B^{c}
+                  \end{sqcases}
+                  \Rightarrow
+                  \begin{sqcases}
+                      x\in A^{c}, x\notin B^{c} \\
+                      x\in B^{c}, x\notin A^{c} \\
+                      x\in A^{c}\cap B^{c}
+                  \end{sqcases}
+                  \Rightarrow x\in A^{c}\cup B^{c}.
+              \]
+              \par So $x\in (A\cap B){}^{c}$ implies $x\in A^{c}\cup B^{c}$, therefore $(A\cap B){}^{c}\subseteq A^{c}\cup B^{c}$.
         \item $x\in A^{c}\cup B^{c}$, then $x\in A^{c}$ or $x\in B^{c}$
-            \[
-                \Rightarrow
-                \begin{sqcases}
-                    x\in A^{c} \\
-                    x\in B^{c}
-                \end{sqcases}
-                \Rightarrow
-                \begin{sqcases}
-                    x\notin A, x\in B \\
-                    x\notin B, x\in A \\
-                    x\notin A, x\notin B
-                \end{sqcases}
-                \Rightarrow
-                x\notin A\cap B
-                \Rightarrow
-                x\in (A\cap B){}^{c}
-            \]
-            \par So $A^{c}\cup B^{c}\subseteq (A\cap B){}^{c}$. These two inclusions implies that $A^{c}\cup B^{c} = (A\cap B){}^{c}$
+              \[
+                  \Rightarrow
+                  \begin{sqcases}
+                      x\in A^{c} \\
+                      x\in B^{c}
+                  \end{sqcases}
+                  \Rightarrow
+                  \begin{sqcases}
+                      x\notin A, x\in B \\
+                      x\notin B, x\in A \\
+                      x\notin A, x\notin B
+                  \end{sqcases}
+                  \Rightarrow
+                  x\notin A\cap B
+                  \Rightarrow
+                  x\in (A\cap B){}^{c}
+              \]
+              \par So $A^{c}\cup B^{c}\subseteq (A\cap B){}^{c}$. These two inclusions implies that $A^{c}\cup B^{c} = (A\cap B){}^{c}$
         \item
-            \[
-                x\in (A\cup B){}^{c}
-                \Leftrightarrow
-                x\notin A\cup B
-                \Leftrightarrow
-                \begin{cases}
-                    x\notin A\cap B^{c} \\
-                    x\notin A^{c}\cap B \\
-                    x\notin A\cap B
-                \end{cases}
-                \Leftrightarrow
-                \begin{cases}
-                    x\notin A\cap B^{c}, x\notin A\cap B \\
-                    x\notin A^{c}\cap B, x\notin A\cap B
-                \end{cases}
-                \Leftrightarrow
-                \begin{cases}
-                    x\notin A \\
-                    x\notin B
-                \end{cases}
-                \Leftrightarrow
-                x\in A^{c}\cap B^{c}.
-            \]
-            \par Hence $(A\cup B){}^{c}\subseteq A^{c}\cap B^{c}$, $A^{c}\cap B^{c}\subseteq (A\cup B){}^{c}$, therefore $(A\cup B){}^{c} = A^{c}\cap B^{c}$.
+              \[
+                  x\in (A\cup B){}^{c}
+                  \Leftrightarrow
+                  x\notin A\cup B
+                  \Leftrightarrow
+                  \begin{cases}
+                      x\notin A\cap B^{c} \\
+                      x\notin A^{c}\cap B \\
+                      x\notin A\cap B
+                  \end{cases}
+                  \Leftrightarrow
+                  \begin{cases}
+                      x\notin A\cap B^{c}, x\notin A\cap B \\
+                      x\notin A^{c}\cap B, x\notin A\cap B
+                  \end{cases}
+                  \Leftrightarrow
+                  \begin{cases}
+                      x\notin A \\
+                      x\notin B
+                  \end{cases}
+                  \Leftrightarrow
+                  x\in A^{c}\cap B^{c}.
+              \]
+              \par Hence $(A\cup B){}^{c}\subseteq A^{c}\cap B^{c}$, $A^{c}\cap B^{c}\subseteq (A\cup B){}^{c}$, therefore $(A\cup B){}^{c} = A^{c}\cap B^{c}$.
     \end{enumerate}
 \end{proof}
 
@@ -176,30 +176,30 @@
 \begin{proof}
     \begin{enumerate}[label = (\alph*)]
         \item If $a\ge 0$ and $b\ge 0$, $\abs{a} + \abs{b} = a + b = \abs{a + b}$.
-            \par If $a < 0$ and $b < 0$, $\abs{a} + \abs{b} = (-a) + (-b) = -(a + b) = \abs{a+b}$.
+              \par If $a < 0$ and $b < 0$, $\abs{a} + \abs{b} = (-a) + (-b) = -(a + b) = \abs{a+b}$.
         \item
-            \begin{align*}
-                &\abs{ab} \ge ab \\
-                \Longleftrightarrow& \abs{a}\cdot\abs{b} \ge ab \\
-                \Longleftrightarrow& 2\abs{a}\cdot\abs{b} \ge 2ab \\
-                \Longleftrightarrow& \abs{a}^{2} + 2\abs{a}\cdot\abs{b} + \abs{b}^{2} \ge a^{2} + 2ab + b^{2} \\
-                \Longleftrightarrow& (\abs{a} + \abs{b}){}^{2} \ge (a+b){}^{2} \\
-                \Longleftrightarrow& \abs{a} + \abs{b} \ge \abs{a + b}.
-            \end{align*}
-            \par The equality holds iff $ab\ge 0$.
+              \begin{align*}
+                                      & \abs{ab} \ge ab                                                          \\
+                  \Longleftrightarrow & \abs{a}\cdot\abs{b} \ge ab                                               \\
+                  \Longleftrightarrow & 2\abs{a}\cdot\abs{b} \ge 2ab                                             \\
+                  \Longleftrightarrow & \abs{a}^{2} + 2\abs{a}\cdot\abs{b} + \abs{b}^{2} \ge a^{2} + 2ab + b^{2} \\
+                  \Longleftrightarrow & (\abs{a} + \abs{b}){}^{2} \ge (a+b){}^{2}                                \\
+                  \Longleftrightarrow & \abs{a} + \abs{b} \ge \abs{a + b}.
+              \end{align*}
+              \par The equality holds iff $ab\ge 0$.
         \item By triangle inequality:
-            \begin{align*}
-                \abs{a - b} & = \abs{(a - c) + (c - b)} \\
-                            & \le \abs{a - c} + \abs{c - b} \\
-                            & = \abs{a - c} + \abs{(c - d) + (d - b)} \\
-                            & \le \abs{a - c} + \abs{c - d} + \abs{d - b}.
-            \end{align*}
+              \begin{align*}
+                  \abs{a - b} & = \abs{(a - c) + (c - b)}                    \\
+                              & \le \abs{a - c} + \abs{c - b}                \\
+                              & = \abs{a - c} + \abs{(c - d) + (d - b)}      \\
+                              & \le \abs{a - c} + \abs{c - d} + \abs{d - b}.
+              \end{align*}
         \item
-            \begin{align*}
-                & \abs{a} = \abs{(a - b) + b} \le \abs{a - b} + \abs{b} \Rightarrow \abs{a} - \abs{b} \le \abs{a - b} \\
-                & \abs{b} = \abs{(b - a) + a} \le \abs{b - a} + \abs{a} \Rightarrow \abs{b} - \abs{a} \le \abs{a - b}
-            \end{align*}
-            \par Therefore, $\abs{\abs{a} - \abs{b}}\le \abs{a - b}$.
+              \begin{align*}
+                   & \abs{a} = \abs{(a - b) + b} \le \abs{a - b} + \abs{b} \Rightarrow \abs{a} - \abs{b} \le \abs{a - b} \\
+                   & \abs{b} = \abs{(b - a) + a} \le \abs{b - a} + \abs{a} \Rightarrow \abs{b} - \abs{a} \le \abs{a - b}
+              \end{align*}
+              \par Therefore, $\abs{\abs{a} - \abs{b}}\le \abs{a - b}$.
     \end{enumerate}
 \end{proof}
 
@@ -216,30 +216,30 @@
 \begin{proof}
     \begin{enumerate}[label = (\alph*)]
         \item $f(A) = [0, 4]$, $f(B) = [1, 16]$.
-            \par $f(A)\cap f(B) = [1, 4]$, $A\cap B = [1, 2]\Rightarrow f(A\cap B) = [1, 4]$. So $f(A\cap B) = f(A)\cap f(B)$, in this case.
-            \par $A\cup B = [0, 4]\Rightarrow f(A\cup B) = [0, 16]$
-            \par $f(A)\cup f(B) = [0, 4]\cup [1, 16] = [0, 16]$.
-            \par Therefore, $f(A\cup B) = f(A)\cup f(B)$, in this case.
+              \par $f(A)\cap f(B) = [1, 4]$, $A\cap B = [1, 2]\Rightarrow f(A\cap B) = [1, 4]$. So $f(A\cap B) = f(A)\cap f(B)$, in this case.
+              \par $A\cup B = [0, 4]\Rightarrow f(A\cup B) = [0, 16]$
+              \par $f(A)\cup f(B) = [0, 4]\cup [1, 16] = [0, 16]$.
+              \par Therefore, $f(A\cup B) = f(A)\cup f(B)$, in this case.
         \item Let $A = [-2, -1]$ and $B = [1, 2]$.
-            \par $f(A) = f(B) = [1, 4]$, so $f(A)\cap f(B) = [1, 4]$.
-            \par $A\cap B = \emptyset\Rightarrow f(A\cap B) = \emptyset\ne [1, 4] = f(A)\cap f(B)$.
+              \par $f(A) = f(B) = [1, 4]$, so $f(A)\cap f(B) = [1, 4]$.
+              \par $A\cap B = \emptyset\Rightarrow f(A\cap B) = \emptyset\ne [1, 4] = f(A)\cap f(B)$.
         \item If $A\cap B = \emptyset$, the formula is valid, since $f(A\cap B) = \emptyset$ and empty set is subset of any set.
-            \par Otherwise, let $y\in g(A\cap B)$. By definition of $g(A\cap B)$, there exists $x\in A\cap B$ such that $g(x) = y$.
-            \par $x\in A\cap B$ means $x\in A$ and $x\in B$. This implies that $f(x)\in f(A)$, $f(x)\in f(B)$, so $y = f(x) \in f(A)\cap f(B)$.
-            \par Hence $f(A\cap B)\subseteq f(A)\cap f(B)$.
+              \par Otherwise, let $y\in g(A\cap B)$. By definition of $g(A\cap B)$, there exists $x\in A\cap B$ such that $g(x) = y$.
+              \par $x\in A\cap B$ means $x\in A$ and $x\in B$. This implies that $f(x)\in f(A)$, $f(x)\in f(B)$, so $y = f(x) \in f(A)\cap f(B)$.
+              \par Hence $f(A\cap B)\subseteq f(A)\cap f(B)$.
         \item Conjecture that $g(A\cup B) = g(A)\cup g(B)$.
-            \par If $A$ nor $B$ is empty set, the equality holds.
-            \par Otherwise:
-            \begin{itemize}
-                \item Let $y\in g(A\cup B)$, then there exists $x\in A\cup B$ such that $g(x) = y$.
-                    \par Since $x\in A\cup B$, then $y = g(x) \in g(A)$ or $g(B)$, equivalently, $y\in g(A)\cup g(B)$.
-                    \par So $g(A\cup B)\subseteq g(A)\cup g(B)$.
-                \item Let $z\in g(A)\cup g(B)$
-                    \par If $z\in g(A)$, then $z$ has preimage in $A$. If $z\in g(B)$, then $z$ has preimage in $B$.
-                    \par Therefore, $z$ has preimage in $A\cup B$ - let it be $x$. Since $x\in A\cup B$, then $z = g(x)\in g(A\cup B)$.
-                    \par So $g(A)\cup g(B)\subseteq g(A\cup B)$.
-            \end{itemize}
-            \par Thus, $g(A)\cup g(B) = g(A\cup B)$.
+              \par If $A$ nor $B$ is empty set, the equality holds.
+              \par Otherwise:
+              \begin{itemize}
+                  \item Let $y\in g(A\cup B)$, then there exists $x\in A\cup B$ such that $g(x) = y$.
+                        \par Since $x\in A\cup B$, then $y = g(x) \in g(A)$ or $g(B)$, equivalently, $y\in g(A)\cup g(B)$.
+                        \par So $g(A\cup B)\subseteq g(A)\cup g(B)$.
+                  \item Let $z\in g(A)\cup g(B)$
+                        \par If $z\in g(A)$, then $z$ has preimage in $A$. If $z\in g(B)$, then $z$ has preimage in $B$.
+                        \par Therefore, $z$ has preimage in $A\cup B$ - let it be $x$. Since $x\in A\cup B$, then $z = g(x)\in g(A\cup B)$.
+                        \par So $g(A)\cup g(B)\subseteq g(A\cup B)$.
+              \end{itemize}
+              \par Thus, $g(A)\cup g(B) = g(A\cup B)$.
     \end{enumerate}
 \end{proof}
 

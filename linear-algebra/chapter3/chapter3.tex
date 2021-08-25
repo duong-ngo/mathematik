@@ -2971,27 +2971,27 @@
         \begin{cases}
             \alpha_{r+1} = a_{1}^{(r+1)}\alpha_{1} + \cdots + a_{r}^{(r+1)}\alpha_{r}, \\
             \alpha_{r+2} = a_{1}^{(r+2)}\alpha_{1} + \cdots + a_{r}^{(r+2)}\alpha_{r}, \\
-            \ddots \\
+            \ddots                                                                     \\
             \alpha_{n} = a_{1}^{(n)}\alpha_{1} + \cdots + a_{r}^{(n)}\alpha_{r}.
         \end{cases}
     \]
     \par Dựa vào những biểu thị tuyến tính này, ta có thể tách $A$ thành tổng của $r$ ma trận như sau:
     \begin{align*}
         A = \begin{pmatrix}
-            \alpha_{1} & \cdots & \alpha_{r} & \alpha_{r+1} & \cdots & \alpha_{n}
-        \end{pmatrix}
-        & =
+                \alpha_{1} & \cdots & \alpha_{r} & \alpha_{r+1} & \cdots & \alpha_{n}
+            \end{pmatrix}
+         & =
         \begin{pmatrix}
             \alpha_{1} & \cdots & \alpha_{r} & \sum^{r}_{i=1}a_{i}^{(r+1)}\alpha_{i} & \cdots & \sum^{r}_{i=1}a_{i}^{(n)}\alpha_{i}
         \end{pmatrix} \\
-        & =
+         & =
         \begin{pmatrix}
             \alpha_{1} & \cdots & 0 & a_{1}^{(r+1)}\alpha_{1} & \cdots & a_{1}^{(n)}\alpha_{1}
-        \end{pmatrix} \\
-        &\phantom{=} + \cdots \\
-        &\phantom{=} + \begin{pmatrix}
-            0 & \cdots & \alpha_{r} & a_{r}^{(r+1)}\alpha_{r} & \cdots & a_{r}^{(n)}\alpha_{r}
-        \end{pmatrix}
+        \end{pmatrix}                                      \\
+         & \phantom{=} + \cdots                                                                                                 \\
+         & \phantom{=} + \begin{pmatrix}
+                             0 & \cdots & \alpha_{r} & a_{r}^{(r+1)}\alpha_{r} & \cdots & a_{r}^{(n)}\alpha_{r}
+                         \end{pmatrix}
     \end{align*}
     \par Như vậy $A$ có thể viết thành tổng của $r$ ma trận có hạng 1.
     \bigskip
@@ -3009,18 +3009,156 @@
 \end{exercise}
 
 \begin{proof}
+    \par $\rank(A) = a$, $\rank(B) = b$.
     \par Nhận xét rằng:
-    \begin{itemize}
+    \begin{enumerate}[label = (\roman*)]
         \item Nếu đổi chỗ hai hàng của $A$ thì hai hàng tương ứng của $AB$ đổi chỗ,
         \item Nếu đổi chỗ hai cột của $B$ thì hai cột tương ứng của $AB$ đổi chỗ,
         \item Nếu cộng một hàng của $A$ với tổ hợp tuyến tính của các hàng còn lại thì hàng tương ứng của $AB$ cũng được cộng với tổ hợp tuyến tính của các hàng tương ứng còn lại (cùng hệ số tổ hợp tuyến tính),
         \item Nếu cộng một cột của $B$ với tổ hợp tuyến tính của các hàng còn lại thì cột tương ứng của $AB$ cũng được cộng với tổ hợp tuyến tính của các cột tương ứng còn lại (cùng hệ số tổ hợp tuyến tính).
         \item Nhân một hàng của $A$ với một vô hướng $\lambda$ khác không thì hàng tương ứng của $AB$ cũng được nhân với $\lambda$.
         \item Nhân một cột của $B$ với một vô hướng $\lambda$ khác không thì cột tương ứng của $AB$ cũng được nhân với $\lambda$.
-    \end{itemize}
+    \end{enumerate}
     \par Do đó, nếu thực hiện các phép biến đổi như trên, $\rank(A)$, $\rank(B)$, $\rank(AB)$ không đổi.
     \bigskip
-    \par
+    \par Vì những lý do trên, không mất tính tổng quát, ta có thể giả sử:
+    \begin{itemize}
+        \item $a$ hàng đầu tiên của $A$ độc lập tuyến tính (i)
+        \item $b$ cột đầu tiên của $B$ độc lập tuyến tính (ii)
+        \item $n - a$ hàng cuối của $A$ là các vector không (iii)
+        \item $n - b$ cột cuối của $B$ là các vector không (iv)
+    \end{itemize}
+    \par $\alpha_{1}^{T}$, $\alpha_{2}^{T}$, \ldots, $\alpha_{a}^{T}$ là $a$ vector hàng đầu tiên của $A$.
+    \par $\beta_{1}$, $\beta_{2}$, \ldots, $\beta_{b}$ là $b$ vector cột đầu tiên của $B$.
+    \[
+        \underbrace{\begin{pmatrix}
+                \alpha_{1}^{T} \\
+                \alpha_{2}^{T} \\
+                \vdots         \\
+                \alpha_{a}^{T} \\
+                0              \\
+                \vdots         \\
+                0
+            \end{pmatrix}}_{A}
+        \underbrace{\begin{pmatrix}
+                \beta_{1} & \beta_{2} & \cdots & \beta_{b} & 0 & \cdots & 0
+            \end{pmatrix}}_{B}
+        =
+        \underbrace{\begin{pmatrix}
+                \alpha_{1}^{T}\beta_{1} & \cdots & \alpha_{1}^{T}\beta_{b} & 0      & \cdots & 0      \\
+                \vdots                  & \ddots & \vdots                  & \vdots & \ddots & \vdots \\
+                \alpha_{a}^{T}\beta_{1} & \cdots & \alpha_{a}^{T}\beta_{b} & 0      & \cdots & 0      \\
+                0                       & \cdots & 0                       & 0      & \cdots & 0      \\
+                \vdots                  & \ddots & \vdots                  & \vdots & \ddots & \vdots \\
+                0                       & \cdots & 0                       & 0      & \cdots & 0
+            \end{pmatrix}}_{AB}
+    \]
+    \par Do đó, $\rank(AB)\le \min\{ a, b \} = \min\{ \rank(A), \rank(B) \}$.
+    \bigskip
+    \par Nếu $A = 0$ thì $\rank(A) + \rank(B) - n = \rank(B) - n\le 0 = \rank(AB)$.
+    \par Ngược lại:
+    \par Ta sử dụng các phép biến đổi sơ cấp khác để đưa ma trận $A$ về dạng đơn giản hơn:
+    \begin{enumerate}[label = (\roman*)]
+        \setcounter{enumi}{6}
+        \item Nhân một \textit{cột} $i$, $j$ của $A$ với vô hướng $c\ne 0$ và \textit{hàng} $i$, $j$ của $B$ với $c^{-1}$. Biến đổi này không làm thay đổi $\rank(A)$, $\rank(B)$ và không làm thay đổi $AB$.
+        \item Đổi chỗ hai \textit{cột} $i$, $j$ của $A$ và đổi chỗ hai \textit{hàng} $i$, $j$ của $B$. Biến đổi này không làm thay đổi $\rank(A)$, $\rank(B)$ và không làm thay đổi $AB$.
+        \item Cộng thêm cột $j$ vào cột $i$ của $A$ và trừ hàng $i$ khỏi hàng $j$ của $B$. Biến đổi này không làm thay đổi $\rank(A)$, $\rank(B)$ và không làm thay đổi $AB$.
+    \end{enumerate}
+    \par Như vậy, cả chín phép biến đổi trên sẽ bảo toàn $\rank(A)$, $\rank(B)$, $\rank(AB)$. Ta thực hiện các biến đổi sau, với ma trận $A$ có $a$ hàng đầu tiên độc lập tuyến tính và $n - a$ hàng còn lại bằng không:
+    \begin{itemize}
+        \item Tồn tại $a_{ij}\ne 0$ (vì $A\ne 0$). Ta đổi chỗ hàng 1 và hàng $i$ của $A$.
+        \item Đổi chỗ cột 1 và cột $j$ của $A$, đồng thời đổi chỗ hàng 1 và hàng $j$ của $B$.
+        \item Nhân hàng thứ 1 của $A$ với một vô hướng khác không, sao cho yếu tố hàng 1 cột 1 bằng 1.
+        \item Với $2\le i\le a$, cộng hàng $i$ với hàng 1 (sau khi nhân hàng 1 với đối của yếu tố hàng $i$, cột 1). Đến lúc này tất cả yêu tố trên cột 1 đều bằng 0, trừ yếu tố hàng 1 cột 1.
+        \item Tiếp tục quá trình trên, đến khi $A$ đạt được dạng sau (hàng $i$ có yếu tố hàng $i$, cột $i$ bằng 1, các yếu tố đứng trước bằng 0):
+              \[
+                  \begin{pmatrix}
+                      1      & *      & \cdots & *      & *      & \cdots & *      \\
+                      0      & 1      & \cdots & *      & *      & \cdots & *      \\
+                      \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+                      0      & 0      & \cdots & 1      & *      & \cdots & *      \\
+                      0      & 0      & \cdots & 0      & 0      & \cdots & 0      \\
+                      \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+                      0      & 0      & \cdots & 0      & 0      & \cdots & 0
+                  \end{pmatrix}
+              \]
+        \item Đối với các cột $i > a$. Bắt đầu từ hàng $a$, rồi đến $a-1$, \ldots, 1, ta áp dụng biến đổi (vii), (ix) để đưa $A$ về dạng:
+              \[
+                  \begin{pmatrix}
+                      1      & *      & \cdots & *      & 0      & \cdots & 0      \\
+                      0      & 1      & \cdots & *      & 0      & \cdots & 0      \\
+                      \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+                      0      & 0      & \cdots & 1      & 0      & \cdots & 0      \\
+                      0      & 0      & \cdots & 0      & 0      & \cdots & 0      \\
+                      \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+                      0      & 0      & \cdots & 0      & 0      & \cdots & 0
+                  \end{pmatrix}
+              \]
+        \item Đối với các hàng $i < a$. Ta thực hiện biến đổi (iii) để đưa $A$ về dạng:
+              \[
+                  \begin{pmatrix}
+                      1      & 0      & \cdots & 0      & 0      & \cdots & 0      \\
+                      0      & 1      & \cdots & 0      & 0      & \cdots & 0      \\
+                      \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+                      0      & 0      & \cdots & 1      & 0      & \cdots & 0      \\
+                      0      & 0      & \cdots & 0      & 0      & \cdots & 0      \\
+                      \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+                      0      & 0      & \cdots & 0      & 0      & \cdots & 0
+                  \end{pmatrix}
+              \]
+    \end{itemize}
+    \par Như vậy, ta chỉ cần chứng minh bất đẳng thức cho trường hợp $A$ có dạng:
+    \[
+        \begin{pmatrix}
+            1      & 0      & \cdots & 0      & 0      & \cdots & 0      \\
+            0      & 1      & \cdots & 0      & 0      & \cdots & 0      \\
+            \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+            0      & 0      & \cdots & 1      & 0      & \cdots & 0      \\
+            0      & 0      & \cdots & 0      & 0      & \cdots & 0      \\
+            \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+            0      & 0      & \cdots & 0      & 0      & \cdots & 0
+        \end{pmatrix}
+    \]
+    \par Phần còn lại của chứng minh được triển khai chi tiết hơn từ chứng minh sau: \url{https://math.stackexchange.com/questions/298836/sylvester-rank-inequality-operatornamerank-a-operatornamerankb-leq-o}
+    \begin{align*}
+        \rank(A) + \rank(B) & = \rank(A) + \rank(AB + B(I_{n} - A))          \\
+                            & \le \rank(A) + \rank(AB) + \rank(B(I_{n} - A))
+    \end{align*}
+    \[
+        B(I_{n} - A) =
+        \begin{pmatrix}
+            b_{11} & b_{12} & \cdots & b_{1n} \\
+            b_{21} & b_{22} & \cdots & b_{2n} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            b_{n1} & b_{n2} & \cdots & b_{nn}
+        \end{pmatrix}
+        \begin{pmatrix}
+            0      & \cdots & 0      & 0      & \cdots & 0      \\
+            \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+            0      & \cdots & 0      & 0      & \cdots & 0      \\
+            0      & \cdots & 0      & 1      & \cdots & 0      \\
+            \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+            0      & \cdots & 0      & 0      & \cdots & 1
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            0      & \cdots & 0      & b_{1(a+1)} & \cdots & b_{1n} \\
+            0      & \cdots & 0      & b_{2(a+1)} & \cdots & b_{2n} \\
+            \vdots & \ddots & \vdots & \vdots     & \ddots & \vdots \\
+            0      & \cdots & 0      & b_{a(a+1)} & \cdots & b_{an} \\
+            \vdots & \ddots & \vdots & \vdots     & \ddots & \vdots \\
+            0      & \cdots & 0      & b_{n(a+1)} & \cdots & b_{nn}
+        \end{pmatrix}.
+    \]
+    \par Đẳng thức trên chứng tỏ $\rank(B(I_{n} - A))\le n - \rank(A)$.
+    \begin{align*}
+        \rank(A) + \rank(B) & = \rank(A) + \rank(AB + B(I_{n} - A))          \\
+                            & \le \rank(A) + \rank(AB) + \rank(B(I_{n} - A)) \\
+                            & \text{(tiếp tục)}                              \\
+                            & \le \rank(A) + \rank(AB) + n - \rank(A)        \\
+                            & = \rank(AB) + n.
+    \end{align*}
+    \par Vậy $\rank(A) + \rank(B) - n \le \rank(AB)$.
 \end{proof}
 
 \begin{exercise}
@@ -3028,6 +3166,16 @@
 \end{exercise}
 
 \begin{proof}
+    \par Nếu $\text{Char}(\mathbb{F})\ne 2$, áp dụng bất đẳng thức Sylvester và bài toán~\ref{chapter3:rank-of-sum}:
+    \[
+        \rank(A) = \rank(2A) = \rank(A+E + A-E) \le \rank(A+E) + \rank(A-E) \le n + \rank(A^{2} - E) = n.
+    \]
+    \par Vì $A^{2} = E$ nên $A$ khả nghịch, do đó $\rank(A) = n$.
+    \par Nếu $\rank(A + E) + \rank(A - E) < n$ thì $\rank(A) < n$, mâu thuẫn với đẳng thức $\rank(A) = n$.
+    \par Do đó, $\rank(A + E) + \rank(A - E) = n$.
+    \bigskip
+    \par Nếu $\text{Char}(\mathbb{F}) = 2$, chọn $A = E$.
+    \par $A = E$ và $\text{Char}(\mathbb{F}) = 2$ kéo theo $A + E = A - E = 0$, suy ra $\rank(A + E) + \rank(A - E) = 0 < n$.
 \end{proof}
 
 \begin{exercise}
@@ -3050,6 +3198,251 @@
 \end{exercise}
 
 \begin{proof}[Lời giải]
+    \begin{enumerate}[label = (\alph*)]
+        \item
+              \begingroup
+              \allowdisplaybreaks
+              \begin{gather*}
+                  \left(
+                  \begin{array}{ccc|ccc}
+                          0 & 1 & 3 & 1 & 0 & 0 \\
+                          2 & 3 & 5 & 0 & 1 & 0 \\
+                          3 & 6 & 7 & 0 & 0 & 1
+                      \end{array}
+                  \right)
+                  \stackrel{r_{3}:= r_{3} - r_{2}}{\Longleftrightarrow}
+                  \left(
+                  \begin{array}{ccc|ccc}
+                          0 & 1 & 3 & 1 & 0  & 0 \\
+                          2 & 3 & 5 & 0 & 1  & 0 \\
+                          1 & 3 & 2 & 0 & -1 & 1
+                      \end{array}
+                  \right) \\
+                  \stackrel{
+                      \substack{
+                          r_{1}:= r_{1} + r_{2} \\
+                          r_{2} := r_{2} - 2r_{1}
+                      }
+                  }{\Longleftrightarrow}
+                  \left(
+                  \begin{array}{ccc|ccc}
+                          1 & 4  & 5 & 1 & -1 & 1  \\
+                          0 & -3 & 1 & 0 & 3  & -2 \\
+                          1 & 3  & 2 & 0 & -1 & 1
+                      \end{array}
+                  \right)
+                  \stackrel{
+                      r_{3} := r_{3} - r_{1}
+                  }{\Longleftrightarrow}
+                  \left(
+                  \begin{array}{ccc|ccc}
+                          1 & 4  & 5  & 1  & -1 & 1  \\
+                          0 & -3 & 1  & 0  & 3  & -2 \\
+                          0 & -1 & -3 & -1 & 0  & 0
+                      \end{array}
+                  \right) \\
+                  \stackrel{
+                      r_{3} := 3r_{3} - r_{2}
+                  }{\Longleftrightarrow}
+                  \left(
+                  \begin{array}{ccc|ccc}
+                          1 & 4  & 5   & 1  & -1 & 1  \\
+                          0 & -3 & 1   & 0  & 3  & -2 \\
+                          0 & 0  & -10 & -3 & -3 & 2
+                      \end{array}
+                  \right)
+                  \stackrel{
+                      r_{2} := 10r_{2} + r_{3}
+                  }{\Longleftrightarrow}
+                  \left(
+                  \begin{array}{ccc|ccc}
+                          1 & 4   & 5   & 1  & -1 & 1   \\
+                          0 & -30 & 0   & -3 & 27 & -18 \\
+                          0 & 0   & -10 & -3 & -3 & 2
+                      \end{array}
+                  \right) \\
+                  \stackrel{
+                  r_{2} := \frac{1}{3}r_{2}
+                  }{\Longleftrightarrow}
+                  \left(
+                  \begin{array}{ccc|ccc}
+                          1 & 4   & 5   & 1  & -1 & 1  \\
+                          0 & -10 & 0   & -1 & 9  & -6 \\
+                          0 & 0   & -10 & -3 & -3 & 2
+                      \end{array}
+                  \right)
+                  \stackrel{
+                      r_{1} := 2r_{1} + r_{3}
+                  }{\Longleftrightarrow}
+                  \left(
+                  \begin{array}{ccc|ccc}
+                          2 & 8   & 0   & -1 & -5 & 4  \\
+                          0 & -10 & 0   & -1 & 9  & -6 \\
+                          0 & 0   & -10 & -3 & -3 & 2
+                      \end{array}
+                  \right) \\
+                  \stackrel{
+                  r_{1} := r_{1} + \frac{4}{5}r_{2}
+                  }{\Longleftrightarrow}
+                  \left(
+                  \begin{array}{ccc|ccc}
+                          2 & 0   & 0   & \frac{-9}{5} & \frac{11}{5} & \frac{-4}{5} \\
+                          0 & -10 & 0   & -1           & 9            & -6           \\
+                          0 & 0   & -10 & -3           & -3           & 2
+                      \end{array}
+                  \right)
+                  \stackrel{
+                  \substack{
+                  r_{1} := \frac{1}{2}r_{1} \\
+                  r_{2} := \frac{-1}{10}r_{2} \\
+                  r_{3} := \frac{-1}{10}r_{3}
+                  }
+                  }{\Longleftrightarrow}
+                  \left(
+                  \begin{array}{ccc|ccc}
+                          1 & 0 & 0 & \frac{-9}{10} & \frac{11}{10} & \frac{-2}{5} \\
+                          0 & 1 & 0 & \frac{1}{10}  & \frac{-9}{10} & \frac{3}{5}  \\
+                          0 & 0 & 1 & \frac{3}{10}  & \frac{3}{10}  & \frac{-1}{5}
+                      \end{array}
+                  \right)
+              \end{gather*}
+              \par Vậy
+              \[
+                  \begin{pmatrix}
+                      0 & 1 & 3 \\
+                      2 & 3 & 5 \\
+                      3 & 6 & 7
+                  \end{pmatrix}^{-1}
+                  =
+                  \begin{pmatrix}
+                      \frac{-9}{10} & \frac{11}{10} & \frac{-2}{5} \\
+                      \frac{1}{10}  & \frac{-9}{10} & \frac{3}{5}  \\
+                      \frac{3}{10}  & \frac{3}{10}  & \frac{-1}{5}
+                  \end{pmatrix}.
+              \]
+              \endgroup
+        \item
+              \begingroup
+              \allowdisplaybreaks
+              \begin{gather*}
+                  \left(
+                  \begin{array}{cccc|cccc}
+                          1 & 2 & -1 & -2 & 1 & 0 & 0 & 0 \\
+                          3 & 8 & 0  & -4 & 0 & 1 & 0 & 0 \\
+                          2 & 2 & -4 & -3 & 0 & 0 & 1 & 0 \\
+                          3 & 8 & -1 & -6 & 0 & 0 & 0 & 1
+                      \end{array}
+                  \right)
+                  \stackrel{
+                      \substack{
+                          r_{2} := r_{2} - 3r_{1} \\
+                          r_{3} := r_{3} - 2r_{1} \\
+                          r_{4} := r_{4} - 3r_{1}
+                      }
+                  }{\Longleftrightarrow}
+                  \left(
+                  \begin{array}{cccc|cccc}
+                          1 & 2  & -1 & -2 & 1  & 0 & 0 & 0 \\
+                          0 & 2  & 3  & 2  & -3 & 1 & 0 & 0 \\
+                          0 & -2 & -2 & 1  & -2 & 0 & 1 & 0 \\
+                          0 & 2  & 2  & 0  & -3 & 0 & 0 & 1
+                      \end{array}
+                  \right) \\
+                  \stackrel{
+                      \substack{
+                          r_{3} := r_{3} + r_{2} \\
+                          r_{4} := r_{4} - r_{2}
+                      }
+                  }{\Longleftrightarrow}
+                  \left(
+                  \begin{array}{cccc|cccc}
+                          1 & 2 & -1 & -2 & 1  & 0  & 0 & 0 \\
+                          0 & 2 & 3  & 2  & -3 & 1  & 0 & 0 \\
+                          0 & 0 & 1  & 3  & -5 & 1  & 1 & 0 \\
+                          0 & 0 & -1 & -2 & 0  & -1 & 0 & 1
+                      \end{array}
+                  \right)
+                  \stackrel{
+                      r_{4} := r_{4} + r_{3}
+                  }{\Longleftrightarrow}
+                  \left(
+                  \begin{array}{cccc|cccc}
+                          1 & 2 & -1 & -2 & 1  & 0 & 0 & 0 \\
+                          0 & 2 & 3  & 2  & -3 & 1 & 0 & 0 \\
+                          0 & 0 & 1  & 3  & -5 & 1 & 1 & 0 \\
+                          0 & 0 & 0  & 1  & -5 & 0 & 1 & 1
+                      \end{array}
+                  \right) \\
+                  \stackrel{
+                      \substack{
+                          r_{1} := r_{1} + 2r_{4} \\
+                          r_{2} := r_{2} - 2r_{4} \\
+                          r_{3} := r_{3} - 3r_{4}
+                      }
+                  }{\Longleftrightarrow}
+                  \left(
+                  \begin{array}{cccc|cccc}
+                          1 & 2 & -1 & 0 & -9 & 0 & 2  & 2  \\
+                          0 & 2 & 3  & 0 & 7  & 1 & -2 & -2 \\
+                          0 & 0 & 1  & 0 & 10 & 1 & -2 & -3 \\
+                          0 & 0 & 0  & 1 & -5 & 0 & 1  & 1
+                      \end{array}
+                  \right)
+                  \stackrel{
+                      \substack{
+                          r_{1} := r_{1} + r_{3} \\
+                          r_{2} := r_{2} - 3r_{3}
+                      }
+                  }{\Longleftrightarrow}
+                  \left(
+                  \begin{array}{cccc|cccc}
+                          1 & 2 & 0 & 0 & 1   & 1  & 0  & -1 \\
+                          0 & 2 & 0 & 0 & -23 & -2 & 4  & 7  \\
+                          0 & 0 & 1 & 0 & 10  & 1  & -2 & -3 \\
+                          0 & 0 & 0 & 1 & -5  & 0  & 1  & 1
+                      \end{array}
+                  \right) \\
+                  \stackrel{
+                      r_{1} := r_{1} - r_{2}
+                  }{\Longleftrightarrow}
+                  \left(
+                  \begin{array}{cccc|cccc}
+                          1 & 0 & 0 & 0 & 24  & 3  & -4 & -8 \\
+                          0 & 2 & 0 & 0 & -23 & -2 & 4  & 7  \\
+                          0 & 0 & 1 & 0 & 10  & 1  & -2 & -3 \\
+                          0 & 0 & 0 & 1 & -5  & 0  & 1  & 1
+                      \end{array}
+                  \right)
+                  \stackrel{
+                  r_{2} := \frac{1}{2}r_{2}
+                  }{\Longleftrightarrow}
+                  \left(
+                  \begin{array}{cccc|cccc}
+                          1 & 0 & 0 & 0 & 24            & 3  & -4 & -8          \\
+                          0 & 1 & 0 & 0 & \frac{-23}{2} & -1 & 2  & \frac{7}{2} \\
+                          0 & 0 & 1 & 0 & 10            & 1  & -2 & -3          \\
+                          0 & 0 & 0 & 1 & -5            & 0  & 1  & 1
+                      \end{array}
+                  \right)
+              \end{gather*}
+              \par Vậy
+              \[
+                  \begin{pmatrix}
+                      1 & 2 & -1 & -2 \\
+                      3 & 8 & 0  & -4 \\
+                      2 & 2 & -4 & -3 \\
+                      3 & 8 & -1 & -6
+                  \end{pmatrix}^{-1}
+                  =
+                  \begin{pmatrix}
+                      24            & 3  & -4 & -8          \\
+                      \frac{-23}{2} & -1 & 2  & \frac{7}{2} \\
+                      10            & 1  & -2 & -3          \\
+                      -5            & 0  & 1  & 1
+                  \end{pmatrix}.
+              \]
+              \endgroup
+    \end{enumerate}
 \end{proof}
 
 \par Nghiên cứu tính tương thích của các hệ phương trình sau, tìm một nghiệm riêng và nghiệm tổng quát của chúng:
@@ -3065,6 +3458,55 @@
 \end{exercise}
 
 \begin{proof}[Lời giải]
+    \par Thực hiện phép biến đổi sơ cấp trên ma trận hệ số mở rộng:
+    \begingroup
+    \allowdisplaybreaks
+    \begin{gather*}
+        \left(
+        \begin{array}{cccc|c}
+                3 & -2 & 5 & 4 & 2 \\
+                6 & -4 & 4 & 3 & 3 \\
+                9 & -6 & 3 & 2 & 4
+            \end{array}
+        \right)
+        \stackrel{
+            \substack{
+                r_{2} := r_{2} - 2r_{1} \\
+                r_{3} := r_{3} - 3r_{1}
+            }
+        }{\Longleftrightarrow}
+        \left(
+        \begin{array}{cccc|c}
+                3 & -2 & 5   & 4   & 2  \\
+                0 & 0  & -6  & -5  & -1 \\
+                0 & 0  & -12 & -10 & -2
+            \end{array}
+        \right)
+        \stackrel{
+            r_{3} := r_{3} - 2r_{2}
+        }{\Longleftrightarrow}
+        \left(
+        \begin{array}{cccc|c}
+                3 & -2 & 5  & 4  & 2  \\
+                0 & 0  & -6 & -5 & -1 \\
+                0 & 0  & 0  & 0  & 0
+            \end{array}
+        \right)
+    \end{gather*}
+    \endgroup
+    \par Theo định lý Kronecker-Capelli, hệ phương trình tuyến tính trên có nghiệm.
+    \par Một nghiệm riêng của hệ trên là:
+    \[
+        (x, y, z, t) = (1, 1, 1, -1).
+    \]
+    \par Nghiệm của hệ phương trình tuyến tính thuần nhất:
+    \[
+        (x, y, z, t) = (a, b, -15a + 10b, 18a - 12b).
+    \]
+    \par Nghiệm tổng quát của hệ phương trình tuyến tính trên là:
+    \[
+        (x, y, z, t) = (1 + a, 1 + b, 1 - 15a + 10b, -1 + 18a - 12b).
+    \]
 \end{proof}
 
 \begin{exercise}
@@ -3080,6 +3522,133 @@
 \end{exercise}
 
 \begin{proof}[Lời giải]
+    \par Thực hiện phép biến đổi sơ cấp trên ma trận hệ số mở rộng:
+    \begingroup
+    \allowdisplaybreaks
+    \begin{gather*}
+        \left(
+        \begin{array}{cccc|c}
+                8 & 6 & 5 & 2 & 21 \\
+                3 & 3 & 2 & 1 & 10 \\
+                4 & 2 & 3 & 1 & 8  \\
+                3 & 5 & 1 & 1 & 15 \\
+                7 & 4 & 5 & 2 & 18
+            \end{array}
+        \right)
+        \stackrel{
+            \substack{
+                r_{2} := 2r_{2} - r_{1} \\
+                r_{3} := 2r_{3} - r_{1} \\
+                r_{4} := 2r_{4} - r_{1} \\
+                r_{5} := r_{5} - r_{1}
+            }
+        }{\Longleftrightarrow}
+        \left(
+        \begin{array}{cccc|c}
+                8  & 6  & 5  & 2 & 21 \\
+                -2 & 0  & -1 & 0 & -1 \\
+                0  & -2 & 1  & 0 & -5 \\
+                -2 & 4  & -3 & 0 & 9  \\
+                -1 & -2 & 0  & 0 & -3
+            \end{array}
+        \right)
+        \stackrel{
+        \substack{
+        r_{3} := r_{3} + r_{2} \\
+        r_{4} := r_{4} - 3r_{2} \\
+        r_{5} := -r_{5}
+        }
+        }{\Longleftrightarrow}
+        \left(
+        \begin{array}{cccc|c}
+                8  & 6  & 5  & 2 & 21 \\
+                -2 & 0  & -1 & 0 & -1 \\
+                -2 & -2 & 0  & 0 & -6 \\
+                4  & 4  & 0  & 0 & 12 \\
+                1  & 2  & 0  & 0 & 3
+            \end{array}
+        \right) \\
+        \stackrel{
+            r_{4} := r_{4} + 2r_{3}
+        }{\Longleftrightarrow}
+        \left(
+        \begin{array}{cccc|c}
+                8  & 6  & 5  & 2 & 21 \\
+                -2 & 0  & -1 & 0 & -1 \\
+                -2 & -2 & 0  & 0 & -6 \\
+                0  & 0  & 0  & 0 & 0  \\
+                1  & 2  & 0  & 0 & 3
+            \end{array}
+        \right)
+        \stackrel{
+        \substack{
+        r_{2} := -r_{2} \\
+        r_{3} := \frac{-1}{2}r_{3}
+        }
+        }{\Longleftrightarrow}
+        \left(
+        \begin{array}{cccc|c}
+                8 & 6 & 5 & 2 & 21 \\
+                2 & 0 & 1 & 0 & 1  \\
+                1 & 1 & 0 & 0 & 3  \\
+                0 & 0 & 0 & 0 & 0  \\
+                1 & 2 & 0 & 0 & 3
+            \end{array}
+        \right)
+        \stackrel{
+            r_{5} := r_{5} - r_{3}
+        }{\Longleftrightarrow}
+        \left(
+        \begin{array}{cccc|c}
+                8 & 6 & 5 & 2 & 21 \\
+                2 & 0 & 1 & 0 & 1  \\
+                1 & 1 & 0 & 0 & 3  \\
+                0 & 0 & 0 & 0 & 0  \\
+                0 & 1 & 0 & 0 & 0
+            \end{array}
+        \right) \\
+        \stackrel{
+            r_{3} := r_{3} - r_{5}
+        }{\Longleftrightarrow}
+        \left(
+        \begin{array}{cccc|c}
+                8 & 6 & 5 & 2 & 21 \\
+                2 & 0 & 1 & 0 & 1  \\
+                1 & 0 & 0 & 0 & 3  \\
+                0 & 0 & 0 & 0 & 0  \\
+                0 & 1 & 0 & 0 & 0
+            \end{array}
+        \right)
+        \stackrel{
+            r_{2} := r_{2} - 2r_{3}
+        }{\Longleftrightarrow}
+        \left(
+        \begin{array}{cccc|c}
+                8 & 6 & 5 & 2 & 21 \\
+                0 & 0 & 1 & 0 & -5 \\
+                1 & 0 & 0 & 0 & 3  \\
+                0 & 0 & 0 & 0 & 0  \\
+                0 & 1 & 0 & 0 & 0
+            \end{array}
+        \right)
+        \stackrel{
+            r_{1} := r_{1} - 8r_{3} - 5r_{2} - 6r_{5}
+        }{\Longleftrightarrow}
+        \left(
+        \begin{array}{cccc|c}
+                0 & 0 & 0 & 2 & 22 \\
+                0 & 0 & 1 & 0 & -5 \\
+                1 & 0 & 0 & 0 & 3  \\
+                0 & 0 & 0 & 0 & 0  \\
+                0 & 1 & 0 & 0 & 0
+            \end{array}
+        \right)
+    \end{gather*}
+    \par Vậy hệ phương trình có nghiệm duy nhất:
+    \[
+        (x, y, z, t) = (3, 0, -5, 11).
+    \]
+    \endgroup
 \end{proof}
 
 \end{document}
