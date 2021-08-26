@@ -48,7 +48,7 @@
 \counterwithin{table}{chapter}
 
 \theoremstyle{definition}
-\newtheorem{exercise}{Bài}
+\newtheorem{exercise}{Exercise}
 \counterwithin{exercise}{section}
 \newenvironment{sqcases}{%
     \matrix@check\sqcases\env@sqcases

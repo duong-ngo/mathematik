@@ -5,3 +5,5 @@
 ## Probability and Statistical Inference (Hogg, Tanis, Zimmerman)
 
 ## Understading analysis (Stephen Abbott)
+
+## Algebra (Serge Lang)
