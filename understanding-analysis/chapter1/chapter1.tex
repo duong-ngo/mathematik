@@ -89,7 +89,7 @@
     \par $A_{i}\cap A_{j} = \emptyset$, which follows the definition of these sets, and $\bigcup^{\infty}_{i=1}A_{i} = \bigsqcup^{\infty}_{i=1}A_{i} = \mathbb{N}$.
 \end{proof}
 
-\begin{exercise}[De Morgan's Laws]
+\begin{exercise}[De Morgan's Laws]\label{chapter1:section2:de-morgan-law}
     \par Let $A$ and $B$ be subsets of $\mathbb{R}$.
     \begin{enumerate}[label = (\alph*)]
         \item If $x\in (A\cap B){}^{c}$, explain why $x\in A^{c}\cup B^{c}$. This shows that $(A\cap C){}^{c} \subseteq A^{c}\cup B^{c}$.
@@ -243,7 +243,168 @@
     \end{enumerate}
 \end{proof}
 
+\begin{exercise}
+    \par Here are two important definitions related to a function $f: A\to B$. The function $f$ is \textit{one-to-one} (1-1) if $a_{1}\ne a_{2}$ in $A$ implies that $f(a_{1})\ne f(a_{2})$ in $B$. The function $f$ is \textit{onto} if, given any $b\in B$, it is possible to find an element $a\in A$ for which $f(a) = b$.
+    \par Given an example of each or state that the request is impossible:
+    \begin{enumerate}[label = (\alph*)]
+        \item $f : \mathbb{N} \to \mathbb{N}$ that is 1-1 but not onto.
+        \item $f : \mathbb{N} \to \mathbb{N}$ that is onto but not 1-1.
+        \item $f : \mathbb{N} \to \mathbb{Z}$ that is 1-1 and onto.
+    \end{enumerate}
+\end{exercise}
 
+\begin{proof}
+    \begin{enumerate}[label = (\alph*)]
+        \item For example, $f(n) = 2n$.
+        \item This is impossible.
+        \item For example:
+              \[
+                  f(n) =
+                  \begin{cases}
+                      n/2     & \quad\text{if $n$ is even} \\
+                      (1-n)/2 & \quad\text{if $n$ is odd}
+                  \end{cases}.
+              \]
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    \par Given a function $f: D\to\mathbb{R}$ and a subset $B\subseteq\mathbb{R}$, let $f^{-1}(B)$ be the set of all points from the domain $D$ that get mapped into $B$; that is, $f^{-1}(B) = \{ x\in D : f(x) \in B \}$. This set is called the \textit{preimage} of $B$.
+    \begin{enumerate}[label = (\alph*)]
+        \item Let $f(x) = x^{2}$. If $A$ is the closed interval $[0, 4]$ and $B$ is the closed interval $[-1, 1]$, find $f^{-1}(A)$ and $f^{-1}(B)$. Does $f^{-1}(A\cap B) = f^{-1}(A)\cap f^{-1}(B)$ in this case? Does $f^{-1}(A\cup B) = f^{-1}(A)\cup f^{-1}(B)$?
+        \item The good behavior of preimages demonstrated in (a) is completely general. Show that for an arbitrary function $g: \mathbb{R} \to \mathbb{R}$, it is always true that $g^{-1}(A\cap B) = g^{-1}(A) \cap g^{-1}(B)$ and $g^{-1}(A\cup B) = g^{-1}(A) \cup g^{-1}(B)$ for all sets $A, B\subseteq\mathbb{R}$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label = (\alph*)]
+        \item If $A = [0, 4]$ and $B = [-1, 1]$, then $f^{-1}(A) = [-2, 2]$, $f^{-1}(B) = [-1, 1]$.
+              \par $A\cap B = [0, 1]$, $f^{-1}(A\cap B) = [-1, 1]$.
+              \par $A\cup B = [-1, 4]$, $f^{-1}(A\cup B) = [-2, 2]$.
+              \begin{align*}
+                  f^{-1}(A)\cap f^{-1}(B) & = [-2, 2]\cap [-1, 1] = [-1, 1] = f^{-1}(A\cap B), \\
+                  f^{-1}(A)\cup f^{-1}(B) & = [-2, 2]\cup [-1, 1] = [-2, 2] = f^{-1}(A\cup B).
+              \end{align*}
+        \item Let $x\in g^{-1}(A)\cap g^{-1}(B)$, then $g(x)\in A$, $g(x)\in B$, which means $g(x)\in A\cap B$. Therefore, $x\in g^{-1}(A\cap B)$ and we have inclusion that $g^{-1}(A)\cap g^{-1}(B) = g^{-1}(A\cap B)$.
+              \par Let $x\in g^{-1}(A\cap B)$, then $g(x) \in A\cap B$. This implies that $g(x)\in A$ and $g(x)\in B$, so $x\in g^{-1}(A)$ and $x\in g^{-1}(B)$. We obtain another inclusion that $g^{-1}(A\cap B)\subseteq g^{-1}(A) \cap g^{-1}(B)$.
+              \par Two above inclusions imply that $g^{-1}(A\cap B) = g^{-1}(A) \cap g^{-1}(B)$.
+              \bigskip
+              \par Let $x\in g^{-1}(A)\cup g^{-1}(B)$, then $g(x)\in A$ or $g(x)\in B$, so $g(x)\in A\cup B$. This implies the inclusion $g^{-1}(A)\cup g^{-1}(B) \subseteq g^{-1}(A\cup B)$.
+              \par Let $x\in g^{-1}(A\cup B)$, then $g(x)\in A\cup B$. Equivalently, $g(x)\in A$ or $g(x)\in B$, this means $x\in g^{-1}(A)$ or $x\in g^{-1}(B)$. In other words, $x\in g^{-1}(A)\cup g^{-1}(B)$ and we have the inclusion that $g^{-1}(A\cup B)\subseteq g^{-1}(A) \cup g^{-1}(B)$.
+              \par These two inclusions mean $g^{-1}(A\cup B) = g^{-1}(A)\cup g^{-1}(B)$.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    \par Decide which of the following are true statements. Provide a short justification for those that are valid and a counterexample for those that are not:
+    \begin{enumerate}[label = (\alph*)]
+        \item Two real numbers satisfy $a < b$ if and only if $a < b + \epsilon$ for every $\epsilon > 0$.
+        \item Two real numbers satisfy $a < b$ if $a < b + \epsilon$ for every $\epsilon > 0$.
+        \item Two real numbers satisfy $a\le b$ if and only if $a < b + \epsilon$ for every $\epsilon > 0$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label = (\alph*)]
+        \item ($\Rightarrow$) If $a < b$ then $a < b + \epsilon$ for every $\epsilon > 0$.
+              \par This is obvious, since $a < b < b + \epsilon$, for every $\epsilon > 0$.
+              \par ($\Leftarrow$) If $a < b + \epsilon$ for every $\epsilon > 0$ then $a < b$
+              \par This is not true. For example, $a = b$.
+        \item For counterexample, let $a = b$.
+        \item ($\Rightarrow$) If $a \le b$ then $a < b + \epsilon$ for every $\epsilon > 0$.
+              \par Since $a \le b$ and $b < b + \epsilon$ for every $\epsilon > 0$, then $a < b + \epsilon$ for every $\epsilon > 0$.
+              \par ($\Leftarrow$) If $a < b + \epsilon$ for every $\epsilon > 0$, then $a\le b$.
+              \par $a < b + \epsilon$ for every $\epsilon > 0$ is equivalent to $a - b < \epsilon$ for every $\epsilon > 0$.
+              \par Suppose that $a > b$, then $a - b > 0$. Let $\epsilon_{0} = a - b (>0)$, then $\epsilon_{0} = a - b < \epsilon_{0}$, which is a contradiction.
+              \par Therefore, the assumption is false, and $a \le b$.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    \par Form the logical negation of each claim. One trivial way to do this is to simply add ``It is not the case that\ldots'' in front of each assertion.
+    \par To make this interesting, fashion the negation into a positive statement that avoids using the ``not'' altogether. In each case, make an intuitive guess as to whether the claim or its negation is the true statement.
+    \begin{enumerate}[label = (\alph*)]
+        \item For all real numbers satisfying $a < b$, there exists an $n \in \mathbb{N}$ such that $a + 1/n < b$.
+        \item There exists a real number $x > 0$ such that $x < 1/n$ for all $n \in \mathbb{N}$.
+        \item Between every two distinct real numbers there is a rational number.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label = (\alph*)]
+        \item Negation: ``There exists two real numbers $a < b$ that for every $n \in \mathbb{N}$, $a + 1/n \ge b$''.
+              \par The claim is true (the negation is false).
+        \item Negation: ``For every real number $x > 0$, there exists $n \in \mathbb{N}$ such that $x \ge \frac{1}{n}$''.
+              \par The claim is false (the negation is true).
+        \item Negation: ``There exists two distinct real numbers that there is no rational number between them''.
+              \par The claim is true (the negation is false).
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    \par Let $y_{1} = 6$, and for each $n \in \mathbb{N}$ define $y_{n+1} = (2y_{n} - 6)/3$.
+    \begin{enumerate}[label = (\alph*)]
+        \item Use induction to prove that the sequence satisfies $y_{n} > -6$ for all $n \in \mathbb{N}$.
+        \item Use another induction argument to show the sequence $(y_{1}, y_{2}, y_{3}\ldots)$ is decreasing.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label = (\alph*)]
+        \item $y_{1} = 6 > -6$.
+              \par If $y_{n} > -6$, then $y_{n+1} = (2y_{n} - 6) / 3 > (2\cdot (-6) - 6) / 3 = -6$.
+              \par Hence, for all $n \in \mathbb{N}$, $y_{n} > -6$.
+        \item $y_{2} = (2\cdot 6 - 6) / 3 = 2 < y_{1}$.
+              \par If $y_{n} > y_{n+1}$, then $(2y_{n} - 6)/3 > (2y_{n+1} - 6)/3$, which means $y_{n+1} > y_{n+2}$.
+              \par Hence, for all $n \in \mathbb{N}$, the sequence $(y_{1}, y_{2}, y_{3}\ldots)$ is decreasing.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    \par For this exercise, assume Exercise~\ref{chapter1:section2:de-morgan-law} has been successfully completed.
+    \begin{enumerate}[label = (\alph*)]
+        \item Show how induction can be used to conclude that
+              \[
+                  (A_{1} \cup A_{2} \cup \cdots \cup A_{n}){}^{c} = A_{1}^{c} \cap A_{2}^{c} \cap \cdots \cap A_{n}^{c}
+              \]
+              \par for any finite $n \in \mathbb{N}$.
+        \item It is tempting to appeal to induction to conclude
+              \[
+                  \left(\bigcup^{\infty}_{i=1}A_{i}\right)^{c} = \bigcap^{\infty}_{i=1}A_{i}^{c},
+              \]
+              \par but induction does not apply here. Induction is used to prove that a particular statement holds for every value of $n \in \mathbb{N}$, but this does not imply the validity of the infinite case. To illustrate this point, find an example of a collection of sets $B_{1}$, $B_{2}$, $B_{3}$, \ldots where $\bigcap^{n}_{i=1}B_{i} \ne \emptyset$ is true for every $n \in \mathbb{N}$, but $\bigcap^{\infty}_{i=1}B_{i} \ne \emptyset$ fails.
+        \item Nevertheless, the infinite version of De Morgan's Law stated in (b) is a valid statement. Provide a proof that does not use induction.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label = (\alph*)]
+        \item For $n = 1$, $A_{1}^{c} = A_{1}^{c}$, the statement is valid.
+              \par For $n = 2$, $\left(A_{1}\cup A_{2}\right)^{c} = A_{1}^{c}\cap A_{2}^{c}$, this is Exercise~\ref{chapter1:section2:de-morgan-law}.
+              \par If $\left(\bigcup^{n}_{i=1}A_{i}\right)^{c} = \bigcap^{n}_{i=1}A_{i}^{c}$, then
+              \begin{align*}
+                  \left(\bigcup^{n+1}_{i=1}A_{i}\right)^{c} & = \left(\left(\bigcup^{n}_{i=1}A_{i}\right)\cup A_{n+1}\right)^{c} \\
+                                                            & = \left(\bigcup^{n}_{i=1}A_{i}\right)^{c} \cap A_{n+1}^{c}         \\
+                                                            & = \left(\bigcap^{n}_{i=1}A_{i}^{c}\right) \cap A_{n+1}^{c}         \\
+                                                            & = \bigcap^{n+1}_{i=1}A_{i}^{c}.
+              \end{align*}
+              \par Hence, by induction, the statement is valid for any $n \in \mathbb{N}$.
+        \item For example, let $B_{i} = \{ x \in \mathbb{N}, x \ge i \}$.
+              \par For every $n \in \mathbb{N}$, $\bigcap^{n}_{i=1}B_{i} = B_{n} \ne \emptyset$.
+              \par But $\bigcap^{\infty}_{i=1}B_{i} = \emptyset$, since there is no natural number that is greater than or equal to all the others.
+        \item
+              \begin{align*}
+                  x \in \left(\bigcup^{\infty}_{i=1}A_{i}\right)^{c} & \Longleftrightarrow x \notin \bigcup^{\infty}_{i=1}A_{i}   \\
+                                                                     & \Longleftrightarrow x \notin A_{i}, \forall i              \\
+                                                                     & \Longleftrightarrow x \in A_{i}^{c}, \forall i             \\
+                                                                     & \Longleftrightarrow x \in \bigcap^{\infty}_{i=1}A_{i}^{c}.
+              \end{align*}
+              \par We obtain two inclusions $\left(\bigcup^{\infty}_{i=1}A_{i}\right)^{c} \subseteq \bigcap^{\infty}_{i=1}A_{i}^{c}$ and $\bigcap^{\infty}_{i=1}A_{i}^{c} \subseteq \left(\bigcup^{\infty}_{i=1}A_{i}\right)^{c}$, which means
+              \[
+                  \left(\bigcup^{\infty}_{i=1}A_{i}\right)^{c} = \bigcap^{\infty}_{i=1}A_{i}^{c}.
+              \]
+    \end{enumerate}
+\end{proof}
 
 \section{The Axiom of Completeness}
 
