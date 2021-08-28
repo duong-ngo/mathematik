@@ -61,3 +61,4 @@
 \def\arraystretch{1.2}%
 \array{@{}l@{\quad}l@{}}%
 }
+\newcommand{\idontknowcards}{Skip. I don't know these terms in cards.}

@@ -23,10 +23,10 @@
             P(A\cap B) = 0.28
         \end{cases}
     \]
-    \par $P(A'\cap B') = 1 - P(A\cup B) = 1 - P(A) - P(B) + P(A\cap B)$.
-    \par Therefore, $P(A) + P(B) = 1 - P(A'\cap B') + P(A\cap B) = 1 - 0.08 + 0.28 = 0.8$.
-    \par Together with $P(A) - P(B) = 0.16$, we obtain that $P(A) = 0.48$.
-    \par Hence probability of a randomly selected patient visiting a physical therapist is 48\%.
+    \par $P(A'\cap B') = 1 - P(A\cup B)$, then $P(A\cup B) = 0.92$.
+    \par Therefore, $P(A) + P(B) = P(A\cup B) + P(A\cap B) = 1.2$.
+    \par Together with $P(A) - P(B) = 0.16$, we obtain that $P(A) = 1.36 / 2 = 0.68$.
+    \par Hence probability of a randomly selected patient visiting a physical therapist is 68\%.
 \end{proof}
 
 \begin{exercise}
@@ -385,7 +385,332 @@
 
 \section{Methods of Enumeration}
 
+\begin{exercise}
+    \par A boy found a bicycle lock for which the combination was unknown. The correct combination is a four-digit number, $d_{1}d_{2}d_{3}d_{4}$, where $d_{i}$, $i = 1, 2, 3, 4$, is selected from 1, 2, 3, 4, 5, 6, 7, and 8. How many different lock combinations are possible with such a lock?
+\end{exercise}
 
+\begin{proof}[Solution]
+    \par According to the multiplicative principle, total number of different lock combinations is:
+    \[
+        4^{4} = 4096.
+    \]
+\end{proof}
+
+\begin{exercise}
+    \par In designing an experiment, the researcher can often choose many different levels of various factors in order to try to find the best combination at which to operate. As an illustration, suppose the researcher is studying a certain chemical reaction and can choose four levels of temperature, five different pressures, and two different catalysts.
+    \begin{enumerate}[label = \textbf{(\alph*)}]
+        \item To consider all possible combinations, how many experiments would need to be conducted?
+        \item Often in preliminary experimentation, each factor is restricted to two levels. With the three factors noted, how many experiments would need to be run to cover all possible combinations with each of the threee factors at two levels?
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}[Solution]
+    \begin{enumerate}[label = \textbf{(\alph*)}]
+        \item According to multiplicative principle, total number of experiments that need to be conducted is:
+              \[
+                  4\cdot 5\cdot 2 = 40.
+              \]
+        \item If each factor is restricted to two levels, then the number would be:
+              \[
+                  2\cdot 2\cdot 2 = 8.
+              \]
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    \par How many different license plates are possible if a state uses
+    \begin{enumerate}[label = (\alph*)]
+        \item Two letters followed by a four-digit integer (leading zeros are permissible and the letters and digits can be repeated)?
+        \item Three letters followed by a three-digit integer?
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}[Solution]
+    \begin{enumerate}[label = (\alph*)]
+        \item $26^{2}\cdot 10^{4}$.
+        \item $26^{3}\cdot 10^{3}$.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    \par The ``eating club'' is hosting a make-your-own sun-dae at which the following are provided:
+    \begin{table}[htp]
+        \centering
+        \begin{tabular}{c|c}
+            \hline
+            Ice Cream Flavor & Toppings     \\
+            \hline
+            Chocolate        & Caramel      \\
+            Cookie `n' cream & Hot fudge    \\
+            Strawberry       & Marshmellow  \\
+            Vanilla          & M\&M's       \\
+                             & Nuts         \\
+                             & Strawberries \\
+            \hline
+        \end{tabular}
+    \end{table}
+    \begin{enumerate}[label = \textbf{(\alph*)}]
+        \item How many sundaes are possible using one flavor of ice cream and three different toppings?
+        \item How many sundaes are possible using one flavor of ice cream and from zero to six toppings?
+        \item How many different combinations of flavors of three scoops of ice cream are possible if it is permissible to make all three scoops the same flavor?
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}[Solution]
+    \begin{enumerate}[label = \textbf{(\alph*)}]
+        \item $4 \times \binom{6}{3} = 80$
+        \item $4 \times 2^{6} = 256$
+        \item $4^{3} = 64$.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    \par How many four-letter code words are possible using the letters in IOWA if:
+    \begin{enumerate}[label = \textbf{(\alph*)}]
+        \item The letters may not be repeated?
+        \item The letters may be repeated?
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}[Solution]
+    \begin{enumerate}[label = \textbf{(\alph*)}]
+        \item $4! = 24$.
+        \item $4^{4} = 256$.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    \par Suppose that Novak Djokovic and Roger Federer are playing a tennis match in which the first player to win three sets wins the match. Using D and F for the winning player of a set, in how many ways could this tennis match end?
+\end{exercise}
+
+\begin{proof}[Solution]
+    \begin{itemize}
+        \item If the match has 3 sets:
+              \par DDD, FFF.
+        \item If the match has 4 sets:
+              \par DDFD, DFDD, FDDD, FFDF, FDFF, DFFF.
+        \item If the match has 5 sets:
+              \par DDFFD, FFDDD, DFDFD, DFFDD, FDDFD, FDFDD.
+              \par DDFFF, FFDDF, DFDFF, DFFDF, FDDFF, FDFDF.
+    \end{itemize}
+\end{proof}
+
+\begin{exercise}
+    \par In a state lottery, four digits are drawn at random one at a time with replacement from 0 to 9. Suppose that you win if any permutation of your selected integers is drawn. Give the probability of winning if you select
+    \begin{enumerate}[label = \textbf{(\alph*)}]
+        \item 6, 7, 8, 9.
+        \item 6, 7, 8, 8.
+        \item 7, 7, 8, 8.
+        \item 7, 8, 8, 8.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}[Solution]
+    \begin{enumerate}[label = \textbf{(\alph*)}]
+        \item $\frac{4!}{10^{4}}$.
+        \item $10^{-4}\cdot\frac{4!}{1!1!2!}$.
+        \item $10^{-4}\cdot\frac{4!}{2!2!}$.
+        \item $10^{-4}\cdot\frac{4!}{1!3!}$.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    \par How many different varieties of pizza can be made if you have the following choice: small, medium, or large size; thin `n' crispy, hand-tossed, or pan crust; and 12 toppings (cheese is automatic), from which you may select from 0 to 12?
+\end{exercise}
+
+\begin{proof}[Solution]
+    $3 \times 3 \times 13 = 117$.
+\end{proof}
+
+\begin{exercise}
+    \par The World Series in baseball continues until either the American League team or the National League team wins four games. How many different orders are possible (e.g., ANNAAA means the American League team wins in six games) if the series goes
+    \begin{enumerate}[label = \textbf{(\alph*)}]
+        \item Four games?
+        \item Five games?
+        \item Six games?
+        \item Seven games?
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}[Solution]
+    \begin{enumerate}[label = \textbf{(\alph*)}]
+        \item Only two: AAAA and NNNN.
+        \item If American wins, there are $\binom{5}{4} = 5$ orders.
+              \par If National League wins, there are $\binom{5}{4} = 5$ orders.
+              \par Totally, there are 10 orders.
+        \item $2\binom{6}{4} = 30$.
+        \item $2\binom{7}{4} = 70$.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    \par Prove that
+    \[
+        \binom{n}{r} = \binom{n-1}{r} + \binom{n-1}{r-1}.
+    \]
+\end{exercise}
+
+\begin{proof}[Solution]
+    \par To select $r$ elements out of $n$ elements, there are $\binom{n}{r}$.
+    \par If we select $r$ elements out of $n$ elements, there are two methods:
+    \begin{itemize}
+        \item Take $n - 1$ elements and select $r$ elements from it - There are $\binom{n-1}{r}$ ways.
+        \item Take one element and select $r - 1$ elements from $n - 1$ elements - There are $\binom{n-1}{r-1}$ ways.
+    \end{itemize}
+    \par Therefore, $\binom{n}{r} = \binom{n-1}{r} + \binom{n-1}{r-1}$.
+\end{proof}
+
+\begin{exercise}
+    \par Three students (S) and six faculty members (F) are on a panel discussing a new college policy.
+    \begin{enumerate}[label = \textbf{(\alph*)}]
+        \item In how many different ways can the nine participants be lined up at a table in the front of the auditorium?
+        \item How many lineups are possible, considering only the labels S and F?
+        \item For each of the nine participants, you are to decide whether the participant did a good job or a poor job stating his or her opinion of the new policy; that is, give each of the nine participants a grade of G or P. How many different “scorecards” are possible?
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}[Solution]
+    \begin{enumerate}[label = \textbf{(\alph*)}]
+        \item 9!
+        \item $\frac{9!}{3!6!} = 84$.
+        \item $2^{9} = 512$.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    \par Prove
+    \[
+        \sum^{n}_{r=0}(-1){}^{r}\binom{n}{r} = 0
+        \quad\text{ and }\quad
+        \sum^{n}_{r=0}\binom{n}{r} = 2^{n}.
+    \]
+\end{exercise}
+
+\begin{proof}[Solution]
+    \[
+        \sum^{n}_{r=0}(-1){}^{r}\binom{n}{r} = (1 - 1)^{n} = 0.
+    \]
+    \[
+        \sum^{n}_{r=0}\binom{n}{r} = (1 + 1)^{n} = 2^{n}.
+    \]
+\end{proof}
+
+\begin{exercise}
+    \par A bridge hand is found by taking 13 cards at random and without replacement from a deck of 52 playing cards. Find the probability of drawing each of the following hands.
+    \begin{enumerate}[label = \textbf{(\alph*)}]
+        \item One in which there are 5 spades, 4 hearts, 3 diamonds, and 1 club.
+        \item One in which there are 5 spades, 4 hearts, 2 diamonds, and 2 clubs.
+        \item One in which there are 5 spades, 4 hearts, 1 diamond, and 3 clubs.
+        \item Suppose you are dealt 5 cards of one suit, 4 cards of another. Would the probability of having the other suits split 3 and 1 be greater than the probability of having them split 2 and 2?
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}[Solution]
+    \begin{enumerate}[label = \textbf{(\alph*)}]
+        \item
+              \[
+                  \dfrac{
+                      \dbinom{13}{5}
+                      \dbinom{13}{4}
+                      \dbinom{13}{3}
+                      \dbinom{13}{1}
+                  }{\dbinom{52}{13}}.
+              \]
+        \item
+              \[
+                  \dfrac{
+                      \dbinom{13}{5}
+                      \dbinom{13}{4}
+                      \dbinom{13}{2}
+                      \dbinom{13}{2}
+                  }{\dbinom{52}{13}}.
+              \]
+        \item
+              \[
+                  \dfrac{
+                      \dbinom{13}{5}
+                      \dbinom{13}{4}
+                      \dbinom{13}{1}
+                      \dbinom{13}{3}
+                  }{\dbinom{52}{13}}.
+              \]
+        \item \idontknowcards
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    \par A bag of 36 dum-dum pops (suckers) contains up to 10 flavors. That is, there are from 0 to 36 suckers of each of 10 flavors in the bag. How many different flavor combinations are possible?
+\end{exercise}
+
+\begin{proof}[Solution]
+    \par $\binom{36 + 10 - 1}{10 - 1} = \binom{45}{9}$.
+\end{proof}
+
+\begin{exercise}
+    \par Suppose that in a set of $n$ objects, $n_{1}$ are similar, $n_{2}$ are similar, \ldots , $n_{s}$ are similar, where $n_{1} + n_{2} + \cdots + n_{s} = n$. Prove that the number of distinguishable permutations of the $n$ objects is:
+    \[
+        \binom{n}{n_{1},n_{2},\ldots,n_{s}} = \frac{n!}{n_{1}!n_{2}!\cdots n_{s}!}.
+    \]
+\end{exercise}
+
+\begin{proof}[Solution]
+    \par 1st, we select $n_{1}$ positions for $n_{1}$ similar elements, there are $\dbinom{n}{n_{1}}$ choices.
+    \par 2nd, we select $n_{2}$ positions for $n_{2}$ similar elements, there are $\dbinom{n-n_{1}}{n_{2}}$ choices.
+    \par \vdots
+    \par s^{th}, we select $n_{s}$ positions for $n_{s}$ similar elements, there are $\dbinom{n-n_{1}-n_{2}-\cdots-n_{s-1}}{n_{s}}$.
+    \par According to multiplicative princicple, the number of permutations is:
+    \[
+        \binom{n}{n_{1}}\binom{n-n_{1}}{n_{2}}\cdots\binom{n-n_{1}-n_{2}-\cdots-n_{s-1}}{n_{s}} = \frac{n!}{n_{1}!n_{2}!\cdots n_{s}!}.
+    \]
+\end{proof}
+
+\begin{exercise}
+    \par A box of candy hearts contains 52 hearts, of which 19 are white, 10 are tan, 7 are pink, 3 are purple, 5 are yellow, 2 are orange, and 6 are green. If you select nine pieces of candy randomly from the box, without replacement, give the probability that
+    \begin{enumerate}[label = \textbf{(\alph*)}]
+        \item Three of the hearts are white.
+        \item Three are white, two are tan, one is pink, one is yellow, and two are green.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}[Solution]
+    \begin{enumerate}[label = \textbf{(\alph*)}]
+        \item
+              \[
+                  \dfrac{
+                      \dbinom{19}{3}\dbinom{52-19}{6}
+                  }{\dbinom{52}{9}}
+                  =
+                  \dfrac{
+                      \dbinom{19}{3}\dbinom{33}{6}
+                  }{\dbinom{52}{9}}.
+              \]
+        \item
+              \[
+                  \dfrac{
+                      \dbinom{19}{3}
+                      \dbinom{10}{2}
+                      \dbinom{7}{1}
+                      \dbinom{5}{1}
+                      \dbinom{6}{2}
+                  }{\dbinom{52}{9}}
+              \]
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    \par A poker hand is defined as drawing 5 cards at random without replacement from a deck of 52 playing cards. Find the probability of each of the following poker hands:
+    \begin{enumerate}[label = \textbf{(\alph*)}]
+        \item Four of a kind (four cards of equal face value and one card of a different value).
+        \item Full house (one pair and one triple of cards with equal face value).
+        \item Three of a kind (three equal face values plus two cards of different values).
+        \item Two pairs (two pairs of equal face value plus one card of a different value).
+        \item One pair (one pair of equal face value plus three cards of different values).
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}[Solution]
+    \par \idontknowcards
+\end{proof}
 
 \section{Conditional Probability}
 

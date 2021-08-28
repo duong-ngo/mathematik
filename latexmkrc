@@ -1,2 +1,2 @@
 $clean_ext = "aux fdb_latexmk fls log sta synctex.gz toc nav snm out maf mlf mlt mtc slf slt stc dep bbl";
-$pdf_previewer = "qpdfview --unique --instance mathematics";
+$pdf_previewer = "atril --preview";

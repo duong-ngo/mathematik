@@ -64,6 +64,11 @@ format-linear-algebra:
 format-prob-and-stats:
 	@find prob-and-stats -regex ".*\.\(tex\|cls\|sty\)\$$" -exec latexindent $(LATEXINDENT_OPTIONS) {} \;
 
+format-understanding-analysis:
+	@find understanding-analysis -regex ".*\.\(tex\|cls\|sty\)\$$" -exec latexindent $(LATEXINDENT_OPTIONS) {} \;
+
+format-algebra:
+	@find algebra -regex ".*\.\(tex\|cls\|sty\)\$$" -exec latexindent $(LATEXINDENT_OPTIONS) {} \;
 
 updatecls: cleanaux
 	@mkdir -p $(shell kpsewhich -var-value=TEXMFHOME)/tex/latex/local/class; \
