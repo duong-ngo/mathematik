@@ -26,7 +26,7 @@
         \item $
                   \begin{pmatrix}
                       1  & -3 & 3  \\
-                      -2 & 6  & 13 \\
+                      -2 & -6 & 13 \\
                       -1 & -4 & 8
                   \end{pmatrix}
               $,
@@ -57,13 +57,406 @@
 \end{exercise}
 
 \begin{proof}[Lời giải]
+    \begin{enumerate}[label = (\alph*)]
+        \item Đa thức đặc trưng của tự đồng cấu này là:
+              \[
+                  \begin{vmatrix}
+                      2 - X & -1     & 2      \\
+                      5     & -3 - X & 3      \\
+                      -1    & 0      & -2 - X
+                  \end{vmatrix}
+                  = -(X+1){}^{3}.
+              \]
+              \par Tự đồng cấu có giá trị riêng duy nhất $\lambda_{1} = -1$.
+              \par Các vector riêng ứng với giá trị riêng $\lambda_{1} = -1$ là nghiệm không tầm thường của hệ phương trình tuyến tính thuần nhất sau:
+              \[
+                  \begin{pmatrix}
+                      3  & -1 & 2  \\
+                      5  & -2 & 3  \\
+                      -1 & 0  & -1
+                  \end{pmatrix}
+                  \begin{pmatrix}
+                      x \\
+                      y \\
+                      z
+                  \end{pmatrix}
+                  =
+                  \begin{pmatrix}
+                      0 \\
+                      0 \\
+                      0
+                  \end{pmatrix}
+                  \Longleftrightarrow
+                  \begin{cases}
+                      3x - y + 2z = 0 \\
+                      -x - z = 0
+                  \end{cases}
+              \]
+              \par Nghiệm tổng quát của hệ phương trình tuyến tính này là $(x, y, z) = (a, a, -a)$.
+              \par Vậy các vector riêng của tự đồng cấu là các vector $a(1, 1, -1)$, trong đó $a\ne 0$.
+        \item Đa thức đặc trưng của tự đồng cấu này là:
+              \[
+                  \begin{vmatrix}
+                      4 - X & -5     & 2     \\
+                      5     & -7 - X & 3     \\
+                      6     & -9     & 4 - X
+                  \end{vmatrix}
+                  = X^{2}(1 - X).
+              \]
+              \par Tự đồng cấu có hai giá trị riêng $\lambda_{1} = 0$, $\lambda_{2} = 1$.
+              \par Các vector riêng ứng với giá trị riêng $\lambda_{1} = 0$ là nghiệm không tầm thường của hệ phương trình tuyến tính thuần nhất sau:
+              \[
+                  \begin{pmatrix}
+                      4 & -5 & 2 \\
+                      5 & -7 & 3 \\
+                      6 & -9 & 4
+                  \end{pmatrix}
+                  \begin{pmatrix}
+                      x \\
+                      y \\
+                      z
+                  \end{pmatrix}
+                  =
+                  \begin{pmatrix}
+                      0 \\
+                      0 \\
+                      0
+                  \end{pmatrix}
+                  \Longleftrightarrow
+                  \begin{cases}
+                      3y - 2z = 0 \\
+                      x - 2y + z = 0
+                  \end{cases}.
+              \]
+              \par Nghiệm tổng quát của hệ phương trình tuyến tính này là $(x, y, z) = (a, 2a, 3a)$, suy ra các vector riêng của tự đồng cấu ứng với giá trị riêng $\lambda_{1} = 0$ là các vector $a(1, 2, 3)$, trong đó $a \ne 0$.
+              \bigskip
+              \par Các vector riêng ứng với giá trị riêng $\lambda_{2} = 1$ là nghiệm không tầm thường của hệ phương trình tuyến tính thuần nhất sau:
+              \[
+                  \begin{pmatrix}
+                      3 & -5 & 2 \\
+                      4 & -7 & 3 \\
+                      5 & -9 & 4
+                  \end{pmatrix}
+                  \begin{pmatrix}
+                      x \\
+                      y \\
+                      z
+                  \end{pmatrix}
+                  =
+                  \begin{pmatrix}
+                      0 \\
+                      0 \\
+                      0
+                  \end{pmatrix}
+                  \Longleftrightarrow
+                  \begin{cases}
+                      x - 2y + z = 0 \\
+                      y - z = 0
+                  \end{cases}.
+              \]
+              \par Nghiệm tổng quát của hệ phương trình tuyến tính này là $(x, y, z) = (a, a, a)$, suy ra các vector riêng của tự đồng cấu ứng với giá trị riêng $\lambda_{2} = 1$ là các vector $a(1, 1, 1)$, trong đó $a \ne 0$.
+        \item Đa thức đặc trưng của tự đồng cấu này là:
+              \[
+                  \begin{vmatrix}
+                      1 - X & -3     & 3     \\
+                      -2    & -6 - X & 13    \\
+                      -1    & -4     & 8 - X
+                  \end{vmatrix}
+                  = (1-X){}^{3}.
+              \]
+              \par Tự đồng cấu có một giá trị riêng $\lambda_{1} = 1$.
+              \par Các vector riêng ứng với giá trị riêng $\lambda_{1}$ là nghiệm không tầm thường của hệ phương trình tuyến tính thuần nhất:
+              \[
+                  \begin{pmatrix}
+                      0  & -3 & 3  \\
+                      -2 & -7 & 13 \\
+                      -1 & -4 & 7
+                  \end{pmatrix}
+                  \begin{pmatrix}
+                      x \\
+                      y \\
+                      z
+                  \end{pmatrix}
+                  =
+                  \begin{pmatrix}
+                      0 \\
+                      0 \\
+                      0
+                  \end{pmatrix}
+                  \Longleftrightarrow
+                  \begin{cases}
+                      y = z \\
+                      x = 3y
+                  \end{cases}.
+              \]
+              \par Nghiệm tổng quát của hệ phương trình tuyến tính này là $(x, y, z) = (3a, a, a)$, suy ra các vector riêng ứng với giá trị riêng $\lambda_{1} = 1$ là $a(3, 1, 1)$
+        \item Đa thức đặc trưng của tự đồng cấu này là:
+              \[
+                  \begin{vmatrix}
+                      1 - X & -3     & 4     \\
+                      4     & -7 - X & 8     \\
+                      6     & -7     & 7 - X
+                  \end{vmatrix}
+                  = (3 - X)(X + 1){}^{2}.
+              \]
+              \par Tự đồng cấu có hai giá trị riêng $\lambda_{1} = 3$, $\lambda_{2} = -1$.
+              \par Các vector riêng ứng với giá trị riêng $\lambda_{1} = 3$ là nghiệm của hệ phương trình tuyến tính thuần nhất:
+              \[
+                  \begin{pmatrix}
+                      -2 & -3  & 4 \\
+                      4  & -10 & 8 \\
+                      6  & -7  & 4
+                  \end{pmatrix}
+                  \begin{pmatrix}
+                      x \\
+                      y \\
+                      z
+                  \end{pmatrix}
+                  =
+                  \begin{pmatrix}
+                      0 \\
+                      0 \\
+                      0
+                  \end{pmatrix}
+                  \Longleftrightarrow
+                  \begin{cases}
+                      -y + z = 0 \\
+                      6x - 7y + 4z = 0
+                  \end{cases}.
+              \]
+              \par Nghiệm tổng quát của hệ phương trình tuyến tính này là $(x, y, z) = (a, 2a, 2a)$, suy ra các vector riêng ứng với giá trị riêng $\lambda_{1} = 3$ là $a(1, 2, 2)$, trong đó $a \ne 0$.
+              \bigskip
+              \par Các vector riêng ứng với giá trị riêng $\lambda_{2} = -1$ là nghiệm không tầm thường của hệ phương trình tuyến tính thuần nhất:
+              \[
+                  \begin{pmatrix}
+                      2 & -3 & 4 \\
+                      4 & -6 & 8 \\
+                      6 & -7 & 8
+                  \end{pmatrix}
+                  \begin{pmatrix}
+                      x \\
+                      y \\
+                      z
+                  \end{pmatrix}
+                  =
+                  \begin{pmatrix}
+                      0 \\
+                      0 \\
+                      0
+                  \end{pmatrix}
+                  \Longleftrightarrow
+                  \begin{cases}
+                      y - 2z = 0 \\
+                      2x - y = 0
+                  \end{cases}.
+              \]
+              \par Nghiệm tổng quát của hệ phương trình tuyến tính này là $(x, y, z) = (a, 2a, a)$, suy ra các vector riêng ứng với giá trị riêng $\lambda_{2} = -1$ là $a(1, 2, 1)$, trong đó $a \ne 0$.
+        \item Đa thức đặc trưng của tự đồng cấu này là:
+              \[
+                  \begin{vmatrix}
+                      1 - X & 0  & 0  & 0  \\
+                      0     & -X & 0  & 0  \\
+                      0     & 0  & -X & 0  \\
+                      1     & 0  & 0  & -X
+                  \end{vmatrix}
+                  = X^{2}(X-1){}^{2}.
+              \]
+              \par Tự đồng cấu có hai giá trị riêng $\lambda_{1} = 0$, $\lambda_{2} = 1$.
+              \par Các vector riêng tương ứng với giá trị riêng $\lambda_{1} = 0$ là nghiệm không tầm thường của hệ phương trình tuyến tính thuần nhất:
+              \[
+                  \begin{pmatrix}
+                      1 & 0 & 0 & 0 \\
+                      0 & 0 & 0 & 0 \\
+                      0 & 0 & 0 & 0 \\
+                      1 & 0 & 0 & 1
+                  \end{pmatrix}
+                  \begin{pmatrix}
+                      x \\
+                      y \\
+                      z \\
+                      w
+                  \end{pmatrix}
+                  =
+                  \begin{pmatrix}
+                      0 \\
+                      0 \\
+                      0 \\
+                      0
+                  \end{pmatrix}
+                  \Longleftrightarrow
+                  \begin{cases}
+                      x = 0 \\
+                      x + w = 0
+                  \end{cases}.
+              \]
+              \par Nghiệm tổng quát của hệ phương trình tuyến tính trên là $(x, y, z, w) = (0, a, b, 0)$, do đó các vector riêng ứng với giá trị riêng $\lambda_{1} = 0$ là $a(0, 1, 0, 0) + b(0, 0, 1, 0)$, trong đó $(a, b)\ne (0, 0)$.
+              \bigskip
+              \par Các vector riêng ứng với giá trị riêng $\lambda_{2} = 1$ là nghiệm không tầm thường của hệ phương trình tuyến tính thuần nhất:
+              \[
+                  \begin{pmatrix}
+                      0 & 0  & 0  & 0 \\
+                      0 & -1 & 0  & 0 \\
+                      0 & 0  & -1 & 0 \\
+                      1 & 0  & 0  & 0
+                  \end{pmatrix}
+                  \begin{pmatrix}
+                      x \\
+                      y \\
+                      z \\
+                      w
+                  \end{pmatrix}
+                  =
+                  \begin{pmatrix}
+                      0 \\
+                      0 \\
+                      0 \\
+                      0
+                  \end{pmatrix}
+                  \Longleftrightarrow
+                  \begin{cases}
+                      y = 0 \\
+                      z = 0 \\
+                      x = 0
+                  \end{cases}.
+              \]
+              \par Nghiệm tổng quát của hệ phương trình tuyến tính trên là $(x, y, z, w) = (0, 0, 0, a)$, do đó các vector riêng ứng với giá trị riêng $\lambda_{2} = 1$ là $a(0, 0, 0, 1)$, trong đó $a\ne 0$.
+        \item Đa thức đặc trưng của tự đồng cấu này là:
+              \[
+                  \begin{vmatrix}
+                      3 - X & -1    & 0     & 0      \\
+                      1     & 1 - X & 0     & 0      \\
+                      3     & 0     & 5 - X & -3     \\
+                      4     & -1    & 3     & -1 - X
+                  \end{vmatrix}
+                  = (X - 2){}^{4}.
+              \]
+              \par Tự đồng cấu có một giá trị riêng là $\lambda_{1} = 2$.
+              \par Các vector riêng ứng với giá trị riêng $\lambda_{1} = 2$ là nghiệm không tầm thường của hệ phương trình tuyến tính thuần nhất:
+              \[
+                  \begin{pmatrix}
+                      1 & -1 & 0 & 0  \\
+                      1 & -1 & 0 & 0  \\
+                      3 & 0  & 3 & -3 \\
+                      4 & -1 & 3 & -3
+                  \end{pmatrix}
+                  \begin{pmatrix}
+                      x \\
+                      y \\
+                      z \\
+                      w
+                  \end{pmatrix}
+                  =
+                  \begin{pmatrix}
+                      0 \\
+                      0 \\
+                      0 \\
+                      0
+                  \end{pmatrix}
+                  \Longleftrightarrow
+                  \begin{cases}
+                      x = y \\
+                      x + z - w = 0
+                  \end{cases}.
+              \]
+              \par Nghiệm tổng quát của hệ phương trình tuyến tính trên là $(x, y, z, w) = (b-a, b-a, a, b)$, do đó các vector riêng ứng với các giá trị riêng $\lambda_{1} = 2$ là $(b-a)(1, 1, 0, 0) + a(0, 0, 1, 0) + b(0, 0, 0, 1)$, trong đó $(a, b)\ne (0, 0)$.
+    \end{enumerate}
 \end{proof}
 
 \begin{exercise}
-    \par Chứng minh rằng nếu tự đồng cấu $\varphi$ của không gian vector $n$ chiều $V$ có $n$ giá trị riêng khác nhau và $\psi$ là một tự đồng cấu giao hoán với $\varphi$, thì mỗi vector riêng của $\varphi$ cũng là một vector riêng của $\psi$ và $\psi$ có một cơ sở gồm toàn vector riêng của nó.
+    \par Chứng minh rằng nếu tự đồng cấu $\varphi$ của không gian vector $n$ chiều $V$ có $n$ giá trị riêng khác nhau và $\psi$ là một tự đồng cấu giao hoán với $\varphi$, thì mỗi vector riêng của $\varphi$ cũng là một vector riêng của $\psi$ và $V$ có một cơ sở gồm toàn vector riêng của $\psi$.
 \end{exercise}
 
 \begin{proof}
+    \par Gọi $n$ giá trị riêng phân biệt của $\varphi$ là $\lambda_{1}$, $\lambda_{2}$, \ldots, $\lambda_{n}$. $\alpha_{1}$, $\alpha_{2}$, \ldots, $\alpha_{n}$ lần lượt là các vector riêng tương ứng với các giá trị riêng $\lambda_{1}$, $\lambda_{2}$, \ldots, $\lambda_{n}$.
+    \par Xét ràng buộc tuyến tính:
+    \begin{align*}
+                         & a_{1}\alpha_{1} + a_{2}\alpha_{2} + \cdots + a_{n}\alpha_{n} = 0                                                                                                                                                                                         \\
+        \Rightarrow\quad & a_{1}\varphi(\alpha_{1}) + a_{2}\varphi(\alpha_{2}) + \cdots + a_{n}\varphi(\alpha_{n}) = 0                                                                                                                                                              \\
+        \Rightarrow\quad & a_{1}\lambda_{1}\alpha_{1} + a_{2}\lambda_{2}\alpha_{2} + \cdots + a_{n}\lambda_{n}\alpha_{n} = 0                                                                                                                                                        \\
+        \Rightarrow\quad & a_{1}(\lambda_{1} - \lambda_{n})\alpha_{1} + a_{2}(\lambda_{2} - \lambda_{n})\alpha_{2} + \cdots + a_{n-1}(\lambda_{n-1} - \lambda_{n})\alpha_{n-1} = 0 \tag{1}                                                                                          \\
+        \Rightarrow\quad & a_{1}(\lambda_{1} - \lambda_{n})\varphi(\alpha_{1}) + a_{2}(\lambda_{2} - \lambda_{n})\varphi(\alpha_{2}) + \cdots + a_{n-1}(\lambda_{n-1} - \lambda_{n})\varphi(\alpha_{n-1}) = 0                                                                       \\
+        \Rightarrow\quad & a_{1}(\lambda_{1} - \lambda_{n})\lambda_{1}\alpha_{1} + a_{2}(\lambda_{2} - \lambda_{n})\lambda_{2}\alpha_{2} + \cdots + a_{n-1}(\lambda_{n-1} - \lambda_{n})\lambda_{n-1}\alpha_{n-1} = 0                                                               \\
+        \Rightarrow\quad & a_{1}(\lambda_{1} - \lambda_{n})(\lambda_{1} - \lambda_{n-1})\alpha_{1} + a_{2}(\lambda_{2} - \lambda_{n})(\lambda_{2} - \lambda_{n-1})\alpha_{2} + \cdots + a_{n-2}(\lambda_{n-2} - \lambda_{n})(\lambda_{n-2} - \lambda_{n-1})\alpha_{n-2} = 0 \tag{2} \\
+                         & \ddots
+    \end{align*}
+    \par Tiếp tục quá trình này, ta thu được các ràng buộc tuyến tính sau:
+    \begin{align*}
+         & a_{1}\prod_{1 < i \le n}(\lambda_{1} - \lambda_{i})\cdot\alpha_{1}                                                                                  & = 0 \\
+         & a_{1}\prod_{2 < i \le n}(\lambda_{1} - \lambda_{i})\cdot\alpha_{1} + a_{2}\prod_{2 < i\le n}(\lambda_{2} - \lambda_{i})\cdot\alpha_{2}              & = 0 \\
+         & \vdots                                                                                                                                                    \\
+         & a_{1}(\lambda_{1} - \lambda_{n})\alpha_{1} + a_{2}(\lambda_{2} - \lambda_{n})\alpha_{2} + \cdots + a_{n-1}(\lambda_{n-1} - \lambda_{n})\alpha_{n-1} & = 0 \\
+         & a_{1}\alpha_{1} + a_{2}\alpha_{2} + \cdots + a_{n}\alpha_{n}                                                                                        & = 0
+    \end{align*}
+    \par Vì các giá trị riêng đôi một khác nhau và các vector riêng khác không nên $a_{1} = a_{2} = \cdots = a_{n} = 0$.
+    \par Do đó các vector $\alpha_{1}$, $\alpha_{2}$, \ldots, $\alpha_{n}$ độc lập tuyến tính.
+    \par Mà $\dim V = n$ nên $\alpha_{1}$, $\alpha_{2}$, \ldots, $\alpha_{n}$ là một cơ sở của $V$.
+    \par Như vậy ma trận của $\varphi$ đối với cơ sở $\alpha_{1}$, $\alpha_{2}$, \ldots, $\alpha_{n}$ là ma trận chéo sau đây:
+    \[
+        \begin{pmatrix}
+            \lambda_{1} & 0           & \cdots & 0           \\
+            0           & \lambda_{2} & \cdots & 0           \\
+            \vdots      & \vdots      & \ddots & \vdots      \\
+            0           & 0           & \cdots & \lambda_{n}
+        \end{pmatrix}.
+    \]
+    \par Đặt ma trận của $\psi$ đối với cơ sở $\alpha_{1}$, $\alpha_{2}$, \ldots, $\alpha_{n}$ là $(a_{ij}){}_{n\times n}$. Do $\varphi\psi = \psi\varphi$ nên:
+    \begingroup
+    \allowdisplaybreaks
+    \begin{align*}
+        \begin{pmatrix}
+            \lambda_{1} & 0           & \cdots & 0           \\
+            0           & \lambda_{2} & \cdots & 0           \\
+            \vdots      & \vdots      & \ddots & \vdots      \\
+            0           & 0           & \cdots & \lambda_{n}
+        \end{pmatrix}
+        \begin{pmatrix}
+            a_{11} & a_{12} & \cdots & a_{1n} \\
+            a_{21} & a_{22} & \cdots & a_{2n} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            a_{n1} & a_{n2} & \cdots & a_{nn}
+        \end{pmatrix}
+         & =
+        \begin{pmatrix}
+            a_{11} & a_{12} & \cdots & a_{1n} \\
+            a_{21} & a_{22} & \cdots & a_{2n} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            a_{n1} & a_{n2} & \cdots & a_{nn}
+        \end{pmatrix}
+        \begin{pmatrix}
+            \lambda_{1} & 0           & \cdots & 0           \\
+            0           & \lambda_{2} & \cdots & 0           \\
+            \vdots      & \vdots      & \ddots & \vdots      \\
+            0           & 0           & \cdots & \lambda_{n}
+        \end{pmatrix} \\
+        \Longleftrightarrow
+        \begin{pmatrix}
+            \lambda_{1}a_{11} & \lambda_{1}a_{12} & \cdots & \lambda_{1}a_{1n} \\
+            \lambda_{2}a_{21} & \lambda_{2}a_{22} & \cdots & \lambda_{2}a_{2n} \\
+            \vdots            & \vdots            & \ddots & \vdots            \\
+            \lambda_{n}a_{n1} & \lambda_{n}a_{n2} & \cdots & \lambda_{n}a_{nn}
+        \end{pmatrix}
+         & =
+        \begin{pmatrix}
+            \lambda_{1}a_{11} & \lambda_{2}a_{12} & \cdots & \lambda_{n}a_{1n} \\
+            \lambda_{1}a_{21} & \lambda_{2}a_{22} & \cdots & \lambda_{n}a_{2n} \\
+            \vdots            & \vdots            & \ddots & \vdots            \\
+            \lambda_{1}a_{n1} & \lambda_{2}a_{n2} & \cdots & \lambda_{n}a_{nn}
+        \end{pmatrix}.
+    \end{align*}
+    \endgroup
+    \par Đồng nhất các yếu tố của hai ma trận trên, ta được $a_{ij}\lambda_{i} = a_{ij}\lambda_{j}$.
+    \par Nếu $i\ne j$ thì $\lambda_{i}\ne\lambda_{j}$, kéo theo $a_{ij} = 0, \forall i\ne j$.
+    \par Như vậy, ma trận của $\psi$ đối với cơ sở $\alpha_{1}$, $\alpha_{2}$, \ldots, $\alpha_{n}$ là:
+    \[
+        \begin{pmatrix}
+            a_{11} & 0      & \cdots & 0      \\
+            0      & a_{22} & \cdots & 0      \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0      & 0      & \cdots & a_{nn}
+        \end{pmatrix}.
+    \]
+    \par Suy ra $\psi(\alpha_{1}) = a_{11}\alpha_{1}$, $\psi(\alpha_{2}) = a_{22}\alpha_{2}$, \ldots, $\psi(\alpha_{n}) = a_{nn}\alpha_{n}$.
+    \par Do đó, vector riêng của $\varphi$ cũng là vector riêng của $\psi$ và $V$ có một cơ sở gồm toàn vector riêng của $\psi$.
 \end{proof}
 
 \end{document}
