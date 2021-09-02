@@ -6,6 +6,8 @@
 
 \chapter{Cấu trúc của tự đồng cấu}
 
+\par Nếu không nói gì thêm, ta hiểu các ma trận có các yếu tố thuộc trường số phức.
+
 \begin{exercise}
     \par Tìm giá trị riêng và vector riêng của các tự đồng cấu có ma trận sau đây đối với một cơ sở nào đó của không gian:
     \begin{enumerate}[label = (\alph*)]
@@ -457,6 +459,508 @@
     \]
     \par Suy ra $\psi(\alpha_{1}) = a_{11}\alpha_{1}$, $\psi(\alpha_{2}) = a_{22}\alpha_{2}$, \ldots, $\psi(\alpha_{n}) = a_{nn}\alpha_{n}$.
     \par Do đó, vector riêng của $\varphi$ cũng là vector riêng của $\psi$ và $V$ có một cơ sở gồm toàn vector riêng của $\psi$.
+\end{proof}
+
+\begin{exercise}
+    \par Xác định xem những tự đồng cấu được cho bởi các ma trận sau đối với một cơ sở nào đó của không gian vector $V$ có chéo hóa được không. Nếu có, hãy xác định cơ sở, đối với nó ma trận của tự đồng cấu có dạng chéo và xác định ma trận này.
+    \begin{enumerate}[label = (\alph*)]
+        \item $
+                  \begin{pmatrix}
+                      -1 & 3 & -1 \\
+                      -3 & 5 & -1 \\
+                      -3 & 3 & 1
+                  \end{pmatrix}
+              $,
+        \item $
+                  \begin{pmatrix}
+                      6 & -5 & -3 \\
+                      3 & -2 & -2 \\
+                      2 & -2 & 0
+                  \end{pmatrix}
+              $,
+        \item $
+                  \begin{pmatrix}
+                      1 & 1  & 1  & 1  \\
+                      1 & 1  & -1 & -1 \\
+                      1 & -1 & 1  & -1 \\
+                      1 & -1 & -1 & 1
+                  \end{pmatrix}
+              $,
+        \item $
+                  \begin{pmatrix}
+                      4 & -3  & 1 & 2 \\
+                      5 & -8  & 5 & 4 \\
+                      6 & -12 & 8 & 5 \\
+                      4 & -3  & 2 & 2
+                  \end{pmatrix}
+              $.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label = (\alph*)]
+        \item Tự đồng cấu $f$ có đa thức đặc trưng:
+              \[
+                  p_{f}(X) =
+                  \begin{vmatrix}
+                      -1-X & 3   & -1  \\
+                      -3   & 5-X & -1  \\
+                      -3   & 3   & 1-X
+                  \end{vmatrix}
+                  = (1-X)(2-X){}^{2}.
+              \]
+              \par $p_{f}(X)$ có nghiệm $\lambda_{1} = 1$ (bội 1), $\lambda_{2} = 2$ (bội 2).
+              \par Không gian con riêng tương ứng với giá trị riêng $\lambda_{1} = 1$ là không gian nghiệm của hệ phương trình tuyến tính thuần nhất sau:
+              \[
+                  \begin{pmatrix}
+                      -2 & 3 & -1 \\
+                      -3 & 4 & -1 \\
+                      -3 & 3 & 0
+                  \end{pmatrix}
+                  \begin{pmatrix}
+                      x \\ y \\ z
+                  \end{pmatrix}
+                  =
+                  \begin{pmatrix}
+                      0 \\ 0 \\ 0
+                  \end{pmatrix}
+                  \Longleftrightarrow
+                  \begin{cases}
+                      -x + y = 0 \\
+                      -2x + 3y - z = 0
+                  \end{cases}
+              \]
+              \par Do đó, $\ker (f - 1\cdot \text{id}_{V}) = \text{span}\{ (1, 1, 1) \}$.
+              \par Không gian con riêng tương ứng với giá trị riêng $\lambda_{2} = 2$ là không gian nghiệm của hệ phương trình tuyến tính thuần nhất sau:
+              \[
+                  \begin{pmatrix}
+                      -3 & 3 & -1 \\
+                      -3 & 3 & -1 \\
+                      -3 & 3 & -1
+                  \end{pmatrix}
+                  \begin{pmatrix}
+                      x \\ y \\ z
+                  \end{pmatrix}
+                  =
+                  \begin{pmatrix}
+                      0 \\ 0 \\ 0
+                  \end{pmatrix}
+                  \Longleftrightarrow
+                  -3x + 3y - z = 0
+              \]
+              \par Do đó, $\ker (f - 2\cdot \text{id}_{V}) = \text{span}\{ (1, 0, -3), (0, 1, 3) \}$.
+              \bigskip
+              \par $\dim\ker (f - 1\cdot\text{id}_{V}) = 1$, $\dim\ker (f - 2\cdot\text{id}_{V}) = 2$ nên theo định lý 3.7, $f$ chéo hóa được.
+              \par Cơ sở của $V$ sao cho ma trận của $f$ có dạng chéo là:
+              \[
+                  \begin{pmatrix}
+                      1 \\ 1 \\ 1
+                  \end{pmatrix},
+                  \begin{pmatrix}
+                      1 \\ 0 \\ -3
+                  \end{pmatrix},
+                  \begin{pmatrix}
+                      0 \\ 1 \\ 3
+                  \end{pmatrix},
+              \]
+              \par Khi đó, ma trận của $f$ đối với cơ sở mới là:
+              \[
+                  \begin{pmatrix}
+                      1 & 0 & 0 \\
+                      0 & 2 & 0 \\
+                      0 & 0 & 2
+                  \end{pmatrix}.
+              \]
+        \item Tự đồng cấu $f$ có đa thức đặc trưng:
+              \[
+                  p_{f}(X) =
+                  \begin{vmatrix}
+                      6-X & -5   & -3 \\
+                      3   & -2-X & -2 \\
+                      2   & -2   & -X
+                  \end{vmatrix}
+                  = (2-X)(1-X){}^{2}.
+              \]
+              \par $p_{f}(X)$ có nghiệm $\lambda_{1} = 2$ (bội 1), $\lambda_{2} = 1$ (bội 2).
+              \par $\ker (f - 2\cdot\text{id}_{V})$ là không gian nghiệm của hệ phương trình tuyến tính thuần nhất:
+              \[
+                  \begin{pmatrix}
+                      4 & -5 & -3 \\
+                      3 & -4 & -2 \\
+                      2 & -2 & -2
+                  \end{pmatrix}
+                  \begin{pmatrix}
+                      x \\ y \\ z
+                  \end{pmatrix}
+                  =
+                  \begin{pmatrix}
+                      0 \\ 0 \\ 0
+                  \end{pmatrix}
+                  \Longleftrightarrow
+                  \begin{cases}
+                      -y + z = 0 \\
+                      x - y - z = 0
+                  \end{cases}.
+              \]
+              \par Do đó $\ker (f - 2\cdot\text{id}_{V}) = \text{span}\{ (2, 1, 1) \}$.
+              \bigskip
+              \par $\ker (f - 1\cdot\text{id}_{V})$ là không gian nghiệm của hệ phương trình tuyến tính thuần nhất:
+              \[
+                  \begin{pmatrix}
+                      5 & -5 & -3 \\
+                      3 & -3 & -2 \\
+                      2 & -2 & -1
+                  \end{pmatrix}
+                  \begin{pmatrix}
+                      x \\ y \\ z
+                  \end{pmatrix}
+                  =
+                  \begin{pmatrix}
+                      0 \\ 0 \\ 0
+                  \end{pmatrix}
+                  \Longleftrightarrow
+                  \begin{cases}
+                      2x - 2y - z = 0 \\
+                      x  - y - z = 0
+                  \end{cases}.
+              \]
+              \par Do đó $\ker (f - 1\cdot\text{id}_{V}) = \text{span}\{ (1, 1, 0) \}$.
+              \bigskip
+              \par $\dim\ker (f - 2\cdot\text{id}_{V}) = 1 = 3 - 2$, $\dim\ker (f - 1\cdot\text{id}_{V}) = 1 \ne 3 - 1$.
+              \par Theo định lý 3.7, tự đồng cấu $f$ không chéo hóa được.
+        \item Tự đồng cấu $f$ có đa thức đặc trưng:
+              \[
+                  p_{f}(X) =
+                  \begin{vmatrix}
+                      1-X & 1   & 1   & 1   \\
+                      1   & 1-X & -1  & -1  \\
+                      1   & -1  & 1-X & -1  \\
+                      1   & -1  & -1  & 1-X
+                  \end{vmatrix}
+                  = (X+2)(X-2){}^{3}.
+              \]
+              \par $p_{f}(X)$ có các nghiệm $\lambda_{1} = -2$ (bội 1) và $\lambda_{2} = 2$ (bội 3).
+              \par $\ker (f - (-2)\text{id}_{V})$ là không gian nghiệm của hệ phương trình tuyến tính thuần nhất:
+              \[
+                  \begin{pmatrix}
+                      3 & 1  & 1  & 1  \\
+                      1 & 3  & -1 & -1 \\
+                      1 & -1 & 3  & -1 \\
+                      1 & -1 & -1 & 3
+                  \end{pmatrix}
+                  \begin{pmatrix}
+                      x \\ y \\ z \\ w
+                  \end{pmatrix}
+                  =
+                  \begin{pmatrix}
+                      0 \\ 0 \\ 0 \\ 0
+                  \end{pmatrix}
+                  \Longleftrightarrow
+                  \begin{cases}
+                      4y - 4w = 0 \\
+                      4z - 4w = 0 \\
+                      x - y - z + 3w = 0
+                  \end{cases}.
+              \]
+              \par Do đó $\ker (f - (-2)\cdot\text{id}_{V}) = \text{span}\{ (-1, 1, 1, 1) \}$.
+              \bigskip
+              \par $\ker (f - 2\cdot\text{id}_{V})$ là không gian nghiệm của hệ phương trình tuyến tính thuần nhất:
+              \[
+                  \begin{pmatrix}
+                      -1 & 1  & 1  & 1  \\
+                      1  & -1 & -1 & -1 \\
+                      1  & -1 & -1 & -1 \\
+                      1  & -1 & -1 & -1
+                  \end{pmatrix}
+                  \begin{pmatrix}
+                      x \\ y \\ z \\ w
+                  \end{pmatrix}
+                  =
+                  \begin{pmatrix}
+                      0 \\ 0 \\ 0 \\ 0
+                  \end{pmatrix}
+                  \Longleftrightarrow
+                  x - y - z - w = 0.
+              \]
+              \par Do đó, $\ker (f - 2\cdot\text{id}_{V}) = \text{span}\{ (1, 1, 0, 0), (1, 0, 1, 0), (1, 0, 0, 1) \}$.
+              \par $\dim\ker (f - (-2)\cdot\text{id}_{V}) = 1 = 4 - 3$, $\dim\ker (f - 2\cdot\text{id}_{V}) = 3 = 4 - 1$.
+              \par Theo định lý 3.7, $f$ chéo hóa được.
+              \par Cơ sở của $V$ sao cho ma trận của $f$ có dạng chéo là:
+              \[
+                  \begin{pmatrix}
+                      -1 \\ 1 \\ 1 \\ 1
+                  \end{pmatrix},
+                  \begin{pmatrix}
+                      1 \\ 1 \\ 0 \\ 0
+                  \end{pmatrix},
+                  \begin{pmatrix}
+                      1 \\ 0 \\ 1 \\ 0
+                  \end{pmatrix},
+                  \begin{pmatrix}
+                      1 \\ 0 \\ 0 \\ 1
+                  \end{pmatrix}.
+              \]
+              \par Khi đó, ma trận của $f$ là:
+              \[
+                  \begin{pmatrix}
+                      -2 & 0 & 0 & 0 \\
+                      0  & 2 & 0 & 0 \\
+                      0  & 0 & 2 & 0 \\
+                      0  & 0 & 0 & 2
+                  \end{pmatrix}.
+              \]
+        \item Tự đồng cấu $f$ có đa thức đặc trưng:
+              \[
+                  p_{f}(X) =
+                  \begin{vmatrix}
+                      4-X & -3   & 1   & 2   \\
+                      5   & -8-X & 5   & 4   \\
+                      6   & -12  & 8-X & 5   \\
+                      4   & -3   & 2   & 2-X
+                  \end{vmatrix}
+                  = (X - 1)(X^{3} - 5X^{2} + 2X + 11)
+              \]
+              \par $p_{f}(X)$ có 4 nghiệm thực phân biệt. Do đó $f$ chéo hóa được.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    \par Cho ma trận vuông cỡ $n$:
+    \[
+        A =
+        \begin{pmatrix}
+            0      & 0      & \cdots & 0      & 1      \\
+            0      & 0      & \cdots & 1      & 0      \\
+            \vdots & \vdots & \ddots & \vdots & \vdots \\
+            0      & 1      & \cdots & 0      & 0      \\
+            1      & 0      & \cdots & 0      & 0
+        \end{pmatrix}.
+    \]
+    \par Tìm ma trận khả nghịch $T$ sao cho $B = T^{-1}AT$ là một ma trận chéo, và tìm $B$.
+\end{exercise}
+
+\begin{proof}[Lời giải]
+    \par $f \in \text{End}(V = \mathbb{C}^{n})$ có ma trận $A$ đối với cơ sở nào đó.
+    \begin{enumerate}[label = \textbf{Trường hợp \arabic*.}, itemindent=2cm]
+        \item $n$ chẵn.
+            \par Đặt $n = 2k$.
+            \par Áp dụng liên tiếp khai triển Laplace cho hàng đầu tiên và hàng cuối cùng:
+            \[
+                \det(A_{2k} - XI_{2k}) = (X^{2} - 1)\det(A_{2k-2} - XI_{2k-2}) = \cdots = (X^{2} - 1){}^{k} = (X - 1){}^{k}(X + 1){}^{k}.
+            \]
+            \par Như vậy, đa thức đặc trưng của $A$ có nghiệm $\lambda_{1} = 1$ (bội $k$) và $\lambda_{2} = -1$ (bội $k$).
+            \par $\ker (f - 1\cdot\text{id}_{V})$ là không gian nghiệm của hệ phương trình tuyến tính thuần nhất:
+            \[
+                \begin{pmatrix}
+                    -1     & \cdots & 0      & 0      & \cdots & 1      \\
+                    \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+                    0      & \cdots & -1     & 1      & \cdots & 0      \\
+                    0      & \cdots & 1      & -1     & \cdots & 0      \\
+                    \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+                    1      & \cdots & 0      & 0      & \cdots & -1
+                \end{pmatrix}
+                \begin{pmatrix}
+                    x_{1} \\ \vdots \\  x_{k} \\ x_{k+1} \\ \vdots \\ x_{2k}
+                \end{pmatrix}
+                =
+                \begin{pmatrix}
+                    0 \\ \vdots \\ 0 \\ 0 \\ \vdots \\ 0
+                \end{pmatrix}
+                \Longleftrightarrow
+                \begin{cases}
+                    x_{1} - x_{2k} = 0 \\
+                    x_{2} - x_{2k-1} = 0 \\
+                    \vdots \\
+                    x_{k} - x_{k+1} = 0
+                \end{cases}
+            \]
+            \[
+                \Rightarrow\ker (f - 1\cdot\text{id}_{V}) = \text{span}\left\{
+                    \begin{pmatrix}
+                        1 \\ \vdots \\ 0 \\ 0 \\ \vdots \\ 1
+                    \end{pmatrix},
+                    \cdots,
+                    \begin{pmatrix}
+                        0 \\ \vdots \\ 1 \\ 1 \\ \vdots \\ 0
+                    \end{pmatrix}
+                \right\}
+            \]
+            \par $\ker (f - (-1)\cdot\text{id}_{V})$ là không gian nghiệm của hệ phương trình tuyến tính thuần nhất:
+            \[
+                \begin{pmatrix}
+                    1      & \cdots & 0      & 0      & \cdots & 1      \\
+                    \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+                    0      & \cdots & 1      & 1      & \cdots & 0      \\
+                    0      & \cdots & 1      & 1      & \cdots & 0      \\
+                    \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+                    1      & \cdots & 0      & 0      & \cdots & 1
+                \end{pmatrix}
+                \begin{pmatrix}
+                    x_{1} \\ \vdots \\  x_{k} \\ x_{k+1} \\ \vdots \\ x_{2k}
+                \end{pmatrix}
+                =
+                \begin{pmatrix}
+                    0 \\ \vdots \\ 0 \\ 0 \\ \vdots \\ 0
+                \end{pmatrix}
+                \Longleftrightarrow
+                \begin{cases}
+                    x_{1} + x_{2k} = 0 \\
+                    x_{2} + x_{2k-1} = 0 \\
+                    \vdots \\
+                    x_{k} + x_{k+1} = 0
+                \end{cases}
+            \]
+            \[
+                \Rightarrow\ker (f - (-1)\cdot\text{id}_{V}) = \text{span}\left\{
+                    \begin{pmatrix}
+                        1 \\ \vdots \\ 0 \\ 0 \\ \vdots \\ -1
+                    \end{pmatrix},
+                    \cdots,
+                    \begin{pmatrix}
+                        0 \\ \vdots \\ 1 \\ -1 \\ \vdots \\ 0
+                    \end{pmatrix}
+                \right\}
+            \]
+            \par Mà $\dim\ker (f - 1\cdot\text{id}_{V}) = k$, $\dim\ker (f - (-1)\cdot\text{id}_{V}) = k$ nên theo định lý 3.7, $A$ chéo hóa được.
+            \par $B = T^{-1}AT$, trong đó:
+            \[
+                T = \begin{pmatrix}
+                    1      & \cdots & 0      & 0      & \cdots & 1      \\
+                    \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+                    0      & \cdots & 1      & 1      & \cdots & 0      \\
+                    0      & \cdots & 1      & -1     & \cdots & 0      \\
+                    \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+                    1      & \cdots & 0      & 0      & \cdots & -1
+                \end{pmatrix}
+                \qquad
+                B = \begin{pmatrix}
+                    1      & \cdots & 0      & 0      & \cdots & 0      \\
+                    \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+                    0      & \cdots & 1      & 0      & \cdots & 0      \\
+                    0      & \cdots & 0      & -1     & \cdots & 0      \\
+                    \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+                    0      & \cdots & 0      & 0      & \cdots & -1
+                \end{pmatrix}
+            \]
+        \item $n$ lẻ.
+            \par Đặt $n = 2k - 1$.
+            \par Áp dụng liên tiếp khai triển Laplace cho hàng đầu tiên và hàng cuối cùng:
+            \[
+                \det(A_{2k-1} - XI_{2k-1}) = (X^{2} - 1)\det(A_{2k-3} - XI_{2k-3}) = \cdots = (X^{2} - 1){}^{k-1}(1 - X) = (-1)(X-1){}^{k}(X+1){}^{k-1}
+            \]
+            \par Đa thức đặc trưng của $A$ có nghiệm $\lambda_{1} = 1$ (bội $k$) và $\lambda_{2} = -1$ (bội $k - 1$).
+            \par $\ker (f - 1\cdot\text{id}_{V})$ là không gian nghiệm của hệ phương trình tuyến tính thuần nhất:
+            \[
+                \begin{pmatrix}
+                    -1     & \cdots & 0      & 0      & 0      & \cdots & 1      \\
+                    \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+                    0      & \cdots & -1     & 0      & 1      & \cdots & 0      \\
+                    0      & \cdots & 0      & 0      & 0      & \cdots & 0      \\
+                    0      & \cdots & 1      & 0      & -1     & \cdots & 0      \\
+                    \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+                    1      & \cdots & 0      & 0      & 0      & 0      & -1
+                \end{pmatrix}
+                \begin{pmatrix}
+                    x_{1} \\ \vdots \\ x_{k-1} \\ x_{k} \\ x_{k+1} \\ \vdots \\ x_{2k-1}
+                \end{pmatrix}
+                =
+                \begin{pmatrix}
+                    0 \\ \vdots \\ 0 \\ 0 \\ 0 \\ \vdots \\ 0
+                \end{pmatrix}
+                \Longleftrightarrow
+                \begin{cases}
+                    x_{1} - x_{2k-1} = 0 \\
+                    x_{2} - x_{2k-2} = 0 \\
+                    \vdots \\
+                    x_{k-1} - x_{k} = 0 \\
+                    0x_{k} = 0
+                \end{cases}
+            \]
+            \[
+                \Rightarrow\ker (f - 1\cdot\text{id}_{V}) = \text{span}\left\{
+                    \begin{pmatrix}
+                        1 \\ \vdots \\ 0 \\ 0 \\ 0 \\ \vdots \\ 1
+                    \end{pmatrix}
+                    \cdots
+                    \begin{pmatrix}
+                        0 \\ \vdots \\ 1 \\ 0 \\ 1 \\ \vdots \\ 0
+                    \end{pmatrix},
+                    \begin{pmatrix}
+                        0 \\ \vdots \\ 0 \\ 1 \\ 0 \\ \vdots \\ 0
+                    \end{pmatrix}
+                    \right\}.
+            \]
+            \par $\ker (f - (-1)\cdot\text{id}_{V})$ là không gian nghiệm của hệ phương trình tuyến tính thuần nhất:
+            \[
+                \begin{pmatrix}
+                    1      & \cdots & 0      & 0      & 0      & \cdots & 1      \\
+                    \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+                    0      & \cdots & 1      & 0      & 1      & \cdots & 0      \\
+                    0      & \cdots & 0      & 2      & 0      & \cdots & 0      \\
+                    0      & \cdots & 1      & 0      & 1      & \cdots & 0      \\
+                    \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+                    1      & \cdots & 0      & 0      & 0      & 0      & 1
+                \end{pmatrix}
+                \begin{pmatrix}
+                    x_{1} \\ \vdots \\ x_{k-1} \\ x_{k} \\ x_{k+1} \\ \vdots \\ x_{2k-1}
+                \end{pmatrix}
+                =
+                \begin{pmatrix}
+                    0 \\ \vdots \\ 0 \\ 0 \\ 0 \\ \vdots \\ 0
+                \end{pmatrix}
+                \Longleftrightarrow
+                \begin{cases}
+                    x_{1} + x_{2k-1} = 0 \\
+                    x_{2} + x_{2k-2} = 0 \\
+                    \vdots \\
+                    x_{k-1} + x_{k} = 0 \\
+                    2x_{k} = 0
+                \end{cases}
+            \]
+            \[
+                \Rightarrow\ker (f - 1\cdot\text{id}_{V}) = \text{span}\left\{
+                    \begin{pmatrix}
+                        1 \\ \vdots \\ 0 \\ 0 \\ 0 \\ \vdots \\ -1
+                    \end{pmatrix}
+                    \cdots
+                    \begin{pmatrix}
+                        0 \\ \vdots \\ 1 \\ 0 \\ -1 \\ \vdots \\ 0
+                    \end{pmatrix}
+                    \right\}.
+            \]
+            \par Mà $\dim\ker (f - 1\cdot\text{id}_{V}) = k$, $\dim\ker (f - (-1)\cdot\text{id}_{V}) = k - 1$ nên theo định lý 3.7, $A$ chéo hóa được.
+            \par $B = T^{-1}AT$, trong đó:
+            \[
+                T =
+                \begin{pmatrix}
+                    1      & \cdots & 0      & 0      & 0      & \cdots & 1      \\
+                    \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+                    0      & \cdots & 1      & 0      & 1      & \cdots & 0      \\
+                    0      & \cdots & 0      & 1      & 0      & \cdots & 0      \\
+                    0      & \cdots & 1      & 0      & -1     & \cdots & 0      \\
+                    \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+                    1      & \cdots & 0      & 0      & 0      & 0      & -1
+                \end{pmatrix}
+                \quad
+                B =
+                \begin{pmatrix}
+                    1      & \cdots & 0      & 0      & 0      & \cdots & 0      \\
+                    \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+                    0      & \cdots & 1      & 0      & 0      & \cdots & 0      \\
+                    0      & \cdots & 0      & 1      & 0      & \cdots & 0      \\
+                    0      & \cdots & 1      & 0      & -1     & \cdots & 0      \\
+                    \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+                    0      & \cdots & 0      & 0      & 0      & 0      & -1
+                \end{pmatrix}.
+            \]
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    \par Ma trận $A$ có các vô hướng $a_{1}$, $a_{2}$, \ldots, $a_{n}$ nằm trên đường chéo thứ hai (theo thứ tự từ hàng một tới hàng $n$) còn tất cả các yếu tố khác bằng 0. Tìm điều kiện để $A$ chéo hóa được.
+\end{exercise}
+
+\begin{proof}[Lời giải]
 \end{proof}
 
 \end{document}
