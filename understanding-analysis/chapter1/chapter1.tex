@@ -236,7 +236,7 @@
                         \par So $g(A\cup B)\subseteq g(A)\cup g(B)$.
                   \item Let $z\in g(A)\cup g(B)$
                         \par If $z\in g(A)$, then $z$ has preimage in $A$. If $z\in g(B)$, then $z$ has preimage in $B$.
-                        \par Therefore, $z$ has preimage in $A\cup B$ - let it be $x$. Since $x\in A\cup B$, then $z = g(x)\in g(A\cup B)$.
+                        \par Therefore, $z$ has preimage in $A\cup B$ $-$ let it be $x$. Since $x\in A\cup B$, then $z = g(x)\in g(A\cup B)$.
                         \par So $g(A)\cup g(B)\subseteq g(A\cup B)$.
               \end{itemize}
               \par Thus, $g(A)\cup g(B) = g(A\cup B)$.
@@ -244,12 +244,12 @@
 \end{proof}
 
 \begin{exercise}
-    \par Here are two important definitions related to a function $f: A\to B$. The function $f$ is \textit{one-to-one} (1-1) if $a_{1}\ne a_{2}$ in $A$ implies that $f(a_{1})\ne f(a_{2})$ in $B$. The function $f$ is \textit{onto} if, given any $b\in B$, it is possible to find an element $a\in A$ for which $f(a) = b$.
+    \par Here are two important definitions related to a function $f: A\to B$. The function $f$ is \textit{one-to-one} (1{-}1) if $a_{1}\ne a_{2}$ in $A$ implies that $f(a_{1})\ne f(a_{2})$ in $B$. The function $f$ is \textit{onto} if, given any $b\in B$, it is possible to find an element $a\in A$ for which $f(a) = b$.
     \par Given an example of each or state that the request is impossible:
     \begin{enumerate}[label = (\alph*)]
-        \item $f : \mathbb{N} \to \mathbb{N}$ that is 1-1 but not onto.
-        \item $f : \mathbb{N} \to \mathbb{N}$ that is onto but not 1-1.
-        \item $f : \mathbb{N} \to \mathbb{Z}$ that is 1-1 and onto.
+        \item $f : \mathbb{N} \to \mathbb{N}$ that is 1{-}1 but not onto.
+        \item $f : \mathbb{N} \to \mathbb{N}$ that is onto but not 1{-}1.
+        \item $f : \mathbb{N} \to \mathbb{Z}$ that is 1{-}1 and onto.
     \end{enumerate}
 \end{exercise}
 
@@ -370,7 +370,7 @@
               \par for any finite $n \in \mathbb{N}$.
         \item It is tempting to appeal to induction to conclude
               \[
-                  \left(\bigcup^{\infty}_{i=1}A_{i}\right)^{c} = \bigcap^{\infty}_{i=1}A_{i}^{c},
+                  {\left(\bigcup^{\infty}_{i=1}A_{i}\right)}^{c} = \bigcap^{\infty}_{i=1}A_{i}^{c},
               \]
               \par but induction does not apply here. Induction is used to prove that a particular statement holds for every value of $n \in \mathbb{N}$, but this does not imply the validity of the infinite case. To illustrate this point, find an example of a collection of sets $B_{1}$, $B_{2}$, $B_{3}$, \ldots where $\bigcap^{n}_{i=1}B_{i} \ne \emptyset$ is true for every $n \in \mathbb{N}$, but $\bigcap^{\infty}_{i=1}B_{i} \ne \emptyset$ fails.
         \item Nevertheless, the infinite version of De Morgan's Law stated in (b) is a valid statement. Provide a proof that does not use induction.
@@ -380,13 +380,13 @@
 \begin{proof}
     \begin{enumerate}[label = (\alph*)]
         \item For $n = 1$, $A_{1}^{c} = A_{1}^{c}$, the statement is valid.
-              \par For $n = 2$, $\left(A_{1}\cup A_{2}\right)^{c} = A_{1}^{c}\cap A_{2}^{c}$, this is Exercise~\ref{chapter1:section2:de-morgan-law}.
-              \par If $\left(\bigcup^{n}_{i=1}A_{i}\right)^{c} = \bigcap^{n}_{i=1}A_{i}^{c}$, then
+              \par For $n = 2$, ${\left(A_{1}\cup A_{2}\right)}^{c} = A_{1}^{c}\cap A_{2}^{c}$, this is Exercise~\ref{chapter1:section2:de-morgan-law}.
+              \par If ${\left(\bigcup^{n}_{i=1}A_{i}\right)}^{c} = \bigcap^{n}_{i=1}A_{i}^{c}$, then
               \begin{align*}
-                  \left(\bigcup^{n+1}_{i=1}A_{i}\right)^{c} & = \left(\left(\bigcup^{n}_{i=1}A_{i}\right)\cup A_{n+1}\right)^{c} \\
-                                                            & = \left(\bigcup^{n}_{i=1}A_{i}\right)^{c} \cap A_{n+1}^{c}         \\
-                                                            & = \left(\bigcap^{n}_{i=1}A_{i}^{c}\right) \cap A_{n+1}^{c}         \\
-                                                            & = \bigcap^{n+1}_{i=1}A_{i}^{c}.
+                  {\left(\bigcup^{n+1}_{i=1}A_{i}\right)}^{c} & = {\left(\left(\bigcup^{n}_{i=1}A_{i}\right)\cup A_{n+1}\right)}^{c} \\
+                                                              & = {\left(\bigcup^{n}_{i=1}A_{i}\right)}^{c} \cap A_{n+1}^{c}         \\
+                                                              & = {\left(\bigcap^{n}_{i=1}A_{i}^{c}\right)} \cap A_{n+1}^{c}         \\
+                                                              & = \bigcap^{n+1}_{i=1}A_{i}^{c}.
               \end{align*}
               \par Hence, by induction, the statement is valid for any $n \in \mathbb{N}$.
         \item For example, let $B_{i} = \{ x \in \mathbb{N}, x \ge i \}$.
@@ -394,14 +394,14 @@
               \par But $\bigcap^{\infty}_{i=1}B_{i} = \emptyset$, since there is no natural number that is greater than or equal to all the others.
         \item
               \begin{align*}
-                  x \in \left(\bigcup^{\infty}_{i=1}A_{i}\right)^{c} & \Longleftrightarrow x \notin \bigcup^{\infty}_{i=1}A_{i}   \\
-                                                                     & \Longleftrightarrow x \notin A_{i}, \forall i              \\
-                                                                     & \Longleftrightarrow x \in A_{i}^{c}, \forall i             \\
-                                                                     & \Longleftrightarrow x \in \bigcap^{\infty}_{i=1}A_{i}^{c}.
+                  x \in {\left(\bigcup^{\infty}_{i=1}A_{i}\right)}^{c} & \Longleftrightarrow x \notin \bigcup^{\infty}_{i=1}A_{i}   \\
+                                                                       & \Longleftrightarrow x \notin A_{i}, \forall i              \\
+                                                                       & \Longleftrightarrow x \in A_{i}^{c}, \forall i             \\
+                                                                       & \Longleftrightarrow x \in \bigcap^{\infty}_{i=1}A_{i}^{c}.
               \end{align*}
-              \par We obtain two inclusions $\left(\bigcup^{\infty}_{i=1}A_{i}\right)^{c} \subseteq \bigcap^{\infty}_{i=1}A_{i}^{c}$ and $\bigcap^{\infty}_{i=1}A_{i}^{c} \subseteq \left(\bigcup^{\infty}_{i=1}A_{i}\right)^{c}$, which means
+              \par We obtain two inclusions ${\left(\bigcup^{\infty}_{i=1}A_{i}\right)}^{c} \subseteq \bigcap^{\infty}_{i=1}A_{i}^{c}$ and $\bigcap^{\infty}_{i=1}A_{i}^{c} \subseteq {\left(\bigcup^{\infty}_{i=1}A_{i}\right)}^{c}$, which means
               \[
-                  \left(\bigcup^{\infty}_{i=1}A_{i}\right)^{c} = \bigcap^{\infty}_{i=1}A_{i}^{c}.
+                  {\left(\bigcup^{\infty}_{i=1}A_{i}\right)}^{c} = \bigcap^{\infty}_{i=1}A_{i}^{c}.
               \]
     \end{enumerate}
 \end{proof}

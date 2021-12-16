@@ -1,4 +1,4 @@
-\documentclass[class=linearalgebra,crop=false]{standalone}
+\documentclass[class=linear-algebra,crop=false]{standalone}
 
 \setcounter{exercise}{0}
 
@@ -403,7 +403,7 @@
     \]
     \par Đặt ma trận của $\psi$ đối với cơ sở $\alpha_{1}$, $\alpha_{2}$, \ldots, $\alpha_{n}$ là $(a_{ij}){}_{n\times n}$. Do $\varphi\psi = \psi\varphi$ nên:
     \begingroup
-    \allowdisplaybreaks
+    \allowdisplaybreaks{}
     \begin{align*}
         \begin{pmatrix}
             \lambda_{1} & 0           & \cdots & 0           \\
@@ -743,216 +743,216 @@
     \par $f \in \text{End}(V = \mathbb{C}^{n})$ có ma trận $A$ đối với cơ sở nào đó.
     \begin{enumerate}[label = \textbf{Trường hợp \arabic*.}, itemindent=2cm]
         \item $n$ chẵn.
-            \par Đặt $n = 2k$.
-            \par Áp dụng liên tiếp khai triển Laplace cho hàng đầu tiên và hàng cuối cùng:
-            \[
-                \det(A_{2k} - XI_{2k}) = (X^{2} - 1)\det(A_{2k-2} - XI_{2k-2}) = \cdots = (X^{2} - 1){}^{k} = (X - 1){}^{k}(X + 1){}^{k}.
-            \]
-            \par Như vậy, đa thức đặc trưng của $A$ có nghiệm $\lambda_{1} = 1$ (bội $k$) và $\lambda_{2} = -1$ (bội $k$).
-            \par $\ker (f - 1\cdot\text{id}_{V})$ là không gian nghiệm của hệ phương trình tuyến tính thuần nhất:
-            \[
-                \begin{pmatrix}
-                    -1     & \cdots & 0      & 0      & \cdots & 1      \\
-                    \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
-                    0      & \cdots & -1     & 1      & \cdots & 0      \\
-                    0      & \cdots & 1      & -1     & \cdots & 0      \\
-                    \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
-                    1      & \cdots & 0      & 0      & \cdots & -1
-                \end{pmatrix}
-                \begin{pmatrix}
-                    x_{1} \\ \vdots \\  x_{k} \\ x_{k+1} \\ \vdots \\ x_{2k}
-                \end{pmatrix}
-                =
-                \begin{pmatrix}
-                    0 \\ \vdots \\ 0 \\ 0 \\ \vdots \\ 0
-                \end{pmatrix}
-                \Longleftrightarrow
-                \begin{cases}
-                    x_{1} - x_{2k} = 0 \\
-                    x_{2} - x_{2k-1} = 0 \\
-                    \vdots \\
-                    x_{k} - x_{k+1} = 0
-                \end{cases}
-            \]
-            \[
-                \Rightarrow\ker (f - 1\cdot\text{id}_{V}) = \text{span}\left\{
-                    \begin{pmatrix}
-                        1 \\ \vdots \\ 0 \\ 0 \\ \vdots \\ 1
-                    \end{pmatrix},
-                    \cdots,
-                    \begin{pmatrix}
-                        0 \\ \vdots \\ 1 \\ 1 \\ \vdots \\ 0
-                    \end{pmatrix}
-                \right\}
-            \]
-            \par $\ker (f - (-1)\cdot\text{id}_{V})$ là không gian nghiệm của hệ phương trình tuyến tính thuần nhất:
-            \[
-                \begin{pmatrix}
-                    1      & \cdots & 0      & 0      & \cdots & 1      \\
-                    \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
-                    0      & \cdots & 1      & 1      & \cdots & 0      \\
-                    0      & \cdots & 1      & 1      & \cdots & 0      \\
-                    \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
-                    1      & \cdots & 0      & 0      & \cdots & 1
-                \end{pmatrix}
-                \begin{pmatrix}
-                    x_{1} \\ \vdots \\  x_{k} \\ x_{k+1} \\ \vdots \\ x_{2k}
-                \end{pmatrix}
-                =
-                \begin{pmatrix}
-                    0 \\ \vdots \\ 0 \\ 0 \\ \vdots \\ 0
-                \end{pmatrix}
-                \Longleftrightarrow
-                \begin{cases}
-                    x_{1} + x_{2k} = 0 \\
-                    x_{2} + x_{2k-1} = 0 \\
-                    \vdots \\
-                    x_{k} + x_{k+1} = 0
-                \end{cases}
-            \]
-            \[
-                \Rightarrow\ker (f - (-1)\cdot\text{id}_{V}) = \text{span}\left\{
-                    \begin{pmatrix}
-                        1 \\ \vdots \\ 0 \\ 0 \\ \vdots \\ -1
-                    \end{pmatrix},
-                    \cdots,
-                    \begin{pmatrix}
-                        0 \\ \vdots \\ 1 \\ -1 \\ \vdots \\ 0
-                    \end{pmatrix}
-                \right\}
-            \]
-            \par Mà $\dim\ker (f - 1\cdot\text{id}_{V}) = k$, $\dim\ker (f - (-1)\cdot\text{id}_{V}) = k$ nên theo định lý 3.7, $A$ chéo hóa được.
-            \par $B = T^{-1}AT$, trong đó:
-            \[
-                T = \begin{pmatrix}
-                    1      & \cdots & 0      & 0      & \cdots & 1      \\
-                    \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
-                    0      & \cdots & 1      & 1      & \cdots & 0      \\
-                    0      & \cdots & 1      & -1     & \cdots & 0      \\
-                    \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
-                    1      & \cdots & 0      & 0      & \cdots & -1
-                \end{pmatrix}
-                \qquad
-                B = \begin{pmatrix}
-                    1      & \cdots & 0      & 0      & \cdots & 0      \\
-                    \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
-                    0      & \cdots & 1      & 0      & \cdots & 0      \\
-                    0      & \cdots & 0      & -1     & \cdots & 0      \\
-                    \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
-                    0      & \cdots & 0      & 0      & \cdots & -1
-                \end{pmatrix}
-            \]
+              \par Đặt $n = 2k$.
+              \par Áp dụng liên tiếp khai triển Laplace cho hàng đầu tiên và hàng cuối cùng:
+              \[
+                  \det(A_{2k} - XI_{2k}) = (X^{2} - 1)\det(A_{2k-2} - XI_{2k-2}) = \cdots = (X^{2} - 1){}^{k} = (X - 1){}^{k}(X + 1){}^{k}.
+              \]
+              \par Như vậy, đa thức đặc trưng của $A$ có nghiệm $\lambda_{1} = 1$ (bội $k$) và $\lambda_{2} = -1$ (bội $k$).
+              \par $\ker (f - 1\cdot\text{id}_{V})$ là không gian nghiệm của hệ phương trình tuyến tính thuần nhất:
+              \[
+                  \begin{pmatrix}
+                      -1     & \cdots & 0      & 0      & \cdots & 1      \\
+                      \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+                      0      & \cdots & -1     & 1      & \cdots & 0      \\
+                      0      & \cdots & 1      & -1     & \cdots & 0      \\
+                      \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+                      1      & \cdots & 0      & 0      & \cdots & -1
+                  \end{pmatrix}
+                  \begin{pmatrix}
+                      x_{1} \\ \vdots \\  x_{k} \\ x_{k+1} \\ \vdots \\ x_{2k}
+                  \end{pmatrix}
+                  =
+                  \begin{pmatrix}
+                      0 \\ \vdots \\ 0 \\ 0 \\ \vdots \\ 0
+                  \end{pmatrix}
+                  \Longleftrightarrow
+                  \begin{cases}
+                      x_{1} - x_{2k} = 0   \\
+                      x_{2} - x_{2k-1} = 0 \\
+                      \vdots               \\
+                      x_{k} - x_{k+1} = 0
+                  \end{cases}
+              \]
+              \[
+                  \Rightarrow\ker (f - 1\cdot\text{id}_{V}) = \text{span}\left\{
+                  \begin{pmatrix}
+                      1 \\ \vdots \\ 0 \\ 0 \\ \vdots \\ 1
+                  \end{pmatrix},
+                  \cdots,
+                  \begin{pmatrix}
+                      0 \\ \vdots \\ 1 \\ 1 \\ \vdots \\ 0
+                  \end{pmatrix}
+                  \right\}
+              \]
+              \par $\ker (f - (-1)\cdot\text{id}_{V})$ là không gian nghiệm của hệ phương trình tuyến tính thuần nhất:
+              \[
+                  \begin{pmatrix}
+                      1      & \cdots & 0      & 0      & \cdots & 1      \\
+                      \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+                      0      & \cdots & 1      & 1      & \cdots & 0      \\
+                      0      & \cdots & 1      & 1      & \cdots & 0      \\
+                      \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+                      1      & \cdots & 0      & 0      & \cdots & 1
+                  \end{pmatrix}
+                  \begin{pmatrix}
+                      x_{1} \\ \vdots \\  x_{k} \\ x_{k+1} \\ \vdots \\ x_{2k}
+                  \end{pmatrix}
+                  =
+                  \begin{pmatrix}
+                      0 \\ \vdots \\ 0 \\ 0 \\ \vdots \\ 0
+                  \end{pmatrix}
+                  \Longleftrightarrow
+                  \begin{cases}
+                      x_{1} + x_{2k} = 0   \\
+                      x_{2} + x_{2k-1} = 0 \\
+                      \vdots               \\
+                      x_{k} + x_{k+1} = 0
+                  \end{cases}
+              \]
+              \[
+                  \Rightarrow\ker (f - (-1)\cdot\text{id}_{V}) = \text{span}\left\{
+                  \begin{pmatrix}
+                      1 \\ \vdots \\ 0 \\ 0 \\ \vdots \\ -1
+                  \end{pmatrix},
+                  \cdots,
+                  \begin{pmatrix}
+                      0 \\ \vdots \\ 1 \\ -1 \\ \vdots \\ 0
+                  \end{pmatrix}
+                  \right\}
+              \]
+              \par Mà $\dim\ker (f - 1\cdot\text{id}_{V}) = k$, $\dim\ker (f - (-1)\cdot\text{id}_{V}) = k$ nên theo định lý 3.7, $A$ chéo hóa được.
+              \par $B = T^{-1}AT$, trong đó:
+              \[
+                  T = \begin{pmatrix}
+                      1      & \cdots & 0      & 0      & \cdots & 1      \\
+                      \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+                      0      & \cdots & 1      & 1      & \cdots & 0      \\
+                      0      & \cdots & 1      & -1     & \cdots & 0      \\
+                      \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+                      1      & \cdots & 0      & 0      & \cdots & -1
+                  \end{pmatrix}
+                  \qquad
+                  B = \begin{pmatrix}
+                      1      & \cdots & 0      & 0      & \cdots & 0      \\
+                      \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+                      0      & \cdots & 1      & 0      & \cdots & 0      \\
+                      0      & \cdots & 0      & -1     & \cdots & 0      \\
+                      \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+                      0      & \cdots & 0      & 0      & \cdots & -1
+                  \end{pmatrix}
+              \]
         \item $n$ lẻ.
-            \par Đặt $n = 2k - 1$.
-            \par Áp dụng liên tiếp khai triển Laplace cho hàng đầu tiên và hàng cuối cùng:
-            \[
-                \det(A_{2k-1} - XI_{2k-1}) = (X^{2} - 1)\det(A_{2k-3} - XI_{2k-3}) = \cdots = (X^{2} - 1){}^{k-1}(1 - X) = (-1)(X-1){}^{k}(X+1){}^{k-1}
-            \]
-            \par Đa thức đặc trưng của $A$ có nghiệm $\lambda_{1} = 1$ (bội $k$) và $\lambda_{2} = -1$ (bội $k - 1$).
-            \par $\ker (f - 1\cdot\text{id}_{V})$ là không gian nghiệm của hệ phương trình tuyến tính thuần nhất:
-            \[
-                \begin{pmatrix}
-                    -1     & \cdots & 0      & 0      & 0      & \cdots & 1      \\
-                    \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
-                    0      & \cdots & -1     & 0      & 1      & \cdots & 0      \\
-                    0      & \cdots & 0      & 0      & 0      & \cdots & 0      \\
-                    0      & \cdots & 1      & 0      & -1     & \cdots & 0      \\
-                    \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
-                    1      & \cdots & 0      & 0      & 0      & 0      & -1
-                \end{pmatrix}
-                \begin{pmatrix}
-                    x_{1} \\ \vdots \\ x_{k-1} \\ x_{k} \\ x_{k+1} \\ \vdots \\ x_{2k-1}
-                \end{pmatrix}
-                =
-                \begin{pmatrix}
-                    0 \\ \vdots \\ 0 \\ 0 \\ 0 \\ \vdots \\ 0
-                \end{pmatrix}
-                \Longleftrightarrow
-                \begin{cases}
-                    x_{1} - x_{2k-1} = 0 \\
-                    x_{2} - x_{2k-2} = 0 \\
-                    \vdots \\
-                    x_{k-1} - x_{k} = 0 \\
-                    0x_{k} = 0
-                \end{cases}
-            \]
-            \[
-                \Rightarrow\ker (f - 1\cdot\text{id}_{V}) = \text{span}\left\{
-                    \begin{pmatrix}
-                        1 \\ \vdots \\ 0 \\ 0 \\ 0 \\ \vdots \\ 1
-                    \end{pmatrix}
-                    \cdots
-                    \begin{pmatrix}
-                        0 \\ \vdots \\ 1 \\ 0 \\ 1 \\ \vdots \\ 0
-                    \end{pmatrix},
-                    \begin{pmatrix}
-                        0 \\ \vdots \\ 0 \\ 1 \\ 0 \\ \vdots \\ 0
-                    \end{pmatrix}
-                    \right\}.
-            \]
-            \par $\ker (f - (-1)\cdot\text{id}_{V})$ là không gian nghiệm của hệ phương trình tuyến tính thuần nhất:
-            \[
-                \begin{pmatrix}
-                    1      & \cdots & 0      & 0      & 0      & \cdots & 1      \\
-                    \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
-                    0      & \cdots & 1      & 0      & 1      & \cdots & 0      \\
-                    0      & \cdots & 0      & 2      & 0      & \cdots & 0      \\
-                    0      & \cdots & 1      & 0      & 1      & \cdots & 0      \\
-                    \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
-                    1      & \cdots & 0      & 0      & 0      & 0      & 1
-                \end{pmatrix}
-                \begin{pmatrix}
-                    x_{1} \\ \vdots \\ x_{k-1} \\ x_{k} \\ x_{k+1} \\ \vdots \\ x_{2k-1}
-                \end{pmatrix}
-                =
-                \begin{pmatrix}
-                    0 \\ \vdots \\ 0 \\ 0 \\ 0 \\ \vdots \\ 0
-                \end{pmatrix}
-                \Longleftrightarrow
-                \begin{cases}
-                    x_{1} + x_{2k-1} = 0 \\
-                    x_{2} + x_{2k-2} = 0 \\
-                    \vdots \\
-                    x_{k-1} + x_{k} = 0 \\
-                    2x_{k} = 0
-                \end{cases}
-            \]
-            \[
-                \Rightarrow\ker (f - 1\cdot\text{id}_{V}) = \text{span}\left\{
-                    \begin{pmatrix}
-                        1 \\ \vdots \\ 0 \\ 0 \\ 0 \\ \vdots \\ -1
-                    \end{pmatrix}
-                    \cdots
-                    \begin{pmatrix}
-                        0 \\ \vdots \\ 1 \\ 0 \\ -1 \\ \vdots \\ 0
-                    \end{pmatrix}
-                    \right\}.
-            \]
-            \par Mà $\dim\ker (f - 1\cdot\text{id}_{V}) = k$, $\dim\ker (f - (-1)\cdot\text{id}_{V}) = k - 1$ nên theo định lý 3.7, $A$ chéo hóa được.
-            \par $B = T^{-1}AT$, trong đó:
-            \[
-                T =
-                \begin{pmatrix}
-                    1      & \cdots & 0      & 0      & 0      & \cdots & 1      \\
-                    \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
-                    0      & \cdots & 1      & 0      & 1      & \cdots & 0      \\
-                    0      & \cdots & 0      & 1      & 0      & \cdots & 0      \\
-                    0      & \cdots & 1      & 0      & -1     & \cdots & 0      \\
-                    \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
-                    1      & \cdots & 0      & 0      & 0      & 0      & -1
-                \end{pmatrix}
-                \quad
-                B =
-                \begin{pmatrix}
-                    1      & \cdots & 0      & 0      & 0      & \cdots & 0      \\
-                    \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
-                    0      & \cdots & 1      & 0      & 0      & \cdots & 0      \\
-                    0      & \cdots & 0      & 1      & 0      & \cdots & 0      \\
-                    0      & \cdots & 1      & 0      & -1     & \cdots & 0      \\
-                    \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
-                    0      & \cdots & 0      & 0      & 0      & 0      & -1
-                \end{pmatrix}.
-            \]
+              \par Đặt $n = 2k - 1$.
+              \par Áp dụng liên tiếp khai triển Laplace cho hàng đầu tiên và hàng cuối cùng:
+              \[
+                  \det(A_{2k-1} - XI_{2k-1}) = (X^{2} - 1)\det(A_{2k-3} - XI_{2k-3}) = \cdots = (X^{2} - 1){}^{k-1}(1 - X) = (-1)(X-1){}^{k}(X+1){}^{k-1}
+              \]
+              \par Đa thức đặc trưng của $A$ có nghiệm $\lambda_{1} = 1$ (bội $k$) và $\lambda_{2} = -1$ (bội $k - 1$).
+              \par $\ker (f - 1\cdot\text{id}_{V})$ là không gian nghiệm của hệ phương trình tuyến tính thuần nhất:
+              \[
+                  \begin{pmatrix}
+                      -1     & \cdots & 0      & 0      & 0      & \cdots & 1      \\
+                      \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+                      0      & \cdots & -1     & 0      & 1      & \cdots & 0      \\
+                      0      & \cdots & 0      & 0      & 0      & \cdots & 0      \\
+                      0      & \cdots & 1      & 0      & -1     & \cdots & 0      \\
+                      \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+                      1      & \cdots & 0      & 0      & 0      & 0      & -1
+                  \end{pmatrix}
+                  \begin{pmatrix}
+                      x_{1} \\ \vdots \\ x_{k-1} \\ x_{k} \\ x_{k+1} \\ \vdots \\ x_{2k-1}
+                  \end{pmatrix}
+                  =
+                  \begin{pmatrix}
+                      0 \\ \vdots \\ 0 \\ 0 \\ 0 \\ \vdots \\ 0
+                  \end{pmatrix}
+                  \Longleftrightarrow
+                  \begin{cases}
+                      x_{1} - x_{2k-1} = 0 \\
+                      x_{2} - x_{2k-2} = 0 \\
+                      \vdots               \\
+                      x_{k-1} - x_{k} = 0  \\
+                      0x_{k} = 0
+                  \end{cases}
+              \]
+              \[
+                  \Rightarrow\ker (f - 1\cdot\text{id}_{V}) = \text{span}\left\{
+                  \begin{pmatrix}
+                      1 \\ \vdots \\ 0 \\ 0 \\ 0 \\ \vdots \\ 1
+                  \end{pmatrix}
+                  \cdots
+                  \begin{pmatrix}
+                      0 \\ \vdots \\ 1 \\ 0 \\ 1 \\ \vdots \\ 0
+                  \end{pmatrix},
+                  \begin{pmatrix}
+                      0 \\ \vdots \\ 0 \\ 1 \\ 0 \\ \vdots \\ 0
+                  \end{pmatrix}
+                  \right\}.
+              \]
+              \par $\ker (f - (-1)\cdot\text{id}_{V})$ là không gian nghiệm của hệ phương trình tuyến tính thuần nhất:
+              \[
+                  \begin{pmatrix}
+                      1      & \cdots & 0      & 0      & 0      & \cdots & 1      \\
+                      \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+                      0      & \cdots & 1      & 0      & 1      & \cdots & 0      \\
+                      0      & \cdots & 0      & 2      & 0      & \cdots & 0      \\
+                      0      & \cdots & 1      & 0      & 1      & \cdots & 0      \\
+                      \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+                      1      & \cdots & 0      & 0      & 0      & 0      & 1
+                  \end{pmatrix}
+                  \begin{pmatrix}
+                      x_{1} \\ \vdots \\ x_{k-1} \\ x_{k} \\ x_{k+1} \\ \vdots \\ x_{2k-1}
+                  \end{pmatrix}
+                  =
+                  \begin{pmatrix}
+                      0 \\ \vdots \\ 0 \\ 0 \\ 0 \\ \vdots \\ 0
+                  \end{pmatrix}
+                  \Longleftrightarrow
+                  \begin{cases}
+                      x_{1} + x_{2k-1} = 0 \\
+                      x_{2} + x_{2k-2} = 0 \\
+                      \vdots               \\
+                      x_{k-1} + x_{k} = 0  \\
+                      2x_{k} = 0
+                  \end{cases}
+              \]
+              \[
+                  \Rightarrow\ker (f - 1\cdot\text{id}_{V}) = \text{span}\left\{
+                  \begin{pmatrix}
+                      1 \\ \vdots \\ 0 \\ 0 \\ 0 \\ \vdots \\ -1
+                  \end{pmatrix}
+                  \cdots
+                  \begin{pmatrix}
+                      0 \\ \vdots \\ 1 \\ 0 \\ -1 \\ \vdots \\ 0
+                  \end{pmatrix}
+                  \right\}.
+              \]
+              \par Mà $\dim\ker (f - 1\cdot\text{id}_{V}) = k$, $\dim\ker (f - (-1)\cdot\text{id}_{V}) = k - 1$ nên theo định lý 3.7, $A$ chéo hóa được.
+              \par $B = T^{-1}AT$, trong đó:
+              \[
+                  T =
+                  \begin{pmatrix}
+                      1      & \cdots & 0      & 0      & 0      & \cdots & 1      \\
+                      \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+                      0      & \cdots & 1      & 0      & 1      & \cdots & 0      \\
+                      0      & \cdots & 0      & 1      & 0      & \cdots & 0      \\
+                      0      & \cdots & 1      & 0      & -1     & \cdots & 0      \\
+                      \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+                      1      & \cdots & 0      & 0      & 0      & 0      & -1
+                  \end{pmatrix}
+                  \quad
+                  B =
+                  \begin{pmatrix}
+                      1      & \cdots & 0      & 0      & 0      & \cdots & 0      \\
+                      \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+                      0      & \cdots & 1      & 0      & 0      & \cdots & 0      \\
+                      0      & \cdots & 0      & 1      & 0      & \cdots & 0      \\
+                      0      & \cdots & 1      & 0      & -1     & \cdots & 0      \\
+                      \vdots & \ddots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+                      0      & \cdots & 0      & 0      & 0      & 0      & -1
+                  \end{pmatrix}.
+              \]
     \end{enumerate}
 \end{proof}
 
