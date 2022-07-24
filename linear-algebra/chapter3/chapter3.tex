@@ -2340,7 +2340,7 @@
 
 % exercise 3.31
 \begin{exercise}
-    \par Xét khai triển $\frac{x}{e^{x} - 1} = 1 + b_{1}x + b_{2}x^{2} + b_{3}x^{3} + \cdots$. Ta đặt $b_{2n} = \frac{(-1){}^{n-1}B_{n}}{(2n)!}$, trong đó $B_{n}$ được gọi là số Bernoullia thứ $n$. Chứng minh rằng
+    \par Xét khai triển $\frac{x}{e^{x} - 1} = 1 + b_{1}x + b_{2}x^{2} + b_{3}x^{3} + \cdots$. Ta đặt $b_{2n} = \frac{(-1){}^{n-1}B_{n}}{(2n)!}$, trong đó $B_{n}$ được gọi là số Bernoulli thứ $n$. Chứng minh rằng
     \[
         B_{n} = (-1){}^{n-1}(2n)!
         \begin{vmatrix}
@@ -2570,6 +2570,31 @@
 \begin{proof}
     \par $(\alpha_{1}, \alpha_{2}, \ldots, \alpha_{n})$ là một cơ sở của $V$.
     \par $(\xi_{1}, \xi_{2}, \ldots, \xi_{n})$ là một cơ sở đối ngẫu của $(\alpha_{1}, \alpha_{2}, \ldots, \alpha_{n})$.
+    \par Ta sử dụng hai dạng đa tuyến tính thay phiên\footnote{Oversimplified: Hai ánh xạ này đa tuyến tính thay phiên bởi biểu thức mà chúng được định nghĩa theo là một định thức, và định thức có tính chất đa tuyến tính thay phiên (ở đây định thức được nhìn nhận là một hàm của các vector cột).} $\phi \in {\Lambda^{n}(V)}^{*}$, $\psi \in {\Lambda^{n}({V}^{*})}^{*}$ sau:
+    \[
+        \begin{split}
+            \phi(v_{1}, v_{2}, \ldots, v_{n}) = \begin{vmatrix}
+                \dotprod{v_{1}, \xi_{1}} & \dotprod{v_{1}, \xi_{2}} & \cdots & \dotprod{v_{1}, \xi_{n}} \\
+                \dotprod{v_{2}, \xi_{1}} & \dotprod{v_{2}, \xi_{2}} & \cdots & \dotprod{v_{2}, \xi_{n}} \\
+                \vdots                   & \vdots                   & \ddots & \vdots                   \\
+                \dotprod{v_{n}, \xi_{1}} & \dotprod{v_{n}, \xi_{2}} & \cdots & \dotprod{v_{n}, \xi_{n}}
+            \end{vmatrix}, \\
+            \psi(\tau_{1}, \tau_{2}, \ldots, \tau_{n}) = \begin{vmatrix}
+                \dotprod{\alpha_{1}, \tau_{1}} & \dotprod{\alpha_{1}, \tau_{2}} & \cdots & \dotprod{\alpha_{1}, \tau_{n}} \\
+                \dotprod{\alpha_{2}, \tau_{1}} & \dotprod{\alpha_{2}, \tau_{2}} & \cdots & \dotprod{\alpha_{2}, \tau_{n}} \\
+                \vdots                         & \vdots                         & \ddots & \vdots                         \\
+                \dotprod{\alpha_{n}, \tau_{1}} & \dotprod{\alpha_{n}, \tau_{2}} & \cdots & \dotprod{\alpha_{n}, \tau_{n}}
+            \end{vmatrix}.
+        \end{split}
+    \]
+    \par Theo định nghĩa định thức của tự đồng cấu:
+    \[
+        \begin{split}
+            \phi(f(\alpha_{1}), f(\alpha_{2}), \ldots, f(\alpha_{n})) = \det(f)\cdot\phi(\alpha_{1}, \alpha_{2}, \ldots, \alpha_{n}), \\
+            \psi(f^{*}(\xi_{1}), f^{*}(\xi_{2}), \ldots, f^{*}(\xi_{n})) = \det(f^{*})\cdot\psi(\xi_{1}, \xi_{2}, \ldots, \xi_{n}).
+        \end{split}
+    \]
+    \par Khai triển các đẳng thức trên, ta thu được:
     \begingroup{}
     \allowdisplaybreaks{}
     \begin{align*}
@@ -2618,9 +2643,9 @@
             \dotprod{\alpha_{n},\xi_{1}} & \dotprod{\alpha_{n},\xi_{2}} & \cdots & \dotprod{\alpha_{n},\xi_{n}} \\
         \end{vmatrix}
     \]
-    \par Bên cạnh đó, theo định nghĩa của cơ sở đối ngẫu, $\dotprod{\alpha_{i}, \xi_{j}} = \delta_{ij}, \forall i, j\in \{ 1, 2, \ldots, n \}$. Do đó
+    \par Bên cạnh đó, theo định nghĩa của cơ sở đối ngẫu, $\dotprod{\alpha_{i}, \xi_{j}} = \delta_{ij}, \forall i, j\in \{ 1, 2, \ldots, n \}$. Do đó ${(\dotprod{\alpha_{i}, \xi_{j}})}_{i\times j} = I_{n}$, và $\det{(\dotprod{\alpha_{i}, \xi_{j}})}_{i\times j} = 1$, kéo theo:
     \[
-        \det(f) = \det(f^{*}).
+        \det(f) = \det(f^{*}).\qedhere
     \]
     \endgroup{}
 \end{proof}
@@ -2811,7 +2836,7 @@
 
 \begin{proof}
     \par Giả sử ma trận $A$ đang xét có $m$ hàng và $n$ cột.
-    \par Việc thay đổi thứ tự các hàng hay thay đổi thứ tự các cột không làm ảnh hưởng đến sự độc lập tuyến tính/phụ thuộc tuyến tính của các vector hàng, vector cột mà chỉ thay đổi thứ tự các vector đó, cũng như các yếu tố của các vector đó.
+    \par Việc thay đổi thứ tự các hàng hay thay đổi thứ tự các cột không làm ảnh hưởng đến sự độc lập tuyến tính/phụ thuộc tuyến tính của các vector hàng, vector cột mà chỉ thay đổi thứ tự các vector đó, cũng như thứ tự của các yếu tố trong các vector đó.
     \par Do đó, không mất tính tổng quát, giả sử $r$ hàng đầu tiên của $A$ độc lập tuyến tính và $r$ cột đầu tiên của $A$ độc lập tuyến tính.
     \[
         A =

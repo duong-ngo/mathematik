@@ -4,8 +4,6 @@
 \LoadClass[oneside]{book}
 
 \RequirePackage{import}
-\RequirePackage[subpreambles=true]{standalone}
-\RequirePackage[utf8]{vietnam}
 \RequirePackage[left=2cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
 \RequirePackage[unicode=true,hidelinks]{hyperref}
 
@@ -38,21 +36,23 @@
 \cfoot{\thepage}
 \rfoot{}
 
-\titleformat{\chapter}[display]{\flushright\bf\huge\color{red}}{\chaptertitlename\ \thechapter}{10pt}{}
-\titleformat{\section}{\bf\Large\color{red}}{\thesection}{10pt}{}
-\titleformat{\subsection}{\bf\large\color{red}}{\thesubsection}{10pt}{}
-\titleformat{\subsubsection}{\bf\large\color{red}}{\thesubsubsection}{10pt}{}
+\newcommand{\analysisDefaultColor}{orange}
+
+\titleformat{\chapter}[display]{\flushright\bf\huge\color{\analysisDefaultColor}}{\chaptertitlename\ \thechapter}{10pt}{}
+\titleformat{\section}{\bf\Large\color{\analysisDefaultColor}}{\thesection}{10pt}{}
+\titleformat{\subsection}{\bf\large\color{\analysisDefaultColor}}{\thesubsection}{10pt}{}
+\titleformat{\subsubsection}{\bf\large\color{\analysisDefaultColor}}{\thesubsubsection}{10pt}{}
 
 \captionsetup{labelfont={bf},labelsep=period}
 \counterwithin{figure}{chapter}
 \counterwithin{table}{chapter}
 
 \theoremstyle{definition}
-\newtheorem{exercise}{Bài}
-\counterwithin{exercise}{chapter}
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}[proposition]{Theorem}
 \theoremstyle{plain}
-\newtheorem{lemma}{Bổ đề}
-\counterwithin{lemma}{chapter}
+\newtheorem{lemma}[proposition]{Lemma}
+\counterwithin{proposition}{chapter}
 \newenvironment{sqcases}{%
     \matrix@check\sqcases\env@sqcases
 }{%
@@ -64,7 +64,6 @@
 \def\arraystretch{1.2}%
 \array{@{}l@{\quad}l@{}}%
 }
-\newcommand{\rank}{\text{rank}}
+
 \renewcommand{\phi}{\varphi}
 \newcommand{\abs}[1]{\left|{#1}\right|}
-\newcommand{\dotprod}[1]{\left\langle{#1}\right\rangle}
