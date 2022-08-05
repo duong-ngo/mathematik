@@ -1970,7 +1970,7 @@
 \end{exercise}
 
 \begin{proof}
-    \par Gọi $(\alpha_{1}, \ldots, \alpha_{n})$ là một cơ sở của $V$, $(\beta_{1}, \ldots, \beta_{m})$ là một cơ sở của $W$.
+    \par $(\alpha_{1}, \ldots, \alpha_{n})$ là một cơ sở của $V$; $(\beta_{1}, \ldots, \beta_{m})$ là một cơ sở của $W$.
     \par $(\alpha^{*}_{1}, \ldots, \alpha^{*}_{n})$ là cơ sở đối ngẫu của $V$, $(\beta^{*}_{1}, \ldots, \beta^{*}_{m})$ là cơ sở đối ngẫu của $W$.
     \par $A$ là ma trận của $f$ đối với cặp cơ sở trên của $V$ và $W$.
     \par $A^{T}$ là ma trận của $f^{*}$ đối với cặp cơ sở trên của $W^{*}$ và $V^{*}$.
@@ -1987,7 +1987,49 @@
     \item $f$ là một đẳng cấu nếu và chỉ nếu $f^{*}$ là một đẳng cấu.
 \end{enumerate}
 
+\par Nhắc lại một kết quả cần thiết.
+\begin{lemma}
+    \par $V$ và $W$ là các không gian vector trên trường $\mathbb{F}$.
+    \par $(\alpha_{1}, \ldots, \alpha_{n})$ là một cơ sở của không gian vector $V$.
+    \par $(\omega_{1}, \ldots, \omega_{n})$ là $n$ vector bất kỳ của không gian vector $W$.
+    \par Khi đó tồn tại duy nhất một ánh xạ tuyến tính $\tau: V\to W$ sao cho $\tau(\alpha_{i}) = \omega_{i}$, $\forall i = \overline{1,n}$.
+\end{lemma}
+
 \begin{proof}
+    \par $(\alpha_{1}, \ldots, \alpha_{n})$ là một cơ sở của $V$.
+    \begin{enumerate}[label = (\arabic*)]
+        \item $(\Rightarrow)$
+              \par $\{\alpha_{1}, \ldots, \alpha_{n}\}$ độc lập tuyến tính trong $V$ và $f$ là đơn ánh nên $\{f(\alpha_{1}), \ldots, f(\alpha_{n})\}$ độc lập tuyến tính trong $W$.
+              \par Do $\dim W = m$ nên $n\le m$. Ta bổ sung các vector $\beta_{n+1}$, \ldots, $\beta_{m}$ vào hệ các vector $f(\alpha_{1}), \ldots, f(\alpha_{n})$ để tạo thành một cơ sở của $W$.
+              \par Chọn $\nu$ là một dạng tuyến tính trên $V$.
+              \par Để chỉ ra $f^{*}$ là một toàn cấu, ta cần xây dựng một dạng tuyến tính $\omega\in W^{*}$ sao cho $f^{*}(\omega) = \nu$.
+              \par Theo Bổ đề trên, tồn tại duy nhất một dạng tuyến tính $\omega\in W^{*}$ sao cho:
+              \[
+                  \begin{split}
+                      \omega(f(\alpha_{i})) = \nu(\alpha_{i})\quad\forall i = \overline{1, n}, \\
+                      \omega(\beta_{j}) = 0 \quad\forall j = \overline{n+1, m}.
+                  \end{split}
+              \]
+              \par $\forall \alpha\in V$, ta có biểu thị tuyến tính duy nhất theo cơ sở $(\alpha_{1}, \ldots, \alpha_{n})$:
+              \[
+                  \alpha = x_{1}\cdot\alpha_{1} + \cdots + x_{n}\cdot\alpha_{n}
+              \]
+              \par Khi đó:
+              \begin{align*}
+                  \omega(f(\alpha)) & = x_{1}\cdot\nu(\alpha_{1}) + \cdots + x_{n}\cdot\nu(\alpha_{n}) \\
+                                    & = \nu(x_{1}\cdot\alpha_{1} + \cdots + x_{n}\cdot\alpha_{n})      \\
+                                    & = \nu(\alpha)\qquad (\forall\alpha\in V).
+              \end{align*}
+              \par tức là $\omega\circ f = \nu$.
+              \par Mà $f^{*}(\omega) = \omega\circ f$ nên $f^{*}(\omega) = \nu$.
+              \par Ta đã có được dạng tuyến tính $\omega\in W^{*}$ như mong muốn.
+              \par Do đó, $f^{*}$ là một toàn cấu.
+              \bigskip
+              \par ($\Leftarrow$)
+              \par
+        \item
+        \item
+    \end{enumerate}
 \end{proof}
 
 \end{document}

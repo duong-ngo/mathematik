@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{linear-algebra}
+\ProvidesClass{analysis1}
 
 \LoadClass[oneside]{book}
 
