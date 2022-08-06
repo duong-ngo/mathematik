@@ -1,0 +1,36 @@
+\documentclass[oneside]{linear-algebra}
+\usepackage{tikz}
+\usepackage{lipsum}
+\usetikzlibrary{calc}
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{tikzpicture}[remember picture, overlay]
+        \draw[double,double distance=5pt,ultra thick] ($(current page.north west) + (2cm,-2cm)$) rectangle ($(current page.south east) + (-2cm,2cm)$);
+    \end{tikzpicture}
+
+    \begin{center}
+        \vfill
+        \raisebox{10pt}{\rule{0.8\textwidth}{1pt}} \\
+        {\Huge\bf Linear Algebra Done Right} \\
+        \raisebox{-1pt}{\rule{0.8\textwidth}{1pt}} \\
+        \medskip
+
+        {\large Sheldon Axler} \\
+        \medskip
+        {\today}
+        \vfill
+    \end{center}
+\end{titlepage}
+
+\tableofcontents
+
+\input{chapter1.tex}
+
+\input{chapter2.tex}
+
+\input{chapter3.tex}
+
+
+\end{document}
