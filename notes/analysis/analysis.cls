@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{analysis1}
+\ProvidesClass{analysis}
 
 \LoadClass[oneside]{book}
 
