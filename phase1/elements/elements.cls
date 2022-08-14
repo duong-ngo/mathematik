@@ -1,9 +1,10 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{analysis}
+\ProvidesClass{elements}
 
 \LoadClass[oneside]{book}
 
 \RequirePackage{import}
+\RequirePackage[subpreambles=true]{standalone}
 \RequirePackage[left=2cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
 \RequirePackage[unicode=true,hidelinks]{hyperref}
 
@@ -26,7 +27,8 @@
 \RequirePackage{booktabs}
 \RequirePackage[inline]{enumitem}
 
-\setcounter{chapter}{-1}
+\setcounter{chapter}{0}
+\counterwithout{section}{chapter}
 
 \pagestyle{fancy}
 \setlength{\headheight}{16pt}
@@ -36,23 +38,13 @@
 \cfoot{\thepage}
 \rfoot{}
 
-\newcommand{\analysisDefaultColor}{orange}
-
-\titleformat{\chapter}[display]{\flushright\bf\huge\color{\analysisDefaultColor}}{\chaptertitlename\ \thechapter}{10pt}{}
-\titleformat{\section}{\bf\Large\color{\analysisDefaultColor}}{\thesection}{10pt}{}
-\titleformat{\subsection}{\bf\large\color{\analysisDefaultColor}}{\thesubsection}{10pt}{}
-\titleformat{\subsubsection}{\bf\large\color{\analysisDefaultColor}}{\thesubsubsection}{10pt}{}
-
 \captionsetup{labelfont={bf},labelsep=period}
 \counterwithin{figure}{chapter}
 \counterwithin{table}{chapter}
 
 \theoremstyle{definition}
-\newtheorem{proposition}{Proposition}
-\newtheorem{theorem}[proposition]{Theorem}
-\theoremstyle{plain}
-\newtheorem{lemma}[proposition]{Lemma}
-\counterwithin{proposition}{chapter}
+\newtheorem{exercise}{Exercise}
+\counterwithin{exercise}{section}
 \newenvironment{sqcases}{%
     \matrix@check\sqcases\env@sqcases
 }{%
@@ -64,6 +56,3 @@
 \def\arraystretch{1.2}%
 \array{@{}l@{\quad}l@{}}%
 }
-
-\renewcommand{\phi}{\varphi}
-\newcommand{\abs}[1]{\left|{#1}\right|}
