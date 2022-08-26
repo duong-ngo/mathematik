@@ -1,6 +1,8 @@
 # Study mathematik by reading, doing exercises and writing notes
 
-In each of the following topics, books are sorted in my reading order.
+I aim to study Geometry, especially Differential Geometry.
+
+In **each** of the following topics (not all topics), books are sorted in my reading order.
 
 ## Phase 1
 
@@ -39,9 +41,17 @@ In each of the following topics, books are sorted in my reading order.
 
 - **Cormen, Leiserson, Rivest, Stein**, *Introduction to Algorithms*
 
+### Algebra
+
+- **Garrett Birkhoff, Saunders Mac Lane**, *A Survey of Modern Algebra*
+
 ---
 
 ## Phase 2
+
+### Computer Science
+
+- **Cormen, Leiserson, Rivest, Stein**, *Introduction to Algorithms*
 
 ### Measure Theory
 
@@ -53,17 +63,12 @@ In each of the following topics, books are sorted in my reading order.
 - **Jerrold E. Marsden, Michael J. Hoffman**, *Basic Complex Analysis*
 - **Lars Valerian Ahlfors**, *Complex Analysis: An Introduction to the Theory of Analytic Functions of One Complex Variable*
 - **Serge Lang**, *Complex Analysis*
-- (supplementary) **Eberhard Freitag, Rolf Busam**, *Complex Analysis*
 
 ### Functional Analysis
 
 - **Erwin Kreyszig**, *Introductory Functional Analysis with Applications*
 - **George Bachman, Lawrence Narici**, *Functional Analysis*
 - **Elias Stein, Rami Shakarchi**, *Functional Analysis*
-
-### Topology
-
-- **John Milnor**, *Topology from the Differentiable Viewpoint*
 
 ### Differential Geometry
 
@@ -79,3 +84,20 @@ In each of the following topics, books are sorted in my reading order.
 
 ## Phase 3
 
+### Computer Science
+
+- **Cormen, Leiserson, Rivest, Stein**, *Introduction to Algorithms*
+
+### Category Theory
+
+- **Saunders Mac Lane**, *Categories for the working mathematician*
+
+### Algebraic Topology
+
+- **Allan Hatcher**, *Algebraic Topology*
+
+### Differential Geometry
+
+- **John Milnor**, *Topology from the Differentiable Viewpoint*
+- **Loring W. Tu**, *An Introduction to Manifolds*
+- **John M. Lee**, *Introduction to Smooth Manifolds*
