@@ -13,10 +13,11 @@ In **each** of the following topics (not all topics), books are sorted in my rea
 
 ### Linear Algebra
 
-- **Sheldon Axler**, *Linear Algebra Done Right* (reading)
-- **Sergei Treil**, *Linear Algebra Done Wrong*
-- **Nguyen Huu Viet Hung**, *Dai so tuyen tinh*
+- **Kenneth Myron Hoffman, Ray Kunze**, *Linear Algebra* (reading)
+- (supplementary) **Nguyen Huu Viet Hung**, *Dai so tuyen tinh*
 - **Le Tuan Hoa**, *Dai so tuyen tinh qua cac vi du va bai tap*
+- (supplementary) **Sheldon Axler**, *Linear Algebra Done Right*
+- (supplementary) **Sergei Treil**, *Linear Algebra Done Wrong*
 - **Werner Greub**, *Multilinear Algebra*
 
 ### Calculus and Real Analysis
@@ -70,10 +71,6 @@ In **each** of the following topics (not all topics), books are sorted in my rea
 - **George Bachman, Lawrence Narici**, *Functional Analysis*
 - **Elias Stein, Rami Shakarchi**, *Functional Analysis*
 
-### Differential Geometry
-
-- **Kristopher Tapp**, *Differential Geometry of Curves and Surfaces*
-
 ### Algebra
 
 - **Michael Artin**, *Algebra*
@@ -98,6 +95,7 @@ In **each** of the following topics (not all topics), books are sorted in my rea
 
 ### Differential Geometry
 
+- **Kristopher Tapp**, *Differential Geometry of Curves and Surfaces*
 - **John Milnor**, *Topology from the Differentiable Viewpoint*
 - **Loring W. Tu**, *An Introduction to Manifolds*
 - **John M. Lee**, *Introduction to Smooth Manifolds*

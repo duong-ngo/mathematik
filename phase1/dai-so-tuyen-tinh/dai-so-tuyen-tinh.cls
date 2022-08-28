@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{linear-algebra}
+\ProvidesClass{dai-so-tuyen-tinh}
 
 \LoadClass[oneside]{book}
 
