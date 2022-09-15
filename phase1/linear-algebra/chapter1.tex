@@ -1,9 +1,114 @@
-\documentclass[class=linear-algebra,crop=false]{standalone}
-
-\begin{document}
-
 \chapter{Linear Equations}
 
 \section{Fields}
 
-\end{document}
+The authors assumed that readers are familiar with the elementary algebras of real and complex numbers. Let's denote the set of real numbers or complex numbers by $\mathbb{F}$. Two operations, namely, addition and multiplication, have the following properties, from which one can deduce a lot of algebraic properties of real and complex numbers.
+
+\begin{enumerate}[label = (\arabic*)]
+    \item Addition is associative.
+        \[
+            (x + y) + z = x + (y + z)\qquad\forall x, y, z\in\mathbb{F}
+        \]
+    \item Identity element of addition.
+
+        There exists an element $0$ (zero) in $\mathbb{F}$ such that
+        \[
+            x + 0 = 0 + x = x\qquad\forall x\in\mathbb{F}
+        \]
+    \item Inverse element in terms of addition.
+
+        For each $x$ in $\mathbb{F}$, there exists an element $(-x)$ in $\mathbb{F}$ such that
+        \[
+            x + (-x) = (-x) + x = 0
+        \]
+    \item Addition is commutative.
+        \[
+            x + y = y + x\qquad\forall x, y\in\mathbb{F}
+        \]
+    \item Multiplication is associative.
+        \[
+            (x\cdot y)\cdot z = x\cdot (y\cdot z)\qquad\forall x, y, z\in\mathbb{F}
+        \]
+    \item Identity element of multiplication.
+
+        There exists an element $1$ (one) in $\mathbb{F}$ such that
+        \[
+            x\cdot 1 = 1\cdot x = x\qquad\forall x\in\mathbb{F}
+        \]
+    \item Multiplication is distributive over addition.
+        \[
+            \begin{split}
+                z\cdot (x + y) = z\cdot x + z\cdot y\qquad\forall x, y, z\in\mathbb{F} \\
+                (x + y)\cdot z = x\cdot z + y\cdot z\qquad\forall x, y, z\in\mathbb{F}
+            \end{split}
+        \]
+    \item Multiplication is commutative.
+        \[
+            x\cdot y = y\cdot x\qquad\forall x, y\in\mathbb{F}
+        \]
+    \item Inverse element in terms of multiplication.
+
+        For each nonzero element $x$ in $\mathbb{F}$, there exists an element $x^{-1}$ in $\mathbb{F}$ such that
+        \[
+            x\cdot x^{-1} = x^{-1}\cdot x = 1
+        \]
+\end{enumerate}
+
+\begin{note}
+    The numbers themselves are not useful. Things start to be interesting when they admit some kinds of ``rules''. In the cases of real numbers and complex numbers, some of those rules are the above properties. It is even more interesting that one can prove a lot of more properties from these rules \textit{only}.
+
+    Here comes an abstract point of view. It is painful and took me a lot of time to accept.
+
+    There are objects other than real numbers and complex numbers (together with addition and multiplication) and they still possess nine of the above properties. Mathematicians love to expand their knowledge from a minimal list of axioms (or rules). From the nineteenth century, mathematicians came up with a revolution idea: the objects that satisfy a list of rules \textit{need not to be defined}, they could be anything, one can just focus on the rules and do the mathematics works. In nine of the above properties, everything is merely symbol, including ``$x$'', ``$y$'', ``$z$'', even the plus sign ``$+$'', the dot sign ``$\cdot$'', zero ``$0$'', one ``$1$'', ``$(-x)$'', ``$x^{-1}$''. Properties are the meanings that are given to the two operations.
+
+    Thinking of numbers as symbols allows us to do a lot of things. Symbols allow us to forget about numbers and the redundant, to focus on ``the minimal list of axioms'', which are the essentials. Symbols are \textit{abstractions}. Abstractions allow generalizing. By using symbols, we are able to prove many (not all) properties of any objects that satisfy the rules.
+
+    By accepting that point of view, I was able to accept the following definition and go on with linear algebra and abstract algebra.
+\end{note}
+
+\begin{definition}
+    Fields are sets equipped with two operations that satisfy nine of the above properties.
+\end{definition}
+
+\begin{note}
+    The zero and one element of a field are different.
+\end{note}
+
+\begin{example}
+    \begin{enumerate}[label = (\alph*)]
+        \item The set of real numbers $\mathbb{R}$, the set of complex numbers $\mathbb{C}$ (with the usual addition and multiplication) are fields.
+        \item The set of natural numbers $\mathbb{N}$ (with the usual addition and multiplication) is not a field, since elements other than zero do not have additive inverses.
+        \item The set of integer numbers $\mathbb{Z}$ (with the usual addition and multiplication) is not a field, since nonzero integers other than $\pm 1$ does not have multiplicative inverses.
+        \item The set of rational numbers $\mathbb{Q}$ (with the usual addition and multiplication) is a field.
+    \end{enumerate}
+\end{example}
+
+\begin{definition}
+\end{definition}
+
+\begin{theorem}
+    The set of integers modulo $n$, with addition and multiplication modulo $n$, is a field iff $n$ is a prime.
+\end{theorem}
+
+The set of integers modulo $n$ is denoted by $\mathbb{Z}/n\mathbb{Z}$.
+
+\begin{proof}
+    $\mathbb{Z}/n\mathbb{Z}$, together with addition and multiplication modulo $n$ satisfies (1) $-$ (8).
+
+    $(\Rightarrow)$ Let $a$ be an integer which is not a multiple of $n$, then $a$ and $n$ are coprime. According to Bezout's theorem, there exists integers $x$ and $y$ such that $ax + ny = 1$. Therefore, $ax\equiv 1\pmod{n}$, which indicates that $a$ has an multiplicative inverse. Hence $\mathbb{Z}/n\mathbb{Z}$ with addition and multiplication modulo $n$ is a field (it satisfy (9)).
+
+    $(\Leftarrow)$ Let $a$ be an integer which is not a multiple of $n$. Since $\mathbb{Z}/n\mathbb{Z}$ is a field, then there exists an integer $x$ such that $ax\equiv 1\pmod{n}$, or equivalently, $ax - 1$ is a multiple of $n$. In other words, there exists an integer $y$ such that $ax - ny = 1$. The equality implies that $a$ and $n$ are coprime. So every integer, which is not a multiple of $n$, is coprime with $n$. This means $n$ is a prime.
+
+    In conclusion, $\mathbb{Z}/n\mathbb{Z}$ with addition and multiplication modulo $n$ is a field iff $n$ is a prime.
+\end{proof}
+
+\section{System of Linear Equations}
+
+\section{Matrices and Elementary Row Operations}
+
+\section{Row-Reduced Echelon Matrices}
+
+\section{Matrix Multiplication}
+
+\section{Invertible Matrices}
+

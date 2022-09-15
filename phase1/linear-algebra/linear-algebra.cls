@@ -3,8 +3,6 @@
 
 \LoadClass[oneside]{book}
 
-\RequirePackage{import}
-\RequirePackage[subpreambles=true]{standalone}
 \RequirePackage[left=2cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
 \RequirePackage[unicode=true,hidelinks]{hyperref}
 
@@ -47,13 +45,17 @@
 \counterwithin{table}{chapter}
 
 \theoremstyle{definition}
+\newtheorem{note}{Note}
+\counterwithin{note}{chapter}
+
 \newtheorem{theorem}{Theorem}
 \counterwithin{theorem}{chapter}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{lemma}[theorem]{Lemma}
+
 \newtheorem{exercise}{Exercise}
 \counterwithin{exercise}{chapter}
-\theoremstyle{plain}
-\newtheorem{lemma}{Lemma}
-\counterwithin{lemma}{chapter}
 \newenvironment{sqcases}{%
     \matrix@check\sqcases\env@sqcases
 }{%
