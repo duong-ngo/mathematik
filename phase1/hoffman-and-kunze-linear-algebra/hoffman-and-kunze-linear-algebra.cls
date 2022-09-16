@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{linear-algebra}
+\ProvidesClass{hoffman-and-kunze-linear-algebra}
 
 \LoadClass[oneside]{book}
 

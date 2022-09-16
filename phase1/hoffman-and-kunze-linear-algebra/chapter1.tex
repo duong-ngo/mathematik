@@ -67,12 +67,75 @@ The authors assumed that readers are familiar with the elementary algebras of re
 \end{note}
 
 \begin{definition}
-    Fields are sets equipped with two operations that satisfy nine of the above properties.
+    A set $\mathbb{F}$ equipped with two operations\footnote{In this case, ``Operation'' is also known as \textit{the law of composition}, for it maps two elements to another.} called \textit{addition} (denoted by plus sign ``$+$'') and \textit{multiplication} (denoted by dot sign ``$\cdot$'')
+    \[
+        \begin{split}
+            +: \mathbb{F}\times\mathbb{F}\to\mathbb{F} \\
+            \cdot: \mathbb{F}\times\mathbb{F}\to\mathbb{F}
+        \end{split}
+    \]
+    is called \textit{a field} if these two operations satisfy
+    \begin{enumerate}[label = (\arabic*)]
+        \item Addition is associative.
+            \[
+               \forall x, y, z\in\mathbb{F}: (x + y) + z = x + (y + z)
+            \]
+        \item Addition has an identity element called zero.
+            \[
+                \exists\,0\in\mathbb{F}, \forall x\in\mathbb{F}: x + 0 = 0 + x = x
+            \]
+        \item Each element has an additive inverse.
+            \[
+                \forall x\in\mathbb{F}, \exists (-x)\in\mathbb{F}: x + (-x) = (-x) + x = 0
+            \]
+        \item Addition is commutative.
+            \[
+                \forall x,y\in\mathbb{F}: x + y = y + x
+            \]
+        \item Multiplication is associative.
+            \[
+                \forall x, y, z\in\mathbb{F}: (x\cdot y)\cdot z = x\cdot (y\cdot z)
+            \]
+        \item Multiplication has an identity element called one, or unit.
+            \[
+                \exists\,1\in\mathbb{F}, \forall x\in\mathbb{F}, x\cdot 1 = 1\cdot x = x
+            \]
+        \item Multiplication is distributive (on both sides) over addition.
+            \[
+                \forall x, y, z\in\mathbb{F}:
+                \begin{cases}
+                    z\cdot (x + y) = z\cdot x + z\cdot y \\
+                    (x + y)\cdot z = x\cdot z + y\cdot z
+                \end{cases}
+            \]
+        \item Multiplication is commutative.
+            \[
+                \forall x, y\in\mathbb{F}: x\cdot y = y\cdot x
+            \]
+        \item Each nonzero element has a multiplicative inverse.
+            \[
+                \forall x\in\mathbb{F} \wedge x\ne 0, \exists x^{-1}\in\mathbb{F}: x\cdot x^{-1} = x^{-1}\cdot x = 1
+            \]
+    \end{enumerate}
 \end{definition}
 
 \begin{note}
     The zero and one element of a field are different.
 \end{note}
+
+\begin{definition}
+    Within a field
+    \begin{enumerate}
+        \item Subtraction is adding with the additive inverse. Formally
+            \[
+                x - y = x + (-y)
+            \]
+        \item Division by a nonzero element is multiplying with its multiplicative inverse. Formally
+            \[
+                x / y = x\cdot y^{-1}
+            \]
+    \end{enumerate}
+\end{definition}
 
 \begin{example}
     \begin{enumerate}[label = (\alph*)]
@@ -83,11 +146,11 @@ The authors assumed that readers are familiar with the elementary algebras of re
     \end{enumerate}
 \end{example}
 
-\begin{definition}
-\end{definition}
+\bigskip
+The following theorem gives another example of field.
 
 \begin{theorem}
-    The set of integers modulo $n$, with addition and multiplication modulo $n$, is a field iff $n$ is a prime.
+    The set of integers modulo $n$, with addition and multiplication modulo $n$, is a field if and only if $n$ is a prime.
 \end{theorem}
 
 The set of integers modulo $n$ is denoted by $\mathbb{Z}/n\mathbb{Z}$.
@@ -101,6 +164,9 @@ The set of integers modulo $n$ is denoted by $\mathbb{Z}/n\mathbb{Z}$.
 
     In conclusion, $\mathbb{Z}/n\mathbb{Z}$ with addition and multiplication modulo $n$ is a field iff $n$ is a prime.
 \end{proof}
+
+\begin{definition}
+\end{definition}
 
 \section{System of Linear Equations}
 
