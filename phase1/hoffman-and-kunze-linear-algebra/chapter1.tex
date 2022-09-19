@@ -2,206 +2,217 @@
 
 \section{Fields}
 
-\subsection{Definition and Examples}
+\subsection{Definition and Properties}
 
 The authors assumed that readers are familiar with the elementary algebras of real and complex numbers. Let's denote the set of real numbers or complex numbers by $\mathbb{F}$. Two operations, namely, addition and multiplication, have the following properties, from which one can deduce a lot of algebraic properties of real and complex numbers.
 
 \begin{enumerate}[label = (\arabic*)]
-    \item Addition is associative.
-        \[
-            (x + y) + z = x + (y + z)\qquad\forall x, y, z\in\mathbb{F}
-        \]
-    \item Identity element of addition.
+	\item Addition is associative.
+	      \[
+		      (x + y) + z = x + (y + z)\qquad\forall x, y, z\in\mathbb{F}
+	      \]
+	\item Identity element of addition.
 
-        There exists an element $0$ (zero) in $\mathbb{F}$ such that
-        \[
-            x + 0 = 0 + x = x\qquad\forall x\in\mathbb{F}
-        \]
-    \item Inverse element in terms of addition.
+	      There exists an element $0$ (zero) in $\mathbb{F}$ such that
+	      \[
+		      x + 0 = 0 + x = x\qquad\forall x\in\mathbb{F}
+	      \]
+	\item Inverse element in terms of addition.
 
-        For each $x$ in $\mathbb{F}$, there exists an element $(-x)$ in $\mathbb{F}$ such that
-        \[
-            x + (-x) = (-x) + x = 0
-        \]
-    \item Addition is commutative.
-        \[
-            x + y = y + x\qquad\forall x, y\in\mathbb{F}
-        \]
-    \item Multiplication is associative.
-        \[
-            (x\cdot y)\cdot z = x\cdot (y\cdot z)\qquad\forall x, y, z\in\mathbb{F}
-        \]
+	      For each $x$ in $\mathbb{F}$, there exists an element $(-x)$ in $\mathbb{F}$ such that
+	      \[
+		      x + (-x) = (-x) + x = 0
+	      \]
+	\item Addition is commutative.
+	      \[
+		      x + y = y + x\qquad\forall x, y\in\mathbb{F}
+	      \]
+	\item Multiplication is associative.
+	      \[
+		      (x\cdot y)\cdot z = x\cdot (y\cdot z)\qquad\forall x, y, z\in\mathbb{F}
+	      \]
+	\item Multiplication is distributive over addition.
+	      \[
+		      \begin{split}
+			      z\cdot (x + y) = z\cdot x + z\cdot y\qquad\forall x, y, z\in\mathbb{F} \\
+			      (x + y)\cdot z = x\cdot z + y\cdot z\qquad\forall x, y, z\in\mathbb{F}
+		      \end{split}
+	      \]
     \item Identity element of multiplication.
 
-        There exists an element $1$ (one) in $\mathbb{F}$ such that
-        \[
-            x\cdot 1 = 1\cdot x = x\qquad\forall x\in\mathbb{F}
-        \]
-    \item Multiplication is distributive over addition.
-        \[
-            \begin{split}
-                z\cdot (x + y) = z\cdot x + z\cdot y\qquad\forall x, y, z\in\mathbb{F} \\
-                (x + y)\cdot z = x\cdot z + y\cdot z\qquad\forall x, y, z\in\mathbb{F}
-            \end{split}
-        \]
-    \item Multiplication is commutative.
-        \[
-            x\cdot y = y\cdot x\qquad\forall x, y\in\mathbb{F}
-        \]
-    \item Inverse element in terms of multiplication.
+	      There exists an element $1$ (one) in $\mathbb{F}$ such that
+	      \[
+		      x\cdot 1 = 1\cdot x = x\qquad\forall x\in\mathbb{F}
+	      \]
+	\item Multiplication is commutative.
+	      \[
+		      x\cdot y = y\cdot x\qquad\forall x, y\in\mathbb{F}
+	      \]
+	\item Inverse element in terms of multiplication.
 
-        For each nonzero element $x$ in $\mathbb{F}$, there exists an element $x^{-1}$ in $\mathbb{F}$ such that
-        \[
-            x\cdot x^{-1} = x^{-1}\cdot x = 1
-        \]
+	      For each nonzero element $x$ in $\mathbb{F}$, there exists an element $x^{-1}$ in $\mathbb{F}$ such that
+	      \[
+		      x\cdot x^{-1} = x^{-1}\cdot x = 1
+	      \]
 \end{enumerate}
 
 \begin{note}
-    The numbers themselves are not useful. Things start to be interesting when they admit some kinds of ``rules''. In the cases of real numbers and complex numbers, some of those rules are the above properties. It is even more interesting that one can prove a lot of more properties from these rules \textit{only}.
+	The numbers themselves are not useful. Things start to be interesting when they admit some kinds of ``rules''. In the cases of real numbers and complex numbers, some of those rules are the above properties. It is even more interesting that one can prove a lot of more properties from these rules \textit{only}.
 
-    Here comes an abstract point of view. It is painful and took me a lot of time to accept.
+	Here comes an abstract point of view. It is painful and took me a lot of time to accept.
 
-    There are objects other than real numbers and complex numbers (together with addition and multiplication) and they still possess nine of the above properties. Mathematicians love to expand their knowledge from a minimal list of axioms (or rules). From the nineteenth century, mathematicians came up with a revolution idea: the objects that satisfy a list of rules \textit{need not to be defined}, they could be anything, one can just focus on the rules and do the mathematics works. In nine of the above properties, everything is merely symbol, including ``$x$'', ``$y$'', ``$z$'', even the plus sign ``$+$'', the dot sign ``$\cdot$'', zero ``$0$'', one ``$1$'', ``$(-x)$'', ``$x^{-1}$''. Properties are the meanings that are given to the two operations.
+	There are objects other than real numbers and complex numbers (together with addition and multiplication) and they still possess nine of the above properties. Mathematicians love to expand their knowledge from a minimal list of axioms (or rules). From the nineteenth century, mathematicians came up with a revolution idea: the objects that satisfy a list of rules \textit{need not to be defined}, they could be anything, one can just focus on the rules and do the mathematics works. In nine of the above properties, everything is merely symbol, including ``$x$'', ``$y$'', ``$z$'', even the plus sign ``$+$'', the dot sign ``$\cdot$'', zero ``$0$'', one ``$1$'', ``$(-x)$'', ``$x^{-1}$''. Properties are the meanings that are given to the two operations.
 
-    Thinking of numbers as symbols allows us to do a lot of things. Symbols allow us to forget about numbers and the redundant, to focus on ``the minimal list of axioms'', which are the essentials. Symbols are \textit{abstractions}. Abstractions allow generalizing. By using symbols, we are able to prove many (not all) properties of any objects that satisfy the rules.
+	Thinking of numbers as symbols allows us to do a lot of things. Symbols allow us to forget about numbers and the redundant, to focus on ``the minimal list of axioms'', which are the essentials. Symbols are \textit{abstractions}. Abstractions allow generalizing. By using symbols, we are able to prove many (not all) properties of any objects that satisfy the rules.
 
-    By accepting that point of view, I was able to accept the following definition and go on with linear algebra and abstract algebra.
+	By accepting that point of view, I was able to accept the following definition and go on with linear algebra and abstract algebra.
 \end{note}
 
 \begin{definition}[Field]
-    A set $\mathbb{F}$ equipped with two operations\footnote{In this case, ``Operation'' is also known as \textit{the law of composition}, for it maps two elements to another.} called \textit{addition} (denoted by plus sign ``$+$'') and \textit{multiplication} (denoted by dot sign ``$\cdot$'')
-    \[
-        \begin{split}
-            +: \mathbb{F}\times\mathbb{F}\to\mathbb{F} \\
-            \cdot: \mathbb{F}\times\mathbb{F}\to\mathbb{F}
-        \end{split}
-    \]
-    is called \textit{a field} if these two operations satisfy
-    \begin{enumerate}[label = (\arabic*)]
-        \item Addition is associative.
-            \[
-               (\forall x, y, z\in\mathbb{F}): (x + y) + z = x + (y + z)
-            \]
-        \item Addition has an identity element called zero.
-            \[
-                (\exists\,0\in\mathbb{F})(\forall x\in\mathbb{F}): x + 0 = 0 + x = x
-            \]
-        \item Each element has an additive inverse.
-            \[
-                (\forall x\in\mathbb{F})(\exists (-x)\in\mathbb{F}): x + (-x) = (-x) + x = 0
-            \]
-        \item Addition is commutative.
-            \[
-                (\forall x,y\in\mathbb{F}): x + y = y + x
-            \]
-        \item Multiplication is associative.
-            \[
-                (\forall x, y, z\in\mathbb{F}): (x\cdot y)\cdot z = x\cdot (y\cdot z)
-            \]
+	A set $\mathbb{F}$ equipped with two operations\footnote{In this case, ``Operation'' is also known as \textit{the law of composition}, for it maps two elements to another.} called \textit{addition} (denoted by plus sign ``$+$'') and \textit{multiplication} (denoted by dot sign ``$\cdot$'')
+	\[
+		\begin{split}
+			+: \mathbb{F}\times\mathbb{F}\to\mathbb{F} \\
+			\cdot: \mathbb{F}\times\mathbb{F}\to\mathbb{F}
+		\end{split}
+	\]
+	is called \textit{a field} if these two operations satisfy
+	\begin{enumerate}[label = (\arabic*)]
+		\item Addition is associative.
+		      \[
+			      (\forall x, y, z\in\mathbb{F}): (x + y) + z = x + (y + z)
+		      \]
+		\item Addition has an identity element called zero.
+		      \[
+			      (\exists\,0\in\mathbb{F})(\forall x\in\mathbb{F}): x + 0 = 0 + x = x
+		      \]
+		\item Each element has an additive inverse.
+		      \[
+			      (\forall x\in\mathbb{F})(\exists (-x)\in\mathbb{F}): x + (-x) = (-x) + x = 0
+		      \]
+		\item Addition is commutative.
+		      \[
+			      (\forall x,y\in\mathbb{F}): x + y = y + x
+		      \]
+		\item Multiplication is associative.
+		      \[
+			      (\forall x, y, z\in\mathbb{F}): (x\cdot y)\cdot z = x\cdot (y\cdot z)
+		      \]
+		\item Multiplication is distributive (on both sides) over addition.
+		      \[
+			      (\forall x, y, z\in\mathbb{F}):
+			      \begin{cases}
+				      z\cdot (x + y) = z\cdot x + z\cdot y \\
+				      (x + y)\cdot z = x\cdot z + y\cdot z
+			      \end{cases}
+		      \]
         \item Multiplication has an identity element called one, or unit.
-            \[
-                (\exists\,1\in\mathbb{F})(\forall x\in\mathbb{F}): x\cdot 1 = 1\cdot x = x
-            \]
-        \item Multiplication is distributive (on both sides) over addition.
-            \[
-                (\forall x, y, z\in\mathbb{F}):
-                \begin{cases}
-                    z\cdot (x + y) = z\cdot x + z\cdot y \\
-                    (x + y)\cdot z = x\cdot z + y\cdot z
-                \end{cases}
-            \]
-        \item Multiplication is commutative.
-            \[
-                (\forall x, y\in\mathbb{F}): x\cdot y = y\cdot x
-            \]
-        \item Each nonzero element has a multiplicative inverse.
-            \[
-                (\forall x\in\mathbb{F} \wedge x\ne 0)(\exists x^{-1}\in\mathbb{F}): x\cdot x^{-1} = x^{-1}\cdot x = 1
-            \]
-    \end{enumerate}
+		      \[
+			      (\exists\,1\in\mathbb{F})(\forall x\in\mathbb{F}): x\cdot 1 = 1\cdot x = x
+		      \]
+		\item Multiplication is commutative.
+		      \[
+			      (\forall x, y\in\mathbb{F}): x\cdot y = y\cdot x
+		      \]
+		\item Each nonzero element has a multiplicative inverse.
+		      \[
+			      (\forall x\in\mathbb{F} \wedge x\ne 0)(\exists x^{-1}\in\mathbb{F}): x\cdot x^{-1} = x^{-1}\cdot x = 1
+		      \]
+	\end{enumerate}
 \end{definition}
 
 \begin{note}
-    The zero and one element of a field are different. Therefore, a field must have at least two distinct elements.
+	The zero and one element of a field are different. Therefore, a field must have at least two distinct elements.
 
-    In the book, elements of a field are also called \textit{scalars}.
+	In the book, elements of a field are also called \textit{scalars}.
 
-    I listed the commutative rules after the associative ones. I did this for good reason. Commutative is much more simple and familiar than associative, but it is more ``rare'' in other algebraic structures like groups and rings. For now, you don't have to dwell on this.
+	I listed the commutative rules after the associative ones. I did this for good reason. Commutative is much more simple and familiar than associative, but it is more ``rare'' in other algebraic structures like groups and rings. For now, you don't have to dwell on this.
 \end{note}
 
 \begin{definition}[Substraction and Division]
-    Within a field
-    \begin{enumerate}
-        \item Subtraction is adding with the additive inverse. Formally
-            \[
-                x - y = x + (-y)
-            \]
-        \item Division by a nonzero element is multiplying with its multiplicative inverse. Formally
-            \[
-                x / y = x\cdot y^{-1}
-            \]
-    \end{enumerate}
+	Within a field
+	\begin{enumerate}
+		\item Subtraction is adding with the additive inverse. Formally
+		      \[
+			      x - y = x + (-y)
+		      \]
+		\item Division by a nonzero element is multiplying with its multiplicative inverse. Formally
+		      \[
+			      x / y = x\cdot y^{-1}
+		      \]
+	\end{enumerate}
 \end{definition}
 
 Proof of the following theorem demonstrates how to use the rules to derive other properties.
 
 \begin{theorem}\label{thm:properties-of-field}
-    In a field
-    \begin{enumerate}[label = (\roman*)]
-        \item Zero element is unique.
-        \item Each element has unique additive inverse.
-        \item One (unit) element is unique.
-        \item Each nonzero element has unique multiplicative inverse.
-        \item Multiplying an arbitrary element with zero will produce zero.
-    \end{enumerate}
+	In a field $\mathbb{F}$
+	\begin{enumerate}[label = (\roman*)]
+		\item Zero element is unique.
+		\item Each element has unique additive inverse.
+		\item One (unit) element is unique.
+		\item Each nonzero element has unique multiplicative inverse.
+		\item Multiplying an arbitrary element with zero will produce zero.
+		\item $xy = 0$ implies that $x = 0$ or $y = 0$, where $x$ and $y$ are elements of $\mathbb{F}$.
+	\end{enumerate}
 \end{theorem}
 
 \begin{proof}
-    \begin{enumerate}[label = (\roman*)]
-        \item Suppose that $0$ and $0'$ are zero elements, then by rule (2)
-            \[
-                0 = 0 + 0' = 0'
-            \]
-            which means the two zero elements are identical.
-        \item Suppose that $x_{1}, x_{2}$ are additive inverses of $x$. Then by rules (3) and (1)
-            \[
-                x_{1} = x_{1} + 0 = x_{1} + (x + x_{2}) = (x_{1} + x) + x_{2} = 0 + x_{2} = x_{2}
-            \]
-            which means the two additive inverses are identical.
-        \item Suppose that $1$ and $1'$ are one elements, then by rule (6)
-            \[
-                1 = 1\cdot 1' = 1'
-            \]
-            which means the two one elements are identical.
-        \item Suppose that $x_{1}, x_{2}$ are multiplicative inverse of the nonzero element $x$. Then by rules (5) and (9)
-            \[
-                x_{1} = x_{1}\cdot 1 = x_{1}\cdot (x\cdot x_{2}) = (x_{1}\cdot x)\cdot x_{2} = 1\cdot x_{2} = x_{2}
-            \]
-        \item By rule (8)
-            \[
-                0x = (0 + 0)x = 0x + 0x
-            \]
-            By rule (3)
-            \[
-                0x - 0x = 0x + 0x - 0x
-            \]
-            It follows that $0x = 0$.\qedhere
-    \end{enumerate}
+	\begin{enumerate}[label = (\roman*)]
+		\item Suppose that $0$ and $0'$ are zero elements, then by rule (2)
+		      \[
+			      0 = 0 + 0' = 0'
+		      \]
+		      which means the two zero elements are identical.
+		\item Suppose that $x_{1}, x_{2}$ are additive inverses of $x$. Then by rules (3) and (1)
+		      \[
+			      x_{1} = x_{1} + 0 = x_{1} + (x + x_{2}) = (x_{1} + x) + x_{2} = 0 + x_{2} = x_{2}
+		      \]
+		      which means the two additive inverses are identical.
+		\item Suppose that $1$ and $1'$ are one elements, then by rule (7)
+		      \[
+			      1 = 1\cdot 1' = 1'
+		      \]
+		      which means the two one elements are identical.
+		\item Suppose that $x_{1}, x_{2}$ are multiplicative inverse of the nonzero element $x$. Then by rules (5) and (9)
+		      \[
+			      x_{1} = x_{1}\cdot 1 = x_{1}\cdot (x\cdot x_{2}) = (x_{1}\cdot x)\cdot x_{2} = 1\cdot x_{2} = x_{2}
+		      \]
+		\item By rule (8)
+		      \[
+			      0x = (0 + 0)x = 0x + 0x
+		      \]
+		      By rule (3)
+		      \[
+			      0x - 0x = 0x + 0x - 0x
+		      \]
+		      It follows that $0x = 0$.
+		\item If $x$ is other than zero, then by rule (9), there exists $x^{-1}$ such that $x\cdot x^{-1} = x{^-1}x = 1$. Since $xy = 0$, then
+		      \begin{align*}
+			                           & x^{-1}\cdot (xy) = x^{-1}\cdot 0 \\
+			      \Leftrightarrow\quad & (x^{-1}\cdot x)\cdot y = 0       \\
+			      \Leftrightarrow\quad & 1\cdot y = 0                     \\
+			      \Leftrightarrow\quad & y = 0.
+		      \end{align*}
+		      Similarly, if $y$ is other than zero, then $x = 0$.
+
+		      Hence $xy = 0$ implies that $x = 0$ or $y = 0$.
+	\end{enumerate}
 \end{proof}
 
 \begin{note}
-    The final part of Theorem~\ref{thm:properties-of-field} surprised me at first. If no one had shown me how to derive it from the rules, I would have been taken it for granted. The lesson here is don't be like me.
+	Part (v) and (vi) of Theorem~\ref{thm:properties-of-field} surprised me at first. If no one had shown me how to derive it from the rules, I would have been taken it for granted. The lesson here is don't be like me.
 \end{note}
 
 Now let's consider some examples and non-exampples of field.
 
 \begin{example}
-    \begin{enumerate}[label = (\alph*)]
-        \item The set of real numbers $\mathbb{R}$, the set of complex numbers $\mathbb{C}$ (with the usual addition and multiplication) are fields.
-        \item The set of natural numbers $\mathbb{N}$ (with the usual addition and multiplication) is not a field, since elements other than zero do not have additive inverses.
-        \item The set of integer numbers $\mathbb{Z}$ (with the usual addition and multiplication) is not a field, since nonzero integers other than $\pm 1$ do not have multiplicative inverses.
-        \item The set of rational numbers $\mathbb{Q}$ (with the usual addition and multiplication) is a field.
-    \end{enumerate}
+	\begin{enumerate}[label = (\alph*)]
+		\item The set of real numbers $\mathbb{R}$, the set of complex numbers $\mathbb{C}$ (with the usual addition and multiplication) are fields.
+		\item The set of natural numbers $\mathbb{N}$ (with the usual addition and multiplication) is not a field, since elements other than zero do not have additive inverses.
+		\item The set of integer numbers $\mathbb{Z}$ (with the usual addition and multiplication) is not a field, since nonzero integers other than $\pm 1$ do not have multiplicative inverses.
+		\item The set of rational numbers $\mathbb{Q}$ (with the usual addition and multiplication) is a field.
+	\end{enumerate}
 \end{example}
 
 \subsection{Subfield}
@@ -209,73 +220,73 @@ Now let's consider some examples and non-exampples of field.
 Let's take a look at the examples of rational numbers, real numbers, and complex numbers: $\mathbb{Q}\subseteq\mathbb{R}\subseteq\mathbb{C}$. This remark leads to the definition of \textit{subfield}.
 
 \begin{definition}[Subfield]
-    $\mathbb{G}$ is a subfield of $\mathbb{F}$ if and only if $\mathbb{G}$ is a field and a subset of $\mathbb{F}$, where the operations of $\mathbb{G}$ are those of $\mathbb{F}$ but restricted to $\mathbb{G}$.
+	$\mathbb{G}$ is a subfield of $\mathbb{F}$ if and only if $\mathbb{G}$ is a field and a subset of $\mathbb{F}$, where the operations of $\mathbb{G}$ are those of $\mathbb{F}$ but restricted to $\mathbb{G}$.
 \end{definition}
 
 With the field rules and the definition of subfield, we can obtain further information about subfield.
 
 \begin{theorem}
-    Let $\mathbb{G}$ be a subfield of $\mathbb{F}$. Then the two share the same zero element and unit element.
+	Let $\mathbb{G}$ be a subfield of $\mathbb{F}$. Then the two share the same zero element and unit element.
 \end{theorem}
 
 \begin{proof}
-    $\mathbb{G}$ is a subfield of $\mathbb{F}$. Then $\mathbb{G}$ has at least two distinct elements, according to the note in the previous subsection. Therefore, from the elements of $\mathbb{G}$, we can pick a nonzero element, let's denote it by $x$.
+	$\mathbb{G}$ is a subfield of $\mathbb{F}$. Then $\mathbb{G}$ has at least two distinct elements, according to the note in the previous subsection. Therefore, from the elements of $\mathbb{G}$, we can pick a nonzero element, let's denote it by $x$.
 
-    Let $0_{\mathbb{G}}$ and $1_{\mathbb{G}}$ be the zero and unit elements of $\mathbb{G}$, respectively. $0_{\mathbb{F}}$ and $1_{\mathbb{F}}$ are those of $\mathbb{F}$. Notice that $0_{\mathbb{G}}$ and $1_{\mathbb{G}}$ are also elements of $\mathbb{F}$, since $\mathbb{G}$ is a subset of $\mathbb{F}$.
+	Let $0_{\mathbb{G}}$ and $1_{\mathbb{G}}$ be the zero and unit elements of $\mathbb{G}$, respectively. $0_{\mathbb{F}}$ and $1_{\mathbb{F}}$ are those of $\mathbb{F}$. Notice that $0_{\mathbb{G}}$ and $1_{\mathbb{G}}$ are also elements of $\mathbb{F}$, since $\mathbb{G}$ is a subset of $\mathbb{F}$.
 
-    $(-x)$ is the additive inverse of $x$ within $\mathbb{F}$.
+	$(-x)$ is the additive inverse of $x$ within $\mathbb{F}$.
 
-    Apply rules (1) (2) (3)
-    \begin{align*}
-        x + 0_{\mathbb{G}} & = x = x + 0_{\mathbb{F}} \\
-        \Rightarrow (-x) + (x + 0_{\mathbb{G}}) & = (-x) + (x + 0_{\mathbb{F}}) \\
-        \Rightarrow ((-x) + x) + 0_{\mathbb{G}} & = ((-x) + x) + 0_{\mathbb{F}} \\
-        \Rightarrow 0_{\mathbb{F}} + 0_{\mathbb{G}} & = 0_{\mathbb{F}} + 0_{\mathbb{F}} \\
-        \Rightarrow 0_{\mathbb{G}} = 0_{\mathbb{F}}.
-    \end{align*}
-    Hence the two fields share the same zero element. So $x$ is also a nonzero element of $\mathbb{F}$, which means it has multiplicative inverse. $x^{-1}$ is the multiplicative inverse of $x$ within $\mathbb{F}$.
+	Apply rules (1) (2) (3)
+	\begin{align*}
+		x + 0_{\mathbb{G}}                          & = x = x + 0_{\mathbb{F}}          \\
+		\Rightarrow (-x) + (x + 0_{\mathbb{G}})     & = (-x) + (x + 0_{\mathbb{F}})     \\
+		\Rightarrow ((-x) + x) + 0_{\mathbb{G}}     & = ((-x) + x) + 0_{\mathbb{F}}     \\
+		\Rightarrow 0_{\mathbb{F}} + 0_{\mathbb{G}} & = 0_{\mathbb{F}} + 0_{\mathbb{F}} \\
+		\Rightarrow 0_{\mathbb{G}} = 0_{\mathbb{F}}.
+	\end{align*}
+	Hence the two fields share the same zero element. So $x$ is also a nonzero element of $\mathbb{F}$, which means it has multiplicative inverse. $x^{-1}$ is the multiplicative inverse of $x$ within $\mathbb{F}$.
 
-    Apply rules (5) (6) (9)
-    \begin{align*}
-        x\cdot 1_{\mathbb{G}} & = x = x\cdot 1_{\mathbb{F}} \\
-        \Rightarrow x^{-1}\cdot (x\cdot 1_{\mathbb{G}}) & = x^{-1}\cdot (x\cdot 1_{\mathbb{F}}) \\
-        \Rightarrow (x^{-1}\cdot x)\cdot 1_{\mathbb{G}} & = (x^{-1}\cdot x)\cdot 1_{\mathbb{F}} \\
-        \Rightarrow 1_{\mathbb{F}}\cdot 1_{\mathbb{G}} & = 1_{\mathbb{F}}\cdot 1_{\mathbb{F}} \\
-        \Rightarrow 1_{\mathbb{G}} & = 1_{\mathbb{F}}.
-    \end{align*}
+	Apply rules (5) (7) (9)
+	\begin{align*}
+		x\cdot 1_{\mathbb{G}}                           & = x = x\cdot 1_{\mathbb{F}}           \\
+		\Rightarrow x^{-1}\cdot (x\cdot 1_{\mathbb{G}}) & = x^{-1}\cdot (x\cdot 1_{\mathbb{F}}) \\
+		\Rightarrow (x^{-1}\cdot x)\cdot 1_{\mathbb{G}} & = (x^{-1}\cdot x)\cdot 1_{\mathbb{F}} \\
+		\Rightarrow 1_{\mathbb{F}}\cdot 1_{\mathbb{G}}  & = 1_{\mathbb{F}}\cdot 1_{\mathbb{F}}  \\
+		\Rightarrow 1_{\mathbb{G}}                      & = 1_{\mathbb{F}}.
+	\end{align*}
 
-    Hence the two fields share the same unit element.
+	Hence the two fields share the same unit element.
 \end{proof}
 
 \begin{theorem}
-    Let $\mathbb{G}$ be a subfield of $\mathbb{F}$. The additive inverse of an element within $\mathbb{G}$ is within $\mathbb{G}$, the multiplicative inverse of a nonzero element within $\mathbb{G}$ is within $\mathbb{G}$.
+	Let $\mathbb{G}$ be a subfield of $\mathbb{F}$. The additive inverse of an element within $\mathbb{G}$ is within $\mathbb{G}$, the multiplicative inverse of a nonzero element within $\mathbb{G}$ is within $\mathbb{G}$.
 \end{theorem}
 
 \begin{proof}
-    The additive inverse of zero element is itself, so it belongs to $\mathbb{G}$.
+	The additive inverse of zero element is itself, so it belongs to $\mathbb{G}$.
 
-    Let $x$ be a nonzero element of $\mathbb{F}$. Let ${(-x)}_{\mathbb{F}}$, ${(-x)}_{\mathbb{G}}$ be the additive inverses of $x$ within $\mathbb{F}$, $\mathbb{G}$ respectively.
+	Let $x$ be a nonzero element of $\mathbb{F}$. Let ${(-x)}_{\mathbb{F}}$, ${(-x)}_{\mathbb{G}}$ be the additive inverses of $x$ within $\mathbb{F}$, $\mathbb{G}$ respectively.
 
-    Since $\mathbb{G}$ and $\mathbb{F}$ share the same zero element, then by rules (1) (2) (3)
-    \begin{align*}
-        {(-x)}_{\mathbb{G}} & = {(-x)}_{\mathbb{G}} + 0 \\
-                            & = {(-x)}_{\mathbb{G}} + (x + {(-x)}_{\mathbb{F}}) \\
-                            & = ({(-x)}_{\mathbb{G}} + x) + {(-x)}_{\mathbb{F}} \\
-                            & = 0 + {(-x)}_{\mathbb{F}} \\
-                            & = {(-x)}_{\mathbb{F}}
-    \end{align*}
+	Since $\mathbb{G}$ and $\mathbb{F}$ share the same zero element, then by rules (1) (2) (3)
+	\begin{align*}
+		{(-x)}_{\mathbb{G}} & = {(-x)}_{\mathbb{G}} + 0                         \\
+		                    & = {(-x)}_{\mathbb{G}} + (x + {(-x)}_{\mathbb{F}}) \\
+		                    & = ({(-x)}_{\mathbb{G}} + x) + {(-x)}_{\mathbb{F}} \\
+		                    & = 0 + {(-x)}_{\mathbb{F}}                         \\
+		                    & = {(-x)}_{\mathbb{F}}
+	\end{align*}
 
-    Let ${x^{-1}}_{\mathbb{F}}$, ${x^{-1}}_{\mathbb{G}}$ be the multiplicative inverses of $x$ within $\mathbb{F}$, $\mathbb{G}$ respectively.
+	Let ${x^{-1}}_{\mathbb{F}}$, ${x^{-1}}_{\mathbb{G}}$ be the multiplicative inverses of $x$ within $\mathbb{F}$, $\mathbb{G}$ respectively.
 
-    Since $\mathbb{G}$ and $\mathbb{F}$ share the same unit element, then by rules (5) (6) (9)
-    \begin{align*}
-        {x^{-1}}_{\mathbb{G}} & = {x^{-1}}_{\mathbb{G}}\cdot 1 \\
-                              & = {x^{-1}}_{\mathbb{G}}\cdot (x\cdot {x^{-1}}_{\mathbb{F}}) \\
-                              & = ({x^{-1}}_{\mathbb{G}}\cdot x)\cdot {x^{-1}}_{\mathbb{F}} \\
-                              & = 1\cdot {x^{-1}}_{\mathbb{F}} \\
-                              & = {x^{-1}}_{\mathbb{F}}
-    \end{align*}
-    Thus, the results follow.
+	Since $\mathbb{G}$ and $\mathbb{F}$ share the same unit element, then by rules (5) (7) (9)
+	\begin{align*}
+		{x^{-1}}_{\mathbb{G}} & = {x^{-1}}_{\mathbb{G}}\cdot 1                              \\
+		                      & = {x^{-1}}_{\mathbb{G}}\cdot (x\cdot {x^{-1}}_{\mathbb{F}}) \\
+		                      & = ({x^{-1}}_{\mathbb{G}}\cdot x)\cdot {x^{-1}}_{\mathbb{F}} \\
+		                      & = 1\cdot {x^{-1}}_{\mathbb{F}}                              \\
+		                      & = {x^{-1}}_{\mathbb{F}}
+	\end{align*}
+	Thus, the results follow.
 \end{proof}
 
 \subsection{Characteristic}
@@ -283,40 +294,68 @@ With the field rules and the definition of subfield, we can obtain further infor
 Let's begin with another example of field. Furthermore, it is a finite field $-$ it is called so because it has a finite number of elements.
 
 \begin{theorem}
-    The set of integers modulo $n$ ($n > 1$), with addition and multiplication modulo $n$, is a field if and only if $n$ is a prime.
+	The set of integers modulo $n$ ($n > 1$), with addition and multiplication modulo $n$, is a field if and only if $n$ is a prime.
 \end{theorem}
 
 The set of integers modulo $n$ is denoted by $\mathbb{Z}/n\mathbb{Z}$.
 
 \begin{proof}
-    $\mathbb{Z}/n\mathbb{Z}$, together with addition and multiplication modulo $n$ satisfies (1) $-$ (8).
+	$\mathbb{Z}/n\mathbb{Z}$, together with addition and multiplication modulo $n$ satisfies (1) $-$ (8).
 
-    $(\Rightarrow)$ Let $a$ be an integer which is not a multiple of $n$, then $a$ and $n$ are coprime. According to Bezout's theorem, there exists integers $x$ and $y$ such that $ax + ny = 1$. Therefore, $ax\equiv 1\pmod{n}$, which indicates that $a$ has an multiplicative inverse. Hence $\mathbb{Z}/n\mathbb{Z}$ with addition and multiplication modulo $n$ is a field (it satisfy (9)).
+	$(\Rightarrow)$ Let $a$ be an integer which is not a multiple of $n$, then $a$ and $n$ are coprime. According to Bezout's theorem, there exists integers $x$ and $y$ such that $ax + ny = 1$. Therefore, $ax\equiv 1\pmod{n}$, which indicates that $a$ has an multiplicative inverse. Hence $\mathbb{Z}/n\mathbb{Z}$ with addition and multiplication modulo $n$ is a field (it satisfy (9)).
 
-    $(\Leftarrow)$ Let $a$ be an integer which is not a multiple of $n$. Since $\mathbb{Z}/n\mathbb{Z}$ is a field, then there exists an integer $x$ such that $ax\equiv 1\pmod{n}$, or equivalently, $ax - 1$ is a multiple of $n$. In other words, there exists an integer $y$ such that $ax - ny = 1$. The equality implies that $a$ and $n$ are coprime. So every integer, which is not a multiple of $n$, is coprime with $n$. This means $n$ is a prime.
+	$(\Leftarrow)$ Let $a$ be an integer which is not a multiple of $n$. Since $\mathbb{Z}/n\mathbb{Z}$ is a field, then there exists an integer $x$ such that $ax\equiv 1\pmod{n}$, or equivalently, $ax - 1$ is a multiple of $n$. In other words, there exists an integer $y$ such that $ax - ny = 1$. The equality implies that $a$ and $n$ are coprime. So every integer, which is not a multiple of $n$, is coprime with $n$. This means $n$ is a prime.
 
-    In conclusion, $\mathbb{Z}/n\mathbb{Z}$ with addition and multiplication modulo $n$ is a field iff $n$ is a prime.
+	In conclusion, $\mathbb{Z}/n\mathbb{Z}$ with addition and multiplication modulo $n$ is a field iff $n$ is a prime.
 \end{proof}
 
 If $p$ is a prime, then the field $\mathbb{Z}/p\mathbb{Z}$ is denoted by $\mathbb{F}_{p}$ (to emphasize that it is a field). In $\mathbb{F}_{p}$, there is a phenomenon
 \[
-    \underbrace{1 + 1 + \cdots + 1}_{p} = 0 \qquad \text{more specific}\qquad \underbrace{1 + 1 + \cdots + 1}_{p} \equiv 0\pmod{p}
+	\underbrace{1 + 1 + \cdots + 1}_{p} = 0 \qquad \text{more specific}\qquad \underbrace{1 + 1 + \cdots + 1}_{p} \equiv 0\pmod{p}
 \]
 
 Informally, it means we can add up $1$'s successively and end up with $0$ after a finite number of 1's. However, this phenomenon does not happen in the cases of rational, real, or complex numbers.
 
 \begin{definition}[Characteristic of a field]
+	Given a field $\mathbb{F}$, there are two possibilities
+	\begin{itemize}
+		\item There exists a positive integer $n$ such that if one add up $1$'s $n$ times, then the result will be $0$. The least of such positive numbers is called \textit{the characteristic of $\mathbb{F}$}.
+		\item If such positive integer does not exist, we said $\mathbb{F}$ has characteristic zero.
+	\end{itemize}
 \end{definition}
 
 \begin{note}
-    In abstract algebra, the characteristic is defined for rings, which is more general than fields, in the same manner.
+	In abstract algebra, the characteristic is defined for rings, which is more general than fields, in the same manner.
+
+	The characteristic of a field cannot be $1$, since zero element and unit element of a field are distinct.
+
+    Characterisitic of $\mathbb{F}$ is denoted by $\text{Char}(\mathbb{F})$.
 \end{note}
 
 \begin{theorem}
-    Characteristic of a field is either $0$, or a prime.
+	Characteristic of a field is either $0$, or a prime.
 \end{theorem}
 
 \begin{proof}
+	We will prove that if the characteristic of a field $\mathbb{F}$ is other than $0$, then it must be a prime.
+
+	Suppose that the characteristic of $\mathbb{F}$ is a composite $n = ab$, where $1 < a, b < n$.
+
+	According to the definition of characteristic: $\underbrace{1 + 1 + \cdots + 1}_{n} = 0$.
+
+    Let $x = \underbrace{1 + 1 + \cdots + 1}_{a}, y = \underbrace{1 + 1 + \cdots + 1}_{b}$, then $xy = 0$. To be more details
+
+    \begin{align*}
+        xy & = x\cdot (\underbrace{1 + 1 + \cdots + 1}_{b}) \\
+           & = \underbrace{x + x + \cdots + x}_{b} \\
+           & = \underbrace{\underbrace{1 + \cdots + 1}_{a} + \underbrace{1 + \cdots + 1}_{a} + \cdots + \underbrace{1 + \cdots + 1}_{a}}_{b} \\
+           & = \underbrace{1 + 1 + \cdots + 1}_{n} \\
+           & = 0.
+    \end{align*}
+
+    $xy = 0$ implies that $x = 0$ or $y = 0$. This is a contradiction to the definition of characteristic, since $n$ is the least positive integer such that $\underbrace{1 + 1 + \cdots + 1}_{n} = 0$.
+
+    Thus if $\text{Char}(\mathbb{F})$ is other than zero, then it must be a prime.
 \end{proof}
 
 \section{System of Linear Equations}
