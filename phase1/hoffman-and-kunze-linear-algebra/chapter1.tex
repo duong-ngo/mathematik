@@ -1,3 +1,4 @@
+% chktex-file 44
 \chapter{Linear Equations}
 
 \section{Fields}
@@ -166,17 +167,17 @@ Proof of the following theorem demonstrates how to use the axioms to derive othe
                   0 = 0 + 0' = 0'
               \]
               which means the two zero elements are identical.
-          \item Suppose that $x_{1}, x_{2}$ are additive inverses of $x$. Then by axioms~\ref{field:addition-associative} and~\ref{field:additive-identity}
+        \item Suppose that $x_{1}, x_{2}$ are additive inverses of $x$. Then by axioms~\ref{field:addition-associative} and~\ref{field:additive-identity}
               \[
                   x_{1} = x_{1} + 0 = x_{1} + (x + x_{2}) = (x_{1} + x) + x_{2} = 0 + x_{2} = x_{2}
               \]
               which means the two additive inverses are identical.
-          \item Suppose that $1$ and $1'$ are one elements, then by axiom~\ref{field:multiplication-identity}
+        \item Suppose that $1$ and $1'$ are one elements, then by axiom~\ref{field:multiplication-identity}
               \[
                   1 = 1\cdot 1' = 1'
               \]
               which means the two one elements are identical.
-          \item Suppose that $x_{1}, x_{2}$ are multiplicative inverse of the nonzero element $x$. Then by axioms~\ref{field:multiplication-association} and~\ref{field:multiplication-identity}
+        \item Suppose that $x_{1}, x_{2}$ are multiplicative inverse of the nonzero element $x$. Then by axioms~\ref{field:multiplication-association} and~\ref{field:multiplication-identity}
               \[
                   x_{1} = x_{1}\cdot 1 = x_{1}\cdot (x\cdot x_{2}) = (x_{1}\cdot x)\cdot x_{2} = 1\cdot x_{2} = x_{2}
               \]
@@ -348,10 +349,10 @@ Informally, it means we can add up $1$'s successively and end up with $0$ after 
     Let $x = \underbrace{1 + 1 + \cdots + 1}_{a}, y = \underbrace{1 + 1 + \cdots + 1}_{b}$, then $xy = 0$. To be more details
 
     \begin{align*}
-        xy & = x\cdot (\underbrace{1 + 1 + \cdots + 1}_{b}) \\
-           & = \underbrace{x + x + \cdots + x}_{b} \\
+        xy & = x\cdot (\underbrace{1 + 1 + \cdots + 1}_{b})                                                                                  \\
+           & = \underbrace{x + x + \cdots + x}_{b}                                                                                           \\
            & = \underbrace{\underbrace{1 + \cdots + 1}_{a} + \underbrace{1 + \cdots + 1}_{a} + \cdots + \underbrace{1 + \cdots + 1}_{a}}_{b} \\
-           & = \underbrace{1 + 1 + \cdots + 1}_{n} \\
+           & = \underbrace{1 + 1 + \cdots + 1}_{n}                                                                                           \\
            & = 0.
     \end{align*}
 
@@ -372,9 +373,155 @@ Informally, it means we can add up $1$'s successively and end up with $0$ after 
     Hence it follows that $\text{Char}(\mathbb{F}) = \text{Char}(\mathbb{G})$.
 \end{proof}
 
+The exercises in the book assume the field that we are working with is a subfield of $\mathbb{C}$, unless it is explicitly stated.
+
 \section{System of Linear Equations}
 
+A fundamental problem in Linear Algebra is solving linear equations. We consider the problem of finding $n$ scalars of a field $\mathbb{F}$, which satisfy the conditions
+
+\begin{equation}
+    \begin{split}
+        A_{11}x_{1} + A_{12}x_{2} + \cdots + A_{1n}x_{n} = y_{1}  \\
+        A_{21}x_{1} + A_{22}x_{2} + \cdots + A_{2n}x_{n} = y_{2}  \\
+        \vdots \\
+        A_{m1}x_{1} + A_{m2}x_{2} + \cdots + A_{mn}x_{n} = y_{m}
+    \end{split}\label{eq:general-system-of-linear-equations}
+\end{equation}
+
+where $y_{1}, y_{2}, \ldots, y_{m}$ and $A_{ij} (1\le i\le m, 1\le j\le n)$ are given scalars of $\mathbb{F}$.
+
+(\ref{eq:general-system-of-linear-equations}) is called a \textbf{system of $m$ linear equations in $n$ unknowns}. An $n$-tuple $(x_{1}, \ldots, x_{n})$ of scalars of $\mathbb{F}$ which satisfies each of the linear equation is called a \textbf{solution} of the system. Particularly, if $y_{1} = y_{2} = \cdots = y_{m}$, people say that the system is \textbf{homogeneous}, each of the equation of the system is homogeneous.
+
+The technique for finding the solutions of a system of linear equations is elimination (read the original text for an example).
+
+We have a technique for solving any specific system of linear equations. But we wish to formalize it so that we may understand the essence of the technique and solve the systems in an organized manner.
+
+For the general system (\ref{eq:general-system-of-linear-equations}), we choose $m$ scalars $c_{1}, \ldots, c_{m}$, multiply $j^{th}$ equation by $c_{j}$ then add up the equations. We obtain the following equation
+\begin{multline*}
+    (c_{1}A_{11} + c_{2}A_{21} + \cdots + c_{m}A_{m1})x_{1} + (c_{2}A_{12} + c_{2}A_{22} + \cdots + c_{m}A_{m2})x_{2} + \cdots + (c_{1}A_{1n} + c_{2}A_{2n} + \cdots + c_{m}A_{mn})x_{n} \\
+    = c_{1}y_{1} + c_{2}y_{2} + \cdots + c_{m}y_{m}.
+\end{multline*}
+which is called a \textbf{linear combination} of the equations of (\ref{eq:general-system-of-linear-equations}). Notice that any solution to a system of linear equations is also solution to the linear combination of its equations. This is the fundamental idea of elimination. If we have another system of linear equations
+\begin{equation}
+    \begin{split}
+        B_{11}x_{1} + B_{12}x_{2} + \cdots + B_{1n}x_{n} = z_{1}  \\
+        B_{21}x_{1} + B_{22}x_{2} + \cdots + B_{2n}x_{n} = z_{2}  \\
+        \vdots \\
+        B_{m1}x_{1} + B_{m2}x_{2} + \cdots + B_{mn}x_{n} = z_{m}
+    \end{split}\label{eq:new-system-of-linear-equations}
+\end{equation}
+such that each of its equation is a linear combination of the equations in (\ref{eq:general-system-of-linear-equations}). Then every solution of (\ref{eq:general-system-of-linear-equations}) is also a solution of the new system, but the converse can be false, which means there might be a solution of (\ref{eq:new-system-of-linear-equations}) which is not a solution of (\ref{eq:general-system-of-linear-equations}). However, the converse holds true if each equation of (\ref{eq:general-system-of-linear-equations}) is a linear combinations of equations in (\ref{eq:new-system-of-linear-equations}). From this remark, we say two systems of linear equations are \textbf{equivalent} if every equation in each system is a linear combination of the equations in the other system, and we also obtain the following result.
+
+\begin{theorem}
+    Equivalent systems of linear equations have exactly the same solutions.
+\end{theorem}
+
 \section*{Exercises}\addcontentsline{toc}{section}{Exercises}
+
+\begin{exercise}
+    Prove that the set of complex numbers of the form $a + b\sqrt{2}$, where $a, b$ are rational numbers, is a subfield of $\mathbb{C}$.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+Let $\mathbb{F}$ be the field of complex numbers. Are the following two systems of linear equations equivalent? If so, express each equation in each system as a linear combination of the equations in the other system.
+
+\begin{exercise}
+    \[
+        \begin{cases}
+            x_{1} - x_{2} = 0 \\
+            2x_{1} + x_{2} = 0
+        \end{cases}
+        \qquad
+        \begin{cases}
+            3x_{1} + x_{2} = 0 \\
+            x_{1} + x_{2} = 0
+        \end{cases}
+    \]
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+    \[
+        \begin{cases}
+            -x_{1} + x_{2} + 4x_{3} = 0 \\
+            x_{1} + 3x_{2} + 8x_{3} = 0 \\
+            \frac{1}{2}x_{1} + x_{2} + \frac{5}{2}x_{3} = 0
+        \end{cases}
+        \qquad
+        \begin{cases}
+            x_{1} - x_{3} = 0 \\
+            x_{2} + 3x_{3} = 0
+        \end{cases}
+    \]
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+    \[
+        \begin{cases}
+            2x_{1} + (-1 + \iota)x_{2} + x_{4} = 0 \\
+            3x_{2} - 2\iota x_{3} + 5x_{4} = 0
+        \end{cases}
+        \qquad
+        \begin{cases}
+            \left(1 + \frac{\iota}{2}\right)x_{1} + 8x_{2} - \iota x_{3} - x_{4} = 0 \\
+            \frac{2}{3}x_{1} - \frac{1}{2}x_{2} + x_{3} + 7x_{4} = 0
+        \end{cases}
+    \]
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+    Let $F$ be a set which contains exactly two elements, 0 and 1. Define an addition and multiplication by the tables:
+    \[
+        \begin{array}{c|cc}
+            + & 0 & 1 \\
+            \hline
+            0 & 0 & 1 \\
+            1 & 1 & 0
+        \end{array}
+        \qquad
+        \begin{array}{c|cc}
+            \cdot & 0 & 1 \\
+            \hline
+            0 & 0 & 0 \\
+            1 & 0 & 1
+        \end{array}
+    \]
+    Verify that the set $F$, together with these two operations, is a field.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+    Prove that if two homogeneous systems of linear equations in two unknowns have the same solutions, then they are equivalent.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+    Prove that each subfield of the field of complex numbers contains every rational number.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+    Prove that each field of characteristic zero contains a copy of the rational number field.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
 
 \section{Matrices and Elementary Row Operations}
 
