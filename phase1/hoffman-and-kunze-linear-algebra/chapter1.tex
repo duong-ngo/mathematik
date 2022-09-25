@@ -51,7 +51,7 @@ The authors assumed that readers are familiar with the elementary algebras of re
 	      \]
 	\item Inverse element in terms of multiplication.
 
-	      For each nonzero element $x$ in $\mathbb{F}$, there exists an element $x^{-1}$ in $\mathbb{F}$ such that
+	      For each non-zero element $x$ in $\mathbb{F}$, there exists an element $x^{-1}$ in $\mathbb{F}$ such that
 	      \[
 		      x\cdot x^{-1} = x^{-1}\cdot x = 1
 	      \]
@@ -117,7 +117,7 @@ The authors assumed that readers are familiar with the elementary algebras of re
 		      \[
 			      (\forall x, y\in\mathbb{F}): x\cdot y = y\cdot x
 		      \]
-		\item Each nonzero element has a multiplicative inverse.\label{field:multiplicative-inverse}
+		\item Each non-zero element has a multiplicative inverse.\label{field:multiplicative-inverse}
 		      \[
 			      (\forall x\in\mathbb{F} \wedge x\ne 0)(\exists x^{-1}\in\mathbb{F}): x\cdot x^{-1} = x^{-1}\cdot x = 1
 		      \]
@@ -139,7 +139,7 @@ The authors assumed that readers are familiar with the elementary algebras of re
 		      \[
 			      x - y = x + (-y)
 		      \]
-		\item Division by a nonzero element is multiplying with its multiplicative inverse. Formally
+		\item Division by a non-zero element is multiplying with its multiplicative inverse. Formally
 		      \[
 			      x / y = x\cdot y^{-1}
 		      \]
@@ -154,7 +154,7 @@ Proof of the following theorem demonstrates how to use the axioms to derive othe
 		\item Zero element is unique.
 		\item Each element has unique additive inverse.
 		\item One (unit) element is unique.
-		\item Each nonzero element has unique multiplicative inverse.
+		\item Each non-zero element has unique multiplicative inverse.
 		\item Multiplying an arbitrary element with zero will produce zero.
 		\item $xy = 0$ implies that $x = 0$ or $y = 0$, where $x$ and $y$ are elements of $\mathbb{F}$.
 	\end{enumerate}
@@ -177,7 +177,7 @@ Proof of the following theorem demonstrates how to use the axioms to derive othe
 			      1 = 1\cdot 1' = 1'
 		      \]
 		      which means the two one elements are identical.
-		\item Suppose that $x_{1}, x_{2}$ are multiplicative inverse of the nonzero element $x$. Then by axioms~\ref{field:multiplication-association} and~\ref{field:multiplication-identity}
+		\item Suppose that $x_{1}, x_{2}$ are multiplicative inverse of the non-zero element $x$. Then by axioms~\ref{field:multiplication-association} and~\ref{field:multiplication-identity}
 		      \[
 			      x_{1} = x_{1}\cdot 1 = x_{1}\cdot (x\cdot x_{2}) = (x_{1}\cdot x)\cdot x_{2} = 1\cdot x_{2} = x_{2}
 		      \]
@@ -213,7 +213,7 @@ Now let's consider some examples and non-exampples of field.
 	\begin{enumerate}[label = (\alph*)]
 		\item The set of real numbers $\mathbb{R}$, the set of complex numbers $\mathbb{C}$ (with the usual addition and multiplication) are fields.
 		\item The set of natural numbers $\mathbb{N}$ (with the usual addition and multiplication) is not a field, since elements other than zero do not have additive inverses.
-		\item The set of integer numbers $\mathbb{Z}$ (with the usual addition and multiplication) is not a field, since nonzero integers other than $\pm 1$ do not have multiplicative inverses.
+		\item The set of integer numbers $\mathbb{Z}$ (with the usual addition and multiplication) is not a field, since non-zero integers other than $\pm 1$ do not have multiplicative inverses.
 		\item The set of rational numbers $\mathbb{Q}$ (with the usual addition and multiplication) is a field.
 	\end{enumerate}
 \end{example}
@@ -233,7 +233,7 @@ With the field axioms and the definition of subfield, we can obtain further info
 \end{theorem}
 
 \begin{proof}
-	$\mathbb{G}$ is a subfield of $\mathbb{F}$. Then $\mathbb{G}$ has at least two distinct elements, according to the note in the previous subsection. Therefore, from the elements of $\mathbb{G}$, we can pick a nonzero element, let's denote it by $x$.
+	$\mathbb{G}$ is a subfield of $\mathbb{F}$. Then $\mathbb{G}$ has at least two distinct elements, according to the note in the previous subsection. Therefore, from the elements of $\mathbb{G}$, we can pick a non-zero element, let's denote it by $x$.
 
 	Let $0_{\mathbb{G}}$ and $1_{\mathbb{G}}$ be the zero and unit elements of $\mathbb{G}$, respectively. $0_{\mathbb{F}}$ and $1_{\mathbb{F}}$ are those of $\mathbb{F}$. Notice that $0_{\mathbb{G}}$ and $1_{\mathbb{G}}$ are also elements of $\mathbb{F}$, since $\mathbb{G}$ is a subset of $\mathbb{F}$.
 
@@ -247,7 +247,7 @@ With the field axioms and the definition of subfield, we can obtain further info
 		\Rightarrow 0_{\mathbb{F}} + 0_{\mathbb{G}} & = 0_{\mathbb{F}} + 0_{\mathbb{F}} \\
 		\Rightarrow 0_{\mathbb{G}} = 0_{\mathbb{F}}.
 	\end{align*}
-	Hence the two fields share the same zero element. So $x$ is also a nonzero element of $\mathbb{F}$, which means it has multiplicative inverse. $x^{-1}$ is the multiplicative inverse of $x$ within $\mathbb{F}$.
+	Hence the two fields share the same zero element. So $x$ is also a non-zero element of $\mathbb{F}$, which means it has multiplicative inverse. $x^{-1}$ is the multiplicative inverse of $x$ within $\mathbb{F}$.
 
 	Apply axioms (5) (7) (9)
 	\begin{align*}
@@ -261,14 +261,14 @@ With the field axioms and the definition of subfield, we can obtain further info
 	Hence the two fields share the same unit element.
 \end{proof}
 
-\begin{theorem}
-	Let $\mathbb{G}$ be a subfield of $\mathbb{F}$. The additive inverse of an element within $\mathbb{G}$ is within $\mathbb{G}$, the multiplicative inverse of a nonzero element within $\mathbb{G}$ is within $\mathbb{G}$.
+\begin{theorem}\label{thm:inverse-elements-of-subfield}
+	Let $\mathbb{G}$ be a subfield of $\mathbb{F}$. The additive inverse of an element within $\mathbb{G}$ is within $\mathbb{G}$, the multiplicative inverse of a non-zero element within $\mathbb{G}$ is within $\mathbb{G}$.
 \end{theorem}
 
 \begin{proof}
 	The additive inverse of zero element is itself, so it belongs to $\mathbb{G}$.
 
-	Let $x$ be a nonzero element of $\mathbb{F}$. Let ${(-x)}_{\mathbb{F}}$, ${(-x)}_{\mathbb{G}}$ be the additive inverses of $x$ within $\mathbb{F}$, $\mathbb{G}$ respectively.
+	Let $x$ be a non-zero element of $\mathbb{F}$. Let ${(-x)}_{\mathbb{F}}$, ${(-x)}_{\mathbb{G}}$ be the additive inverses of $x$ within $\mathbb{F}$, $\mathbb{G}$ respectively.
 
 	Since $\mathbb{G}$ and $\mathbb{F}$ share the same zero element, then by axioms (1) (2) (3)
 	\begin{align*}
@@ -494,7 +494,7 @@ such that each of its equation is a linear combination of the equations in (\ref
 			                                                           & = (a_{2}a_{1} + 2b_{2}b_{1}) + (a_{2}b_{1} + b_{2}a_{1})\sqrt{2} \\
 			                                                           & = (a_{2} + b_{2}\sqrt{2})\cdot (a_{1} + b_{1}\sqrt{2})
 		      \end{align*}
-		\item Each nonzero element has multiplicative inverse.
+		\item Each non-zero element has multiplicative inverse.
 
 		      $a + b\sqrt{2}$ is zero element if and only if $a = b = 2$ (since $\sqrt{2}$ is irrational).
 
@@ -715,7 +715,7 @@ Let $\mathbb{F}$ be the field of complex numbers. Are the following two systems 
 				      &0\cdot 1 = 1\cdot 0 = 0
 			      \end{split}
 		      \]
-		\item Each nonzero element has multiplicative inverse.
+		\item Each non-zero element has multiplicative inverse.
 		      \[
 			      1\cdot 1 = 1
 		      \]
@@ -727,22 +727,161 @@ Let $\mathbb{F}$ be the field of complex numbers. Are the following two systems 
 \end{exercise}
 
 \begin{proof}
-    % Let the two systems be
-    % \[
-    %     \begin{cases}
-    %         a_{11}x_{1} + a_{12}x_{2} = 0 \\
-    %         a_{21}x_{1} + a_{22}x_{2} = 0 \\
-    %         \vdots \\
-    %         a_{n1}x_{1} + a_{n2}x_{2} = 0
-    %     \end{cases}
-    %     \qquad
-    %     \begin{cases}
-    %         b_{11}x_{1} + b_{12}x_{2} = 0 \\
-    %         b_{21}x_{1} + b_{22}x_{2} = 0 \\
-    %         \vdots \\
-    %         b_{m1}x_{1} + b_{m2}x_{2} = 0
-    %     \end{cases}
-    % \]
+	A homogeneous linear equation always has trivial solution, which contains only zero.
+
+	A homogeneous linear equation is called trivial if and only if all of its coefficients are zero.
+
+	\begin{lemma}\label{lemma:exercise:solution-to-homogeneous-linear-equation}
+		Let $(a_{1}, a_{2})\ne (0, 0)$, then solutions to $a_{1}x_{1} + a_{2}x_{2} = 0$ are of the form $(k\cdot t_{1}, k\cdot t_{2})$, where $(t_{1}, t_{2})$ is solution other than $(0, 0)$ and $k$ is a scalar.
+	\end{lemma}
+	\begin{proof}[Proof of the Lemma]
+		Let $t_{1} = -a_{2}$ and $t_{2} = a_{1}$, then $(t_{1}, t_{2})$ is a solution other than $(0, 0)$ of the equation. Without loss of generality, suppose that $t_{1}\ne 0$, then $a_{2}\ne 0$.
+
+		Let $(y_{1}, y_{2})$ be a solution to $a_{1}x_{1} + a_{2}x_{2} = 0$. Since $t_{1}\ne 0$, then there exists a scalar $k$ such that $k\cdot t_{1} = y_{1}$.
+		\begin{align*}
+			                & (a_{1}y_{1} + a_{2}y_{2}) - (a_{1}kt_{1} + a_{2}kt_{2}) = 0  \\
+			\Leftrightarrow & (a_{1}kt_{1} + a_{2}y_{2}) - (a_{1}kt_{1} + a_{2}kt_{2}) = 0 \\
+			\Leftrightarrow & a_{2}y_{2} - a_{2}kt_{2} = 0                                 \\
+			\Leftrightarrow & y_{2} = k\cdot t_{2} \qquad\text{(since $a_{2}\ne 0$)}
+		\end{align*}
+		Hence $y_{1} = kt_{1}, y_{2} = kt_{2}$.
+	\end{proof}
+
+	\begin{lemma}\label{lemma:exercise:equivalent-homogeneous-linear-equations}
+		Two equations $a_{1}x_{1} + a_{2}x_{2} = 0$ and $b_{1}x_{1} + b_{2}x_{2} = 0$ have the same solution if and only if there exists two non-zero scalars $a, b$ such that
+		\[
+			\begin{split}
+				a(a_{1}x_{1} + a_{2}x_{2}) = b_{1}x_{1} + b_{2}x_{2} \\
+				b(b_{1}x_{1} + b_{2}x_{2}) = a_{1}x_{1} + a_{2}x_{2}
+			\end{split}
+		\]
+	\end{lemma}
+	\begin{proof}[Proof of the Lemma]
+		($\Rightarrow$) If there exists such scalars, then solutions to $a_{1}x_{1} + a_{2}x_{2} = 0$ are solutions to $b_{1}x_{1} + b_{2}x_{2} = 0$ and vice versa.
+
+		($\Leftarrow$) A homogeneous linear equation always has non-trivial solution (solution other than zeroes).
+
+		Let's consider two cases
+		\begin{enumerate}[label = \textbf{Case \arabic*.}, itemindent=1cm]
+			\item Any pair of scalars is a solution to both systems.
+			      This means $a_{1} = a_{2} = b_{1} = b_{2} = 0$. Hence
+			      \[
+				      \begin{split}
+					      1\cdot (a_{1}x_{1} + a_{2}x_{2}) = b_{1}x_{1} + b_{2}x_{2} \\
+					      1\cdot (b_{1}x_{1} + b_{2}x_{2}) = a_{1}x_{1} + a_{2}x_{2}
+				      \end{split}
+			      \]
+			\item (Due to the previous lemma) Otherwise, solutions to both system are of the form $(k\cdot t_{1}, k\cdot t_{2})$, where $(t_{1}, t_{2})\ne (0, 0)$.
+
+			      $(-a_{2}, a_{1})$ is a non-trivial solution to $a_{1}x_{1} + a_{2}x_{2} = 0$.
+
+			      $(-b_{2}, b_{1})$ is a non-trivial solution to $b_{1}x_{1} + b_{2}x_{2} = 0$.
+
+			      $(t_{1}, t_{2})$ is a non-trivial solution to both equations, then there exists non-zero scalars $k, \ell$ such that
+			      \[
+				      \begin{split}
+					      -a_{2} = kt_{1}, a_{1} = kt_{2} \\
+					      -b_{2} = \ell t_{1}, b_{1} = \ell t_{2}
+				      \end{split}
+			      \]
+			      So
+			      \[
+				      \begin{split}
+					      a_{1} = k\ell^{-1}b_{1}, a_{2} = k\ell^{-1}b_{2} \\
+					      b_{1} = k^{-1}\ell a_{1}, b_{2} = k^{-1}\ell a_{2}
+				      \end{split}
+			      \]
+			      which implies
+			      \[
+				      \begin{split}
+					      a_{1}x_{1} + a_{2}x_{2} = k\ell^{-1}(b_{1}x_{1} + b_{2}x_{2}) \\
+					      b_{1}x_{1} + b_{2}x_{2} = k^{-1}\ell(a_{1}x_{1} + a_{2}x_{2})
+				      \end{split}
+			      \]
+			      Hence two systems are equivalent.\qedhere
+		\end{enumerate}
+	\end{proof}
+
+	\begin{lemma}\label{lemma:exercise:linear-combination-of-inequivalent-linear-equations}
+		Two homogeneous linear equations $a_{1}x_{1} + a_{2}x_{2} = 0$ and $b_{1}x_{1} + b_{2}x_{2} = 0$ are inequavalent and non-trivial.
+
+		Then any homogeneous linear equation in two unknowns $x_{1}, x_{2}$ is a linear combination of these two equations.
+	\end{lemma}
+	\begin{proof}
+		Let's $c_{1}x_{1} + c_{2}x_{2} = 0$ be a homogeneous linear equation in two unknowns $x_{1}, x_{2}$.
+
+		\[
+			t_{1} = \frac{c_{1}b_{2} - c_{2}b_{1}}{a_{1}b_{2} - a_{2}b_{1}}\qquad t_{2} = \frac{a_{1}c_{2} - a_{2}c_{1}}{a_{1}b_{2} - a_{2}b_{1}}
+		\]
+		then $c_{1}x_{1} + c_{2}x_{2} = t_{1}(a_{1}x_{1} + a_{2}x_{2}) + t_{2}(b_{1}x_{1} + b_{2}x_{2})$.
+	\end{proof}
+
+	Let the two systems be
+	\[
+		\begin{cases}
+			A_{11}x_{1} + A_{12}x_{2} = 0 \\
+			A_{21}x_{1} + A_{22}x_{2} = 0 \\
+			\vdots                        \\
+			A_{m1}x_{1} + A_{m2}x_{2} = 0
+		\end{cases}
+		\quad\text{and}\quad
+		\begin{cases}
+			B_{11}x_{1} + B_{12}x_{2} = 0 \\
+			B_{21}x_{1} + B_{22}x_{2} = 0 \\
+			\vdots                        \\
+			B_{n1}x_{1} + B_{n2}x_{2} = 0
+		\end{cases}
+	\]
+	and suppose that (without loss of generality) $(A_{i1}, A_{i2})\ne (0, 0)$ and $(B_{j1}, B_{j2})\ne (0, 0)$.
+
+	\begin{enumerate}[label = \textbf{Case \arabic*.}, itemindent=1cm]
+		\item Any pairs of scalars is a solution to both systems.
+
+		      This implies that all coefficients of the two systems are zero, hence the two systems are equivalent.
+		\item Solutions of the two systems are of the form $(kp_{1}, kp_{2})$, where $(p_{1}, p_{2})\ne (0, 0)$.
+
+		      Let $c_{1}, c_{2}, \ldots c_{m}$ be $m$ scalars
+		      \[
+			      (c_{1}A_{11} + c_{2}A_{21} + \cdots + c_{m}A_{m1})x_{1} + (c_{1}A_{12} + c_{2}A_{22} + \cdots + c_{m}A_{m2})x_{2}
+		      \]
+		      is a linear combination of $A_{i1}x_{1} + A_{i2}x_{2}$ such that
+		      \[
+			      (c_{1}A_{11} + c_{2}A_{21} + \cdots + c_{m}A_{m1}, c_{1}A_{12} + c_{2}A_{22} + \cdots + c_{m}A_{m2})\ne (0, 0).
+		      \]
+		      Solutions to $B_{i1}x_{1} + B_{i2}x_{2} = 0$ are solutions to
+		      \[
+			      (c_{1}A_{11} + c_{2}A_{21} + \cdots + c_{m}A_{m1})x_{1} + (c_{1}A_{12} + c_{2}A_{22} + \cdots + c_{m}A_{m2})x_{2} = 0
+		      \]
+		      Then there exists non-zero scalar $k_{i}$ such that
+		      \[
+			      \begin{split}
+				      k_{i}B_{i1} = c_{1}A_{11} + c_{2}A_{21} + \cdots + c_{m}A_{m1} \\
+				      k_{i}B_{i2} = c_{1}A_{12} + c_{2}A_{22} + \cdots + c_{m}A_{m2}
+			      \end{split}
+			      \qquad\Longrightarrow\qquad
+			      \begin{split}
+				      B_{i1} = k_{i}^{-1}\left(c_{1}A_{11} + c_{2}A_{21} + \cdots + c_{m}A_{m1}\right) \\
+				      B_{i2} = k_{i}^{-1}\left(c_{1}A_{12} + c_{2}A_{22} + \cdots + c_{m}A_{m2}\right)
+			      \end{split}
+		      \]
+		      Therefore $B_{i1}x_{1} + B_{i2}x_{2}$ is a linear combination of linear equations in the first system.
+
+		      Analogously, $A_{i1}x_{1} + B_{i2}x_{2}$ is a linear combination of linear equations in the second system.
+
+		\item The only solution to both systems is $(0, 0)$.
+
+		      The assumption implies that
+		      \begin{itemize}
+			      \item Within the first system, there are two linear equations which are non-trivial and inequivalent.
+
+			            According to Lemma~\ref{lemma:exercise:linear-combination-of-inequivalent-linear-equations}, each equation of the second system is a linear combination of the two inequivalent equations of the first.
+			      \item Within the second system, there are two linear equations which are non-trivial and inequivalent.
+
+			            According to Lemma~\ref{lemma:exercise:linear-combination-of-inequivalent-linear-equations}, each equation of the first system is a linear combination of the two inequivalent equations of the second.
+		      \end{itemize}
+	\end{enumerate}
+
+	In conclusion, the two systems are equivalent.
 \end{proof}
 
 \begin{exercise}
@@ -750,13 +889,52 @@ Let $\mathbb{F}$ be the field of complex numbers. Are the following two systems 
 \end{exercise}
 
 \begin{proof}
+	Each subfield of the field of complex numbers contains $0$ and $1$.
+
+	Then $n = \underbrace{1 + 1 + \cdots + 1}_{n}$ belongs to the subfield, for any natural number $n$. Consequently, $-n$ belongs to the subfield.
+
+	Let $q$ be a non-zero integer, $p$ be an integer, then $p, q$ belongs to the subfield.
+
+	According to Theorem~\ref{thm:inverse-elements-of-subfield}, $q^{-1}$ belongs to the subfield, then $\frac{p}{q} = pq^{-1}$ belongs to the subfield.
+
+	Thus, the subfield contains every rational number.
 \end{proof}
 
 \begin{exercise}
 	Prove that each field of characteristic zero contains a copy of the rational number field.
 \end{exercise}
 
+\begin{note}
+	The term ``copy'' is used informally. A copy of the rational number field is a field which is isomorphic to the rational number field. It means, there exists a bijection $f: \mathbb{Q}\to\mathbb{F}$ such that
+	\[
+		f(x) + f(y) = f(x + y)\qquad f(x)f(y) = f(xy).
+	\]
+	Such bijection is called a \textit{field isomorphism}.
+\end{note}
+
 \begin{proof}
+	Denote the field by $\mathbb{F}$.
+
+	$\mathbb{F}$ has two distinct elements $0_{\mathbb{F}}$ and $1_{\mathbb{F}}$, which are the additive identity and multiplicative identity, respectively.
+
+	Since $\text{Char}(\mathbb{F}) = 0$, then for any pair of distinct positive integers $(p, q)$
+	\[
+		\underbrace{1_{\mathbb{F}} + 1_{\mathbb{F}} + \cdots + 1_{\mathbb{F}}}_{p} \ne \underbrace{1_{\mathbb{F}} + 1_{\mathbb{F}} + \cdots + 1_{\mathbb{F}}}_{q}
+	\]
+
+	We construct an isomorphism as follows:
+	\[
+		\begin{split}
+			f:&\quad 0 \mapsto 0_{\mathbb{F}} \\
+			&\quad 1 \mapsto 1_{\mathbb{F}} \\
+			&\quad n \mapsto \underbrace{1_{\mathbb{F}} + 1_{\mathbb{F}} + \cdots + 1_{\mathbb{F}}}_{n} \\
+			&\quad -n \mapsto \underbrace{(-1_{\mathbb{F}}) + (-1_{\mathbb{F}}) + \cdots + (-1_{\mathbb{F}})}_{n} \\
+			&\quad \frac{p}{q} \mapsto \frac{\underbrace{1_{\mathbb{F}} + 1_{\mathbb{F}} + \cdots + 1_{\mathbb{F}}}_{p}}{\underbrace{1_{\mathbb{F}} + 1_{\mathbb{F}} + \cdots + 1_{\mathbb{F}}}_{q}} \\
+			&\quad \frac{-p}{q} \mapsto \frac{\underbrace{(-1_{\mathbb{F}}) + (-1_{\mathbb{F}}) + \cdots + (-1_{\mathbb{F}})}_{p}}{\underbrace{1_{\mathbb{F}} + 1_{\mathbb{F}} + \cdots + 1_{\mathbb{F}}}_{q}}
+		\end{split}
+	\]
+
+    Hence, $\mathbb{F}$ contains a subfield which is isomorphic to the field of the rational numbers.
 \end{proof}
 
 \section{Matrices and Elementary Row Operations}

@@ -71,3 +71,4 @@
 \newcommand{\abs}[1]{\left\vert{#1}\right\vert}
 \newcommand{\norm}[1]{\left\Vert{#1}\right\Vert}
 \newcommand{\anglebracket}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\innerprod}[2]{\left\langle{#1}\vert{#2}\rangle}
