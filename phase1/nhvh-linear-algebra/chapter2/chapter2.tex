@@ -1,4 +1,4 @@
-\documentclass[class=linear-algebra,crop=false]{standalone}
+\documentclass[class=nhvh-linear-algebra,crop=false]{standalone}
 
 \begin{document}
 
@@ -2025,8 +2025,19 @@
               \par Ta đã có được dạng tuyến tính $\omega\in W^{*}$ như mong muốn.
               \par Do đó, $f^{*}$ là một toàn cấu.
               \bigskip
-              \par ($\Leftarrow$)
-              \par
+              \par ($\Leftarrow$) Để chứng minh $f$ là đơn cấu, ta sẽ chỉ ra $\ker f = \{0\}$.
+              \par Chọn $\nu$ là một dạng tuyến tính trên $V$ và là một đơn cấu.
+              \par $\alpha$ là một vector \textit{bất kỳ} thuộc $\ker f$.
+              \par Do $f^{*}: {W}^{*} \to {V}^{*}$ là một toàn cấu nên tồn tại một dạng tuyến tính $\omega \in {W}^{*}$ sao cho ${f}^{*}: \omega \mapsto \nu$.
+              \par Theo định nghĩa của đồng cấu đối ngẫu
+              \begin{align*}
+                                   & {f}^{*}(\omega) = \omega\circ f \\
+                  \Rightarrow\quad & \nu = \omega\circ f \\
+                  \Rightarrow\quad & \nu (\alpha) = \omega(f(\alpha)) \\
+                  \Rightarrow\quad & \nu (\alpha) = 0.
+              \end{align*}
+              \par Theo lựa chọn ban đầu, $\nu$ là một đơn cấu. Do đó $\alpha = 0$.
+              \par Điều này chứng tỏ $f$ là một đơn cấu.
         \item
         \item
     \end{enumerate}

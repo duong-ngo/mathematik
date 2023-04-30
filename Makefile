@@ -59,9 +59,8 @@ format:
 	done
 
 updatecls: cleanaux
-	@mkdir -p $(shell kpsewhich -var-value=TEXMFHOME)/tex/latex/local/class; \
-	CLSPATH=$(shell kpsewhich -var-value=TEXMFHOME)/tex/latex/local/class;  \
-	find . -name "*.cls" -exec cp {} $$CLSPATH \; \
+	@mkdir -p $(shell kpsewhich -var-value=TEXMFHOME)/tex/latex/local/class
+	@find . -name "*.cls" -exec cp {} $(shell kpsewhich -var-value=TEXMFHOME)/tex/latex/local/class \; \
 
 %.pdf: %.tex updatecls
 	@latexmk $(LATEXMK_OPTIONS) -pdf -pvc -outdir=$(shell dirname $<) $(shell basename $<)
