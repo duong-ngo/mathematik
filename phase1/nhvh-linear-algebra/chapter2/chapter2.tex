@@ -1995,8 +1995,18 @@
     \par Khi đó tồn tại duy nhất một ánh xạ tuyến tính $\tau: V\to W$ sao cho $\tau(\alpha_{i}) = \omega_{i}$, $\forall i = \overline{1,n}$.
 \end{lemma}
 
-\par Một đồng cấu là đơn cấu nếu nó có thể giản ước bên trái.
-\par Một đồng cấu là toàn cấu nếu nó có thể giản ước bên phải.
+\begin{lemma}
+    \par $V$ là một không gian vector $n$-chiều và ${V}^{*}$ là không gian vector đối ngẫu của $V$.
+    \par ${\nu}_{1}, \ldots {\nu}_{n}$ là một cơ sở của ${V}^{*}$.
+    \par Chứng minh rằng tồn tại một cơ sở $\alpha_{1}, \ldots, \alpha_{n}$ của $V$ sao cho
+    \[
+        {\nu}_{i}(\alpha_{j}) = \delta_{i,j}
+    \]
+\end{lemma}
+
+\begin{proof}[Chứng minh bổ đề]
+    \par Suy ra từ phép đối ngẫu kép $\alpha_{i} \mapsto {\alpha}^{*}_{i} \mapsto {\alpha}^{**}_{i}$.
+\end{proof}
 
 \begin{proof}
     \par $(\alpha_{1}, \ldots, \alpha_{n})$ là một cơ sở của $V$.
@@ -2034,25 +2044,41 @@
               \par Do $f^{*}: {W}^{*} \to {V}^{*}$ là một toàn cấu nên tồn tại một dạng tuyến tính $\omega \in {W}^{*}$ sao cho ${f}^{*}: \omega \mapsto \nu$.
               \par Theo định nghĩa của đồng cấu đối ngẫu
               \begin{align*}
-                                   & {f}^{*}(\omega) = \omega\circ f \\
-                  \Rightarrow\quad & \nu = \omega\circ f \\
+                                   & {f}^{*}(\omega) = \omega\circ f  \\
+                  \Rightarrow\quad & \nu = \omega\circ f              \\
                   \Rightarrow\quad & \nu (\alpha) = \omega(f(\alpha)) \\
                   \Rightarrow\quad & \nu (\alpha) = 0.
               \end{align*}
               \par Theo lựa chọn ban đầu, $\nu$ là một đơn cấu. Do đó $\alpha = 0$.
               \par Điều này chứng tỏ $f$ là một đơn cấu.
-        \item Chọn $\omega_{1}, \omega_{2}$ là hai dạng tuyến tính thuộc ${W}^{*}$ sao cho ${f}^{*}(\omega_{1}) = {f}^{*}(\omega_{2})$.
+        \item \par $(\Rightarrow)$ Chọn $\omega_{1}, \omega_{2}$ là hai dạng tuyến tính thuộc ${W}^{*}$ sao cho ${f}^{*}(\omega_{1}) = {f}^{*}(\omega_{2})$.
               \par Theo định nghĩa của đồng cấu đối ngẫu, $\omega_{1}\circ f = \omega_{2}\circ f$.
-              \par $(\Rightarrow)$
               \par $f$ là toàn cấu nên $\forall\beta\in W$, tồn tại $\alpha\in V$ sao cho $f(\alpha) = \beta$.
               \par Suy ra $\forall\beta\in W$, $\omega_{1}(\beta) = \omega_{1}(f(\alpha)) = \omega_{2}(f(\alpha)) = \omega_{2}(\beta)$. Điều này nghĩa là $\omega_{1} = \omega_{2}$.
               \par Do đó ${f}^{*}(\omega_{1}) = {f}^{*}(\omega_{2}) \rightarrow \omega_{1} = \omega_{2}$.
               \par Vậy ${f}^{*}$ là một đơn cấu.
-              \par $(\Leftarrow)$
-              \par $f^{*}$ là đơn cấu nên $\omega_{1} = \omega_{2}$.
-              \par Do đó $\omega_{1}\circ f = \omega_{2}\circ f \rightarrow \omega_{1} = \omega_{2}$.
-              \par Vậy $f$ là một toàn cấu.
-          \item $f$ là một đẳng cấu khi và chỉ khi $f$ vừa là đơn cấu, vừa là toàn cấu. Theo hai kết quả vừa chứng minh, $f^{*}$ vừa là toàn cấu, vừa là đơn cấu. Do đó $f^{*}$ là đẳng cấu.
+              \par $(\Leftarrow)$ $f^{*}$ là đơn cấu nên $\dim {W}^{*} \leq \dim {V}^{*}$, kéo theo $\dim W \leq \dim V$.
+              \par Chọn $\beta_{1}, \beta_{2}, \ldots, \beta_{m}$ làm cơ sở của $W$. ${\beta}^{*}_{1}, {\beta}^{*}_{2}, \ldots, {\beta}^{*}_{m}$ là cơ sở đối ngẫu.
+              \par Do $f^{*}$ là một đơn cấu nên ${\alpha}^{*}_{1} = {f}^{*}({\beta}^{*}_{1}), {\alpha}^{*}_{2} = {f}^{*}({\beta}^{*}_{2}), \ldots, {\alpha}^{*}_{m} = {f}^{*}({\beta}^{*}_{m})$ độc lập tuyến tính.
+              \par Theo bổ đề trên, tồn tại $\alpha_{i}, i = \overline{1, n}$ sao cho ${\alpha}^{*}_{i}(\alpha_{j}) = \delta_{i, j}$, tồn tại $\beta_{i}, i = \overline{1, m}$ sao cho ${\beta}^{*}_{i}(\beta_{j}) = \delta_{i, j}$.
+              \par $\beta$ là một vector thuộc $W$. Giả sử tọa độ của $\beta$ với cơ sở $\beta_{1}, \ldots, \beta_{m}$ là $(x_{1}, \ldots, x_{m})$.
+              \par Chọn $\alpha = x_{1}\alpha_{1} + \cdots + x_{m}\alpha_{m}$.
+              \begin{align*}
+                  \beta^{*}_{j}(f(\alpha_{i})) & = {f^{*}}(\beta^{*}_{j})(\alpha_{i}) \\
+                                               & = \alpha^{*}_{j}(\alpha_{i})         \\
+                                               & = \delta_{i,j}
+              \end{align*}
+              \par Đặt $\beta^{*} = \sum^{m}_{i=1}x_{i}\beta^{*}_{i}$.
+              \begin{align*}
+                  \beta^{*}(f(\alpha)) & = \sum^{m}_{i=1}x_{i}\beta^{*}_{i}(f(\alpha))                                     \\
+                                       & = \sum^{m}_{i=1}x_{i}\beta^{*}_{i}\left( \sum^{m}_{j=1}x_{j}f(\alpha_{j}) \right) \\
+                                       & = \sum^{m}_{i=1}x^{2}_{i}\beta^{*}_{i}\left(f(\alpha_{i})\right)                  \\
+                                       & = \sum^{m}_{i=1}x^{2}_{i}                                                         \\
+                                       & = \beta^{*}(\beta)
+              \end{align*}
+              \par Suy ra, $\forall\beta^{*}\in {W}^{*}$, $\beta^{*}(f(\alpha) - \beta) = 0$. Do đó, $f(\alpha) = \beta$.
+              \par Như vậy, $\forall\beta\in W, \exists\alpha\in V: f(\alpha) = \beta$. Do đó $f$ là một toàn ánh.
+        \item $f$ là một đẳng cấu khi và chỉ khi $f$ vừa là đơn cấu, vừa là toàn cấu. Theo hai kết quả vừa chứng minh, $f^{*}$ vừa là toàn cấu, vừa là đơn cấu. Do đó $f^{*}$ là đẳng cấu.
               \par Ngược lại, $f^{*}$ là một đẳng cấu thì $f$ là một đẳng cấu.
     \end{enumerate}
 \end{proof}
