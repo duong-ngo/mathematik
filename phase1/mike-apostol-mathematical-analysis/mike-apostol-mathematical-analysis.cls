@@ -6,6 +6,7 @@
 \RequirePackage{import}
 \RequirePackage[subpreambles=true]{standalone}
 \RequirePackage[utf8]{inputenc}
+\RequirePackage{fourier}
 \RequirePackage[left=2cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
 \RequirePackage[unicode=true,hidelinks]{hyperref}
 
@@ -28,7 +29,7 @@
 \RequirePackage{booktabs}
 \RequirePackage[inline]{enumitem}
 
-\setcounter{chapter}{-1}
+\setcounter{chapter}{0}
 
 \pagestyle{fancy}
 \setlength{\headheight}{16pt}
@@ -48,10 +49,12 @@
 \counterwithin{table}{chapter}
 
 \theoremstyle{definition}
-\newtheorem{exercise}{Bài}
+\newtheorem{definition}{Definition}
+\newtheorem{exercise}{Exercise}
 \counterwithin{exercise}{chapter}
 \theoremstyle{plain}
-\newtheorem{lemma}{Bổ đề}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
 \counterwithin{lemma}{chapter}
 \newenvironment{sqcases}{%
     \matrix@check\sqcases\env@sqcases
