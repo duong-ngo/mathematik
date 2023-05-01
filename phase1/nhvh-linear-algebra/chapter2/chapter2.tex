@@ -1995,6 +1995,9 @@
     \par Khi đó tồn tại duy nhất một ánh xạ tuyến tính $\tau: V\to W$ sao cho $\tau(\alpha_{i}) = \omega_{i}$, $\forall i = \overline{1,n}$.
 \end{lemma}
 
+\par Một đồng cấu là đơn cấu nếu nó có thể giản ước bên trái.
+\par Một đồng cấu là toàn cấu nếu nó có thể giản ước bên phải.
+
 \begin{proof}
     \par $(\alpha_{1}, \ldots, \alpha_{n})$ là một cơ sở của $V$.
     \begin{enumerate}[label = (\arabic*)]
@@ -2038,8 +2041,19 @@
               \end{align*}
               \par Theo lựa chọn ban đầu, $\nu$ là một đơn cấu. Do đó $\alpha = 0$.
               \par Điều này chứng tỏ $f$ là một đơn cấu.
-        \item
-        \item
+        \item Chọn $\omega_{1}, \omega_{2}$ là hai dạng tuyến tính thuộc ${W}^{*}$ sao cho ${f}^{*}(\omega_{1}) = {f}^{*}(\omega_{2})$.
+              \par Theo định nghĩa của đồng cấu đối ngẫu, $\omega_{1}\circ f = \omega_{2}\circ f$.
+              \par $(\Rightarrow)$
+              \par $f$ là toàn cấu nên $\forall\beta\in W$, tồn tại $\alpha\in V$ sao cho $f(\alpha) = \beta$.
+              \par Suy ra $\forall\beta\in W$, $\omega_{1}(\beta) = \omega_{1}(f(\alpha)) = \omega_{2}(f(\alpha)) = \omega_{2}(\beta)$. Điều này nghĩa là $\omega_{1} = \omega_{2}$.
+              \par Do đó ${f}^{*}(\omega_{1}) = {f}^{*}(\omega_{2}) \rightarrow \omega_{1} = \omega_{2}$.
+              \par Vậy ${f}^{*}$ là một đơn cấu.
+              \par $(\Leftarrow)$
+              \par $f^{*}$ là đơn cấu nên $\omega_{1} = \omega_{2}$.
+              \par Do đó $\omega_{1}\circ f = \omega_{2}\circ f \rightarrow \omega_{1} = \omega_{2}$.
+              \par Vậy $f$ là một toàn cấu.
+          \item $f$ là một đẳng cấu khi và chỉ khi $f$ vừa là đơn cấu, vừa là toàn cấu. Theo hai kết quả vừa chứng minh, $f^{*}$ vừa là toàn cấu, vừa là đơn cấu. Do đó $f^{*}$ là đẳng cấu.
+              \par Ngược lại, $f^{*}$ là một đẳng cấu thì $f$ là một đẳng cấu.
     \end{enumerate}
 \end{proof}
 
