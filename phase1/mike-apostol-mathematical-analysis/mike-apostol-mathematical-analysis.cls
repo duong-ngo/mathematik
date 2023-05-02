@@ -55,6 +55,7 @@
 \theoremstyle{plain}
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}{Lemma}
+\newtheorem{axiom}{Axiom}
 \counterwithin{lemma}{chapter}
 \newenvironment{sqcases}{%
     \matrix@check\sqcases\env@sqcases
