@@ -50,13 +50,18 @@
 
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}
+\counterwithin{definition}{chapter}
+\newtheorem{example}{Examples}
+\counterwithin{example}{chapter}
 \newtheorem{exercise}{Exercise}
 \counterwithin{exercise}{chapter}
 \theoremstyle{plain}
 \newtheorem{theorem}{Theorem}
+\counterwithin{theorem}{chapter}
 \newtheorem{lemma}{Lemma}
-\newtheorem{axiom}{Axiom}
 \counterwithin{lemma}{chapter}
+\newtheorem{axiom}{Axiom}
+\counterwithin{axiom}{chapter}
 \newenvironment{sqcases}{%
     \matrix@check\sqcases\env@sqcases
 }{%

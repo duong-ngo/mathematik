@@ -4,99 +4,260 @@
 
 \chapter{The Real and Complex Number Systems}
 
-\section{Introduction}
+\section{Axioms of real numbers}
 
-\section{The field axiom}
+\par I can assure that most people familiar with real numbers. We have taken many properties of real numbers for granted. But what is real number, are they real? Turns out, these questions are really difficult.
 
-\section{The order axiom}
+\par If all you have ever wanted is a definition of real numbers, then you could use the following axiomatic definition.
 
-\section{Geometric representation of real numbers}
+\par Real numbers are elements of a set $\mathbb{R}$, which satisfy the following properties
+\begin{enumerate}[label = (\roman*)]
+    \item $\mathbb{R}$ is a field under addition and multiplication.
+    \item $\mathbb{R}$ is totally ordered.
+    \item Order in $\mathbb{R}$ is preserved under addition and multiplication (with non-negative real number).
+    \item Every upper-bounded non-empty set of $\mathbb{R}$ has a least upper bound.
+\end{enumerate}
 
-\section{Intervals}
+\par To those who ask ``Are real numbers real?\@'', we can establish a model (a mathematical structure) that satisfies every axiom above. So in this sense, or since the existence of such model, I would answer ``yes''. Since 19th century, mathematicians have given several constructions of the real numbers. IMHO, the two most notable constructions are \textit{Dedekind cuts} and \textit{Cauchy sequences}. In the following section, we will try to reproduce the construction by \textit{Dedekind cuts}.
 
-\section{Integers}
+\section{Construction of the real numbers by Dedekind cuts}\addcontentsline{toc}{section}{[Note] Construction of the real numbers by Dedekind cuts}
 
-\section{The unique factorization theorem for integers}
-
-\section{Rational numbers}
-
-\section{Irrational numbers}
-
-\section{Upper bounds, maximum element, least upper bound (supremum)}
-
-\section{The completeness axiom}
-
-\section{Some properties of the supremum}
-
-\section{Properties if the integers deduced from the completness axiom}
-
-\section{The Archimedean property of the real-number system}
-
-\section{Rational numbers with finite decimal representation}
-
-\section{Finite decimal approximations to real numbers}
-
-\section{Infinite decimal representation of real numbers}
-
-\section{Absolute values and the triangle inequality}
-
-\section{The Cauchy-Schwarz inequality}
-
-\section{Plus and minus infinity and the extended real number system $\mathbb{R}^{*}$}
-
-\section*{Construction of the real numbers by Dedekind cuts}\addcontentsline{toc}{section}{[Note] Construction of the real numbers by Dedekind cuts}
-
-\par In this section, we are going to build the real numbers from the rational numbers.
-
-\par We re-introduce \textit{the Dedekind cuts} --- a model for real numbers. Then we will prove that the set of Dedekind cuts satisfy all properties of the real numbers (things we have taken for granted: field structure, total order, axiom of completeness).
+\par We will give the definition of Dedekind cuts and construct a model that satisfies the real numbers axioms.
 
 \subsection*{Dedekind cuts}
+
+\par To define Dedekind cuts, we will use rational numbers as the basis in the sense that the set of rational numbers satisfies all real numbers axioms, except for the least upper bound axiom.
+
+\begin{definition}[Dedekind cuts]
+    A Dedekind cut $ A$ is a subset of $\mathbb{Q}$ that:
+    \begin{enumerate}[label = (DC\arabic*)]
+        \item $ A\ne\varnothing$; in other words, $ A$ is not empty.
+        \item $ A\neq\mathbb{Q}$; in other words, $ A$ is not the entire set of rational numbers.
+        \item $\forall x\left(x\in A \rightarrow \exists y \left( y\in A \wedge x < y \right)\right)$; in other words, $ A$ has no maximum element.
+        \item $\forall x\in A\left(\forall y( y < x \rightarrow y\in A)\right)$; in other words, $ A$ is downward closed.
+    \end{enumerate}
+\end{definition}
+
+\par Our goal is from the definition of Dedekind cuts as well as operations (addition and multiplication) and relations (less than or equal) on them, we can prove that Dedekind cuts satisfy the real numbers axioms.
+
+\begin{theorem}
+    The set of all Dedekind cuts is totally ordered with $\subseteq$ relation.
+\end{theorem}
+
+\begin{proof}
+    \par Let $ A$ and $ B$ be two Dedekind cuts.
+    \par Suppose that $ A\ne B$.
+    \par Without loss of generality, let's suppose that there exists $b\in B$ such that $b\notin A$.
+    \par $b\in B$, then $b$ is a rational number and an upper bound of $ A$.
+    \par Let $a$ be an arbitrary element of $ A$, then $a\le b$. According to (DC4), $a\in B$. Hence $\forall a(a\in A\rightarrow a\in B)$.
+    \par Therefore, $ A$ is a proper subset of $ B$.
+    \bigskip
+    \par So for arbitrary two Dedekind cuts $ A$, $ B$, one of the following holds: $ A\subseteq B,  B\subseteq A$. Hence, the set of all Dedekind cuts is totally ordered with $\subseteq$ relation.
+\end{proof}
+
+\par For convenience, in this section, we use the following notation:
+\[
+    {0}^{*} = \{ x : x\in\mathbb{Q} \wedge x < 0 \}
+\]
+
+\begin{definition}
+    A Dedekind cut $ A$ is called:
+    \begin{enumerate}[label = (\roman*)]
+        \item positive if $ A$ is a proper superset of ${0}^{*}$,
+        \item negative if $ A$ is a proper subset of ${0}^{*}$,
+        \item non-positive if $ A\subset {0}^{*}$,
+        \item non-negative if $ A\supseteq {0}^{*}$.
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[Rational and irrational]
+    A Dedekind cut $ A$ is called:
+    \begin{enumerate}[label = (\roman*)]
+        \item rational if $\mathbb{Q}\setminus A$ has minimum element,
+        \item irrational if $\mathbb{Q}\setminus A$ has no minimum element.
+    \end{enumerate}
+\end{definition}
+
+\par The following example gives us an example of rational cut, and an example of irrational cut.
+
+\begin{example}
+    \[
+        A = \{ x\in\mathbb{Q}: x < 1 \}
+    \]
+    \par is a rational cut.
+    \[
+        B = \{ x\in\mathbb{Q}: {x}^{2} < 2 \} \cup \mathbb{Q}^{-}
+    \]
+    \par is an irrational cut.
+\end{example}
+
+\begin{proof}
+    \par $\mathbb{Q}\setminus A = \{ x\in\mathbb{Q}: x\ge 1 \}$ has minimum element, which is $1$. So $ A$ is a rational cut.
+    \bigskip
+    \par $\mathbb{Q}\setminus B = \{ x\in\mathbb{Q}: {x}^{2}\ge 2 \wedge x > 0 \}$.
+    \par Since there is no rational number $r$ of which square equals $2$, then $\mathbb{Q}\setminus B = \{ x\in\mathbb{Q}: {x}^{2} > 2 \wedge x > 0 \}$ (change from $\ge$ to $>$).
+    \par Let $q\in\mathbb{Q}\setminus B$, choose $r = \frac{q}{2} + \frac{1}{q}$.
+    \begin{align*}
+        \frac{q}{2} + \frac{1}{q} & = -\frac{q}{2} + \frac{1}{q} + q                       \\
+                                  & = \frac{2 - {q}^{2}}{2q} + q                           \\
+                                  & < q \quad\text{(Since $q > 0$ and $2 - {q}^{2} < 0$)}.
+    \end{align*}
+    \begin{align*}
+        {r}^{2} & = {\left(\frac{q}{2} + \frac{1}{q}\right)}^{2} = \frac{q^{2}}{4} + \frac{1}{q^{2}} + 1                                                         \\
+                & = \frac{q^{2}}{4} + \frac{1}{q^{2}} - 1 + 2 = {\left(\frac{q}{2} - \frac{1}{q}\right)}^{2} + 2 = {\left( \frac{q^{2} - 2}{2q} \right)}^{2} + 2 \\
+                & > 2
+    \end{align*}
+    \par Therefore, $\forall q(q\in\mathbb{Q}\setminus B \rightarrow \exists r( r\in\mathbb{Q}\setminus B \wedge r < q ))$. Hence $\mathbb{Q}\setminus B$ has no minimal element. According to the definition, $ B$ is an irrational cut.
+\end{proof}
+
+\par Next, we will define addition and multiplication with Dedekind cuts.
+
+\begin{definition}[Addition]
+    \par $ A,  B$ are Dedekind cuts.
+    \[
+        A +  B = \{ x + y : x\in A \wedge y\in B \}.
+    \]
+\end{definition}
+
+\par However, we have to prove that $ A +  B$ is also a Dedekind cut.
+
+\begin{proof}
+    \begin{enumerate}[label = (\roman*)]
+        \item Since $ A\ne\varnothing$ and $ B\ne\varnothing$, then there exists $a\in A$ and $b\in B$. By definition of $ A +  B$, we obtain that $a + b \in  A +  B$. This implies that $ A +  B$ is not empty.
+        \item A Dedekind cut is downward closed and not the entire set of rational numbers, then it is upper bounded.
+              \par Therefore, $ A$ and $ B$ are upper bounded. Let $a$ be an upper bound of $ A$, $b$ be an upper bound of $ B$.
+              \par $\forall x\in A\forall y\in B$, then $x + y \le a + b$, which means $ A +  B$ is upper bounded.
+              \par Hence $ A +  B\ne\mathbb{Q}$.
+        \item Let $c$ be an element of $ A +  B$. According to the definition of $ A +  B$, there exists $a\in A$ and $b\in B$ such that $a + b = c$.
+              \par According to (DC3), there exists $a_{0}\in A$ such that $a < a_{0}$, and there exists $b_{0}\in B$ such that $b < b_{0}$.
+              \par $c = a + b < a_{0} + b_{0}$. According to the definition of $ A +  B$, $a_{0} + b_{0} \in  A +  B$. Hence $ A +  B$ has no maximum element.
+        \item Let $c$ be an element of $ A +  B$. According to the definition of $ A +  B$, there exists $a\in A$ and $b\in B$ such that $a + b = c$.
+              \par Let $c_{1}$ be a rational number such that $c_{1} < c$.
+              \par According to (DC4)
+              \[
+                  a + \frac{c_{1} - c}{2}\in A\qquad\text{and}\qquad b + \frac{c_{1} - c}{2}\in B
+              \]
+              \par Hence
+              \[
+                  \left( a + \dfrac{c_{1} - c}{2} \right) + \left( b + \dfrac{c_{1} - 2}{2} \right) \in  A +  B
+              \]
+              \par Therefore
+              \[
+                  \left( a + \dfrac{c_{1} - c}{2} \right) + \left( b + \dfrac{c_{1} - c}{2} \right) = (a + b) + (c_{1} - c) = c + (c_{1} - c) = c_{1}
+              \]
+              \par Hence $ A +  B$ is downward closed.
+    \end{enumerate}
+    \par In conclusion, $ A +  B$ is a Dedekind cut.
+\end{proof}
+
+\par I have difficulty defining multiplication since there are positive numbers and negative numbers. So I define additive inverse/negation of a cut.
+
+\begin{definition}[Additive inverse/Negation]
+    \par Let $ A$ be a Dedekind cut.
+    % % an alternative definition of additive inverse
+    %\[
+    %    - A = {\bigcup}_{x\in A}\{ y: y\in\mathbb{Q} \wedge y < -x \}
+    %\]
+    \[
+        - A = \{ b - a' : b < 0 \wedge b\in\mathbb{Q} \wedge a'\in\mathbb{Q}\setminus A \}
+    \]
+\end{definition}
+
+\begin{proof}
+    \begin{enumerate}[label = (\roman*)]
+        \item Since $ A\ne\mathbb{Q}$ then $\mathbb{Q}\setminus A$ is not empty. Therefore, $- A$ is not empty.
+        \item Since $ A$ is downward closed and has no maximum element, then $\mathbb{Q}\setminus A$ contains all upper bounds of $ A$.
+              \par Let $a\in A$, then $a$ is a lower bound of $\mathbb{Q}\setminus A$.
+              \par $\forall b < 0 \wedge b\in\mathbb{Q}, \forall a'\in\mathbb{Q}\setminus A$,
+              \[
+                  b - a' < -a' < -a.
+              \]
+              \par Therefore $- A$ is upper bounded. So $- A\ne\mathbb{Q}$.
+        \item Let $c$ be an arbitrary element of $- A$. According to the definition of $- A$, there exists $b < 0\wedge b\in\mathbb{Q}$ and $a'\in\mathbb{Q}\setminus A$ such that $b - a' = c$.
+              \par Choose $c' = \dfrac{b}{2} - a'$. Due to the definition of $- A$, $c'\in - A$. On the other hand
+              \[
+                  c = b - a' < \dfrac{b}{2} - a' = c'.
+              \]
+              \par Therefore, $- A$ does not have maximum element.
+        \item Let $c$ be an arbitrary element of $- A$. According to the definition of $- A$, there exists $b < 0\wedge b\in\mathbb{Q}$ and $a'\in\mathbb{Q}\setminus A$ such that $b - a' = c$.
+              \par Let $c_{0}$ be a rational number such that $c_{0} < c$.
+              \[
+                  c_{0} = c + (c_{0} - c) = (b - a') + (c_{0} - c) = \underbrace{(b + c_{0} - c)}_{< 0, \in\mathbb{Q}} + a'
+              \]
+              \par So $c_{0}\in - A$. Hence $c_{0}\in - A$.
+    \end{enumerate}
+    \par In conclusion, $- A$ is a Dedekind cut.
+\end{proof}
+
+\begin{definition}[Multiplication]
+    \par Let $A, B$ be Dedekind cuts.
+    \par $A\cdot B$ is defined as the following.
+    \par If $A = {0}^{*}$ or $B = {0}^{*}$, then
+    \[
+        A\cdot B = {0}^{*}.
+    \]
+    \par If $A\supset\supset{0}^{*}$ and $B\supset\supset{0}^{*}$
+    \[
+        A\cdot B = \{ a\cdot b : a\in A\wedge a\ge 0 \wedge b\in B\wedge b\ge 0 \} \cup \mathbb{Q}^{-}.
+    \]
+    \par If $A\subset\subset{0}^{*}$ and $B\subset\subset{0}^{*}$
+    \[
+        A\cdot B = (-A)\cdot (-B).
+    \]
+    \par If $A\subset\subset{0}^{*}$ and $B\supset\supset{0}^{*}$
+    \[
+        A\cdot B = -\left((-A)\cdot B\right).
+    \]
+    \par If $A\supset\supset{0}^{*}$ and $B\subset\subset{0}^{*}$
+    \[
+        A\cdot B = -\left(A\cdot (-B)\right).
+    \]
+\end{definition}
+
+\par We will show that $A\cdot B$ is also a Dedekind cut. But, thanks to the definition of negation, we only have to cover that first case: $A\supset\supset{0}^{*}$ and $B\supset\supset{0}^{*}$.
+
+\begin{proof}
+    \begin{enumerate}[label = (\roman*)]
+        \item Since $A\cdot B$ is a superset of $\mathbb{Q}^{-}$, then $A\cdot B$ is not empty.
+        \item Let $a_{0}$ be an upper bound of $A$, $b_{0}$ be an upper bound of $B$.
+              \par Since $A\supset\supset{0}^{*}$ and $B\supset\supset{0}^{*}$, then $a_{0}\ge 0$ and $b_{0}\ge 0$.
+              \par Then for any non-negative elements $a$ and $b$ of $A$ and $B$, $a\cdot b \le a_{0}\cdot b_{0}$.
+              \par Hence $a_{0}\cdot b_{0}$ is an upper bound of $A\cdot B$, which implies that $A\cdot B\ne\mathbb{Q}$.
+        \item Let $c$ be an arbitrary element of $A\cdot B$.
+              \par If $c$ is negative or zero, then there exists an element which is greater than $c$, since $A\supset\supset {0}^{*}$ and $B\supset\supset {0}^{*}$ (zero is not their maximum element).
+              \par Otherwise, $c$ is positive, then there exists $a\in A$ and $a > 0$, $b\in B$ and $b > 0$ such that $a\cdot b = c$. Due to (DC3), there exists $a_{0} > a > 0$ and $a_{0}\in A$, $b_{0} > b > 0$ and $b_{0}\in B$.
+              \par Furthermore, $a_{0}\cdot b_{0} > a\cdot b$ and $a_{0}\cdot b_{0}$ according to the definition of $A\cdot B$.
+              \par So $A\cdot B$ has no maximum element.
+        \item Let $c$ be an arbitrary element of $A\cdot B$.
+              \par Let $d$ be a rational number such that $d < c$.
+              \par If $d$ is non-positive, then $d\in A\cdot B$, since $A\cdot B$ contains $0$ and is a superset of $\mathbb{Q}^{-}$.
+              \par Otherwise, $d$ is positive, then $c$ is also positive. Since $c$ is positive, there exists $a\in A$ and $a > 0$, $b\in B$ and $b > 0$ such that $c = a\cdot b$.
+              \[
+                  d = c - (c - d) = a\cdot b - (c - d) = a\cdot\left(b - \frac{c - d}{a}\right)
+              \]
+              \par Since $a\in A$ and $a > 0$, $b - \dfrac{c - d}{a}\in B$ (due to (DC4)) and $b - \dfrac{c - d}{a} > 0$, then $d \in A\cdot B$.
+              \par Hence $A\cdot B$ is downward closed.
+    \end{enumerate}
+    \par In conclusion, $A\cdot B$ is a Dedekind cut.
+\end{proof}
 
 \subsection*{Properties}
 
 \par In this subsection, $\mathbb{R}$ is the set of all Dedekind cuts.
 
-\begin{definition}
-    \begin{enumerate}
-        \item Addition.
-        \item Multiplication.
-    \end{enumerate}
-\end{definition}
+\begin{theorem}
+    $\mathbb{R}$ is a field with the defined addition and multiplication.
+\end{theorem}
 
 \begin{theorem}
     $\mathbb{R}$ is a field with characteristic zero.
 \end{theorem}
 
 \begin{theorem}
+    The embedding $\iota: \mathbb{Q} \to \mathbb{R}, r \mapsto {r}^{*}$ is an order-preserving field monomorphism.
     $\mathbb{R}$ is totally ordered with relation $\leq$.
 \end{theorem}
 
-\begin{theorem}
-    The embedding $\iota: \mathbb{Q} \to \mathbb{R}, r \mapsto {r}^{*}$ is an order-preserving field monomorphism.
-\end{theorem}
-
 \section{Complex numbers}
-
-\section{Geometric representation of complex numbers}
-
-\section{The imaginary unit}
-
-\section{Absolute value of a complex number}
-
-\section{Impossibility of ordering the complex numbers}
-
-\section{Complex exponentials}
-
-\section{Further properties of complex exponentials}
-
-\section{The argument of a complex number}
-
-\section{Integral powers and roots of complex numbers}
-
-\section{Complex logarithms}
-
-\section{Complex sines and cosines}
-
-\section{Infinity and the extended complex plane $\mathbb{C}^{*}$}
 
 \end{document}
