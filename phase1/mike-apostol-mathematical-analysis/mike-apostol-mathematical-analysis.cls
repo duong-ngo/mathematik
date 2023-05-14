@@ -3,8 +3,6 @@
 
 \LoadClass[oneside]{book}
 
-\RequirePackage{import}
-\RequirePackage[subpreambles=true]{standalone}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage{fourier}
 \RequirePackage[left=2cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}

@@ -1,7 +1,3 @@
-\documentclass[class=mike-apostol-mathematical-analysis,crop=false]{standalone}
-
-\begin{document}
-
 \chapter{The Real and Complex Number Systems}
 
 \section{Axioms of real numbers}
@@ -24,35 +20,58 @@
 
 \par We will give the definition of Dedekind cuts and construct a model that satisfies the real numbers axioms.
 
+\par We are gonna use the following notations
+\begin{table}[htp]
+    \centering
+    \begin{tabular}{ll}
+        Notations & Meanings \\
+        \bottomrule
+        \toprule
+        $\mathbb{Q}$ & Set of all rational numbers \\
+        $\mathbb{Q}_{-}$ & Set of all negative rational numbers \\
+        $\mathbb{Q}_{+}$ & Set of all positive rational numbers
+    \end{tabular}
+\end{table}
+
 \subsection*{Dedekind cuts}
 
 \par To define Dedekind cuts, we will use rational numbers as the basis in the sense that the set of rational numbers satisfies all real numbers axioms, except for the least upper bound axiom.
 
 \begin{definition}[Dedekind cuts]
-    A Dedekind cut $ A$ is a subset of $\mathbb{Q}$ that:
+    A Dedekind cut $A$ is a subset of $\mathbb{Q}$ that:
     \begin{enumerate}[label = (DC\arabic*)]
-        \item $ A\ne\varnothing$; in other words, $ A$ is not empty.
-        \item $ A\neq\mathbb{Q}$; in other words, $ A$ is not the entire set of rational numbers.
-        \item $\forall x\left(x\in A \rightarrow \exists y \left( y\in A \wedge x < y \right)\right)$; in other words, $ A$ has no maximum element.
-        \item $\forall x\in A\left(\forall y( y < x \rightarrow y\in A)\right)$; in other words, $ A$ is downward closed.
+        \item $A\ne\varnothing$; in other words, $A$ is not empty.
+        \item $A\neq\mathbb{Q}$; in other words, $A$ is not the entire set of rational numbers.
+        \item $\forall x\left(x\in A \rightarrow \exists y \left( y\in A \wedge x < y \right)\right)$; in other words, $A$ has no maximum element.
+        \item $\forall x\in A\left(\forall y( y < x \rightarrow y\in A)\right)$; in other words, $A$ is downward closed.
     \end{enumerate}
 \end{definition}
 
 \par Our goal is from the definition of Dedekind cuts as well as operations (addition and multiplication) and relations (less than or equal) on them, we can prove that Dedekind cuts satisfy the real numbers axioms.
 
-\begin{theorem}
+\par Sequentially, we will define the following based on Dedekind cuts:
+\begin{itemize}
+    \item Rational and irrational cut,
+    \item Addition,
+    \item Subtraction and negation,
+    \item Multiplication,
+    \item Division,
+\end{itemize}
+\par then we will show that the set of all Dedekind cuts equipped with those operation will satisfy the real numbers axioms.
+
+\begin{theorem}[Totally ordered]
     The set of all Dedekind cuts is totally ordered with $\subseteq$ relation.
 \end{theorem}
 
 \begin{proof}
-    \par Let $ A$ and $ B$ be two Dedekind cuts.
-    \par Suppose that $ A\ne B$.
+    \par Let $A$ and $B$ be two Dedekind cuts.
+    \par Suppose that $A\ne B$.
     \par Without loss of generality, let's suppose that there exists $b\in B$ such that $b\notin A$.
     \par $b\in B$, then $b$ is a rational number and an upper bound of $ A$.
-    \par Let $a$ be an arbitrary element of $ A$, then $a\le b$. According to (DC4), $a\in B$. Hence $\forall a(a\in A\rightarrow a\in B)$.
-    \par Therefore, $ A$ is a proper subset of $ B$.
+    \par Let $a$ be an arbitrary element of $A$, then $a\le b$. According to (DC4), $a\in B$. Hence $\forall a(a\in A\rightarrow a\in B)$.
+    \par Therefore, $A$ is a proper subset of $ B$.
     \bigskip
-    \par So for arbitrary two Dedekind cuts $ A$, $ B$, one of the following holds: $ A\subseteq B,  B\subseteq A$. Hence, the set of all Dedekind cuts is totally ordered with $\subseteq$ relation.
+    \par So for arbitrary two Dedekind cuts $A$, $B$, one of the following holds: $A\subseteq B, B\subseteq A$. Hence, the set of all Dedekind cuts is totally ordered with $\subseteq$ relation.
 \end{proof}
 
 \par For convenience, in this section, we use the following notation:
@@ -61,12 +80,12 @@
 \]
 
 \begin{definition}
-    A Dedekind cut $ A$ is called:
+    A Dedekind cut $A$ is called:
     \begin{enumerate}[label = (\roman*)]
-        \item positive if $ A$ is a proper superset of ${0}^{*}$,
-        \item negative if $ A$ is a proper subset of ${0}^{*}$,
-        \item non-positive if $ A\subset {0}^{*}$,
-        \item non-negative if $ A\supseteq {0}^{*}$.
+        \item positive if $A$ is a proper superset of ${0}^{*}$,
+        \item negative if $A$ is a proper subset of ${0}^{*}$,
+        \item non-positive if $A\subset {0}^{*}$,
+        \item non-negative if $A\supseteq {0}^{*}$.
     \end{enumerate}
 \end{definition}
 
@@ -96,7 +115,7 @@
     \bigskip
     \par $\mathbb{Q}\setminus B = \{ x\in\mathbb{Q}: {x}^{2}\ge 2 \wedge x > 0 \}$.
     \par Since there is no rational number $r$ of which square equals $2$, then $\mathbb{Q}\setminus B = \{ x\in\mathbb{Q}: {x}^{2} > 2 \wedge x > 0 \}$ (change from $\ge$ to $>$).
-    \par Let $q\in\mathbb{Q}\setminus B$, choose $r = \frac{q}{2} + \frac{1}{q}$.
+    \par Let $q\in\mathbb{Q}\setminus B$. Consider $r = \frac{q}{2} + \frac{1}{q}$.
     \begin{align*}
         \frac{q}{2} + \frac{1}{q} & = -\frac{q}{2} + \frac{1}{q} + q                       \\
                                   & = \frac{2 - {q}^{2}}{2q} + q                           \\
@@ -112,56 +131,60 @@
 
 \par Next, we will define addition and multiplication with Dedekind cuts.
 
-\begin{definition}[Addition]
-    \par $ A,  B$ are Dedekind cuts.
+\begin{theorem}[Addition]
+    \par $A, B$ are Dedekind cuts.
     \[
-        A +  B = \{ x + y : x\in A \wedge y\in B \}.
+        A + B = \{ x + y : x\in A \wedge y\in B \}
     \]
-\end{definition}
-
-\par However, we have to prove that $ A +  B$ is also a Dedekind cut.
+    \par is also a Dedekind cut.
+\end{theorem}
 
 \begin{proof}
     \begin{enumerate}[label = (\roman*)]
-        \item Since $ A\ne\varnothing$ and $ B\ne\varnothing$, then there exists $a\in A$ and $b\in B$. By definition of $ A +  B$, we obtain that $a + b \in  A +  B$. This implies that $ A +  B$ is not empty.
+        \item Since $A\ne\varnothing$ and $B\ne\varnothing$, then there exists $a\in A$ and $b\in B$. By definition of $A + B$, we obtain that $a + b \in A + B$. This implies that $A + B$ is not empty.
         \item A Dedekind cut is downward closed and not the entire set of rational numbers, then it is upper bounded.
-              \par Therefore, $ A$ and $ B$ are upper bounded. Let $a$ be an upper bound of $ A$, $b$ be an upper bound of $ B$.
-              \par $\forall x\in A\forall y\in B$, then $x + y \le a + b$, which means $ A +  B$ is upper bounded.
-              \par Hence $ A +  B\ne\mathbb{Q}$.
-        \item Let $c$ be an element of $ A +  B$. According to the definition of $ A +  B$, there exists $a\in A$ and $b\in B$ such that $a + b = c$.
+              \par Therefore, $A$ and $B$ are upper bounded. Let $a$ be an upper bound of $A$, $b$ be an upper bound of $B$.
+              \par $\forall x\in A\forall y\in B$, then $x + y \le a + b$, which means $A + B$ is upper bounded.
+              \par Hence $A + B\ne\mathbb{Q}$.
+        \item Let $c$ be an element of $A + B$. According to the definition of $A + B$, there exists $a\in A$ and $b\in B$ such that $a + b = c$.
               \par According to (DC3), there exists $a_{0}\in A$ such that $a < a_{0}$, and there exists $b_{0}\in B$ such that $b < b_{0}$.
-              \par $c = a + b < a_{0} + b_{0}$. According to the definition of $ A +  B$, $a_{0} + b_{0} \in  A +  B$. Hence $ A +  B$ has no maximum element.
-        \item Let $c$ be an element of $ A +  B$. According to the definition of $ A +  B$, there exists $a\in A$ and $b\in B$ such that $a + b = c$.
+              \par $c = a + b < a_{0} + b_{0}$. According to the definition of $A + B$, $a_{0} + b_{0} \in A + B$. Hence $A + B$ has no maximum element.
+        \item Let $c$ be an element of $A + B$. According to the definition of $A + B$, there exists $a\in A$ and $b\in B$ such that $a + b = c$.
               \par Let $c_{1}$ be a rational number such that $c_{1} < c$.
               \par According to (DC4)
               \[
-                  a + \frac{c_{1} - c}{2}\in A\qquad\text{and}\qquad b + \frac{c_{1} - c}{2}\in B
+                  a \in A\qquad\text{and}\qquad b + (c_{1} - c)\in B
               \]
               \par Hence
               \[
-                  \left( a + \dfrac{c_{1} - c}{2} \right) + \left( b + \dfrac{c_{1} - 2}{2} \right) \in  A +  B
+                  a + b + (c_{1} - c) \in A + B
               \]
               \par Therefore
               \[
-                  \left( a + \dfrac{c_{1} - c}{2} \right) + \left( b + \dfrac{c_{1} - c}{2} \right) = (a + b) + (c_{1} - c) = c + (c_{1} - c) = c_{1}
+                  c_{1} \in A + B
               \]
-              \par Hence $ A +  B$ is downward closed.
+              \par Hence $A + B$ is downward closed.
     \end{enumerate}
-    \par In conclusion, $ A +  B$ is a Dedekind cut.
+    \par In conclusion, $A + B$ is a Dedekind cut.
 \end{proof}
 
 \par I have difficulty defining multiplication since there are positive numbers and negative numbers. So I define additive inverse/negation of a cut.
 
-\begin{definition}[Additive inverse/Negation]
-    \par Let $ A$ be a Dedekind cut.
-    % % an alternative definition of additive inverse
-    %\[
-    %    - A = {\bigcup}_{x\in A}\{ y: y\in\mathbb{Q} \wedge y < -x \}
-    %\]
+\begin{theorem}[Subtraction]
+    \par Let $A$ and $B$ be Dedekind cuts
     \[
-        - A = \{ b - a' : b < 0 \wedge b\in\mathbb{Q} \wedge a'\in\mathbb{Q}\setminus A \}
+       A - B = \{ a - b: a\in A\land b\in\mathbb{Q}\setminus B \}
     \]
-\end{definition}
+    \par is also a Dedekind cut.
+\end{theorem}
+
+\begin{theorem}[Additive inverse/Negation]
+    \par Let $A$ be a Dedekind cut.
+    \[
+        -A = \{ b - a' : b < 0 \wedge b\in\mathbb{Q} \wedge a'\in\mathbb{Q}\setminus A \}
+    \]
+    \par is also a Dedekind cut.
+\end{theorem}
 
 \begin{proof}
     \begin{enumerate}[label = (\roman*)]
@@ -172,24 +195,25 @@
               \[
                   b - a' < -a' < -a.
               \]
-              \par Therefore $- A$ is upper bounded. So $- A\ne\mathbb{Q}$.
+              \par Therefore $- A$ is upper bounded. So $-A\ne\mathbb{Q}$.
         \item Let $c$ be an arbitrary element of $- A$. According to the definition of $- A$, there exists $b < 0\wedge b\in\mathbb{Q}$ and $a'\in\mathbb{Q}\setminus A$ such that $b - a' = c$.
-              \par Choose $c' = \dfrac{b}{2} - a'$. Due to the definition of $- A$, $c'\in - A$. On the other hand
+              \par According to (DC3), there exists $b'\in B$ such that $b < b'$.
+              \par Choose $c' = b' - a'$. Due to the definition of $-A$, $c'\in -A$. On the other hand
               \[
-                  c = b - a' < \dfrac{b}{2} - a' = c'.
+                  c = b - a' < b' - a' = c'.
               \]
-              \par Therefore, $- A$ does not have maximum element.
-        \item Let $c$ be an arbitrary element of $- A$. According to the definition of $- A$, there exists $b < 0\wedge b\in\mathbb{Q}$ and $a'\in\mathbb{Q}\setminus A$ such that $b - a' = c$.
+              \par Therefore, $-A$ does not have maximum element.
+        \item Let $c$ be an arbitrary element of $-A$. According to the definition of $- A$, there exists $b < 0\wedge b\in\mathbb{Q}$ and $a'\in\mathbb{Q}\setminus A$ such that $b - a' = c$.
               \par Let $c_{0}$ be a rational number such that $c_{0} < c$.
               \[
                   c_{0} = c + (c_{0} - c) = (b - a') + (c_{0} - c) = \underbrace{(b + c_{0} - c)}_{< 0, \in\mathbb{Q}} + a'
               \]
-              \par So $c_{0}\in - A$. Hence $c_{0}\in - A$.
+              \par So $c_{0}\in -A$. Hence $c_{0}\in -A$.
     \end{enumerate}
-    \par In conclusion, $- A$ is a Dedekind cut.
+    \par In conclusion, $-A$ is a Dedekind cut.
 \end{proof}
 
-\begin{definition}[Multiplication]
+\begin{theorem}[Multiplication]
     \par Let $A, B$ be Dedekind cuts.
     \par $A\cdot B$ is defined as the following.
     \par If $A = {0}^{*}$ or $B = {0}^{*}$, then
@@ -212,7 +236,8 @@
     \[
         A\cdot B = -\left(A\cdot (-B)\right).
     \]
-\end{definition}
+    \par $A\cdot B$ is also a Dedekind cut.
+\end{theorem}
 
 \par We will show that $A\cdot B$ is also a Dedekind cut. But, thanks to the definition of negation, we only have to cover that first case: $A\supset\supset{0}^{*}$ and $B\supset\supset{0}^{*}$.
 
@@ -249,15 +274,72 @@
     $\mathbb{R}$ is a field with the defined addition and multiplication.
 \end{theorem}
 
+\begin{proof}
+    \par Let $A, B, C$ be arbitrary Dedekind cuts.
+    \begin{enumerate}[label = (F\arabic*)]
+        \item Addition is associative.
+            \begin{align*}
+                (A + B) + C & = \{ (a + b) + c : a\in A\land b\in B\land c\in C \} \\
+                            & = \{ a + (b + c) : a\in A\land b\in B\land c\in C \} \quad\text{(Addition in $\mathbb{Q}$ is associative)} \\
+                            & = A + (B + C).
+            \end{align*}
+        \item Addition has identity element.
+            \begin{align*}
+                A + {0}^{*} & = \{ a + w : a\in A\land w < 0 \} \\
+                            & = \{ w + a : a\in A\land w < 0 \} \\
+                            & = {0}^{*} + A.
+            \end{align*}
+            \par \textbf{Prove that $A \subseteq A + {0}^{*}$}.
+            \par Let $x\in A$. According to (DC4), there exists $y\in A$ such that $y > x$.
+            \[
+                x = \underbrace{y}_{\in A} + \underbrace{(x - y)}_{< 0, \in {0}^{*}}
+            \]
+            \par So $\forall x(x\in A \rightarrow x\in A + {0}^{*})$, which means $A \subseteq A + {0}^{*}$.
+            \bigskip
+            \par \textbf{Prove that $A + {0}^{*} \subseteq A$}.
+            \par Let $a_{0}\in A + {0^{*}}$. According to the definition of $A + {0}^{*}$, there exists $a\in A$ and $w\in\mathbb{Q}^{-}$ such that $a_{0} = a + w$.
+            \par Since $w < 0$ then $a_{0} < a$. According to (DC4), $a_{0}\in A$.
+            \par So $\forall a_{0}(a_{0}\in A + {0}^{*} \rightarrow A)$.
+            \par Hence $A = A + {0}^{*} = {0}^{*} + A$.
+        \item Every element has an additive inverse.
+            \begin{align*}
+                A + (-A) & = \{ a + (w - a') : a\in A\land w\in\mathbb{Q}^{-}\land a'\in\mathbb{Q}\setminus A \} \\
+                         & = \{ (w - a') + a : a\in A\land w\in\mathbb{Q}^{-}\land a'\in\mathbb{Q}\setminus A \} \\
+                         & = (-A) + A.
+            \end{align*}
+            \par \textbf{Prove that $A + (-A)\subseteq {0}^{*}$}.
+            \par Let $a\in A, a'\in \mathbb{Q}\setminus A, w\in {0}^{*}$.
+            \par Since $a'\notin A$ then $a' > a$, so $a - a' < 0$. Therefore
+            \[
+                a + (w - a') = w + (a - a') < w < 0
+            \]
+            \par According to (DC4), $a + (w - a')\in {0}^{*}$. So $A + (-A) \subseteq {0}^{*}$.
+            \bigskip
+            \par \textbf{Prove that ${0}^{*}\subseteq A + (-A)$}.
+            \par If $A = {0}^{*}$, then ${0}^{*} + {0}^{*} = {0}^{*}$ (F2).
+            \par Since $A + (-A) = (-A) + A$, then without loss of generality, let's suppose that $A\supset\supset {0}^{*}$.
+            \par Let $w\in {0}^{*}$, $\mathbb{Q}\setminus A$.
+        \item Addition is commutative.
+        \item Multiplication is associative.
+        \item Multiplication is distributive over addition.
+        \item Multiplication has identity element.
+        \item Multiplication is commutative.
+        \item Each non-zero element has a multiplicative inverse.
+    \end{enumerate}
+\end{proof}
+
 \begin{theorem}
     $\mathbb{R}$ is a field with characteristic zero.
 \end{theorem}
 
 \begin{theorem}
-    The embedding $\iota: \mathbb{Q} \to \mathbb{R}, r \mapsto {r}^{*}$ is an order-preserving field monomorphism.
-    $\mathbb{R}$ is totally ordered with relation $\leq$.
+    \begin{enumerate}[label = (\roman*)]
+        \item $\forall\alpha,\beta,\gamma\in\mathbb{R}( \alpha\le\beta \rightarrow \alpha + \gamma \le \beta + \gamma )$,
+        \item $\forall\alpha,\beta\in\mathbb{R} (\alpha\ge{0}^{*}\land\beta\ge{0}^{*} \rightarrow\alpha\cdot\beta\ge{0}^{*})$.
+    \end{enumerate}
 \end{theorem}
+
+\subsection*{Construction of the real numbers by Cauchy sequences}
 
 \section{Complex numbers}
 
-\end{document}
