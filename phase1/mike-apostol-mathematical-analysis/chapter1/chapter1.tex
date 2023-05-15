@@ -33,7 +33,7 @@
     \end{tabular}
 \end{table}
 
-\subsection*{Dedekind cuts}
+\subsection{Definition of Dedekind cuts}
 
 \par To define Dedekind cuts, we will use rational numbers as the basis in the sense that \textit{the set of rational numbers satisfies all real numbers axioms, except for the least upper bound axiom}.
 
@@ -42,7 +42,7 @@
     \begin{enumerate}[label = (DC\arabic*)]
         \item $A\ne\varnothing$; in other words, $A$ is not empty.
         \item $A\neq\mathbb{Q}$; in other words, $A$ is not the entire set of rational numbers.
-        \item $\forall x\left(x\in A \rightarrow \exists y \left( y\in A \wedge x < y \right)\right)$; in other words, $A$ has no maximum element.
+        \item $\forall x\left(x\in A \rightarrow \exists y \left( y\in A \wedge x < y \right)\right)$; in other words, $A$ has no greatest element.
         \item $\forall x\in A\left(\forall y( y < x \rightarrow y\in A)\right)$; in other words, $A$ is downward closed.
     \end{enumerate}
 \end{definition}
@@ -61,8 +61,10 @@
 \end{itemize}
 \par then we will show that the set of all Dedekind cuts equipped with those operation will satisfy the real numbers axioms.
 
+\par Denote the set of all Dedekind cuts by $\mathbb{R}$.
+
 \begin{theorem}[Totally ordered]
-    The set of all Dedekind cuts is totally ordered with $\subseteq$ relation.
+    $\mathbb{R}$ is totally ordered with $\subseteq$ relation.
 \end{theorem}
 
 \begin{proof}
@@ -80,7 +82,7 @@
 
 \par For convenience, in this section, we use the following notation:
 \[
-    {0}^{*} = \{ x : x\in\mathbb{Q} \wedge x < 0 \} = {\mathbb{Q}}_{-}
+    {0}^{*} = \{ x : x\in\mathbb{Q} \wedge x < 0 \} = {\mathbb{Q}}_{-}.
 \]
 
 \begin{definition}
@@ -96,8 +98,8 @@
 \begin{definition}[Rational and irrational]
     A Dedekind cut $ A$ is called:
     \begin{enumerate}[label = (\roman*)]
-        \item rational if $\mathbb{Q}\setminus A$ has minimum element,
-        \item irrational if $\mathbb{Q}\setminus A$ has no minimum element.
+        \item rational if $\mathbb{Q}\setminus A$ has least element,
+        \item irrational if $\mathbb{Q}\setminus A$ has no least element.
     \end{enumerate}
 \end{definition}
 
@@ -115,7 +117,7 @@
 \end{example}
 
 \begin{proof}
-    \par $\mathbb{Q}\setminus A = \{ x\in\mathbb{Q}: x\ge 1 \}$ has minimum element, which is $1$. So $ A$ is a rational cut.
+    \par $\mathbb{Q}\setminus A = \{ x\in\mathbb{Q}: x\ge 1 \}$ has least element, which is $1$. So $ A$ is a rational cut.
     \bigskip
     \par $\mathbb{Q}\setminus B = \{ x\in\mathbb{Q}: {x}^{2}\ge 2 \wedge x > 0 \}$.
     \par Since there is no rational number $r$ of which square equals $2$, then $\mathbb{Q}\setminus B = \{ x\in\mathbb{Q}: {x}^{2} > 2 \wedge x > 0 \}$ (change from $\ge$ to $>$).
@@ -135,6 +137,8 @@
 
 \par Next, we will define addition and multiplication with Dedekind cuts.
 
+\subsection{Addition}
+
 \begin{theorem}[Addition]
     \par $A, B$ are Dedekind cuts.
     \[
@@ -146,13 +150,13 @@
 \begin{proof}
     \begin{enumerate}[label = (\roman*)]
         \item Since $A\ne\varnothing$ and $B\ne\varnothing$, then there exists $a\in A$ and $b\in B$. By definition of $A + B$, we obtain that $a + b \in A + B$. This implies that $A + B$ is not empty.
-        \item A Dedekind cut is downward closed and not the entire set of rational numbers, then it is upper bounded.
-              \par Therefore, $A$ and $B$ are upper bounded. Let $a$ be an upper bound of $A$, $b$ be an upper bound of $B$.
-              \par $\forall x\in A\forall y\in B$, then $x + y \le a + b$, which means $A + B$ is upper bounded.
+        \item A Dedekind cut is downward closed and not the entire set of rational numbers, then it is bounded above.
+              \par Therefore, $A$ and $B$ are bounded above. Let $a$ be an upper bound of $A$, $b$ be an upper bound of $B$.
+              \par $\forall x\in A\forall y\in B$, then $x + y \le a + b$, which means $A + B$ is bounded above.
               \par Hence $A + B\ne\mathbb{Q}$.
         \item Let $c$ be an element of $A + B$. According to the definition of $A + B$, there exists $a\in A$ and $b\in B$ such that $a + b = c$.
               \par According to (DC3), there exists $a_{0}\in A$ such that $a < a_{0}$, and there exists $b_{0}\in B$ such that $b < b_{0}$.
-              \par $c = a + b < a_{0} + b_{0}$. According to the definition of $A + B$, $a_{0} + b_{0} \in A + B$. Hence $A + B$ has no maximum element.
+              \par $c = a + b < a_{0} + b_{0}$. According to the definition of $A + B$, $a_{0} + b_{0} \in A + B$. Hence $A + B$ has no greatest element.
         \item Let $c$ be an element of $A + B$. According to the definition of $A + B$, there exists $a\in A$ and $b\in B$ such that $a + b = c$.
               \par Let $c_{1}$ be a rational number such that $c_{1} < c$.
               \par According to (DC4) $b + (c_{1} - c)\in B$.
@@ -186,11 +190,11 @@
               \[
                   \underbrace{a - b}_{\in A - B} < a_{0} - b_{0},
               \]
-              Therefore, $A - B$ is upper bounded, so $A - B\ne\mathbb{Q}$.
+              Therefore, $A - B$ is bounded above, so $A - B\ne\mathbb{Q}$.
         \item Let $c$ be an arbitrary element of $A - B$. According to the definition of $A - B$, there exists $a\in A$ and $b\in\mathbb{Q}\setminus B$ such that $c = a - b$.
               \par Due to (DC3), there exists $d\in A$ such that $a < d$.
               \par Then $c = a - b < d - b \in A - B$.
-              \par So $A - B$ does not have maximum element.
+              \par So $A - B$ does not have greatest element.
         \item Let $c$ be an arbitrary element of $A - B$. According to the definition of $A - B$, there exists $a\in A$ and $b\in\mathbb{Q}\setminus B$ such that $c = a - b$.
               \par Let $d$ be a rational number such that $d < c$.
               \[
@@ -204,15 +208,15 @@
 \par The following theorem is a special case of subtraction.
 
 \begin{theorem}[Additive inverse/Negation]
-    \par Let $A$ be a Dedekind cut.
+    Let $A$ be a Dedekind cut.
     \[
         -A = \{ b - a : b\in{0}^{*} \wedge a\in\mathbb{Q}\setminus A \}
     \]
-    \par is also a Dedekind cut.
+    is also a Dedekind cut.
 \end{theorem}
 
-\begin{theorem}
-    \par Let $A$ and $B$ be Dedekind cuts, then
+\begin{theorem}\label{theorem:negation-and-subtraction}
+    Let $A$ and $B$ be Dedekind cuts, then
     \[
         A - B = A + (-B)
     \]
@@ -242,6 +246,177 @@
     \bigskip
     \par In conclusion, $A - B = A + (-B)$.
 \end{proof}
+
+I need the following property to verify the group structure of $\mathbb{R}$.
+
+\begin{lemma}[Archimedean property for rational numbers]
+    \par Let $a, b$ be rational numbers where $a > 0$. Then there exists an integer $n$ such that
+    \[
+        (n - 1)\le \frac{b}{a} < n.
+    \]
+\end{lemma}
+
+\begin{proof}
+    \par Since $a, b$ are rational numbers, then $\dfrac{b}{a}$ is also rational number.
+    \par Then there exists a positive integer $q$ and an integer $p$ such that $\dfrac{b}{a} = \dfrac{p}{q}$.
+    \par Apply Euclid division algorithm, there exists $0\le r < q$ and $k\in\mathbb{Z}$ such that $p = k\cdot q + r$.
+    \begin{align*}
+                         & \frac{p}{q} = \frac{k\cdot q + r}{q} = k + \frac{r}{q} \\
+        \Rightarrow\quad & k \le \frac{p}{q} < k + 1.\qedhere
+    \end{align*}
+\end{proof}
+
+\begin{theorem}\label{theorem:real-field-part-one}
+    \par $\mathbb{R}$ with addition is a commutative group.
+    \begin{enumerate}[label={(F\arabic*)}]
+        \item Addition is associative.
+        \item Addition has identity element.
+        \item Each element has an additive inverse.
+        \item Addition is commutative.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Let $A, B, C$ be arbitrary Dedekind cuts.
+    \begin{enumerate}[label = (F\arabic*)]
+        \item Addition is associative.
+              \begin{align*}
+                  (A + B) + C & = \{ (a + b) + c : a\in A\land b\in B\land c\in C \}                                                       \\
+                              & = \{ a + (b + c) : a\in A\land b\in B\land c\in C \} \quad\text{(Addition in $\mathbb{Q}$ is associative)} \\
+                              & = A + (B + C).
+              \end{align*}
+        \item Addition has identity element.
+              \begin{align*}
+                  A + {0}^{*} & = \{ a + w : a\in A\land w < 0 \} \\
+                              & = \{ w + a : a\in A\land w < 0 \} \\
+                              & = {0}^{*} + A.
+              \end{align*}
+              \par \textbf{Step 1. Prove that $A \subseteq A + {0}^{*}$}.
+              \par Let $x\in A$. According to (DC4), there exists $y\in A$ such that $y > x$.
+              \[
+                  x = \underbrace{y}_{\in A} + \underbrace{(x - y)}_{< 0, \in {0}^{*}}
+              \]
+              \par So $\forall x(x\in A \rightarrow x\in A + {0}^{*})$, which means $A \subseteq A + {0}^{*}$.
+              \bigskip
+              \par \textbf{Step 2. Prove that $A + {0}^{*} \subseteq A$}.
+              \par Let $a_{0}\in A + {0^{*}}$. According to the definition of $A + {0}^{*}$, there exists $a\in A$ and $w\in\mathbb{Q}^{-}$ such that $a_{0} = a + w$.
+              \par Since $w < 0$ then $a_{0} < a$. According to (DC4), $a_{0}\in A$.
+              \par So $\forall a_{0}(a_{0}\in A + {0}^{*} \rightarrow A)$.
+              \par Hence $A = A + {0}^{*} = {0}^{*} + A$.
+        \item Every element has an additive inverse.
+              \begin{align*}
+                  A + (-A) & = \{ a + (w - a') : a\in A\land w\in\mathbb{Q}^{-}\land a'\in\mathbb{Q}\setminus A \} \\
+                           & = \{ (w - a') + a : a\in A\land w\in\mathbb{Q}^{-}\land a'\in\mathbb{Q}\setminus A \} \\
+                           & = (-A) + A.
+              \end{align*}
+              \par \textbf{Step 1. Prove that $A + (-A)\subseteq {0}^{*}$}.
+              \par Let $a\in A, a'\in \mathbb{Q}\setminus A, w\in {0}^{*}$.
+              \par Since $a'\notin A$ then $a' > a$, so $a - a' < 0$. Therefore
+              \[
+                  a + (w - a') = w + (a - a') < w < 0
+              \]
+              \par According to (DC4), $a + (w - a')\in {0}^{*}$. So $A + (-A) \subseteq {0}^{*}$.
+              \bigskip
+              \par \textbf{Step 2. Prove that ${0}^{*}\subseteq A + (-A)$}.
+              \par Let $w\in {0}^{*}$.
+              \par We will prove that the set $S = \{ n : n\in\mathbb{Z} \land n\cdot w\in A \}$ has least element. In equivalent, $S$ is the set of integers such that $n\cdot w\in A$.
+              \par Let $x\in A, y\in\mathbb{Q}\setminus A$. $w < 0$, then according to the Archimedean property, there exists an integer $m$ such that
+              \begin{align*}
+                  m - 1    & \le \frac{x}{-w} < m \\
+                  (1 - m)w & \le x < -m\cdot w
+              \end{align*}
+              \par According to (DC4), $(1 - m)w\in A$. Then $S$ is not empty.
+              \par Since the set $\{ n\cdot w : n\in\mathbb{Z}\land n\cdot w\in A \}$ is bounded above, and $w < 0$, then $S$ is bounded below. On the other hand, $S$ is a set of integers, then $S$ has least element.
+              \par
+              \par Let $n$ be the least integer such that $n\cdot w\in A$. Then $(n - 1)\cdot w\notin A$. Hence $(n - 1)\cdot w\in\mathbb{Q}\setminus A$.
+              \[
+                  w = \underbrace{n\cdot w}_{\in A} - \underbrace{(n - 1)\cdot w}_{\in\mathbb{Q}\setminus A}
+              \]
+              \par so $w\in A - A$. According to Theorem~\ref{theorem:negation-and-subtraction}, $A - A = A + (-A)$. Then $w\in A + (-A)$. Therefore, ${0}^{*}\subseteq A + (-A)$.
+              \bigskip
+              \par Hence $A + (-A) = (-A) + A = {0}^{*}$.
+        \item Addition is commutative.
+              \begin{align*}
+                  A + B & = \{ a + b : a\in A\land b\in B \}                                                        \\
+                        & = \{ b + a : b\in B\land a\in A \}\qquad\text{(In $\mathbb{Q}$, addition is commutative)} \\
+                        & = B + A.
+              \end{align*}
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}
+    \par Let $A$ be a Dedekind cut, then
+    \[
+        A = -(-A).
+    \]
+\end{theorem}
+
+\begin{proof}
+    Firstly, we prove that there exist a unique Dedekind cut $A'$ such that $A + A' = A' + A = {0}^{*}$.
+
+    According to Theorem~\ref{theorem:real-field-part-one}, $A + (-A) = (-A) + A = {0}^{*}$.
+
+    Suppose that $A + A' = A' + A = {0}^{*}$.
+    \begin{align*}
+        A' & = A' + {0}^{*} = A' + (A + (-A))   \\
+           & = (A' + A) + (-A) = {0}^{*} + (-A) \\
+           & = -A.
+    \end{align*}
+    Hence there exists unique Dedekind cut $A'$ such that $A + A' = A' + A = {0}^{*}$.
+    \begin{align*}
+         & A + (-A) = (-A) + A = {0}^{*}             \\
+         & (-(-A)) + (-A) = (-A) + (-(-A)) = {0}^{*}
+    \end{align*}
+    Thus, $A = -(-A)$.
+\end{proof}
+
+\begin{theorem}
+    In $\mathbb{R}$, addition is compatible with $\subseteq$
+    \[
+        \forall A, B, C\in\mathbb{R}(A\subseteq B \rightarrow A + C\subseteq B + C).
+    \]
+\end{theorem}
+
+\begin{proof}
+    Let $A, B, C$ be Dedekind cuts such that $A\subseteq B$
+
+    If $A = B$ then $A + C = B + C$.
+
+    Otherwise, $A\subset B$, then there exists $b\in B$ such that $b\notin A$. Hence, for all $c\in C$, $b + c\notin A + C$, then $A + C\ne B + C$.
+
+    Let $a\in A, c\in C$, then $a + c\in A + C$. Since $A\subset B$, then $a\in B$, so $a + c\in B + C$. Therefore $A + C\subseteq B + C$.
+
+    So $A + C\subset B + C$.
+
+    Thus $A + C\subseteq B + C$.
+\end{proof}
+
+\begin{theorem}
+    \par Let $A$ be a Dedekind cut, then
+    \[
+        A\subset {0}^{*} \Longleftrightarrow -A\supset {0}^{*}.
+    \]
+\end{theorem}
+
+\begin{proof}
+    $(\Rightarrow)$ $A\subset {0}^{*}\Longrightarrow -A\supset {0}^{*}$.
+
+    If $-A\subseteq {0}^{*}$, then
+    \[
+        A + (-A) \subset {0}^{*} + {0}^{*} = {0}^{*}
+    \]
+    which conflicts with $A + (-A) = {0}^{*}$. So $-A\supset {0}^{*}$.
+
+    $(\Leftarrow)$ $-A\supset {0}^{*}\Longrightarrow A\subset {0}^{*}$.
+
+    If $A\supseteq {0}^{*}$, then
+    \[
+        A + (-A) \supset {0}^{*} + {0}^{*} = {0}^{*}
+    \]
+    which conflicts with $A + (-A) = {0}^{*}$. So $A\subset {0}^{*}$.
+\end{proof}
+
+\subsection{Multiplication}
 
 \begin{theorem}[Multiplication]
     \par Let $A, B$ be Dedekind cuts.
@@ -279,18 +454,18 @@
     \[
         A\cdot B = \{ a\cdot b: a\in A\land a\ge 0\land b\in B\land b\ge 0 \} \cup\mathbb{Q}_{-} = \varnothing\cup\mathbb{Q}_{-} = \mathbb{Q}_{-} = {0}^{*}.
     \]
-    \par \textbf{Case 3.} $A\supset\supset{0}^{*}$ and $B\supset\supset{0}^{*}$.
+    \par \textbf{Case 3.} $A\supset{0}^{*}$ and $B\supset{0}^{*}$.
     \begin{enumerate}[label = (\roman*)]
         \item Since $A\cdot B$ is a superset of $\mathbb{Q}^{-}$, then $A\cdot B$ is not empty.
         \item Let $a_{0}$ be an upper bound of $A$, $b_{0}$ be an upper bound of $B$.
-              \par Since $A\supset\supset{0}^{*}$ and $B\supset\supset{0}^{*}$, then $a_{0}\ge 0$ and $b_{0}\ge 0$.
+              \par Since $A\supset{0}^{*}$ and $B\supset{0}^{*}$, then $a_{0}\ge 0$ and $b_{0}\ge 0$.
               \par Then for any non-negative elements $a$ and $b$ of $A$ and $B$, $a\cdot b \le a_{0}\cdot b_{0}$.
               \par Hence $a_{0}\cdot b_{0}$ is an upper bound of $A\cdot B$, which implies that $A\cdot B\ne\mathbb{Q}$.
         \item Let $c$ be an arbitrary element of $A\cdot B$.
-              \par If $c$ is negative or zero, then there exists an element which is greater than $c$, since $A\supset\supset {0}^{*}$ and $B\supset\supset {0}^{*}$ (zero is not their maximum element).
+              \par If $c$ is negative or zero, then there exists an element which is greater than $c$, since $A\supset {0}^{*}$ and $B\supset {0}^{*}$ (zero is not their greatest element).
               \par Otherwise, $c$ is positive, then there exists $a\in A$ and $a > 0$, $b\in B$ and $b > 0$ such that $a\cdot b = c$. Due to (DC3), there exists $a_{0} > a > 0$ and $a_{0}\in A$, $b_{0} > b > 0$ and $b_{0}\in B$.
               \par Furthermore, $a_{0}\cdot b_{0} > a\cdot b$ and $a_{0}\cdot b_{0}\in A\cdot B$ according to the definition of $A\cdot B$.
-              \par So $A\cdot B$ has no maximum element.
+              \par So $A\cdot B$ has no greatest element.
         \item Let $c$ be an arbitrary element of $A\cdot B$.
               \par Let $d$ be a rational number such that $d < c$.
               \par If $d$ is non-positive, then $d\in A\cdot B$, since $A\cdot B$ contains $0$ and is a superset of $\mathbb{Q}^{-}$.
@@ -304,61 +479,27 @@
     \par In conclusion, $A\cdot B$ is a Dedekind cut.
 \end{proof}
 
-\subsection*{Properties}
-
-\par In this subsection, $\mathbb{R}$ is the set of all Dedekind cuts.
-
 \begin{theorem}
-    $\mathbb{R}$ is a field with the defined addition and multiplication.
+    $\mathbb{R}$ with addition and multiplication is a commutative ring, and every non-zero Dedekind cut has a multiplicative inverse.
 \end{theorem}
 
 \begin{proof}
     \par Let $A, B, C$ be arbitrary Dedekind cuts.
-    \begin{enumerate}[label = (F\arabic*)]
-        \item Addition is associative.
-              \begin{align*}
-                  (A + B) + C & = \{ (a + b) + c : a\in A\land b\in B\land c\in C \}                                                       \\
-                              & = \{ a + (b + c) : a\in A\land b\in B\land c\in C \} \quad\text{(Addition in $\mathbb{Q}$ is associative)} \\
-                              & = A + (B + C).
-              \end{align*}
-        \item Addition has identity element.
-              \begin{align*}
-                  A + {0}^{*} & = \{ a + w : a\in A\land w < 0 \} \\
-                              & = \{ w + a : a\in A\land w < 0 \} \\
-                              & = {0}^{*} + A.
-              \end{align*}
-              \par \textbf{Prove that $A \subseteq A + {0}^{*}$}.
-              \par Let $x\in A$. According to (DC4), there exists $y\in A$ such that $y > x$.
-              \[
-                  x = \underbrace{y}_{\in A} + \underbrace{(x - y)}_{< 0, \in {0}^{*}}
-              \]
-              \par So $\forall x(x\in A \rightarrow x\in A + {0}^{*})$, which means $A \subseteq A + {0}^{*}$.
-              \bigskip
-              \par \textbf{Prove that $A + {0}^{*} \subseteq A$}.
-              \par Let $a_{0}\in A + {0^{*}}$. According to the definition of $A + {0}^{*}$, there exists $a\in A$ and $w\in\mathbb{Q}^{-}$ such that $a_{0} = a + w$.
-              \par Since $w < 0$ then $a_{0} < a$. According to (DC4), $a_{0}\in A$.
-              \par So $\forall a_{0}(a_{0}\in A + {0}^{*} \rightarrow A)$.
-              \par Hence $A = A + {0}^{*} = {0}^{*} + A$.
-        \item Every element has an additive inverse.
-              \begin{align*}
-                  A + (-A) & = \{ a + (w - a') : a\in A\land w\in\mathbb{Q}^{-}\land a'\in\mathbb{Q}\setminus A \} \\
-                           & = \{ (w - a') + a : a\in A\land w\in\mathbb{Q}^{-}\land a'\in\mathbb{Q}\setminus A \} \\
-                           & = (-A) + A.
-              \end{align*}
-              \par \textbf{Prove that $A + (-A)\subseteq {0}^{*}$}.
-              \par Let $a\in A, a'\in \mathbb{Q}\setminus A, w\in {0}^{*}$.
-              \par Since $a'\notin A$ then $a' > a$, so $a - a' < 0$. Therefore
-              \[
-                  a + (w - a') = w + (a - a') < w < 0
-              \]
-              \par According to (DC4), $a + (w - a')\in {0}^{*}$. So $A + (-A) \subseteq {0}^{*}$.
-              \bigskip
-              \par \textbf{Prove that ${0}^{*}\subseteq A + (-A)$}.
-              \par If $A = {0}^{*}$, then ${0}^{*} + {0}^{*} = {0}^{*}$ (F2).
-              \par Since $A + (-A) = (-A) + A$, then without loss of generality, let's suppose that $A\supset\supset {0}^{*}$.
-              \par Let $w\in {0}^{*}$, $\mathbb{Q}\setminus A$.
-        \item Addition is commutative.
+    \begin{enumerate}[label={(F\arabic*)}, start=4]
         \item Multiplication is associative.
+              \par If $A\supseteq {0}^{*}, B\supseteq {0}^{*}, C\supseteq {0}^{*}$, then
+              \begin{align*}
+                  (A\cdot B)\cdot C & = \{ (a\cdot b)\cdot c : a\in A\land b\in B\land c\in C\land a\ge 0\land b\ge 0\land c\ge 0 \} \\
+                                    & = \{ a\cdot (b\cdot c) : a\in A\land b\in B\land c\in C\land a\ge 0\land b\ge 0\land c\ge 0 \} \\
+                                    & = A\cdot (B\cdot C).
+              \end{align*}
+              \par If $A\supseteq {0}^{*}, B\supseteq {0}^{*}, C\subseteq {0}^{*}$, then
+              \begin{align*}
+                  (A\cdot B)\cdot C & = -\left( (A\cdot B)\cdot (-C) \right) \\
+                                    & = -(A\cdot (B\cdot -C))                \\
+                                    & = A\cdot (-(B\cdot -C))                \\
+                                    & = A\cdot (B\cdot C)
+              \end{align*}
         \item Multiplication is distributive over addition.
         \item Multiplication has identity element.
         \item Multiplication is commutative.
@@ -371,13 +512,13 @@
 \end{theorem}
 
 \begin{theorem}
-    \begin{enumerate}[label = (\roman*)]
-        \item $\forall\alpha,\beta,\gamma\in\mathbb{R}( \alpha\le\beta \rightarrow \alpha + \gamma \le \beta + \gamma )$,
-        \item $\forall\alpha,\beta\in\mathbb{R} (\alpha\ge{0}^{*}\land\beta\ge{0}^{*} \rightarrow\alpha\cdot\beta\ge{0}^{*})$.
-    \end{enumerate}
+    $\mathbb{R}$ with multiplicative is compatible with $\subseteq$.
+    \[
+        \forall A, B\in\mathbb{R}(A\supseteq {0}^{*}\land B\supseteq {0}^{*}\rightarrow A\cdot B\supseteq {0}^{*}).
+    \]
 \end{theorem}
 
-\subsection*{Construction of the real numbers by Cauchy sequences}
+\subsection{Construction of the real numbers by Cauchy sequences}
 
 \section{Complex numbers}
 
