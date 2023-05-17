@@ -56,6 +56,8 @@
 \theoremstyle{plain}
 \newtheorem{theorem}{Theorem}
 \counterwithin{theorem}{chapter}
+\newtheorem{corollary}{Corollary}
+\counterwithin{corollary}{chapter}
 \newtheorem{lemma}{Lemma}
 \counterwithin{lemma}{chapter}
 \newtheorem{axiom}{Axiom}

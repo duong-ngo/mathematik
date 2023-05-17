@@ -391,7 +391,7 @@ I need the following property to verify the group structure of $\mathbb{R}$.
     Thus $A + C\subseteq B + C$.
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}\label{theorem:chapter1:negation-and-sign}
     \par Let $A$ be a Dedekind cut, then
     \[
         A\subset {0}^{*} \Longleftrightarrow -A\supset {0}^{*}.
@@ -418,7 +418,7 @@ I need the following property to verify the group structure of $\mathbb{R}$.
 
 \subsection{Multiplication}
 
-\begin{theorem}[Multiplication]
+\begin{theorem}[Multiplication]\label{theorem:chapter1:multiplication}
     \par Let $A, B$ be Dedekind cuts.
     \par $A\cdot B$ is defined as the following.
     \par If $A\supseteq{0}^{*}$ and $B\supseteq{0}^{*}$
@@ -440,44 +440,126 @@ I need the following property to verify the group structure of $\mathbb{R}$.
     \par $A\cdot B$ is also a Dedekind cut.
 \end{theorem}
 
-\par We will show that $A\cdot B$ is also a Dedekind cut. But, thanks to the definition of negation, we only have to cover that first case: $A\supseteq{0}^{*}$ and $B\supseteq{0}^{*}$.
+Thanks to the definition of negation, we only have to cover that first case: $A\supseteq{0}^{*}$ and $B\supseteq{0}^{*}$.
 
 \begin{proof}
-    \par Let's consider the following three cases.
-    \par \textbf{Case 1.} $A = {0}^{*}$.
-    \par Since $A = {0}^{*}$, then $\nexists a\in A$ such that $a\ge 0$. Hence
-    \[
-        A\cdot B = \{ a\cdot b: a\in A\land a\ge 0\land b\in B\land b\ge 0 \} \cup\mathbb{Q}_{-} = \varnothing\cup\mathbb{Q}_{-} = \mathbb{Q}_{-} = {0}^{*}.
-    \]
-    \par \textbf{Case 2.} $B = {0}^{*}$.
-    \par Since $B = {0}^{*}$, then $\nexists b\in B$ such that $b\ge 0$. Hence
-    \[
-        A\cdot B = \{ a\cdot b: a\in A\land a\ge 0\land b\in B\land b\ge 0 \} \cup\mathbb{Q}_{-} = \varnothing\cup\mathbb{Q}_{-} = \mathbb{Q}_{-} = {0}^{*}.
-    \]
-    \par \textbf{Case 3.} $A\supset{0}^{*}$ and $B\supset{0}^{*}$.
-    \begin{enumerate}[label = (\roman*)]
-        \item Since $A\cdot B$ is a superset of $\mathbb{Q}^{-}$, then $A\cdot B$ is not empty.
-        \item Let $a_{0}$ be an upper bound of $A$, $b_{0}$ be an upper bound of $B$.
-              \par Since $A\supset{0}^{*}$ and $B\supset{0}^{*}$, then $a_{0}\ge 0$ and $b_{0}\ge 0$.
-              \par Then for any non-negative elements $a$ and $b$ of $A$ and $B$, $a\cdot b \le a_{0}\cdot b_{0}$.
-              \par Hence $a_{0}\cdot b_{0}$ is an upper bound of $A\cdot B$, which implies that $A\cdot B\ne\mathbb{Q}$.
-        \item Let $c$ be an arbitrary element of $A\cdot B$.
-              \par If $c$ is negative or zero, then there exists an element which is greater than $c$, since $A\supset {0}^{*}$ and $B\supset {0}^{*}$ (zero is not their greatest element).
-              \par Otherwise, $c$ is positive, then there exists $a\in A$ and $a > 0$, $b\in B$ and $b > 0$ such that $a\cdot b = c$. Due to (DC3), there exists $a_{0} > a > 0$ and $a_{0}\in A$, $b_{0} > b > 0$ and $b_{0}\in B$.
-              \par Furthermore, $a_{0}\cdot b_{0} > a\cdot b$ and $a_{0}\cdot b_{0}\in A\cdot B$ according to the definition of $A\cdot B$.
-              \par So $A\cdot B$ has no greatest element.
-        \item Let $c$ be an arbitrary element of $A\cdot B$.
-              \par Let $d$ be a rational number such that $d < c$.
-              \par If $d$ is non-positive, then $d\in A\cdot B$, since $A\cdot B$ contains $0$ and is a superset of $\mathbb{Q}^{-}$.
-              \par Otherwise, $d$ is positive, then $c$ is also positive. Since $c$ is positive, there exists $a\in A$ and $a > 0$, $b\in B$ and $b > 0$ such that $c = a\cdot b$.
-              \[
-                  d = c - (c - d) = a\cdot b - (c - d) = a\cdot\left(b - \frac{c - d}{a}\right)
-              \]
-              \par Since $a\in A$ and $a > 0$, $b - \dfrac{c - d}{a}\in B$ (due to (DC4)) and $0 < b - \dfrac{c - d}{a} < b$, then $d \in A\cdot B$.
-              \par Hence $A\cdot B$ is downward closed.
+    There are four cases.
+
+    \begin{enumerate}[label={\textbf{Case \arabic*.}},itemindent={0.5cm}]
+        \item $A\supseteq {0}^{*}\land B\supseteq {0}^{*}$.
+
+              Let's consider the following three sub-cases.
+              \begin{enumerate}
+                  \item $A = {0}^{*}$.
+
+                        Since $A = {0}^{*}$, then $\nexists a\in A$ such that $a\ge 0$. Hence
+                        \[
+                            A\cdot B = \{ a\cdot b: a\in A\land a\ge 0\land b\in B\land b\ge 0 \} \cup\mathbb{Q}_{-} = \varnothing\cup\mathbb{Q}_{-} = \mathbb{Q}_{-} = {0}^{*}.
+                        \]
+                  \item $B = {0}^{*}$.
+
+                        Since $B = {0}^{*}$, then $\nexists b\in B$ such that $b\ge 0$. Hence
+                        \[
+                            A\cdot B = \{ a\cdot b: a\in A\land a\ge 0\land b\in B\land b\ge 0 \} \cup\mathbb{Q}_{-} = \varnothing\cup\mathbb{Q}_{-} = \mathbb{Q}_{-} = {0}^{*}.
+                        \]
+                  \item $A\supset{0}^{*}$ and $B\supset{0}^{*}$.
+                        \begin{enumerate}[label = (\roman*)]
+                            \item Since $A\cdot B$ is a superset of $\mathbb{Q}^{-}$, then $A\cdot B$ is not empty.
+                            \item Let $a_{0}$ be an upper bound of $A$, $b_{0}$ be an upper bound of $B$.
+                                  \par Since $A\supset{0}^{*}$ and $B\supset{0}^{*}$, then $a_{0}\ge 0$ and $b_{0}\ge 0$.
+                                  \par Then for any non-negative elements $a$ and $b$ of $A$ and $B$, $a\cdot b \le a_{0}\cdot b_{0}$.
+                                  \par Hence $a_{0}\cdot b_{0}$ is an upper bound of $A\cdot B$, which implies that $A\cdot B\ne\mathbb{Q}$.
+                            \item Let $c$ be an arbitrary element of $A\cdot B$.
+
+                                  If $c$ is negative or zero, then there exists an element which is greater than $c$, since $A\supset {0}^{*}$ and $B\supset {0}^{*}$ (zero is not their greatest element).
+
+                                  Otherwise, $c$ is positive, then there exists $a\in A$ and $a > 0$, $b\in B$ and $b > 0$ such that $a\cdot b = c$. Due to (DC3), there exists $a_{0} > a > 0$ and $a_{0}\in A$, $b_{0} > b > 0$ and $b_{0}\in B$.
+
+                                  Furthermore, $a_{0}\cdot b_{0} > a\cdot b$ and $a_{0}\cdot b_{0}\in A\cdot B$ according to the definition of $A\cdot B$.
+
+                                  So $A\cdot B$ has no greatest element.
+                            \item Let $c$ be an arbitrary element of $A\cdot B$.
+
+                                  Let $d$ be a rational number such that $d < c$.
+
+                                  If $d$ is non-positive, then $d\in A\cdot B$, since $A\cdot B$ contains $0$ and is a superset of $\mathbb{Q}^{-}$.
+
+                                  Otherwise, $d$ is positive, then $c$ is also positive. Since $c$ is positive, there exists $a\in A$ and $a > 0$, $b\in B$ and $b > 0$ such that $c = a\cdot b$.
+                                  \[
+                                      d = c - (c - d) = a\cdot b - (c - d) = a\cdot\left(b - \frac{c - d}{a}\right)
+                                  \]
+                                  Since $a\in A$ and $a > 0$, $b - \dfrac{c - d}{a}\in B$ (due to (DC4)) and $0 < b - \dfrac{c - d}{a} < b$, then $d \in A\cdot B$.
+
+                                  Hence $A\cdot B$ is downward closed.
+                        \end{enumerate}
+              \end{enumerate}
+        \item $A\subseteq {0}^{*}, B\subseteq {0}^{*}$.
+
+              Then $-A\supseteq {0}^{*}$, $-B\supseteq {0}^{*}$. According to 1st case, $(-A)\cdot (-B)$ is a Dedekind cut.
+        \item $A\subseteq {0}^{*}, B\supseteq {0}^{*}$.
+
+              Then $-A\supseteq {0}^{*}$. According to 1st case, $(-A)\cdot B$ is a Dedekind cut. So $-((-A)\cdot B)$ is a Dedekind cut.
+        \item $A\supseteq {0}^{*}, B\subseteq {0}^{*}$.
+
+              Then $-B\supseteq {0}^{*}$. According to 1st case, $A\cdot (-B)$ is a Dedekind cut. So $-(A\cdot (-B))$ is a Dedekind cut.
     \end{enumerate}
-    \par In conclusion, $A\cdot B$ is a Dedekind cut.
+
+    In conclusion, $A\cdot B$ is a Dedekind cut.
 \end{proof}
+
+\begin{theorem}
+    Let $A, B$ be Dedekind cuts. Then
+    \[
+        \begin{cases}
+            (-A)\cdot B = -(A\cdot B), \\
+            A\cdot (-B) = -(A\cdot B), \\
+            (-A)\cdot (-B) = A\cdot B.
+        \end{cases}
+    \]
+\end{theorem}
+
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+    Multiplication in $\mathbb{R}$ is compatible with $\subseteq$.
+    \[
+        \forall A, B\in\mathbb{R}(A\supseteq {0}^{*}\land B\supseteq {0}^{*}\rightarrow A\cdot B\supseteq {0}^{*}).
+    \]
+\end{theorem}
+
+\begin{proof}
+    \textbf{Case 1. $A = {0}^{*}$ or $B = {0}^{*}$.}
+
+    According to the proof of Theorem~\ref{theorem:chapter1:multiplication}, $A\cdot B = {0}^{*}$.
+
+    \textbf{Case 2. $A\supset {0}^{*}$ and $B\supset {0}^{*}$.}
+
+    Since $A\supset {0}^{*}$, then there exists $a\in A$ such that $a > 0$. $B\supset {0}^{*}$, then there exists $b\in B$ such that $b > 0$.
+
+    According to the definition of multiplication, $a\cdot b\in A\cdot B$. On the other hand, $a\cdot b > 0$. Therefore, $A\cdot B\supset {0}^{*}$.
+
+    Thus $A\cdot B\supseteq {0}^{*}$. Equality holds if and only if $A = {0}^{*}$ or $B\cdot {0}^{*}$.
+\end{proof}
+
+The following result follows Theorem~\ref{theorem:chapter1:multiplication} and Theorem~\ref{theorem:chapter1:negation-and-sign}.
+
+\begin{corollary}
+    Let $A, B$ be Dedekind cuts.
+    \[
+        \begin{split}
+            A\supset {0}^{*}\land B\supset {0}^{*}\rightarrow A\cdot B\supset {0}^{*}, \\
+            A\supset {0}^{*}\land B\subset {0}^{*}\rightarrow A\cdot B\subset {0}^{*}, \\
+            A\subset {0}^{*}\land B\supset {0}^{*}\rightarrow A\cdot B\subset {0}^{*}, \\
+            A\subset {0}^{*}\land B\subset {0}^{*}\rightarrow A\cdot B\supset {0}^{*}.
+        \end{split}
+    \]
+\end{corollary}
+
+Let ${1}^{*}$ be the following (rational) Dedekind cut
+\[
+    \{ x: x\in\mathbb{Q}\land x < 1 \}.
+\]
 
 \begin{theorem}
     $\mathbb{R}$ with addition and multiplication is a commutative ring, and every non-zero Dedekind cut has a multiplicative inverse.
@@ -487,20 +569,104 @@ I need the following property to verify the group structure of $\mathbb{R}$.
     \par Let $A, B, C$ be arbitrary Dedekind cuts.
     \begin{enumerate}[label={(F\arabic*)}, start=4]
         \item Multiplication is associative.
-              \par If $A\supseteq {0}^{*}, B\supseteq {0}^{*}, C\supseteq {0}^{*}$, then
+
+              \textbf{Case 1.} $A\supseteq {0}^{*}, B\supseteq {0}^{*}, C\supseteq {0}^{*}$, then
               \begin{align*}
                   (A\cdot B)\cdot C & = \{ (a\cdot b)\cdot c : a\in A\land b\in B\land c\in C\land a\ge 0\land b\ge 0\land c\ge 0 \} \\
                                     & = \{ a\cdot (b\cdot c) : a\in A\land b\in B\land c\in C\land a\ge 0\land b\ge 0\land c\ge 0 \} \\
                                     & = A\cdot (B\cdot C).
               \end{align*}
-              \par If $A\supseteq {0}^{*}, B\supseteq {0}^{*}, C\subseteq {0}^{*}$, then
+              \textbf{Case 2.} $A\supseteq {0}^{*}, B\supseteq {0}^{*}, C\subseteq {0}^{*}$, then $-C\supseteq {0}^{*}$ and
               \begin{align*}
-                  (A\cdot B)\cdot C & = -\left( (A\cdot B)\cdot (-C) \right) \\
-                                    & = -(A\cdot (B\cdot -C))                \\
-                                    & = A\cdot (-(B\cdot -C))                \\
-                                    & = A\cdot (B\cdot C)
+                  (A\cdot B)\cdot C & = -\left( (A\cdot B)\cdot (-C) \right)  \\
+                                    & = -\left( A\cdot (B \cdot (-C)) \right) \\
+                                    & = A\cdot (-(B\cdot (-C)))               \\
+                                    & = A\cdot (B\cdot C).
+              \end{align*}
+              \textbf{Case 3.} $A\supseteq {0}^{*}, B\subseteq {0}^{*}, C\supseteq {0}^{*}$, then $-B\supseteq {0}^{*}$ and
+              \begin{align*}
+                  (A\cdot B)\cdot C & = (-(A\cdot (-B)))\cdot C \\
+                                    & = -((A\cdot (-B))\cdot C) \\
+                                    & = -(A\cdot ((-B)\cdot C)) \\
+                                    & = A\cdot (-((-B)\cdot C)) \\
+                                    & = A\cdot (B\cdot C).
+              \end{align*}
+              \textbf{Case 4.} $A\supseteq {0}^{*}, B\subseteq {0}^{*}, C\subseteq {0}^{*}$, then $-B\supseteq {0}^{*}$, $-C\supseteq {0}^{*}$, and
+              \begin{align*}
+                  (A\cdot B)\cdot C & = (-(A\cdot (-B)))\cdot C       \\
+                                    & = (-(-(A\cdot (-B))))\cdot (-C) \\
+                                    & = (A\cdot (-B))\cdot (-C)       \\
+                                    & = A\cdot ((-B)\cdot (-C))       \\
+                                    & = A\cdot (B\cdot C).
+              \end{align*}
+              \textbf{Case 5.} $A\subseteq {0}^{*}, B\supseteq {0}^{*}, C\supseteq {0}^{*}$, then $-A\supseteq {0}^{*}$, and
+              \begin{align*}
+                  (A\cdot B)\cdot C & = (-((-A)\cdot B))\cdot C \\
+                                    & = -(((-A)\cdot B)\cdot C) \\
+                                    & = -((-A)\cdot (B\cdot C)) \\
+                                    & = A\cdot (B\cdot C).
+              \end{align*}
+              \textbf{Case 6.} $A\subseteq {0}^{*}, B\supseteq {0}^{*}, C\subseteq {0}^{*}$, then $-A\supset {0}^{*}$, $-C\supseteq {0}^{*}$, and
+              \begin{align*}
+                  (A\cdot B)\cdot C & = (-(A\cdot B))\cdot (-C) \\
+                                    & = ((-A)\cdot B)\cdot (-C) \\
+                                    & = (-A)\cdot (B\cdot (-C)) \\
+                                    & = (-A)\cdot (-(B\cdot C)) \\
+                                    & = A\cdot (B\cdot C).
+              \end{align*}
+              \textbf{Case 7.} $A\subseteq {0}^{*}, B\subseteq {0}^{*}, C\supseteq {0}^{*}$, then $-A\supseteq {0}^{*}, -B\supset {0}^{*}$, and
+              \begin{align*}
+                  (A\cdot B)\cdot C & = ((-A)\cdot (-B))\cdot C \\
+                                    & = (-A)\cdot ((-B)\cdot C) \\
+                                    & = (-A)\cdot (-(B\cdot C)) \\
+                                    & = A\cdot (B\cdot C).
+              \end{align*}
+              \textbf{Case 8.} $A\subseteq {0}^{*}, B\subseteq {0}^{*}, C\subseteq {0}^{*}$, then $-A\supseteq {0}^{*}$, $-B\supseteq {0}^{*}$, $-C\supseteq {0}^{*}$, and
+              \begin{align*}
+                  (A\cdot B)\cdot C & = -((A\cdot B)\cdot (-C))       \\
+                                    & = -(((-A)\cdot (-B))\cdot (-C)) \\
+                                    & = -((-A)\cdot ((-B)\cdot (-C))) \\
+                                    & = -((-A)\cdot (B\cdot C))       \\
+                                    & = A\cdot (B\cdot C).
               \end{align*}
         \item Multiplication is distributive over addition.
+
+              We will prove that
+              \[
+                  \begin{cases}
+                      (A + B)\cdot C = A\cdot C + B\cdot C, \\
+                      C\cdot (A + B) = C\cdot A + C\cdot B.
+                  \end{cases}
+              \]
+
+              \textbf{Case 1.} $A = {0}^{*}$.
+              \[
+                  \begin{split}
+                      (A + B)\cdot C = B\cdot C = {0}^{*} + B\cdot C = A\cdot C + B\cdot C, \\
+                      C\cdot (A + B) = C\cdot B = {0}^{*} + C\cdot B = C\cdot A + C\cdot B.
+                  \end{split}
+              \]
+              \textbf{Case 2.} $B = {0}^{*}$.
+              \[
+                  \begin{split}
+                      (A + B)\cdot C = A\cdot C = A\cdot C + {0}^{*} = A\cdot C + B\cdot C, \\
+                      C\cdot (A + B) = C\cdot A = C\cdot A + {0}^{*} = C\cdot A + C\cdot B.
+                  \end{split}
+              \]
+              \textbf{Case 3.} $C = {0}^{*}$.
+              \[
+                  \begin{split}
+                      (A + B)\cdot C = {0}^{*} = {0}^{*} + {0}^{*} = A\cdot C + B\cdot C, \\
+                      C\cdot (A + B) = {0}^{*} = {0}^{*} + {0}^{*} = C\cdot A + C\cdot B.
+                  \end{split}
+              \]
+              \textbf{Case 4.} $C\supset {0}^{*}, A\supset {0}^{*}, B\supset {0}^{*}$.
+
+              \textbf{Case 5.} $C\supset {0}^{*}, A\subset {0}^{*}, B\subset {0}^{*}$.
+
+              \textbf{Case 6.} $C\supset {0}^{*}, A\supset {0}^{*}, B\subset {0}^{*}$.
+
+              \textbf{Case 7.} $C\supset {0}^{*}, A\subset {0}^{*}, B\supset {0}^{*}$.
         \item Multiplication has identity element.
         \item Multiplication is commutative.
         \item Each non-zero element has a multiplicative inverse.
@@ -509,13 +675,6 @@ I need the following property to verify the group structure of $\mathbb{R}$.
 
 \begin{theorem}
     $\mathbb{R}$ is a field with characteristic zero.
-\end{theorem}
-
-\begin{theorem}
-    $\mathbb{R}$ with multiplicative is compatible with $\subseteq$.
-    \[
-        \forall A, B\in\mathbb{R}(A\supseteq {0}^{*}\land B\supseteq {0}^{*}\rightarrow A\cdot B\supseteq {0}^{*}).
-    \]
 \end{theorem}
 
 \subsection{Construction of the real numbers by Cauchy sequences}
