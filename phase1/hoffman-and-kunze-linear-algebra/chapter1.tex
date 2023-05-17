@@ -207,20 +207,20 @@ Proof of the following theorem demonstrates how to use the axioms to derive othe
     Part (v) and (vi) of Theorem~\ref{thm:field-properties} surprised me at first. If no one had shown me how to derive it from the axioms, I would have been taken it for granted. The lesson here is don't be like me.
 \end{note}
 
-Now let's consider some examples and non-exampples of field.
+Now let's consider some examples and non-examples of field.
 
 \begin{example}
     \begin{enumerate}[label = (\alph*)]
         \item The set of real numbers $\mathbb{R}$, the set of complex numbers $\mathbb{C}$ (with the usual addition and multiplication) are fields.
         \item The set of natural numbers $\mathbb{N}$ (with the usual addition and multiplication) is not a field, since elements other than zero do not have additive inverses.
-        \item The set of integer numbers $\mathbb{Z}$ (with the usual addition and multiplication) is not a field, since non-zero integers other than $\pm 1$ do not have multiplicative inverses.
+        \item The set of integers $\mathbb{Z}$ (with the usual addition and multiplication) is not a field, since non-zero integers other than $\pm 1$ do not have multiplicative inverses.
         \item The set of rational numbers $\mathbb{Q}$ (with the usual addition and multiplication) is a field.
     \end{enumerate}
 \end{example}
 
 \subsection{Subfield}
 
-Let's take a look at the examples of rational numbers, real numbers, and complex numbers: $\mathbb{Q}\subseteq\mathbb{R}\subseteq\mathbb{C}$. This remark leads to the definition of \textit{subfield}.
+Let's take a look at the examples of rational numbers, real numbers, and complex numbers: $\mathbb{Q}\subset\mathbb{R}\subset\mathbb{C}$. This remark leads to the definition of \textit{subfield}.
 
 \begin{definition}[Subfield]
     $\mathbb{G}$ is a subfield of $\mathbb{F}$ if and only if $\mathbb{G}$ is a field and a subset of $\mathbb{F}$, where the operations of $\mathbb{G}$ are those of $\mathbb{F}$ but restricted to $\mathbb{G}$.
@@ -247,7 +247,9 @@ With the field axioms and the definition of subfield, we can obtain further info
         \Rightarrow 0_{\mathbb{F}} + 0_{\mathbb{G}} & = 0_{\mathbb{F}} + 0_{\mathbb{F}} \\
         \Rightarrow 0_{\mathbb{G}} = 0_{\mathbb{F}}.
     \end{align*}
-    Hence the two fields share the same zero element. So $x$ is also a non-zero element of $\mathbb{F}$, which means it has multiplicative inverse. $x^{-1}$ is the multiplicative inverse of $x$ within $\mathbb{F}$.
+    Hence the two fields share the same zero element.
+
+    $x$ is also a non-zero element of $\mathbb{F}$, which means it has multiplicative inverse. $x^{-1}$ is the multiplicative inverse of $x$ within $\mathbb{F}$.
 
     Apply axioms (5) (7) (9)
     \begin{align*}
@@ -276,7 +278,7 @@ With the field axioms and the definition of subfield, we can obtain further info
                             & = {(-x)}_{\mathbb{G}} + (x + {(-x)}_{\mathbb{F}}) \\
                             & = ({(-x)}_{\mathbb{G}} + x) + {(-x)}_{\mathbb{F}} \\
                             & = 0 + {(-x)}_{\mathbb{F}}                         \\
-                            & = {(-x)}_{\mathbb{F}}
+                            & = {(-x)}_{\mathbb{F}}.
     \end{align*}
 
     Let ${x^{-1}}_{\mathbb{F}}$, ${x^{-1}}_{\mathbb{G}}$ be the multiplicative inverses of $x$ within $\mathbb{F}$, $\mathbb{G}$ respectively.
@@ -287,7 +289,7 @@ With the field axioms and the definition of subfield, we can obtain further info
                               & = {x^{-1}}_{\mathbb{G}}\cdot (x\cdot {x^{-1}}_{\mathbb{F}}) \\
                               & = ({x^{-1}}_{\mathbb{G}}\cdot x)\cdot {x^{-1}}_{\mathbb{F}} \\
                               & = 1\cdot {x^{-1}}_{\mathbb{F}}                              \\
-                              & = {x^{-1}}_{\mathbb{F}}
+                              & = {x^{-1}}_{\mathbb{F}}.
     \end{align*}
     Thus, the results follow.
 \end{proof}
@@ -305,7 +307,7 @@ The set of integers modulo $n$ is denoted by $\mathbb{Z}/n\mathbb{Z}$.
 \begin{proof}
     $\mathbb{Z}/n\mathbb{Z}$, together with addition and multiplication modulo $n$ satisfies (1) $-$ (8).
 
-    $(\Rightarrow)$ Let $a$ be an integer which is not a multiple of $n$, then $a$ and $n$ are coprime. According to Bezout's theorem, there exists integers $x$ and $y$ such that $ax + ny = 1$. Therefore, $ax\equiv 1\pmod{n}$, which indicates that $a$ has an multiplicative inverse. Hence $\mathbb{Z}/n\mathbb{Z}$ with addition and multiplication modulo $n$ is a field (it satisfy (9)).
+    $(\Rightarrow)$ Let $a$ be an integer which is not a multiple of $n$, then $a$ and $n$ are coprime. According to Bezout's theorem, there exists integers $x$ and $y$ such that $ax + ny = 1$. Therefore, $ax\equiv 1\pmod{n}$, which indicates that $a$ has an multiplicative inverse. Hence $\mathbb{Z}/n\mathbb{Z}$ with addition and multiplication modulo $n$ is a field (it satisfies (9)).
 
     $(\Leftarrow)$ Let $a$ be an integer which is not a multiple of $n$. Since $\mathbb{Z}/n\mathbb{Z}$ is a field, then there exists an integer $x$ such that $ax\equiv 1\pmod{n}$, or equivalently, $ax - 1$ is a multiple of $n$. In other words, there exists an integer $y$ such that $ax - ny = 1$. The equality implies that $a$ and $n$ are coprime. So every integer, which is not a multiple of $n$, is coprime with $n$. This means $n$ is a prime.
 
@@ -328,7 +330,7 @@ Informally, it means we can add up $1$'s successively and end up with $0$ after 
 \end{definition}
 
 \begin{note}
-    In abstract algebra, the characteristic is defined for rings, which is more general than fields, in the same manner.
+    In abstract algebra, the characteristic is defined for rings, which is more general than fields, where the existence of non-zero elements' multiplicative inverses does not necessarily hold.
 
     The characteristic of a field cannot be $1$, since zero element and unit element of a field are distinct.
 
@@ -390,7 +392,7 @@ A fundamental problem in Linear Algebra is solving linear equations. We consider
 
 where $y_{1}, y_{2}, \ldots, y_{m}$ and $A_{ij} (1\le i\le m, 1\le j\le n)$ are given scalars of $\mathbb{F}$.
 
-(\ref{eq:general-system-of-linear-equations}) is called a \textbf{system of $m$ linear equations in $n$ unknowns}. An $n$-tuple $(x_{1}, \ldots, x_{n})$ of scalars of $\mathbb{F}$ which satisfies each of the linear equation is called a \textbf{solution} of the system. Particularly, if $y_{1} = y_{2} = \cdots = y_{m}$, people say that the system is \textbf{homogeneous}, each of the equation of the system is homogeneous.
+(\ref{eq:general-system-of-linear-equations}) is called a \textbf{system of $m$ linear equations in $n$ unknowns}. An $n$-tuple $(x_{1}, \ldots, x_{n})$ of scalars of $\mathbb{F}$ which satisfies each of the linear equation is called a \textbf{solution} of the system. Particularly, if $y_{1} = y_{2} = \cdots = y_{m} = 0$, people say that the system is \textbf{homogeneous}, each of the equation of the system is homogeneous.
 
 The technique for finding the solutions of a system of linear equations is elimination (read the original text for an example).
 
@@ -905,11 +907,13 @@ Let $\mathbb{F}$ be the field of complex numbers. Are the following two systems 
 \end{exercise}
 
 \begin{note}
-    The term ``copy'' is used informally. A copy of the rational number field is a field which is isomorphic to the rational number field. It means, there exists a bijection $f: \mathbb{Q}\to\mathbb{F}$ such that
+    The term ``copy'' is used informally. A copy of the rational number field is a field which is isomorphic to the rational number field. It means, there exists an isomorphism (isomorphism mapping) $f: \mathbb{Q}\to\mathbb{F}$ such that
     \[
         f(x) + f(y) = f(x + y)\qquad f(x)f(y) = f(xy).
     \]
-    Such bijection is called a \textit{field isomorphism}.
+    Such isomorphism is called a \textit{field isomorphism}.
+
+    If there exists an isomorphism between two fields, then the two are called \textit{isomorphic}.
 \end{note}
 
 \begin{proof}
@@ -922,9 +926,10 @@ Let $\mathbb{F}$ be the field of complex numbers. Are the following two systems 
         \underbrace{1_{\mathbb{F}} + 1_{\mathbb{F}} + \cdots + 1_{\mathbb{F}}}_{p} \ne \underbrace{1_{\mathbb{F}} + 1_{\mathbb{F}} + \cdots + 1_{\mathbb{F}}}_{q}
     \]
 
-    We construct an isomorphism as follows:
+    We construct a mapping as follows:
     \[
         \begin{split}
+            f:&\quad\mathbb{Q} \to \mathbb{F} \\
             f:&\quad 0 \mapsto 0_{\mathbb{F}} \\
             &\quad 1 \mapsto 1_{\mathbb{F}} \\
             &\quad n \mapsto \underbrace{1_{\mathbb{F}} + 1_{\mathbb{F}} + \cdots + 1_{\mathbb{F}}}_{n} \\
@@ -933,6 +938,8 @@ Let $\mathbb{F}$ be the field of complex numbers. Are the following two systems 
             &\quad \frac{-p}{q} \mapsto \frac{\underbrace{(-1_{\mathbb{F}}) + (-1_{\mathbb{F}}) + \cdots + (-1_{\mathbb{F}})}_{p}}{\underbrace{1_{\mathbb{F}} + 1_{\mathbb{F}} + \cdots + 1_{\mathbb{F}}}_{q}}
         \end{split}
     \]
+
+    $f$ is a monomorphism (different ``inputs'' will be mapped to different ``outputs''). Hence $\mathbb{Q}$ and $f(\mathbb{Q})$ are isomorphic. By the definition of $f$, $f(\mathbb{Q})\subseteq\mathbb{F}$.
 
     Hence, $\mathbb{F}$ contains a subfield which is isomorphic to the field of the rational numbers.
 \end{proof}
