@@ -62,6 +62,9 @@ updatecls: cleanaux
 	@mkdir -p $(shell kpsewhich -var-value=TEXMFHOME)/tex/latex/local/class
 	@find . -name "*.cls" -exec cp {} $(shell kpsewhich -var-value=TEXMFHOME)/tex/latex/local/class \; \
 
+%.format: %.tex
+	@latexindent $(LATEXINDENT_OPTIONS) $<
+
 %.pdf: %.tex updatecls
 	@latexmk $(LATEXMK_OPTIONS) -pdf -pvc -outdir=$(shell dirname $<) $(shell basename $<)
 
