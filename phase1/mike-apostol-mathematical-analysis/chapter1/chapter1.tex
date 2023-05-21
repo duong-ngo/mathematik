@@ -1325,18 +1325,98 @@ I don't feel so good after proving that $\mathbb{R}$ is a totally ordered field.
                         Therefore, $\iota(q_{1} + q_{2})\le\iota(q_{1}) + \iota(q_{2})$.
 
                         Thus $\iota(q_{1}) + \iota(q_{2}) = \iota(q_{1} + q_{2})$.
+                  \item Prove that $\iota(-q) = - \iota(q)$.
+                        \[
+                            \iota(-q) = \iota(0) - \iota(q) = {0}^{*} - \iota(q) = -\iota(q).
+                        \]
                   \item Prove that $\iota(q_{1}\cdot q_{2}) = \iota(q_{1})\cdot\iota(q_{2})$.
+
+                        If $q_{1} = 0$ or $q_{2} = 0$, then $\iota(q_{1})\cdot\iota(q_{2}) = {0}^{*} = \iota(0) = \iota(q_{1}\cdot q_{2})$.
+
+                        Otherwise, $q_{1}\ne 0$ and $q_{2}\ne 0$.
+
+                        \textbf{Case 1.} $q_{1} > 0$ and $q_{2} > 0$.
+                        \[
+                            \begin{split}
+                                \iota(q_{1})\cdot\iota(q_{2}) & = \{ a\cdot b : a\ge 0\land a < q_{1}\land b\ge 0\land b < q_{2} \}\cup\mathbb{Q}_{-}, \\
+                                \iota(q_{1}\cdot\iota(q_{2})) & = \{ x: x\in\mathbb{Q}\land x < q_{1}\cdot q_{2} \}.
+                            \end{split}
+                        \]
+                        Then $\iota(q_{1})\cdot\iota(q_{2})\subseteq\iota(q_{1}\cdot q_{2})$.
+
+                        Let $x\in\iota(q_{1}\cdot q_{2})$.
+
+                        If $x\le 0$, then $x\in\iota(q_{1})\cdot\iota(q_{2})$.
+
+                        Otherwise, $0 < x < q_{1}\cdot q_{2}$. Choose $y$ such that $\dfrac{x}{q_{1}\cdot q_{2}} < y < 1$, then
+                        \[
+                            \dfrac{x}{q_{1}q_{2}} = \underbrace{y}_{< 1}\cdot\underbrace{\dfrac{x}{q_{1}\cdot q_{2}\cdot y}}_{< 1}
+                        \]
+                        Let $a = q_{1}\cdot y$ and $b = q_{2}\cdot z$, then $a\in\iota(q_{1}), b\in\iota(q_{2})$, and $a\cdot b = x$. This means $x\in\iota(q_{1})\cdot\iota(q_{2})$.
+
+                        So $\iota(q_{1}\cdot q_{2})\subseteq\iota(q_{1})\cdot\iota(q_{2})$.
+
+                        Hence $\iota(q_{1})\cdot\iota(q_{2}) = \iota(q_{1}\cdot q_{2})$.
+
+                        \textbf{Case 2.} $q_{1} < 0$ and $q_{2} < 0$.
+                        \begin{align*}
+                            \iota(q_{1}\cdot q_{2}) & = \iota((-q_{1})\cdot (-q_{2}))        \\
+                                                    & = \iota(-q_{1})\cdot\iota(-q_{2})      \\
+                                                    & = (-\iota(q_{1}))\cdot (-\iota(q_{2})) \\
+                                                    & = \iota(q_{1})\cdot\iota(q_{2}).
+                        \end{align*}
+                        \textbf{Case 3.} $q_{1} > 0$ and $q_{2} < 0$.
+                        \begin{align*}
+                            \iota(q_{1}\cdot q_{2}) & = -\iota(-q_{1}\cdot q_{2})         \\
+                                                    & = -\iota(q_{1}\cdot (-q_{2}))       \\
+                                                    & = -(\iota(q_{1})\cdot\iota(-q_{2})) \\
+                                                    & = \iota(q_{1})\cdot\iota(q_{2}).
+                        \end{align*}
+                        \textbf{Case 4.} $q_{1} < 0$ and $q_{2} > 0$.
+                        \begin{align*}
+                            \iota(q_{1}\cdot q_{2}) & = -\iota(-q_{1}\cdot q_{2})         \\
+                                                    & = -\iota((-q_{1})\cdot q_{2})       \\
+                                                    & = -(\iota(-q_{1})\cdot\iota(q_{2})) \\
+                                                    & = \iota(q_{1})\cdot\iota(q_{2}).
+                        \end{align*}
+                        Thus, $\iota(q_{1}\cdot q_{2}) = \iota(q_{1})\cdot\iota(q_{2})$.
               \end{itemize}
     \end{itemize}
+
+    We have constructed a ring monomorphism $\iota:\mathbb{Q}\to\mathbb{R}$ that preserves order.
 \end{proof}
 
 \subsection{Least upper bound property}
 
 \begin{theorem}
-    Let $A$ be a Dedekind cut of $\mathbb{Q}$. Then $A$ has a least upper bound.
+    Let $\mathcal{D}$ be a set of Dedekind cuts of $\mathbb{Q}$ and $\mathcal{D}$ has an upper bound.
+
+    Then $\mathcal{D}$ has a least upper bound.
 \end{theorem}
 
 \begin{proof}
+    Let $S = \bigcup\limits_{A\in\mathcal{D}} A$. $S$ consists of rational numbers.
+
+    \textbf{Step 1. Prove that $S$ is a Dedekind cut of $\mathbb{Q}$.}
+
+    $S$ is non-empty by definition. (DC1) is satisfied.
+
+    $S$ is bounded above. (DC2) is satisfied.
+
+    Let $a\in S$. Then there exists $A\in\mathcal{D}$ such that $a\in A$. Since $A$ has no greatest element, then there exists $x_{0}\in A$ such that $x < x_{0}$. $x_{0}\in A$ then $x_{0}\in S$. (DC3) is satisfied.
+
+    Let $a\in S$, and $b$ be a rational number such that $b < a$. Since $a\in S$, then there exists $A\in\mathcal{D}$ such that $a\in A$. Since $b < a$, then $b\in A$, so $b\in S$ also. (DC4) is satisfied.
+
+    Hence $S$ is a Dedekind cut of $\mathbb{Q}$.
+    \bigskip
+
+    \textbf{Step 2. Prove that $S$ is the least upper bound of $\mathcal{D}$.}
+
+    Let $A\in\mathcal{D}$. Since $A\subseteq S$, then $S$ is an upper bound of $\mathcal{D}$.
+
+    Let $S'$ be an upper bound of $\mathcal{D}$. According to the definition of upper bound, then $\forall A (A\in\mathcal{D}\rightarrow A\subseteq S')$. So $S\subseteq S'$, or equivalently, $S\le S'$. Hence $S$ is the least upper bound of $\mathcal{D}$.
+
+    Thus $\mathcal{D}$ has a least upper bound.
 \end{proof}
 
 \subsection{Completeness (Dedekind completeness)}
