@@ -2,55 +2,27 @@
 
 \section{Axioms of real numbers}
 
-I am familar with real numbers. However, I have taken the properties of real numbers for granted. I can't even answer these questions: ``What are real numbers? Are they real?\@'' Turns out, these questions are really difficult.
-
-If all you have ever wanted is a definition of real numbers, then you could use the following axiomatic definition.
+I am familar with the real numbers. However, I have taken the properties of real numbers for granted. I can't even answer these questions: ``What are real numbers? Are they real?\@'' Turns out, these questions are really difficult.
 
 Real numbers are elements of a set $\mathbb{R}$ endowed with addition and multiplication, which satisfy the following properties
 \begin{enumerate}[label = (\roman*)]
-    \item $\mathbb{R}$ is totally ordered.
+    \item $\mathbb{R}$ is totally ordered (there exists an order relation on $\mathbb{R}$ where any two elements can be compared).
     \item $\mathbb{R}$ is a field under addition and multiplication.
     \item Order in $\mathbb{R}$ is preserved under addition and multiplication (with non-negative real number).
-    \item Every upper-bounded non-empty set of $\mathbb{R}$ has a least upper bound.
+    \item Every non-empty set of $\mathbb{R}$ which is bounded above has a least upper bound.
 \end{enumerate}
 
-To those who ask ``Are real numbers real?\@'', we can establish a model (a mathematical structure) that satisfies every axiom above. So in this sense, i.e.\@ since the existence of such model, I would answer ``yes''. Since 19th century, mathematicians have given several constructions of the real numbers. IMHO, the two most notable constructions are \textit{Dedekind cuts of $\mathbb{Q}$} and \textit{Cauchy sequences}. In the following sections, we will reproduce the constructions by \textit{Dedekind cuts of $\mathbb{Q}$} and \textit{Cauchy sequences}.
+To those who ask ``Are real numbers real?\@'', we can establish a model (a mathematical structure) that satisfies every axiom above. Since 19th century, mathematicians have given several constructions of the real numbers. IMHO, the two most notable and commonlys used constructions are \textit{Dedekind cuts} and \textit{Cauchy sequences}. In the following sections, we will reproduce the two constructions.
 
 \section{* Construction of the real numbers by Dedekind cuts of $\mathbb{Q}$}
 
-We will give the definition of Dedekind cuts of $\mathbb{Q}$ from which we construct a model that satisfies the real numbers axioms.
-
-We are gonna use the following notations
-\begin{table}[htp]
-    \centering
-    \begin{tabular}{ll}
-        Notations        & Meanings                             \\
-        \bottomrule
-        \toprule
-        $\mathbb{Q}$     & Set of all rational numbers          \\
-        $\mathbb{Q}_{-}$ & Set of all negative rational numbers \\
-        $\mathbb{Q}_{+}$ & Set of all positive rational numbers
-    \end{tabular}
-\end{table}
-
-Upcoming proofs in this section will use various properties of rational numbers, including:
-\begin{itemize}
-    \item Total order.
-    \item The field structure.
-    \item Compatibility of addition and multiplication with the order relation.
-    \item There exists a rational number strictly between any two distinct rational numbers.
-          \[
-              \forall q_{1}\forall q{2}\left( q_{1}\in\mathbb{Q}\land q_{2}\in\mathbb{Q}\and q_{1} < q_{2} \rightarrow \exists q (q\in\mathbb{Q}\land q_{1} < q\land q < q_{2}) \right).
-          \]
-\end{itemize}
+We will give the definition of Dedekind cuts from which we construct a model that satisfies the real numbers axioms.
 
 \subsection{Definition of Dedekind cuts of $\mathbb{Q}$}
 
-To define Dedekind cuts of $\mathbb{Q}$, we will use rational numbers as the basis in the sense that \textit{the set of rational numbers satisfies all real numbers axioms, except for the least upper bound axiom}.
-
-\begin{definition}[Dedekind cuts of $\mathbb{Q}$]
-    A Dedekind cut $A$ of a partially ordered set $S$ is a subset of $S$ such that:
-    \begin{enumerate}[label = (DC\arabic*)]
+\begin{definition}[Dedekind cuts]
+    A Dedekind cut $A$ of $\mathbb{Q}$ is a subset of $\mathbb{Q}$ such that
+    \begin{enumerate}[label = (DC\arabic*),itemindent=0.3cm]
         \item $A\ne\varnothing$; in other words, $A$ is not empty.
         \item $A\neq\mathbb{Q}$; in other words, $A$ is not the entire set of rational numbers.
         \item $\forall x\left(x\in A \rightarrow \exists y \left( y\in A \wedge x < y \right)\right)$; in other words, $A$ has no greatest element.
@@ -58,24 +30,35 @@ To define Dedekind cuts of $\mathbb{Q}$, we will use rational numbers as the bas
     \end{enumerate}
 \end{definition}
 
+It follows from the definition that $\mathbb{Q}\setminus A$ contains every rational upper bound of $A$.
+
 We will use Dedekind cuts of $\mathbb{Q}$ to ``cut'' the rational number line.
 
-Let $A$ be a Dedekind cut of $\mathbb{Q}$. Due to (DC2) and (DC4), $\mathbb{Q}\setminus A$ contains every rational upper bound of $A$.
-
-Our goal is from the definition of Dedekind cuts of $\mathbb{Q}$ as well as operations (addition and multiplication) and relations (less than or equal) on them, we prove that Dedekind cuts of $\mathbb{Q}$ satisfy the real numbers axioms.
+Our goal is from the definition of Dedekind cuts as well as operations (addition and multiplication) and order relation (less than or equal) on them, we prove that Dedekind cuts satisfy the axioms of the real numbers.
 
 Sequentially, we will define the following based on Dedekind cuts of $\mathbb{Q}$:
-\begin{itemize}
+\begin{itemize}[itemsep=0pt]
+    \item Order,
     \item Rational and irrational cut,
     \item Addition,
     \item Subtraction and negation,
-    \item Multiplication,
-    \item Division,
+    \item Multiplication and division.
 \end{itemize}
 
-then we will show that the set of all Dedekind cuts of $\mathbb{Q}$ equipped with those operation will satisfy the real numbers axioms.
+then we will show that the set of all Dedekind cuts equipped with those operations will satisfy the axioms of the real numbers.
 
-Denote the set of all Dedekind cuts of $\mathbb{Q}$ by $\mathbb{R}$.
+Upcoming proofs in this section will use various properties of rational numbers, including:
+\begin{itemize}[itemsep=0pt]
+    \item Total order.
+    \item The field structure.
+    \item Compatibility of addition and multiplication with the order relation.
+    \item There exists a rational number strictly between any two distinct rational numbers.
+          \[
+              \forall q_{1}\forall q{2}\left( q_{1}\in\mathbb{Q}\land q_{2}\in\mathbb{Q}\land q_{1} < q_{2} \rightarrow \exists q (q\in\mathbb{Q}\land q_{1} < q\land q < q_{2}) \right).
+          \]
+\end{itemize}
+
+Denote the set of all Dedekind cuts by $\mathbb{R}$.
 
 \begin{theorem}[Totally ordered]
     $\mathbb{R}$ is totally ordered with $\subseteq$ relation.
@@ -86,9 +69,10 @@ Denote the set of all Dedekind cuts of $\mathbb{Q}$ by $\mathbb{R}$.
 
     The subset relation $\subseteq$ is reflexive, transitive, and anti-symmetric.
     \bigskip
+
     Suppose that $A\ne B$.
 
-    Without loss of generality, let's suppose that there exists $b\in B$ such that $b\notin A$.
+    Without loss of generality, suppose that there exists $b\in B$ such that $b\notin A$.
 
     $b\in B$, then $b$ is an upper bound of $A$.
 
@@ -97,7 +81,7 @@ Denote the set of all Dedekind cuts of $\mathbb{Q}$ by $\mathbb{R}$.
     Therefore, $A$ is a proper subset of $B$.
     \bigskip
 
-    So for arbitrary two Dedekind cuts of $\mathbb{Q}$ $A$, $B$, one of the following holds: $A\subseteq B, B\subseteq A$. Hence, the set of all Dedekind cuts of $\mathbb{Q}$ is totally ordered with $\subseteq$ relation.
+    So for every two Dedekind cuts $A$, $B$, one of the following holds: $A\subset B$, $A = B$, $A\supset B$. Hence, the set of all Dedekind cuts of $\mathbb{Q}$ is totally ordered with $\subseteq$ relation.
 \end{proof}
 
 We define the relation $\le$ on $\mathbb{R}$ as follow:
@@ -107,12 +91,15 @@ We define the relation $\le$ on $\mathbb{R}$ as follow:
 
 For convenience, in this section, we use the following notation:
 \[
-    {0}^{*} = \{ x : x\in\mathbb{Q} \wedge x < 0 \} = {\mathbb{Q}}_{-}.
+    \begin{split}
+        {0}^{*} & = \{ x : x\in\mathbb{Q} \land x < 0 \}, \\
+        {q}^{*} & = \{ x : x\in\mathbb{Q} \land x < q \}\qquad\text{($q\in\mathbb{Q}$)}.
+    \end{split}
 \]
 
 \begin{definition}
     A Dedekind cut $A$ of $\mathbb{Q}$ is called:
-    \begin{enumerate}[label={(\roman*)}]
+    \begin{enumerate}[label={(\roman*)},itemsep=0pt]
         \item positive if $A$ is a proper superset of ${0}^{*}$,
         \item negative if $A$ is a proper subset of ${0}^{*}$,
         \item non-positive if $A\le {0}^{*}$,
@@ -123,7 +110,7 @@ For convenience, in this section, we use the following notation:
 \begin{definition}[Rational and irrational]
     A Dedekind cut $A$ of $\mathbb{Q}$ is called:
     \begin{enumerate}[label={(\roman*)}]
-        \item rational if $\mathbb{Q}\setminus A$ has least element,
+        \item rational if $\mathbb{Q}\setminus A$ has a least element,
         \item irrational if $\mathbb{Q}\setminus A$ has no least element.
     \end{enumerate}
 \end{definition}
@@ -132,9 +119,10 @@ The following example gives us an example of rational cut, and an example of irr
 
 \begin{example}
     \[
-        A = \{ x\in\mathbb{Q}: x < 1 \}
+        A = \{ x : x\in\mathbb{Q}\land x < q \}
     \]
-    is a rational cut.
+
+    where $q$ is a rational number, is a rational cut.
     \[
         B = \{ x\in\mathbb{Q}: {x}^{2} < 2 \} \cup \mathbb{Q}^{-}
     \]
@@ -142,39 +130,108 @@ The following example gives us an example of rational cut, and an example of irr
 \end{example}
 
 \begin{proof}
-    $\mathbb{Q}\setminus A = \{ x\in\mathbb{Q}: x\ge 1 \}$ has least element, which is $1$. So $ A$ is a rational cut.
-    \bigskip
+    \begin{itemize}[topsep=0pt]
+        \item Rational cut.
+              \begin{enumerate}[label={(\roman*)},topsep=0pt]
+                  \item $A$ is not empty since there are rational numbers which are less than $q$.
+                  \item $A\ne\mathbb{Q}$ since $A$ is bounded above by $q$.
+                  \item Let $x\in A$.
 
-    $\mathbb{Q}\setminus B = \{ x\in\mathbb{Q}: {x}^{2}\ge 2 \wedge x > 0 \}$.
+                        If $x = \dfrac{a}{b} > 0$ and $q = \dfrac{c}{d} > 0$, where $a, b, c, d > 0$, then
+                        \[
+                            x = \frac{a}{b} < \frac{a + c}{b + d} < \frac{c}{d} = q
+                        \]
 
-    Since there is no rational number $r$ of which square equals $2$, then $\mathbb{Q}\setminus B = \{ x\in\mathbb{Q}: {x}^{2} > 2 \wedge x > 0 \}$ (change from $\ge$ to $>$).
+                        so there exists an element of $A$ which is greater than $x$.
 
-    Let $q\in\mathbb{Q}\setminus B$. Consider $r = \dfrac{q}{2} + \dfrac{1}{q}$.
-    \begin{align*}
-        r = \frac{q}{2} + \frac{1}{q} & = -\frac{q}{2} + \frac{1}{q} + q                       \\
-                                      & = \frac{2 - {q}^{2}}{2q} + q                           \\
-                                      & < q \quad\text{(Since $q > 0$ and $2 - {q}^{2} < 0$)}.
-    \end{align*}
-    \begin{align*}
-        {r}^{2} & = {\left(\frac{q}{2} + \frac{1}{q}\right)}^{2} = \frac{q^{2}}{4} + \frac{1}{q^{2}} + 1                                                         \\
-                & = \frac{q^{2}}{4} + \frac{1}{q^{2}} - 1 + 2 = {\left(\frac{q}{2} - \frac{1}{q}\right)}^{2} + 2 = {\left( \frac{q^{2} - 2}{2q} \right)}^{2} + 2 \\
-                & > 2
-    \end{align*}
-    Therefore, $\forall q(q\in\mathbb{Q}\setminus B \rightarrow \exists r( r\in\mathbb{Q}\setminus B \wedge r < q ))$. Hence $\mathbb{Q}\setminus B$ has no minimal element. According to the definition, $ B$ is an irrational cut.
+                        If $x < 0$ and $q > 0$, then $0$ is an element of $A$ which is greater than $x$.
+
+                        If $x = -\dfrac{a}{b} < 0$ and $q = -\dfrac{c}{d} < 0$ where $a, b, c, d > 0$, then
+                        \[
+                            x = -\frac{a}{b} < -\frac{a + c}{b + d} < -\frac{c}{d} = q
+                        \]
+
+                        so there exists an element of $A$ which is greater than $x$.
+
+                        Therefore, $A$ does not have a greatest element.
+                  \item Let $x\in A$.
+
+                        Let $y$ be a rational number such that $y < x$. Since $x < q$, then $y < q$. Therefore, $y\in A$.
+
+                        So $A$ is closed downward.
+              \end{enumerate}
+              $\mathbb{Q}\setminus A = \{ x\in\mathbb{Q}: x\ge 1 \}$ has least element, which is $1$. So $ A$ is a rational cut.
+        \item Irrational cut.
+              \begin{enumerate}[label={(\roman*)},topsep=0pt]
+                  \item $B$ contains $0$, so $B$ is not empty.
+                  \item $B$ does not contain $2$, so $B\ne\mathbb{Q}$.
+                  \item Let $x\in B$.
+
+                        If $x\le 0$, then there exists elements of $B$ which are greater than $x$. For example, $1$.
+
+                        Otherwise, $x > 0$. Let $y = \dfrac{4\cdot x}{{x}^{2} + 2}$.
+                        \begin{align*}
+                            y & = \frac{4\cdot x}{{x}^{2} + 2} - x + x                  \\
+                              & = \frac{4\cdot x - {x}^{3} - 2\cdot x}{{x}^{2} + 2} + x \\
+                              & = \frac{2\cdot x - {x}^{3}}{{x}^{2} + 2} + x            \\
+                              & = \frac{x\cdot (2 - {x}^{2})}{{x}^{2} + 2} + x > x
+                        \end{align*}
+
+                        On the other hand
+                        \begin{align*}
+                            {y}^{2} & = \frac{16\cdot {x}^{2}}{{({x}^{2} + 2)}^{2}} - 2 + 2                                  \\
+                                    & = \frac{16\cdot {x}^{2} - 2\cdot{x}^{4} - 8 - 8\cdot {x}^{2}}{{({x}^{2} + 2)}^{2}} + 2 \\
+                                    & = \frac{-2\cdot {({x}^{2} - 2)}^{2}}{{({x}^{2} + 2)}^{2}} + 2 < 2
+                        \end{align*}
+
+                        Therefore, $y\in A$ and $x < y$, which implies that $A$ does not have a greatest element.
+                  \item Let $x\in B$.
+
+                        Let $y$ be a rational number such that $y < x$.
+
+                        If $y\le 0$, then $y\in B$, since $B$ is a superset of $\mathbb{Q}$.
+
+                        Otherwise, $y > 0$, then
+                        \[
+                            {y}^{2} = {y}^{2} - {x}^{2} + {x}^{2} = (y - x)\cdot(y + x) + {x}^{2} < 0 + 2 = 2
+                        \]
+
+                        so $y\in B$. Therefore, $B$ is closed downward.
+              \end{enumerate}
+
+              Hence, $B$ is a Dedekind cut.
+
+              $\mathbb{Q}\setminus B = \{ x\in\mathbb{Q}: {x}^{2}\ge 2 \wedge x > 0 \}$.
+
+              Since there is no rational number $r$ of which square equals $2$, then $\mathbb{Q}\setminus B = \{ x\in\mathbb{Q}: {x}^{2} > 2 \wedge x > 0 \}$ (change from $\ge$ to $>$).
+
+              Let $q\in\mathbb{Q}\setminus B$. Consider $r = \dfrac{q}{2} + \dfrac{1}{q}$.
+              \begin{align*}
+                  r = \frac{q}{2} + \frac{1}{q} & = -\frac{q}{2} + \frac{1}{q} + q                       \\
+                                                & = \frac{2 - {q}^{2}}{2q} + q                           \\
+                                                & < q \quad\text{(Since $q > 0$ and $2 - {q}^{2} < 0$)}.
+              \end{align*}
+              \begin{align*}
+                  {r}^{2} & = {\left(\frac{q}{2} + \frac{1}{q}\right)}^{2} = \frac{q^{2}}{4} + \frac{1}{q^{2}} + 1                                                         \\
+                          & = \frac{q^{2}}{4} + \frac{1}{q^{2}} - 1 + 2 = {\left(\frac{q}{2} - \frac{1}{q}\right)}^{2} + 2 = {\left( \frac{q^{2} - 2}{2q} \right)}^{2} + 2 \\
+                          & > 2
+              \end{align*}
+              Therefore, $\forall q(q\in\mathbb{Q}\setminus B \rightarrow \exists r( r\in\mathbb{Q}\setminus B \wedge r < q ))$. Hence $\mathbb{Q}\setminus B$ does not have a least element. According to the definition, $B$ is an irrational cut.
+    \end{itemize}
 \end{proof}
 
 \subsection{Addition}
 
 \begin{theorem}[Addition]
-    $A, B$ are Dedekind cuts of $\mathbb{Q}$
+    $A, B$ are Dedekind cuts. Then
     \[
         A + B = \{ x + y : x\in A \wedge y\in B \}
     \]
-    is also a Dedekind cut of $\mathbb{Q}$.
+    is also a Dedekind cut.
 \end{theorem}
 
 \begin{proof}
-    \begin{enumerate}[label = (\roman*)]
+    \begin{enumerate}[label={(\roman*)},itemsep=0pt]
         \item Since $A\ne\varnothing$ and $B\ne\varnothing$, then there exists $a\in A$ and $b\in B$. By definition of $A + B$, we obtain that $a + b \in A + B$. This implies that $A + B$ is not empty.
         \item A Dedekind cut of $\mathbb{Q}$ is downward closed and not the entire set of rational numbers, then it is bounded above.
 
@@ -214,7 +271,7 @@ I have difficulty defining multiplication since there are positive numbers and n
     \[
         A - B = \{ a - b: a\in A\land b\in\mathbb{Q}\setminus B \}
     \]
-    is also a Dedekind cut of $\mathbb{Q}$.
+    is also a Dedekind cut.
 \end{theorem}
 
 \begin{proof}
@@ -236,12 +293,13 @@ I have difficulty defining multiplication since there are positive numbers and n
 
               Let $d$ be a rational number such that $d < c$.
               \[
-                  d = d - c + c = (d - c) + a - b = \underbrace{(d - c + a)}_{< a} - \underbrace{b}_{\in B}
+                  d = d - c + c = (d - c) + a - b = \underbrace{(d - c + a)}_{< a} - \underbrace{b}_{\in\mathbb{Q}\setminus B}
               \]
               $(d - c + a) < a$, therefore $(d - c + a)\in A$, according to (DC4). Hence $d\in A - B$.
 
               So $A - B$ is downward closed.
     \end{enumerate}
+    Thus, $A - B$ is a Dedekind cut.
 \end{proof}
 
 The following theorem is a special case of subtraction.
@@ -276,6 +334,7 @@ The following theorem is a special case of subtraction.
     \[
         c = a - b = \underbrace{a_{0}}_{\in A} + \underbrace{(a - a_{0})}_{< 0} - \underbrace{b}_{\in\mathbb{Q}\setminus B}
     \]
+
     so $c\in A + (-B)$. Hence $A - B\subseteq A + (-B)$.
     \bigskip
 
@@ -287,10 +346,11 @@ The following theorem is a special case of subtraction.
     \[
         c = a + (w - b) = \underbrace{(a + w)}_{\in A} - \underbrace{b}_{\in\mathbb{Q}\setminus B}
     \]
+
     so $c\in A - B$. Hence $A + (-B)\subseteq A - B$.
     \bigskip
 
-    In conclusion, $A - B = A + (-B)$.
+    Thus, $A - B = A + (-B)$.
 \end{proof}
 
 I need the following property to verify the group structure of $\mathbb{R}$.
@@ -307,7 +367,7 @@ I need the following property to verify the group structure of $\mathbb{R}$.
 
     Then there exists a positive integer $q$ and an integer $p$ such that $\dfrac{b}{a} = \dfrac{p}{q}$.
 
-    Apply Euclid division algorithm, there exists $0\le r < q$ and $k\in\mathbb{Z}$ such that $p = k\cdot q + r$.
+    Apply Euclid division algorithm, there exists two integers $k, r$ such that $0\le r < q$ and $p = k\cdot q + r$.
     \begin{align*}
                          & \frac{p}{q} = \frac{k\cdot q + r}{q} = k + \frac{r}{q} \\
         \Rightarrow\quad & k \le \frac{p}{q} < k + 1.\qedhere
@@ -316,7 +376,7 @@ I need the following property to verify the group structure of $\mathbb{R}$.
 
 \begin{theorem}\label{theorem:chapter1:real-field-part-one}
     $\mathbb{R}$ with addition is a commutative group.
-    \begin{enumerate}[label={(F\arabic*)}]
+    \begin{enumerate}[label={(F\arabic*)},itemsep=0pt]
         \item Addition is associative.
         \item Addition has identity element.
         \item Each element has an additive inverse.
@@ -325,7 +385,7 @@ I need the following property to verify the group structure of $\mathbb{R}$.
 \end{theorem}
 
 \begin{proof}
-    Let $A, B, C$ be arbitrary Dedekind cuts of $\mathbb{Q}$.
+    Let $A, B, C$ be arbitrary Dedekind cuts.
     \begin{enumerate}[label = (F\arabic*)]
         \item Addition is associative.
               \begin{align*}
@@ -341,7 +401,7 @@ I need the following property to verify the group structure of $\mathbb{R}$.
               \end{align*}
               \textbf{Step 1. Prove that $A \subseteq A + {0}^{*}$}.
 
-              Let $x\in A$. According to (DC4), there exists $y\in A$ such that $y > x$.
+              Let $x\in A$. According to (DC3), there exists $y\in A$ such that $x < y$.
               \[
                   x = \underbrace{y}_{\in A} + \underbrace{(x - y)}_{< 0, \in {0}^{*}}
               \]
@@ -369,7 +429,7 @@ I need the following property to verify the group structure of $\mathbb{R}$.
 
               Since $a'\notin A$ then $a' > a$, so $a - a' < 0$. Therefore
               \[
-                  a + (w - a') = w + (a - a') < w < 0
+                  a + (w - a') = w + (a - a') < w
               \]
               According to (DC4), $a + (w - a')\in {0}^{*}$. So $A + (-A) \subseteq {0}^{*}$.
               \bigskip
@@ -378,7 +438,7 @@ I need the following property to verify the group structure of $\mathbb{R}$.
 
               Let $w\in {0}^{*}$.
 
-              We will prove that the set $S = \{ n : n\in\mathbb{Z} \land n\cdot w\in A \}$ has least element. In equivalent, $S$ is the set of integers such that $n\cdot w\in A$.
+              We will prove that the set $S = \{ n : n\in\mathbb{Z} \land n\cdot w\in A \}$ has a least element. In equivalent, $S$ is the set of integers such that $n\cdot w\in A$.
               Let $x\in A, y\in\mathbb{Q}\setminus A$. $w < 0$, then according to the Archimedean property, there exists an integer $m$ such that
               \begin{align*}
                   m - 1    & \le \frac{x}{-w} < m \\
@@ -386,7 +446,7 @@ I need the following property to verify the group structure of $\mathbb{R}$.
               \end{align*}
               According to (DC4), $(1 - m)w\in A$. Then $S$ is not empty.
 
-              Since the set $\{ n\cdot w : n\in\mathbb{Z}\land n\cdot w\in A \}$ is bounded above, and $w < 0$, then $S$ is bounded below. On the other hand, $S$ is a set of consecutive integers and $S$ is bounded below, then $S$ has least element.
+              Since the set $\{ n\cdot w : n\in\mathbb{Z}\land n\cdot w\in A \}$ is bounded above, and $w < 0$, then $S$ is bounded below. On the other hand, $S$ is a set of consecutive integers and $S$ is bounded below, then $S$ has a least element (this is another form of the well-ordering principle).
 
               Let $n$ be the least integer such that $n\cdot w\in A$. Then $(n - 1)\cdot w\notin A$. Hence $(n - 1)\cdot w\in\mathbb{Q}\setminus A$.
               \[
@@ -399,9 +459,9 @@ I need the following property to verify the group structure of $\mathbb{R}$.
               Hence $A + (-A) = (-A) + A = {0}^{*}$.
         \item Addition is commutative.
               \begin{align*}
-                  A + B & = \{ a + b : a\in A\land b\in B \}                                                        \\
-                        & = \{ b + a : b\in B\land a\in A \}\qquad\text{(In $\mathbb{Q}$, addition is commutative)} \\
-                        & = B + A.
+                  A + B & = \{ a + b : a\in A\land b\in B \}                                                      \\
+                        & = \{ b + a : b\in B\land a\in A \}\qquad\text{(Addition n $\mathbb{Q}$ is commutative)} \\
+                        & = B + A.\qedhere
               \end{align*}
     \end{enumerate}
 \end{proof}
@@ -414,7 +474,7 @@ I need the following property to verify the group structure of $\mathbb{R}$.
 \end{theorem}
 
 \begin{proof}
-    Firstly, we prove that there exist a unique Dedekind cut $A'$ of $\mathbb{Q}$ such that $A + A' = A' + A = {0}^{*}$.
+    Firstly, we prove that there exist a unique Dedekind cut $A'$ such that $A + A' = A' + A = {0}^{*}$.
 
     According to Theorem~\ref{theorem:chapter1:real-field-part-one}, $A + (-A) = (-A) + A = {0}^{*}$.
 
@@ -424,11 +484,13 @@ I need the following property to verify the group structure of $\mathbb{R}$.
            & = (A' + A) + (-A) = {0}^{*} + (-A) \\
            & = -A.
     \end{align*}
+
     Hence there exists unique Dedekind cut $A'$ of $\mathbb{Q}$ such that $A + A' = A' + A = {0}^{*}$.
     \begin{align*}
          & A + (-A) = (-A) + A = {0}^{*}             \\
          & (-(-A)) + (-A) = (-A) + (-(-A)) = {0}^{*}
     \end{align*}
+
     Thus, $A = -(-A)$.
 \end{proof}
 
@@ -450,7 +512,7 @@ I need the following property to verify the group structure of $\mathbb{R}$.
 
     So $A + C\subset B + C$.
 
-    Thus $A + C\subseteq B + C$.
+    Thus $A + C\subseteq B + C$, equality holds if and only if $A = B$.
 \end{proof}
 
 \begin{theorem}\label{theorem:chapter1:negation-and-sign}
@@ -467,7 +529,9 @@ I need the following property to verify the group structure of $\mathbb{R}$.
     \[
         A + (-A) \subset {0}^{*} + {0}^{*} = {0}^{*}
     \]
+
     which conflicts with $A + (-A) = {0}^{*}$. So $-A\supset {0}^{*}$.
+    \bigskip
 
     $(\Leftarrow)$ $-A\supset {0}^{*}\Longrightarrow A\subset {0}^{*}$.
 
@@ -475,6 +539,7 @@ I need the following property to verify the group structure of $\mathbb{R}$.
     \[
         A + (-A) \supset {0}^{*} + {0}^{*} = {0}^{*}
     \]
+
     which conflicts with $A + (-A) = {0}^{*}$. So $A\subset {0}^{*}$.
 \end{proof}
 
@@ -487,22 +552,24 @@ I need the following property to verify the group structure of $\mathbb{R}$.
     \[
         A\cdot B = \{ a\cdot b : a\in A\wedge a\ge 0 \wedge b\in B\wedge b\ge 0 \} \cup \mathbb{Q}^{-}.
     \]
+
     If $A\subseteq{0}^{*}$ and $B\subseteq{0}^{*}$
     \[
         A\cdot B = (-A)\cdot (-B).
     \]
+
     If $A\subseteq{0}^{*}$ and $B\supseteq{0}^{*}$
     \[
         A\cdot B = -\left((-A)\cdot B\right).
     \]
+
     If $A\supseteq{0}^{*}$ and $B\subseteq{0}^{*}$
     \[
         A\cdot B = -\left(A\cdot (-B)\right).
     \]
+
     $A\cdot B$ is also a Dedekind cut.
 \end{theorem}
-
-Thanks to the definition of negation, we only have to cover that first case: $A\supseteq{0}^{*}$ and $B\supseteq{0}^{*}$.
 
 \begin{proof}
     There are four cases.
@@ -569,11 +636,11 @@ Thanks to the definition of negation, we only have to cover that first case: $A\
               Then $-B\supseteq {0}^{*}$. According to 1st case, $A\cdot (-B)$ is a Dedekind cut. So $-(A\cdot (-B))$ is a Dedekind cut.
     \end{enumerate}
 
-    In conclusion, $A\cdot B$ is a Dedekind cut.
+    Thus, $A\cdot B$ is a Dedekind cut.
 \end{proof}
 
 \begin{theorem}\label{theorem:chapter1:multiplication-and-negation}
-    Let $A, B$ be Dedekind cuts of $\mathbb{Q}$. Then
+    Let $A, B$ be Dedekind cuts. Then
     \[
         \begin{cases}
             (-A)\cdot B = A\cdot (-B) = -(A\cdot B), \\
@@ -583,41 +650,37 @@ Thanks to the definition of negation, we only have to cover that first case: $A\
 \end{theorem}
 
 \begin{proof}
-    If $A = {0}^{*}$ or $B = {0}^{*}$, then $-A = {0}^{*}, -B = {0}^{*}$. So that
-    \[
-        A\cdot B = A\cdot (-B) = -A\cdot B = (-A)\cdot B = (-A)\cdot (-B) = {0}^{*}.
-    \]
-    Otherwise, let's consider the following cases. I am going to use the definition of multiplication (there are four cases) and Theorem~\ref{theorem:chapter1:negation-is-an-involution} \textit{implicitly}.
-
     \noindent\textbf{Step 1. Prove that $A\cdot (-B) = (-A)\cdot B = -A\cdot B$.}
 
-    \noindent\textbf{Case 1. $A\supset {0}^{*}, B\supset {0}^{*}$.}
-    \begin{align*}
-        A\cdot (-B) & = -A\cdot (-(-B)) = -A\cdot B, \\
-        (-A)\cdot B & = -(-(-A))\cdot B = -A\cdot B, \\
-    \end{align*}
-    \textbf{Case 2. $A\supset {0}^{*}, B\subset {0}^{*}$.}
-    \begin{align*}
-        A\cdot (-B) & = (-A)\cdot (-(-B)) = (-A)\cdot B, \\
-        A\cdot (-B) & = -A\cdot (-(-B)) = -A\cdot B,     \\
-    \end{align*}
-    \textbf{Case 3. $A\subset {0}^{*}, B\supset {0}^{*}$.}
-    \begin{align*}
-        A\cdot (-B) & = (-A)\cdot (-(-B)) = (-A)\cdot B, \\
-        (-A)\cdot B & = -(-(-A))\cdot B = -A\cdot B.     \\
-    \end{align*}
-    \textbf{Case 4. $A\subset {0}^{*}, B\subset {0}^{*}$.}
-    \begin{align*}
-        A\cdot (-B) & = -(-A)\cdot (-B) = -A\cdot B, \\
-        (-A)\cdot B & = -(-A)\cdot (-B) = -A\cdot B.
-    \end{align*}
+    \begin{enumerate}[label={\textbf{Case \arabic*.}},itemsep=0pt,itemindent=0.5cm]
+        \item $A\supseteq {0}^{*}, B\supseteq {0}^{*}$.
+              \begin{align*}
+                  A\cdot (-B) & = -A\cdot (-(-B)) = -A\cdot B, \\
+                  (-A)\cdot B & = -(-(-A))\cdot B = -A\cdot B.
+              \end{align*}
+        \item $A\supseteq {0}^{*}, B\subseteq {0}^{*}$.
+              \begin{align*}
+                  A\cdot (-B) & = (-A)\cdot (-(-B)) = (-A)\cdot B, \\
+                  A\cdot (-B) & = -A\cdot (-(-B)) = -A\cdot B.
+              \end{align*}
+        \item $A\subseteq {0}^{*}, B\supseteq {0}^{*}$.
+              \begin{align*}
+                  A\cdot (-B) & = (-A)\cdot (-(-B)) = (-A)\cdot B, \\
+                  (-A)\cdot B & = -(-(-A))\cdot B = -A\cdot B.
+              \end{align*}
+        \item $A\subseteq {0}^{*}, B\subseteq {0}^{*}$.
+              \begin{align*}
+                  A\cdot (-B) & = -(-A)\cdot (-B) = -A\cdot B, \\
+                  (-A)\cdot B & = -(-A)\cdot (-B) = -A\cdot B.
+              \end{align*}
+    \end{enumerate}
 
     \noindent\textbf{Step 2. Prove that $(-A)\cdot (-B) = A\cdot B$}
 
     \noindent Apply the result in Step 1, $(-A)\cdot (-B) = -A\cdot (-B) = -(-(A\cdot B)) = A\cdot B$.
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}\label{theorem:chapter1:multiplication-and-order}
     Multiplication in $\mathbb{R}$ is compatible with $\subseteq$.
     \[
         \forall A, B\in\mathbb{R}(A\supseteq {0}^{*}\land B\supseteq {0}^{*}\rightarrow A\cdot B\supseteq {0}^{*}).
@@ -627,7 +690,8 @@ Thanks to the definition of negation, we only have to cover that first case: $A\
 \begin{proof}
     \textbf{Case 1. $A = {0}^{*}$ or $B = {0}^{*}$.}
 
-    According to the proof of Theorem~\ref{theorem:chapter1:multiplication}, $A\cdot B = {0}^{*}$.
+    According to the proof of Theorem~\ref{theorem:chapter1:multiplication} and Theorem~\ref{theorem:chapter1:multiplication-and-negation}, $A\cdot B = {0}^{*}$.
+    \bigskip
 
     \textbf{Case 2. $A\supset {0}^{*}$ and $B\supset {0}^{*}$.}
 
@@ -638,7 +702,7 @@ Thanks to the definition of negation, we only have to cover that first case: $A\
     Thus $A\cdot B\supseteq {0}^{*}$. Equality holds if and only if $A = {0}^{*}$ or $B\cdot {0}^{*}$.
 \end{proof}
 
-The following result follows Theorem~\ref{theorem:chapter1:multiplication} and Theorem~\ref{theorem:chapter1:negation-and-sign}.
+The following result follows Theorem~\ref{theorem:chapter1:negation-and-sign} Theorem~\ref{theorem:chapter1:multiplication}, and Theorem~\ref{theorem:chapter1:multiplication-and-order}.
 
 \begin{corollary}
     Let $A, B$ be Dedekind cuts of $\mathbb{Q}$.
@@ -665,66 +729,67 @@ Let ${1}^{*}$ be the following (rational) Dedekind cut
     Let $A, B, C$ be arbitrary Dedekind cuts of $\mathbb{Q}$.
     \begin{enumerate}[label={(F\arabic*)}, start=5]
         \item Multiplication is associative.
-
-              \textbf{Case 1.} $A\supseteq {0}^{*}, B\supseteq {0}^{*}, C\supseteq {0}^{*}$, then
-              \begin{align*}
-                  (A\cdot B)\cdot C & = \{ (a\cdot b)\cdot c : a\in A\land b\in B\land c\in C\land a\ge 0\land b\ge 0\land c\ge 0 \} \\
-                                    & = \{ a\cdot (b\cdot c) : a\in A\land b\in B\land c\in C\land a\ge 0\land b\ge 0\land c\ge 0 \} \\
-                                    & = A\cdot (B\cdot C).
-              \end{align*}
-              \textbf{Case 2.} $A\supseteq {0}^{*}, B\supseteq {0}^{*}, C\subseteq {0}^{*}$, then $-C\supseteq {0}^{*}$ and
-              \begin{align*}
-                  (A\cdot B)\cdot C & = -\left( (A\cdot B)\cdot (-C) \right)  \\
-                                    & = -\left( A\cdot (B \cdot (-C)) \right) \\
-                                    & = A\cdot (-(B\cdot (-C)))               \\
-                                    & = A\cdot (B\cdot C).
-              \end{align*}
-              \textbf{Case 3.} $A\supseteq {0}^{*}, B\subseteq {0}^{*}, C\supseteq {0}^{*}$, then $-B\supseteq {0}^{*}$ and
-              \begin{align*}
-                  (A\cdot B)\cdot C & = (-(A\cdot (-B)))\cdot C \\
-                                    & = -((A\cdot (-B))\cdot C) \\
-                                    & = -(A\cdot ((-B)\cdot C)) \\
-                                    & = A\cdot (-((-B)\cdot C)) \\
-                                    & = A\cdot (B\cdot C).
-              \end{align*}
-              \textbf{Case 4.} $A\supseteq {0}^{*}, B\subseteq {0}^{*}, C\subseteq {0}^{*}$, then $-B\supseteq {0}^{*}$, $-C\supseteq {0}^{*}$, and
-              \begin{align*}
-                  (A\cdot B)\cdot C & = (-(A\cdot (-B)))\cdot C       \\
-                                    & = (-(-(A\cdot (-B))))\cdot (-C) \\
-                                    & = (A\cdot (-B))\cdot (-C)       \\
-                                    & = A\cdot ((-B)\cdot (-C))       \\
-                                    & = A\cdot (B\cdot C).
-              \end{align*}
-              \textbf{Case 5.} $A\subseteq {0}^{*}, B\supseteq {0}^{*}, C\supseteq {0}^{*}$, then $-A\supseteq {0}^{*}$, and
-              \begin{align*}
-                  (A\cdot B)\cdot C & = (-((-A)\cdot B))\cdot C \\
-                                    & = -(((-A)\cdot B)\cdot C) \\
-                                    & = -((-A)\cdot (B\cdot C)) \\
-                                    & = A\cdot (B\cdot C).
-              \end{align*}
-              \textbf{Case 6.} $A\subseteq {0}^{*}, B\supseteq {0}^{*}, C\subseteq {0}^{*}$, then $-A\supset {0}^{*}$, $-C\supseteq {0}^{*}$, and
-              \begin{align*}
-                  (A\cdot B)\cdot C & = (-(A\cdot B))\cdot (-C) \\
-                                    & = ((-A)\cdot B)\cdot (-C) \\
-                                    & = (-A)\cdot (B\cdot (-C)) \\
-                                    & = (-A)\cdot (-(B\cdot C)) \\
-                                    & = A\cdot (B\cdot C).
-              \end{align*}
-              \textbf{Case 7.} $A\subseteq {0}^{*}, B\subseteq {0}^{*}, C\supseteq {0}^{*}$, then $-A\supseteq {0}^{*}, -B\supset {0}^{*}$, and
-              \begin{align*}
-                  (A\cdot B)\cdot C & = ((-A)\cdot (-B))\cdot C \\
-                                    & = (-A)\cdot ((-B)\cdot C) \\
-                                    & = (-A)\cdot (-(B\cdot C)) \\
-                                    & = A\cdot (B\cdot C).
-              \end{align*}
-              \textbf{Case 8.} $A\subseteq {0}^{*}, B\subseteq {0}^{*}, C\subseteq {0}^{*}$, then $-A\supseteq {0}^{*}$, $-B\supseteq {0}^{*}$, $-C\supseteq {0}^{*}$, and
-              \begin{align*}
-                  (A\cdot B)\cdot C & = -((A\cdot B)\cdot (-C))       \\
-                                    & = -(((-A)\cdot (-B))\cdot (-C)) \\
-                                    & = -((-A)\cdot ((-B)\cdot (-C))) \\
-                                    & = -((-A)\cdot (B\cdot C))       \\
-                                    & = A\cdot (B\cdot C).
-              \end{align*}
+              \begin{enumerate}[label={\textbf{Case \arabic*.}},topsep=0pt,itemsep=0pt]
+                  \item $A\supseteq {0}^{*}, B\supseteq {0}^{*}, C\supseteq {0}^{*}$, then
+                        \begin{align*}
+                            (A\cdot B)\cdot C & = \{ (a\cdot b)\cdot c : a\in A\land b\in B\land c\in C\land a\ge 0\land b\ge 0\land c\ge 0 \} \\
+                                              & = \{ a\cdot (b\cdot c) : a\in A\land b\in B\land c\in C\land a\ge 0\land b\ge 0\land c\ge 0 \} \\
+                                              & = A\cdot (B\cdot C).
+                        \end{align*}
+                  \item $A\supseteq {0}^{*}, B\supseteq {0}^{*}, C\subseteq {0}^{*}$, then $-C\supseteq {0}^{*}$ and
+                        \begin{align*}
+                            (A\cdot B)\cdot C & = -\left( (A\cdot B)\cdot (-C) \right)  \\
+                                              & = -\left( A\cdot (B \cdot (-C)) \right) \\
+                                              & = A\cdot (-(B\cdot (-C)))               \\
+                                              & = A\cdot (B\cdot C).
+                        \end{align*}
+                  \item $A\supseteq {0}^{*}, B\subseteq {0}^{*}, C\supseteq {0}^{*}$, then $-B\supseteq {0}^{*}$ and
+                        \begin{align*}
+                            (A\cdot B)\cdot C & = (-(A\cdot (-B)))\cdot C \\
+                                              & = -((A\cdot (-B))\cdot C) \\
+                                              & = -(A\cdot ((-B)\cdot C)) \\
+                                              & = A\cdot (-((-B)\cdot C)) \\
+                                              & = A\cdot (B\cdot C).
+                        \end{align*}
+                  \item $A\supseteq {0}^{*}, B\subseteq {0}^{*}, C\subseteq {0}^{*}$, then $-B\supseteq {0}^{*}$, $-C\supseteq {0}^{*}$, and
+                        \begin{align*}
+                            (A\cdot B)\cdot C & = (-(A\cdot (-B)))\cdot C       \\
+                                              & = (-(-(A\cdot (-B))))\cdot (-C) \\
+                                              & = (A\cdot (-B))\cdot (-C)       \\
+                                              & = A\cdot ((-B)\cdot (-C))       \\
+                                              & = A\cdot (B\cdot C).
+                        \end{align*}
+                  \item $A\subseteq {0}^{*}, B\supseteq {0}^{*}, C\supseteq {0}^{*}$, then $-A\supseteq {0}^{*}$, and
+                        \begin{align*}
+                            (A\cdot B)\cdot C & = (-((-A)\cdot B))\cdot C \\
+                                              & = -(((-A)\cdot B)\cdot C) \\
+                                              & = -((-A)\cdot (B\cdot C)) \\
+                                              & = A\cdot (B\cdot C).
+                        \end{align*}
+                  \item $A\subseteq {0}^{*}, B\supseteq {0}^{*}, C\subseteq {0}^{*}$, then $-A\supset {0}^{*}$, $-C\supseteq {0}^{*}$, and
+                        \begin{align*}
+                            (A\cdot B)\cdot C & = (-(A\cdot B))\cdot (-C) \\
+                                              & = ((-A)\cdot B)\cdot (-C) \\
+                                              & = (-A)\cdot (B\cdot (-C)) \\
+                                              & = (-A)\cdot (-(B\cdot C)) \\
+                                              & = A\cdot (B\cdot C).
+                        \end{align*}
+                  \item $A\subseteq {0}^{*}, B\subseteq {0}^{*}, C\supseteq {0}^{*}$, then $-A\supseteq {0}^{*}, -B\supset {0}^{*}$, and
+                        \begin{align*}
+                            (A\cdot B)\cdot C & = ((-A)\cdot (-B))\cdot C \\
+                                              & = (-A)\cdot ((-B)\cdot C) \\
+                                              & = (-A)\cdot (-(B\cdot C)) \\
+                                              & = A\cdot (B\cdot C).
+                        \end{align*}
+                  \item $A\subseteq {0}^{*}, B\subseteq {0}^{*}, C\subseteq {0}^{*}$, then $-A\supseteq {0}^{*}$, $-B\supseteq {0}^{*}$, $-C\supseteq {0}^{*}$, and
+                        \begin{align*}
+                            (A\cdot B)\cdot C & = -((A\cdot B)\cdot (-C))       \\
+                                              & = -(((-A)\cdot (-B))\cdot (-C)) \\
+                                              & = -((-A)\cdot ((-B)\cdot (-C))) \\
+                                              & = -((-A)\cdot (B\cdot C))       \\
+                                              & = A\cdot (B\cdot C).
+                        \end{align*}
+              \end{enumerate}
         \item Multiplication is distributive over addition.
 
               We will prove that
@@ -735,34 +800,36 @@ Let ${1}^{*}$ be the following (rational) Dedekind cut
                   \end{cases}
               \]
 
-              \textbf{Case 1.} $A = {0}^{*}$.
-              \[
-                  \begin{split}
-                      (A + B)\cdot C = B\cdot C = {0}^{*} + B\cdot C = A\cdot C + B\cdot C, \\
-                      C\cdot (A + B) = C\cdot B = {0}^{*} + C\cdot B = C\cdot A + C\cdot B.
-                  \end{split}
-              \]
-              \textbf{Case 2.} $B = {0}^{*}$.
-              \[
-                  \begin{split}
-                      (A + B)\cdot C = A\cdot C = A\cdot C + {0}^{*} = A\cdot C + B\cdot C, \\
-                      C\cdot (A + B) = C\cdot A = C\cdot A + {0}^{*} = C\cdot A + C\cdot B.
-                  \end{split}
-              \]
-              \textbf{Case 3.} $C = {0}^{*}$.
-              \[
-                  \begin{split}
-                      (A + B)\cdot C = {0}^{*} = {0}^{*} + {0}^{*} = A\cdot C + B\cdot C, \\
-                      C\cdot (A + B) = {0}^{*} = {0}^{*} + {0}^{*} = C\cdot A + C\cdot B.
-                  \end{split}
-              \]
-              \textbf{Case 4.} $C\supset {0}^{*}, A\supset {0}^{*}, B\supset {0}^{*}$.
-              \begin{align*}
-                  (A + B)\cdot C      & = \{ (a + b)\cdot c : a\in A\land b\in B\land c\in C\land a+b\ge 0\land c\ge 0 \} \cup\mathbb{Q}_{-}                                                              \\
-                                      & = \{ a\cdot c + b\cdot c : a\in A\land b\in B\land c\in C\land a+b\ge 0\land c\ge 0 \} \cup\mathbb{Q}_{-}                                                         \\
-                  \\
-                  A\cdot C + B\cdot C & = \{ a\cdot c : a\in A\land c\in C\land a\ge 0\land c\ge 0 \} \cup\mathbb{Q}_{-} + \{ b\cdot c : b\in B\land c\in C\land b\ge 0\land c\ge 0 \} \cup\mathbb{Q}_{-}
-              \end{align*}
+              \begin{enumerate}[label={\textbf{Case \arabic*.}}]
+                  \item $A = {0}^{*}$.
+                        \[
+                            \begin{split}
+                                (A + B)\cdot C = B\cdot C = {0}^{*} + B\cdot C = A\cdot C + B\cdot C, \\
+                                C\cdot (A + B) = C\cdot B = {0}^{*} + C\cdot B = C\cdot A + C\cdot B.
+                            \end{split}
+                        \]
+                  \item $B = {0}^{*}$.
+                        \[
+                            \begin{split}
+                                (A + B)\cdot C = A\cdot C = A\cdot C + {0}^{*} = A\cdot C + B\cdot C, \\
+                                C\cdot (A + B) = C\cdot A = C\cdot A + {0}^{*} = C\cdot A + C\cdot B.
+                            \end{split}
+                        \]
+                  \item $C = {0}^{*}$.
+                        \[
+                            \begin{split}
+                                (A + B)\cdot C = {0}^{*} = {0}^{*} + {0}^{*} = A\cdot C + B\cdot C, \\
+                                C\cdot (A + B) = {0}^{*} = {0}^{*} + {0}^{*} = C\cdot A + C\cdot B.
+                            \end{split}
+                        \]
+                  \item $C\supset {0}^{*}, A\supset {0}^{*}, B\supset {0}^{*}$.
+                        \begin{align*}
+                            (A + B)\cdot C      & = \{ (a + b)\cdot c : a\in A\land b\in B\land c\in C\land a+b\ge 0\land c\ge 0 \} \cup\mathbb{Q}_{-}                                                              \\
+                                                & = \{ a\cdot c + b\cdot c : a\in A\land b\in B\land c\in C\land a+b\ge 0\land c\ge 0 \} \cup\mathbb{Q}_{-}                                                         \\
+                            \\
+                            A\cdot C + B\cdot C & = \{ a\cdot c : a\in A\land c\in C\land a\ge 0\land c\ge 0 \} \cup\mathbb{Q}_{-} + \{ b\cdot c : b\in B\land c\in C\land b\ge 0\land c\ge 0 \} \cup\mathbb{Q}_{-}
+                        \end{align*}
+              \end{enumerate}
 
               \textbf{Part 1. Prove that $(A + B)\cdot C = A\cdot C + B\cdot C$.}
 
@@ -776,9 +843,9 @@ Let ${1}^{*}$ be the following (rational) Dedekind cut
 
               Otherwise $x > 0$, then there exists $a\in A, b\in B, c\in C$ such that $a + b > 0, c > 0$ and $(a + b)\cdot c = x$.
 
-              $a\in A, c\in C$ and $c > 0$, then $a\cdot c\in A\cdot C$, no matter whether $a$ is greater than or not exceeding zero.
+              $a\in A, c\in C$ and $c > 0$, then $a\cdot c\in A\cdot C$, no matter whether $a$ is greater than zero or not.
 
-              $b\in B, c\in C$ and $c > 0$, then $b\cdot c\in B\cdot C$, no matter whether $b$ is greater than or not exceeding zero.
+              $b\in B, c\in C$ and $c > 0$, then $b\cdot c\in B\cdot C$, no matter whether $b$ is greater than zero or not.
 
               So $x\in A\cdot C + B\cdot C$. Hence $(A + B)\cdot C\subseteq A\cdot C + B\cdot C$.
 
@@ -788,7 +855,7 @@ Let ${1}^{*}$ be the following (rational) Dedekind cut
 
               If $x\le 0$, then $x$ is also in $(A + B)\cdot C$ since $(A + B)\cdot C \supset \{0\}\cup\mathbb{Q}_{-}$.
 
-              Otherwise, $x > 0$, then there exists $y\in A\cdot C$ and $z\in B\cdot C$ such that $y > 0$, $z > 0$ and $y + z = x$. We prove this result in the following.
+              Otherwise, $x > 0$. I will show that here exists $y\in A\cdot C$ and $z\in B\cdot C$ such that $y > 0$, $z > 0$ and $y + z = x$.
 
               If $A\cdot C = B\cdot C$, then we choose $y = \dfrac{x}{2}, z = \dfrac{x}{2}$.
 
@@ -799,7 +866,7 @@ Let ${1}^{*}$ be the following (rational) Dedekind cut
                   \item $x\notin A\cdot C\land x\in B\cdot C$.
                         Choose an element $y\in A\cdot C$ such that $y > 0$.
 
-                        According to (DC4), $x - y\in B\cdot C$ ($x - y < x$). Since $x\notin A\cdot C$ and $y\in A\cdot C$, then $x - y > 0$.
+                        $x - y < x$. According to (DC4), $x - y\in B\cdot C$. Since $x\notin A\cdot C$ and $y\in A\cdot C$, then $x - y > 0$.
 
                         We choose $z = x - y$.
                   \item $x\notin B\cdot C$. Then $x$ is greater than any elements of $A\cdot C$ and $B\cdot C$. According to the definition of addition, there exists $y\in A\cdot C$ and $z\in B\cdot C$ such that $y + z = x$.
@@ -807,9 +874,13 @@ Let ${1}^{*}$ be the following (rational) Dedekind cut
                         Since $x > y$ and $x > z$, then $y > 0$ and $z > 0$.
               \end{itemize}
 
-              $y\in A\cdot C$ and $y > 0$, there exists $a\in A$, $c_{1}\in C$ such that $a > 0, c_{1} > 0$ and $a\cdot c_{1} = y$.
+              Now, for every positive rational number $x\in A\cdot C + B\cdot C$, there exists positive rational numbers $y\in A\cdot C$ and $z\in B\cdot C$ such that $y + z = x$.
 
-              $z\in B\cdot C$ and $z > 0$, there exists $b\in B$, $c_{2}\in C$ such that $b > 0, c_{2} > 0$ and $b\cdot c_{2} = z$.
+              According to the definition of multiplication
+              \begin{itemize}
+                  \item $y\in A\cdot C$ and $y > 0$, then there exists $a\in A$, $c_{1}\in C$ such that $a > 0, c_{1} > 0$ and $a\cdot c_{1} = y$.
+                  \item $z\in B\cdot C$ and $z > 0$, then there exists $b\in B$, $c_{2}\in C$ such that $b > 0, c_{2} > 0$ and $b\cdot c_{2} = z$.
+              \end{itemize}
 
               (This choice of $c$ is from Hayden\footnote{\url{https://math.stackexchange.com/questions/1205640/proof-that-real-multiplication-distributes-over-addition-using-dedekind-cuts}} on MathOverflow) Let $c = \dfrac{a\cdot c_{1} + b\cdot c_{2}}{a + b}$. $c$ is between $c_{1}$ and $c_{2}$ so $c\in C$ (according to (DC4)).
               \begin{align*}
@@ -852,6 +923,7 @@ Let ${1}^{*}$ be the following (rational) Dedekind cut
                                           & = A + (-A)                \\
                                           & = {0}^{*}.
               \end{align*}
+
               On the other hand, the addition over Dedekind cuts of $\mathbb{Q}$ is commutative, it follows that $(-B) + (-A) = (-A) + (-B)$. So $-(A + B) = (-A) + (-B)$.
 
               $A\subset {0}^{*}$ and $B\subset {0}^{*}$ implies that $-A\supset {0}^{*}$ and $-B\supset {0}^{*}$. Apply Case 4 and Theorem~\ref{theorem:chapter1:multiplication-and-negation}
@@ -956,58 +1028,62 @@ Let ${1}^{*}$ be the following (rational) Dedekind cut
               \[
                   A\cdot {1}^{*} = {1}^{*}\cdot A = A.
               \]
-              \textbf{Case 1.} $A = {0}^{*}$.
 
-              According to the proof of Theorem~\ref{theorem:chapter1:multiplication}
-              \[
-                  A\cdot {1}^{*} = {0}^{*}\cdot {1}^{*} = {0}^{*} = {1}^{*}\cdot {0}^{*} = {1}^{*}\cdot A.
-              \]
-              \textbf{Case 2.} $A > {0}^{*}$.
-              \begin{align*}
-                  A\cdot {1}^{*} & = \{ a\cdot b : a\in A\land a\ge 0\land b\ge 0\land b < 1 \}\cup\mathbb{Q}_{-} \\
-                                 & = \{ b\cdot a : a\in A\land a\ge 0\land b\ge 0\land b < 1 \}\cup\mathbb{Q}_{-} \\
-                                 & = {1}^{*}\cdot A.
-              \end{align*}
-              Let $x\in A$.
+              \begin{enumerate}[label={\textbf{Case \arabic*.}}]
+                  \item $A = {0}^{*}$.
 
-              If $x\le 0$, then $x\in A\cdot {1}^{*}$.
+                        According to the proof of Theorem~\ref{theorem:chapter1:multiplication}
+                        \[
+                            A\cdot {1}^{*} = {0}^{*}\cdot {1}^{*} = {0}^{*} = {1}^{*}\cdot {0}^{*} = {1}^{*}\cdot A.
+                        \]
 
-              Otherwise, $x > 0$. According to (DC3), there exists $y\in A$ such that $x < y$. Then
-              \[
-                  x = \underbrace{y}_{>0, \in A}\cdot\underbrace{\dfrac{x}{y}}_{>0, <1}
-              \]
-              Hence $x\in A\cdot {1}^{*}$, so $A\subseteq A\cdot {1}^{*}$.
+                  \item $A > {0}^{*}$.
+                        \begin{align*}
+                            A\cdot {1}^{*} & = \{ a\cdot b : a\in A\land a\ge 0\land b\ge 0\land b < 1 \}\cup\mathbb{Q}_{-} \\
+                                           & = \{ b\cdot a : a\in A\land a\ge 0\land b\ge 0\land b < 1 \}\cup\mathbb{Q}_{-} \\
+                                           & = {1}^{*}\cdot A.
+                        \end{align*}
+                        Let $x\in A$.
 
-              \bigskip
+                        If $x\le 0$, then $x\in A\cdot {1}^{*}$.
 
-              Let $x\in A\cdot {1}^{*}$.
+                        Otherwise, $x > 0$. According to (DC3), there exists $y\in A$ such that $x < y$. Then
+                        \[
+                            x = \underbrace{y}_{>0, \in A}\cdot\underbrace{\dfrac{x}{y}}_{>0, <1}
+                        \]
+                        Hence $x\in A\cdot {1}^{*}$, so $A\subseteq A\cdot {1}^{*}$.
 
-              If $x\le 0$, then $x\in A$.
+                        \bigskip
 
-              Otherwise, $x > 0$. Then there exists $a\in A$ and $b\in {1}^{*}$ such that $a > 0, b > 0$ and $x = a\cdot b$.
+                        Let $x\in A\cdot {1}^{*}$.
 
-              Since $0 < b < 1$, then $a\cdot b < a$.
+                        If $x\le 0$, then $x\in A$.
 
-              According to (DC4), $x = a\cdot b\in A$, so $x\in A$. Therefore $A\cdot {1}^{*}\subseteq A$.
+                        Otherwise, $x > 0$. Then there exists $a\in A$ and $b\in {1}^{*}$ such that $a > 0, b > 0$ and $x = a\cdot b$.
 
-              \bigskip
+                        Since $0 < b < 1$, then $a\cdot b < a$.
 
-              Thus, $A\cdot {1}^{*} = {1}^{*}\cdot A = A$.
+                        According to (DC4), $x = a\cdot b\in A$, so $x\in A$. Therefore $A\cdot {1}^{*}\subseteq A$.
 
-              \textbf{Case 3.} $A < 0^{*}$
+                        \bigskip
 
-              Apply Case 2 and Theorem~\ref{theorem:chapter1:multiplication-and-negation}
-              \[
-                  \begin{split}
-                      A\cdot {1}^{*} = -(-A)\cdot {1}^{*} = -(-A) = A, \\
-                      {1}^{*}\cdot A = -{1}^{*}\cdot (-A) = -(-A) = A.
-                  \end{split}
-              \]
+                        Thus, $A\cdot {1}^{*} = {1}^{*}\cdot A = A$.
+
+                  \item $A < 0^{*}$
+
+                        Apply Case 2 and Theorem~\ref{theorem:chapter1:multiplication-and-negation}
+                        \[
+                            \begin{split}
+                                A\cdot {1}^{*} = -(-A)\cdot {1}^{*} = -(-A) = A, \\
+                                {1}^{*}\cdot A = -{1}^{*}\cdot (-A) = -(-A) = A.
+                            \end{split}
+                        \]
+              \end{enumerate}
         \item Multiplication is commutative.
 
               I will prove that $A\cdot B = B\cdot A$.
 
-              If $A = {0}^{*}$ or $B^{*}$, then according to the proof of Theorem~\ref{theorem:chapter1:multiplication}, $A\cdot B = {0}^{*} = B\cdot A$.
+              If $A = {0}^{*}$ or $B^{*} = {0}^{*}$, then according to the proof of Theorem~\ref{theorem:chapter1:multiplication}, $A\cdot B = {0}^{*} = B\cdot A$.
 
               Otherwise, let's consider the following four cases.
 
@@ -1024,38 +1100,44 @@ Let ${1}^{*}$ be the following (rational) Dedekind cut
               \[
                   A\cdot B = -A\cdot (-B) = -(-B)\cdot A = B\cdot A.
               \]
+
               \textbf{Case 3.} $A < {0}^{*}, B > {0}^{*}$.
               \[
                   A\cdot B = -(-A)\cdot B = -B\cdot (-A) = B\cdot A.
               \]
+
               \textbf{Case 4.} $A < {0}^{*}, B < {0}^{*}$.
               \[
                   A\cdot B = (-A)\cdot (-B) = (-B)\cdot (-A) = B\cdot A.
               \]
+
+              Thus, multiplication in $\mathbb{R}$ is commutative.
     \end{enumerate}
 \end{proof}
 
-(F1) (F2) (F3) (F4) (F5) (F6) (F7) (F8) make $\mathbb{R}$ a commutative ring. Together with the following, $\mathbb{R}$ is a field.
-
 \begin{theorem}\label{theorem:chapter1:division}
-    Let $A, B$ be Dedekind cuts of $\mathbb{Q}$ such that $B\ne {0}^{*}$. Define the set $A/B$ as the following
+    Let $A, B$ be Dedekind cuts such that $B\ne {0}^{*}$. Define the set $A/B$ as the following
 
-    \noindent If $A\ge {0}^{*}, B > {0}^{*}$
+    if $A\ge {0}^{*}, B > {0}^{*}$
     \[
-        A/B = \left\{ \frac{a}{b} : a\in A\land a\ge 0\land b\in\mathbb{Q}\setminus B \right\}\cup\mathbb{Q}_{-}.
+        A/B = \left\{ \frac{a}{b} : a\in A\land a\ge 0\land b\in\mathbb{Q}\setminus B \right\}\cup\mathbb{Q}_{-},
     \]
-    If $A\le {0}^{*}, B > {0}^{*}$
+
+    if $A\le {0}^{*}, B > {0}^{*}$
     \[
-        A/B = -(-A)/B.
+        A/B = -(-A)/B,
     \]
-    If $A\ge {0}^{*}, B < {0}^{*}$
+
+    if $A\ge {0}^{*}, B < {0}^{*}$
     \[
-        A/B = -A/(-B).
+        A/B = -A/(-B),
     \]
-    If $A\le {0}^{*}, B < {0}^{*}$
+
+    if $A\le {0}^{*}, B < {0}^{*}$
     \[
         A/B = (-A)/(-B).
     \]
+
     Then $A/B$ is a Dedekind cut of $\mathbb{Q}$.
 \end{theorem}
 
@@ -1067,42 +1149,46 @@ Let ${1}^{*}$ be the following (rational) Dedekind cut
               $A/B$ is a superset of $\mathbb{Q}_{-}$, so $A/B$ is not empty. (DC1) is satisfied.
               \bigskip
 
-              Let $c\in\mathbb{Q}\setminus A$. Then for all $a\in A, b\in\mathbb{Q}\setminus B$ such that $a > 0, b > 0$, we obtain that
+              Let $c\in\mathbb{Q}\setminus A$, $d\in B$ such that $d > 0$. Then for all $a\in A, b\in\mathbb{Q}\setminus B$ such that $a \ge 0, b > 0$, we obtain that
               \[
-                  \frac{a}{b} < \frac{c}{b}
+                  \frac{a}{b} < \frac{c}{d}
               \]
               which means $A/B$ is bounded above. (DC2) is satisfied.
               \bigskip
 
-              Let $x\in A/B$. If $x\le 0$, then there exists an element $y$ such that $x > y$ (since $A/B$ contains positive rational numbers).
+              Let $x\in A/B$. If $x\le 0$, then there exists an element $y\in A/B$ such that $x < y$. For example, zero.
 
               Otherwise, $x > 0$, then there exists $a\in A, b\in\mathbb{Q}\setminus B$ such that $a > 0, b > 0$ and $x = \dfrac{a}{b}$.
 
-              Since $A$ is a Dedekind cut of $\mathbb{Q}$, then there exists $a_{0}\in A$ such that $a < a_{0}$. So $\dfrac{a}{b} < \dfrac{a_{0}}{b}$.
+              Since $A$ is a Dedekind cut, then there exists $a_{0}\in A$ such that $a < a_{0}$. So $\dfrac{a}{b} < \dfrac{a_{0}}{b}$.
 
-              According to the definition of $A/B$, $\dfrac{a_{0}}{b}\in A/B$. So $A/B$ does not have greatest element. (DC3) is satisfied.
+              According to the definition of $A/B$, $\dfrac{a_{0}}{b}\in A/B$. So $A/B$ does not have a greatest element. (DC3) is satisfied.
               \bigskip
 
               Let $x\in A/B$, $y$ be a rational number such that $y < x$.
 
-              If $x\le 0$, then $y < 0$. Since $A/B$ is a superset of $A/B$, then $y\in A/B$.
+              If $x\le 0$, then $y < 0$. Since $A/B$ is a superset of $\mathbb{Q}_{-}$, then $y\in A/B$.
 
               Otherwise, $x > 0$, then there exists $a\in A, b\in\mathbb{Q}\setminus B$ such that $a > 0, b > 0$ and $x = \dfrac{a}{b}$.
 
-              Since $y < \dfrac{a}{b}$, then $b\cdot y < a$. According to (DC4), $b\cdot y\in A$. On the other hand, $b\cdot y$ is a positive rational number within $A$. Therefore, according to the definition of $A/B$, $y\in A/B$. (DC4) is satisfied.
+              Since $y < \dfrac{a}{b}$, then $b\cdot y < a$. According to (DC4), $b\cdot y\in A$.
+
+              If $y\ge 0$, then $y = \dfrac{b\cdot y}{b} \in A/B$. Otherwise, $y < 0$, then $y\in A/B$ since $A/B$ is a superset of $\mathbb{Q}_{-}$.
         \item $A\le {0}^{*}, B > {0}^{*}$.
 
-              According to Case 1, $(-A)/B$ is a Dedekind cut of $\mathbb{Q}$, so $-(-A)/B$ is a Dedekind cut of $\mathbb{Q}$.
+              According to Case 1, $(-A)/B$ is a Dedekind cut, so $-(-A)/B$ is a Dedekind cut.
         \item $A\ge {0}^{*}, B < {0}^{*}$.
 
-              According to Case 1, $A/(-B)$ is a Dedekind cut of $\mathbb{Q}$, so $-A/(-B)$ is a Dedekind cut of $\mathbb{Q}$.
+              According to Case 1, $A/(-B)$ is a Dedekind cut, so $-A/(-B)$ is a Dedekind cut.
         \item $A\le {0}^{*}, B < {0}^{*}$.
 
-              According to Case 1, $(-A)/(-B)$ is a Dedekind cut of $\mathbb{Q}$.
+              According to Case 1, $(-A)/(-B)$ is a Dedekind cut.
     \end{enumerate}
 
-    Thus, $A/B$ is a Dedekind cut of $\mathbb{Q}$.
+    Thus, $A/B$ is a Dedekind cut.
 \end{proof}
+
+(F1) (F2) (F3) (F4) (F5) (F6) (F7) (F8) make $\mathbb{R}$ a commutative ring. Together with the following, $\mathbb{R}$ is a field.
 
 \begin{theorem}\label{theorem:chapter1:multiplicative-inverse}
     \begin{enumerate}[label={(F\arabic*)},start=9]
@@ -1125,6 +1211,7 @@ Let ${1}^{*}$ be the following (rational) Dedekind cut
             {1}^{*} & = \{ b: b\in\mathbb{Q}\land b < 1 \}
         \end{split}
     \]
+
     Let $x\in A\cdot ({1}^{*}/A)$.
 
     If $x\le 0$, then $x\in {1}^{*}$ as well.
@@ -1135,7 +1222,8 @@ Let ${1}^{*}$ be the following (rational) Dedekind cut
     \[
         x = a\cdot\dfrac{b}{a_{0}} = b\cdot\dfrac{a}{a_{0}} < b < 1.
     \]
-    According to (DC4), $x\in {1}^{*}$. Hence $A\cdot ({1}^{*}/A)\subseteq {1}^{*}$.
+
+    So $x\in {1}^{*}$. Hence $A\cdot ({1}^{*}/A)\subseteq {1}^{*}$.
 
     \bigskip
 
@@ -1155,39 +1243,39 @@ Let ${1}^{*}$ be the following (rational) Dedekind cut
             S & = S_{1}\cup S_{2}
         \end{split}
     \]
-    \textbf{Step 1.} Prove that $S_{1}$ and $S_{2}$ are not empty.
+    \begin{enumerate}[label={\textbf{Step \arabic*.}},itemindent=1cm]
+        \item Prove that $S_{1}$ and $S_{2}$ are not empty.
 
-    Let $y$ be a positive rational number. I will find a natural number $m$ ($m\ge 1$) such that $x^{-m} > y$.
+              Let $y$ be a positive rational number. I will find a natural number $m$ ($m\ge 1$) such that $x^{-m} > y$.
 
-    Due to binomial theorem
-    \[
-        x^{-m} = {\left(1 + \left(\frac{1}{x} - 1\right)\right)}^{m} = \sum^{m}_{k=1}\binom{m}{k}{\left(\frac{1}{x} - 1\right)}^{k} \ge 1 + m\cdot\left(\frac{1}{x} - 1\right)
-    \]
-    So for any natural number $m$ that satisfies $m > \dfrac{y - 1}{\dfrac{1}{x} - 1}$, we will obtain that $x^{-m} > y$.
+              Due to binomial theorem
+              \[
+                  x^{-m} = {\left(1 + \left(\frac{1}{x} - 1\right)\right)}^{m} = \sum^{m}_{k=1}\binom{m}{k}{\left(\frac{1}{x} - 1\right)}^{k} \ge 1 + m\cdot\left(\frac{1}{x} - 1\right)
+              \]
+              So for any natural number $m$ that satisfies $m > \dfrac{y - 1}{\dfrac{1}{x} - 1}$, we will obtain that $x^{-m} > y$.
 
-    Let $a_{1}\in A$ and $a_{2}\in\mathbb{Q}\setminus A$ such that $a_{1} > 0$ and $a_{2} > 0$.
+              Let $a_{1}\in A$ and $a_{2}\in\mathbb{Q}\setminus A$ such that $a_{1} > 0$ and $a_{2} > 0$.
 
-    According to the result that we have just proved, there exists natural numbers $n_{1}$ and $n_{2}$ such that
-    \[
-        x^{-{n}_{2}} > a_{2}\qquad\text{and}\qquad x^{-{n}_{1}} > \frac{1}{a_{1}}
-    \]
+              According to the result that we have just proved, there exists natural numbers $n_{1}$ and $n_{2}$ such that
+              \[
+                  x^{-{n}_{2}} > a_{2}\qquad\text{and}\qquad x^{-{n}_{1}} > \frac{1}{a_{1}}
+              \]
 
-    Hence $S_{1}$ and $S_{2}$ are not empty.
+              Hence $S_{1}$ and $S_{2}$ are not empty.
 
-    \textbf{Step 2.} Prove that there exists an integer $n$ such that $x^{n}\in A$ and $x^{n}\notin A$.
+        \item Prove that there exists an integer $n$ such that $x^{n}\in A$ and $x^{n}\notin A$.
 
-    Since $0 < x < 1$, then $x^{n} < x^{n-1}$. Therefore
-    \[
-        \begin{split}
-            x^{n}\in S_{1}\rightarrow x^{n+1}\in S_{1}, \\
-            x^{n}\in S_{2}\rightarrow x^{n-1}\in S_{2}.
-        \end{split}
-    \]
-    Thus, there exists an integer $n$ such that $x^{n}\in S_{1}$ and $x^{n-1}\in S_{2}$.
-    \bigskip
+              Since $0 < x < 1$, then ${x}^{n} < {x}^{n-1}$.
+
+              $\{ {x}^{n} : n\in\mathbb{Z}\land {x}^{n}\in A \}$ is bounded above, then $\{ n : n\in\mathbb{Z}\land {x}^{n}\in A \}$ is bounded below. According to the well-ordering principle, $\{ n : n\in\mathbb{Z}\land {x}^{n}\in A \}$ contains a least element.
+
+              Hence, there exists an integer $n$ such that ${x}^{n}\in A$ and ${x}^{n-1}\notin A$.
+    \end{enumerate}
+
     \[
         x = {x^{n}} / {x^{n-1}}.
     \]
+
     According to (DC3), there exists $x_{0}\in A$ such that $x^{n} < x_{0}$.
     \[
         x = x_{0}\cdot\frac{x^{n}/x_{0}}{x^{n-1}}.
@@ -1204,12 +1292,13 @@ Let ${1}^{*}$ be the following (rational) Dedekind cut
     \[
         {1}^{*}/A = -{1}^{*}/(-A)
     \]
-    Apply Theorem~\ref{theorem:chapter1:multiplication-and-negation} and Case 1.
+
+    Apply Theorem~\ref{theorem:chapter1:multiplication-and-negation} and Case 1
     \[
         A\cdot ({1}^{*}/A) = (-(-A))\cdot (-{1}^{*}/(-A)) = (-A)\cdot ({1}^{*}/(-A)) = {1}^{*}
     \]
 
-    In conclusion, $A\cdot ({1}^{*}/A) = ({1}^{*}/A)\cdot A = {1}^{*}$.
+    Thus, $A\cdot ({1}^{*}/A) = ({1}^{*}/A)\cdot A = {1}^{*}$.
 \end{proof}
 
 \begin{theorem}
@@ -1220,20 +1309,22 @@ Let ${1}^{*}$ be the following (rational) Dedekind cut
 \end{theorem}
 
 \begin{proof}
-    Theorem~\ref{theorem:chapter1:multiplicative-inverse} asserts that there exists a Dedekind cut $B$ of $\mathbb{Q}$ such that $A\cdot B = B\cdot A = {1}^{*}$.
+    Theorem~\ref{theorem:chapter1:multiplicative-inverse} asserts that there exists a Dedekind cut $B$ such that $A\cdot B = B\cdot A = {1}^{*}$.
 
-    Suppose that $B$ and $C$ are two Dedekind cuts of $\mathbb{Q}$ such that
+    Suppose that $B$ and $C$ are two Dedekind cuts such that
     \[
         \begin{split}
             A\cdot B = B\cdot A = {1}^{*}, \\
             A\cdot C = C\cdot A = {1}^{*}.
         \end{split}
     \]
+
     Apply (F5) and (F7)
     \[
         B = B\cdot {1}^{*} = B\cdot (A\cdot C) = (B\cdot A)\cdot C = {1}^{*}\cdot C = C.
     \]
-    Hence there exists a unique Dedekind cut $B$ of $\mathbb{Q}$ such that $A\cdot B = B\cdot A = {1}^{*}$.
+
+    Hence there exists a unique Dedekind cut $B$ such that $A\cdot B = B\cdot A = {1}^{*}$.
 
     Since this uniqueness, we call $B$ \textit{the multiplicative inverse} of $A$.
 
@@ -1241,6 +1332,7 @@ Let ${1}^{*}$ be the following (rational) Dedekind cut
     \[
         A\cdot ({1}^{*}/A) = ({1}^{*}/A)\cdot A = {1}^{*}.
     \]
+
     Therefore, $A$ is the multiplicative inverse of ${1}^{*}/A$.
 
     Thus ${1}^{*}/({1}^{*}/A) = A$.
@@ -1260,9 +1352,46 @@ Let ${1}^{*}$ be the following (rational) Dedekind cut
     Therefore, $\mathbb{R}$ is characteristic zero.
 \end{proof}
 
+\subsection{Least-upper-bound property}
+
+So far, we prove that the set of Dedekind cuts with addition and multiplication is a totally ordered field. But those properties make no distinction between $\mathbb{R}$ and $\mathbb{Q}$. The property that makes distinction is the least-upper-bound property.
+
+\begin{theorem}
+    Let $\mathcal{D}$ be a set of Dedekind cuts of $\mathbb{Q}$ and $\mathcal{D}$ has an upper bound.
+
+    Then $\mathcal{D}$ has a least upper bound.
+\end{theorem}
+
+\begin{proof}
+    Let $S = \bigcup\limits_{A\in\mathcal{D}} A$. $S$ consists of rational numbers.
+
+    \textbf{Step 1. Prove that $S$ is a Dedekind cut of $\mathbb{Q}$.}
+
+    $S$ is non-empty by definition. (DC1) is satisfied.
+
+    $S$ is bounded above. (DC2) is satisfied.
+
+    Let $a\in S$. Then there exists $A\in\mathcal{D}$ such that $a\in A$. Since $A$ has no greatest element, then there exists $x_{0}\in A$ such that $x < x_{0}$. $x_{0}\in A$ then $x_{0}\in S$. (DC3) is satisfied.
+
+    Let $a\in S$, and $b$ be a rational number such that $b < a$. Since $a\in S$, then there exists $A\in\mathcal{D}$ such that $a\in A$. Since $b < a$, then $b\in A$, so $b\in S$ also. (DC4) is satisfied.
+
+    Hence $S$ is a Dedekind cut of $\mathbb{Q}$.
+    \bigskip
+
+    \textbf{Step 2. Prove that $S$ is the least upper bound of $\mathcal{D}$.}
+
+    Let $A\in\mathcal{D}$. Since $A\subseteq S$, then $S$ is an upper bound of $\mathcal{D}$.
+
+    Let $S'$ be an upper bound of $\mathcal{D}$. According to the definition of upper bound, then $\forall A (A\in\mathcal{D}\rightarrow A\subseteq S')$. So $S\subseteq S'$, or equivalently, $S\le S'$. Hence $S$ is the least upper bound of $\mathcal{D}$.
+
+    Thus $\mathcal{D}$ has a least upper bound.
+\end{proof}
+
+Now we have proved that $\mathbb{R}$ satisfies all real numbers axioms.
+
 \subsection{Embed $\mathbb{Q}$ into $\mathbb{R}$}
 
-I don't feel so good after proving that $\mathbb{R}$ is a totally ordered field. It is because I didn't prove the least upper bound property and I haven't show that the addition and multiplication in $\mathbb{R}$ are ``the same'' as addition and multiplication $\mathbb{Q}$.
+I don't feel so good after proving that $\mathbb{R}$ is a totally ordered field. It is because I haven't showed that the addition and multiplication in $\mathbb{R}$ are ``the same'' as addition and multiplication $\mathbb{Q}$.
 
 \begin{theorem}
     There exists a ring monomorphism $\iota$
@@ -1352,7 +1481,7 @@ I don't feel so good after proving that $\mathbb{R}$ is a totally ordered field.
                         \[
                             \dfrac{x}{q_{1}q_{2}} = \underbrace{y}_{< 1}\cdot\underbrace{\dfrac{x}{q_{1}\cdot q_{2}\cdot y}}_{< 1}
                         \]
-                        Let $a = q_{1}\cdot y$ and $b = q_{2}\cdot z$, then $a\in\iota(q_{1}), b\in\iota(q_{2})$, and $a\cdot b = x$. This means $x\in\iota(q_{1})\cdot\iota(q_{2})$.
+                        Let $a = q_{1}\cdot y$ and $b = q_{2}\cdot\dfrac{x}{q_{1}\cdot q_{2}\cdot y}$, then $a\in\iota(q_{1}), b\in\iota(q_{2})$, and $a\cdot b = x$. This means $x\in\iota(q_{1})\cdot\iota(q_{2})$.
 
                         So $\iota(q_{1}\cdot q_{2})\subseteq\iota(q_{1})\cdot\iota(q_{2})$.
 
@@ -1386,50 +1515,43 @@ I don't feel so good after proving that $\mathbb{R}$ is a totally ordered field.
     We have constructed a ring monomorphism $\iota:\mathbb{Q}\to\mathbb{R}$ that preserves order.
 \end{proof}
 
-\subsection{Least upper bound property}
-
-\begin{theorem}
-    Let $\mathcal{D}$ be a set of Dedekind cuts of $\mathbb{Q}$ and $\mathcal{D}$ has an upper bound.
-
-    Then $\mathcal{D}$ has a least upper bound.
-\end{theorem}
-
-\begin{proof}
-    Let $S = \bigcup\limits_{A\in\mathcal{D}} A$. $S$ consists of rational numbers.
-
-    \textbf{Step 1. Prove that $S$ is a Dedekind cut of $\mathbb{Q}$.}
-
-    $S$ is non-empty by definition. (DC1) is satisfied.
-
-    $S$ is bounded above. (DC2) is satisfied.
-
-    Let $a\in S$. Then there exists $A\in\mathcal{D}$ such that $a\in A$. Since $A$ has no greatest element, then there exists $x_{0}\in A$ such that $x < x_{0}$. $x_{0}\in A$ then $x_{0}\in S$. (DC3) is satisfied.
-
-    Let $a\in S$, and $b$ be a rational number such that $b < a$. Since $a\in S$, then there exists $A\in\mathcal{D}$ such that $a\in A$. Since $b < a$, then $b\in A$, so $b\in S$ also. (DC4) is satisfied.
-
-    Hence $S$ is a Dedekind cut of $\mathbb{Q}$.
-    \bigskip
-
-    \textbf{Step 2. Prove that $S$ is the least upper bound of $\mathcal{D}$.}
-
-    Let $A\in\mathcal{D}$. Since $A\subseteq S$, then $S$ is an upper bound of $\mathcal{D}$.
-
-    Let $S'$ be an upper bound of $\mathcal{D}$. According to the definition of upper bound, then $\forall A (A\in\mathcal{D}\rightarrow A\subseteq S')$. So $S\subseteq S'$, or equivalently, $S\le S'$. Hence $S$ is the least upper bound of $\mathcal{D}$.
-
-    Thus $\mathcal{D}$ has a least upper bound.
-\end{proof}
-
 \subsection{Completeness (Dedekind completeness)}
 
-So far, we prove that the set of Dedekind cuts over $\mathbb{Q}$ with addition and multiplication is a totally ordered field. But those properties make no distinction between $\mathbb{R}$ and $\mathbb{Q}$. The property that makes distinction is the least upper bound property.
+So far, we have successfully constructed a model (by using Dedekind cuts), which satisfies the axioms of the real numbers.
+
+In this subsection, we will show that $\mathbb{R}$ is complete, in the sense that every cut is represented by a real number. To do so, we will use a generalization of Dedekind cut.
+
+\begin{definition}[Dedekind cut (generalization)]
+    Let $S$ be a totally ordered set. A Dedekind cut of $S$ is a partition $(L, R)$ ($L\cap R = \varnothing$ and $L\cup R = S$) such that
+    \begin{enumerate}[label={(\roman*)}]
+        \item $L$ is not empty.
+        \item $R$ is not empty (i.e. $L\ne S$).
+        \item $L$ does not contain a greatest element.
+        \item $L$ is closed downward.
+    \end{enumerate}
+\end{definition}
 
 \begin{definition}[Dedekind-complete]
-    A partially order set $S$ is called Dedekind-complete if every Dedekind cut $A$ of it satisfies: \textit{$S\setminus A$ has a least element.}
+    A totally order set $S$ is called Dedekind-complete if every Dedekind cut $A$ of it satisfies: \textit{$S\setminus A$ has a least element.}
 \end{definition}
 
 \begin{theorem}
     $\mathbb{R}$ is Dedekind-complete.
 \end{theorem}
+
+\begin{proof}
+    Let $(L, R)$ be a Dedekind cut of $\mathbb{R}$.
+
+    $L$ is bounded above. According to the least-upper-bound property, $L$ has a least upper bound $\ell$.
+
+    On the other hand, $L$ does not contain a greatest element, then $\ell\in R$.
+
+    Since every element of $R$ is an upper bound of $L$, then $\ell$ is the least element of $R$.
+
+    Therefore, for all Dedekind cut $(L, R)$ of $\mathbb{R}$, $R$ has a least element. Thus, $\mathbb{R}$ is Dedekind-complete.
+\end{proof}
+
+The least-upper-bound property is also called the axiom of completeness.
 
 \section{Construction of the real numbers by Cauchy sequences}
 
