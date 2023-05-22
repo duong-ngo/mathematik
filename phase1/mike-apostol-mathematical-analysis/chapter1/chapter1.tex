@@ -1555,6 +1555,222 @@ The least-upper-bound property is also called the axiom of completeness.
 
 \section{Construction of the real numbers by Cauchy sequences}
 
+Another way to construct the real numbers from the rational numbers is using Cauchy sequences.
+
+\subsection{Definition of Cauchy sequence}
+
+In this subsection and the upcoming three subsections, we work with Cauchy sequences which contain rational numbers only.
+
+\begin{definition}
+    A sequence ${\{ a_{n} \}}^{\infty}_{n=1}$ (or just $(a_{n})$) is called a Cauchy sequence if and only if
+    \begin{quotation}
+        \noindent for every rational numbers $\varepsilon > 0$, there exists a natural number $N$ which is a function of $\varepsilon$ such that for all natural numbers $m, n$ which are greater than $N$, $\left\vert a_{m} - a_{n}\right\vert < \varepsilon$.
+    \end{quotation}
+
+    Equivalently
+    \[
+        (\forall\varepsilon > 0)(\exists N=N(\varepsilon))(\forall m, n > N)\left(\left\vert a_{m} - a_{n} \right\vert < \varepsilon\right).
+    \]
+\end{definition}
+
+Informally, given a positive rational numbers $\varepsilon$, then there exists a natural number $N$ such that the differences of any two terms (whose indices are greater than $N$) is smaller than $\varepsilon$.
+
+\begin{definition}[Equivalent Cauchy sequences]
+    Two Cauchy sequences $(a_{n})$ and $(b_{n})$ are called equivalent if and only if
+    \[
+        (\forall\varepsilon > 0)(\exists N=N(\varepsilon))(\forall n > N)(\left\vert a_{n} - b_{n} \right\vert < \varepsilon).
+    \]
+\end{definition}
+
+\begin{theorem}
+    The relation in the previous definition is an equivalence relation. In other words, this relation is reflexive, symmetric, transitive.
+\end{theorem}
+
+\begin{proof}
+    \begin{itemize}
+        \item Reflexive.
+
+              A Cauchy sequence $(a_{n})$ is equivalent to itself, since
+              \[
+                  (\forall\varepsilon > 0)(\forall n > 1)(\left\vert a_{n} - a_{n} \right\vert = 0 < \varepsilon)
+              \]
+        \item Symmetric.
+
+              Let $(a_{n})$ and $(b_{n})$ be two Cauchy sequences.
+
+              $(a_{n})$ is equivalent to $(b_{n})$ if and only if
+              \[
+                  \begin{split}
+                      & (\forall\varepsilon > 0)(\exists N=N(\varepsilon))(\forall n > N)(\left\vert a_{n} - b_{n} \right\vert < \varepsilon) \\
+                      \Leftrightarrow\quad & (\forall\varepsilon > 0)(\exists N=N(\varepsilon))(\forall n > N)(\left\vert b_{n} - a_{n} \right\vert < \varepsilon)
+                  \end{split}
+              \]
+
+              which implies that $(b_{n})$ is equivalent to $(a_{n})$.
+        \item Transitive.
+
+              Assume that among three Cauchy sequences $(a_{n})$, $(b_{n})$, $(c_{n})$, $(a_{n})$ is equivalent to $(b_{n})$ and $(b_{n})$ is equivalent to $(c_{n})$.
+
+              \[
+                  \begin{split}
+                      (\forall\varepsilon > 0)(\exists N_{1}=N_{1}(\varepsilon))(\forall n > N_{1})\left(\left\vert a_{n} - b_{n} \right\vert < \frac{\varepsilon}{2}\right) \\
+                      (\forall\varepsilon > 0)(\exists N_{2}=N_{2}(\varepsilon))(\forall n > N_{2})\left(\left\vert b_{n} - c_{n} \right\vert < \frac{\varepsilon}{2}\right).
+                  \end{split}
+              \]
+
+              which a given $\varepsilon > 0$, let's choose $N = \max\{ N_{1}, N_{2} \}$, then for all $n > N$
+              \[
+                  \abs{a_{n} - c_{n}} \le \abs{a_{n} - b_{n}} + \abs{b_{n} - c_{n}} < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon.
+              \]
+
+              Hence
+              \[
+                  (\forall\varepsilon > 0)(\forall n > N)(\abs{a_{n} - c_{n}} < \varepsilon).
+              \]
+
+              Thus, $(a_{n})$ and $(c_{n})$ are equivalent.
+    \end{itemize}
+\end{proof}
+
+A Cauchy sequence (with rational terms) can converge to a rational number or not.
+
+\begin{definition}
+    A Cauchy sequence (with rational terms) $(a_{n})$ converges to a rational number $a$ if and only if
+    \[
+        (\forall\varepsilon > 0)(\exists N=N(\varepsilon))(\forall n > N)(\abs{a_{n} - a} < \varepsilon).
+    \]
+
+    $a$ is called the limit point of $(a_{n})$.
+\end{definition}
+
+\begin{example}
+    $(a_{n})$ where $a_{n} = q$, $q$ is a rational number converges to a rational number.
+\end{example}
+
+\begin{proof}
+    For every rational number $\varepsilon > 0$, let's choose $N = 1$, then $\forall n > N$, $\abs{a_{n} - q} = 0 < \varepsilon$.
+
+    Therefore, $(a_{n})$ converges to $q$.
+\end{proof}
+
+\begin{theorem}
+    If a Cauchy sequence (with rational terms) converges, then it has a unique limit point.
+\end{theorem}
+
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+    If the Cauchy sequence (with rational terms) $(a_{n})$ converges to $a$, then every Cauchy sequence (with rational terms) which is equivalent to $(a_{n})$ also converges to $a$.
+\end{theorem}
+
+\begin{proof}
+\end{proof}
+
+\begin{corollary}
+    If the Cauchy sequence (with rational terms) $(a_{n})$ does not converge to any rational number, then every Cauchy sequence (with rational terms) which is equivalent to $(a_{n})$ does not converge to any rational number, either.
+\end{corollary}
+
+\begin{example}
+    $(b_{n})$ which is defined by
+    \[
+        b_{n} =
+        \begin{cases}
+            2                                       & \text{if $n = 1$} \\
+            \dfrac{b_{n-1}}{2} + \dfrac{1}{b_{n-1}} & \text{if $n > 1$}
+        \end{cases}
+    \]
+
+    does not converge to a rational number.
+\end{example}
+
+\begin{proof}
+    Assume that $(b_{n})$ converges to a rational number $b$.
+    \begin{enumerate}[label={\textbf{Step \arabic*.}},itemindent=1cm]
+        \item ${b^{2}_{n}} > 2$.
+
+              For $n = 1$, $b_{1} = 2$, so $b^{2}_{1} = 4 > 2$.
+
+              For $n > 1$
+              \begin{align*}
+                  {b^{2}_{n}} - 2 & = {\left(\frac{b_{n-1}}{2} + \frac{1}{b_{n-1}}\right)}^{2} - 2         \\
+                                  & = {\left(\frac{b^{2}_{n-1}}{4} + \frac{1}{b^{2}_{n-1}} + 1\right)} - 2 \\
+                                  & = \frac{b^{2}_{n-1}}{4} + \frac{1}{b^{2}_{n-1}} - 1                    \\
+                                  & = {\left(\frac{b_{n-1}}{2} - \frac{1}{b_{n-1}}\right)}^{2} > 0
+              \end{align*}
+
+              Hence $b^{2}_{n} > 2$.
+        \item Prove that $(b_{n})$ is a decrease sequence.
+
+              For every $n$, ${b^{2}_{n}}$ is greater than $2$.
+
+              For $n > 1$
+              \[
+                  b_{n} - b_{n-1} = \left(\frac{b_{n-1}}{2} + \frac{1}{b_{n-1}}\right) - b_{n-1} = \frac{1}{b_{n-1}} - \frac{b_{n-1}}{2} = \frac{2 - {b}^{2}_{n-1}}{2\cdot b_{n}} < 0
+              \]
+
+              Then $(b_{n})$ is a decrease sequence.
+        \item Prove that $b$ is smaller than all terms of $(b_{n})$.
+
+              Assume that there exists a natural number $n_{1}$ such that $b_{n_{1}}\le b$. Since $(b_{n})$ is decrease, then $b_{n} < b$, for every $n > n_{1}$.
+
+              Choose $\varepsilon = \varepsilon - b_{n_{1} + 1}$, then for all $n > n_{1}$, $\abs{b_{n} - b} = b - b_{n} \ge b - b_{n_{1} + 1} = \varepsilon$. Hence, $(b_{n})$ does not converge to $b$.
+
+              Therefore, $b < b_{n}$, for every natural number $n$.
+        \item Prove that $0 < b < 2$.
+
+              Since $b$ is smaller than all terms of $(b_{n})$, then $b < b_{1} = 2$.
+
+              Suppose that $b\le 0$.
+
+              Choose $\varepsilon = 1$, then for all $n$, $\abs{b_{n} - b} = b_{n} - b \ge b_{n} > \varepsilon$. This means $(b_{n})$ does not converge to $b$.
+
+              Therefore, $b > 0$.
+        \item Prove that ${b}^{2} = 2$.
+
+              Let's consider another sequence $(x_{n})$, where $x_{n} = {b^{2}_{n}}$.
+
+              Since $b_{n}$ converges to $b$, then
+              \[
+                  (\forall\varepsilon > 0)(\exists N=N(\varepsilon))(\forall n > N)\left(\abs{b_{n} - b} < \frac{\varepsilon}{4}\right)
+              \]
+
+              It follows that
+              \[
+                  (\forall\varepsilon > 0)(\exists N=N(\varepsilon))(\forall n > N)\left(\abs{b^{2}_{n} - b^{2}} < \abs{b_{n} - b}\cdot\abs{b_{n} + b} < \frac{\varepsilon}{4}\cdot 4 = \varepsilon \right)
+              \]
+
+              So $(x_{n})$ converges to $b^{2}$.
+
+              For $n > 2$
+              \begin{align*}
+                  b_{n}^{2} - 2 & = \frac{{\left( b^{2}_{n-1} - 2 \right)}^{2}}{4\cdot b^{2}_{n-1}}                              \\
+                                & \le \frac{(b^{2}_{n-1} - 2)\cdot (b^{2}_{1} - 2)}{4\cdot b^{2}_{n-1}}                          \\
+                                & \le \frac{b^{2}_{n-1} - 2}{2\cdot b^{2}_{n-1}}                                                 \\
+                                & < \frac{b^{2}_{n-1} - 2}{4}                                                                    \\
+                                & \le \frac{b^{2}_{1} - 2}{4^{n-1}} = \frac{2}{4^{n-1}} = \frac{1}{2^{2n-3}} \le \frac{1}{2^{n}}
+              \end{align*}
+
+              \[
+                  (\forall\varepsilon > 0)\left(\forall n > N(\varepsilon) = \left\lfloor \frac{1}{\varepsilon} - 1\right\rfloor\right)\left( \frac{1}{2^{n}} < \varepsilon \right)
+              \]
+
+              So for every $\varepsilon > 0$, choose $N = \left\lfloor\dfrac{1}{\varepsilon} - 1\right\rfloor + 2$, then for all $n > N$, $\abs{b^{2}_{n} - 2} < \dfrac{1}{2^{n}} < \varepsilon$.
+
+              Therefore, $(x_{n})$ converges to $2$.
+
+              Hence $b^{2} = 2$.
+    \end{enumerate}
+
+    $b^{2} = 2$ contradicts to the fact that there is no rational number whose square equals $2$.
+
+    Hence the initial assumption ($b$ is a rational number) is false. Therefore, $(b_{n})$ does not converge to a rational number.
+\end{proof}
+
 \section{Compare the two constructions}
+
+\subsection{Pros and Cons of the two constructions}
+
+\subsection{Equivalence}
 
 \section{Complex numbers}
