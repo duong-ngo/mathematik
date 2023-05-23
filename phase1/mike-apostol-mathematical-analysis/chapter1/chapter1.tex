@@ -1557,6 +1557,8 @@ The least-upper-bound property is also called the axiom of completeness.
 
 Another way to construct the real numbers from the rational numbers is using Cauchy sequences.
 
+In the upcoming \textit{four subsections}, we consider sequences with rational terms only.
+
 \subsection{Definition of Cauchy sequence}
 
 In this subsection and the upcoming three subsections, we work with Cauchy sequences which contain rational numbers only.
@@ -1564,7 +1566,7 @@ In this subsection and the upcoming three subsections, we work with Cauchy seque
 \begin{definition}
     A sequence ${\{ a_{n} \}}^{\infty}_{n=1}$ (or just $(a_{n})$) is called a Cauchy sequence if and only if
     \begin{quotation}
-        \noindent for every rational numbers $\varepsilon > 0$, there exists a natural number $N$ which is a function of $\varepsilon$ such that for all natural numbers $m, n$ which are greater than $N$, $\left\vert a_{m} - a_{n}\right\vert < \varepsilon$.
+        \noindent for every positive rational number $\varepsilon$, there exists a natural number $N$ which is a function of $\varepsilon$ such that for all natural numbers $m, n$ which are greater than $N$, $\left\vert a_{m} - a_{n}\right\vert < \varepsilon$.
     \end{quotation}
 
     Equivalently
@@ -1573,7 +1575,9 @@ In this subsection and the upcoming three subsections, we work with Cauchy seque
     \]
 \end{definition}
 
-Informally, given a positive rational numbers $\varepsilon$, then there exists a natural number $N$ such that the differences of any two terms (whose indices are greater than $N$) is smaller than $\varepsilon$.
+Informally, the differences of any two terms can be arbitrarily small as the indices increase.
+
+Such sequences do exist. For example: $(a_{n})$, where $a_{n} = 0$ for every natural number $n$.
 
 \begin{definition}[Equivalent Cauchy sequences]
     Two Cauchy sequences $(a_{n})$ and $(b_{n})$ are called equivalent if and only if
@@ -1611,14 +1615,15 @@ Informally, given a positive rational numbers $\varepsilon$, then there exists a
 
               Assume that among three Cauchy sequences $(a_{n})$, $(b_{n})$, $(c_{n})$, $(a_{n})$ is equivalent to $(b_{n})$ and $(b_{n})$ is equivalent to $(c_{n})$.
 
+              Let $\varepsilon$ be an arbitrary positive rational number.
               \[
                   \begin{split}
-                      (\forall\varepsilon > 0)(\exists N_{1}=N_{1}(\varepsilon))(\forall n > N_{1})\left(\left\vert a_{n} - b_{n} \right\vert < \frac{\varepsilon}{2}\right) \\
+                      (\forall\varepsilon > 0)(\exists N_{1}=N_{1}(\varepsilon))(\forall n > N_{1})\left(\left\vert a_{n} - b_{n} \right\vert < \frac{\varepsilon}{2}\right), \\
                       (\forall\varepsilon > 0)(\exists N_{2}=N_{2}(\varepsilon))(\forall n > N_{2})\left(\left\vert b_{n} - c_{n} \right\vert < \frac{\varepsilon}{2}\right).
                   \end{split}
               \]
 
-              which a given $\varepsilon > 0$, let's choose $N = \max\{ N_{1}, N_{2} \}$, then for all $n > N$
+              Let's choose $N = \max\{ N_{1}, N_{2} \}$, then for all $n > N$
               \[
                   \abs{a_{n} - c_{n}} \le \abs{a_{n} - b_{n}} + \abs{b_{n} - c_{n}} < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon.
               \]
@@ -1632,15 +1637,15 @@ Informally, given a positive rational numbers $\varepsilon$, then there exists a
     \end{itemize}
 \end{proof}
 
-A Cauchy sequence (with rational terms) can converge to a rational number or not.
+A Cauchy sequence can converge to a rational number or not.
 
 \begin{definition}
-    A Cauchy sequence (with rational terms) $(a_{n})$ converges to a rational number $a$ if and only if
+    A Cauchy sequence $(a_{n})$ converges to a rational number $a$ if and only if
     \[
         (\forall\varepsilon > 0)(\exists N=N(\varepsilon))(\forall n > N)(\abs{a_{n} - a} < \varepsilon).
     \]
 
-    $a$ is called the limit point of $(a_{n})$.
+    Then we say $a$ is a limit point of $(a_{n})$.
 \end{definition}
 
 \begin{example}
@@ -1654,22 +1659,72 @@ A Cauchy sequence (with rational terms) can converge to a rational number or not
 \end{proof}
 
 \begin{theorem}
-    If a Cauchy sequence (with rational terms) converges, then it has a unique limit point.
+    If a Cauchy sequence converges, then it has a unique limit point.
 \end{theorem}
 
 \begin{proof}
+    Let $(a_{n})$ be a Cauchy sequence.
+
+    Assume that two rational numbers $a$ and $b$ are limit points of $(a_{n})$ and $a\ne b$.
+
+    Pick a positive rational number $\varepsilon$ such that $\abs{a - b}\ge\varepsilon$.
+    \begin{itemize}
+        \item there exists $N_{1} = N_{1}(\varepsilon)$ such that for all $n > N_{1}$, $\abs{a_{n} - a} < \dfrac{\varepsilon}{2}$,
+        \item there exists $N_{2} = N_{2}(\varepsilon)$ such that for all $n > N_{2}$, $\abs{a_{n} - b} < \dfrac{\varepsilon}{2}$.
+    \end{itemize}
+
+    Choose $N = \max\{ N_{1}, N_{2} \}$, then for all $n > N$
+    \[
+        \abs{a - b}\le \abs{a - a_{n}} + \abs{a_{n} - b} < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon.
+    \]
+
+    $\abs{a - b} < \varepsilon$ contradicts $\abs{a - b}\ge\varepsilon$.
+
+    Hence $a = b$.
+
+    Thus if a Cauchy sequence converges, it has a unique limit point.
 \end{proof}
 
 \begin{theorem}
-    If the Cauchy sequence (with rational terms) $(a_{n})$ converges to $a$, then every Cauchy sequence (with rational terms) which is equivalent to $(a_{n})$ also converges to $a$.
+    If the Cauchy sequence $(a_{n})$ converges to $a$, then every Cauchy sequence  which is equivalent to $(a_{n})$ also converges to $a$.
 \end{theorem}
 
 \begin{proof}
+    Let $(a_{n})$ and $(b_{n})$ be equivalent Cauchy sequences.
+
+    Let $\varepsilon$ be a positive rational number.
+
+    $(a_{n})$ converges to $a$ means
+    \[
+        (\exists N_{1}=N_{1}(\varepsilon))(\forall n > N_{1})\left(\abs{a_{n} - a} < \frac{\varepsilon}{2}\right)
+    \]
+
+    Since $(a_{n})$ and $(b_{n})$ are equivalent
+    \[
+        (\exists N_{2}=N_{2}(\varepsilon))(\forall n > N_{2})\left(\abs{b_{n} - a_{n}} < \frac{\varepsilon}{2}\right)
+    \]
+
+    Let $N = \max\{ N_{1}, N_{2} \}$, then
+    \[
+        (\forall n > N)\left(\abs{b_{n} - a} \le \abs{b_{n} - a_{n}} + \abs{a_{n} - a} < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon\right)
+    \]
+
+    So $(b_{n})$ converges to $a$.
+
+    Thus, every Cauchy sequence which is equivalent to $(a_{n})$ converges to $a$.
 \end{proof}
 
 \begin{corollary}
-    If the Cauchy sequence (with rational terms) $(a_{n})$ does not converge to any rational number, then every Cauchy sequence (with rational terms) which is equivalent to $(a_{n})$ does not converge to any rational number, either.
+    If the Cauchy sequence $(a_{n})$ does not converge to any rational number, then every Cauchy sequence which is equivalent to $(a_{n})$ does not converge to any rational number, either.
 \end{corollary}
+
+\begin{proof}
+    Let $(a_{n})$ and $(b_{n})$ be equivalent Cauchy sequences.
+
+    Assume that $(b_{n})$ converges to a rational number. Then according to the previous theorem, $(a_{n})$ converges to the same rational number, which is a contradiction. So $(b_{n})$ does not converge to a ratioanl number.
+
+    Thus, every Cauchy sequence which is equivalent to $(a_{n})$ does not converge to any rational number.
+\end{proof}
 
 \begin{example}
     $(b_{n})$ which is defined by
@@ -1744,28 +1799,38 @@ A Cauchy sequence (with rational terms) can converge to a rational number or not
 
               For $n > 2$
               \begin{align*}
-                  b_{n}^{2} - 2 & = \frac{{\left( b^{2}_{n-1} - 2 \right)}^{2}}{4\cdot b^{2}_{n-1}}                              \\
-                                & \le \frac{(b^{2}_{n-1} - 2)\cdot (b^{2}_{1} - 2)}{4\cdot b^{2}_{n-1}}                          \\
-                                & \le \frac{b^{2}_{n-1} - 2}{2\cdot b^{2}_{n-1}}                                                 \\
-                                & < \frac{b^{2}_{n-1} - 2}{4}                                                                    \\
-                                & \le \frac{b^{2}_{1} - 2}{4^{n-1}} = \frac{2}{4^{n-1}} = \frac{1}{2^{2n-3}} \le \frac{1}{2^{n}}
+                  b_{n}^{2} - 2 & = \frac{{\left( b^{2}_{n-1} - 2 \right)}^{2}}{4\cdot b^{2}_{n-1}}                               \\
+                                & \le \frac{(b^{2}_{n-1} - 2)\cdot (b^{2}_{1} - 2)}{4\cdot b^{2}_{n-1}}                           \\
+                                & \le \frac{b^{2}_{n-1} - 2}{2\cdot b^{2}_{n-1}}                                                  \\
+                                & < \frac{b^{2}_{n-1} - 2}{4}                                                                     \\
+                                & \le \frac{b^{2}_{1} - 2}{4^{n-1}} = \frac{2}{4^{n-1}} = \frac{1}{2^{2n-3}} \le \frac{1}{2^{n}}.
               \end{align*}
 
               \[
-                  (\forall\varepsilon > 0)\left(\forall n > N(\varepsilon) = \left\lfloor \frac{1}{\varepsilon} - 1\right\rfloor\right)\left( \frac{1}{2^{n}} < \varepsilon \right)
+                  (\forall\varepsilon > 0)\left(\forall n > N(\varepsilon) = \abs{\floor{\frac{1}{\varepsilon} - 1}}\right)\left( \frac{1}{2^{n}} < \varepsilon \right).
               \]
 
-              So for every $\varepsilon > 0$, choose $N = \left\lfloor\dfrac{1}{\varepsilon} - 1\right\rfloor + 2$, then for all $n > N$, $\abs{b^{2}_{n} - 2} < \dfrac{1}{2^{n}} < \varepsilon$.
+              So for every $\varepsilon > 0$, choose $N = \abs{\floor{\dfrac{1}{\varepsilon} - 1}} + 3$ (I plus 3 to make sure $N > 2$), then for all $n > N$, $\abs{b^{2}_{n} - 2} < \dfrac{1}{2^{n}} < \varepsilon$.
 
               Therefore, $(x_{n})$ converges to $2$.
 
               Hence $b^{2} = 2$.
     \end{enumerate}
 
-    $b^{2} = 2$ contradicts to the fact that there is no rational number whose square equals $2$.
+    $b^{2} = 2$ contradicts that there is no rational number whose square equals $2$.
 
     Hence the initial assumption ($b$ is a rational number) is false. Therefore, $(b_{n})$ does not converge to a rational number.
 \end{proof}
+
+The equivalence relation amongst Cauchy sequences partitions the set of all Cauchy sequences into \textit{equivalance classes}. In the upcoming subsections, I will prove that these equivalence classes satisfy the axioms of the real numbers. Firstly, I have to define the order relation, operations (addition, multiplication) on them.
+
+\subsection{Field structure}
+
+\subsection{Total ordering}
+
+\subsection{Least-upper-bound property}
+
+\subsection{Completeness (Cauchy-complete)}
 
 \section{Compare the two constructions}
 

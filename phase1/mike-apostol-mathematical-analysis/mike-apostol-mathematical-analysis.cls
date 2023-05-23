@@ -75,5 +75,7 @@
 }
 \newcommand{\rank}{\text{rank}}
 \renewcommand{\phi}{\varphi}
-\newcommand{\abs}[1]{\left|{#1}\right|}
+\newcommand{\abs}[1]{\left\vert{#1}\right\vert}
+\newcommand{\floor}[1]{\left\lfloor{#1}\right\rfloor}
+\newcommand{\ceiling}[1]{\left\lceil{#1}\right\rceil}
 \newcommand{\dotprod}[1]{\left\langle{#1}\right\rangle}
