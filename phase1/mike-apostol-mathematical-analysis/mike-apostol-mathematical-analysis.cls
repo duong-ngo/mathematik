@@ -79,3 +79,5 @@
 \newcommand{\floor}[1]{\left\lfloor{#1}\right\rfloor}
 \newcommand{\ceiling}[1]{\left\lceil{#1}\right\rceil}
 \newcommand{\dotprod}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\seq}[1]{{\left\{{#1}\right\}}^{\infty}_{n=1}}
+\newcommand{\class}[1]{\left[{#1}\right]}

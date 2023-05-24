@@ -1564,7 +1564,7 @@ In the upcoming \textit{four subsections}, we consider sequences with rational t
 In this subsection and the upcoming three subsections, we work with Cauchy sequences which contain rational numbers only.
 
 \begin{definition}
-    A sequence ${\{ a_{n} \}}^{\infty}_{n=1}$ (or just $(a_{n})$) is called a Cauchy sequence if and only if
+    A sequence $\seq{a_{n}}$ is called a Cauchy sequence if and only if
     \begin{quotation}
         \noindent for every positive rational number $\varepsilon$, there exists a natural number $N$ which is a function of $\varepsilon$ such that for all natural numbers $m, n$ which are greater than $N$, $\left\vert a_{m} - a_{n}\right\vert < \varepsilon$.
     \end{quotation}
@@ -1575,12 +1575,12 @@ In this subsection and the upcoming three subsections, we work with Cauchy seque
     \]
 \end{definition}
 
-Informally, the differences of any two terms can be arbitrarily small as the indices increase.
+Informally, the differences of any two terms can be arbitrarily small from a certain index.
 
-Such sequences do exist. For example: $(a_{n})$, where $a_{n} = 0$ for every natural number $n$.
+Such sequences do exist. For example: $\seq{a_{n}}$, where $a_{n} = 0$ for every natural number $n$.
 
 \begin{definition}[Equivalent Cauchy sequences]
-    Two Cauchy sequences $(a_{n})$ and $(b_{n})$ are called equivalent if and only if
+    Two Cauchy sequences $\seq{a_{n}}$ and $\seq{b_{n}}$ are called equivalent if and only if
     \[
         (\forall\varepsilon > 0)(\exists N=N(\varepsilon))(\forall n > N)(\left\vert a_{n} - b_{n} \right\vert < \varepsilon).
     \]
@@ -1594,15 +1594,15 @@ Such sequences do exist. For example: $(a_{n})$, where $a_{n} = 0$ for every nat
     \begin{itemize}
         \item Reflexive.
 
-              A Cauchy sequence $(a_{n})$ is equivalent to itself, since
+              A Cauchy sequence $\seq{a_{n}}$ is equivalent to itself, since
               \[
                   (\forall\varepsilon > 0)(\forall n > 1)(\left\vert a_{n} - a_{n} \right\vert = 0 < \varepsilon)
               \]
         \item Symmetric.
 
-              Let $(a_{n})$ and $(b_{n})$ be two Cauchy sequences.
+              Let $\seq{a_{n}}$ and $\seq{b_{n}}$ be two Cauchy sequences.
 
-              $(a_{n})$ is equivalent to $(b_{n})$ if and only if
+              $\seq{a_{n}}$ is equivalent to $\seq{b_{n}}$ if and only if
               \[
                   \begin{split}
                       & (\forall\varepsilon > 0)(\exists N=N(\varepsilon))(\forall n > N)(\left\vert a_{n} - b_{n} \right\vert < \varepsilon) \\
@@ -1610,10 +1610,10 @@ Such sequences do exist. For example: $(a_{n})$, where $a_{n} = 0$ for every nat
                   \end{split}
               \]
 
-              which implies that $(b_{n})$ is equivalent to $(a_{n})$.
+              which implies that $\seq{b_{n}}$ is equivalent to $\seq{a_{n}}$.
         \item Transitive.
 
-              Assume that among three Cauchy sequences $(a_{n})$, $(b_{n})$, $(c_{n})$, $(a_{n})$ is equivalent to $(b_{n})$ and $(b_{n})$ is equivalent to $(c_{n})$.
+              Assume that among three Cauchy sequences $\seq{a_{n}}$, $\seq{b_{n}}$, $\seq{c_{n}}$, $\seq{a_{n}}$ is equivalent to $\seq{b_{n}}$ and $\seq{b_{n}}$ is equivalent to $\seq{c_{n}}$.
 
               Let $\varepsilon$ be an arbitrary positive rational number.
               \[
@@ -1633,29 +1633,29 @@ Such sequences do exist. For example: $(a_{n})$, where $a_{n} = 0$ for every nat
                   (\forall\varepsilon > 0)(\forall n > N)(\abs{a_{n} - c_{n}} < \varepsilon).
               \]
 
-              Thus, $(a_{n})$ and $(c_{n})$ are equivalent.
+              Thus, $\seq{a_{n}}$ and $\seq{c_{n}}$ are equivalent.
     \end{itemize}
 \end{proof}
 
 A Cauchy sequence can converge to a rational number or not.
 
 \begin{definition}
-    A Cauchy sequence $(a_{n})$ converges to a rational number $a$ if and only if
+    A Cauchy sequence $\seq{a_{n}}$ converges to a rational number $a$ if and only if
     \[
         (\forall\varepsilon > 0)(\exists N=N(\varepsilon))(\forall n > N)(\abs{a_{n} - a} < \varepsilon).
     \]
 
-    Then we say $a$ is a limit point of $(a_{n})$.
+    Then we say $a$ is a limit point of $\seq{a_{n}}$.
 \end{definition}
 
 \begin{example}
-    $(a_{n})$ where $a_{n} = q$, $q$ is a rational number converges to a rational number.
+    $\seq{a_{n}}$ where $a_{n} = q$, $q$ is a rational number converges to a rational number.
 \end{example}
 
 \begin{proof}
     For every rational number $\varepsilon > 0$, let's choose $N = 1$, then $\forall n > N$, $\abs{a_{n} - q} = 0 < \varepsilon$.
 
-    Therefore, $(a_{n})$ converges to $q$.
+    Therefore, $\seq{a_{n}}$ converges to $q$.
 \end{proof}
 
 \begin{theorem}
@@ -1663,9 +1663,9 @@ A Cauchy sequence can converge to a rational number or not.
 \end{theorem}
 
 \begin{proof}
-    Let $(a_{n})$ be a Cauchy sequence.
+    Let $\seq{a_{n}}$ be a Cauchy sequence.
 
-    Assume that two rational numbers $a$ and $b$ are limit points of $(a_{n})$ and $a\ne b$.
+    Assume that two rational numbers $a$ and $b$ are limit points of $\seq{a_{n}}$ and $a\ne b$.
 
     Pick a positive rational number $\varepsilon$ such that $\abs{a - b}\ge\varepsilon$.
     \begin{itemize}
@@ -1686,20 +1686,20 @@ A Cauchy sequence can converge to a rational number or not.
 \end{proof}
 
 \begin{theorem}
-    If the Cauchy sequence $(a_{n})$ converges to $a$, then every Cauchy sequence  which is equivalent to $(a_{n})$ also converges to $a$.
+    If the Cauchy sequence $\seq{a_{n}}$ converges to $a$, then every Cauchy sequence  which is equivalent to $\seq{a_{n}}$ also converges to $a$.
 \end{theorem}
 
 \begin{proof}
-    Let $(a_{n})$ and $(b_{n})$ be equivalent Cauchy sequences.
+    Let $\seq{a_{n}}$ and $\seq{b_{n}}$ be equivalent Cauchy sequences.
 
     Let $\varepsilon$ be a positive rational number.
 
-    $(a_{n})$ converges to $a$ means
+    $\seq{a_{n}}$ converges to $a$ means
     \[
         (\exists N_{1}=N_{1}(\varepsilon))(\forall n > N_{1})\left(\abs{a_{n} - a} < \frac{\varepsilon}{2}\right)
     \]
 
-    Since $(a_{n})$ and $(b_{n})$ are equivalent
+    Since $\seq{a_{n}}$ and $\seq{b_{n}}$ are equivalent
     \[
         (\exists N_{2}=N_{2}(\varepsilon))(\forall n > N_{2})\left(\abs{b_{n} - a_{n}} < \frac{\varepsilon}{2}\right)
     \]
@@ -1709,25 +1709,25 @@ A Cauchy sequence can converge to a rational number or not.
         (\forall n > N)\left(\abs{b_{n} - a} \le \abs{b_{n} - a_{n}} + \abs{a_{n} - a} < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon\right)
     \]
 
-    So $(b_{n})$ converges to $a$.
+    So $\seq{b_{n}}$ converges to $a$.
 
-    Thus, every Cauchy sequence which is equivalent to $(a_{n})$ converges to $a$.
+    Thus, every Cauchy sequence which is equivalent to $\seq{a_{n}}$ converges to $a$.
 \end{proof}
 
 \begin{corollary}
-    If the Cauchy sequence $(a_{n})$ does not converge to any rational number, then every Cauchy sequence which is equivalent to $(a_{n})$ does not converge to any rational number, either.
+    If the Cauchy sequence $\seq{a_{n}}$ does not converge to any rational number, then every Cauchy sequence which is equivalent to $\seq{a_{n}}$ does not converge to any rational number, either.
 \end{corollary}
 
 \begin{proof}
-    Let $(a_{n})$ and $(b_{n})$ be equivalent Cauchy sequences.
+    Let $\seq{a_{n}}$ and $\seq{b_{n}}$ be equivalent Cauchy sequences.
 
-    Assume that $(b_{n})$ converges to a rational number. Then according to the previous theorem, $(a_{n})$ converges to the same rational number, which is a contradiction. So $(b_{n})$ does not converge to a ratioanl number.
+    Assume that $\seq{b_{n}}$ converges to a rational number. Then according to the previous theorem, $\seq{a_{n}}$ converges to the same rational number, which is a contradiction. So $\seq{b_{n}}$ does not converge to a ratioanl number.
 
-    Thus, every Cauchy sequence which is equivalent to $(a_{n})$ does not converge to any rational number.
+    Thus, every Cauchy sequence which is equivalent to $\seq{a_{n}}$ does not converge to any rational number.
 \end{proof}
 
 \begin{example}
-    $(b_{n})$ which is defined by
+    $\seq{b_{n}}$ which is defined by
     \[
         b_{n} =
         \begin{cases}
@@ -1740,7 +1740,7 @@ A Cauchy sequence can converge to a rational number or not.
 \end{example}
 
 \begin{proof}
-    Assume that $(b_{n})$ converges to a rational number $b$.
+    Assume that $\seq{b_{n}}$ converges to a rational number $b$.
     \begin{enumerate}[label={\textbf{Step \arabic*.}},itemindent=1cm]
         \item ${b^{2}_{n}} > 2$.
 
@@ -1755,7 +1755,7 @@ A Cauchy sequence can converge to a rational number or not.
               \end{align*}
 
               Hence $b^{2}_{n} > 2$.
-        \item Prove that $(b_{n})$ is a decrease sequence.
+        \item Prove that $\seq{b_{n}}$ is a decrease sequence.
 
               For every $n$, ${b^{2}_{n}}$ is greater than $2$.
 
@@ -1764,26 +1764,26 @@ A Cauchy sequence can converge to a rational number or not.
                   b_{n} - b_{n-1} = \left(\frac{b_{n-1}}{2} + \frac{1}{b_{n-1}}\right) - b_{n-1} = \frac{1}{b_{n-1}} - \frac{b_{n-1}}{2} = \frac{2 - {b}^{2}_{n-1}}{2\cdot b_{n}} < 0
               \]
 
-              Then $(b_{n})$ is a decrease sequence.
-        \item Prove that $b$ is smaller than all terms of $(b_{n})$.
+              Then $\seq{b_{n}}$ is a decrease sequence.
+        \item Prove that $b$ is smaller than all terms of $\seq{b_{n}}$.
 
-              Assume that there exists a natural number $n_{1}$ such that $b_{n_{1}}\le b$. Since $(b_{n})$ is decrease, then $b_{n} < b$, for every $n > n_{1}$.
+              Assume that there exists a natural number $n_{1}$ such that $b_{n_{1}}\le b$. Since $\seq{b_{n}}$ is decrease, then $b_{n} < b$, for every $n > n_{1}$.
 
-              Choose $\varepsilon = \varepsilon - b_{n_{1} + 1}$, then for all $n > n_{1}$, $\abs{b_{n} - b} = b - b_{n} \ge b - b_{n_{1} + 1} = \varepsilon$. Hence, $(b_{n})$ does not converge to $b$.
+              Choose $\varepsilon = \varepsilon - b_{n_{1} + 1}$, then for all $n > n_{1}$, $\abs{b_{n} - b} = b - b_{n} \ge b - b_{n_{1} + 1} = \varepsilon$. Hence, $\seq{b_{n}}$ does not converge to $b$.
 
               Therefore, $b < b_{n}$, for every natural number $n$.
         \item Prove that $0 < b < 2$.
 
-              Since $b$ is smaller than all terms of $(b_{n})$, then $b < b_{1} = 2$.
+              Since $b$ is smaller than all terms of $\seq{b_{n}}$, then $b < b_{1} = 2$.
 
               Suppose that $b\le 0$.
 
-              Choose $\varepsilon = 1$, then for all $n$, $\abs{b_{n} - b} = b_{n} - b \ge b_{n} > \varepsilon$. This means $(b_{n})$ does not converge to $b$.
+              Choose $\varepsilon = 1$, then for all $n$, $\abs{b_{n} - b} = b_{n} - b \ge b_{n} > \varepsilon$. This means $\seq{b_{n}}$ does not converge to $b$.
 
               Therefore, $b > 0$.
         \item Prove that ${b}^{2} = 2$.
 
-              Let's consider another sequence $(x_{n})$, where $x_{n} = {b^{2}_{n}}$.
+              Let's consider another sequence $\seq{x_{n}}$, where $x_{n} = {b^{2}_{n}}$.
 
               Since $b_{n}$ converges to $b$, then
               \[
@@ -1795,7 +1795,7 @@ A Cauchy sequence can converge to a rational number or not.
                   (\forall\varepsilon > 0)(\exists N=N(\varepsilon))(\forall n > N)\left(\abs{b^{2}_{n} - b^{2}} < \abs{b_{n} - b}\cdot\abs{b_{n} + b} < \frac{\varepsilon}{4}\cdot 4 = \varepsilon \right)
               \]
 
-              So $(x_{n})$ converges to $b^{2}$.
+              So $\seq{x_{n}}$ converges to $b^{2}$.
 
               For $n > 2$
               \begin{align*}
@@ -1812,19 +1812,183 @@ A Cauchy sequence can converge to a rational number or not.
 
               So for every $\varepsilon > 0$, choose $N = \abs{\floor{\dfrac{1}{\varepsilon} - 1}} + 3$ (I plus 3 to make sure $N > 2$), then for all $n > N$, $\abs{b^{2}_{n} - 2} < \dfrac{1}{2^{n}} < \varepsilon$.
 
-              Therefore, $(x_{n})$ converges to $2$.
+              Therefore, $\seq{x_{n}}$ converges to $2$.
 
               Hence $b^{2} = 2$.
     \end{enumerate}
 
     $b^{2} = 2$ contradicts that there is no rational number whose square equals $2$.
 
-    Hence the initial assumption ($b$ is a rational number) is false. Therefore, $(b_{n})$ does not converge to a rational number.
+    Hence the initial assumption ($b$ is a rational number) is false. Therefore, $\seq{b_{n}}$ does not converge to a rational number.
 \end{proof}
 
 The equivalence relation amongst Cauchy sequences partitions the set of all Cauchy sequences into \textit{equivalance classes}. In the upcoming subsections, I will prove that these equivalence classes satisfy the axioms of the real numbers. Firstly, I have to define the order relation, operations (addition, multiplication) on them.
 
+Let $\mathbb{R}$ be the set of all equivalence classes (created by equivalence relation amongst Cauchy sequences).
+
 \subsection{Field structure}
+
+\begin{theorem}[Sum of two Cauchy sequences]
+    Let $\seq{a_{n}}$, $\seq{b_{n}}$ be Cauchy sequences, then $\seq{c_{n}}$ where $c_{n} = a_{n} + b_{n}$ is a Cauchy sequence.
+\end{theorem}
+
+\begin{proof}
+    Since $\seq{a_{n}}$ and $\seq{b_{n}}$ are Cauchy sequences, then for every positive rational number $\varepsilon$
+    \begin{itemize}[itemsep=0pt]
+        \item there exists $N_{1} = N_{1}(\varepsilon)$ such that for all $m, n > N_{1}$, $\abs{a_{m} - a_{n}} < \dfrac{\varepsilon}{2}$,
+        \item there exists $N_{2} = N_{2}(\varepsilon)$ such that for all $m, n > N_{2}$, $\abs{b_{m} - a_{n}} < \dfrac{\varepsilon}{2}$.
+    \end{itemize}
+
+    Hence, for all $m, n > N = \max\{N_{1}, N_{2}\}$
+    \[
+        \abs{c_{m} - c_{n}} = \abs{(a_{m} + b_{m}) - (a_{n} + b_{n})} = \abs{(a_{m} - a_{n}) + (b_{m} - b_{n})}\le \abs{a_{m} - a_{n}} + \abs{b_{m} - b_{n}} < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon.
+    \]
+
+    Thus, $\seq{c_{n}}$ is a Cauchy sequence.
+\end{proof}
+
+$\seq{c_{n}}$ is called the sum of $\seq{a_{n}}$ and $\seq{b_{n}}$. We denote $\seq{a_{n}} + \seq{b_{n}} = \seq{a_{n} + b_{n}}$.
+
+\begin{theorem}
+    $\seq{a_{n}}$ and $\seq{c_{n}}$ are equivalent Cauchy sequences.
+
+    $\seq{b_{n}}$ and $\seq{d_{n}}$ are equivalent Cauchy sequences.
+
+    Then $\seq{a_{n} + b_{n}}$ and $\seq{c_{n} + d_{n}}$ are equivalent.
+\end{theorem}
+
+\begin{proof}
+    Let $\varepsilon$ be a positive rational number.
+
+    Since $\seq{a_{n}}$ and $\seq{c_{n}}$ are equivalent Cauchy sequences, $\seq{b_{n}}$ and $\seq{d_{n}}$ are equivalent Cauchy sequences
+    \[
+        \begin{split}
+            (\exists N_{1} = N_{1}(\varepsilon))(\forall n > N_{1})(\abs{a_{n} - c_{n}} < \frac{\varepsilon}{2}), \\
+            (\exists N_{2} = N_{2}(\varepsilon))(\forall n > N_{2})(\abs{b_{n} - d_{n}} < \frac{\varepsilon}{2}).
+        \end{split}
+    \]
+
+    Let $N = \max\{ N_{1}, N_{2} \}$, then
+    \[
+        (\forall n > N)\left(\abs{(a_{n} + b_{n}) - (c_{n} + d_{n})} = \abs{(a_{n} - c_{n}) + (b_{n} - d_{n})} < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon\right).
+    \]
+
+    Thus, the two Cauchy sequences $\seq{a_{n} + b_{n}}$ and $\seq{c_{n} + d_{n}}$ are equivalent.
+\end{proof}
+
+From the above theorem, we deduce that: for any given two Cauchy sequence classes, there exists a Cauchy sequence class of which members are the sum of two Cauchy sequences from the given classes.
+
+We denote the \textit{sum of two classes of Cauchy sequences} $\alpha$ and $\beta$ by $\alpha + \beta$. For example
+\[
+    \class{\seq{a_{n}}} + \class{\seq{b_{n}}} = \class{\seq{a_{n}} + \seq{b_{n}}}
+\]
+
+\begin{theorem}
+    $\mathbb{R}$ with addition is a commutative group.
+    \begin{enumerate}[label={(F\arabic*)},itemsep=0pt,topsep=0pt]
+        \item Addition is associative.
+        \item Addition has an identity element.
+        \item Each element has an additive inverse.
+        \item Addition is commutative.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Let $\seq{a_{n}}$, $\seq{b_{n}}$, $\seq{c_{n}}$ be Cauchy sequences.
+
+    \begin{enumerate}[label={(F\arabic*)},itemsep=0pt]
+        \item For all $n$, $(a_{n} + b_{n}) + c_{n} = a_{n} + (b_{n} + c_{n})$, then the two Cauchy sequences $\seq{(a_{n} + b_{n}) + c_{n}}$ and $\seq{a_{n} + (b_{n} + c_{n})}$ are equivalent.
+
+              Hence
+              \begin{align*}
+                  \left(\class{\seq{a_{n}}} + \class{\seq{b_{n}}}\right) + \class{\seq{c_{n}}} & = \class{\seq{a_{n} + b_{n}}} + \class{\seq{c_{n}}}                             \\
+                                                                                               & = \class{\seq{(a_{n} + b_{n}) + c_{n}}}                                         \\
+                                                                                               & = \class{\seq{a_{n} + (b_{n} + c_{n})}}                                         \\
+                                                                                               & = \class{\seq{a_{n}} + \seq{b_{n} + c_{n}}}                                     \\
+                                                                                               & = \class{\seq{a_{n}}} + \class{\seq{b_{n} + c_{n}}}                             \\
+                                                                                               & = \class{\seq{a_{n}}} + \left(\class{\seq{b_{n}}} + \class{\seq{c_{n}}}\right).
+              \end{align*}
+        \item $\seq{x_{n}}$ is a sequence where $x_{n} = 0$, then $\seq{x_{n}}$ is a Cauchy sequence.
+
+              For all $n$, $a_{n} + x_{n} = x_{n} + a_{n} = a_{n}$. Therefore
+              \[
+                  \seq{a_{n}} + \seq{x_{n}} = \seq{x_{n}} + \seq{a_{n}} = \seq{a_{n}}.
+              \]
+
+              Hence
+              \begin{align*}
+                  \class{\seq{a_{n}}} + \class{\seq{x_{n}}} & = \class{\seq{a_{n}} + \seq{x_{n}}}          \\
+                                                            & = \class{\seq{a_{n}}}                        \\
+                                                            & = \class{\seq{x_{n}} + \seq{a_{n}}}          \\
+                                                            & = \class{\seq{x_{n}}} + \class{\seq{a_{n}}}.
+              \end{align*}
+        \item Define a sequence $\seq{d_{n}}$ as the following: $d_{n} = -a_{n}$.
+
+              Since $a_{n}$ is a Cauchy sequence, then for every positive rational number $\varepsilon$
+              \[
+                  (\exists N=N(\varepsilon))(\forall m, n > N)(\abs{a_{m} - a_{n}} < \varepsilon)
+              \]
+
+              So for all $m, n > N$
+              \[
+                  \abs{d_{m} - d_{n}} = \abs{a_{n} - a_{m}} < \varepsilon.
+              \]
+
+              This implies $\seq{d_{n}}$ is a Cauchy sequence.
+
+              On the other hand, $a_{n} + d_{n} = d_{n} + a_{n} = 0$, therefore
+              \[
+                  \seq{a_{n}} + \seq{d_{n}} = \seq{0} = \seq{d_{n}} + \seq{a_{n}}
+              \]
+
+              Thus
+              \begin{align*}
+                  \class{\seq{a_{n}}} + \class{\seq{d_{n}}} & = \class{\seq{a_{n}} + \seq{d_{n}}}          \\
+                                                            & = \class{\seq{0}}                            \\
+                                                            & = \class{\seq{d_{n}} + \seq{a_{n}}}          \\
+                                                            & = \class{\seq{d_{n}}} + \class{\seq{a_{n}}}.
+              \end{align*}
+        \item \begin{align*}
+                  \class{\seq{a_{n}}} + \class{\seq{b_{n}}} & = \class{\seq{a_{n}} + \seq{b_{n}}}          \\
+                                                            & = \class{\seq{a_{n} + b_{n}}}                \\
+                                                            & = \class{\seq{b_{n} + a_{n}}}                \\
+                                                            & = \class{\seq{b_{n}} + \seq{a_{n}}}          \\
+                                                            & = \class{\seq{b_{n}}} + \class{\seq{a_{n}}}.
+              \end{align*}
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}
+    Let $\seq{a_{n}}$, $\seq{b_{n}}$ be Cauchy sequences, then $\seq{c_{n}}$ where $c_{n} = a_{n} \cdot b_{n}$ is a Cauchy sequence.
+\end{theorem}
+
+\begin{proof}
+\end{proof}
+
+\begin{theorem}[Multiplication]
+    $\seq{a_{n}}$ and $\seq{c_{n}}$ are equivalent Cauchy sequences.
+
+    $\seq{b_{n}}$ and $\seq{d_{n}}$ are equivalent Cauchy sequences.
+
+    Then $\seq{a_{n} \cdot b_{n}}$ and $\seq{c_{n} \cdot d_{n}}$ are equivalent.
+\end{theorem}
+
+\begin{proof}
+\end{proof}
+
+\begin{theorem}
+    $\mathbb{R}$ with addition and multiplication is a field.
+    \begin{enumerate}[label={(F\arabic*)},itemsep=0pt,topsep=0pt]
+        \item Multiplication is associative.
+        \item Multiplication is distributive over addition.
+        \item Multiplication has an identity element.
+        \item Multiplication is commutative.
+        \item Each non-zero element has a multiplicative inverse.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\end{proof}
 
 \subsection{Total ordering}
 
@@ -1832,7 +1996,7 @@ The equivalence relation amongst Cauchy sequences partitions the set of all Cauc
 
 \subsection{Completeness (Cauchy-complete)}
 
-\section{Compare the two constructions}
+\section{Compare the two constructions (models)}
 
 \subsection{Pros and Cons of the two constructions}
 
