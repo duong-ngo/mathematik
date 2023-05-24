@@ -1686,6 +1686,28 @@ A Cauchy sequence can converge to a rational number or not.
 \end{proof}
 
 \begin{theorem}
+    Every Cauchy sequence is bounded.
+\end{theorem}
+
+\begin{proof}
+    Let $\seq{a_{n}}$ be a Cauchy sequence.
+
+    Then there exists a natural number $N$ such that for all $m, n > N$, $\abs{a_{m} - a_{n}} < 1$.
+
+    For $n > N$
+    \[
+        \abs{a_{n}} = \abs{a_{n} - a_{N+1} + a_{N+1}}\le \abs{a_{n} - a_{N+1}} + \abs{a_{N+1}} < 1 + \abs{a_{N+1}}
+    \]
+
+    For every $n$
+    \[
+        \abs{a_{n}}\le \max\{ a_{1}, a_{2}, \ldots, a_{N}, 1 + a_{N+1} \}.
+    \]
+
+    Thus, $\seq{a_{n}}$ is bounded.
+\end{proof}
+
+\begin{theorem}
     If the Cauchy sequence $\seq{a_{n}}$ converges to $a$, then every Cauchy sequence  which is equivalent to $\seq{a_{n}}$ also converges to $a$.
 \end{theorem}
 
@@ -1949,11 +1971,11 @@ We denote the \textit{sum of two classes of Cauchy sequences} $\alpha$ and $\bet
                                                             & = \class{\seq{d_{n}}} + \class{\seq{a_{n}}}.
               \end{align*}
         \item \begin{align*}
-                  \class{\seq{a_{n}}} + \class{\seq{b_{n}}} & = \class{\seq{a_{n}} + \seq{b_{n}}}          \\
-                                                            & = \class{\seq{a_{n} + b_{n}}}                \\
-                                                            & = \class{\seq{b_{n} + a_{n}}}                \\
-                                                            & = \class{\seq{b_{n}} + \seq{a_{n}}}          \\
-                                                            & = \class{\seq{b_{n}}} + \class{\seq{a_{n}}}.
+                  \class{\seq{a_{n}}} + \class{\seq{b_{n}}} & = \class{\seq{a_{n}} + \seq{b_{n}}}                  \\
+                                                            & = \class{\seq{a_{n} + b_{n}}}                        \\
+                                                            & = \class{\seq{b_{n} + a_{n}}}                        \\
+                                                            & = \class{\seq{b_{n}} + \seq{a_{n}}}                  \\
+                                                            & = \class{\seq{b_{n}}} + \class{\seq{a_{n}}}.\qedhere
               \end{align*}
     \end{enumerate}
 \end{proof}
@@ -1963,6 +1985,32 @@ We denote the \textit{sum of two classes of Cauchy sequences} $\alpha$ and $\bet
 \end{theorem}
 
 \begin{proof}
+    Since Cauchy sequences are bounded, there exists positive rational numbers $A$ and $B$ such that
+    \[
+        \begin{split}
+            \abs{a_{n}} < A\quad\forall n, \\
+            \abs{b_{n}} < B\quad\forall n.
+        \end{split}
+    \]
+
+    Let $\varepsilon$ be a positive rational number.
+    \[
+        \begin{split}
+            (\exists N_{1}=N_{1}(\varepsilon))(\forall m, n > N_{1})\left(\abs{a_{m} - a_{n}} < \frac{\varepsilon}{2\cdot B}\right), \\
+            (\exists N_{2}=N_{2}(\varepsilon))(\forall m, n > N_{2})\left(\abs{b_{m} - b_{n}} < \frac{\varepsilon}{2\cdot A}\right).
+        \end{split}
+    \]
+
+    Choose $N = \max\{ N_{1}, N_{2} \}$. Then for every $m, n > N$
+    \begin{align*}
+        \abs{a_{m}\cdot b_{m} - a_{n}\cdot b_{n}} & = \abs{a_{m}\cdot b_{m} - a_{m}\cdot b_{n} + a_{m}\cdot b_{n} - a_{n}\cdot b_{n}}         \\
+                                                  & \le \abs{a_{m}\cdot b_{m} - a_{m}\cdot b_{n}} + \abs{a_{m}\cdot b_{n} - a_{n}\cdot b_{n}} \\
+                                                  & = \abs{a_{m}}\cdot\abs{b_{m} - b_{n}} + \abs{b_{n}}\cdot\abs{a_{m} - a_{n}}               \\
+                                                  & < A\cdot\frac{\varepsilon}{2\cdot A} + B\cdot\frac{\varepsilon}{2\cdot B}                 \\
+                                                  & = \varepsilon.
+    \end{align*}
+
+    Thus, $\seq{c_{n}}$ is a Cauchy sequence.
 \end{proof}
 
 \begin{theorem}[Multiplication]
@@ -1974,11 +2022,38 @@ We denote the \textit{sum of two classes of Cauchy sequences} $\alpha$ and $\bet
 \end{theorem}
 
 \begin{proof}
+    $\seq{b_{n}}$  and $\seq{c_{n}}$ are Cauchy sequences so they are bounded. Then there exists positive rational numbers $B$ and $C$ such that
+    \[
+        \begin{split}
+            \abs{b_{n}} < B\quad\forall n, \\
+            \abs{c_{n}} < C\quad\forall n.
+        \end{split}
+    \]
+
+    Let $\varepsilon$ be a positive rational number. Since $\seq{a_{n}}$ and $\seq{c_{n}}$ are equivalent, $\seq{b_{n}}$ and $\seq{d_{n}}$ are equivalent, then
+    \[
+        \begin{split}
+            (\exists N_{1}=N_{1}(\varepsilon))(\forall n > N_{1})\left(\abs{a_{n} - c_{n}} < \frac{\varepsilon}{2\cdot B}\right), \\
+            (\exists N_{2}=N_{2}(\varepsilon))(\forall n > N_{2})\left(\abs{b_{n} - d_{n}} < \frac{\varepsilon}{2\cdot C}\right).
+        \end{split}
+    \]
+
+    Let $N = \max\{ N_{1}, N_{2} \}$. For all $n > N$, we obtain that
+    \begin{align*}
+        \abs{a_{n}\cdot b_{n} - c_{n}\cdot d_{n}} & = \abs{a_{n}\cdot b_{n} - b_{n}\cdot c_{n} + b_{n}\cdot c_{n} - c_{n}\cdot d_{n}} \\
+                                                  & = \abs{b_{n}\cdot (a_{n} - c_{n}) + c_{n}\cdot (b_{n} - d_{n})}                   \\
+                                                  & \le \abs{b_{n}}\cdot\abs{a_{n} - c_{n}} + \abs{c_{n}}\cdot\abs{b_{n} - d_{n}}     \\
+                                                  & < B\cdot\frac{\varepsilon}{2\cdot B} + C\cdot\frac{\varepsilon}{2\cdot C}         \\
+                                                  & = \frac{\varepsilon}{2} + \frac{\varepsilon}{2}                                   \\
+                                                  & = \varepsilon.
+    \end{align*}
+
+    Thus, two Cauchy sequences $\seq{a_{n}\cdot b_{n}}$ and $\seq{c_{n}\cdot d_{n}}$ are equivalent.
 \end{proof}
 
 \begin{theorem}
     $\mathbb{R}$ with addition and multiplication is a field.
-    \begin{enumerate}[label={(F\arabic*)},itemsep=0pt,topsep=0pt]
+    \begin{enumerate}[label={(F\arabic*)},itemsep=0pt,topsep=0pt,start=5]
         \item Multiplication is associative.
         \item Multiplication is distributive over addition.
         \item Multiplication has an identity element.
