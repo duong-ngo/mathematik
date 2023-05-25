@@ -58,10 +58,10 @@ Upcoming proofs in this section will use various properties of rational numbers,
           \]
 \end{itemize}
 
-Denote the set of all Dedekind cuts of $\mathbb{Q}$ by $\mathfrak{C}_{\mathbb{Q}}$.
+Denote the set of all Dedekind cuts of $\mathbb{Q}$ by $\mathfrak{D}_{\mathbb{Q}}$.
 
 \begin{theorem}[Totally ordered]
-    $\mathfrak{C}_{\mathbb{Q}}$ is totally ordered with $\subseteq$ relation.
+    $\mathfrak{D}_{\mathbb{Q}}$ is totally ordered with $\subseteq$ relation.
 \end{theorem}
 
 \begin{proof}
@@ -1555,13 +1555,13 @@ The least-upper-bound property is also called the axiom of completeness.
 
 \section{Construction of the real numbers by Cauchy sequences}
 
-Another way to construct the real numbers from the rational numbers is using Cauchy sequences. The content of this section is a complete version of Todd Kemp's note --- \textit{Cauchy's construction of $\mathbb{R}$}.
+Another way to construct the real numbers from the rational numbers is using Cauchy sequences. The content of this section is a complete version (nothing is left as an exercise) of Todd Kemp's note $-$ \textit{Cauchy's construction of $\mathbb{R}$}.
 
 In the upcoming \textit{four subsections}, we consider sequences with rational terms only.
 
 \subsection{Definition of Cauchy sequence}
 
-In this subsection and the upcoming three subsections, we work with Cauchy sequences which contain rational numbers only.
+In this subsection and the upcoming three subsections, we work with Cauchy sequences which contain only rational numbers.
 
 \begin{definition}
     A sequence $\seq{a_{n}}$ is called a Cauchy sequence if and only if
@@ -1585,7 +1585,7 @@ A sequence $\seq{b_{n}}$ is \textit{not a Cauchy sequence} if and only if
 \]
 
 \begin{definition}[Equivalent Cauchy sequences]
-    Two Cauchy sequences $\seq{a_{n}}$ and $\seq{b_{n}}$ are called equivalent if and only if
+    Two Cauchy sequences $\seq{a_{n}}, \seq{b_{n}}$ are called equivalent if and only if
     \[
         (\forall\varepsilon > 0)(\exists N=N(\varepsilon))(\forall n > N)(\left\vert a_{n} - b_{n} \right\vert < \varepsilon).
     \]
@@ -1873,11 +1873,11 @@ A Cauchy sequence can converge to a rational number or not.
 
 The equivalence relation amongst Cauchy sequences partitions the set of all Cauchy sequences into \textit{equivalance classes}. In the upcoming subsections, I will prove that these equivalence classes satisfy the axioms of the real numbers. Firstly, I have to define the order relation, operations (addition, multiplication) on them.
 
-Let $\mathbb{R}$ be the set of all equivalence classes (created by equivalence relation amongst Cauchy sequences).
+Let's denote the set of all equivalance classes of Cauchy sequences (with only rational terms) by $\mathfrak{C}_{\mathbb{Q}}$, just like in Todd Kemp's note.
 
 \subsection{Field structure}
 
-In this subsection, we will define addition and multiplication over Cauchy sequences and classes of Cauchy sequences. Then we will prove that $\mathbb{R}$ (the set of all Cauchy sequences) is a field.
+In this subsection, we will define addition and multiplication over Cauchy sequences and classes of Cauchy sequences. Then we will prove that $\mathfrak{C}_{\mathbb{Q}}$ is a field.
 
 \begin{theorem}[Sum of two Cauchy sequences]\label{theorem:chapter1:sum-of-cauchy-sequences}
     Let $\seq{a_{n}}$, $\seq{b_{n}}$ be Cauchy sequences, then $\seq{c_{n}}$ where $c_{n} = a_{n} + b_{n}$ is a Cauchy sequence.
@@ -1927,16 +1927,21 @@ $\seq{c_{n}}$ is called the sum of $\seq{a_{n}}$ and $\seq{b_{n}}$. We denote th
     Thus, the two Cauchy sequences $\seq{a_{n} + b_{n}}$ and $\seq{c_{n} + d_{n}}$ are equivalent.
 \end{proof}
 
-From the above theorem, we obtain the following.
+The above theorem leads to the definition of addition over classes of Cauchy sequences.
 
-\begin{corollary}
-    $\alpha, \beta$ are classes of Cauchy sequences.
+\begin{definition}
+    $\alpha, \beta\in\mathfrak{C}_{\mathbb{Q}}$.
 
-    For every $\seq{a_{n}}\in\alpha$ and $\seq{b_{n}}\in\beta$, $\seq{a_{n}} + \seq{b_{n}}$ belongs to a class of Cauchy sequences.
-\end{corollary}
+    Let $\seq{a_{n}}\in\alpha$ and $\seq{b_{n}}\in\beta$.
+
+    The sum of $\alpha$ and $\beta$, which is denoted by $\alpha + \beta$, is
+    \[
+        \alpha + \beta = \class{\seq{a_{n}} + \seq{b_{n}}}.
+    \]
+\end{definition}
 
 \begin{theorem}
-    $\mathbb{R}$ with addition is a commutative group.
+    $\mathfrak{C}_{\mathbb{Q}}$ with addition is a commutative group.
     \begin{enumerate}[label={(F\arabic*)},itemsep=0pt,topsep=0pt]
         \item Addition is associative.
         \item Addition has an identity element.
@@ -2011,7 +2016,7 @@ From the above theorem, we obtain the following.
 \end{proof}
 
 \begin{theorem}[Product of Cauchy sequences]\label{theorem:chapter1:product-of-cauchy-sequences}
-    Let $\seq{a_{n}}$, $\seq{b_{n}}$ be Cauchy sequences, then $\seq{c_{n}}$ where $c_{n} = a_{n} \cdot b_{n}$ is a Cauchy sequence.
+    Let $\seq{a_{n}}, \seq{b_{n}}\in\mathfrak{C}_{\mathbb{Q}}$, then $\seq{c_{n}}$ where $c_{n} = a_{n} \cdot b_{n}$ is a Cauchy sequence.
 \end{theorem}
 
 \begin{proof}
@@ -2083,16 +2088,21 @@ $\seq{c_{n}}$ is called the product of $\seq{a_{n}}$ and $\seq{b_{n}}$. We denot
     Thus, two Cauchy sequences $\seq{a_{n}\cdot b_{n}}$ and $\seq{c_{n}\cdot d_{n}}$ are equivalent.
 \end{proof}
 
-From the above theorem, we obtain the following consequence.
+Similar to addition, we define product of two Cauchy sequence classes as the following.
 
-\begin{corollary}
-    $\alpha, \beta$ are Cauchy sequence classes.
+\begin{definition}
+    $\alpha, \beta\in\mathfrak{C}_{\mathbb{Q}}$.
 
-    For every Cauchy sequence $\seq{a_{n}}\in\alpha$ and $\seq{b_{n}}\in\beta$, their product belongs to a Cauchy sequence class.
-\end{corollary}
+    Let $\seq{a_{n}}\in\alpha$ and $\seq{b_{n}}\in\beta$.
+
+    The product of $\alpha$ and $\beta$, which is denoted by $\alpha\cdot\beta$, is
+    \[
+        \alpha\cdot\beta = \class{\seq{a_{n}}\cdot\seq{b_{n}}}.
+    \]
+\end{definition}
 
 \begin{theorem}
-    $\mathbb{R}$ with addition and multiplication is a commutative ring.
+    $\mathfrak{C}_{\mathbb{Q}}$ with addition and multiplication is a commutative ring.
     \begin{enumerate}[label={(F\arabic*)},itemsep=0pt,topsep=0pt,start=5]
         \item Multiplication is associative.
         \item Multiplication is distributive over addition.
@@ -2192,40 +2202,40 @@ The proof would be a lot simpler (shorter, actually) if I prove the commutativit
 
     I have difficulty constructing such a sequence/class of sequences. So I need the following lemma.
 
-\begin{lemma}\label{lemma:chapter1:nonzero-sequence}
-    If the Cauchy sequence $\seq{a_{n}}$ is not equivalent to $\seq{0}$, then there exists a natural number $N$ such that for all $n > N$, $a_{n}\ne 0$.
-\end{lemma}
+    \begin{lemma}\label{lemma:chapter1:nonzero-sequence}
+        If the Cauchy sequence $\seq{a_{n}}$ is not equivalent to $\seq{0}$, then there exists a natural number $N$ such that for all $n > N$, $a_{n}\ne 0$.
+    \end{lemma}
 
-\begin{proof}[Proof of Lemma~\ref{lemma:chapter1:nonzero-sequence}]
-    $\seq{a_{n}}$ is a Cauchy sequence, so
-    \[
-        (\exists N_{0}=N_{0}(\varepsilon))(\forall m, n > N_{0})(\abs{a_{m} - a_{n}} < \varepsilon_{0})
-    \]
+    \begin{proof}[Proof of Lemma~\ref{lemma:chapter1:nonzero-sequence}]
+        $\seq{a_{n}}$ is a Cauchy sequence, so
+        \[
+            (\exists N_{0}=N_{0}(\varepsilon))(\forall m, n > N_{0})(\abs{a_{m} - a_{n}} < \varepsilon_{0})
+        \]
 
-    Since $\seq{a_{n}}$ and $\seq{0}$ are inequivalent, then there exists a positive rational number $\varepsilon_{0}$ such that
-    \[
-        (\forall N_{1})(\exists n_{0} > N_{1})\left(\abs{a_{n_{0}}}\ge\varepsilon_{0}\right) \implies (\exists n_{0} > N_{0})\left(\abs{a_{n_{0}}}\ge\varepsilon_{0}\right)
-    \]
+        Since $\seq{a_{n}}$ and $\seq{0}$ are inequivalent, then there exists a positive rational number $\varepsilon_{0}$ such that
+        \[
+            (\forall N_{1})(\exists n_{0} > N_{1})\left(\abs{a_{n_{0}}}\ge\varepsilon_{0}\right) \implies (\exists n_{0} > N_{0})\left(\abs{a_{n_{0}}}\ge\varepsilon_{0}\right)
+        \]
 
-    So, for all $n > N_{0}$
-    \[
-        -\varepsilon_{0} < a_{n} - a_{n_{0}} < \varepsilon_{0}.
-    \]
+        So, for all $n > N_{0}$
+        \[
+            -\varepsilon_{0} < a_{n} - a_{n_{0}} < \varepsilon_{0}.
+        \]
 
-    $\abs{a_{n_{0}}}\ge\varepsilon_{0}$ implies that $a_{n_{0}}\ge\varepsilon_{0}$ or $a_{n_{0}}\le-\varepsilon_{0}$.
+        $\abs{a_{n_{0}}}\ge\varepsilon_{0}$ implies that $a_{n_{0}}\ge\varepsilon_{0}$ or $a_{n_{0}}\le-\varepsilon_{0}$.
 
-    If $a_{n_{0}}\ge\varepsilon_{0}$, then for all $n > N_{0}$
-    \[
-        a_{n} = (a_{n} - a_{n_{0}}) + a_{n_{0}} > -\varepsilon_{0} + \varepsilon_{0} > 0.
-    \]
+        If $a_{n_{0}}\ge\varepsilon_{0}$, then for all $n > N_{0}$
+        \[
+            a_{n} = (a_{n} - a_{n_{0}}) + a_{n_{0}} > -\varepsilon_{0} + \varepsilon_{0} > 0.
+        \]
 
-    Otherwise $a_{n_{0}}\le-\varepsilon_{0}$, then for all $n > N_{0}$
-    \[
-        a_{n} = (a_{n} - a_{n_{0}}) + a_{n_{0}} < \varepsilon_{0} + (-\varepsilon_{0}) = 0.
-    \]
+        Otherwise $a_{n_{0}}\le-\varepsilon_{0}$, then for all $n > N_{0}$
+        \[
+            a_{n} = (a_{n} - a_{n_{0}}) + a_{n_{0}} < \varepsilon_{0} + (-\varepsilon_{0}) = 0.
+        \]
 
-    We have constructed a natural number $N = N_{1}$ such that $\forall n > N$, $a_{n}\ne 0$.
-\end{proof}
+        We have constructed a natural number $N = N_{1}$ such that $\forall n > N$, $a_{n}\ne 0$.
+    \end{proof}
 
     \textbf{Back to the theorem's proof.}
 
@@ -2234,7 +2244,7 @@ The proof would be a lot simpler (shorter, actually) if I prove the commutativit
     We define $\seq{y_{n}}$ as the following
     \[
         y_{n} = \begin{cases}
-            0               & \text{if $n\le N$}, \\
+            0                & \text{if $n\le N$}, \\
             \dfrac{1}{a_{n}} & \text{if $n > N$}.
         \end{cases}
     \]
@@ -2263,7 +2273,7 @@ The proof would be a lot simpler (shorter, actually) if I prove the commutativit
     Hence $\class{\seq{a_{n}}}$ has a multiplicative inverse.
 \end{proof}
 
-At this point, we have proved that the set of all Cauchy sequences (with only rational terms) satisfies the field axioms.
+At this point, we have proved that the set of all Cauchy sequences (with only rational terms) satisfies the nine field axioms.
 
 \subsection{Total ordering and compatibility with addtion and multiplication}
 
