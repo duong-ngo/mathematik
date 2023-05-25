@@ -1571,13 +1571,18 @@ In this subsection and the upcoming three subsections, we work with Cauchy seque
 
     Equivalently
     \[
-        (\forall\varepsilon > 0)(\exists N=N(\varepsilon))(\forall m, n > N)\left(\left\vert a_{m} - a_{n} \right\vert < \varepsilon\right).
+        (\forall\varepsilon > 0)(\exists N=N(\varepsilon))(\forall m, n > N)\left(\abs{a_{m} - a_{n}} < \varepsilon\right).
     \]
 \end{definition}
 
 Informally, the differences of any two terms can be arbitrarily small from a certain index.
 
 Such sequences do exist. For example: $\seq{a_{n}}$, where $a_{n} = 0$ for every natural number $n$.
+
+A sequence $\seq{b_{n}}$ is \textit{not a Cauchy sequence} if and only if
+\[
+    (\exists\varepsilon > 0)(\forall N)(\exists m, n > N)(\abs{b_{m} - b_{n}}\ge\varepsilon).
+\]
 
 \begin{definition}[Equivalent Cauchy sequences]
     Two Cauchy sequences $\seq{a_{n}}$ and $\seq{b_{n}}$ are called equivalent if and only if
@@ -1637,16 +1642,38 @@ Such sequences do exist. For example: $\seq{a_{n}}$, where $a_{n} = 0$ for every
     \end{itemize}
 \end{proof}
 
-A Cauchy sequence can converge to a rational number or not.
+If two Cauchy sequences $\seq{a_{n}}$ and $\seq{b_{n}}$ are equivalent, we write $\seq{a_{n}}\sim\seq{b_{n}}$. Otherwise, we write $\seq{a_{n}}\nsim\seq{b_{n}}$. We denote the equivalence class of $\seq{a_{n}}$ by $\class{\seq{a_{n}}}$.
 
 \begin{definition}
-    A Cauchy sequence $\seq{a_{n}}$ converges to a rational number $a$ if and only if
+    We say $\seq{a_{n}}$ converges to a rational number $a$ if and only if
     \[
         (\forall\varepsilon > 0)(\exists N=N(\varepsilon))(\forall n > N)(\abs{a_{n} - a} < \varepsilon).
     \]
 
     Then we say $a$ is a limit point of $\seq{a_{n}}$.
 \end{definition}
+
+\begin{theorem}
+    If $\seq{a_{n}}$ converges to a rational number $a$, then $\seq{a_{n}}$ is a Cauchy sequence.
+\end{theorem}
+
+\begin{proof}
+    Let $\varepsilon$ be a positive rational number.
+
+    Since $\seq{a_{n}}$ converges to $a$, there exists a natural number $N = N(\varepsilon)$ such that
+    \[
+        (\forall n > N)(\abs{a_{n} - a} < \frac{\varepsilon}{2}).
+    \]
+
+    Hence, for all $m, n > N$
+    \[
+        \abs{a_{m} - a_{n}} = \abs{(a_{m} - a) + (a - a_{n})} \le \abs{a_{m} - a} + \abs{a_{n} - a} < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon.
+    \]
+
+    Thus, $\seq{a_{n}}$ is a Cauchy sequence.
+\end{proof}
+
+A Cauchy sequence can converge to a rational number or not.
 
 \begin{example}
     $\seq{a_{n}}$ where $a_{n} = q$, $q$ is a rational number converges to a rational number.
@@ -1701,14 +1728,14 @@ A Cauchy sequence can converge to a rational number or not.
 
     For every $n$
     \[
-        \abs{a_{n}}\le \max\{ a_{1}, a_{2}, \ldots, a_{N}, 1 + a_{N+1} \}.
+        \abs{a_{n}}\le \max\{ \abs{a_{1}}, \abs{a_{2}}, \ldots, \abs{a_{N}}, 1 + \abs{a_{N+1}} \}.
     \]
 
     Thus, $\seq{a_{n}}$ is bounded.
 \end{proof}
 
 \begin{theorem}
-    If the Cauchy sequence $\seq{a_{n}}$ converges to $a$, then every Cauchy sequence  which is equivalent to $\seq{a_{n}}$ also converges to $a$.
+    If the Cauchy sequence $\seq{a_{n}}$ converges to $a$, then every Cauchy sequence which is equivalent to $\seq{a_{n}}$ also converges to $a$.
 \end{theorem}
 
 \begin{proof}
@@ -1777,7 +1804,7 @@ A Cauchy sequence can converge to a rational number or not.
               \end{align*}
 
               Hence $b^{2}_{n} > 2$.
-        \item Prove that $\seq{b_{n}}$ is a decrease sequence.
+        \item Prove that $\seq{b_{n}}$ is a decreasing sequence.
 
               For every $n$, ${b^{2}_{n}}$ is greater than $2$.
 
@@ -1786,10 +1813,10 @@ A Cauchy sequence can converge to a rational number or not.
                   b_{n} - b_{n-1} = \left(\frac{b_{n-1}}{2} + \frac{1}{b_{n-1}}\right) - b_{n-1} = \frac{1}{b_{n-1}} - \frac{b_{n-1}}{2} = \frac{2 - {b}^{2}_{n-1}}{2\cdot b_{n}} < 0
               \]
 
-              Then $\seq{b_{n}}$ is a decrease sequence.
+              Then $\seq{b_{n}}$ is a decreasing sequence.
         \item Prove that $b$ is smaller than all terms of $\seq{b_{n}}$.
 
-              Assume that there exists a natural number $n_{1}$ such that $b_{n_{1}}\le b$. Since $\seq{b_{n}}$ is decrease, then $b_{n} < b$, for every $n > n_{1}$.
+              Assume that there exists a natural number $n_{1}$ such that $b_{n_{1}}\le b$. Since $\seq{b_{n}}$ is decreasing, then $b_{n} < b$, for every $n > n_{1}$.
 
               Choose $\varepsilon = \varepsilon - b_{n_{1} + 1}$, then for all $n > n_{1}$, $\abs{b_{n} - b} = b - b_{n} \ge b - b_{n_{1} + 1} = \varepsilon$. Hence, $\seq{b_{n}}$ does not converge to $b$.
 
@@ -1850,7 +1877,9 @@ Let $\mathbb{R}$ be the set of all equivalence classes (created by equivalence r
 
 \subsection{Field structure}
 
-\begin{theorem}[Sum of two Cauchy sequences]
+In this subsection, we will define addition and multiplication over Cauchy sequences and classes of Cauchy sequences. Then we will prove that $\mathbb{R}$ (the set of all Cauchy sequences) is a field.
+
+\begin{theorem}[Sum of two Cauchy sequences]\label{theorem:chapter1:sum-of-cauchy-sequences}
     Let $\seq{a_{n}}$, $\seq{b_{n}}$ be Cauchy sequences, then $\seq{c_{n}}$ where $c_{n} = a_{n} + b_{n}$ is a Cauchy sequence.
 \end{theorem}
 
@@ -1869,7 +1898,7 @@ Let $\mathbb{R}$ be the set of all equivalence classes (created by equivalence r
     Thus, $\seq{c_{n}}$ is a Cauchy sequence.
 \end{proof}
 
-$\seq{c_{n}}$ is called the sum of $\seq{a_{n}}$ and $\seq{b_{n}}$. We denote $\seq{a_{n}} + \seq{b_{n}} = \seq{a_{n} + b_{n}}$.
+$\seq{c_{n}}$ is called the sum of $\seq{a_{n}}$ and $\seq{b_{n}}$. We denote the sum of the two sequences by $\seq{a_{n}} + \seq{b_{n}}$.
 
 \begin{theorem}
     $\seq{a_{n}}$ and $\seq{c_{n}}$ are equivalent Cauchy sequences.
@@ -1898,12 +1927,13 @@ $\seq{c_{n}}$ is called the sum of $\seq{a_{n}}$ and $\seq{b_{n}}$. We denote $\
     Thus, the two Cauchy sequences $\seq{a_{n} + b_{n}}$ and $\seq{c_{n} + d_{n}}$ are equivalent.
 \end{proof}
 
-From the above theorem, we deduce that: for any given two Cauchy sequence classes, there exists a Cauchy sequence class of which members are the sum of two Cauchy sequences from the given classes.
+From the above theorem, we obtain the following.
 
-We denote the \textit{sum of two classes of Cauchy sequences} $\alpha$ and $\beta$ by $\alpha + \beta$. For example
-\[
-    \class{\seq{a_{n}}} + \class{\seq{b_{n}}} = \class{\seq{a_{n}} + \seq{b_{n}}}
-\]
+\begin{corollary}
+    $\alpha, \beta$ are classes of Cauchy sequences.
+
+    For every $\seq{a_{n}}\in\alpha$ and $\seq{b_{n}}\in\beta$, $\seq{a_{n}} + \seq{b_{n}}$ belongs to a class of Cauchy sequences.
+\end{corollary}
 
 \begin{theorem}
     $\mathbb{R}$ with addition is a commutative group.
@@ -1980,7 +2010,7 @@ We denote the \textit{sum of two classes of Cauchy sequences} $\alpha$ and $\bet
     \end{enumerate}
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}[Product of Cauchy sequences]\label{theorem:chapter1:product-of-cauchy-sequences}
     Let $\seq{a_{n}}$, $\seq{b_{n}}$ be Cauchy sequences, then $\seq{c_{n}}$ where $c_{n} = a_{n} \cdot b_{n}$ is a Cauchy sequence.
 \end{theorem}
 
@@ -2013,7 +2043,9 @@ We denote the \textit{sum of two classes of Cauchy sequences} $\alpha$ and $\bet
     Thus, $\seq{c_{n}}$ is a Cauchy sequence.
 \end{proof}
 
-\begin{theorem}[Multiplication]
+$\seq{c_{n}}$ is called the product of $\seq{a_{n}}$ and $\seq{b_{n}}$. We denote the product of the two sequences by $\seq{a_{n}}\cdot\seq{b_{n}}$.
+
+\begin{theorem}
     $\seq{a_{n}}$ and $\seq{c_{n}}$ are equivalent Cauchy sequences.
 
     $\seq{b_{n}}$ and $\seq{d_{n}}$ are equivalent Cauchy sequences.
@@ -2051,6 +2083,14 @@ We denote the \textit{sum of two classes of Cauchy sequences} $\alpha$ and $\bet
     Thus, two Cauchy sequences $\seq{a_{n}\cdot b_{n}}$ and $\seq{c_{n}\cdot d_{n}}$ are equivalent.
 \end{proof}
 
+From the above theorem, we obtain the following consequence.
+
+\begin{corollary}
+    $\alpha, \beta$ are Cauchy sequence classes.
+
+    For every Cauchy sequence $\seq{a_{n}}\in\alpha$ and $\seq{b_{n}}\in\beta$, their product belongs to a Cauchy sequence class.
+\end{corollary}
+
 \begin{theorem}
     $\mathbb{R}$ with addition and multiplication is a field.
     \begin{enumerate}[label={(F\arabic*)},itemsep=0pt,topsep=0pt,start=5]
@@ -2062,10 +2102,157 @@ We denote the \textit{sum of two classes of Cauchy sequences} $\alpha$ and $\bet
     \end{enumerate}
 \end{theorem}
 
+The proof would be a lot simpler (shorter, actually) if I prove the commutativity first.
+
 \begin{proof}
+    Let $\seq{a_{n}}$, $\seq{b_{n}}$, $\seq{c_{n}}$ be Cauchy sequences.
+    \begin{enumerate}[label={(F\arabic*)},itemsep=0pt,topsep=0pt,start=5]
+        \item We will prove that
+              \[
+                  \left(\class{\seq{a_{n}}}\cdot\class{\seq{b_{n}}}\right)\cdot\class{\seq{c_{n}}}.
+              \]
+              According to Theorem~\ref{theorem:chapter1:product-of-cauchy-sequences}, $\left(\seq{a_{n}}\cdot\seq{b_{n}}\right)\cdot\seq{c_{n}}$ and $\seq{a_{n}}\cdot\left(\seq{b_{n}}\cdot\seq{c_{n}}\right)$ are Cauchy sequences.
+              \begin{align*}
+                  \left(\class{\seq{a_{n}}}\cdot\class{\seq{b_{n}}}\right)\cdot\class{\seq{c_{n}}} & = \class{\seq{a_{n}}\cdot\seq{b_{n}}}\cdot\class{\seq{c_{n}}}                                                          \\
+                                                                                                   & = \class{\seq{a_{n}\cdot b_{n}}}\cdot\class{\seq{c_{n}}}                                                               \\
+                                                                                                   & = \class{\seq{a_{n}\cdot b_{n}}\cdot\seq{c_{n}}}                                                                       \\
+                                                                                                   & = \class{\seq{(a_{n}\cdot b_{n})\cdot c_{n}}}                                                                          \\
+                                                                                                   & = \class{\seq{a_{n}\cdot(b_{n}\cdot c_{n})}}                                        & \text{($\mathbb{Q}$ is a field)} \\
+                                                                                                   & = \class{\seq{a_{n}}}\cdot\class{\seq{b_{n}\cdot c_{n}}}                                                               \\
+                                                                                                   & = \class{\seq{a_{n}}}\cdot\class{\seq{b_{n}}\cdot\seq{c_{n}}}                                                          \\
+                                                                                                   & = \class{\seq{a_{n}}}\cdot\left(\class{\seq{b_{n}}}\cdot\class{\seq{c_{n}}}\right).
+              \end{align*}
+        \item We will prove that
+              \[
+                  \begin{split}
+                      \left(\class{\seq{a_{n}}} + \class{\seq{b_{n}}}\right)\cdot\class{\seq{c_{n}}} = \class{\seq{a_{n}}}\cdot\class{\seq{c_{n}}} + \class{\seq{b_{n}}}\cdot\class{\seq{c_{n}}}, \\
+                      \class{\seq{c_{n}}}\cdot\left(\class{\seq{a_{n}}} + \class{\seq{b_{n}}}\right) = \class{\seq{c_{n}}}\cdot\class{\seq{a_{n}}} + \class{\seq{c_{n}}}\cdot\class{\seq{b_{n}}}.
+                  \end{split}
+              \]
+
+              According to Theorem~\ref{theorem:chapter1:sum-of-cauchy-sequences} and Theorem~\ref{theorem:chapter1:product-of-cauchy-sequences}, the following sequences are Cauchy sequences:
+              \[
+                  \begin{split}
+                      \left(\seq{a_{n}} + \seq{b_{n}}\right)\cdot\seq{c_{n}} \qquad \seq{c_{n}}\cdot\left(\seq{a_{n}} + \seq{b_{n}}\right), \\
+                      \seq{a_{n}}\cdot\seq{c_{n}} + \seq{b_{n}}\cdot\seq{c_{n}} \qquad \seq{c_{n}}\cdot\seq{a_{n}} + \seq{c_{n}}\cdot\seq{b_{n}}.
+                  \end{split}
+              \]
+              \begin{align*}
+                  \left(\class{\seq{a_{n}}} + \class{\seq{b_{n}}}\right)\cdot\class{\seq{c_{n}}} & = \class{\seq{a_{n}} + \seq{b_{n}}}\cdot\class{\seq{c_{n}}}                                                                     \\
+                                                                                                 & = \class{\seq{a_{n} + b_{n}}}\cdot\class{\seq{c_{n}}}                                                                           \\
+                                                                                                 & = \class{\seq{a_{n} + b_{n}}\cdot\seq{c_{n}}}                                                                                   \\
+                                                                                                 & = \class{\seq{(a_{n} + b_{n})\cdot c_{n}}}                                                                                      \\
+                                                                                                 & = \class{\seq{a_{n}\cdot c_{n} + b_{n}\cdot c_{n}}}                                          & \text{($\mathbb{Q}$ is a field)} \\
+                                                                                                 & = \class{\seq{a_{n}\cdot c_{n}} + \seq{b_{n}\cdot c_{n}}}                                                                       \\
+                                                                                                 & = \class{\seq{a_{n}\cdot c_{n}}} + \class{\seq{b_{n}\cdot c_{n}}}                                                               \\
+                                                                                                 & = \class{\seq{a_{n}}\cdot\seq{c_{n}}} + \class{\seq{b_{n}}\cdot\seq{c_{n}}}                                                     \\
+                                                                                                 & = \class{\seq{a_{n}}}\cdot\class{\seq{c_{n}}} + \class{\seq{b_{n}}}\cdot\class{\seq{c_{n}}}.
+              \end{align*}
+              \begin{align*}
+                  \class{\seq{c_{n}}}\cdot\left(\class{\seq{a_{n}}} + \class{\seq{b_{n}}}\right) & = \class{\seq{c_{n}}}\cdot\class{\seq{a_{n}} + \seq{b_{n}}}                                                                     \\
+                                                                                                 & = \class{\seq{c_{n}}}\cdot\class{\seq{a_{n} + b_{n}}}                                                                           \\
+                                                                                                 & = \class{\seq{c_{n}}\cdot\seq{a_{n} + b_{n}}}                                                                                   \\
+                                                                                                 & = \class{\seq{c_{n}\cdot (a_{n} + b_{n})}}                                                                                      \\
+                                                                                                 & = \class{\seq{c_{n}\cdot a_{n} + c_{n}\cdot b_{n}}}                                          & \text{($\mathbb{Q}$ is a field)} \\
+                                                                                                 & = \class{\seq{c_{n}\cdot a_{n}} + \seq{c_{n}\cdot b_{n}}}                                                                       \\
+                                                                                                 & = \class{\seq{c_{n}\cdot a_{n}}} + \class{\seq{c_{n}\cdot b_{n}}}                                                               \\
+                                                                                                 & = \class{\seq{c_{n}}\cdot\seq{a_{n}}} + \class{\seq{c_{n}}\cdot\seq{b_{n}}}                                                     \\
+                                                                                                 & = \class{\seq{c_{n}}}\cdot\class{\seq{a_{n}}} + \class{\seq{c_{n}}}\cdot\class{\seq{b_{n}}}.
+              \end{align*}
+        \item We will prove that $\class{\seq{1}}$ is such an element.
+              \begin{align*}
+                  \class{\seq{a_{n}}}\cdot\class{\seq{1}} & = \class{\seq{a_{n}}\cdot\seq{1}}          \\
+                                                          & = \class{\seq{a_{n}\cdot 1}}               \\
+                                                          & = \class{\seq{a_{n}}}                      \\
+                                                          & = \class{\seq{1\cdot a_{n}}}               \\
+                                                          & = \class{\seq{1}\cdot\seq{a_{n}}}          \\
+                                                          & = \class{\seq{1}}\cdot\class{\seq{a_{n}}}.
+              \end{align*}
+        \item We will prove that $\class{\seq{a_{n}}}\cdot\class{\seq{b_{n}}} = \class{\seq{b_{n}}}\cdot\class{\seq{a_{n}}}$.
+              \begin{align*}
+                  \class{\seq{a_{n}}}\cdot\class{\seq{b_{n}}} & = \class{\seq{a_{n}}\cdot\seq{b_{n}}}          \\
+                                                              & = \class{\seq{a_{n}\cdot b_{n}}}               \\
+                                                              & = \class{\seq{b_{n}\cdot a_{n}}}               \\
+                                                              & = \class{\seq{b_{n}}\cdot\seq{a_{n}}}          \\
+                                                              & = \class{\seq{b_{n}}}\cdot\class{\seq{a_{n}}}.
+              \end{align*}
+        \item We will prove that if $\seq{a_{n}}\nsim\seq{0}$, then there exists a sequence $\seq{y_{n}}$ such that
+              \[
+                  \class{\seq{a_{n}}}\cdot\class{\seq{y_{n}}} = \class{\seq{y_{n}}}\cdot\class{\seq{a_{n}}} = \class{\seq{1}}.
+              \]
+
+              Since $\seq{a_{n}}$ and $\seq{0}$ are inequivalent, there exists a positive rational number $\varepsilon_{0}$ and a natural number $N$ such that
+              \[
+                  (\forall n > N)(\abs{a_{n}}\ge\varepsilon_{0}).
+              \]
+
+              We define a sequence as the following
+              \[
+                  y_{n} = \begin{cases}
+                      0               & \text{if $n\le N$}, \\
+                      \frac{1}{a_{n}} & \text{if $n > N$}.
+                  \end{cases}
+              \]
+
+              From the definition of $\seq{y_{n}}$, we obtain that
+              \[
+                  a_{n}\cdot y_{n} = y_{n}\cdot a_{n} = \begin{cases}
+                      0 & \text{if $n\le N$}, \\
+                      1 & \text{if $n > N$}.
+                  \end{cases}
+              \]
+
+              Let $\varepsilon$ be a positive rational number. Then
+              \[
+                  (\forall n > N)(\abs{a_{n}\cdot y_{n} - 1} = 0 < \varepsilon).
+              \]
+
+              Therefore, $\seq{a_{n}\cdot y_{n}}$ converges to $1$. Consequently
+              \begin{align*}
+                  \class{\seq{a_{n}}}\cdot\class{\seq{y_{n}}} & = \class{\seq{y_{n}}}\cdot\class{\seq{a_{n}}} \\
+                                                              & = \class{\seq{y_{n}}\cdot\seq{a_{n}}}         \\
+                                                              & = \class{\seq{y_{n}\cdot a_{n}}}              \\
+                                                              & = \class{\seq{1}}.\qedhere
+              \end{align*}
+    \end{enumerate}
 \end{proof}
 
-\subsection{Total ordering}
+\subsection{Total ordering and compatibility with addtion and multiplication}
+
+\begin{definition}
+    Let $\seq{a_{n}}$ and $\seq{b_{n}}$ be two Cauchy sequences.
+
+    We say $\seq{a_{n}}$ precedes $\seq{b_{n}}$ and denote $\seq{a_{n}}\le\seq{b_{n}}$ if they are equivalent or there exists a natural number $N$ such that
+    \[
+        (\forall n > N)(a_{n}\le b_{n}).
+    \]
+\end{definition}
+
+\begin{theorem}
+    $\seq{a_{n}}$, $\seq{b_{n}}$ and $\seq{c_{n}}$ are Cauchy sequences.
+
+    If $\seq{a_{n}}\le\seq{b_{n}}$ and $\seq{c_{n}}\sim\seq{a_{n}}$, then $\seq{c_{n}}\le\seq{b_{n}}$.
+\end{theorem}
+
+\begin{proof}
+    We consider the two following cases.
+
+    \begin{enumerate}[label={\textbf{Case \arabic*.}},itemsep=0pt,topsep=0pt]
+        \item $\seq{a_{n}}\sim\seq{b_{n}}$.
+
+              Together with $\seq{c_{n}}\sim\seq{a_{n}}$, we obtain that $\seq{c_{n}}\sim\seq{b_{n}}$. So by definition, $\seq{c_{n}}\le\seq{b_{n}}$.
+        \item $\seq{a_{n}}\nsim\seq{b_{n}}$.
+
+              Since $\seq{a_{n}}$ and $\seq{b_{n}}$ are inequivalent, then there exists $\varepsilon_{0}$ and a natural number $N_{1}$ such that
+              \[
+                  (\forall n > N_{1})(\abs{a_{n} - b_{n}}\ge\varepsilon_{0}).
+              \]
+
+              Let $\varepsilon$ be a positive rational number.
+
+              Since $\seq{a_{n}}\le\seq{b_{n}}$, there exists a natural number $N_{2}$ such that for all $n > N_{2}$, $a_{n}\le b_{n}$.
+    \end{enumerate}
+\end{proof}
 
 \subsection{Least-upper-bound property}
 
