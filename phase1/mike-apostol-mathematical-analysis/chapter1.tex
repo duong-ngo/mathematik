@@ -1555,7 +1555,7 @@ The least-upper-bound property is also called the axiom of completeness.
 
 \section{Construction of the real numbers by Cauchy sequences}
 
-Another way to construct the real numbers from the rational numbers is using Cauchy sequences.
+Another way to construct the real numbers from the rational numbers is using Cauchy sequences. The content of this section is a complete version of Todd Kemp's note --- \textit{Cauchy's construction of $\mathbb{R}$}.
 
 In the upcoming \textit{four subsections}, we consider sequences with rational terms only.
 
@@ -1816,7 +1816,7 @@ A Cauchy sequence can converge to a rational number or not.
               Then $\seq{b_{n}}$ is a decreasing sequence.
         \item Prove that $b$ is smaller than all terms of $\seq{b_{n}}$.
 
-              Assume that there exists a natural number $n_{1}$ such that $b_{n_{1}}\le b$. Since $\seq{b_{n}}$ is decreasing, then $b_{n} < b$, for every $n > n_{1}$.
+              Assume that there exists a natural number $n_{1}$ such that $b_{n_{1}}\le b$. Since $\seq{b_{n}}$ is decreasing, then $b_{n} < b_{n_{1}}\le b$ for every $n > n_{1}$.
 
               Choose $\varepsilon = \varepsilon - b_{n_{1} + 1}$, then for all $n > n_{1}$, $\abs{b_{n} - b} = b - b_{n} \ge b - b_{n_{1} + 1} = \varepsilon$. Hence, $\seq{b_{n}}$ does not converge to $b$.
 
@@ -2092,13 +2092,12 @@ From the above theorem, we obtain the following consequence.
 \end{corollary}
 
 \begin{theorem}
-    $\mathbb{R}$ with addition and multiplication is a field.
+    $\mathbb{R}$ with addition and multiplication is a commutative ring.
     \begin{enumerate}[label={(F\arabic*)},itemsep=0pt,topsep=0pt,start=5]
         \item Multiplication is associative.
         \item Multiplication is distributive over addition.
         \item Multiplication has an identity element.
         \item Multiplication is commutative.
-        \item Each non-zero element has a multiplicative inverse.
     \end{enumerate}
 \end{theorem}
 
@@ -2176,48 +2175,99 @@ The proof would be a lot simpler (shorter, actually) if I prove the commutativit
                                                               & = \class{\seq{b_{n}}\cdot\seq{a_{n}}}          \\
                                                               & = \class{\seq{b_{n}}}\cdot\class{\seq{a_{n}}}.
               \end{align*}
-        \item We will prove that if $\seq{a_{n}}\nsim\seq{0}$, then there exists a sequence $\seq{y_{n}}$ such that
-              \[
-                  \class{\seq{a_{n}}}\cdot\class{\seq{y_{n}}} = \class{\seq{y_{n}}}\cdot\class{\seq{a_{n}}} = \class{\seq{1}}.
-              \]
-
-              Since $\seq{a_{n}}$ and $\seq{0}$ are inequivalent, there exists a positive rational number $\varepsilon_{0}$ and a natural number $N$ such that
-              \[
-                  (\forall n > N)(\abs{a_{n}}\ge\varepsilon_{0}).
-              \]
-
-              We define a sequence as the following
-              \[
-                  y_{n} = \begin{cases}
-                      0               & \text{if $n\le N$}, \\
-                      \frac{1}{a_{n}} & \text{if $n > N$}.
-                  \end{cases}
-              \]
-
-              From the definition of $\seq{y_{n}}$, we obtain that
-              \[
-                  a_{n}\cdot y_{n} = y_{n}\cdot a_{n} = \begin{cases}
-                      0 & \text{if $n\le N$}, \\
-                      1 & \text{if $n > N$}.
-                  \end{cases}
-              \]
-
-              Let $\varepsilon$ be a positive rational number. Then
-              \[
-                  (\forall n > N)(\abs{a_{n}\cdot y_{n} - 1} = 0 < \varepsilon).
-              \]
-
-              Therefore, $\seq{a_{n}\cdot y_{n}}$ converges to $1$. Consequently
-              \begin{align*}
-                  \class{\seq{a_{n}}}\cdot\class{\seq{y_{n}}} & = \class{\seq{y_{n}}}\cdot\class{\seq{a_{n}}} \\
-                                                              & = \class{\seq{y_{n}}\cdot\seq{a_{n}}}         \\
-                                                              & = \class{\seq{y_{n}\cdot a_{n}}}              \\
-                                                              & = \class{\seq{1}}.\qedhere
-              \end{align*}
     \end{enumerate}
 \end{proof}
 
+\begin{theorem}
+    \begin{enumerate}[label={(F\arabic*)},start=9]
+        \item Each non-zero element of $\mathbb{R}$ has a multiplicative inverse.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    We will prove that if $\seq{a_{n}}\nsim\seq{0}$, then there exists a sequence $\seq{y_{n}}$ such that
+    \[
+        \class{\seq{a_{n}}}\cdot\class{\seq{y_{n}}} = \class{\seq{y_{n}}}\cdot\class{\seq{a_{n}}} = \class{\seq{1}}.
+    \]
+
+    I have difficulty constructing such a sequence/class of sequences. So I need the following lemma.
+
+\begin{lemma}\label{lemma:chapter1:nonzero-sequence}
+    If the Cauchy sequence $\seq{a_{n}}$ is not equivalent to $\seq{0}$, then there exists a natural number $N$ such that for all $n > N$, $a_{n}\ne 0$.
+\end{lemma}
+
+\begin{proof}[Proof of Lemma~\ref{lemma:chapter1:nonzero-sequence}]
+    $\seq{a_{n}}$ is a Cauchy sequence, so
+    \[
+        (\exists N_{0}=N_{0}(\varepsilon))(\forall m, n > N_{0})(\abs{a_{m} - a_{n}} < \varepsilon_{0})
+    \]
+
+    Since $\seq{a_{n}}$ and $\seq{0}$ are inequivalent, then there exists a positive rational number $\varepsilon_{0}$ such that
+    \[
+        (\forall N_{1})(\exists n_{0} > N_{1})\left(\abs{a_{n_{0}}}\ge\varepsilon_{0}\right) \implies (\exists n_{0} > N_{0})\left(\abs{a_{n_{0}}}\ge\varepsilon_{0}\right)
+    \]
+
+    So, for all $n > N_{0}$
+    \[
+        -\varepsilon_{0} < a_{n} - a_{n_{0}} < \varepsilon_{0}.
+    \]
+
+    $\abs{a_{n_{0}}}\ge\varepsilon_{0}$ implies that $a_{n_{0}}\ge\varepsilon_{0}$ or $a_{n_{0}}\le-\varepsilon_{0}$.
+
+    If $a_{n_{0}}\ge\varepsilon_{0}$, then for all $n > N_{0}$
+    \[
+        a_{n} = (a_{n} - a_{n_{0}}) + a_{n_{0}} > -\varepsilon_{0} + \varepsilon_{0} > 0.
+    \]
+
+    Otherwise $a_{n_{0}}\le-\varepsilon_{0}$, then for all $n > N_{0}$
+    \[
+        a_{n} = (a_{n} - a_{n_{0}}) + a_{n_{0}} < \varepsilon_{0} + (-\varepsilon_{0}) = 0.
+    \]
+
+    We have constructed a natural number $N = N_{1}$ such that $\forall n > N$, $a_{n}\ne 0$.
+\end{proof}
+
+    \textbf{Back to the theorem's proof.}
+
+    Since $\seq{a_{n}}$ and $\seq{0}$ are inequivalent, there exists a natural number $N$ such that for all $n > N$, $a_{n}\ne 0$.
+
+    We define $\seq{y_{n}}$ as the following
+    \[
+        y_{n} = \begin{cases}
+            0               & \text{if $n\le N$}, \\
+            \dfrac{1}{a_{n}} & \text{if $n > N$}.
+        \end{cases}
+    \]
+
+    From the definition of $\seq{y_{n}}$, we obtain that
+    \[
+        a_{n}\cdot y_{n} = y_{n}\cdot a_{n} = \begin{cases}
+            0 & \text{if $n\le N$}, \\
+            1 & \text{if $n > N$}.
+        \end{cases}
+    \]
+
+    Let $\varepsilon$ be a positive rational number. Then
+    \[
+        (\forall n > N)(\abs{a_{n}\cdot y_{n} - 1} = 0 < \varepsilon).
+    \]
+
+    Therefore, $\seq{a_{n}\cdot y_{n}}$ converges to $1$. Consequently
+    \begin{align*}
+        \class{\seq{a_{n}}}\cdot\class{\seq{y_{n}}} & = \class{\seq{y_{n}}}\cdot\class{\seq{a_{n}}} \\
+                                                    & = \class{\seq{y_{n}}\cdot\seq{a_{n}}}         \\
+                                                    & = \class{\seq{y_{n}\cdot a_{n}}}              \\
+                                                    & = \class{\seq{1}}.
+    \end{align*}
+
+    Hence $\class{\seq{a_{n}}}$ has a multiplicative inverse.
+\end{proof}
+
+At this point, we have proved that the set of all Cauchy sequences (with only rational terms) satisfies the field axioms.
+
 \subsection{Total ordering and compatibility with addtion and multiplication}
+
+We need to define an order relation over the set of Cauchy sequences
 
 \begin{definition}
     Let $\seq{a_{n}}$ and $\seq{b_{n}}$ be two Cauchy sequences.
@@ -2236,22 +2286,6 @@ The proof would be a lot simpler (shorter, actually) if I prove the commutativit
 
 \begin{proof}
     We consider the two following cases.
-
-    \begin{enumerate}[label={\textbf{Case \arabic*.}},itemsep=0pt,topsep=0pt]
-        \item $\seq{a_{n}}\sim\seq{b_{n}}$.
-
-              Together with $\seq{c_{n}}\sim\seq{a_{n}}$, we obtain that $\seq{c_{n}}\sim\seq{b_{n}}$. So by definition, $\seq{c_{n}}\le\seq{b_{n}}$.
-        \item $\seq{a_{n}}\nsim\seq{b_{n}}$.
-
-              Since $\seq{a_{n}}$ and $\seq{b_{n}}$ are inequivalent, then there exists $\varepsilon_{0}$ and a natural number $N_{1}$ such that
-              \[
-                  (\forall n > N_{1})(\abs{a_{n} - b_{n}}\ge\varepsilon_{0}).
-              \]
-
-              Let $\varepsilon$ be a positive rational number.
-
-              Since $\seq{a_{n}}\le\seq{b_{n}}$, there exists a natural number $N_{2}$ such that for all $n > N_{2}$, $a_{n}\le b_{n}$.
-    \end{enumerate}
 \end{proof}
 
 \subsection{Least-upper-bound property}
