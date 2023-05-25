@@ -2277,7 +2277,9 @@ At this point, we have proved that the set of all Cauchy sequences (with only ra
 
 \subsection{Total ordering and compatibility with addtion and multiplication}
 
-We need to define an order relation over the set of Cauchy sequences
+In this subsection, we aim to define order relation in $\mathfrak{C}_{\mathbb{Q}}$ and show that the order relation satisfies the axioms of the real numbers.
+
+However, like addition and multiplication, we will define an order relation (actually, preorder relation) between Cauchy sequences.
 
 \begin{definition}
     Let $\seq{a_{n}}$ and $\seq{b_{n}}$ be two Cauchy sequences.
@@ -2289,16 +2291,166 @@ We need to define an order relation over the set of Cauchy sequences
 \end{definition}
 
 \begin{theorem}
-    $\seq{a_{n}}$, $\seq{b_{n}}$ and $\seq{c_{n}}$ are Cauchy sequences.
+    The ``$\le$'' relation amongst Cauchy sequences is partially \textbf{preorder} relation.
+\end{theorem}
 
-    If $\seq{a_{n}}\le\seq{b_{n}}$ and $\seq{c_{n}}\sim\seq{a_{n}}$, then $\seq{c_{n}}\le\seq{b_{n}}$.
+\begin{proof}
+    \begin{itemize}
+        \item Reflexivity.
+
+              Due the definition, a Cauchy sequence precedes itself.
+        \item Transitivity.
+
+              Assume that $\seq{a_{n}}\le\seq{b_{n}}$ and $\seq{b_{n}}\le\seq{c_{n}}$.
+
+              According to the definition of ``$\le$'' relation
+              \[
+                  \begin{split}
+                      (\exists N_{1})(\forall n > N_{1})(a_{n}\le b_{n}), \\
+                      (\exists N_{2})(\forall n > N_{2})(b_{n}\le c_{n}).
+                  \end{split}
+              \]
+
+              Let $N = \max\{ N_{1}, N_{2} \}$, then
+              \[
+                  (\forall n > N)(a_{n}\le b_{n}\le c_{n}).
+              \]
+
+              Hence, $\seq{a_{n}}\le\seq{c_{n}}$.
+    \end{itemize}
+\end{proof}
+
+\begin{theorem}
+    Let $\seq{a_{n}}$ and $\seq{b_{n}}$ be Cauchy sequences that satisfy
+    \[
+        \seq{a_{n}}\le\seq{b_{n}}\qquad\seq{b_{n}}\le\seq{a_{n}}.
+    \]
+
+    Then $\seq{a_{n}}$ and $\seq{b_{n}}$ are equivalent.
+\end{theorem}
+
+\begin{proof}
+    \[
+        \begin{split}
+            \seq{a_{n}}\le\seq{b_{n}} \implies (\exists N_{1})(\forall n > N_{1})(a_{n}\le b_{n}), \\
+            \seq{b_{n}}\le\seq{a_{n}} \implies (\exists N_{2})(\forall n > N_{2})(b_{n}\le a_{n}).
+        \end{split}
+    \]
+
+    Let $N = \max\{ N_{1}, N_{2} \}$.
+    \[
+        (\forall n > N)(a_{n}\le b_{n} \land b_{n}\le a_{n}) \Longleftrightarrow (\forall n > N)(a_{n} = b_{n}).
+    \]
+
+    Therefore
+    \[
+        (\forall\varepsilon > 0)(\forall n > N)(\abs{a_{n} - b_{n}} = 0 < \varepsilon).
+    \]
+
+    Thus, $\seq{a_{n}}$ and $\seq{b_{n}}$ are equivalent.
+\end{proof}
+
+The following theorem allows us to define an \textbf{order} relation (yes, order, not preorder) in $\mathfrak{C}_{\mathbb{Q}}$.
+
+\begin{theorem}
+    $\seq{a_{n}}, \seq{b_{n}}\in\mathfrak{C}_{\mathbb{Q}}$ such that $\seq{a_{n}}\le\seq{b_{n}}$.
+
+    $\seq{a_{n}}$ and $\seq{c_{n}}$ are equivalent, $\seq{b_{n}}$ and $\seq{d_{n}}$ are equivalent.
+
+    Then $\seq{c_{n}}\le\seq{d_{n}}$.
 \end{theorem}
 
 \begin{proof}
     We consider the two following cases.
+
+    \textbf{Case 1. $\seq{a_{n}}$ and $\seq{b_{n}}$ are equivalent.}
+
+    Due to the transitivity of equivalence relation, $\seq{c_{n}}$ and $\seq{d_{n}}$ are equivalent.
+
+    According to the definition, $\seq{c_{n}}\le\seq{d_{n}}$.
+
+    \bigskip
+
+    \textbf{Case 2. $\seq{a_{n}}$ and $\seq{b_{n}}$ are inequivalent.}
+
+    According to the definition of equivalent Cauchy sequences
+    \[
+        (\exists\varepsilon > 0)(\forall N)(\exists n > N)(\abs{a_{n} - b_{n} - 0}\ge\varepsilon).
+    \]
+
+    Therefore, $\seq{a_{n} - b_{n}}$ does not converge to $0$. $\seq{0}$ converges to $0$, so $\seq{a_{n} - b_{n}}$ and $\seq{0}$ are inequivalent.
+
+    According to Lemma~\ref{lemma:chapter1:nonzero-sequence}
+    \[
+        (\exists N_{1})(\forall n > N_{1})(a_{n} - b_{n}\ne 0) \Longleftrightarrow
+        (\exists N_{1})(\forall n > N_{1})(a_{n}\ne b_{n}).
+    \]
+
+    On the other hand, $\seq{a_{n}}\le\seq{b_{n}}$, that is
+    \[
+        (\exists N_{2})(\forall n > N_{2})(a_{n}\le b_{n})
+    \]
+
+    Let $N_{3} = \max\{ N_{1}, N_{2} \}$.
+    \[
+        (\forall n > N_{3})(a_{n} < b_{n}) \implies a_{N_{3} + 1} < b_{N_{3} + 1}
+    \]
+
+    Since $\seq{a_{n}}, \seq{b_{n}}$ are Cauchy sequences
+    \[
+        \begin{split}
+            (\exists N_{a})(\forall m, n > N_{a})\left(\abs{a_{m} - a_{n}} < \frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right) \\
+            (\exists N_{b})(\forall m, n > N_{b})\left(\abs{b_{m} - b_{n}} < \frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right)
+        \end{split}
+    \]
+
+    $\seq{a_{n}}$ and $\seq{c_{n}}$ are equivalent, so
+    \[
+        (\exists N_{c})(\forall n > N_{c})\left(\abs{c_{n} - a_{n}} < \frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right).
+    \]
+
+    $\seq{b_{n}}$ and $\seq{d_{n}}$ are equivalent, so
+    \[
+        (\exists N_{d})(\forall n > N_{d})\left(\abs{b_{n} - d_{n}} < \frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right).
+    \]
+
+    Let $N = \max\{ N_{3}, N_{a}, N_{b}, N_{c}, N_{d} \}$. For $n > N$
+    \begin{align*}
+        d_{n} - c_{n} & = (d_{n} - b_{n}) + (b_{n} - a_{n}) + (a_{n} - c_{n})                                                                                                                                                                          \\
+                      & = \abs{b_{n} - a_{n}} + (a_{n} - c_{n}) + (d_{n} - b_{n})                                                                                                                                                                      \\
+                      & = \abs{(b_{N_{3}+1} - a_{N_{3}+1}) - (a_{n} - a_{N_{3}+1} + b_{N_{3}+1} - b_{n})} + (a_{n} - c_{n}) + (d_{n} - b_{n})                                                                                                          \\
+                      & \ge \abs{b_{N_{3}+1} - a_{N_{3}+1}} - \abs{(a_{n} - a_{N_{3}+1}) + (b_{N_{3}+1} - b_{n})} + (a_{n} - c_{n}) + (d_{n} - b_{n})                                                                                                  \\
+                      & \ge (b_{N_{3}+1} - a_{N_{3}+1}) - \left(\abs{a_{n} - a_{N_{3}+1}} + \abs{b_{N_{3}+1} - b_{n}}\right) + (a_{n} - c_{n}) + (d_{n} - b_{n})                                                                                       \\
+                      & > (b_{N_{3}+1} - a_{N_{3}+1}) - \left(\frac{b_{N_{3}+1} - a_{N_{3}+1}}{8} + \frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right) + \left(-\frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right) + \left(-\frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right) \\
+                      & = \frac{b_{N_{3}+1} - a_{N_{3}+1}}{2} > 0
+    \end{align*}
+
+    So, for all $n > N$, $c_{n} < d_{n}$. Therefore, by definition, $\seq{c_{n}}\le\seq{d_{n}}$.
+    \bigskip
+
+    In conclusion, $\seq{c_{n}}\le\seq{d_{n}}$.
+\end{proof}
+
+\begin{definition}
+    We say $\class{\seq{a_{n}}}$ precedes $\class{\seq{b_{n}}}$ if and only if every Cauchy sequence in $\class{\seq{a_{n}}}$ precedes every Cauchy sequence in $\class{\seq{b_{n}}}$, and denote this relation by $\class{\seq{a_{n}}}\le\class{\seq{b_{n}}}$.
+\end{definition}
+
+\begin{theorem}[Total order]
+    $\mathfrak{C}_{\mathbb{Q}}$ with ``$\le$'' relation is totally ordered.
+\end{theorem}
+
+\begin{proof}
+    \begin{itemize}
+        \item Reflexivity.
+        \item Transitivity.
+        \item Anti-symmetry.
+        \item Total.
+    \end{itemize}
 \end{proof}
 
 \subsection{Least-upper-bound property}
+
+\subsection{Embed $\mathbb{Q}$ into $\mathfrak{C}_{\mathbb{Q}}$}
 
 \subsection{Completeness (Cauchy-complete)}
 
