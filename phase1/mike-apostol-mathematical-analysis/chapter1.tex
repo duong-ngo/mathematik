@@ -2203,7 +2203,13 @@ The proof would be a lot simpler (shorter, actually) if I prove the commutativit
     I have difficulty constructing such a sequence/class of sequences. So I need the following lemma.
 
     \begin{lemma}\label{lemma:chapter1:nonzero-sequence}
-        If the Cauchy sequence $\seq{a_{n}}$ is not equivalent to $\seq{0}$, then there exists a natural number $N$ such that for all $n > N$, $a_{n}\ne 0$.
+        If the Cauchy sequence $\seq{a_{n}}$ is not equivalent to $\seq{0}$, then only one of the following proposition holds
+        \begin{itemize}[itemsep=0pt]
+            \item $(\exists N)(\forall n > N)(a_{n} > 0)$,
+            \item $(\exists N)(\forall n > N)(a_{n} < 0)$.
+        \end{itemize}
+
+        Combine the two, we obtain a weaker result: $(\exists N)(\forall n > N)(a_{n}\ne 0)$.
     \end{lemma}
 
     \begin{proof}[Proof of Lemma~\ref{lemma:chapter1:nonzero-sequence}]
@@ -2223,18 +2229,21 @@ The proof would be a lot simpler (shorter, actually) if I prove the commutativit
         \]
 
         $\abs{a_{n_{0}}}\ge\varepsilon_{0}$ implies that $a_{n_{0}}\ge\varepsilon_{0}$ or $a_{n_{0}}\le-\varepsilon_{0}$.
+        \bigskip
 
-        If $a_{n_{0}}\ge\varepsilon_{0}$, then for all $n > N_{0}$
+        \textbf{Case 1. $a_{n_{0}}\ge\varepsilon_{0}$.}
+
+        For all $n > N_{0}$
         \[
             a_{n} = (a_{n} - a_{n_{0}}) + a_{n_{0}} > -\varepsilon_{0} + \varepsilon_{0} > 0.
         \]
 
-        Otherwise $a_{n_{0}}\le-\varepsilon_{0}$, then for all $n > N_{0}$
+        \textbf{Case 2. $a_{n_{0}}\le-\varepsilon_{0}$.}
+
+        For all $n > N_{0}$
         \[
             a_{n} = (a_{n} - a_{n_{0}}) + a_{n_{0}} < \varepsilon_{0} + (-\varepsilon_{0}) = 0.
         \]
-
-        We have constructed a natural number $N = N_{1}$ such that $\forall n > N$, $a_{n}\ne 0$.
     \end{proof}
 
     \textbf{Back to the theorem's proof.}
@@ -2291,7 +2300,7 @@ However, like addition and multiplication, we will define an order relation (act
 \end{definition}
 
 \begin{theorem}
-    The ``$\le$'' relation amongst Cauchy sequences is partially \textbf{preorder} relation.
+    The ``$\le$'' relation amongst Cauchy sequences is a total \textbf{preorder} relation.
 \end{theorem}
 
 \begin{proof}
@@ -2317,10 +2326,41 @@ However, like addition and multiplication, we will define an order relation (act
               \]
 
               Hence, $\seq{a_{n}}\le\seq{c_{n}}$.
+        \item Totality.
+              \begin{enumerate}[label={\textbf{Case \arabic*.}},itemsep=0pt]
+                  \item $\seq{a_{n}}$ and $\seq{b_{n}}$ are equivalent.
+
+                        There is nothing to prove in this case.
+
+                  \item $\seq{a_{n}}$ and $\seq{b_{n}}$ are inequivalent.
+
+                        According to the definition of equivalence relation between Cauchy sequence
+                        \[
+                            \neg(\seq{a_{n}}\sim\seq{b_{n}})\Longleftrightarrow (\exists\varepsilon_{0} > 0)(\forall N)(\exists n > N)(\abs{a_{n} - b_{n}}\ge\varepsilon_{0}).
+                        \]
+
+                        So $\seq{a_{n} - b_{n}}$ does not converge to $0$, thereby $\seq{a_{n} - b_{n}}$ and $\seq{0}$ are inequivalent.
+
+                        According to Lemma~\ref{lemma:chapter1:nonzero-sequence}, only one of the following two cases occurs.
+
+                        \begin{enumerate}[itemsep=0pt]
+                            \item $(\exists N_{0})(\forall n > N_{0})(a_{n} > b_{n})$.
+
+                                  From the definition of the ``$\le$'' relation, $\seq{b_{n}}\le\seq{a_{n}}$.
+
+                            \item $(\exists N_{0})(\forall n > N_{0})(a_{n} < b_{n})$.
+
+                                  From the definition of the ``$\le$'' relation, $\seq{a_{n}}\le\seq{b_{n}}$.
+                        \end{enumerate}
+              \end{enumerate}
+
+              Hence, one of these propositions hold: $\seq{a_{n}}\le\seq{b_{n}}$ and $\seq{b_{n}}\le\seq{a_{n}}$.
     \end{itemize}
 \end{proof}
 
-\begin{theorem}
+The ``$\le$'' relation between Cauchy sequences is not anti-symmetric. Instead, we have the following result.
+
+\begin{theorem}\label{theorem:chapter1:weak-anti-symmetry}
     Let $\seq{a_{n}}$ and $\seq{b_{n}}$ be Cauchy sequences that satisfy
     \[
         \seq{a_{n}}\le\seq{b_{n}}\qquad\seq{b_{n}}\le\seq{a_{n}}.
@@ -2350,9 +2390,43 @@ However, like addition and multiplication, we will define an order relation (act
     Thus, $\seq{a_{n}}$ and $\seq{b_{n}}$ are equivalent.
 \end{proof}
 
-The following theorem allows us to define an \textbf{order} relation (yes, order, not preorder) in $\mathfrak{C}_{\mathbb{Q}}$.
+This total preorder relation is compatible with addition and multiplication.
 
-\begin{theorem}
+\begin{theorem}\label{theorem:chapter1:cauchy-sequence-order-compatibility-with-addition-and-mulitplication}
+    Let $\seq{a_{n}}, \seq{b_{n}}, \seq{c_{n}}$ be Cauchy sequences. Then
+    \begin{enumerate}[label={(\roman*)}]
+        \item $\seq{a_{n}}\le\seq{b_{n}}\implies\seq{a_{n}}+\seq{c_{n}}\le\seq{b_{n}}+\seq{c_{n}}$.
+        \item $\seq{0}\le\seq{a_{n}}\land\seq{0}\le\seq{b_{n}}\implies\seq{0}\le\seq{a_{n}}\cdot\seq{b_{n}}$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    \begin{enumerate}[label={(\roman*)}]
+        \item $\seq{a_{n}}\le\seq{b_{n}}$ implies that there exists a natural number $N$ such that for all $n > N$, $a_{n}\le b_{n}$.
+
+              On the other hand $a_{n}\le b_{n}\rightarrow a_{n} + c_{n}\le b_{n} + c_{n}$. Therefore
+              \[
+                  (\exists N)(\forall n > N)(a_{n} + c_{n}\le b_{n} + c_{n}).
+              \]
+
+              Hence $\seq{a_{n}} + \seq{c_{n}}\le\seq{b_{n}} + \seq{c_{n}}$.
+        \item $\seq{0}\le\seq{a_{n}}$ and $\seq{0}\le\seq{b_{n}}$ imply that
+              \[
+                  \begin{split}
+                      (\exists N_{a})(\forall n > N_{a})(a_{n}\ge 0), \\
+                      (\exists N_{b})(\forall n > N_{b})(b_{n}\ge 0).
+                  \end{split}
+              \]
+
+              Therefore, for all $n > N = \max\{ N_{a}, N_{b} \}$, $a_{n}\cdot b_{n}\ge 0$.
+
+              Thus, $\seq{0}\le\seq{a_{n}}\cdot\seq{b_{n}}$.
+    \end{enumerate}
+\end{proof}
+
+The following theorem is the key to allow us to define an \textbf{order} relation (yes, order, not preorder) in $\mathfrak{C}_{\mathbb{Q}}$.
+
+\begin{theorem}\label{theorem:chapter1:equivalent-cauchy-sequences-and-order}
     $\seq{a_{n}}, \seq{b_{n}}\in\mathfrak{C}_{\mathbb{Q}}$ such that $\seq{a_{n}}\le\seq{b_{n}}$.
 
     $\seq{a_{n}}$ and $\seq{c_{n}}$ are equivalent, $\seq{b_{n}}$ and $\seq{d_{n}}$ are equivalent.
@@ -2440,19 +2514,82 @@ The following theorem allows us to define an \textbf{order} relation (yes, order
 \end{theorem}
 
 \begin{proof}
+    Let $\alpha, \beta, \gamma$ be Cauchy sequences equivalence classes.
     \begin{itemize}
-        \item Reflexivity.
-        \item Transitivity.
-        \item Anti-symmetry.
-        \item Total.
+        \item Reflexivity ($\alpha\le\alpha$)
+
+              For every two Cauchy sequences $\seq{a_{n}}$ and $\seq{b_{n}}$ of a Cauchy sequences class, $\seq{a_{n}}\le\seq{b_{n}}$. So a Cauchy sequence class precedes itself.
+        \item Transitivity ($\alpha\le\beta\land\beta\land\gamma\rightarrow\alpha\le\gamma$).
+
+              Assume that $\alpha\le\beta$ and $\beta\le\gamma$.
+
+              Let $\seq{a_{n}}, \seq{b_{n}}, \seq{c_{n}}$ be members of $\alpha, \beta, \gamma$, respectively.
+
+              According to the definition of ``$\le$'' in $\mathfrak{C}_{\mathbb{Q}}$, $\seq{a_{n}}\le\seq{b_{n}}$ and $\seq{b_{n}}\le\seq{c_{n}}$.
+
+              Since ``$\le$'' relation in the set of all Cauchy sequences (with only rational terms) is a total preorder relation, then $\seq{a_{n}}\le\seq{c_{n}}$.
+
+              It follows from Theorem~\ref{theorem:chapter1:equivalent-cauchy-sequences-and-order} that $\class{\seq{a_{n}}}\le\class{\seq{c_{n}}}$. Therefore $\alpha\le\gamma$.
+
+        \item Anti-symmetry ($\alpha\le\beta\land\beta\le\alpha\rightarrow\alpha=\beta$).
+
+              Let $\seq{a_{n}}, \seq{b_{n}}$ be members of $\alpha, \beta$, respectively.
+
+              According to the definition of ``$\le$'' in $\mathfrak{C}_{\mathbb{Q}}$, $\seq{a_{n}}\le\seq{b_{n}}$ and $\seq{b_{n}}\le\seq{a_{n}}$.
+
+              Then it follows from Theorem~\ref{theorem:chapter1:weak-anti-symmetry} that $\seq{a_{n}}$ and $\seq{b_{n}}$ are equivalent.
+
+              Therefore, $\class{\seq{a_{n}}} = \class{\seq{b_{n}}}$. In other words, $\alpha = \beta$.
+        \item Totality ($\alpha\le\beta\vee\beta\le\alpha$).
+
+              Let $\seq{a_{n}}, \seq{b_{n}}$ be members of $\alpha, \beta$, respectively.
+
+              Since ``$\le$'' in the set of all Cauchy sequences (with only rational terms) is a total preorder relation, then $\seq{a_{n}}\le\seq{b_{n}}$ or $\seq{b_{n}}\le\seq{a_{n}}$.
+
+              Together with Theorem~\ref{theorem:chapter1:equivalent-cauchy-sequences-and-order}, we obtain that $\alpha\le\beta$ or $\beta\le\alpha$.\qedhere
     \end{itemize}
+\end{proof}
+
+\begin{theorem}
+    Let $\alpha, \beta, \gamma\in\mathfrak{C}_{\mathbb{Q}}$.
+    \begin{enumerate}[label={(\roman*)}]
+        \item $\alpha\le\beta\implies\alpha+\gamma\le\beta+\gamma$.
+        \item $\class{\seq{0}}\le\alpha\land\class{\seq{0}}\le\beta\implies\seq{0}\le\alpha\cdot\beta$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Let $\seq{a_{n}}, \seq{b_{n}}, \seq{c_{n}}$ be members of $\alpha, \beta, \gamma$, respectively.
+    \begin{enumerate}[label={(\roman*)}]
+        \item $\alpha\le\beta$ implies $\seq{a_{n}}\le\seq{b_{n}}$.
+
+              $\seq{a_{n}}\le\seq{b_{n}}$ implies $\seq{a_{n}} + \seq{c_{n}}\le\seq{b_{n}} + \seq{c_{n}}$.
+
+              According to Theorem~\ref{theorem:chapter1:cauchy-sequence-order-compatibility-with-addition-and-mulitplication},~\ref{theorem:chapter1:equivalent-cauchy-sequences-and-order} and the definition of addition
+
+              \begin{align*}
+                  \alpha + \gamma & = \class{\seq{a_{n}}} + \class{\seq{c_{n}}} \\
+                                  & = \class{\seq{a_{n}} + \seq{c_{n}}}         \\
+                                  & \le\class{\seq{b_{n}} + \seq{c_{n}}}        \\
+                                  & = \class{\seq{b_{n}}} + \class{\seq{c_{n}}} \\
+                                  & = \beta + \gamma.
+              \end{align*}
+        \item $\class{\seq{0}}\le\alpha$ and $\class{\seq{0}}\le\beta$ imply $\seq{0}\le\seq{a_{n}}$ and $\seq{0}\le\seq{b_{n}}$.
+
+              According to Theorem~\ref{theorem:chapter1:cauchy-sequence-order-compatibility-with-addition-and-mulitplication},~\ref{theorem:chapter1:equivalent-cauchy-sequences-and-order} and the definition of multiplication
+              \begin{align*}
+                  \class{\seq{0}} & \le \class{\seq{a_{n}}\cdot\seq{b_{n}}}       \\
+                                  & = \class{\seq{a_{n}}}\cdot\class{\seq{b_{n}}} \\
+                                  & = \alpha\cdot\beta.\qedhere
+              \end{align*}
+    \end{enumerate}
 \end{proof}
 
 \subsection{Least-upper-bound property}
 
 \subsection{Embed $\mathbb{Q}$ into $\mathfrak{C}_{\mathbb{Q}}$}
 
-\subsection{Completeness (Cauchy-complete)}
+\subsection{Completeness (Cauchy-completeness)}
 
 \section{Compare the two constructions (models)}
 
