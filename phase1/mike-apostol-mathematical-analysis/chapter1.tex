@@ -58,10 +58,10 @@ Upcoming proofs in this section will use various properties of rational numbers,
           \]
 \end{itemize}
 
-Denote the set of all Dedekind cuts of $\mathbb{Q}$ by $\mathfrak{D}_{\mathbb{Q}}$.
+Denote the set of all Dedekind cuts of $\mathbb{Q}$ by $\mathscr{D}_{\mathbb{Q}}$.
 
 \begin{theorem}[Totally ordered]
-    $\mathfrak{D}_{\mathbb{Q}}$ is totally ordered with $\subseteq$ relation.
+    $\mathscr{D}_{\mathbb{Q}}$ is totally ordered with $\subseteq$ relation.
 \end{theorem}
 
 \begin{proof}
@@ -70,21 +70,38 @@ Denote the set of all Dedekind cuts of $\mathbb{Q}$ by $\mathfrak{D}_{\mathbb{Q}
     The subset relation $\subseteq$ is reflexive, transitive, and anti-symmetric.
     \bigskip
 
-    Suppose that $A\ne B$.
+    If $A = B$, then there is nothing else to prove.
 
-    Without loss of generality, suppose that there exists $b\in B$ such that $b\notin A$.
+    Otherwise, $A\ne B$. Let's consider the following cases.
 
-    $b\notin A$, then $b$ is an upper bound of $A$.
+    \begin{enumerate}[label={\textbf{Case \arabic*.}},itemindent=0.5cm]
+        \item There exists $b\in B$ such that $b\notin A$.
 
-    Let $a$ be an arbitrary element of $A$, then $a\le b$. According to (DC4), $a\in B$. Hence $\forall a(a\in A\rightarrow a\in B)$.
+              $b\notin A$, then $b$ is an upper bound of $A$.
 
-    Therefore, $A$ is a proper subset of $B$.
-    \bigskip
+              Let $a$ be an arbitrary element of $A$, then $a < b$. According to (DC4), $a\in B$. Hence $\forall a(a\in A\rightarrow a\in B)$.
 
-    So for every two Dedekind cuts $A$, $B$, one of the following holds: $A\subset B$, $A = B$, $A\supset B$. Hence, the set of all Dedekind cuts of $\mathbb{Q}$ is totally ordered with $\subseteq$ relation.
+              Therefore, $A$ is a proper subset of $B$.
+        \item There exists $a\in A$ such that $a\notin B$.
+
+              $a\notin B$, then $a$ is an upper bound of $B$.
+
+              Let $b$ be an arbitrary element of $B$, then $b < a$. According to (DC4), $b\in A$. Hence $\forall b(b\in B\rightarrow b\in A)$.
+
+              Therefore, $B$ is a proper subset of $A$.
+        \item There exists $a\in A$ such that $a\not B$ and there exists $b\in B$ such that $b\notin A$.
+
+              According to the two previous cases, $A\subset B$ and $B\subset A$. Thereby $A\subset A$, which is false.
+
+              Hence, this case never occurs.
+    \end{enumerate}
+
+    So for every two Dedekind cuts $A$, $B$, one of the following holds: $A\subset B$, $A = B$, $A\supset B$.
+
+    Thus, the set of all Dedekind cuts of $\mathbb{Q}$ is totally ordered with $\subseteq$ relation.
 \end{proof}
 
-We define the relation $\le$ on $\mathfrak{D}_{\mathbb{Q}}$ as follow:
+We define the relation $\le$ on $\mathscr{D}_{\mathbb{Q}}$ as follow:
 \[
     A\le B \Longleftrightarrow A\subseteq B.
 \]
@@ -126,6 +143,7 @@ The following example gives us an example of rational cut, and an example of irr
     \[
         B = \{ x\in\mathbb{Q}: {x}^{2} < 2 \} \cup \mathbb{Q}^{-}
     \]
+
     is an irrational cut.
 \end{example}
 
@@ -353,7 +371,7 @@ The following theorem is a special case of subtraction.
     Thus, $A - B = A + (-B)$.
 \end{proof}
 
-I need the following property to verify the group structure of $\mathfrak{D}_{\mathbb{Q}}$.
+I need the following property to verify the group structure of $\mathscr{D}_{\mathbb{Q}}$.
 
 \begin{lemma}[Archimedean property for rational numbers]
     Let $a, b$ be rational numbers where $a > 0$. Then there exists an integer $n$ such that
@@ -375,7 +393,7 @@ I need the following property to verify the group structure of $\mathfrak{D}_{\m
 \end{proof}
 
 \begin{theorem}\label{theorem:chapter1:real-field-part-one}
-    $\mathfrak{D}_{\mathbb{Q}}$ with addition is a commutative group.
+    $\mathscr{D}_{\mathbb{Q}}$ with addition is a commutative group.
     \begin{enumerate}[label={(F\arabic*)},itemsep=0pt]
         \item Addition is associative.
         \item Addition has identity element.
@@ -495,9 +513,9 @@ I need the following property to verify the group structure of $\mathfrak{D}_{\m
 \end{proof}
 
 \begin{theorem}
-    In $\mathfrak{D}_{\mathbb{Q}}$, addition is compatible with $\subseteq$
+    In $\mathscr{D}_{\mathbb{Q}}$, addition is compatible with $\subseteq$
     \[
-        \forall A, B, C\in\mathfrak{D}_{\mathbb{Q}}(A\subseteq B \rightarrow A + C\subseteq B + C).
+        \forall A, B, C\in\mathscr{D}_{\mathbb{Q}}(A\subseteq B \rightarrow A + C\subseteq B + C).
     \]
 \end{theorem}
 
@@ -681,9 +699,9 @@ I need the following property to verify the group structure of $\mathfrak{D}_{\m
 \end{proof}
 
 \begin{theorem}\label{theorem:chapter1:multiplication-and-order}
-    Multiplication in $\mathfrak{D}_{\mathbb{Q}}$ is compatible with $\subseteq$.
+    Multiplication in $\mathscr{D}_{\mathbb{Q}}$ is compatible with $\subseteq$.
     \[
-        \forall A, B\in\mathfrak{D}_{\mathbb{Q}}(A\supseteq {0}^{*}\land B\supseteq {0}^{*}\rightarrow A\cdot B\supseteq {0}^{*}).
+        \forall A, B\in\mathscr{D}_{\mathbb{Q}}(A\supseteq {0}^{*}\land B\supseteq {0}^{*}\rightarrow A\cdot B\supseteq {0}^{*}).
     \]
 \end{theorem}
 
@@ -722,7 +740,7 @@ Let ${1}^{*}$ be the following (rational) Dedekind cut
 \]
 
 \begin{theorem}
-    $\mathfrak{D}_{\mathbb{Q}}$ with addition and multiplication is a commutative ring.
+    $\mathscr{D}_{\mathbb{Q}}$ with addition and multiplication is a commutative ring.
 \end{theorem}
 
 \begin{proof}
@@ -1111,7 +1129,7 @@ Let ${1}^{*}$ be the following (rational) Dedekind cut
                   A\cdot B = (-A)\cdot (-B) = (-B)\cdot (-A) = B\cdot A.
               \]
 
-              Thus, multiplication in $\mathfrak{D}_{\mathbb{Q}}$ is commutative.
+              Thus, multiplication in $\mathscr{D}_{\mathbb{Q}}$ is commutative.
     \end{enumerate}
 \end{proof}
 
@@ -1188,21 +1206,21 @@ Let ${1}^{*}$ be the following (rational) Dedekind cut
     Thus, $A/B$ is a Dedekind cut.
 \end{proof}
 
-(F1) (F2) (F3) (F4) (F5) (F6) (F7) (F8) make $\mathfrak{D}_{\mathbb{Q}}$ a commutative ring. Together with the following, $\mathfrak{D}_{\mathbb{Q}}$ is a field.
+(F1) (F2) (F3) (F4) (F5) (F6) (F7) (F8) make $\mathscr{D}_{\mathbb{Q}}$ a commutative ring. Together with the following, $\mathscr{D}_{\mathbb{Q}}$ is a field.
 
 \begin{theorem}\label{theorem:chapter1:multiplicative-inverse}
     \begin{enumerate}[label={(F\arabic*)},start=9]
-        \item Each non-zero element of $\mathfrak{D}_{\mathbb{Q}}$ has a multiplicative inverse.
+        \item Each non-zero element of $\mathscr{D}_{\mathbb{Q}}$ has a multiplicative inverse.
     \end{enumerate}
 \end{theorem}
 
 \begin{proof}
-    Let $A$ be a non-zero element of $\mathfrak{D}_{\mathbb{Q}}$. I will show that
+    Let $A$ be a non-zero element of $\mathscr{D}_{\mathbb{Q}}$. I will show that
     \[
         A\cdot ({1}^{*}/A) = ({1}^{*}/A)\cdot A = {1}^{*}.
     \]
 
-    Since multiplication over $\mathfrak{D}_{\mathbb{Q}}$ is commutative, then $A\cdot ({1}^{*}/A) = ({1}^{*}/A)\cdot A$.
+    Since multiplication over $\mathscr{D}_{\mathbb{Q}}$ is commutative, then $A\cdot ({1}^{*}/A) = ({1}^{*}/A)\cdot A$.
 
     \textbf{Case 1.} $A > {0}^{*}$.
     \[
@@ -1339,22 +1357,22 @@ Let ${1}^{*}$ be the following (rational) Dedekind cut
 \end{proof}
 
 \begin{theorem}
-    $\mathfrak{D}_{\mathbb{Q}}$ is a field and it is characteristic zero.
+    $\mathscr{D}_{\mathbb{Q}}$ is a field and it is characteristic zero.
 \end{theorem}
 
 \begin{proof}
-    (F1) (F2) (F3) (F4) (F5) (F6) (F7) (F8) (F9) together assert that $\mathfrak{D}_{\mathbb{Q}}$ is a field.
+    (F1) (F2) (F3) (F4) (F5) (F6) (F7) (F8) (F9) together assert that $\mathscr{D}_{\mathbb{Q}}$ is a field.
 
     Since ${0}^{*} < {1}^{*}$, then for all positive integer $n$
     \[
         \underbrace{{1}^{*} + \cdots + {1}^{*}}_{n} > {0}^{*}.
     \]
-    Therefore, $\mathfrak{D}_{\mathbb{Q}}$ is characteristic zero.
+    Therefore, $\mathscr{D}_{\mathbb{Q}}$ is characteristic zero.
 \end{proof}
 
 \subsection{Least-upper-bound property}
 
-So far, we prove that the set of Dedekind cuts with addition and multiplication is a totally ordered field. But those properties make no distinction between $\mathfrak{D}_{\mathbb{Q}}$ and $\mathbb{Q}$. The property that makes distinction is the least-upper-bound property.
+So far, we prove that the set of Dedekind cuts with addition and multiplication is a totally ordered field. But those properties make no distinction between $\mathscr{D}_{\mathbb{Q}}$ and $\mathbb{Q}$. The property that makes distinction is the least-upper-bound property.
 
 \begin{theorem}
     Let $\mathcal{D}$ be a set of Dedekind cuts of $\mathbb{Q}$ and $\mathcal{D}$ has an upper bound.
@@ -1387,17 +1405,17 @@ So far, we prove that the set of Dedekind cuts with addition and multiplication 
     Thus $\mathcal{D}$ has a least upper bound.
 \end{proof}
 
-Now we have proved that $\mathfrak{D}_{\mathbb{Q}}$ satisfies all real numbers axioms.
+Now we have proved that $\mathscr{D}_{\mathbb{Q}}$ satisfies all real numbers axioms.
 
-\subsection{Embed $\mathbb{Q}$ into $\mathfrak{D}_{\mathbb{Q}}$}
+\subsection{Embed $\mathbb{Q}$ into $\mathscr{D}_{\mathbb{Q}}$}
 
-I don't feel so good after proving that $\mathfrak{D}_{\mathbb{Q}}$ is a totally ordered field. It is because I haven't showed that the addition and multiplication in $\mathfrak{D}_{\mathbb{Q}}$ are ``the same'' as addition and multiplication $\mathbb{Q}$.
+I don't feel so good after proving that $\mathscr{D}_{\mathbb{Q}}$ is a totally ordered field. It is because I haven't showed that the addition and multiplication in $\mathscr{D}_{\mathbb{Q}}$ are ``the same'' as addition and multiplication $\mathbb{Q}$.
 
 \begin{theorem}
     There exists a ring monomorphism $\iota$
     \[
         \begin{split}
-            \iota:\quad & \mathbb{Q}\to\mathfrak{D}_{\mathbb{Q}}, \\
+            \iota:\quad & \mathbb{Q}\to\mathscr{D}_{\mathbb{Q}}, \\
             & q\mapsto {q}^{*}
         \end{split}
     \]
@@ -1408,7 +1426,7 @@ I don't feel so good after proving that $\mathfrak{D}_{\mathbb{Q}}$ is a totally
     We define a mapping $\iota$ as the following:
     \[
         \begin{split}
-            \iota:\quad & \mathbb{Q}\to\mathfrak{D}_{\mathbb{Q}}, \\
+            \iota:\quad & \mathbb{Q}\to\mathscr{D}_{\mathbb{Q}}, \\
             & q\mapsto \{ x : x\in\mathbb{Q}\land x < q \}.
         \end{split}
     \]
@@ -1512,7 +1530,7 @@ I don't feel so good after proving that $\mathfrak{D}_{\mathbb{Q}}$ is a totally
               \end{itemize}
     \end{itemize}
 
-    We have constructed a ring monomorphism $\iota:\mathbb{Q}\to\mathfrak{D}_{\mathbb{Q}}$ that preserves order.
+    We have constructed a ring monomorphism $\iota:\mathbb{Q}\to\mathscr{D}_{\mathbb{Q}}$ that preserves order.
 \end{proof}
 
 \subsection{Completeness (Dedekind completeness)}
@@ -1555,9 +1573,9 @@ The least-upper-bound property is also called the axiom of completeness.
 
 \section{Construction of the real numbers by Cauchy sequences}
 
-Another way to construct the real numbers from the rational numbers is using Cauchy sequences. The content of this section is a complete version (nothing is left as an exercise) of Todd Kemp's note $-$ \textit{Cauchy's construction of $\mathbb{R}$}.
+Another way to construct the real numbers from the rational numbers is using Cauchy sequences.
 
-In the upcoming \textit{four subsections}, we consider sequences with rational terms only.
+In the upcoming \textit{four subsections}, we consider sequences with only rational terms.
 
 \subsection{Definition of Cauchy sequence}
 
@@ -1571,21 +1589,28 @@ In this subsection and the upcoming three subsections, we work with Cauchy seque
 
     Equivalently
     \[
-        (\forall\varepsilon > 0)(\exists N=N(\varepsilon))(\forall m, n > N)\left(\abs{a_{m} - a_{n}} < \varepsilon\right).
+        (\forall\varepsilon > 0)(\exists N=N(\varepsilon))(\forall m, n > N)\left(\abs{a_{m} - a_{n}} < \varepsilon\right),
+    \]
+
+    or
+    \[
+        (\forall\varepsilon > 0)(\exists N=N(\varepsilon))(\forall n > N)(\forall p)\left(\abs{a_{n+p} - a_{n}} < \varepsilon\right).
     \]
 \end{definition}
 
 Informally, the differences of any two terms can be arbitrarily small from a certain index.
 
-Such sequences do exist. For example: $\seq{a_{n}}$, where $a_{n} = 0$ for every natural number $n$.
+\bigskip
+
+Such sequences do exist. For example: $\seq{a_{n}}$, where $a_{n} = q$ ($q$ is a given rational number) for every natural number $n$.
 
 A sequence $\seq{b_{n}}$ is \textit{not a Cauchy sequence} if and only if
 \[
     (\exists\varepsilon > 0)(\forall N)(\exists m, n > N)(\abs{b_{m} - b_{n}}\ge\varepsilon).
 \]
 
-\begin{definition}[Equivalent Cauchy sequences]
-    Two Cauchy sequences $\seq{a_{n}}, \seq{b_{n}}$ are called equivalent if and only if
+\begin{definition}[Equivalent (Cauchy) sequences]
+    Two (Cauchy) sequences $\seq{a_{n}}, \seq{b_{n}}$ are called equivalent if and only if
     \[
         (\forall\varepsilon > 0)(\exists N=N(\varepsilon))(\forall n > N)(\left\vert a_{n} - b_{n} \right\vert < \varepsilon).
     \]
@@ -1873,11 +1898,11 @@ A Cauchy sequence can converge to a rational number or not.
 
 The equivalence relation amongst Cauchy sequences partitions the set of all Cauchy sequences into \textit{equivalance classes}. In the upcoming subsections, I will prove that these equivalence classes satisfy the axioms of the real numbers. Firstly, I have to define the order relation, operations (addition, multiplication) on them.
 
-Let's denote the set of all equivalance classes of Cauchy sequences (with only rational terms) by $\mathfrak{C}_{\mathbb{Q}}$, just like in Todd Kemp's note.
+Let's denote the set of all equivalance classes of Cauchy sequences (with only rational terms) by $\mathscr{C}_{\mathbb{Q}}$, just like in Todd Kemp's note.
 
 \subsection{Field structure}
 
-In this subsection, we will define addition and multiplication over Cauchy sequences and classes of Cauchy sequences. Then we will prove that $\mathfrak{C}_{\mathbb{Q}}$ is a field.
+In this subsection, we will define addition and multiplication over Cauchy sequences and classes of Cauchy sequences. Then we will prove that $\mathscr{C}_{\mathbb{Q}}$ is a field.
 
 \begin{theorem}[Sum of two Cauchy sequences]\label{theorem:chapter1:sum-of-cauchy-sequences}
     Let $\seq{a_{n}}$, $\seq{b_{n}}$ be Cauchy sequences, then $\seq{c_{n}}$ where $c_{n} = a_{n} + b_{n}$ is a Cauchy sequence.
@@ -1905,7 +1930,7 @@ $\seq{c_{n}}$ is called the sum of $\seq{a_{n}}$ and $\seq{b_{n}}$. We denote th
 
     $\seq{b_{n}}$ and $\seq{d_{n}}$ are equivalent Cauchy sequences.
 
-    Then $\seq{a_{n} + b_{n}}$ and $\seq{c_{n} + d_{n}}$ are equivalent.
+    Then $\seq{a_{n}} + \seq{b_{n}}$ and $\seq{c_{n}} + \seq{d_{n}}$ are equivalent.
 \end{theorem}
 
 \begin{proof}
@@ -1930,7 +1955,7 @@ $\seq{c_{n}}$ is called the sum of $\seq{a_{n}}$ and $\seq{b_{n}}$. We denote th
 The above theorem leads to the definition of addition over classes of Cauchy sequences.
 
 \begin{definition}
-    $\alpha, \beta\in\mathfrak{C}_{\mathbb{Q}}$.
+    $\alpha, \beta\in\mathscr{C}_{\mathbb{Q}}$.
 
     Let $\seq{a_{n}}\in\alpha$ and $\seq{b_{n}}\in\beta$.
 
@@ -1941,7 +1966,7 @@ The above theorem leads to the definition of addition over classes of Cauchy seq
 \end{definition}
 
 \begin{theorem}
-    $\mathfrak{C}_{\mathbb{Q}}$ with addition is a commutative group.
+    $\mathscr{C}_{\mathbb{Q}}$ with addition is a commutative group.
     \begin{enumerate}[label={(F\arabic*)},itemsep=0pt,topsep=0pt]
         \item Addition is associative.
         \item Addition has an identity element.
@@ -2016,7 +2041,7 @@ The above theorem leads to the definition of addition over classes of Cauchy seq
 \end{proof}
 
 \begin{theorem}[Product of Cauchy sequences]\label{theorem:chapter1:product-of-cauchy-sequences}
-    Let $\seq{a_{n}}, \seq{b_{n}}\in\mathfrak{C}_{\mathbb{Q}}$, then $\seq{c_{n}}$ where $c_{n} = a_{n} \cdot b_{n}$ is a Cauchy sequence.
+    Let $\seq{a_{n}}, \seq{b_{n}}\in\mathscr{C}_{\mathbb{Q}}$, then $\seq{c_{n}}$ where $c_{n} = a_{n} \cdot b_{n}$ is a Cauchy sequence.
 \end{theorem}
 
 \begin{proof}
@@ -2055,7 +2080,7 @@ $\seq{c_{n}}$ is called the product of $\seq{a_{n}}$ and $\seq{b_{n}}$. We denot
 
     $\seq{b_{n}}$ and $\seq{d_{n}}$ are equivalent Cauchy sequences.
 
-    Then $\seq{a_{n} \cdot b_{n}}$ and $\seq{c_{n} \cdot d_{n}}$ are equivalent.
+    Then $\seq{a_{n}}\cdot\seq{b_{n}}$ and $\seq{c_{n}}\cdot\seq{d_{n}}$ are equivalent.
 \end{theorem}
 
 \begin{proof}
@@ -2085,13 +2110,13 @@ $\seq{c_{n}}$ is called the product of $\seq{a_{n}}$ and $\seq{b_{n}}$. We denot
                                                   & = \varepsilon.
     \end{align*}
 
-    Thus, two Cauchy sequences $\seq{a_{n}\cdot b_{n}}$ and $\seq{c_{n}\cdot d_{n}}$ are equivalent.
+    Thus, two Cauchy sequences $\seq{a_{n}}\cdot\seq{b_{n}} = \seq{a_{n}\cdot b_{n}}$ and $\seq{c_{n}}\cdot\seq{d_{n}} = \seq{c_{n}\cdot d_{n}}$ are equivalent.
 \end{proof}
 
 Similar to addition, we define product of two Cauchy sequence classes as the following.
 
 \begin{definition}
-    $\alpha, \beta\in\mathfrak{C}_{\mathbb{Q}}$.
+    $\alpha, \beta\in\mathscr{C}_{\mathbb{Q}}$.
 
     Let $\seq{a_{n}}\in\alpha$ and $\seq{b_{n}}\in\beta$.
 
@@ -2102,7 +2127,7 @@ Similar to addition, we define product of two Cauchy sequence classes as the fol
 \end{definition}
 
 \begin{theorem}
-    $\mathfrak{C}_{\mathbb{Q}}$ with addition and multiplication is a commutative ring.
+    $\mathscr{C}_{\mathbb{Q}}$ with addition and multiplication is a commutative ring.
     \begin{enumerate}[label={(F\arabic*)},itemsep=0pt,topsep=0pt,start=5]
         \item Multiplication is associative.
         \item Multiplication is distributive over addition.
@@ -2188,9 +2213,55 @@ The proof would be a lot simpler (shorter, actually) if I prove the commutativit
     \end{enumerate}
 \end{proof}
 
+I have difficulty proving the 9th field axiom. After trying, I found out that I need the following lemma (later, I also improved this lemma).
+
+\begin{lemma}\label{lemma:chapter1:nonzero-sequence}
+    If the Cauchy sequence $\seq{a_{n}}$ is not equivalent to $\seq{0}$, then only one of the following proposition holds
+    \begin{itemize}[itemsep=0pt]
+        \item $(\exists a > 0)(\exists N)(\forall n > N)(a_{n} > a)$,
+        \item $(\exists a > 0)(\exists N)(\forall n > N)(a_{n} < -a)$.
+    \end{itemize}
+\end{lemma}
+
+\begin{proof}[Proof of Lemma~\ref{lemma:chapter1:nonzero-sequence}]
+    Since $\seq{a_{n}}$ and $\seq{0}$ are inequivalent, there exists a positive rational number $\varepsilon_{0}$ such that
+    \begin{equation*}
+        (\forall N)(\exists n > N)\left(\abs{a_{n}}\ge\varepsilon_{0}\right).\tag{$\star$}
+    \end{equation*}
+
+    $\seq{a_{n}}$ is a Cauchy sequence, so
+    \[
+        (\exists N_{0}=N_{0}(\varepsilon_{0}))(\forall m, n > N_{0})\left(\abs{a_{m} - a_{n}} < \frac{\varepsilon_{0}}{2}\right).
+    \]
+
+    On the other hand $(\star)\implies (\exists n_{0} > N_{0})(\abs{a_{n_{0}}}\ge\varepsilon_{0})$.
+
+    So, for all $n > N_{0}$
+    \[
+        -\frac{\varepsilon_{0}}{2} < a_{n} - a_{n_{0}} < \frac{\varepsilon_{0}}{2}.
+    \]
+
+    $\abs{a_{n_{0}}}\ge\varepsilon_{0}$ implies that \textit{either} $a_{n_{0}}\ge\varepsilon_{0}$, or $a_{n_{0}}\le-\varepsilon_{0}$.
+    \bigskip
+
+    \textbf{Case 1. $a_{n_{0}}\ge\varepsilon_{0}$.}
+
+    For all $n > N_{0}$
+    \[
+        a_{n} = (a_{n} - a_{n_{0}}) + a_{n_{0}} > -\frac{\varepsilon_{0}}{2} + \varepsilon_{0} > \frac{\varepsilon_{0}}{2}.
+    \]
+
+    \textbf{Case 2. $a_{n_{0}}\le-\varepsilon_{0}$.}
+
+    For all $n > N_{0}$
+    \[
+        a_{n} = (a_{n} - a_{n_{0}}) + a_{n_{0}} < \frac{\varepsilon_{0}}{2} + (-\varepsilon_{0}) = -\frac{\varepsilon_{0}}{2}.
+    \]
+\end{proof}
+
 \begin{theorem}
     \begin{enumerate}[label={(F\arabic*)},start=9]
-        \item Each non-zero element of $\mathbb{R}$ has a multiplicative inverse.
+        \item Each non-zero element of $\mathscr{C}_{\mathbb{Q}}$ has a multiplicative inverse.
     \end{enumerate}
 \end{theorem}
 
@@ -2200,55 +2271,9 @@ The proof would be a lot simpler (shorter, actually) if I prove the commutativit
         \class{\seq{a_{n}}}\cdot\class{\seq{y_{n}}} = \class{\seq{y_{n}}}\cdot\class{\seq{a_{n}}} = \class{\seq{1}}.
     \]
 
-    I have difficulty constructing such a sequence/class of sequences. So I need the following lemma.
+    $\seq{a_{n}}$ and $\seq{0}$ are inequivalent.
 
-    \begin{lemma}\label{lemma:chapter1:nonzero-sequence}
-        If the Cauchy sequence $\seq{a_{n}}$ is not equivalent to $\seq{0}$, then only one of the following proposition holds
-        \begin{itemize}[itemsep=0pt]
-            \item $(\exists N)(\forall n > N)(a_{n} > 0)$,
-            \item $(\exists N)(\forall n > N)(a_{n} < 0)$.
-        \end{itemize}
-
-        Combine the two, we obtain a weaker result: $(\exists N)(\forall n > N)(a_{n}\ne 0)$.
-    \end{lemma}
-
-    \begin{proof}[Proof of Lemma~\ref{lemma:chapter1:nonzero-sequence}]
-        $\seq{a_{n}}$ is a Cauchy sequence, so
-        \[
-            (\exists N_{0}=N_{0}(\varepsilon))(\forall m, n > N_{0})(\abs{a_{m} - a_{n}} < \varepsilon_{0})
-        \]
-
-        Since $\seq{a_{n}}$ and $\seq{0}$ are inequivalent, then there exists a positive rational number $\varepsilon_{0}$ such that
-        \[
-            (\forall N_{1})(\exists n_{0} > N_{1})\left(\abs{a_{n_{0}}}\ge\varepsilon_{0}\right) \implies (\exists n_{0} > N_{0})\left(\abs{a_{n_{0}}}\ge\varepsilon_{0}\right)
-        \]
-
-        So, for all $n > N_{0}$
-        \[
-            -\varepsilon_{0} < a_{n} - a_{n_{0}} < \varepsilon_{0}.
-        \]
-
-        $\abs{a_{n_{0}}}\ge\varepsilon_{0}$ implies that $a_{n_{0}}\ge\varepsilon_{0}$ or $a_{n_{0}}\le-\varepsilon_{0}$.
-        \bigskip
-
-        \textbf{Case 1. $a_{n_{0}}\ge\varepsilon_{0}$.}
-
-        For all $n > N_{0}$
-        \[
-            a_{n} = (a_{n} - a_{n_{0}}) + a_{n_{0}} > -\varepsilon_{0} + \varepsilon_{0} > 0.
-        \]
-
-        \textbf{Case 2. $a_{n_{0}}\le-\varepsilon_{0}$.}
-
-        For all $n > N_{0}$
-        \[
-            a_{n} = (a_{n} - a_{n_{0}}) + a_{n_{0}} < \varepsilon_{0} + (-\varepsilon_{0}) = 0.
-        \]
-    \end{proof}
-
-    \textbf{Back to the theorem's proof.}
-
-    Since $\seq{a_{n}}$ and $\seq{0}$ are inequivalent, there exists a natural number $N$ such that for all $n > N$, $a_{n}\ne 0$.
+    Apply Lemma~\ref{lemma:chapter1:nonzero-sequence}, there exists a natural number $N$ such that for all $n > N$, $a_{n}\ne 0$.
 
     We define $\seq{y_{n}}$ as the following
     \[
@@ -2286,11 +2311,11 @@ At this point, we have proved that the set of all Cauchy sequences (with only ra
 
 \subsection{Total ordering and compatibility with addtion and multiplication}
 
-In this subsection, we aim to define order relation in $\mathfrak{C}_{\mathbb{Q}}$ and show that the order relation satisfies the axioms of the real numbers.
+In this subsection, we aim to define order relation in $\mathscr{C}_{\mathbb{Q}}$ and show that the order relation satisfies the axioms of the real numbers.
 
-However, like addition and multiplication, we will define an order relation (actually, preorder relation) between Cauchy sequences.
+We define two relation (a preorder and a strict preorder) on the set of all Cauchy sequences first, and then an order relation on $\mathscr{C}_{\mathbb{Q}}$.
 
-\begin{definition}
+\begin{definition}[Preorder relation]
     Let $\seq{a_{n}}$ and $\seq{b_{n}}$ be two Cauchy sequences.
 
     We say $\seq{a_{n}}$ precedes $\seq{b_{n}}$ and denote $\seq{a_{n}}\le\seq{b_{n}}$ if they are equivalent or there exists a natural number $N$ such that
@@ -2299,7 +2324,7 @@ However, like addition and multiplication, we will define an order relation (act
     \]
 \end{definition}
 
-\begin{theorem}
+\begin{theorem}\label{theorem:chapter1:preorder}
     The ``$\le$'' relation amongst Cauchy sequences is a total \textbf{preorder} relation.
 \end{theorem}
 
@@ -2307,7 +2332,7 @@ However, like addition and multiplication, we will define an order relation (act
     \begin{itemize}
         \item Reflexivity.
 
-              Due the definition, a Cauchy sequence precedes itself.
+              Due to the definition, a Cauchy sequence precedes itself.
         \item Transitivity.
 
               Assume that $\seq{a_{n}}\le\seq{b_{n}}$ and $\seq{b_{n}}\le\seq{c_{n}}$.
@@ -2358,7 +2383,49 @@ However, like addition and multiplication, we will define an order relation (act
     \end{itemize}
 \end{proof}
 
-The ``$\le$'' relation between Cauchy sequences is not anti-symmetric. Instead, we have the following result.
+\begin{definition}[Strict preorder relation]
+    $\seq{a_{n}}$ and $\seq{b_{n}}$ are two Cauchy sequences.
+
+    We say $\seq{a_{n}}$ strictly precedes $\seq{b_{n}}$ and denote $\seq{a_{n}} < \seq{b_{n}}$ if $\seq{a_{n}}\le\seq{b_{n}}$ and the two sequences are inequivalent.
+\end{definition}
+
+\begin{theorem}
+    ``$<$'' relation in the set of all Cauchy sequences is irreflexive and transitive.
+\end{theorem}
+
+\begin{proof}
+    \begin{itemize}
+        \item Irreflexivity.
+
+              Let $\seq{a_{n}}$ be a Cauchy sequence. Since a Cauchy sequence is equivalent to itself, $\seq{a_{n}} < \seq{a_{n}}$ is false.
+        \item Transitivity.
+
+              Let $\seq{a_{n}}, \seq{b_{n}}, \seq{c_{n}}$ be Cauchy sequences such that $\seq{a_{n}} < \seq{b_{n}}$ and $\seq{b_{n}} < \seq{c_{n}}$. I will prove that $\seq{a_{n}} < \seq{c_{n}}$.
+
+              $\seq{a_{n}}$ and $\seq{b_{n}}$ are inequivalent implies that $\seq{a_{n} - b_{n}}$ and $\seq{0}$ are inequivalent. $\seq{b_{n}}$ and $\seq{c_{n}}$ are inequivalent implies that $\seq{b_{n} - c_{n}}$ and $\seq{0}$ are inequivalent. According to Lemma~\ref{lemma:chapter1:nonzero-sequence}
+              \begin{itemize}
+                  \item Either $(\exists p > 0)(\exists N_{p})(\forall n > N_{p})(a_{n} - b_{n} > p)$ or $(\exists p > 0)(\exists N_{p})(\forall n > N_{p})(a_{n} - b_{n} < -p)$.
+
+                        $\seq{a_{n}} < \seq{b_{n}}$ implies $\seq{a_{n}}\le\seq{b_{n}}$, so $(\exists N_{1})(\forall n > N_{1})(a_{n} - b_{n} \le 0)$. This contradicts the first possibility. Hence the first is false, and the second is true.
+                  \item Either $(\exists q > 0)(\exists N_{q})(\forall n > N_{q})(b_{n} - c_{n} > q)$ or $(\exists q > 0)(\exists N_{q})(\forall n > N_{q})(b_{n} - c_{n} < -q)$.
+
+                        $\seq{b_{n}} < \seq{c_{n}}$ implies $\seq{b_{n}}\ge\seq{c_{n}}$, so $(\exists N_{2})(\forall n > N_{2})(b_{n} - c_{n} \le 0)$. This contradicts the first possibility. Hence the first is false, and the second is true.
+              \end{itemize}
+
+              So for all $n > \max\{ N_{p}, N_{q} \}$
+              \[
+                  a_{n} - c_{n} = (a_{n} - b_{n}) + (b_{n} - c_{n}) < (-p) + (-q) = -(p+q) < 0.
+              \]
+
+              Hence $\seq{a_{n}}$ and $\seq{c_{n}}$ are inequivalent.
+
+              On the other hand, $\seq{a_{n}} < \seq{b_{n}}$ implies $\seq{a_{n}}\le\seq{b_{n}}$; $\seq{b_{n}} < \seq{c_{n}}$ implies $\seq{b_{n}}\le\seq{c_{n}}$. So $\seq{a_{n}}\le\seq{c_{n}}$.
+
+              According to the definition of ``$<$'', $\seq{a_{n}} < \seq{c_{n}}$.
+    \end{itemize}
+\end{proof}
+
+The ``$\le$'' relation between Cauchy sequences is not anti-symmetric. However, we have the following result.
 
 \begin{theorem}\label{theorem:chapter1:weak-anti-symmetry}
     Let $\seq{a_{n}}$ and $\seq{b_{n}}$ be Cauchy sequences that satisfy
@@ -2370,22 +2437,9 @@ The ``$\le$'' relation between Cauchy sequences is not anti-symmetric. Instead, 
 \end{theorem}
 
 \begin{proof}
-    \[
-        \begin{split}
-            \seq{a_{n}}\le\seq{b_{n}} \implies (\exists N_{1})(\forall n > N_{1})(a_{n}\le b_{n}), \\
-            \seq{b_{n}}\le\seq{a_{n}} \implies (\exists N_{2})(\forall n > N_{2})(b_{n}\le a_{n}).
-        \end{split}
-    \]
+    According to Theorem~\ref{theorem:chapter1:preorder}, either $\seq{a_{n}}\le\seq{b_{n}}$ or $\seq{b_{n}}\le\seq{a_{n}}$.
 
-    Let $N = \max\{ N_{1}, N_{2} \}$.
-    \[
-        (\forall n > N)(a_{n}\le b_{n} \land b_{n}\le a_{n}) \Longleftrightarrow (\forall n > N)(a_{n} = b_{n}).
-    \]
-
-    Therefore
-    \[
-        (\forall\varepsilon > 0)(\forall n > N)(\abs{a_{n} - b_{n}} = 0 < \varepsilon).
-    \]
+    Assume that the two Cauchy sequences are inequivalent. Then $\seq{a_{n}} < \seq{b_{n}}$ and $\seq{b_{n}} < \seq{a_{n}}$, which implies $\seq{a_{n}} < \seq{a_{n}}$.
 
     Thus, $\seq{a_{n}}$ and $\seq{b_{n}}$ are equivalent.
 \end{proof}
@@ -2424,93 +2478,109 @@ This total preorder relation is compatible with addition and multiplication.
     \end{enumerate}
 \end{proof}
 
-The following theorem is the key to allow us to define an \textbf{order} relation (yes, order, not preorder) in $\mathfrak{C}_{\mathbb{Q}}$.
+The following theorem is the key to allow us to define an \textbf{order} relation (yes, order, not preorder) in $\mathscr{C}_{\mathbb{Q}}$.
 
 \begin{theorem}\label{theorem:chapter1:equivalent-cauchy-sequences-and-order}
-    $\seq{a_{n}}, \seq{b_{n}}\in\mathfrak{C}_{\mathbb{Q}}$ such that $\seq{a_{n}}\le\seq{b_{n}}$.
+    Given $\seq{a_{n}}, \seq{b_{n}}\in\mathscr{C}_{\mathbb{Q}}$.
 
     $\seq{a_{n}}$ and $\seq{c_{n}}$ are equivalent, $\seq{b_{n}}$ and $\seq{d_{n}}$ are equivalent.
 
-    Then $\seq{c_{n}}\le\seq{d_{n}}$.
+    \begin{enumerate}[label={(\roman*)}]
+        \item If $\seq{a_{n}}\le\seq{b_{n}}$, $\seq{c_{n}}\le\seq{d_{n}}$.
+        \item If $\seq{a_{n}} < \seq{b_{m}}$, $\seq{c_{n}} < \seq{d_{n}}$.
+    \end{enumerate}
 \end{theorem}
 
 \begin{proof}
-    We consider the two following cases.
+    \begin{enumerate}[label={(\roman*)}]
+        \item  We consider the two following cases.
 
-    \textbf{Case 1. $\seq{a_{n}}$ and $\seq{b_{n}}$ are equivalent.}
+              \textbf{Case 1. $\seq{a_{n}}$ and $\seq{b_{n}}$ are equivalent.}
 
-    Due to the transitivity of equivalence relation, $\seq{c_{n}}$ and $\seq{d_{n}}$ are equivalent.
+              Due to the transitivity of equivalence relation, $\seq{c_{n}}$ and $\seq{d_{n}}$ are equivalent.
 
-    According to the definition, $\seq{c_{n}}\le\seq{d_{n}}$.
+              According to the definition, $\seq{c_{n}}\le\seq{d_{n}}$.
 
-    \bigskip
+              \bigskip
 
-    \textbf{Case 2. $\seq{a_{n}}$ and $\seq{b_{n}}$ are inequivalent.}
+              \textbf{Case 2. $\seq{a_{n}}$ and $\seq{b_{n}}$ are inequivalent.}
 
-    According to the definition of equivalent Cauchy sequences
-    \[
-        (\exists\varepsilon > 0)(\forall N)(\exists n > N)(\abs{a_{n} - b_{n} - 0}\ge\varepsilon).
-    \]
+              According to the definition of equivalent Cauchy sequences
+              \[
+                  (\exists\varepsilon > 0)(\forall N)(\exists n > N)(\abs{a_{n} - b_{n} - 0}\ge\varepsilon).
+              \]
 
-    Therefore, $\seq{a_{n} - b_{n}}$ does not converge to $0$. $\seq{0}$ converges to $0$, so $\seq{a_{n} - b_{n}}$ and $\seq{0}$ are inequivalent.
+              Therefore, $\seq{a_{n} - b_{n}}$ does not converge to $0$. $\seq{0}$ converges to $0$, so $\seq{a_{n} - b_{n}}$ and $\seq{0}$ are inequivalent.
 
-    According to Lemma~\ref{lemma:chapter1:nonzero-sequence}
-    \[
-        (\exists N_{1})(\forall n > N_{1})(a_{n} - b_{n}\ne 0) \Longleftrightarrow
-        (\exists N_{1})(\forall n > N_{1})(a_{n}\ne b_{n}).
-    \]
+              According to Lemma~\ref{lemma:chapter1:nonzero-sequence}
+              \[
+                  (\exists N_{1})(\forall n > N_{1})(a_{n} - b_{n}\ne 0) \Longleftrightarrow
+                  (\exists N_{1})(\forall n > N_{1})(a_{n}\ne b_{n}).
+              \]
 
-    On the other hand, $\seq{a_{n}}\le\seq{b_{n}}$, that is
-    \[
-        (\exists N_{2})(\forall n > N_{2})(a_{n}\le b_{n})
-    \]
+              On the other hand, $\seq{a_{n}}\le\seq{b_{n}}$, that is
+              \[
+                  (\exists N_{2})(\forall n > N_{2})(a_{n}\le b_{n})
+              \]
 
-    Let $N_{3} = \max\{ N_{1}, N_{2} \}$.
-    \[
-        (\forall n > N_{3})(a_{n} < b_{n}) \implies a_{N_{3} + 1} < b_{N_{3} + 1}
-    \]
+              Let $N_{3} = \max\{ N_{1}, N_{2} \}$.
+              \[
+                  (\forall n > N_{3})(a_{n} < b_{n}) \implies a_{N_{3} + 1} < b_{N_{3} + 1}
+              \]
 
-    Since $\seq{a_{n}}, \seq{b_{n}}$ are Cauchy sequences
-    \[
-        \begin{split}
-            (\exists N_{a})(\forall m, n > N_{a})\left(\abs{a_{m} - a_{n}} < \frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right) \\
-            (\exists N_{b})(\forall m, n > N_{b})\left(\abs{b_{m} - b_{n}} < \frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right)
-        \end{split}
-    \]
+              Since $\seq{a_{n}}, \seq{b_{n}}$ are Cauchy sequences
+              \[
+                  \begin{split}
+                      (\exists N_{a})(\forall m, n > N_{a})\left(\abs{a_{m} - a_{n}} < \frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right) \\
+                      (\exists N_{b})(\forall m, n > N_{b})\left(\abs{b_{m} - b_{n}} < \frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right)
+                  \end{split}
+              \]
 
-    $\seq{a_{n}}$ and $\seq{c_{n}}$ are equivalent, so
-    \[
-        (\exists N_{c})(\forall n > N_{c})\left(\abs{c_{n} - a_{n}} < \frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right).
-    \]
+              $\seq{a_{n}}$ and $\seq{c_{n}}$ are equivalent, so
+              \[
+                  (\exists N_{c})(\forall n > N_{c})\left(\abs{c_{n} - a_{n}} < \frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right).
+              \]
 
-    $\seq{b_{n}}$ and $\seq{d_{n}}$ are equivalent, so
-    \[
-        (\exists N_{d})(\forall n > N_{d})\left(\abs{b_{n} - d_{n}} < \frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right).
-    \]
+              $\seq{b_{n}}$ and $\seq{d_{n}}$ are equivalent, so
+              \[
+                  (\exists N_{d})(\forall n > N_{d})\left(\abs{b_{n} - d_{n}} < \frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right).
+              \]
 
-    Let $N = \max\{ N_{3}, N_{a}, N_{b}, N_{c}, N_{d} \}$. For $n > N$
-    \begin{align*}
-        d_{n} - c_{n} & = (d_{n} - b_{n}) + (b_{n} - a_{n}) + (a_{n} - c_{n})                                                                                                                                                                          \\
-                      & = \abs{b_{n} - a_{n}} + (a_{n} - c_{n}) + (d_{n} - b_{n})                                                                                                                                                                      \\
-                      & = \abs{(b_{N_{3}+1} - a_{N_{3}+1}) - (a_{n} - a_{N_{3}+1} + b_{N_{3}+1} - b_{n})} + (a_{n} - c_{n}) + (d_{n} - b_{n})                                                                                                          \\
-                      & \ge \abs{b_{N_{3}+1} - a_{N_{3}+1}} - \abs{(a_{n} - a_{N_{3}+1}) + (b_{N_{3}+1} - b_{n})} + (a_{n} - c_{n}) + (d_{n} - b_{n})                                                                                                  \\
-                      & \ge (b_{N_{3}+1} - a_{N_{3}+1}) - \left(\abs{a_{n} - a_{N_{3}+1}} + \abs{b_{N_{3}+1} - b_{n}}\right) + (a_{n} - c_{n}) + (d_{n} - b_{n})                                                                                       \\
-                      & > (b_{N_{3}+1} - a_{N_{3}+1}) - \left(\frac{b_{N_{3}+1} - a_{N_{3}+1}}{8} + \frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right) + \left(-\frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right) + \left(-\frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right) \\
-                      & = \frac{b_{N_{3}+1} - a_{N_{3}+1}}{2} > 0
-    \end{align*}
+              Let $N = \max\{ N_{3}, N_{a}, N_{b}, N_{c}, N_{d} \}$. For $n > N$
+              \begin{align*}
+                  d_{n} - c_{n} & = (d_{n} - b_{n}) + (b_{n} - a_{n}) + (a_{n} - c_{n})                                                                                                                                                                          \\
+                                & = \abs{b_{n} - a_{n}} + (a_{n} - c_{n}) + (d_{n} - b_{n})                                                                                                                                                                      \\
+                                & = \abs{(b_{N_{3}+1} - a_{N_{3}+1}) - (a_{n} - a_{N_{3}+1} + b_{N_{3}+1} - b_{n})} + (a_{n} - c_{n}) + (d_{n} - b_{n})                                                                                                          \\
+                                & \ge \abs{b_{N_{3}+1} - a_{N_{3}+1}} - \abs{(a_{n} - a_{N_{3}+1}) + (b_{N_{3}+1} - b_{n})} + (a_{n} - c_{n}) + (d_{n} - b_{n})                                                                                                  \\
+                                & \ge (b_{N_{3}+1} - a_{N_{3}+1}) - \left(\abs{a_{n} - a_{N_{3}+1}} + \abs{b_{N_{3}+1} - b_{n}}\right) + (a_{n} - c_{n}) + (d_{n} - b_{n})                                                                                       \\
+                                & > (b_{N_{3}+1} - a_{N_{3}+1}) - \left(\frac{b_{N_{3}+1} - a_{N_{3}+1}}{8} + \frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right) + \left(-\frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right) + \left(-\frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right) \\
+                                & = \frac{b_{N_{3}+1} - a_{N_{3}+1}}{2} > 0
+              \end{align*}
 
-    So, for all $n > N$, $c_{n} < d_{n}$. Therefore, by definition, $\seq{c_{n}}\le\seq{d_{n}}$.
-    \bigskip
+              So, for all $n > N$, $c_{n} < d_{n}$. Therefore, by definition, $\seq{c_{n}}\le\seq{d_{n}}$.
+              \bigskip
 
-    In conclusion, $\seq{c_{n}}\le\seq{d_{n}}$.
+              Thus, $\seq{c_{n}}\le\seq{d_{n}}$.
+        \item $\seq{a_{n}} < \seq{b_{n}} \implies \seq{a_{n}}\le\seq{b_{n}}$. According to the previous result, $\seq{c_{n}}\le\seq{d_{n}}$.
+
+              Assume that $\seq{c_{n}}$ and $\seq{d_{n}}$ are equivalent, then $\seq{a_{n}}$ and $\seq{b_{n}}$ are equivalent, which contradicts $\seq{a_{n}} < \seq{b_{n}}$.
+
+              Hence $\seq{c_{n}}$ is inequivalent to $\seq{d_{n}}$ and $\seq{c_{n}}\le\seq{d_{n}}$.
+
+              Thus, $\seq{c_{n}} < \seq{d_{n}}$.
+    \end{enumerate}
 \end{proof}
 
 \begin{definition}
-    We say $\class{\seq{a_{n}}}$ precedes $\class{\seq{b_{n}}}$ if and only if every Cauchy sequence in $\class{\seq{a_{n}}}$ precedes every Cauchy sequence in $\class{\seq{b_{n}}}$, and denote this relation by $\class{\seq{a_{n}}}\le\class{\seq{b_{n}}}$.
+    We say
+    \begin{itemize}
+        \item $\class{\seq{a_{n}}}$ precedes $\class{\seq{b_{n}}}$ if and only if every Cauchy sequence in $\class{\seq{a_{n}}}$ precedes every Cauchy sequence in $\class{\seq{b_{n}}}$, and denote $\class{\seq{a_{n}}}\le\class{\seq{b_{n}}}$.
+        \item $\class{\seq{a_{n}}}$ strictly precedes $\class{\seq{b_{n}}}$ if and only if every Cauchy sequence in $\class{\seq{a_{n}}}$ strictly precedes every Cauchy sequence in $\class{\seq{b_{n}}}$, and denote $\class{\seq{a_{n}}}\le\class{\seq{b_{n}}}$.
+    \end{itemize}
 \end{definition}
 
 \begin{theorem}[Total order]
-    $\mathfrak{C}_{\mathbb{Q}}$ with ``$\le$'' relation is totally ordered.
+    $\mathscr{C}_{\mathbb{Q}}$ with ``$\le$'' relation is totally ordered.
 \end{theorem}
 
 \begin{proof}
@@ -2525,7 +2595,7 @@ The following theorem is the key to allow us to define an \textbf{order} relatio
 
               Let $\seq{a_{n}}, \seq{b_{n}}, \seq{c_{n}}$ be members of $\alpha, \beta, \gamma$, respectively.
 
-              According to the definition of ``$\le$'' in $\mathfrak{C}_{\mathbb{Q}}$, $\seq{a_{n}}\le\seq{b_{n}}$ and $\seq{b_{n}}\le\seq{c_{n}}$.
+              According to the definition of ``$\le$'' in $\mathscr{C}_{\mathbb{Q}}$, $\seq{a_{n}}\le\seq{b_{n}}$ and $\seq{b_{n}}\le\seq{c_{n}}$.
 
               Since ``$\le$'' relation in the set of all Cauchy sequences (with only rational terms) is a total preorder relation, then $\seq{a_{n}}\le\seq{c_{n}}$.
 
@@ -2535,7 +2605,7 @@ The following theorem is the key to allow us to define an \textbf{order} relatio
 
               Let $\seq{a_{n}}, \seq{b_{n}}$ be members of $\alpha, \beta$, respectively.
 
-              According to the definition of ``$\le$'' in $\mathfrak{C}_{\mathbb{Q}}$, $\seq{a_{n}}\le\seq{b_{n}}$ and $\seq{b_{n}}\le\seq{a_{n}}$.
+              According to the definition of ``$\le$'' in $\mathscr{C}_{\mathbb{Q}}$, $\seq{a_{n}}\le\seq{b_{n}}$ and $\seq{b_{n}}\le\seq{a_{n}}$.
 
               Then it follows from Theorem~\ref{theorem:chapter1:weak-anti-symmetry} that $\seq{a_{n}}$ and $\seq{b_{n}}$ are equivalent.
 
@@ -2551,7 +2621,7 @@ The following theorem is the key to allow us to define an \textbf{order} relatio
 \end{proof}
 
 \begin{theorem}
-    Let $\alpha, \beta, \gamma\in\mathfrak{C}_{\mathbb{Q}}$.
+    Let $\alpha, \beta, \gamma\in\mathscr{C}_{\mathbb{Q}}$.
     \begin{enumerate}[label={(\roman*)}]
         \item $\alpha\le\beta\implies\alpha+\gamma\le\beta+\gamma$.
         \item $\class{\seq{0}}\le\alpha\land\class{\seq{0}}\le\beta\implies\seq{0}\le\alpha\cdot\beta$.
@@ -2585,9 +2655,177 @@ The following theorem is the key to allow us to define an \textbf{order} relatio
     \end{enumerate}
 \end{proof}
 
+At this time, we have proved that $\mathscr{C}_{\mathbb{Q}}$ is a totally ordered field.
+
+\begin{definition}
+    The element $\alpha$ of $\mathscr{C}_{\mathbb{Q}}$ is called
+    \begin{itemize}
+        \item \textit{positive} if and only if $\class{\seq{0}}$ precedes $\alpha$ and $\alpha$ is inequivalent to $\class{\seq{0}}$.
+        \item \textit{negative} if and only if $\alpha$ precedes $\class{\seq{0}}$ and $\alpha$ is inequivalent to $\class{\seq{0}}$.
+        \item \textit{non-positive} if and only if it is not positive ($\alpha$ precedes $\class{\seq{0}}$).
+        \item \textit{non-negative} if and only if it is not negative ($\class{\seq{0}}$ precedes $\alpha$).
+    \end{itemize}
+\end{definition}
+
+\subsection{Embed $\mathbb{Q}$ into $\mathscr{C}_{\mathbb{Q}}$}
+
+\begin{theorem}
+    There exists an embedding $\mathfrak{c}: \mathbb{Q}\to\mathscr{C}_{\mathbb{Q}}$ which is a ring monomorphism and preserves order.
+\end{theorem}
+
+\begin{proof}
+    We define such embedding as follows:
+    \begin{align*}
+        \mathfrak{c}:\quad & \mathbb{Q}\to\mathscr{C}_{\mathbb{Q}} \\
+                           & q\mapsto \class{\seq{q}}
+    \end{align*}
+
+    This is a ring monomorphism since
+    \[
+        q_{1}\ne q_{2}\implies \mathfrak{c}(q_{1})\ne\mathfrak{c}(q_{2}) \\
+    \]
+    \begin{align*}
+        \mathfrak{c}(q_{1} + q_{2})    & = \class{\seq{q_{1} + q_{2}}}                  \\
+                                       & = \class{\seq{q_{1}} + \seq{q_{2}}}            \\
+                                       & = \class{\seq{q_{1}}} + \class{\seq{q_{2}}}    \\
+                                       & = \mathfrak{c}(q_{1}) + \mathfrak{c}(q_{2}),   \\
+        \mathfrak{c}(q_{1}\cdot q_{2}) & = \class{\seq{q_{1}\cdot q_{2}}}               \\
+                                       & = \class{\seq{q_{1}}\cdot\seq{q_{2}}}          \\
+                                       & = \class{\seq{q_{1}}}\cdot\class{\seq{q_{2}}}  \\
+                                       & = \mathfrak{c}(q_{1})\cdot\mathfrak{c}(q_{2}).
+    \end{align*}
+
+    $\mathfrak{c}$ preserves order, since
+    \[
+        q_{1}\le q_{2}\implies\seq{q_{1}}\le\seq{q_{2}}\implies\class{\seq{q_{1}}}\le\class{\seq{q_{2}}}.
+    \]
+\end{proof}
+
 \subsection{Least-upper-bound property}
 
-\subsection{Embed $\mathbb{Q}$ into $\mathfrak{C}_{\mathbb{Q}}$}
+\begin{theorem}
+    Let $S$ be a subset of $\mathscr{C}_{\mathbb{Q}}$, $S$ is bounded above. Then $S$ has a least upper bound.
+\end{theorem}
+
+I will construct such an equivalence class of Cauchy sequences (least upper bound of $S$). The following proof is an extended version of one in Wikipedia.
+
+\begin{proof}
+    Let $\alpha$ be an upper bound of $S$ (it does exists because $S$ is bounded above). Let $\seq{a_{n}}$ be a member of $\alpha$ ($\alpha$ is an equivalence class of Cauchy sequences). Let $\seq{s_{n}}$ be a Cauchy sequence which belongs to an equivalence class within $S$.
+
+    Since every Cauchy sequence is bounded
+    \begin{itemize}
+        \item there exists a rational number $a$ such that $\abs{a_{n}}\le a$ (for all $n$). Pick a rational number $u_{0}$ such that $a < u_{0}$, then $\alpha = \class{\seq{a_{n}}} \le \class{\seq{a}} < \class{\seq{u_{0}}}$.
+        \item there exists a rational $b$ such that $\abs{s_{n}}\le b$ (for all $n$). Pick a rational number $\ell_{0}$ such that $\ell_{0} < -b$, then $\class{\seq{\ell_{0}}} < \class{\seq{-b}}\le\class{\seq{s_{n}}}$.
+    \end{itemize}
+
+    From these, we deduce that $\ell_{0}\le u_{0}$.
+
+    Let's define $\seq{u_{n}}$ and $\seq{\ell_{n}}$ as follows
+    \begin{itemize}
+        \item (Base case) $u_{1} = u_{0}$ and $\ell_{1} = \ell_{0}$.
+        \item (Induction) Let $m = \frac{u_{n} + \ell_{n}}{2}$.
+
+              If $\class{\seq{m}}$ is an upper bound of $S$, then
+              \[
+                  u_{n+1} = m,\quad \ell_{n+1} = \ell_{n}.
+              \]
+
+              Otherwise
+              \[
+                  u_{n+1} = u_{n},\quad \ell_{n+1} = m.
+              \]
+    \end{itemize}
+
+    I aim to prove that $\class{\seq{u_{n}}}$ is a least upper bound of $S$.
+
+    \begin{enumerate}[label={\textbf{Step \arabic*.}},itemindent=1cm]
+        \item $u_{n}\ge u_{n+1}$, $\ell_{n}\le\ell_{n+1}$, $u_{n}\ge\ell_{n}$.
+
+              I prove this by induction.
+              \begin{itemize}
+                  \item (Base case)
+
+                        $u_{1} = u_{0}\ge \ell_{0} = \ell_{1}$.
+
+                        If $\class{\seq{\frac{u_{1} + u_{2}}{2}}}$ is an upper bound of $S$, then
+                        \[
+                            u_{2} = \frac{u_{1} + \ell_{1}}{2} \le u_{1},\quad \ell_{2} = \ell_{1},\quad u_{2}\ge\ell_{2}.
+                        \]
+
+                        Otherwise
+                        \[
+                            u_{2} = u_{1},\quad \ell_{2} = \frac{u_{1} + \ell_{1}}{2}\ge\ell_{1},\quad u_{2}\ge\ell_{2}.
+                        \]
+
+                        Hence $u_{1}\ge u_{2}$ and $\ell_{1}\le\ell_{2}$.
+                  \item (Induction)
+
+                        Assume that $u_{k-1}\ge u_{k}$, $\ell_{k-1}\le\ell_{k}$, $u_{k}\ge\ell_{k}$.
+
+                        If $\class{\seq{\frac{u_{k} + \ell_{k}}{2}}}$ is an upper bound of $S$, then
+                        \[
+                            \begin{split}
+                                & u_{k+1} = \frac{u_{k} + \ell_{k}}{2}\le u_{k}, \quad\text{since $u_{k}\ge\ell_{k}$} \\
+                                & \ell_{k+1} = \ell_{k} \\
+                                & u_{k+1}\ge\ell_{k+1}.
+                            \end{split}
+                        \]
+
+                        Otherwise
+                        \[
+                            \begin{split}
+                                & u_{k+1} = u_{k}, \\
+                                & \ell_{k+1} = \frac{u_{k} + \ell_{k}}{2}\ge \ell_{k}\quad\text{since $u_{k}\ge\ell_{k}$}, \\
+                                & u_{k+1}\ge\ell_{k+1}.
+                            \end{split}
+                        \]
+
+                        Hence $u_{k}\ge u_{k+1}$, $\ell_{k}\le\ell_{k+1}$, and $u_{k+1}\ge\ell_{k+1}$.
+              \end{itemize}
+        \item $u_{m}\ge\ell_{n}$, for all $m, n$.
+
+              If $m\ge n$, then $u_{m}\ge \ell_{m}\ge\ell_{n}$.
+
+              Otherwise, $m < n$, then $u_{m}\ge u_{n} > \ell_{n}$.
+        \item $\seq{u_{n}}$ and $\seq{\ell_{n}}$ are equivalent Cauchy sequences.
+
+              According to the definition of $\seq{u_{n}}$ and $\seq{\ell_{n}}$
+              \[
+                  u_{n} - \ell_{n} = \frac{1}{2}(u_{n-1} - \ell_{n-1}).
+              \]
+
+              Recursively, we obtain that
+              \[
+                  u_{n} - \ell_{n} = \frac{1}{2^{n}}(u_{0} - \ell_{0})\ge 0.
+              \]
+
+              For every positive rational number $\varepsilon$, pick $N = 1 + \floor{\frac{u_{0} - \ell_{0}}{\varepsilon}}$, then
+              \[
+                  \begin{split}
+                      & (\forall n > N) \abs{u_{n} - \ell_{n}} = \frac{u_{0} - \ell_{0}}{2^{n}} < \varepsilon, \\
+                      & (\forall n > N)(\forall p > 0)\abs{u_{n+p} - u_{n}} = u_{n} - u_{n+p}\le u_{n} - \ell_{n} = \frac{u_{0} - \ell_{0}}{2^{n}} < \varepsilon, \\
+                      & (\forall n > N)(\forall p > 0)\abs{\ell_{n+p} - \ell_{n}} = \ell_{n+p} - \ell_{n} \le u_{n} - \ell_{n} = \frac{u_{0} - \ell_{0}}{2^{n}} < \varepsilon.
+                  \end{split}
+              \]
+
+              Hence, $\seq{u_{n}}$, $\seq{\ell_{n}}$ are Cauchy sequences and they are equivalent.
+        \item $\class{\seq{u_{n}}}$ is an upper bound of $S$.
+
+              Assume that $\class{\seq{u_{n}}}$ is not an upper bound of $S$, then there exists $\sigma\in S$ such that $\class{\seq{u_{n}}} < \sigma$.
+
+              So there exists a Cauchy sequence $\seq{t_{n}}$ (which is a member of $\sigma$) such that $\seq{u_{n}} < \seq{t_{n}}$. It follows that
+              \[
+                  (\exists N)(\forall n > N)(u_{n} < t_{n}).
+              \]
+
+              Because of this, $\seq{u_{N}}\le\seq{t_{n}}$.
+
+              This contradicts the definition of $\seq{u_{n}}$.
+
+              Hence, $\class{\seq{u_{n}}}$ is an upper bound of $S$.
+        \item If $\class{\seq{v_{n}}}$ is an upper bound of $S$, then $\class{\seq{u_{n}}}\le\class{\seq{v_{n}}}$.
+    \end{enumerate}
+\end{proof}
 
 \subsection{Completeness (Cauchy-completeness)}
 
