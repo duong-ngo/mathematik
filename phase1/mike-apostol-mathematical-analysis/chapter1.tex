@@ -2,13 +2,13 @@
 
 \section{Axioms of the real numbers}
 
-I am familar with the real numbers. However, I have taken the properties of real numbers for granted. I can't even answer these questions: ``What are real numbers? Are they real?\@'' Turns out, these questions are really difficult.
+Let's just get to the point. What are the real numbers?
 
-Real numbers are elements of a set $\mathbb{R}$ endowed with addition and multiplication, which satisfy the following properties
-\begin{enumerate}[label = (\roman*)]
+Real numbers are defined axiomatically. Let's denote the set of all real numbers by $\mathbb{R}$.
+\begin{enumerate}[label={(\roman*)}]
     \item $\mathbb{R}$ is totally ordered (there exists an order relation on $\mathbb{R}$ where any two elements can be compared).
     \item $\mathbb{R}$ is a field under addition and multiplication.
-    \item Order in $\mathbb{R}$ is preserved under addition and multiplication (with non-negative real number).
+    \item Order relation in $\mathbb{R}$ is compatible to addition and multiplication (with non-negative real number).
     \item Every non-empty set of $\mathbb{R}$ which is bounded above has a least upper bound.
 \end{enumerate}
 
@@ -26,30 +26,28 @@ We will give the definition of Dedekind cuts from which we construct a model tha
         \item $A\ne\varnothing$; in other words, $A$ is not empty.
         \item $A\neq\mathbb{Q}$; in other words, $A$ is not the entire set of rational numbers.
         \item $\forall x\left(x\in A \rightarrow \exists y \left( y\in A \wedge x < y \right)\right)$; in other words, $A$ has no greatest element.
-        \item $\forall x\in A\left(\forall y( y < x \rightarrow y\in A)\right)$; in other words, $A$ is downward closed.
+        \item $\forall x\in A\left(\forall y( y < x \rightarrow y\in A)\right)$; in other words, $A$ is closed downward.
     \end{enumerate}
 \end{definition}
 
-It follows from the definition that $\mathbb{Q}\setminus A$ contains every rational upper bound of $A$.
+It follows from the definition that $\mathbb{Q}\setminus A$ contains all (rational) upper bounds of $A$.
 
 We will use Dedekind cuts of $\mathbb{Q}$ to ``cut'' the rational number line.
 
-Our goal is from the definition of Dedekind cuts as well as operations (addition and multiplication) and order relation (less than or equal) on them, we prove that Dedekind cuts satisfy the axioms of the real numbers.
-
-Sequentially, we will define the following based on Dedekind cuts of $\mathbb{Q}$:
+Sequentially, we will define the following based on Dedekind cuts of $\mathbb{Q}$
 \begin{itemize}[itemsep=0pt]
     \item Order relation,
     \item Rational and irrational cut,
     \item Addition,
     \item Subtraction and negation,
-    \item Multiplication and division.
+    \item Multiplication and division,
 \end{itemize}
 
-then we will show that the set of all Dedekind cuts equipped with those operations will satisfy the axioms of the real numbers.
+then we will show that the set of all Dedekind cuts equipped with those operations/order relation will satisfy the axioms of the real numbers.
 
-Upcoming proofs in this section will use various properties of rational numbers, including:
+Upcoming proofs in this section will use various properties of rational numbers, including
 \begin{itemize}[itemsep=0pt]
-    \item Total order.
+    \item Total ordering.
     \item The field structure.
     \item Compatibility of addition and multiplication with the order relation.
     \item There exists a rational number strictly between any two distinct rational numbers.
@@ -60,7 +58,7 @@ Upcoming proofs in this section will use various properties of rational numbers,
 
 Denote the set of all Dedekind cuts of $\mathbb{Q}$ by $\mathscr{D}_{\mathbb{Q}}$.
 
-\begin{theorem}[Totally ordered]
+\begin{theorem}[Total ordering]
     $\mathscr{D}_{\mathbb{Q}}$ is totally ordered with $\subseteq$ relation.
 \end{theorem}
 
@@ -124,6 +122,8 @@ For convenience, in this section, we use the following notation:
     \end{enumerate}
 \end{definition}
 
+Dedekind cuts are used to define rational and irrational cuts. These notions correspond to rational numbers and irrational numbers, respectively.
+
 \begin{definition}[Rational and irrational]
     A Dedekind cut $A$ of $\mathbb{Q}$ is called:
     \begin{enumerate}[label={(\roman*)}]
@@ -132,7 +132,7 @@ For convenience, in this section, we use the following notation:
     \end{enumerate}
 \end{definition}
 
-The following example gives us an example of rational cut, and an example of irrational cut.
+In a constructive approach, we must provide examples of rational cuts and irrational cuts.
 
 \begin{example}
     \[
@@ -178,7 +178,8 @@ The following example gives us an example of rational cut, and an example of irr
 
                         So $A$ is closed downward.
               \end{enumerate}
-              $\mathbb{Q}\setminus A = \{ x\in\mathbb{Q}: x\ge 1 \}$ has least element, which is $1$. So $ A$ is a rational cut.
+
+              $\mathbb{Q}\setminus A = \{ x\in\mathbb{Q}: x\ge q \}$ has least element, which is $q$. So $A$ is a rational cut.
         \item Irrational cut.
               \begin{enumerate}[label={(\roman*)},topsep=0pt]
                   \item $B$ contains $0$, so $B$ is not empty.
@@ -202,7 +203,7 @@ The following example gives us an example of rational cut, and an example of irr
                                     & = \frac{-2\cdot {({x}^{2} - 2)}^{2}}{{({x}^{2} + 2)}^{2}} + 2 < 2
                         \end{align*}
 
-                        Therefore, $y\in A$ and $x < y$, which implies that $A$ does not have a greatest element.
+                        Therefore, for every $x$, there exists an element $y$ of $A$ such that $x < y$, which implies that $A$ does not have a greatest element.
                   \item Let $x\in B$.
 
                         Let $y$ be a rational number such that $y < x$.
@@ -217,7 +218,7 @@ The following example gives us an example of rational cut, and an example of irr
                         so $y\in B$. Therefore, $B$ is closed downward.
               \end{enumerate}
 
-              Hence, $B$ is a Dedekind cut.
+              Hence, $B$ is a Dedekind cut. Now I will prove that $B$ is an irrational cut.
 
               $\mathbb{Q}\setminus B = \{ x\in\mathbb{Q}: {x}^{2}\ge 2 \wedge x > 0 \}$.
 
@@ -234,11 +235,16 @@ The following example gives us an example of rational cut, and an example of irr
                           & = \frac{q^{2}}{4} + \frac{1}{q^{2}} - 1 + 2 = {\left(\frac{q}{2} - \frac{1}{q}\right)}^{2} + 2 = {\left( \frac{q^{2} - 2}{2q} \right)}^{2} + 2 \\
                           & > 2
               \end{align*}
-              Therefore, $\forall q(q\in\mathbb{Q}\setminus B \rightarrow \exists r( r\in\mathbb{Q}\setminus B \wedge r < q ))$. Hence $\mathbb{Q}\setminus B$ does not have a least element. According to the definition, $B$ is an irrational cut.
+
+              So, for every $q$ in $\mathbb{Q}\setminus B$, there exists a rational number $r$ in $\mathbb{Q}\setminus B$ which is smaller than $q$.
+
+              Hence $\mathbb{Q}\setminus B$ does not have a least element. Thus, $B$ is an irrational cut.
     \end{itemize}
 \end{proof}
 
 \subsection{Addition}
+
+In this subsection, we define addition (denoted by $+$), subtraction, negation, and prove that $\mathscr{D}_{\mathbb{Q}}$ with addition is a commutative group.
 
 \begin{theorem}[Addition]
     $A, B$ are Dedekind cuts. Then
@@ -273,29 +279,33 @@ The following example gives us an example of rational cut, and an example of irr
               \[
                   \underbrace{a}_{\in A} + \underbrace{b + (c_{1} - c)}_{\in B} \in A + B.
               \]
+
               Therefore
               \[
                   c_{1} \in A + B.
               \]
+
               Hence $A + B$ is downward closed.
     \end{enumerate}
+
     In conclusion, $A + B$ is a Dedekind cut of $\mathbb{Q}$.
 \end{proof}
 
-I have difficulty defining multiplication since there are positive numbers and negative numbers. So I define additive inverse/negation of a cut.
+Unlike addition, we cannot define subtraction in the element-wise style. I recommend readers to verify this with rational cuts/rational numbers.
 
 \begin{theorem}[Subtraction]
-    Let $A$ and $B$ be Dedekind cuts of $\mathbb{Q}$
+    Let $A$ and $B$ be Dedekind cuts of $\mathbb{Q}$. The set
     \[
         A - B = \{ a - b: a\in A\land b\in\mathbb{Q}\setminus B \}
     \]
+
     is also a Dedekind cut.
 \end{theorem}
 
 \begin{proof}
-    \begin{enumerate}[label = (\roman*)]
+    \begin{enumerate}[label={(\roman*)}]
         \item Since $A\ne\varnothing$, there exists $a\in A$. Since $B\ne\mathbb{Q}$, there exists $b\in\mathbb{Q}\setminus B$. So $a - b\in A - B$, which implies that $A - B$ is not empty.
-        \item Let $a_{0}\in\mathbb{Q}\setminus A, b_{0}\in B, a\in A, b\in\mathbb{Q}\setminus B$. Then $a\le a_{0}$ and $b_{0} < b$.
+        \item Let $a_{0}\in\mathbb{Q}\setminus A, b_{0}\in B, a\in A, b\in\mathbb{Q}\setminus B$. Then $a < a_{0}$ and $b_{0} < b$.
               \[
                   \underbrace{a - b}_{\in A - B} < a_{0} - b_{0},
               \]
@@ -311,29 +321,34 @@ I have difficulty defining multiplication since there are positive numbers and n
 
               Let $d$ be a rational number such that $d < c$.
               \[
-                  d = d - c + c = (d - c) + a - b = \underbrace{(d - c + a)}_{< a} - \underbrace{b}_{\in\mathbb{Q}\setminus B}
+                  d = d - c + c = (d - c) + a - b = \underbrace{(d - c + a)}_{\in A} - \underbrace{b}_{\in\mathbb{Q}\setminus B}
               \]
-              $(d - c + a) < a$, therefore $(d - c + a)\in A$, according to (DC4). Hence $d\in A - B$.
+
+              $(d - c + a) < a$ implies $(d - c + a)\in A$, according to (DC4). Hence $d\in A - B$.
 
               So $A - B$ is downward closed.
     \end{enumerate}
+
     Thus, $A - B$ is a Dedekind cut.
 \end{proof}
 
-The following theorem is a special case of subtraction.
+We define negation as a particular case of subtraction.
 
 \begin{theorem}[Additive inverse/Negation]
     Let $A$ be a Dedekind cut.
     \[
-        -A = \{ b - a : b\in{0}^{*} \wedge a\in\mathbb{Q}\setminus A \}
+        -A = \{ w - a : w\in{0}^{*} \wedge a\in\mathbb{Q}\setminus A \}
     \]
+
     is also a Dedekind cut.
 \end{theorem}
+
+Also, the relation between subtraction and negation must not be taken for granted.
 
 \begin{theorem}\label{theorem:chapter1:negation-and-subtraction}
     Let $A$ and $B$ be Dedekind cuts of $\mathbb{Q}$, then
     \[
-        A - B = A + (-B)
+        A - B = A + (-B).
     \]
 \end{theorem}
 
@@ -344,52 +359,55 @@ The following theorem is a special case of subtraction.
         A + (-B) & = \{ a + w - b : a\in A\land w\in{0}^{*}\land b\in\mathbb{Q}\setminus B \}.
     \end{align*}
 
-    \textbf{Step 1.} Prove that $A - B\subseteq A + (-B)$.
+    We will prove that these two sets are identical.
 
-    Let $c = a - b$ be an arbitrary element in $A - B$, where $a\in A$ and $b\in\mathbb{Q}\setminus B$.
+    \begin{enumerate}[label={\textbf{Step \arabic*.}}]
+        \item Prove that $A - B\subseteq A + (-B)$.
 
-    According to (DC3), there exists $a_{0}\in A$ such that $a < a_{0}$.
-    \[
-        c = a - b = \underbrace{a_{0}}_{\in A} + \underbrace{(a - a_{0})}_{< 0} - \underbrace{b}_{\in\mathbb{Q}\setminus B}
-    \]
+              Let $c = a - b$ be an arbitrary element in $A - B$, where $a\in A$ and $b\in\mathbb{Q}\setminus B$.
 
-    so $c\in A + (-B)$. Hence $A - B\subseteq A + (-B)$.
-    \bigskip
+              According to (DC3), there exists $a_{0}\in A$ such that $a < a_{0}$.
+              \[
+                  c = a - b = \underbrace{a_{0}}_{\in A} + \underbrace{(a - a_{0})}_{< 0} - \underbrace{b}_{\in\mathbb{Q}\setminus B}
+              \]
 
-    \textbf{Step 2.} Prove that $A + (-B)\subseteq A - B$.
+              so $c\in A + (-B)$. Hence $A - B\subseteq A + (-B)$.
+        \item Prove that $A + (-B)\subseteq A - B$.
 
-    Let $c = a + (w - b)$ be an arbitrary element of $A + (-B)$, where $a\in A$, $w < 0$, and $b\in\mathbb{Q}\setminus B$.
+              Let $c = a + (w - b)$ be an arbitrary element of $A + (-B)$, where $a\in A$, $w < 0$, and $b\in\mathbb{Q}\setminus B$.
 
-    $a + w < a$. According to (DC4), $a + w\in A$.
-    \[
-        c = a + (w - b) = \underbrace{(a + w)}_{\in A} - \underbrace{b}_{\in\mathbb{Q}\setminus B}
-    \]
+              $a + w < a$. According to (DC4), $a + w\in A$.
+              \[
+                  c = a + (w - b) = \underbrace{(a + w)}_{\in A} - \underbrace{b}_{\in\mathbb{Q}\setminus B}
+              \]
 
-    so $c\in A - B$. Hence $A + (-B)\subseteq A - B$.
-    \bigskip
+              so $c\in A - B$. Hence $A + (-B)\subseteq A - B$.
+    \end{enumerate}
 
     Thus, $A - B = A + (-B)$.
 \end{proof}
 
 I need the following property to verify the group structure of $\mathscr{D}_{\mathbb{Q}}$.
 
-\begin{lemma}[Archimedean property for rational numbers]
-    Let $a, b$ be rational numbers where $a > 0$. Then there exists an integer $n$ such that
+\begin{theorem}[Archimedean property for rational numbers]
+    Let $a, b$ be rational numbers where $b > 0$. Then there exists an integer $n$ such that
     \[
-        (n - 1)\le \frac{b}{a} < n.
+        (n - 1)\cdot b \le a < n\cdot b.
     \]
-\end{lemma}
+\end{theorem}
 
 \begin{proof}
-    Since $a, b$ are rational numbers, then $\dfrac{b}{a}$ is also rational number.
+    Since $a, b$ are rational numbers, then $\dfrac{a}{b}$ is also rational number.
 
-    Then there exists a positive integer $q$ and an integer $p$ such that $\dfrac{b}{a} = \dfrac{p}{q}$.
+    Then there exists a positive integer $q$ and an integer $p$ such that $\dfrac{a}{b} = \dfrac{p}{q}$.
 
     Apply Euclid division algorithm, there exists two integers $k, r$ such that $0\le r < q$ and $p = k\cdot q + r$.
     \begin{align*}
                          & \frac{p}{q} = \frac{k\cdot q + r}{q} = k + \frac{r}{q} \\
         \Rightarrow\quad & k \le \frac{p}{q} < k + 1.\qedhere
     \end{align*}
+
+    Hence $k \le \frac{a}{b} < k + 1$.
 \end{proof}
 
 \begin{theorem}\label{theorem:chapter1:real-field-part-one}
@@ -417,28 +435,30 @@ I need the following property to verify the group structure of $\mathscr{D}_{\ma
                               & = \{ w + a : a\in A\land w < 0 \} \\
                               & = {0}^{*} + A.
               \end{align*}
-              \textbf{Step 1. Prove that $A \subseteq A + {0}^{*}$}.
 
-              Let $x\in A$. According to (DC3), there exists $y\in A$ such that $x < y$.
-              \[
-                  x = \underbrace{y}_{\in A} + \underbrace{(x - y)}_{< 0, \in {0}^{*}}
-              \]
-              So $\forall x(x\in A \rightarrow x\in A + {0}^{*})$, which means $A \subseteq A + {0}^{*}$.
-              \bigskip
+              \begin{enumerate}[label={\textbf{Step \arabic*.}}]
+                  \item Prove that $A \subseteq A + {0}^{*}$.
 
-              \textbf{Step 2. Prove that $A + {0}^{*} \subseteq A$}.
+                        Let $x\in A$. According to (DC3), there exists $y\in A$ such that $x < y$.
+                        \[
+                            x = \underbrace{y}_{\in A} + \underbrace{(x - y)}_{< 0, \in {0}^{*}}
+                        \]
 
-              Let $a_{0}\in A + {0^{*}}$. According to the definition of $A + {0}^{*}$, there exists $a\in A$ and $w\in\mathbb{Q}^{-}$ such that $a_{0} = a + w$.
+                        So $\forall x(x\in A \rightarrow x\in A + {0}^{*})$, which means $A \subseteq A + {0}^{*}$.
+                  \item Prove that $A + {0}^{*} \subseteq A$.
 
-              Since $w < 0$ then $a_{0} < a$. According to (DC4), $a_{0}\in A$.
+                        Let $a_{0}\in A + {0^{*}}$. According to the definition of $A + {0}^{*}$, there exists $a\in A$ and $w\in\mathbb{Q}_{-}$ such that $a_{0} = a + w$.
 
-              So $\forall a_{0}(a_{0}\in A + {0}^{*} \rightarrow A)$.
+                        Since $w < 0$ then $a_{0} < a$. According to (DC4), $a_{0}\in A$.
+
+                        So $\forall a_{0}(a_{0}\in A + {0}^{*} \rightarrow A)$.
+              \end{enumerate}
 
               Hence $A = A + {0}^{*} = {0}^{*} + A$.
         \item Every element has an additive inverse.
               \begin{align*}
-                  A + (-A) & = \{ a + (w - a') : a\in A\land w\in\mathbb{Q}^{-}\land a'\in\mathbb{Q}\setminus A \} \\
-                           & = \{ (w - a') + a : a\in A\land w\in\mathbb{Q}^{-}\land a'\in\mathbb{Q}\setminus A \} \\
+                  A + (-A) & = \{ a + (w - a') : a\in A\land w\in\mathbb{Q}_{-}\land a'\in\mathbb{Q}\setminus A \} \\
+                           & = \{ (w - a') + a : a\in A\land w\in\mathbb{Q}_{-}\land a'\in\mathbb{Q}\setminus A \} \\
                            & = (-A) + A.
               \end{align*}
               \textbf{Step 1. Prove that $A + (-A)\subseteq {0}^{*}$}.
@@ -517,20 +537,20 @@ I need the following property to verify the group structure of $\mathscr{D}_{\ma
     \[
         \forall A, B, C\in\mathscr{D}_{\mathbb{Q}}(A\subseteq B \rightarrow A + C\subseteq B + C).
     \]
+
+    Equality holds if and only if $A = B$.
 \end{theorem}
 
 \begin{proof}
     Let $A, B, C$ be Dedekind cuts of $\mathbb{Q}$ such that $A\subseteq B$
 
-    If $A = B$ then $A + C = B + C$.
-
-    Otherwise, $A\subset B$, then there exists $b\in B$ such that $b\notin A$. Hence, for all $c\in C$, $b + c\notin A + C$, then $A + C\ne B + C$.
-
     Let $a\in A, c\in C$, then $a + c\in A + C$. Since $A\subset B$, then $a\in B$, so $a + c\in B + C$. Therefore $A + C\subseteq B + C$.
 
-    So $A + C\subset B + C$.
+    If $A = B$ then $A + C = B + C$.
 
-    Thus $A + C\subseteq B + C$, equality holds if and only if $A = B$.
+    Otherwise, $A\subset B$, then there exists $b\in B$ such that $b\notin A$. Hence, for all $c\in C$, $b + c\notin A + C$, then $A + C\ne B + C$. So $A + C\subset B + C$.
+
+    Thus $A + C\subseteq B + C$. Equality holds if and only if $A = B$.
 \end{proof}
 
 \begin{theorem}\label{theorem:chapter1:negation-and-sign}
@@ -590,8 +610,6 @@ I need the following property to verify the group structure of $\mathscr{D}_{\ma
 \end{theorem}
 
 \begin{proof}
-    There are four cases.
-
     \begin{enumerate}[label={\textbf{Case \arabic*.}},itemindent={0.5cm}]
         \item $A\supseteq {0}^{*}\land B\supseteq {0}^{*}$.
 
@@ -638,6 +656,7 @@ I need the following property to verify the group structure of $\mathscr{D}_{\ma
                                   \[
                                       d = c - (c - d) = a\cdot b - (c - d) = a\cdot\left(b - \frac{c - d}{a}\right)
                                   \]
+
                                   Since $a\in A$ and $a > 0$, $b - \dfrac{c - d}{a}\in B$ (due to (DC4)) and $0 < b - \dfrac{c - d}{a} < b$, then $d \in A\cdot B$.
 
                                   Hence $A\cdot B$ is downward closed.
@@ -1566,7 +1585,7 @@ In this subsection, we will show that $\mathbb{R}$ is complete, in the sense tha
 
     Since every element of $R$ is an upper bound of $L$, then $\ell$ is the least element of $R$.
 
-    Therefore, for all Dedekind cut $(L, R)$ of $\mathbb{R}$, $R$ has a least element. Thus, $\mathbb{R}$ is Dedekind-complete.
+    Therefore, every Dedekind cut $(L, R)$ of $\mathbb{R}$, $R$ has a least element. Thus, $\mathbb{R}$ is Dedekind-complete.
 \end{proof}
 
 The least-upper-bound property is also called the axiom of completeness.
@@ -2309,48 +2328,167 @@ I have difficulty proving the 9th field axiom. After trying, I found out that I 
 
 At this point, we have proved that the set of all Cauchy sequences (with only rational terms) satisfies the nine field axioms.
 
-\subsection{Total ordering and compatibility with addtion and multiplication}
+\subsection{Preorder and order relations}
 
-In this subsection, we aim to define order relation in $\mathscr{C}_{\mathbb{Q}}$ and show that the order relation satisfies the axioms of the real numbers.
+We define preorder relations on the set of all Cauchy sequences first.
 
-We define two relation (a preorder and a strict preorder) on the set of all Cauchy sequences first, and then an order relation on $\mathscr{C}_{\mathbb{Q}}$.
-
-\begin{definition}[Preorder relation]
+\begin{definition}[Preorder relations]
     Let $\seq{a_{n}}$ and $\seq{b_{n}}$ be two Cauchy sequences.
 
-    We say $\seq{a_{n}}$ precedes $\seq{b_{n}}$ and denote $\seq{a_{n}}\le\seq{b_{n}}$ if they are equivalent or there exists a natural number $N$ such that
-    \[
-        (\forall n > N)(a_{n}\le b_{n}).
-    \]
+    \begin{itemize}
+        \item We say $\seq{a_{n}}$ precedes $\seq{b_{n}}$ and denote $\seq{a_{n}}\le\seq{b_{n}}$ if they are equivalent or there exists a natural number $N$ such that
+              \[
+                  (\forall n > N)(a_{n}\le b_{n}).
+              \]
+        \item We say $\seq{a_{n}}$ strictly precedes $\seq{b_{n}}$ and denote $\seq{a_{n}} < \seq{b_{n}}$ if they are inequivalent and there exists a natural number $N$ such that
+              \[
+                  (\forall n > N)(a_{n}\le b_{n}).
+              \]
+    \end{itemize}
 \end{definition}
 
+% need more explanation on this choice of definition
+
+\begin{theorem}
+    Let $\seq{a_{n}}$ and $\seq{b_{n}}$ be two Cauchy sequences.
+
+    If $\seq{a_{n}} < \seq{b_{n}}$, then there exists a positive rational number $a$ such that
+    \[
+        (\exists N)(\forall n > N)(a_{n} - b_{n} < -a).
+    \]
+\end{theorem}
+
+\begin{proof}
+\end{proof}
+
+\begin{theorem}\label{theorem:chapter1:equivalent-cauchy-sequences-and-order}
+    Given $\seq{a_{n}}, \seq{b_{n}}\in\mathscr{C}_{\mathbb{Q}}$.
+
+    $\seq{a_{n}}$ and $\seq{c_{n}}$ are equivalent, $\seq{b_{n}}$ and $\seq{d_{n}}$ are equivalent.
+
+    \begin{enumerate}[label={(\roman*)}]
+        \item $\seq{a_{n}}\le\seq{b_{n}}$ iff $\seq{c_{n}}\le\seq{d_{n}}$.
+        \item $\seq{a_{n}} < \seq{b_{m}}$ iff $\seq{c_{n}} < \seq{d_{n}}$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Because of the symmetry, we only need to prove the ($\Rightarrow$) part.
+
+    \begin{enumerate}[label={(\roman*)}]
+        \item We consider the two following cases.
+
+              \begin{enumerate}[label={\textbf{Case \arabic*.}}]
+                  \item $\seq{a_{n}}$ and $\seq{b_{n}}$ are equivalent.
+
+                        Due to the transitivity of equivalence relation, $\seq{c_{n}}$ and $\seq{d_{n}}$ are equivalent.
+
+                        According to the definition, $\seq{c_{n}}\le\seq{d_{n}}$.
+                  \item $\seq{a_{n}}$ and $\seq{b_{n}}$ are inequivalent.
+
+                        According to the definition of equivalent Cauchy sequences
+                        \[
+                            (\exists\varepsilon_{0} > 0)(\forall N)(\exists n > N)(\abs{a_{n} - b_{n} - 0}\ge\varepsilon_{0}).
+                        \]
+
+                        Therefore, $\seq{a_{n} - b_{n}}$ does not converge to $0$. But $\seq{0}$ converges to $0$, so $\seq{a_{n} - b_{n}}$ and $\seq{0}$ are inequivalent.
+
+                        According to Lemma~\ref{lemma:chapter1:nonzero-sequence}
+                        \[
+                            (\exists N_{1})(\forall n > N_{1})(a_{n} - b_{n}\ne 0) \Longleftrightarrow
+                            (\exists N_{1})(\forall n > N_{1})(a_{n}\ne b_{n}).
+                        \]
+
+                        On the other hand, $\seq{a_{n}}\le\seq{b_{n}}$, that is
+                        \[
+                            (\exists N_{2})(\forall n > N_{2})(a_{n}\le b_{n})
+                        \]
+
+                        To combine two of the above, let $N_{3} = \max\{ N_{1}, N_{2} \}$, we obtain that
+                        \[
+                            (\forall n > N_{3})(a_{n} < b_{n}) \implies a_{N_{3} + 1} < b_{N_{3} + 1}
+                        \]
+
+                        Since $\seq{a_{n}}, \seq{b_{n}}$ are Cauchy sequences
+                        \[
+                            \begin{split}
+                                (\exists N_{a})(\forall m, n > N_{a})\left(\abs{a_{m} - a_{n}} < \frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right) \\
+                                (\exists N_{b})(\forall m, n > N_{b})\left(\abs{b_{m} - b_{n}} < \frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right)
+                            \end{split}
+                        \]
+
+                        $\seq{a_{n}}$ and $\seq{c_{n}}$ are equivalent, so
+                        \[
+                            (\exists N_{c})(\forall n > N_{c})\left(-\frac{b_{N_{3}+1} - a_{N_{3}+1}}{8} < a_{n} - c_{n} < \frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right).
+                        \]
+
+                        $\seq{b_{n}}$ and $\seq{d_{n}}$ are equivalent, so
+                        \[
+                            (\exists N_{d})(\forall n > N_{d})\left(-\frac{b_{N_{3}+1} - a_{N_{3}+1}}{8} < d_{n} - b_{n} < \frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right).
+                        \]
+
+                        The idea behind this proof is finding/adjusting epsilon\@(s) to make an inequality correct.
+
+                        Let $N = \max\{ N_{3}, N_{a}, N_{b}, N_{c}, N_{d} \}$. For $n > N$
+                        \begin{align*}
+                            d_{n} - c_{n} & = (d_{n} - b_{n}) + (b_{n} - a_{n}) + (a_{n} - c_{n})                                                                                                                                                                          \\
+                                          & = \abs{b_{n} - a_{n}} + (a_{n} - c_{n}) + (d_{n} - b_{n})                                                                                                                                                                      \\
+                                          & = \abs{(b_{N_{3}+1} - a_{N_{3}+1}) - (a_{n} - a_{N_{3}+1} + b_{N_{3}+1} - b_{n})} + (a_{n} - c_{n}) + (d_{n} - b_{n})                                                                                                          \\
+                                          & \ge \abs{b_{N_{3}+1} - a_{N_{3}+1}} - \abs{(a_{n} - a_{N_{3}+1}) + (b_{N_{3}+1} - b_{n})} + (a_{n} - c_{n}) + (d_{n} - b_{n})                                                                                                  \\
+                                          & \ge (b_{N_{3}+1} - a_{N_{3}+1}) - \left(\abs{a_{n} - a_{N_{3}+1}} + \abs{b_{N_{3}+1} - b_{n}}\right) + (a_{n} - c_{n}) + (d_{n} - b_{n})                                                                                       \\
+                                          & > (b_{N_{3}+1} - a_{N_{3}+1}) - \left(\frac{b_{N_{3}+1} - a_{N_{3}+1}}{8} + \frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right) + \left(-\frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right) + \left(-\frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right) \\
+                                          & = \frac{b_{N_{3}+1} - a_{N_{3}+1}}{2} > 0
+                        \end{align*}
+
+                        So, for all $n > N$, $c_{n} < d_{n}$. Therefore, by definition, $\seq{c_{n}} < \seq{d_{n}}$.
+                        \bigskip
+
+                        Thus, $\seq{c_{n}}\le\seq{d_{n}}$.
+              \end{enumerate}
+        \item $\seq{a_{n}} < \seq{b_{n}} \implies \seq{a_{n}}\le\seq{b_{n}}$. According to the previous result, $\seq{c_{n}}\le\seq{d_{n}}$.
+
+              Assume that $\seq{c_{n}}$ and $\seq{d_{n}}$ are equivalent, then $\seq{a_{n}}$ and $\seq{b_{n}}$ are equivalent, which contradicts $\seq{a_{n}} < \seq{b_{n}}$.
+
+              Hence $\seq{c_{n}}$ is inequivalent to $\seq{d_{n}}$ and $\seq{c_{n}}\le\seq{d_{n}}$.
+
+              Thus, $\seq{c_{n}} < \seq{d_{n}}$.\qedhere
+    \end{enumerate}
+\end{proof}
+
 \begin{theorem}\label{theorem:chapter1:preorder}
-    The ``$\le$'' relation amongst Cauchy sequences is a total \textbf{preorder} relation.
+    The ``$\le$'' relation between Cauchy sequences is a total \textbf{preorder} relation.
 \end{theorem}
 
 \begin{proof}
     \begin{itemize}
         \item Reflexivity.
 
-              Due to the definition, a Cauchy sequence precedes itself.
+              Due to the definition, a Cauchy sequence precedes itself, because a Cauchy sequence is equivalent to itself.
         \item Transitivity.
 
-              Assume that $\seq{a_{n}}\le\seq{b_{n}}$ and $\seq{b_{n}}\le\seq{c_{n}}$.
+              \begin{enumerate}[label={\textbf{Case \arabic*.}},itemindent=0.5cm]
+                  \item $\seq{a_{n}}$ and $\seq{b_{n}}$ are equivalent, $\seq{b_{n}}$ and $\seq{c_{n}}$ are equivalent.
 
-              According to the definition of ``$\le$'' relation
-              \[
-                  \begin{split}
-                      (\exists N_{1})(\forall n > N_{1})(a_{n}\le b_{n}), \\
-                      (\exists N_{2})(\forall n > N_{2})(b_{n}\le c_{n}).
-                  \end{split}
-              \]
+                        In this case, $\seq{a_{n}}$ and $\seq{c_{n}}$ are equivalent. Hence, $\seq{a_{n}}\le\seq{c_{n}}$.
+                  \item $\seq{a_{n}}$ and $\seq{b_{n}}$ are equivalent, $\seq{b_{n}}$ and $\seq{c_{n}}$ are inequivalent.
+                  \item $\seq{a_{n}}$ and $\seq{b_{n}}$ are inequivalent, $\seq{b_{n}}$ and $\seq{c_{n}}$ are equivalent.
+                  \item $\seq{a_{n}}$ and $\seq{b_{n}}$ are inequivalent, $\seq{b_{n}}$ and $\seq{c_{n}}$ are inequivalent.
 
-              Let $N = \max\{ N_{1}, N_{2} \}$, then
-              \[
-                  (\forall n > N)(a_{n}\le b_{n}\le c_{n}).
-              \]
+                        According to the definition of ``$\le$''
+                        \[
+                            \begin{split}
+                                (\exists N_{1})(\forall n > N_{1})(a_{n}\le b_{n}), \\
+                                (\exists N_{2})(\forall n > N_{2})(b_{n}\le c_{n}).
+                            \end{split}
+                        \]
 
-              Hence, $\seq{a_{n}}\le\seq{c_{n}}$.
+                        Let $N = \max\{ N_{1}, N_{2} \}$, then
+                        \[
+                            (\forall n > N)(a_{n}\le b_{n}\le c_{n}).
+                        \]
+
+                        Hence, $\seq{a_{n}}\le\seq{c_{n}}$.
+              \end{enumerate}
         \item Totality.
               \begin{enumerate}[label={\textbf{Case \arabic*.}},itemsep=0pt]
                   \item $\seq{a_{n}}$ and $\seq{b_{n}}$ are equivalent.
@@ -2478,99 +2616,6 @@ This total preorder relation is compatible with addition and multiplication.
     \end{enumerate}
 \end{proof}
 
-The following theorem is the key to allow us to define an \textbf{order} relation (yes, order, not preorder) in $\mathscr{C}_{\mathbb{Q}}$.
-
-\begin{theorem}\label{theorem:chapter1:equivalent-cauchy-sequences-and-order}
-    Given $\seq{a_{n}}, \seq{b_{n}}\in\mathscr{C}_{\mathbb{Q}}$.
-
-    $\seq{a_{n}}$ and $\seq{c_{n}}$ are equivalent, $\seq{b_{n}}$ and $\seq{d_{n}}$ are equivalent.
-
-    \begin{enumerate}[label={(\roman*)}]
-        \item If $\seq{a_{n}}\le\seq{b_{n}}$, $\seq{c_{n}}\le\seq{d_{n}}$.
-        \item If $\seq{a_{n}} < \seq{b_{m}}$, $\seq{c_{n}} < \seq{d_{n}}$.
-    \end{enumerate}
-\end{theorem}
-
-\begin{proof}
-    \begin{enumerate}[label={(\roman*)}]
-        \item  We consider the two following cases.
-
-              \textbf{Case 1. $\seq{a_{n}}$ and $\seq{b_{n}}$ are equivalent.}
-
-              Due to the transitivity of equivalence relation, $\seq{c_{n}}$ and $\seq{d_{n}}$ are equivalent.
-
-              According to the definition, $\seq{c_{n}}\le\seq{d_{n}}$.
-
-              \bigskip
-
-              \textbf{Case 2. $\seq{a_{n}}$ and $\seq{b_{n}}$ are inequivalent.}
-
-              According to the definition of equivalent Cauchy sequences
-              \[
-                  (\exists\varepsilon > 0)(\forall N)(\exists n > N)(\abs{a_{n} - b_{n} - 0}\ge\varepsilon).
-              \]
-
-              Therefore, $\seq{a_{n} - b_{n}}$ does not converge to $0$. $\seq{0}$ converges to $0$, so $\seq{a_{n} - b_{n}}$ and $\seq{0}$ are inequivalent.
-
-              According to Lemma~\ref{lemma:chapter1:nonzero-sequence}
-              \[
-                  (\exists N_{1})(\forall n > N_{1})(a_{n} - b_{n}\ne 0) \Longleftrightarrow
-                  (\exists N_{1})(\forall n > N_{1})(a_{n}\ne b_{n}).
-              \]
-
-              On the other hand, $\seq{a_{n}}\le\seq{b_{n}}$, that is
-              \[
-                  (\exists N_{2})(\forall n > N_{2})(a_{n}\le b_{n})
-              \]
-
-              Let $N_{3} = \max\{ N_{1}, N_{2} \}$.
-              \[
-                  (\forall n > N_{3})(a_{n} < b_{n}) \implies a_{N_{3} + 1} < b_{N_{3} + 1}
-              \]
-
-              Since $\seq{a_{n}}, \seq{b_{n}}$ are Cauchy sequences
-              \[
-                  \begin{split}
-                      (\exists N_{a})(\forall m, n > N_{a})\left(\abs{a_{m} - a_{n}} < \frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right) \\
-                      (\exists N_{b})(\forall m, n > N_{b})\left(\abs{b_{m} - b_{n}} < \frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right)
-                  \end{split}
-              \]
-
-              $\seq{a_{n}}$ and $\seq{c_{n}}$ are equivalent, so
-              \[
-                  (\exists N_{c})(\forall n > N_{c})\left(\abs{c_{n} - a_{n}} < \frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right).
-              \]
-
-              $\seq{b_{n}}$ and $\seq{d_{n}}$ are equivalent, so
-              \[
-                  (\exists N_{d})(\forall n > N_{d})\left(\abs{b_{n} - d_{n}} < \frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right).
-              \]
-
-              Let $N = \max\{ N_{3}, N_{a}, N_{b}, N_{c}, N_{d} \}$. For $n > N$
-              \begin{align*}
-                  d_{n} - c_{n} & = (d_{n} - b_{n}) + (b_{n} - a_{n}) + (a_{n} - c_{n})                                                                                                                                                                          \\
-                                & = \abs{b_{n} - a_{n}} + (a_{n} - c_{n}) + (d_{n} - b_{n})                                                                                                                                                                      \\
-                                & = \abs{(b_{N_{3}+1} - a_{N_{3}+1}) - (a_{n} - a_{N_{3}+1} + b_{N_{3}+1} - b_{n})} + (a_{n} - c_{n}) + (d_{n} - b_{n})                                                                                                          \\
-                                & \ge \abs{b_{N_{3}+1} - a_{N_{3}+1}} - \abs{(a_{n} - a_{N_{3}+1}) + (b_{N_{3}+1} - b_{n})} + (a_{n} - c_{n}) + (d_{n} - b_{n})                                                                                                  \\
-                                & \ge (b_{N_{3}+1} - a_{N_{3}+1}) - \left(\abs{a_{n} - a_{N_{3}+1}} + \abs{b_{N_{3}+1} - b_{n}}\right) + (a_{n} - c_{n}) + (d_{n} - b_{n})                                                                                       \\
-                                & > (b_{N_{3}+1} - a_{N_{3}+1}) - \left(\frac{b_{N_{3}+1} - a_{N_{3}+1}}{8} + \frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right) + \left(-\frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right) + \left(-\frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right) \\
-                                & = \frac{b_{N_{3}+1} - a_{N_{3}+1}}{2} > 0
-              \end{align*}
-
-              So, for all $n > N$, $c_{n} < d_{n}$. Therefore, by definition, $\seq{c_{n}}\le\seq{d_{n}}$.
-              \bigskip
-
-              Thus, $\seq{c_{n}}\le\seq{d_{n}}$.
-        \item $\seq{a_{n}} < \seq{b_{n}} \implies \seq{a_{n}}\le\seq{b_{n}}$. According to the previous result, $\seq{c_{n}}\le\seq{d_{n}}$.
-
-              Assume that $\seq{c_{n}}$ and $\seq{d_{n}}$ are equivalent, then $\seq{a_{n}}$ and $\seq{b_{n}}$ are equivalent, which contradicts $\seq{a_{n}} < \seq{b_{n}}$.
-
-              Hence $\seq{c_{n}}$ is inequivalent to $\seq{d_{n}}$ and $\seq{c_{n}}\le\seq{d_{n}}$.
-
-              Thus, $\seq{c_{n}} < \seq{d_{n}}$.
-    \end{enumerate}
-\end{proof}
-
 \begin{definition}
     We say
     \begin{itemize}
@@ -2579,7 +2624,7 @@ The following theorem is the key to allow us to define an \textbf{order} relatio
     \end{itemize}
 \end{definition}
 
-\begin{theorem}[Total order]
+\begin{theorem}[Total ordering]
     $\mathscr{C}_{\mathbb{Q}}$ with ``$\le$'' relation is totally ordered.
 \end{theorem}
 
@@ -2701,6 +2746,63 @@ At this time, we have proved that $\mathscr{C}_{\mathbb{Q}}$ is a totally ordere
     \]
 \end{proof}
 
+\subsection{Density of $\mathbb{Q}$ in $\mathscr{C}_{\mathbb{Q}}$}
+
+So far, the least-upper-bound property has remained untouched. Turns out, it is more difficult to prove this property using Cauchy sequences. I have searched for proofs in several notes, articles, books, appendices. In summary, the authors used some intermediary results, notably \textit{the Archimedean property} and \textit{the density of $\mathbb{Q}$ in $\mathscr{C}_{\mathbb{Q}}$}.
+
+\begin{theorem}[Archimedean property in $\mathscr{C}_{\mathbb{Q}}$]
+    Let $\alpha, \beta\in\mathscr{C}_{\mathbb{Q}}$, where $\beta$ is positive. There exists an integer $n$ such that
+    \[
+        (n-1)\cdot\beta \le \alpha < n\cdot\beta
+    \]
+
+    where for $k\in\mathbb{Z}, k\cdot\beta = \class{\seq{k}}\cdot\beta$.
+\end{theorem}
+
+I am going to use the well-ordering principle.
+
+\begin{proof}
+    Let $\seq{a_{n}}$ be a member of $\alpha$ and $\seq{b_{n}}$ be a member of $\beta$.
+
+    Since every Cauchy sequence is bounded, there exists a positive rational numbers $A$ and $B$ such that
+    \[
+        \begin{split}
+            -A \le a_{n} \le A,
+            -B \le b_{n} \le B.
+        \end{split}
+    \]
+
+    Let $S_{1} = \{ n : n\in\mathbb{Z} \land \alpha < n\cdot\beta \}$ and $S_{2} = \{ n : n\in\mathbb{Z}\land (n-1)\cdot\beta\le\alpha \}$.
+
+    \begin{enumerate}[label={\textbf{Step \arabic*.}}]
+        \item Prove that $S_{1}$ and $S_{2}$ are not empty.
+
+              Due to the Archimedean property for rational numbers, there exists integers $n_{1}$ such that
+              \[
+                  n_{1}\cdot B < -A < a_{n}
+              \]
+
+              On the other hand, $n_{1}\cdot B < -A < a_{n}$ implies that $a_{n} < A < (-n_{1})\cdot B$.
+
+              It follows that $\seq{n_{1}\cdot B} < \seq{-A} \le \seq{a_{n}}$ and $\seq{a_{n}}\le \seq{A} < \seq{(-n_{1})\cdot B}$.
+
+              Therefore, $n_{1}\cdot\class{\seq{B}} < \alpha$ and $\alpha < (-n_{1})\cdot\class{\seq{B}}$.
+
+              Hence, $S_{1}$ contains at least one element ($-n_{1}$) and $S_{2}$ contains at least one element ($n_{1} + 1$).
+        \item Prove that $S_{1}$ is bounded below.
+        \item Prove that $S_{1}$ has a least element.
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}
+    Let $\alpha, \beta\in\mathscr{C}_{\mathbb{Q}}$, where $\alpha < \beta$.
+
+    There exists a rational number $q$ such that $\alpha < \class{\seq{q}} < \beta$.
+\end{theorem}
+
+\begin{proof}
+\end{proof}
+
 \subsection{Least-upper-bound property}
 
 \begin{theorem}
@@ -2813,13 +2915,6 @@ I will construct such an equivalence class of Cauchy sequences (least upper boun
 
               Assume that $\class{\seq{u_{n}}}$ is not an upper bound of $S$, then there exists $\sigma\in S$ such that $\class{\seq{u_{n}}} < \sigma$.
 
-              So there exists a Cauchy sequence $\seq{t_{n}}$ (which is a member of $\sigma$) such that $\seq{u_{n}} < \seq{t_{n}}$. It follows that
-              \[
-                  (\exists N)(\forall n > N)(u_{n} < t_{n}).
-              \]
-
-              Because of this, $\seq{u_{N}}\le\seq{t_{n}}$.
-
               This contradicts the definition of $\seq{u_{n}}$.
 
               Hence, $\class{\seq{u_{n}}}$ is an upper bound of $S$.
@@ -2831,8 +2926,6 @@ I will construct such an equivalence class of Cauchy sequences (least upper boun
 
 \section{Compare the two constructions (models)}
 
-\subsection{Pros and Cons of the two constructions}
-
-\subsection{Equivalence}
+\section{Uniqueness of complete ordered field}
 
 \section{Complex numbers}
