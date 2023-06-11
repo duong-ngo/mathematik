@@ -2452,22 +2452,34 @@ We define preorder relations on the set of all Cauchy sequences first.
     \end{itemize}
 \end{definition}
 
-Those two are just preorder relations, not order relations, since the anti-symmetric property is not satisfied. I chose to define the two relations this way because they will be ``preserved'' when I define the corresponding relations for equivalence classes of Cauchy sequences.
+Strict precedence implies precedence but the converse is not generally true.
 
-\begin{theorem}
+Those two are just preorder (not order) relations (we haven't proved this yet!), since the anti-symmetric property is not satisfied. I chose to define the two relations this way because they will be ``preserved'' when I define the corresponding relations for equivalence classes of Cauchy sequences.
+
+\begin{theorem}\label{theorem:chapter1:inequivalent-sequences}
     Let $\seq{a_{n}}$ and $\seq{b_{n}}$ be two Cauchy sequences.
 
-    If $\seq{a_{n}} < \seq{b_{n}}$, then there exists a positive rational number $a$ such that
+    If $\seq{a_{n}} < \seq{b_{n}}$, then there exists a positive rational number $q$ such that
     \[
-        (\exists N)(\forall n > N)(a_{n} - b_{n} < -a).
+        (\exists N)(\forall n > N)(a_{n} - b_{n} < -q).
     \]
 \end{theorem}
 
 \begin{proof}
+    $\seq{a_{n}}$ and $\seq{b_{n}}$ are inequivalent, so that $\seq{a_{n} - b_{n}}$ does not converge to $0$. According to Lemma~\ref{lemma:chapter1:nonzero-sequence}
+    \begin{align*}
+        \text{either}\quad & (\exists q > 0)(\exists N_{0})(\forall n > N_{0})(a_{n} - b_{n} < -q), \\
+        \text{or}\quad     & (\exists q > 0)(\exists N_{0})(\forall n > N_{0})(a_{n} - b_{n} > q).
+    \end{align*}
+
+    However, the latter is not the case since $\seq{a_{n}} < \seq{b_{n}}$ implies that $(\exists N)(\forall n > N)(a_{n}\le b_{n})$.
+
+    \bigskip
+    Thus, $(\exists q > 0)(\exists N_{0})(\forall n > N_{0})(a_{n} - b_{n} < -q)$.
 \end{proof}
 
 \begin{theorem}\label{theorem:chapter1:equivalent-cauchy-sequences-and-order}
-    Given $\seq{a_{n}}, \seq{b_{n}}\in\mathscr{C}_{\mathbb{Q}}$.
+    Given Cauchy sequences $\seq{a_{n}}, \seq{b_{n}}, \seq{c_{n}}, \seq{d_{n}}$.
 
     $\seq{a_{n}}$ and $\seq{c_{n}}$ are equivalent, $\seq{b_{n}}$ and $\seq{d_{n}}$ are equivalent.
 
@@ -2480,84 +2492,65 @@ Those two are just preorder relations, not order relations, since the anti-symme
 \begin{proof}
     Because of the symmetry, we only need to prove the ($\Rightarrow$) part.
 
-    \begin{enumerate}[label={(\roman*)}]
-        \item We consider the two following cases.
+    \begin{enumerate}[label={\textbf{Case \arabic*.}}]
+        \item $\seq{a_{n}}$ and $\seq{b_{n}}$ are equivalent.
 
-              \begin{enumerate}[label={\textbf{Case \arabic*.}}]
-                  \item $\seq{a_{n}}$ and $\seq{b_{n}}$ are equivalent.
+              Due to the transitivity of equivalence relation, $\seq{c_{n}}$ and $\seq{d_{n}}$ are equivalent.
 
-                        Due to the transitivity of equivalence relation, $\seq{c_{n}}$ and $\seq{d_{n}}$ are equivalent.
+              According to the definition, $\seq{c_{n}}\le\seq{d_{n}}$.
+        \item $\seq{a_{n}}$ and $\seq{b_{n}}$ are inequivalent.
 
-                        According to the definition, $\seq{c_{n}}\le\seq{d_{n}}$.
-                  \item $\seq{a_{n}}$ and $\seq{b_{n}}$ are inequivalent.
+              According to Theorem~\ref{theorem:chapter1:inequivalent-sequences}, there exists positive rational number $q$ such that
 
-                        According to the definition of equivalent Cauchy sequences
-                        \[
-                            (\exists\varepsilon_{0} > 0)(\forall N)(\exists n > N)(\abs{a_{n} - b_{n} - 0}\ge\varepsilon_{0}).
-                        \]
+              \[
+                  (\exists N_{0})(\forall n > N_{0})(a_{n} - b_{n} < -q) \implies a_{N_{0} + 1} < b_{N_{0} + 1}
+              \]
 
-                        Therefore, $\seq{a_{n} - b_{n}}$ does not converge to $0$. But $\seq{0}$ converges to $0$, so $\seq{a_{n} - b_{n}}$ and $\seq{0}$ are inequivalent.
+              Since $\seq{a_{n}}, \seq{b_{n}}$ are Cauchy sequences
+              \[
+                  \begin{split}
+                      (\exists N_{a})(\forall m, n > N_{a})\left(\abs{a_{m} - a_{n}} < \frac{b_{N_{0} + 1} - a_{N_{0} + 1}}{8}\right) \\
+                      (\exists N_{b})(\forall m, n > N_{b})\left(\abs{b_{m} - b_{n}} < \frac{b_{N_{0} + 1} - a_{N_{0} + 1}}{8}\right)
+                  \end{split}
+              \]
 
-                        According to Lemma~\ref{lemma:chapter1:nonzero-sequence}
-                        \[
-                            (\exists N_{1})(\forall n > N_{1})(a_{n} - b_{n}\ne 0) \Longleftrightarrow
-                            (\exists N_{1})(\forall n > N_{1})(a_{n}\ne b_{n}).
-                        \]
+              $\seq{a_{n}}$ and $\seq{c_{n}}$ are equivalent, so
+              \[
+                  (\exists N_{c})(\forall n > N_{c})\left(-\frac{b_{N_{0}+1} - a_{N_{0}+1}}{8} < a_{n} - c_{n} < \frac{b_{N_{0}+1} - a_{N_{0}+1}}{8}\right).
+              \]
 
-                        On the other hand, $\seq{a_{n}}\le\seq{b_{n}}$, that is
-                        \[
-                            (\exists N_{2})(\forall n > N_{2})(a_{n}\le b_{n})
-                        \]
+              $\seq{b_{n}}$ and $\seq{d_{n}}$ are equivalent, so
+              \[
+                  (\exists N_{d})(\forall n > N_{d})\left(-\frac{b_{N_{0}+1} - a_{N_{0}+1}}{8} < d_{n} - b_{n} < \frac{b_{N_{0}+1} - a_{N_{0}+1}}{8}\right).
+              \]
 
-                        To combine two of the above, let $N_{3} = \max\{ N_{1}, N_{2} \}$, we obtain that
-                        \[
-                            (\forall n > N_{3})(a_{n} < b_{n}) \implies a_{N_{3} + 1} < b_{N_{3} + 1}
-                        \]
+              The idea behind this proof is finding/adjusting epsilon\@(s) to make an inequality correct.
 
-                        Since $\seq{a_{n}}, \seq{b_{n}}$ are Cauchy sequences
-                        \[
-                            \begin{split}
-                                (\exists N_{a})(\forall m, n > N_{a})\left(\abs{a_{m} - a_{n}} < \frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right) \\
-                                (\exists N_{b})(\forall m, n > N_{b})\left(\abs{b_{m} - b_{n}} < \frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right)
-                            \end{split}
-                        \]
+              Let $N = \max\{ N_{0}, N_{a}, N_{b}, N_{c}, N_{d} \}$. For $n > N$
+              \begin{align*}
+                  d_{n} - c_{n} & = (d_{n} - b_{n}) + (b_{n} - a_{n}) + (a_{n} - c_{n})                                                                                                                                                                          \\
+                                & = \abs{b_{n} - a_{n}} + (a_{n} - c_{n}) + (d_{n} - b_{n})                                                                                                                                                                      \\
+                                & = \abs{(b_{N_{0}+1} - a_{N_{0}+1}) - (a_{n} - a_{N_{0}+1} + b_{N_{0}+1} - b_{n})} + (a_{n} - c_{n}) + (d_{n} - b_{n})                                                                                                          \\
+                                & \ge \abs{b_{N_{0}+1} - a_{N_{0}+1}} - \abs{(a_{n} - a_{N_{0}+1}) + (b_{N_{0}+1} - b_{n})} + (a_{n} - c_{n}) + (d_{n} - b_{n})                                                                                                  \\
+                                & \ge (b_{N_{0}+1} - a_{N_{0}+1}) - \left(\abs{a_{n} - a_{N_{0}+1}} + \abs{b_{N_{0}+1} - b_{n}}\right) + (a_{n} - c_{n}) + (d_{n} - b_{n})                                                                                       \\
+                                & > (b_{N_{0}+1} - a_{N_{0}+1}) - \left(\frac{b_{N_{0}+1} - a_{N_{0}+1}}{8} + \frac{b_{N_{0}+1} - a_{N_{0}+1}}{8}\right) + \left(-\frac{b_{N_{0}+1} - a_{N_{0}+1}}{8}\right) + \left(-\frac{b_{N_{0}+1} - a_{N_{0}+1}}{8}\right) \\
+                                & = \frac{b_{N_{0}+1} - a_{N_{0}+1}}{2} > 0.
+              \end{align*}
 
-                        $\seq{a_{n}}$ and $\seq{c_{n}}$ are equivalent, so
-                        \[
-                            (\exists N_{c})(\forall n > N_{c})\left(-\frac{b_{N_{3}+1} - a_{N_{3}+1}}{8} < a_{n} - c_{n} < \frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right).
-                        \]
+              So, for all $n > N$, $c_{n} < d_{n}$. Therefore, by definition, $\seq{c_{n}}\le \seq{d_{n}}$.
 
-                        $\seq{b_{n}}$ and $\seq{d_{n}}$ are equivalent, so
-                        \[
-                            (\exists N_{d})(\forall n > N_{d})\left(-\frac{b_{N_{3}+1} - a_{N_{3}+1}}{8} < d_{n} - b_{n} < \frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right).
-                        \]
+              On the other hand, $d_{n} - c_{n} > \dfrac{b_{N_{0} + 1} - a_{N_{0} + 1}}{2} > 0$ for all $n > N$ so $\seq{c_{n}}$ and $\seq{d_{n}}$ are inequivalent.
+              \bigskip
 
-                        The idea behind this proof is finding/adjusting epsilon\@(s) to make an inequality correct.
-
-                        Let $N = \max\{ N_{3}, N_{a}, N_{b}, N_{c}, N_{d} \}$. For $n > N$
-                        \begin{align*}
-                            d_{n} - c_{n} & = (d_{n} - b_{n}) + (b_{n} - a_{n}) + (a_{n} - c_{n})                                                                                                                                                                          \\
-                                          & = \abs{b_{n} - a_{n}} + (a_{n} - c_{n}) + (d_{n} - b_{n})                                                                                                                                                                      \\
-                                          & = \abs{(b_{N_{3}+1} - a_{N_{3}+1}) - (a_{n} - a_{N_{3}+1} + b_{N_{3}+1} - b_{n})} + (a_{n} - c_{n}) + (d_{n} - b_{n})                                                                                                          \\
-                                          & \ge \abs{b_{N_{3}+1} - a_{N_{3}+1}} - \abs{(a_{n} - a_{N_{3}+1}) + (b_{N_{3}+1} - b_{n})} + (a_{n} - c_{n}) + (d_{n} - b_{n})                                                                                                  \\
-                                          & \ge (b_{N_{3}+1} - a_{N_{3}+1}) - \left(\abs{a_{n} - a_{N_{3}+1}} + \abs{b_{N_{3}+1} - b_{n}}\right) + (a_{n} - c_{n}) + (d_{n} - b_{n})                                                                                       \\
-                                          & > (b_{N_{3}+1} - a_{N_{3}+1}) - \left(\frac{b_{N_{3}+1} - a_{N_{3}+1}}{8} + \frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right) + \left(-\frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right) + \left(-\frac{b_{N_{3}+1} - a_{N_{3}+1}}{8}\right) \\
-                                          & = \frac{b_{N_{3}+1} - a_{N_{3}+1}}{2} > 0
-                        \end{align*}
-
-                        So, for all $n > N$, $c_{n} < d_{n}$. Therefore, by definition, $\seq{c_{n}} < \seq{d_{n}}$.
-                        \bigskip
-
-                        Thus, $\seq{c_{n}}\le\seq{d_{n}}$.
-              \end{enumerate}
-        \item $\seq{a_{n}} < \seq{b_{n}} \implies \seq{a_{n}}\le\seq{b_{n}}$. According to the previous result, $\seq{c_{n}}\le\seq{d_{n}}$.
-
-              Assume that $\seq{c_{n}}$ and $\seq{d_{n}}$ are equivalent, then $\seq{a_{n}}$ and $\seq{b_{n}}$ are equivalent, which contradicts $\seq{a_{n}} < \seq{b_{n}}$.
-
-              Hence $\seq{c_{n}}$ is inequivalent to $\seq{d_{n}}$ and $\seq{c_{n}}\le\seq{d_{n}}$.
-
-              Thus, $\seq{c_{n}} < \seq{d_{n}}$.\qedhere
+              Hence, $\seq{c_{n}} < \seq{d_{n}}$.
     \end{enumerate}
+
+    \bigskip
+    Thus
+    \begin{align*}
+        \seq{a_{n}} \le \seq{b_{n}} \implies \seq{c_{n}} \le \seq{d_{n}}, \\
+        \seq{a_{n}} < \seq{b_{n}} \implies \seq{c_{n}} < \seq{d_{n}}.
+    \end{align*}
 \end{proof}
 
 \begin{theorem}\label{theorem:chapter1:preorder}
