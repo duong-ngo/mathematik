@@ -747,17 +747,17 @@ I need the following property to verify the group structure of $\mathscr{D}_{\ma
               \end{align*}
         \item $A\supseteq {0}^{*}, B\subseteq {0}^{*}$.
               \begin{align*}
-                  A\cdot (-B) & = -A\cdot (-(-B)) = -A\cdot B, \\
+                  A\cdot (-B) & = -A\cdot (-(-B)) = -A\cdot B,     \\
                   (-A)\cdot B & = (-(-A))\cdot (-B) = A\cdot (-B).
               \end{align*}
         \item $A\subseteq {0}^{*}, B\supseteq {0}^{*}$.
               \begin{align*}
                   A\cdot (-B) & = (-A)\cdot (-(-B)) = (-A)\cdot B, \\
-                  -A\cdot B & = -(-(-A)\cdot B) = (-A)\cdot B.
+                  -A\cdot B   & = -(-(-A)\cdot B) = (-A)\cdot B.
               \end{align*}
         \item $A\subseteq {0}^{*}, B\subseteq {0}^{*}$.
               \begin{align*}
-                  -A\cdot B & = -(-A)\cdot (-B), \\
+                  -A\cdot B   & = -(-A)\cdot (-B), \\
                   (-A)\cdot B & = -(-A)\cdot (-B), \\
                   A\cdot (-B) & = -(-A)\cdot (-B).
               \end{align*}
@@ -1613,7 +1613,7 @@ So far, we have successfully constructed a model (by using Dedekind cuts), which
 
 In this subsection, we will show that $\mathbb{R}$ is complete, in the sense that every cut is represented by a real number. To do so, we will use a generalization of Dedekind cut.
 
-\begin{definition}[Dedekind cut (generalization)]
+\begin{definition}[Dedekind cut]
     Let $S$ be a totally ordered set. A Dedekind cut of $S$ is a partition $(L, R)$ ($L\cap R = \varnothing$ and $L\cup R = S$) such that
     \begin{enumerate}[label={(\roman*)}]
         \item $L$ is not empty.
@@ -1622,6 +1622,8 @@ In this subsection, we will show that $\mathbb{R}$ is complete, in the sense tha
         \item $L$ is closed downward.
     \end{enumerate}
 \end{definition}
+
+Instead of denoting $(L, R)$, we can use $L$ for short. This is totally fine because $R = S\setminus L$.
 
 \begin{definition}[Dedekind-complete]
     A totally order set $S$ is called Dedekind-complete if every Dedekind cut $A$ of it satisfies: \textit{$S\setminus A$ has a least element.}
@@ -1643,13 +1645,11 @@ In this subsection, we will show that $\mathbb{R}$ is complete, in the sense tha
     Therefore, every Dedekind cut $(L, R)$ of $\mathbb{R}$, $R$ has a least element. Thus, $\mathbb{R}$ is Dedekind-complete.
 \end{proof}
 
-The least-upper-bound property is also called the axiom of completeness.
-
 \section{Construction of the real numbers by Cauchy sequences}
 
 Another way to construct the real numbers from the rational numbers is using Cauchy sequences.
 
-In the upcoming \textit{four subsections}, we consider sequences with only rational terms.
+In the upcoming, we consider sequences with only rational terms.
 
 \subsection{Definition of Cauchy sequence}
 
@@ -1683,65 +1683,7 @@ A sequence $\seq{b_{n}}$ is \textit{not a Cauchy sequence} if and only if
     (\exists\varepsilon > 0)(\forall N)(\exists m, n > N)(\abs{b_{m} - b_{n}}\ge\varepsilon).
 \]
 
-\begin{definition}[Equivalent (Cauchy) sequences]
-    Two (Cauchy) sequences $\seq{a_{n}}, \seq{b_{n}}$ are called equivalent if and only if
-    \[
-        (\forall\varepsilon > 0)(\exists N=N(\varepsilon))(\forall n > N)(\left\vert a_{n} - b_{n} \right\vert < \varepsilon).
-    \]
-\end{definition}
-
-\begin{theorem}
-    The relation in the previous definition is an equivalence relation. In other words, this relation is reflexive, symmetric, transitive.
-\end{theorem}
-
-\begin{proof}
-    \begin{itemize}
-        \item Reflexive.
-
-              A Cauchy sequence $\seq{a_{n}}$ is equivalent to itself, since
-              \[
-                  (\forall\varepsilon > 0)(\forall n > 1)(\left\vert a_{n} - a_{n} \right\vert = 0 < \varepsilon)
-              \]
-        \item Symmetric.
-
-              Let $\seq{a_{n}}$ and $\seq{b_{n}}$ be two Cauchy sequences.
-
-              $\seq{a_{n}}$ is equivalent to $\seq{b_{n}}$ if and only if
-              \[
-                  \begin{split}
-                      & (\forall\varepsilon > 0)(\exists N=N(\varepsilon))(\forall n > N)(\left\vert a_{n} - b_{n} \right\vert < \varepsilon) \\
-                      \Leftrightarrow\quad & (\forall\varepsilon > 0)(\exists N=N(\varepsilon))(\forall n > N)(\left\vert b_{n} - a_{n} \right\vert < \varepsilon)
-                  \end{split}
-              \]
-
-              which implies that $\seq{b_{n}}$ is equivalent to $\seq{a_{n}}$.
-        \item Transitive.
-
-              Assume that among three Cauchy sequences $\seq{a_{n}}$, $\seq{b_{n}}$, $\seq{c_{n}}$, $\seq{a_{n}}$ is equivalent to $\seq{b_{n}}$ and $\seq{b_{n}}$ is equivalent to $\seq{c_{n}}$.
-
-              Let $\varepsilon$ be an arbitrary positive rational number.
-              \[
-                  \begin{split}
-                      (\forall\varepsilon > 0)(\exists N_{1}=N_{1}(\varepsilon))(\forall n > N_{1})\left(\left\vert a_{n} - b_{n} \right\vert < \frac{\varepsilon}{2}\right), \\
-                      (\forall\varepsilon > 0)(\exists N_{2}=N_{2}(\varepsilon))(\forall n > N_{2})\left(\left\vert b_{n} - c_{n} \right\vert < \frac{\varepsilon}{2}\right).
-                  \end{split}
-              \]
-
-              Let's choose $N = \max\{ N_{1}, N_{2} \}$, then for all $n > N$
-              \[
-                  \abs{a_{n} - c_{n}} \le \abs{a_{n} - b_{n}} + \abs{b_{n} - c_{n}} < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon.
-              \]
-
-              Hence
-              \[
-                  (\forall\varepsilon > 0)(\forall n > N)(\abs{a_{n} - c_{n}} < \varepsilon).
-              \]
-
-              Thus, $\seq{a_{n}}$ and $\seq{c_{n}}$ are equivalent.
-    \end{itemize}
-\end{proof}
-
-If two Cauchy sequences $\seq{a_{n}}$ and $\seq{b_{n}}$ are equivalent, we write $\seq{a_{n}}\sim\seq{b_{n}}$. Otherwise, we write $\seq{a_{n}}\nsim\seq{b_{n}}$. We denote the equivalence class of $\seq{a_{n}}$ by $\class{\seq{a_{n}}}$.
+\subsection{Properties of Cauchy sequences}
 
 \begin{definition}
     We say $\seq{a_{n}}$ converges to a rational number $a$ if and only if
@@ -1761,7 +1703,7 @@ If two Cauchy sequences $\seq{a_{n}}$ and $\seq{b_{n}}$ are equivalent, we write
 
     Since $\seq{a_{n}}$ converges to $a$, there exists a natural number $N = N(\varepsilon)$ such that
     \[
-        (\forall n > N)(\abs{a_{n} - a} < \frac{\varepsilon}{2}).
+        (\forall n > N)\left(\abs{a_{n} - a} < \frac{\varepsilon}{2}\right).
     \]
 
     Hence, for all $m, n > N$
@@ -1833,6 +1775,66 @@ A Cauchy sequence can converge to a rational number or not.
     Thus, $\seq{a_{n}}$ is bounded.
 \end{proof}
 
+\subsection{Equivalent Cauchy sequences}
+
+\begin{definition}[Equivalent (Cauchy) sequences]
+    Two (Cauchy) sequences $\seq{a_{n}}, \seq{b_{n}}$ are called equivalent if and only if
+    \[
+        (\forall\varepsilon > 0)(\exists N=N(\varepsilon))(\forall n > N)(\left\vert a_{n} - b_{n} \right\vert < \varepsilon).
+    \]
+\end{definition}
+
+\begin{theorem}
+    The relation in the previous definition is an equivalence relation. In other words, this relation is reflexive, symmetric, transitive.
+\end{theorem}
+
+\begin{proof}
+    \begin{itemize}
+        \item Reflexive.
+
+              A Cauchy sequence $\seq{a_{n}}$ is equivalent to itself, since
+              \[
+                  (\forall\varepsilon > 0)(\forall n > 1)(\left\vert a_{n} - a_{n} \right\vert = 0 < \varepsilon)
+              \]
+        \item Symmetric.
+
+              Let $\seq{a_{n}}$ and $\seq{b_{n}}$ be two Cauchy sequences.
+
+              $\seq{a_{n}}$ is equivalent to $\seq{b_{n}}$ if and only if
+              \[
+                  \begin{split}
+                      & (\forall\varepsilon > 0)(\exists N=N(\varepsilon))(\forall n > N)(\left\vert a_{n} - b_{n} \right\vert < \varepsilon) \\
+                      \Leftrightarrow\quad & (\forall\varepsilon > 0)(\exists N=N(\varepsilon))(\forall n > N)(\left\vert b_{n} - a_{n} \right\vert < \varepsilon)
+                  \end{split}
+              \]
+
+              which implies that $\seq{b_{n}}$ is equivalent to $\seq{a_{n}}$.
+        \item Transitive.
+
+              Assume that among three Cauchy sequences $\seq{a_{n}}$, $\seq{b_{n}}$, $\seq{c_{n}}$, $\seq{a_{n}}$ is equivalent to $\seq{b_{n}}$ and $\seq{b_{n}}$ is equivalent to $\seq{c_{n}}$.
+
+              Let $\varepsilon$ be an arbitrary positive rational number.
+              \[
+                  \begin{split}
+                      (\forall\varepsilon > 0)(\exists N_{1}=N_{1}(\varepsilon))(\forall n > N_{1})\left(\left\vert a_{n} - b_{n} \right\vert < \frac{\varepsilon}{2}\right), \\
+                      (\forall\varepsilon > 0)(\exists N_{2}=N_{2}(\varepsilon))(\forall n > N_{2})\left(\left\vert b_{n} - c_{n} \right\vert < \frac{\varepsilon}{2}\right).
+                  \end{split}
+              \]
+
+              Let's choose $N = \max\{ N_{1}, N_{2} \}$, then for all $n > N$
+              \[
+                  \abs{a_{n} - c_{n}} \le \abs{a_{n} - b_{n}} + \abs{b_{n} - c_{n}} < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon.
+              \]
+
+              Hence
+              \[
+                  (\forall\varepsilon > 0)(\forall n > N)(\abs{a_{n} - c_{n}} < \varepsilon).
+              \]
+
+              Thus, $\seq{a_{n}}$ and $\seq{c_{n}}$ are equivalent.
+    \end{itemize}
+\end{proof}
+
 \begin{theorem}
     If the Cauchy sequence $\seq{a_{n}}$ converges to $a$, then every Cauchy sequence which is equivalent to $\seq{a_{n}}$ also converges to $a$.
 \end{theorem}
@@ -1862,9 +1864,11 @@ A Cauchy sequence can converge to a rational number or not.
     Thus, every Cauchy sequence which is equivalent to $\seq{a_{n}}$ converges to $a$.
 \end{proof}
 
-\begin{corollary}
+\subsection{A Cauchy sequence which does not converge}
+
+\begin{theorem}
     If the Cauchy sequence $\seq{a_{n}}$ does not converge to any rational number, then every Cauchy sequence which is equivalent to $\seq{a_{n}}$ does not converge to any rational number, either.
-\end{corollary}
+\end{theorem}
 
 \begin{proof}
     Let $\seq{a_{n}}$ and $\seq{b_{n}}$ be equivalent Cauchy sequences.
@@ -1888,7 +1892,6 @@ A Cauchy sequence can converge to a rational number or not.
 \end{example}
 
 \begin{proof}
-    Assume that $\seq{b_{n}}$ converges to a rational number $b$.
     \begin{enumerate}[label={\textbf{Step \arabic*.}},itemindent=1cm]
         \item ${b^{2}_{n}} > 2$.
 
@@ -1913,11 +1916,55 @@ A Cauchy sequence can converge to a rational number or not.
               \]
 
               Then $\seq{b_{n}}$ is a decreasing sequence.
+        \item Prove that $\seq{b_{n}}$ is a Cauchy sequence.
+
+              \begin{align*}
+                  \abs{b_{n+1} - b_{n}} & = \abs{\frac{b_{n}}{2} + \frac{1}{b_{n}} - \frac{b_{n-1}}{2} - \frac{1}{b_{n-1}}}   \\
+                                        & = \abs{\frac{b_{n} - b_{n-1}}{2} - \frac{b_{n} - b_{n-1}}{b_{n}b_{n-1}}}            \\
+                                        & = \frac{1}{2}\abs{b_{n} - b_{n-1}}\cdot\abs{1 - \frac{2}{b_{n}b_{n-1}}}             \\
+                                        & = \frac{1}{2}\abs{b_{n} - b_{n-1}}\cdot\frac{\abs{b_{n}b_{n-1} - 2}}{b_{n}b_{n-1}}.
+              \end{align*}
+
+              Since ${b_{n}}^{2} > 2$ for all $n$, then
+              \[
+                  b_{n}b_{n-1} - 2 = \frac{{b_{n}}^{2}{b_{n-1}}^{2} - 4}{b_{n}b_{n-1} + 2} > 0.
+              \]
+
+              So that $\dfrac{1}{b_{n}b_{n-1}} < \dfrac{1}{2}$, and
+              \[
+                  \abs{b_{n+1} - b_{n}} = \frac{1}{2}\abs{b_{n} - b_{n-1}}\cdot\frac{b_{n}b_{n-1} - 2}{b_{n}b_{n-1}} < \frac{1}{4}\abs{b_{n} - b_{n-1}}({b_{1}}^{2} - 2) = \frac{1}{2}\abs{b_{n} - b_{n-1}}
+              \]
+
+              Recursively
+              \[
+                  \abs{b_{n+1} - b_{n}} < \frac{1}{{2}^{n-1}}\abs{b_{2} - b_{1}} = \frac{1}{2^{n}}.
+              \]
+
+              For natural number $p$
+              \begin{align*}
+                  \abs{b_{n+p} - b_{n}} & \le \abs{b_{n+p} - b_{n+p-1}} + \cdots + \abs{b_{n+1} - b_{n}}                              \\
+                                        & = \frac{1}{{2}^{n+p-1}} + \cdots + \frac{1}{{2}^{n}}                                        \\
+                                        & = \frac{1}{{2}^{n}}\left( \frac{1}{{2}^{p-1}} + \cdots + 1 \right)                          \\
+                                        & = \frac{1}{{2}^{n}}\cdot\frac{1 - \frac{1}{{2}^{p}}}{1 - \frac{1}{2}} < \frac{1}{{2}^{n-1}}
+              \end{align*}
+
+              For every rational number $\varepsilon > 0$, for all $n > N(\varepsilon) = \ceiling{\dfrac{1}{\varepsilon}}$ and for all $p > 0$
+              \[
+                  \abs{b_{n+p} - b_{n}} < \frac{1}{{2}^{n-1}} \le \frac{1}{n} < \varepsilon
+              \]
+
+              Hence $\seq{b_{n}}$ is a Cauchy sequence.
+    \end{enumerate}
+
+    \bigskip
+    Assume that $\seq{b_{n}}$ converges to a rational number $b$.
+
+    \begin{enumerate}[label={\textbf{Step \arabic*.}},start=4,itemindent=1cm]
         \item Prove that $b$ is smaller than all terms of $\seq{b_{n}}$.
 
               Assume that there exists a natural number $n_{1}$ such that $b_{n_{1}}\le b$. Since $\seq{b_{n}}$ is decreasing, then $b_{n} < b_{n_{1}}\le b$ for every $n > n_{1}$.
 
-              Choose $\varepsilon = \varepsilon - b_{n_{1} + 1}$, then for all $n > n_{1}$, $\abs{b_{n} - b} = b - b_{n} \ge b - b_{n_{1} + 1} = \varepsilon$. Hence, $\seq{b_{n}}$ does not converge to $b$.
+              Choose $\varepsilon = b - b_{n_{1} + 1}$, then for all $n > n_{1}$, $\abs{b_{n} - b} = b - b_{n} \ge b - b_{n_{1} + 1} = \varepsilon$. Hence, $\seq{b_{n}}$ does not converge to $b$, this contradicts the initial assumption.
 
               Therefore, $b < b_{n}$, for every natural number $n$.
         \item Prove that $0 < b < 2$.
@@ -1947,18 +1994,18 @@ A Cauchy sequence can converge to a rational number or not.
 
               For $n > 2$
               \begin{align*}
-                  b_{n}^{2} - 2 & = \frac{{\left( b^{2}_{n-1} - 2 \right)}^{2}}{4\cdot b^{2}_{n-1}}                               \\
-                                & \le \frac{(b^{2}_{n-1} - 2)\cdot (b^{2}_{1} - 2)}{4\cdot b^{2}_{n-1}}                           \\
-                                & \le \frac{b^{2}_{n-1} - 2}{2\cdot b^{2}_{n-1}}                                                  \\
-                                & < \frac{b^{2}_{n-1} - 2}{4}                                                                     \\
-                                & \le \frac{b^{2}_{1} - 2}{4^{n-1}} = \frac{2}{4^{n-1}} = \frac{1}{2^{2n-3}} \le \frac{1}{2^{n}}.
+                  {b_{n}}^{2} - 2 & = \frac{{\left( {b_{n-1}}^{2} - 2 \right)}^{2}}{4\cdot b^{2}_{n-1}}                               \\
+                                  & \le \frac{({b_{n-1}}^{2} - 2)\cdot ({b_{1}}^{2} - 2)}{4\cdot b^{2}_{n-1}}                         \\
+                                  & \le \frac{{b_{n-1}}^{2} - 2}{2\cdot {b_{n-1}}^{2}}                                                \\
+                                  & < \frac{{b_{n-1}}^{2} - 2}{4}                                                                     \\
+                                  & \le \frac{{b_{1}}^{2} - 2}{4^{n-1}} = \frac{2}{4^{n-1}} = \frac{1}{2^{2n-3}} \le \frac{1}{2^{n}}.
               \end{align*}
 
               \[
                   (\forall\varepsilon > 0)\left(\forall n > N(\varepsilon) = \abs{\floor{\frac{1}{\varepsilon} - 1}}\right)\left( \frac{1}{2^{n}} < \varepsilon \right).
               \]
 
-              So for every $\varepsilon > 0$, choose $N = \abs{\floor{\dfrac{1}{\varepsilon} - 1}} + 3$ (I plus 3 to make sure $N > 2$), then for all $n > N$, $\abs{b^{2}_{n} - 2} < \dfrac{1}{2^{n}} < \varepsilon$.
+              So for every $\varepsilon > 0$, choose $N = \abs{\floor{\dfrac{1}{\varepsilon} - 1}} + 3$ (I plus 3 to make sure $N > 2$), then for all $n > N$, $\abs{{b_{n}}^{2} - 2} < \dfrac{1}{2^{n}} < \varepsilon$.
 
               Therefore, $\seq{x_{n}}$ converges to $2$.
 
@@ -1972,11 +2019,13 @@ A Cauchy sequence can converge to a rational number or not.
 
 The equivalence relation amongst Cauchy sequences partitions the set of all Cauchy sequences into \textit{equivalance classes}. In the upcoming subsections, I will prove that these equivalence classes satisfy the axioms of the real numbers. Firstly, I have to define the order relation, operations (addition, multiplication) on them.
 
-Let's denote the set of all equivalance classes of Cauchy sequences (with only rational terms) by $\mathscr{C}_{\mathbb{Q}}$, just like in Todd Kemp's note.
+Let's denote the set of all equivalance classes of Cauchy sequences (with only rational terms) by $\mathscr{C}_{\mathbb{Q}}$.
 
 \subsection{Field structure}
 
 In this subsection, we will define addition and multiplication over Cauchy sequences and classes of Cauchy sequences. Then we will prove that $\mathscr{C}_{\mathbb{Q}}$ is a field.
+
+\subsubsection*{Addition}
 
 \begin{theorem}[Sum of two Cauchy sequences]\label{theorem:chapter1:sum-of-cauchy-sequences}
     Let $\seq{a_{n}}$, $\seq{b_{n}}$ be Cauchy sequences, then $\seq{c_{n}}$ where $c_{n} = a_{n} + b_{n}$ is a Cauchy sequence.
@@ -1986,7 +2035,7 @@ In this subsection, we will define addition and multiplication over Cauchy seque
     Since $\seq{a_{n}}$ and $\seq{b_{n}}$ are Cauchy sequences, then for every positive rational number $\varepsilon$
     \begin{itemize}[itemsep=0pt]
         \item there exists $N_{1} = N_{1}(\varepsilon)$ such that for all $m, n > N_{1}$, $\abs{a_{m} - a_{n}} < \dfrac{\varepsilon}{2}$,
-        \item there exists $N_{2} = N_{2}(\varepsilon)$ such that for all $m, n > N_{2}$, $\abs{b_{m} - a_{n}} < \dfrac{\varepsilon}{2}$.
+        \item there exists $N_{2} = N_{2}(\varepsilon)$ such that for all $m, n > N_{2}$, $\abs{b_{m} - b_{n}} < \dfrac{\varepsilon}{2}$.
     \end{itemize}
 
     Hence, for all $m, n > N = \max\{N_{1}, N_{2}\}$
@@ -2023,7 +2072,7 @@ $\seq{c_{n}}$ is called the sum of $\seq{a_{n}}$ and $\seq{b_{n}}$. We denote th
         (\forall n > N)\left(\abs{(a_{n} + b_{n}) - (c_{n} + d_{n})} = \abs{(a_{n} - c_{n}) + (b_{n} - d_{n})} < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon\right).
     \]
 
-    Thus, the two Cauchy sequences $\seq{a_{n} + b_{n}}$ and $\seq{c_{n} + d_{n}}$ are equivalent.
+    Thus, the two Cauchy sequences $\seq{a_{n}} + \seq{b_{n}}$ and $\seq{c_{n}} + \seq{d_{n}}$ are equivalent.
 \end{proof}
 
 The above theorem leads to the definition of addition over classes of Cauchy sequences.
@@ -2031,7 +2080,7 @@ The above theorem leads to the definition of addition over classes of Cauchy seq
 \begin{definition}
     $\alpha, \beta\in\mathscr{C}_{\mathbb{Q}}$.
 
-    Let $\seq{a_{n}}\in\alpha$ and $\seq{b_{n}}\in\beta$.
+    Let $\seq{a_{n}}$ and $\seq{b_{n}}$ be members of $\alpha$ and $\beta$, respectively.
 
     The sum of $\alpha$ and $\beta$, which is denoted by $\alpha + \beta$, is
     \[
@@ -2041,7 +2090,7 @@ The above theorem leads to the definition of addition over classes of Cauchy seq
 
 \begin{theorem}
     $\mathscr{C}_{\mathbb{Q}}$ with addition is a commutative group.
-    \begin{enumerate}[label={(F\arabic*)},itemsep=0pt,topsep=0pt]
+    \begin{enumerate}[label={(F\arabic*)},itemsep=0pt]
         \item Addition is associative.
         \item Addition has an identity element.
         \item Each element has an additive inverse.
@@ -2113,6 +2162,8 @@ The above theorem leads to the definition of addition over classes of Cauchy seq
               \end{align*}
     \end{enumerate}
 \end{proof}
+
+\subsubsection*{Multiplication}
 
 \begin{theorem}[Product of Cauchy sequences]\label{theorem:chapter1:product-of-cauchy-sequences}
     Let $\seq{a_{n}}, \seq{b_{n}}\in\mathscr{C}_{\mathbb{Q}}$, then $\seq{c_{n}}$ where $c_{n} = a_{n} \cdot b_{n}$ is a Cauchy sequence.
@@ -2190,9 +2241,7 @@ $\seq{c_{n}}$ is called the product of $\seq{a_{n}}$ and $\seq{b_{n}}$. We denot
 Similar to addition, we define product of two Cauchy sequence classes as the following.
 
 \begin{definition}
-    $\alpha, \beta\in\mathscr{C}_{\mathbb{Q}}$.
-
-    Let $\seq{a_{n}}\in\alpha$ and $\seq{b_{n}}\in\beta$.
+    $\alpha, \beta\in\mathscr{C}_{\mathbb{Q}}$. Let $\seq{a_{n}}$ and $\seq{b_{n}}$ be members of $\alpha$ and $\beta$ respectively.
 
     The product of $\alpha$ and $\beta$, which is denoted by $\alpha\cdot\beta$, is
     \[
@@ -2202,7 +2251,7 @@ Similar to addition, we define product of two Cauchy sequence classes as the fol
 
 \begin{theorem}
     $\mathscr{C}_{\mathbb{Q}}$ with addition and multiplication is a commutative ring.
-    \begin{enumerate}[label={(F\arabic*)},itemsep=0pt,topsep=0pt,start=5]
+    \begin{enumerate}[label={(F\arabic*)},itemsep=0pt,start=5]
         \item Multiplication is associative.
         \item Multiplication is distributive over addition.
         \item Multiplication has an identity element.
@@ -2214,11 +2263,12 @@ The proof would be a lot simpler (shorter, actually) if I prove the commutativit
 
 \begin{proof}
     Let $\seq{a_{n}}$, $\seq{b_{n}}$, $\seq{c_{n}}$ be Cauchy sequences.
-    \begin{enumerate}[label={(F\arabic*)},itemsep=0pt,topsep=0pt,start=5]
+    \begin{enumerate}[label={(F\arabic*)},itemsep=0pt,start=5]
         \item We will prove that
               \[
-                  \left(\class{\seq{a_{n}}}\cdot\class{\seq{b_{n}}}\right)\cdot\class{\seq{c_{n}}}.
+                  \left(\class{\seq{a_{n}}}\cdot\class{\seq{b_{n}}}\right)\cdot\class{\seq{c_{n}}} = \class{\seq{a_{n}}}\cdot\left(\class{\seq{b_{n}}}\cdot\class{\seq{c_{n}}}\right).
               \]
+
               According to Theorem~\ref{theorem:chapter1:product-of-cauchy-sequences}, $\left(\seq{a_{n}}\cdot\seq{b_{n}}\right)\cdot\seq{c_{n}}$ and $\seq{a_{n}}\cdot\left(\seq{b_{n}}\cdot\seq{c_{n}}\right)$ are Cauchy sequences.
               \begin{align*}
                   \left(\class{\seq{a_{n}}}\cdot\class{\seq{b_{n}}}\right)\cdot\class{\seq{c_{n}}} & = \class{\seq{a_{n}}\cdot\seq{b_{n}}}\cdot\class{\seq{c_{n}}}                                                          \\
@@ -2340,7 +2390,7 @@ I have difficulty proving the 9th field axiom. After trying, I found out that I 
 \end{theorem}
 
 \begin{proof}
-    We will prove that if $\seq{a_{n}}\nsim\seq{0}$, then there exists a sequence $\seq{y_{n}}$ such that
+    We will prove that if $\seq{a_{n}}$ and $\seq{0}$ are inequivalent, then there exists a sequence $\seq{y_{n}}$ such that
     \[
         \class{\seq{a_{n}}}\cdot\class{\seq{y_{n}}} = \class{\seq{y_{n}}}\cdot\class{\seq{a_{n}}} = \class{\seq{1}}.
     \]
@@ -2370,7 +2420,7 @@ I have difficulty proving the 9th field axiom. After trying, I found out that I 
         (\forall n > N)(\abs{a_{n}\cdot y_{n} - 1} = 0 < \varepsilon).
     \]
 
-    Therefore, $\seq{a_{n}\cdot y_{n}}$ converges to $1$. Consequently
+    Therefore, $\seq{a_{n}}\cdot \seq{y_{n}}$ converges to $\seq{1}$. Consequently
     \begin{align*}
         \class{\seq{a_{n}}}\cdot\class{\seq{y_{n}}} & = \class{\seq{y_{n}}}\cdot\class{\seq{a_{n}}} \\
                                                     & = \class{\seq{y_{n}}\cdot\seq{a_{n}}}         \\
@@ -2381,7 +2431,7 @@ I have difficulty proving the 9th field axiom. After trying, I found out that I 
     Hence $\class{\seq{a_{n}}}$ has a multiplicative inverse.
 \end{proof}
 
-At this point, we have proved that the set of all Cauchy sequences (with only rational terms) satisfies the nine field axioms.
+At this point, we have proved that $\mathscr{C}_{\mathbb{Q}}$ with addition and multiplication satisfies the nine field axioms.
 
 \subsection{Preorder and order relations}
 
@@ -2402,7 +2452,7 @@ We define preorder relations on the set of all Cauchy sequences first.
     \end{itemize}
 \end{definition}
 
-% need more explanation on this choice of definition
+Those two are just preorder relations, not order relations, since the anti-symmetric property is not satisfied. I chose to define the two relations this way because they will be ``preserved'' when I define the corresponding relations for equivalence classes of Cauchy sequences.
 
 \begin{theorem}
     Let $\seq{a_{n}}$ and $\seq{b_{n}}$ be two Cauchy sequences.
