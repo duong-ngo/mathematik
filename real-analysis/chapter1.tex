@@ -2163,6 +2163,10 @@ The above theorem leads to the definition of addition over classes of Cauchy seq
     \end{enumerate}
 \end{proof}
 
+If $\alpha\in\mathscr{C}_{\mathbb{Q}}$, we denote the negation (in other words, the additive inverse) of $\alpha$ by $-\alpha$. Negation is involutive, which means $\alpha = -(-\alpha)$.
+
+We define subtraction as the following: $\alpha - \beta = \alpha + (-\beta)$.
+
 \subsubsection*{Multiplication}
 
 \begin{theorem}[Product of Cauchy sequences]\label{theorem:chapter1:product-of-cauchy-sequences}
@@ -2385,7 +2389,7 @@ I have difficulty proving the 9th field axiom. After trying, I found out that I 
 
 \begin{theorem}
     \begin{enumerate}[label={(F\arabic*)},start=9]
-        \item Each non-zero element of $\mathscr{C}_{\mathbb{Q}}$ has a multiplicative inverse.
+        \item Each non-zero element (not equal to $\class{\seq{0}}$) of $\mathscr{C}_{\mathbb{Q}}$ has a multiplicative inverse.
     \end{enumerate}
 \end{theorem}
 
@@ -2430,6 +2434,8 @@ I have difficulty proving the 9th field axiom. After trying, I found out that I 
 
     Hence $\class{\seq{a_{n}}}$ has a multiplicative inverse.
 \end{proof}
+
+If $\alpha\in\mathscr{C}_{\mathbb{Q}}$ and $\alpha$ is non-zero, then we denote its multiplicative inverse by ${\alpha}^{-1}$. Like additive inversion, multiplicative inversion is involutive ($\alpha = {\left({\alpha}^{-1}\right)}^{-1}$).
 
 At this point, we have proved that $\mathscr{C}_{\mathbb{Q}}$ with addition and multiplication satisfies the nine field axioms.
 
@@ -2510,7 +2516,6 @@ Those two are just preorder (not order) relations (we haven't proved this yet!),
         \item $\seq{a_{n}}$ and $\seq{b_{n}}$ are inequivalent.
 
               According to Theorem~\ref{theorem:chapter1:inequivalent-sequences}, there exists positive rational number $q$ such that
-
               \[
                   (\exists N_{0})(\forall n > N_{0})(a_{n} - b_{n} < -q) \implies a_{N_{0} + 1} < b_{N_{0} + 1}
               \]
@@ -2842,7 +2847,7 @@ This total preorder relation is compatible with addition and multiplication.
 
 The following theorem is a corollary of Theorem~\ref{theorem:chapter1:preorder-and-cauchy-sequences} and~\ref{theorem:chapter1:equivalent-cauchy-sequences-and-order}.
 
-\begin{theorem}
+\begin{theorem}\label{theorem:chapter1:compatibility-of-operation-and-order}
     Let $\alpha, \beta, \gamma\in\mathscr{C}_{\mathbb{Q}}$.
     \begin{enumerate}[label={(\roman*)}]
         \item $\alpha \le \beta \implies \alpha + \gamma \le \beta + \gamma$.
@@ -2898,15 +2903,105 @@ The following theorem is a corollary of Theorem~\ref{theorem:chapter1:preorder-a
 
 At this time, we have proved that $\mathscr{C}_{\mathbb{Q}}$ is a totally ordered field.
 
+\subsection{Positive and Negative}
+
 \begin{definition}
-    The element $\alpha$ of $\mathscr{C}_{\mathbb{Q}}$ is called
+    An element $\alpha$ of $\mathscr{C}_{\mathbb{Q}}$ is called
     \begin{itemize}
-        \item \textit{positive} if and only if $\class{\seq{0}}$ precedes $\alpha$ and $\alpha$ is inequivalent to $\class{\seq{0}}$.
-        \item \textit{negative} if and only if $\alpha$ precedes $\class{\seq{0}}$ and $\alpha$ is inequivalent to $\class{\seq{0}}$.
+        \item \textit{positive} if and only if $\class{\seq{0}}$ strictly precedes $\alpha$.
+        \item \textit{negative} if and only if $\alpha$ strictly precedes $\class{\seq{0}}$.
         \item \textit{non-positive} if and only if it is not positive ($\alpha$ precedes $\class{\seq{0}}$).
         \item \textit{non-negative} if and only if it is not negative ($\class{\seq{0}}$ precedes $\alpha$).
     \end{itemize}
 \end{definition}
+
+\begin{theorem}\label{theorem:chapter1:sign-and-additive-inverse}
+    In $\mathscr{C}_{\mathbb{Q}}$, additive inverse of an element is positive if and only if the element is negative.
+\end{theorem}
+
+\begin{proof}
+    Let $\alpha$ be an element of $\mathscr{C}_{\mathbb{Q}}$.
+    \[
+        \alpha + (-\alpha) = \class{\seq{0}}.
+    \]
+
+    $(\Rightarrow)$ $-\alpha$ is positive.
+
+    If $\alpha$ is positive, then $\alpha + (-\alpha) > \class{\seq{0}} + \class{\seq{0}} = \class{\seq{0}}$ (contradiction).
+
+    If $\alpha$ is zero, then $-\alpha$ is zero (contradiction).
+
+    Hence $\alpha$ is negative (follows the totality of ``$\le$'').
+
+    \bigskip
+    $(\Leftarrow)$ $\alpha$ is negative.
+
+    If $-\alpha$ is negative, then $\alpha + (-\alpha) < \class{\seq{0}} + \class{\seq{0}} = \class{\seq{0}}$ (contradiction).
+
+    If $-\alpha$ is zero, then $\alpha$ is zero (contradiction).
+
+    Hence $-\alpha$ is positive (follows the totality of ``$\le$'').
+\end{proof}
+
+\begin{theorem}\label{theorem:chapter1:sign-and-multiplication-cauchy-sequence}
+    Let $\alpha$ and $\beta$ be elements of $\mathscr{C}_{\mathbb{Q}}$.
+    \[
+        \begin{split}
+            & \alpha\cdot(-\beta) = (-\alpha)\cdot\beta = -\alpha\cdot\beta, \\
+            & \alpha\cdot\beta = (-\alpha)\cdot(-\beta).
+        \end{split}
+    \]
+\end{theorem}
+
+\begin{proof}
+    According to (F7)
+    \[
+        \begin{split}
+            \alpha\cdot(-\beta) + \alpha\cdot\beta = \alpha((-\beta) + \beta) = \alpha\cdot\class{\seq{0}} = \class{\seq{0}}, \\
+            (-\alpha)\cdot\beta + \alpha\cdot\beta = ((-\alpha) + \alpha)\beta = \class{\seq{0}}\cdot\beta = \class{\seq{0}}.
+        \end{split}
+    \]
+
+    Hence $\alpha\cdot(-\beta)$ and $(-\alpha)\cdot\beta$ equal the negation of $\alpha\cdot\beta$, which is $-\alpha\cdot\beta$.
+
+    Finally
+    \[
+        \alpha\cdot\beta = -(-\alpha)\cdot\beta = (-\alpha)\cdot(-\beta).\qedhere
+    \]
+\end{proof}
+
+\begin{theorem}
+    Let $\alpha, \beta$ be elements of $\mathscr{C}_{\mathbb{Q}}$.
+    \begin{enumerate}[label={(\roman*)}]
+        \item $\alpha > \class{\seq{0}} \land \beta > \class{\seq{0}} \implies \alpha\cdot\beta > \class{\seq{0}}$.
+        \item $\alpha > \class{\seq{0}} \land \beta < \class{\seq{0}} \implies \alpha\cdot\beta < \class{\seq{0}}$.
+        \item $\alpha < \class{\seq{0}} \land \beta > \class{\seq{0}} \implies \alpha\cdot\beta < \class{\seq{0}}$.
+        \item $\alpha < \class{\seq{0}} \land \beta < \class{\seq{0}} \implies \alpha\cdot\beta > \class{\seq{0}}$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    \begin{enumerate}[label={(\roman*)}]
+        \item This follows Theorem~\ref{theorem:chapter1:compatibility-of-operation-and-order}.
+        \item According to Theorem~\ref{theorem:chapter1:sign-and-additive-inverse} and~\ref{theorem:chapter1:compatibility-of-operation-and-order}, $\alpha\cdot(-\beta) > \class{\seq{0}}$.
+
+              On the other hand, $\alpha\cdot(-\beta) = -\alpha\cdot\beta$. Due to Theorem~\ref{theorem:chapter1:sign-and-additive-inverse}, $\alpha\cdot\beta < \class{\seq{0}}$.
+        \item According to Theorem~\ref{theorem:chapter1:sign-and-additive-inverse} and~\ref{theorem:chapter1:compatibility-of-operation-and-order}, $(-\alpha)\cdot\beta > \class{\seq{0}}$.
+
+              On the other hand, $(-\alpha)\cdot\beta = -\alpha\cdot\beta$. Due to Theorem~\ref{theorem:chapter1:sign-and-additive-inverse}, $\alpha\cdot\beta < \class{\seq{0}}$.
+        \item According to Theorem~\ref{theorem:chapter1:sign-and-additive-inverse} and~\ref{theorem:chapter1:compatibility-of-operation-and-order}, $(-\alpha)\cdot(-\beta) > \class{\seq{0}}$.
+
+              On the other hand, $(-\alpha)\cdot(-\beta) = \alpha\cdot\beta$. Hence $\alpha\cdot\beta > \class{\seq{0}}$.\qedhere
+    \end{enumerate}
+\end{proof}
+
+\begin{corollary}
+    A non-zero element of $\mathscr{C}_{\mathbb{Q}}$ is
+    \begin{itemize}
+        \item positive if and only if its multiplicative inverse is positive.
+        \item negative if and only if its multiplicative inverse is negative.
+    \end{itemize}
+\end{corollary}
 
 \subsection{Embed $\mathbb{Q}$ into $\mathscr{C}_{\mathbb{Q}}$}
 
@@ -2947,9 +3042,9 @@ At this time, we have proved that $\mathscr{C}_{\mathbb{Q}}$ is a totally ordere
 So far, the least-upper-bound property has remained untouched. Turns out, it is more difficult to prove this property using Cauchy sequences. I have searched for proofs in several notes, articles, books, appendices. In summary, the authors used some intermediary results, notably \textit{the Archimedean property} and \textit{the density of $\mathbb{Q}$ in $\mathscr{C}_{\mathbb{Q}}$}.
 
 \begin{theorem}[Archimedean property in $\mathscr{C}_{\mathbb{Q}}$]
-    Let $\alpha, \beta\in\mathscr{C}_{\mathbb{Q}}$, where $\beta$ is positive. There exists an integer $n$ such that
+    Let $\alpha, \beta\in\mathscr{C}_{\mathbb{Q}}$, where $\beta$ is positive. There exists an integer $k$ such that
     \[
-        (n-1)\cdot\beta \le \alpha < n\cdot\beta
+        (k-1)\cdot\beta \le \alpha < k\cdot\beta
     \]
 
     where for $k\in\mathbb{Z}, k\cdot\beta = \class{\seq{k}}\cdot\beta$.
@@ -2958,45 +3053,70 @@ So far, the least-upper-bound property has remained untouched. Turns out, it is 
 I am going to use the well-ordering principle.
 
 \begin{proof}
-    Let $\seq{a_{n}}$ be a member of $\alpha$ and $\seq{b_{n}}$ be a member of $\beta$.
+    Since $\beta$ is positive, then its multiplicative inverse is positive.
 
-    Since every Cauchy sequence is bounded, there exists a positive rational numbers $A$ and $B$ such that
-    \[
-        \begin{split}
-            -A \le a_{n} \le A,
-            -B \le b_{n} \le B.
-        \end{split}
-    \]
+    Let $\seq{x_{n}}$ be a member of $\alpha\cdot{\beta}^{-1}$.
 
-    Let $S_{1} = \{ n : n\in\mathbb{Z} \land \alpha < n\cdot\beta \}$ and $S_{2} = \{ n : n\in\mathbb{Z}\land (n-1)\cdot\beta\le\alpha \}$.
+    Let $S_{1} = \{ k : k\in\mathbb{Z} \land \seq{k} \le \seq{x_{n}} \}$ and $S_{2} = \{ k : k\in\mathbb{Z}\land \seq{x_{n}} < \seq{k} \}$.
 
-    \begin{enumerate}[label={\textbf{Step \arabic*.}}]
+    \begin{enumerate}[label={\textbf{Step \arabic*.}},itemindent=0.5cm]
         \item Prove that $S_{1}$ and $S_{2}$ are not empty.
 
-              Due to the Archimedean property for rational numbers, there exists integers $n_{1}$ such that
-              \[
-                  n_{1}\cdot B < -A < a_{n}
-              \]
+              Since every Cauchy sequence is bounded, then there exists a positive rational number $q$ such that $\abs{x_{n}}\le q$. Let $c$ be an integer such that $c \le -q$, $d$ be an integer such that $q < d$.
 
-              On the other hand, $n_{1}\cdot B < -A < a_{n}$ implies that $a_{n} < A < (-n_{1})\cdot B$.
+              Then $c \le -q \le x_{n} \le q < d$. This means $c$ is in $S_{1}$ and $d$ is in $S_{2}$.
 
-              It follows that $\seq{n_{1}\cdot B} < \seq{-A} \le \seq{a_{n}}$ and $\seq{a_{n}}\le \seq{A} < \seq{(-n_{1})\cdot B}$.
+              Hence $S_{1}$ and $S_{2}$ are not empty.
+        \item Prove that $S_{2}$ is bounded below.
 
-              Therefore, $n_{1}\cdot\class{\seq{B}} < \alpha$ and $\alpha < (-n_{1})\cdot\class{\seq{B}}$.
+              $S_{1}$ and $S_{2}$ together is a partition of $\mathbb{Z}$.
 
-              Hence, $S_{1}$ contains at least one element ($-n_{1}$) and $S_{2}$ contains at least one element ($n_{1} + 1$).
-        \item Prove that $S_{1}$ is bounded below.
-        \item Prove that $S_{1}$ has a least element.
+              According to the definition of $S_{1}$ and $S_{2}$, each element of $S_{1}$ is a lower bound of $S_{2}$. Hence $S_{2}$ is bounded below.
+        \item Prove that $S_{2}$ has a least element.
+
+              $S_{2}$ is a set of integers and $S_{2}$ is bounded above, then $S_{2}$ has a least element, according to the well-ordering principle.
     \end{enumerate}
+
+    Let $k$ be the least element of $S_{2}$, then $k-1$ is not an element of $S_{2}$. Thereby, $k-1$ is in $S_{1}$.
+
+    Therefore, $k-1 \le \alpha\cdot{\beta}^{-1} < k$. Since ${\beta}^{-1}$ is positive, it follows that $(k-1)\cdot\beta \le \alpha < k\cdot\beta$.
 \end{proof}
 
 \begin{theorem}
-    Let $\alpha, \beta\in\mathscr{C}_{\mathbb{Q}}$, where $\alpha < \beta$.
-
-    There exists a rational number $q$ such that $\alpha < \class{\seq{q}} < \beta$.
+    Let $\alpha, \beta\in\mathscr{C}_{\mathbb{Q}}$, where $\alpha < \beta$. There exists a rational number $q$ such that $\alpha < \class{\seq{q}} < \beta$.
 \end{theorem}
 
 \begin{proof}
+    $\beta - \alpha > \class{\seq{0}}$.
+
+    According to the Archimedean property, there exists an integer $y$ such that $\class{\seq{y}}(\beta - \alpha) > \class{\seq{1}}$. It follows that $y$ is a positive integer. From the inequality, and the distributivity, we obtain that
+    \begin{equation*}
+        \class{\seq{y}}\cdot\beta > \class{\seq{1}} + \class{\seq{y}}\cdot\alpha.
+        \tag{(1)}
+    \end{equation*}
+
+    Once again, due to the Archimedean property, there exists an integer $x$ such that
+    \begin{equation*}
+        \class{\seq{x}} - \class{\seq{1}} \le \class{\seq{y}}\cdot\alpha < \class{\seq{x}}.
+        \tag{(2)}
+    \end{equation*}
+
+    From (1) and (2)
+    \[
+        \class{\seq{y}}\cdot\beta > \class{\seq{1}} + \class{\seq{y}}\cdot\alpha \ge \class{\seq{1}} + (\class{\seq{x}} - \class{\seq{1}}) = \class{\seq{x}}.
+    \]
+
+    Hence
+    \[
+        \class{\seq{y}}\cdot\alpha < \class{\seq{x}} < \class{\seq{y}}\cdot\beta.
+    \]
+
+    Multiply by the multiplicative inverse of $\class{\seq{y}}$ (which is positive), we obtain that
+    \[
+        \alpha < \class{\seq{\frac{x}{y}}} < \beta.
+    \]
+
+    $\dfrac{x}{y}$ is the desired rational number.
 \end{proof}
 
 \subsection{Least-upper-bound property}

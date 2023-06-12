@@ -58,6 +58,12 @@ format:
 		latexindent $(LATEXINDENT_OPTIONS) $$file; \
 	done
 
+format/%: %
+	@for file in $(shell find $< -regex ".*\.\(tex\|cls\|sty\)$$"); do \
+		echo "\nFormatting $$file ...\n"; \
+		latexindent $(LATEXINDENT_OPTIONS) $$file; \
+	done
+
 updatecls: cleanaux
 	@mkdir -p $(shell kpsewhich -var-value=TEXMFHOME)/tex/latex/local/class
 	@find . -name "*.cls" -exec cp {} $(shell kpsewhich -var-value=TEXMFHOME)/tex/latex/local/class \; \
