@@ -2433,11 +2433,11 @@ I have difficulty proving the 9th field axiom. After trying, I found out that I 
 
 At this point, we have proved that $\mathscr{C}_{\mathbb{Q}}$ with addition and multiplication satisfies the nine field axioms.
 
-\subsection{Preorder and order relations}
+\subsection{Preorder relation}
 
-We define preorder relations on the set of all Cauchy sequences first.
+We define preorder relation on the set of all Cauchy sequences first.
 
-\begin{definition}[Preorder relations]
+\begin{definition}
     Let $\seq{a_{n}}$ and $\seq{b_{n}}$ be two Cauchy sequences.
 
     \begin{itemize}
@@ -2459,13 +2459,12 @@ Those two are just preorder (not order) relations (we haven't proved this yet!),
 \begin{theorem}\label{theorem:chapter1:inequivalent-sequences}
     Let $\seq{a_{n}}$ and $\seq{b_{n}}$ be two Cauchy sequences.
 
-    If $\seq{a_{n}} < \seq{b_{n}}$, then there exists a positive rational number $q$ such that
-    \[
-        (\exists N)(\forall n > N)(a_{n} - b_{n} < -q).
-    \]
+    $\seq{a_{n}} < \seq{b_{n}}$ if and only if then there exists a positive rational number $q$ such that $(\exists N)(\forall n > N)(a_{n} - b_{n} < -q)$.
 \end{theorem}
 
 \begin{proof}
+    $(\Rightarrow)$
+
     $\seq{a_{n}}$ and $\seq{b_{n}}$ are inequivalent, so that $\seq{a_{n} - b_{n}}$ does not converge to $0$. According to Lemma~\ref{lemma:chapter1:nonzero-sequence}
     \begin{align*}
         \text{either}\quad & (\exists q > 0)(\exists N_{0})(\forall n > N_{0})(a_{n} - b_{n} < -q), \\
@@ -2474,8 +2473,18 @@ Those two are just preorder (not order) relations (we haven't proved this yet!),
 
     However, the latter is not the case since $\seq{a_{n}} < \seq{b_{n}}$ implies that $(\exists N)(\forall n > N)(a_{n}\le b_{n})$.
 
+    Hence, $(\exists q > 0)(\exists N_{0})(\forall n > N_{0})(a_{n} - b_{n} < -q)$.
+
     \bigskip
-    Thus, $(\exists q > 0)(\exists N_{0})(\forall n > N_{0})(a_{n} - b_{n} < -q)$.
+    $(\Leftarrow)$
+
+    There exists a positive rational number $q$ such that $(\exists N)(\forall n > N)(a_{n} - b_{n} < -q)$.
+
+    This implies $(\exists N)(\forall n > N)(a_{n} < b_{n})$. According to the definition of ``$\le$'', $\seq{a_{n}} \le \seq{b_{n}}$.
+
+    Choose $\varepsilon_{0} = q$, then $(\forall N_{0})(\exists n > \max\{ N, N_{0} \})(\abs{a_{n} - b_{n}} = a_{n} - b_{n} > q = \varepsilon_{0})$. This means $\seq{a_{n}}$ and $\seq{b_{n}}$ are inequivalent.
+
+    Hence $\seq{a_{n}} < \seq{b_{n}}$.
 \end{proof}
 
 \begin{theorem}\label{theorem:chapter1:equivalent-cauchy-sequences-and-order}
@@ -2492,7 +2501,7 @@ Those two are just preorder (not order) relations (we haven't proved this yet!),
 \begin{proof}
     Because of the symmetry, we only need to prove the ($\Rightarrow$) part.
 
-    \begin{enumerate}[label={\textbf{Case \arabic*.}}]
+    \begin{enumerate}[label={\textbf{Case \arabic*.}},itemindent=0.5cm]
         \item $\seq{a_{n}}$ and $\seq{b_{n}}$ are equivalent.
 
               Due to the transitivity of equivalence relation, $\seq{c_{n}}$ and $\seq{d_{n}}$ are equivalent.
@@ -2553,7 +2562,7 @@ Those two are just preorder (not order) relations (we haven't proved this yet!),
     \end{align*}
 \end{proof}
 
-\begin{theorem}\label{theorem:chapter1:preorder}
+\begin{theorem}\label{theorem:chapter1:preorder-and-cauchy-sequences}
     The ``$\le$'' relation between Cauchy sequences is a total \textbf{preorder} relation.
 \end{theorem}
 
@@ -2569,57 +2578,81 @@ Those two are just preorder (not order) relations (we haven't proved this yet!),
 
                         In this case, $\seq{a_{n}}$ and $\seq{c_{n}}$ are equivalent. Hence, $\seq{a_{n}}\le\seq{c_{n}}$.
                   \item $\seq{a_{n}}$ and $\seq{b_{n}}$ are equivalent, $\seq{b_{n}}$ and $\seq{c_{n}}$ are inequivalent.
+
+                        According to Theorem~\ref{theorem:chapter1:inequivalent-sequences}, there exists a positive rational number $q$ such that
+                        \[
+                            (\exists N_{0})(\forall n > N_{0})(b_{n} - c_{n} < -q)
+                        \]
+
+                        $\seq{a_{n}}$ and $\seq{b_{n}}$ are equivalent implies
+                        \[
+                            (\exists N_{1})(\forall n > N_{1})\left(\abs{a_{n} - b_{n}} < \frac{q}{2}\right).
+                        \]
+
+                        So, for all $n > N = \max\{ N_{0}, N_{1} \}$
+                        \[
+                            a_{n} - c_{n} = (a_{n} - b_{n}) + (b_{n} - c_{n}) < \frac{q}{2} + (-q) = \frac{-q}{2} < 0
+                        \]
+
+                        Hence $\seq{a_{n}} < \seq{c_{n}}$.
+
                   \item $\seq{a_{n}}$ and $\seq{b_{n}}$ are inequivalent, $\seq{b_{n}}$ and $\seq{c_{n}}$ are equivalent.
+
+                        According to Theorem~\ref{theorem:chapter1:inequivalent-sequences}, there exists a positive rational number $q$ such that
+                        \[
+                            (\exists N_{0})(\forall n > N_{0})(a_{n} - b_{n} < -q)
+                        \]
+
+                        $\seq{b_{n}}$ and $\seq{c_{n}}$ are equivalent implies
+                        \[
+                            (\exists N_{1})(\forall n > N_{1})\left(\abs{b_{n} - c_{n}} < \frac{q}{2}\right).
+                        \]
+
+                        So, for all $n > N = \max\{ N_{0}, N_{1} \}$
+                        \[
+                            a_{n} - c_{n} = (a_{n} - b_{n}) + (b_{n} - c_{n}) < (-q) + \frac{q}{2} = \frac{-q}{2} < 0
+                        \]
+
+                        Hence $\seq{a_{n}} < \seq{c_{n}}$.
                   \item $\seq{a_{n}}$ and $\seq{b_{n}}$ are inequivalent, $\seq{b_{n}}$ and $\seq{c_{n}}$ are inequivalent.
 
-                        According to the definition of ``$\le$''
+                        According to Theorem~\ref{theorem:chapter1:inequivalent-sequences}, there exists positive rational number $q_{1}, q_{2}$ such that
                         \[
                             \begin{split}
-                                (\exists N_{1})(\forall n > N_{1})(a_{n}\le b_{n}), \\
-                                (\exists N_{2})(\forall n > N_{2})(b_{n}\le c_{n}).
+                                & (\exists N_{1})(\forall n > N_{1})(a_{n} - b_{n} < -q_{1}), \\
+                                & (\exists N_{2})(\forall n > N_{2})(b_{n} - c_{n} < -q_{2}).
                             \end{split}
                         \]
 
-                        Let $N = \max\{ N_{1}, N_{2} \}$, then
+                        So, for all $n > N = \max\{ N_{1}, N_{2} \}$
                         \[
-                            (\forall n > N)(a_{n}\le b_{n}\le c_{n}).
+                            a_{n} - c_{n} = (a_{n} - b_{n}) + (b_{n} - c_{n}) < -(q_{1} + q_{2}) < 0.
                         \]
 
-                        Hence, $\seq{a_{n}}\le\seq{c_{n}}$.
+                        Hence $\seq{a_{n}} < \seq{c_{n}}$.
               \end{enumerate}
         \item Totality.
-              \begin{enumerate}[label={\textbf{Case \arabic*.}},itemsep=0pt]
+              \begin{enumerate}[label={\textbf{Case \arabic*.}},itemsep=0pt,itemindent=1cm]
                   \item $\seq{a_{n}}$ and $\seq{b_{n}}$ are equivalent.
 
                         There is nothing to prove in this case.
 
                   \item $\seq{a_{n}}$ and $\seq{b_{n}}$ are inequivalent.
 
-                        According to the definition of equivalence relation between Cauchy sequence
-                        \[
-                            \neg(\seq{a_{n}}\sim\seq{b_{n}})\Longleftrightarrow (\exists\varepsilon_{0} > 0)(\forall N)(\exists n > N)(\abs{a_{n} - b_{n}}\ge\varepsilon_{0}).
-                        \]
+                        According to Lemma~\ref{lemma:chapter1:nonzero-sequence}
+                        \begin{align*}
+                            (\exists q > 0)(\exists N)(\forall n > N)(a_{n} - b_{n} > q), \\
+                            (\exists q > 0)(\exists N)(\forall n > N)(a_{n} - b_{n} < -q).
+                        \end{align*}
 
-                        So $\seq{a_{n} - b_{n}}$ does not converge to $0$, thereby $\seq{a_{n} - b_{n}}$ and $\seq{0}$ are inequivalent.
-
-                        According to Lemma~\ref{lemma:chapter1:nonzero-sequence}, only one of the following two cases occurs.
-
-                        \begin{enumerate}[itemsep=0pt]
-                            \item $(\exists N_{0})(\forall n > N_{0})(a_{n} > b_{n})$.
-
-                                  From the definition of the ``$\le$'' relation, $\seq{b_{n}}\le\seq{a_{n}}$.
-
-                            \item $(\exists N_{0})(\forall n > N_{0})(a_{n} < b_{n})$.
-
-                                  From the definition of the ``$\le$'' relation, $\seq{a_{n}}\le\seq{b_{n}}$.
-                        \end{enumerate}
+                        The 1st scenario implies $\seq{a_{n}} > \seq{b_{n}}$. The 2nd scenario implies $\seq{a_{n}} < \seq{b_{n}}$.
               \end{enumerate}
 
               Hence, one of these propositions hold: $\seq{a_{n}}\le\seq{b_{n}}$ and $\seq{b_{n}}\le\seq{a_{n}}$.
     \end{itemize}
 \end{proof}
 
-\begin{definition}[Strict preorder relation]
+\begin{definition}
     $\seq{a_{n}}$ and $\seq{b_{n}}$ are two Cauchy sequences.
 
     We say $\seq{a_{n}}$ strictly precedes $\seq{b_{n}}$ and denote $\seq{a_{n}} < \seq{b_{n}}$ if $\seq{a_{n}}\le\seq{b_{n}}$ and the two sequences are inequivalent.
@@ -2661,6 +2694,26 @@ Those two are just preorder (not order) relations (we haven't proved this yet!),
     \end{itemize}
 \end{proof}
 
+\begin{theorem}\label{theorem:chapter1:rational-number-between-zero-and-positive-cauchy-sequence}
+    If $\seq{0} < \seq{a_{n}}$, there exists a positive rational number $q$ such that
+    \[
+        \seq{0} < \seq{q} < \seq{a_{n}}.
+    \]
+\end{theorem}
+
+\begin{proof}
+    According to Theorem~\ref{theorem:chapter1:inequivalent-sequences}, there exists a positive rational number $a$ such that
+    \[
+        (\exists N)(\forall n > N)(a_{n} > a)
+    \]
+
+    It follows that $\seq{a} \le \seq{a_{n}}$.
+
+    There exists a positive rational number $q$ such that $0 < q < a$. This implies $\seq{0} < \seq{q} < \seq{a}$.
+
+    According to the proof of Theorem~\ref{theorem:chapter1:preorder-and-cauchy-sequences}, $\seq{0} < \seq{q} < \seq{a_{n}}$.
+\end{proof}
+
 The ``$\le$'' relation between Cauchy sequences is not anti-symmetric. However, we have the following result.
 
 \begin{theorem}\label{theorem:chapter1:weak-anti-symmetry}
@@ -2673,7 +2726,7 @@ The ``$\le$'' relation between Cauchy sequences is not anti-symmetric. However, 
 \end{theorem}
 
 \begin{proof}
-    According to Theorem~\ref{theorem:chapter1:preorder}, either $\seq{a_{n}}\le\seq{b_{n}}$ or $\seq{b_{n}}\le\seq{a_{n}}$.
+    According to Theorem~\ref{theorem:chapter1:preorder-and-cauchy-sequences}, either $\seq{a_{n}}\le\seq{b_{n}}$ or $\seq{b_{n}}\le\seq{a_{n}}$.
 
     Assume that the two Cauchy sequences are inequivalent. Then $\seq{a_{n}} < \seq{b_{n}}$ and $\seq{b_{n}} < \seq{a_{n}}$, which implies $\seq{a_{n}} < \seq{a_{n}}$.
 
@@ -2685,8 +2738,10 @@ This total preorder relation is compatible with addition and multiplication.
 \begin{theorem}\label{theorem:chapter1:cauchy-sequence-order-compatibility-with-addition-and-mulitplication}
     Let $\seq{a_{n}}, \seq{b_{n}}, \seq{c_{n}}$ be Cauchy sequences. Then
     \begin{enumerate}[label={(\roman*)}]
-        \item $\seq{a_{n}}\le\seq{b_{n}}\implies\seq{a_{n}}+\seq{c_{n}}\le\seq{b_{n}}+\seq{c_{n}}$.
-        \item $\seq{0}\le\seq{a_{n}}\land\seq{0}\le\seq{b_{n}}\implies\seq{0}\le\seq{a_{n}}\cdot\seq{b_{n}}$.
+        \item ${\seq{a_{n}}\le\seq{b_{n}}} \implies {\seq{a_{n}}+\seq{c_{n}}\le\seq{b_{n}}+\seq{c_{n}}}$.
+        \item ${\seq{0}\le\seq{a_{n}}} \land {\seq{0}\le\seq{b_{n}}} \implies {\seq{0}\le\seq{a_{n}}\cdot\seq{b_{n}}}$.
+        \item ${\seq{a_{n}} < \seq{b_{n}}} \implies {\seq{a_{n}}+\seq{c_{n}} < \seq{b_{n}}+\seq{c_{n}}}$.
+        \item ${\seq{0} < \seq{a_{n}}} \land {\seq{0} < \seq{b_{n}}} \implies {\seq{0} < \seq{a_{n}}\cdot\seq{b_{n}}}$.
     \end{enumerate}
 \end{theorem}
 
@@ -2711,14 +2766,36 @@ This total preorder relation is compatible with addition and multiplication.
               Therefore, for all $n > N = \max\{ N_{a}, N_{b} \}$, $a_{n}\cdot b_{n}\ge 0$.
 
               Thus, $\seq{0}\le\seq{a_{n}}\cdot\seq{b_{n}}$.
+        \item According to Theorem~\ref{theorem:chapter1:inequivalent-sequences}, there exists a positive rational number $q$ such that
+              \[
+                  (\exists N)(\forall n > N)(a_{n} - b_{n} < -q)
+              \]
+
+              which is equivalent to
+              \[
+                  (\exists N)(\forall n > N)((a_{n} + c_{n}) - (b_{n} + c_{n}) < -q).
+              \]
+
+              According to Theorem~\ref{theorem:chapter1:inequivalent-sequences}, $\seq{a_{n}} + \seq{c_{n}} < \seq{b_{n}} + \seq{c_{n}}$.
+        \item According to Theorem~\ref{lemma:chapter1:nonzero-sequence}
+              \[
+                  \begin{split}
+                      (\exists a > 0)(\exists N_{a})(\forall n > N_{a})(a_{n} > a), \\
+                      (\exists b > 0)(\exists N_{b})(\forall n > N_{b})(b_{n} > b),
+                  \end{split}
+              \]
+
+              Then $(\forall n > N = \max{N_{a}, N_{b}})(a_{n}b_{n} > ab > 0)$. According to Theorem~\ref{theorem:chapter1:inequivalent-sequences}, $\seq{0} < \seq{a_{n}}\cdot\seq{b_{n}}$.\qedhere
     \end{enumerate}
 \end{proof}
+
+\subsection{Order relation}
 
 \begin{definition}
     We say
     \begin{itemize}
-        \item $\class{\seq{a_{n}}}$ precedes $\class{\seq{b_{n}}}$ if and only if every Cauchy sequence in $\class{\seq{a_{n}}}$ precedes every Cauchy sequence in $\class{\seq{b_{n}}}$, and denote $\class{\seq{a_{n}}}\le\class{\seq{b_{n}}}$.
-        \item $\class{\seq{a_{n}}}$ strictly precedes $\class{\seq{b_{n}}}$ if and only if every Cauchy sequence in $\class{\seq{a_{n}}}$ strictly precedes every Cauchy sequence in $\class{\seq{b_{n}}}$, and denote $\class{\seq{a_{n}}}\le\class{\seq{b_{n}}}$.
+        \item $\class{\seq{a_{n}}}$ precedes $\class{\seq{b_{n}}}$ if and only if every Cauchy sequence in $\class{\seq{a_{n}}}$ precedes every Cauchy sequence in $\class{\seq{b_{n}}}$, and denote $\class{\seq{a_{n}}} \le \class{\seq{b_{n}}}$.
+        \item $\class{\seq{a_{n}}}$ strictly precedes $\class{\seq{b_{n}}}$ if and only if every Cauchy sequence in $\class{\seq{a_{n}}}$ strictly precedes every Cauchy sequence in $\class{\seq{b_{n}}}$, and denote $\class{\seq{a_{n}}} < \class{\seq{b_{n}}}$.
     \end{itemize}
 \end{definition}
 
@@ -2759,22 +2836,27 @@ This total preorder relation is compatible with addition and multiplication.
 
               Since ``$\le$'' in the set of all Cauchy sequences (with only rational terms) is a total preorder relation, then $\seq{a_{n}}\le\seq{b_{n}}$ or $\seq{b_{n}}\le\seq{a_{n}}$.
 
-              Together with Theorem~\ref{theorem:chapter1:equivalent-cauchy-sequences-and-order}, we obtain that $\alpha\le\beta$ or $\beta\le\alpha$.\qedhere
+              Together with Theorem~\ref{theorem:chapter1:equivalent-cauchy-sequences-and-order}, we obtain that either $\alpha = \beta$, or $\alpha < \beta$ or $\beta < \alpha$.\qedhere
     \end{itemize}
 \end{proof}
+
+The following theorem is a corollary of Theorem~\ref{theorem:chapter1:preorder-and-cauchy-sequences} and~\ref{theorem:chapter1:equivalent-cauchy-sequences-and-order}.
 
 \begin{theorem}
     Let $\alpha, \beta, \gamma\in\mathscr{C}_{\mathbb{Q}}$.
     \begin{enumerate}[label={(\roman*)}]
-        \item $\alpha\le\beta\implies\alpha+\gamma\le\beta+\gamma$.
-        \item $\class{\seq{0}}\le\alpha\land\class{\seq{0}}\le\beta\implies\seq{0}\le\alpha\cdot\beta$.
+        \item $\alpha \le \beta \implies \alpha + \gamma \le \beta + \gamma$.
+        \item $\class{\seq{0}}\le\alpha\land\class{\seq{0}}\le\beta \implies \seq{0}\le\alpha\cdot\beta$.
+        \item $\alpha < \beta \implies \alpha + \gamma < \beta + \gamma$.
+        \item $\class{\seq{0}} < \alpha \land \class{\seq{0}} < \beta \implies \class{\seq{0}} < \alpha\cdot\beta$.
     \end{enumerate}
 \end{theorem}
 
 \begin{proof}
-    Let $\seq{a_{n}}, \seq{b_{n}}, \seq{c_{n}}$ be members of $\alpha, \beta, \gamma$, respectively.
     \begin{enumerate}[label={(\roman*)}]
-        \item $\alpha\le\beta$ implies $\seq{a_{n}}\le\seq{b_{n}}$.
+        \item Let $\seq{a_{n}}, \seq{b_{n}}, \seq{c_{n}}$ be members of $\alpha, \beta, \gamma$, respectively.
+
+              $\alpha\le\beta$ implies $\seq{a_{n}}\le\seq{b_{n}}$.
 
               $\seq{a_{n}}\le\seq{b_{n}}$ implies $\seq{a_{n}} + \seq{c_{n}}\le\seq{b_{n}} + \seq{c_{n}}$.
 
@@ -2787,14 +2869,30 @@ This total preorder relation is compatible with addition and multiplication.
                                   & = \class{\seq{b_{n}}} + \class{\seq{c_{n}}} \\
                                   & = \beta + \gamma.
               \end{align*}
-        \item $\class{\seq{0}}\le\alpha$ and $\class{\seq{0}}\le\beta$ imply $\seq{0}\le\seq{a_{n}}$ and $\seq{0}\le\seq{b_{n}}$.
+        \item Let $\seq{a_{n}}, \seq{b_{n}}, \seq{c_{n}}$ be members of $\alpha, \beta, \gamma$, respectively.
+
+              $\class{\seq{0}}\le\alpha$ and $\class{\seq{0}}\le\beta$ imply $\seq{0}\le\seq{a_{n}}$ and $\seq{0}\le\seq{b_{n}}$.
 
               According to Theorem~\ref{theorem:chapter1:cauchy-sequence-order-compatibility-with-addition-and-mulitplication},~\ref{theorem:chapter1:equivalent-cauchy-sequences-and-order} and the definition of multiplication
               \begin{align*}
                   \class{\seq{0}} & \le \class{\seq{a_{n}}\cdot\seq{b_{n}}}       \\
                                   & = \class{\seq{a_{n}}}\cdot\class{\seq{b_{n}}} \\
-                                  & = \alpha\cdot\beta.\qedhere
+                                  & = \alpha\cdot\beta.
               \end{align*}
+        \item Let $\seq{a_{n}}, \seq{b_{n}}, \seq{c_{n}}$ be members of $\alpha, \beta, \gamma$, respectively.
+              \begin{align*}
+                                  & \alpha < \beta                                                                                                                                                                                                             \\
+                  \Leftrightarrow & (\forall \seq{a_{n}}\in\alpha\land \seq{b_{n}}\in\beta) (\seq{a_{n}} < \seq{b_{n}})                                                        & \text{(Theorem~\ref{theorem:chapter1:equivalent-cauchy-sequences-and-order})} \\
+                  \Leftrightarrow & (\forall \seq{a_{n}}\in\alpha\land \seq{b_{n}}\in\beta \land \seq{c_{n}}\in\gamma) (\seq{a_{n}} + \seq{c_{n}} < \seq{b_{n}} + \seq{c_{n}}) & \text{(Theorem~\ref{theorem:chapter1:preorder-and-cauchy-sequences})}         \\
+                  \Leftrightarrow & \alpha + \gamma < \beta + \gamma.
+              \end{align*}
+        \item Let $\seq{a_{n}}, \seq{b_{n}}$ be members of $\alpha, \beta$, respectively.
+
+              $\class{\seq{0}} < \alpha$ and $\class{\seq{0}} < \beta$ implies $\seq{0} < \seq{a_{n}}$ and $\seq{0} < \seq{b_{n}}$.
+
+              According to Theorem~\ref{theorem:chapter1:preorder-and-cauchy-sequences}, $\seq{0} < \seq{a_{n}}\cdot\seq{b_{n}}$.
+
+              Due to Theorem~\ref{theorem:chapter1:equivalent-cauchy-sequences-and-order}, $\class{\seq{0}} < \class{\seq{a_{n}}\cdot\seq{b_{n}}} = \alpha\cdot\beta$.\qedhere
     \end{enumerate}
 \end{proof}
 
