@@ -3212,7 +3212,204 @@ Back to Theorem~\ref{theorem:chapter1:cauchy-sequence-class-least-upper-bound}.
     Thus $\class{\seq{x_{n}}}$ is the least upper bound of $S$.
 \end{proof}
 
+At this point, we have successfully contructed the real numbers by Cauchy sequences.
+
 \subsection{Completeness (Cauchy-completeness)}
+
+In this subsection, we have got the real numbers. From now on, we consider Cauchy sequences which have real-number terms (and call them Cauchy sequences). All prior results of Cauchy sequences with only rational-number terms hold for Cauchy sequences with real-number terms (of course, there are slight changes in statements, from ``rational'' to ``real'').
+
+The main result of this subsection is: every Cauchy sequence is convergent (Cauchy-complete). The following definitions and intermediate results pave the way to the proof of the main result.
+
+\begin{definition}[Supremum and Infimum]
+    Let $S$ be a set of real numbers.
+    \begin{itemize}
+        \item A real number $a$ is called a supremum of $S$ if $a$ is an upper bound of $S$ and every real number which is less than $a$ is not an upper bound of $S$. $a$ is denoted by $\sup S$.
+        \item A real number $b$ is called an infimum of $S$ if $b$ is a lower bound of $S$ and every real number which is greater than $b$ is not a lower bound of $S$. $b$ is denoted by $\inf S$.
+    \end{itemize}
+\end{definition}
+
+From the least-upper-bound property, one can prove that
+\begin{itemize}
+    \item if a set of real numbers is bounded above, then it has a supremum,
+    \item if a set of real numbers is bounded below, then it has an infimum.
+\end{itemize}
+
+Supremum and maximum are not synonymous. For a given bounded above set $S$, supremum always exists, but maximum does not necessarily exist. But when maximum exists, it is identical to supremum. Likewise, so are infimum and minimum.
+
+\begin{theorem}[Monotone convergent theorem]
+    A non-decreasing sequence which is bounded above is convergent. A non-increasing sequence which is bounded below is convergent.
+\end{theorem}
+
+\begin{proof}
+    \begin{itemize}
+        \item Let $\seq{a_{n}}$ be a non-decreasing sequence which is bounded above.
+
+              Let $a$ be the supremum of $\seq{a_{n}}$ and $\varepsilon$ be an arbitrary positive real number.
+
+              $a = \sup{a_{n}}$ so $a - \varepsilon$ is not an upper bound of $\seq{a_{n}}$. So there exists a natural number $N$ such that $a - \varepsilon < a_{N}$.
+
+              On the other hand, $\seq{a_{n}}$ is non-decreasing, so
+              \[
+                  (\forall n > N)(\abs{a_{n} - a} = a - a_{n} \le a - a_{N} < \varepsilon)
+              \]
+
+              Hence $\seq{a_{n}}$ converges to its supremum.
+        \item Let $\seq{a_{n}}$ be a non-increasing sequence which is bounded below.
+
+              Let $a$ be the infimum of $\seq{a_{n}}$ and $\varepsilon$ be an arbitrary positive real number.
+
+              $a = \inf{a_{n}}$ so $a + \varepsilon$ is not a lower bound of $\seq{a_{n}}$. So there exists a natural number $N$ such that $a_{N} < a + \varepsilon$.
+
+              On the other hand, $\seq{a_{n}}$ is non-increasing, so
+              \[
+                  (\forall n > N)(\abs{a_{n} - a} = a_{n} - a \le a_{N} - a < \varepsilon).
+              \]
+
+              Hence $\seq{a_{n}}$ converges to its infimum.
+    \end{itemize}
+\end{proof}
+
+\begin{theorem}[Nested interval theorem]
+    Let $\seq{a_{n}}$ be a non-decreasing sequence, $\seq{b_{n}}$ be a non-increasing sequence, where $a_{n} \le b_{n}$ for every natural number $n$.
+
+    $I_{n} = [a_{n}, b_{n}] = \{ x: x\in\mathbb{R} \land a_{n} \le x \le b_{n} \}$.
+
+    Then $\bigcap\limits_{n\in\mathbb{N}} {I_{n}}$ is not empty.
+\end{theorem}
+
+\begin{proof}
+    Let $i, j$ be two natural numbers such that $i\le j$. Since $\seq{a_{n}}$ is non-decreasing, $\seq{b_{n}}$ is non-increasing and $a_{n} \le b_{n}$, we deduce that
+    \begin{equation*}
+        a_{i} \le a_{j} \le b_{j} \le b_{i}
+        \tag{$\star$}
+    \end{equation*}
+
+    $\seq{a_{n}}$ is a non-decreasing sequence and bounded above by $b_{1}$, $\seq{b_{n}}$ is a non-increasing sequence and bounded below by $a_{1}$.
+
+    According to the Monotone Convergence Theorem, $\seq{a_{n}}$ converges to $\sup{a_{n}}$, $\seq{b_{n}}$ converges to $\inf{b_{n}}$.
+
+    Let $a = \sup{a_{n}}$ and $b = \inf{b_{n}}$.
+
+    Prove that $a\le b$.
+
+    $b_{n}$ is an upper bound of $\seq{a_{n}}$, for every natural number $n$. On the one hand, $a$ is the supremum (the least upper bound) of $\seq{a_{n}}$, so $a$ is a lower bound of $\seq{b_{n}}$. On the other hand, $b$ is the infimum (the greatest lower bound) of $\seq{b_{n}}$, so $a\le b$.
+
+    Let $x$ be an element of $[a, b]$, then $a \le x \le b$. For any natural number $n$, $a_{n}\le a \le x \le b \le b_{n}$. Therefore, $x$ is in $[a_{n}, b_{n}]$, for every natural number $n$. Hence $x\in\bigcap\limits_{n\in\mathbb{N}} {I_{n}}$.
+
+    Thus $\bigcap\limits_{n\in\mathbb{N}} {I_{n}}$ is not empty.
+\end{proof}
+
+\begin{theorem}[Cantor's intersection theorem]
+    Let $\seq{a_{n}}$ be a non-decreasing sequence, $\seq{b_{n}}$ be a non-increasing sequence, where $a_{n} \le b_{n}$ for every natural number $n$ and $\seq{a_{n}}$ is equivalent to $\seq{b_{n}}$.
+
+    $I_{n} = [a_{n}, b_{n}] = \{ x: x\in\mathbb{R} \land a_{n} \le x \le b_{n} \}$.
+
+    Then $\bigcap\limits_{n\in\mathbb{N}} {I_{n}}$ has a only one element.
+\end{theorem}
+
+\begin{proof}
+    $\seq{a_{n}}$ is a non-decreasing sequence and bounded above by $b_{1}$, $\seq{b_{n}}$ is a non-increasing sequence and bounded below by $a_{1}$.
+
+    According to the Monotone Convergence Theorem, $\seq{a_{n}}$ converges to $\sup{a_{n}}$, $\seq{b_{n}}$ converges to $\inf{b_{n}}$.
+
+    Let $a = \sup{a_{n}}$ and $b = \inf{b_{n}}$.
+
+    According to the proof of the Nesting Interval Theorem, $a\le b$.
+
+    \begin{enumerate}[label={\textbf{Step \arabic*.}},itemindent=0.5cm]
+        \item Prove that $I = \bigcap\limits_{n\in\mathbb{N}} {I_{n}} = [a, b]$.
+
+              From the proof of the Nesting Interval Theorem, we deduce that $[a, b]\subseteq I$.
+
+              Let $x$ be an element of $I$. Due to the definition of $I$, for every natural number $n$, $a_{n} \le x \le b_{n}$. It follows that $x$ is an upper bound of $\seq{a_{n}}$ and a lower bound of $\seq{b_{n}}$. Therefore $a \le x \le b$. Equivalently, $x$ is in $[a, b]$. Hence $I\subseteq [a, b]$.
+
+              Thus $I = [a, b]$.
+        \item Prove that $a = b$.
+
+              Assume that $a < b$.
+
+              $\seq{a_{n}}$ and $\seq{b_{n}}$ are equivalent, so there exists a natural number $N$ such that for all $n > N$, we have $\abs{a_{n} - b_{n}} < b - a$.
+
+              On the other hand, for every natural number $n$
+              \[
+                  \abs{a_{n} - b_{n}} = b_{n} - a_{n} = (b_{n} - b) + (b - a) + (a - a_{n}) \ge b - a > 0,
+              \]
+
+              which makes contradiction.
+
+              Therefore, the assumption ($a < b$) is false. Hence $a = b$.
+    \end{enumerate}
+
+    Because $a = b$, $[a, b]$ has only one element. Thus, $I$ has only one element.
+\end{proof}
+
+\begin{theorem}[Bolzano-Weierstra{\ss}'s theorem]
+    A bounded sequence contains at least one convergent subsequence.
+\end{theorem}
+
+\begin{proof}
+    Let $\seq{x_{n}}$ be a bounded sequence.
+
+    We define $\seq{A_{n}}$, $\seq{B_{n}}$ and contruct the desired subsequence inductively as the following.
+
+    Let $x_{n_{1}} = x_{1}$. Let $A_{1}$ be a lower bound of $\seq{x_{n}}$ and $B_{1}$ be an upper bound of $\seq{x_{n}}$. Then for every natural number $n$, $x_{n}\in [A_{1}, B_{1}]$.
+
+    Among two closed intervals $\left[A_{1}, \frac{1}{2}(A_{1} + B_{1})\right]$ and $\left[\frac{1}{2}(A_{1} + B_{1}), B_{1}\right]$, there is at least one that contains infinite terms of $\seq{x_{n}}$. Let such closed interval be $[A_{2}, B_{2}]$. Thanks to the well-ordering principle, we can choose the least natural number $n_{2}$ such that $n_{2} > n_{1}$ and $x_{n_{2}}\in [A_{2}, B_{2}]$.
+
+    Among two closed intervals $\left[A_{k-1}, \frac{1}{2}(A_{k-1} + B_{k-1})\right]$ and $\left[\frac{1}{2}(A_{k-1} + B_{k-1}, B_{k-1})\right]$, there is at least one that contains infinite terms of $\seq{x_{n}}$. Let such closed interval be $[A_{k}, B_{k}]$. By the well-ordering principle, we can choose the least natural number $n_{k}$ such that $n_{k} > n_{k-1}$ and $x_{n_{k}}\in [A_{k}, B_{k}]$.
+
+    From these constructions, we obtain that
+    \begin{itemize}
+        \item $\seq{A_{n}}$ is a non-decreasing sequence,
+        \item $\seq{B_{n}}$ is a non-increasing sequence,
+        \item $A_{n}\le B_{n}$ for every natural number $n$,
+        \item $A_{n} - B_{n} = \frac{1}{2}(A_{n-1} - B_{n-1}) = \cdots = \frac{1}{2^{n-1}}(A_{1} - B_{1})$.
+    \end{itemize}
+
+    For every positive real number $\varepsilon$, choose $N = \ceiling{\dfrac{B_{1} - A_{1}}{\varepsilon}} + 1$,
+    \[
+        (\forall n > N)\left(\abs{A_{n} - B_{n}} = B_{n} - A_{n} = \frac{1}{2^{n-1}}(B_{1} - A_{1})\le \frac{1}{n}(B_{1} - A_{1}) < \varepsilon\right).
+    \]
+
+    Therefore, $\seq{A_{n}}$ and $\seq{B_{n}}$ are equivalent. According to the Cantor's Intersection Theorem, $\seq{A_{n}}$ and $\seq{B_{n}}$ have the same limit point. Let the limit point be $x$.
+    \[
+        \abs{x_{n_{k}} - x} \le \abs{A_{k} - B_{k}} = \frac{1}{2^{k-1}} \abs{A_{1} - B_{1}}.
+    \]
+
+    For every positive real number $\varepsilon$, choose $M = \ceiling{\dfrac{B_{1} - A_{1}}{\varepsilon}} + 1$,
+    \[
+        (\forall k > M)\left(\abs{x_{n_{k}} - x} = \frac{1}{2^{k-1}}\abs{A_{1} - B_{1}} \le \frac{1}{k}(B_{1} - A_{1}) < \varepsilon\right).
+    \]
+
+    Hence the subsequence $(x_{n_{1}}, x_{n_{2}}, \ldots)$ converges to $x$.
+
+    Thus $\seq{x_{n}}$ contains a convergent subsequence.
+\end{proof}
+
+\begin{theorem}
+    Every Cauchy sequence converges to a real number.
+\end{theorem}
+
+\begin{proof}
+    Let $\seq{x_{n}}$ be a Cauchy sequence.
+
+    Every Cauchy sequence is bounded. Apply the Bolzano-Weierstra{\ss}'s theorem, we obtain that $\seq{x_{n}}$ contains a convergent subsequence. Let such subsequence be $(x_{n_{1}}, x_{n_{2}}, \ldots)$ and $x$ be its limit point. We are going to prove that $\seq{x_{n}}$ converges to $x$.
+
+    For every positive real number $\varepsilon$, there exists $N$ and $N_{0}$ such that
+    \[
+        \begin{split}
+            & (\forall m, n > N)\left(\abs{x_{m} - x_{n}} < \frac{\varepsilon}{2}\right), \\
+            & (\forall n_{k} > N_{0})\left(\abs{x_{n_{k}} - x} < \frac{\varepsilon}{2}\right).
+        \end{split}
+    \]
+
+    For all $n, n_{k} > \max\{ N, N_{0} \}$,
+    \[
+        \abs{x_{n} - x} \le \abs{x_{n} - x_{n_{k}}} + \abs{x_{n_{k}} - x} < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon.
+    \]
+
+    Thus $\seq{x_{n}}$ converges to $x$.
+\end{proof}
 
 \section{Compare the two constructions (models)}
 
