@@ -3082,7 +3082,7 @@ I am going to use the well-ordering principle.
     Therefore, $k-1 \le \alpha\cdot{\beta}^{-1} < k$. Since ${\beta}^{-1}$ is positive, it follows that $(k-1)\cdot\beta \le \alpha < k\cdot\beta$.
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}\label{theorem:chapter1:archimedean-property-cauchy-sequence-equivalence-class}
     Let $\alpha, \beta\in\mathscr{C}_{\mathbb{Q}}$, where $\alpha < \beta$. There exists a rational number $q$ such that $\alpha < \class{\seq{q}} < \beta$.
 \end{theorem}
 
@@ -3121,121 +3121,95 @@ I am going to use the well-ordering principle.
 
 \subsection{Least-upper-bound property}
 
-\begin{theorem}
-    Let $S$ be a subset of $\mathscr{C}_{\mathbb{Q}}$, $S$ is bounded above. Then $S$ has a least upper bound.
+\begin{theorem}\label{theorem:chapter1:cauchy-sequence-class-least-upper-bound}
+    Let $S$ be a non-empty subset of $\mathscr{C}_{\mathbb{Q}}$, $S$ is bounded above. Then $S$ has a least upper bound.
 \end{theorem}
 
-I will construct such an equivalence class of Cauchy sequences (least upper bound of $S$). The following proof is an extended version of one in Wikipedia.
+I will construct such an equivalence class of Cauchy sequences (least upper bound of $S$). The following proof is an extended version of one in Wikipedia. To derive Theorem~\ref{theorem:chapter1:cauchy-sequence-class-least-upper-bound}, I prove the following result first.
+
+\begin{theorem}\label{theorem:chapter1:cauchy-sequence-least-upper-bound}
+    Let $S$ be a non-empty set of Cauchy sequences and $S$ is bounded above. Then there exists a Cauchy sequence $\seq{x_{n}}$ such that $\seq{x_{n}}$ is a least upper bound of $S$. In other words
+    \begin{itemize}[itemsep=0pt]
+        \item $\seq{x_{n}}$ is an upper bound of $X$,
+        \item any Cauchy sequence which strictly precedes $\seq{x_{n}}$ is not an upper bound of $X$.
+    \end{itemize}
+\end{theorem}
 
 \begin{proof}
-    Let $\alpha$ be an upper bound of $S$ (it does exists because $S$ is bounded above). Let $\seq{a_{n}}$ be a member of $\alpha$ ($\alpha$ is an equivalence class of Cauchy sequences). Let $\seq{s_{n}}$ be a Cauchy sequence which belongs to an equivalence class within $S$.
+    Let $\seq{b_{n}}$ be an element of $S$.
 
-    Since every Cauchy sequence is bounded
-    \begin{itemize}
-        \item there exists a rational number $a$ such that $\abs{a_{n}}\le a$ (for all $n$). Pick a rational number $u_{0}$ such that $a < u_{0}$, then $\alpha = \class{\seq{a_{n}}} \le \class{\seq{a}} < \class{\seq{u_{0}}}$.
-        \item there exists a rational $b$ such that $\abs{s_{n}}\le b$ (for all $n$). Pick a rational number $\ell_{0}$ such that $\ell_{0} < -b$, then $\class{\seq{\ell_{0}}} < \class{\seq{-b}}\le\class{\seq{s_{n}}}$.
+    Since $S$ is bounded above, then there exists a sequence $\seq{a_{n}}$ which is an upper bound of $S$.
+
+    Because every Cauchy sequence is bounded, there exists positive rational numbers $a, b$ such that $\abs{a_{n}}\le a$ and $\abs{b_{n}}\le b$.
+
+    Let $u_{0} = a$ and $\ell_{0} = -b$, then $a_{n} \le u_{0}$ and $\ell_{0} \le b_{n}$.
+
+    $\seq{\ell_{0}} \le \seq{s_{n}} \le \seq{a_{n}} \le \seq{u_{0}}$ implies that $\ell_{0} \le u_{0}$.
+
+    From these, we define two sequences $\seq{u_{n}}$ and $\seq{\ell_{n}}$ by induction: If $\seq{\dfrac{1}{2}(u_{k-1} + \ell_{k-1})}$ is an upper bound of $S$, then $u_{k} = \dfrac{1}{2}(u_{k-1} + \ell_{k-1})$ and $\ell_{k} = \ell_{k-1}$. Otherwise, $u_{k} = u_{k-1}$ and $\ell_{k} = \dfrac{1}{2}(u_{k-1} + \ell_{k-1})$. From this definition and by induction, we deduce the following
+    \begin{itemize}[itemsep=0pt]
+        \item For any fixed non-negative integer $m$, $\seq{u_{m}}$ is an upper bound of $S$ and $\seq{\ell_{m}}$ is not an upper bound of $S$.
+        \item $\seq{u_{n}}$ is non-increasing and $\seq{\ell_{n}}$ is non-decreasing.
+        \item $u_{n} \ge \ell_{n}$ for every non-negative integer $n$.
+        \item $u_{m} \ge \ell_{n}$ for any non-negative integers $m, n$.
+        \item $u_{n} - \ell_{n} = \dfrac{1}{2}(u_{n-1} - \ell_{n-1})$ and $u_{n} - \ell_{n} = \dfrac{1}{2^{n}}(u_{0} - \ell_{0})$.
     \end{itemize}
 
-    From these, we deduce that $\ell_{0}\le u_{0}$.
+    For every positive rational number $\varepsilon$
+    \[
+        \begin{cases}
+            \left(\forall n > N = \ceiling{\dfrac{u_{0} - \ell_{0}}{\varepsilon}}\right)\left( 0 \le u_{n} - \ell_{n} = \dfrac{1}{2^{n}}(u_{0} - \ell_{0}) \le \dfrac{1}{n}(u_{0} - \ell_{0}) < \varepsilon \right), \\
+            \left(\forall n > N = \ceiling{\dfrac{u_{0} - \ell_{0}}{\varepsilon}}\right)(\forall p)\left( 0 \le u_{n} - u_{n+p} \le u_{n} - \ell_{n} < \varepsilon \right).
+        \end{cases}
+    \]
 
-    Let's define $\seq{u_{n}}$ and $\seq{\ell_{n}}$ as follows
-    \begin{itemize}
-        \item (Base case) $u_{1} = u_{0}$ and $\ell_{1} = \ell_{0}$.
-        \item (Induction) Let $m = \frac{u_{n} + \ell_{n}}{2}$.
+    Therefore, $\seq{u_{n}}$ is a Cauchy sequence and $\seq{u_{n}}$ is equivalent to $\seq{\ell_{n}}$.
 
-              If $\class{\seq{m}}$ is an upper bound of $S$, then
+    \begin{enumerate}[label={\textbf{Step \arabic*.}},itemindent=0.5cm]
+        \item Prove that $\seq{u_{n}}$ is an upper bound of $S$.
+
+              Let $\seq{s_{n}}$ be an arbitrary Cauchy sequence from $S$. Assume that $\seq{u_{n}}$ strictly precedes $\seq{s_{n}}$.
+
+              According to Theorem~\ref{theorem:chapter1:inequivalent-sequences}, there exists a positive rational number $q$ such that
               \[
-                  u_{n+1} = m,\quad \ell_{n+1} = \ell_{n}.
+                  (\exists N)(\forall n > N)(u_{n} - s_{n} < -q).
               \]
 
-              Otherwise
+              Since $\seq{u_{N+1}}$ is an upper bound of $S$ and $\seq{u_{n}}$ is non-increasing
               \[
-                  u_{n+1} = u_{n},\quad \ell_{n+1} = m.
-              \]
-    \end{itemize}
-
-    I aim to prove that $\class{\seq{u_{n}}}$ is a least upper bound of $S$.
-
-    \begin{enumerate}[label={\textbf{Step \arabic*.}},itemindent=1cm]
-        \item $u_{n}\ge u_{n+1}$, $\ell_{n}\le\ell_{n+1}$, $u_{n}\ge\ell_{n}$.
-
-              I prove this by induction.
-              \begin{itemize}
-                  \item (Base case)
-
-                        $u_{1} = u_{0}\ge \ell_{0} = \ell_{1}$.
-
-                        If $\class{\seq{\frac{u_{1} + u_{2}}{2}}}$ is an upper bound of $S$, then
-                        \[
-                            u_{2} = \frac{u_{1} + \ell_{1}}{2} \le u_{1},\quad \ell_{2} = \ell_{1},\quad u_{2}\ge\ell_{2}.
-                        \]
-
-                        Otherwise
-                        \[
-                            u_{2} = u_{1},\quad \ell_{2} = \frac{u_{1} + \ell_{1}}{2}\ge\ell_{1},\quad u_{2}\ge\ell_{2}.
-                        \]
-
-                        Hence $u_{1}\ge u_{2}$ and $\ell_{1}\le\ell_{2}$.
-                  \item (Induction)
-
-                        Assume that $u_{k-1}\ge u_{k}$, $\ell_{k-1}\le\ell_{k}$, $u_{k}\ge\ell_{k}$.
-
-                        If $\class{\seq{\frac{u_{k} + \ell_{k}}{2}}}$ is an upper bound of $S$, then
-                        \[
-                            \begin{split}
-                                & u_{k+1} = \frac{u_{k} + \ell_{k}}{2}\le u_{k}, \quad\text{since $u_{k}\ge\ell_{k}$} \\
-                                & \ell_{k+1} = \ell_{k} \\
-                                & u_{k+1}\ge\ell_{k+1}.
-                            \end{split}
-                        \]
-
-                        Otherwise
-                        \[
-                            \begin{split}
-                                & u_{k+1} = u_{k}, \\
-                                & \ell_{k+1} = \frac{u_{k} + \ell_{k}}{2}\ge \ell_{k}\quad\text{since $u_{k}\ge\ell_{k}$}, \\
-                                & u_{k+1}\ge\ell_{k+1}.
-                            \end{split}
-                        \]
-
-                        Hence $u_{k}\ge u_{k+1}$, $\ell_{k}\le\ell_{k+1}$, and $u_{k+1}\ge\ell_{k+1}$.
-              \end{itemize}
-        \item $u_{m}\ge\ell_{n}$, for all $m, n$.
-
-              If $m\ge n$, then $u_{m}\ge \ell_{m}\ge\ell_{n}$.
-
-              Otherwise, $m < n$, then $u_{m}\ge u_{n} > \ell_{n}$.
-        \item $\seq{u_{n}}$ and $\seq{\ell_{n}}$ are equivalent Cauchy sequences.
-
-              According to the definition of $\seq{u_{n}}$ and $\seq{\ell_{n}}$
-              \[
-                  u_{n} - \ell_{n} = \frac{1}{2}(u_{n-1} - \ell_{n-1}).
+                  (\forall n > N)(u_{N+1} - s_{n} \le u_{n} - s_{n} < -q)
               \]
 
-              Recursively, we obtain that
-              \[
-                  u_{n} - \ell_{n} = \frac{1}{2^{n}}(u_{0} - \ell_{0})\ge 0.
-              \]
+              which implies that $\seq{u_{N+1}}$ strictly precedes $\seq{s_{n}}$ due to Theorem~\ref{theorem:chapter1:inequivalent-sequences}. This contradicts ``$\seq{u_{N+1}}$ is an upper bound of $S$''.
 
-              For every positive rational number $\varepsilon$, pick $N = 1 + \floor{\frac{u_{0} - \ell_{0}}{\varepsilon}}$, then
-              \[
-                  \begin{split}
-                      & (\forall n > N) \abs{u_{n} - \ell_{n}} = \frac{u_{0} - \ell_{0}}{2^{n}} < \varepsilon, \\
-                      & (\forall n > N)(\forall p > 0)\abs{u_{n+p} - u_{n}} = u_{n} - u_{n+p}\le u_{n} - \ell_{n} = \frac{u_{0} - \ell_{0}}{2^{n}} < \varepsilon, \\
-                      & (\forall n > N)(\forall p > 0)\abs{\ell_{n+p} - \ell_{n}} = \ell_{n+p} - \ell_{n} \le u_{n} - \ell_{n} = \frac{u_{0} - \ell_{0}}{2^{n}} < \varepsilon.
-                  \end{split}
-              \]
+              Hence the assumption ($\seq{u_{n}}$ strictly precedes $\seq{s_{n}}$) is false. Therefore $\seq{s_{n}} \le \seq{u_{n}}$ for arbitrary $\seq{s_{n}}$ from $S$. Thus $\seq{u_{n}}$ is an upper bound of $S$.
+        \item Prove that $\seq{\ell_{n}}$ is an upper bound of $S$.
 
-              Hence, $\seq{u_{n}}$, $\seq{\ell_{n}}$ are Cauchy sequences and they are equivalent.
-        \item $\class{\seq{u_{n}}}$ is an upper bound of $S$.
+              Since $\seq{u_{n}}$ is an upper bound of $S$ and $\seq{\ell_{n}}$ is equivalent to $\seq{u_{n}}$.
+        \item Prove that $\seq{v_{n}} < \seq{u_{n}}$ implies $\seq{v_{n}}$ is not an upper bound of $S$.
 
-              Assume that $\class{\seq{u_{n}}}$ is not an upper bound of $S$, then there exists $\sigma\in S$ such that $\class{\seq{u_{n}}} < \sigma$.
+              Since $\seq{u_{n}}$ is equivalent to $\seq{\ell_{n}}$, $\seq{v_{n}} < \seq{\ell_{n}}$. According to the Archimedean property (Theorem~\ref{theorem:chapter1:archimedean-property-cauchy-sequence-equivalence-class}), there exists a positive rational number $q$ such that $\seq{v_{n}} < \seq{q} < \seq{\ell_{n}}$.
 
-              This contradicts the definition of $\seq{u_{n}}$.
+              $\seq{q} < \seq{\ell_{n}}$ implies that there exists a natural number $N$ such that for all $n > N$, $q \le \ell_{n}$. Therefore, $q \le \ell_{N+1}$ and $\seq{q} \le \seq{\ell_{N+1}}$. On the other hand, $\seq{\ell_{N+1}}$ is not an upper bound of $S$. Thereby, $\seq{q}$ is not an upper bound of $S$. Furthermore, $\seq{v_{n}} < \seq{q}$, so $\seq{v_{n}}$ is not an upper bound of $S$ either.
 
-              Hence, $\class{\seq{u_{n}}}$ is an upper bound of $S$.
-        \item If $\class{\seq{v_{n}}}$ is an upper bound of $S$, then $\class{\seq{u_{n}}}\le\class{\seq{v_{n}}}$.
+              Thus $\seq{v_{n}} < \seq{u_{n}}$ implies $\seq{v_{n}}$ is not an upper bound of $S$.
     \end{enumerate}
+
+    We have constructed a desired Cauchy sequence, which is $\seq{u_{n}}$.
+\end{proof}
+
+Back to Theorem~\ref{theorem:chapter1:cauchy-sequence-class-least-upper-bound}.
+
+\begin{proof}[Proof of Theorem~\ref{theorem:chapter1:cauchy-sequence-class-least-upper-bound}]
+    Let $S'$ be the set of all Cauchy sequences which are members of some Cauchy sequence equivalence class from $S$.
+
+    $S$ is bounded above, then $S'$ is also bounded above.
+
+    According to Theorem~\ref{theorem:chapter1:cauchy-sequence-least-upper-bound}, there exists a Cauchy sequence $\seq{x_{n}}$ such that $\seq{x_{n}}$ is a least upper bound of $S'$. $\class{\seq{x_{n}}}$ is an upper bound of $S$.
+
+    Let $\alpha$ be an upper bound of $S$, then there exists $\seq{y_{n}}$ within $\alpha$ such that $\seq{y_{n}}$ is an upper bound of $S'$. Since $\seq{x_{n}}$ is a least upper bound of $S'$, then $\seq{x_{n}} \le \seq{y_{n}}$. This implies $\class{\seq{x_{n}}} \le \alpha$.
+
+    Thus $\class{\seq{x_{n}}}$ is the least upper bound of $S$.
 \end{proof}
 
 \subsection{Completeness (Cauchy-completeness)}
