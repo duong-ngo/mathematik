@@ -10,7 +10,7 @@ Real numbers are defined axiomatically. Let's denote the set of all real numbers
     \item Every non-empty set of $\mathbb{R}$ which is bounded above has a least upper bound.
 \end{enumerate}
 
-To those who ask ``Are real numbers real?\@'', we can establish a model (a mathematical structure) that satisfies every axiom above. Since 19th century, mathematicians have given several constructions of the real numbers. IMHO, the two most notable and commonlys used constructions are \textit{Dedekind cuts} and \textit{Cauchy sequences}. In the following sections, we will reproduce the two constructions.
+The existence of such structure (the real numbers) must be proved by constructing one. Since 19th century, mathematicians have given several constructions of the real numbers. IMHO, the two most notable and commonlys used constructions are \textit{Dedekind cuts} and \textit{Cauchy sequences}. In the following sections, we will reproduce the two constructions.
 
 \section{Construction of the real numbers by Dedekind cuts of $\mathbb{Q}$}
 
@@ -2653,7 +2653,7 @@ Those two are just preorder (not order) relations (we haven't proved this yet!),
                         The 1st scenario implies $\seq{a_{n}} > \seq{b_{n}}$. The 2nd scenario implies $\seq{a_{n}} < \seq{b_{n}}$.
               \end{enumerate}
 
-              Hence, one of these propositions hold: $\seq{a_{n}}\le\seq{b_{n}}$ and $\seq{b_{n}}\le\seq{a_{n}}$.
+              Hence, one of these propositions hold: $\seq{a_{n}} < \seq{b_{n}}$, $\seq{a_{n}}$ is equivalent to $\seq{b_{n}}$, $\seq{b_{n}} < \seq{a_{n}}$.
     \end{itemize}
 \end{proof}
 
@@ -3037,88 +3037,6 @@ At this time, we have proved that $\mathscr{C}_{\mathbb{Q}}$ is a totally ordere
     \]
 \end{proof}
 
-\subsection{Density of $\mathbb{Q}$ in $\mathscr{C}_{\mathbb{Q}}$}
-
-So far, the least-upper-bound property has remained untouched. Turns out, it is more difficult to prove this property using Cauchy sequences. I have searched for proofs in several notes, articles, books, appendices. In summary, the authors used some intermediary results, notably \textit{the Archimedean property} and \textit{the density of $\mathbb{Q}$ in $\mathscr{C}_{\mathbb{Q}}$}.
-
-\begin{theorem}[Archimedean property in $\mathscr{C}_{\mathbb{Q}}$]
-    Let $\alpha, \beta\in\mathscr{C}_{\mathbb{Q}}$, where $\beta$ is positive. There exists an integer $k$ such that
-    \[
-        (k-1)\cdot\beta \le \alpha < k\cdot\beta
-    \]
-
-    where for $k\in\mathbb{Z}, k\cdot\beta = \class{\seq{k}}\cdot\beta$.
-\end{theorem}
-
-I am going to use the well-ordering principle.
-
-\begin{proof}
-    Since $\beta$ is positive, then its multiplicative inverse is positive.
-
-    Let $\seq{x_{n}}$ be a member of $\alpha\cdot{\beta}^{-1}$.
-
-    Let $S_{1} = \{ k : k\in\mathbb{Z} \land \seq{k} \le \seq{x_{n}} \}$ and $S_{2} = \{ k : k\in\mathbb{Z}\land \seq{x_{n}} < \seq{k} \}$.
-
-    \begin{enumerate}[label={\textbf{Step \arabic*.}},itemindent=0.5cm]
-        \item Prove that $S_{1}$ and $S_{2}$ are not empty.
-
-              Since every Cauchy sequence is bounded, then there exists a positive rational number $q$ such that $\abs{x_{n}}\le q$. Let $c$ be an integer such that $c \le -q$, $d$ be an integer such that $q < d$.
-
-              Then $c \le -q \le x_{n} \le q < d$. This means $c$ is in $S_{1}$ and $d$ is in $S_{2}$.
-
-              Hence $S_{1}$ and $S_{2}$ are not empty.
-        \item Prove that $S_{2}$ is bounded below.
-
-              $S_{1}$ and $S_{2}$ together is a partition of $\mathbb{Z}$.
-
-              According to the definition of $S_{1}$ and $S_{2}$, each element of $S_{1}$ is a lower bound of $S_{2}$. Hence $S_{2}$ is bounded below.
-        \item Prove that $S_{2}$ has a least element.
-
-              $S_{2}$ is a set of integers and $S_{2}$ is bounded above, then $S_{2}$ has a least element, according to the well-ordering principle.
-    \end{enumerate}
-
-    Let $k$ be the least element of $S_{2}$, then $k-1$ is not an element of $S_{2}$. Thereby, $k-1$ is in $S_{1}$.
-
-    Therefore, $k-1 \le \alpha\cdot{\beta}^{-1} < k$. Since ${\beta}^{-1}$ is positive, it follows that $(k-1)\cdot\beta \le \alpha < k\cdot\beta$.
-\end{proof}
-
-\begin{theorem}\label{theorem:chapter1:archimedean-property-cauchy-sequence-equivalence-class}
-    Let $\alpha, \beta\in\mathscr{C}_{\mathbb{Q}}$, where $\alpha < \beta$. There exists a rational number $q$ such that $\alpha < \class{\seq{q}} < \beta$.
-\end{theorem}
-
-\begin{proof}
-    $\beta - \alpha > \class{\seq{0}}$.
-
-    According to the Archimedean property, there exists an integer $y$ such that $\class{\seq{y}}(\beta - \alpha) > \class{\seq{1}}$. It follows that $y$ is a positive integer. From the inequality, and the distributivity, we obtain that
-    \begin{equation*}
-        \class{\seq{y}}\cdot\beta > \class{\seq{1}} + \class{\seq{y}}\cdot\alpha.
-        \tag{(1)}
-    \end{equation*}
-
-    Once again, due to the Archimedean property, there exists an integer $x$ such that
-    \begin{equation*}
-        \class{\seq{x}} - \class{\seq{1}} \le \class{\seq{y}}\cdot\alpha < \class{\seq{x}}.
-        \tag{(2)}
-    \end{equation*}
-
-    From (1) and (2)
-    \[
-        \class{\seq{y}}\cdot\beta > \class{\seq{1}} + \class{\seq{y}}\cdot\alpha \ge \class{\seq{1}} + (\class{\seq{x}} - \class{\seq{1}}) = \class{\seq{x}}.
-    \]
-
-    Hence
-    \[
-        \class{\seq{y}}\cdot\alpha < \class{\seq{x}} < \class{\seq{y}}\cdot\beta.
-    \]
-
-    Multiply by the multiplicative inverse of $\class{\seq{y}}$ (which is positive), we obtain that
-    \[
-        \alpha < \class{\seq{\frac{x}{y}}} < \beta.
-    \]
-
-    $\dfrac{x}{y}$ is the desired rational number.
-\end{proof}
-
 \subsection{Least-upper-bound property}
 
 \begin{theorem}\label{theorem:chapter1:cauchy-sequence-class-least-upper-bound}
@@ -3148,7 +3066,7 @@ I will construct such an equivalence class of Cauchy sequences (least upper boun
 
     From these, we define two sequences $\seq{u_{n}}$ and $\seq{\ell_{n}}$ by induction: If $\seq{\dfrac{1}{2}(u_{k-1} + \ell_{k-1})}$ is an upper bound of $S$, then $u_{k} = \dfrac{1}{2}(u_{k-1} + \ell_{k-1})$ and $\ell_{k} = \ell_{k-1}$. Otherwise, $u_{k} = u_{k-1}$ and $\ell_{k} = \dfrac{1}{2}(u_{k-1} + \ell_{k-1})$. From this definition and by induction, we deduce the following
     \begin{itemize}[itemsep=0pt]
-        \item For any fixed non-negative integer $m$, $\seq{u_{m}}$ is an upper bound of $S$ and $\seq{\ell_{m}}$ is not an upper bound of $S$.
+        \item For any fixed non-negative integer $m$, the constant sequence $\seq{u_{m}}$ is an upper bound of $S$ and the constant sequence $\seq{\ell_{m}}$ is not an upper bound of $S$.
         \item $\seq{u_{n}}$ is non-increasing and $\seq{\ell_{n}}$ is non-decreasing.
         \item $u_{n} \ge \ell_{n}$ for every non-negative integer $n$.
         \item $u_{m} \ge \ell_{n}$ for any non-negative integers $m, n$.
@@ -3168,29 +3086,55 @@ I will construct such an equivalence class of Cauchy sequences (least upper boun
     \begin{enumerate}[label={\textbf{Step \arabic*.}},itemindent=0.5cm]
         \item Prove that $\seq{u_{n}}$ is an upper bound of $S$.
 
-              Let $\seq{s_{n}}$ be an arbitrary Cauchy sequence from $S$. Assume that $\seq{u_{n}}$ strictly precedes $\seq{s_{n}}$.
+              Assume that $\seq{u_{n}}$ strictly precedes a sequence $\seq{s_{n}}$ from $S$.
 
               According to Theorem~\ref{theorem:chapter1:inequivalent-sequences}, there exists a positive rational number $q$ such that
               \[
                   (\exists N)(\forall n > N)(u_{n} - s_{n} < -q).
               \]
 
-              Since $\seq{u_{N+1}}$ is an upper bound of $S$ and $\seq{u_{n}}$ is non-increasing
+              $\seq{s_{n}}$ is a Cauchy sequence, so there exists a natural number $N'$ such that
               \[
-                  (\forall n > N)(u_{N+1} - s_{n} \le u_{n} - s_{n} < -q)
+                  (\forall m, n > N')\left(\abs{s_{m} - s_{n}} < \frac{q}{2}\right).
               \]
 
-              which implies that $\seq{u_{N+1}}$ strictly precedes $\seq{s_{n}}$ due to Theorem~\ref{theorem:chapter1:inequivalent-sequences}. This contradicts ``$\seq{u_{N+1}}$ is an upper bound of $S$''.
+              Let $N_{0} = \max\{ N, N' \}$.
+              \[
+                  (\forall n > N_{0})\left(u_{N_{0} + 1} - s_{n} = u_{N_{0} + 1} - s_{N_{0} + 1} + s_{N_{0} + 1} - s_{n} < -q + \abs{s_{N_{0} + 1} - s_{n}} < \frac{-q}{2} \right)
+              \]
 
-              Hence the assumption ($\seq{u_{n}}$ strictly precedes $\seq{s_{n}}$) is false. Therefore $\seq{s_{n}} \le \seq{u_{n}}$ for arbitrary $\seq{s_{n}}$ from $S$. Thus $\seq{u_{n}}$ is an upper bound of $S$.
+              Due to Theorem~\ref{theorem:chapter1:inequivalent-sequences}, the constant sequence $\seq{u_{N_{0} + 1}}$ strictly precedes $\seq{s_{n}}$. This contradicts ``$\seq{u_{m}}$ is an upper bound of $S$ for every non-negative integer $m$''.
+
+              Hence the assumption ($\seq{u_{n}}$ strictly precedes a sequence from $S$) is false. So $\seq{u_{n}}$ is an upper bound of $S$.
         \item Prove that $\seq{\ell_{n}}$ is an upper bound of $S$.
 
               Since $\seq{u_{n}}$ is an upper bound of $S$ and $\seq{\ell_{n}}$ is equivalent to $\seq{u_{n}}$.
         \item Prove that $\seq{v_{n}} < \seq{u_{n}}$ implies $\seq{v_{n}}$ is not an upper bound of $S$.
 
-              Since $\seq{u_{n}}$ is equivalent to $\seq{\ell_{n}}$, $\seq{v_{n}} < \seq{\ell_{n}}$. According to the Archimedean property (Theorem~\ref{theorem:chapter1:archimedean-property-cauchy-sequence-equivalence-class}), there exists a positive rational number $q$ such that $\seq{v_{n}} < \seq{q} < \seq{\ell_{n}}$.
+              Since $\seq{u_{n}}$ is equivalent to $\seq{\ell_{n}}$, $\seq{v_{n}} < \seq{\ell_{n}}$.
 
-              $\seq{q} < \seq{\ell_{n}}$ implies that there exists a natural number $N$ such that for all $n > N$, $q \le \ell_{n}$. Therefore, $q \le \ell_{N+1}$ and $\seq{q} \le \seq{\ell_{N+1}}$. On the other hand, $\seq{\ell_{N+1}}$ is not an upper bound of $S$. Thereby, $\seq{q}$ is not an upper bound of $S$. Furthermore, $\seq{v_{n}} < \seq{q}$, so $\seq{v_{n}}$ is not an upper bound of $S$ either.
+              According to Theorem~\ref{theorem:chapter1:inequivalent-sequences}, $\seq{v_{n}} < \seq{\ell_{n}}$ implies that
+              \begin{equation*}
+                  (\exists q > 0)(\exists N)(\forall n > N)(v_{n} - \ell_{n} < -q)
+                  \tag{1}
+              \end{equation*}
+
+              Here we apply the same technique as the first step.
+
+              $\seq{v_{n}}$ is a Cauchy sequence so
+              \begin{equation*}
+                  (\exists N')(\forall m, n > N')(\abs{v_{m} - v_{n}} < \frac{q}{2}).
+                  \tag{2}
+              \end{equation*}
+
+              (Note: we can choose any positive rational number which is less than $q$ instead of $\dfrac{q}{2}$).
+
+              Let $N_{0} = \max\{ N, N' \}$. From (1) and (2)
+              \[
+                  (\forall n > N_{0})\left(v_{n} - \ell_{N_{0}+1} = v_{n} - v_{N_{0} + 1} + v_{N_{0} + 1} - \ell_{N_{0} + 1} < \abs{v_{n} - v_{N_{0} + 1}} + (-q) < \frac{-q}{2}\right)
+              \]
+
+              Due to Theorem~\ref{theorem:chapter1:inequivalent-sequences}, $\seq{v_{n}}$ strictly precedes the constant sequence $\seq{\ell_{N_{0} + 1}}$. On the other hand, the constant sequence $\seq{\ell_{N_{0} + 1}}$ is not an upper bound of $S$. Therefore, $\seq{v_{n}}$ is not an upper bound of $S$, either.
 
               Thus $\seq{v_{n}} < \seq{u_{n}}$ implies $\seq{v_{n}}$ is not an upper bound of $S$.
     \end{enumerate}
@@ -3412,6 +3356,12 @@ Supremum and maximum are not synonymous. For a given bounded above set $S$, supr
 \end{proof}
 
 \section{Compare the two constructions (models)}
+
+Technically, by using Dedekind cuts, the least upper bound property becomes quite straightforward, but verifying the field axioms requires a lot of works. Meanwhile, by using Cauchy sequences, defining addition and multiplication in the term-wise style makes it easy to verify the field axioms, accept for the last one. To define order and prove order-related properties (including the least upper bound property), using Cauchy sequences is not straightforward at all.
+
+Each real number corresponds to a unique Dedekind cut. But each real number corresponds to infinite Cauchy sequences.
+
+Throughout the construction of the real numbers by Cauchy sequences, we implicitly use the usual metric (distance) in $\mathbb{Q}$ $-$ $d(x, y) = \abs{x - y}$ (where $x, y$ are rational numbers, and $\abs{\cdot}$ is the usual norm (the absolute value function)). Using Cauchy sequences allows us to create completions (Cauchy-complete) of $\mathbb{Q}$ with respect to other metrics.
 
 \section{Uniqueness of complete ordered field}
 

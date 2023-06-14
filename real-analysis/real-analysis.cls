@@ -26,6 +26,7 @@
 \RequirePackage{subcaption}
 \RequirePackage{booktabs}
 \RequirePackage[inline]{enumitem}
+\RequirePackage{tabularx}
 
 \setcounter{chapter}{0}
 
