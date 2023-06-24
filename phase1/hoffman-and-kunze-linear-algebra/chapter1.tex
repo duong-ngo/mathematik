@@ -1,6 +1,10 @@
 % chktex-file 44
 \chapter{Linear Equations}
 
+\section{Fields (no exercises)}
+
+\section{Systems of Linear Equations}
+
 \begin{exercise}
     Prove that the set of complex numbers of the form $a + b\sqrt{2}$, where $a, b$ are rational numbers, is a subfield of $\mathbb{C}$.
 \end{exercise}
@@ -171,6 +175,7 @@ Let $\mathbb{F}$ be the field of complex numbers. Are the following two systems 
     \[
         \frac{2}{3}x_{1} - \frac{1}{2}x_{2} + x_{3} + 7x_{4} = a(2x_{1} + (-1 + \iota)x_{2} + x_{4}) + b(3x_{2} - 2\iota x_{3} + 5x_{4})
     \]
+
     By identifying coefficients
     \[
         \begin{cases}
@@ -185,6 +190,7 @@ Let $\mathbb{F}$ be the field of complex numbers. Are the following two systems 
             a = \frac{1 + \iota}{4}
         \end{cases}
     \]
+
     So $\frac{2}{3}x_{1} - \frac{1}{2}x_{2} + x_{3} + 7x_{4}$ is NOT a linear combination of $2x_{1} + (-1 + \iota)x_{2} + x_{4}$ and $3x_{2} - 2\iota x_{3} + 5x_{4}$. Thus the two systems are inequivalent.
 \end{proof}
 
@@ -205,6 +211,7 @@ Let $\mathbb{F}$ be the field of complex numbers. Are the following two systems 
             1     & 0 & 1
         \end{array}
     \]
+
     Verify that the set $F$, together with these two operations, is a field.
 \end{exercise}
 
@@ -480,7 +487,7 @@ Let $\mathbb{F}$ be the field of complex numbers. Are the following two systems 
 
     According to Theorem~\ref{thm:inverse-elements-of-subfield}, $q^{-1}$ belongs to the subfield, then $\frac{p}{q} = pq^{-1}$ belongs to the subfield.
 
-    Thus, the subfield contains every rational number.
+    Thus, each subfield of $\mathbb{C}$ contains every rational number.
 \end{proof}
 
 \begin{exercise}
@@ -522,7 +529,7 @@ Let $\mathbb{F}$ be the field of complex numbers. Are the following two systems 
 
     $f$ is a monomorphism (different ``inputs'' will be mapped to different ``outputs''). Hence $\mathbb{Q}$ and $f(\mathbb{Q})$ are isomorphic. By the definition of $f$, $f(\mathbb{Q})\subseteq\mathbb{F}$.
 
-    Hence, $\mathbb{F}$ contains a subfield which is isomorphic to the field of the rational numbers.
+    Hence, each field of characteristic zero contains a subfield which is isomorphic to the field of the rational numbers.
 \end{proof}
 
 \section{Matrices and Elementary Row Operations}
