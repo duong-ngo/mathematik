@@ -534,12 +534,492 @@ Let $\mathbb{F}$ be the field of complex numbers. Are the following two systems 
 
 \section{Matrices and Elementary Row Operations}
 
-\section{Row-Reduced Echelon Matrices}
+\setcounter{exercise}{0}
 
-\section*{Exercises}\addcontentsline{toc}{section}{Exercises}
+We use the following elementary row operations
+\begin{enumerate}[label={(\arabic*)}]
+    \item Multiply a row with a non-zero scalar.
+    \item Let $c$ be a scalar. Add $c$ times $s$-th row to $r$-th row, where $r\ne s$.
+    \item Swap two rows.
+\end{enumerate}
+
+\begin{exercise}
+    Find all solutions to the system of equations
+    \[
+        \begin{cases}
+            (1 - \iota)x_{1} - \iota x_{2} = 0, \\
+            2x_{1} + (1 - \iota) x_{2} = 0.
+        \end{cases}
+    \]
+\end{exercise}
+
+\begin{proof}
+    \begingroup{}
+    \allowdisplaybreaks{}
+    \begin{align*}
+        \begin{bmatrix}
+            1 - \iota & -\iota    \\
+            2         & 1 - \iota
+        \end{bmatrix}
+        \stackrel{(1)}{\rightarrow}
+        \begin{bmatrix}
+            2 & (1 + \iota)(-\iota) \\
+            2 & 1 - \iota           \\
+        \end{bmatrix}
+        \stackrel{(2)}{\rightarrow}
+        \begin{bmatrix}
+            2 & 1 - \iota \\
+            0 & 0
+        \end{bmatrix}
+        \stackrel{(1)}{\rightarrow}
+        \begin{bmatrix}
+            1 & \frac{1 - \iota}{2} \\
+            0 & 0
+        \end{bmatrix}
+    \end{align*}
+    \endgroup{}
+
+    So the original system of linear equations is equivalent to
+    \[
+        x_{1} - \frac{\iota - 1}{2}x_{2} = 0.
+    \]
+
+    Thus all solutions of the system of linear equations are
+    \[
+        (x_{1}, x_{2}) = \left( \frac{(\iota - 1)c}{2}, c \right).\qedhere
+    \]
+\end{proof}
+
+\begin{exercise}
+    If
+    \[
+        A =
+        \begin{bmatrix}
+            3 & -1 & 2 \\
+            2 & 1  & 1 \\
+            1 & -3 & 0
+        \end{bmatrix}
+    \]
+
+    find all solutions of $AX = 0$ by row-reducing $A$.
+\end{exercise}
+
+\begin{proof}
+    \begingroup{}
+    \allowdisplaybreaks{}
+    \begin{multline*}
+        \begin{bmatrix}
+            3 & -1 & 2 \\
+            2 & 1  & 1 \\
+            1 & -3 & 0
+        \end{bmatrix}
+        \stackrel{(2)}{\rightarrow}
+        \begin{bmatrix}
+            0 & 8  & 2 \\
+            0 & 7  & 1 \\
+            1 & -3 & 0
+        \end{bmatrix} \\
+        \stackrel{(1)}{\rightarrow}
+        \begin{bmatrix}
+            0 & 1  & \frac{1}{4} \\
+            0 & 7  & 1           \\
+            1 & -3 & 0
+        \end{bmatrix}
+        \stackrel{(2)}{\rightarrow}
+        \begin{bmatrix}
+            0 & 1 & \frac{1}{4}  \\
+            0 & 0 & \frac{-3}{4} \\
+            1 & 0 & \frac{3}{4}
+        \end{bmatrix} \\
+        \stackrel{(2)}{\rightarrow}
+        \begin{bmatrix}
+            0 & 1 & 0            \\
+            0 & 0 & \frac{-3}{4} \\
+            1 & 0 & 0
+        \end{bmatrix}
+        \stackrel{(1)}{\rightarrow}
+        \begin{bmatrix}
+            0 & 1 & 0 \\
+            0 & 0 & 1 \\
+            1 & 0 & 0
+        \end{bmatrix}
+    \end{multline*}
+    \endgroup{}
+
+    Hence $AX = 0$ is equivalent to $\begin{bmatrix}0 & 1 & 0 \\ 0 & 0 & 1 \\ 1 & 0 & 0\end{bmatrix}\begin{bmatrix}x_{1} \\ x_{2} \\ x_{3}\end{bmatrix} = \begin{bmatrix}0 \\ 0 \\ 0\end{bmatrix}$.
+
+    Thus, the solution of $AX = 0$ is $(x_{1}, x_{2}, x_{3}) = (0, 0, 0)$.
+\end{proof}
+
+\begin{exercise}
+    If
+    \[
+        A =
+        \begin{bmatrix}
+            6  & -4 & 0  \\
+            4  & -2 & 0  \\
+            -1 & 0  & -3
+        \end{bmatrix}
+    \]
+
+    find all solutions of $AX = 2X$ and all solutions of $AX = 3X$. (The symbol $cX$ denotes the matrix each entry of which is $c$ times the corresponding entry of $X$.)
+\end{exercise}
+
+\begin{proof}
+    $AX = 2X$ is equivalent to
+    \begin{align*}
+        \begin{bmatrix}
+            6  & -4 & 0  \\
+            4  & -2 & 0  \\
+            -1 & 0  & -3
+        \end{bmatrix}
+        \begin{bmatrix}
+            x_{1} \\ x_{2} \\ x_{3}
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            2x_{1} \\ 2x_{2} \\ 2x_{3}
+        \end{bmatrix}
+        \Longleftrightarrow
+        \begin{bmatrix}
+            6x_{1} + (-4)x_{2} \\ 4x_{1} + (-2)x_{2} \\ (-1)x_{1} + (-3)x_{3}
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            2x_{1} \\ 2x_{2} \\ 2x_{3}
+        \end{bmatrix}
+        \Longleftrightarrow
+        \begin{bmatrix}
+            4x_{1} + (-4)x_{2} \\
+            4x_{1} + (-4)x_{2} \\
+            (-1)x_{1} + (-5)x_{3}
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            0 \\ 0 \\ 0
+        \end{bmatrix}.
+    \end{align*}
+
+    Thus, all solutions of $AX = 2X$ are $(x_{1}, x_{2}, x_{3}) = (c, c, -5c)$.
+
+    \bigskip\hrule\bigskip
+
+    $AX = 3X$ is equivalent to
+    \begin{align*}
+        \begin{bmatrix}
+            6  & -4 & 0  \\
+            4  & -2 & 0  \\
+            -1 & 0  & -3
+        \end{bmatrix}
+        \begin{bmatrix}
+            x_{1} \\ x_{2} \\ x_{3}
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            3x_{1} \\ 3x_{2} \\ 3x_{3}
+        \end{bmatrix}
+        \Longleftrightarrow
+        \begin{bmatrix}
+            6x_{1} + (-4)x_{2} \\ 4x_{1} + (-2)x_{2} \\ (-1)x_{1} + (-3)x_{3}
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            3x_{1} \\ 3x_{2} \\ 3x_{3}
+        \end{bmatrix}
+        \Longleftrightarrow
+        \begin{bmatrix}
+            3x_{1} + (-4)x_{2} \\
+            4x_{1} + (-5)x_{2} \\
+            (-1)x_{1} + (-6)x_{3}
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            0 \\ 0 \\ 0
+        \end{bmatrix}.
+    \end{align*}
+
+    Thus, all solutions of $AX = 3X$ are $(x_{1}, x_{2}, x_{3}) = (0, 0, 0)$.
+\end{proof}
+
+\begin{exercise}
+    Find a row-reduced matrix which is row-equivalent to
+    \[
+        A =
+        \begin{bmatrix}
+            \iota & -(1 + \iota) & 0  \\
+            1     & -2           & 1  \\
+            1     & 2\iota       & -1
+        \end{bmatrix}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    \begingroup{}
+    \allowdisplaybreaks{}
+    \begin{align*}
+        \begin{bmatrix}
+            \iota & -(1 + \iota) & 0  \\
+            1     & -2           & 1  \\
+            1     & 2\iota       & -1
+        \end{bmatrix}
+        \stackrel{(2)}{\rightarrow}
+        \begin{bmatrix}
+            0 & 1 - \iota   & \iota \\
+            0 & -2 - 2\iota & -2    \\
+            1 & 2\iota      & -1
+        \end{bmatrix}
+        \stackrel{(1)}{\rightarrow}
+        \begin{bmatrix}
+            0 & 2         & \iota - 1 \\
+            0 & 1 + \iota & 1         \\
+            1 & 2\iota    & -1
+        \end{bmatrix}
+        \stackrel{(1)}{\rightarrow}
+        \begin{bmatrix}
+            0 & 1      & \frac{\iota - 1}{2} \\
+            0 & 1      & \frac{1 - \iota}{2} \\
+            1 & 2\iota & -1
+        \end{bmatrix} \\
+        \stackrel{(2)}{\rightarrow}
+        \begin{bmatrix}
+            0 & 0      & \iota - 1           \\
+            0 & 1      & \frac{1 - \iota}{2} \\
+            1 & 2\iota & -1
+        \end{bmatrix}
+        \stackrel{(1)}{\rightarrow}
+        \begin{bmatrix}
+            0 & 0      & 1                   \\
+            0 & 1      & \frac{1 - \iota}{2} \\
+            1 & 2\iota & -1
+        \end{bmatrix}
+        \stackrel{(2)}{\rightarrow}
+        \begin{bmatrix}
+            0 & 0      & 1 \\
+            0 & 1      & 0 \\
+            1 & 2\iota & 0
+        \end{bmatrix}
+        \stackrel{(2)}{\rightarrow}
+        \begin{bmatrix}
+            0 & 0 & 1 \\
+            0 & 1 & 0 \\
+            1 & 0 & 0
+        \end{bmatrix}.
+    \end{align*}
+    \endgroup{}
+\end{proof}
+
+\begin{exercise}
+    Prove that the following two matrices are not row-equivalent.
+    \[
+        \begin{bmatrix}
+            2 & 0  & 0 \\
+            a & -1 & 0 \\
+            b & c  & 3
+        \end{bmatrix},\quad
+        \begin{bmatrix}
+            1  & 1 & 2  \\
+            -2 & 0 & -1 \\
+            1  & 3 & 5
+        \end{bmatrix}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    Let's find a row-reduced matrix which is row-equivalent to the second matrix.
+    \[
+        \begin{bmatrix}
+            1  & 1 & 2  \\
+            -2 & 0 & -1 \\
+            1  & 3 & 5
+        \end{bmatrix}
+        \stackrel{(2)}{\rightarrow}
+        \begin{bmatrix}
+            1 & 1 & 2 \\
+            0 & 2 & 3 \\
+            0 & 2 & 3
+        \end{bmatrix}
+        \stackrel{(2)}{\rightarrow}
+        \begin{bmatrix}
+            1 & 1 & 2 \\
+            0 & 2 & 3 \\
+            0 & 0 & 0
+        \end{bmatrix}
+        \stackrel{(2)}{\rightarrow}
+        \begin{bmatrix}
+            1 & 1 & 2           \\
+            0 & 1 & \frac{3}{2} \\
+            0 & 0 & 0
+        \end{bmatrix}
+        \stackrel{(2)}{\rightarrow}
+        \begin{bmatrix}
+            1 & 0 & \frac{1}{2} \\
+            0 & 1 & \frac{3}{2} \\
+            0 & 0 & 0
+        \end{bmatrix}
+    \]
+
+    Since $(2, 0, 0)$ is NOT a linear combination of $(1, 0, \frac{1}{2})$ and $(0, 1, \frac{3}{2})$, the two matrices are not row-equivalent.
+\end{proof}
+
+\begin{exercise}
+    Let
+    \[
+        A =
+        \begin{bmatrix}
+            a & b \\
+            c & d
+        \end{bmatrix}
+    \]
+
+    be a $2\times 2$ matrix with complex entries. Suppose that $A$ is row-reduced and also that $a + b + c + d = 0$. Prove that there are exactly three such matrices.
+\end{exercise}
+
+\begin{proof}
+    The zero matrix $\begin{bmatrix}0 & 0 \\ 0 & 0\end{bmatrix}$ is one such matrix.
+
+    Suppose that $A$ is not the zero matrix, then $a = 1$ or $c = 1$.
+
+    If $a = 1$, then $c = 0$ (since $A$ is row-reduced). Furthermore
+    \begin{itemize}
+        \item $d = 0$. It follows that $b = -1$ (since $a + b + c + d = 0$).
+        \item $d = 1$. It follows that $b = 0$. But $a + b + c + d\ne 0$.
+    \end{itemize}
+
+    If $c = 1$, then $a = 0$ (since $A$ is row-reduced). Furthermore
+    \begin{itemize}
+        \item $b = 0$. It follows that $d = -1$ (since $a + b + c + d = 0$).
+        \item $b = 1$. It follows that $d = 0$. But $a + b + c + d\ne 0$.
+    \end{itemize}
+
+    Thus, the following three matrices are the only that satisfy the conditions
+    \[
+        \begin{bmatrix}
+            0 & 0 \\
+            0 & 0
+        \end{bmatrix},\quad
+        \begin{bmatrix}
+            1 & -1 \\
+            0 & 0
+        \end{bmatrix},\quad
+        \begin{bmatrix}
+            0 & 0  \\
+            1 & -1
+        \end{bmatrix}.
+    \]
+\end{proof}
+
+\begin{exercise}
+    Prove that the interchange of two rows of a matrix can be accomplished by a finite sequence of elementary row operations of the other two types.
+\end{exercise}
+
+\begin{proof}
+    If two rows of a matrix are identical, then after zero elementary row operation, we ``swap them''.
+
+    Otherwise, two rows are not identical. Let's denote them by $r$ and $s$.
+
+    \begin{itemize}
+        \item By the 1st type of operation, we obtain $(r, s) \to (-r, s)$.
+        \item By the 2nd type of operation, we obtain $(-r, s) \to (-r+s, s)$.
+        \item By the 2nd type of operation, we obtain $(-r+s, s) \to (-r+s, s - (-r+s)) = (-r+s, r)$.
+        \item By the 2nd type of operation, we obtain $(-r+s, r) \to (-r+s+r, r) = (s, r)$.
+    \end{itemize}
+
+    Hence, we swap two distinct rows by using only the 1st and 2nd elementary row operation.
+\end{proof}
+
+\begin{exercise}
+    Consider the system of equations $AX = 0$ where
+    \[
+        A =
+        \begin{bmatrix}
+            a & b \\
+            c & d
+        \end{bmatrix}
+    \]
+
+    is a $2\times 2$ matrix over the field $\mathbb{F}$. Prove the following.
+    \begin{enumerate}[label={(\alph*)}]
+        \item If every entry of $A$ is 0, then every pair $(x_{1}, x_{2})$ is a solution of $AX = 0$.
+        \item If $ad - bc \ne 0$, the system $AX = 0$ has the only trivial solution $x_{1} = x_{2} = 0$.
+        \item If $ad - bc = 0$ and some entry of $A$ is different from 0, then there is a solution $({x}^{0}_{1}, {x}^{0}_{2})$ such that $(x_{1}, x_{2})$ is a solution if and only if there exists a scalar $y$ such that $x_{1} = y{x}^{0}_{1}, x_{2} = y{x}^{0}_{2}$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item $a = b = c = d = 0$, then $AX = 0$ is equivalent to
+              \[
+                  \begin{cases}
+                      0x_{1} + 0x_{2} = 0, \\
+                      0x_{1} + 0x_{2} = 0.
+                  \end{cases}
+              \]
+
+              Hence every pair $(x_{1}, x_{2})$ is a solution of $AX = 0$.
+        \item $AX = 0$ is equivalent to
+              \[
+                  \begin{cases}
+                      a{x}_{1} + b{x}_{2} = 0 \\
+                      c{x}_{1} + d{x}_{2} = 0
+                  \end{cases}.
+              \]
+
+              there are these two particular linear combinations
+              \[
+                  \begin{cases}
+                      d(a{x}_{1} + b{x}_{2}) - b(c{x}_{1} + d{x}_{2}) = 0 \\
+                      c(a{x}_{1} + b{x}_{2}) - a(c{x}_{1} + d{x}_{2}) = 0
+                  \end{cases}
+                  \Longleftrightarrow
+                  \begin{cases}
+                      (ad - bc)x_{1} = 0 \\
+                      (bc - ad)x_{2} = 0
+                  \end{cases}.
+              \]
+
+              Since $ad - bc\ne 0$, we obtain that $x_{1} = x_{2} = 0$. This is the only solution.
+        \item Without loss of generality, suppose that $a\ne 0$. Since $ad = bc$,
+              \[
+                  \begin{bmatrix}
+                      a & b \\
+                      c & d
+                  \end{bmatrix}
+                  \stackrel{(1)}{\rightarrow}
+                  \begin{bmatrix}
+                      a  & b  \\
+                      ac & ad
+                  \end{bmatrix}
+                  \rightarrow
+                  \begin{bmatrix}
+                      a  & b  \\
+                      ac & bc
+                  \end{bmatrix}
+                  \stackrel{(2)}{\rightarrow}
+                  \begin{bmatrix}
+                      a & b \\
+                      0 & 0
+                  \end{bmatrix}
+              \]
+
+              Since $a\ne 0$, then $AX = 0$ has a non trivial solution $({x}^{0}_{1}, {x}^{0}_{2}) = (-b, a)$.
+
+              Suppose that $(x_{1}, x_{2})$ is a solution of $AX = 0$. Since $a\ne 0$, then there exists $y$ such that $x_{2} = ay = y{x}^{0}_{2}$.
+              \begin{align*}
+                  0 & = a{x}_{1} + b{x}_{2}                                   \\
+                    & = a({x}_{1} - y{x}^{0}_{1}) + b({x}_{2} - y{x}^{0}_{2}) \\
+                    & = a({x}_{1} - y{x}^{0}_{1}) + 0                         \\
+                    & = a({x}_{1} - y{x}^{0}_{1}).
+              \end{align*}
+
+              Since $a\ne 0$, ${x}_{1} = y{x}^{0}_{1}$.
+
+              Hence, there exists a scalar $y$ such that $x_{1} = y{x}^{0}_{1}, x_{2} = y{x}^{0}_{2}$, where $({x}^{0}_{1}, {x}^{0}_{2})$ is a non-trivial solution of $AX = 0$ and $(x_{1}, y_{1})$ is an arbitrary solution of $AX = 0$.
+    \end{enumerate}
+\end{proof}
+
+\section{Row-Reduced Echelon Matrices}
 
 \section{Matrix Multiplication}
 
 \section{Invertible Matrices}
 
-\section*{Exercises}\addcontentsline{toc}{section}{Exercises}
