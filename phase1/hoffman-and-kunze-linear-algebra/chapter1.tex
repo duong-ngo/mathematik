@@ -393,7 +393,7 @@ Let $\mathbb{F}$ be the field of complex numbers. Are the following two systems 
     \end{proof}
 
     \begin{lemma}\label{lemma:exercise:linear-combination-of-inequivalent-linear-equations}
-        Two homogeneous linear equations $a_{1}x_{1} + a_{2}x_{2} = 0$ and $b_{1}x_{1} + b_{2}x_{2} = 0$ are inequavalent and non-trivial.
+        Two homogeneous linear equations $a_{1}x_{1} + a_{2}x_{2} = 0$ and $b_{1}x_{1} + b_{2}x_{2} = 0$ are inequivalent and non-trivial.
 
         Then any homogeneous linear equation in two unknowns $x_{1}, x_{2}$ is a linear combination of these two equations.
     \end{lemma}
@@ -537,7 +537,7 @@ Let $\mathbb{F}$ be the field of complex numbers. Are the following two systems 
 \setcounter{exercise}{0}
 
 We use the following elementary row operations
-\begin{enumerate}[label={(\arabic*)}]
+\begin{enumerate}[label={(\arabic*)\ =}]
     \item Multiply a row with a non-zero scalar.
     \item Let $c$ be a scalar. Add $c$ times $s$-th row to $r$-th row, where $r\ne s$.
     \item Swap two rows.
@@ -1018,6 +1018,589 @@ We use the following elementary row operations
 \end{proof}
 
 \section{Row-Reduced Echelon Matrices}
+
+\setcounter{exercise}{0}
+
+\begin{exercise}
+    Find all solutions to the following system of equations by row-reducing the coefficient matrix:
+    \[
+        \begin{array}{ccccccc}
+            \frac{1}{3}{x}_{1}  & + & 2{x}_{2} & - & 6{x}_{3}         & = & 0  \\
+            -4{x}_{1}           &   &          & + & 5{x}_{3}         & = & 0  \\
+            -3{x}_{1}           & + & 6{x}_{2} & - & 13{x}_{3}        & = & 0  \\
+            -\frac{7}{3}{x}_{1} & + & 2{x}_{2} & - & \frac{8}{3}x_{3} & = & 0.
+        \end{array}
+    \]
+\end{exercise}
+
+\begin{proof}
+    The system of linear equations is equivalent to
+    \[
+        \begin{bmatrix}
+            \frac{1}{3}  & 2 & -6           \\
+            -4           & 0 & 5            \\
+            -3           & 6 & -13          \\
+            -\frac{7}{3} & 2 & -\frac{8}{3}
+        \end{bmatrix}
+        \begin{bmatrix}
+            x_{1} \\
+            x_{2} \\
+            x_{3}
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            0 \\
+            0 \\
+            0
+        \end{bmatrix}.
+    \]
+
+    Let's perform elementary-row operation to obtain a row-reduce echelon form.
+    \begingroup{}
+    \allowdisplaybreaks{}
+    \begin{align*}
+        \begin{bmatrix}
+            \frac{1}{3}  & 2 & -6           \\
+            -4           & 0 & 5            \\
+            -3           & 6 & -13          \\
+            -\frac{7}{3} & 2 & -\frac{8}{3}
+        \end{bmatrix}
+        \stackrel{(1)}{\rightarrow}
+        \begin{bmatrix}
+            1            & 6 & -18          \\
+            -4           & 0 & 5            \\
+            -3           & 6 & -13          \\
+            -\frac{7}{3} & 2 & -\frac{8}{3}
+        \end{bmatrix}
+        \stackrel{(2)}{\rightarrow}
+        \begin{bmatrix}
+            1 & 6  & -18            \\
+            0 & 24 & -67            \\
+            0 & 24 & -67            \\
+            0 & 16 & -\frac{134}{3}
+        \end{bmatrix}
+        \stackrel{(2)}{\rightarrow}
+        \begin{bmatrix}
+            1 & 6  & -18 \\
+            0 & 24 & -67 \\
+            0 & 24 & -67 \\
+            0 & 24 & -67
+        \end{bmatrix} \\
+        \stackrel{(2)}{\rightarrow}
+        \begin{bmatrix}
+            1 & 6  & -18 \\
+            0 & 24 & -67 \\
+            0 & 0  & 0   \\
+            0 & 0  & 0
+        \end{bmatrix}
+        \stackrel{(2)}{\rightarrow}
+        \begin{bmatrix}
+            1 & 0  & -\frac{5}{4} \\
+            0 & 24 & -67          \\
+            0 & 0  & 0            \\
+            0 & 0  & 0
+        \end{bmatrix}
+        \stackrel{(1)}{\rightarrow}
+        \begin{bmatrix}
+            1 & 0 & -\frac{5}{4}   \\
+            0 & 1 & -\frac{67}{24} \\
+            0 & 0 & 0              \\
+            0 & 0 & 0
+        \end{bmatrix}
+    \end{align*}
+    \endgroup{}
+
+    Thus, all solutions are of the form $(\frac{5}{4}c, \frac{67}{24}c, c)$.
+\end{proof}
+
+\begin{exercise}
+    Find a row-reduced echelon matrix which is row-equivalent to
+    \[
+        A =
+        \begin{bmatrix}
+            1     & -\iota    \\
+            2     & 2         \\
+            \iota & 1 + \iota
+        \end{bmatrix}.
+    \]
+
+    What are the solutions of $AX = 0$.
+\end{exercise}
+
+\begin{proof}
+    \begingroup{}
+    \allowdisplaybreaks{}
+    \begin{align*}
+        \begin{bmatrix}
+            1       & -\iota{}    \\
+            2       & 2           \\
+            \iota{} & 1 + \iota{}
+        \end{bmatrix}
+        \stackrel{(1)}{\rightarrow}
+        \begin{bmatrix}
+            1       & -{\iota}    \\
+            1       & 1           \\
+            {\iota} & 1 + {\iota}
+        \end{bmatrix}
+        \stackrel{(2)}{\rightarrow}
+        \begin{bmatrix}
+            1 & -{\iota} \\
+            1 & 1        \\
+            0 & 1
+        \end{bmatrix}
+        \stackrel{(2)}{\rightarrow}
+        \begin{bmatrix}
+            1 & -{\iota}    \\
+            0 & 1 + {\iota} \\
+            0 & 1
+        \end{bmatrix}
+        \stackrel{(1)}{\rightarrow}
+        \begin{bmatrix}
+            1 & -{\iota} \\
+            0 & 1        \\
+            0 & 0
+        \end{bmatrix}
+        \stackrel{(2)}{\rightarrow}
+        \begin{bmatrix}
+            1 & 0 \\
+            0 & 1 \\
+            0 & 0
+        \end{bmatrix}.
+    \end{align*}
+    \endgroup{}
+
+    So the row-reduced echelon form of $A$ is
+    \[
+        \begin{bmatrix}
+            1 & 0 \\
+            0 & 1 \\
+            0 & 0
+        \end{bmatrix}
+    \]
+
+    The solution of $AX = 0$ is $x_{1} = x_{2} = 0$.
+\end{proof}
+
+\begin{exercise}
+    Describe explicitly all $2\times 2$ row-reduced echelon matrices.
+\end{exercise}
+
+\begin{proof}
+    One of the row-reduced echelon matrix of this kind is the $2\times 2$ zero matrix.
+
+    If a $2\times 2$ row-reduced echelon matrix is non-zero, then there are the following possibilities
+    \begin{itemize}
+        \item The second row is zero.
+
+              In this case, the 1st non-zero entry of the 1st row is either $a_{11}$ or $a_{12}$.
+
+              If $a_{11}$ is non-zero, then $a_{11} = 1$ and $a_{12}$ can have any value. If $a_{11}$ is zero, then $a_{12} = 1$.
+        \item The second row is non-zero.
+
+              In this case, $a_{11} = 1$, $a_{12} = 0$, $a_{21} = 0$, $a_{22} = 0$.
+    \end{itemize}
+
+    Thus, all $2\times 2$ row-reduced echelon matrices are
+    \begin{itemize}
+        \item The zero matrix.
+        \item $\begin{bmatrix}1 & c \\ 0 & 0\end{bmatrix}$, where $c$ is any element of the field $\mathbb{F}$.
+        \item $\begin{bmatrix}0 & 1 \\ 0 & 0\end{bmatrix}$.
+        \item The identity matrix.
+    \end{itemize}
+\end{proof}
+
+\begin{exercise}
+    Consider the system of equations
+    \begingroup{}
+    \allowdisplaybreaks{}
+    \begin{align*}
+        \begin{array}{ccccccc}
+            x_{1}    & - & x_{2}    & + & 2{x}_{3} & = & 1  \\
+            2{x}_{1} &   &          & + & 2x_{3}   & = & 1  \\
+            x_{1}    & - & 3{x}_{2} & + & 4{x}_{3} & = & 2.
+        \end{array}
+    \end{align*}
+    \endgroup{}
+
+    Does this system have a solution? If so, describe explicitly all solutions.
+\end{exercise}
+
+\begin{proof}
+    \begingroup{}
+    \allowdisplaybreaks{}
+    \begin{align*}
+        \left[\begin{array}{ccc|c}
+                      1 & -1 & 2 & 1 \\
+                      2 & 0  & 2 & 1 \\
+                      1 & -3 & 4 & 2
+                  \end{array}\right]
+        \stackrel{(1)}{\rightarrow}
+        \left[\begin{array}{ccc|c}
+                      1 & -1 & 2 & 1           \\
+                      1 & 0  & 1 & \frac{1}{2} \\
+                      1 & -3 & 4 & 2
+                  \end{array}\right]
+        \stackrel{(2)}{\rightarrow}
+        \left[\begin{array}{ccc|c}
+                      1 & -1 & 2  & 1            \\
+                      0 & 1  & -1 & \frac{-1}{2} \\
+                      0 & -2 & 2  & 1
+                  \end{array}\right]
+        \stackrel{(2)}{\rightarrow}
+        \left[\begin{array}{ccc|c}
+                      1 & -1 & 2  & 1            \\
+                      0 & 1  & -1 & \frac{-1}{2} \\
+                      0 & 0  & 0  & 0
+                  \end{array}\right]
+        \stackrel{(2)}{\rightarrow}
+        \left[\begin{array}{ccc|c}
+                      1 & 0 & 1  & \frac{1}{2}  \\
+                      0 & 1 & -1 & \frac{-1}{2} \\
+                      0 & 0 & 0  & 0
+                  \end{array}\right]
+    \end{align*}
+    \endgroup{}
+
+    So the system does has a solution.
+
+    All solutions are of the form $(\frac{1}{2} - c, \frac{-1}{2} + c , c)$.
+\end{proof}
+
+\begin{exercise}
+    Give an example of a system of two linear equations in two unknowns which has no solution.
+\end{exercise}
+
+\begin{proof}
+    An example is
+    \[
+        \begin{array}{ccccc}
+            x_{1} & + & x_{2} & = & 1  \\
+            x_{1} & + & x_{2} & = & 0.
+        \end{array}\qedhere
+    \]
+\end{proof}
+
+\begin{exercise}
+    Show that the system
+    \[
+        \begin{array}{cccccccccc}
+            x_{1} & - & 2{x}_{2} & + & x_{3}    & + & 2{x}_{4} & = & 1 \\
+            x_{1} & + & x_{2}    & - & x_{3}    & + & x_{4}    & = & 2 \\
+            x_{1} & + & 7{x}_{2} & - & 5{x}_{3} & - & x_{4}    & = & 3
+        \end{array}
+    \]
+
+    has no solution.
+\end{exercise}
+
+\begin{proof}
+    \begingroup{}
+    \allowdisplaybreaks{}
+    \begin{align*}
+        \left[\begin{array}{cccc|c}
+                      1 & -2 & 1  & 2  & 1 \\
+                      1 & 1  & -1 & 1  & 2 \\
+                      1 & 7  & -5 & -1 & 3
+                  \end{array}\right]
+        \stackrel{(2)}{\rightarrow}
+        \left[\begin{array}{cccc|c}
+                      1 & -2 & 1  & 2  & 1 \\
+                      0 & 3  & -2 & -1 & 1 \\
+                      0 & 9  & -6 & -3 & 2
+                  \end{array}\right]
+        \stackrel{(2)}{\rightarrow}
+        \left[\begin{array}{cccc|c}
+                      1 & -2 & 1  & 2  & 1  \\
+                      0 & 3  & -2 & -1 & 1  \\
+                      0 & 0  & 0  & 0  & -1
+                  \end{array}\right] \\
+        \stackrel{(1)}{\rightarrow}
+        \left[\begin{array}{cccc|c}
+                      1 & -2 & 1            & 2            & 1           \\
+                      0 & 1  & \frac{-2}{3} & \frac{-1}{3} & \frac{1}{3} \\
+                      0 & 0  & 0            & 0            & -1
+                  \end{array}\right]
+        \stackrel{(2)}{\rightarrow}
+        \left[\begin{array}{cccc|c}
+                      1 & 0 & \frac{-1}{3} & \frac{4}{3}  & \frac{5}{3} \\
+                      0 & 1 & \frac{-2}{3} & \frac{-1}{3} & \frac{1}{3} \\
+                      0 & 0 & 0            & 0            & -1
+                  \end{array}\right].
+    \end{align*}
+    \endgroup{}
+
+    The last row of the coefficient matrix is zero, but the last row of the augmented matrix is non-zero. Therefore, the system has no solution.
+\end{proof}
+
+\begin{exercise}
+    Find all solutions of
+    \[
+        \begin{array}{ccccccccccc}
+            2{x_{1}} & - & 3{x_{2}} & - & 7{x_{3}} & + & 5{x_{4}} & + & 2{x_{5}} & = & -2  \\
+            x_{1}    & - & 2{x_{2}} & - & 4{x_{3}} & + & 3{x_{4}} & + & x_{5}    & = & -2  \\
+            2{x_{1}} &   &          & - & 4{x_{3}} & + & 2{x_{4}} & + & x_{5}    & = & 3   \\
+            x_{1}    & - & 5{x_{2}} & - & 7{x_{3}} & + & 6{x_{4}} & + & 2{x_{5}} & = & -7.
+        \end{array}
+    \]
+\end{exercise}
+
+\begin{proof}
+    \begingroup{}
+    \allowdisplaybreaks{}
+    \begin{align*}
+        \left[\begin{array}{ccccc|c}
+                      2 & -3 & -7 & 5 & 2 & -2 \\
+                      1 & -2 & -4 & 3 & 1 & -2 \\
+                      2 & 0  & -4 & 2 & 1 & 3  \\
+                      1 & -5 & -7 & 6 & 2 & -7
+                  \end{array}\right]
+        \stackrel{(3)}{\rightarrow}
+        \left[\begin{array}{ccccc|c}
+                      1 & -2 & -4 & 3 & 1 & -2 \\
+                      1 & -5 & -7 & 6 & 2 & -7 \\
+                      2 & -3 & -7 & 5 & 2 & -2 \\
+                      2 & 0  & -4 & 2 & 1 & 3
+                  \end{array}\right]
+        \stackrel{(2)}{\rightarrow}
+        \left[\begin{array}{ccccc|c}
+                      1 & -2 & -4 & 3  & 1  & -2 \\
+                      0 & -3 & -3 & 3  & 1  & -5 \\
+                      0 & 1  & 1  & -1 & 0  & 2  \\
+                      0 & 4  & 4  & -4 & -1 & 7
+                  \end{array}\right] \\
+        \stackrel{(3)}{\rightarrow}
+        \left[\begin{array}{ccccc|c}
+                      1 & -2 & -4 & 3  & 1  & -2 \\
+                      0 & 1  & 1  & -1 & 0  & 2  \\
+                      0 & -3 & -3 & 3  & 1  & -5 \\
+                      0 & 4  & 4  & -4 & -1 & 7
+                  \end{array}\right]
+        \stackrel{(3)}{\rightarrow}
+        \left[\begin{array}{ccccc|c}
+                      1 & 0 & -2 & 1  & 1  & 2  \\
+                      0 & 1 & 1  & -1 & 0  & 2  \\
+                      0 & 0 & 0  & 0  & 1  & 1  \\
+                      0 & 0 & 0  & 0  & -1 & -1
+                  \end{array}\right]
+        \stackrel{(3)}{\rightarrow}
+        \left[\begin{array}{ccccc|c}
+                      1 & 0 & -2 & 1  & 0 & 1 \\
+                      0 & 1 & 1  & -1 & 0 & 2 \\
+                      0 & 0 & 0  & 0  & 1 & 1 \\
+                      0 & 0 & 0  & 0  & 0 & 0
+                  \end{array}\right].
+    \end{align*}
+    \endgroup{}
+
+    Thus, all solutions are $(x_{1}, x_{2}, x_{3}, x_{4}, x_{5}) = (1 - b + 2a, 2 + b - a , a, b, 1)$.
+\end{proof}
+
+\begin{exercise}
+    Let
+    \[
+        A =
+        \begin{bmatrix}
+            3 & -1 & 2 \\
+            2 & 1  & 1 \\
+            1 & -3 & 0
+        \end{bmatrix}.
+    \]
+
+    For which triples $(y_{1}, y_{2}, y_{3})$ does the system $AX = Y$ have a solution.
+\end{exercise}
+
+\begin{proof}
+    \begingroup{}
+    \allowdisplaybreaks{}
+    \begin{align*}
+        \left[\begin{array}{ccc|c}
+                      3 & -1 & 2 & y_{1} \\
+                      2 & 1  & 1 & y_{2} \\
+                      1 & -3 & 0 & y_{3}
+                  \end{array}\right]
+        \stackrel{(3)}{\rightarrow}
+        \left[\begin{array}{ccc|c}
+                      1 & -3 & 0 & y_{3} \\
+                      2 & 1  & 1 & y_{2} \\
+                      3 & -1 & 2 & y_{1}
+                  \end{array}\right]
+        \stackrel{(2)}{\rightarrow}
+        \left[\begin{array}{ccc|c}
+                      1 & -3 & 0 & y_{3}            \\
+                      0 & 7  & 1 & y_{2} - 2{y_{3}} \\
+                      0 & 8  & 2 & y_{1} - 3{y_{3}}
+                  \end{array}\right]
+        \stackrel{(1)}{\rightarrow}
+        \left[\begin{array}{ccc|c}
+                      1 & -3 & 0           & y_{3}                                \\
+                      0 & 1  & \frac{1}{7} & \frac{y_{2}}{7} - \frac{2{y_{3}}}{7} \\
+                      0 & 1  & \frac{1}{4} & \frac{y_{1}}{8} - \frac{3{y_{3}}}{8}
+                  \end{array}\right]                                                     \\
+        \stackrel{(2)}{\rightarrow}
+        \left[\begin{array}{ccc|c}
+                      1 & -3 & 0            & y_{3}                                                   \\
+                      0 & 1  & \frac{1}{7}  & \frac{y_{2}}{7} - \frac{2{y_{3}}}{7}                    \\
+                      0 & 0  & \frac{3}{28} & \frac{y_{1}}{8} - \frac{y_{2}}{7} - \frac{5{y_{3}}}{56}\end{array}\right]
+        \stackrel{(2)}{\rightarrow}
+        \left[\begin{array}{ccc|c}
+                      1 & -3 & 0           & y_{3}                                                        \\
+                      0 & 1  & \frac{1}{7} & \frac{y_{2}}{7} - \frac{2{y_{3}}}{7}                         \\
+                      0 & 0  & 1           & \frac{7{y_{1}}}{6} - \frac{4{y_{2}}}{3} - \frac{5{y_{3}}}{6}\end{array}\right]
+        \stackrel{(2)}{\rightarrow}
+        \left[\begin{array}{ccc|c}
+                      1 & -3 & 0 & y_{3}                                                        \\
+                      0 & 1  & 0 & -\frac{y_{1}}{6} + \frac{y_{2}}{3} - \frac{y_{3}}{6}         \\
+                      0 & 0  & 1 & \frac{7{y_{1}}}{6} - \frac{4{y_{2}}}{3} - \frac{5{y_{3}}}{6}\end{array}\right] \\
+        \stackrel{(2)}{\rightarrow}
+        \left[\begin{array}{ccc|c}
+                      1 & 0 & 0 & -\frac{y_{1}}{2} + y_{2} + \frac{y_{3}}{2}                   \\
+                      0 & 1 & 0 & -\frac{y_{1}}{6} + \frac{y_{2}}{3} - \frac{y_{3}}{6}         \\
+                      0 & 0 & 1 & \frac{7{y_{1}}}{6} - \frac{4{y_{2}}}{3} - \frac{5{y_{3}}}{6}\end{array}\right].
+    \end{align*}
+    \endgroup{}
+
+    Hence the system has a solution for any triples $(y_{1}, y_{2}, y_{3})$.
+\end{proof}
+
+\begin{exercise}
+    Let
+    \[
+        A =
+        \begin{bmatrix}
+            3  & -6 & 2 & -1 \\
+            -2 & 4  & 1 & 3  \\
+            0  & 0  & 1 & 1  \\
+            1  & -2 & 1 & 0
+        \end{bmatrix}.
+    \]
+
+    For which $(y_{1}, y_{2}, y_{3}, y_{4})$ does the system of equations $AX = Y$ have a solution?
+\end{exercise}
+
+\begin{proof}
+    I am going to perform elementary-row operations on the augmented matrix.
+    \begingroup{}
+    \allowdisplaybreaks{}
+    \begin{align*}
+        \left[\begin{array}{cccc|c}
+                      3  & -6 & 2 & -1 & y_{1} \\
+                      -2 & 4  & 1 & 3  & y_{2} \\
+                      0  & 0  & 1 & 1  & y_{3} \\
+                      1  & -2 & 1 & 0  & y_{4}
+                  \end{array}\right]
+        \stackrel{(3)}{\rightarrow}
+        \left[\begin{array}{cccc|c}
+                      1  & -2 & 1 & 0  & y_{4} \\
+                      -2 & 4  & 1 & 3  & y_{2} \\
+                      3  & -6 & 2 & -1 & y_{1} \\
+                      0  & 0  & 1 & 1  & y_{3}
+                  \end{array}\right]
+        \stackrel{(2)}{\rightarrow}
+        \left[\begin{array}{cccc|c}
+                      1  & -2 & 1 & 0 & y_{4}         \\
+                      -2 & 4  & 1 & 3 & y_{2}         \\
+                      1  & -2 & 3 & 2 & y_{1} + y_{2} \\
+                      0  & 0  & 1 & 1 & y_{3}
+                  \end{array}\right]                                                                       \\
+        \stackrel{(2)}{\rightarrow}
+        \left[\begin{array}{cccc|c}
+                      1 & -2 & 1 & 0 & y_{4}                 \\
+                      0 & 0  & 3 & 3 & y_{2} + 2{y_{4}}      \\
+                      0 & 0  & 2 & 2 & y_{1} + y_{2} - y_{4} \\
+                      0 & 0  & 1 & 1 & y_{3}
+                  \end{array}\right]
+        \stackrel{(2)}{\rightarrow}
+        \left[\begin{array}{cccc|c}
+                      1 & -2 & 1 & 0 & y_{4}                            \\
+                      0 & 0  & 0 & 0 & y_{2} + 2{y_{4}} - 3{y_{3}}      \\
+                      0 & 0  & 0 & 0 & y_{1} + y_{2} - 2{y_{3}} - y_{4} \\
+                      0 & 0  & 1 & 1 & y_{3}
+                  \end{array}\right]
+        \stackrel{(3)}{\rightarrow}
+        \left[\begin{array}{cccc|c}
+                      1 & -2 & 1 & 0 & y_{4}                            \\
+                      0 & 0  & 1 & 1 & y_{3}                            \\
+                      0 & 0  & 0 & 0 & y_{2} + 2{y_{4}} - 3{y_{3}}      \\
+                      0 & 0  & 0 & 0 & y_{1} + y_{2} - 2{y_{3}} - y_{4}
+                  \end{array}\right] \\
+        \stackrel{(2)}{\rightarrow}
+        \left[\begin{array}{cccc|c}
+                      1 & -2 & 0 & -1 & y_{4} - y_{3}                    \\
+                      0 & 0  & 1 & 1  & y_{3}                            \\
+                      0 & 0  & 0 & 0  & y_{2} - 3{y_{3}} + 2{y_{4}}      \\
+                      0 & 0  & 0 & 0  & y_{1} + y_{2} - 2{y_{3}} - y_{4}
+                  \end{array}\right]
+    \end{align*}
+    \endgroup{}
+
+    Hence the system $AX = Y$ has a solution if and only if $y_{2} - 3{y_{3}} + 2{y_{4}} = y_{1} + y_{2} - 2{y_{3}} - y_{4} = 0$.
+\end{proof}
+
+\begin{exercise}
+    Suppose $R$ and $R'$ are $m\times n$ row-reduced echelon matrices and that the systems $RX = 0$ and $R'X = 0$ have exactly the same solutions. Prove that $R = R'$.
+\end{exercise}
+
+\begin{proof}
+    If $R$ is a zero matrix, then any $n$-tuple will be a solution of $RX = 0$. Otherwise, there exists an $n$-tuple which is not a solution of $RX = 0$ (suppose that in $i$-th row, the entry $a_{ij}$ is non-zero, then $(\ldots, x_{j}, \ldots) = (0, \ldots, 1, \ldots, 0)$ is not a solution of $RX = 0$).
+
+    Hence, if $RX = 0$ and $R'X = 0$ have exactly the same solutions, then either they are both zero matrices, or non-zero matrices.
+
+    $R = {(r_{i,j})}_{m\times n}$, $R' = {(r'_{i,j})}_{m\times n}$.
+
+    Without loss of generality, suppose that the two matrices are non-zero and $R$ has $r$ non-zero rows, $R'$ has $r'$ non-zero rows.
+
+    Before continuing, I would like to make two definitions (independent columns and dependent columns). All solutions of $RX = 0$ are obtained by
+    \begin{itemize}
+        \item assign arbitrary values to unknowns on the columns which do not contain a leading non-zero entry (let's call these independent columns),
+        \item compute the rest of the unknowns (correspond to the rest of the columns, let's call these dependent columns) from the system $RX = 0$ (this is straightforward since $R$ is of row-reduced echelon form).
+    \end{itemize}
+
+    \begin{enumerate}[label={\textbf{Step \arabic*.}},itemindent=0.5cm]
+        \item Prove that the leading non-zero entries of the 1st row of $R$ and the 1st row of $R'$ have the same column index.
+
+              Let $A_{1,j_{1}}$ be the leading non-zero entry of the 1st row of $R$, $B_{1,k_{1}}$ be the leading non-zero entry of the 1st row of $R'$.
+
+              Assume that $j_{1} < k_{1}$.
+
+              In the matrix $R$, $j_{1}$-th column is a dependent column. Meanwhile, in matrix $R'$, $j_{1}$-th column is an independent column (due to the assumption). Therefore, we can pick a solution of $R'X = 0$ which is not a solution of $RX = 0$. This contradicts the hypothesis that the two systems have exactly the same solutions.
+
+              Similarly, the assumption $j_{1} > k_{1}$ also leads to contradiction.
+
+              Therefore $j_{1} = k_{1}$.
+        \item Prove that the leading non-zero entries of the $i$-th row of $R$ and the $i$-th row of $R'$ have the same column index ($i \le \min\{ r, r' \}$).
+
+              We apply the same method as the previous step to the 2nd row, then the 3rd row, etc until $\min\{ r, r' \}$.
+        \item Prove that $r = r'$.
+
+              Without loss of generality, assume that $r < r'$. Then $R$ has more independent columns than $R'$.
+
+              Let the index of the column that contains the leading non-zero entry of the $r$-th row of $R$ and $R'$ be $x$.
+
+              On the one hand, in $R'$, the column that contains the leading non-zero entry of the $(r+1)$-th row of $R'$ is a dependent column and has index $y$. Since $R'$ is of row-reduced echelon form, then $x < y$.
+
+              On the other hand, because $x < y$, the $y$-th column of $R$ is an independent column.
+
+              So we can pick a solution of $RX = 0$ which is not a solution of $R'X = 0$. This contradicts the hypothesis that the two systems have exactly the same solutions.
+
+              Similarly, the assumption $r > r'$ also leads to contradiction.
+
+              Therefore $r = r'$.
+        \item Prove that $R = R'$.
+
+              Due to the two previous steps, if $j$-th column of $R$ is independent then $j$-th column of $R'$ is also independent and vice versa.
+
+              Let the indices of independent columns be $\ell_{1}, \ell_{2}, \ldots, \ell_{n-r}$. Since $x_{\ell_{1}}, x_{\ell_{2}}, \ldots, x_{\ell_{n-r}}$ can have any values and $RX = 0, R'X = 0$ have exactly the same solutions, then.
+
+              Let $(x_{1}, x_{2}, \ldots, x_{n})$ be a common solution of $RX = 0$ and $R'X = 0$. Notice that $x_{\ell_{1}}, x_{\ell_{2}}, \ldots, x_{\ell_{n-r}}$ can have any values. Subtract the $i$-th equation of $R'X = 0$ from the $i$-th equation of $RX = 0$ (the unknowns corresponding to dependent columns will be eliminated, thanks to the 1st and 2nd step), we obtain that
+              \[
+                  \sum^{n-r}_{k=1}(r_{i,\ell_{k}} - r'_{i,\ell_{k}}) x_{\ell_{k}} = 0\qquad\forall x_{\ell_{1}}, x_{\ell_{2}}, \ldots, x_{\ell_{n-r}}.
+              \]
+
+              Pick solutions where $x_{\ell_{k}}$ is $1$ and the rest of the independent unknowns (corresponding to independent columns) are $0$, we obtain that $r_{i,\ell_{k}} = r'_{i,\ell_{k}}$ for every $i$ and $\ell_{k}$.
+
+              Hence $R = R'$.\qedhere
+    \end{enumerate}
+\end{proof}
 
 \section{Matrix Multiplication}
 
