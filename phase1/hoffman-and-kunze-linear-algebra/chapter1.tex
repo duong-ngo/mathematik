@@ -159,39 +159,39 @@ Let $\mathbb{F}$ be the field of complex numbers. Are the following two systems 
 \begin{exercise}
     \[
         \begin{cases}
-            2x_{1} + (-1 + \iota)x_{2} + x_{4} = 0 \\
-            3x_{2} - 2\iota x_{3} + 5x_{4} = 0
+            2x_{1} + (-1 + i)x_{2} + x_{4} = 0 \\
+            3x_{2} - 2i x_{3} + 5x_{4} = 0
         \end{cases}
         \qquad
         \begin{cases}
-            \left(1 + \frac{\iota}{2}\right)x_{1} + 8x_{2} - \iota x_{3} - x_{4} = 0 \\
+            \left(1 + \frac{i}{2}\right)x_{1} + 8x_{2} - i x_{3} - x_{4} = 0 \\
             \frac{2}{3}x_{1} - \frac{1}{2}x_{2} + x_{3} + 7x_{4} = 0
         \end{cases}
     \]
 \end{exercise}
 
 \begin{proof}
-    Suppose that $\frac{2}{3}x_{1} - \frac{1}{2}x_{2} + x_{3} + 7x_{4}$ is a linear combination of $2x_{1} + (-1 + \iota)x_{2} + x_{4}$ and $3x_{2} - 2\iota x_{3} + 5x_{4}$, then there exists $a$ and $b$ such that
+    Suppose that $\frac{2}{3}x_{1} - \frac{1}{2}x_{2} + x_{3} + 7x_{4}$ is a linear combination of $2x_{1} + (-1 + i)x_{2} + x_{4}$ and $3x_{2} - 2i x_{3} + 5x_{4}$, then there exists $a$ and $b$ such that
     \[
-        \frac{2}{3}x_{1} - \frac{1}{2}x_{2} + x_{3} + 7x_{4} = a(2x_{1} + (-1 + \iota)x_{2} + x_{4}) + b(3x_{2} - 2\iota x_{3} + 5x_{4})
+        \frac{2}{3}x_{1} - \frac{1}{2}x_{2} + x_{3} + 7x_{4} = a(2x_{1} + (-1 + i)x_{2} + x_{4}) + b(3x_{2} - 2i x_{3} + 5x_{4})
     \]
 
     By identifying coefficients
     \[
         \begin{cases}
-            \frac{2}{3} = 2a             \\
-            1 = -2\iota b                \\
-            -\frac{1}{2} = (-1 + \iota)a \\
+            \frac{2}{3} = 2a         \\
+            1 = -2i b                \\
+            -\frac{1}{2} = (-1 + i)a \\
             7 = a + 5b
         \end{cases}
         \Longrightarrow
         \begin{cases}
             a = \frac{1}{3} \\
-            a = \frac{1 + \iota}{4}
+            a = \frac{1 + i}{4}
         \end{cases}
     \]
 
-    So $\frac{2}{3}x_{1} - \frac{1}{2}x_{2} + x_{3} + 7x_{4}$ is NOT a linear combination of $2x_{1} + (-1 + \iota)x_{2} + x_{4}$ and $3x_{2} - 2\iota x_{3} + 5x_{4}$. Thus the two systems are inequivalent.
+    So $\frac{2}{3}x_{1} - \frac{1}{2}x_{2} + x_{3} + 7x_{4}$ is NOT a linear combination of $2x_{1} + (-1 + i)x_{2} + x_{4}$ and $3x_{2} - 2i x_{3} + 5x_{4}$. Thus the two systems are inequivalent.
 \end{proof}
 
 \begin{exercise}
@@ -547,8 +547,8 @@ We use the following elementary row operations
     Find all solutions to the system of equations
     \[
         \begin{cases}
-            (1 - \iota)x_{1} - \iota x_{2} = 0, \\
-            2x_{1} + (1 - \iota) x_{2} = 0.
+            (1 - i)x_{1} - i x_{2} = 0, \\
+            2x_{1} + (1 - i) x_{2} = 0.
         \end{cases}
     \]
 \end{exercise}
@@ -558,22 +558,22 @@ We use the following elementary row operations
     \allowdisplaybreaks{}
     \begin{align*}
         \begin{bmatrix}
-            1 - \iota & -\iota    \\
-            2         & 1 - \iota
+            1 - i & -i    \\
+            2     & 1 - i
         \end{bmatrix}
         \stackrel{(1)}{\rightarrow}
         \begin{bmatrix}
-            2 & (1 + \iota)(-\iota) \\
-            2 & 1 - \iota           \\
+            2 & (1 + i)(-i) \\
+            2 & 1 - i       \\
         \end{bmatrix}
         \stackrel{(2)}{\rightarrow}
         \begin{bmatrix}
-            2 & 1 - \iota \\
+            2 & 1 - i \\
             0 & 0
         \end{bmatrix}
         \stackrel{(1)}{\rightarrow}
         \begin{bmatrix}
-            1 & \frac{1 - \iota}{2} \\
+            1 & \frac{1 - i}{2} \\
             0 & 0
         \end{bmatrix}
     \end{align*}
@@ -581,12 +581,12 @@ We use the following elementary row operations
 
     So the original system of linear equations is equivalent to
     \[
-        x_{1} - \frac{\iota - 1}{2}x_{2} = 0.
+        x_{1} - \frac{i - 1}{2}x_{2} = 0.
     \]
 
     Thus all solutions of the system of linear equations are
     \[
-        (x_{1}, x_{2}) = \left( \frac{(\iota - 1)c}{2}, c \right).\qedhere
+        (x_{1}, x_{2}) = \left( \frac{(i - 1)c}{2}, c \right).\qedhere
     \]
 \end{proof}
 
@@ -746,9 +746,9 @@ We use the following elementary row operations
     \[
         A =
         \begin{bmatrix}
-            \iota & -(1 + \iota) & 0  \\
-            1     & -2           & 1  \\
-            1     & 2\iota       & -1
+            i & -(1 + i) & 0  \\
+            1 & -2       & 1  \\
+            1 & 2i       & -1
         \end{bmatrix}.
     \]
 \end{exercise}
@@ -758,45 +758,45 @@ We use the following elementary row operations
     \allowdisplaybreaks{}
     \begin{align*}
         \begin{bmatrix}
-            \iota & -(1 + \iota) & 0  \\
-            1     & -2           & 1  \\
-            1     & 2\iota       & -1
+            i & -(1 + i) & 0  \\
+            1 & -2       & 1  \\
+            1 & 2i       & -1
         \end{bmatrix}
         \stackrel{(2)}{\rightarrow}
         \begin{bmatrix}
-            0 & 1 - \iota   & \iota \\
-            0 & -2 - 2\iota & -2    \\
-            1 & 2\iota      & -1
+            0 & 1 - i   & i  \\
+            0 & -2 - 2i & -2 \\
+            1 & 2i      & -1
         \end{bmatrix}
         \stackrel{(1)}{\rightarrow}
         \begin{bmatrix}
-            0 & 2         & \iota - 1 \\
-            0 & 1 + \iota & 1         \\
-            1 & 2\iota    & -1
+            0 & 2     & i - 1 \\
+            0 & 1 + i & 1     \\
+            1 & 2i    & -1
         \end{bmatrix}
         \stackrel{(1)}{\rightarrow}
         \begin{bmatrix}
-            0 & 1      & \frac{\iota - 1}{2} \\
-            0 & 1      & \frac{1 - \iota}{2} \\
-            1 & 2\iota & -1
+            0 & 1  & \frac{i - 1}{2} \\
+            0 & 1  & \frac{1 - i}{2} \\
+            1 & 2i & -1
         \end{bmatrix} \\
         \stackrel{(2)}{\rightarrow}
         \begin{bmatrix}
-            0 & 0      & \iota - 1           \\
-            0 & 1      & \frac{1 - \iota}{2} \\
-            1 & 2\iota & -1
+            0 & 0  & i - 1           \\
+            0 & 1  & \frac{1 - i}{2} \\
+            1 & 2i & -1
         \end{bmatrix}
         \stackrel{(1)}{\rightarrow}
         \begin{bmatrix}
-            0 & 0      & 1                   \\
-            0 & 1      & \frac{1 - \iota}{2} \\
-            1 & 2\iota & -1
+            0 & 0  & 1               \\
+            0 & 1  & \frac{1 - i}{2} \\
+            1 & 2i & -1
         \end{bmatrix}
         \stackrel{(2)}{\rightarrow}
         \begin{bmatrix}
-            0 & 0      & 1 \\
-            0 & 1      & 0 \\
-            1 & 2\iota & 0
+            0 & 0  & 1 \\
+            0 & 1  & 0 \\
+            1 & 2i & 0
         \end{bmatrix}
         \stackrel{(2)}{\rightarrow}
         \begin{bmatrix}
@@ -1118,9 +1118,9 @@ We use the following elementary row operations
     \[
         A =
         \begin{bmatrix}
-            1     & -\iota    \\
-            2     & 2         \\
-            \iota & 1 + \iota
+            1 & -i    \\
+            2 & 2     \\
+            i & 1 + i
         \end{bmatrix}.
     \]
 
@@ -1132,32 +1132,32 @@ We use the following elementary row operations
     \allowdisplaybreaks{}
     \begin{align*}
         \begin{bmatrix}
-            1       & -\iota{}    \\
-            2       & 2           \\
-            \iota{} & 1 + \iota{}
+            1   & -i{}    \\
+            2   & 2       \\
+            i{} & 1 + i{}
         \end{bmatrix}
         \stackrel{(1)}{\rightarrow}
         \begin{bmatrix}
-            1       & -{\iota}    \\
-            1       & 1           \\
-            {\iota} & 1 + {\iota}
+            1   & -{i}    \\
+            1   & 1       \\
+            {i} & 1 + {i}
         \end{bmatrix}
         \stackrel{(2)}{\rightarrow}
         \begin{bmatrix}
-            1 & -{\iota} \\
-            1 & 1        \\
+            1 & -{i} \\
+            1 & 1    \\
             0 & 1
         \end{bmatrix}
         \stackrel{(2)}{\rightarrow}
         \begin{bmatrix}
-            1 & -{\iota}    \\
-            0 & 1 + {\iota} \\
+            1 & -{i}    \\
+            0 & 1 + {i} \\
             0 & 1
         \end{bmatrix}
         \stackrel{(1)}{\rightarrow}
         \begin{bmatrix}
-            1 & -{\iota} \\
-            0 & 1        \\
+            1 & -{i} \\
+            0 & 1    \\
             0 & 0
         \end{bmatrix}
         \stackrel{(2)}{\rightarrow}
@@ -1604,5 +1604,1327 @@ We use the following elementary row operations
 
 \section{Matrix Multiplication}
 
+\setcounter{exercise}{0}
+
+\begin{exercise}
+    Let
+    \[
+        A = \begin{bmatrix}
+            2 & -1 & 1 \\
+            1 & 2  & 1
+        \end{bmatrix},\quad
+        B = \begin{bmatrix}
+            3 \\
+            1 \\
+            -1
+        \end{bmatrix},\quad
+        C = \begin{bmatrix}
+            1 & -1
+        \end{bmatrix}.
+    \]
+
+    Compute $ABC$ and $CAB$.
+\end{exercise}
+
+\begin{proof}
+    $ABC = (AB)C$ and $CAB = C(AB)$.
+    \[
+        AB = \begin{bmatrix}
+            4 \\
+            4
+        \end{bmatrix}
+    \]
+
+    \[
+        (AB)C = \begin{bmatrix}
+            4 & -4 \\
+            4 & -4
+        \end{bmatrix},\qquad
+        C(AB) = \begin{bmatrix} 0 \end{bmatrix}.
+    \]
+\end{proof}
+
+\begin{exercise}
+    Let
+    \[
+        A = \begin{bmatrix}
+            1 & -1 & 1 \\
+            2 & 0  & 1 \\
+            3 & 0  & 1
+        \end{bmatrix},\quad
+        B = \begin{bmatrix}
+            2 & -2 \\
+            1 & 3  \\
+            4 & 4
+        \end{bmatrix}.
+    \]
+
+    Verify directly that $A(AB) = {A}^{2}B$.
+\end{exercise}
+
+\begin{proof}
+    \[
+        AB = \begin{bmatrix}
+            5  & -1 \\
+            8  & 0  \\
+            10 & -2
+        \end{bmatrix}
+        \qquad
+        A(AB) = \begin{bmatrix}
+            7  & -3 \\
+            20 & -4 \\
+            25 & -5
+        \end{bmatrix}.
+    \]
+
+    \[
+        {A}^{2} = \begin{bmatrix}
+            2 & -1 & 1 \\
+            5 & -2 & 3 \\
+            6 & -3 & 4
+        \end{bmatrix}
+        \qquad
+        {A}^{2}B = \begin{bmatrix}
+            7  & -3 \\
+            20 & -4 \\
+            25 & -5
+        \end{bmatrix}.
+    \]
+
+    Thus $A(AB) = {A}^{2}B$.
+\end{proof}
+
+\begin{exercise}
+    Find two different $2\times 2$ matrices $A$ such that ${A}^{2} = 0$ but $A\ne 0$.
+\end{exercise}
+
+\begin{proof}
+    \[
+        {\begin{bmatrix}
+                    A_{11} & A_{12} \\
+                    A_{21} & A_{22}
+                \end{bmatrix}}^{2}
+        =
+        \begin{bmatrix}
+            {A_{11}}^{2} + A_{12}A_{21} & A_{12}(A_{11} + A_{22})     \\
+            A_{21}(A_{11} + A_{22})     & {A_{22}}^{2} + A_{12}A_{21}
+        \end{bmatrix}.
+    \]
+
+    Two possible matrices are
+    \[
+        \begin{bmatrix}
+            1  & 1  \\
+            -1 & -1
+        \end{bmatrix}\qquad
+        \begin{bmatrix}
+            -1 & -1 \\
+            1  & 1
+        \end{bmatrix}.
+    \]
+\end{proof}
+
+\begin{exercise}
+    For the matrix $A$ of Exercise 2, find elementary matrices $E_{1}, E_{2}, \ldots, E_{k}$ such that
+    \[
+        E_{k}\cdots E_{2}E_{1}A = I.
+    \]
+\end{exercise}
+
+\begin{proof}
+    Perform elementary-row operations consecutively.
+
+    Add $(-2)$ times the 1st row to the 2nd row.
+    \[
+        \underbrace{\begin{bmatrix}
+                1  & 0 & 0 \\
+                -2 & 1 & 0 \\
+                0  & 0 & 1
+            \end{bmatrix}}_{E_{1}}
+        \begin{bmatrix}
+            1 & -1 & 1 \\
+            2 & 0  & 1 \\
+            3 & 0  & 1
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            1 & -1 & 1  \\
+            0 & 2  & -1 \\
+            3 & 0  & 1
+        \end{bmatrix}.
+    \]
+
+    Add $(-3)$ times the 1st row to the 3rd row
+    \[
+        \underbrace{\begin{bmatrix}
+                1  & 0 & 0 \\
+                0  & 1 & 0 \\
+                -3 & 0 & 1
+            \end{bmatrix}}_{E_{2}}
+        \begin{bmatrix}
+            1 & -1 & 1  \\
+            0 & 2  & -1 \\
+            3 & 0  & 1
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            1 & -1 & 1  \\
+            0 & 2  & -1 \\
+            0 & 3  & -2
+        \end{bmatrix}.
+    \]
+
+    Multiply the 2nd row by $\frac{1}{2}$
+    \[
+        \underbrace{\begin{bmatrix}
+                1 & 0           & 0 \\
+                0 & \frac{1}{2} & 0 \\
+                0 & 0           & 1
+            \end{bmatrix}}_{E_{3}}
+        \begin{bmatrix}
+            1 & -1 & 1  \\
+            0 & 2  & -1 \\
+            0 & 3  & -2
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            1 & -1 & 1            \\
+            0 & 1  & \frac{-1}{2} \\
+            0 & 3  & -2
+        \end{bmatrix}.
+    \]
+
+    Add $(-3)$ times the 2nd row to the 3rd row
+    \[
+        \underbrace{\begin{bmatrix}
+                1 & 0  & 0 \\
+                0 & 1  & 0 \\
+                0 & -3 & 1
+            \end{bmatrix}}_{E_{4}}
+        \begin{bmatrix}
+            1 & -1 & 1            \\
+            0 & 1  & \frac{-1}{2} \\
+            0 & 3  & -2
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            1 & -1 & 1            \\
+            0 & 1  & \frac{-1}{2} \\
+            0 & 0  & \frac{-1}{2}
+        \end{bmatrix}.
+    \]
+
+    Multiply the 3rd row by $-2$
+    \[
+        \underbrace{\begin{bmatrix}
+                1 & 0 & 0  \\
+                0 & 1 & 0  \\
+                0 & 0 & -2
+            \end{bmatrix}}_{E_{5}}
+        \begin{bmatrix}
+            1 & -1 & 1            \\
+            0 & 1  & \frac{-1}{2} \\
+            0 & 0  & \frac{-1}{2}
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            1 & -1 & 1            \\
+            0 & 1  & \frac{-1}{2} \\
+            0 & 0  & 1
+        \end{bmatrix}.
+    \]
+
+    Add $\frac{1}{2}$ times the 3rd row to the 2nd row
+    \[
+        \underbrace{\begin{bmatrix}
+                1 & 0 & 0           \\
+                0 & 1 & \frac{1}{2} \\
+                0 & 0 & 1
+            \end{bmatrix}}_{E_{6}}
+        \begin{bmatrix}
+            1 & -1 & 1            \\
+            0 & 1  & \frac{-1}{2} \\
+            0 & 0  & 1
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            1 & -1 & 1 \\
+            0 & 1  & 0 \\
+            0 & 0  & 1
+        \end{bmatrix}.
+    \]
+
+    Add $(-1)$ times the 3rd row to the 1st row
+    \[
+        \underbrace{\begin{bmatrix}
+                1 & 0 & -1 \\
+                0 & 1 & 0  \\
+                0 & 0 & 1
+            \end{bmatrix}}_{E_{7}}
+        \begin{bmatrix}
+            1 & -1 & 1 \\
+            0 & 1  & 0 \\
+            0 & 0  & 1
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            1 & -1 & 0 \\
+            0 & 1  & 0 \\
+            0 & 0  & 1
+        \end{bmatrix}.
+    \]
+
+    Add the 2nd row to the 1st row
+    \[
+        \underbrace{\begin{bmatrix}
+                1 & 1 & 0 \\
+                0 & 1 & 0 \\
+                0 & 0 & 1
+            \end{bmatrix}}_{E_{8}}
+        \begin{bmatrix}
+            1 & -1 & 0 \\
+            0 & 1  & 0 \\
+            0 & 0  & 1
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            1 & 0 & 0 \\
+            0 & 1 & 0 \\
+            0 & 0 & 1
+        \end{bmatrix} = I.
+    \]
+\end{proof}
+
+\begin{exercise}
+    Let
+    \[
+        A = \begin{bmatrix}
+            1 & -1 \\
+            2 & 2  \\
+            1 & 0
+        \end{bmatrix},
+        \quad
+        B = \begin{bmatrix}
+            3  & 1 \\
+            -4 & 4
+        \end{bmatrix}.
+    \]
+
+    Is there a matrix $C$ such that $CA = B$?
+\end{exercise}
+
+\begin{proof}
+    Let's find such a matrix (2 rows, 3 columns).
+
+    \[
+        \begin{bmatrix}
+            C_{11} & C_{12} & C_{13} \\
+            C_{21} & C_{22} & C_{23}
+        \end{bmatrix}
+        \begin{bmatrix}
+            1 & -1 \\
+            2 & 2  \\
+            1 & 0
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            C_{11} + 2{C_{12}} + C_{13} & -{C_{11}} + 2{C_{12}} \\
+            C_{21} + 2{C_{22}} + C_{23} & -{C_{21}} + 2{C_{22}}
+        \end{bmatrix}
+    \]
+
+    Solving for all entries of $C$ comes down to solving the following two systems
+    \[
+        \begin{cases}
+            C_{11} + 2{C_{12}} + C_{13} = 3 \\
+            -{C_{11}} + 2{C_{12}} = 1
+        \end{cases}
+        \qquad
+        \begin{cases}
+            C_{21} + 2{C_{22}} + C_{23} = -4 \\
+            -{C_{21}} + 2{C_{22}} = 4
+        \end{cases}
+    \]
+
+    The two systems are equivalent to
+    \[
+        \begin{cases}
+            C_{11} + 2{C_{12}} + C_{13} = 3 \\
+            {C_{12}} + \frac{1}{4}C_{13} = 1
+        \end{cases}
+        \qquad
+        \begin{cases}
+            C_{21} + 2{C_{22}} + C_{23} = -4 \\
+            {C_{22}} + \frac{1}{4}C_{23} = 0
+        \end{cases}.
+    \]
+
+    The two systems have solutions:
+    \[
+        (C_{11}, C_{12}, C_{13}) = (1 - \frac{1}{2}a, 1 - \frac{1}{4}a, a)\qquad (C_{21}, C_{22}, C_{23}) = (-4 - \frac{1}{2}b, \frac{-1}{4}b, b),
+    \]
+
+    where $a, b$ are arbitrary scalars.
+
+    Thus $C$ is of the form
+    \[
+        \begin{bmatrix}
+            1 - \frac{1}{2}a  & 1 - \frac{1}{4}a & a \\
+            -4 - \frac{1}{2}b & \frac{-1}{4}b    & b
+        \end{bmatrix}.
+    \]
+\end{proof}
+
+\begin{exercise}
+    Let $A$ be an $m\times n$ matrix and $B$ an $n\times k$ matrix. Show that the columns of $C = AB$ are linear combinations of the columns of $A$. If $\alpha_{1},\ldots,\alpha_{n}$ are the columns of $A$ and $\gamma_{1},\ldots,\gamma_{k}$ are the columns of $C$, then
+    \[
+        \gamma_{i} = \sum^{n}_{r=1} B_{ri}\alpha_{r}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    $C$ is a $m\times k$ matrix.
+    \[
+        C_{ji} = \sum^{n}_{r=1} A_{jr}B_{ri} = \sum^{n}_{r=1} B_{ri}A_{jr}
+    \]
+
+    Apply for all $j\in \{ 1, 2,\ldots n \}$, we obtain that
+    \[
+        \gamma_{i} =
+        \begin{bmatrix}
+            C_{1i} \\
+            C_{2i} \\
+            \vdots \\
+            C_{mi}
+        \end{bmatrix}
+        = \begin{bmatrix}
+            \sum^{n}_{r=1}B_{ri}A_{1r} \\
+            \sum^{n}_{r=1}B_{ri}A_{2r} \\
+            \vdots                     \\
+            \sum^{n}_{r=1}B_{ri}A_{mr}
+        \end{bmatrix}
+        = \sum^{n}_{r=1}B_{ri}\begin{bmatrix}
+            A_{1r} \\
+            A_{2r} \\
+            \vdots \\
+            A_{mr}
+        \end{bmatrix}
+        = \sum^{n}_{r=1}B_{ri}\alpha_{r}.
+    \]
+
+    The equality implies that each column of $C$ is a linear combination of the columns of $A$.
+\end{proof}
+
+\begin{exercise}
+    Let $A$ and $B$ be $n\times n$ matrices such that $AB = I$. Prove that $BA = I$.
+\end{exercise}
+
+\begin{proof}
+    \textbf{Lemma.} Let $X, Y, Z$ be $n\times n$ matrices such that $XY = ZX = 0$. Prove that if $X$ is column-equivalent to $I$ then $Y = 0$, if $X$ is row-equivalent to $I$ then $Z = 0$.
+
+    \textit{Proof of the lemma.} The columns of $XY$ are linear combinations of the columns of $X$. Since $X$ and $I$ are column-equivalent, there exists elementary-column operations\footnote{Similar to elementary-row operation, but does not appear in the textbook, please read your/my notes for details.} (each corresponds to an elementary matrix) $E_{1}, E_{2}, \ldots, E_{k}$ such that $IE_{1}E_{2}\cdots E_{k} = X$. It follows that $E_{1}E_{2}\cdots E_{k}Y = XY = 0$, which implies that $0$ and $Y$ are row-equivalent. Therefore, $Y = 0$.
+
+    The rows of $ZX$ are linear combinations of the rows of $X$. Since $X$ and $I$ are row-equivalent, there exists elementary-row operations (each corresponds to an elementary matrix) $E_{1}, E_{2}, \ldots, E_{\ell}$ such that $E_{\ell}\cdots E_{2}E_{1}I = X$. It follows that $ZE_{\ell}\cdots E_{2}E_{1} = ZX = 0$, which implies that $0$ and $Z$ are column-equivalent. Therefore, $Z = 0$.
+
+    Proof of the lemma is done.
+
+    Back to the exercise.
+
+    $AB = I$ implies that $B$ and $I$ are row-equivalent, $A$ and $I$ are column-equivalent.
+
+    There exists elementary matrices $E_{1}, E_{2}, \ldots, E_{k}$ such that
+    \[
+        (E_{k}\cdots E_{2}E_{1})B = I.
+    \]
+
+    Together with $AB = I$, we obtain that $(A - E_{k}\cdots E_{2}E_{1})B = 0$. According to the lemma, $A = E_{k}\cdots E_{2}E_{1}$.
+
+    Each elementary-row operation has an inverse operation, so for each elementary matrix $E$, there exists an elementary matrix $E'$ such that $EE' = E'E = I$.
+
+    Let $E'_{i}$ be an matrix such that $E_{i}E'_{i} = E_{i}E'_{i} = I$, then $E_{k}\cdots (E_{2}(E_{1}E'_{1})E'_{2})\cdots E'_{k} = I$. Therefore, $A(B - E'_{1}E'_{2}\cdots E'_{k}) = 0$. According to the lemma, $B = E'_{1}E'_{2}\cdots E'_{k}$.
+
+    Hence $BA = E'_{1}(E'_{2}\cdots (E'_{k}E_{k})\cdots E_{2}) E_{1} = I$.
+\end{proof}
+
+\begin{exercise}
+    Let
+    \[
+        C = \begin{bmatrix}
+            C_{11} & C_{12} \\
+            C_{21} & C_{22}
+        \end{bmatrix}
+    \]
+
+    be a $2\times 2$ matrix. We inquire when it is possible to find $2\times 2$ matrices $A$ and $B$ such that $C = AB - BA$. Prove that such matrices can be found if and only if $C_{11} + C_{22} = 0$.
+\end{exercise}
+
+\begin{proof}
+    If there are matrices $A$ and $B$ such that $C = AB - BA$.
+
+    Let
+    \[
+        A = \begin{bmatrix}
+            A_{11} & A_{12} \\
+            A_{21} & A_{22}
+        \end{bmatrix}
+        \qquad
+        B = \begin{bmatrix}
+            B_{11} & B_{12} \\
+            B_{21} & B_{22}
+        \end{bmatrix}.
+    \]
+
+    We have
+    \[
+        AB = \begin{bmatrix}
+            A_{11}B_{11} + A_{12}B_{21} & A_{11}B_{12} + A_{12}B_{22} \\
+            A_{21}B_{11} + A_{22}B_{21} & A_{21}B_{12} + A_{22}B_{22}
+        \end{bmatrix}
+        \qquad
+        BA = \begin{bmatrix}
+            B_{11}A_{11} + B_{12}A_{21} & B_{11}A_{12} + B_{12}A_{22} \\
+            B_{21}A_{11} + B_{22}A_{21} & B_{21}A_{12} + B_{22}A_{22}
+        \end{bmatrix}
+    \]
+
+    from which we obtain that
+    \[
+        C = AB - BA =
+        \begin{bmatrix}
+            A_{12}B_{21} - B_{12}A_{21}                                 & A_{11}B_{12} + A_{12}B_{22} - (B_{11}A_{12} + B_{12}A_{22}) \\
+            A_{21}B_{11} + A_{22}B_{21} - (B_{21}A_{11} + B_{22}A_{21}) & A_{21}B_{12} - B_{21}A_{12}
+        \end{bmatrix}.
+    \]
+
+    $C_{11} + C_{22} = A_{12}B_{21} - B_{12}A_{21} + A_{21}B_{12} - B_{21}A_{12} = 0$.
+
+    \hrulefill{}
+
+    If $C_{11} + C_{22} = 0$.
+
+    We find $A$, $B$ (their entries) such that $AB - BA = C$.
+
+    From $AB - BA = C$, we obtain the following system of equations $(\dagger)$:
+    \[
+        \begin{split}
+            A_{12}B_{21} - B_{12}A_{21} = C_{11} = -{C_{22}}                \\
+            B_{12}\underbrace{(A_{11} - A_{22})}_{x_{1}} + (-{A_{12}})\underbrace{(B_{11} - B_{22})}_{x_{2}} = C_{12} \\
+            (-{B_{21}})\underbrace{(A_{11} - A_{22})}_{x_{1}} + A_{21}\underbrace{(B_{11} - B_{22})}_{x_{2}} = C_{21}
+        \end{split}
+    \]
+
+    \begin{enumerate}[label={\textbf{Case \arabic*.}},itemindent=1.2cm]
+        \item $C_{11} = -{C_{22}} = 0$.
+
+              Choose $B_{12} = -A_{12} = C_{12}$ and $-B_{21} = A_{21} = C_{21}$. Then the last two equations become
+              \[
+                  \begin{split}
+                      C_{12}\underbrace{(A_{11} - A_{22})}_{x_{1}} + C_{12}\underbrace{(B_{11} - B_{22})}_{x_{2}} = C_{12} \\
+                      C_{21}\underbrace{(A_{11} - A_{22})}_{x_{1}} + C_{21}\underbrace{(B_{11} - B_{22})}_{x_{2}} = C_{21}
+                  \end{split}.
+              \]
+
+              This system have solutions (consider two cases: $C_{12} = C_{21} = 0$ and at least one of them are non-zero).
+        \item $C_{11} = -{C_{22}} \ne 0$.
+
+              Then
+              \[
+                  A_{11} - A_{22} = \dfrac{C_{12}A_{21} + C_{21}A_{12}}{B_{12}A_{21} - A_{12}B_{21}}
+                  \qquad
+                  B_{11} - B_{22} = \dfrac{B_{12}C_{21} + B_{21}C_{12}}{B_{12}A_{21} - A_{12}B_{21}}
+              \]
+
+              So $(\dagger)$ have solutions.
+    \end{enumerate}
+
+    In conclusion, $(\dagger)$ have solutions as long as $C_{11} + C_{22} = 0$.
+
+    \hrulefill{}
+
+    Thus, there exists $2\times 2$ matrices $A$ and $B$ such that $AB - BA = C$ if and only if $C_{11} + C_{22} = 0$.
+\end{proof}
+
 \section{Invertible Matrices}
 
+\setcounter{exercise}{0}
+
+\begin{exercise}
+    Let
+    \[
+        A = \begin{bmatrix}
+            1  & 2  & 1 & 0 \\
+            -1 & 0  & 3 & 5 \\
+            1  & -2 & 1 & 1
+        \end{bmatrix}.
+    \]
+
+    Find a row-reduced echelon form matrix $R$ which is row-equivalent to $A$ and an invertible $3\times 3$ matrix $P$ such that $R = PA$.
+\end{exercise}
+
+\begin{proof}
+    We begin with the following
+    \[
+        \begin{array}{cccc|ccc}
+            1  & 2  & 1 & 0 & 1 & 0 & 0 \\
+            -1 & 0  & 3 & 5 & 0 & 1 & 0 \\
+            1  & -2 & 1 & 1 & 0 & 0 & 1
+        \end{array}
+    \]
+
+    Add the 1st row to the 2nd row
+    \[
+        \begin{array}{cccc|ccc}
+            1 & 2  & 1 & 0 & 1 & 0 & 0 \\
+            0 & 2  & 4 & 5 & 1 & 1 & 0 \\
+            1 & -2 & 1 & 1 & 0 & 0 & 1
+        \end{array}
+    \]
+
+    Add (-1) times the 1st row to the 3rd row
+    \[
+        \begin{array}{cccc|ccc}
+            1 & 2  & 1 & 0 & 1  & 0 & 0 \\
+            0 & 2  & 4 & 5 & 1  & 1 & 0 \\
+            0 & -4 & 0 & 1 & -1 & 0 & 1
+        \end{array}
+    \]
+
+    Add 2 times the 2nd row to the 3rd row
+    \[
+        \begin{array}{cccc|ccc}
+            1 & 2 & 1 & 0  & 1 & 0 & 0 \\
+            0 & 2 & 4 & 5  & 1 & 1 & 0 \\
+            0 & 0 & 8 & 11 & 1 & 2 & 1
+        \end{array}
+    \]
+
+    Multiply the 3rd row by $\frac{1}{8}$
+    \[
+        \begin{array}{cccc|ccc}
+            1 & 2 & 1 & 0            & 1           & 0           & 0           \\
+            0 & 2 & 4 & 5            & 1           & 1           & 0           \\
+            0 & 0 & 1 & \frac{11}{8} & \frac{1}{8} & \frac{1}{4} & \frac{1}{8}
+        \end{array}
+    \]
+
+    Add (-4) times the 3rd row to the 2nd row
+    \[
+        \begin{array}{cccc|ccc}
+            1 & 2 & 1 & 0            & 1           & 0           & 0            \\
+            0 & 2 & 0 & \frac{-1}{2} & \frac{1}{2} & 0           & \frac{-1}{2} \\
+            0 & 0 & 1 & \frac{11}{8} & \frac{1}{8} & \frac{1}{4} & \frac{1}{8}
+        \end{array}
+    \]
+
+    Add (-1) times the 3rd row to the 1st row
+    \[
+        \begin{array}{cccc|ccc}
+            1 & 2 & 0 & \frac{-11}{8} & \frac{7}{8} & \frac{-1}{4} & \frac{-1}{8} \\
+            0 & 2 & 0 & \frac{-1}{2}  & \frac{1}{2} & 0            & \frac{-1}{2} \\
+            0 & 0 & 1 & \frac{11}{8}  & \frac{1}{8} & \frac{1}{4}  & \frac{1}{8}
+        \end{array}
+    \]
+
+    Multiply the 2nd row by $\frac{1}{2}$
+    \[
+        \begin{array}{cccc|ccc}
+            1 & 2 & 0 & \frac{-11}{8} & \frac{7}{8} & \frac{-1}{4} & \frac{-1}{8} \\
+            0 & 1 & 0 & \frac{-1}{4}  & \frac{1}{4} & 0            & \frac{-1}{4} \\
+            0 & 0 & 1 & \frac{11}{8}  & \frac{1}{8} & \frac{1}{4}  & \frac{1}{8}
+        \end{array}
+    \]
+
+    Add (-2) times the 2nd row to the 1st row
+    \[
+        \begin{array}{cccc|ccc}
+            1 & 0 & 0 & \frac{-7}{8} & \frac{3}{8} & \frac{-1}{4} & \frac{3}{8}  \\
+            0 & 1 & 0 & \frac{-1}{4} & \frac{1}{4} & 0            & \frac{-1}{4} \\
+            0 & 0 & 1 & \frac{11}{8} & \frac{1}{8} & \frac{1}{4}  & \frac{1}{8}
+        \end{array}
+    \]
+
+    Hence $R = PA$, where
+    \[
+        R = \begin{bmatrix}
+            1 & 0 & 0 & \frac{-7}{8} \\
+            0 & 1 & 0 & \frac{-1}{4} \\
+            0 & 0 & 1 & \frac{11}{8}
+        \end{bmatrix}
+        \qquad
+        P = \begin{bmatrix}
+            \frac{3}{8} & \frac{-1}{4} & \frac{3}{8}  \\
+            \frac{1}{4} & 0            & \frac{-1}{4} \\
+            \frac{1}{8} & \frac{1}{4}  & \frac{1}{8}
+        \end{bmatrix}.
+    \]
+\end{proof}
+
+\begin{exercise}
+    Do Exercise 1, but with
+    \[
+        A = \begin{bmatrix}
+            2 & 0  & i  \\
+            1 & -3 & -i \\
+            i & 1  & 1
+        \end{bmatrix}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    We begin with the following matrix
+    \[
+        \begin{array}{ccc|ccc}
+            2 & 0  & i  & 1 & 0 & 0 \\
+            1 & -3 & -i & 0 & 1 & 0 \\
+            i & 1  & 1  & 0 & 0 & 1
+        \end{array}.
+    \]
+
+    Multiply the 1st row by $\frac{1}{2}$, multiply the 3rd row by $-i$
+    \[
+        \begin{array}{ccc|ccc}
+            1 & 0  & \frac{1}{2}i & \frac{1}{2} & 0 & 0  \\
+            1 & -3 & -i           & 0           & 1 & 0  \\
+            1 & -i & -i           & 0           & 0 & -i
+        \end{array}.
+    \]
+
+    Add $(-1)$ times the 1st row to the 2nd row, add $(-1)$ times the 1st row to the 3rd row
+    \[
+        \begin{array}{ccc|ccc}
+            1 & 0  & \frac{1}{2}i  & \frac{1}{2}  & 0 & 0  \\
+            0 & -3 & \frac{-3}{2}i & \frac{-1}{2} & 1 & 0  \\
+            0 & -i & \frac{-3}{2}i & \frac{-1}{2} & 0 & -i
+        \end{array}.
+    \]
+
+    Multiply the 2nd row by $\frac{-1}{3}$, multiply the 3rd row by $i$
+    \[
+        \begin{array}{ccc|ccc}
+            1 & 0 & \frac{1}{2}i & \frac{1}{2}   & 0            & 0 \\
+            0 & 1 & \frac{1}{2}i & \frac{1}{6}   & \frac{-1}{3} & 0 \\
+            0 & 1 & \frac{3}{2}  & \frac{-1}{2}i & 0            & 1
+        \end{array}.
+    \]
+
+    Add $(-1)$ times the 2nd row to the 3rd row
+    \[
+        \begin{array}{ccc|ccc}
+            1 & 0 & \frac{1}{2}i               & \frac{1}{2}                  & 0            & 0 \\
+            0 & 1 & \frac{1}{2}i               & \frac{1}{6}                  & \frac{-1}{3} & 0 \\
+            0 & 0 & \frac{3}{2} - \frac{1}{2}i & \frac{-1}{6} + \frac{-1}{2}i & \frac{1}{3}  & 1
+        \end{array}.
+    \]
+
+    Multiply the 3rd row by $\frac{3}{5} + \frac{1}{5}i$
+    \[
+        \begin{array}{ccc|ccc}
+            1 & 0 & \frac{1}{2}i & \frac{1}{2}   & 0                           & 0                          \\
+            0 & 1 & \frac{1}{2}i & \frac{1}{6}   & \frac{-1}{3}                & 0                          \\
+            0 & 0 & 1            & \frac{-1}{3}i & \frac{1}{5} + \frac{1}{15}i & \frac{3}{5} + \frac{1}{5}i
+        \end{array}.
+    \]
+
+    Add $\frac{-1}{2}i$ times the 3rd row to the 2nd row, add $\frac{-1}{2}i$ times the 3rd row to the 2nd row
+    \[
+        \begin{array}{ccc|ccc}
+            1 & 0 & 0 & \frac{1}{3}   & \frac{1}{30} + \frac{-1}{10}i  & \frac{1}{10} + \frac{-3}{10}i \\
+            0 & 1 & 0 & 0             & \frac{-3}{10} + \frac{-1}{10}i & \frac{1}{10} + \frac{-3}{10}i \\
+            0 & 0 & 1 & \frac{-1}{3}i & \frac{1}{5} + \frac{1}{15}i    & \frac{3}{5} + \frac{1}{5}i
+        \end{array}.
+    \]
+
+    Thus
+    \[
+        \begin{bmatrix}
+            1 & 0 & 0 \\
+            0 & 1 & 0 \\
+            0 & 0 & 1
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            \frac{1}{3}   & \frac{1}{30} + \frac{-1}{10}i  & \frac{1}{10} + \frac{-3}{10}i \\
+            0             & \frac{-3}{10} + \frac{-1}{10}i & \frac{1}{10} + \frac{-3}{10}i \\
+            \frac{-1}{3}i & \frac{1}{5} + \frac{1}{15}i    & \frac{3}{5} + \frac{1}{5}i
+        \end{bmatrix}
+        \begin{bmatrix}
+            2 & 0  & i  \\
+            1 & -3 & -i \\
+            i & 1  & 1
+        \end{bmatrix}.
+    \]
+\end{proof}
+
+\begin{exercise}
+    For each of the two matrices
+    \[
+        \begin{bmatrix}
+            2 & 5  & -1 \\
+            4 & -1 & 2  \\
+            6 & 4  & 1
+        \end{bmatrix}
+        \quad
+        \begin{bmatrix}
+            1 & -1 & 2  \\
+            3 & 2  & 4  \\
+            0 & 1  & -2
+        \end{bmatrix}
+    \]
+
+    use elementary row operations to discover whether it is invertible, and to find the inverse in case it is.
+\end{exercise}
+
+\begin{proof}
+    \[
+        \begin{array}{ccc|ccc}
+            2 & 5  & -1 & 1 & 0 & 0 \\
+            4 & -1 & 2  & 0 & 1 & 0 \\
+            6 & 4  & 1  & 0 & 0 & 1
+        \end{array}
+    \]
+
+    Add $(-2)$ times the 1st row to the 2nd row, add $(-3)$ times the 1st row to the 3rd row
+    \[
+        \begin{array}{ccc|ccc}
+            2 & 5   & -1 & 1  & 0 & 0 \\
+            0 & -11 & 4  & -2 & 1 & 0 \\
+            0 & -11 & 4  & -3 & 0 & 1
+        \end{array}
+    \]
+
+    Add $(-1)$ times the 2nd row to the 3rd row
+    \[
+        \begin{array}{ccc|ccc}
+            2 & 5   & -1 & 1  & 0  & 0 \\
+            0 & -11 & 4  & -2 & 1  & 0 \\
+            0 & 0   & 0  & -1 & -1 & 1
+        \end{array}
+    \]
+
+    Multiply the 1st row by $\frac{1}{2}$, multiply the 2nd row by $\frac{-1}{11}$
+    \[
+        \begin{array}{ccc|ccc}
+            1 & \frac{5}{2} & \frac{-1}{2}  & \frac{1}{2}  & 0             & 0 \\
+            0 & 1           & \frac{-4}{11} & \frac{2}{11} & \frac{-1}{11} & 0 \\
+            0 & 0           & 0             & -1           & -1            & 1
+        \end{array}
+    \]
+
+    Add $\frac{-5}{2}$ times the 2nd row to the 1st row
+    \[
+        \begin{array}{ccc|ccc}
+            1 & 0 & \frac{9}{22}  & \frac{1}{22} & \frac{5}{22}  & 0 \\
+            0 & 1 & \frac{-4}{11} & \frac{2}{11} & \frac{-1}{11} & 0 \\
+            0 & 0 & 0             & -1           & -1            & 1
+        \end{array}
+    \]
+
+    Hence $A$ is not invertible.
+
+    \hrulefill{}
+    \[
+        \begin{array}{ccc|ccc}
+            1 & -1 & 2  & 1 & 0 & 0 \\
+            3 & 2  & 4  & 0 & 1 & 0 \\
+            0 & 1  & -2 & 0 & 0 & 1
+        \end{array}
+    \]
+
+    Add $(-3)$ times the 1st row to the 2nd row
+    \[
+        \begin{array}{ccc|ccc}
+            1 & -1 & 2  & 1  & 0 & 0 \\
+            0 & 5  & -2 & -3 & 1 & 0 \\
+            0 & 1  & -2 & 0  & 0 & 1
+        \end{array}
+    \]
+
+    Swap the 2nd row and the 3rd row
+    \[
+        \begin{array}{ccc|ccc}
+            1 & -1 & 2  & 1  & 0 & 0 \\
+            0 & 1  & -2 & 0  & 0 & 1 \\
+            0 & 5  & -2 & -3 & 1 & 0
+        \end{array}
+    \]
+
+    Add $(-5)$ times the 2nd row to the 3rd row
+    \[
+        \begin{array}{ccc|ccc}
+            1 & -1 & 2  & 1  & 0 & 0  \\
+            0 & 1  & -2 & 0  & 0 & 1  \\
+            0 & 0  & 8  & -3 & 1 & -5
+        \end{array}
+    \]
+
+    Multiply the 3rd row by $\frac{1}{8}$, add the 2nd row to the 1st row
+    \[
+        \begin{array}{ccc|ccc}
+            1 & 0 & 0  & 1            & 0           & 1            \\
+            0 & 1 & -2 & 0            & 0           & 1            \\
+            0 & 0 & 1  & \frac{-3}{8} & \frac{1}{8} & \frac{-5}{8}
+        \end{array}
+    \]
+
+    Add $2$ times the 3rd row to the 2nd row
+    \[
+        \begin{array}{ccc|ccc}
+            1 & 0 & 0 & 1            & 0           & 1            \\
+            0 & 1 & 0 & \frac{-3}{4} & \frac{1}{4} & \frac{-1}{4} \\
+            0 & 0 & 1 & \frac{-3}{8} & \frac{1}{8} & \frac{-5}{8}
+        \end{array}
+    \]
+
+    Hence $B$ is invertible.
+\end{proof}
+
+\begin{exercise}
+    Let
+    \[
+        A = \begin{bmatrix}
+            5 & 0 & 0 \\
+            1 & 5 & 0 \\
+            0 & 1 & 5
+        \end{bmatrix}
+    \]
+
+    For which $X$ does there exist a scalar $c$ such that $AX = cX$?
+\end{exercise}
+
+\begin{proof}
+    $X = \begin{bmatrix} x_{1} \\ x_{2} \\ x_{3} \end{bmatrix}$
+    \[
+        AX = \begin{bmatrix}
+            5x_{1}         \\
+            x_{1} + 5x_{2} \\
+            x_{2} + 5x_{3}
+        \end{bmatrix}
+        \qquad
+        cX = \begin{bmatrix}
+            cx_{1} \\
+            cx_{2} \\
+            cx_{3}
+        \end{bmatrix}
+    \]
+
+    $AX = cX$ is equivalent to
+    \[
+        \begin{array}{cccccc}
+            (5-c)x_{1} &   &            &   &            & = 0 \\
+            x_{1}      & + & (5-c)x_{2} &   &            & = 0 \\
+                       &   & x_{2}      & + & (5-c)x_{3} & = 0
+        \end{array}
+    \]
+
+    Swap the 1st row and the 2nd row
+    \[
+        \begin{array}{cccccc}
+            x_{1}      & + & (5-c)x_{2} &   &            & = 0 \\
+            (5-c)x_{1} &   &            &   &            & = 0 \\
+                       &   & x_{2}      & + & (5-c)x_{3} & = 0
+        \end{array}
+    \]
+
+    Swap the 2nd row and the 3rd row
+    \[
+        \begin{array}{cccccc}
+            x_{1}      & + & (5-c)x_{2} &   &            & = 0 \\
+                       &   & x_{2}      & + & (5-c)x_{3} & = 0 \\
+            (5-c)x_{1} &   &            &   &            & = 0
+        \end{array}
+    \]
+
+    Add $(c-5)$ times the 1st row to the 3rd row
+    \[
+        \begin{array}{cccccc}
+            x_{1} & + & (5-c)x_{2}        &   &            & = 0 \\
+                  &   & x_{2}             & + & (5-c)x_{3} & = 0 \\
+                  &   & -{(5-c)}^{2}x_{2} &   &            & = 0
+        \end{array}
+    \]
+
+    Add ${(5-c)}^{2}$ times the 2nd row to the 3rd row
+    \[
+        \begin{array}{cccccc}
+            x_{1} & + & (5-c)x_{2} &   &                  & = 0 \\
+                  &   & x_{2}      & + & (5-c)x_{3}       & = 0 \\
+                  &   &            &   & {(5-c)}^{3}x_{3} & = 0
+        \end{array}
+    \]
+
+    If $c\ne 5$, $x_{1} = x_{2} = x_{3} = 0$.
+
+    If $c = 5$, $x_{1} = x_{2} = 0$.
+
+    Thus if $X = \begin{bmatrix}0 \\ 0 \\ t\end{bmatrix}$ ($t$ is an arbitrary scalar), there exists scalar $c$ such that $AX = cX$.
+\end{proof}
+
+\begin{exercise}
+    Discover whether
+    \[
+        A = \begin{bmatrix}
+            1 & 2 & 3 & 4 \\
+            0 & 2 & 3 & 4 \\
+            0 & 0 & 3 & 4 \\
+            0 & 0 & 0 & 4
+        \end{bmatrix}.
+    \]
+
+    is invertible, and find $A^{-1}$ if it exists.
+\end{exercise}
+
+\begin{proof}
+    We consider the following matrix
+    \[
+        \begin{array}{cccc|cccc}
+            1 & 2 & 3 & 4 & 1 & 0 & 0 & 0 \\
+            0 & 2 & 3 & 4 & 0 & 1 & 0 & 0 \\
+            0 & 0 & 3 & 4 & 0 & 0 & 1 & 0 \\
+            0 & 0 & 0 & 4 & 0 & 0 & 0 & 1
+        \end{array}.
+    \]
+
+    Add $(-1)$ times the 2nd row to the 1st row
+    \[
+        \begin{array}{cccc|cccc}
+            1 & 0 & 0 & 0 & 1 & -1 & 0 & 0 \\
+            0 & 2 & 3 & 4 & 0 & 1  & 0 & 0 \\
+            0 & 0 & 3 & 4 & 0 & 0  & 1 & 0 \\
+            0 & 0 & 0 & 4 & 0 & 0  & 0 & 1
+        \end{array}.
+    \]
+
+    Add $(-1)$ times the 3rd row to the 2nd row
+    \[
+        \begin{array}{cccc|cccc}
+            1 & 0 & 0 & 0 & 1 & -1 & 0  & 0 \\
+            0 & 2 & 0 & 0 & 0 & 1  & -1 & 0 \\
+            0 & 0 & 3 & 4 & 0 & 0  & 1  & 0 \\
+            0 & 0 & 0 & 4 & 0 & 0  & 0  & 1
+        \end{array}.
+    \]
+
+    Add $(-1)$ times the 4th row to the 3rd row
+    \[
+        \begin{array}{cccc|cccc}
+            1 & 0 & 0 & 0 & 1 & -1 & 0  & 0  \\
+            0 & 2 & 0 & 0 & 0 & 1  & -1 & 0  \\
+            0 & 0 & 3 & 0 & 0 & 0  & 1  & -1 \\
+            0 & 0 & 0 & 4 & 0 & 0  & 0  & 1
+        \end{array}.
+    \]
+
+    Multiply the 2nd row by $\frac{1}{2}$, multiply the 3rd row by $\frac{1}{3}$, multiply the 4th row by $\frac{1}{4}$
+    \[
+        \begin{array}{cccc|cccc}
+            1 & 0 & 0 & 0 & 1 & -1          & 0            & 0            \\
+            0 & 1 & 0 & 0 & 0 & \frac{1}{2} & \frac{-1}{2} & 0            \\
+            0 & 0 & 1 & 0 & 0 & 0           & \frac{1}{3}  & \frac{-1}{3} \\
+            0 & 0 & 0 & 1 & 0 & 0           & 0            & \frac{1}{4}
+        \end{array}.
+    \]
+
+    Thus $A$ is invertible and
+    \[
+        A^{-1} =
+        \begin{bmatrix}
+            1 & -1          & 0            & 0            \\
+            0 & \frac{1}{2} & \frac{-1}{2} & 0            \\
+            0 & 0           & \frac{1}{3}  & \frac{-1}{3} \\
+            0 & 0           & 0            & \frac{1}{4}
+        \end{bmatrix}.
+    \]
+\end{proof}
+
+\begin{exercise}
+    Suppose that $A$ is a $2\times 1$ matrix and $B$ is a $1\times 2$ matrix. Prove that $C = AB$ is not invertible.
+\end{exercise}
+
+\begin{proof}
+    Let
+    \[
+        A = \begin{bmatrix}
+            a_{1} \\
+            a_{2}
+        \end{bmatrix}
+        \qquad
+        B = \begin{bmatrix}
+            b_{1} & b_{2}
+        \end{bmatrix}.
+    \]
+
+    Then
+    \[
+        C = AB = \begin{bmatrix}
+            a_{1}b_{1} & a_{1}b_{2} \\
+            a_{2}b_{1} & a_{2}b_{2}
+        \end{bmatrix}.
+    \]
+
+    If $a_{1} = a_{2} = 0$, $C$ is the $2\times 2$ zero matrix, which is not invertible.
+
+    If $a_{1}$ and $a_{2}$ are not simultaneously zero
+    \[
+        a_{2}\begin{bmatrix} a_{1}b_{1} & a_{1}b_{2} \end{bmatrix}
+        -
+        a_{1}\begin{bmatrix} a_{2}b_{1} & a_{2}b_{2} \end{bmatrix}
+        = 0.
+    \]
+
+    So the row-reduced echelon form of $C$ has one zero row, which implies that $C$ is not invertible.
+\end{proof}
+
+\begin{exercise}
+    Let $A$ be an $n\times n$ matrix. Prove the following two statements:
+    \begin{enumerate}[label={(\alph*)}]
+        \item If $A$ is invertible and $AB = 0$ for some $n\times n$ matrix $B$, then $B = 0$.
+        \item If $A$ is not invertible, then there exists an $n\times n$ matrix $B$ such that $AB = 0$ but $B\ne 0$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item If $A$ is invertible, $A^{-1}(AB) = 0$. On the other hand, $A^{-1}A = I$, so $B = 0$.
+        \item If $A$ is not invertible, the system of linear equations $AX = 0$ have non-trivial solution.
+
+              Let $X = \begin{bmatrix} t_{1} \\ t_{2} \\ \vdots \\ t_{n} \end{bmatrix}$ be such non-trivial solution.
+
+              Let
+              \[
+                  B = \begin{bmatrix}
+                      t_{1}  & t_{1}  & \cdots & t_{1}  \\
+                      t_{2}  & t_{2}  & \cdots & t_{2}  \\
+                      \vdots & \vdots & \ddots & \vdots \\
+                      t_{n}  & t_{n}  & \cdots & t_{n}
+                  \end{bmatrix}
+              \]
+
+              then $B$ is not a zero matrix and $AB = 0$.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    Let
+    \[
+        A = \begin{bmatrix}
+            a & b \\
+            c & d
+        \end{bmatrix}
+    \]
+
+    Prove, using elementary row operations, that $A$ is invertible if and only if $(ad - bc)\ne 0$.
+\end{exercise}
+
+\begin{proof}
+    $(\Rightarrow)$. $(ad - bc)\ne 0$.
+
+    $a$ and $c$ are not simultaneously zero. Without loss of generality, suppose that $a\ne 0$. We perform elementary row operations on the following matrix
+    \[
+        \begin{array}{cc|cc}
+            a & b & 1 & 0 \\
+            c & d & 0 & 1
+        \end{array}.
+    \]
+
+    Add $(-ca^{-1})$ times the 1st row to the 2nd row
+    \[
+        \begin{array}{cc|cc}
+            a & b            & 1        & 0 \\
+            0 & d - bca^{-1} & -ca^{-1} & 1
+        \end{array}.
+    \]
+
+    Multiply the 1st row by $a^{-1}$, multiply the 2nd row by $\frac{a}{ad-bc}$
+    \[
+        \begin{array}{cc|cc}
+            1 & ba^{-1} & a^{-1}           & 0               \\
+            0 & 1       & \frac{-c}{ad-bc} & \frac{a}{ad-bc}
+        \end{array}
+    \]
+
+    Add $(-ba^{-1})$ times the 2nd row to the 1st row
+    \[
+        \begin{array}{cc|cc}
+            1 & 0 & \frac{d}{ad-bc}  & \frac{-b}{ad-bc} \\
+            0 & 1 & \frac{-c}{ad-bc} & \frac{a}{ad-bc}
+        \end{array}
+    \]
+
+    So $A$ is row-equivalent to the $2\times 2$ matrix, which means $A$ is invertible.
+
+    $(\Leftarrow)$ $A$ is invertible.
+
+    $A$ is invertible implies that $AX = 0$ has trivial solution only. Let's consider this system of linear equations
+    \[
+        \begin{split}
+            ax_{1} + bx_{2} = 0 \\
+            cx_{1} + dx_{2} = 0
+        \end{split}
+    \]
+
+    If $a = c = 0$ then $AX = 0$ has non-trivial solution (for example $x_{1} = 1$, $x_{2} = 0$). So $a$ and $c$ are not simultaneously zero. Without loss of generality, suppose that $a\ne 0$.
+    \[
+        \begin{bmatrix}
+            a & b
+            c & d
+        \end{bmatrix}
+    \]
+
+    Multiply the 1st row by $a^{-1}$
+    \[
+        \begin{bmatrix}
+            1 & ba^{-1} \\
+            c & d
+        \end{bmatrix}
+    \]
+
+    Add $(-c)$ times the 1st row to the 2nd row
+    \[
+        \begin{bmatrix}
+            1 & ba^{-1}      \\
+            0 & d - bca^{-1}
+        \end{bmatrix}
+    \]
+
+    If $ad - bc = 0$, then $A$ is row-equivalent to $\begin{bmatrix}1 & ba^{-1} \\ 0 & 0\end{bmatrix}$, which is not row-equivalent to the $2\times 2$ identity matrix.
+
+    Hence $(ad - bc)\ne 0$.
+\end{proof}
+
+\begin{exercise}
+    An $n\times n$ matrix $A$ is called upper-triangular if $A_{ij} = 0$ for $i > j$, that is, if every entry below the main diagonal is $0$. Prove that an upper-triangular (square) matrix is invertible if and only if every entry on its main diagonal is different from $0$.
+\end{exercise}
+
+\begin{proof}
+    $(\Rightarrow)$ Every entry on the main diagonal is different from $0$.
+    \[
+        \begin{bmatrix}
+            a_{11} & a_{12} & \cdots & a_{1n} \\
+            0      & a_{22} & \cdots & a_{2n} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0      & 0      & \cdots & a_{nn}
+        \end{bmatrix}
+    \]
+
+    Multiply the $k$-th row by ${a_{k}}^{-1}$
+    \[
+        \begin{bmatrix}
+            1      & a_{12}{a_{11}}^{-1} & \cdots & a_{1n}{a_{11}}^{-1} \\
+            0      & 1                   & \cdots & a_{2n}{a_{22}}^{-1} \\
+            \vdots & \vdots              & \ddots & \vdots              \\
+            0      & 0                   & \cdots & 1
+        \end{bmatrix}
+    \]
+
+    Add $(-a_{kn}{a_{kk}}^{-1})$ times the $n$-th row to the $k$-th row ($1\le k < n$)
+    \[
+        \begin{bmatrix}
+            1      & a_{12}{a_{11}}^{-1} & \cdots & a_{1(n-1)}{a_{11}}^{-1} & 0      \\
+            0      & 1                   & \cdots & a_{2(n-1)}{a_{22}}^{-1} & 0      \\
+            \vdots & \vdots              & \ddots & \vdots                  & \vdots \\
+            0      & 0                   & \cdots & 1                       & 0      \\
+            0      & 0                   & \cdots & 0                       & 1
+        \end{bmatrix}
+    \]
+
+    Then we do the following consecutively
+    \begin{itemize}
+        \item add $(-a_{k(n-1)}{a_{kk}}^{-1})$ times the $(n-1)$-th row to the $k$-th row ($1\le k < n-1$),
+        \item add $(-a_{k(n-2)}{a_{kk}}^{-1})$ times the $(n-2)$-th row to the $k$-th row ($1\le k < n-2$),
+        \item $\ldots$
+        \item add $(-a_{k2}{a_{22}}^{-1})$ times the 2nd row to the 1st row.
+    \end{itemize}
+
+    After the last elementary row operation, we obtain the $n\times n$ identity matrix. Hence $A$ is row-equivalent to the $n\times n$ identity matrix, which means $A$ is invertible.
+
+    \bigskip
+
+    $(\Leftarrow)$ $A$ is invertible.
+
+    Let's consider the system of linear equations $AX = 0$. Since $A$ is invertible, this system have trivial solution only.
+
+    If $a_{nn} = 0$, then for every $n\times n$ matrix $B$, the $n$-th row of $AB$ is zero, which means $A$ is not invertible. So $a_{nn}\ne 0$ and $x_{n} = 0$.
+
+    If $a_{(n-1)(n-1)} = 0$, the following system of linear equations
+    \[
+        \begin{array}{cccccccc}
+            a_{11}x_{1} & + & a_{12}x_{2} & + & \cdots & + & a_{1(n-1)}x_{n-1}     & = 0 \\
+                        &   & a_{22}x_{2} & + & \cdots & + & a_{2(n-1)}x_{n-1}     & = 0 \\
+            \cdots                                                                       \\
+                        &   &             &   &        &   & a_{(n-1)(n-1)}x_{n-1} & = 0
+        \end{array}
+    \]
+
+    has non-trivial solution, and $AX = 0$ have non-trivial solution. So $a_{(n-1)(n-1)}\ne 0$ and $x_{n-1} = x_{n} = 0$.
+
+    If $a_{kk} = 0$, the following system of linear equations
+    \[
+        \begin{array}{cccccc}
+            a_{11}x_{1} & + & \cdots & + & a_{1k}x_{k} & = 0 \\
+                        &   & \cdots & + & a_{2k}x_{k} & = 0 \\
+            \cdots                                           \\
+                        &   &        &   & a_{kk}x_{k} & = 0
+        \end{array}
+    \]
+    has non-trivial solution, and $AX = 0$ have non-trivial solution. So $a_{kk}\ne 0$.
+
+    Hence $a_{kk}\ne 0$ for every integer $k$ such that $1\le k \le n$. Thus every entry on the main diagonal of $A$ is different from $0$.
+\end{proof}
+
+\begin{exercise}
+    Prove the following generalization of Exercise 6. If $A$ is an $m\times n$ matrix, $B$ is an $n\times m$ matrix and $n < m$, then $AB$ is not invertible.
+\end{exercise}
+
+\begin{proof}
+    Since $B$ is not a square matrix, the system of linear equations $BX = 0$ have non-trivial solution.
+
+    Every row of $AB$ is a linear combination of the rows of $B$, so every solution of $BX = 0$ ($m$ unknowns) is also a solution of $(AB)X = 0$ ($m$ unknowns, since $AB$ is a $m\times m$ matrix).
+
+    Because $BX = 0$ have non-trivial solution, then so does $(AB)X = 0$. Therefore $AB$ is not invertible.
+\end{proof}
+
+\begin{exercise}
+    Let $A$ be an $m\times n$ matrix. Show that by means of a finite number of elementary row and/or column operations one can pass from it to a matrix $R$ which is both `row-reduced echelon' and `column-reduced echelon', i.e., $R_{ij} = 0$ if $i \ne j$, $R_{ii} = 1$ if $1\le i\le r$, $R_{ii} = 0$ if $i > r$. Show that $R = PAQ$, where P is an invertible $m\times m$ matrix and $Q$ is an invertible $n\times n$ matrix.
+\end{exercise}
+
+\begin{proof}
+    Theorems on which this proof is based are provided in my note.
+
+    Let $B$ be the row-reduced echelon matrix which is row-equivalent to $A$, then there exists an invertible matrix $P$ such that $B = PA$. Let $R$ be the column-reduced echelon matrix which is column-equivalent to $B$, then there exists an invertible matrix $Q$ such that $R = BQ$.
+
+    Hence $R$ is both row-reduced echelon and column-reduced echelon. $R = BQ = (PA)Q = PAQ$.
+\end{proof}
+
+\begin{exercise}
+    Let
+    \[
+        A = \begin{bmatrix}
+            1           & \frac{1}{2}   & \cdots & \frac{1}{n}    \\
+            \frac{1}{2} & \frac{1}{3}   & \cdots & \frac{1}{n+1}  \\
+            \vdots      & \vdots        & \ddots & \vdots         \\
+            \frac{1}{n} & \frac{1}{n+1} & \cdots & \frac{1}{2n-1}
+        \end{bmatrix}.
+    \]
+
+    Prove that $A$ is invertible and all entries of $A^{-1}$ are integers.
+\end{exercise}
+
+\begin{proof}
+    % unsolved
+    We perform elementary (row, column) operations on the following matrix
+    \[
+        \begin{array}{ccccc|ccccc}
+            1           & \frac{1}{2}   & \frac{1}{3}   & \cdots & \frac{1}{n}    & 1      & 0      & 0      & \cdots & 0      \\
+            \frac{1}{2} & \frac{1}{3}   & \frac{1}{4}   & \cdots & \frac{1}{n+1}  & 0      & 1      & 0      & \cdots & 0      \\
+            \frac{1}{3} & \frac{1}{4}   & \frac{1}{5}   & \cdots & \frac{1}{n+2}  & 0      & 0      & 1      & \cdots & 0      \\
+            \vdots      & \vdots        & \vdots        & \ddots & \vdots         & \vdots & \vdots & \vdots & \ddots & \vdots \\
+            \frac{1}{n} & \frac{1}{n+1} & \frac{1}{n+2} & \cdots & \frac{1}{2n-1} & 0      & 0      & 0      & \cdots & 1      \\
+            \hline
+            1           & 0             & 0             & \cdots & 1                                                           \\
+            0           & 1             & 0             & \cdots & 0                                                           \\
+            0           & 0             & 1             & \cdots & 0                                                           \\
+            \vdots      & \vdots        & \vdots        & \ddots & \vdots                                                      \\
+            0           & 0             & 0             & \cdots & 1
+        \end{array}
+    \]
+\end{proof}
