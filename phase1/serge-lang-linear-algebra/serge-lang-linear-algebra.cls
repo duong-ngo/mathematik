@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{lang-linear-algebra}
+\ProvidesClass{serge-lang-linear-algebra}
 
 \LoadClass[oneside]{book}
 
