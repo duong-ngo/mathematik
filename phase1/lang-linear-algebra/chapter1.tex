@@ -1,0 +1,295 @@
+\chapter{Vector Spaces}
+
+\section{Definitions}
+
+\setcounter{exercise}{0}
+
+\begin{exercise}
+    Let $V$ be a vector space. Using the properties \textbf{VS 1} through \textbf{VS 8}, show that if $c$ is a number, then $cO = O$.
+\end{exercise}
+
+\begin{proof}
+    Let $v$ be a vector in $V$.
+    \begin{align*}
+        0v         & = (0 + 0)v                                 \\
+                   & = 0v + 0v           & \text{\textbf{VS 6}} \\
+        0v + (-0v) & = 0v + (0v + (-0v)) & \text{\textbf{VS 1}} \\
+        O          & = 0v + O            & \text{\textbf{VS 3}} \\
+        O          & = 0v                & \text{\textbf{VS 2}}
+    \end{align*}
+
+    \begin{align*}
+        cO         & = c(O + O)                                 \\
+                   & = cO + cO           & \text{\textbf{VS 5}} \\
+        cO + (-cO) & = cO + (cO + (-cO)) & \text{\textbf{VS 1}} \\
+        O          & = cO + 0            & \text{\textbf{VS 3}} \\
+        O          & = cO                & \text{\textbf{VS 2}}
+    \end{align*}
+\end{proof}
+
+\begin{exercise}
+    Let $c$ be a number $\ne 0$, and $v$ an element of $V$. Prove that if $cv = O$, then $v = O$.
+\end{exercise}
+
+\begin{proof}
+    Since $c\ne 0$, there exists $c^{-1}$ such that $cc^{-1} = c^{-1}c = 1$.
+
+    According to \textbf{VS7} and \textbf{VS 8}
+    \[
+        v = 1v = (c^{-1}c)v = c^{-1}(cv) = c^{-1}O = O.
+    \]
+\end{proof}
+
+\begin{exercise}
+    In the vector space of functions, what is the function satisfying the condition \textbf{VS 2}?
+\end{exercise}
+
+\begin{proof}
+    The zero function $O(x) = 0$ for every number $x$, since
+    \[
+        f(x) + O(x) = f(x) + 0 = f(x) = 0 + f(x) = O(x) + f(x).
+    \]
+\end{proof}
+
+\begin{exercise}
+    Let $V$ be a vector space and $v, w$ two elements of $V$. If $v + w = O$, show that $w = -v$.
+\end{exercise}
+
+\begin{proof}
+    According to \textbf{VS 1, 2, 3, 4}
+    \[
+        w = O + w = ((-v) + v) + w = (-v) + (v + w) = (-v) + O = -v.
+    \]
+
+    Hence $w = -v$.
+\end{proof}
+
+\begin{exercise}
+    Let $V$ be a vector space, and $v, w$ two elements of $V$ such that $v + w = v$. Show that $w = O$.
+\end{exercise}
+
+\begin{proof}
+    \begin{align*}
+        w & = O + w          & \text{\textbf{VS 2}} \\
+          & = ((-v) + v) + w & \text{\textbf{VS 3}} \\
+          & = (-v) + (v + w) & \text{\textbf{VS 1}} \\
+          & = (-v) + v                              \\
+          & = O              & \text{\textbf{VS 3}}
+    \end{align*}
+
+    Thus, $w = O$.
+\end{proof}
+
+\begin{exercise}
+    Let $A_{1}, A_{2}$ be vectors in $\mathbb{R}^{n}$. Show that the set of all vectors $B$ in $\mathbb{R}^{n}$ such that $B$ is perpendicular to both $A_{1}$ and $A_{2}$ is a subspace.
+\end{exercise}
+
+\begin{proof}
+    Denote by $S_{i}$ the set of all vector $B$ in $\mathbb{R}^{n}$ such that $B$ is perpendicular to $A_{i}$.
+
+    $O$ is in $S_{1}$, since $O\cdot A_{1} = 0$.
+
+    Let $B = (b_{1}, b_{2}, \ldots, b_{n}), C = (c_{1}, c_{2}, \ldots, c_{n})$ be elements of $S_{1}$, and $A_{1} = (a_{1.1}, a_{1.2}, \ldots, a_{1.n})$.
+    \begin{align*}
+        (B + C)\cdot A_{1} & = (b_{1} + c_{1})a_{1.1} + (b_{2} + c_{2})a_{1.2} + \cdots + (b_{n} + c_{n})a_{1.n}                             \\
+                           & = (b_{1}a_{1.1} + b_{2}a_{1.2} + \cdots + b_{n}a_{1.n}) + (c_{1}a_{1.1} + c_{2}a_{1.2} + \cdots + c_{n}a_{1.n}) \\
+                           & = B\cdot A_{1} + C\cdot A_{1}                                                                                   \\
+                           & = 0 + 0 = 0                                                                                                     \\
+        (cB)\cdot A_{1}    & = cb_{1}a_{1.1} + cb_{2}a_{1.2} + \cdots + cb_{n}a_{1.n}                                                        \\
+                           & = c(b_{1}a_{1.1} + b_{2}a_{1.2} + \cdots + b_{n}a_{1.n})                                                        \\
+                           & = c(B\cdot A_{1})                                                                                               \\
+                           & = c0 = 0.
+    \end{align*}
+
+    Hence $S_{1}$ is a subspace of $\mathbb{R}^{n}$. Analogously, $S_{2}$ is a subspace of $\mathbb{R}^{n}$. Thus $S_{1}\cap S_{2}$ (the set of all vectors $B$ in $\mathbb{R}^{n}$ such that $B$ is perpendicular to both $A_{1}$ and $A_{2}$) is a subspace of $\mathbb{R}^{n}$.
+\end{proof}
+
+\begin{exercise}
+    Generalize Exercise 6, and prove: Let $A_{1}, \ldots, A_{r}$ be vectors in $\mathbb{R}^{n}$. Let $W$ be the set of vectors $B$ in $\mathbb{R}^{n}$ such that $B\cdot A_{i} = 0$ for every $i = 1,\ldots, r$. Show that $S$ is a subspace of $\mathbb{R}^{n}$.
+\end{exercise}
+
+\begin{proof}
+    Denote by $S_{i}$ the set of vectors $B$ in $\mathbb{R}^{n}$ such that $B\cdot A_{i} = 0$.
+
+    Similar to Exercise 6, $S_{i}$ is a subspace of $\mathbb{R}^{n}$ for every $i = 1,\ldots, r$.
+
+    Hence $S = S_{1}\cap S_{2}\cap \cdots\cap S_{r}$ is also a subspace of $\mathbb{R}^{n}$.
+\end{proof}
+
+\begin{exercise}
+    Show that the following sets of elements in $\mathbb{R}^{2}$ form subspaces.
+    \begin{enumerate}[label={(\alph*)}]
+        \item The set of all $(x, y)$ such that $x = y$.
+        \item The set of all $(x, y)$ such that $x - y = 0$.
+        \item The set of all $(x, y)$ such that $x + 4y = 0$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    $O = (0, 0)$ is in all of these sets.
+
+    \begin{enumerate}[label={(\alph*)}]
+        \item If $(x_{1}, y_{1})$ and $(x_{2}, y_{2})$ are in the set, $x_{1} + x_{2} = y_{1} + y_{2}$. Therefore $(x_{1} + x_{2}, y_{1} + y_{2})$ is in the set.
+
+              If $(x, y)$ is in the set, then $cx = cy$. Therefore, $c(x, y) = (cx, cy)$ is in the set.
+
+              Hence the set forms a subspace.
+        \item If $(x_{1}, y_{1})$ and $(x_{2}, y_{2})$ are in the set, $x_{1} + x_{2} - (y_{1} + y_{2}) = (x_{1} - y_{1}) + (x_{2} - y_{2}) = O - O = O$. Therefore $(x_{1} + x_{2}, y_{1} + y_{2})$ is in the set.
+
+              If $(x, y)$ is in the set, then $cx - cy = c(x - y) = 0$. Therefore, $c(x, y) = (cx, cy)$ is in the set.
+
+              Hence the set forms a subspace.
+        \item If $(x_{1}, y_{1})$ and $(x_{2}, y_{2})$ are in the set, $x_{1} + x_{2} + 4(y_{1} + y_{2}) = (x_{1} + 4y_{1}) + (x_{2} + 4y_{2}) = O + O = O$. Therefore $(x_{1} + x_{2}, y_{1} + y_{2})$ is in the set.
+
+              If $(x, y)$ is in the set, the $cx + 4(cy) = cx + c(4y) = c(x + 4y) = 0$. Therefore, $c(x, y) = (cx, cy)$ is in the set.
+
+              Hence the set forms a subspace.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    Show the the following sets of elements in $\mathbb{R}^{3}$ form subspaces.
+    \begin{enumerate}[label={(\alph*)}]
+        \item The set of all $(x, y, z)$ such that $x + y + z = 0$.
+        \item The set of all $(x, y, z)$ such that $x = y$ and $2y = z$.
+        \item The set of all $(x, y, z)$ such that $x + y = 3z$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    $O = (0, 0, 0)$ is in all of these sets.
+
+    \begin{enumerate}[label={(\alph*)}]
+        \item If $(x_{1}, y_{1}, z_{1})$ and $(x_{2}, y_{2}, z_{2})$ are in the set, $(x_{1} + x_{2}) + (y_{1} + y_{2}) + (z_{1} + z_{2}) = (x_{1} + y_{1} + z_{1}) + (x_{2} + y_{2} + z_{2}) = O + O = O$. Therefore, $(x_{1} + x_{2}, y_{1} + y_{2}, z_{1} + z_{2})$ is in the set.
+
+              If $(x, y, z)$ is in the set, $cx + cy + cz = c(x + y + z) = c0 = 0$. Therefore, $c(x, y, z) = (cx, cy, cz)$ is in the set.
+
+              Hence the set forms a subspace.
+        \item If $(x_{1}, y_{1}, z_{1})$ and $(x_{2}, y_{2}, z_{2})$ are in the set, $x_{1} + x_{2} = y_{1} + y_{2}$ and $2(y_{1} + y_{2}) = 2y_{1} + 2y_{2} = z_{1} + z_{2}$. Therefore, $(x_{1} + x_{2}, y_{1} + y_{2}, z_{1} + z_{2})$ is in the set.
+
+              If $(x, y, z)$ is in the set, $cx = cy$ and $2(cy) = c(2y) = cz$. Therefore, $c(x, y, z) = (cx, cy, cz)$ is in the set.
+
+              Hence the set forms a subspace.
+        \item If $(x_{1}, y_{1}, z_{1})$ and $(x_{2}, y_{2}, z_{2})$ are in the set, $(x_{1} + x_{2}) + (y_{1} + y_{2}) = (x_{1} + y_{1}) + (x_{2} + y_{2}) = 3z_{1} + 3z_{2} = 3(z_{1} + z_{2})$. Therefore, $(x_{1} + x_{2}, y_{1} + y_{2}, z_{1} + z_{2})$ is in the set.
+
+              If $(x, y, z)$ is in the set $cx + cy = c(x + y) = c(3z) = 3(cz)$. Therefore, $c(x, y, z) = (cx, cy, cz)$ is in the set.
+
+              Hence the set forms a subspace.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    If $U, W$ are subspaces of a vector space $V$, show that $U\cap W$ and $U + W$ are subspaces.
+\end{exercise}
+
+\begin{proof}
+    Since $O\in U, W$, $O\in U\cap W, U + W$.
+
+    Let $v_{1}, v_{2}$ be elements of $U\cap W$ and $c$ a number. Since $U$ is a subspace, $v_{1} + v_{2}\in U, cv_{1}\in U$. Since $W$ is a subspace, $v_{1} + v_{2}\in W, cv_{1}\in W$. Therefore, $v_{1} + v_{2}\in V\cap W$ and $cv_{1}\in V\cap W$. Therefore $U\cap W$ is a subspace.
+
+    Let $t_{1}, t_{2}$ be elements of $U + W$. According to the definition of sum of subspaces, there exists vectors $u_{1}, u_{2}\in U$ and $w_{1}, w_{2}\in W$ such that $t_{1} = u_{1} + w_{1}$ and $t_{2} = u_{2} + w_{2}$.
+    \begin{align*}
+        t_{1} + t_{2} & = (u_{1} + w_{1}) + (u_{2} + w_{2})                                                     \\
+                      & = \underbrace{(u_{1} + u_{2})}_{\in U} + \underbrace{(w_{1} + w_{2})}_{\in W} \in U + W \\
+        ct_{1}        & = c(u_{1} + w_{1})                                                                      \\
+                      & = \underbrace{cu_{1}}_{\in U} + \underbrace{cw_{1}}_{\in W} \in U + W.
+    \end{align*}
+
+    Therefore, $U + W$ is a subspace.
+\end{proof}
+
+\begin{exercise}
+    Let $K$ be a subfield of a field $L$. Show that $L$ is a vector space over $K$. In particular, $\mathbf{C}$ and $\mathbf{R}$ are vector spaces over $\mathbf{Q}$.
+\end{exercise}
+
+\begin{proof}
+    The field $L$ contains $0$ and $1$.
+
+    Since $L$ is a field, addition in $L$ is associative, has an identity element ($0$), every element has an additive inverse, and commutative. So $L$ satisfies \textbf{VS 1, 2, 3, 4}.
+
+    Let $k_{1}, k_{2}$ be elements of $K$, and $\ell_{1}, \ell_{2}$ elements of $L$.
+    \begin{align*}
+        k_{1}(\ell_{1} + \ell_{2}) & = \underbrace{k_{1}\ell_{1}}_{\in L} + \underbrace{k_{2}\ell_{2}}_{\in L} \in L, \\
+        (k_{1} + k_{2})\ell_{1}    & = \underbrace{k_{1}\ell_{1}}_{\in L} + \underbrace{k_{2}\ell_{1}}_{\in L} \in L, \\
+        (k_{1}k_{2})\ell_{1}       & = k_{1}(k_{2}\ell_{1}),                                                          \\
+        1\ell_{1}                  & = \ell_{1}.
+    \end{align*}
+
+    Thus $L$ is a vector space over $K$.
+\end{proof}
+
+\begin{exercise}
+    Let $K$ be the set of all numbers which can be written in the form $a + b\sqrt{2}$, where $a, b$ are rational numbers. Show that $K$ is a field.
+\end{exercise}
+
+\begin{proof}
+    $K$ is a subset of $\mathbf{R}$, which is a field.
+
+    $0 = 0 + 0\sqrt{2}, 1 = 1 + 0\sqrt{2}$. So $0$ and $1$ are in $K$.
+
+    $a + b\sqrt{2} = 0$ if and only if $a = b = 0$ (proof by contradiction, follows the irrationality of $\sqrt{2}$).
+
+    If $a_{1} + b_{1}\sqrt{2}$ and $a_{2} + b_{2}\sqrt{2}$ are in $K$,
+    \begin{itemize}
+        \item $(a_{1} + b_{1}\sqrt{2}) + (a_{2} + b_{2}\sqrt{2}) = (a_{1} + a_{2}) + (b_{1} + b_{2})\sqrt{2} \in K$.
+        \item $(a_{1} + b_{1}\sqrt{2})\cdot (a_{2} + b_{2}\sqrt{2}) = (a_{1}a_{2} + 2b_{1}b_{2}) + (a_{1}b_{2} + a_{2}b_{1})\sqrt{2} \in K$.
+        \item $(a_{1} + b_{1}\sqrt{2}) + ((-a_{1}) + (-b_{1})\sqrt{2}) = (a_{1} + (-a_{1})) + (b_{1} + (-b_{1}))\sqrt{2} = 0 + 0 = 0$.
+        \item If $a_{1}$ and $b_{1}$ are not both zero, then $a_{1} + b_{1}\sqrt{2}\ne 0$ and
+              \[
+                  (a_{1} + b_{1}\sqrt{2})\frac{a_{1} - b_{1}\sqrt{2}}{{a_{1}}^{2} - 2{b_{1}}^{2}} = 1.
+              \]
+    \end{itemize}
+
+    Thus, $K$ is a field.
+\end{proof}
+
+\begin{exercise}
+    Let $K$ be the set of all numbers which can be written in the form $a + bi$, where $a, b$ are rational numbers. Show that $K$ is a field.
+\end{exercise}
+
+\begin{proof}
+    $K$ is a subset of $\mathbf{C}$, which is a field.
+
+    $0 = 0 + 0i, 1 = 1 + 0i$. So $0$ and $1$ are in $K$.
+
+    $a + bi = 0$ if and only if $a = b = 0$.
+
+    If $a_{1} + b_{1}i$ and $a_{2} + b_{2}i$ are in $K$,
+    \begin{itemize}
+        \item $(a_{1} + b_{1}i) + (a_{2} + b_{2}i) = (a_{1} + a_{2}) + (b_{1} + b_{2})i \in K$.
+        \item $(a_{1} + b_{1}i)\cdot (a_{2} + b_{2}i) = (a_{1}a_{2} - b_{1}b_{2}) + (a_{1}b_{2} + a_{2}b_{1})i \in K$.
+        \item $(a_{1} + b_{1}i) + ((-a_{1}) + (-b_{1})i) = (a_{1} + (-a_{1})) + (b_{1} + (-b_{1}))i = 0 + 0i = 0$.
+        \item If $a_{1}$ and $b_{1}$ are not both zero, then $a_{1} + b_{1}i \ne 0$ and
+              \[
+                  (a_{1} + b_{1}i)\frac{a_{1} - b_{1}i}{{a_{1}}^{2} + {b_{1}}^{2}} = 1.
+              \]
+    \end{itemize}
+
+    Thus, $K$ is a field.
+\end{proof}
+
+\begin{exercise}
+    Let $c$ be a rational number $> 0$, and let $\gamma$ be a real number such that ${\gamma}^{2} = c$. Show that the set of all numbers which can be written in the form $a + b\gamma$, where $a, b$ are rational numbers, is a field.
+\end{exercise}
+
+\begin{proof}
+    Denote the set by $K$.
+
+    $0 = 0 + 0\gamma, 1 = 1 + 0\gamma$. So $0$ and $1$ are in $K$.
+
+    If $a_{1} + b_{1}\gamma$ and $a_{2} + b_{2}\gamma$ are in $K$,
+    \begin{itemize}
+        \item $(a_{1} + b_{1}\gamma) + (a_{2} + b_{2}\gamma) = (a_{1} + a_{2}) + (b_{1} + b_{2})\gamma \in K$.
+        \item $(a_{1} + b_{1}\gamma)\cdot (a_{2} + b_{2}\gamma) = (a_{1}a_{2} + cb_{1}b_{2}) + (a_{1}b_{2} + a_{2}b_{1})\gamma \in K$.
+        \item $(a_{1} + b_{1}\gamma) + ((-a_{1}) + (-b_{1})\gamma) = (a_{1} + (-a_{1})) + (b_{1} + (-b_{1}))\gamma = 0 + 0\gamma = 0$.
+        \item If $a + b\gamma \ne 0$ and $a - b\gamma\ne 0$, $(a + b\gamma)\frac{a - b\gamma}{{a}^{2} - c{b}^{2}} = 1$.
+
+              If $a + b\gamma \ne 0$ and $a - b\gamma = 0$, $(a + b\gamma)\frac{1}{2a} = 2a\cdot\frac{1}{2a} = 1$.
+    \end{itemize}
+
+    Thus, $K$ is a field.
+\end{proof}
+
+\section{Bases}
+
+\setcounter{exercise}{0}
