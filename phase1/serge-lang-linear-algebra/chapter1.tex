@@ -290,3 +290,484 @@
     Thus, $K$ is a field.
 \end{proof}
 
+\section{Bases}
+
+\setcounter{exercise}{0}
+
+\begin{exercise}
+    Show that the following vectors are linearly independent (over $\mathbf{C}$ or $\mathbf{R}$).
+    \begin{enumerate}[label={(\alph*)},itemsep=0pt]
+        \item $(1, 1, 1)$ and $(0, 1, -2)$
+        \item $(1, 0)$ and $(1, 1)$
+        \item $(-1, 1, 0)$ and $(0, 1, 2)$
+        \item $(2, -1)$ and $(1, 0)$
+        \item $(\pi, 0)$ and $(0, 1)$
+        \item $(1, 2)$ and $(1, 3)$
+        \item $(1, 1, 0)$, $(1, 1, 1)$, and $(0, 1, -1)$,
+        \item $(0, 1, 1)$, $(0, 2, 1)$, and $(1, 5, 3)$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)},itemsep=0pt]
+        \item Let $x, y$ be two numbers such that
+              \[
+                  x(1, 1, 1) + y(0, 1, -2) = (0, 0, 0).
+              \]
+
+              It follows that
+              \[
+                  \begin{split}
+                      x = 0 \\
+                      x + y = 0 \\
+                      x - 2y = 0
+                  \end{split}.
+              \]
+
+              Solving for $x$ and $y$, we obtain $x = y = 0$. Therefore, the two vectors are linearly independent.
+        \item Let $x, y$ be two numbers such that
+              \[
+                  x(1, 0) + y(1, 1) = (0, 0).
+              \]
+
+              It follows that
+              \[
+                  \begin{split}
+                      x + y = 0 \\
+                      y = 0
+                  \end{split}.
+              \]
+
+              Solving for $x$ and $y$, we obtain $x = y = 0$. Therefore, the two vectors are linearly independent.
+        \item Let $x, y$ be two numbers such that
+              \[
+                  x(-1, 1, 0) + y(0, 1, 2) = (0, 0, 0).
+              \]
+
+              It follows that
+              \[
+                  \begin{split}
+                      -x = 0 \\
+                      x + y = 0 \\
+                      2y = 0
+                  \end{split}.
+              \]
+
+              Solving for $x$ and $y$, we obtain $x = y = 0$. Therefore, the two vectors are linear independent.
+        \item Let $x, y$ be two numbers such that
+              \[
+                  x(2, -1) + y(1, 0) = (0, 0).
+              \]
+
+              It follows that
+              \[
+                  \begin{split}
+                      2x + y = 0 \\
+                      -x = 0
+                  \end{split}.
+              \]
+
+              Solving for $x$ and $y$, we obtain $x = y = 0$. Therefore, the two vectors are linear independent.
+        \item Let $x, y$ be two numbers such that
+              \[
+                  x(\pi, 0) + y(0, 1) = (0, 0).
+              \]
+
+              It follows that
+              \[
+                  \begin{split}
+                      \pi x = 0 \\
+                      y = 0
+                  \end{split}.
+              \]
+
+              Solving for $x$ and $y$, we obtain $x = y = 0$. Therefore, the two vectors are linear independent.
+        \item Let $x, y$ be two numbers such that
+              \[
+                  x(1, 2) + y(1, 3) = (0, 0)
+              \]
+
+              It follows that
+              \[
+                  \begin{split}
+                      x + y = 0 \\
+                      2x + 3y = 0
+                  \end{split}.
+              \]
+
+              Subtract twice the 1st equation from the 2nd equation, we obtain $0 = (2x + 3y) - 2(x + y) = y$, so $y = 0$ and $x = 0 - y = 0$.
+
+              Hence $x = y = 0$, which means the two vectors are linearly independent.
+        \item Let $x, y, z$ be three numbers such that
+              \[
+                  x(1, 1, 0) + y(1, 1, 1) + z(0, 1, -1) = (0, 0, 0).
+              \]
+
+              It follows that
+              \[
+                  \begin{split}
+                      x + y = 0 \\
+                      x + y + z = 0 \\
+                      y - z = 0
+                  \end{split}.
+              \]
+
+              Subtracting the 1st equation from the 2nd equation yields $z = 0$. So that from the 3rd equation, $y = z = 0$. From the 2nd equation, $x = 0$.
+
+              Hence $x = y = z = 0$, and the three vectors are linearly independent.
+        \item Let $x, y, z$ be three numbers such that
+              \[
+                  x(0, 1, 1) + y(0, 2, 1) + z(1, 5, 3) = (0, 0, 0).
+              \]
+
+              It follows that
+              \[
+                  \begin{split}
+                      z = 0 \\
+                      x + 2y + 5z = 0 \\
+                      x + y + 3z = 0
+                  \end{split}.
+              \]
+
+              The 1st equation means $z = 0$. Subtracting the 3rd equation from the 2nd equation yields $0 = (x + 2y + 5z) - (x + y + 3z) = y + 2z$. Together with $z = 0$, we obtain $y = 0$. Also, $x = 0 - y - 3z = 0$.
+
+              Hence $x = y = z = 0$, and the three vectors are linearly independent.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    Express the given vector $X$ as a linear combination of the given vectors $A, B$, and find the coordinates of $X$ with respect to $A, B$.
+    \begin{enumerate}[label={(\alph*)},itemsep=0pt]
+        \item $X = (1, 0), A = (1, 1), B = (0, 1)$
+        \item $X = (2, 1), A = (1, -1), B = (1, 1)$
+        \item $X = (1, 1), A = (2, 1), B = (-1, 0)$
+        \item $X = (4, 3), A = (2, 1), B = (-1, 0)$
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)},itemsep=0pt]
+        \item Let $a, b$ be numbers such that
+              \[
+                  a(1, 1) + b(0, 1) = (1, 0).
+              \]
+
+              In term of coordinates,
+              \[
+                  \begin{split}
+                      a = 1 \\
+                      a + b = 0
+                  \end{split}.
+              \]
+
+              Solving for $a$ and $b$, we obtain $a = 1$ and $b = -1$. Hence $X = 1\cdot A + (-1)\cdot B$.
+        \item Let $a, b$ be numbers such that
+              \[
+                  a(1, -1) + b(1, 1) = (2, 1).
+              \]
+
+              In term of coordinates,
+              \[
+                  \begin{split}
+                      a + b = 2 \\
+                      -a + b = 1
+                  \end{split}.
+              \]
+
+              Solving for $a$ and $b$, we obtain $a = \frac{1}{2}$ and $b = \frac{3}{2}$. Hence $X = \frac{1}{2}\cdot A + \frac{3}{2}\cdot B$.
+        \item Let $a, b$ be numbers such that
+              \[
+                  a(2, 1) + b(-1, 0) = (1, 1).
+              \]
+
+              In term of coordinates,
+              \[
+                  \begin{split}
+                      2a - b = 1 \\
+                      a = 1
+                  \end{split}.
+              \]
+
+              Solving for $a$ and $b$, we obtain $a = 1$ and $b = 1$. Hence $X = 1\cdot A + 1\cdot B$.
+        \item Let $a, b$ be numbers such that
+              \[
+                  a(2, 1) + b(-1, 0) = (4, 3).
+              \]
+
+              In term of coordinates,
+              \[
+                  \begin{split}
+                      2a - b = 4 \\
+                      a = 3
+                  \end{split}.
+              \]
+
+              Solving for $a$ and $b$, we obtain $a = 3$ and $b = 2$. Hence $X = 3\cdot A + 2\cdot B$.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    Find the coordinates of the vector $X$ with respect to the vectors $A, B, C$.
+    \begin{enumerate}[label={(\alph*)},itemsep=0pt]
+        \item $X = (1, 0, 0), A = (1, 1, 1), B = (-1, 1, 0), C = (1, 0, -1)$
+        \item $X = (1, 1, 1), A = (0, 1, -1), B = (1, 1, 0), C = (1, 0, 2)$
+        \item $X = (0, 0, 1), A = (1, 1, 1), B = (-1, 1, 0), C = (1, 0, -1)$
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)},itemsep=0pt]
+        \item Let $a, b, c$ be numbers such that
+              \[
+                  a(1, 1, 1) + b(-1, 1, 0) + c(1, 0, -1) = (1, 0, 0).
+              \]
+
+              In term of coordinates,
+              \[
+                  \begin{split}
+                      a - b + c = 1 \\
+                      a + b = 0 \\
+                      a - c = 0
+                  \end{split}
+              \]
+
+              Add the 2nd and 3rd equation to the 1st equation, we obtain $1 = (a - b + c) + (a + b) + (a - c) = 3a$, so $a = \frac{1}{3}$. From the 2nd and 3rd equation,  $b = \frac{-1}{3}$ and $c = \frac{1}{3}$.
+
+              Hence $X = \frac{1}{3}\cdot A + \frac{-1}{3}\cdot B + \frac{1}{3}\cdot C$.
+        \item Let $a, b, c$ be numbers such that
+              \[
+                  a(0, 1, -1) + b(1, 1, 0) + c(1, 0, 2) = (1, 1, 1).
+              \]
+
+              In term of coordinates,
+              \[
+                  \begin{split}
+                      b + c = 1 \\
+                      a + b = 1 \\
+                      -a + 2c = 1
+                  \end{split}.
+              \]
+
+              Adding the 2nd equation to and subtracting the 1st equation from the 3rd equation yield $1 = (-a + 2c) + (a + b) - (b + c) = c$. From the 2nd equation, $b = 0$. From the 3rd equation, $a = 1$.
+
+              Hence $X = 1\cdot A + 0\cdot B + 1\cdot C$.
+        \item Let $a, b, c$ be numbers such that
+              \[
+                  a(1, 1, 1) + b(-1, 1, 0) + c(1, 0, -1) = (0, 0, 1).
+              \]
+
+              In term of coordinates,
+              \[
+                  \begin{split}
+                      a - b + c = 0 \\
+                      a + b = 0 \\
+                      a - c = 1
+                  \end{split}
+              \]
+
+              Adding the 2nd and 3rd equation to the 1st equation yields $1 = (a - b + c) + (a + b) + (a - c) = 3a$, so $a = \frac{1}{3}$. From the 2nd equation, $b = \frac{-1}{3}$. From the 3rd equation, $c = \frac{-2}{3}$.
+
+              Hence $X = \frac{1}{3}\cdot A + \frac{-1}{3}\cdot B + \frac{-2}{3}\cdot C$.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    Let $(a, b)$ and $(c, d)$ be two vectors in the plane. If $ad - bc = 0$, show that they are linearly dependent. If $ad - bc\ne 0$, show that they are linearly independent.
+\end{exercise}
+
+\begin{proof}
+    \begin{itemize}
+        \item $ad - bc = 0$.
+
+              If $a = b = 0$, the two vectors are linearly dependent.
+
+              Otherwise, $a$ and $b$ are not all zero. No matter which number is non-zero, the following linear combinations hold
+              \[
+                  \begin{split}
+                      d(a, b) + (-b)(c, d) = (ad - bc, db - bd) = (0, 0), \\
+                      c(a, b) + (-a)(c, d) = (ca - ac, bc - ad) = (0, 0).
+                  \end{split}
+              \]
+
+              Hence, the two vectors are linear dependent.
+        \item $ad - bc\ne 0$.
+
+              Let $x, y$ be numbers such that $x(a, b) + y(c, d) = (0, 0)$. In term of coordinates,
+              \[
+                  \begin{split}
+                      ax + cy = 0 \\
+                      bx + dy = 0
+                  \end{split}.
+              \]
+
+              We deduce that
+              \[
+                  \begin{split}
+                      0 = d(ax + cy) - c(bx + dy) = (ad - bc)x \\
+                      0 = b(ax + cy) - a(bx + dy) = (bc - ad)y
+                  \end{split}.
+              \]
+
+              Since $ad - bc\ne 0$, $x = y = 0$. Therefore, the two vectors are linearly independent.
+    \end{itemize}
+\end{proof}
+
+\begin{exercise}
+    Consider the vector space of all functions of a variable $t$. Show that the following pairs of functions are linearly independent.
+    \begin{enumerate}[label={(\alph*)},itemsep=0pt]
+        \item $1, t$
+        \item $t, t^{2}$
+        \item $t, t^{4}$
+        \item $e^{t}, t$
+        \item $t{e}^{t}, e^{2t}$
+        \item $\sin t, \cos t$
+        \item $t, \sin t$
+        \item $\sin t, \sin 2t$
+        \item $\cos t, \cos 3t$
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Let $a, b$ be numbers such that $a\cdot 1 + b\cdot t = 0$ for every $t$.
+
+              When $t = 0$, $a = 0$. When $t = 1$, $a + b = 0$. So $a = b = 0$. Hence $1, t$ are linearly independent.
+        \item Let $a, b$ be numbers such that $a\cdot t + b\cdot t^{2} = 0$ for every $t$.
+
+              When $t\ne 0$, $a + b\cdot t = 0$. According to (a), $a = b = 0$. Hence $t, t^{2}$ are linearly independent.
+        \item Let $a, b$ be numbers such that $a\cdot t + b\cdot t^{4} = 0$ for every $t$.
+
+              When $t\ne 0$, $a + b{t}^{3} = 0$. When $t = 1$, $a + b = 0$. When $t = -1$, $a - b = 0$. So $a = b = 0$. Hence $t, t^{4}$ are linearly independent.
+        \item Let $a, b$ be numbers such that $a{e}^{t} + b\cdot t = 0$ for every $t$.
+
+              Differentiating yields $a{e}^{t} + b = 0$. Therefore $b = bt$ for every $t$, which means $b = 0$. Substitute $b = 0$ to the linear combination, we obtain $a{e}^{t} = 0$, which yields $a = 0$.
+
+              Hence $e^{t}, t$ are linearly independent.
+        \item Let $a, b$ be numbers such that $a\cdot t{e}^{t} + b\cdot e^{2t} = 0$ for every $t$.
+
+              Substituting $t = 0$ yields $b = 0$. Substituting $t = 1$ yields $a\cdot e + b\cdot e^{2} = 0$. So $a = b = 0$.
+
+              Hence $t{e}^{t}, e^{2t}$ are linearly independent.
+        \item Let $a, b$ be numbers such that $a\sin t + b\cos t = 0$ for every $t$.
+
+              Differentiating yields $a\cos t - b\sin t = 0$. So $0 = \cos t (a\sin t + b\cos t) - \sin t(a\cos t - b\sin t) = b({(\cos t)}^{2} + {(\sin t)}^{2}) + a(\cos t\sin t - \sin t\cos t) = b$. Subtituting $b = 0$ to the linear combination yields $a = 0$.
+
+              Hence $\sin t, \cos t$ are linearly independent.
+        \item Let $a, b$ be numbers such that $at + b\sin t = 0$ for every $t$.
+
+              Differentiating yields $a + b\cos t = 0$. When $t = 0$, $a + b = 0$. When $t = \frac{\pi}{2}$, $a = 0$. So $a = b = 0$.
+
+              Hence $t, \sin t$ are linearly independent.
+        \item Let $a, b$ be numbers such that $a\sin t + b\sin 2t = 0$ for every $t$.
+
+              When $t = \frac{\pi}{2}$, $a = 0$. When $t = \frac{\pi}{4}$, $\frac{\sqrt{2}}{2}\cdot a + b = 0$. From these relations, we deduce that $a = b = 0$.
+
+              Hence $\sin t, \sin 2t$ are linearly independent.
+        \item Let $a, b$ be numbers such that $a\cos t + b\cos 3t = 0$ for every $t$.
+
+              When $t = 0$, $a + b = 0$. When $t = \frac{\pi}{4}$, $\frac{\sqrt{2}}{2}\cdot a + \frac{-\sqrt{2}}{2}b = 0$. So $a = b = 0$.
+
+              Hence $\cos t, \cos 3t$ are linearly independent.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    Consider the vector space of functions defined for $t > 0$. Show that the following pairs of functions are linearly independent.
+    \begin{enumerate}[label={(\alph*)},itemsep=0pt]
+        \item $t, 1/t$
+        \item $e^{t}, \log t$
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)},itemsep=0pt]
+        \item Let $a, b$ be numbers such that $at + b/t = 0$ for every $t > 0$.
+
+              Differentiate both sides, we obtain $a - b/t^{2} = 0$ for every $t > 0$. Equivalently, $a{t}^{2} - b = 0$ for every $t > 0$. Multiply both sides by $t$, we obtain  $at^{2} + b = 0$ for every $t > 0$. So $0 = (at^{2} + b) - (at^{2} - b) = 2b$, and $b = 0$. Subtitute $b = 0$ to the linear combination, we obtain $a = 0$.
+
+              Hence $t, 1/t$ are linearly independent.
+        \item Let $a, b$ be numbers such that $a{e}^{t} + b\log t = 0$ for every $t > 0$.
+
+              When $t = 1$, $ae = 0$, which implies $a = 0$. When $t = e$, $a{e}^{e} + b = 0$. Together with $a = 0$, we obtain $b = 0$.
+
+              Hence $e^{t}, \log t$ are linearly independent.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}\label{chapter1:section2:exercise7}
+    What are the coordinates of the function $3\sin t + 5\cos t = f(t)$ with respect to the basis $\{ \sin t, \cos t \}$?
+\end{exercise}
+
+\begin{proof}
+    The coordinates are $(3, 5)$.
+\end{proof}
+
+\begin{exercise}
+    Let $D$ be the derivative $d/dt$. Let $f(t)$ be as in Exercise~\ref{chapter1:section2:exercise7}. What are the coordinates of the function $Df(t)$ with respect to the basis of Exercise~\ref{chapter1:section2:exercise7}?
+\end{exercise}
+
+\begin{proof}
+    $Df(t) = 3\cos t - 5\sin t$. The coordinates of $Df(t)$ are $(-5, 3)$.
+\end{proof}
+
+\begin{exercise}
+    Let $A_{1},\ldots, A_{r}$ be vectors in $\mathbb{R}^{n}$ and assume that they are mutually perpendicular (i.e.\@ any two of them are perpendicular), and that none of them is equal to $O$. Prove that they are linearly independent.
+\end{exercise}
+
+\begin{proof}
+    Let $a_{1},\ldots, a_{r}$ be real numbers such that
+    \[
+        a_{1}A_{1} + \cdots + a_{r}A_{r} = O.
+    \]
+
+    Since $A_{i}$ is perpendicular to any $A_{j}$ ($j\ne i$)
+    \[
+        0 = A_{i}\cdot O = A_{i}(a_{1}A_{1} + \cdots + a_{r}A_{r}) = a_{i}(A_{i}\cdot A_{i}).
+    \]
+
+    Suppose that $A_{i} = (x_{i.1}, x_{i.2}, \ldots, x_{i.n})$, then $A_{i}\cdot A_{i} = {x_{i.1}}^{2} + \cdots + {x_{i.n}}^{2}$. Since $A_{i}\ne O$, the coordinates of $A_{i}$ are not all zero, therefore $A_{i}\cdot A_{i} > 0$ and $a_{i} = 0$.
+
+    Hence $a_{i} = 0$ for every $1\le i \le r$. Thus, $A_{1}, \ldots, A_{r}$ are linearly independent.
+\end{proof}
+
+\begin{exercise}
+    Let $v, w$ be elements of a vector space and assume that $v\ne O$. If $v, w$ are linearly dependent, show that there is a number $a$ such that $w = av$.
+\end{exercise}
+
+\begin{proof}
+    Since $v, w$ are linearly dependent, there exist numbers $x, y$ such that $xv + yw = O$ and $x, y$ are not both zero.
+
+    Assume that $y = 0$, then $xv = O$. Because $v\ne O$, $x = 0$. So $x = y = 0$, which contradicts the definition of $x$ and $y$. Therefore $y\ne 0$, and there exists number $y^{-1}$ such that $yy^{-1} = y^{-1}y = 1$. So $(y^{-1}x)v + w = O$, equivalently, $w = (-y^{-1}x)v$.
+
+    Thus, there is a number $a$ such that $w = av$.
+\end{proof}
+
+\section{Dimension of a vector space}
+
+There is no exercises in this section.
+
+\section{Sums and Direct sums}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
