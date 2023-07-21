@@ -25,7 +25,9 @@
 \RequirePackage{booktabs}
 \RequirePackage[inline]{enumitem}
 
-\setcounter{chapter}{-1}
+\setcounter{chapter}{0}
+\setcounter{section}{-1}
+\counterwithout{section}{chapter}
 
 \pagestyle{fancy}
 \setlength{\headheight}{16pt}
@@ -67,7 +69,7 @@
 \array{@{}l@{\quad}l@{}}%
 }
 
-\newcommand{\card}{\left\vert{#1}\right\vert}
+\newcommand{\card}[1]{\left\vert{#1}\right\vert}
 \newcommand{\rank}{\text{rank}}
 \newcommand{\abs}[1]{\left\vert{#1}\right\vert}
 \newcommand{\norm}[1]{\left\Vert{#1}\right\Vert}
