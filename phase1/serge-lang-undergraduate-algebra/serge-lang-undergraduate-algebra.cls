@@ -55,7 +55,6 @@
 \newtheorem{lemma}[theorem]{Lemma}
 
 \newtheorem{exercise}{Exercise}
-\counterwithin{exercise}{chapter}
 \newenvironment{sqcases}{%
     \matrix@check\sqcases\env@sqcases
 }{%
