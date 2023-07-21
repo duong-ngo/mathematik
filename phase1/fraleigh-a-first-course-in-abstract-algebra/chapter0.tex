@@ -1,0 +1,556 @@
+\chapter{Sets and Relations}
+
+\section{Sets and Relations}
+
+In Exercises 1 through 4, describe the set by listing its elements.
+
+\begin{exercise}
+    $\{ x\in\mathbb{R} \vert x^{2} = 3 \}$
+\end{exercise}
+
+\begin{proof}
+    \[
+        \{ x\in\mathbb{R} \vert x^{2} = 3 \} = \{ \sqrt{3}, -\sqrt{3} \}.
+    \]
+\end{proof}
+
+\begin{exercise}
+    $\{ m\in\mathbb{Z} \vert m^{2} = 3 \}$
+\end{exercise}
+
+\begin{proof}
+    \[
+        \{ m\in\mathbb{Z} \vert m^{2} = 3 \} = \varnothing.
+    \]
+\end{proof}
+
+\begin{exercise}
+    $\{ m\in\mathbb{Z} \vert mn = 60 \text{ for some $n\in\mathbb{Z}$ } \}$
+\end{exercise}
+
+\begin{proof}
+    \begin{multline*}
+        \{ m\in\mathbb{Z} \vert mn = 60 \text{\ for some $n\in\mathbb{Z}$ } \} \\
+        = \{ 1, -1, 2, -2, 3, -3, 4, -4, 5, -5, 6, -6, 10, -10, 12, -12, 15, -15, 20, -20, 30, -30, 60, -60 \}.
+    \end{multline*}
+\end{proof}
+
+\begin{exercise}
+    $\{ m\in\mathbb{Z} \vert m^{2} - m < 115 \}$
+\end{exercise}
+
+\begin{proof}
+    $m^{2} - m < 115$ if and only if ${\left(m - \frac{1}{2}\right)}^{2} < \frac{461}{4}$. Equivalently, $\frac{1}{2} + \frac{-\sqrt{461}}{2} < m < \frac{1}{2} + \frac{\sqrt{461}}{2}$
+
+    The smallest integer which is not less than $\frac{1}{2} + \frac{-\sqrt{461}}{2}$ is $-10$. The greatest integer which is not greater than $\frac{1}{2} + \frac{\sqrt{461}}{2}$ is $11$.
+
+    \begin{multline*}
+        \{ m\in\mathbb{Z} \vert m^{2} - m < 115 \} \\
+        = \{ -10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 \}.
+    \end{multline*}
+\end{proof}
+
+In Exercises 5 through 10, decide whether the object described is indeed a set (is well defined). Give an alternate description of each set.
+
+\begin{exercise}
+    $\{ n\in\mathbb{Z}^{+} \vert \text{$n$ is a large number} \}$
+\end{exercise}
+
+\begin{proof}
+    This is not a well-defined set. Because ``large number'' is undefined.
+\end{proof}
+
+\begin{exercise}
+    $\{ n\in\mathbb{Z} \vert n^{2} < 0 \}$
+\end{exercise}
+
+\begin{proof}
+    This is a well-defined set.
+
+    This is the empty set, since there is no integer whose square is less than zero.
+\end{proof}
+
+\begin{exercise}
+    $\{ n\in\mathbb{Z} \vert 39 < n^{3} < 57 \}$
+\end{exercise}
+
+\begin{proof}
+    This is a well-defined set.
+
+    There is no cube which is less than $57$ and greater than $39$. So this set is the empty set.
+\end{proof}
+
+\begin{exercise}
+    $\{ x\in\mathbb{Q} \vert \text{$x$ is almost an integer} \}$
+\end{exercise}
+
+\begin{proof}
+    This is not a well-defined set. Because ``almost an integer'' is undefined.
+\end{proof}
+
+\begin{exercise}
+    $\{ x\in\mathbb{Q} \vert \text{$x$ may be written with denominator greater than $100$} \}$
+\end{exercise}
+
+\begin{proof}
+    This is a well-defined set.
+
+    Let $x = \frac{p}{q}\in\mathbb{Q}$ where $q$ is a positive integer, $p$ is an integer. Then $x = \frac{101p}{101q}$, the deniminator $101q$ is greater than $100$.
+
+    Hence this set is $\mathbb{Q}$.
+\end{proof}
+
+\begin{exercise}
+    $\{ x\in\mathbb{Q} \vert \text{$x$ may be written with positive denominator less than $4$} \}$
+\end{exercise}
+
+\begin{proof}
+    This is a well-defined set.
+
+    Let $x = \frac{p}{q}\in\mathbb{Q}$ where $q$ is a positive integer, $p$ is an integer, and $p, q$ are relatively prime. $x$ can be written with positive denominator less than $4$ if and only if $q < 4$.
+
+    This set is also the set of rational numbers which can be written with positive rational number less than $4$ in lowest terms.
+\end{proof}
+
+\begin{exercise}
+    List the elements in $\{ a, b, c \} \times \{ 1, 2, c \}$
+\end{exercise}
+
+\begin{proof}
+    \begin{multline*}
+        \{ a, b, c \} \times \{ 1, 2, c \} \\
+        = \{ (a, 1), (b, 1), (c, 1), (a, 2), (b, 2), (c, 2), (a, c), (b, c), (c, c) \}.
+    \end{multline*}
+\end{proof}
+
+\begin{exercise}
+    Let $A = \{ 1, 2, 3 \}$ and $B = \{ 2, 4, 6 \}$. For each relation between $A$ and $B$ given as a subset of $A\times B$, decide whether it is a function mapping $A$ into $B$. If it is a function, decide whether it is one to one and whether it is onto $B$.
+    \begin{enumerate}[label={\textbf{\alph*.}},itemsep=0pt]
+        \item $\{ (1, 4), (2, 4), (3, 6) \}$
+        \item $\{ (1, 4), (2, 6), (3, 4) \}$
+        \item $\{ (1, 6), (1, 2), (1, 4) \}$
+        \item $\{ (2, 2), (1, 6), (3, 4) \}$
+        \item $\{ (1, 6), (2, 6), (3, 6) \}$
+        \item $\{ (1, 2), (2, 6), (2, 4) \}$
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={\textbf{\alph*.}},itemsep=0pt]
+        \item This is a function mapping $A$ into $B$, and it is not one-to-one nor onto.
+        \item This is a function mapping $A$ into $B$, and it is not one-to-one nor onto.
+        \item This is not a function mapping $A$ into $B$.
+        \item This is a function mapping $A$ into $B$, and it is one-to-one and onto.
+        \item This is a function mapping $A$ into $B$, and it is not one-to-one nor onto.
+        \item This is not a function mapping $A$ into $B$.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    Illustrate geometrically that two line segments $AB$ and $CD$ of different length have the same number of points by indicating in Fig. 0.23 what point $y$ of $CD$ might be paired with point $x$ of $AB$.
+\end{exercise}
+
+\begin{proof}
+    Let $AB$ and $CD$ be parallel straight lines.
+
+    $AC$ intersects $CD$ at $P$. $x$ is a point on $AB$. To illustrate that the two line segments $AB$ and $CD$ have the same number of points, we pair $x$ with the intersection of $CD$ and $Px$.
+\end{proof}
+
+\begin{exercise}
+    Recall that for $a, b \in\mathbb{R}$ and $a < b$, the closed interval $[a, b]$ in $\mathbb{R}$ is defined by $[a, b] = \{ x \in R \vert a \le x \le b \}$.
+
+    Show that the given intervals have the same cardinality by giving a formula for a one-to-one function $f$ mapping the first interval onto the second.
+    \begin{enumerate}[label={\textbf{\alph*.}},itemsep=0pt]
+        \item $[0, 1]$ and $[0, 2]$
+        \item $[1, 3]$ and $[5, 35]$
+        \item $[a, b]$ and $[c, d]$
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={\textbf{\alph*.}},itemsep=0pt]
+        \item $f(x) = 2x$
+        \item $f(x) = 15x - 10$
+        \item $f(x) = c + (d-c)\frac{x-a}{b-a}$
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    Show that $S = \{ x\in\mathbb{R} \vert 0 < x < 1 \}$ has the same cardinality as $\mathbb{R}$.
+\end{exercise}
+
+\begin{proof}
+    The function $\tan: \left(\frac{-\pi}{2}, \frac{\pi}{2}\right) \to \mathbb{R}$ maps $(-1, 1)$ one to one onto $\mathbb{R}$.
+
+    The function $f: (0, 1) \to \left(\frac{-\pi}{2}, \frac{\pi}{2}\right)$ maps $x$ to $\frac{-\pi}{2} + \pi x$ and $f$ is an one-to-one and onto mapping.
+
+    Hence $g$, where $g$ maps $(0, 1)$ into $\mathbb{R}$ and $g(x) = \tan(f(x))$ is an one-to-one and onto mapping. Thus $S$ has the same cardinality as $\mathbb{R}$.
+\end{proof}
+
+\begin{exercise}
+    List the elements of the power set of the given set and give the cardinality of the power set.
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item $\varnothing$
+        \item $\{ a \}$
+        \item $\{ a, b \}$
+        \item $\{ a, b, c \}$
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item $\mathscr{P}(\varnothing) = \{ \varnothing \}$.
+        \item $\mathscr{P}(\{ a \}) = \{ \varnothing, \{ a \} \}$.
+        \item $\mathscr{P}(\{ a, b \}) = \{ \varnothing, \{ a \}, \{ b \}, \{ a, b \} \}$.
+        \item $\mathscr{P}(\{ a, b, c \}) = \{ \varnothing, \{ a \}, \{ b \}, \{ c \}, \{ a, b \}, \{ b, c \}, \{ c, a \}, \{ a, b, c \} \}$.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    Let $A$ be a finite set, and let $\card{A} = s$. Based on the preceeding exercise, make a conjecture about the value of $\card{\mathscr{P}(A)}$. Then try to prove your conjecture.
+\end{exercise}
+
+\begin{proof}
+    Conjecture: $\card{\mathscr{P}(A)} = {2}^{s}$.
+
+    We will prove this by mathematical induction.
+
+    When $s = 0$, $\card{\mathscr{P}(A)} = 1$ since $\mathscr{P}(A) = \{ \varnothing \}$.
+
+    Assume that for $s = n$, $\card{\mathscr{P}(A)} = {2}^{n}$. We will prove that when $s = n+1$, $\card{\mathscr{P}(A)} = {2}^{n+1}$. Let $A = \{ a_{1}, a_{2}, \ldots, a_{n}, a_{n+1} \}$, $B = \{ a_{1}, a_{2}, \ldots, a_{n} \}$. Since $B\subset A$, every subset of $B$ is also a subset of $A$. $\mathscr{P}(A)$ includes subsets containing $a_{n+1}$ and subsets without $a_{n+1}$.
+
+    We define an \textit{one-to-one} mapping $\phi$ from the set of all subsets of $A$ containing $a_{n+1}$ \textit{onto} the set of all subsets of $A$ which do not contain $a_{n+1}$
+    \[
+        \phi(S) = S\setminus \{ a_{n+1} \}
+    \]
+
+    According to the induction hypothesis, the cardinality of the set of all subsets of $A$ which do not contain $a_{n+1}$ is ${2}^{n}$. Together with the above one-to-one and onto mapping, we conclude that $\card{\mathscr{P}(A)} = {2}^{n+1}$.
+
+    Due to the principle of mathematical induction, $\card{\mathscr{P}(A)} = {2}^{s}$.
+\end{proof}
+
+\begin{exercise}
+    For any set $A$, finite or infinite, let $B^{A}$ be the set of all functions mapping $A$ into the set $B = \{ 0, 1 \}$. Show that the cardinality of $B^{A}$ is the same as the cardinality of the set $\mathscr{P}(A)$.
+\end{exercise}
+
+\begin{proof}
+    Let $f$ be an element of $B^{A}$, $S$ be the subset of $A$ whose elements are mapped to $1$ by $f$. The pairing $f\leftrightarrow S$ is an one-to-one and onto mapping from $B^{A}$ to $\mathscr{P}(A)$.
+
+    Thus $\card{B^{A}} = \card{\mathscr{P}(A)}$.
+\end{proof}
+
+\begin{exercise}
+    Show that the power set of a set $A$, finite or infinite, has too many elements to be able to be put in a one-to-one correspondence with $A$. Explain why this intuitively means that there are an infinite number of infinite cardinal numbers.
+
+    Is \textit{the set of everything} a logically acceptable concept? Why or why not?
+\end{exercise}
+
+\begin{proof}
+    Let $\phi$ be an one-to-one mapping from $A$ into $\mathscr{P}(A)$.
+
+    An element $x$ of $A$ is either in $\phi(x)$ or not. We define a subset $S$ of $A$ as follows: $S$ contains elements $x$ of $A$ such that $x\notin\phi(x)$. If $x\in\phi(x)$ then $S\ne\phi(x)$, if $x\notin\phi(x)$ then $S\ne\phi(x)$. So there is no element $a$ of $A$ such that $\phi(a) = S$. In other words, $\phi$ is not onto. Hence $\mathscr{P}(A)$ cannot be put in a one-to-one correspondence with $A$.
+
+    There are an infinite number of infinite cardinal numbers: $\card{\mathbb{Z}}, \card{\mathscr{P}(\mathbb{Z})}, \card{\mathscr{P}(\mathscr{P}(\mathbb{Z}))}\ldots$
+
+    \textit{The set of everything} is not a logicaly acceptable concept, because it violates the result that has just been proven (a set cannot be put in a one-to-one correspondence with its power set).
+\end{proof}
+
+\begin{exercise}
+    Let $A = \{ 1, 2 \}$ and let $B = \{ 3, 4, 5 \}$.
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item Illustrate, using $A$ and $B$, why we consider that $2 + 3 = 5$. Use similar reasoning with sets of your own choice to decide what you would consider to be the value of
+              \begin{enumerate}[label={\roman*.},topsep=0pt,itemsep=0pt]
+                  \item $3 + \aleph_{0}$,
+                  \item $\aleph_{0} + \aleph_{0}$.
+              \end{enumerate}
+        \item Illustrate why we consider that $2 \cdot 3 = 6$ by plotting the points of $A \times B$ in the plane $\mathbb{R}\times\mathbb{R}$. Use similar reasoning with a figure in the text to decide what you would consider to be the value of $\aleph_{0}\cdot\aleph_{0}$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item $A$ and $B$ are disjoint set. Let $C = \{ 1, 2, 3, 4, 5 \}$. $A, B$ is a partition of $C$. Hence $2 + 3 = \card{A} + \card{B} = \card{C} = 5$.
+              \begin{enumerate}[label={\roman*.}]
+                  \item Let $A = \{ -2, -1, 0 \}$, $B = \mathbb{Z}^{+}$. $3 + \aleph_{0} = \card{A} + \card{B} = \card{\{ -2, -1, 0, 1, 2, 3,\ldots \}} = \aleph_{0}$.
+                  \item Let $A = \{ 0, -1, -2,\ldots \}$, $B = \{ 1, 2, 3, \ldots \}$. $\aleph_{0} + \aleph_{0} = \card{A} + \card{B} = \card{\mathbb{Z}} = \aleph_{0}$.
+              \end{enumerate}
+        \item $\aleph_{0}\times\aleph_{0} = \aleph_{0}$.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    How many numbers in the interval $0\le x\le 1$ can be expressed in the form $.\#\#$, where each $\#$ is a digit $0, 1, 2, 3,\ldots, 9$? How many are there of the form $.\#\#\#\#\#$? Following this idea, and Exercise 15, decide what you would consider to be the value of $10^{\aleph_{0}}$. How about $12^{\aleph_{0}}$ and $2^{\aleph_{0}}$?
+\end{exercise}
+
+\begin{proof}
+    There are $10^{2}$ numbers in the interval $0\le x\le 1$ can be expressed in the form $.\#\#$.
+
+    There are $10^{5}$ numbers in the interval $0\le x\le 1$ can be expressed in the form $.\#\#\#\#\#$.
+
+    $10^{\aleph_{0}}$ is the cardinality of the set of all numbers in the interval $0\le x\le 1$.
+
+    $12^{\aleph_{0}}$ (instead of using decimal expansion, we use 12-ary expansion) and $2^{\aleph_{0}}$ (instead of using decial expansion, we use binary expansion) are the same as $10^{\aleph_{0}}$.
+\end{proof}
+
+\begin{exercise}
+    Continuing the idea in the preceding exercise and using Exercises 18 and 19, use exponential notation to fill in the three blanks to give a list of five cardinal numbers, each of which is greater than the preceding one.
+    \[
+        \aleph_{0}, \card{\mathbb{R}}, \_, \_, \_.
+    \]
+\end{exercise}
+
+\begin{proof}
+    \[
+        \aleph_{0}, \card{\mathbb{R}}, 2^{\card{\mathbb{R}}}, 2^{2^{\card{\mathbb{R}}}}, 2^{2^{2^{\card{\mathbb{R}}}}}.
+    \]
+\end{proof}
+
+In Exercises 23 through 27, find the number of different partitions of a set having the given number of elements.
+
+\begin{exercise}1 element\end{exercise}
+
+\begin{proof}
+    $1 = 1$.
+
+    A set of 1 element has 1 partition.
+\end{proof}
+
+\begin{exercise}2 elements\end{exercise}
+
+\begin{proof}
+    $2 = 2 = 1 + 1$.
+
+    A set of 2 elements has 2 partitions.
+\end{proof}
+
+\begin{exercise}3 elements\end{exercise}
+
+\begin{proof}
+    $3 = 3 = 1 + 2 = 1 + 1 + 1$.
+
+    A set of 3 elements has 3 partitions.
+\end{proof}
+
+\begin{exercise}4 elements\end{exercise}
+
+\begin{proof}
+    $4 = 4 = 1 + 3 = 2 + 2 = 1 + 1 + 2 = 1 + 1 + 1 + 1$.
+
+    A set of 4 elements has 5 partitions.
+\end{proof}
+
+\begin{exercise}5 elements\end{exercise}
+
+\begin{proof}
+    $5 = 5 = 1 + 4 = 2 + 3 = 1 + 1 + 3 = 1 + 2 + 2 = 1 + 1 + 1 + 2 = 1 + 1 + 1 + 1 + 1$.
+
+    A set of 5 elements has 7 partitions.
+\end{proof}
+
+\begin{exercise}
+    Consider a partition of a set $S$. The paragraph following Definition 0.18 explained why the relation
+    \[
+        x\mathscr{R}y \text{\ if and only if $x$ and $y$ are in the same cell}
+    \]
+
+    satisfies the symmetric condition for an equivalence relation. Write similar explanations of why the reflexive and transitive properties are also satisifed.
+\end{exercise}
+
+\begin{proof}
+    $x$ and $x$ are in the same cell, so $\mathscr{R}$ is reflexive.
+
+    $x\mathscr{R}y$ and $y\mathscr{R}z$ implies $x, y, z$ are in the same cell, so $x\mathscr{R}z$. Hence $\mathscr{R}$ is also transitive.
+\end{proof}
+
+In Exercises 29 through 34, determine whether the given relation is an equivalence relation on the set. Describe the partition arising from each equivalence relation.
+
+\begin{exercise}
+    $n\mathscr{R}m$ in $\mathbb{Z}$ if $nm > 0$
+\end{exercise}
+
+\begin{proof}
+    $0\cdot 0 = 0$. So $\mathscr{R}$ is not reflexive.
+
+    $nm > 0$ if and only if $mn > 0$. So $\mathscr{R}$ is symmetric.
+
+    $nm > 0$ and $mp > 0$ implies $n{m}^{2}p > 0$. On the other hand, $m\ne 0$, so $m^{2} > 0$. Therefore $mp > 0$. So $\mathscr{R}$ is transitive.
+
+    Thus $\mathscr{R}$ is not an equivalence relation.
+\end{proof}
+
+\begin{exercise}
+    $x\mathscr{R}y$ in $\mathbb{R}$ if $x\ge y$
+\end{exercise}
+
+\begin{proof}
+    For every real number $x$, $x\ge x$. So $\mathscr{R}$ is reflexive.
+
+    $2\ge 1$, but $1 < 2$. So $\mathscr{R}$ is not symmetric.
+
+    $x\ge y$ and $y\ge z$ implies $x\ge z$. So $\mathscr{R}$ is transitive.
+
+    Thus $\mathscr{R}$ is not an equivalence relation.
+\end{proof}
+
+\begin{exercise}
+    $x\mathscr{R}y$ in $\mathbb{R}$ if $\abs{x} = \abs{y}$
+\end{exercise}
+
+\begin{proof}
+    For every real number $x$, $\abs{x} = \abs{x}$. So $\mathscr{R}$ is reflexive.
+
+    $\abs{x} = \abs{y}$ implies $\abs{y} = \abs{x}$. So $\mathscr{R}$ is symmetric.
+
+    $\abs{x} = \abs{y}$ and $\abs{y} = \abs{z}$ implies $\abs{x} = \abs{z}$. So $\mathscr{R}$ is transitive.
+
+    Thus $\mathscr{R}$ is an equivalence relation. Its partition is $\{ 0 \}$, $\{ 1, -1 \}$, $\{ 2, -2 \}$\ldots
+\end{proof}
+
+\begin{exercise}
+    $x\mathscr{R}y$ in $\mathbb{R}$ if $\abs{x - y}\le 3$
+\end{exercise}
+
+\begin{proof}
+    For every real number $x$, $\abs{x - x} = 0 \le 3$. So $\mathscr{R}$ is reflexive.
+
+    $\abs{x - y} = \abs{y - x}$ so $\abs{x - y}\le 3$ if and only if $\abs{y - x}\le 3$. So $\mathscr{R}$ is symmetric.
+
+    $\abs{0 - 3}\le 3$ and $\abs{3 - 6}\le 3$, but $\abs{0 - 6} > 3$. So $\mathscr{R}$ is not transitive.
+
+    Thus $\mathscr{R}$ is not an equivalence relation.
+\end{proof}
+
+\begin{exercise}
+    $n\mathscr{R}m$ in $\mathbb{Z}^{+}$ if $n$ and $m$ have the same number of digits in the usual base ten notation
+\end{exercise}
+
+\begin{proof}
+    $\mathscr{R}$ is an equivalence relation. Its partition is made up of
+    \begin{itemize}
+        \item the cell of positive integers which are less than $10$
+        \item the cell of positive integers which are not less than $10$ but less than $10^{2}$
+        \item \ldots
+        \item the cell of positive integers which are not less than $10^{n-1}$ but less than $10^{n}$ ($n$ is a positive integer)
+        \item \ldots
+    \end{itemize}
+\end{proof}
+
+\begin{exercise}
+    $n\mathscr{R}m$ in $\mathbb{Z}^{+}$ if $n$ and $m$ have the same final digit in the usual base ten notation
+\end{exercise}
+
+\begin{proof}
+    $\mathscr{R}$ is an equivalence relation. Its partition is made up of:
+    \begin{itemize}
+        \item the cell of positive integers divisible by $10$,
+        \item the cell of positive integers leaving a remainder of $1$ when divided by $10$,
+        \item the cell of positive integers leaving a remainder of $2$ when divided by $10$,
+        \item the cell of positive integers leaving a remainder of $3$ when divided by $10$,
+        \item the cell of positive integers leaving a remainder of $4$ when divided by $10$,
+        \item the cell of positive integers leaving a remainder of $5$ when divided by $10$,
+        \item the cell of positive integers leaving a remainder of $6$ when divided by $10$,
+        \item the cell of positive integers leaving a remainder of $7$ when divided by $10$,
+        \item the cell of positive integers leaving a remainder of $8$ when divided by $10$,
+        \item the cell of positive integers leaving a remainder of $9$ when divided by $10$.
+    \end{itemize}
+\end{proof}
+
+\begin{exercise}
+    Using set notation of the form $\{ \#, \#, \#, \cdots \}$ for an infinite set, write the residue classes modulo $n$ in $\mathbb{Z}^{+}$ discussed in Example 0.17 for the indicated value of $n$.
+    \begin{enumerate}[label={\textbf{\alph*.}},itemsep=0pt]
+        \item $n = 2$
+        \item $n = 3$
+        \item $n = 5$
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={\textbf{\alph*.}},itemsep=0pt]
+        \item $n = 2$. The residue classes modulo $2$ in $\mathbb{Z}^{+}$ are
+              \[
+                  \begin{split}
+                      \{ 2, 4, 6, \cdots \} \\
+                      \{ 1, 5, 7, \cdots \}
+                  \end{split}
+              \]
+        \item $n = 3$. The residue classes modulo $3$ in $\mathbb{Z}^{+}$ are
+              \[
+                  \begin{split}
+                      \{ 3, 6, 9, \cdots \} \\
+                      \{ 1, 4, 7, \cdots \} \\
+                      \{ 2, 5, 8, \cdots \}
+                  \end{split}
+              \]
+        \item $n = 5$. The residue classes modulo $5$ in $\mathbb{Z}^{+}$ are
+              \[
+                  \begin{split}
+                      \{ 5, 10, 15, \cdots \} \\
+                      \{ 1, 6, 11, \cdots \} \\
+                      \{ 2, 7, 12, \cdots \} \\
+                      \{ 3, 8, 13, \cdots \} \\
+                      \{ 4, 9, 14, \cdots \}
+                  \end{split}
+              \]
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    Let $n\in\mathbb{Z}^{+}$ and let $\sim$ be defined on $\mathbb{Z}$ by $r\sim s$ if and only if $r - s$ is divisible by $n$, that is, if and only if $r - s = nq$ for some $q\in\mathbb{Z}$.
+    \begin{enumerate}[label={\textbf{\alph*.}},itemsep=0pt]
+        \item Show that $\sim$ is an equivalence relation on $\mathbb{Z}$. (It is called ``congruence modulo $n$'' just as it was for $\mathbb{Z}^{+}$. See part b.)
+        \item Show that, when restricted to the subset $\mathbb{Z}^{+}$ of $\mathbb{Z}$, this $\sim$ is the requivalence relation, \textit{congruence modulo $n$}, of Example 0.20.
+        \item The cells of this partition of $\mathbb{Z}$ are \textit{residue classes modulo $n$} in $\mathbb{Z}$. Repeat Exercise 35 for the residue classes modulo $n$ in $\mathbb{Z}$ rather than in $\mathbb{Z}^{+}$ using the notation $\{ \cdots, \#, \#, \#, \cdots \}$ for these infinite sets.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}
+        \item For every integer $r$, $r - r = 0$, which is divisible by $n$. So $\sim$ is reflexive.
+
+              If $r\sim s$, then $r - s = nq$ for some integer $q$. On the other hand, $s - r = n\cdot (-q)$. So $\sim$ is symmetric.
+
+              If $r\sim s$ and $s\sim t$, then $r - s = nq$ for some integer $q$, $s - t = nq'$ for some integer $q'$. So $r - t = (r - s) + (s - t) = n(q + q')$. Therefore $\sim$ is transitive.
+
+              Hence $\sim$ is an equivalence relation on $\mathbb{Z}$.
+        \item For any integer $r$, exactly one of the following holds: $r$ is divisible by $n$, $r - 1$ is divisible by $n$, \ldots $r - n + 1$ is divisible by $n$.
+
+              When restricted to the subset $\mathbb{Z}^{+}$, the cells of $\sim$ are the $n$ following: positive integers which is divisible by $n$, positive integers which leave a remainer of $1$ when divided by $n$, \ldots, positive integers which leave a remainer of $n-1$ when divided by $n$.
+
+              Hence, when restricted to the subset $\mathbb{Z}^{+}$ of $\mathbb{Z}$, $\sim$ is the \textit{congruent modulo $n$} relation.
+        \item The residue classes modulo $2$ in $\mathbb{Z}$ are
+              \[
+                  \begin{split}
+                      \{ \cdots, -4, -2, 0, 2, 4, \cdots \}, \\
+                      \{ \cdots, -3, -1, 1, 3, 5, \cdots \}.
+                  \end{split}
+              \]
+
+              The residue classes modulo $3$ in $\mathbb{Z}$ are
+              \[
+                  \begin{split}
+                      \{ \cdots, -6, -3, 0, 3, 6, \cdots \}, \\
+                      \{ \cdots, -5, -2, 1, 4, 7, \cdots \}, \\
+                      \{ \cdots, -4, -1, 2, 5, 8, \cdots \}.
+                  \end{split}
+              \]
+
+              The residue classes modulo $5$ in $\mathbb{Z}$ are
+              \[
+                  \begin{split}
+                      \{ \cdots, -10, -5, 0, 5, 10, \cdots \}, \\
+                      \{ \cdots, -9, -4, 1, 6, 11, \cdots \}, \\
+                      \{ \cdots, -8, -3, 2, 7, 12, \cdots \}, \\
+                      \{ \cdots, -7, -2, 3, 8, 13, \cdots \}, \\
+                      \{ \cdots, -6, -1, 4, 9, 14, \cdots \}.
+                  \end{split}
+              \]
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    Students often misunderstand the concept of a one-to-one function (mapping). I think I know the reason. You see, a mapping $\phi: A \to B$ has a \textit{direction} associated with it, from $A$ to $B$. It seems reasonable to expect a one-to-one mapping simply to be a mapping that carries one point of $A$ into one point of $B$, in the direction indicated by the arrow. But of course, every mapping of $A$ into $B$ does this, and Definition 0.12 did not say that at all. With this unfortunate situation in mind, make as good a pedagogical case as you can for calling the functions described in Definition 0.12 \textit{two-to-two functions} instead. (Unfortunately, it is almost impossible to get widely used terminology changed.)
+\end{exercise}
+
+\begin{proof}
+    A function $\phi: X\to Y$ is a \textit{two-to-two function} if $x_{1}\ne x_{2}$ implies $f(x_{1})\ne f(x_{2})$.
+\end{proof}
