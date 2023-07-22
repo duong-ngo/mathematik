@@ -1,0 +1,418 @@
+\chapter{Groups and Subgroups}
+
+\section{Introduction and Examples}
+\setcounter{exercise}{0}
+
+In Exercises 1 through 9 compute the given arithmetic expression and give the answer in the form $a + bi$ for $a, b\in \mathbb{R}$.
+
+\begin{exercise}$i^{3}$\end{exercise}
+
+\begin{proof}
+    $i^{3} = {i}^{2}i = -i = 0 + (-1)i$.
+\end{proof}
+
+\begin{exercise}$i^{4}$\end{exercise}
+
+\begin{proof}
+    $i^{4} = {i}^{2}{i}^{2} = (-1)\cdot (-1) = 1 = 1 + 0i$.
+\end{proof}
+
+\begin{exercise}$i^{23}$\end{exercise}
+
+\begin{proof}
+    $i^{23} = {i}^{3}{i}^{20} = -i = 0 + (-1)i$.
+\end{proof}
+
+\begin{exercise}${(-i)}^{35}$\end{exercise}
+
+\begin{proof}
+    ${(-i)}^{35} = {(-i)}^{3}{(-i)}^{32} = {(-i)}^{3} = i = 0 + 1i$.
+\end{proof}
+
+\begin{exercise}$(4 - i)(5 + 3i)$\end{exercise}
+
+\begin{proof}
+    $(4 - i)(5 + 3i) = 23 + 7i$.
+\end{proof}
+
+\begin{exercise}$(8 + 2i)(3 - i)$\end{exercise}
+
+\begin{proof}
+    $(8 + 2i)(3 - i) = 26 + (-2)i$.
+\end{proof}
+
+\begin{exercise}$(2 - 3i)(4 + i) + (6 - 5i)$\end{exercise}
+
+\begin{proof}
+    $(2 - 3i)(4 + i) + (6 - 5i) = (11 - 10i) + (6 - 5i) = 17 - 15i = 17 + (-15)i$.
+\end{proof}
+
+\begin{exercise}${(1+i)}^{3}$\end{exercise}
+
+\begin{proof}
+    ${(1+i)}^{3} = 1^{3} + 3\cdot 1^{2}i + 3\cdot 1\cdot i^{2} + i^{3} = 1 + 3i - 3 - i = (-2) + 2i$.
+\end{proof}
+
+\begin{exercise}${(1-i)}^{5}$\end{exercise}
+
+\begin{proof}
+    \begin{align*}
+        {(1-i)}^{5} & = 1^{5} - 5\cdot 1^{4}i + 10\cdot 1^{3}i^{2} - 10\cdot 1^{2}i^{3} + 5\cdot 1\cdot i^{4} - i^{5} \\
+                    & = 1 - 5i - 10 + 10i + 5 - i                                                                     \\
+                    & = (-4) + 4i.
+    \end{align*}
+\end{proof}
+
+\begin{exercise}
+    Find $\abs{3 - 4i}$.
+\end{exercise}
+
+\begin{proof}
+    $\abs{3 - 4i} = \sqrt{3^{2} + 4^{2}} = 5$.
+\end{proof}
+
+\begin{exercise}
+    Find $\abs{6 + 4i}$.
+\end{exercise}
+
+\begin{proof}
+    $\abs{6 + 4i} = \sqrt{6^{2} + 4^{2}} = \sqrt{52} = 2\sqrt{13}$.
+\end{proof}
+
+In Exercises 12 through 15 write the given complex number $z$ in the polar form $\abs{z}(p + qi)$ where $\abs{p + qi} = 1$.
+
+\begin{exercise}$3 - 4i$\end{exercise}
+
+\begin{proof}
+    $\abs{3 - 4i} = \sqrt{3^{2} + {(-4)}^{2}} = 5$.
+
+    $3 - 4i = 5\left(\frac{3}{5} + \frac{-4}{5}i\right)$.
+\end{proof}
+
+\begin{exercise}$-1 + i$\end{exercise}
+
+\begin{proof}
+    $\abs{-1 + i} = \sqrt{{(-1)}^{2} + 1^{2}} = \sqrt{2}$.
+
+    $-1 + i = \sqrt{2}\left(\frac{-\sqrt{2}}{2} + \frac{\sqrt{2}}{2}i\right)$.
+\end{proof}
+
+\begin{exercise}$12 + 5i$\end{exercise}
+
+\begin{proof}
+    $\abs{12 + 5i} = \sqrt{12^{2} + 5^{2}} = 13$.
+
+    $12 + 5i = 13\left( \frac{12}{13} + \frac{5}{13}i \right)$.
+\end{proof}
+
+\begin{exercise}$-3 + 5i$\end{exercise}
+
+\begin{proof}
+    $\abs{-3 + 5i} = \sqrt{{(-3)}^{2} + 5^{2}} = \sqrt{34}$.
+
+    $-3 + 5i = \sqrt{34}\left( \frac{-3\sqrt{34}}{34} + \frac{5\sqrt{34}}{34}i \right)$.
+\end{proof}
+
+In Exercises 16 through 21, find all solutions in $\mathbb{C}$ of the given equation.
+
+\begin{exercise}$z^{4} = 1$\end{exercise}
+
+\begin{proof}
+    In polar form, the equation is $z^{4} = \abs{z}^{4}(\cos (4\phi) + i\sin (4\phi))$.
+
+    $z^{4} = 1$ so $\abs{z}^{4} = 1$, $\cos(4\phi) = 1$, and $\sin(4\phi) = 0$. Different values of $\phi$ in $0\le \phi < 2\pi$ are $0, \frac{\pi}{2}, \pi, \frac{3\pi}{2}$. So the roots are
+    \[
+        1,\quad i,\quad -1,\quad -i.
+    \]
+\end{proof}
+
+\begin{exercise}$z^{4} = -1$\end{exercise}
+
+\begin{proof}
+    In polar form, the equation is $\abs{z}^{4}(\cos (4\phi) + i\sin (4\phi)) = 1(\cos\pi + i\sin\pi)$.
+
+    The roots of the equation are
+    \[
+        \frac{\sqrt{2}}{2} + \frac{\sqrt{2}}{2}i,\quad \frac{-\sqrt{2}}{2} + \frac{\sqrt{2}}{2}i,\quad \frac{-\sqrt{2}}{2} + \frac{-\sqrt{2}}{2}i,\quad \frac{\sqrt{2}}{2} + \frac{-\sqrt{2}}{2}i.
+    \]
+\end{proof}
+
+\begin{exercise}$z^{3} = -8$\end{exercise}
+
+\begin{proof}
+    In polar form, the equation is $\abs{z}^{3}(\cos (3\phi) + i\sin (3\phi)) = 2^{3}(\cos\pi + i\sin\pi)$.
+
+    The roots of the equation are
+    \[
+        1 + \sqrt{3}i,\quad -2,\quad 1 - \sqrt{3}i.
+    \]
+\end{proof}
+
+\begin{exercise}$z^{3} = -27i$\end{exercise}
+
+\begin{proof}
+    In polar form, the equation is $\abs{z}^{3}(\cos (3\phi) + i\sin (3\phi)) = 3^{3}(\cos\frac{3\pi}{2} + \sin\frac{3\pi}{2}i)$.
+
+    The roots of the equation are
+    \[
+        3i,\quad \frac{-3\sqrt{3}}{2} + \frac{-3}{2}i,\quad\frac{3\sqrt{3}}{2} + \frac{-3}{2}i.
+    \]
+\end{proof}
+
+\begin{exercise}$z^{6} = 1$\end{exercise}
+
+\begin{proof}
+    The roots of the equation are
+    \[
+        1,\quad \frac{1}{2} + \frac{\sqrt{3}}{2}i,\quad \frac{-1}{2} + \frac{\sqrt{3}}{2}i, -1,\quad \frac{-1}{2} + \frac{-\sqrt{3}}{2}i,\quad \frac{1}{2} + \frac{-\sqrt{3}}{2}i.
+    \]
+\end{proof}
+
+\begin{exercise}$z^{6} = -64$\end{exercise}
+
+\begin{proof}
+    In polar form, the equation is $\abs{z}^{6}(\cos(6\phi) + i\sin(6\phi)) = 2^{6}(\cos\pi + i\sin\pi)$.
+
+    pi/6 + 2pi/6 * 0 = pi/6
+    pi/6 + 2pi/6 * 1 = 3pi/6 = pi/2
+    pi/6 + 2pi/6 * 2 = 5pi/6
+    pi/6 + 2pi/6 * 3 = 7pi/6
+    pi/6 + 2pi/6 * 4 = 9pi/6
+    pi/6 + 2pi/6 * 5 = 11pi/6
+
+    The roots of the equation are
+    \[
+        \sqrt{3} + i,\quad 2i,\quad -\sqrt{3} + i,\quad -\sqrt{3} - i,\quad -2i,\quad \sqrt{3} - i.
+    \]
+\end{proof}
+
+In Exercises 22 through 27, compute the given expression using the indicated modular addition.
+
+\begin{exercise}
+    $10 {+}_{17} 16$
+\end{exercise}
+
+\begin{proof}
+    $10 {+}_{17} 16 = 10 + 16 - 17 = 9$.
+\end{proof}
+
+\begin{exercise}
+    $8 {+}_{10} 6$
+\end{exercise}
+
+\begin{proof}
+    $8 {+}_{10} 6 = 8 + 6 - 10 = 4$.
+\end{proof}
+
+\begin{exercise}
+    $20.5 {+}_{25} 19.3$
+\end{exercise}
+
+\begin{proof}
+    $20.5 {+}_{25} 19.3 = 20.5 + 19.3 - 25 = 14.8$.
+\end{proof}
+
+\begin{exercise}
+    $\frac{1}{2} {+}_{1} \frac{7}{8}$
+\end{exercise}
+
+\begin{proof}
+    $\frac{1}{2} {+}_{1} \frac{7}{8} = \frac{1}{2} + \frac{7}{8} - 1 = \frac{3}{8}$.
+\end{proof}
+
+\begin{exercise}
+    $\frac{3\pi}{4} {+}_{2\pi} \frac{3\pi}{2}$
+\end{exercise}
+
+\begin{proof}
+    $\frac{3\pi}{4} {+}_{2\pi} \frac{3\pi}{2} = \frac{3\pi}{4} + \frac{3\pi}{2} - 2\pi = \frac{\pi}{4}$.
+\end{proof}
+
+\begin{exercise}
+    $2\sqrt{2} {+}_{\sqrt{32}} 3\sqrt{2}$
+\end{exercise}
+
+\begin{proof}
+    $2\sqrt{2} {+}_{\sqrt{32}} 3\sqrt{2} = 2\sqrt{2} + 3\sqrt{2} - \sqrt{32} = 5\sqrt{2} - 4\sqrt{2} = \sqrt{2}$.
+\end{proof}
+
+\begin{exercise}
+    Explain why the expression $5 {+}_{6} 8$ in $\mathbb{R}_{6}$ makes no sense.
+\end{exercise}
+
+\begin{proof}
+    The expression makes no sense because $8\notin \mathbb{R}_{6}$.
+\end{proof}
+
+In Exercises 29 through 34, find \textit{all} solutions $x$ of the given equation.
+
+\begin{exercise}
+    $x {+}_{15} 7 = 3$ in $\mathbb{Z}_{15}$
+\end{exercise}
+
+\begin{proof}
+    $x = 3 {+}_{15} 8 = 3 + 8 = 11$.
+\end{proof}
+
+\begin{exercise}
+    $x {+}_{2\pi} \frac{3\pi}{2} = \frac{3\pi}{4}$ in $\mathbb{R}_{2\pi}$
+\end{exercise}
+
+\begin{proof}
+    $x = \frac{3\pi}{4} {+}_{2\pi} \frac{\pi}{2} = \frac{3\pi}{4} + \frac{\pi}{2} = \frac{5\pi}{4}$.
+\end{proof}
+
+\begin{exercise}
+    $x {+}_{7} x = 3$ in $\mathbb{Z}_{7}$
+\end{exercise}
+
+\begin{proof}
+    $x = 5$.
+\end{proof}
+
+\begin{exercise}
+    $x {+}_{7} x {+}_{7} x = 5$ in $\mathbb{Z}_{7}$
+\end{exercise}
+
+\begin{proof}
+    $x = 4$.
+\end{proof}
+
+\begin{exercise}
+    $x {+}_{12} x = 2$ in $\mathbb{Z}_{12}$
+\end{exercise}
+
+\begin{proof}
+    $x = 1$, or $x = 7$.
+\end{proof}
+
+\begin{exercise}
+    $x {+}_{4} x {+}_{4} x {+}_{4} x = 0$ in $\mathbb{Z}_{4}$
+\end{exercise}
+
+\begin{proof}
+    $x = 0$, or $x = 1$, or $x = 2$, or $x = 3$.
+\end{proof}
+
+\begin{exercise}
+    Example 1.15 asserts that there is an isomorphism of $U_{8}$ with $\mathbb{Z}_{8}$ in which $\zeta = e^{i(\pi/4)}\leftrightarrow 5$ and $\zeta^{2}\leftrightarrow 2$. Find the element of $\mathbb{Z}_{8}$ that corresponds to each of the remaining six elements $\zeta^{m}$ in $U_{8}$ for $m = 0, 3, 4, 5, 6$, and $7$.
+\end{exercise}
+
+\begin{proof}
+    $\zeta^{0} \leftrightarrow 0$, $\zeta^{3} \leftrightarrow 7$, $\zeta^{4} \leftrightarrow 4$, $\zeta^{5}\leftrightarrow 1$, $\zeta^{6}\leftrightarrow 6$, and $\zeta^{7}\leftrightarrow 3$.
+\end{proof}
+
+\begin{exercise}
+    There is an isomorphism of $U_{7}$ with $\mathbb{Z}_{7}$ in which $\zeta = e^{i(2\pi/7)}\leftrightarrow 4$. Find the element in $\mathbb{Z}_{7}$ to which $\zeta^{m}$ must correspond for $m = 0, 2, 3, 4, 5$, and $6$.
+\end{exercise}
+
+\begin{proof}
+    $\zeta^{0} \leftrightarrow 0$, $\zeta^{2} \leftrightarrow 1$, $\zeta^{3} \leftrightarrow 5$, $\zeta^{4} \leftrightarrow 2$, $\zeta^{5} \leftrightarrow 6$, and $\zeta^{6} \leftrightarrow 3$.
+\end{proof}
+
+\begin{exercise}
+    Why can there be no isomorphism of $U_{6}$ with $\mathbb{Z}_{6}$ in which $\zeta = e^{i(\pi/3)}$ corresponds to $4$?
+\end{exercise}
+
+\begin{proof}
+    Assume that there is such an isomorphism.
+
+    Then $\zeta^{3}$ corresponds to $4 {+}_{12} 4 {+}_{12} 4 = 0$. On the other hand, $\zeta^{0}$ corresponds to $0$, which is a contradiction.
+
+    Hence there can be no isophism of $U_{6}$ with $\mathbb{Z}_{6}$ in which $\zeta = e^{i(\pi/3)}\leftrightarrow 4$.
+\end{proof}
+
+\begin{exercise}
+    Derive the formulas
+    \[
+        \sin(a + b) = \sin a\cos b + \cos a\sin b
+    \]
+
+    and
+    \[
+        \cos(a + b) = \cos a\cos b - \sin a\sin b
+    \]
+
+    by using Euler's formula and computing $e^{ia}e^{ib}$.
+\end{exercise}
+
+\begin{proof}
+    $e^{ia}e^{ib} = e^{i(a+b)} = \cos(a+b) + i\sin(a+b)$.
+
+    $e^{ia}e^{ib} = (\cos a + i\sin a)(\cos b + i\sin b) = (\cos a\cos b - \sin a\sin b) + i(\sin a\cos b + \cos a\sin b)$.
+
+    Thus $\sin(a + b) = \sin a\cos b + \cos a\sin b$ and $\cos(a + b) = \cos a\cos b - \sin a\sin b$.
+\end{proof}
+
+\begin{exercise}
+    Let $z_{1} = \abs{z_{1}}(\cos{\theta_{1}} + i\sin{\theta_{1}})$ and $z_{2} = \abs{z_{2}}(\cos{\theta_{2}} + i\sin{\theta_{2}})$. Use the trigonometric identities in Exercise 38 to derive $z_{1}z_{2} = \abs{z_{1}}\abs{z_{2}}(\cos{(\theta_{1} + \theta_{2})} + i\sin{(\theta_{1} + \theta_{2})})$.
+\end{exercise}
+
+\begin{proof}
+    \begin{align*}
+        z_{1}z_{2} & = \abs{z_{1}}\abs{z_{2}}(\cos a + i\sin a)(\cos b + i\sin b)                             \\
+                   & = \abs{z_{1}}\abs{z_{2}}((\cos a\cos b - \sin a\sin b) + i(\sin a\cos b + \cos a\sin b)) \\
+                   & = \abs{z_{1}}\abs{z_{2}}(\cos{(a+b)} + i\sin{(a+b)}).
+    \end{align*}
+\end{proof}
+
+\begin{exercise}
+    \begin{enumerate}[topsep=0pt,itemsep=0pt,label={\textbf{\alph*.}}]
+        \item Derive a formula for $\cos{3\theta}$ in terms of $\sin{\theta}$ and $\cos{\theta}$ using Euler's formula.
+        \item Derive the formula $\cos{3\theta} = 4\cos^{3}{\theta} - 3\cos{\theta}$ from part (a) and the identity $\sin^{2}{\theta} + \cos^{2}{\theta} = 1$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[topsep=0pt,itemsep=0pt,label={\textbf{\alph*.}}]
+        \item \begin{align*}
+                  \cos{3\theta} & = \cos{2\theta}\cos{\theta} - \sin{\theta}\sin{2\theta}                             \\
+                                & = \cos{\theta}(\cos^{2}{\theta} - \sin^{2}{\theta}) - 2\sin^{2}{\theta}\cos{\theta} \\
+                                & = \cos^{3}{\theta} - \cos{\theta}\sin^{2}{\theta} - 2\sin^{2}{\theta}\cos{\theta}.
+              \end{align*}
+        \item \begin{align*}
+                  \cos{3\theta} & = \cos^{3}{\theta} - \cos{\theta}\sin^{2}{\theta} - 2\sin^{2}{\theta}\cos{\theta}             \\
+                                & = \cos^{3}{\theta} - \cos{\theta}(1 - \cos^{2}{\theta}) - 2(1 - \cos^{2}{\theta})\cos{\theta} \\
+                                & = \cos^{3}{\theta} - \cos{\theta} + \cos^{3}{\theta} + 2\cos^{3}{\theta} - 2\cos{\theta}      \\
+                                & = 4\cos^{3}{\theta} - 3\cos{\theta}.
+              \end{align*}
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    Recall the power series expansions
+    \begin{align*}
+        e^{x}  & = 1 + x + \frac{x^{2}}{2!} + \frac{x^{3}}{3!} + \frac{x^{4}}{4!} + \cdots + \frac{x^{n}}{n!} + \cdots,                            \\
+        \sin x & = x - \frac{x^{3}}{3!} + \frac{x^{5}}{5!} - \frac{x^{7}}{7!} + \cdots + {(-1)}^{n-1}\frac{x^{2n-1}}{(2n-1)!} + \cdots, \text{and} \\
+        \cos x & = 1 - \frac{x^{2}}{2!} + \frac{x^{4}}{4!} - \frac{x^{6}}{6!} + \cdots + {(-1)}^{n}\frac{x^{2n}}{(2n)!} + \cdots
+    \end{align*}
+
+    from calculus. Derive Euler's formula $e^{i\theta} = \cos{\theta} + i\sin{\theta}$ formally from these three series expansions.
+\end{exercise}
+
+\begin{proof}
+    \begin{align*}
+        e^{i\theta} & = 1 + i\theta + \frac{{(i\theta)}^{2}}{2!} + \frac{{(i\theta)}^{3}}{3!} + \frac{{(i\theta)}^{4}}{4!} + \cdots                                                                 \\
+                    & = \left(1 + \frac{{(i\theta)}^{2}}{2!} + \frac{{(i\theta)}^{4}}{4!} + \cdots\right) + \left(i\theta + \frac{{(i\theta)}^{3}}{3!} + \frac{{(i\theta)}^{5}}{5!} + \cdots\right) \\
+                    & = \left(1 - \frac{x^{2}}{2!} + \frac{x^{4}}{4!} + \cdots \right) + \left(i\theta - i\frac{\theta^{3}}{3!} + i\frac{\theta^{5}}{5!} - \cdots \right)                           \\
+                    & = \cos{\theta} + i\sin{\theta}.\qedhere
+    \end{align*}
+\end{proof}
+
+\section{Binary Operations}
+\setcounter{exercise}{0}
+
+\section{Isomorphic Binary Structures}
+\setcounter{exercise}{0}
+
+\section{Groups}
+\setcounter{exercise}{0}
+
+\section{Subgroups}
+\setcounter{exercise}{0}
+
+\section{Cyclic Groups}
+\setcounter{exercise}{0}
+
+\section{Generating Sets and Cayley Digraphs}
+\setcounter{exercise}{0}
