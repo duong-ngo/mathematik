@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{fraleigh-a-first-course-in-abstract-algebra}
+\ProvidesClass{fraleigh-brand-a-first-course-in-abstract-algebra}
 
 \LoadClass[oneside]{book}
 
