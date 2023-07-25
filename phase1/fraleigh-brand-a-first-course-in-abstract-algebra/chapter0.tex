@@ -2,6 +2,7 @@
 
 In Exercises 1 through 4, describe the set by listing its elements.
 
+% exercise 1
 \begin{exercise}
     $\{ x\in\mathbb{R} \vert x^{2} = 3 \}$
 \end{exercise}
@@ -12,16 +13,18 @@ In Exercises 1 through 4, describe the set by listing its elements.
     \]
 \end{proof}
 
+% exercise 2
 \begin{exercise}
-    $\{ m\in\mathbb{Z} \vert m^{2} = 3 \}$
+    $\{ m\in\mathbb{Z} \vert m^{2} + m = 6 \}$
 \end{exercise}
 
 \begin{proof}
     \[
-        \{ m\in\mathbb{Z} \vert m^{2} = 3 \} = \varnothing.
+        \{ m\in\mathbb{Z} \vert m^{2} + m = 6 \} = \{ 2, -3 \}.
     \]
 \end{proof}
 
+% exercise 3
 \begin{exercise}
     $\{ m\in\mathbb{Z} \vert mn = 60 \text{ for some $n\in\mathbb{Z}$ } \}$
 \end{exercise}
@@ -33,23 +36,23 @@ In Exercises 1 through 4, describe the set by listing its elements.
     \end{multline*}
 \end{proof}
 
+% exercise 4
 \begin{exercise}
-    $\{ m\in\mathbb{Z} \vert m^{2} - m < 115 \}$
+    $\{ x\in\mathbb{Z} \vert x^{2} - 10x + 16 \le 0 \}$
 \end{exercise}
 
 \begin{proof}
-    $m^{2} - m < 115$ if and only if ${\left(m - \frac{1}{2}\right)}^{2} < \frac{461}{4}$. Equivalently, $\frac{1}{2} + \frac{-\sqrt{461}}{2} < m < \frac{1}{2} + \frac{\sqrt{461}}{2}$
-
-    The smallest integer which is not less than $\frac{1}{2} + \frac{-\sqrt{461}}{2}$ is $-10$. The greatest integer which is not greater than $\frac{1}{2} + \frac{\sqrt{461}}{2}$ is $11$.
+    $x^{2} - 10x + 16 \le 0$ if and only if ${(x - 5)}^{2} \le 9$. Equivalently, $2 \le x \le 8$.
 
     \begin{multline*}
-        \{ m\in\mathbb{Z} \vert m^{2} - m < 115 \} \\
-        = \{ -10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 \}.
+        \{ x\in\mathbb{Z} \vert x^{2} - 10x + 16 \le 0 \} \\
+        = \{ 2, 3, 4, 5, 6, 7, 8 \}.
     \end{multline*}
 \end{proof}
 
 In Exercises 5 through 10, decide whether the object described is indeed a set (is well defined). Give an alternate description of each set.
 
+% exercise 5
 \begin{exercise}
     $\{ n\in\mathbb{Z}^{+} \vert \text{$n$ is a large number} \}$
 \end{exercise}
@@ -58,6 +61,7 @@ In Exercises 5 through 10, decide whether the object described is indeed a set (
     This is not a well-defined set. Because ``large number'' is undefined.
 \end{proof}
 
+% exercise 6
 \begin{exercise}
     $\{ n\in\mathbb{Z} \vert n^{2} < 0 \}$
 \end{exercise}
@@ -68,6 +72,7 @@ In Exercises 5 through 10, decide whether the object described is indeed a set (
     This is the empty set, since there is no integer whose square is less than zero.
 \end{proof}
 
+% exercise 7
 \begin{exercise}
     $\{ n\in\mathbb{Z} \vert 39 < n^{3} < 57 \}$
 \end{exercise}
@@ -78,26 +83,30 @@ In Exercises 5 through 10, decide whether the object described is indeed a set (
     There is no cube which is less than $57$ and greater than $39$. So this set is the empty set.
 \end{proof}
 
+% exercise 8
 \begin{exercise}
-    $\{ x\in\mathbb{Q} \vert \text{$x$ is almost an integer} \}$
-\end{exercise}
-
-\begin{proof}
-    This is not a well-defined set. Because ``almost an integer'' is undefined.
-\end{proof}
-
-\begin{exercise}
-    $\{ x\in\mathbb{Q} \vert \text{$x$ may be written with denominator greater than $100$} \}$
+    $\{ r\in\mathbb{Q} \vert \text{When $r$ is multiplied by a sufficiently large power of $2$, one obtains a whole number.} \}$
 \end{exercise}
 
 \begin{proof}
     This is a well-defined set.
 
-    Let $x = \frac{p}{q}\in\mathbb{Q}$ where $q$ is a positive integer, $p$ is an integer. Then $x = \frac{101p}{101q}$, the deniminator $101q$ is greater than $100$.
-
-    Hence this set is $\mathbb{Q}$.
+    An equivalence definition is
+    \[
+        \{ r\in\mathbb{Q} \vert \text{There exists a non-negative integer $n$ such that $r\cdot 2^{n}$ is an integer } \}
+    \]
 \end{proof}
 
+% exercise 9
+\begin{exercise}
+    $\{ x\in\mathbb{Z} \vert \text{$x$ is an easy number to factor} \}$
+\end{exercise}
+
+\begin{proof}
+    This is a not well-defined set. Since ``easy number to factor'' is undefined.
+\end{proof}
+
+% exercise 10
 \begin{exercise}
     $\{ x\in\mathbb{Q} \vert \text{$x$ may be written with positive denominator less than $4$} \}$
 \end{exercise}
@@ -107,9 +116,14 @@ In Exercises 5 through 10, decide whether the object described is indeed a set (
 
     Let $x = \frac{p}{q}\in\mathbb{Q}$ where $q$ is a positive integer, $p$ is an integer, and $p, q$ are relatively prime. $x$ can be written with positive denominator less than $4$ if and only if $q < 4$.
 
-    This set is also the set of rational numbers which can be written with positive rational number less than $4$ in lowest terms.
+    Equivalence definitions:
+    \begin{itemize}
+        \item The set of rational numbers which can be written with positive rational number less than $4$ in lowest terms.
+        \item The set of rational numbers $r$ such that there is at least one integer among $r$, $2r$, $3r$.
+    \end{itemize}
 \end{proof}
 
+% exercise 11
 \begin{exercise}
     List the elements in $\{ a, b, c \} \times \{ 1, 2, c \}$
 \end{exercise}
@@ -121,29 +135,31 @@ In Exercises 5 through 10, decide whether the object described is indeed a set (
     \end{multline*}
 \end{proof}
 
+% exercise 12
 \begin{exercise}
     Let $A = \{ 1, 2, 3 \}$ and $B = \{ 2, 4, 6 \}$. For each relation between $A$ and $B$ given as a subset of $A\times B$, decide whether it is a function mapping $A$ into $B$. If it is a function, decide whether it is one to one and whether it is onto $B$.
     \begin{enumerate}[label={\textbf{\alph*.}},itemsep=0pt]
-        \item $\{ (1, 4), (2, 4), (3, 6) \}$
-        \item $\{ (1, 4), (2, 6), (3, 4) \}$
+        \item $\{ (1, 2), (2, 6), (3, 4) \}$
+        \item (print error)
         \item $\{ (1, 6), (1, 2), (1, 4) \}$
-        \item $\{ (2, 2), (1, 6), (3, 4) \}$
+        \item $\{ (2, 2), (3, 6), (1, 6) \}$
         \item $\{ (1, 6), (2, 6), (3, 6) \}$
-        \item $\{ (1, 2), (2, 6), (2, 4) \}$
+        \item $\{ (1, 2), (2, 6) \}$
     \end{enumerate}
 \end{exercise}
 
 \begin{proof}
     \begin{enumerate}[label={\textbf{\alph*.}},itemsep=0pt]
-        \item This is a function mapping $A$ into $B$, and it is not one-to-one nor onto.
-        \item This is a function mapping $A$ into $B$, and it is not one-to-one nor onto.
-        \item This is not a function mapping $A$ into $B$.
         \item This is a function mapping $A$ into $B$, and it is one-to-one and onto.
+        \item (print error)
+        \item This is not a function mapping $A$ into $B$.
+        \item This is a function mapping $A$ into $B$, and it is not one-to-one nor onto.
         \item This is a function mapping $A$ into $B$, and it is not one-to-one nor onto.
         \item This is not a function mapping $A$ into $B$.
     \end{enumerate}
 \end{proof}
 
+% exercise 13
 \begin{exercise}
     Illustrate geometrically that two line segments $AB$ and $CD$ of different length have the same number of points by indicating in Fig. 0.23 what point $y$ of $CD$ might be paired with point $x$ of $AB$.
 \end{exercise}
@@ -154,8 +170,9 @@ In Exercises 5 through 10, decide whether the object described is indeed a set (
     $AC$ intersects $CD$ at $P$. $x$ is a point on $AB$. To illustrate that the two line segments $AB$ and $CD$ have the same number of points, we pair $x$ with the intersection of $CD$ and $Px$.
 \end{proof}
 
+% exercise 14
 \begin{exercise}
-    Recall that for $a, b \in\mathbb{R}$ and $a < b$, the closed interval $[a, b]$ in $\mathbb{R}$ is defined by $[a, b] = \{ x \in R \vert a \le x \le b \}$.
+    Recall that for $a, b \in\mathbb{R}$ and $a < b$, the \textbf{closed interval} $[a, b]$ in $\mathbb{R}$ is defined by $[a, b] = \{ x \in R \vert a \le x \le b \}$.
 
     Show that the given intervals have the same cardinality by giving a formula for a one-to-one function $f$ mapping the first interval onto the second.
     \begin{enumerate}[label={\textbf{\alph*.}},itemsep=0pt]
@@ -173,6 +190,7 @@ In Exercises 5 through 10, decide whether the object described is indeed a set (
     \end{enumerate}
 \end{proof}
 
+% exercise 15
 \begin{exercise}
     Show that $S = \{ x\in\mathbb{R} \vert 0 < x < 1 \}$ has the same cardinality as $\mathbb{R}$.
 \end{exercise}
@@ -185,6 +203,7 @@ In Exercises 5 through 10, decide whether the object described is indeed a set (
     Hence $g$, where $g$ maps $(0, 1)$ into $\mathbb{R}$ and $g(x) = \tan(f(x))$ is an one-to-one and onto mapping. Thus $S$ has the same cardinality as $\mathbb{R}$.
 \end{proof}
 
+% exercise 16
 \begin{exercise}
     List the elements of the power set of the given set and give the cardinality of the power set.
     \begin{enumerate}[label={\textbf{\alph*.}}]
@@ -204,6 +223,7 @@ In Exercises 5 through 10, decide whether the object described is indeed a set (
     \end{enumerate}
 \end{proof}
 
+% exercise 17
 \begin{exercise}
     Let $A$ be a finite set, and let $\card{A} = s$. Based on the preceeding exercise, make a conjecture about the value of $\card{\mathscr{P}(A)}$. Then try to prove your conjecture.
 \end{exercise}
@@ -227,6 +247,7 @@ In Exercises 5 through 10, decide whether the object described is indeed a set (
     Due to the principle of mathematical induction, $\card{\mathscr{P}(A)} = {2}^{s}$.
 \end{proof}
 
+% exercise 18
 \begin{exercise}
     For any set $A$, finite or infinite, let $B^{A}$ be the set of all functions mapping $A$ into the set $B = \{ 0, 1 \}$. Show that the cardinality of $B^{A}$ is the same as the cardinality of the set $\mathscr{P}(A)$.
 \end{exercise}
@@ -237,6 +258,7 @@ In Exercises 5 through 10, decide whether the object described is indeed a set (
     Thus $\card{B^{A}} = \card{\mathscr{P}(A)}$.
 \end{proof}
 
+% exercise 19
 \begin{exercise}
     Show that the power set of a set $A$, finite or infinite, has too many elements to be able to be put in a one-to-one correspondence with $A$. Explain why this intuitively means that there are an infinite number of infinite cardinal numbers.
 
@@ -253,6 +275,7 @@ In Exercises 5 through 10, decide whether the object described is indeed a set (
     \textit{The set of everything} is not a logicaly acceptable concept, because it violates the result that has just been proven (a set cannot be put in a one-to-one correspondence with its power set).
 \end{proof}
 
+% exercise 20
 \begin{exercise}
     Let $A = \{ 1, 2 \}$ and let $B = \{ 3, 4, 5 \}$.
     \begin{enumerate}[label={\textbf{\alph*.}}]
@@ -276,6 +299,7 @@ In Exercises 5 through 10, decide whether the object described is indeed a set (
     \end{enumerate}
 \end{proof}
 
+% exercise 21
 \begin{exercise}
     How many numbers in the interval $0\le x\le 1$ can be expressed in the form $.\#\#$, where each $\#$ is a digit $0, 1, 2, 3,\ldots, 9$? How many are there of the form $.\#\#\#\#\#$? Following this idea, and Exercise 15, decide what you would consider to be the value of $10^{\aleph_{0}}$. How about $12^{\aleph_{0}}$ and $2^{\aleph_{0}}$?
 \end{exercise}
@@ -290,6 +314,7 @@ In Exercises 5 through 10, decide whether the object described is indeed a set (
     $12^{\aleph_{0}}$ (instead of using decimal expansion, we use 12-ary expansion) and $2^{\aleph_{0}}$ (instead of using decial expansion, we use binary expansion) are the same as $10^{\aleph_{0}}$.
 \end{proof}
 
+% exercise 22
 \begin{exercise}
     Continuing the idea in the preceding exercise and using Exercises 18 and 19, use exponential notation to fill in the three blanks to give a list of five cardinal numbers, each of which is greater than the preceding one.
     \[
@@ -305,7 +330,10 @@ In Exercises 5 through 10, decide whether the object described is indeed a set (
 
 In Exercises 23 through 27, find the number of different partitions of a set having the given number of elements.
 
-\begin{exercise}1 element\end{exercise}
+% exercise 23
+\begin{exercise}
+    1 element
+\end{exercise}
 
 \begin{proof}
     $1 = 1$.
@@ -313,7 +341,10 @@ In Exercises 23 through 27, find the number of different partitions of a set hav
     A set of 1 element has 1 partition.
 \end{proof}
 
-\begin{exercise}2 elements\end{exercise}
+% exercise 24
+\begin{exercise}
+    2 elements
+\end{exercise}
 
 \begin{proof}
     $2 = 2 = 1 + 1$.
@@ -321,7 +352,10 @@ In Exercises 23 through 27, find the number of different partitions of a set hav
     A set of 2 elements has 2 partitions.
 \end{proof}
 
-\begin{exercise}3 elements\end{exercise}
+% exercise 25
+\begin{exercise}
+    3 elements
+\end{exercise}
 
 \begin{proof}
     $3 = 3 = 1 + 2 = 1 + 1 + 1$.
@@ -329,7 +363,10 @@ In Exercises 23 through 27, find the number of different partitions of a set hav
     A set of 3 elements has 3 partitions.
 \end{proof}
 
-\begin{exercise}4 elements\end{exercise}
+% exercise 26
+\begin{exercise}
+    4 elements
+\end{exercise}
 
 \begin{proof}
     $4 = 4 = 1 + 3 = 2 + 2 = 1 + 1 + 2 = 1 + 1 + 1 + 1$.
@@ -337,7 +374,10 @@ In Exercises 23 through 27, find the number of different partitions of a set hav
     A set of 4 elements has 5 partitions.
 \end{proof}
 
-\begin{exercise}5 elements\end{exercise}
+% exercise 27
+\begin{exercise}
+    5 elements
+\end{exercise}
 
 \begin{proof}
     $5 = 5 = 1 + 4 = 2 + 3 = 1 + 1 + 3 = 1 + 2 + 2 = 1 + 1 + 1 + 2 = 1 + 1 + 1 + 1 + 1$.
@@ -345,6 +385,7 @@ In Exercises 23 through 27, find the number of different partitions of a set hav
     A set of 5 elements has 7 partitions.
 \end{proof}
 
+% exercise 28
 \begin{exercise}
     Consider a partition of a set $S$. The paragraph following Definition 0.18 explained why the relation
     \[
@@ -362,6 +403,7 @@ In Exercises 23 through 27, find the number of different partitions of a set hav
 
 In Exercises 29 through 34, determine whether the given relation is an equivalence relation on the set. Describe the partition arising from each equivalence relation.
 
+% exercise 29
 \begin{exercise}
     $n\mathscr{R}m$ in $\mathbb{Z}$ if $nm > 0$
 \end{exercise}
@@ -376,6 +418,7 @@ In Exercises 29 through 34, determine whether the given relation is an equivalen
     Thus $\mathscr{R}$ is not an equivalence relation.
 \end{proof}
 
+% exercise 30
 \begin{exercise}
     $x\mathscr{R}y$ in $\mathbb{R}$ if $x\ge y$
 \end{exercise}
@@ -390,34 +433,38 @@ In Exercises 29 through 34, determine whether the given relation is an equivalen
     Thus $\mathscr{R}$ is not an equivalence relation.
 \end{proof}
 
+% exercise 31
 \begin{exercise}
-    $x\mathscr{R}y$ in $\mathbb{R}$ if $\abs{x} = \abs{y}$
+    $x\mathscr{R}y$ in $\mathbb{Z}^{+}$ if the greatest common divisor of $x$ and $y$ is greater than $1$.
 \end{exercise}
 
 \begin{proof}
-    For every real number $x$, $\abs{x} = \abs{x}$. So $\mathscr{R}$ is reflexive.
+    For every pair of positive integers $x, y$, $\text{gcd}(x, y) = \text{gcd}(y, x)$. So $\mathscr{R}$ is symmetric.
 
-    $\abs{x} = \abs{y}$ implies $\abs{y} = \abs{x}$. So $\mathscr{R}$ is symmetric.
-
-    $\abs{x} = \abs{y}$ and $\abs{y} = \abs{z}$ implies $\abs{x} = \abs{z}$. So $\mathscr{R}$ is transitive.
-
-    Thus $\mathscr{R}$ is an equivalence relation. Its partition is $\{ 0 \}$, $\{ 1, -1 \}$, $\{ 2, -2 \}$\ldots
-\end{proof}
-
-\begin{exercise}
-    $x\mathscr{R}y$ in $\mathbb{R}$ if $\abs{x - y}\le 3$
-\end{exercise}
-
-\begin{proof}
-    For every real number $x$, $\abs{x - x} = 0 \le 3$. So $\mathscr{R}$ is reflexive.
-
-    $\abs{x - y} = \abs{y - x}$ so $\abs{x - y}\le 3$ if and only if $\abs{y - x}\le 3$. So $\mathscr{R}$ is symmetric.
-
-    $\abs{0 - 3}\le 3$ and $\abs{3 - 6}\le 3$, but $\abs{0 - 6} > 3$. So $\mathscr{R}$ is not transitive.
+    $\text{gcd}(1, 1) = 1$ is not greater than $1$. So $\mathscr{R}$ is not reflexive.
 
     Thus $\mathscr{R}$ is not an equivalence relation.
 \end{proof}
 
+% exercise 32
+\begin{exercise}
+    $(x_{1}, y_{1})\mathscr{R}(x_{2}, y_{2})$ in $\mathbb{R}\times\mathbb{R}$ if ${x_{1}}^{2} + {y_{1}}^{2} = {x_{2}}^{2} + {y_{2}}^{2}$
+\end{exercise}
+
+\begin{proof}
+    For every $2$-tuple $(x, y) \in \mathbb{R}\times\mathbb{R}$, $x^{2} + y^{2} = x^{2} + y^{2}$. So $\mathscr{R}$ is reflexive.
+
+    If ${x_{1}}^{2} + {y_{1}}^{2} = {x_{2}}^{2} + {y_{2}}^{2}$, then ${x_{2}}^{2} + {y_{2}}^{2} = {x_{1}}^{2} + {y_{1}}^{2}$. So $\mathscr{R}$ is symmetric.
+
+    If ${x_{1}}^{2} + {y_{1}}^{2} = {x_{2}}^{2} + {y_{2}}^{2}$ and ${x_{2}}^{2} + {y_{2}}^{2} = {x_{3}}^{2} + {y_{3}}^{2}$, then ${x_{1}}^{2} + {y_{1}}^{2} = {x_{3}}^{2} + {y_{3}}^{2}$. So $\mathscr{R}$ is transitive.
+
+    Thus $\mathscr{R}$ is an equivalence relation. Its partition is made up of the following cells
+    \[
+        \{ (x, y) \in \mathbb{R}\times\mathbb{R} \vert x^{2} + y^{2} = r \text{ where $r$ is a non-negative real number.} \}
+    \]
+\end{proof}
+
+% exercise 33
 \begin{exercise}
     $n\mathscr{R}m$ in $\mathbb{Z}^{+}$ if $n$ and $m$ have the same number of digits in the usual base ten notation
 \end{exercise}
@@ -433,6 +480,7 @@ In Exercises 29 through 34, determine whether the given relation is an equivalen
     \end{itemize}
 \end{proof}
 
+% exercise 34
 \begin{exercise}
     $n\mathscr{R}m$ in $\mathbb{Z}^{+}$ if $n$ and $m$ have the same final digit in the usual base ten notation
 \end{exercise}
@@ -453,6 +501,7 @@ In Exercises 29 through 34, determine whether the given relation is an equivalen
     \end{itemize}
 \end{proof}
 
+% exercise 35
 \begin{exercise}
     Using set notation of the form $\{ \#, \#, \#, \cdots \}$ for an infinite set, write the residue classes modulo $n$ in $\mathbb{Z}^{+}$ discussed in Example 0.17 for the indicated value of $n$.
     \begin{enumerate}[label={\textbf{\alph*.}},itemsep=0pt]
@@ -492,12 +541,39 @@ In Exercises 29 through 34, determine whether the given relation is an equivalen
     \end{enumerate}
 \end{proof}
 
+% exercise 36
+\begin{exercise}
+    Write each set by listing its elements
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item $\mathbb{Z}/3\mathbb{Z}$
+        \item $\mathbb{Z}/4\mathbb{Z}$
+        \item $\mathbb{Z}/5\mathbb{Z}$
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item $\mathbb{Z}/3\mathbb{Z} = \{ \bar{0}, \bar{1}, \bar{2} \}$
+        \item $\mathbb{Z}/4\mathbb{Z} = \{ \bar{0}, \bar{1}, \bar{2}, \bar{3} \}$
+        \item $\mathbb{Z}/5\mathbb{Z} = \{ \bar{0}, \bar{1}, \bar{2}, \bar{3}, \bar{4} \}$
+    \end{enumerate}
+\end{proof}
+
+% exercise 37
+\begin{exercise}
+    When discussing residue classes, $\bar{1}$ is not well defined until the modulus $n$ is given. Explain.
+\end{exercise}
+
+\begin{proof}
+    When the modulus $n$ is unknown, it can possibly be $1$. When $n = 1$, there is only $\bar{0}$, but no $\bar{1}$.
+\end{proof}
+
+% exercise 38
 \begin{exercise}
     Let $n\in\mathbb{Z}^{+}$ and let $\sim$ be defined on $\mathbb{Z}$ by $r\sim s$ if and only if $r - s$ is divisible by $n$, that is, if and only if $r - s = nq$ for some $q\in\mathbb{Z}$.
     \begin{enumerate}[label={\textbf{\alph*.}},itemsep=0pt]
         \item Show that $\sim$ is an equivalence relation on $\mathbb{Z}$. (It is called ``congruence modulo $n$'' just as it was for $\mathbb{Z}^{+}$. See part b.)
         \item Show that, when restricted to the subset $\mathbb{Z}^{+}$ of $\mathbb{Z}$, this $\sim$ is the requivalence relation, \textit{congruence modulo $n$}, of Example 0.20.
-        \item The cells of this partition of $\mathbb{Z}$ are \textit{residue classes modulo $n$} in $\mathbb{Z}$. Repeat Exercise 35 for the residue classes modulo $n$ in $\mathbb{Z}$ rather than in $\mathbb{Z}^{+}$ using the notation $\{ \cdots, \#, \#, \#, \cdots \}$ for these infinite sets.
     \end{enumerate}
 \end{exercise}
 
@@ -515,36 +591,38 @@ In Exercises 29 through 34, determine whether the given relation is an equivalen
               When restricted to the subset $\mathbb{Z}^{+}$, the cells of $\sim$ are the $n$ following: positive integers which is divisible by $n$, positive integers which leave a remainer of $1$ when divided by $n$, \ldots, positive integers which leave a remainer of $n-1$ when divided by $n$.
 
               Hence, when restricted to the subset $\mathbb{Z}^{+}$ of $\mathbb{Z}$, $\sim$ is the \textit{congruent modulo $n$} relation.
-        \item The residue classes modulo $2$ in $\mathbb{Z}$ are
-              \[
-                  \begin{split}
-                      \{ \cdots, -4, -2, 0, 2, 4, \cdots \}, \\
-                      \{ \cdots, -3, -1, 1, 3, 5, \cdots \}.
-                  \end{split}
-              \]
-
-              The residue classes modulo $3$ in $\mathbb{Z}$ are
-              \[
-                  \begin{split}
-                      \{ \cdots, -6, -3, 0, 3, 6, \cdots \}, \\
-                      \{ \cdots, -5, -2, 1, 4, 7, \cdots \}, \\
-                      \{ \cdots, -4, -1, 2, 5, 8, \cdots \}.
-                  \end{split}
-              \]
-
-              The residue classes modulo $5$ in $\mathbb{Z}$ are
-              \[
-                  \begin{split}
-                      \{ \cdots, -10, -5, 0, 5, 10, \cdots \}, \\
-                      \{ \cdots, -9, -4, 1, 6, 11, \cdots \}, \\
-                      \{ \cdots, -8, -3, 2, 7, 12, \cdots \}, \\
-                      \{ \cdots, -7, -2, 3, 8, 13, \cdots \}, \\
-                      \{ \cdots, -6, -1, 4, 9, 14, \cdots \}.
-                  \end{split}
-              \]
     \end{enumerate}
 \end{proof}
 
+% exercise 39
+\begin{exercise}
+    Let $n\in\mathbb{Z}^{+}$. Using the relation from Exercise 38, show that if $a_{1} \sim a_{2}$ and $b_{1} \sim b_{2}$, then $(a_{1} + b_{1}) \sim (a_{2} + b_{2})$.
+\end{exercise}
+
+\begin{proof}
+    If $a_{1} \sim a_{2}$ and $b_{1} \sim b_{2}$, there exist integers $a$ and $b$ such that $a_{1} - a_{2} = na$ and $b_{1} - b_{2} = nb$.
+
+    $(a_{1} + b_{1}) - (a_{2} + b_{2}) = (a_{1} - a_{2}) + (b_{1} - b_{2}) = n(a + b)$. Hence $(a_{1} + b_{1}) \sim (a_{2} + b_{2})$.
+\end{proof}
+
+% exercise 40
+\begin{exercise}
+    Let $n\in\mathbb{Z}^{+}$. Using the relation from Exercise 38, show that if $a_{1} \sim a_{2}$ and $b_{1} \sim b_{2}$, then $(a_{1}b_{1}) \sim (a_{2}b_{2})$.
+\end{exercise}
+
+\begin{proof}
+    If $a_{1} \sim a_{2}$ and $b_{1} \sim b_{2}$, there exist integers $a$ and $b$ such that $a_{1} - a_{2} = na$ and $b_{1} - b_{2} = nb$.
+
+    \begin{align*}
+        a_{1}b_{1} - a_{2}b_{2} & = a_{1}b_{1} - a_{2}b_{1} + a_{2}b_{1} - a_{2}b_{2} \\
+                                & = b_{1}(a_1 - a_{2}) + a_{2}(b_{1} - b_{2})         \\
+                                & = n(ab_{1} + ba_{2})
+    \end{align*}
+
+    Hence $(a_{1}b_{1}) \sim (a_{2}b_{2})$.
+\end{proof}
+
+% exercise 41
 \begin{exercise}
     Students often misunderstand the concept of a one-to-one function (mapping). I think I know the reason. You see, a mapping $\phi: A \to B$ has a \textit{direction} associated with it, from $A$ to $B$. It seems reasonable to expect a one-to-one mapping simply to be a mapping that carries one point of $A$ into one point of $B$, in the direction indicated by the arrow. But of course, every mapping of $A$ into $B$ does this, and Definition 0.12 did not say that at all. With this unfortunate situation in mind, make as good a pedagogical case as you can for calling the functions described in Definition 0.12 \textit{two-to-two functions} instead. (Unfortunately, it is almost impossible to get widely used terminology changed.)
 \end{exercise}
