@@ -784,6 +784,1060 @@ counterexample.
 
 \section{Groups}
 
+\subsection*{Computations}
+
+In Exercises 1 through 9, determine whether the binary operation $*$ gives a group structure on the given set. If no group results, give the first axiom in order $\mathcal{G}_{1}, \mathcal{G}_{2}, \mathcal{G}_{3}$ from Definition 2.1 that does not hold.
+
+% section 2/exercise 1
+\begin{exercise}
+    Let $*$ be defined on $\mathbb{Z}$ by letting $a * b = ab$.
+\end{exercise}
+
+\begin{proof}
+    This is not a group structure. $\mathcal{G}_{3}$ does not hold.
+\end{proof}
+
+% section 2/exercise 2
+\begin{exercise}
+    Let $*$ be defined on $2\mathbb{Z} = \{ 2n \vert n\in\mathbb{Z} \}$ by letting $a * b = a + b$.
+\end{exercise}
+
+\begin{proof}
+    This is a group structure.
+\end{proof}
+
+% section 2/exercise 3
+\begin{exercise}
+    Let $*$ be defined on $\mathbb{R}^{+}$ by letting $a * b = \sqrt{ab}$.
+\end{exercise}
+
+\begin{proof}
+    This is not a group structure. $\mathcal{G}_{1}$ does not hold.
+\end{proof}
+
+% section 2/exercise 4
+\begin{exercise}
+    Let $*$ be defined on $\mathbb{Q}$ by letting $a * b = ab$.
+\end{exercise}
+
+\begin{proof}
+    This is not a group structure. $\mathcal{G}_{3}$ does not hold.
+\end{proof}
+
+% section 2/exercise 5
+\begin{exercise}
+    Let $*$ be defined on the set $\mathbb{R}^{*}$ of nonzero real numbers by letting $a * b = a/b$.
+\end{exercise}
+
+\begin{proof}
+    This is not a group structure. $\mathcal{G}_{1}$ does not hold.
+\end{proof}
+
+% section 2/exercise 6
+\begin{exercise}
+    Let $*$ be defined on $\mathbb{C}$ by letting $a * b = \abs{ab}$.
+\end{exercise}
+
+\begin{proof}
+    This is not a group structure. $\mathcal{G}_{2}$ does not hold.
+\end{proof}
+
+% section 2/exercise 7
+\begin{exercise}
+    Let $*$ be defined on the set $\{ a, b \}$ by Table 2.26.
+    \begin{tabular}{c|cc}
+        * & a & b \\
+        \hline
+        a & a & b \\
+        b & b & b
+    \end{tabular}
+\end{exercise}
+
+\begin{proof}
+    $(a * a) * a = a = a * (a * a)$
+
+    $(b * b) * b = b = b * (b * b)$
+
+    $a * (a * b) = a * b = (a * a) * b$
+
+    $a * (b * a) = a * b = b = b * a = (a * b) * a$
+
+    $b * (a * a) = b * a = (b * a) * a$
+
+    $b * (a * b) = b * b = (b * a) * b$
+
+    $a * (b * b) = a * b = b = b * b = (a * b) * b$
+
+    $b * (b * a) = b * b = b = b * a = (b * b) * a$
+
+    So this structure is associative.
+
+    $a * b = b * a = b$
+
+    $a * a = a$
+
+    So this structure has an identity element, which is $a$.
+
+    This is not a group structure. $\mathcal{G}_{3}$ does not hold, since $b$ does not have an inverse.
+\end{proof}
+
+% section 2/exercise 8
+\begin{exercise}
+    Let $*$ be defined on the set $\{ a, b \}$ by Table 2.27.
+    \begin{tabular}{c|cc}
+        * & a & b \\
+        \hline
+        a & a & b \\
+        b & a & b
+    \end{tabular}
+\end{exercise}
+
+\begin{proof}
+    $(a * a) * a = a = a * (a * a)$
+
+    $(b * b) * b = b = b * (b * b)$
+
+    $(a * a) * b = a * b = a * (a * b)$
+
+    $(a * b) * a = b * a = a = a * a = a * (b * a)$
+
+    $(b * a) * a = a * a = a = b * a = b * (a * a)$
+
+    $(a * b) * b = b * b = b = a * b = a * (b * b)$
+
+    $(b * b) * a = b * a = b * (b * a)$
+
+    $(b * a) * b = a * b = b = b * b = b * (a * b)$
+
+    So this structure is associative.
+
+    This is not a group structure. $\mathcal{G}_{2}$ does not hold, since if there are an identity element, that must be commutative with the other, but in fact,
+    \[
+        a * b = b \ne a = b * a.
+    \]
+\end{proof}
+
+% section 2/exercise 9
+\begin{exercise}
+    Let $*$ be defined on the set $\{ e, a, b \}$ by Table 2.28.
+    \begin{tabular}{c|ccc}
+        * & e & a & b \\
+        \hline
+        e & e & a & b \\
+        a & a & e & b \\
+        b & b & b & a
+    \end{tabular}
+\end{exercise}
+
+\begin{proof}
+    This structure is not a group. $\mathcal{G}_{1}$ does not hold, since
+    \[
+        (a * b) * b = b * b = e \ne a = a * e = a * (b * b).
+    \]
+\end{proof}
+
+% section 2/exercise 10
+\begin{exercise}
+    Let $n$ be a positive integer and let $n\mathbb{Z} = \{ nm \vert m\in\mathbb{Z} \}$.
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item Show that $\anglebracket{n\mathbb{Z}, +}$ is a group.
+        \item Show that $\anglebracket{n\mathbb{Z}, +} \simeq \anglebracket{\mathbb{Z}, +}$
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item Let $x, y, z$ be elements of $n\mathbb{Z}$. According to the definition of $n\mathbb{Z}$, there exist integers $a, b, c$ such that $x = na, y = nb, z = nc$.
+
+              $x + y = na + nb = n(a + b)\in n\mathbb{Z}$. So $n\mathbb{Z}$ is closed under the operation $+$.
+
+              $(x + y) + z = (na + nb) + nc = n(a + b) + nc = n((a + b) + c) = n(a + (b + c)) = na + n(b + c) = na + (nb + nc)$. So $\anglebracket{n\mathbb{Z}, +}$ is associative.
+
+              $x + 0 = x = 0 + x$. So $\anglebracket{n\mathbb{Z}, +}$ has an identity element, which is $0$.
+
+              $x + (-na) = na + (-na) = n (a + (-a)) = 0 = n ((-a) + a) = (-na) + na = (-na) + x$. So each element of $\anglebracket{n\mathbb{Z}, +}$ has an inverse.
+
+              Hence $\anglebracket{n\mathbb{Z}, +}$ is a group.
+        \item Let's define mappings $f: n\mathbb{Z} \to \mathbb{Z}$ as $f(x) = x/n$ and $g: \mathbb{Z} \to n\mathbb{Z}$ as $g(y) = n\cdot y$.
+
+              For every $x\in n\mathbb{Z}, y\in\mathbb{Z}$
+              \[
+                  \begin{split}
+                      f(g(y)) = f(ny) = (n\cdot y)/n = y, \\
+                      g(f(x)) = g(x/n) = n\cdot (x/n) = x.
+                  \end{split}
+              \]
+
+              So $f$ is an one-to-one function from $n\mathbb{Z}$ onto $\mathbb{Z}$.
+
+              For every $x, y\in n\mathbb{Z}$, $x/n$ and $y/n$ are elements of $\mathbb{Z}$
+              \[
+                  f(x + y) = \frac{x + y}{n} = \frac{x}{n} + \frac{y}{n} = f(x) + f(y)
+              \]
+
+              Hence $\anglebracket{n\mathbb{Z}, +}$ and $\anglebracket{\mathbb{Z}, +}$ are isomorphic.
+    \end{enumerate}
+\end{proof}
+
+In Exercises 11 through 18, determine whether the given set of matrices under the specified operation, matrix addition or multiplication, is a group.
+
+% section 2/exercise 11
+\begin{exercise}
+    All $n\times n$ diagonal matrices under matrix addition.
+\end{exercise}
+
+\begin{proof}
+    This is a group.
+\end{proof}
+
+% section 2/exercise 12
+\begin{exercise}
+    All $n\times n$ diagonal matrices under matrix multiplication.
+\end{exercise}
+
+\begin{proof}
+    This is not a group, since the zero $n\times n$ matrix (which is also an $n\times n$ diagonal matrix) does not have a multiplicative inverse.
+\end{proof}
+
+% section 2/exercise 13
+\begin{exercise}
+    All $n\times n$ diagonal matrices with no zero diagonal entry under matrix multiplication.
+\end{exercise}
+
+\begin{proof}
+    This is a group.
+\end{proof}
+
+% section 2/exercise 14
+\begin{exercise}
+    All $n\times n$ diagonal matrices with all diagonal entries $1$ or $-1$ under matrix multiplication.
+\end{exercise}
+
+\begin{proof}
+    This is a group.
+\end{proof}
+
+% section 2/exercise 15
+\begin{exercise}
+    All $n\times n$ upper-triangular matrices under matrix multiplication.
+\end{exercise}
+
+\begin{proof}
+    $A = {(a_{i.j})}_{n\times n}$, $B = {(b_{i.j})}_{n\times n}$ such that $a_{i.j} = 0$ if $i\geq j$, $b_{i.j} = 0$ if $i\geq j$. Let $C = {(c_{i.j})}_{n\times n} = AB$.
+
+    Suppose that $1\le s\le r\le n$.
+    \begin{align*}
+        c_{r.s} & = \sum^{n}_{k=1}a_{r.k}b_{k.s}                                  \\
+                & = \sum^{s}_{k=1}a_{r.k}b_{k.s} + \sum^{n}_{k=s+1}a_{r.k}b_{k.s} \\
+                & = 0 + 0                                                         \\
+                & = 0.
+    \end{align*}
+
+    $\displaystyle\sum^{s}_{k=1}a_{r.k}b_{k.s} = 0$ because $r\ge s\ge k$. $\displaystyle\sum^{n}_{k=s+1}a_{r.k}b_{k.s} = 0$ because $k \geq s + 1 > s$.
+
+    So the set of $n\times n$ upper-triangular matrices is closed under matrix multiplication.
+
+    However, the $n\times n$ zero matrix (which is also an $n\times n$ upper-triangular matrix) is not invertible. Hence this is not a group.
+\end{proof}
+
+% section 2/exercise 16
+\begin{exercise}
+    All $n\times n$ upper-triangular matrices under matrix addition.
+\end{exercise}
+
+\begin{proof}
+    This is a group.
+\end{proof}
+
+% section 2/exercise 17
+\begin{exercise}
+    All $n\times n$ upper-triangular matrices with determinant $1$ under multiplication.
+\end{exercise}
+
+\begin{proof}
+    According to the proof of Exercise 15 and $\det(AB) = \det(A)\det(B)$, the set of $n\times n$ upper-triangular matrices is closed under matrix multiplication.
+
+    Let $A, B, C$ be $n\times n$ matrices whose determinants is $1$.
+
+    Matrix multiplication is associative, so the matrix multiplication on this set of matrices is associative.
+
+    The $n\times n$ identity matrix $I_{n}$, $AI = IA = A$. So the matrix multiplication on this set of matrices has an identity matrix.
+
+    Let
+    \[
+        A = \begin{bmatrix}
+            a_{1.1} & a_{1.2} & \cdots & a_{1.n} \\
+            0       & a_{2.2} & \cdots & a_{2.n} \\
+            \vdots  & \vdots  &        & \vdots  \\
+            0       & 0       & \cdots & a_{n.n}
+        \end{bmatrix}.
+    \]
+
+    Since $A$ is a diagonal matrix, then $\det(A) = a_{1.1}a_{2.2}\cdots a_{n.n}$. On the other hand, $\det(A) = 1$, so $a_{1.1}, a_{2.2}, \ldots, a_{n.n}$ are non-zero. To define the multiplicative inverse of $A$, we perform elementary row operations on the following marix
+    \[
+        \begin{array}{cccc|cccc}
+            a_{1.1} & a_{1.2} & \cdots & a_{1.n} & 1      & 0      & \cdots & 0      \\
+            0       & a_{2.2} & \cdots & a_{2.n} & 0      & 1      & \cdots & 0      \\
+            \vdots  & \vdots  &        & \vdots  & \vdots & \vdots &        & \vdots \\
+            0       & 0       & \cdots & a_{n.n} & 0      & 0      & \cdots & 1
+        \end{array}
+    \]
+
+    Multiply $i$-th row by ${a_{i.i}}^{-1}$.
+    \[
+        \begin{array}{cccc|cccc}
+            1      & {a_{1.1}}^{-1}a_{1.2} & \cdots & {a_{1.1}}^{-1}a_{1.n} & {a_{1.1}}^{-1} & 0              & \cdots & 0              \\
+            0      & 1                     & \cdots & {a_{2.2}}^{-1}a_{2.n} & 0              & {a_{2.2}}^{-1} & \cdots & 0              \\
+            \vdots & \vdots                &        & \vdots                & \vdots         & \vdots         &        & \vdots         \\
+            0      & 0                     & \cdots & 1                     & 0              & 0              & \cdots & {a_{n.n}}^{-1}
+        \end{array}
+    \]
+    \begin{itemize}
+        \item Add $-{a_{i.i}}^{-1}a_{i.n}$ times the $n$-th row to the $i$-th row ($1\le i < n$). After these operations, the $n\times n$ matrix on the right is still an $n\times n$ upper-triangular matrix.
+        \item Add $-{a_{i.i}}^{-1}a_{i.(n-1)}$ times the $(n-1)$-th row to the $i$-th row ($1\le i < n-1$). After these operations, the $n\times n$ matrix on the right is still an $n\times n$ upper-triangular matrix.
+        \item \ldots
+        \item Add $-{a_{i.i}}^{-1}a_{i.2}$ times the $2$-nd row to the $i$-th row ($1\le i < 2$). After these operations, the $n\times n$ matrix on the right is still an $n\times n$ upper-triangular matrix.
+    \end{itemize}
+
+    After all these operations, the $n\times n$ matrix on the left is the $n\times n$ identity matrix, and the $n\times n$ matrix on the right is still an $n\times n$ upper-triangular matrix, which is also the multiplicative inverse of $A$. So there exists an $n\times n$ upper-triangular matrix $A'$ such that $AA' = A'A = I_{n}$.
+
+    Thus, all $n\times n$ upper-triangular matrices with determinant $1$ under multiplication is a group.
+\end{proof}
+
+% section 2/exercise 18
+\begin{exercise}
+    The set of $2\times 2$ matrices $G = \{ e, a, b \}$ where $e = \begin{bmatrix}1 & 0 \\ 0 & 1\end{bmatrix}$, $a = \begin{bmatrix}-\frac{1}{2} & -\frac{\sqrt{3}}{2} \\ \frac{\sqrt{3}}{2} & -\frac{1}{2}\end{bmatrix}$, and $b = \begin{bmatrix}-\frac{1}{2} & \frac{\sqrt{3}}{2} \\ -\frac{\sqrt{3}}{2} & -\frac{1}{2}\end{bmatrix}$ under matrix multiplication.
+\end{exercise}
+
+\begin{proof}
+    \[
+        ee = e,\qquad ea = ae = a,\qquad eb = be = b.
+    \]
+    \[
+        aa = b,\qquad bb = a,\qquad ab = ba = e.
+    \]
+
+    So $G$ is closed under matrix multiplication. Matrix multiplication within $G$ is associative. According to the calculation above, matrix multiplication within $G$ has an identity element, which is $e$. Each element of $G$ has an inverse: $ab = ba = e$, $ee = e$.
+
+    Hence $G$ with the matrix multiplication is a group.
+\end{proof}
+
+% section 2/exercise 19
+\begin{exercise}
+    Let $S$ be the set of all real numbers except $-1$. Define $*$ on $S$ by
+    \[
+        a * b = a + b + ab.
+    \]
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item Show that $*$ gives a binary operation on $S$.
+        \item Show that $\anglebracket{S, *}$ is a group.
+        \item Find the solution of the equation $2 * x * 3 = 7$ in $S$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item Let $a, b$ be elements of $S$
+              \[
+                  a * b + 1 = 1 + a + b + ab = (1 + a)(1 + b)\ne 0.
+              \]
+
+              So $a * b\ne -1$, which means $*$ is a binary operation on $S$.
+        \item Let $a, b, c$ be elements of $S$
+              \begin{align*}
+                  (a * b) * c & = (a + b + ab) * c                   \\
+                              & = a + b + c + ab + ca + bc + abc     \\
+                              & = a + (b + c + bc) + (ab + ac + abc) \\
+                              & = a + b * c + a\cdot (b * c)         \\
+                              & = a * (b * c)
+              \end{align*}
+
+              So $\anglebracket{S, *}$ is associative.
+              \[
+                  a * 0 = a + 0 + a\cdot 0 = a = 0 + a + 0\cdot a = 0 * a.
+              \]
+
+              So $\anglebracket{S, *}$ has an identity element.
+              \[
+                  \begin{split}
+                      a * \frac{-a}{a+1} = a + \frac{-a}{a+1} + \frac{-a^{2}}{a+1} = \frac{a^{2}}{a+1} + \frac{-a^{2}}{a+1} = 0, \\
+                      \frac{-a}{a+1} * a = \frac{-a}{a+1} + a + \frac{-a^{2}}{a+1} = \frac{a^{2}}{a+1} + \frac{-a^{2}}{a+1} = 0.
+                  \end{split}
+              \]
+
+              Hence $\anglebracket{S, *}$ is a group.
+        \item
+              \begin{align*}
+                  2 * x * 3                                          & = 7                          \\
+                  \left(\left(\frac{-2}{3} * 2\right) * x\right) * 3 & = \frac{-2}{3} * 7           \\
+                  (0 * x) * 3                                        & = \frac{5}{3}                \\
+                  x * 3                                              & = \frac{5}{3}                \\
+                  x * \left(3 * \frac{-3}{4}\right)                  & = \frac{5}{3} * \frac{-3}{4} \\
+                  x * 0                                              & = \frac{-1}{3}               \\
+                  x                                                  & = \frac{-1}{3}
+              \end{align*}
+
+              Hence $x = \frac{-1}{3}$.
+    \end{enumerate}
+\end{proof}
+
+% section 2/exercise 20
+\begin{exercise}
+    This section 2/exercise shows that there are two nonisomorphic group structures on a set of $4$ elements.
+
+    Let the set be $\{ e, a, b, c \}$, with $e$ the identity element for the group operation. A group table would then have to start in the manner shown in Table 2.29. The square indicated by the question mark cannot be filled in with $a$. It must be filled in either with the identity element $e$ or with an element different from both $e$ and $a$. In this latter case, it is no loss of generality to assume that this element is $b$. If this square is filled in with $e$, the table can then be completed in two ways to give a group. Find these two tables. (You need not check the associative law.) If this square is filled in with $b$, then the table can only be completed in one way to give a group. Find this table. (Again, you need not check the associative law.) Of the three tables you now have, two give isomorphic groups. Determine which two tables these are, and give the one-to-one onto relabeling function which is an isomorphism.
+
+    \begin{enumerate}[label={\textbf{\alph*}}]
+        \item Are all groups of $4$ elements commutative?
+        \item Find a way to relabel the four matrices
+              \[
+                  \left\{\begin{bmatrix}
+                      1 & 0 \\
+                      0 & 1
+                  \end{bmatrix},
+                  \begin{bmatrix}
+                      0 & -1 \\
+                      1 & 0
+                  \end{bmatrix},
+                  \begin{bmatrix}
+                      -1 & 0  \\
+                      0  & -1
+                  \end{bmatrix},
+                  \begin{bmatrix}
+                      0  & 1 \\
+                      -1 & 0
+                  \end{bmatrix}\right\}
+              \]
+
+              so the atrix multiplication table is identical to one you constructed. This shows that the table you constructed defines an associative operation and therefore gives a group.
+        \item So that for a particular value of $n$, the group elements given in Exercise 14 can be relabeled so their group table is identitcal to one you constructed. This implies the operation in the table is also associate.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    Possible group tables are
+    \[
+        \begin{array}{c|cccc}
+            * & e & a & b & c \\
+            \hline
+            e & e & a & b & c \\
+            a & a & b & c & e \\
+            b & b & c & e & a \\
+            c & c & e & a & b
+        \end{array},\qquad
+        \begin{array}{c|cccc}
+            * & e & a & b & c \\
+            \hline
+            e & e & a & b & c \\
+            a & a & e & c & b \\
+            b & b & c & e & a \\
+            c & c & b & a & e
+        \end{array},\qquad
+        \begin{array}{c|cccc}
+            * & e & a & b & c \\
+            \hline
+            e & e & a & b & c \\
+            a & a & e & c & b \\
+            b & b & c & a & e \\
+            c & c & b & e & a
+        \end{array}
+    \]
+
+    The 1st and the 3rd tables give isomorphic groups. Relabel: $(e, a, b, c)\mapsto (e, b, c, a)$.
+
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item These groups of 4 elements are commutative.
+        \item One way to make the matrix multiplication table identical to the 3rd table
+              \[
+                  e = \begin{bmatrix}
+                      1 & 0 \\
+                      0 & 1
+                  \end{bmatrix},
+                  b = \begin{bmatrix}
+                      0 & -1 \\
+                      1 & 0
+                  \end{bmatrix},
+                  a = \begin{bmatrix}
+                      -1 & 0  \\
+                      0  & -1
+                  \end{bmatrix},
+                  c = \begin{bmatrix}
+                      0  & 1 \\
+                      -1 & 0
+                  \end{bmatrix}
+              \]
+        \item When $n = 2$, we label
+              \[
+                  e = \begin{bmatrix}
+                      1 & 0 \\
+                      0 & 1
+                  \end{bmatrix},
+                  a = \begin{bmatrix}
+                      0 & -1 \\
+                      1 & 0
+                  \end{bmatrix},
+                  b = \begin{bmatrix}
+                      -1 & 0  \\
+                      0  & -1
+                  \end{bmatrix},
+                  c = \begin{bmatrix}
+                      0  & 1 \\
+                      -1 & 0
+                  \end{bmatrix}
+              \]
+    \end{enumerate}
+\end{proof}
+
+% section 2/exercise 21
+\begin{exercise}
+    According to Exercise $12$ of Section $1$, there are $16$ possible binary operations on a set of $2$ elements. How many of these give a structure of a group? How many of the $19,683$ possible binary operations on a set of $3$ elements give a group structure.
+\end{exercise}
+
+\begin{proof}
+    Let $X = \{ a, b \}$ be a set of $2$ elements.
+
+    A binary operation on $X$ give a structure of a group if in its group table:
+    \begin{itemize}
+        \item each column and each row contains distinct elements,
+        \item there is exactly one row which is identical to the top header, there is exactly one column which is identical to the left header.
+    \end{itemize}
+
+    So there are two possible binary operations which can give group structure.
+    \[
+        \begin{array}{c|cc}
+            * & a & b \\
+            \hline
+            a & a & b \\
+            b & b & a
+        \end{array},\qquad
+        \begin{array}{c|cc}
+            * & a & b \\
+            \hline
+            a & b & a \\
+            b & a & b
+        \end{array}
+    \]
+
+    After checking for associativity, we conclude that there are $2$ binary operations that give group structure. However, they are isomorphic.
+
+    Let $Y = \{ a, b, c \}$ be a set of $3$ elements.
+
+    The following tables correspond to binary operations which possibly give group structure.
+    \[
+        \begin{array}{c|ccc}
+            * & a & b & c \\
+            \hline
+            a & a & b & c \\
+            b & b & c & a \\
+            c & c & a & b \\
+        \end{array},\qquad
+        \begin{array}{c|ccc}
+            * & a & b & c \\
+            \hline
+            a & c & a & b \\
+            b & a & b & c \\
+            c & b & c & a \\
+        \end{array},\qquad
+        \begin{array}{c|ccc}
+            * & a & b & c \\
+            \hline
+            a & b & c & a \\
+            b & c & a & b \\
+            c & a & b & c \\
+        \end{array}
+    \]
+
+    After checking for associativity, we conclude that there are $3$ binary operations that give group structure. However, they are isomorphic.
+\end{proof}
+
+\subsection*{Concepts}
+
+% section 2/exercise 22
+\begin{exercise}
+    Consider our axioms $\mathscr{G}_{1}, \mathscr{G}_{2}$, and $\mathscr{G}_{3}$ for a group. We gave them in the order $\mathscr{G}_{1}\mathscr{G}_{2}\mathscr{G}_{3}$. Conceivable other orders to state the axioms are  $\mathscr{G}_{1}\mathscr{G}_{3}\mathscr{G}_{2}$, $\mathscr{G}_{2}\mathscr{G}_{1}\mathscr{G}_{3}$, $\mathscr{G}_{2}\mathscr{G}_{3}\mathscr{G}_{1}$, $\mathscr{G}_{3}\mathscr{G}_{1}\mathscr{G}_{2}$, and $\mathscr{G}_{3}\mathscr{G}_{2}\mathscr{G}_{1}$. Of these six possible orders, exactly three are acceptable for a definition. Which orders are not acceptable, any why?
+\end{exercise}
+
+\begin{proof}
+    Inacceptable orders are $\mathscr{G}_{1}\mathscr{G}_{3}\mathscr{G}_{2}$, $\mathscr{G}_{3}\mathscr{G}_{1}\mathscr{G}_{2}$, $\mathscr{G}_{3}\mathscr{G}_{2}\mathscr{G}_{1}$. Because $\mathcal{G}_{3}$ depends on the definition of identity element, which is defined in $\mathcal{G}_{2}$.
+\end{proof}
+
+% section 2/exercise 23
+\begin{exercise}
+    The following ``definitions'' of a group are taken verbatim, including spelling and punctuation, from papers of students who wrote a bit too quickly and carelessly. Criticize them.
+    \begin{enumerate}
+        \item A group $G$ is a set of elements together with a binary operation $*$ such that the following conditions are satisfied
+
+              $*$ is associative
+
+              There exists $e\in G$ such that
+              \[
+                  e * x = x * e = x = \text{identity}
+              \]
+
+              For every $a\in G$ there exists an $a'$ (inverse) such that
+              \[
+                  a\cdot a' = a'\cdot a = e
+              \]
+        \item A group is a set $G$ such that
+
+              The operation on $G$ is associative
+
+              there is an identity element ($e$) in $G$.
+
+              for every $a\in G$, there is an $a'$ (inverse for each element)
+        \item A group is a set with a binary operation such
+
+              the binary operation is defined
+
+              an inverse exists
+
+              an identity element exists
+        \item A set $G$ is called a group over the binery operation $*$ such that for all $a, b\in G$
+
+              Binary operation $*$ is associative under addition
+
+              there exist an element $\{e\}$ such that
+              \[
+                  a * e = e * a = e
+              \]
+
+              Fore every element $a$ there exists an element $a'$ such that
+              \[
+                  a * a' = a' * a = e
+              \]
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}
+        \item $x$ is not neccessarily equal to the identity element. The notations for the binary opertion are inconsistent ($*$ and $\cdot$).
+        \item First letter of each sentence should be in uppercase. A group is a set $G$ with a binary operation. The meaning of identity element and inverse must be clarified.
+        \item The definition of idenity element, inverse must be given. Sentences are not clear.
+        \item $b$ isn't used anywhere. $e$ must be used instead of $\{e\}$. There are typos.
+    \end{enumerate}
+\end{proof}
+
+% section 2/exercise 24
+\begin{exercise}
+    Give a table defining an operation satisfying axioms $\mathscr{G}_{2}$ and $\mathscr{G}_{3}$ in the definition of a group, but not satisfying axiom $\mathscr{G}_{1}$ for the set
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item $\{ e, a, b \}$
+        \item $\{ e, a, b, c \}$
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item
+              \[
+                  \begin{array}{c|ccc}
+                      * & e & a & b \\
+                      \hline
+                      e & e & a & b \\
+                      a & a & e & e \\
+                      b & b & e & a \\
+                  \end{array}
+              \]
+
+              $(a * a) * b = e * b = b \ne a = a * e = a * (a * b)$. So $*$ is not associative.
+        \item $\{ e, a, b, c \}$
+              \[
+                  \begin{array}{c|cccc}
+                      * & e & a & b & c \\
+                      \hline
+                      e & e & a & b & c \\
+                      a & a & c & e & b \\
+                      b & b & e & a & a \\
+                      c & c & b & a & e
+                  \end{array}
+              \]
+
+              $(b * a) * c = e * c = c \ne a = b * b = b * (a * c)$. So $*$ is not associative.
+    \end{enumerate}
+\end{proof}
+
+% section 2/exercise 25
+\begin{exercise}
+    Mark each of the following true or false.
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item A group may have more than one identity element.
+        \item Any two groups of three elements are isomorphic.
+        \item In a group, each linear equation has a solution.
+        \item The proper attitude toward a definition is to memorize it so that you can reproduce it word for word as in the text.
+        \item Any definition a person gives for a group is correct provided that everything that is a group by that person's defintion is also a group by the definition in the text.
+        \item Any definition a person gives for a group is correct provided he or she can show that everything that satisfies the definition satisfies the one in the text and conversely.
+        \item Every finite group of at most three elements is abelian.
+        \item An equation of the form $a * x * b = c$ always has a unique solution in a group.
+        \item The empty set can be considered a group.
+        \item Every group is a binary algebraic structure.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item False.
+        \item True.
+        \item True.
+        \item False.
+        \item False.
+        \item True.
+        \item True.
+        \item True.
+        \item False.
+        \item True.
+    \end{enumerate}
+\end{proof}
+
+\subsection*{Proof synopsis}
+
+% section 2/exercise 26
+\begin{exercise}
+    Give a one-sentence synopsis of the proof of the left cancellation law in Theorem 2.16.
+\end{exercise}
+
+\begin{proof}
+    Multiply both sides with the inverse of the left element and apply the associative law, it follows that the two left elements are equal.
+\end{proof}
+
+% section 2/exercise 27
+\begin{exercise}
+    Give at most a two-sentence synopsis of the proof in Theorem 2.17 that an equation $ax = b$ has a unique solution in a group.
+\end{exercise}
+
+\begin{proof}
+    Multiply both sides with the inverse of the coefficient and apply the associative law, we obtain a solution. To prove that this solution is unique, we suppose that there are two solutions and apply the left cancellation law to show that the two solutions are identical.
+\end{proof}
+
+\subsection*{Theory}
+
+% section 2/exercise 28
+\begin{exercise}
+    An element $a\ne e$ in a group is said to have order $2$ if $a * a = e$. Prove that if $G$ is a group and $a\in G$ has order $2$, then for any $b\in G$, $b' * a * b$ also has order $2$.
+\end{exercise}
+
+\begin{proof}
+    \begin{align*}
+        (b' * a * b) * (b' * a * b) & = (b' * a) * (b * b') * (a * b) & \text{associative law}   \\
+                                    & = (b' * a) * e * (a * b)                                   \\
+                                    & = (b' * a) * (a * b)                                       \\
+                                    & = b' * (a * a) * b              & \text{associative law}   \\
+                                    & = b' * a * b                    & \text{$a$ has order $2$}
+    \end{align*}
+
+    Hence, $b' * a * b$ also has order $2$.
+\end{proof}
+
+% section 2/exercise 29
+\begin{exercise}
+    Show that if $G$ is a finite group with identity $e$ and with an even number of elements, then there is $a\ne e$ in $G$ such that $a * a = e$.
+\end{exercise}
+
+\begin{proof}
+    Assume that there is no element other than $e$ that has order $2$.
+
+    Let the elements of $G$ be $e, a_{1}, a_{2}, \ldots, a_{2n-1}$. Since $G$ is a group, each element $a_{i}$ has an unique inverse. So we can pair each $a_{i}$ with its inverse and none of them are $e$. Therefore, $\{ a_{1}, a_{2}, \ldots, a_{2n-1} \}$ contains an even number of elements, which contradicts the fact that $2n - 1$ is an odd number.
+
+    So the initial assumption is false, and there is $a\ne e$ in $G$ such that $a * a = e$.
+\end{proof}
+
+% section 2/exercise 30
+\begin{exercise}
+    Let $\mathbb{R}^{*}$ be the set of all real numbers except $0$. Define $*$ on $\mathbb{R}^{*}$ by letting $a * b = \abs{a}b$.
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item Show that $*$ gives an associative binary operation on $\mathbb{R}^{*}$.
+        \item Show that there is a left identity for $*$ and a right inverse for each element in $\mathbb{R}^{*}$.
+        \item Is $\mathbb{R}^{*}$ with this binary operation a group?
+        \item Explain the significance of this exercise.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item Let $a, b, c\in\mathbb{R}^{*}$
+              \begin{align*}
+                  (a * b) * c & = \abs{a}b * c    \\
+                              & = \abs{\abs{a}b}c \\
+                              & = \abs{ab}c       \\
+                              & = \abs{a}\abs{b}c \\
+                              & = \abs{a}(b * c)  \\
+                              & = a * (b * c)
+              \end{align*}
+
+              So $*$ gives an associative binary operation on $\mathbb{R}^{*}$.
+        \item $1 * b = b$, $-1 * b = b$ for all $b\in\mathbb{R}^{*}$.
+
+              $a * \frac{1}{\abs{a}} = 1$, $a * \frac{-1}{\abs{a}} = -1$ for all $a\in\mathbb{R}^{*}$.
+        \item $\mathbb{R}^{*}$ with this binary operation is not a group, because $\mathbb{R}^{*}$ does not have an identity element under the operation $*$.
+        \item When checking the Axiom 2 of group structure, one must check if the identity element for both side.
+    \end{enumerate}
+\end{proof}
+
+% section 2/exercise 31
+\begin{exercise}
+    If $*$ is a binary operation on a set $S$, an element $x$ of $S$ is an \textbf{idempotent for $*$} if $x * x = x$. Prove hat a group has exactly one idempotent element.
+\end{exercise}
+
+\begin{proof}
+    Let $e$ be the identity element of the group $\anglebracket{S, *}$. Since $e * e = e$, $e$ is an idempotent element.
+
+    Suppose that $x\in G$ is an idempotent element, then $x * x = x$. Let $x'$ be the inverse of $x$, then $x' * (x * x) = x' * x$. According to Axiom 1, we obtain that $(x' * x) * x = x' * x$, and by Axiom 2, 3, it follows that $x = e$.
+
+    Therefore, a group has exactly one idempotent element, which is also the identity element.
+\end{proof}
+
+% section 2/exercise 32
+\begin{exercise}
+    Show that every group $G$ with identity $e$ and such that $x * x = e$ for all $x\in G$ is abelian.
+\end{exercise}
+
+\begin{proof}
+    In a group, every element has a unique inverse.
+
+    Let $a, b$ be two elements of $G$, and $a', b'$ be the inverses of $a, b$, respectively.
+    \[
+        \begin{split}
+            (a * b) * (b' * a') = a * (b * b') * a' = a * e * a' = a * a' = e, \\
+            (b' * a') * (a * b) = b' * (a' * a) * b = b' * e * b = b' * b = e.
+        \end{split}
+    \]
+
+    So $b' * a'$ is the inverse element of $a * b$.
+
+    On the one hand, $(a * b) * (a * b) = e$, which means $a * b$ is also an inverse of $a * b$. So $b' * a' = a * b$. On the other hand, $a = a'$ and $b' = b$ because $a * a = b * b = e$. Therefore $a * b = b * a$.
+
+    Thus $G$ is abelian.
+\end{proof}
+
+% section 2/exercise 33
+\begin{exercise}
+    Let $G$ be an abelian group and let $c^{n} = c * c * \cdots * c$ for $n$ factors $c$, where $c\in G$ and $n\in\mathbb{Z}^{+}$. Give a mathematical induction proof that ${(a * b)}^{n} = (a^{n}) * (b^{n})$ for all $a, b\in G$.
+\end{exercise}
+
+\begin{proof}
+    The statement holds for $n = 1$, since $a * b = a * b$.
+
+    Assume that the statement holds for $n = k$.
+    \begin{align*}
+        {(a * b)}^{k+1} & = {(a * b)}^{k} * (a * b)                                             \\
+                        & = (a^{k}) * (b^{k}) * (a * b) & \text{induction hypothesis}           \\
+                        & = (a^{k} * a) * (b^{k} * b)   & \text{associative and $G$ is abelian} \\
+                        & = (a^{k+1}) * (b^{k+1})
+    \end{align*}
+
+    So the statement also holds for $n = k + 1$.
+
+    According to the principle of mathematical induction, ${(a * b)}^{n} = (a^{n}) * (b^{n})$ for all $a, b\in G$.
+\end{proof}
+
+% section 2/exercise 34
+\begin{exercise}
+    Suppose that $G$ is a group and $a, b\in G$ satisfy $a * b = b * a'$ where as usual, $a'$ is the inverse for $a$. Prove that $b * a = a' * b$.
+\end{exercise}
+
+\begin{proof}
+    Let $e$ be the identity element of $G$.
+
+    \begin{align*}
+        b * a & = (e * b) * a         \\
+              & = ((a' * a) * b) * a  \\
+              & = (a' * (a * b)) * a  \\
+              & = (a' * (b * a')) * a \\
+              & = a' * ((b * a') * a) \\
+              & = a' * (b * (a' * a)) \\
+              & = a' * (b * e)        \\
+              & = a' * b
+    \end{align*}
+\end{proof}
+
+% section 2/exercise 35
+\begin{exercise}
+    Suppose that $G$ is a group and $a$ and $b$ are elements of $G$ that satisfy $a * b = b * a^{3}$. Rewrite the element ${(a * b)}^{2}$ in the form $b^{k}a^{r}$ (See Exercise 33 for power notaion.)
+\end{exercise}
+
+\begin{proof}
+    \begin{align*}
+        {(a * b)}^{2} & = (a * b) * (a * b)               \\
+                      & = (b * a^{3}) * (b * a^{3})       \\
+                      & = b * a^{2} * (a * b) * a^{3}     \\
+                      & = b * a^{2} * (b * a^{3}) * a^{3} \\
+                      & = b * a * (a * b) * a^{6}         \\
+                      & = b * a * (b * a^{3}) * a^{6}     \\
+                      & = b * (a * b) * a^{3} * a^{6}     \\
+                      & = b * (b * a^{3}) * a^{9}         \\
+                      & = b^{2} * a^{12}.
+    \end{align*}
+\end{proof}
+
+% section 2/exercise 36
+\begin{exercise}
+    Let $G$ be a group with a finite number of elements. Show that for any $a\in G$, there exists an $n\in\mathbb{Z}^{+}$ such that $a^{n} = e$.
+\end{exercise}
+
+\begin{proof}
+    Suppose that $G$ has $m$ elements.
+
+    Consider $e = a^{0}, a, a^{2}, \ldots a^{m}$. These are $(m + 1)$ elements in $G$. So there exists two distinct non-negative integers $0\le p < q\le m$ such that $a^{p} = a^{q}$. Therefore, $a^{q-p} = e$.
+
+    Hence, there exists an $n\in\mathbb{Z}^{+}$ such that $a^{n} = e$.
+\end{proof}
+
+% section 2/exercise 37
+\begin{exercise}
+    Show that if ${(a * b)}^{2} = a^{2} * b^{2}$ for $a$ and $b$ in a group $G$, then $a * b = b * a$.
+\end{exercise}
+
+\begin{proof}
+    Since ${(a + b)}^{2} = a^{2} * b^{2}$, then $a' * (a * b) * (a * b) * b' = (a' * a^{2}) * (b^{2} * b')$.
+
+    It follows that $(a' * a) * (b * a) * (b * b') = (a' * a) * (a * b) * (b * b')$, so $b * a = a * b$.
+
+    Thus, $G$ is abelian.
+\end{proof}
+
+% section 2/exercise 38
+\begin{exercise}
+    Let $G$ be a group and let $a, b\in G$. Show that ${(a * b)}' = a' * b'$ if and only if $a * b = b * a$.
+\end{exercise}
+
+\begin{proof}
+    For any $a, b\in G$, $(b * a)' = a' * b'$.
+
+    $(\Rightarrow)$ If $a * b = b * a$, then $(a * b)' = (b * a)' = a' * b'$.
+
+    $(\Leftarrow)$ If ${(a * b)}' = a' * b'$, then the inverse of ${(a * b)}'$ is equal to the inverse of $a' * b'$. The inverse of $a' * b'$ is $b * a$, the inverse of ${(a * b)}'$ is $a * b$. Therefore $a * b = b * a$.
+
+    Hence ${(a * b)}' = a' * b'$ if and only if $a * b = b * a$.
+\end{proof}
+
+% section 2/exercise 39
+\begin{exercise}
+    Let $G$ be a group and suppose that $a * b * c = e$ for $a, b, c\in G$. Show that $b * c * a = e$ also.
+\end{exercise}
+
+\begin{proof}
+    $a' = a' * e = a' * (a * b * c) = (a' * a) * (b * c) = e * (b * c) = b * c$. So $b * c$ is the inverse of $a$. Therefore, $b * c * a = e$.
+\end{proof}
+
+% section 2/exercise 40
+\begin{exercise}
+    Prove that a set $G$, together with a binary operation $*$ on $G$ satisfying the left axioms 1, 2, and 3 after Corollary 2.19, is a group.
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={\textbf{Axiom \arabic*.}},itemindent=1cm]
+        \item The binary operation $*$ on $G$ is associative.
+        \item There exists a \textbf{left identity element} $e$ in $G$ such that $e * x = x$ for all $x\in G$.
+        \item For each $a\in G$, there exists \textbf{a left inverse} $a'$ in $G$ such that $a' * a = e$.
+    \end{enumerate}
+
+    For every $x\in G$, there exists $x'\in G$ such that $x' * x = e$. Furthermore, $x' * (x * e) = (x' * x) * e = e * e = e$.
+
+    There exists $y$ such that $y * x' = e$, then
+    \[
+        y * (x' * x) = y * (x' * (x * e)) = y
+    \]
+
+    Since $*$ on $G$ is associative, and $y * x' = e$, we obtain that $x = x * e = y$. Therefore $x * x' = e$. So that $e * x = x * e = x$ and $x' * x = e = x * x$, we conclude that $G$ with the binary operation $*$ that satisfies the left axioms is a group.
+\end{proof}
+
+% section 2/exercise 41
+\begin{exercise}
+    Prove that a nonempty set $G$, together with an associate binary operation $*$ on $G$ such that
+    \begin{center}
+        $a * x = b$ and $y * a = b$ have solutions in $G$ for all $a, b\in G$
+    \end{center}
+
+    is a group.
+\end{exercise}
+
+\begin{proof}
+    According to the hypothesis
+    \begin{itemize}
+        \item there exists $e\in G$ such that $e * a = a$
+        \item for each $m\in G$, there exists $y\in G$ such that $a * y = m$
+    \end{itemize}
+
+    For each $m\in G$
+    \begin{itemize}
+        \item $e * m = e * (a * y) = (e * a) * y = a * y = m$. So $G$ has a \textbf{left identity element}.
+        \item according to the hypothesis, there exists $y'$ such that $y' * y = e$, there exists $a'$ such that $a' * a = e$, so
+              \begin{align*}
+                  (y' * a') * m & = (y' * a') * (a * y)                                         \\
+                                & = y' * ((a' * a) * y) & \text{associativity}                  \\
+                                & = y' * (e * y)                                                \\
+                                & = y' * y              & \text{$e$ is a left identity element} \\
+                                & = e
+              \end{align*}
+
+              which implies $m$ has a \textbf{left inverse}.
+    \end{itemize}
+
+    Hence $G$ with the binary operation $*$ is associative, has a left identity element, and each element has a left inverse. According to Exercise 40 of Section 2, we conclude that $G$ with the binary operation is a group.
+\end{proof}
+
+% section 2/exercise 42
+\begin{exercise}
+    Let $G$ be a group. Prove that $(a')' = a$.
+\end{exercise}
+
+\begin{proof}
+    \begin{align*}
+        (a')' & = (a')' * e        \\
+              & = (a')' * (a' * a) \\
+              & = ((a')' * a') * a \\
+              & = e * a            \\
+              & = a.
+    \end{align*}
+\end{proof}
+
+% section 2/exercise 43
+\begin{exercise}
+    Let $\phi$ be an isometry of the plane.
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item Prove that $\phi$ is an one-to-one function.
+        \item Prove that $\phi$ maps onto $\mathbb{R}^{2}$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item Let $A, B$ be two points in the plane. Since $\phi$ is an isometry, then $\abs{\phi(A)\phi(B)} = \abs{AB}$. Therefore, $A\equiv B$ if and only if $\phi(A)\equiv\phi(B)$. Hence $\phi$ is an one-to-one function.
+        \item Let $A, B$ be two points in the plane. Let $C = \phi(B)$. Consider two circles whose centers are $B, C$ and their radii equal $\abs{AC}$. Denote these circles by $\odot(B, \abs{AC})$ and $\odot(C, \abs{AC})$.
+
+              $\phi$ restricted on $\odot(B, \abs{AC})$, into $\odot(C, \abs{AC})$ is still an one-to-one mapping.
+
+              Let $M$ be a point on $\odot(B, \abs{AC})$. Since $\phi$ is an isometry, $\abs{BM} = \abs{C\phi(M)}$, so $\phi(M)$ lies on $\odot(C, \abs{AC})$. There are at most two points $P, Q$ on $\odot(B, \abs{AC})$ such that $\abs{MP} = \abs{MQ} = \abs{A\phi(M)}$. There are at most two points on $\odot(C, \abs{AC})$ such that their distances to $\phi(M)$ are equal to $\abs{A\phi(M)}$, and one of them is $A$. Therefore, either $\phi(P) = A$ or $\phi(Q) = A$. Hence, there exists a point on $\odot(B, \abs{AC})$ such that its image under $\phi$ is $A$.
+
+              Hence, $\phi$ is onto $\mathbb{R}^{2}$.
+    \end{enumerate}
+\end{proof}
+
+% section 2/exercise 44
+\begin{exercise}
+    Prove that if $f: G_{1} \to G_{2}$ is a group isomorphism from the group $\anglebracket{G_{1}, {*}_{1}}$ to the group $\anglebracket{G_{2}, {*}_{2}}$, then $f^{-1}: G_{2} \to G_{1}$ is also a group isomorphism.
+\end{exercise}
+
+\begin{proof}
+    $f: G_{1} \to G_{2}$ is one-to-one and onto, so that $f^{-1}: G_{2} \to G_{1}$ is also one-to-one and onto.
+
+    Let $a', b'$ be elements of $G_{2}$, and $a = f^{-1}(a'), b = f^{-1}(b')$.
+    \begin{align*}
+        f^{-1}(a'\ {*}_{2}\ b') & = f^{-1}(f(a)\ {*}_{2}\ f(b))     \\
+                                & = f^{-1}(f(a\ {*}_{1}\ b))        \\
+                                & = a\ {*}_{1}\ b                   \\
+                                & = f^{-1}(a')\ {*}_{1}\ f^{-1}(b')
+    \end{align*}
+
+    Thus $f^{-1}$ is also a group isomorphism.
+\end{proof}
+
+% section 2/exercise 45
+\begin{exercise}
+    Suppose that $G$ is a group with $n$ elements and $A\subseteq G$ has more than $\frac{n}{2}$ elements. Prove that for every $g\in G$, there exists $a, b\in A$ such that $a * b = g$.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
 
 \section{Abelian Examples}
 
