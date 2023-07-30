@@ -386,7 +386,7 @@ In Exercises 21 through 26, determine whether the definition of $*$ does give a 
         \item A binary operation on a set $S$ assigns at least one element of $S$ to each ordered pair of elements of $S$.
         \item A binary operation on a set $S$ assigns at most one element of $S$ to each ordered pair of elements of $S$.
         \item A binary operation on a set $S$ assigns exactly one element of $S$ to each ordered pair of elements of $S$.
-        \item A binary operation on a set $S$ may assign more than one element of $S$ to some ordered pair of elements of $S$.
+        \item A binary operation on a set $S$ may assign more tha one element of $S$ to some ordered pair of elements of $S$.
         \item For any binary operation $*$ on the set $S$, if $a, b, c\in S$ and $a * b = a * c$, then $b = c$.
         \item For any binary operation $*$ on the set $S$, there is an element $e\in S$ such that for all $x\in S, x * e = x$.
         \item There is an operation on the set $S = \{ e_{1}, e_{2}, a \}$ so that for all $x\in S$, $e_{1} * x = e_{2} * x = x$.
@@ -968,7 +968,7 @@ In Exercises 1 through 9, determine whether the binary operation $*$ gives a gro
                   \end{split}
               \]
 
-              So $f$ is an one-to-one function from $n\mathbb{Z}$ onto $\mathbb{Z}$.
+              So $f$ is a one-to-one function from $n\mathbb{Z}$ onto $\mathbb{Z}$.
 
               For every $x, y\in n\mathbb{Z}$, $x/n$ and $y/n$ are elements of $\mathbb{Z}$
               \[
@@ -1460,7 +1460,7 @@ In Exercises 11 through 18, determine whether the given set of matrices under th
 \begin{exercise}
     Mark each of the following true or false.
     \begin{enumerate}[label={\textbf{\alph*.}}]
-        \item A group may have more than one identity element.
+        \item A group may have more tha one identity element.
         \item Any two groups of three elements are isomorphic.
         \item In a group, each linear equation has a solution.
         \item The proper attitude toward a definition is to memorize it so that you can reproduce it word for word as in the text.
@@ -1794,17 +1794,17 @@ In Exercises 11 through 18, determine whether the given set of matrices under th
 \begin{exercise}
     Let $\phi$ be an isometry of the plane.
     \begin{enumerate}[label={\textbf{\alph*.}}]
-        \item Prove that $\phi$ is an one-to-one function.
+        \item Prove that $\phi$ is a one-to-one function.
         \item Prove that $\phi$ maps onto $\mathbb{R}^{2}$.
     \end{enumerate}
 \end{exercise}
 
 \begin{proof}
     \begin{enumerate}[label={\textbf{\alph*.}}]
-        \item Let $A, B$ be two points in the plane. Since $\phi$ is an isometry, then $\abs{\phi(A)\phi(B)} = \abs{AB}$. Therefore, $A\equiv B$ if and only if $\phi(A)\equiv\phi(B)$. Hence $\phi$ is an one-to-one function.
+        \item Let $A, B$ be two points in the plane. Since $\phi$ is an isometry, then $\abs{\phi(A)\phi(B)} = \abs{AB}$. Therefore, $A\equiv B$ if and only if $\phi(A)\equiv\phi(B)$. Hence $\phi$ is a one-to-one function.
         \item Let $A, B$ be two points in the plane. Let $C = \phi(B)$. Consider two circles whose centers are $B, C$ and their radii equal $\abs{AC}$. Denote these circles by $\odot(B, \abs{AC})$ and $\odot(C, \abs{AC})$.
 
-              $\phi$ restricted on $\odot(B, \abs{AC})$, into $\odot(C, \abs{AC})$ is still an one-to-one mapping.
+              $\phi$ restricted on $\odot(B, \abs{AC})$, into $\odot(C, \abs{AC})$ is still a one-to-one mapping.
 
               Let $M$ be a point on $\odot(B, \abs{AC})$. Since $\phi$ is an isometry, $\abs{BM} = \abs{C\phi(M)}$, so $\phi(M)$ lies on $\odot(C, \abs{AC})$. There are at most two points $P, Q$ on $\odot(B, \abs{AC})$ such that $\abs{MP} = \abs{MQ} = \abs{A\phi(M)}$. There are at most two points on $\odot(C, \abs{AC})$ such that their distances to $\phi(M)$ are equal to $\abs{A\phi(M)}$, and one of them is $A$. Therefore, either $\phi(P) = A$ or $\phi(Q) = A$. Hence, there exists a point on $\odot(B, \abs{AC})$ such that its image under $\phi$ is $A$.
 
@@ -1844,14 +1844,11 @@ In Exercises 11 through 18, determine whether the given set of matrices under th
 
 \section{Abelian Examples}
 
-
-\section{Nonabelian Examples}
-
-\section{Introduction and Examples}
 \setcounter{exercise}{0}
 
 In Exercises 1 through 9 compute the given arithmetic expression and give the answer in the form $a + bi$ for $a, b\in \mathbb{R}$.
 
+% section 3/exercise 1
 \begin{exercise}
     $i^{3}$
 \end{exercise}
@@ -1860,6 +1857,7 @@ In Exercises 1 through 9 compute the given arithmetic expression and give the an
     $i^{3} = {i}^{2}i = -i = 0 + (-1)i$.
 \end{proof}
 
+% section 3/exercise 2
 \begin{exercise}
     $i^{4}$
 \end{exercise}
@@ -1868,30 +1866,34 @@ In Exercises 1 through 9 compute the given arithmetic expression and give the an
     $i^{4} = {i}^{2}{i}^{2} = (-1)\cdot (-1) = 1 = 1 + 0i$.
 \end{proof}
 
+% section 3/exercise 3
 \begin{exercise}
-    $i^{23}$
+    $i^{26}$
 \end{exercise}
 
 \begin{proof}
-    $i^{23} = {i}^{3}{i}^{20} = -i = 0 + (-1)i$.
+    $i^{26} = {i}^{2}{i}^{24} = -1 = -1 + 0i$.
 \end{proof}
 
+% section 3/exercise 4
 \begin{exercise}
-    ${(-i)}^{35}$
+    ${(-i)}^{39}$
 \end{exercise}
 
 \begin{proof}
-    ${(-i)}^{35} = {(-i)}^{3}{(-i)}^{32} = {(-i)}^{3} = i = 0 + 1i$.
+    ${(-i)}^{39} = {(-i)}^{3}{(-i)}^{36} = {(-i)}^{3} = i = 0 + 1i$.
 \end{proof}
 
+% section 3/exercise 5
 \begin{exercise}
-    $(4 - i)(5 + 3i)$
+    $(3 - 2i)(6 + i)$
 \end{exercise}
 
 \begin{proof}
-    $(4 - i)(5 + 3i) = 23 + 7i$.
+    $(3 - 2i)(6 + i) = 20 - 9i$.
 \end{proof}
 
+% section 3/exercise 6
 \begin{exercise}
     $(8 + 2i)(3 - i)$
 \end{exercise}
@@ -1900,6 +1902,7 @@ In Exercises 1 through 9 compute the given arithmetic expression and give the an
     $(8 + 2i)(3 - i) = 26 + (-2)i$.
 \end{proof}
 
+% section 3/exercise 7
 \begin{exercise}
     $(2 - 3i)(4 + i) + (6 - 5i)$
 \end{exercise}
@@ -1908,6 +1911,7 @@ In Exercises 1 through 9 compute the given arithmetic expression and give the an
     $(2 - 3i)(4 + i) + (6 - 5i) = (11 - 10i) + (6 - 5i) = 17 - 15i = 17 + (-15)i$.
 \end{proof}
 
+% section 3/exercise 8
 \begin{exercise}
     ${(1+i)}^{3}$
 \end{exercise}
@@ -1916,6 +1920,7 @@ In Exercises 1 through 9 compute the given arithmetic expression and give the an
     ${(1+i)}^{3} = 1^{3} + 3\cdot 1^{2}i + 3\cdot 1\cdot i^{2} + i^{3} = 1 + 3i - 3 - i = (-2) + 2i$.
 \end{proof}
 
+% section 3/exercise 9
 \begin{exercise}
     ${(1-i)}^{5}$
 \end{exercise}
@@ -1928,24 +1933,27 @@ In Exercises 1 through 9 compute the given arithmetic expression and give the an
     \end{align*}
 \end{proof}
 
+% section 3/exercise 10
 \begin{exercise}
-    Find $\abs{3 - 4i}$.
+    Find $\abs{5 - 12i}$.
 \end{exercise}
 
 \begin{proof}
-    $\abs{3 - 4i} = \sqrt{3^{2} + 4^{2}} = 5$.
+    $\abs{5 - 12i} = \sqrt{5^{2} + 12^{2}} = 13$.
 \end{proof}
 
+% section 3/exercise 11
 \begin{exercise}
-    Find $\abs{6 + 4i}$.
+    Find $\abs{\pi + ei}$.
 \end{exercise}
 
 \begin{proof}
-    $\abs{6 + 4i} = \sqrt{6^{2} + 4^{2}} = \sqrt{52} = 2\sqrt{13}$.
+    $\abs{\pi + ei} = \sqrt{\pi^{2} + e^{2}}$.
 \end{proof}
 
 In Exercises 12 through 15 write the given complex number $z$ in the polar form $\abs{z}(p + qi)$ where $\abs{p + qi} = 1$.
 
+% section 3/exercise 12
 \begin{exercise}
     $3 - 4i$
 \end{exercise}
@@ -1956,16 +1964,18 @@ In Exercises 12 through 15 write the given complex number $z$ in the polar form 
     $3 - 4i = 5\left(\frac{3}{5} + \frac{-4}{5}i\right)$.
 \end{proof}
 
+% section 3/exercise 13
 \begin{exercise}
-    $-1 + i$
+    $-1 - i$
 \end{exercise}
 
 \begin{proof}
-    $\abs{-1 + i} = \sqrt{{(-1)}^{2} + 1^{2}} = \sqrt{2}$.
+    $\abs{-1 - i} = \sqrt{{(-1)}^{2} + {(-1)}^{2}} = \sqrt{2}$.
 
-    $-1 + i = \sqrt{2}\left(\frac{-\sqrt{2}}{2} + \frac{\sqrt{2}}{2}i\right)$.
+    $-1 - i = \sqrt{2}\left(\frac{-\sqrt{2}}{2} + \frac{-\sqrt{2}}{2}i\right)$.
 \end{proof}
 
+% section 3/exercise 14
 \begin{exercise}
     $12 + 5i$
 \end{exercise}
@@ -1976,6 +1986,7 @@ In Exercises 12 through 15 write the given complex number $z$ in the polar form 
     $12 + 5i = 13\left( \frac{12}{13} + \frac{5}{13}i \right)$.
 \end{proof}
 
+% section 3/exercise 15
 \begin{exercise}
     $-3 + 5i$
 \end{exercise}
@@ -1988,6 +1999,7 @@ In Exercises 12 through 15 write the given complex number $z$ in the polar form 
 
 In Exercises 16 through 21, find all solutions in $\mathbb{C}$ of the given equation.
 
+% section 3/exercise 16
 \begin{exercise}
     $z^{4} = 1$
 \end{exercise}
@@ -2001,6 +2013,7 @@ In Exercises 16 through 21, find all solutions in $\mathbb{C}$ of the given equa
     \]
 \end{proof}
 
+% section 3/exercise 17
 \begin{exercise}
     $z^{4} = -1$
 \end{exercise}
@@ -2014,19 +2027,21 @@ In Exercises 16 through 21, find all solutions in $\mathbb{C}$ of the given equa
     \]
 \end{proof}
 
+% section 3/exercise 18
 \begin{exercise}
-    $z^{3} = -8$
+    $z^{3} = -125$
 \end{exercise}
 
 \begin{proof}
-    In polar form, the equation is $\abs{z}^{3}(\cos (3\phi) + i\sin (3\phi)) = 2^{3}(\cos\pi + i\sin\pi)$.
+    In polar form, the equation is $\abs{z}^{3}(\cos (3\phi) + i\sin (3\phi)) = 5^{3}(\cos\pi + i\sin\pi)$.
 
     The roots of the equation are
     \[
-        1 + \sqrt{3}i,\quad -2,\quad 1 - \sqrt{3}i.
+        \frac{5}{2} + \frac{5\sqrt{3}}{2}i,\quad -5,\quad \frac{5}{2} + \frac{-5\sqrt{3}}{2}i.
     \]
 \end{proof}
 
+% section 3/exercise 19
 \begin{exercise}
     $z^{3} = -27i$
 \end{exercise}
@@ -2040,6 +2055,7 @@ In Exercises 16 through 21, find all solutions in $\mathbb{C}$ of the given equa
     \]
 \end{proof}
 
+% section 3/exercise 20
 \begin{exercise}
     $z^{6} = 1$
 \end{exercise}
@@ -2051,6 +2067,7 @@ In Exercises 16 through 21, find all solutions in $\mathbb{C}$ of the given equa
     \]
 \end{proof}
 
+% section 3/exercise 21
 \begin{exercise}
     $z^{6} = -64$
 \end{exercise}
@@ -2058,12 +2075,12 @@ In Exercises 16 through 21, find all solutions in $\mathbb{C}$ of the given equa
 \begin{proof}
     In polar form, the equation is $\abs{z}^{6}(\cos(6\phi) + i\sin(6\phi)) = 2^{6}(\cos\pi + i\sin\pi)$.
 
-    pi/6 + 2pi/6 * 0 = pi/6
-    pi/6 + 2pi/6 * 1 = 3pi/6 = pi/2
-    pi/6 + 2pi/6 * 2 = 5pi/6
-    pi/6 + 2pi/6 * 3 = 7pi/6
-    pi/6 + 2pi/6 * 4 = 9pi/6
-    pi/6 + 2pi/6 * 5 = 11pi/6
+    % pi/6 + 2pi/6 * 0 = pi/6
+    % pi/6 + 2pi/6 * 1 = 3pi/6 = pi/2
+    % pi/6 + 2pi/6 * 2 = 5pi/6
+    % pi/6 + 2pi/6 * 3 = 7pi/6
+    % pi/6 + 2pi/6 * 4 = 9pi/6
+    % pi/6 + 2pi/6 * 5 = 11pi/6
 
     The roots of the equation are
     \[
@@ -2073,6 +2090,7 @@ In Exercises 16 through 21, find all solutions in $\mathbb{C}$ of the given equa
 
 In Exercises 22 through 27, compute the given expression using the indicated modular addition.
 
+% section 3/exercise 22
 \begin{exercise}
     $10 {+}_{17} 16$
 \end{exercise}
@@ -2081,22 +2099,25 @@ In Exercises 22 through 27, compute the given expression using the indicated mod
     $10 {+}_{17} 16 = 10 + 16 - 17 = 9$.
 \end{proof}
 
+% section 3/exercise 23
 \begin{exercise}
-    $8 {+}_{10} 6$
+    $14 {+}_{99} 92$
 \end{exercise}
 
 \begin{proof}
-    $8 {+}_{10} 6 = 8 + 6 - 10 = 4$.
+    $14 {+}_{99} 92 = 14 + 92 - 99 = 7$.
 \end{proof}
 
+% section 3/exercise 24
 \begin{exercise}
-    $20.5 {+}_{25} 19.3$
+    $3.141 {+}_{4} 2.718$
 \end{exercise}
 
 \begin{proof}
-    $20.5 {+}_{25} 19.3 = 20.5 + 19.3 - 25 = 14.8$.
+    $3.141 {+}_{4} 2.718 = 3.141 + 2.718 - 4 = 1.859$.
 \end{proof}
 
+% section 3/exercise 25
 \begin{exercise}
     $\frac{1}{2} {+}_{1} \frac{7}{8}$
 \end{exercise}
@@ -2105,6 +2126,7 @@ In Exercises 22 through 27, compute the given expression using the indicated mod
     $\frac{1}{2} {+}_{1} \frac{7}{8} = \frac{1}{2} + \frac{7}{8} - 1 = \frac{3}{8}$.
 \end{proof}
 
+% section 3/exercise 26
 \begin{exercise}
     $\frac{3\pi}{4} {+}_{2\pi} \frac{3\pi}{2}$
 \end{exercise}
@@ -2113,6 +2135,7 @@ In Exercises 22 through 27, compute the given expression using the indicated mod
     $\frac{3\pi}{4} {+}_{2\pi} \frac{3\pi}{2} = \frac{3\pi}{4} + \frac{3\pi}{2} - 2\pi = \frac{\pi}{4}$.
 \end{proof}
 
+% section 3/exercise 27
 \begin{exercise}
     $2\sqrt{2} {+}_{\sqrt{32}} 3\sqrt{2}$
 \end{exercise}
@@ -2121,6 +2144,7 @@ In Exercises 22 through 27, compute the given expression using the indicated mod
     $2\sqrt{2} {+}_{\sqrt{32}} 3\sqrt{2} = 2\sqrt{2} + 3\sqrt{2} - \sqrt{32} = 5\sqrt{2} - 4\sqrt{2} = \sqrt{2}$.
 \end{proof}
 
+% section 3/exercise 28
 \begin{exercise}
     Explain why the expression $5 {+}_{6} 8$ in $\mathbb{R}_{6}$ makes no sense.
 \end{exercise}
@@ -2131,22 +2155,25 @@ In Exercises 22 through 27, compute the given expression using the indicated mod
 
 In Exercises 29 through 34, find \textit{all} solutions $x$ of the given equation.
 
+% section 3/exercise 29
 \begin{exercise}
-    $x {+}_{15} 7 = 3$ in $\mathbb{Z}_{15}$
+    $x {+}_{10} 7 = 3$ in $\mathbb{Z}_{10}$
 \end{exercise}
 
 \begin{proof}
-    $x = 3 {+}_{15} 8 = 3 + 8 = 11$.
+    $x = 3 {+}_{10} 3 = 3 + 3 = 6$.
 \end{proof}
 
+% section 3/exercise 30
 \begin{exercise}
-    $x {+}_{2\pi} \frac{3\pi}{2} = \frac{3\pi}{4}$ in $\mathbb{R}_{2\pi}$
+    $x {+}_{2\pi} \pi = \frac{\pi}{2}$ in $\mathbb{R}_{2\pi}$
 \end{exercise}
 
 \begin{proof}
-    $x = \frac{3\pi}{4} {+}_{2\pi} \frac{\pi}{2} = \frac{3\pi}{4} + \frac{\pi}{2} = \frac{5\pi}{4}$.
+    $x = \frac{\pi}{2} {+}_{2\pi} \pi = \frac{\pi}{2} + \pi = \frac{3\pi}{2}$.
 \end{proof}
 
+% section 3/exercise 31
 \begin{exercise}
     $x {+}_{7} x = 3$ in $\mathbb{Z}_{7}$
 \end{exercise}
@@ -2155,14 +2182,16 @@ In Exercises 29 through 34, find \textit{all} solutions $x$ of the given equatio
     $x = 5$.
 \end{proof}
 
+% section 3/exercise 32
 \begin{exercise}
-    $x {+}_{7} x {+}_{7} x = 5$ in $\mathbb{Z}_{7}$
+    $x {+}_{13} x {+}_{13} x = 5$ in $\mathbb{Z}_{13}$
 \end{exercise}
 
 \begin{proof}
-    $x = 4$.
+    $x = 6$.
 \end{proof}
 
+% section 3/exercise 33
 \begin{exercise}
     $x {+}_{12} x = 2$ in $\mathbb{Z}_{12}$
 \end{exercise}
@@ -2171,22 +2200,98 @@ In Exercises 29 through 34, find \textit{all} solutions $x$ of the given equatio
     $x = 1$, or $x = 7$.
 \end{proof}
 
+% section 3/exercise 34
 \begin{exercise}
-    $x {+}_{4} x {+}_{4} x {+}_{4} x = 0$ in $\mathbb{Z}_{4}$
+    $x {+}_{8} x {+}_{8} x {+}_{8} x = 4$ in $\mathbb{Z}_{8}$
 \end{exercise}
 
 \begin{proof}
-    $x = 0$, or $x = 1$, or $x = 2$, or $x = 3$.
+    $x = 1$, or $x = 3$, or $x = 5$, or $x = 7$.
 \end{proof}
 
+% section 3/exercise 35
 \begin{exercise}
-    Example 1.15 asserts that there is an isomorphism of $U_{8}$ with $\mathbb{Z}_{8}$ in which $\zeta = e^{i(\pi/4)}\leftrightarrow 5$ and $\zeta^{2}\leftrightarrow 2$. Find the element of $\mathbb{Z}_{8}$ that corresponds to each of the remaining six elements $\zeta^{m}$ in $U_{8}$ for $m = 0, 3, 4, 5, 6$, and $7$.
+    Prove or give a counterexample to the statement that for any $n\in\mathbb{Z}^{+}$ and $a\in\mathbb{Z}_{n}$, the equation $x {+}_{n} x = a$ has at most two solutions in $\mathbb{Z}_{n}$.
+\end{exercise}
+
+\begin{proof}
+    When $n$ is even and $a$ is odd. For every $x\in\mathbb{Z}_{n}$, $x {+}_{n} x$ is even. So $x {+}_{n} x = a$ has no solutions in this case.
+
+    When $n$ is even and $a$ is even, $x = \frac{a}{2}$ and $x = \frac{a + n}{2}$ are two solutions. Suppose that $x = y$ is a solution (1).
+    \begin{enumerate}[label={\textbf{Case \arabic*.}},itemindent=1cm]
+        \item $0\le y + y < n$.
+
+              If $y < \frac{a}{2}$, then $0\le y + y < a$, which is a contradiction to (1).
+
+              If $y > \frac{a}{2}$, then $0\le a < y + y < n$, which is also a contradiction to (1).
+
+              So $y = \frac{a}{2}$.
+        \item $y + y \ge n$.
+
+              If $y < \frac{a + n}{2}$, then $y + y - n < a$, which is a contradiction to (1).
+
+              If $y > \frac{a + n}{2}$, then $y + y - n > a$, which is a contradiction to (1).
+
+              So $y = \frac{a + n}{2}$.
+    \end{enumerate}
+
+    So when $n$ is even and $a$ is even, the equation has two solutions.
+
+    When $n$ is odd, and $a$ is even, $x = \frac{a}{2}$ is a solution. Suppose that $x = y$ is a solution (2).
+    \begin{enumerate}[label={\textbf{Case \arabic*}},itemindent=1cm]
+        \item $0\le y + y < n$.
+
+              If $y < \frac{a}{2}$, then $0\le y + y < a$, which is a contradiction to (2).
+
+              If $y > \frac{a}{2}$, then $0\le a < y + y < n$, which is also a contradiction to (2).
+
+              So $y = \frac{a}{2}$.
+        \item $y + y\ge n$.
+
+              $y + y - n$ is odd. Meanwhile, $a$ is even. So $x = y$ cannot be a solution.
+    \end{enumerate}
+
+    So when $n$ is odd and $a$ is even, the equation has one solution.
+
+    When $n$ is odd, and $a$ is odd, $x = \frac{a+n}{2}$ is a solution. Suppose that $x = y$ is a solution (3).
+    \begin{enumerate}[label={\textbf{Case \arabic*}},itemindent=1cm]
+        \item $0\le y + y < n$.
+
+              $y + y$ is even. Meanwhile, $a$ is odd. So $x = y$ cannot be a solution.
+
+        \item $y + y\ge n$.
+
+              If $y < \frac{a+n}{2}$, then $y + y - n < a$, which is a contradiction to (3).
+
+              If $y > \frac{a+n}{2}$, then $y + y - n > a$, which is also a contradiction to (3).
+
+              So $y = \frac{a+n}{2}$.
+    \end{enumerate}
+
+    So when $n$ is odd and $a$ is odd, the equation has one solution.
+
+    In conclusion, the equation has at most two solution.
+\end{proof}
+
+% section 3/exercise 36
+\begin{exercise}
+    Prove or give a counterexample to the statement that for any $n\in\mathbb{Z}^{+}$ and $a\in\mathbb{Z}_{n}$, if $n$ is not a multiple of $3$, then the equation $x {+}_{n} x {+}_{n} x = a$ has exactly one solution in $\mathbb{Z}_{m}$.
+\end{exercise}
+
+\begin{proof}
+    If $n$ is not a multiple of $3$ then $n$ and $3$ are relatively prime. According to Bezout's theorem, there exist integer $s, t$ such that $3s + nt = 1$. If $3s + nt = 1$, then $3(as) + nat = a$. So $3(as)\equiv a\pmod{n}$. From this, we deduce two things: the equation has a solution which is $x = x_{0}$ such that $x_{0}\equiv as\pmod{n}$, and if $x = x_{1}$ is a solution, $x_{1}\equiv as \equiv x_{0} \pmod{n}$. Therefore, the equation has exactly one solution.
+\end{proof}
+
+% section 3/exercise 37
+\begin{exercise}
+    There is an isomorphism of $U_{8}$ with $\mathbb{Z}_{8}$ in which $\zeta = e^{i(\pi/4)}\leftrightarrow 5$ and $\zeta^{2}\leftrightarrow 2$. Find the element of $\mathbb{Z}_{8}$ that corresponds to each of the remaining six elements $\zeta^{m}$ in $U_{8}$ for $m = 0, 3, 4, 5, 6$, and $7$.
 \end{exercise}
 
 \begin{proof}
     $\zeta^{0} \leftrightarrow 0$, $\zeta^{3} \leftrightarrow 7$, $\zeta^{4} \leftrightarrow 4$, $\zeta^{5}\leftrightarrow 1$, $\zeta^{6}\leftrightarrow 6$, and $\zeta^{7}\leftrightarrow 3$.
 \end{proof}
 
+% section 3/exercise 38
 \begin{exercise}
     There is an isomorphism of $U_{7}$ with $\mathbb{Z}_{7}$ in which $\zeta = e^{i(2\pi/7)}\leftrightarrow 4$. Find the element in $\mathbb{Z}_{7}$ to which $\zeta^{m}$ must correspond for $m = 0, 2, 3, 4, 5$, and $6$.
 \end{exercise}
@@ -2195,6 +2300,7 @@ In Exercises 29 through 34, find \textit{all} solutions $x$ of the given equatio
     $\zeta^{0} \leftrightarrow 0$, $\zeta^{2} \leftrightarrow 1$, $\zeta^{3} \leftrightarrow 5$, $\zeta^{4} \leftrightarrow 2$, $\zeta^{5} \leftrightarrow 6$, and $\zeta^{6} \leftrightarrow 3$.
 \end{proof}
 
+% section 3/exercise 39
 \begin{exercise}
     Why can there be no isomorphism of $U_{6}$ with $\mathbb{Z}_{6}$ in which $\zeta = e^{i(\pi/3)}$ corresponds to $4$?
 \end{exercise}
@@ -2204,9 +2310,10 @@ In Exercises 29 through 34, find \textit{all} solutions $x$ of the given equatio
 
     Then $\zeta^{3}$ corresponds to $4 {+}_{12} 4 {+}_{12} 4 = 0$. On the other hand, $\zeta^{0}$ corresponds to $0$, which is a contradiction.
 
-    Hence there can be no isophism of $U_{6}$ with $\mathbb{Z}_{6}$ in which $\zeta = e^{i(\pi/3)}\leftrightarrow 4$.
+    Hence there can be no isomorphism of $U_{6}$ with $\mathbb{Z}_{6}$ in which $\zeta = e^{i(\pi/3)}\leftrightarrow 4$.
 \end{proof}
 
+% section 3/exercise 40
 \begin{exercise}
     Derive the formulas
     \[
@@ -2229,6 +2336,7 @@ In Exercises 29 through 34, find \textit{all} solutions $x$ of the given equatio
     Thus $\sin(a + b) = \sin a\cos b + \cos a\sin b$ and $\cos(a + b) = \cos a\cos b - \sin a\sin b$.
 \end{proof}
 
+% section 3/exercise 41
 \begin{exercise}
     Let $z_{1} = \abs{z_{1}}(\cos{\theta_{1}} + i\sin{\theta_{1}})$ and $z_{2} = \abs{z_{2}}(\cos{\theta_{2}} + i\sin{\theta_{2}})$. Use the trigonometric identities in Exercise 38 to derive $z_{1}z_{2} = \abs{z_{1}}\abs{z_{2}}(\cos{(\theta_{1} + \theta_{2})} + i\sin{(\theta_{1} + \theta_{2})})$.
 \end{exercise}
@@ -2241,6 +2349,7 @@ In Exercises 29 through 34, find \textit{all} solutions $x$ of the given equatio
     \end{align*}
 \end{proof}
 
+% section 3/exercise 42
 \begin{exercise}
     \begin{enumerate}[topsep=0pt,itemsep=0pt,label={\textbf{\alph*.}}]
         \item Derive a formula for $\cos{3\theta}$ in terms of $\sin{\theta}$ and $\cos{\theta}$ using Euler's formula.
@@ -2264,6 +2373,7 @@ In Exercises 29 through 34, find \textit{all} solutions $x$ of the given equatio
     \end{enumerate}
 \end{proof}
 
+% section 3/exercise 43
 \begin{exercise}
     Recall the power series expansions
     \begin{align*}
@@ -2284,7 +2394,58 @@ In Exercises 29 through 34, find \textit{all} solutions $x$ of the given equatio
     \end{align*}
 \end{proof}
 
-\section{Isomorphic Binary Structures}
+% section 3/exercise 44
+\begin{exercise}
+    Prove that for any $n\in\mathbb{Z}^{+}$, $\anglebracket{\mathbb{Z}_{n}, {+}_{n}}$ is associative without using the fact that $U_{n}$ is associative.
+\end{exercise}
+
+\begin{proof}
+    Let $a, b, c$ be elements of $\mathbb{Z}_{n}$.
+
+    $a {+}_{n} b$ and $a + b$ are congruent modulo $n$. So $(a {+}_{n} b) {+}_{n} c$ and $(a + b) + c$ are congruent modulo $n$.
+
+    $b {+}_{n} c$ and $b + c$ are congruent modulo $n$. So $a {+}_{n} (b {+}_{n} c)$ and $a + (b + c)$ are congruent modulo $n$.
+
+    Since $(a + b) + c$ and $a + (b + c)$ are congruent modulo $n$, we conclude that $(a {+}_{n} b) {+}_{n} c$ and $a {+}_{n} (b {+}_{n} c)$ are congruent modulo $n$. On the other hand, $0\le (a {+}_{n} b) {+}_{n} c, a {+}_{n} (b {+}_{n} c) < n$, so $(a {+}_{n} b) {+}_{n} c + a {+}_{n} (b {+}_{n} c)$.
+
+    Thus $\anglebracket{\mathbb{Z}_{n}, {+}_{n}}$ is associative.
+\end{proof}
+
+% section 3/exercise 45
+\begin{exercise}
+    Let $b, c\in\mathbb{R}^{+}$. Find a one-to-one and onto function $f: \mathbb{R}_{b} \to \mathbb{R}_{c}$ that has the homomorphism property. Conclude that $\mathbb{R}_{c}$ is an abelian group that is isomorphic with $U$.
+\end{exercise}
+
+\begin{proof}
+    We define $f(x) = \frac{cx}{b}$. Let $x, y$ be elements of $\mathbb{R}_{b}$. $f$ is a one-to-one and onto function.
+
+    If $0\le x + y < b$,
+    \[
+        f(x {+}_{b} y) = f(x + y) = \frac{c(x+y)}{b} = \frac{cx}{b} + \frac{cy}{b} = f(x) {+}_{c} f(y).
+    \]
+
+    If $x + y \ge b$,
+    \[
+        f(x {+}_{b} y) = f(x + y - b) = \frac{c(x + y - b)}{b} = \frac{cx}{b} + \frac{cy}{b} - c = f(x) + f(y) - c = f(x) {+}_{c} f(y).
+    \]
+
+    Therefore, $\mathbb{R}_{b}$ and $\mathbb{R}_{c}$ are isomorphic, for any positive real numbers $b, c$. Since $U\simeq\mathbb{R}_{2\pi}$ and $\mathbb{R}_{b}$ is an abelian group, we conclude that $\mathbb{R}_{c}$ is an abelian group that is isomorphic with $U$.
+\end{proof}
+
+% section 3/exercise 46
+\begin{exercise}
+    Prove that for any $n\geq 1$, $U_{n}$ is a group.
+\end{exercise}
+
+\begin{proof}
+    $U_{n}$ has $n$ elements $\zeta^{0}, \zeta^{1}, \zeta^{2}, \ldots, \zeta^{n-1}$, where $\zeta = e^{i(2\pi/n)}$.
+
+    $U_{n}$ is closed under multiplication. $U_{n}$ is associative because complex number multiplication is associative. $U_{n}$ has an identity element, which is $1 = \zeta^{0}$. Each element of $U_{n}$ has an inverse, $\zeta^{0}\zeta^{0} = 1$ and $\zeta^{m}\zeta^{n-m} = \zeta^{n} = 1$ (if $0 < m < n$).
+
+    Hence $U_{n}$ is a group.
+\end{proof}
+
+\section{Nonabelian Examples}
 \setcounter{exercise}{0}
 
 In all the exercises, $+$ is the usual addition on the set where it is specified, and $\cdot$ is the usual multiplication.
@@ -2296,7 +2457,7 @@ In all the exercises, $+$ is the usual addition on the set where it is specified
 \end{exercise}
 
 \begin{proof}
-    Those three things are: $\phi$ is an one-to-one function, $\phi$ is onto $S'$, and $\phi(x * y) = \phi(x) *' \phi(y)$ for every $x, y\in S$.
+    Those three things are: $\phi$ is a one-to-one function, $\phi$ is onto $S'$, and $\phi(x * y) = \phi(x) *' \phi(y)$ for every $x, y\in S$.
 \end{proof}
 
 In Exercises 2 through 10, determine whether the given map $\phi$ is an isomorphism of the first binary structure with the second. (See Exercise 1.) If it is not an isomorphism, why not?
@@ -2306,7 +2467,7 @@ In Exercises 2 through 10, determine whether the given map $\phi$ is an isomorph
 \end{exercise}
 
 \begin{proof}
-    $\phi(n) = \phi(m)$ if and only if $-n = -m$. $-n = -m$ if and only if $n = m$. So $\phi$ is an one-to-one function.
+    $\phi(n) = \phi(m)$ if and only if $-n = -m$. $-n = -m$ if and only if $n = m$. So $\phi$ is a one-to-one function.
 
     For each $n\in\mathbb{Z}$, $\phi(-n) = n$. So $\phi$ is onto $\mathbb{Z}$.
 
@@ -2330,7 +2491,7 @@ In Exercises 2 through 10, determine whether the given map $\phi$ is an isomorph
 \end{exercise}
 
 \begin{proof}
-    $\phi(n) = \phi(m)$ if and only if $n + 1 = m + 1$. $n + 1 = m + 1$ if and only if $n = m$. So $\phi$ is an one-to-one function.
+    $\phi(n) = \phi(m)$ if and only if $n + 1 = m + 1$. $n + 1 = m + 1$ if and only if $n = m$. So $\phi$ is a one-to-one function.
 
     For each $n\in\mathbb{Z}$, $\phi(n - 1) = n$. So $\phi$ is onto $\mathbb{Z}$.
 
@@ -2344,7 +2505,7 @@ In Exercises 2 through 10, determine whether the given map $\phi$ is an isomorph
 \end{exercise}
 
 \begin{proof}
-    $\phi(x) = \phi(y)$ if and only if $x/2 = y/2$. $x/2 = y/2$ if and only if $x = y$. So $\phi$ is an one-to-one function.
+    $\phi(x) = \phi(y)$ if and only if $x/2 = y/2$. $x/2 = y/2$ if and only if $x = y$. So $\phi$ is a one-to-one function.
 
     For each $x\in\mathbb{Q}$, $\phi(2x) = x$. So $\phi$ is onto $\mathbb{Q}$.
 
@@ -2368,7 +2529,7 @@ In Exercises 2 through 10, determine whether the given map $\phi$ is an isomorph
 \end{exercise}
 
 \begin{proof}
-    $\phi(x) = \phi(y)$ if and only if $x^{3} = y^{3}$. $x^{3} = y^{3}$ if and only if $x = y$ ($x, y\in\mathbb{R}$). So $\phi$ is an one-to-one function.
+    $\phi(x) = \phi(y)$ if and only if $x^{3} = y^{3}$. $x^{3} = y^{3}$ if and only if $x = y$ ($x, y\in\mathbb{R}$). So $\phi$ is a one-to-one function.
 
     For each $x\in\mathbb{R}$, there exists a real number $a$ such that $a^{3} = x$. Equivalently, $\phi(a) = a^{3} = x$. So $\phi$ is onto $\mathbb{R}$.
 
@@ -2395,7 +2556,7 @@ In Exercises 2 through 10, determine whether the given map $\phi$ is an isomorph
         \end{vmatrix}.
     \]
 
-    So $\phi$ is not an one-to-one function.
+    So $\phi$ is not a one-to-one function.
 
     Hence $\phi$ is not an isomorphism.
 \end{proof}
@@ -2405,7 +2566,7 @@ In Exercises 2 through 10, determine whether the given map $\phi$ is an isomorph
 \end{exercise}
 
 \begin{proof}
-    $\phi(A) = \phi(B)$ if and only if $\det(A) = \det(B)$. Since $A, B$ are $1\times 1$ matrices, $\det(A) = \det(B)$ if and only if $A = B$. So $\phi$ is an one-to-one function.
+    $\phi(A) = \phi(B)$ if and only if $\det(A) = \det(B)$. Since $A, B$ are $1\times 1$ matrices, $\det(A) = \det(B)$ if and only if $A = B$. So $\phi$ is a one-to-one function.
 
     For every $x\in\mathbb{R}$, $\phi(\begin{bmatrix}x\end{bmatrix})\det\begin{bmatrix}x\end{bmatrix} = x$. So $\phi$ is onto $\mathbb{R}$.
 
@@ -2419,7 +2580,7 @@ In Exercises 2 through 10, determine whether the given map $\phi$ is an isomorph
 \end{exercise}
 
 \begin{proof}
-    $\phi(x) = \phi(y)$ if and only if ${0.5}^{x} = {0.5}^{y}$. ${0.5}^{x} = {0.5}^{y}$ if and only if $\log_{0.5}{0.5}^{x} = \log_{0.5}{0.5}^{y}$, in other words, $x = y$. So $\phi$ is an one-to-one function.
+    $\phi(x) = \phi(y)$ if and only if ${0.5}^{x} = {0.5}^{y}$. ${0.5}^{x} = {0.5}^{y}$ if and only if $\log_{0.5}{0.5}^{x} = \log_{0.5}{0.5}^{y}$, in other words, $x = y$. So $\phi$ is a one-to-one function.
 
     For each $m\in\mathbb{R}^{+}$, $\phi(\log_{0.5}m) = {0.5}^{\log_{0.5}m} = m$. So $\phi$ is onto $\mathbb{R}^{+}$.
 
@@ -2435,7 +2596,7 @@ In Exercises 11 through 15, let $F$ be the set of all functions $f$ mapping $\ma
 \end{exercise}
 
 \begin{proof}
-    Let $f(x) = x$ and $g(x) = x + 1$. $f'(x) = g'(x) = 1$. So $\phi$ is not an one-to-one function.
+    Let $f(x) = x$ and $g(x) = x + 1$. $f'(x) = g'(x) = 1$. So $\phi$ is not a one-to-one function.
 
     Hence $\phi$ is not an isomorphism.
 \end{proof}
@@ -2445,7 +2606,7 @@ In Exercises 11 through 15, let $F$ be the set of all functions $f$ mapping $\ma
 \end{exercise}
 
 \begin{proof}
-    Let $f(x) = x$ and $g(x) = x + 1$. $f'(0) = g'(0) = 1$. So $\phi$ is not an one-to-one function.
+    Let $f(x) = x$ and $g(x) = x + 1$. $f'(0) = g'(0) = 1$. So $\phi$ is not a one-to-one function.
 
     Hence $\phi$ is not an isomorphism.
 \end{proof}
@@ -2455,7 +2616,7 @@ In Exercises 11 through 15, let $F$ be the set of all functions $f$ mapping $\ma
 \end{exercise}
 
 \begin{proof}
-    If $f\in F$, $f$ has antiderivatives. If $g$ is an antiderivative of $f$, then every antiderivative $h$ of $f$ satisfies $h(x) = g(x) + C$, where $C$ is a constant. But there is a unique antiderivative that has zero value at $x = 0$, which is $\int^{x}_{0}f(t)dt$. So $\phi$ is an one-to-one function.
+    If $f\in F$, $f$ has antiderivatives. If $g$ is an antiderivative of $f$, then every antiderivative $h$ of $f$ satisfies $h(x) = g(x) + C$, where $C$ is a constant. But there is a unique antiderivative that has zero value at $x = 0$, which is $\int^{x}_{0}f(t)dt$. So $\phi$ is a one-to-one function.
 
     Since $\phi(f)$ has zero value at $x = 0$, so for every $g\in F$ such that $g(0)\ne 0$, there is no $h\in F$ such that $\phi(h) = g$. So $\phi$ is not onto $\anglebracket{F,+}$.
 
@@ -2472,7 +2633,7 @@ In Exercises 11 through 15, let $F$ be the set of all functions $f$ mapping $\ma
         \frac{d}{dx}\left(\int^{x}_{0}f(t)dt\right) = f(x) - f(0)
     \]
 
-    $\phi(f) = \phi(g)$ if and only if $\phi(f)(x) = \phi(g)(x)$ for every $x\in\mathbb{R}$. $\phi(f)(x) = \phi(g)(x)$ for every $x\in\mathbb{R}$ if and only if $f(x) - f(0) = g(x) - g(0)$ for every $x\in\mathbb{R}$, in other words, $f = g$. So $\phi$ is an one-to-one function.
+    $\phi(f) = \phi(g)$ if and only if $\phi(f)(x) = \phi(g)(x)$ for every $x\in\mathbb{R}$. $\phi(f)(x) = \phi(g)(x)$ for every $x\in\mathbb{R}$ if and only if $f(x) - f(0) = g(x) - g(0)$ for every $x\in\mathbb{R}$, in other words, $f = g$. So $\phi$ is a one-to-one function.
 
     Let $f(x) = x + 1$, then $f(0) = 1\ne 0$. There is no function $g\in F$ such that $\phi(g)(x) = f(x)$, since $\phi(g)(0) = g(0) - g(0) = 0 \ne 1 = f(0)$.
 
@@ -2484,7 +2645,7 @@ In Exercises 11 through 15, let $F$ be the set of all functions $f$ mapping $\ma
 \end{exercise}
 
 \begin{proof}
-    $\phi(f) = \phi(g)$ if and only if $\phi(f)(x) = \phi(g)(x)$ for every $x\in\mathbb{R}$. $\phi(f)(x) = \phi(g)(x)$ for every $x\in\mathbb{R}$ if and only if $x\cdot f(x) = x\cdot g(x)$ for every $x\in\mathbb{R}$. If $x\ne 0$, then $f(x) = g(x)$. Otherwise, since $f$ and $g$ are continuous at $x = 0$, for every $\varepsilon > 0$, there exists $\delta_{f}(\varepsilon)$ and $\delta_{f}(\varepsilon)$ such that $\abs{f(x) - f(0)} < \frac{\varepsilon}{2}$ if $0 < \abs{x} < \delta_{f}(\varepsilon)$ and $\abs{g(x) - g(0)} < \frac{\varepsilon}{2}$ if $0 < \abs{x} < \delta_{g}(\varepsilon)$. For $0 < \abs{x} < \min\{ \delta_{f}(\varepsilon), \delta_{f}(\varepsilon) \}$, $\abs{f(0) - g(0)}\le \abs{f(0) - f(x)} + \abs{f(x) - g(x)} + \abs{g(x) - g(0)} = \varepsilon/2 + 0 + \varepsilon/2 = \varepsilon$, which implies $f(0) = g(0)$. So $f(x) = g(x)$ for every $x\in\mathbb{R}$. So $\phi$ is an one-to-one function.
+    $\phi(f) = \phi(g)$ if and only if $\phi(f)(x) = \phi(g)(x)$ for every $x\in\mathbb{R}$. $\phi(f)(x) = \phi(g)(x)$ for every $x\in\mathbb{R}$ if and only if $x\cdot f(x) = x\cdot g(x)$ for every $x\in\mathbb{R}$. If $x\ne 0$, then $f(x) = g(x)$. Otherwise, since $f$ and $g$ are continuous at $x = 0$, for every $\varepsilon > 0$, there exists $\delta_{f}(\varepsilon)$ and $\delta_{f}(\varepsilon)$ such that $\abs{f(x) - f(0)} < \frac{\varepsilon}{2}$ if $0 < \abs{x} < \delta_{f}(\varepsilon)$ and $\abs{g(x) - g(0)} < \frac{\varepsilon}{2}$ if $0 < \abs{x} < \delta_{g}(\varepsilon)$. For $0 < \abs{x} < \min\{ \delta_{f}(\varepsilon), \delta_{f}(\varepsilon) \}$, $\abs{f(0) - g(0)}\le \abs{f(0) - f(x)} + \abs{f(x) - g(x)} + \abs{g(x) - g(0)} = \varepsilon/2 + 0 + \varepsilon/2 = \varepsilon$, which implies $f(0) = g(0)$. So $f(x) = g(x)$ for every $x\in\mathbb{R}$. So $\phi$ is a one-to-one function.
 
     There is no function $f\in F$ such that $x\cdot f(x) = 1$ for every $x\in\mathbb{R}$. So $\phi$ is not onto $F$.
 
@@ -2634,7 +2795,7 @@ In Exercises 21 and 22, correct the definition of the italicized term without re
 \end{exercise}
 
 \begin{proof}
-    Correction: A function $\phi: S\to S'$ is an \textit{isomorphism} if and only if $\phi$ is an one-to-one function from $S$ onto $S'$ and $\phi(a * b) = \phi(a) *' \phi(b)$.
+    Correction: A function $\phi: S\to S'$ is an \textit{isomorphism} if and only if $\phi$ is a one-to-one function from $S$ onto $S'$ and $\phi(a * b) = \phi(a) *' \phi(b)$.
 \end{proof}
 
 \begin{exercise}
@@ -2691,11 +2852,11 @@ In Exercises 21 and 22, correct the definition of the italicized term without re
 \end{proof}
 
 \begin{exercise}
-    Recall that if $f: A \to B$ is an one-to-one function mapping $A$ onto $B$, then $\phi^{-1}(b)$ is the unique $a\in A$ such that $f(a) = b$. Prove that if $\phi: S \to S'$ is an isomorphism of $\anglebracket{S, *}$ with $\anglebracket{S', *'}$, then $\phi^{-1}$ is an isomorphism of $\anglebracket{S', *'}$ with $\anglebracket{S, *}$.
+    Recall that if $f: A \to B$ is a one-to-one function mapping $A$ onto $B$, then $\phi^{-1}(b)$ is the unique $a\in A$ such that $f(a) = b$. Prove that if $\phi: S \to S'$ is an isomorphism of $\anglebracket{S, *}$ with $\anglebracket{S', *'}$, then $\phi^{-1}$ is an isomorphism of $\anglebracket{S', *'}$ with $\anglebracket{S, *}$.
 \end{exercise}
 
 \begin{proof}
-    $\phi$ is an one-to-one function mapping $A$ onto $B$, then $\phi^{-1}$ is an one-to-one function mapping $B$ onto $A$.
+    $\phi$ is a one-to-one function mapping $A$ onto $B$, then $\phi^{-1}$ is a one-to-one function mapping $B$ onto $A$.
 
     For every $x', y'\in S$, there exist uniquely $x, y\in S$ such that $\phi(x) = x'$ and $\phi(y) = y'$.
     \begin{align*}
@@ -2713,7 +2874,7 @@ In Exercises 21 and 22, correct the definition of the italicized term without re
 \end{exercise}
 
 \begin{proof}
-    Because $\psi$ is one-to-one function, $(\psi\circ\phi)(x) = (\psi\circ\phi)(y)$ if and only if $\phi(x) = \phi(y)$. Because $\phi$ is one-to-one function, $\phi(x) = \phi(y)$ if and only if $x = y$. Therefore, $(\psi\circ\phi)(x) = (\psi\circ\phi)(y)$ if and only if $x = y$. So $\psi\circ\phi$ is an one-to-one function from $S$ into $S''$.
+    Because $\psi$ is one-to-one function, $(\psi\circ\phi)(x) = (\psi\circ\phi)(y)$ if and only if $\phi(x) = \phi(y)$. Because $\phi$ is one-to-one function, $\phi(x) = \phi(y)$ if and only if $x = y$. Therefore, $(\psi\circ\phi)(x) = (\psi\circ\phi)(y)$ if and only if $x = y$. So $\psi\circ\phi$ is a one-to-one function from $S$ into $S''$.
 
     Let $x''$ be an element of $S''$. Because $\psi$ is one-to-one function, there exists uniquely $x'\in S'$ such that $\psi(x') = x''$. Because $\phi$ is one to one function, there exists uniquely $x\in S$ such that $\phi(x) = x'$. So for every $x''\in S''$, there exists uniquely $x\in S$ such that $(\psi\circ\phi)(x) = x''$, equivalently, $\psi\circ\phi$ is onto $S''$.
 
