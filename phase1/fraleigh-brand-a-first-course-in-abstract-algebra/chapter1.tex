@@ -1837,6 +1837,9 @@ In Exercises 11 through 18, determine whether the given set of matrices under th
 \end{exercise}
 
 \begin{proof}
+    Let $B = \{ x' * g \vert x\in A \}$. $\phi: A\to B$ is defined as $\phi(x) = x' * g$, then $\phi$ is a bijection. Therefore, $A$ and $B$ have the same number of elements. According to the principle of inclusion and exclusion, $\abs{A\cap B} = \abs{A} + \abs{B} - \abs{A\cup B} > \frac{n}{2} + \frac{n}{2} - n = 0$, so $A\cap B$ is not empty. Let $b$ be an element of $A\cap B$. Since $\phi$ is a bijection, there exists $a\in A$ such that $a' * g = b$, equivalently, $g = (a * a') * g = a * (a' * g) = a * b$.
+
+    Thus, there exist $a, b\in A$ such that $a * b = g$.
 \end{proof}
 
 \section{Abelian Examples}
