@@ -3379,607 +3379,468 @@ In Exercises 24 through 28, determine whether the given function is a permutatio
 
     Their composition is $\mu\rho^{2r}\mu\rho^{2k}$. According to Exercise 32
     \[
-        \mu\rho^{2r}\mu\rho^{2k} = \mu(\mu\rho^{n-2r})\rho^{2k} = \rho^{n-2(r+k)}.
+        \mu\rho^{2r}\mu\rho^{2k} = \mu(\mu\rho^{n-2r})\rho^{2k} = \rho^{n-2(r-k)}.
     \]
 
-    Hence the desired element is $\rho^{n-2(r+k)}$.
+    Hence the desired element is $\rho^{n-2(r-k)}$.
 \end{proof}
 
-% \textbf{Computations}
-
-% \begin{exercise}
-% What three things must we check to determine whether a function $\phi: S\to S'$ is an isomorphism of a binary structure $\anglebracket{S, *}$ with $\anglebracket{S', *'}$.
-% \end{exercise}
-
-% \begin{proof}
-% Those three things are: $\phi$ is a one-to-one function, $\phi$ is onto $S'$, and $\phi(x * y) = \phi(x) *' \phi(y)$ for every $x, y\in S$.
-% \end{proof}
-
-% In Exercises 2 through 10, determine whether the given map $\phi$ is an isomorphism of the first binary structure with the second. (See Exercise 1.) If it is not an isomorphism, why not?
-
-% \begin{exercise}
-% $\anglebracket{\mathbb{Z}, +}$ with $\anglebracket{\mathbb{Z}, +}$ where $\phi(n) = -n$ for $n\in\mathbb{Z}$
-% \end{exercise}
-
-% \begin{proof}
-% $\phi(n) = \phi(m)$ if and only if $-n = -m$. $-n = -m$ if and only if $n = m$. So $\phi$ is a one-to-one function.
-
-% For each $n\in\mathbb{Z}$, $\phi(-n) = n$. So $\phi$ is onto $\mathbb{Z}$.
-
-% For every $m, n\in\mathbb{Z}$, $\phi(m + n) = -(m + n) = (-m) + (-n) = \phi(m) + \phi(n)$.
-
-% Hence $\phi$ is an isomorphism.
-% \end{proof}
-
-% \begin{exercise}
-% $\anglebracket{\mathbb{Z}, +}$ with $\anglebracket{\mathbb{Z}, +}$ where $\phi(n) = 2n$ for $n\in\mathbb{Z}$
-% \end{exercise}
-
-% \begin{proof}
-% Since $\phi(n) = 2n$, there is no integer $x$ such that $\phi(x)$ is an odd integer. So $\phi$ is not onto $\mathbb{Z}$.
-
-% Hence $\phi$ is not an isomorphism.
-% \end{proof}
-
-% \begin{exercise}
-% $\anglebracket{\mathbb{Z}, +}$ with $\anglebracket{\mathbb{Z}, +}$ where $\phi(n) = n + 1$ for $n\in\mathbb{Z}$
-% \end{exercise}
-
-% \begin{proof}
-% $\phi(n) = \phi(m)$ if and only if $n + 1 = m + 1$. $n + 1 = m + 1$ if and only if $n = m$. So $\phi$ is a one-to-one function.
-
-% For each $n\in\mathbb{Z}$, $\phi(n - 1) = n$. So $\phi$ is onto $\mathbb{Z}$.
-
-% For every $m, n\in\mathbb{Z}$, $\phi(m + n) = m + n + 1 = (m + 1) + (n + 1) - 1 = \phi(m) + \phi(n) - 1 \ne \phi(m) + \phi(n)$.
-
-% Hence $\phi$ is not an isomorphism.
-% \end{proof}
-
-% \begin{exercise}
-% $\anglebracket{\mathbb{Q}, +}$ with $\anglebracket{\mathbb{Q}, +}$ where $\phi(x) = x/2$ for $x\in\mathbb{Q}$
-% \end{exercise}
-
-% \begin{proof}
-% $\phi(x) = \phi(y)$ if and only if $x/2 = y/2$. $x/2 = y/2$ if and only if $x = y$. So $\phi$ is a one-to-one function.
-
-% For each $x\in\mathbb{Q}$, $\phi(2x) = x$. So $\phi$ is onto $\mathbb{Q}$.
-
-% For every $x, y\in\mathbb{Q}$, $\phi(x\cdot y) = x\cdot y/2 = 2\cdot(x/2)\cdot(y/2) = 2\cdot\phi(x)\cdot\phi(y)$. If $x, y\ne 0$, $\phi(x\cdot y) \ne \phi(x)\cdot\phi(y)$.
-
-% Hence $\phi$ is not an isomorphism.
-% \end{proof}
-
-% \begin{exercise}
-% $\anglebracket{\mathbb{Q},\cdot}$ with $\anglebracket{\mathbb{Q},\cdot}$ where $\phi(x) = x^{2}$ for $x\in\mathbb{Q}$.
-% \end{exercise}
-
-% \begin{proof}
-% There is no rational number $q$ such that $\phi(q) = q^{2} = 2$. So $\phi$ is not onto $\mathbb{Q}$.
-
-% Hence $\phi$ is not an isomorphism.
-% \end{proof}
-
-% \begin{exercise}
-% $\anglebracket{\mathbb{R},\cdot}$ with $\anglebracket{\mathbb{R},\cdot}$ where $\phi(x) = x^{3}$
-% \end{exercise}
-
-% \begin{proof}
-% $\phi(x) = \phi(y)$ if and only if $x^{3} = y^{3}$. $x^{3} = y^{3}$ if and only if $x = y$ ($x, y\in\mathbb{R}$). So $\phi$ is a one-to-one function.
-
-% For each $x\in\mathbb{R}$, there exists a real number $a$ such that $a^{3} = x$. Equivalently, $\phi(a) = a^{3} = x$. So $\phi$ is onto $\mathbb{R}$.
-
-% For every $x, y\in\mathbb{R}$, $\phi(x\cdot y) = {(x\cdot y)}^{3} = x^{3}\cdot y^{3} = \phi(x)\cdot\phi(y)$.
-
-% Hence $\phi$ is an isomorphism.
-% \end{proof}
-
-% \begin{exercise}
-% $\anglebracket{M_{2}(\mathbb{R}), \cdot}$ with $\anglebracket{\mathbb{R},\cdot}$ where $\phi(A)$ is the determinant of matrix $A$
-% \end{exercise}
-
-% \begin{proof}
-% There are different $2\times 2$ matrices with the same determinant. For examples:
-% \[
-% \begin{vmatrix}
-% 1 & 0 \\
-% 0 & 1
-% \end{vmatrix}
-% =
-% \begin{vmatrix}
-% 1 & 1 \\
-% 0 & 1
-% \end{vmatrix}.
-% \]
-
-% So $\phi$ is not a one-to-one function.
-
-% Hence $\phi$ is not an isomorphism.
-% \end{proof}
-
-% \begin{exercise}
-% $\anglebracket{M_{1}(\mathbb{R}),\cdot}$ with $\anglebracket{\mathbb{R},\cdot}$ where $\phi(A)$ is the determinant of matrix $A$
-% \end{exercise}
-
-% \begin{proof}
-% $\phi(A) = \phi(B)$ if and only if $\det(A) = \det(B)$. Since $A, B$ are $1\times 1$ matrices, $\det(A) = \det(B)$ if and only if $A = B$. So $\phi$ is a one-to-one function.
-
-% For every $x\in\mathbb{R}$, $\phi(\begin{bmatrix}x\end{bmatrix})\det\begin{bmatrix}x\end{bmatrix} = x$. So $\phi$ is onto $\mathbb{R}$.
-
-% For every $A, B\in M_{1}(\mathbb{R})$, $\phi(A\cdot B) = \det(A\cdot B) = \det(A)\cdot\det(B) = \phi(A)\cdot\phi(B)$.
-
-% Hence $\phi$ is an isomorphism.
-% \end{proof}
-
-% \begin{exercise}
-% $\anglebracket{\mathbb{R}, +}$ with $\anglebracket{\mathbb{R}^{+},\cdot}$ where $\phi(r) = {0.5}^{r}$ for $r\in\mathbb{R}$
-% \end{exercise}
-
-% \begin{proof}
-% $\phi(x) = \phi(y)$ if and only if ${0.5}^{x} = {0.5}^{y}$. ${0.5}^{x} = {0.5}^{y}$ if and only if $\log_{0.5}{0.5}^{x} = \log_{0.5}{0.5}^{y}$, in other words, $x = y$. So $\phi$ is a one-to-one function.
-
-% For each $m\in\mathbb{R}^{+}$, $\phi(\log_{0.5}m) = {0.5}^{\log_{0.5}m} = m$. So $\phi$ is onto $\mathbb{R}^{+}$.
-
-% For every $x, y\in\mathbb{R}$, $\phi(x + y) = {0.5}^{x+y} = {0.5}^{x}\cdot{0.5}^{y} = \phi(x)\cdot\phi(y)$.
-
-% Hence $\phi$ is an isomorphism.
-% \end{proof}
-
-% In Exercises 11 through 15, let $F$ be the set of all functions $f$ mapping $\mathbb{R}$ into $\mathbb{R}$ that have deravatives of all orders. Follow the instructions for Exercies 2 through 10.
-
-% \begin{exercise}
-% $\anglebracket{F,+}$ with $\anglebracket{F,+}$ where $\phi(f) = f'$, the derivative of $f$
-% \end{exercise}
-
-% \begin{proof}
-% Let $f(x) = x$ and $g(x) = x + 1$. $f'(x) = g'(x) = 1$. So $\phi$ is not a one-to-one function.
-
-% Hence $\phi$ is not an isomorphism.
-% \end{proof}
-
-% \begin{exercise}
-% $\anglebracket{F, +}$ with $\anglebracket{\mathbb{R}, +}$ where $\phi(f) = f'(0)$
-% \end{exercise}
-
-% \begin{proof}
-% Let $f(x) = x$ and $g(x) = x + 1$. $f'(0) = g'(0) = 1$. So $\phi$ is not a one-to-one function.
-
-% Hence $\phi$ is not an isomorphism.
-% \end{proof}
-
-% \begin{exercise}
-% $\anglebracket{F,+}$ with $\anglebracket{F,+}$ where $\phi(f)(x) = \int^{x}_{0}f(t)dt$.
-% \end{exercise}
-
-% \begin{proof}
-% If $f\in F$, $f$ has antiderivatives. If $g$ is an antiderivative of $f$, then every antiderivative $h$ of $f$ satisfies $h(x) = g(x) + C$, where $C$ is a constant. But there is a unique antiderivative that has zero value at $x = 0$, which is $\int^{x}_{0}f(t)dt$. So $\phi$ is a one-to-one function.
-
-% Since $\phi(f)$ has zero value at $x = 0$, so for every $g\in F$ such that $g(0)\ne 0$, there is no $h\in F$ such that $\phi(h) = g$. So $\phi$ is not onto $\anglebracket{F,+}$.
-
-% Hence $\phi$ is not an isomorphism.
-% \end{proof}
-
-% \begin{exercise}
-% $\anglebracket{F,+}$ with $\anglebracket{F,+}$ where $\phi(f)(x) = \frac{d}{dx}\left(\int^{x}_{0} f(t)dt\right)$
-% \end{exercise}
-
-% \begin{proof}
-% $f\in F$, then $f$ has antiderivate. According to \textit{the fundamental theorem of calculus}
-% \[
-% \frac{d}{dx}\left(\int^{x}_{0}f(t)dt\right) = f(x) - f(0)
-% \]
-
-% $\phi(f) = \phi(g)$ if and only if $\phi(f)(x) = \phi(g)(x)$ for every $x\in\mathbb{R}$. $\phi(f)(x) = \phi(g)(x)$ for every $x\in\mathbb{R}$ if and only if $f(x) - f(0) = g(x) - g(0)$ for every $x\in\mathbb{R}$, in other words, $f = g$. So $\phi$ is a one-to-one function.
-
-% Let $f(x) = x + 1$, then $f(0) = 1\ne 0$. There is no function $g\in F$ such that $\phi(g)(x) = f(x)$, since $\phi(g)(0) = g(0) - g(0) = 0 \ne 1 = f(0)$.
-
-% Hence $\phi$ is not an isomorphism.
-% \end{proof}
-
-% \begin{exercise}
-% $\anglebracket{F,\cdot}$ with $\anglebracket{F,\cdot}$ where $\phi(f)(x) = x\cdot f(x)$
-% \end{exercise}
-
-% \begin{proof}
-% $\phi(f) = \phi(g)$ if and only if $\phi(f)(x) = \phi(g)(x)$ for every $x\in\mathbb{R}$. $\phi(f)(x) = \phi(g)(x)$ for every $x\in\mathbb{R}$ if and only if $x\cdot f(x) = x\cdot g(x)$ for every $x\in\mathbb{R}$. If $x\ne 0$, then $f(x) = g(x)$. Otherwise, since $f$ and $g$ are continuous at $x = 0$, for every $\varepsilon > 0$, there exists $\delta_{f}(\varepsilon)$ and $\delta_{f}(\varepsilon)$ such that $\abs{f(x) - f(0)} < \frac{\varepsilon}{2}$ if $0 < \abs{x} < \delta_{f}(\varepsilon)$ and $\abs{g(x) - g(0)} < \frac{\varepsilon}{2}$ if $0 < \abs{x} < \delta_{g}(\varepsilon)$. For $0 < \abs{x} < \min\{ \delta_{f}(\varepsilon), \delta_{f}(\varepsilon) \}$, $\abs{f(0) - g(0)}\le \abs{f(0) - f(x)} + \abs{f(x) - g(x)} + \abs{g(x) - g(0)} = \varepsilon/2 + 0 + \varepsilon/2 = \varepsilon$, which implies $f(0) = g(0)$. So $f(x) = g(x)$ for every $x\in\mathbb{R}$. So $\phi$ is a one-to-one function.
-
-% There is no function $f\in F$ such that $x\cdot f(x) = 1$ for every $x\in\mathbb{R}$. So $\phi$ is not onto $F$.
-
-% For $x\ne 0$ and $x\ne 1$, $f(x) = 1, g(x) = 1$, we have
-% \[
-% \phi(f\cdot g)(x) = x\cdot (f\cdot g)(x) = x \ne x^{2} = (x\cdot f(x))\cdot (y\cdot g(x)) = \phi(f)(x) \cdot \phi(g)(x) = (\phi(f)\cdot\phi(g))(x)
-% \]
-
-% Hence $\phi$ is not an isomorphism.
-% \end{proof}
-
-% \begin{exercise}
-% The map $\phi: \mathbb{Z} \to \mathbb{Z}$ define by $\phi(n) = n + 1$ for $n\in\mathbb{Z}$ is one-to-one and onto $\mathbb{Z}$. Give the definition of a binary operation $*$ on $\mathbb{Z}$ such that $\phi$ is an isomorphism mapping
-% \begin{enumerate}[label={\textbf{\alph*}},itemsep=0pt,topsep=0pt]
-% \item $\anglebracket{\mathbb{Z}, +}$ onto $\anglebracket{\mathbb{Z}, *}$
-% \item $\anglebracket{\mathbb{Z}, *}$ onto $\anglebracket{\mathbb{Z}, +}$
-% \end{enumerate}
-
-% In each case, give the identity element for $*$ on $\mathbb{Z}$.
-% \end{exercise}
-
-% \begin{proof}
-% \begin{enumerate}[label={\textbf{\alph*}},itemsep=0pt,topsep=0pt]
-% \item Define $*: \mathbb{Z}\times\mathbb{Z}\to\mathbb{Z}$ as follows: $m * n = m + n - 1$ for every $m, n\in\mathbb{Z}$. Then
-% \[
-% \phi(m + n) = m + n + 1 = (m + 1) + (n + 1) - 1 = \phi(m) + \phi(n) - 1 = \phi(m) * \phi(n).
-% \]
-
-% The identity element of $*$ on $\mathbb{Z}$ is $1$.
-% \item Define $*: \mathbb{Z}\times\mathbb{Z}\to\mathbb{Z}$ as follows: $m * n = m + n + 1$ for every $m, n\in\mathbb{Z}$. Then
-% \[
-% \phi(m * n) = \phi(m + n + 1) = m + n + 2 = (m + 1) + (n + 1) = \phi(m) + \phi(n).
-% \]
-
-% The identity element of $*$ on $\mathbb{Z}$ is $-1$.
-% \end{enumerate}
-% \end{proof}
-
-% \begin{exercise}
-% The map $\phi: \mathbb{Z} \to \mathbb{Z}$ define by $\phi(n) = n + 1$ for $n\in\mathbb{Z}$ is one-to-one and onto $\mathbb{Z}$. Give the definition of a binary operation $*$ on $\mathbb{Z}$ such that $\phi$ is an isomorphism mapping
-% \begin{enumerate}[label={\textbf{\alph*}},itemsep=0pt,topsep=0pt]
-% \item $\anglebracket{\mathbb{Z}, \cdot}$ onto $\anglebracket{\mathbb{Z}, *}$
-% \item $\anglebracket{\mathbb{Z}, *}$ onto $\anglebracket{\mathbb{Z}, \cdot}$
-% \end{enumerate}
-
-% In each case, give the identity element for $*$ on $\mathbb{Z}$.
-% \end{exercise}
-
-% \begin{proof}
-% \begin{enumerate}[label={\textbf{\alph*}},itemsep=0pt,topsep=0pt]
-% \item Define $*: \mathbb{Z}\times\mathbb{Z}\to\mathbb{Z}$ as follows: $m * n = mn - m - n + 2$ for every $m, n\in\mathbb{Z}$. Then
-% \begin{align*}
-% \phi(m\cdot n) & = m\cdot n + 1                                 \\
-% & = m\cdot n + m + n + 1 - (m + 1) - (n + 1) + 2 \\
-% & = (m + 1)(n + 1) - (m + 1) - (n + 1) + 2       \\
-% & = \phi(m)\cdot\phi(n) - \phi(m) - \phi(n) + 2  \\
-% & = \phi(m) * \phi(n)
-% \end{align*}
-
-% The identity element of $*$ in $\mathbb{Z}$ is $2$.
-% \item Define $*: \mathbb{Z}\times\mathbb{Z}\to\mathbb{Z}$ as follows: $m * n = mn + m + n$ for every $m, n\in\mathbb{Z}$. Then
-% \begin{align*}
-% \phi(m * n) & = m * n + 1            \\
-% & = mn + m + n + 1       \\
-% & = (m + 1)\cdot (n + 1) \\
-% & = \phi(m)\cdot\phi(n)
-% \end{align*}
-
-% The identity element of $*$ in $\mathbb{Z}$ is $0$.
-% \end{enumerate}
-% \end{proof}
-
-% \begin{exercise}
-% The map $\phi: \mathbb{Q} \to \mathbb{Q}$ defined by $\phi(x) = 3x - 1$ for $x\in\mathbb{Q}$ is one-to-one and onto $\mathbb{Z}$. Give the definition of a binary operation $*$ on $\mathbb{Q}$ such that $\phi$ is an isomorphism mapping
-% \begin{enumerate}[label={\textbf{\alph*}},itemsep=0pt,topsep=0pt]
-% \item $\anglebracket{\mathbb{Q}, +}$ onto $\anglebracket{\mathbb{Q}, *}$
-% \item $\anglebracket{\mathbb{Q}, *}$ onto $\anglebracket{\mathbb{Q}, +}$
-% \end{enumerate}
-
-% In each case, give the identity element for $*$ on $\mathbb{Q}$.
-% \end{exercise}
-
-% \begin{proof}
-% \begin{enumerate}[label={\textbf{\alph*}},itemsep=0pt,topsep=0pt]
-% \item Define $*: \mathbb{Q}\times\mathbb{Q} \to \mathbb{Q}$ as follows: $x * y = x + y + 1$ for every $x, y\in\mathbb{Q}$. Then
-% \[
-% \phi(x + y) = 3(x + y) - 1 = (3x - 1) + (3y - 1) + 1 = \phi(x) + \phi(y) + 1 = \phi(x) * \phi(y).
-% \]
-
-% The identity element of $*$ on $\mathbb{Q}$ is $-1$.
-% \item Define $*: \mathbb{Q}\times\mathbb{Q} \to \mathbb{Q}$ as follows: $x * y = x + y - \frac{1}{3}$ for every $x, y\in\mathbb{Q}$. Then
-% \[
-% \phi(x * y) = 3\cdot(x * y) - 1 = 3\cdot\left(x + y - \frac{1}{3}\right) - 1 = 3x + 3y - 2 = (3x - 1) + (3y - 1) = \phi(x) + \phi(y).
-% \]
-
-% The identity element of $*$ on $\mathbb{Q}$ is $\frac{1}{3}$.
-% \end{enumerate}
-% \end{proof}
-
-% \begin{exercise}
-% The map $\phi: \mathbb{Q} \to \mathbb{Q}$ defined by $\phi(x) = 3x - 1$ for $x\in\mathbb{Q}$ is one-to-one and onto $\mathbb{Z}$. Give the definition of a binary operation $*$ on $\mathbb{Q}$ such that $\phi$ is an isomorphism mapping
-% \begin{enumerate}[label={\textbf{\alph*}},itemsep=0pt,topsep=0pt]
-% \item $\anglebracket{\mathbb{Q}, \cdot}$ onto $\anglebracket{\mathbb{Q}, *}$
-% \item $\anglebracket{\mathbb{Q}, *}$ onto $\anglebracket{\mathbb{Q}, \cdot}$
-% \end{enumerate}
-
-% In each case, give the identity element for $*$ on $\mathbb{Q}$.
-% \end{exercise}
-
-% \begin{proof}
-% \item Define $*: \mathbb{Q}\times\mathbb{Q} \to \mathbb{Q}$ as follows: $x * y = \frac{1}{3}xy + \frac{1}{3}x + \frac{1}{3}y - \frac{2}{3}$ for every $x, y\in\mathbb{Q}$. Then
-% \begin{align*}
-% \phi(x\cdot y) & = 3xy - 1 = \frac{1}{3}(9xy - 3x - 3y + 1) + x + y - \frac{4}{3}                        \\
-% & = \frac{1}{3}(3x - 1)(3y - 1) + \frac{1}{3}(3x - 1) + \frac{1}{3}(3y - 1) - \frac{2}{3} \\
-% & = \frac{1}{3}\phi(x)\phi(y) + \frac{1}{3}x + \frac{1}{3}y - \frac{2}{3}                 \\
-% & = \phi(x) * \phi(y)
-% \end{align*}
-
-% The identity element of $*$ on $\mathbb{Q}$ is $2$.
-% \item Define $*: \mathbb{Q}\times\mathbb{Q} \to \mathbb{Q}$ as follows: $x * y = 3xy - x - y + \frac{2}{3}$ for every $x, y\in\mathbb{Q}$. Then
-% \begin{align*}
-% \phi(x * y) & = 3\cdot (x * y) - 1    \\
-% & = 9xy - 3x - 3y + 2 - 1 \\
-% & = 9xy - 3x - 3y + 1     \\
-% & = (3x - 1)(3y - 1)
-% \end{align*}
-
-% The identity element of $*$ on $\mathbb{Q}$ is $\frac{2}{3}$.
-% \end{proof}
-
-% \textbf{Concepts}
-
-% \begin{exercise}
-% The displayed homomorphism condition for an isomorphism $\phi$ in Definition 3.7 is sometimes summarized by saying ``$\phi$ must commute with the binary operation\@(s).\@'' Explain how that condition can be viewed in this manner.
-% \end{exercise}
-
-% \begin{proof}
-% $\phi: S\to S'$, let's call $\phi(x)$ the image of $x$, where $x\in S$.
-
-% The image of the combination of $x, y\in S$ (with respect to $*$) is the combination of the images of $x$ and $y$ (with respect to $*'$).
-% \end{proof}
-
-% In Exercises 21 and 22, correct the definition of the italicized term without reference to the text, if correction is needed, so that it is in a form acceptable for publication.
-
-% \begin{exercise}
-% A function $\phi: S\to S'$ is an \textit{isomorphism} if and only if $\phi(a * b) = \phi(a) *' \phi(b)$.
-% \end{exercise}
-
-% \begin{proof}
-% Correction: A function $\phi: S\to S'$ is an \textit{isomorphism} if and only if $\phi$ is a one-to-one function from $S$ onto $S'$ and $\phi(a * b) = \phi(a) *' \phi(b)$.
-% \end{proof}
-
-% \begin{exercise}
-% Let $*$ be a binary operation on a set $S$. An element $e$ of $S$ with the property $s * e = s = e * s$ is an \textit{identity element for $*$}  for all $s\in S$.
-% \end{exercise}
-
-% \begin{proof}
-% No correction is needed.
-% \end{proof}
-
-% \textbf{Proof Synopnis}
-
-% \begin{exercise}
-% Give a proof synopsis of Theorem 3.13.
-% \end{exercise}
-
-% \begin{proof}
-% We suppose that $e$ and $e'$ are identity elements of the binary operation $*$. We combine the two identity elements using the binary operation $*$ to deduce that $e = e'$.
-% \end{proof}
-
-% \textbf{Theory}
-
-% \begin{exercise}
-% An identity element for a binary operation $*$ as described by Definition 3.12 is sometimes referred to as ``a two-sided identity element.\@'' Using complete sentences, give analogous definition for
-% \begin{enumerate}[label={\textbf{\alph*.}},itemsep=0pt]
-% \item a \textit{left identity element $e_{L}$ for $*$},
-% \item a \textit{right identity element $e_{R}$ for $*$}.
-% \end{enumerate}
-
-% Theorem 3.13 shows that if a two-sided identity element for $*$ exists, it is unique. Is the same true for a one-sided identity element you just defined? If so, prove it. If not, give a counterexample $\anglebracket{S,*}$ for a finite set $S$ and find the first place where the proof of Theorem 3.13 breaks down.
-% \end{exercise}
-
-% \begin{proof}
-% \begin{enumerate}[label={\textbf{\alph*.}},itemsep=0pt]
-% \item A \textit{left identity element $e_{L}$ for $*$} is an element that yields $x$ when combined from the left with $x$ for every element $x$ by binary operation $*$.
-% \item A \textit{right identity element $e_{R}$ for $*$} is an element that yields $x$ when combined from the right with $x$ for every element $x$ by binary operation $*$.
-% \end{enumerate}
-
-% Left identity element, if exists, is not necessarily unique. Example: $S = \{ 0, 1 \}$, $*: S\times S\to S$ is defined as $0 * 0 = 0, 0 * 1 = 1, 1 * 0 = 0, 1 * 1 = 1$. In this example, $0$ and $1$ are left identity elements.
-
-% Right identity element, if exists, is not necessarily unique. Example: $S = \{ 0, 1 \}$, $*: S\times S\to S$ is defined as $0 * 0 = 0, 0 * 1 = 0, 1 * 0 = 1, 1 * 1 = 1$. In this example, $0$ and $1$ are right identity elements.
-% \end{proof}
-
-% \begin{exercise}
-% Continuing the ideas of Exercise 24, can a binary structure have a left identity $e_{L}$ and a right identity $e_{R}$ where $e_{L}\ne e_{R}$? If so, give an example, using an operation on a finite set $S$. If not, prove that it is impossible.
-% \end{exercise}
-
-% \begin{proof}
-% Such binary structure does not exist.
-
-% $e_{L} * x = x$ for every $x\in S$, so $e_{L} * e_{R} = e_{R}$. On the other hand, $x * e_{R} = x$ for every $x\in S$, so $e_{L} * e_{R} = e_{L}$. Hence $e_{L} = e_{R}$.
-
-% Thus, if a binary structure have a left identity and a right identity, they must be identical.
-% \end{proof}
-
-% \begin{exercise}
-% Recall that if $f: A \to B$ is a one-to-one function mapping $A$ onto $B$, then $\phi^{-1}(b)$ is the unique $a\in A$ such that $f(a) = b$. Prove that if $\phi: S \to S'$ is an isomorphism of $\anglebracket{S, *}$ with $\anglebracket{S', *'}$, then $\phi^{-1}$ is an isomorphism of $\anglebracket{S', *'}$ with $\anglebracket{S, *}$.
-% \end{exercise}
-
-% \begin{proof}
-% $\phi$ is a one-to-one function mapping $A$ onto $B$, then $\phi^{-1}$ is a one-to-one function mapping $B$ onto $A$.
-
-% For every $x', y'\in S$, there exist uniquely $x, y\in S$ such that $\phi(x) = x'$ and $\phi(y) = y'$.
-% \begin{align*}
-% \phi^{-1}(x' *' y') & = \phi^{-1}(\phi(x) *' \phi(y)) \\
-% & = \phi^{-1}(\phi(x * y))        \\
-% & = x * y                         \\
-% & = \phi^{-1}(x') * \phi^{-1}(y')
-% \end{align*}
-
-% Hence $\phi^{-1}$ is an isomorphism of $\anglebracket{S', *'}$ with $\anglebracket{S, *}$.
-% \end{proof}
-
-% \begin{exercise}
-% Prove that if $\phi: S \to S'$ is an isomorphism of $\anglebracket{S, *}$ with $\anglebracket{S', *}$ and $\psi: S' \to S''$ is an isomorphism of $\anglebracket{S', *'}$ with $\anglebracket{S'', *''}$, then the composite function $\psi\circ\phi$ is an isomorphism of $\anglebracket{S, *}$ with $\anglebracket{S'', *''}$.
-% \end{exercise}
-
-% \begin{proof}
-% Because $\psi$ is one-to-one function, $(\psi\circ\phi)(x) = (\psi\circ\phi)(y)$ if and only if $\phi(x) = \phi(y)$. Because $\phi$ is one-to-one function, $\phi(x) = \phi(y)$ if and only if $x = y$. Therefore, $(\psi\circ\phi)(x) = (\psi\circ\phi)(y)$ if and only if $x = y$. So $\psi\circ\phi$ is a one-to-one function from $S$ into $S''$.
-
-% Let $x''$ be an element of $S''$. Because $\psi$ is one-to-one function, there exists uniquely $x'\in S'$ such that $\psi(x') = x''$. Because $\phi$ is one to one function, there exists uniquely $x\in S$ such that $\phi(x) = x'$. So for every $x''\in S''$, there exists uniquely $x\in S$ such that $(\psi\circ\phi)(x) = x''$, equivalently, $\psi\circ\phi$ is onto $S''$.
-
-% For every $x, y\in S$
-% \begin{align*}
-% (\psi\circ\phi)(x * y) & = \psi(\phi(x * y))                         \\
-% & = \psi(\phi(x) *' \phi(y))                  \\
-% & = \psi(\phi(x)) *'' \psi(\phi(y))           \\
-% & = (\psi\circ\phi)(x) *'' (\psi\circ\phi)(y)
-% \end{align*}
-
-% Hence $\psi\circ\phi$ is an isomorphism of $\anglebracket{S, *}$ with $\anglebracket{S'', *''}$.
-% \end{proof}
-
-% \begin{exercise}
-% Prove that the relation $\simeq$ of being isomorphic, described in Definition 3.7 is an equivalence relation on any set of binary structures. You may simply quote the results you were asked to prove in the preceding two exercises at appropriate places in your proof.
-% \end{exercise}
-
-% \begin{proof}
-% A binary structure $\anglebracket{S, *}$ is isomorphic to itself (follows from the identity mapping from $S$ to $S$, which is an isomorphism). So $\simeq$ is reflexive.
-
-% If $\anglebracket{S, *}$ is isomorphic to $\anglebracket{S', *'}$, then $\anglebracket{S', *'}$ is isomorphic to $\anglebracket{S, *}$ (Exercise 26). So $\simeq$ is symmetric.
-
-% If $\anglebracket{S, *}$ is isomorphic to $\anglebracket{S', *'}$, and $\anglebracket{S', *'}$ is isomorphic to $\anglebracket{S'', *''}$, then $\anglebracket{S, *}$ is isomorphic to $\anglebracket{S'', *''}$ (Exercise 27). So $\simeq$ is transitive.
-
-% Hence the relation $\simeq$ is an equivalence relation on any set of binary structures.
-% \end{proof}
-
-% In Exercises 29 through 32, give a careful proof for a skeptic that the indicated property of a binary structure $\anglebracket{S, *}$ is indeed a structural property. (In Theorem 3.14, we did this for the property, ``There is an identity element for *.\@'')
-
-% \begin{exercise}
-% The operation $*$ is commutative.
-% \end{exercise}
-
-% \begin{proof}
-% Let $\phi: S\to S'$ be an isomorphism of $\anglebracket{S, *}$ with $\anglebracket{S', *'}$.
-
-% For every $x', y'\in S$, there exist uniquely $x, y\in S$ such that $\phi(x) = x'$ and $\phi(y) = y'$.
-% \begin{align*}
-% x' *' y' & = \phi(x) *' \phi(y) \\
-% & = \phi(x * y)        \\
-% & = \phi(y * x)        \\
-% & = \phi(y) *' \phi(x) \\
-% & = y' * x'
-% \end{align*}
-
-% Hence $*'$ is also commutative.
-% \end{proof}
-
-% \begin{exercise}
-% The operation $*$ is associative.
-% \end{exercise}
-
-% \begin{proof}
-% Let $\phi: S\to S'$ be an isomorphism of $\anglebracket{S, *}$ with $\anglebracket{S', *'}$.
-
-% For every $x', y', z'\in S$, there exist uniquely $x, y, z\in S$ such that $\phi(x) = x', \phi(y) = y'$ and $\phi(z) = z'$.
-% \begin{align*}
-% (x' *' y') *' z' & = (\phi(x) *' \phi(y)) *' \phi(z) \\
-% & = \phi(x * y) *' \phi(z)          \\
-% & = \phi((x * y) * z)               \\
-% & = \phi(x * (y * z))               \\
-% & = \phi(x) *' \phi(y * z)          \\
-% & = \phi(x) *' (\phi(y) *' \phi(z)) \\
-% & = x' *' (y' *' z')
-% \end{align*}
-
-% Hence $*'$ is also commutative.
-% \end{proof}
-
-% \begin{exercise}
-% For each $c\in S$, the equation $x * x = c$ has a solution $x$ in $S$.
-% \end{exercise}
-
-% \begin{proof}
-% Let $\phi: S\to S'$ be an isomorphism of $\anglebracket{S, *}$ with $\anglebracket{S', *'}$.
-
-% For every $c'\in S'$, there exists uniquely $c\in S$ such that $\phi(c) = c'$.
-
-% The equation $x * x = c$ has a solution $x$ in $S$, so $\phi(x) *' \phi(x) = \phi(x * x) = \phi(c) = c'$. Hence the equation $y * y = c'$ has a solution $y$ in $S'$.
-% \end{proof}
-
-% \begin{exercise}
-% There exists an element $b$ in $S$ such that $b * b = b$.
-% \end{exercise}
-
-% \begin{proof}
-% Let $\phi: S\to S'$ be an isomorphism of $\anglebracket{S, *}$ with $\anglebracket{S', *'}$.
-
-% For every $b'\in S'$, there exists uniquely $b\in S$ such that $\phi(b) = b'$.
-
-% There exists an element $b$ in $S$ such that $b * b = b$. So $b' *' b' = \phi(b) *' \phi(b) = \phi(b * b) = \phi(b) = b'$.
-
-% Hence there exists an element $b'$ in $S'$ such that $b' * b' = b'$.
-% \end{proof}
-
-% \begin{exercise}
-% Let $H$ be the subset $M_{2}(\mathbb{R})$ consisting of all matrices of the form $\begin{bmatrix}a & -b \\ b & a\end{bmatrix}$ for $a, b\in\mathbb{R}$. Exercise 23 of Section 2 shows that $H$ is closed under both matrix addition and matrix multiplication.
-% \begin{enumerate}[label={\textbf{\alph*.}},topsep=0pt,itemsep=0pt]
-% \item Show that $\anglebracket{\mathbb{C},+}$ is isomorphic to $\anglebracket{H,+}$.
-% \item Show that $\anglebracket{\mathbb{C},\cdot}$ is isomorphic to $\anglebracket{H,\cdot}$.
-% \end{enumerate}
-
-% (We say that $H$ is a \textit{matrix representation} of the complex numbers $\mathbb{C}$.)
-% \end{exercise}
-
-% \begin{proof}
-% Define the following one-to-one function $\phi$ from $\mathbb{C}$ onto $H$
-% \[
-% \phi(a + bi) = \begin{bmatrix}
-% a & -b \\
-% b & a
-% \end{bmatrix}
-% \]
-
-% \begin{enumerate}[label={\textbf{\alph*.}},topsep=0pt,itemsep=0pt]
-% \item According to Exercise 23 of Section 2
-% \begin{align*}
-% \phi((a + bi) + (c + di)) & = \phi((a + c) + (b + d)i)    \\
-% & = \begin{bmatrix}
-% a + c & -(b + d) \\
-% b + d & a + c
-% \end{bmatrix}            \\
-% & = \begin{bmatrix}
-% a & -b \\
-% b & a
-% \end{bmatrix} +
-% \begin{bmatrix}
-% c & -d \\
-% d & c
-% \end{bmatrix}                                            \\
-% & = \phi(a + bi) + \phi(c + di)
-% \end{align*}
-
-% So $\phi$ is an isomorphism of $\anglebracket{\mathbb{C},+}$ and $\anglebracket{H,+}$.
-
-% Hence $\anglebracket{\mathbb{C},+}$ is isomorphic to $\anglebracket{H,+}$.
-% \item According to Exercise 23 of Section 2
-% \begin{align*}
-% \phi((a + bi) \cdot (c + di)) & = \phi((ac - bd) + (ad + bc)i)    \\
-% & = \begin{bmatrix}
-% ac - bd & -(ad + bc) \\
-% ad + bc & ac - bd
-% \end{bmatrix}            \\
-% & = \begin{bmatrix}
-% a & -b \\
-% b & a
-% \end{bmatrix} \cdot
-% \begin{bmatrix}
-% c & -d \\
-% d & c
-% \end{bmatrix}                                                    \\
-% & = \phi(a + bi) \cdot \phi(c + di)
-% \end{align*}
-
-% So $\phi$ is an isomorphism of $\anglebracket{\mathbb{C},\cdot}$ and $\anglebracket{H,\cdot}$.
-
-% Hence $\anglebracket{\mathbb{C},\cdot}$ is isomorphic to $\anglebracket{H,\cdot}$.
-% \end{enumerate}
-
-% \end{proof}
-
-% \begin{exercise}
-% There are 16 possible binary structures on the set $\{ a, b \}$ of two elements. How many nonisomorphic (that is, structurally different) structures are there among these 16? Phrased more precisely in terms of the isomorphism equivalence relation $\simeq$ on this set of 16 structures, how many equivalence classes are there? Write down one structure from each equivalence class.
-% \end{exercise}
-
-% \begin{proof}
-% \end{proof}
-
 \section{Subgroups}
+
+% section 5/exercise 1
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 2
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 3
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 4
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 5
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 6
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 7
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 8
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 9
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 10
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 11
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 12
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 13
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 14
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 15
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 16
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 17
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 18
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 19
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 20
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 21
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 22
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 23
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 24
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 25
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 26
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 27
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 28
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 29
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 30
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 31
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 32
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 33
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 34
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 35
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 36
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 37
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 38
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 39
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 40
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 41
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 42
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 43
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 44
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 45
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 46
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 47
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 48
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 49
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 50
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 51
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 52
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 53
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 54
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 55
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 56
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 57
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 58
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 59
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 60
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 61
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 62
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 63
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 64
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 5/exercise 65
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
 
 \section{Cyclic Groups}
 
