@@ -1,0 +1,921 @@
+\chapter{Linear Mappings}
+
+\section{Mappings}
+\setcounter{exercise}{0}
+
+\begin{exercise}
+    In Example 3, give $Df$ as a function of $x$ when $f$ is the function
+    \begin{enumerate}[label={(\alph*)}]
+        \item $f(x) = \sin x$
+        \item $f(x) = e^{x}$
+        \item $f(x) = \log x$
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item $Df(x) = \cos x$.
+        \item $Df(x) = e^{x}$.
+        \item $Df(x) = \frac{1}{x}$.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    Let $V$ be a vector space, and let $u$ be a fixed element of $V$, we let $T_{u}: V\to V$ be the map such that $T_{u}(v) = v + u$. Prove that
+    \begin{itemize}
+        \item If $u_{1}, u_{2}$ are elements of $V$, then $T_{u_{1} + u_{2}} = T_{u_{1}} \circ T_{u_{2}}$.
+        \item If $u$ is an element of $V$, then $T_{u}: V\to V$ has an inverse mappingwhich is nothing but the translation $T_{-u}$.
+    \end{itemize}
+\end{exercise}
+
+\begin{proof}
+    \begin{itemize}
+        \item For every $v\in V$
+              \begin{align*}
+                  T_{u_{1} + u_{2}}(v) & = v + (u_{1} + u_{2})            \\
+                                       & = v + (u_{2} + u_{1})            \\
+                                       & = (v + u_{2}) + u_{1}            \\
+                                       & = T_{u_{2}}(v) + u_{1}           \\
+                                       & = T_{u_{1}}(T_{u_{2}}(v))        \\
+                                       & = (T_{u_{1}} \circ T_{u_{2}})(v)
+              \end{align*}
+
+              Hence $T_{u_{1} + u_{2}} = T_{u_{1}} \circ T_{u_{2}}$.
+        \item According to the previous result
+              \[
+                  \begin{split}
+                      T_{u}\circ T_{-u} = T_{u + (-u)} = T_{O} = \text{id}_{V} \\
+                      T_{-u}\circ T_{u} = T_{(-u) + u} = T_{O} = \text{id}_{V}
+                  \end{split}
+              \]
+
+              Hence $T_{u}$ has an inverse mapping, and it is $T_{-u}$.
+    \end{itemize}
+\end{proof}
+
+\begin{exercise}
+    In Example 5, give $L(X)$ when $X$ is the vector
+    \begin{enumerate}[label={(\alph*)}]
+        \item $(1, 2, -3)$
+        \item $(-1, 5, 0)$
+        \item $(2, 1, 1)$
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    $L: \mathbb{R}^{3} \to \mathbb{R}$, $X\mapsto L(X) = 2x + 3y - z$
+
+    \begin{enumerate}[label={(\alph*)}]
+        \item $L(X) = 2 + 6 + 3 = 11$
+        \item $L(X) = -2 + 15 - 0 = 13$
+        \item $L(X) = 4 + 3 - 1 = 6$
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    Let $F: \mathbb{R} \to \mathbb{R}^{2}$ be the mapping such that $F(t) = (e^{t}, t)$. What is $F(1), F(0), F(-1)$?
+\end{exercise}
+
+\begin{proof}
+    \[
+        \begin{split}
+            F(1) = (e, 1) \\
+            F(0) = (1, 0) \\
+            F(-1) = (1/e, -1)
+        \end{split}
+    \]
+\end{proof}
+
+\begin{exercise}
+    Let $G: \mathbb{R} \to \mathbb{R}^{2}$ be the mapping such that $G(t) = (t, 2t)$. Let $F$ be as in Exercise 4. What is $(F + G)(1), (F + G)(2), (F + G)(0)$?
+\end{exercise}
+
+\begin{proof}
+    \[
+        \begin{split}
+            (F + G)(1) = F(1) + G(1) = (e, 1) + (1, 2) = (e + 1, 3) \\
+            (F + G)(2) = F(2) + G(2) = (e^{2}, 2) + (2, 4) = (e^{2} + 2, 6) \\
+            (F + G)(0) = F(0) + G(0) = (1, 0) + (0, 0) = (1, 0)
+        \end{split}
+    \]
+\end{proof}
+
+\begin{exercise}
+    Let $F$ be as in Exercise 4. What is $(2F)(0), (\pi F)(1)$?
+\end{exercise}
+
+\begin{proof}
+    \[
+        \begin{split}
+            (2F)(0) = 2\cdot F(0) = 2\cdot (1, 0) = (2, 0) \\
+            (\pi F)(1) = \pi\cdot F(1) = \pi\cdot (e, 1) = (\pi e, \pi)
+        \end{split}
+    \]
+\end{proof}
+
+\begin{exercise}
+    Let $A = (1, 1, -1, 3)$. Let $F: \mathbb{R}^{4} \to \mathbb{R}$ be the mapping such that for any vector $X = (x_{1}, x_{2}, x_{3}, x_{4})$ we have $F(X) = X\cdot A + 2$. What is the value of $F(X)$ when
+    \begin{enumerate}[label={(\alph*)}]
+        \item $X = (1, 1, 0, -1)$?
+        \item $X = (2, 3, -1, 1)$?
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item $F(X) = 1 + 1 - 3 + 2 = 1$.
+        \item $F(X) = 2 + 3 + 1 + 3 = 9$.
+    \end{enumerate}
+\end{proof}
+
+In Exercises 8 through 12, refer to Example 6. In each case, to prove that the image is equal to a certain set $S$, you must prove that the image is contained in $S$, and also that every element of $S$ is in the image.
+
+\begin{exercise}
+    Let $F: \mathbb{R}^{2} \to \mathbb{R}^{2}$ be the mapping defined by $F(x, y) = (2x, 3y)$. Describe the image of the points lying on the circle $x^{2} + y^{2} = 1$.
+\end{exercise}
+
+\begin{proof}
+    If $(a, b)$ lies on the circle $x^{2} + y^{2} = 1$, then $a^{2} + b^{2} = 1$. The image of $(a, b)$ under $F$ is $(2a, 3b)$. Coordinates of the image satisify the equation
+    \[
+        \frac{x^{2}}{4} + \frac{y^{2}}{9} = 1
+    \]
+
+    If $(u, v)$ lies on the curve $\frac{x^{2}}{4} + \frac{y^{2}}{9} = 1$, then $\frac{u^{2}}{4} + \frac{v^{2}}{9} = 1$. On the other hand, $F(\frac{u}{2}, \frac{v}{3}) = (u, v)$.
+
+    Hence the image under $F$ of the points lying on the circle $x^{2} + y^{2} = 1$ is the ellipse $\frac{x^{2}}{4} + \frac{y^{2}}{9} = 1$.
+\end{proof}
+
+\begin{exercise}
+    Let $F: \mathbb{R}^{2} \to \mathbb{R}^{2}$ be the mapping defined by $F(x, y) = (xy, y)$. Describe the image under $F$ of the straight line $x = 2$.
+\end{exercise}
+
+\begin{proof}
+    The image of $(2, u)$ under $F$ is $(2u, u)$, which lies on the straight line $x - 2y = 0$.
+
+    Let $(2t, t)$ be a point on the straight line $x - 2y = 0$. $F(2, t) = (2t, t)$. So the point $(2, t)$ is mapped to $(2t, t)$ by $F$.
+
+    Hence the image under $F$ of the straight line $x = 2$ is the straight line $x - 2y = 0$.
+\end{proof}
+
+\begin{exercise}
+    Let $F$ be the mapping defined by $F(x, y) = (e^{x}\cos y, e^{x}\sin y)$. Describe the image under $F$ of the line $x = 1$. Describe more generally the image under $F$ of a line $x = c$, where $c$ is a constant.
+\end{exercise}
+
+\begin{proof}
+    The image of $(1, u)$ under $F$ is $(e\cos u, e\sin u)$. This point lies on the circle $x^{2} + y^{2} = e^{2}$.
+
+    Let $(a, b)$ be a point on the circle $x^{2} + y^{2} = e^{2}$, then $\frac{a^{2}}{e^{2}} + \frac{y^{2}}{e^{2}} = 1$. So there exists $\theta$ such that $\cos{\theta} = \frac{a}{e}$ and $\sin{\theta} = \frac{b}{e}$. Therefore $F(1, \theta) = (e\cos{\theta}, e\sin{\theta}) = (a, b)$.
+
+    Hence the image under $F$ of the line $x = 1$ is the circle $x^{2} + y^{2} = e^{2}$.
+
+    The image of $(c, u)$ under $F$ is $(e^{c}\cos u, e^{c}\sin u)$. This point lies on the circle $x^{2} + y^{2} = e^{2c}$.
+
+    Let $(a, b)$ be a point on the circle $x^{2} + y^{2} = e^{2c}$, then $\frac{x^{2}}{e^{2c}} + \frac{y^{2}}{e^{2c}} = 1$. So there exists $\theta$ such that $\cos{\theta} = \frac{a}{e^{c}}$ and $\sin{\theta} = \frac{b}{e^{c}}$. Therefore, $F(c, \theta) = (e^{c}\cos{\theta}, e^{c}\sin{\theta}) = (a, b)$.
+
+    Hence the image under $F$ of the line $x = c$ is the circle $x^{2} + y^{2} = e^{2c}$.
+\end{proof}
+
+\begin{exercise}
+    Let $F$ be the mapping defined by $F(t, u) = (\cos t, \sin t, u)$. Describe geometrically the image of the $(t, u)$-plane under $F$.
+\end{exercise}
+
+\begin{proof}
+    The image of $(t, u)$ is the cylinder surface $x^{2} + y^{2} = 1$, whose radii is $1$, axis is $x = y = 0$.
+
+    If $(a, b, c)$ is a point on the cylinder surface $x^{2} + y^{2} = 1$, then $a^{2} + b^{2} = 1$. So there exists $\theta$ such that $a = \cos\theta$ and $b = \sin\theta$. Therefore $F(\theta, c) = (\cos\theta, \sin\theta, c) = (a, b, c)$.
+
+    Hence the image of the $(t, u)$-plane under $F$ is the cylinder surface $x^{2} + y^{2} = 1$.
+\end{proof}
+
+\begin{exercise}
+    Let $F$ be the mapping defined by $F(x, y) = (x/3, x/4)$. What is the image under $F$ of the ellipse
+    \[
+        \frac{x^{2}}{9} + \frac{y^{2}}{16} = 1.
+    \]
+\end{exercise}
+
+\begin{proof}
+    If $(x, y)$ lies on the given ellipse, then $-3 \le x \le 3$. Therefore, $-1\le x/3 \le 1$ and $\frac{-3}{4} \le x/4 \le \frac{3}{4}$. So the image of $(x, y)$ under $F$ is the straight line segment whose extremites are $(-1, -3/4)$ and $(1, 3/4)$.
+
+    If $(a, b)$ is a point on the straight line segment whose extermites are $(-1, -3/4)$ and $(1, 3/4)$, then $(a, b)$ also lies on the straight line $3x - 4y = 0$. Hence $F(3a, b) = (a, 3a/4) = (a, b)$.
+
+    Hence the image under $F$ of the given ellipse is the straight line segment whose extremites are $(-1, -3/4)$ and $(1, 3/4)$.
+\end{proof}
+
+\section{Linear Mappings}
+\setcounter{exercise}{0}
+
+\begin{exercise}
+    Determine which of the following mappings $F$ are linear
+    \begin{enumerate}[label={(\alph*)}]
+        \item $F: \mathbb{R}^{3} \to \mathbb{R}^{2}$ defined by $F(x, y, z) = (x, z)$
+        \item $F: \mathbb{R}^{4} \to \mathbb{R}^{4}$ defined by $F(X) = -X$
+        \item $F: \mathbb{R}^{3} \to \mathbb{R}^{3}$ defined by $F(X) = X + (0, -1, 0)$
+        \item $F: \mathbb{R}^{2} \to \mathbb{R}^{2}$ defined by $F(x, y) = (2x + y, y)$
+        \item $F: \mathbb{R}^{2} \to \mathbb{R}^{2}$ defined by $F(x, y) = (2x, y - x)$
+        \item $F: \mathbb{R}^{2} \to \mathbb{R}^{2}$ defined by $F(x, y) = (y, x)$
+        \item $F: \mathbb{R}^{2} \to \mathbb{R}$ defined by $F(x, y) = xy$
+        \item Let $U$ be an open subset of $\mathbb{R}^{3}$, and let $V$ be the vector space of differentiable functions on $U$. Let $V'$ be the vector space of vector fields on $U$. Then $\text{grad}: V \to V'$ is a mapping. Is it linear?
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item
+              \begin{align*}
+                  F(x_{1} + x_{2}, y_{1} + y_{2}, z_{1} + z_{2}) & = (x_{1} + x_{2}, z_{1} + z_{2})                  \\
+                                                                 & = (x_{1}, z_{1}) + (x_{2}, z_{2})                 \\
+                                                                 & = F(x_{1}, y_{1}, z_{1}) + F(x_{2}, y_{2}, z_{2}) \\
+                  F(cx_{1}, cy_{1}, cz_{1}) = (cx_{1}, cz_{1})   & = c(x_{1}, z_{1})                                 \\
+                                                                 & = cF(x_{1}, y_{1}, z_{1})
+              \end{align*}
+
+              Hence $F$ is a linear mapping.
+        \item
+              \begin{align*}
+                  F(X + Y) & = -(X + Y) = (-X) + (-Y) = F(X) + F(Y) \\
+                  F(cX)    & = -(cX) = c\cdot (-X) = cF(X)
+              \end{align*}
+
+              Hence $F$ is a linear mapping.
+        \item $F(0, 0, 0) = (0, 0, 0) + (0, -1, 0) = (0, -1, 0) \ne (0, 0, 0)$. So $F$ is not a linear mapping.
+        \item
+              \begin{align*}
+                  F(x_{1} + x_{2}, y_{1} + y_{2}) & = (2(x_{1} + x_{2}) + (y_{1} + y_{2}), y_{1} + y_{2}) \\
+                                                  & = (2x_{1} + y_{1}, y_{1}) + (2x_{2} + y_{2}, y_{2})   \\
+                                                  & = F(x_{1}, y_{1}) + F(x_{2}, y_{2})                   \\
+                  F(cx_{1}, cy_{1})               & = (2cx_{1} + cy_{1}, cy_{1})                          \\
+                                                  & = c(2x_{1} + y_{1}, y_{1})                            \\
+                                                  & = cF(x_{1}, y_{1})
+              \end{align*}
+
+              Hence $F$ is a linear mapping.
+        \item
+              \begin{align*}
+                  F(x_{1} + x_{2}, y_{1} + y_{2}) & = (2(x_{1} + x_{2}), (y_{1} + y_{2}) - (x_{1} + x_{2})) \\
+                                                  & = (2x_{1}, y_{1} - x_{1}) + (2x_{2}, y_{2} - x_{2})     \\
+                                                  & = F(x_{1}, y_{1}) + F(x_{2}, y_{2})                     \\
+                  F(cx_{1}, cy_{1})               & = (2cx_{1}, cy_{1} - cx_{1})                            \\
+                                                  & = c(2x_{1}, y_{1} - x_{1})                              \\
+                                                  & = cF(x_{1}, y_{1})
+              \end{align*}
+
+              Hence $F$ is a linear mapping.
+
+        \item
+              \begin{align*}
+                  F(x_{1} + x_{2}, y_{1} + y_{2}) & = (y_{1} + y_{2}, x_{1} + x_{2})    \\
+                                                  & = (y_{1}, x_{1}) + (y_{2}, x_{2})   \\
+                                                  & = F(x_{1}, y_{1}) + F(x_{2}, y_{2}) \\
+                  F(cx_{1}, cy_{1})               & = (cy_{1}, cx_{1})                  \\
+                                                  & = c(y_{1}, x_{1})                   \\
+                                                  & = cF(x_{1}, y_{1})
+              \end{align*}
+        \item $F(cx, cy) = c^{2}xy = c^{2}F(x, y) \ne cF(x, y)$ if $c\ne 0, 1$ and $(x, y)\ne (0, 0)$.
+
+              So $F$ is not a linear mapping.
+        \item Let $f, g$ be elements of $V$.
+              \begin{align*}
+                  \text{grad}(f + g) & = \begin{bmatrix}
+                                             \frac{\partial}{\partial x}(f + g) \\
+                                             \frac{\partial}{\partial y}(f + g) \\
+                                             \frac{\partial}{\partial z}(f + g)
+                                         \end{bmatrix}
+                  = \begin{bmatrix}
+                        \frac{\partial}{\partial x}f + \frac{\partial}{\partial x}g \\
+                        \frac{\partial}{\partial y}f + \frac{\partial}{\partial y}g \\
+                        \frac{\partial}{\partial z}f + \frac{\partial}{\partial z}g
+                    \end{bmatrix}
+                  = \begin{bmatrix}
+                        \frac{\partial}{\partial x}f \\
+                        \frac{\partial}{\partial y}f \\
+                        \frac{\partial}{\partial z}f
+                    \end{bmatrix} +
+                  \begin{bmatrix}
+                      \frac{\partial}{\partial x}g \\
+                      \frac{\partial}{\partial y}g \\
+                      \frac{\partial}{\partial z}g
+                  \end{bmatrix}
+                  = \text{grad}(f) + \text{grad}(g)                         \\
+                  \text{grad}(cf)    & = \begin{bmatrix}
+                                             \frac{\partial}{\partial x}(cf) \\
+                                             \frac{\partial}{\partial y}(cf) \\
+                                             \frac{\partial}{\partial z}(cf)
+                                         \end{bmatrix}
+                  = c\begin{bmatrix}
+                         \frac{\partial}{\partial x}f \\
+                         \frac{\partial}{\partial y}f \\
+                         \frac{\partial}{\partial z}f
+                     \end{bmatrix}
+                  = c\cdot\text{grad}(f)
+              \end{align*}
+
+              Hence $\text{grad}: V \to V'$ is a linear mapping.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    Let $T: V \to W$ be a linear map from one vector space into another. Show that $T(O) = O$.
+\end{exercise}
+
+\begin{proof}
+    $T(O) = T(0\cdot O) = 0\cdot T(O) = O$.
+\end{proof}
+
+\begin{exercise}
+    Let $T: V \to W$ be a linear map. Let $u, v$ be elements of $V$, and let $Tu = w$. If $Tv = O$, show that $T(u + v)$ is also equal to $w$.
+\end{exercise}
+
+\begin{proof}
+    Since $T: V\to W$ is a linear map, $T(u + v) = T(u) + T(v)$. $Tu = w, Tv = O$ so $T(u + v) = w + O = w$.
+\end{proof}
+
+\begin{exercise}
+    Let $T: V \to W$ be a linear map. Let $U$ be the subset of elements $u\in V$ such that $T(u) = O$. Let $w\in W$ and suppose there is some element $v_{0}\in V$ such that $T(v_{0}) = w$. Show that the set of elements $v\in V$ satisfying $T(v) = w$ is precisely $v_{0} + U$.
+\end{exercise}
+
+\begin{proof}
+    Denote by $U_{0}$ the set of $v\in V$ satisfying $T(v) = w$.
+
+    Let $x = v_{0} + u$ for some $u$ in $V$. So $Tx = Tv_{0} + Tu = w + O = w$. So $v_{0} + U \subseteq U_{0}$.
+
+    Let $y$ be an element of $U_{0}$. $T(y - v_{0}) = T(y) - T(v_{0}) = w - w = O$, so $y - v_{0}\in U$. Therefore, $y = v_{0} + (y - v_{0}) \in v_{0} + U$, and $U_{0} \subseteq v_{0} + U$.
+
+    Hence $U_{0} = v_{0} + U$. So the set of $v\in V$ satisfying $T(v) = w$ is precisely $v_{0} + U$.
+\end{proof}
+
+\begin{exercise}
+    Let $T: V \to W$ be a linear map. Let $v$ be an element of $V$. Show that $T(-v) = -T(v)$.
+\end{exercise}
+
+\begin{proof}
+    $T(-v) = T((-1)v) = (-1)\cdot T(v) = -T(v)$.
+\end{proof}
+
+\begin{exercise}
+    Let $V$ be a vector space, and $f: V \to \mathbf{R}, g: V \to \mathbf{R}$ two linear mappings. Let $F: V \to \mathbf{R}^{2}$ be the mapping defined by $F(v) = (f(v), g(v))$. Show that $F$ is linear. Generalize.
+\end{exercise}
+
+\begin{proof}
+    \begin{align*}
+        F(v_{1} + v_{2}) & = (f(v_{1} + v_{2}), g(v_{1} + v_{2}))        \\
+                         & = (f(v_{1}) + f(v_{2}), g(v_{1}) + g(v_{2}))  \\
+                         & = (f(v_{1}), g(v_{1})) + (f(v_{2}), g(v_{2})) \\
+                         & = F(v_{1}) + F(v_{2})                         \\
+        F(c\cdot v_{1})  & = (f(c\cdot v_{1}), g(c\cdot v_{1}))          \\
+                         & = (c\cdot f(v_{1}), c\cdot g(v_{1}))          \\
+                         & = c(f(v_{1}), g(v_{1}))                       \\
+                         & = c\cdot F(v_{1})
+    \end{align*}
+
+    Hence $F$ is linear.
+
+    Generalization: $f_{i}: V \to \mathbf{R}$ are linear mappings, where $i = 1, \ldots, n$. $F: V \to \mathbf{R}^{n}$ is defined as $F(v) = (f_{1}(v), \ldots, f_{n}(v))$. Then $F$ is linear.
+
+    \begin{align*}
+        F\left(\sum^{n}_{i=1}v_{i}\right) & = \left(f_{1}\left(\sum^{n}_{i=1}v_{i}\right), \ldots, f_{n}\left(\sum^{n}_{i=1}v_{i}\right)\right) \\
+                                          & = \left(\sum^{n}_{i=1}f_{1}(v_{i}), \ldots, \sum^{n}_{i=1}f_{n}(v_{i})\right)                       \\
+                                          & = \sum^{n}_{i=1}(f_{1}(v_{i}), \ldots, f_{n}(v_{i}))                                                \\
+                                          & = \sum^{n}_{i=1}F(v_{i})                                                                            \\
+        F(cv)                             & = (f_{1}(cv), \ldots, f_{n}(cv))                                                                    \\
+                                          & = (c\cdot f_{1}(v), \ldots, c\cdot f_{n}(v))                                                        \\
+                                          & = c (f_{1}(v), \ldots, f_{n}(v))                                                                    \\
+                                          & = c\cdot F(v)
+    \end{align*}
+
+    Hence $F$ is linear.
+\end{proof}
+
+\begin{exercise}
+    Let $V, W$ be two vector spaces and let $F: V \to W$ be a linear map. Let $U$ be the subset of $V$ consisting of all elements $v$ such that $F(v) = O$. Prove that $U$ is a subspace of $V$.
+\end{exercise}
+
+\begin{proof}
+    Since $F(O) = O$, $U$ contains $O$, so $U$ is nonempty.
+
+    Suppose that $x, y\in U$, and $c$ is a scalar.
+    \begin{align*}
+        F(x + y) & = F(x) + F(y) = O + O = O    \\
+        F(cx)    & = c\cdot F(x) = c\cdot O = O
+    \end{align*}
+
+    So $x + y, cx\in U$. In other words, $U$ is closed under vector addition and scalar multiplication. Therefore, $U$ is a subspace of $V$.
+\end{proof}
+
+\begin{exercise}
+    Which of the mappings in Exercises 4, 7, 8, 9, of \S{1} are linear?
+\end{exercise}
+
+\begin{proof}
+    Mapping in Exercise 8 is linear. The others are not linear.
+\end{proof}
+
+\begin{exercise}
+    Let $V$ be a vector space over $\mathbf{R}$, and let $v, w\in V$. The \textbf{line passing through $v$ and parallel to $w$} is defined to be the set of all elements $v + tw$ with $t\in\mathbb{R}$. The \textbf{line segment} between $v$ and $v + w$ is defined to be the set of all elements
+    \[
+        v + tw \quad\text{with}\quad 0 \leq t \leq 1.
+    \]
+
+    Let $L: V \to U$ be a linear map. Show that the image under $L$ of a line segment in $V$ is a line segment in $U$. Between what points?
+
+    Show that the image of a line under $L$ is either a line or a point.
+\end{exercise}
+
+\begin{proof}
+    Let $u$ be an element of $\{ v + tw \mid 0 \leq t \leq 1 \}$, then there exists $0 \leq t \leq 1$ such that $u = v + tw$.
+    \[
+        L(u) = L(v + tw) = L(v) + L(tw) = L(v) + t\cdot L(w)
+    \]
+
+    So $L(u)$ is an element of $\{ L(v) + t\cdot L(w) \mid 0\leq t\leq 1 \}$.
+
+    Let $u'$ be an element of $\{ L(v) + t\cdot L(w) \mid 0\leq t\leq 1 \}$, then there exists $0\leq t\leq 1$ such that $u' = L(v) + t\cdot L(w)$.
+    \[
+        u' = L(v) + t\cdot L(w) = L(v) + L(tw) = L(v + tw)
+    \]
+
+    So there exists an element of $\{ v + tw \mid 0 \leq t\leq 1 \}$ such that its image under $L$ is $u'$.
+
+    Thus the image under $L$ of a line segment in $V$ is a line segment in $U$, between $L(v)$ and $L(v + w)$.
+\end{proof}
+
+Let $V$ be a vector space, and let $v_{1}, v_{2}$ be two elements of $V$ which are linearly independent. The set of elements of $V$ which can be written in the form $t_{1}v_{1} + t_{2}v_{2}$ with numbers $t_{1}, t_{2}$ satisfying
+\[
+    0 \leq t_{1} \leq 1 \quad\text{and}\quad 0 \leq t_{2} \leq 1
+\]
+
+is called the \textbf{parallelogram} spanned by $v_{1}, v_{2}$.
+
+\begin{exercise}
+    Let $V$ and $W$ be vector spaces, and let $F: V \to W$ be a linear map. Let $v_{1}, v_{2}$ be linearly independent elements of $V$, and assume that $F(v_{1}), F(v_{2})$ are linearly independent. Show that the image under $F$ of the parallelogram spanned by $v_{1}$ and $v_{2}$ is the parallelogram spanned by $F(v_{1}), F(v_{2})$.
+\end{exercise}
+
+\begin{proof}
+    Let $v$ be an element of the parallelogram spanned by $v_{1}, v_{2}$. According to the Definition of parallelogram, there exist $0\leq t_{1}, t_{2} \leq 1$ such that $v = t_{1}v_{1} + t_{2}v_{2}$.
+    \[
+        F(v) = F(t_{1}v_{1} + t_{2}v_{2}) = F(t_{1}v_{1}) + f(t_{2}v_{2}) = t_{1}\cdot F(v_{1}) + t_{2}\cdot F(v_{2})
+    \]
+
+    So the image of $v$ under $F$ is in the parallelogram spanned by $F(v_{1}), F(v_{2})$.
+
+    Let $v'$ be an element of the parallelogram spanned by $F(v_{1}), F(v_{2})$. According to the Definition of parallelogram, there exist $0\leq t_{1}, t_{2} \leq 1$ such that $v' = t_{1}\cdot F(v_{1}) + t_{2}\cdot F(v_{2})$.
+    \[
+        v' = t_{1}\cdot F(v_{1}) + t_{2}\cdot F(v_{2}) = F(t_{1}v_{1}) + F(t_{2}v_{2}) = F(t_{1}v_{1} + t_{2}v_{2})
+    \]
+
+    So there exists an element in the parallelogram spanned by $v_{1}, v_{2}$ whose image under $F$ is $v'$.
+
+    Hence the image under $F$ of the parallelogram spanned by $v_{1}, v_{2}$ is the parallelogram spanned by $F(v_{1}), F(v_{2})$.
+\end{proof}
+
+\begin{exercise}
+    Let $F$ be a linear map from $\mathbb{R}^{2}$ into itself such that
+    \[
+        F(E_{1}) = (1, 1) \quad\text{and}\quad F(E_{2}) = (-1, 2).
+    \]
+
+    Let $S$ be the square whose corners are at $(0, 0), (1, 0), (1, 1)$, and $(0, 1)$. Show that the image of this square under $F$ is a parallelogram.
+\end{exercise}
+
+\begin{proof}
+    $S$ is also the parallelogram spanned by $E_{1} = (1, 0)$ and $E_{2} = (0, 1)$.
+
+    $F(E_{1}) = (1, 1)$ and $F(E_{2}) = (-1, 2)$ are linearly independent. According to Exercise 10, the image of the given square is a parallelogram.
+\end{proof}
+
+\begin{exercise}
+    Let $A, B$ be two non-zero vectors in the plane such that there is no constant $c\ne 0$ such that $B = cA$. Let $T$ be a linear mapping of the plane into itself such that $T(E_{1}) = A$ and $T(E_{2}) = B$. Describe the image under $T$ of the rectangle whose corners are $(0, 1)$, $(3, 0)$, $(0, 0)$, and $(3, 1)$.
+\end{exercise}
+
+\begin{proof}
+    $A, B$ are linearly independent.
+
+    The given rectangle is also the parallelogram spanned by $(0, 1)$ and $(3, 0)$.
+
+    $T((0, 1)) = T(E_{2}) = B$, $T((3, 0)) = T(3\cdot E_{1}) = 3\cdot T(E_{1}) = 3A$. Hence the image under $T$ of the given rectangle is the parallelogram spanned by $3A$ and $B$.
+\end{proof}
+
+\begin{exercise}
+    Let $A, B$ be two non-zero vectors in the plane such that there is no constant $c\ne 0$ such that $B = cA$. Describe geometrically the set of points $tA + uB$ for values of $t$ and $u$ such that $0 \leq t \leq 5$ and $0 \leq u \leq 2$.
+\end{exercise}
+
+\begin{proof}
+    $A, B$ are linearly independent.
+
+    For $0\leq t\leq 5$ and $0\leq u\leq 2$
+    \[
+        tA + uB = \frac{t}{5}\cdot 5A + \frac{u}{2}\cdot 2B
+    \]
+
+    Since $0\leq \frac{t}{5} \leq 1$ and $0 \leq \frac{u}{2} \leq 1$, we conclude that the given set is the parallelogram spanned by $5A$ and $2B$.
+\end{proof}
+
+\begin{exercise}
+    Let $T_{u}: V \to V$ be the translation by a vector $u$. For which vectors $u$ is $T_{u}$ a linear map? Proof?
+\end{exercise}
+
+\begin{proof}
+    If $T_{u}$ is a linear map, then $T_{u}(O) = O$. On the other hand, $T_{u}(O) = O + u = u$. So $u = O$.
+
+    If $u = O$
+    \begin{align*}
+        T_{O}(v + w)    & = v + w + O = (v + O) + (w + O) = T_{O}(v) + T_{O}(w) \\
+        T_{O}(c\cdot v) & = c\cdot v + O = c(v + O) = c\cdot T_{O}(v)
+    \end{align*}
+
+    so $T_{O}$ is a linear map.
+
+    Hence $T_{u}$ is a linear map if and only if $u = O$.
+\end{proof}
+
+\begin{exercise}
+    Let $V, W$ be two vector spaces, and $F: V \to W$ a linear map. Let $w_{1}, \ldots, w_{n}$ be elements of $W$ which are linearly independent, and let $v_{1}, \ldots, v_{n}$ be elements of $V$ such that $F(v_{i}) = w_{i}$ for $i = 1,\ldots, n$. Show that $v_{1}, \ldots, v_{n}$ are linearly independent.
+\end{exercise}
+
+\begin{proof}
+    Let $x_{1}, \ldots, x_{n}$ be scalars such that $x_{1}v_{1} + \cdots + x_{n}v_{n} = O$.
+    \begin{align*}
+        O & = F(O)                                               \\
+          & = F(x_{1}v_{1} + \cdots + x_{n}v_{n})                \\
+          & = F(x_{1}v_{1}) + \cdots + F(x_{n}v_{n})             \\
+          & = x_{1}\cdot F(v_{1}) + \cdots + x_{n}\cdot F(v_{n}) \\
+          & = x_{1}w_{1} + \cdots + x_{n}w_{n}
+    \end{align*}
+
+    Since $w_{1},\ldots, w_{n}$ are linearly independent, we obtain that $x_{1} = \cdots = x_{n} = 0$. Therefore, $v_{1}, \ldots, v_{n}$ are linearly independent.
+\end{proof}
+
+\begin{exercise}
+    Let $V$ be a vector space and $F: V \to \mathbf{R}$ a linear map. Let $W$ be the subset of $V$ consisting of all elements $v$ such that $F(v) = 0$. Assume that $W \ne V$, and let $v_{0}$ be an element of $V$ which does not lie in $W$. Show that every element of $V$ can be written as a sum $w + cv_{0}$, with some $w$ in $W$ and some number $c$.
+\end{exercise}
+
+\begin{proof}
+    Let $v$ be an element of $V$.
+
+    Since $F(v_{0}) \ne 0$, there exist $c\in\mathbb{R}$ such that $F(v) = c\cdot F(v_{0})$. Let $w = v - cv_{0}$.
+    \[
+        F(w) = F(v - cv_{0}) = F(v) - F(cv_{0}) = F(v) - c\cdot F(v_{0}) = 0
+    \]
+
+    so $w\in W$.
+
+    Thus, $v = (v - cv_{0}) + cv_{0} = w + cv_{0}$.
+\end{proof}
+
+\begin{exercise}
+    In Exercise 16, show that $W$ is a subspace of $V$. Let $\{ v_{1}, \ldots, v_{n} \}$ be a basis of $W$. Show that $\{ v_{0}, v_{1}, \ldots, v_{n} \}$ is a basis of $V$.
+\end{exercise}
+
+\begin{proof}
+    Let $x_{0}, x_{1}, \ldots, x_{n}$ be real numbers such that $x_{0}v_{0} + x_{1}v_{1} + \cdots + x_{n}v_{n} = O$.
+    \begin{align*}
+        O & = F(O)                                                                     \\
+          & = F(x_{0}v_{0} + x_{1}v_{1} + \cdots + x_{n}v_{n})                         \\
+          & = x_{0}\cdot F(v_{0}) + x_{1}\cdot F(v_{1}) + \cdots + x_{n}\cdot F(v_{n}) \\
+          & = x_{0}\cdot F(v_{0}) + O + \cdots + O                                     \\
+          & = x_{0}\cdot F(v_{0})
+    \end{align*}
+
+    Since $F(v_{0}) \ne 0$, we obtain that $x_{0} = 0$. So $x_{1}v_{1} + \cdots + x_{n}v_{n} = O$. Because $v_{1}, \ldots, v_{n}$ are linearly independent, it follows that $x_{1} = \cdots = x_{n} = 0$. So $x_{0} = x_{1} = \cdots = x_{n} = 0$, which means $v_{0}, v_{1}, \ldots, v_{n}$ are linearly independent.
+
+    Let $v\in V$. According to Exercise 16, $v = cv_{0} + w$, where $w\in W$. Since $\{ v_{1}, \ldots, v_{n} \}$ is a basis of $W$, there exist $c_{1}, \ldots, c_{n}$ such that $w = c_{1}v_{1} + \cdots + c_{n}v_{n}$, so
+    \[
+        v = cv_{0} + c_{1}v_{1} + \cdots + c_{n}v_{n}
+    \]
+
+    Hence $\{ v_{0}, v_{1}, \ldots, v_{n} \}$ generates $V$ and is linearly independent. Thus it is a basis of $V$.
+\end{proof}
+
+\begin{exercise}
+    Let $L: \mathbb{R}^{2} \to \mathbb{R}^{2}$ be a linear map, having the following effect on the indicated vectors
+    \begin{enumerate}[label={(\alph*)}]
+        \item $L(3, 1) = (1, 2)$ and $L(-1, 0) = (1, 1)$
+        \item $L(4, 1) = (1, 1)$ and $L(1, 1) = (3, -2)$
+        \item $L(1, 1) = (2, 1)$ and $L(-1, 1) = (6, 3)$
+    \end{enumerate}
+
+    In each case compute $L(1, 0)$.
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item $L(1, 0) = -L(-1, 0) = (-1, -1)$.
+        \item $L(1, 0) = \frac{1}{3}(L(4, 1) - L(1, 1)) = \frac{1}{3}(-2, 3) = (\frac{-2}{3}, 1)$.
+        \item $L(1, 0) = \frac{1}{2}(L(1, 1) - L(-1, 1)) = \frac{1}{2}(-4, -2) = (-2, -1)$.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+    Let $L$ be as in $(a), (b), (c)$, of Exercise 18. Find $L(0, 1)$.
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item $L(0, 1) = L(3, 1) + 3L(-1, 0) = (4, 5)$.
+        \item $L(0, 1) = \frac{1}{3}(4L(1, 1) - L(4, 1)) = \frac{1}{3}(11, -9) = (\frac{11}{3}, -3)$.
+        \item $L(0, 1) = \frac{1}{2}(L(1, 1) + L(-1, 1)) = \frac{1}{2}(8, 4) = (4, 2)$.
+    \end{enumerate}
+\end{proof}
+
+\section{The Kernal and Image of a Linear Map}
+\setcounter{exercise}{0}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\section{Composition and Inverse of Linear Mappings}
+\setcounter{exercise}{0}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\section{Geometric Applications}
+\setcounter{exercise}{0}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
