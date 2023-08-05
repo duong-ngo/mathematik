@@ -709,7 +709,7 @@ counterexample.
 
 % section 1/exercise 42
 \begin{exercise}
-    Suppose that $*$ is an \textit{associative binary} operation on a set $S$. Let $H = \{ a \in S \vert a * x = x * a \text{ for all } x\in S \}$. Show that $H$ is closed under $*$. (We think of $H$ as consisting of all elements of $S$ that \textit{commute} with every element in $S$.)
+    Suppose that $*$ is an \textit{associative binary} operation on a set $S$. Let $H = \{ a \in S \mid a * x = x * a \text{ for all } x\in S \}$. Show that $H$ is closed under $*$. (We think of $H$ as consisting of all elements of $S$ that \textit{commute} with every element in $S$.)
 \end{exercise}
 
 \begin{proof}
@@ -727,7 +727,7 @@ counterexample.
 
 % section 1/exercise 43
 \begin{exercise}
-    Suppose that $*$ is an associative and commutative operation on a set $S$. Show that $H = \{ a\in S \vert a * a = a \}$ is closed under $*$. (The element of $H$ are \textbf{idempotents} of the binary operation $*$.)
+    Suppose that $*$ is an associative and commutative operation on a set $S$. Show that $H = \{ a\in S \mid a * a = a \}$ is closed under $*$. (The element of $H$ are \textbf{idempotents} of the binary operation $*$.)
 \end{exercise}
 
 \begin{proof}
@@ -799,7 +799,7 @@ In Exercises 1 through 9, determine whether the binary operation $*$ gives a gro
 
 % section 2/exercise 2
 \begin{exercise}
-    Let $*$ be defined on $2\mathbb{Z} = \{ 2n \vert n\in\mathbb{Z} \}$ by letting $a * b = a + b$.
+    Let $*$ be defined on $2\mathbb{Z} = \{ 2n \mid n\in\mathbb{Z} \}$ by letting $a * b = a + b$.
 \end{exercise}
 
 \begin{proof}
@@ -938,7 +938,7 @@ In Exercises 1 through 9, determine whether the binary operation $*$ gives a gro
 
 % section 2/exercise 10
 \begin{exercise}
-    Let $n$ be a positive integer and let $n\mathbb{Z} = \{ nm \vert m\in\mathbb{Z} \}$.
+    Let $n$ be a positive integer and let $n\mathbb{Z} = \{ nm \mid m\in\mathbb{Z} \}$.
     \begin{enumerate}[label={\textbf{\alph*.}}]
         \item Show that $\anglebracket{n\mathbb{Z}, +}$ is a group.
         \item Show that $\anglebracket{n\mathbb{Z}, +} \simeq \anglebracket{\mathbb{Z}, +}$
@@ -1837,7 +1837,7 @@ In Exercises 11 through 18, determine whether the given set of matrices under th
 \end{exercise}
 
 \begin{proof}
-    Let $B = \{ x' * g \vert x\in A \}$. $\phi: A\to B$ is defined as $\phi(x) = x' * g$, then $\phi$ is a bijection. Therefore, $A$ and $B$ have the same number of elements. According to the principle of inclusion and exclusion, $\abs{A\cap B} = \abs{A} + \abs{B} - \abs{A\cup B} > \frac{n}{2} + \frac{n}{2} - n = 0$, so $A\cap B$ is not empty. Let $b$ be an element of $A\cap B$. Since $\phi$ is a bijection, there exists $a\in A$ such that $a' * g = b$, equivalently, $g = (a * a') * g = a * (a' * g) = a * b$.
+    Let $B = \{ x' * g \mid x\in A \}$. $\phi: A\to B$ is defined as $\phi(x) = x' * g$, then $\phi$ is a bijection. Therefore, $A$ and $B$ have the same number of elements. According to the principle of inclusion and exclusion, $\abs{A\cap B} = \abs{A} + \abs{B} - \abs{A\cup B} > \frac{n}{2} + \frac{n}{2} - n = 0$, so $A\cap B$ is not empty. Let $b$ be an element of $A\cap B$. Since $\phi$ is a bijection, there exists $a\in A$ such that $a' * g = b$, equivalently, $g = (a * a') * g = a * (a' * g) = a * b$.
 
     Thus, there exist $a, b\in A$ such that $a * b = g$.
 \end{proof}
@@ -2853,7 +2853,7 @@ In Exercises 6 through 9, compute the expressions shown for the permutations $\s
 
 Let $A$ be a set and let $\sigma\in S_{A}$. For a fixed $a\in A$, the set
 \[
-    \mathcal{O}_{a,\sigma} = \{ \sigma^{n}(a) \vert n\in\mathbb{Z} \}
+    \mathcal{O}_{a,\sigma} = \{ \sigma^{n}(a) \mid n\in\mathbb{Z} \}
 \]
 
 is the \textbf{orbit} of $a$ \textbf{under} $\sigma$. In Exercise 15 through 17, find the orbit of $1$ under the permutation defined prior to Exercise 1.
@@ -3387,461 +3387,1754 @@ In Exercises 24 through 28, determine whether the given function is a permutatio
 
 \section{Subgroups}
 
+\subsection*{Computations}
+
+In Exercises 1 through 6, determine whether the given subset of the complex numbers is a subgroup of the group $\mathbb{C}$ of complex numbers under addition.
+
 % section 5/exercise 1
 \begin{exercise}
+    $\mathbb{R}$
 \end{exercise}
 
 \begin{proof}
+    $\mathbb{R}$ is a subset of $\mathbb{C}$.
+
+    $\mathbb{R}$ is closed under addition. $\mathbb{R}$ contains the identity element $0$. For each element $x$ of $\mathbb{R}$, $-x$ is also in $\mathbb{R}$.
+
+    Hence $\mathbb{R}$ is a subgroup of $\mathbb{C}$ under addition.
 \end{proof}
 
 % section 5/exercise 2
 \begin{exercise}
+    $\mathbb{Q}^{+}$
 \end{exercise}
 
 \begin{proof}
+    $\mathbb{Q}^{+}$ is a subset of $\mathbb{C}$.
+
+    $\mathbb{Q}^{+}$ is closed under addition. But $\mathbb{Q}^{+}$ does not contain the identity element $0$.
+
+    Hence $\mathbb{Q}^{+}$ is not a subgroup of $\mathbb{C}$ under addition.
 \end{proof}
 
 % section 5/exercise 3
 \begin{exercise}
+    $7\mathbb{Z}$
 \end{exercise}
 
 \begin{proof}
+    $7\mathbb{Z}$ is a subset of $\mathbb{C}$.
+
+    $7\mathbb{Z}$ is closed under addition. $7\mathbb{Z}$ contains the identity element $0 = 0\cdot 7$. For each element $7n$ of $7\mathbb{Z}$ (where $n\mathbb{Z}$), $-7n$ is also in $\mathbb{C}$.
+
+    Hence $7\mathbb{Z}$ is a subgroup of $\mathbb{C}$ under addition.
 \end{proof}
 
 % section 5/exercise 4
 \begin{exercise}
+    $i\mathbb{R}$
 \end{exercise}
 
 \begin{proof}
+    $i\mathbb{R}$ is a subset of $\mathbb{C}$.
+
+    $i\mathbb{R}$ is closed under addition. $i\mathbb{R}$ contains the identity element $0 = 0i$. For each element $iy$ of $i\mathbb{R}$ (where $y\in\mathbb{R}$), $-iy$ is also in $\mathbb{C}$.
+
+    Hence $i\mathbb{R}$ is a subgroup of $\mathbb{C}$ under addition.
 \end{proof}
 
 % section 5/exercise 5
 \begin{exercise}
+    $\pi\mathbb{Q}$
 \end{exercise}
 
 \begin{proof}
+    $\pi\mathbb{Q}$ is a subset of $\mathbb{C}$.
+
+    $\pi\mathbb{Q}$ is closed under addition, since $\pi a + \pi b = \pi (a + b)$, where $a, b\in\mathbb{Q}$. $\pi\mathbb{Q}$ contains the additive identity $0 = 0\pi$. For each element $\pi q\in\mathbb{Q}$ (where $q\in\mathbb{Q}$), $-\pi q$ is also an element of $\pi\mathbb{Q}$.
+
+    Hence $\pi\mathbb{Q}$ is a subgroup of $\mathbb{C}$ under addition.
 \end{proof}
 
 % section 5/exercise 6
 \begin{exercise}
+    The set $\{ \pi^{n} \mid n\in\mathbb{Z} \}$
 \end{exercise}
 
 \begin{proof}
+    Since $\pi$ is transcendental, $\pi + \pi$ is not an integer power of $\pi$, so this set is not closed under addition.
+
+    Hence $\{ \pi^{n} \mid n\in\mathbb{Z} \}$ is not a subgroup of $\mathbb{C}$ under addition.
 \end{proof}
 
 % section 5/exercise 7
 \begin{exercise}
+    Which of the sets in Exercises 1 through 6 are subgroups of the group $\mathbb{C}^{*}$ of nonzero complex numbers under multiplication?
 \end{exercise}
 
 \begin{proof}
+    $\mathbb{Q}^{+}$ and $\{ \pi^{n} \mid n\in\mathbb{Z} \}$ are subgroups of $\mathbb{C}^{*}$ under multiplication.
 \end{proof}
+
+In Exercises 8 through 13, determine whether the given set of invertible $n\times n$ matrices with real number entries is a subgroup of $GL(n, \mathbb{R})$.
 
 % section 5/exercise 8
 \begin{exercise}
+    The $n\times n$ matrices with determinant greater than or equal to $1$
 \end{exercise}
 
 \begin{proof}
+    If an $n\times n$ matrix $A$ has determinant greater than $1$, then $A$ is invertible and its inverse $A^{-1}$ has determinant smaller than $1$. So $A^{-1}$ is not in the given set.
+
+    Hence the given set is not a subgroup of $GL(n, \mathbb{R})$.
 \end{proof}
 
 % section 5/exercise 9
 \begin{exercise}
+    The diagonal $n\times n$ matrices with no zeros on the diagonal
 \end{exercise}
 
 \begin{proof}
+    Product of two diagonal $n\times n$ matrices $A = \text{diag}(a_{1}, \ldots, a_{n})$ and $B = \text{diag}(b_{1}, \ldots, b_{n})$ is the matrix $AB = \text{diag}(a_{1}b_{1}, \ldots, a_{n}b_{n})$ whose entries on the diagonal are nonzero.
+
+    The identity $n\times n$ matrix is in the given set.
+
+    For each $A = \text{diag}(a_{1}, \ldots, a_{n})$ in the given set, its inverse $A^{-1} = \text{diag}({a_{1}}^{-1}, \ldots, {a_{n}}^{-1})$ is also in the given set.
+
+    Hence the given set is a subgroup of $GL(n, \mathbb{R})$.
 \end{proof}
 
 % section 5/exercise 10
 \begin{exercise}
+    The $n\times n$ matrices with determinant $2^{k}$ for some integer $k$
 \end{exercise}
 
 \begin{proof}
+    If $A, B$ are in the given set, $\det(AB) = \det(A)\det(B)$ is an integer power of $2$. So the given set is closed under matrix multiplication.
+
+    The determinant of the $n\times n$ identity matrix is $1 = 2^{0}$, so the given set contains the identity $n\times n$ matrix.
+
+    If $A$ is in the given set, then $\det(A) = 2^{k}$ for some integer $k$. Therefore $A$ is invertible (since $\det(A)\ne 0$) and $\det(A^{-1}) = 2^{-k}$. Therefore, if $A$ is in the given set, then so does $A^{-1}$.
+
+    Hence the given set is a subgroup of $GL(n, \mathbb{R})$.
 \end{proof}
 
 % section 5/exercise 11
 \begin{exercise}
+    The $n\times n$ matrices with determinant $-1$
 \end{exercise}
 
 \begin{proof}
+    If $A, B$ are in the given set, $\det(AB) = \det(A)\cdot\det(B) = (-1)\cdot (-1) = 1$. So the given set is not closed under matrix multiplication.
+
+    Hence the given set is not a subgroup of $GL(n, \mathbb{R})$.
 \end{proof}
 
 % section 5/exercise 12
 \begin{exercise}
+    The $n\times n$ matrices with determinant $-1$ or $1$
 \end{exercise}
 
 \begin{proof}
+    If $A, B$ are in the given set, $\det(AB) = \det(A)\cdot\det(B)$ and this product is equal to either $1$ or $-1$. So the given set is closed under matrix multiplication.
+
+    The identity $n\times n$ matrix has determinant $1$ so it is in the given set.
+
+    If $A$ is in the given set, then $A$ is invertible. $\det(A) = 1$ if and only if $\det(A^{-1}) = 1$, $\det(A) = -1$ if and only if $\det(A^{-1}) = -1$. Therefore, if $A$ is in the given set, then so does the inverse of $A$.
+
+    Hence the given set is a subgroup of $GL(n, \mathbb{R})$.
 \end{proof}
 
 % section 5/exercise 13
+
 \begin{exercise}
+    The set of all $n\times n$ matrices $A$ such that $(A^{T})A = I_{n}$.
 \end{exercise}
 
 \begin{proof}
+    If $A, B$ are in the given set, ${(AB)}^{T}AB = B^{T}A^{T}AB = B^{T}(A^{T}A)B = B^{T}B = I_{n}$. So the given set is closed under matrix multiplication.
+
+    The identity $n\times n$ matrix is in the given set because ${I_{n}}^{T}I_{n} = I_{n}I_{n} = I_{n}$.
+
+    If $A$ is in the given set, ${(\det(A))}^{2} = 1$, so $\det(A) = \pm 1$, which implies $A$ is invertible. Since $A^{T}A = I_{n}$, we obtain that $A^{T}$ is also the inverse of $A$, in other words, $A^{T}A = AA^{T} = I_{n}$ and $A^{T} = A^{-1}$. So if $A$ is in the given set, then so does $A^{-1}$.
+
+    Hence the given set is a subgroup of $GL(n, \mathbb{R})$.
 \end{proof}
+
+Let $F$ be the set of all real-valued functions with domain $\mathbb{R}$ and let $\tilde{F}$ be the subset of $F$ consisting of those functions that have a nonzero value at every point in $\mathbb{R}$. In Exercises 14 through 19, determine whether the given subset of $F$ with the induced operation is (a) a subgroup of the group $F$ under addition, (b) a subgroup of the group $\tilde{F}$ under multiplication.
 
 % section 5/exercise 14
 \begin{exercise}
+    The subset $\tilde{F}$
 \end{exercise}
 
 \begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Addition.
+
+              $\tilde{F}$ does not contain the additive identity (the constant function $0$) so $\tilde{F}$ is not a subgroup of $F$ under addition.
+        \item Multiplication.
+
+              $\tilde{F}$ is the improper subgroup of $\tilde{F}$ under mulitplication.
+    \end{enumerate}
 \end{proof}
 
 % section 5/exercise 15
 \begin{exercise}
+    The subset of all $f\in F$ such that $f(1) = 0$
 \end{exercise}
 
 \begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Addition.
+
+              If $f, g$ is in the given subset, then $(f + g)(1) = f(1) + g(1) = 0 + 0 = 0$. So the given subset is closed under addition.
+
+              The constant function $0$ is in the give subset, which is also the additive identity.
+
+              If $f$ is in the given subset, then $g = -f$ satisfies $g(1) = -f(1) = 0$.
+
+              Hence the given subset is a subgroup of $F$ under addition.
+        \item Multiplication.
+
+              The multiplicative identity, which is the constant function $1$ is not in the given subset.
+
+              Hence the given subset is not a subgroup of $\tilde{F}$ under multiplication.
+    \end{enumerate}
 \end{proof}
 
 % section 5/exercise 16
 \begin{exercise}
+    The subset of all $f\in\tilde{F}$ such that $f(1) = 1$
 \end{exercise}
 
 \begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Addition.
+
+              If $f, g$ is in the given subset, then $(f + g)(1) = f(1) + g(1) = 1 + 1 = 2\ne 1$. So the given subset is not closed under addition.
+
+              Hence the given subset is not a subgroup of $F$ under addition.
+        \item Multiplication.
+
+              If $f, g$ is in the given subset, then $(f\cdot g)(1) = f(1)\cdot g(1) = 1$. On the other hand, $(f\cdot g)(x) = f(x)g(x) \ne 0$ for all $x\in\mathbb{R}$. So the given subset is closed under multiplication.
+
+              The multiplicative identity, which is the constant function $1$ is in the given subset.
+
+              If $f$ is in the given subset, then $g$ defined as $g(x) = 1/f(x)$ satisfies $g(1) = 1/f(1) = 1$. So $g$ (the multiplicative inverse of $f$) is also in the given subset.
+
+              Hence the give subset is a subgroup of $\tilde{F}$ under multiplication.
+    \end{enumerate}
 \end{proof}
 
 % section 5/exercise 17
 \begin{exercise}
+    The subset of all $f\in\tilde{F}$ such that $f(0) = 1$
 \end{exercise}
 
 \begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Addition.
+
+              If $f, g$ is in the given subset, then $(f + g)(0) = f(0) + g(0) = 1 + 1 = 2\ne 1$. So the given subset is not closed under addition.
+
+              Hence the given subset is not a subgroup of $F$ under addition.
+        \item Multiplication.
+
+              If $f, g$ is in the given subset, then $(f\cdot g)(0) = f(0)\cdot g(0) = 1$. On the other hand, $(f\cdot g)(x) \ne 0$ for all $x\in\mathbb{R}$. So the given subset is closed under multiplication.
+
+              The multiplicative identity, which is the constant function $1$ is in the given subset.
+
+              If $f$ is in the given subset, then $g$ defined as $g(x) = 1/f(x)$ satisfies $g(0) = 1/f(0) = 1$. So $g$ (the multiplicative inverse of $f$) is also in the given subset.
+
+              Hence the given subset is a subgroup of $\tilde{F}$ under multiplication.
+    \end{enumerate}
 \end{proof}
 
 % section 5/exercise 18
 \begin{exercise}
+    The subset of all $f\in\tilde{F}$ such that $f(0) = -1$
 \end{exercise}
 
 \begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Addition.
+
+              The additive identity, which is the constant function $0$ is not in the given subset. Hence the given subset is not a subgroup of $F$ under addition.
+        \item Multiplication.
+
+              The multiplicative identity, which is the constant function $1$ is not in the given subset. Hence the give subset is not a subgroup of $\tilde{F}$ under multiplication.
+    \end{enumerate}
 \end{proof}
 
 % section 5/exercise 19
 \begin{exercise}
+    The subset of all constant functions in $F$.
 \end{exercise}
 
 \begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Addition.
+
+              If $f, g$ are constant functions, then so does $f + g$. So the given subset is closed under addition.
+
+              The additive identity, which is the constant function $0$ is in the given subset.
+
+              If $f$ is a constant function, then so does $-f$.
+
+              Hence the given subset is a subgroup of $F$ under addition.
+        \item Multiplication.
+
+              The given subset contains the constant function $0$, which is not in $\tilde{F}$. Hence the given subset is not a subgroup of $\tilde{F}$ under multiplication.
+    \end{enumerate}
 \end{proof}
 
 % section 5/exercise 20
 \begin{exercise}
+    Nine groups are given below. Give a \textit{complete} list of all subgroup relations, of the form $G_{i} \leq G_{j}$, that exist between these given group $G_{1}, G_{2}, \ldots, G_{9}$. \\
+    $G_{1} = \mathbb{Z}$ under addition \\
+    $G_{2} = 12\mathbb{Z}$ under addition \\
+    $G_{3} = \mathbb{Q}^{+}$ under multiplication \\
+    $G_{4} = \mathbb{R}$ under addition \\
+    $G_{5} = \mathbb{R}^{+}$ under multiplication \\
+    $G_{6} = \{ \pi^{n} \mid n\in\mathbb{Z} \}$ under multiplication \\
+    $G_{7} = 3\mathbb{Z}$ under addition \\
+    $G_{8} =$ the set of all integral multiple of $6$ under addition \\
+    $G_{9} = \{ 6^{n} \mid n\in\mathbb{Z} \}$ under multiplication
 \end{exercise}
 
 \begin{proof}
+    \begin{enumerate}
+        \item $G_{1} \leq G_{1}$, $G_{1} \leq G_{4}$
+        \item $G_{2} \leq G_{1}$, $G_{2} \leq G_{2}$, $G_{2} \leq G_{4}$, $G_{2} \leq G_{7}$, $G_{2} \leq G_{8}$
+        \item $G_{3} \leq G_{3}$, $G_{3} \leq G_{5}$
+        \item $G_{4} \leq G_{4}$
+        \item $G_{5} \leq G_{5}$
+        \item $G_{6} \leq G_{5}$, $G_{6} \leq G_{6}$
+        \item $G_{7} \leq G_{1}$, $G_{7} \leq G_{4}$, $G_{7} \leq G_{7}$
+        \item $G_{8} \leq G_{1}$, $G_{8} \leq G_{4}$, $G_{8} \leq G_{7}$, $G_{8} \leq G_{8}$
+        \item $G_{9} \leq G_{3}$, $G_{9} \leq G_{5}$, $G_{9} \leq G_{9}$
+    \end{enumerate}
 \end{proof}
 
 % section 5/exercise 21
 \begin{exercise}
+    Write at least $5$ elements of each of the following cyclic groups.
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item $25\mathbb{Z}$ under addition
+        \item $\left\{ {\left(\frac{1}{2}\right)}^{n} \mid n\in\mathbb{Z} \right\}$ under multiplication
+        \item $\{ \pi^{m} \mid n\in\mathbb{Z} \}$ under multiplication
+        \item $\anglebracket{\rho^{3}}$ in the group $D_{18}$
+        \item $\anglebracket{(1, 2, 3)(5, 6)}$ in the group $S_{6}$
+    \end{enumerate}
 \end{exercise}
 
 \begin{proof}
+    \begin{enumerate}[label={\textbf{\alph*}}]
+        \item $\{ \ldots, -50, -25, 0, 25, 50, \ldots \}$
+        \item $\{ \ldots, 4, 2, 1, \frac{1}{2}, \frac{1}{4}, \ldots \}$
+        \item $\{ \ldots, \frac{1}{\pi^{2}}, \frac{1}{\pi}, 1, \pi, \pi^{2}, \ldots \}$
+        \item $\{ \iota, \rho^{3}, \rho^{6}, \rho^{9}, \rho^{12}, \rho^{15} \}$
+        \item $(1, 2, 3)(5, 6)$, $(1, 3, 2)$, $(5, 6)$, $(1, 2, 3)$, $(1, 3, 2)(5, 6)$, $\iota$
+    \end{enumerate}
 \end{proof}
+
+In Exercises 22 through 25, describe all the elements in the cyclic subgroup of $GL(2, \mathbb{R})$ generated by the given $2\times 2$ matrix.
 
 % section 5/exercise 22
 \begin{exercise}
+    $\begin{bmatrix}
+            0  & -1 \\
+            -1 & 0
+        \end{bmatrix}$
 \end{exercise}
 
 \begin{proof}
+    \[
+        \anglebracket{\begin{bmatrix}
+                0  & -1 \\
+                -1 & 0
+            \end{bmatrix}} = \left\{
+        \begin{bmatrix}
+            1 & 0 \\
+            0 & 1
+        \end{bmatrix},
+        \begin{bmatrix}
+            0  & -1 \\
+            -1 & 0
+        \end{bmatrix}
+        \right\}
+    \]
 \end{proof}
 
 % section 5/exercise 23
 \begin{exercise}
+    $\begin{bmatrix}
+            1 & 1 \\
+            0 & 1
+        \end{bmatrix}$
 \end{exercise}
 
 \begin{proof}
+    \[
+        \anglebracket{\begin{bmatrix}
+                1 & 1 \\
+                0 & 1
+            \end{bmatrix}} = \left\{
+        \begin{bmatrix}
+            1 & n \\
+            0 & 1
+        \end{bmatrix} \mid n\in\mathbb{Z}
+        \right\}
+    \]
 \end{proof}
 
 % section 5/exercise 24
 \begin{exercise}
+    $\begin{bmatrix}
+            3 & 0 \\
+            0 & 2
+        \end{bmatrix}$
 \end{exercise}
 
 \begin{proof}
+    \[
+        \anglebracket{\begin{bmatrix}
+                3 & 0 \\
+                0 & 2
+            \end{bmatrix}} = \left\{
+        \begin{bmatrix}
+            3^{n} & 0     \\
+            0     & 2^{n}
+        \end{bmatrix} \mid n\in\mathbb{Z}
+        \right\}
+    \]
 \end{proof}
 
 % section 5/exercise 25
 \begin{exercise}
+    $\begin{bmatrix}
+            0  & -2 \\
+            -2 & 0
+        \end{bmatrix}$
 \end{exercise}
 
 \begin{proof}
+    \[
+        \anglebracket{\begin{bmatrix}
+                0  & -2 \\
+                -2 & 0
+            \end{bmatrix}} = \left\{
+        \begin{bmatrix}
+            2^{2n} & 0      \\
+            0      & 2^{2n}
+        \end{bmatrix},
+        \begin{bmatrix}
+            0         & -2^{2n+1} \\
+            -2^{2n+1} & 0
+        \end{bmatrix} \mid n\in\mathbb{Z}
+        \right\}
+    \]
 \end{proof}
 
 % section 5/exercise 26
 \begin{exercise}
+    Which of the following groups are cyclic? For each cyclic, list all the generators of the group
+    \begin{align*}
+         & G_{1} = \anglebracket{\mathbb{Z}, +} \quad G_{2} = \anglebracket{\mathbb{Q}, +} \quad G_{3} = \anglebracket{\mathbb{Q}^{+}, \cdot} \quad G_{4} = \anglebracket{6\mathbb{Z}, +} \\
+         & G_{5} = \{ 6^{n} \mid n\in\mathbb{Z} \}\ \text{under multiplication}                                                                                                           \\
+         & G_{6} = \{ a = b\sqrt{2} \mid a, b\in\mathbb{Z} \}\ \text{under addition}
+    \end{align*}
 \end{exercise}
 
 \begin{proof}
+    \begin{itemize}
+        \item $G_{1}$ is a cyclic group. $G_{1} = \anglebracket{1} = \anglebracket{-1}$
+        \item $G_{2}$ is not a cyclic group.
+        \item $G_{3}$ is not a cyclic group.
+        \item $G_{4}$ is a cyclic group. $G_{4} = \anglebracket{6} = \anglebracket{-6}$
+        \item $G_{5}$ is a cyclic group. $G_{5} = \anglebracket{6} = \anglebracket{\frac{1}{6}}$
+        \item $G_{6}$ is not a cyclic group.
+    \end{itemize}
 \end{proof}
+
+In Exercises 27 through 35, find the order of the cyclic subgroup of the given group generated by the indicated element.
 
 % section 5/exercise 27
 \begin{exercise}
+    The subgroup of $\mathbb{Z}_{4}$ generated by $3$
 \end{exercise}
 
 \begin{proof}
+    $\anglebracket{3} = \{ 3, 2, 1, 0 \} = \mathbb{Z}_{4}$. The order of this subgroup is $4$.
 \end{proof}
 
 % section 5/exercise 28
 \begin{exercise}
+    The subgroup of $V$ generated by $c$ (see Table 5.9)
+    \begin{tabular}{c|cccc}
+          & e & a & b & c \\
+        \hline
+        e & e & a & b & c \\
+        a & a & e & c & b \\
+        b & b & c & e & a \\
+        c & c & b & a & e
+    \end{tabular}
 \end{exercise}
 
 \begin{proof}
+    $\anglebracket{c} = \{ c, e \}$. The order of this subgroup is $2$.
 \end{proof}
 
 % section 5/exercise 29
 \begin{exercise}
+    The subgroup of $U_{6}$ generated by $\cos\frac{2\pi}{3} + i\sin\frac{2\pi}{3}$
 \end{exercise}
 
 \begin{proof}
+    $\anglebracket{e^{i(2\pi/3)}} = \{ e^{i(2\pi/3)}, e^{i(4\pi/3)}, 1 \} = U_{3}$. The order of this subgroup is $3$.
 \end{proof}
 
 % section 5/exercise 30
 \begin{exercise}
+    The subgroup of $\mathbb{Z}_{10}$ generated by $8$
 \end{exercise}
 
 \begin{proof}
+    $\anglebracket{8} = \{ 8, 6, 4, 2, 0 \}$. The order of this subgroup is $5$.
 \end{proof}
 
 % section 5/exercise 31
 \begin{exercise}
+    The subgroup of $\mathbb{Z}_{16}$ generated by $12$
 \end{exercise}
 
 \begin{proof}
+    $\anglebracket{12} = \{ 12, 8, 4, 0 \}$. The order of this subgroup is $4$.
 \end{proof}
 
 % section 5/exercise 32
 \begin{exercise}
+    The subgroup of the symmetric group $S_{8}$ generated by $(2, 4, 6, 9)(3, 5, 7)$
 \end{exercise}
 
 \begin{proof}
+    \begin{multline*}
+        \anglebracket{(2, 4, 6, 9)(3, 5, 7)} = \{ (2, 4, 6, 9)(3, 5, 7), (2, 6)(4, 9)(3, 7, 5), (2, 9, 6, 4), (3, 5, 7), \\
+        (2, 4, 6, 9)(3, 7, 5), (2, 6)(4, 9), (2, 9, 6, 4)(3, 5, 7), (3, 7, 5), \\
+        (2, 4, 6, 9), (2, 6)(4, 9)(3, 5, 7), (2, 9, 6, 4)(3, 7, 5), \iota \}
+    \end{multline*}
+
+    The order of this subgroup is $12$.
 \end{proof}
 
 % section 5/exercise 33
 \begin{exercise}
+    The subgroup of the symmetric group $S_{10}$ generated by $(1, 10)(2, 9)(3, 8)(4, 7)(5, 6)$
 \end{exercise}
 
 \begin{proof}
+    $\anglebracket{(1, 10)(2, 9)(3, 8)(4, 7)(5, 6)} = \{ (1, 10)(2, 9)(3, 8)(4, 7)(5, 6), \iota \}$. The order of this subgroup is $2$.
 \end{proof}
 
 % section 5/exercise 34
 \begin{exercise}
+    The subgroup of the multiplicative group $G$ of invertible $4\times 4$ generated by
+    \[
+        \begin{bmatrix}
+            0 & 0 & 0 & 1 \\
+            0 & 0 & 1 & 0 \\
+            1 & 0 & 0 & 0 \\
+            0 & 1 & 0 & 0
+        \end{bmatrix}
+    \]
 \end{exercise}
 
 \begin{proof}
+    \[
+        {\begin{bmatrix}
+                    0 & 0 & 0 & 1 \\
+                    0 & 0 & 1 & 0 \\
+                    1 & 0 & 0 & 0 \\
+                    0 & 1 & 0 & 0
+                \end{bmatrix}}^{4} =
+        \begin{bmatrix}
+            1 & 0 & 0 & 0 \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 1 & 0 \\
+            0 & 0 & 0 & 1
+        \end{bmatrix} = I_{4}
+    \]
+
+    The order of this subgroup is $4$.
 \end{proof}
 
 % section 5/exercise 35
 \begin{exercise}
+    The subgroup of the multiplicative group $G$ of invertible $4\times 4$ generated by
+    \[
+        \begin{bmatrix}
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 0 & 1 \\
+            0 & 0 & 1 & 0 \\
+            1 & 0 & 0 & 0
+        \end{bmatrix}
+    \]
 \end{exercise}
 
 \begin{proof}
+    \[
+        {\begin{bmatrix}
+                    0 & 1 & 0 & 0 \\
+                    0 & 0 & 0 & 1 \\
+                    0 & 0 & 1 & 0 \\
+                    1 & 0 & 0 & 0
+                \end{bmatrix}}^{3} =
+        \begin{bmatrix}
+            1 & 0 & 0 & 0 \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 1 & 0 \\
+            0 & 0 & 0 & 1
+        \end{bmatrix} = I_{4}
+    \]
+
+    The order of this subgroup is $3$.
 \end{proof}
 
 % section 5/exercise 36
 \begin{exercise}
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item Complete the group table of the group $\mathbb{Z}_{6}$.
+        \item Compute the subgroups $\anglebracket{1}, \anglebracket{2}, \anglebracket{3}, \anglebracket{4}$, and $\anglebracket{5}$ of the group $\mathbb{Z}_{6}$.
+        \item Which elements are generators for the group $\mathbb{Z}_{6}$?
+        \item Give the subgroup diagram for part (b) subgroups of $\mathbb{Z}_{6}$
+    \end{enumerate}
 \end{exercise}
 
 \begin{proof}
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item
+              \begin{tabular}{c|cccccc}
+                  + & 0 & 1 & 2 & 3 & 4 & 5 \\
+                  0 & 0 & 1 & 2 & 3 & 4 & 5 \\
+                  1 & 1 & 2 & 3 & 4 & 5 & 0 \\
+                  2 & 2 & 3 & 4 & 5 & 0 & 1 \\
+                  3 & 3 & 4 & 5 & 0 & 1 & 2 \\
+                  4 & 4 & 5 & 0 & 1 & 2 & 3 \\
+                  5 & 5 & 0 & 1 & 2 & 3 & 4
+              \end{tabular}
+        \item \begin{align*}
+                  \anglebracket{0} & = \{ 0 \}                \\
+                  \anglebracket{1} & = \{ 0, 1, 2, 3, 4, 5 \} \\
+                  \anglebracket{2} & = \{ 0, 2, 4 \}          \\
+                  \anglebracket{3} & = \{ 0, 3 \}             \\
+                  \anglebracket{4} & = \{ 0, 2, 4 \}          \\
+                  \anglebracket{5} & = \{ 0, 1, 2, 3, 4, 5 \}
+              \end{align*}
+        \item $1$ and $5$ are generators for $\mathbb{Z}_{6}$.
+        \item
+              \begin{center}
+                  \begin{tikzpicture}
+                      \node (top) at (0, 0) {$\{ 0, 1, 2, 3, 4, 5 \}$};
+                      \node [xshift=-40pt, yshift=-40pt, at=(top)] (left) {$\{ 0, 2, 4 \}$};
+                      \node [xshift=40pt, yshift=-40pt, at=(top)] (right) {$\{ 0, 3 \}$};
+                      \node [below=60pt of top] (bottom) {$\{ 0 \}$};
+                      \draw (top) -- (left);
+                      \draw (top) -- (right);
+                      \draw (top) -- (bottom);
+                      \draw (left) -- (bottom);
+                      \draw (right) -- (bottom);
+                  \end{tikzpicture}
+              \end{center}
+    \end{enumerate}
 \end{proof}
+
+\subsection*{Concepts}
+
+In Exercises 37 and 38, correct the definition of the italicized term without reference to the text, if correction is needed, so that it is in a form acceptable for publication.
 
 % section 5/exercise 37
 \begin{exercise}
+    A \textit{subgroup} of a group $G$ is a subset $H$ of $G$ that contains the identity element $e$ of $G$ and also contains the inverse of each of its elements.
 \end{exercise}
 
 \begin{proof}
+    Correction: A \textit{subgroup} of a group $G$ is a subset $H$ of $G$ that is closed under the operation in $G$, contains the identity element $e$ of $G$, the inverse of each of its elements.
 \end{proof}
 
 % section 5/exercise 38
 \begin{exercise}
+    A group $G$ is cyclic if and only if there exists $a\in G$ such that $G = \{ a^{n} \mid n\in\mathbb{Z} \}$.
 \end{exercise}
 
 \begin{proof}
+    The definition is correct.
 \end{proof}
 
 % section 5/exercise 39
 \begin{exercise}
+    Determine whether each of the following is true or false.
+    \begin{enumerate}[label={\textbf{\alph*}}]
+        \item The associative law holds in every group.
+        \item There may be a group in which the cancellation law fails.
+        \item Every group is a subgroup of itself.
+        \item Every group has exactly two improper subgroups.
+        \item In every cyclic group, every element is a generator.
+        \item A cyclic group has a unique generator.
+        \item Every set of numbers that is a group under addition is also a group under multiplication.
+        \item A subgroup may be defined as a subset of a group.
+        \item $\mathbb{Z}_{4}$ is a cyclic group.
+        \item Every subset of every group is a subgroup under the induced operation.
+        \item For any $n \geq 3$, the dihedral group $D_{n}$ has at least $n + 2$ cyclic subgroups.
+    \end{enumerate}
 \end{exercise}
 
 \begin{proof}
+    \begin{enumerate}[label={\textbf{\alph*}}]
+        \item True.
+        \item False.
+        \item True.
+        \item False.
+        \item False.
+        \item False.
+        \item False.
+        \item False.
+        \item True.
+        \item False.
+        \item True. $(n+2)$ subgroups are $\anglebracket{\iota}, \anglebracket{\rho}, \anglebracket{\mu\rho^{k}}$, where $0\leq k \leq n-1$.
+    \end{enumerate}
 \end{proof}
 
 % section 5/exercise 40
 \begin{exercise}
+    Show by means of an example that it is possible for the quadratic equation $x^{2} = e$ to have more than two solutions in some group $G$ with identity $e$.
 \end{exercise}
 
 \begin{proof}
+    In Klein-4 group $V = \{ e, a, b, c \}$, $e^{2} = a^{2} = b^{2} = c^{2} = e$.
+
+    In Dihedral group $D_{n}$ where $n\geq 3$, $\iota^{2} = {\mu}^{2} = {\mu\rho^{k}}^{2} = \iota$.
 \end{proof}
+
+In Exercises 41 through 44 let $B$ be a subset of $A$, and let $b$ be a particular element of $B$. Determine whether the given set is a subgroup of the symmetric group $S_{A}$ under the induced operation. Here $\sigma[B] = \{ \sigma(x) \mid x\in B \}$.
 
 % section 5/exercise 41
 \begin{exercise}
+    $\{ \sigma\in S_{A} \mid \sigma(b) = b \}$
 \end{exercise}
 
 \begin{proof}
+    If $\sigma, \tau$ are in the given subset, then $(\sigma\tau)(b) = \sigma(\tau(b)) = \sigma(b) = b$. So the given subset is closed under composition.
+
+    The identity mapping is an element of the given subset, because $\iota(b) = b$.
+
+    If $\sigma$ is in the given subset, $\sigma^{-1}(b) = \sigma^{-1}(\sigma(b)) = (\sigma^{-1}\sigma)(b) = \iota(b) = b$. So the given subset contains the inverse of each element.
+
+    Hence the given subset is a subgroup of $S_{A}$.
 \end{proof}
 
 % section 5/exercise 42
 \begin{exercise}
+    $\{ \sigma \in S_{A} \mid \sigma(b) \in B \}$
 \end{exercise}
 
 \begin{proof}
+    This subset is not necessarily a subgroup of $S_{A}$.
+
+    For example, choose $B = \{ 1, 2 \} \subset A = \{ 1, 2, 3 \}$, $b = 1$, then $(1, 2, 3)$ is in $B$. But $(1, 2, 3)(1, 2, 3) = (1, 3, 2)$, which maps $1$ to $3$ and $3$ is not in $B$.
 \end{proof}
 
 % section 5/exercise 43
 \begin{exercise}
+    $\{ \sigma \in S_{A} \mid \sigma[B] \subseteq B \}$
 \end{exercise}
 
 \begin{proof}
+    When $A$ is finite, $\sigma[B] \subseteq B$ implies $\sigma[B] = B$. See Exercise 44 (the next one).
+
+    This subset is not necessarily a subgroup of $S_{A}$ when $A$ is infinite.
+
+    For example, let $A = \mathbb{Z}$, $B = \mathbb{N}$, and $\sigma: x \mapsto x + 1$. $\sigma[B] = \{ 2, 3, 4, \ldots \}$ is a proper subset of $\mathbb{N}$, but $\sigma^{-1}[B] = \{ 0, 1, 2, \ldots \}$ is a proper superset of $\mathbb{N}$.
 \end{proof}
 
 % section 5/exercise 44
 \begin{exercise}
+    $\{ \sigma \in S_{A} \mid \sigma[B] = B \}$
 \end{exercise}
 
 \begin{proof}
+    If $\sigma, \tau$ are in the given subset, $(\sigma\tau)[B] = \sigma[\tau[B]] = \sigma[B] = B$. So the given subset is closed under composition.
+
+    The identity mapping is an element of the given subset.
+
+    If $\sigma$ is in the given subset, then $\sigma\vert_{B}: B \to B$ is a bijection. Therefore, $\sigma^{-1}\vert_{B}: B \to B$, so $\sigma^{-1}$ is also an element of the given subset.
+
+    Hence the given subset is a subgroup of $S_{A}$.
 \end{proof}
+
+\subsection*{Theory}
+
+In Exercises 45 and 46, let $\phi: G \to G'$ be an isomorphism of a group $\anglebracket{G, *}$ with a group $\anglebracket{G', *'}$. Write out a proof to convince a skeptic of the intuitively clear statement.
 
 % section 5/exercise 45
 \begin{exercise}
+    If $H$ is a subgroup of $G$, then $\phi[H] = \{ \phi(h) \mid h\in H \}$ is a subgroup of $G'$. That is, an isomorphism carries subgroups into subgroups.
 \end{exercise}
 
 \begin{proof}
+    $\phi[H]$ is a subset of $G'$.
+
+    If $x', y'$ are in $\phi[H]$, then there exist $x, y\in H$ such that $\phi(x) = x', \phi(y) = y'$. $x' *' y' = \phi(x) *' \phi(y) = \phi(x * y)$. Because $x * y \in H$, we obtain that $\phi[x * y]$ is in $\phi[H]$. So $\phi[H]$ is closed under the operation $*'$.
+
+    A group isomorphism maps the identity element of $G$ to the identity element of $G'$. So $\phi[H]$ contains the identity element of $G'$ with the operation $*'$.
+
+    If $x'$ is in $\phi[X]$, then $\phi(x^{-1}) *' \phi(x) = \phi(x^{-1}x) = \phi(e) = \phi(xx^{-1}) = \phi(x) *' \phi(x^{-1})$. So $\phi(x^{-1})$ is the inverse of $x' = \phi(x)$, which means $\phi[X]$ contains the inverse of each element.
+
+    Hence $\phi[H]$ is a subgroup of $G'$.
 \end{proof}
 
 % section 5/exercise 46
 \begin{exercise}
+    If there is an $a\in G$ such that $\anglebracket{a} = G$, then $G'$ is cyclic.
 \end{exercise}
 
 \begin{proof}
+    Let $x'$ be an element of $G'$. Because $\phi: G \to G'$ is an isomorphism, there exists $x\in G$ such that $x' = \phi(x)$. On the other hand, $a$ generates $G$, so there exists $n\in\mathbb{Z}$ such that $a^{n} = x$. $x' = \phi(x) = \phi(a^{n}) = {(\phi(a))}^{n}$. Therefore, $G' = \anglebracket{\phi(a)}$.
+
+    Hence $G'$ is cyclic.
 \end{proof}
 
 % section 5/exercise 47
 \begin{exercise}
+    Show that if $H$ and $K$ are subgroups of an abelian group $G$, then
+    \[
+        \{ hk \mid h\in H \text{ and } k\in K \}
+    \]
+
+    is a subgroup of $G$.
 \end{exercise}
 
 \begin{proof}
+    Because $G$ is abelian, then every subgroup of $G$ is abelian.
+
+    If $x_{1}, x_{2}$ are elements of the given subset, then there exist $h_{1}, h_{2}\in H$ and $k_{1}, k_{2}\in K$ such that $h_{1}k_{1} = x_{1}$ and $h_{2}k_{2} = x_{2}$.
+    \[
+        x_{1}x_{2} = (h_{1}k_{1})(h_{2}k_{2}) = (h_{1}(k_{1}h_{2}))k_{2} = ((h_{1}h_{2})k_{1})k_{2} = (h_{1}h_{2})(k_{1}k_{2})
+    \]
+
+    Because $h_{1}h_{2}\in H$ and $k_{1}k_{2}\in K$, then $x_{1}x_{2} = (h_{1}h_{2})(k_{1}k_{2})$ is in the given subset. So the given subset is closed under the induced operation.
+
+    $H, K$ are subgroups of $G$ so the identity element $e$ of $G$ is in $H$ and $K$. So $e = ee$ is in the given subset.
+
+    If $x$ is an element of the given subset, then there exist $h\in H, k\in K$ such that $x = hk$. $G$ is abelian, so $h^{-1}k^{-1} = k^{-1}h^{-1}$
+    \[
+        (h^{-1}k^{-1})x = x(h^{-1}k^{-1}) = (hk)(k^{-1}h^{-1}) = (h(kk^{-1}))h^{-1} = hh^{-1} = e
+    \]
+
+    $h^{-1}\in H$, $k^{-1}\in K$ because $H, K$ are subgroups of $G$, so $h^{-1}k^{-1}$ is in the given subset. Therefore, the inverse of $x$ is in the given subset.
+
+    Hence $\{ hk \mid h\in H \text{ and } k\in K \}$ is a subgroup of $K$.
 \end{proof}
 
 % section 5/exercise 48
 \begin{exercise}
+    Find an example of a group $G$ and two subgroups $H$ and $K$ such that the set in Exercise 47 is not a subgroup of $G$.
 \end{exercise}
 
 \begin{proof}
+    Example: $G = D_{3} = \{ \iota, \rho, \rho^{2}, \mu, \mu\rho, \mu\rho^{2} \}$, $H = \{ 1, \mu \}$, $K = \{ 1, \mu\rho \}$.
+
+    The set in Exercise 47 is $\{ 1, \mu, \mu\rho, \rho \}$, this is not a subgroup of $G$ because $\rho\mu = \mu\rho^{2}$ is not its element.
 \end{proof}
 
 % section 5/exercise 49
 \begin{exercise}
+    Prove that for any integer $n\geq 3$, $S_{n}$ has a subgroup isomorphic with $D_{n}$.
 \end{exercise}
 
 \begin{proof}
+    $S_{n}$ is the group of all permutations on $\{ 1, 2, \ldots, n \}$. We says $i, j$ are next to each other if $\abs{i - j} = 1$ or $\abs{i = j} = n - 1$. Let $T_{n}$ be the set of permutations $\phi$ on $\{ 1, 2, \ldots, n \}$ such that $i, j$ are next to each other if and only if $\phi(i), \phi(j)$ are next to each other.
+
+    If $\sigma, \tau$ are in $T_{n}$, then $i, j$ are next to each other iff $\tau(i), \tau(j)$ are next to each other iff $\sigma(\tau(i)), \sigma(\tau(j))$ are next to each other. So $T_{n}$ is closed under composition. The identity mapping is an element of $T_{n}$. If $\sigma$ is in $T_{n}$, then $i, j$ are next to each other iff $\sigma(i), \sigma(j)$ are next to each other. Therefore, $\phi^{-1}(j), \phi^{-1}(j)$ are next to each other iff $i, j$ are next to each other. So $T_{n}$ contains the inverse of each element. Hence $T_{n}$ is a subgroup of $S_{n}$.
+
+    Let $P_{0}P_{1}\ldots P_{n-1}$ be a regular $n$-gon. $D_{n}$ is the group of bijection $\phi$ from $\mathbb{Z}_{n} \to \mathbb{Z}_{n}$ such that $P_{i}P_{j}$ is an edge of the polygon if and only if $P_{\phi(i)}P_{\phi(j)}$ is an edge of the polygon. $P_{i}P_{j}$ is an edge of the polygon iff $\abs{i - j} = 1$ or $\abs{i - j} = n - 1$.
+
+    Let $\sigma$ be an element of $T_{n}$. We define a map $\phi: T_{n} \to D_{n}$ as follows:
+    \begin{align*}
+        \phi:          & \quad\sigma \mapsto \phi(\sigma) \\
+        \phi(\tau)(x)= & \quad\sigma(x + 1) - 1\quad \text{for every $x\in\mathbb{Z}_{n}$}
+    \end{align*}
+
+    $\phi$ is a bijection from $T_{n}$ onto $D_{n}$. Let's check for the homomorphism property.
+    \begin{align*}
+        (\phi(\sigma)\circ\phi(\tau))(x) & = \phi(\sigma)(\phi(\tau)(x)) \\
+                                         & = \phi(\sigma)(\tau(x + 1) - 1) \\
+                                         & = \sigma(\tau(x + 1) - 1 + 1) - 1 \\
+                                         & = \sigma(\tau(x + 1)) - 1 \\
+        \phi(\sigma\circ\tau)(x)         & = (\sigma\circ\tau)(x + 1) - 1 \\
+                                         & = \sigma(\tau(x + 1)) - 1
+    \end{align*}
+
+    So $\phi(\sigma)\circ\phi(\tau) = \phi(\sigma\circ\tau)$, and $\phi$ is an isomorphism.
+
+    Thus the subgroup $T_{n}$ of $S_{n}$ is isomorphic with $D_{n}$.
 \end{proof}
 
 % section 5/exercise 50
 \begin{exercise}
+    Find the flaw in the following argument: ``Condition $2$ of Theorem 5.12 is redundant, since it can be derived from $1$ and $3$, for let $a\in H$. Then $a^{-1}\in H$ by 3, and by 1, $aa^{-1} = e$ is an element of $H$, proving $2$''
 \end{exercise}
 
 \begin{proof}
+    When the subset is the empty set, then condition 1 and 3 hold. But the empty set is not a subgroup of any group.
 \end{proof}
 
 % section 5/exercise 51
 \begin{exercise}
+    Prove Theorem 5.15: A nonempty subset $H$ of the group $G$ is a subgroup of $G$ if and only if for all $a, b\in H$, $ab^{-1}\in H$.
 \end{exercise}
 
 \begin{proof}
+    Since $a, b\in H$ implies $ab^{-1}\in H$, then $a\in H$ implies $e = aa^{-1}\in H$. So $H$ contains the identity element. If $a\in H$, then $e, a\in H$, it follows that $a^{-1} = ea^{-1}\in H$. So $H$ contains the inverse of each element.
+
+    If $a, b\in H$, then $a, b^{-1}\in H$, it follows that $ab = a{(b^{-1})}^{-1} \in H$. So $H$ is closed under the induced operation.
+
+    Thus $H$ is a subgroup of $G$.
 \end{proof}
 
 % section 5/exercise 52
 \begin{exercise}
+    Prove that if $G$ is a cyclic group and $\abs{G}$, then $G$ has at least $2$ generators.
 \end{exercise}
 
 \begin{proof}
+    Let $x$ be a generator of $G$, then $G = \{ x^{n} \mid n\in\mathbb{Z} \}$.
+
+    If $x^{2} = e$, then $\abs{G} = 2$. So $x^{2} \ne e$, which means the inverse of $x$ is not equal to $x$. On the other hand, $\{ x^{n} \mid n\in\mathbb{Z} \} = \{ {(x^{-1})}^{n} \mid n\in\mathbb{Z} \}$, so $x^{-1}$ generates $G$. Thus $G$ has at least $2$ generators.
 \end{proof}
 
 % section 5/exercise 53
 \begin{exercise}
+    Prove that if $G$ is an abelian group, written multiplicatively, with identity element $e$, then all elements $x$ of $G$ satisfying the equation $x^{2} = e$ form a subgroup $H$ of $G$.
 \end{exercise}
 
 \begin{proof}
+    $e^{2} = e$, so $e\in H$. So $H$ contains the identity element.
+
+    If $x, y\in H$, then ${(xy)}^{2} = xyxy = xxyy = ee = e$ and $x^{-1} = x$, it follows that ${(x^{-1})}^{2} = x^{2} = e$. So $H$ is also closed under the induced operation and $H$ contains the inverse of each element.
+
+    Thus $H$ is a subgroup of $G$.
 \end{proof}
 
 % section 5/exercise 54
 \begin{exercise}
+    Repeat Exercise 53 for the general situation of the set $H$ of all solutions $x$ of the equation $x^{n} = e$ for a fixed integer $n \geq 1$ in an abelian group $G$ with identity $e$.
 \end{exercise}
 
 \begin{proof}
+    $e^{n} = e$, so $H$ contains the identity element.
+
+    We prove by mathematical induction that ${(xy)}^{n} = x^{n}y^{n}$. The statement holds for $n = 1$. Assume that the statment holds for $n = k$, then ${(xy)}^{k+1} = {(xy)}^{k}(xy) = (x^{k}y^{k})(xy) = (x^{k}(xy^{k}))y = x^{k+1}y^{k+1}$. Due to the principle of mathematical induction, ${(xy)}^{n} = x^{n}y^{n}$. So, if $x, y\in H$, ${(xy)}^{n} = x^{n}y^{n} = ee = e$, it follows that $H$ is closed under the induced operation.
+
+    If $x\in H$, then $xx^{n-1} = x^{n-1}x = e$, which means $x^{n-1}$ is the inverse of $x$. ${(x^{n-1})}^{n} = x^{n(n-1)} = {(x^{n})}^{n-1} = e^{n-1} = e$. So $H$ contains the inverse of each element.
+
+    Thus $H$ is a subgroup of $G$.
 \end{proof}
 
 % section 5/exercise 55
 \begin{exercise}
+    Find a counterexample to Exercise 53 if the assumption of abelian is dropped.
 \end{exercise}
 
 \begin{proof}
+    Example: $D_{3} = \{ \iota, \rho, \rho^{2}, \mu, \mu\rho, \mu\rho^{2} \}$. The subset of $D_{3}$ of all solutions of the equation $x^{2} = \iota$ is $\{ \iota, \mu, \mu\rho, \mu\rho^{2} \}$. But this is not a subgroup because $\mu\mu\rho = \rho$, which is not in the subset. In the other words, this subset is not closed under the induced operation.
 \end{proof}
 
 % section 5/exercise 56
 \begin{exercise}
+    Show that if $a\in G$, where $G$ is a finite group with identity $e$, then there exists $n\in\mathbb{Z}$ such that $a^{n} = e$.
 \end{exercise}
 
 \begin{proof}
+    Let $m$ be the order of $G$. $a, a^{2}, \ldots, a^{m}, a^{m+1}$ are elements of $G$, so there exists $1\leq i < j \leq m$ such that $a^{i} = a^{j}$. Therefore $a^{j-i} = e$. Pick $n = j - i$, we obtain that $a^{n} = e$.
+
+    Thus, there exists a positive integer $n$ such that $a^{n} = e$.
 \end{proof}
 
 % section 5/exercise 57
 \begin{exercise}
+    Prove Theorem 5.16: Let $H$ be a finite nonempty subset of the group $G$. Then $H$ is a subgroup of $G$ if and only if $H$ is closed under the operation of $G$.
 \end{exercise}
 
 \begin{proof}
+    $(\Rightarrow)$ If $H$ is a subgroup of $G$, then $H$ is closed under the operation of $G$, according to the definition of subgroups.
+
+    $(\Leftrightarrow)$ $H$ is closed under the operation of $G$.
+
+    Let $x$ be an element of $H$. Let $m$ be the order of $H$. $x, x^{2}, \ldots, x^{m+1}$ are $(m+1)$ elements of $H$, so there exist $1\leq i < j \leq m$ such that $x^{i} = x^{j}$. Let $n = j - i$, then $x^{n} = e$.
+
+    Since $H$ is closed under the operation of $G$, $x^{n}$ and $x^{n-1}$ are elements of $H$. On the other hand, $x^{n} = e$, $x^{n-1}$ is the inverse of $x$. It follows that $H$ contains the identity element and the inverse of each element. Hence $H$ is a subgroup of $G$.
+
+    In conclusion, for finite nonempty subset $H$ of the group $G$, $H$ is a subgroup of $G$ if and only if $H$ is closed under the operation of $G$.
 \end{proof}
 
 % section 5/exercise 58
 \begin{exercise}
+    Let $G$ be a group and let $a$ be one fixed element of $G$. Show that
+    \[
+        H_{a} = \{ x\in G \mid xa = ax \}
+    \]
+
+    is a subgroup of $G$.
 \end{exercise}
 
 \begin{proof}
+    Since $ea = ae$, then $H_{a}$ contains the identity element.
+
+    Assume that $x, y\in H_{a}$, due to associative law
+    \begin{align*}
+        (xy)a   & = x(ya) = x(ay) & \text{$y\in H_{a}$} \\
+                & = (xa)y = (ax)y & \text{$x\in H_{a}$} \\
+                & = a(xy)
+    \end{align*}
+
+    it follows that $H_{a}$ is closed under the induced operation. On the other hand, $xa = ax$ implies $x^{-1}xax^{-1} = x^{-1}axx^{-1}$. Therefore, $ax^{-1} = x^{-1}a$, $H_{a}$ contains the inverse of each element.
+
+    Thus $H_{a}$ is a subgroup of $G$.
 \end{proof}
 
 % section 5/exercise 59
 \begin{exercise}
+    Generalizing Exercise 58, let $S$ be any subset of a group $G$.
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item Show that $H_{S} = \{ x\in G \mid xs = sx \text{ for all } s\in S \}$ is a subgroup of $G$.
+        \item In reference to part (a), the subgroup $H_{G}$ is the \textbf{center of $G$}. Show that $H_{G}$ is an abelian group.
+    \end{enumerate}
 \end{exercise}
 
 \begin{proof}
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item $es = se = s$ for all $s\in S$, so $H_{S}$ contains the identity element.
+
+              If $x, y\in H_{S}$, then $(xy)s = x(ys) = x(sy) = (xs)y = (sx)y = s(xy)$. So $xy\in H_{S}$, which means $H_{S}$ is closed under the induced operation.
+
+              If $x\in H_{S}$, then $xs = sx$ for all $s\in S$. So $x^{-1}xsx^{-1} = x^{-1}sxx^{-1}$ for all $s\in S$. Therefore, $sx^{-1} = x^{-1}s$ for all $s\in S$, which means $x^{-1}\in H_{S}$.
+
+              Hence $H_{S}$ is a subgroup of $G$.
+        \item Let $x, y\in H_{G}$, then $y\in G$. According to the definition of $H_{G}$, $xy = yx$. Therefore, $xy = yx$ for all $x, y\in H_{G}$.
+
+              Hence $H_{G}$ is an abelian group.
+    \end{enumerate}
 \end{proof}
 
 % section 5/exercise 60
 \begin{exercise}
+    Let $H$ be a subgroup of a group $G$. For $a, b\in G$, let $a\sim b$ if and only if $ab^{-1}\in H$. Show that $\sim$ is an equivalent relation on $G$.
 \end{exercise}
 
 \begin{proof}
+    $aa^{-1} = e \in H$ because $H$ is a subgroup of $G$. So $\sim$ is reflexive.
+
+    $a\sim b$ iff $ab^{-1}\in H$. The inverse of $ab^{-1}$ is $ba^{-1}$. $ab^{-1}\in H$ iff $ba^{-1}\in H$. $ba^{-1}\in H$ iff $b\sim a$. So $\sim$ is symmetric.
+
+    $a\sim b$ and $b\sim c$ iff $ab^{-1}\in H, bc^{-1}\in H$. It follows that $ac^{-1} = ab^{-1}bc^{-1} \in H$ (since $H$ is a subgroup of $G$). Therefore $a\sim c$. So $\sim$ is transitive.
+
+    Thus $\sim$ is an equivalence relation on $G$.
 \end{proof}
 
 % section 5/exercise 61
 \begin{exercise}
+    For sets $H$ and $K$, we define the \textbf{intersection} $H\cap K$ by
+    \[
+        H\cap K = \{ x \mid x\in H \text{ and } x\in K \}
+    \]
+
+    Show that if $H\leq G$ and $K\leq G$, then $H\cap K\leq G$.
 \end{exercise}
 
 \begin{proof}
+    $H\cap K$ is a subset of $H$, $H$ is a subset of $G$, so $H\cap K$ is a subset of $G$.
+
+    $H, K$ contain the identity element, so $H\cap K$ contains the identity element.
+
+    If $x, y\in H\cap K$, then $x, y\in H, x, y\in K$. Because $H, K$ are subgroups of $G$, it follows that $xy\in H$ and $xy\in K$. So $xy\in HK$ for all $x, y\in H\cap K$. Therefore $H\cap K$ is closed under the induced operation.
+
+    If $x\in H\cap K$, then $x\in H, x\in K$. Because $H, K$ are subgroups of $G$, it follows that $x^{-1}\in H, x^{-1}\in K$. So $x^{-1}\in H\cap K$ for all $x\in H\cap K$. Therefore $H\cap K$ contains the inverse of each element.
+
+    Thus, if $H\leq G$ and $K\leq G$, then $H\cap K \leq G$.
 \end{proof}
 
 % section 5/exercise 62
 \begin{exercise}
+    Prove that every cyclic group is abelian.
 \end{exercise}
 
 \begin{proof}
+    Let $G$ be a cyclic group. According to the definition of cyclic groups, there exists an element $a$ of $G$ such that $a$ generates $G$. Let $x, y$ be elements of $G$. Because $a$ generates $G$, there exist integers $m, n$ such that $a^{m} = x$ and $a^{n} = y$. $xy = a^{m}a^{n} = a^{m+n} = a^{n+m} = a^{n}a^{m} = yx$. Therefore $G$ is abelian.
+
+    Thus every cyclic group is abelian.
 \end{proof}
 
 % section 5/exercise 63
 \begin{exercise}
+    Let $G$ be a group and let $G_{n} = \{ g^{n} \mid g\in G \}$. Under what hypothesis about $G$ can we show that $G_{n}$ is a subgroup of $G$.
 \end{exercise}
 
 \begin{proof}
+    If $G$ is abelian.
+
+    When $G$ is abelian, $x^{n}y^{n} = {(xy)}^{n}$ for all $x, y\in G$. This has been proved in Exercise 54 section 5 by using mathematical induction. With this condition, $G_{n}$ is closed under the induced operation. On the other hand, $G_{n}$ contains the identity element $e = e^{n}$ and the inverse of each of its elements (the inverse of $x = g^{n}$ is ${(g^{-1})}^{n}$). Thus if $G$ is abelian, then $G_{n}$ is a subgroup of $G$.
 \end{proof}
 
 % section 5/exercise 64
 \begin{exercise}
+    Show that a group with no proper nontrivial subgroups is cyclic. Is the converse true?
 \end{exercise}
 
 \begin{proof}
+    Let $G$ be such a group.
+
+    If $G$ is a trivial group, then $G$ is cyclic.
+
+    Otherwise, $G$ has an element $a$ other than the identity element $e$. The set $\{ a^{n} \mid n\in\mathbb{Z} \}$ is a subgroup of $G$. This subgroup is nontrivial since $a\ne e$. On the other hand, $G$ does not have a proper nontrivial subgroups, so $\{ a^{n} \mid n\in\mathbb{Z} \}$ is $G$. Therefore $a$ generates $G$. Due to the definition of cyclic group, $G$ is cyclic.
+
+    Thus, a group with no proper nontrivial subgroups is cyclic.
+
+    The converse is not necessarily true. For example, $\mathbb{Z}_{4}$ is generated by $1$, but it has the proper nontrivial subgroup $\{ 0, 2 \}$.
 \end{proof}
 
 % section 5/exercise 65
+\begin{exercise}
+    Cracker Barrel Restaurants place a puzzle called ``Jump All But One Game'' at each table. The puzzle starts with golf tees arranged in a triangle as in Figure 5.29a where the presence of a tee is noted with a solid dot and the absence is noted with a hollow dot. A move can be made if a tee can jump over one adjacent tee and land on an empty space. When a move is made, the tee that is jumped over is removed. A possible first move is shown in Figure 5.29b. The goal is to have just one remaining tee. Use the Klein 4-group to show that no matter what sequence of (legal) moves you make, the last remaining tee cannot be in a bottom comer position.
+\end{exercise}
+
+\begin{proof}
+    % unsolved
+\end{proof}
+
+\section{Cyclic Groups}
+
+% section 6/exercise 1
 \begin{exercise}
 \end{exercise}
 
 \begin{proof}
 \end{proof}
 
-\section{Cyclic Groups}
+% section 6/exercise 2
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 3
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 4
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 5
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 6
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 7
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 8
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 9
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 10
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 11
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 12
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 13
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 14
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 15
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 16
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 17
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 18
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 19
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 20
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 21
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 22
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 23
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 24
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 25
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 26
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 27
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 28
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 29
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 30
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 31
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 32
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 33
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 34
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 35
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 36
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 37
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 38
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 39
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 40
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 41
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 42
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 43
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 44
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 45
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 46
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 47
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 48
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 49
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 50
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 51
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 52
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 53
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 54
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 55
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 56
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 57
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 58
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 59
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 60
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 61
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 62
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 63
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 64
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 65
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 66
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 6/exercise 67
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
 
 \section{Generating Sets and Cayley Digraphs}
+
+% section 7/exercise 1
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 7/exercise 2
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 7/exercise 3
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 7/exercise 4
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 7/exercise 5
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 7/exercise 6
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 7/exercise 7
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 7/exercise 8
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 7/exercise 9
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 7/exercise 10
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 7/exercise 11
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 7/exercise 12
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 7/exercise 13
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 7/exercise 14
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 7/exercise 15
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 7/exercise 16
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 7/exercise 17
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 7/exercise 18
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 7/exercise 19
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 7/exercise 20
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 7/exercise 21
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 7/exercise 22
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
