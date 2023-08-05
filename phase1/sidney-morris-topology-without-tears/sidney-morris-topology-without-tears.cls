@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{serge-lang-undergraduate-algebra}
+\ProvidesClass{sidney-morris-topology-without-tears}
 
 \LoadClass[oneside]{book}
 
