@@ -1,4 +1,5 @@
 \chapter{Groups and Subgroups}
+
 \section{Binary Operations}
 
 \subsection*{Computations}
@@ -4261,17 +4262,17 @@ In Exercises 45 and 46, let $\phi: G \to G'$ be an isomorphism of a group $\angl
 
     Let $\sigma$ be an element of $T_{n}$. We define a map $\phi: T_{n} \to D_{n}$ as follows:
     \begin{align*}
-        \phi:          & \quad\sigma \mapsto \phi(\sigma) \\
+        \phi:          & \quad\sigma \mapsto \phi(\sigma)                                  \\
         \phi(\tau)(x)= & \quad\sigma(x + 1) - 1\quad \text{for every $x\in\mathbb{Z}_{n}$}
     \end{align*}
 
     $\phi$ is a bijection from $T_{n}$ onto $D_{n}$. Let's check for the homomorphism property.
     \begin{align*}
-        (\phi(\sigma)\circ\phi(\tau))(x) & = \phi(\sigma)(\phi(\tau)(x)) \\
-                                         & = \phi(\sigma)(\tau(x + 1) - 1) \\
+        (\phi(\sigma)\circ\phi(\tau))(x) & = \phi(\sigma)(\phi(\tau)(x))     \\
+                                         & = \phi(\sigma)(\tau(x + 1) - 1)   \\
                                          & = \sigma(\tau(x + 1) - 1 + 1) - 1 \\
-                                         & = \sigma(\tau(x + 1)) - 1 \\
-        \phi(\sigma\circ\tau)(x)         & = (\sigma\circ\tau)(x + 1) - 1 \\
+                                         & = \sigma(\tau(x + 1)) - 1         \\
+        \phi(\sigma\circ\tau)(x)         & = (\sigma\circ\tau)(x + 1) - 1    \\
                                          & = \sigma(\tau(x + 1)) - 1
     \end{align*}
 
@@ -4393,9 +4394,9 @@ In Exercises 45 and 46, let $\phi: G \to G'$ be an isomorphism of a group $\angl
 
     Assume that $x, y\in H_{a}$, due to associative law
     \begin{align*}
-        (xy)a   & = x(ya) = x(ay) & \text{$y\in H_{a}$} \\
-                & = (xa)y = (ax)y & \text{$x\in H_{a}$} \\
-                & = a(xy)
+        (xy)a & = x(ya) = x(ay) & \text{$y\in H_{a}$} \\
+              & = (xa)y = (ax)y & \text{$x\in H_{a}$} \\
+              & = a(xy)
     \end{align*}
 
     it follows that $H_{a}$ is closed under the induced operation. On the other hand, $xa = ax$ implies $x^{-1}xax^{-1} = x^{-1}axx^{-1}$. Therefore, $ax^{-1} = x^{-1}a$, $H_{a}$ contains the inverse of each element.
@@ -4514,386 +4515,992 @@ In Exercises 45 and 46, let $\phi: G \to G'$ be an isomorphism of a group $\angl
 
 \section{Cyclic Groups}
 
+\subsection*{Computations}
+
+In Exercises 1 through 4, find the quotient and remainder, according to the division algorithm, when $n$ is divided by $m$.
+
 % section 6/exercise 1
 \begin{exercise}
+    $n = 42, m = 9$
 \end{exercise}
 
 \begin{proof}
+    $42 = 4\cdot 9 + 6$. The quotient is $4$, the remainder is $6$ when $42$ is divided by $9$.
 \end{proof}
 
 % section 6/exercise 2
 \begin{exercise}
+    $n = -42, m = 9$
 \end{exercise}
 
 \begin{proof}
+    $-42 = -5 \cdot 9 + 3$. The quotient is $-5$, the remainder is $3$ when $-42$ is divided by $9$.
 \end{proof}
 
 % section 6/exercise 3
 \begin{exercise}
+    $n = -37, m = 8$
 \end{exercise}
 
 \begin{proof}
+    $-37 = -5\cdot 8 + 3$. The quotient is $-5$, the remainder is $3$ when $-37$ is divided by $8$.
 \end{proof}
 
 % section 6/exercise 4
 \begin{exercise}
+    $n = 37, m = 8$
 \end{exercise}
 
 \begin{proof}
+    $37 = 4\cdot 8 + 5$. The quotient is $4$, the remainder is $5$ when $37$ is divided by $8$.
 \end{proof}
+
+In Exercises 5 through 7, find the greatest common divisor of the two integers.
 
 % section 6/exercise 5
 \begin{exercise}
+    $32$ and $24$
 \end{exercise}
 
 \begin{proof}
+    \begin{align*}
+        32 & = 1\cdot 24 + 8 \\
+        24 & = 3\cdot 8
+    \end{align*}
+
+    Hence $\text{gcd}(32, 24) = 8$.
 \end{proof}
 
 % section 6/exercise 6
 \begin{exercise}
+    $48$ and $88$
 \end{exercise}
 
 \begin{proof}
+    \begin{align*}
+        88 & = 1\cdot 48 + 40 \\
+        48 & = 1\cdot 40 + 8  \\
+        40 & = 5\cdot 8
+    \end{align*}
+
+    Hence $\text{gcd}(88, 48) = 8$.
 \end{proof}
 
 % section 6/exercise 7
 \begin{exercise}
+    $360$ and $420$
 \end{exercise}
 
 \begin{proof}
+    \begin{align*}
+        420 & = 1\cdot 360 + 60 \\
+        360 & = 6\cdot 60
+    \end{align*}
+
+    Hence $\text{gcd}(360, 420) = 60$.
 \end{proof}
+
+In Exercises 8 through 11, find the number of generators of a cyclic group having the given order.
 
 % section 6/exercise 8
 \begin{exercise}
+    $5$
 \end{exercise}
 
 \begin{proof}
+    $1, 2, 3, 4$ are precisely the positive integers less than $5$ and relatively prime to $5$.
+
+    Hence a $5$-order cyclic group has $4$ generators.
 \end{proof}
 
 % section 6/exercise 9
 \begin{exercise}
+    $8$
 \end{exercise}
 
 \begin{proof}
+    $1, 3, 5, 7$ are precisely the positive integers less than $8$ and relatively prime to $8$.
+
+    Hence an $8$-order cyclic group has $4$ generators.
 \end{proof}
 
 % section 6/exercise 10
 \begin{exercise}
+    $24$
 \end{exercise}
 
 \begin{proof}
+    $1, 5, 7, 11, 13, 17, 19, 23$ are precisely the positive integers less than $24$ and relatively prime to $24$.
+
+    Hence an $24$-order cyclic group has $8$ generators.
 \end{proof}
 
 % section 6/exercise 11
 \begin{exercise}
+    $84$
 \end{exercise}
 
 \begin{proof}
+    $1, 5, 11, 13, 17, 19, 23, 25, 29, 31, 37, 41, 43, 47, 53, 55, 59, 61, 65, 67, 71, 73, 79, 83$ are precisely the positive integers less than $84$ and relatively prime to $84$.
+
+    Hence an $84$-order cyclic group has $24$ generators.
 \end{proof}
+
+An isomorphism of a group with itself is an \textbf{automorphism of the group}. In Exercises 12 through 16, find the number of automorphisms of the given group. (You may use Exercise 53. What must be the image of a generator under an automorphism?)
+
+Within a cyclic group, an automorphism maps a generator to a generator.
 
 % section 6/exercise 12
 \begin{exercise}
+    $\mathbb{Z}_{2}$
 \end{exercise}
 
 \begin{proof}
+    $\mathbb{Z}_{2}$ has $1$ generators. So there is $1$ automorphism.
 \end{proof}
 
 % section 6/exercise 13
 \begin{exercise}
+    $\mathbb{Z}_{6}$
 \end{exercise}
 
 \begin{proof}
+    $\mathbb{Z}_{6}$ has $2$ generators. So there is $2$ automorphisms.
 \end{proof}
 
 % section 6/exercise 14
 \begin{exercise}
+    $\mathbb{Z}_{8}$
 \end{exercise}
 
 \begin{proof}
+    $\mathbb{Z}_{8}$ has $4$ generators. So there is $4$ automorphisms.
 \end{proof}
 
 % section 6/exercise 15
 \begin{exercise}
+    $\mathbb{Z}$
 \end{exercise}
 
 \begin{proof}
+    $\mathbb{Z}$ has $2$ generators. So there is $2$ automorphisms.
 \end{proof}
 
 % section 6/exercise 16
 \begin{exercise}
+    $\mathbb{Z}_{84}$
 \end{exercise}
 
 \begin{proof}
+    $\mathbb{Z}_{84}$ has $24$ generators. So there is $24$ automorphisms.
 \end{proof}
+
+In Exercises 17 through 23, find the number of elements in the indicated cyclic group.
 
 % section 6/exercise 17
 \begin{exercise}
+    The cyclic subgroup of $\mathbb{Z}_{30}$ generated by $25$.
 \end{exercise}
 
 \begin{proof}
+    $\text{gcd}(25, 30) = 5$.
+
+    Thus the number of elements in the indicated cyclic group is $30/5 = 6$.
 \end{proof}
 
 % section 6/exercise 18
 \begin{exercise}
+    The cyclic subgroup of $\mathbb{Z}_{42}$ generated by $30$.
 \end{exercise}
 
 \begin{proof}
+    $\text{gcd}(30, 42) = 6$.
+
+    Thus the number of elements in the indicated cyclic group is $42/6 = 7$.
 \end{proof}
 
 % section 6/exercise 19
 \begin{exercise}
+    The cyclic subgroup $\anglebracket{i}$ of the group $\mathbb{C}^{*}$ of nonzero complex numbers under multiplication
 \end{exercise}
 
 \begin{proof}
+    \begin{align*}
+        i^{2} & = -1 \\
+        i^{3} & = -i \\
+        i^{4} & = 1
+    \end{align*}
+
+    So $4$ is the smallest positive integer $n$ such that $i^{n} = 1$. Hence the number of elements in the indicated cyclic group is $4$.
 \end{proof}
 
 % section 6/exercise 20
 \begin{exercise}
+    The cyclic subgroup of the group $\mathbb{C}^{*}$ of Exercise 19 generated by $(1 + i)/\sqrt{2}$
 \end{exercise}
 
 \begin{proof}
+    \begin{align*}
+        {((1 + i)/\sqrt{2})}^{2} & = i                   \\
+        {((1 + i)/\sqrt{2})}^{3} & = {(1 + i)/\sqrt{2}}  \\
+        {((1 + i)/\sqrt{2})}^{4} & = -1                  \\
+        {((1 + i)/\sqrt{2})}^{5} & = {(-1 - i)/\sqrt{2}} \\
+        {((1 + i)/\sqrt{2})}^{6} & = -i                  \\
+        {((1 + i)/\sqrt{2})}^{7} & = {(1 - i)/\sqrt{2}}  \\
+        {((1 + i)/\sqrt{2})}^{8} & = 1
+    \end{align*}
+
+    So $8$ is the smallest positive integer $n$ such that $i^{n} = 1$. Hence the number of elements in the indicated cyclic group is $8$.
 \end{proof}
 
 % section 6/exercise 21
 \begin{exercise}
+    The cyclic subgroup of the group $\mathbb{C}^{*}$ of Exercise 19 generated by $(1 + i)$.
 \end{exercise}
 
 \begin{proof}
+    \[
+        {(1 + i)}^{n} = {\sqrt{2}(\cos\frac{\pi}{4} + i\sin\frac{\pi}{4})}^{n} = \sqrt{2^{n}}(\cos\frac{n\pi}{4} + i\sin\frac{n\pi}{4})
+    \]
+
+    So ${(1 + i)}^{n} = 1$ if and only if $n = 0$. Hence the number of elements in the indicated cyclic group is infinite.
 \end{proof}
 
 % section 6/exercise 22
 \begin{exercise}
+    The cyclic subgroup $\anglebracket{\rho^{10}}$ of $D_{24}$
 \end{exercise}
 
 \begin{proof}
+    $R_{24} = \{ \iota, \rho, \ldots, \rho^{23} \}$ is a cyclic subgroup of $D_{24}$, and the indicated subgroup is a subgroup of $R_{24}$. $R_{24}$ has $24$ elements.
+
+    $\text{gcd}(10, 24) = 2$. Hence the number of elements in the indicated cyclic group is $24/2 = 12$.
 \end{proof}
 
 % section 6/exercise 23
 \begin{exercise}
+    The cyclic subgroup $\anglebracket{\rho^{35}}$ of $D_{375}$
 \end{exercise}
 
 \begin{proof}
+    $R_{375} = \{ \iota, \rho, \ldots, \rho^{374} \}$ is a cyclic subgroup of $D_{375}$. The indicated subgroup is a subgroup of $R_{375}$. $R_{375}$ has $375$ elements.
+
+    $\text{gcd}(35, 375) = 5$. Hence the number of elements in the indicated cyclic group is $375/5 = 75$.
 \end{proof}
 
 % section 6/exercise 24
 \begin{exercise}
+    Consider the group $S_{10}$
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item What is the order of the cycle $(2, 4, 6, 7)$?
+        \item What is the order of $(1, 4)(2, 3, 5)$? Of $(1, 3)(2, 4, 6, 7, 8)$?
+        \item What is the order of $(1, 5, 9)(2, 6, 7)$? Of $(1, 3)(2, 5, 6, 8)$?
+        \item What is the order of $(1, 2)(3, 4, 5, 6, 7, 8)$? Of $(1, 2, 3)(4, 5, 6, 7, 8, 9)$?
+        \item State a theorem suggested by parts (c) and (d).
+    \end{enumerate}
 \end{exercise}
 
 \begin{proof}
+    If $\sigma, \tau$ are disjoint cycles, then ${(\sigma\tau)}^{n} = \sigma^{n}\tau^{n}$ for every integer $n$ (it follows from mathematical induction and $\sigma\tau = \tau\sigma$).
+
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item The order of the cycle $(2, 4, 6, 7)$ is $4$ (the length of the cycle).
+        \item The orders of the cycles $(1, 4)$ and $(2, 3, 5)$ are $2$ and $3$. If $n$ is the smallest positive integer such that ${[(1, 4)(2, 3, 5)]}^{n} = \iota$, then $2$ and $3$ divides $n$. Such smallest positive number is $6$. So the order of $(1, 4)(2, 3, 5)$ is $6$.
+
+              The order of $(1, 3)(2, 4, 6, 7, 8)$ is $10$.
+        \item The order of $(1, 5, 9)(2, 6, 7)$ is $3$. The order of $(1, 3)(2, 5, 6, 8)$ is $8$.
+        \item The order of $(1, 2)(3, 4, 5, 6, 7, 8)$ is $6$. The order of $(1, 2, 3)(4, 5, 6, 7, 8, 9)$ is $6$.
+        \item Theorem: if a permutation on $S_{n}$ is the product of $r$ disjoint cycles with length $k_{1}$, $k_{2}$, \ldots, $k_{r}$, then the order of the permutation is the least common multiple of $k_{1}$, $k_{2}$, \ldots, $k_{r}$.\qedhere
+    \end{enumerate}
 \end{proof}
+
+In Exercises 25 through 30, find the maximum possibe order for an element of $S_{n}$ for a given value of $n$.
+
+Every permutation in $S_{n}$ is a cycle or a product of disjoint cycles. The order of a permutation in $S_{n}$ is the least common multiple of the orders of its disjoint cycles. So a permutation with the maximum possible order corresponds to a partition of $n = k_{1} + k_{2} + \cdots + k_{r}$ such that the least common multiple of $k_{1}$, $k_{2}$, \ldots, $k_{r}$ is the greatest. See Landau's function.
 
 % section 6/exercise 25
 \begin{exercise}
+    $n = 5$
 \end{exercise}
 
 \begin{proof}
+    \begin{align*}
+        5 & = 5                           \\
+        5 & = 1 + 4                       \\
+        5 & = 1 + 1 + 3                   \\
+        5 & = 1 + 1 + 1 + 2               \\
+        5 & = 1 + 1 + 1 + 1 + 1           \\
+        5 & = 2 + 3             & (\star) \\
+        5 & = 1+ 2 + 2
+    \end{align*}
+
+    Hence the maximum possible order of an element of $S_{5}$ is $6$.
 \end{proof}
 
 % section 6/exercise 26
 \begin{exercise}
+    $n = 6$
 \end{exercise}
 
 \begin{proof}
+    \begin{align*}
+        6 & = 6                     & (\star) \\
+        6 & = 1 + 5                           \\
+        6 & = 1 + 1 + 4                       \\
+        6 & = 1 + 1 + 1 + 3                   \\
+        6 & = 1 + 1 + 1 + 1 + 2               \\
+        6 & = 1 + 1 + 1 + 1 + 1 + 1           \\
+        6 & = 1 + 1 + 2 + 2                   \\
+        6 & = 1 + 2 + 3                       \\
+        6 & = 2 + 2 + 2                       \\
+        6 & = 2 + 4                           \\
+        6 & = 3 + 3
+    \end{align*}
+
+    Hence the maximum possible order of an element of $S_{6}$ is $6$.
 \end{proof}
 
 % section 6/exercise 27
 \begin{exercise}
+    $n = 7$
 \end{exercise}
 
 \begin{proof}
+    \begin{align*}
+        7 & = 7                                   \\
+        7 & = 1 + 6                               \\
+        7 & = 1 + 1 + 5                           \\
+        7 & = 1 + 1 + 1 + 4                       \\
+        7 & = 1 + 1 + 1 + 1 + 3                   \\
+        7 & = 1 + 1 + 1 + 1 + 1 + 2               \\
+        7 & = 1 + 1 + 1 + 1 + 1 + 1 + 1           \\
+        7 & = 1 + 1 + 1 + 2 + 2                   \\
+        7 & = 1 + 1 + 2 + 3                       \\
+        7 & = 1 + 2 + 2 + 2                       \\
+        7 & = 1 + 2 + 4                           \\
+        7 & = 1 + 3 + 3                           \\
+        7 & = 2 + 2 + 3                           \\
+        7 & = 2 + 5                               \\
+        7 & = 3 + 4                     & (\star)
+    \end{align*}
+
+    Hence the maximum possible order of an element of $S_{7}$ is $12$.
 \end{proof}
 
 % section 6/exercise 28
 \begin{exercise}
+    $n = 8$
 \end{exercise}
 
 \begin{proof}
+    \begin{align*}
+        8 & = 8                                       \\
+        8 & = 1 + 7                                   \\
+        8 & = 1 + 1 + 6                               \\
+        8 & = 1 + 1 + 1 + 5                           \\
+        8 & = 1 + 1 + 1 + 1 + 4                       \\
+        8 & = 1 + 1 + 1 + 1 + 1 + 3                   \\
+        8 & = 1 + 1 + 1 + 1 + 1 + 1 + 2               \\
+        8 & = 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1           \\
+        8 & = 1 + 1 + 1 + 1 + 2 + 2                   \\
+        8 & = 1 + 1 + 1 + 2 + 3                       \\
+        8 & = 1 + 1 + 2 + 2 + 2                       \\
+        8 & = 1 + 1 + 2 + 4                           \\
+        8 & = 1 + 1 + 3 + 3                           \\
+        8 & = 1 + 2 + 5                               \\
+        8 & = 1 + 2 + 2 + 3                           \\
+        8 & = 1 + 3 + 4                               \\
+        8 & = 2 + 6                                   \\
+        8 & = 2 + 2 + 2 + 2                           \\
+        8 & = 2 + 2 + 4                               \\
+        8 & = 2 + 3 + 3                               \\
+        8 & = 3 + 5                         & (\star) \\
+        8 & = 4 + 4
+    \end{align*}
+
+    Hence the maximum possible order of an element of $S_{8}$ is $15$.
 \end{proof}
 
 % section 6/exercise 29
 \begin{exercise}
+    $n = 10$
 \end{exercise}
 
 \begin{proof}
+    \begin{align*}
+        10 & = 10                                              \\
+        10 & = 1 + 9                                           \\
+        10 & = 1 + 1 + 8                                       \\
+        10 & = 1 + 1 + 1 + 7                                   \\
+        10 & = 1 + 1 + 1 + 1 + 6                               \\
+        10 & = 1 + 1 + 1 + 1 + 1 + 5                           \\
+        10 & = 1 + 1 + 1 + 1 + 1 + 1 + 4                       \\
+        10 & = 1 + 1 + 1 + 1 + 1 + 1 + 1 + 3                   \\
+        10 & = 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 2               \\
+        10 & = 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1           \\
+        10 & = 1 + 1 + 1 + 1 + 1 + 1 + 2 + 2                   \\
+        10 & = 1 + 1 + 1 + 1 + 1 + 2 + 3                       \\
+        10 & = 1 + 1 + 1 + 1 + 2 + 2 + 2                       \\
+        10 & = 1 + 1 + 1 + 1 + 2 + 4                           \\
+        10 & = 1 + 1 + 1 + 1 + 3 + 3                           \\
+        10 & = 1 + 1 + 1 + 2 + 2 + 3                           \\
+        10 & = 1 + 1 + 1 + 2 + 5                               \\
+        10 & = 1 + 1 + 1 + 3 + 4                               \\
+        10 & = 1 + 1 + 2 + 2 + 2 + 2                           \\
+        10 & = 1 + 1 + 2 + 2 + 4                               \\
+        10 & = 1 + 1 + 2 + 6                                   \\
+        10 & = 1 + 1 + 2 + 3 + 3                               \\
+        10 & = 1 + 1 + 3 + 5                                   \\
+        10 & = 1 + 1 + 4 + 4                                   \\
+        10 & = 1 + 2 + 2 + 2 + 3                               \\
+        10 & = 1 + 2 + 2 + 5                                   \\
+        10 & = 1 + 2 + 3 + 4                                   \\
+        10 & = 1 + 2 + 7                                       \\
+        10 & = 1 + 3 + 3 + 3                                   \\
+        10 & = 1 + 3 + 6                                       \\
+        10 & = 1 + 4 + 5                                       \\
+        10 & = 2 + 8                                           \\
+        10 & = 2 + 2 + 2 + 2 + 2                               \\
+        10 & = 2 + 2 + 2 + 4                                   \\
+        10 & = 2 + 2 + 6                                       \\
+        10 & = 2 + 2 + 3 + 3                                   \\
+        10 & = 2 + 3 + 5                             & (\star) \\
+        10 & = 2 + 4 + 4                                       \\
+        10 & = 3 + 7                                           \\
+        10 & = 3 + 3 + 4                                       \\
+        10 & = 4 + 6                                           \\
+        10 & = 5 + 5
+    \end{align*}
+
+    Hence the maximum possible order of an element of $S_{10}$ is $30$.
 \end{proof}
 
 % section 6/exercise 30
 \begin{exercise}
+    $n = 15$
 \end{exercise}
 
 \begin{proof}
+    \begingroup
+    \allowdisplaybreaks{}
+    \begin{align*}
+        15 & = 15                                                                  \\
+           & = 1 + 14                                                              \\
+           & = 1 + 1 + 13                                                          \\
+           & = 1 + 1 + 1 + 12                                                      \\
+           & = 1 + 1 + 1 + 1 + 11                                                  \\
+           & = 1 + 1 + 1 + 1 + 1 + 10                                              \\
+           & = 1 + 1 + 1 + 1 + 1 + 1 + 9                                           \\
+           & = 1 + 1 + 1 + 1 + 1 + 1 + 1 + 8                                       \\
+           & = 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 7                                   \\
+           & = 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 6                               \\
+           & = 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 5                           \\
+           & = 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 4                       \\
+           & = 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 3                   \\
+           & = 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 2               \\
+           & = 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1           \\
+           & = 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 2 + 2                   \\
+           & = 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 2 + 3                       \\
+           & = 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 2 + 2 + 2                       \\
+           & = 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 2 + 4                           \\
+           & = 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 3 + 3                           \\
+           & = 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 2 + 2 + 3                           \\
+           & = 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 2 + 5                               \\
+           & = 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 3 + 4                               \\
+           & = 1 + 1 + 1 + 1 + 1 + 1 + 1 + 2 + 2 + 2 + 2                           \\
+           & = 1 + 1 + 1 + 1 + 1 + 1 + 1 + 2 + 2 + 4                               \\
+           & = 1 + 1 + 1 + 1 + 1 + 1 + 1 + 2 + 3 + 3                               \\
+           & = 1 + 1 + 1 + 1 + 1 + 1 + 1 + 2 + 6                                   \\
+           & = 1 + 1 + 1 + 1 + 1 + 1 + 1 + 3 + 5                                   \\
+           & = 1 + 1 + 1 + 1 + 1 + 1 + 1 + 4 + 4                                   \\
+           & = 1 + 1 + 1 + 1 + 1 + 1 + 2 + 2 + 2 + 3                               \\
+           & = 1 + 1 + 1 + 1 + 1 + 1 + 2 + 2 + 5                                   \\
+           & = 1 + 1 + 1 + 1 + 1 + 1 + 2 + 3 + 4                                   \\
+           & = 1 + 1 + 1 + 1 + 1 + 1 + 2 + 7                                       \\
+           & = 1 + 1 + 1 + 1 + 1 + 1 + 3 + 3 + 3                                   \\
+           & = 1 + 1 + 1 + 1 + 1 + 1 + 3 + 6                                       \\
+           & = 1 + 1 + 1 + 1 + 1 + 1 + 4 + 5                                       \\
+           & = 1 + 1 + 1 + 1 + 1 + 2 + 2 + 2 + 2 + 2                               \\
+           & = 1 + 1 + 1 + 1 + 1 + 2 + 2 + 2 + 4                                   \\
+           & = 1 + 1 + 1 + 1 + 1 + 2 + 2 + 6                                       \\
+           & = 1 + 1 + 1 + 1 + 1 + 2 + 2 + 3 + 3                                   \\
+           & = 1 + 1 + 1 + 1 + 1 + 2 + 3 + 5                                       \\
+           & = 1 + 1 + 1 + 1 + 1 + 2 + 8                                           \\
+           & = 1 + 1 + 1 + 1 + 1 + 2 + 4 + 4                                       \\
+           & = 1 + 1 + 1 + 1 + 1 + 3 + 3 + 4                                       \\
+           & = 1 + 1 + 1 + 1 + 1 + 3 + 7                                           \\
+           & = 1 + 1 + 1 + 1 + 1 + 4 + 6                                           \\
+           & = 1 + 1 + 1 + 1 + 1 + 5 + 5                                           \\
+           & = 1 + 1 + 1 + 1 + 2 + 2 + 2 + 2 + 3                                   \\
+           & = 1 + 1 + 1 + 1 + 2 + 2 + 2 + 5                                       \\
+           & = 1 + 1 + 1 + 1 + 2 + 2 + 3 + 4                                       \\
+           & = 1 + 1 + 1 + 1 + 2 + 2 + 7                                           \\
+           & = 1 + 1 + 1 + 1 + 2 + 3 + 3 + 3                                       \\
+           & = 1 + 1 + 1 + 1 + 2 + 3 + 6                                           \\
+           & = 1 + 1 + 1 + 1 + 2 + 4 + 5                                           \\
+           & = 1 + 1 + 1 + 1 + 2 + 9                                               \\
+           & = 1 + 1 + 1 + 1 + 3 + 3 + 5                                           \\
+           & = 1 + 1 + 1 + 1 + 3 + 4 + 4                                           \\
+           & = 1 + 1 + 1 + 1 + 3 + 8                                               \\
+           & = 1 + 1 + 1 + 1 + 4 + 7                                               \\
+           & = 1 + 1 + 1 + 1 + 5 + 6                                               \\
+           & = 1 + 1 + 1 + 2 + 10                                                  \\
+           & = 1 + 1 + 1 + 2 + 2 + 8                                               \\
+           & = 1 + 1 + 1 + 2 + 2 + 2 + 6                                           \\
+           & = 1 + 1 + 1 + 2 + 2 + 2 + 2 + 4                                       \\
+           & = 1 + 1 + 1 + 2 + 2 + 2 + 3 + 3                                       \\
+           & = 1 + 1 + 1 + 2 + 2 + 2 + 2 + 2 + 2                                   \\
+           & = 1 + 1 + 1 + 2 + 2 + 3 + 5                                           \\
+           & = 1 + 1 + 1 + 2 + 2 + 4 + 4                                           \\
+           & = 1 + 1 + 1 + 2 + 3 + 3 + 4                                           \\
+           & = 1 + 1 + 1 + 2 + 3 + 7                                               \\
+           & = 1 + 1 + 1 + 2 + 4 + 6                                               \\
+           & = 1 + 1 + 1 + 2 + 5 + 5                                               \\
+           & = 1 + 1 + 1 + 3 + 9                                                   \\
+           & = 1 + 1 + 1 + 3 + 3 + 6                                               \\
+           & = 1 + 1 + 1 + 3 + 3 + 3 + 3                                           \\
+           & = 1 + 1 + 1 + 3 + 4 + 5                                               \\
+           & = 1 + 1 + 1 + 4 + 8                                                   \\
+           & = 1 + 1 + 1 + 4 + 4 + 4                                               \\
+           & = 1 + 1 + 1 + 5 + 7                                                   \\
+           & = 1 + 1 + 1 + 6 + 6                                                   \\
+           & = 1 + 1 + 2 + 11                                                      \\
+           & = 1 + 1 + 2 + 2 + 9                                                   \\
+           & = 1 + 1 + 2 + 2 + 2 + 7                                               \\
+           & = 1 + 1 + 2 + 2 + 2 + 2 + 5                                           \\
+           & = 1 + 1 + 2 + 2 + 2 + 2 + 2 + 3                                       \\
+           & = 1 + 1 + 2 + 2 + 2 + 3 + 4
+           & = 1 + 1 + 2 + 2 + 3 + 3 + 3                                           \\
+           & = 1 + 1 + 2 + 2 + 3 + 6                                               \\
+           & = 1 + 1 + 2 + 2 + 4 + 5                                               \\
+           & = 1 + 1 + 2 + 3 + 3 + 5                                               \\
+           & = 1 + 1 + 2 + 3 + 4 + 4                                               \\
+           & = 1 + 1 + 2 + 3 + 8                                                   \\
+           & = 1 + 1 + 2 + 4 + 7                                                   \\
+           & = 1 + 1 + 2 + 5 + 6                                                   \\
+           & = 1 + 1 + 3 + 3 + 7                                                   \\
+           & = 1 + 1 + 3 + 3 + 3 + 4                                               \\
+           & = 1 + 1 + 3 + 4 + 6                                                   \\
+           & = 1 + 1 + 3 + 5 + 5                                                   \\
+           & = 1 + 1 + 3 + 10                                                      \\
+           & = 1 + 1 + 4 + 9                                                       \\
+           & = 1 + 1 + 4 + 4 + 5                                                   \\
+           & = 1 + 1 + 5 + 8                                                       \\
+           & = 1 + 1 + 6 + 7                                                       \\
+           & = 1 + 2 + 12                                                          \\
+           & = 1 + 2 + 2 + 10                                                      \\
+           & = 1 + 2 + 2 + 2 + 8                                                   \\
+           & = 1 + 2 + 2 + 2 + 2 + 6                                               \\
+           & = 1 + 2 + 2 + 2 + 2 + 2 + 4                                           \\
+           & = 1 + 2 + 2 + 2 + 2 + 2 + 2 + 2                                       \\
+           & = 1 + 2 + 2 + 2 + 2 + 3 + 3                                           \\
+           & = 1 + 2 + 2 + 2 + 3 + 5                                               \\
+           & = 1 + 2 + 2 + 2 + 4 + 4                                               \\
+           & = 1 + 2 + 2 + 3 + 3 + 4                                               \\
+           & = 1 + 2 + 2 + 3 + 7                                                   \\
+           & = 1 + 2 + 2 + 4 + 6                                                   \\
+           & = 1 + 2 + 2 + 5 + 5                                                   \\
+           & = 1 + 2 + 3 + 3 + 3 + 3                                               \\
+           & = 1 + 2 + 3 + 3 + 6                                                   \\
+           & = 1 + 2 + 3 + 4 + 5                                                   \\
+           & = 1 + 2 + 3 + 9                                                       \\
+           & = 1 + 2 + 4 + 4 + 4                                                   \\
+           & = 1 + 2 + 4 + 8                                                       \\
+           & = 1 + 2 + 5 + 7                                                       \\
+           & = 1 + 2 + 6 + 6                                                       \\
+           & = 1 + 3 + 11                                                          \\
+           & = 1 + 3 + 3 + 3 + 5                                                   \\
+           & = 1 + 3 + 3 + 4 + 4                                                   \\
+           & = 1 + 3 + 3 + 8                                                       \\
+           & = 1 + 3 + 4 + 7                                                       \\
+           & = 1 + 3 + 5 + 6                                                       \\
+           & = 1 + 4 + 4 + 6                                                       \\
+           & = 1 + 4 + 5 + 5                                                       \\
+           & = 1 + 4 + 10                                                          \\
+           & = 1 + 5 + 9                                                           \\
+           & = 1 + 6 + 8                                                           \\
+           & = 1 + 7 + 7                                                           \\
+           & = 2 + 2 + 2 + 2 + 2 + 2 + 3                                           \\
+           & = 2 + 2 + 2 + 2 + 2 + 5                                               \\
+           & = 2 + 2 + 2 + 2 + 3 + 4                                               \\
+           & = 2 + 2 + 2 + 2 + 7                                                   \\
+           & = 2 + 2 + 2 + 3 + 3 + 3                                               \\
+           & = 2 + 2 + 2 + 3 + 6                                                   \\
+           & = 2 + 2 + 2 + 4 + 5                                                   \\
+           & = 2 + 2 + 2 + 9                                                       \\
+           & = 2 + 2 + 3 + 3 + 5                                                   \\
+           & = 2 + 2 + 3 + 4 + 4                                                   \\
+           & = 2 + 2 + 3 + 8                                                       \\
+           & = 2 + 2 + 4 + 7                                                       \\
+           & = 2 + 2 + 5 + 6                                                       \\
+           & = 2 + 2 + 11                                                          \\
+           & = 2 + 3 + 3 + 3 + 4                                                   \\
+           & = 2 + 3 + 3 + 7                                                       \\
+           & = 2 + 3 + 4 + 6                                                       \\
+           & = 2 + 3 + 5 + 5                                                       \\
+           & = 2 + 3 + 10                                                          \\
+           & = 2 + 4 + 4 + 5                                                       \\
+           & = 2 + 4 + 9                                                           \\
+           & = 2 + 5 + 8                                                           \\
+           & = 2 + 6 + 7                                                           \\
+           & = 2 + 13                                                              \\
+           & = 3 + 3 + 3 + 3 + 3                                                   \\
+           & = 3 + 3 + 3 + 6                                                       \\
+           & = 3 + 3 + 4 + 5                                                       \\
+           & = 3 + 3 + 9                                                           \\
+           & = 3 + 4 + 4 + 4                                                       \\
+           & = 3 + 4 + 8                                                           \\
+           & = 3 + 5 + 7                                                 & (\star) \\
+           & = 3 + 6 + 6                                                           \\
+           & = 3 + 12                                                              \\
+           & = 4 + 4 + 7                                                           \\
+           & = 4 + 5 + 6                                                           \\
+           & = 4 + 11                                                              \\
+           & = 5 + 5 + 5                                                           \\
+           & = 5 + 10                                                              \\
+           & = 6 + 9                                                               \\
+           & = 7 + 8
+    \end{align*}
+    \endgroup
+
+    Hence the maximum possible order of an element of $S_{15}$ is $105$.
 \end{proof}
+
+In Exercises 31 through 33, find all subgroups of the given group, and draw the subgroup diagram for the sub-groups.
 
 % section 6/exercise 31
 \begin{exercise}
+    $\mathbb{Z}_{12}$
 \end{exercise}
 
 \begin{proof}
+    \begin{tikzpicture}[every node/.style={node distance=2cm}]
+        \node (g1) at (0, 0) {$\anglebracket{1}$};
+        \node [below left of=g1] (g2) {$\anglebracket{2}$};
+        \node [below right of=g1] (g3) {$\anglebracket{3}$};
+        \node [below left of=g2] (g4) {$\anglebracket{4}$};
+        \node [below right of=g2] (g6) {$\anglebracket{6}$};
+        \node [below of=g6] (g0) {$\anglebracket{0}$};
+        \draw (g1) -- (g2);
+        \draw (g1) -- (g3);
+        \draw (g2) -- (g4);
+        \draw (g2) -- (g6);
+        \draw (g3) -- (g6);
+        \draw (g4) -- (g0);
+        \draw (g6) -- (g0);
+    \end{tikzpicture}
 \end{proof}
 
 % section 6/exercise 32
 \begin{exercise}
+    $\mathbb{Z}_{36}$
 \end{exercise}
 
 \begin{proof}
+    \begin{tikzpicture}[every node/.style={node distance=2cm}]
+        \node (g1) at (0, 0) {$\anglebracket{1}$};
+        \node [below left of=g1] (g2) {$\anglebracket{2}$};
+        \node [below right of=g1] (g3) {$\anglebracket{3}$};
+        \node [below left of=g2] (g4) {$\anglebracket{4}$};
+        \node [below right of=g2] (g6) {$\anglebracket{6}$};
+        \node [below right of=g3] (g9) {$\anglebracket{9}$};
+        \node [below left of=g6] (g12) {$\anglebracket{12}$};
+        \node [below left of=g9] (g18) {$\anglebracket{18}$};
+        \node [below left of=g18] (g0) {$\anglebracket{0}$};
+        \draw (g1) -- (g2);
+        \draw (g1) -- (g3);
+        \draw (g2) -- (g4);
+        \draw (g2) -- (g6);
+        \draw (g3) -- (g6);
+        \draw (g3) -- (g9);
+        \draw (g4) -- (g12);
+        \draw (g6) -- (g12);
+        \draw (g6) -- (g18);
+        \draw (g9) -- (g18);
+        \draw (g12) -- (g0);
+        \draw (g18) -- (g0);
+    \end{tikzpicture}
 \end{proof}
 
 % section 6/exercise 33
 \begin{exercise}
+    $\mathbb{Z}_{8}$
 \end{exercise}
 
 \begin{proof}
+    \begin{tikzpicture}[every node/.style={node distance=1cm}]
+        \node (g1) at (0, 0) {$\anglebracket{1}$};
+        \node [below of=g1] (g2) {$\anglebracket{2}$};
+        \node [below of=g2] (g4) {$\anglebracket{4}$};
+        \node [below of=g4] (g0) {$\anglebracket{0}$};
+        \draw (g1) -- (g2) -- (g4) -- (g0);
+    \end{tikzpicture}
 \end{proof}
+
+In Exercises 34 through 38, find all orders of subgroups of the given group.
+
+Every subgroups of a finite cyclic group with $n$ elements is another subgroup with $n/d$ elements, where $d$ is a divisor of $n$.
 
 % section 6/exercise 34
 \begin{exercise}
+    $\mathbb{Z}_{6}$
 \end{exercise}
 
 \begin{proof}
+    The orders of all subgroups of $\mathbb{Z}_{6}$ are $1, 2, 3, 6$.
 \end{proof}
 
 % section 6/exercise 35
 \begin{exercise}
+    $\mathbb{Z}_{8}$
 \end{exercise}
 
 \begin{proof}
+    The orders of all subgroups of $\mathbb{Z}_{8}$ are $1, 2, 4, 8$.
 \end{proof}
 
 % section 6/exercise 36
 \begin{exercise}
+    $\mathbb{Z}_{12}$
 \end{exercise}
 
 \begin{proof}
+    The orders of all subgroups of $\mathbb{Z}_{12}$ are $1, 2, 3, 4, 6, 12$.
 \end{proof}
 
 % section 6/exercise 37
 \begin{exercise}
+    $\mathbb{Z}_{20}$
 \end{exercise}
 
 \begin{proof}
+    The orders of all subgroups of $\mathbb{Z}_{20}$ are $1, 2, 4, 5, 10, 20$.
 \end{proof}
 
 % section 6/exercise 38
 \begin{exercise}
+    $\mathbb{Z}_{17}$
 \end{exercise}
 
 \begin{proof}
+    The orders of all subgroups of $\mathbb{Z}_{17}$ are $1, 17$.
 \end{proof}
+
+\subsection*{Concepts}
+
+In Exercises 39 and 40, correct the definition of the italicized term without reference to the text, if correction is needed, so that it is in a form acceptable for publication.
 
 % section 6/exercise 39
 \begin{exercise}
+    An element a of a group $G$ has order $n\in\mathbb{Z}^{+}$ if and only if $a^{n} = e$.
 \end{exercise}
 
 \begin{proof}
+    Correction:  An element a of a group $G$ has order $n\in\mathbb{Z}^{+}$ if and only if $n$ is the smallest positive integer such that $a^{n} = e$.
 \end{proof}
 
 % section 6/exercise 40
 \begin{exercise}
+    The \textit{greatest common divisor} of two positive integers is the largest positive integer that divides both of them.
 \end{exercise}
 
 \begin{proof}
+    The definition is correct.
 \end{proof}
 
 % section 6/exercise 41
 \begin{exercise}
+    Determine whether each of the following is true or false.
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item Every cyclic group is abelian.
+        \item Every abelian group is cyclic.
+        \item $\mathbb{Q}$ under addition is a cyclic group.
+        \item Every element of every cyclic group generates the group.
+        \item There is at least one abelian group of every finite order $> 0$.
+        \item Every group of order $\leq 4$ is cyclic.
+        \item All generators of $\mathbb{Z}_{20}$ are prime numbers.
+        \item If $G$ and $G'$ are groups, then $G\cap G'$ is a group.
+        \item If $H$ and $K$ are subgroups of a group $G$, then $H\cap K$ is a group.
+        \item Every cyclic group of order $> 2$ has at least two distinct generators.
+    \end{enumerate}
 \end{exercise}
 
 \begin{proof}
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item True.
+        \item False. For example: Klein 4-group.
+        \item False. Because there is no generator.
+        \item False.
+        \item True. The order of $\mathbb{Z}_{n}$ is $n$.
+        \item False. For example: Klein 4-group.
+        \item False. For example: $\anglebracket{9} = \mathbb{Z}_{20}$.
+        \item False. For example: $S_{n} \cap \mathbb{Z} = \varnothing$.
+        \item True.
+        \item True.
+    \end{enumerate}
 \end{proof}
+
+In Exercises 42 through 46, either give an example of a group with the property described, or explain why no example exists.
 
 % section 6/exercise 42
 \begin{exercise}
+    A finite abelian group that is not cyclic
 \end{exercise}
 
 \begin{proof}
+    The Klein 4-group is abelian but not cyclic.
 \end{proof}
 
 % section 6/exercise 43
 \begin{exercise}
+    An infinite group that is not cyclic
 \end{exercise}
 
 \begin{proof}
+    $\mathbb{Q}$ with addition is not cyclic.
 \end{proof}
 
 % section 6/exercise 44
 \begin{exercise}
+    A cyclic group having only one generator
 \end{exercise}
 
 \begin{proof}
+    $\mathbb{Z}_{2}$ has only one generator, which is $1$.
 \end{proof}
 
 % section 6/exercise 45
 \begin{exercise}
+    An infinite cyclic group having four generators
 \end{exercise}
 
 \begin{proof}
+    An infinite cyclic group is isomorphic to $\mathbb{Z}$ with addition. But $\mathbb{Z}$ has only $2$ generators, which are $1$ and $-1$. Therefore, an infinite cyclic group cannot have four generators.
 \end{proof}
 
 % section 6/exercise 46
 \begin{exercise}
+    A finite cyclic group having four generators
 \end{exercise}
 
 \begin{proof}
+    $\mathbb{Z}_{5}$ under addition has exactly four generators. $\anglebracket{1} = \anglebracket{2} = \anglebracket{3} = \anglebracket{4} = \mathbb{Z}_{5}$.
 \end{proof}
+
+The generators of the cyclic multiplicative group $U_{n}$ of all $n$th roots of unity in $\mathbb{C}$ are the \textbf{primitive $n$th roots of unity}. In Exercises 47 through 50, find the primitive nth roots of unity for the given value of $n$.
+
+$U_{n}$ and $\mathbb{Z}_{n}$ are isomorphic. An isomorphism $\phi: U_{n} \to \mathbb{Z}_{n}$ is
+\[
+    \phi: e^{i(2k\pi/n)} \mapsto k
+\]
+
+where $0\leq k < n$.
+
+$k$ is a generator of $\mathbb{Z}_{n}$ iff $\text{gcd}(n, k) = 1$. $e^{i(2k\pi/n)}$ is a generator of $U_{n}$ iff $k$ is a generator of $\mathbb{Z}_{n}$.
 
 % section 6/exercise 47
 \begin{exercise}
+    $n = 4$
 \end{exercise}
 
 \begin{proof}
+    The primitive $4$th roots of unity are
+    \[
+        i = e^{i(2\pi/4)},\qquad -i = e^{i(6\pi/4)}
+    \]
 \end{proof}
 
 % section 6/exercise 48
 \begin{exercise}
+    $n = 6$
 \end{exercise}
 
 \begin{proof}
+    The primitive $6$th roots of unity are
+    \[
+        \frac{1}{2} + \frac{\sqrt{3}}{2}i = e^{i(2\pi/6)},\qquad \frac{1}{2} + \frac{-\sqrt{3}}{2}i = e^{i(10\pi/6)}
+    \]
 \end{proof}
 
 % section 6/exercise 49
 \begin{exercise}
+    $n = 8$
 \end{exercise}
 
 \begin{proof}
+    The primitive $8$th roots of unity are
+    \[
+        e^{i(2\pi/8)} = \frac{1 + i}{\sqrt{2}},\qquad e^{i(6\pi/8)} = \frac{-1+i}{\sqrt{2}},\qquad e^{i(10\pi/8)} = \frac{-1-i}{\sqrt{2}},\qquad e^{i(14\pi/8)} = \frac{1-i}{\sqrt{2}}
+    \]
 \end{proof}
 
 % section 6/exercise 50
 \begin{exercise}
+    $n = 12$
 \end{exercise}
 
 \begin{proof}
+    The primitive $12$th roots of unity are
+    \[
+        \begin{split}
+            e^{i(2\pi/12)} = \frac{\sqrt{3} + i}{2} \qquad e^{i(10\pi/12)} = \frac{-\sqrt{3} + i}{2}\qquad e^{i(14\pi/12)} = \frac{-\sqrt{3} - i}{2} \qquad e^{i(22\pi/12)} = \frac{\sqrt{3} - i}{2}
+        \end{split}
+    \]
 \end{proof}
+
+\subsection*{Proof Synopsis}
 
 % section 6/exercise 51
 \begin{exercise}
+    Give a one-sentence synopsis of the proof of Theorem 6.1: Every cyclic group is abelian.
 \end{exercise}
 
 \begin{proof}
+    Every cyclic group is abelian because every two powers of the generator are commutative.
 \end{proof}
 
 % section 6/exercise 52
 \begin{exercise}
+    Give at most a three-sentence synopsis of the proof of Theorem 6.6: A subgroup of a cyclic group is cyclic.
 \end{exercise}
 
 \begin{proof}
+    If the subgroup is the trivial group, then it is cyclic. Otherwise, let $m$ be the smallest positive integer such that the generator to the power of $m$ is in the subgroup. We prove this power generates the subgroup by using the division algorithm.
 \end{proof}
+
+\subsection*{Theory}
 
 % section 6/exercise 53
 \begin{exercise}
+    Let $G$ be a cyclic group with generator $a$, and let $G'$ be a group isomorphic to $G$. If $\phi: G \to G'$ is an isomorphism, show that, for every $x\in G$, $\phi(x)$ is completely determined by the value $\phi(a)$. That is, if $\phi: G \to G'$ and $\psi: G \to G'$ are two isomorphisms such that $\phi(a) = \psi(a)$, then $\phi(x) = \psi(x)$ for all $x\in G$.
 \end{exercise}
 
 \begin{proof}
+    First, we prove that $G'$ is also a cyclic group. Let $x'$ be an element of $G'$. Because $\phi: G \to G'$ is a one-to-one and onto mapping, there exists $x\in G$ such that $x' = \phi(x)$. $G$ is cyclic, it follows that there exists $n\in\mathbb{Z}$ such that $a^{n} = x$. $x' = \phi(a^{n}) = {[\phi(a)]}^{n}$. So $\phi(a)$ generates $G'$, which means $G'$ is cyclic.
+
+    Let $x$ be an element of $G$. Because $G$ is cyclic, there exists an integer $n$ such that $x = a^{n}$. $\phi(a) = \psi(a)$ implies that ${[\phi(a)]}^{n} = {[\psi(a)]}^{n}$, that is, $\phi(x) = \phi(a^{n}) = {[\phi(a)]}^{n} = {[\psi(a)]}^{n} = \psi(a^{n}) = \psi(x)$. So $\phi(x) = \psi(x)$ for all $x\in G$. Hence $\phi$ and $\psi$ are identical.
+
+    Thus $\phi$ is completely determined by the value $\phi(a)$.
 \end{proof}
 
 % section 6/exercise 54
 \begin{exercise}
+    Let $r$ and $s$ be integers. Show that $\{ nr + ms \mid n, m \in \mathbb{Z} \}$ is a subgroup of $\mathbb{Z}$.
 \end{exercise}
 
 \begin{proof}
+    Let $x_{1}, y_{1}$ be elements of $\{ nr + ms \mid n, m \in \mathbb{Z} \}$. So there exist integers $n_{1}, m_{1}, n_{2}, m_{2}$ such that $x_{1} = n_{1}r + m_{1}s$, $x_{2} = n_{2}r + m_{2}s$. $x_{1} + x_{2} = (n_{1} + n_{2})r + (m_{1} + m_{2})s$. Therefore the given set is closed under addition.
+
+    $0 = 0\cdot r + 0\cdot s$, so the given set contains $0$.
+
+    $-x_{1} = (-n_{1})r + (-m_{1})s$ is also an element of the given set. Therefore, the given set contains the inverse of each of its elements.
+
+    Thus $\{ nr + ms \mid n, m \in \mathbb{Z} \}$ is a subgroup of $\mathbb{Z}$.
 \end{proof}
 
 % section 6/exercise 55
 \begin{exercise}
+    Prove that if $G$ is a finite cyclic group, $H$ and $K$ are subgroups of $G$, and $H\ne K$, then $\abs{H} \ne \abs{K}$.
 \end{exercise}
 
 \begin{proof}
