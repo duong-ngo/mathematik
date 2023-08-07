@@ -5504,90 +5504,227 @@ $k$ is a generator of $\mathbb{Z}_{n}$ iff $\text{gcd}(n, k) = 1$. $e^{i(2k\pi/n
 \end{exercise}
 
 \begin{proof}
+    I re-prove Theorem 6.15.
+
+    Let $n$ be the number of elements of $G$ and $a, h, k$ be generators of $G, H, K$, respectively. Let $s$ be a positive integer such that $a^{s}\in H$, $t$ a positive integer such that $a^{t} = k$. $s \ne t$, since if $s = t$, then $H = K$, which contrary to the hypothesis.
+
+    Let $m$ be the smallest positive integer such that $h^{m} = e$, then $a^{sm} = e$. Since the order of $a$ is $n$, it follows that $n$ divides $sm$. Let $d_{s}$ be the greatest common divisor of $n$ and $s$, then $n/d_{s}, s/d_{s}$ are relatively prime and $n/d_{s}$ divides $m(s/d_{s})$. Together with $n/d_{s}, s/d_{s}$ being relatively prime, we conclude that $n/d_{s}$ divides $m$. So the smallest positive integer $m$ such that $h^{m} = e$ is $n/d_{s}$. In other words, the order of $H$ is $n/d_{s}$.
+    \[
+        H = \{ e, \mathbf{a^{s}}, a^{2s}, \ldots, a^{(n/d_{s} - 1)s} \}
+    \]
+
+    Similarly, the order of $K$ is $n/d_{t}$, where $d_{t}$ is the greatest common divisor of $n$ and $t$.
+    \[
+        K = \{ e, \mathbf{a^{t}}, a^{2t}, \ldots, a^{(n/d_{t} - 1)t} \}
+    \]
+
+    Assume that $\abs{H} = \abs{K}$, then $n/d_{s} = n/d_{t}$, from which we obtain that $d_{s} = d_{t} = d$. Every element of $H$ is of the form $a^{xs} = a^{xs + yn}$. On the other hand, due to Bezout's theorem, there exist integers $x_{0}, y_{0}$ such that $x_{0}s + y_{0}n = d$, $d$ is also the smallest positive integer in the set $\{ xs + yn \mid x, y\in\mathbb{Z} \}$ (also the set of multiple of $d$). Therefore, $a^{d}$ generates $H$. Similarly, $a^{d}$ generates $K$. So $H = K$, which contrary to the hypothesis.
+
+    Thus $\abs{H} \ne \abs{K}$.
 \end{proof}
 
 % section 6/exercise 56
 \begin{exercise}
+    Let $a$ and $b$ be elements of a group $G$. Show that if $ab$ has finite order $n$, then $ba$ also has order $n$.
 \end{exercise}
 
 \begin{proof}
+    $ba = bae = babb^{-1}$. We prove that ${(ba)}^{m} = b{(ab)}^{m}b^{-1}$ for positive integer $m$.
+
+    The statement holds for $m = 1$. Assume the statement holds for $m = k$.
+    \begin{align*}
+        {(ba)}^{k+1} & = (ba){(ba)}^{k}                 \\
+                     & = (babb^{-1})(b{(ab)}^{k}b^{-1}) \\
+                     & = b(ab)(b^{-1}b){(ab)}^{k}b^{-1} \\
+                     & = b(ab){(ab)}^{k}b^{-1}          \\
+                     & = b{(ab)}^{k+1}b^{-1}
+    \end{align*}
+
+    So the statement also holds for $m = k + 1$. According to the mathematical induction, the statement holds for all positive integers.
+
+    Therefore, ${(ba)}^{n} = b{(ab)}^{n}b^{-1}$, so ${(ba)}^{n} = e$ if and only if ${(ab)}^{n} = e$. Thus, if the order of $ab$ is $n$, then the order of $ba$ is also $n$.
 \end{proof}
 
 % section 6/exercise 57
 \begin{exercise}
+    Let $r$ and $s$ be positive integers.
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item Define the \textbf{least common multiple} of $r$ and $s$ as a generator of a certain cyclic group.
+        \item Under what condition is the least common multiple of $r$ and $s$ their product, $rs$?
+        \item Generalizing part (b), show that the product of the greatest common divisor and of the least common multiple of $r$ and $s$ is $rs$.
+    \end{enumerate}
 \end{exercise}
 
 \begin{proof}
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item The least common multiple of $r$ and $s$ is the positive generator of $r\mathbb{Z}\cap s\mathbb{Z}$.
+        \item $rs$ is the common multiple of $r$ and $s$ if and only if $r\mathbb{Z}\cap s\mathbb{Z} = rs\mathbb{Z}$. Therefore, $r \nmid s, 2s, \ldots, (r-1)s$. So for different $a, b$ $1\leq a, b \leq r$, $r$ does not divide $(b - a)s$. So $s, 2s, \ldots, (r-1)s, rs$ leave different remainers when divided by $r$. So there exists $1 \leq h < r$ such that $hs$ leaves remainder $1$ when divided by $r$. Therefore, there exists an integer $k$ such that $hs = 1 + kr$. From this, we deduce that $r$ and $s$ are relatively prime.
+
+              Conversely, $r$ and $s$ are relatively prime. Let $x$ be a common multiple of $r$ and $s$. On the one hand, $x = r\cdot (x/r)$. On the other hand, $s$ divides $x = r\cdot (x/r)$ and $r, s$ are relatively prime, from which we conclude that $s$ divides $x/r$. It follows that $rs$ divides $x$, which means every common multiple of $r$ and $s$ is divisible by $rs$. So $rs$ is the least common multiple of $r$ and $s$.
+
+              Thus the least common multiple of $r$ and $s$ is $rs$ iff $r$ and $s$ are relatively prime.
+        \item Let $d$ be the greatest common divisor of $r$ and $s$, then $r/d$ and $s/d$ are relatively prime. Let $x$ be a common multiple of $r$ and $s$. On the one hand $s = (s/d)d$ divides $x = (x/r)(r/d)d$, so $(s/d)$ divides $(x/r)(r/d)$. On the other hand, $s/d$ and $r/d$ are relatively prime, from which we obtain $s/d$ divides $x/r$, it follows that $rs/d$ divides $x$. Hence every common multiple of $r$ and $s$ is also a multiple of $rs/d$, which means $rs/d$ is the least common multiple of $r$ and $s$.
+
+              Thus the product of the greatest common divisor and the least common multiple of $r$ and $s$ is $d\cdot (rs/d) = rs$.
+    \end{enumerate}
 \end{proof}
 
 % section 6/exercise 58
 \begin{exercise}
+    Show that a group that has only a finite number of subgroups must be a finite group.
 \end{exercise}
 
 \begin{proof}
+    Let $G$ be a group that has only a finite number of subgroups. $G$ is the union of all of its cyclic subgroups.
+    \[
+        G = \bigcup_{a\in G} \{ a \} = \bigcup_{a\in G}\anglebracket{a}
+    \]
+
+    Together with $G$ has only a finite number of subgroups, it follows that $G$ is the union of a finite number of cyclic subgroups.
+
+    Assume that $G$ has infinite elements, then there exists a cyclic subgroup of $G$ which has infinite element. Let $b$ be a generator of this infinite cyclic subgroup, then $\anglebracket{b}$ has an infinite number of subgroup, which are $\anglebracket{b^{n}}$, where $n$ is any positive integer. This contrary to the hypothesis that $G$ has only a finite number of subgroups, so the assumption is false. Hence $G$ is a finite group.
+
+    Thus a group that has only a finite number of subgroups is a finite group.
 \end{proof}
 
 % section 6/exercise 59
 \begin{exercise}
+    Show by a counterexample that the following ``converse'' of Theorem 6.6 is not a theorem: ``If a group $G$ is such that every proper subgroup is cyclic, then $G$ is cyclic.\@''
 \end{exercise}
 
 \begin{proof}
+    The Klein 4-group $V = \{ e, a, b, c \}$ where $e = a^{2} = b^{2} = c^{2}$, $ab = ba = c, bc = cb = a, ca = ac = b$ has four proper subgroups, which are $\{ e \}$, $\{ e, a \}$, $\{ e, b \}$, $\{ e, c \}$. $V$ is not cyclic because the orders of $e, a, b, c$ are $1, 2, 2, 2$, respectively, which are less than the order of $V$.
 \end{proof}
 
 % section 6/exercise 60
 \begin{exercise}
+    Let $G$ be a group and suppose $a\in G$ generates a cyclic subgroup of order $2$ and is the \textit{unique} such element. Show that $ax = xa$ for all $x\in G$.
 \end{exercise}
 
 \begin{proof}
+    $a$ generates a cyclic subgroup of order $2$ means $a\ne e$ and $a^{2} = e$. Let $x$ be an element of $G$.
+    \[
+        {(xax^{-1})}^{2} = (xax^{-1})(xax^{-1}) = x(a(x^{-1}x)a)x^{-1} = xa^{2}x^{-1} = xx^{-1} = e
+    \]
+
+    Due to the hypothesis, $a$ is the unique element such that $a$ generates a cyclic subgroup of order $2$, so $xax^{-1} = a$. It follows that $ax = xax^{-1}x = xa$.
+
+    Thus $ax = xa$ for all $x\in G$.
 \end{proof}
 
 % section 6/exercise 61
 \begin{exercise}
+    Prove that if $G$ is a cyclic group with an odd number of generators, then $G$ has at most two elements.
 \end{exercise}
 
 \begin{proof}
+    If $G$ is a trivial group, then $G$ has one element, which is only the only generator.
+
+    Otherwise, let $a_{1}, a_{2}, \ldots, a_{2n-1}$ be all generators of $G$. If an element is a generator, then so is its inverse. We map each element in $\{ a_{1}, \ldots, a_{2n-1} \}$ to its inverse, which is also in this set. Since this set has an odd number of generators, then there is at least one element which is mapped to itself. Let such element be $a_{k}$, then $G = \anglebracket{a_{k}} = \{ e, a_{k} \}$. Therefore $G$ has two elements.
+
+    Thus if $G$ is a cyclic group with an odd number of generators, then $G$ has at most two elements.
 \end{proof}
 
 % section 6/exercise 62
 \begin{exercise}
+    Let $p$ and $q$ be distinct prime numbers. Find the number of generators of the cyclic group $\mathbb{Z}_{pq}$.
 \end{exercise}
 
 \begin{proof}
+    An element $x$ is a generator of $\mathbb{Z}_{pq}$ if and only if $x$ and $pq$ are relatively prime. Equivalently $x$ is not divisible by $p$ and $q$. So the number of generators of the cyclic group $\mathbb{Z}_{pq}$ is the same as the number of positive integers less than $pq$ and relatively prime with $pq$.
+
+    Let's consider the set $A = \{ 0, 1, 2, \ldots, pq - 1 \}$. There are $p$ elements of $A$ which are divisible by $q$. There are $q$ elements of $B$ which are divisible by $p$. There is one element which is divisible by $p$ and $q$. So there are $p + q - 1$ elements which are divisible by $p$ or $q$. Therefore, there are $pq - p - q + 1$ elements which are not divisible by $p$ and $q$.
+
+    Hence $\mathbb{Z}_{pq}$ has $pq - p - q + 1$ generators.
 \end{proof}
 
 % section 6/exercise 63
 \begin{exercise}
+    Let $p$ be a prime number. Find the number of generators of the cyclic group $\mathbb{Z}_{{p}^{r}}$, where $r$ is an integer $\geq 1$.
 \end{exercise}
 
 \begin{proof}
+    An element $x$ of $\mathbb{Z}_{{p}^{r}}$ is a generator of $\mathbb{Z}_{{p}^{r}}$ if and only if $x$ and $p^{r}$ are relatively prime. $x$ and $p^{r}$ are relatively prime if and only if $x$ is not divisible by $p$.
+
+    There are $p^{r}/p = p^{r-1}$ elements of $\mathbb{Z}_{{p}^{r}}$ which are divisible by $p$. Thus, the number of generators of $\mathbb{Z}_{{p}^{r}}$ is $p^{r} - p^{r-1}$.
 \end{proof}
 
 % section 6/exercise 64
 \begin{exercise}
+    Show that in a finite cyclic group $G$ of order $n$, written multiplicatively, the equation $x^{m} = e$ has exactly $m$ solutions $x$ in $G$ for each positive integers $m$ that divides $n$.
 \end{exercise}
 
 \begin{proof}
+    Let $a$ be a generator of $G$. If $m$ divides $n$, then $a^{0}, a^{n/m}, a^{2n/m}, \ldots, a^{(m-1)n/m}$ are distinct $m$ solutions to the equation $x^{m} = e$.
+
+    Suppose that $b$ is a solution to the equation $x^{m} = e$. Since $a$ generates $G$, there exists a positive integer $r$ such that $a^{r} = b$. Because $b^{m} = e$, it follows that $a^{rm} = e$. Because the order of $a$ is $n$ ($G$ is a cyclic group of order $n$ and $a$ is one of its generator), we deduce that $n$ divides $rm$. Because $n$ also divides $m$, it follows that $n/m$ divides $r$. In other words, $r$ is a multiple of $n/m$. Therefore, $b$ is one of the listed $m$ solutions above.
+
+    Thus, if $m$ divides $n$, the equation $x^{m} = e$ has exactly $m$ solutions $x$ in $G$.
 \end{proof}
 
 % section 6/exercise 65
 \begin{exercise}
+    With reference to Exercise 64, what is the situation if $1 < m < n$ and $m$ does not divide $n$?
 \end{exercise}
 
 \begin{proof}
+    The result does not hold if $1 < m < n$ and $m$ does no divide $n$.
+
+    Example: In cyclic group $\mathbb{Z}_{3}$, the equation $2x = 1$ has only one solution $x = 2$.
 \end{proof}
 
 % section 6/exercise 66
 \begin{exercise}
+    Show that $\mathbb{Z}_{p}$ has no proper nontrivial subgroups if $p$ is a prime number.
 \end{exercise}
 
 \begin{proof}
+    Let $G$ be a subgroup of $\mathbb{Z}_{p}$ other than the trivial subgroup. Since subgroup of a cyclic group is also cyclic, we deduce that $G$ is cyclic. Let $x$ be a generator of $G$. Since $x < p$, then $x$ and $p$ are relatively prime, so there exists integers $a, b$ such that $ax + bp = 1$. Therefore, $ax = ax + bp = 1$, so $1\in G$. Because $1$ generates $\mathbb{Z}_{p}$, we conclude that $G = \mathbb{Z}_{p}$. Hence the only subgroups of $\mathbb{Z}_{p}$ are itself and $\anglebracket{0}$.
+
+    Thus $\mathbb{Z}_{p}$ has no proper nontrival subgroups if $p$ is a prime number.
 \end{proof}
 
 % section 6/exercise 67
 \begin{exercise}
+    Let $G$ be an abelian group and let $H$ and $K$ be finite cyclic subgroups with $\abs{H} = r$ and $\abs{K} = s$.
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item Show that if $r$ and $s$ are relatively prime, then $G$ contains a cyclic group of order $rs$.
+        \item Generalizing part (a), show that $G$ contains a cyclic subgroup of order the least common multiple of $r$ and $s$.
+    \end{enumerate}
 \end{exercise}
 
 \begin{proof}
+    Let $a$ be a generator of $H$, and $b$ a generator of $K$. $H = \{ e, a, a^{2}, \ldots, a^{r-1} \}$, $K = \{ e, b, b^{2}, \ldots, b^{s-1} \}$.
+
+    Since the order of $H$ and $K$ are $r$, $s$, the following definition of $J$ is equivalent: $J = \{ a^{m}b^{n} \mid 0\leq m < r, 0\leq n < s \}$.
+
+    Notice that, since $G$ is abelian, we can prove by mathematical induction that ${(ab)}^{n} = a^{n}b^{n}$ for all integers $n$.
+
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item We prove that $\anglebracket{ab}$ is a cyclic subgroup of order $rs$.
+
+              ${(ab)}^{rs} = a^{rs}b^{rs} = ee = e$. So the order of $ab$ is at most $rs$. Let $k$ be the order of $ab$, then $k$ is the smallest positive integer such that ${(ab)}^{k} = e$.
+
+              $a^{k}b^{k} = {(ab)}^{k} = e$. It follows that $a^{k} = b^{-k}$. $\anglebracket{a^{k}}$ is a cyclic subgroup of $H$, and $\anglebracket{b^{-k}}$ is a cyclic subgroup of $K$. On the other hand, $\anglebracket{a^{k}} = \anglebracket{b^{-k}}$ (because the two generators are identical). The order of these cyclic subgroups is a common divisor of $r$ and $s$ (due to Theorem 6.15). Because $r$ and $s$ are relatively prime (the common divisors are $\pm 1$), it follows that $\anglebracket{a^{k}}$ and $\anglebracket{b^{-k}}$ are trivial groups. So $a^{k} = b^{-k} = e$, from which we deduce that $k$ is divisible by $r$ and $s$. Hence the order of $ab$ is at least $rs$.
+
+              Thus $\anglebracket{ab}$ is a cyclic subgroup of order $rs$.
+        \item Let the prime factorization of $r$ and $s$ be
+              \[
+                  \begin{split}
+                      r = {p}_{1}^{r_{1}}\cdots {p}_{m}^{r_{m}} \\
+                      s = {p}_{1}^{s_{1}}\cdots {p}_{m}^{s_{m}}
+                  \end{split}
+              \]
+
+              where we reorder the primes such that there exists a positive integer $t$ where $r_{i}\geq s_{i}$ for $i \leq t$, and $r_{i} < s_{i}$ for $i > t$. The least common multiple of $r$ and $s$ is
+              \[
+                  ({p}_{1}^{r_{1}}\cdots {p}_{t}^{r_{t}})({p}_{t+1}^{s_{t+1}}\cdots {p}_{m}^{s_{m}})
+              \]
+
+              We choose $x = {p}_{t+1}^{r_{t+1}}\cdots {p}_{m}^{r_{m}}$ and $y = {p}_{1}^{s_{1}}\cdots {p}_{t}^{s_{t}}$. The order of $a^{x}$ is ${p}_{1}^{r_{1}}\cdots {p}_{t}^{r_{t}}$, the order of $b^{y}$ is ${p}_{t+1}^{s_{t+1}}\cdots {p}_{m}^{s_{m}}$. These two orders are relatively prime.
+
+              According to part (a), there exists a cyclic subgroup of $G$ of order the least common multiple of $r$ and $s$.
+    \end{enumerate}
 \end{proof}
 
 \section{Generating Sets and Cayley Digraphs}
