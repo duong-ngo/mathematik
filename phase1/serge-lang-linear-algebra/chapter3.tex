@@ -621,301 +621,891 @@ is called the \textbf{parallelogram} spanned by $v_{1}, v_{2}$.
 \setcounter{exercise}{0}
 
 \begin{exercise}
+    Let $A, B$ be two vectors in $\mathbf{R}^{2}$ forming a basis of $\mathbf{R}^{2}$. Let $F: \mathbf{R}^{2} \to \mathbf{R}^{n}$ be a linear map. Show that either $F(A), F(B)$ are linearly independent, or the image of $F$ has dimension $1$, or the image of $F$ is $\{ O \}$.
 \end{exercise}
 
 \begin{proof}
+    $\dim\mathbf{R}^{2} = \dim\ker F + \dim\im F$
+
+    $\dim\ker F$ can be either $0$, $1$, or $2$.
+
+    If $\dim\ker F = 0$, then $F$ is injective, and $F(A), F(B)$ are linearly independent. If $\dim\ker F = 1$, then $\dim\im F = 1$. If $\dim\ker F = 2$, then $\ker F = \mathbf{R}^{2}$, which means the image of $F$ is $\{ O \}$.
+
+    Thus either $F(A), F(B)$ are linearly independent, or the image of $F$ has dimension $1$, or the image of $F$ is $\{ O \}$.
 \end{proof}
 
 \begin{exercise}
+    Let $A$ be a non-zero vector in $\mathbf{R}^{2}$. Let $F: \mathbf{R}^{2} \to W$ be a linear map such that $F(A) = O$. Show that the image of $F$ is either a straight line or $\{ O \}$.
 \end{exercise}
 
 \begin{proof}
+    According to Rank-Nullity theorem, $\dim\mathbf{R}^{2} = \dim\ker F + \dim\im F$. So $\dim\ker F \leq 2$.
+
+    Since $A$ is a non-zero vector and $F(A) = O$, then $\dim\ker F \geq 1$. So $\dim\ker F$ is either $1$ or $2$.
+
+    If $\dim\ker F = 1$, then there exists a vector $B$ in $\mathbf{R}^{2}$ such that $F(B) \ne O$. So the image of $F$ is $\{ t\cdot F(B) \mid t\in\mathbf{R} \}$, which is a straight line.
+
+    If $\dim\ker F = 2$, then $\ker F = \mathbf{R}^{2}$. So the image of $F$ is $\{ O \}$.
+
+    Thus the image of $F$ is either a straight line or $\{ O \}$.
 \end{proof}
 
 \begin{exercise}
+    Determine the dimension of the subspace of $\mathbf{R}^{4}$ consisting of all $X\in\mathbf{R}^{4}$ such that
+    \[
+        x_{1} + 2x_{2} = 0 \quad\text{and}\quad x_{3} - 15x_{4} = 0
+    \]
 \end{exercise}
 
 \begin{proof}
+    Let $v = (a_{1}, a_{2}, a_{3}, a_{4})$ be a vector of the given subspace. Since $a_{1} + 2a_{2} = a_{3} - 15a_{4} = 0$, we write
+    \begin{align*}
+        v & = (-2a_{2}, a_{2}, 15a_{4}, a_{4})                \\
+          & = (-2a_{2}, a_{2}, 0, 0) + (0, 0, 15a_{4}, a_{4}) \\
+          & = a_{2}(-2, 1, 0, 0) + a_{4}(0, 0, 15, 1)
+    \end{align*}
+
+    So $(-2, 1, 0, 0)$ and $(0, 0, 15, 1)$ generate the given subspace. Suppose that there exist a linear relation
+    \[
+        b_{1}(-2, 1, 0, 0) + b_{2}(0, 0, 15, 1) = (0, 0, 0, 0)
+    \]
+
+    then in terms of coordinates, $-2b_{1} = b_{1} = 15b_{2} = b_{2} = 0$. Therefore $b_{1} = b_{2} = 0$, from which we conclude that $(-2, 1, 0, 0)$ and $(0, 0, 15, 1)$ are linearly independent. So $(-2, 1, 0, 0)$ and $(0, 0, 15, 1)$ constitutes a basis of the given subspace. Hence the dimension of the given subspace is $2$.
 \end{proof}
 
 \begin{exercise}
+    Let $L: V \to W$ be a linear map. Let $w$ be an element of $W$. Let $v_{0}$ be an element of $V$ such that $L(v_{0}) = w$. Show that any solution of the equation $L(X) = w$ is of type $v_{0} + U$, where $u$ is an element of the kernel of $L$.
 \end{exercise}
 
 \begin{proof}
+    Let $X$ be a solution of the equation $L(X) = w$. By linearity
+    \[
+        L(X - v_{0}) = L(X) - L(v_{0}) = w - w = O.
+    \]
+
+    So $X - v_{0}$ is an element of $\ker L$. Hence $X = v_{0} + u$, where $u = X - v_{0} \in \ker L$.
+
+    Let $Y$ be an element of $V$ of type $v_{0} + u$, where $u\in\ker L$. By linearity
+    \[
+        L(Y) = L(v_{0} + u) = L(v_{0}) + L(u) = w + O = w.
+    \]
+
+    So $Y$ is a solution of the equation $L(X) = w$.
 \end{proof}
 
 \begin{exercise}
+    Let $V$ be the vector space of functions which have derivatives of all orders, and let $D: V \to V$ be the derivative. What is the kernel of $D$?
 \end{exercise}
 
 \begin{proof}
+    The kernel of $D$ is the subspace of all constant functions.
 \end{proof}
 
 \begin{exercise}
+    Let $D^{2}$ be the second derivative (i.e.\@ the iteration of $D$ taken twice). What is the kernel of $D^{2}$? In general, what is the kernel of $D^{n}$ ($n$-th derivative)?
 \end{exercise}
 
 \begin{proof}
+    The kernel of $D^{2}$ is the subspace of all polynomial functions of degree less than $2$.
+
+    The kernel of $D^{n}$ is the subspace of all polynomial functions of degree less than $n$.
 \end{proof}
 
 \begin{exercise}
+    Let $V$ be again the vector of functions which have derivates of all orders. Let $W$ be the subspace of $V$ consisting of those functions $f$ such that
+    \[
+        f'' + 4f = 0 \quad\text{and}\quad f(\pi) = 0.
+    \]
+
+    Determine the dimension of $W$.
 \end{exercise}
 
 \begin{proof}
+    % unsolved
 \end{proof}
 
 \begin{exercise}
+    Let $V$ be the vector space of all infinitely differentiable functions. We write the functions as functions of variable $t$, and let $D = d/dt$. Let $a_{1}, \ldots, a_{m}$ be numbers. Let $g$ be an element of $V$. Describe how the problem of finding a solution of the differential equation
+    \[
+        a_{m}\frac{d^{m}f}{dt^{m}} + a_{m-1}\frac{d^{m-1}f}{dt^{m-1}} + \cdots + a_{0}f = g
+    \]
+
+    can be interpreted as fitting the asbtract situation described in Exercise 4.
 \end{exercise}
 
 \begin{proof}
+    If $f^{*}$ is a particular solution to the differential equation, and $\tilde{f}$ is the general solution to the homogeneous differential equation
+    \[
+        a_{m}\frac{d^{m}f}{dt^{m}} + a_{m-1}\frac{d^{m-1}f}{dt^{m-1}} + \cdots + a_{0}f = 0
+    \]
+
+    then every solution of the given differential equation is of the form $f^{*} + \tilde{f}$.
 \end{proof}
 
 \begin{exercise}
+    Again let $V$ be the space of all infinitely differentiable functions, and let $D: V \to V$ be the derivative.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Let $L = D - I$ where $I$ is the identity mapping. What is the kernel of $L$?
+        \item Same question if $L = D - aI$, where $a$ is a number.
+    \end{enumerate}
 \end{exercise}
 
 \begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item If $L(f) = 0$, then $D(f) = f$. So $f = c\cdot e^{x}$, where $c$ is a number. When $f = c\cdot e^{x}$, $L(f) = c\cdot e^{x} - c\cdot e^{x} = 0$.
+
+              Hence $\ker L = \{ f \mid f(x) = c\cdot e^{x} \}$.
+        \item If $L(f) = 0$, then $D(f) = a\cdot f$. So $f = c\cdot e^{ax}$, where $c$ is a number. When $f = c\cdot e^{ax}$, $L(f) = ca\cdot e^{ax} - a\cdot c\cdot e^{ax} = 0$.
+
+              Hence $\ker L = \{ f \mid f(x) = c\cdot e^{ax} \}$.
+    \end{enumerate}
 \end{proof}
 
 \begin{exercise}
+    \begin{enumerate}[label={(\alph*)}]
+        \item What is the dimension of the subspace of $K^{n}$ consisting of those vectors $A = (a_{1}, \ldots, a_{n})$ such that $a_{1} + \cdots + a_{n} = 0$?
+        \item What is the dimension of the subspace of the space of $n\times n$ matrices $(a_{i.i})$ such that
+              \[
+                  a_{1.1} + \cdots + a_{n.n} = \sum^{n}_{i=1}a_{i.i} = 0?
+              \]
+    \end{enumerate}
 \end{exercise}
 
 \begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Let $F$ be the linear map from $K^{n}$ to $K$ such that $F(a_{1}, \ldots, a_{n}) = a_{1} + \cdots + a_{n}$. The image of $K$ has dimension $1$.
+
+              $\dim\ker F = \dim K^{n} - \dim\im F = n - 1$. Hence the dimension of the given subspace is $n - 1$.
+        \item Let $F$ be the linear map from $\text{Mat}_{n\times n}(K)$ to $K$ such that $F((a_{i.j})) = \sum^{n}_{i=1}a_{i.i}$. The image of $K$ has dimension $1$.
+
+              $\dim\ker F = \dim\text{Mat}_{n\times n}(K) - \dim\im F = n^{2} - 1$.
+    \end{enumerate}
 \end{proof}
 
 \begin{exercise}
+    Let $A = {(a_{i.j})}$ be an $n\times n$ matrix. Define the \textbf{trace} of $A$ to be the sum of the diagonal elements, that is
+    \[
+        \tr{A} = \sum^{n}_{i=1}a_{i.i}.
+    \]
+
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that the trace is a linear map of the space of $n\times n$ matrices into $K$.
+        \item If $A, B$ are $n\times n$ matrices, show that $\tr{AB} = \tr{BA}$.
+        \item If $B$ is invertible, show that $\tr{B^{-1}AB} = \tr{A}$.
+        \item If $A, B$ are $n\times n$ matrices, show that the association
+              \[
+                  (A, B) \mapsto \tr{AB} = \anglebracket{A, B}
+              \]
+
+              satisfies the three conditions of a scalar product.
+    \end{enumerate}
 \end{exercise}
 
 \begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item $\tr{A + B} = \displaystyle\sum^{n}_{i=1}(a_{i.i} + b_{i.i}) = \displaystyle\sum^{n}_{i=1} a_{i.i} + \displaystyle\sum^{n}_{i=1} b_{i.i} = \tr{A} + \tr{B}$.
+
+              $\tr{cA} = \displaystyle\sum^{n}_{i=1}ca_{i.i} = c\displaystyle\sum^{n}_{i=1} a_{i.i} = c\cdot\tr{A}$.
+
+              So the trace is a linear map of the space of $\text{Mat}_{n\times n}(K)$.
+        \item \begin{align*}
+                  \tr{AB} & = \sum^{n}_{i=1}\left(\sum^{n}_{j=1}a_{i.j}b_{j.i}\right) \\
+                          & = \sum^{n}_{j=1}\left(\sum^{n}_{i=1}b_{j.i}a_{i.j}\right) \\
+                          & = \tr{BA}
+              \end{align*}
+        \item $\tr{B^{-1}AB} = \tr{ABB^{-1}} = \tr{A}$.
+        \item $\tr{(A_{1} + A_{2})B} = \tr{A_{1}B + A_{2}B} = \tr{A_{1}B} + \tr{A_{2}B}$
+
+              $\tr{A(B_{1}, B_{2})} = \tr{AB_{1} + AB_{2}} = \tr{AB_{1}} + \tr{AB_{2}}$.
+
+              $\tr{(cA)B} = \tr{A(cB)} = \tr{c(AB)} = c\tr{AB}$.
+
+              Therefore the association is bilinear.
+
+              $\tr{AB} = \tr{BA}$. Therefore the association is symmetric.
+
+              Hence the association satisfies three conditions of a scalar product.
+    \end{enumerate}
 \end{proof}
 
 \begin{exercise}
+    Let $S$ be the set of symmetric $n\times n$ matrices. Show that $S$ is a vector space. What is the dimension of $S$? Exhibit a basis for $S$, when $n = 2$ and $n = 3$.
 \end{exercise}
 
 \begin{proof}
+    The zero $n\times n$ matrix is a symmetric matrix, so $S$ is not empty. If $A, B$ are symmetric matrices, then $A + B$ and $cA$ are also symmetric, since $a_{i.j} + b_{i.j} = a_{j.i} + b_{j.i}$ and $ca_{i.j} = ca_{j.i}$. Hence $S$ is a subspace of the space of $n\times n$ matrices.
+
+    When $n = 2$, a basis for $S$ is
+    \[
+        \begin{bmatrix}
+            1 & 0 \\
+            0 & 0
+        \end{bmatrix},
+        \begin{bmatrix}
+            0 & 0 \\
+            0 & 1
+        \end{bmatrix},
+        \begin{bmatrix}
+            0 & 1 \\
+            1 & 0
+        \end{bmatrix}.
+    \]
+
+    When $n = 3$, a basis for $S$ is
+    \[
+        \begin{bmatrix}
+            1 & 0 & 0 \\
+            0 & 0 & 0 \\
+            0 & 0 & 0
+        \end{bmatrix},
+        \begin{bmatrix}
+            0 & 0 & 0 \\
+            0 & 1 & 0 \\
+            0 & 0 & 0
+        \end{bmatrix},
+        \begin{bmatrix}
+            0 & 0 & 0 \\
+            0 & 0 & 0 \\
+            0 & 0 & 1
+        \end{bmatrix},
+        \begin{bmatrix}
+            0 & 1 & 0 \\
+            1 & 0 & 0 \\
+            0 & 0 & 0
+        \end{bmatrix},
+        \begin{bmatrix}
+            0 & 0 & 1 \\
+            0 & 0 & 0 \\
+            1 & 0 & 0
+        \end{bmatrix},
+        \begin{bmatrix}
+            0 & 0 & 0 \\
+            0 & 0 & 1 \\
+            0 & 1 & 0
+        \end{bmatrix}.
+    \]
 \end{proof}
 
 \begin{exercise}
+    Let $A$ be a real symmetric $n\times n$ matrix. Show that
+    \[
+        \tr{AA} \geq 0,
+    \]
+
+    and if $A\ne O$, then $\tr{AA} > 0$.
 \end{exercise}
 
 \begin{proof}
+    Let $A = {(a_{i.j})} \in \text{Mat}_{n\times n}(\mathbf{R})$.
+
+    \begin{align*}
+        \tr{AA} & = \sum^{n}_{i=1}\left( \sum^{n}_{j=1} a_{i.j}a_{j.i} \right) \\
+                & = \sum^{n}_{i=1}\left( \sum^{n}_{j=1} {a_{i.j}}^{2} \right)  \\
+                & \geq 0
+    \end{align*}
+
+    Equality holds iff $a_{i.j} = 0$ for all $1\leq i, j \leq n$.
 \end{proof}
 
 \begin{exercise}
+    (Field of characteristic other than $2$) An $n\times n$ matrix $A$ is called \textbf{skew-symmetric} if $\prescript{t}{}{A} = -A$. Show that any $n\times n$ matrix $A$ can be rewritten as a sum
+    \[
+        A = B + C,
+    \]
+
+    where $B$ is symmetric and $C$ is skew-symmetric.
 \end{exercise}
 
 \begin{proof}
+    \[
+        A = \frac{A + \prescript{t}{}{A}}{2} + \frac{A - \prescript{t}{}{A}}{2}
+    \]
+
+    where $B = \dfrac{A + \prescript{t}{}{A}}{2}$ is symmetric, and $C = \dfrac{A - \prescript{t}{}{A}}{2}$ is skew-symmetric.
 \end{proof}
 
 \begin{exercise}
+    (Field of characteristic other than $2$) Let $M$ be the space of all $n\times n$ matrices. Let
+    \[
+        P: M \to M
+    \]
+
+    be the map such that
+    \[
+        P(A) = \frac{A + \prescript{t}{}{A}}{2}.
+    \]
+
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that $P$ is linear.
+        \item Show that the kernel of $P$ consists of the space of skew-symmetric matrices.
+        \item What is the dimension of the kernel of $P$?
+    \end{enumerate}
 \end{exercise}
 
 \begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item $P(A + B) = \dfrac{(A + B) + \prescript{t}{}{(A + B)}}{2} = \dfrac{A + \prescript{t}{}{A}}{2} + \dfrac{B + \prescript{t}{}{B}}{2} = P(A) + P(B)$.
+
+              $P(cA) = \dfrac{cA + \prescript{t}{}{cA}}{2} = \dfrac{cA + c\cdot\prescript{t}{}{A}}{2} = cP(A)$.
+
+              Hence $P$ is linear.
+        \item $P(A) = O$ iff $A + \prescript{t}{}{A} = O$. Equivalently, $\prescript{t}{}{A} = -A$. Hence the kernel of $P$ is the space of skew-symmetric matrices.
+        \item $\dim\ker P = n(n-1)/2$.
+    \end{enumerate}
 \end{proof}
 
 \begin{exercise}
+    Let $M$ be the space of all $n\times n$ matrices. Let
+    \[
+        F: M\to M
+    \]
+
+    be the map such that
+    \[
+        F(A) = \frac{A - \prescript{t}{}{A}}{2}
+    \]
+
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that $F$ is linear.
+        \item Describe the kernel of $F$, and determine its dimension.
+    \end{enumerate}
 \end{exercise}
 
 \begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item $F(A + B) = \dfrac{A + B - \prescript{t}{}(A + B)}{2} = \dfrac{A - \prescript{t}{}{A}}{2} + \dfrac{B - \prescript{t}{}{B}}{2} = F(A) + F(B)$.
+
+              $F(cA) = \dfrac{cA - \prescript{t}{}(cA)}{2} = \dfrac{cA - c\cdot\prescript{t}{}{A}}{2} = cF(A)$.
+
+              Hence $F$ is linear.
+        \item $F(A) = O$ iff $A = \prescript{t}{}{A}$, which means $A$ is symmetric. The kernel of $F$ is the space of $n\times n$ symmetric matrices, its dimension is $n(n+1)/2$.
+    \end{enumerate}
 \end{proof}
 
 \begin{exercise}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Let $U, W$ be vector spaces. We let $U\times W$ be the set of all pairs $(u, w)$ with $u\in U$ and $w\in W$. If $(u_{1}, w_{1}), (u_{2}, w_{2})$ are such pairs, define their sum
+              \[
+                  (u_{1}, w_{1}) + (u_{2}, w_{2}) = (u_{1} + u_{2}, w_{1} + w_{2})
+              \]
+
+              If $c$ is a number, define $c(u, w) = (cu, cw)$. Show that $U\times W$ is a vector space with these definitions. What is the zero element?
+        \item If $U$ has dimension $n$ and $W$ has dimension $m$, what is the dimension of $U\times W$? Exhibit a basis of $U\times W$ in terms of a basis for $U$ and a basis for $W$.
+        \item If $U$ is a subspace of a vector space $V$, show that the subset of $V\times V$ consisting of all elements $(u, u)$ with $u\in U$ is a subspace.
+    \end{enumerate}
 \end{exercise}
 
 \begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Component-wised addition is associative, has identity element, each element has an inverse, and commutative, these follow the properties of fields.
+
+              \begin{align*}
+                  c((u_{1}, w_{1}) + (u_{2}, w_{2})) & = c(u_{1} + u_{2}, w_{1} + w_{2})     \\
+                                                     & = (cu_{1} + cu_{2}, cw_{1} + cw_{2})  \\
+                                                     & = (cu_{1}, cw_{1}) + (cu_{2}, cw_{2}) \\
+                                                     & = c(u_{1}, w_{1}) + c(u_{2}, w_{2}),  \\
+                  (c_{1} + c_{2})(u, w)              & = (c_{1}u + c_{2}u, c_{1}w + c_{2}w)  \\
+                                                     & = (c_{1}u, c_{1}w) + (c_{2}u, c_{2}w) \\
+                                                     & = c_{1}(u, w) + c_{2}(u, w)           \\
+                  c_{1}(c_{2}(u, w))                 & = c_{1}(c_{2}u, c_{2}w),              \\
+                                                     & = (c_{1}(c_{2}u), c_{1}(c_{2}w))      \\
+                                                     & = ((c_{1}c_{2})u, (c_{1}c_{2})w)      \\
+                                                     & = c_{1}c_{2}(u, w),                   \\
+                  1(u, w)                            & = (1u, 1w)                            \\
+                                                     & = (u, w).
+              \end{align*}
+
+              So $U\times W$ is a vector space. The zero element is $(O_{U}, O_{W})$.
+        \item Let $\{ u_{1}, \ldots, u_{n} \}$ be a basis of $U$, $\{ w_{1}, \ldots, w_{m} \}$ be a basis of $W$.
+
+              A basis of $U\times W$ is $\{ (u_{1}, O_{W}), \ldots, (u_{n}, O_{W}), (O_{U}, w_{1}), \ldots, (O_{U}, w_{m}) \}$.
+
+              $\dim (U\times W) = \dim U \cdot \dim W = nm$.
+        \item The subset contains $(O_{V}, O_{V})$. $(u_{1}, u_{1}), (u_{2}, u_{2})$ are elements of the subset, then $(u_{1} + u_{2}, u_{1} + u_{2})$ and $(cu_{1}, cu_{2})$ are also elements of the subset. Hence the subset is a subspace of $V\times V$.
+    \end{enumerate}
 \end{proof}
 
 \begin{exercise}
+    (To be done after you have done Exercise 17.) Let $U, W$ be subspaces of a vector space $V$. Show that
+    \[
+        \boxed{\dim U + \dim W = \dim (U + W) + \dim(U\cap W).}
+    \]
 \end{exercise}
 
 \begin{proof}
+    The map $L: U\times W \to V$ given by $L(u, w) = u - w$ is a linear map, since $L(u_{1} + u_{2}, w_{1} + w_{2}) = (u_{1} + u_{2}) - (w_{1} + w_{2}) = (u_{1} - w_{1}) + (u_{2} - w_{2}) = L(u_{1}, w_{1}) + L(u_{2}, w_{2})$ and $L(cu, cw) = cu - cw = c(u - w) = cL(u, w)$.
+
+    The image of $L$ is precisely $U + W$. The kernel of $L$ is precisely is the space of $(t, t)$ where $t\in U\cap W$.
+
+    According to Rank-Nullity theorem, $\dim (U\times W) = \dim\ker L + \dim\im L$. So $\dim U + \dim W = \dim (U\times W) = \dim (U\cap W) + \dim (U + W)$.
 \end{proof}
 
 \section{Composition and Inverse of Linear Mappings}
 \setcounter{exercise}{0}
 
 \begin{exercise}
+    Let $L: \mathbf{R}^{2} \to \mathbf{R}^{2}$ be a linear map such that $L\ne O$ but $L^{2} = L \circ L = O$. Show that there exists a basis $\{ A, B \}$ of $\mathbf{R}^{2}$ such that
+    \[
+        L(A) = B \qquad\text{and}\qquad L(B) = O.
+    \]
 \end{exercise}
 
 \begin{proof}
+    Because $L\ne O$, there exists $A\in\mathbf{R}^{2}$ such that $L(A) \ne O$. Consider the linear relation $aA + bL(A) = O$. $O = L(O) = L(aA + bL(A)) = aL(A) + bL^{2}(A) = aL(A)$. Since $L(A) \ne O$, then $a = 0$. From $a = 0$, we obtain that $bL(A) = O$. Once again, $L(A)\ne O$, so $b = 0$. Therefore, $A$ and $B = L(A)$ is a desired basis of $\mathbf{R}^{2}$.
 \end{proof}
 
 \begin{exercise}
+    Let $\dim V > \dim W$. Let $L: V \to W$ be a linear map. Show that the kernel of $L$ is not $\{ O \}$.
 \end{exercise}
 
 \begin{proof}
+    $\dim\ker L = \dim V - \dim W > \dim V - \dim V = 0$. Therefore, $\ker L$ is not $\{ O \}$.
 \end{proof}
 
 \begin{exercise}
+    Let $F: U\to V$ be a linear map, and assume that this map has an inverse mapping $G: V\to U$. Then $G$ is a linear map.
 \end{exercise}
 
 \begin{proof}
+    Let $v_{1} = F(u_{1}), v_{2} = F(u_{2})$. Because $G$ is an inverse mapping of $F$, then $G(v_{1}) = u_{1}$ and $G(v_{2}) = u_{2}$.
+    \begin{align*}
+        G(v_{1} + v_{2}) & = G(F(u_{1}) + F(u_{2})) = G(F(u_{1} + u_{2})) = u_{1} + u_{2} = G(v_{1}) + G(v_{2}) \\
+        G(cv_{1})        & = G(cF(u_{1})) = G(F(cu_{1})) = cu_{1} = cG(v_{1})
+    \end{align*}
+
+    Hence $G$ is a linear map.
 \end{proof}
 
 \begin{exercise}
+    Let $\dim V = \dim W$. Let $L: V \to W$ be a linear map whose kernel is $\{ O \}$. Show that $L$ has an inverse linear map.
 \end{exercise}
 
 \begin{proof}
+    Let $\{ v_{1}, \ldots, v_{n} \}$ be a basis of $V$. Let $w_{i} = L(v_{i})$, where $i = \overline{1, n}$. Consider the linear relation $c_{1}w_{1} + \cdots + c_{n}w_{n} = O$, from this, we obtain that $L(c_{1}v_{1} + \cdots + c_{n}v_{n}) = O$. Since $\ker L = O$ and $v_{1}, \ldots, v_{n}$ are linearly independent, it follows that $c_{1} = \cdots = c_{n} = 0$ and $w_{1}, \ldots, w_{n}$ are linearly independent. On the other hand, $\dim V = \dim W$, from which we conclude that $\{ w_{1}, \ldots, w_{n} \}$ is a basis of $W$.
+
+    Let $J: W \to V$ be a linear map given by $J(x_{1}w_{1} + \cdots x_{n}w_{n}) = x_{1}v_{1} + \cdots + x_{n}v_{n}$.
+    \begin{align*}
+        L(J(x_{1}w_{1} + \cdots + x_{n}w_{n})) & = L(x_{1}v_{1} + \cdots + x_{n}v_{n}) \\
+                                               & = x_{1}w_{1} + \cdots + x_{n}w_{n},   \\
+        J(L(x_{1}v_{1} + \cdots + x_{n}v_{n})) & = J(x_{1}w_{1} + \cdots + x_{n}w_{n}) \\
+                                               & = x_{1}v_{1} + \cdots + x_{n}v_{n}
+    \end{align*}
+
+    Hence $J$ is an inverse linear map of $L$.
 \end{proof}
 
 \begin{exercise}
+    Let $F, G$ be invertible linear maps of a vector space $V$ onto itself. Show that
+    \[
+        {(F \circ G)}^{-1} = G^{-1} \circ F^{-1}.
+    \]
 \end{exercise}
 
 \begin{proof}
+    First, we prove that if a linear map $L: V\to W$ has an inverse map, then its inverse map is unique. Suppose that $J, J': W\to V$ are inverse maps of $L$. According to the definition of inverse map, for all $w\in W$, $L(J(w)) = L(J'(w))$. $L$ has an inverse map means $L$ is a one-to-one map. Therefore, $J(w) = J'(w)$ for all $w\in W$. Thus $J$ and $J'$ are identical.
+
+    Back to the problem. ${(F\circ G)}^{-1}$ is the inverse map of $F\circ G$
+    \begin{align*}
+        (F\circ G)\circ (G^{-1}\circ F^{-1}) & = (F \circ (G \circ G^{-1})) \circ F^{-1} \\
+                                             & = (F \circ \text{id}_{V}) \circ F^{-1}    \\
+                                             & = F \circ F^{-1}                          \\
+                                             & = \text{id}_{V}                           \\
+        (G^{-1}\circ F^{-1})\circ (F\circ G) & = (G^{-1}\circ (F^{-1}\circ F))\circ G    \\
+                                             & = (G^{-1}\circ\text{id}_{V})\circ G       \\
+                                             & = G^{-1}\circ G                           \\
+                                             & = \text{id}_{V}
+    \end{align*}
+
+    So $G^{-1}\circ F^{-1}$ is the inverse map of $F\circ G$. Thus ${(F\circ G)}^{-1} = G^{-1}\circ F^{-1}$.
 \end{proof}
 
 \begin{exercise}
+    Let $L: \mathbf{R}^{2} \to \mathbf{R}^{2}$ be the linear map defined by
+    \[
+        L(x, y) = (x+y, x-y)
+    \]
+
+    Show that $L$ is invertible.
 \end{exercise}
 
 \begin{proof}
+    $L(x, y) = (0, 0)$ iff $x + y = x - y = 0$. Equivalently, $x = y = 0$. So the kernel of $L$ is $\{ (0, 0) \}$. According to Exercise 4, $L$ has an inverse linear map. In other words, $L$ is invertible.
 \end{proof}
 
 \begin{exercise}
+    Let $L: \mathbf{R}^{2} \to \mathbf{R}^{2}$ be the linear map defined by
+    \[
+        L(x, y) = (2x + y, 3x - 5y)
+    \]
+
+    Show that $L$ is invertible.
 \end{exercise}
 
 \begin{proof}
+    $L(x, y) = (0, 0)$ iff $2x + y = 3x - 5y = 0$. Solve for $x, y$ from this system of linear equations, we obtain $x = y = 0$, which means the kernel of $L$ is $\{ (0, 0) \}$. According to Exercise 4, $L$ is invertible.
 \end{proof}
 
 \begin{exercise}
+    Let $L: \mathbf{R}^{3} \to \mathbf{R}^{3}$ be the linear maps as indicated. Show that $L$ is invertible in each case.
+    \begin{enumerate}[label={(\alph*)}]
+        \item $L(x, y, z) = (x - y, x + z, x + y + 2z)$
+        \item $L(x, y, z) = (2x - y + z, x + y, 3x + y + z)$
+    \end{enumerate}
 \end{exercise}
 
 \begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item $L(x, y, z) = (0, 0, 0)$ iff
+              \[
+                  \begin{cases}
+                      x - y = 0 \\
+                      x + z = 0 \\
+                      x + y + 2z = 0
+                  \end{cases}
+              \]
+
+              Solve for $x, y, z$, we obtain that $x = y = z = 0$, so the kernel of $L$ is $\{ (0, 0, 0) \}$. According to Exercise 4, $L$ is invertible.
+        \item $L(x, y, z) = (0, 0, 0)$ iff
+              \[
+                  \begin{cases}
+                      2x - y + z = 0 \\
+                      x + y = 0      \\
+                      3x + y + z = 0
+                  \end{cases}
+              \]
+
+              Solve for $x, y, z$, we obtain that $x = y = z = 0$, so the kernel of $L$ is $\{ (0, 0, 0) \}$. According to Exercise 4, $L$ is invertible.
+    \end{enumerate}
 \end{proof}
 
 \begin{exercise}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Let $L: V \to V$ be a linear mapping such that $L^{2} = O$. Show that $I - L$ is invertible. ($I$ is the identity mapping on $V$.)
+        \item Let $L: V \to V$ be a linear map such that $L^{2} + 2L + I = O$. Show that $L$ is invertible.
+        \item Let $L: V \to V$ be a linear map such that $L^{3} = O$. Show that $I - L$ is invertible.
+    \end{enumerate}
 \end{exercise}
 
 \begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item $(I + L)(I - L) = (I + L) + (I + L)(-L) = I + L + (-L) - L^{2} = I$, $(I - L)(I + L) = (I - L) + (L - L^{2}) = I - L^{2} = I$. So $I + L$ is the inverse map of $I - L$. Hence $I - L$ is invertible.
+        \item $I = L(-L-2I) = (-L-2I)L$. So $-L-2I$ is the inverse map of $L$. Hence $L$ is invertible.
+        \item $(I - L)(I + L + L^{2}) = (I - L) + (L - L^{2}) + (L^{2} - L^{3}) = I - L^{3} = I$. $(I + L + L^{2})(I - L) = (I + L + L^{2}) - (L + L^{2} + L^{3}) = I - L^{3} = I$. So $I + L + L^{2}$ is the inverse map of $I - L$. Hence $I - L$ is invertible.
+    \end{enumerate}
 \end{proof}
 
 \begin{exercise}
+    Let $V$ be a vector space. Let $P: V \to V$ be a linear map such that $P^{2} = P$. Show that
+    \[
+        V = \ker P + \im P \quad\text{and}\quad \ker P \cap \im P = \{ O \},
+    \]
+
+    in other words, $V$ is the direct sum of $\ker P$ and $\im P$.
 \end{exercise}
 
 \begin{proof}
+    Let $v$ be an element of $V$. $v = (v - Pv) + Pv$. $P(Pv) = Pv$ and $P(v - Pv) = Pv - P^{2}v = 0$. So $V = \ker P + \im P$.
+
+    Suppose that $w\in \ker P\cap \im P$. Then there exists $u\in V$ such that $w = Pu$. Because $w\in \ker P$, then $Pw = O$. Therefore $O = Pw = P^{2}u = Pu = w$. So $w = O$. Hence $\ker P\cap \im P = \{ O \}$.
+
+    Thus $V = \ker P \oplus \im P$.
 \end{proof}
 
 \begin{exercise}
+    Let $V$ be a vector space, and let $P, Q$ be linear maps of $V$ into itself. Assume that they satisfy the following conditions:
+    \begin{enumerate}[label={(\alph*)}]
+        \item $P + Q = I$ (identity mapping).
+        \item $PQ = QP = O$.
+        \item $P^{2} = P$ and $Q^{2} = Q$.
+    \end{enumerate}
+
+    Show that $V$ is equal to the direct sum of $\im P$ and $\im Q$.
 \end{exercise}
 
 \begin{proof}
+    Let $v$ be an element of $V$.
+
+    $v = (v - Pv) + Pv$. On the other hand, $v - Pv = Iv - Pv = Qv \in \im Q$ and $Pv \im P$. So $V = \im P + \im Q$.
+
+    Let $w\in\im P\cap\im Q$. Then there exist $x, y\in V$ such that $Px = Qy = w$. So $O = QPx = PQy = Qw = Pw$. Moreover, $w = Iw = (P + Q)w = Pw + Qw = O + O = O$. Hence $\im P\cap\im Q = \{ O \}$.
+
+    Thus $V = \im P \oplus \im Q$.
 \end{proof}
 
 \begin{exercise}
+    Notations being as in Exercise 11, show that the image of $P$ is equal to the kernel of $Q$.
 \end{exercise}
 
 \begin{proof}
+    Let $v\in\im P$. Then there exists $u\in V$ such that $v = Pu$. So $Qv = QPu = O$ because $QP = O$. So $\im P \subseteq \ker Q$.
+
+    Let $w\in\ker Q$. $O = Qw = (I - P)w = w - Pw$, so $w = Pw\in\im P$. So $\ker Q\subseteq \im P$.
+
+    Thus $\im P = \ker Q$.
 \end{proof}
 
 \begin{exercise}
+    Let $T: V\to V$ be a linear map such that $T^{2} = I$. Let
+    \[
+        P = \frac{1}{2}(I + T)\quad\text{and}\quad Q = \frac{1}{2}(I - T).
+    \]
+
+    Prove:
+    \[
+        P + Q = I;\quad P^{2} = P;\quad Q^{2} = Q;\quad PQ = QP = O.
+    \]
 \end{exercise}
 
 \begin{proof}
+    \[
+        P + Q = \frac{1}{2}(I + T) + \frac{1}{2}(I - T) = I.
+    \]
+
+    Let $v$ be an element of $V$
+    \[
+        \begin{split}
+            P^{2}v = P(Pv) = P(\frac{1}{2}v + \frac{1}{2}Tv) = \frac{1}{4}v + \frac{1}{4}Tv + \frac{1}{4}Tv + \frac{1}{4}T^{2}v = \frac{1}{2}v + \frac{1}{2}Tv = Pv, \\
+            Q^{2}v = Q(Qv) = Q(\frac{1}{2}v - \frac{1}{2}Tv) = \frac{1}{4}v - \frac{1}{4}Tv - \frac{1}{4}Tv + \frac{1}{4}T^{2}v = \frac{1}{2}v - \frac{1}{2}Tv = Qv.
+        \end{split}
+    \]
+
+    So $P^{2} = P$ and $Q^{2} = Q$. Moreover, $PQ = P(I - P) = P - P^{2} = O$, and $QP = (I - P)P = P - P^{2} = O$.
 \end{proof}
 
 \begin{exercise}
+    Let $F: V \to W$ and $G: W \to U$ be isomorphisms of vector spaces over $K$. Show that $G\circ F$ is invertible, and that
+    \[
+        {(G \circ F)}^{-1} = F^{-1} \circ G^{-1}.
+    \]
 \end{exercise}
 
 \begin{proof}
+    Because $F, G$ are isomorphisms, each of them has inverse linear mapping.
+    \[
+        \begin{split}
+            (G\circ F)\circ (F^{-1}\circ G^{-1}) = (G\circ (F\circ F^{-1}))\circ G^{-1} = (G\circ \text{id}_{W}) \circ G^{-1} = G\circ G^{-1} = \text{id}_{U}, \\
+            (F^{-1}\circ G^{-1})\circ (G\circ F) = (F^{-1}\circ (G^{-1}\circ G))\circ F = (F^{-1}\circ \text{id}_{W})\circ F = F^{-1}\circ F = \text{id}_{V}
+        \end{split}
+    \]
+
+    Hence ${(G\circ F)}^{-1} = F^{-1}\circ G^{-1}$.
 \end{proof}
 
 \begin{exercise}
+    Let $F: V\to W$ and $G: W\to U$ be isomorphisms of vector spaces over $K$. Show that $G\circ F: V\to U$ is an isomorphism.
 \end{exercise}
 
 \begin{proof}
+    $(G\circ F)(x) = (G\circ F)(y)$ implies $F(x) = F(y)$ because $G$ is one-to-one. $F(x) = F(y)$ implies $x = y$ because $F$ is one-to-one. Therefore $G\circ F$ is one-to-one.
+
+    $u\in U$. Because $G$ is onto, there exists $w\in W$ such that $u = Gw$. Because $F$ is onto, there exists $v\in V$ such that $w = Fv$. So there exists $v\in V$ such that $(G\circ F)(v) = u$. Therefore $G\circ F$ is onto.
+
+    \begin{align*}
+        (G\circ F)(v_{1} + v_{2}) & = G(F(v_{1} + v_{2})) = G(F(v_{1}) + F(v_{2})) = G(F(v_{1})) + G(F(v_{2})) = (G\circ F)(v_{1}) + (G\circ F)(v_{2}), \\
+        (G\circ F)(cv_{1})        & = G(F(cv_{1})) = G(cF(v_{1})) = cG(F(v_{1})) = c(G\circ F)(v_{1})
+    \end{align*}
+
+    Thus $G\circ U: V\to U$ is an isomorphism.
 \end{proof}
 
 \begin{exercise}
+    Let $V, W$ be two vector spaces over $K$, of dimension $n$. Show that $V$ and $W$ are isomorphic.
 \end{exercise}
 
 \begin{proof}
+    Let $\{ v_{1}, \ldots, v_{n} \}$ be a basis of $V$, $\{ w_{1}, \ldots, w_{n} \}$ a basis of $W$. Let $F: V\to W$ be defined as
+    \[
+        F(x_{1}v_{1} + \cdots + x_{n}v_{n}) = x_{1}w_{1} + \cdots + x_{n}w_{n}
+    \]
+
+    $F$ is an isomorphism, since $\im F = W$ and $\ker F = \{ O \}$. Hence $V$ and $W$ are isomorphic.
 \end{proof}
 
 \begin{exercise}
+    Let $A$ be a linear map of a vector space into itself, and assume that
+    \[
+        A^{2} - A + I = O
+    \]
+
+    (where $I$ is the identity map). Show that $A^{-1}$ exists and is equal to $I - A$. Generalize.
 \end{exercise}
 
 \begin{proof}
+    $A^{2} - A + I = O$ implies $I = A(I - A) = (I - A)A$. So $A$ is invertible, and $A^{-1} = I - A$.
+
+    Generalization: $I + \sum^{n}_{k=1}{(-1)}^{k}A^{k} = O$, then $A$ is invertible and $A^{-1} = I + \sum^{n-1}_{k=1}{(-1)}^{k}A^{k}$.
 \end{proof}
 
 \begin{exercise}
+    Let $A, B$ be linear maps of a vector space into itself. Assume that $AB = BA$. Show that
+    \[
+        {(A + B)}^{2} = A^{2} + 2AB + B^{2}
+    \]
+
+    and
+    \[
+        (A + B)(A - B) = A^{2} - B^{2}.
+    \]
 \end{exercise}
 
 \begin{proof}
+    ${(A + B)}^{2} = (A + B)(A + B) = A(A + B) + B(A + B) = A^{2} + AB + BA + B^{2} = A^{2} + 2AB + B^{2}$.
+
+    $(A + B)(A - B) = A(A - B) + B(A - B) = A^{2} - AB + BA - B^{2} = A^{2} - B^{2}$.
 \end{proof}
 
 \begin{exercise}
+    Let $A, B$ be linear maps of a vector space into itself. If the kernel of $A$ is $\{ O \}$ and the kernel of $B$ is $\{ O \}$, show that the kernel of $AB$ is also $\{ O \}$.
 \end{exercise}
 
 \begin{proof}
+    Suppose that $(AB)v = O$. $(AB)v = A(Bv)$. Because the kernel of $A$ is $\{ O \}$, so $Bv = O$. Because the kernel of $B$ is $\{ O \}$, so $v = O$. Therefore $(AB)v = O$ implies $v = O$. Thus the kernel of $AB$ is also $\{ O \}$.
 \end{proof}
 
 \begin{exercise}
+    More generally, let $A: V\to W$ and $B: W\to U$ be linear maps. Assume that the kernel of $A$ is $\{ O \}$ and the kernel of $B$ is $\{ O \}$. Show that the kernal of $BA$ is $\{ O \}$.
 \end{exercise}
 
 \begin{proof}
+    Suppose that $(BA)v = O$. $(BA)v = B(Av)$. Because the kernel of $B$ is $\{ O \}$, so $Av = O$. Because the kernel of $A$ is $\{ O \}$, so $v = O$. Therefore $(BA)v = O$ implies $v = O$. Thus the kernel of $BA$ is $\{ O \}$.
 \end{proof}
 
 \begin{exercise}
+    Let $A: V \to W$ and $B: W \to U$ be linear maps. Assume that $A$ is surjective and that $B$ is surjective. Show that $BA$ is surjective.
 \end{exercise}
 
 \begin{proof}
+    Let $u$ be an element of $U$. Because $B$ is surjective, there exists $w\in W$ such that $Bw = u$. Because $A$ is surjective, there exists $v\in V$ such that $Av = w$. Therefore, there exists $v\in V$ such that $(BA)v = B(Av) = Bw = u$. Thus $BA$ is surjective.
 \end{proof}
 
 \section{Geometric Applications}
 \setcounter{exercise}{0}
 
 \begin{exercise}
+    Show that the image under a linear map of a convex set is convex.
 \end{exercise}
 
 \begin{proof}
+    Let $L: V\to W$ be a linear map and $S$ a convex set in $V$. Let $P', Q'$ be two points in the image of $S$ under $L$. Then there exist $P, Q$ in $V$ such that $P' = L(P), Q' = L(Q)$. The image of $tP + (1-t)Q$ under $L$ is $tL(P) + (1-t)L(Q)$, so all points on the line segment $L(P)L(Q)$ are in the image of $S$ under $L$. Thus the image of $S$ under $L$ is convex.
 \end{proof}
 
 \begin{exercise}
+    Let $S_{1}$ and $S_{2}$ be convex sets in $V$. Show that the intersection $S_{1}\cap S_{2}$ is convex.
 \end{exercise}
 
 \begin{proof}
+    If $S_{1}\cap S_{2} = \varnothing$, then it is convex.
+
+    Otherwise, let $P, Q$ be two points in $S_{1}\cap S_{2}$. In other words, $P, Q$ are in $S_{1}$ and $S_{2}$. Because $S_{1}$ is convex, all points on the line segment $PQ$ are in $S_{1}$. Because $S_{2}$ is convex, all points on the line segment $PQ$ are in $S_{2}$. Therefore all points on the line segment $PQ$ are in $S_{1}\cap S_{2}$.
 \end{proof}
 
 \begin{exercise}
+    Let $L: \mathbf{R}^{n}\to \mathbf{R}$ be a linear map. Let $S$ be the set of all points $A$ in $\mathbf{R}^{n}$ such that $L(A)\geq 0$. Show that $S$ is convex.
 \end{exercise}
 
 \begin{proof}
+    Let $P, Q$ be two points in $S$. Every point on the line segment $PQ$ is of the form $tP + (1 - t)Q$ where $0\leq t \leq 1$.
+    \[
+        L(tP + (1-t)Q) = L(tP) + L((1-t)Q) = tL(P) + (1-t)L(Q) \geq 0 + 0 = 0
+    \]
+
+    Therefore $tP + (1-t)Q$ is also in $S$. Thus $S$ is convex.
 \end{proof}
 
 \begin{exercise}
+    Let $L: \mathbf{R}^{n}\to \mathbf{R}$ be a linear map and $c$ a number. Show that the set $S$ consisting of all points $A$ in $\mathbf{R}^{n}$ such that $L(A) > c$ is convex.
 \end{exercise}
 
 \begin{proof}
+    Let $P, Q$ be two points in $S$. Every point on the line segment $PQ$ is of the form $tP + (1 - t)Q$ where $0\leq t \leq 1$. If $t = 0$, $L(tP + (1-t)Q) = L(Q) > c$. If $t = 1$, $L(tP + (1-t)Q) = L(P) > c$. Otherwise, $0 < t < 1$
+    \[
+        L(tP + (1-t)Q) = L(tP) + L((1-t)Q) = tL(P) + (1-t)L(Q) > tc + (1-t)c = c
+    \]
+
+    In three cases, $tP + (1-t)Q$ is also in $S$. Thus $S$ is convex.
 \end{proof}
 
 \begin{exercise}
+    Let $A$ be a non-zero vector in $\mathbf{R}^{n}$ and $c$ a number. Show that the set of points $X$ such that $X\cdot A \geq c$ is convex.
 \end{exercise}
 
 \begin{proof}
+    Let $P, Q$ be points in $S$. All points on the line segment $PQ$ are of the form $tP + (1-t)Q$ where $0 \leq t \leq 1$.
+    \[
+        (tP + (1-t)Q)\cdot A = tP\cdot A + (1-t)Q\cdot A \geq tc + (1-t)c = c
+    \]
+
+    Hence the given set is convex.
 \end{proof}
 
 \begin{exercise}
+    Let $L: V\to W$ be a linear map. Let $S'$ be a convex set in $W$. Let $S$ be the set of all elements $P$ in $V$ such that $L(P)$ is in $S'$. Show that $S$ is convex.
 \end{exercise}
 
 \begin{proof}
+    Let $P, Q$ be points in $S$. All points on the line segment $PQ$ are of the form $tP + (1-t)Q$ where $0 \leq t \leq 1$. $L(tP + (1-t)Q) = tL(P) + (1-t)L(Q)$. Because $S'$ is convex and $L(P), L(Q)$ are in $S'$, then $tL(P) + (1-t)L(Q)$ are in $S'$ where $0\leq t\leq 1$. Due to the definition of $S$, $tP + (1-t)Q$ are also in $S$, where $0\leq t\leq 1$. Thus $S$ is convex.
 \end{proof}
 
 \begin{exercise}
+    Show that a parallelogram is convex.
 \end{exercise}
 
 \begin{proof}
+    Let's consider the parallelogram spanned by $v, w$. Let $t_{1}v + t_{2}w$ and $s_{1}v + s_{2}w$ be two points in the parallelogram, where $0\leq t_{1}, t_{2}, s_{1}, s_{2} \leq 1$. All points between these two points are of the form $t(t_{1}v + t_{2}w) + (1 - t)(s_{1}v + s_{2}w)$ where $0\leq t \leq 1$.
+    \[
+        t(t_{1}v + t_{2}w) + (1 - t)(s_{1}v + s_{2}w) = (tt_{1} + (1-t)s_{1})v + (tt_{2} + (1-t)s_{2})w
+    \]
+
+    $0\leq tt_{1} + (1 - t)s_{1} \leq t + (1-t) = 1$, $0\leq tt_{2} + (1-t)s_{2}\leq t + (1-t) = 1$. So all points between any two points in the parallelogram are also in the parallelogram.
+
+    Hence every parallelogram is convex.
 \end{proof}
 
 \begin{exercise}
+    Let $S$ be a convex set in $V$ and let $u$ be an element of $V$. Let $T_{u}: V\to V$ be the translation by $u$. Show that the image $T_{u}(S)$ is convex.
 \end{exercise}
 
 \begin{proof}
+    Let $a, b$ be two elements in $T_{u}(S)$. $T_{u}(a - u) = a, T_{u}(b - u) = b$. The set of all points between $a$ and $b$ are $ta + (1-t)b$ where $0\leq t\leq 1$. $t(a-u) + (1-t)(b-u) = ta + (1-t)b - u$ is in $S$. So $T_{u}(ta + (1-t)b - u) = ta + (1-t)b$ is in $T_{u}(S)$ for all $0\leq t\leq 1$.
+
+    Hence $T_{u}(S)$ is convex.
 \end{proof}
 
 \begin{exercise}
+    Let $S$ be a convex set in the vector space $V$ and let $c$ be a number. Let $cS$ denote the set of all elements $cv$ with $v$ in $S$. Show that $cS$ is convex.
 \end{exercise}
 
 \begin{proof}
+    Let $w_{1} = cv_{1}, w_{2} = cv_{2}$ be elements of $cS$. All elements between $w_{1}$ and $w_{2}$ are of the form $tw_{1} + (1-t)w_{2} = c(tv_{1} + (1-t)v_{2})$ where $0\leq t\leq 1$. Because $S$ is convex, $tv_{1} + (1-t)v_{2}$ is an element of $S$, so $c(tv_{1} + (1-t)v_{2})$ is an element of $cS$. Therefore all elements between $w_{1}$ and $w_{2}$ are in $cS$. Thus $cS$ is convex.
 \end{proof}
 
 \begin{exercise}
+    Let $v, w$ be linearly independent elements of a vector space $V$. Let $F: V\to W$ be a linear map. Assume that $F(v), F(w)$ are linearly independent. Show that the image under $F$ of the parallelogram spanned by $v$ and $w$ is either a point or a line segment.
 \end{exercise}
 
 \begin{proof}
+    All points in the parallelogram spanned by $v$ and $w$ are of the form $t_{1}v + t_{2}w$ where $0 \leq t_{1}, t_{2} \leq 1$. $F(t_{1}v + t_{2}w) = t_{1}F(v) + t_{2}F(w)$.
+
+    Since $F(v), F(w)$ are linearly dependent, $F(v) = cF(w)$ for some number $c$ or $F(w) = cF(v)$ for some number $c$. Without loss of generality, suppose that $F(w) = cF(v)$. Then $F(t_{1}v + t_{2}w) = (t_{1} + ct_{2})F(v)$.
+
+    \begin{enumerate}[label={\textbf{Case \arabic*.}},itemindent=1cm]
+        \item $c\geq 0$.
+              \[
+                  F(t_{1}v + t_{2}w) = \dfrac{(1-t_{1}) + c(1-t_{2})}{1+c}F(O) + \dfrac{t_{1} + ct_{2}}{1+c}F((1+c)v)
+              \]
+
+              If $F(v) = O$, the image under $F$ of the parallelogram spanned by $v$ and $w$ is the point $O$.
+
+              If $F(v)\ne O$, the image under $F$ of the parallelogram spanned by $v$ and $w$ is the line segment between $F(O)$ and $F((1+c)v)$.
+        \item $c < 0$.
+              \[
+                  F(t_{1}v + t_{2}w) = \frac{(1-t_{1}) + c(1-t_{2})}{1-c}F(O) + \frac{t_{1} + ct_{2}}{1 - c}F((1 - c)v)
+              \]
+
+              If $F(v) = O$, the image under $F$ of the parallelogram spanned by $v$ and $w$ is the point $O$.
+
+              If $F(v)\ne O$, the image under $F$ of the parallelogram spanned by $v$ and $w$ is the line segment between $F(O)$ and $F((1-c)v)$.
+    \end{enumerate}
+
+    In conclusion, the image under $F$ of the parallelogram spanned by $v$ and $w$ is either a point or a line segment.
 \end{proof}
