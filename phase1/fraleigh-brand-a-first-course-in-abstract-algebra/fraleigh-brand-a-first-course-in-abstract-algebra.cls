@@ -70,6 +70,7 @@
 \array{@{}l@{\quad}l@{}}%
 }
 
+\newcommand{\tr}[1]{\left({#1}\right)}
 \newcommand{\card}[1]{\left\vert{#1}\right\vert}
 \newcommand{\rank}{\text{rank}}
 \newcommand{\abs}[1]{\left\vert{#1}\right\vert}

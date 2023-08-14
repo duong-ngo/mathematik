@@ -1,0 +1,1153 @@
+% chktex-file 44
+\chapter{Structure of Groups}
+
+\section{Groups of Permutations}
+
+\subsection*{Computations}
+
+In Exercises 1 through 10 determine whether the given map is a group homomorphism.
+
+% section 1/exercise 1
+\begin{exercise}
+    Let $\phi: \mathbb{Z}_{10} \to \mathbb{Z}_{2}$ be given by $\phi(x) = $ the remainder when $x$ is divided by $2$.
+\end{exercise}
+
+\begin{proof}
+    $\phi(x + y) = (x + y) \mod 2 = x \mod 2 + y \mod 2 = \phi(x) + \phi(y)$. Hence $\phi$ is a group homomorphism.
+\end{proof}
+
+% section 1/exercise 2
+\begin{exercise}
+    Let $\phi: \mathbb{Z}_{9} \to \mathbb{Z}_{2}$ be given by $\phi(x) =$ the remainder when $x$ is divided by $2$.
+\end{exercise}
+
+\begin{proof}
+    $\phi(4 + 5) = \phi(0) = 0\mod 2 = 0$, $\phi(4) + \phi(5) = 4\mod 2 + 5\mod 2 = 0 + 1 = 1$. So $\phi(4 + 5) \ne \phi(4) + \phi(5)$. Hence $\phi$ is not a group homomorphism.
+\end{proof}
+
+% section 1/exercise 3
+\begin{exercise}
+    Let $\phi: \mathbb{Q}^{*} \to \mathbb{Q}^{*}$ be given by $\phi(x) = \abs{x}$.
+\end{exercise}
+
+\begin{proof}
+    $\phi(x\cdot y) = \abs{x\cdot y} = \abs{x}\cdot\abs{y} = \phi(x)\cdot\phi(y)$. Hence $\phi$ is a group homomorphism.
+\end{proof}
+
+% section 1/exercise 4
+\begin{exercise}
+    Let $\phi: \mathbb{R} \to \mathbb{R}^{+}$ be given by $\phi(x) = 2^{x}$.
+\end{exercise}
+
+\begin{proof}
+    $\phi(x + y) = {2}^{x+y} = {2}^{x}\cdot {2}^{y} = \phi(x)\cdot\phi(y)$. Hence $\phi$ is a group homomorphism.
+\end{proof}
+
+% section 1/exercise 5
+\begin{exercise}
+    Let $\phi: D_{4} \to \mathbb{Z}_{4}$ be given by $\phi(\rho^{i}) = \phi(\mu\rho^{i}) = i$ for $0\leq i\leq 3$.
+\end{exercise}
+
+\begin{proof}
+    $\phi(\mu\rho\cdot\mu\rho) = \phi(\iota) = \phi(\rho^{0}) = 0$. $\phi(\mu\rho) + \phi(\mu\rho) = 1 + 1 = 2$. So $\phi(\mu\rho\cdot\mu\rho) \ne \phi(\mu\rho) + \phi(\mu\rho)$. Hence $\phi$ is not a group homomorphism.
+\end{proof}
+
+% section 1/exercise 6
+\begin{exercise}
+    Let $F$ be the additive group of all functions mapping $\mathbb{R}$ to $\mathbb{R}$. Let $\phi: F \to F$ be given by $\phi(f) = g$ where $g(x) = f(x) + x$.
+\end{exercise}
+
+\begin{proof}
+    $\phi(f + g)(x) = (f + g)(x) + x = f(x) + g(x) + x$. $\phi(f)(x) + \phi(g)(x) = f(x) + g(x) + 2x$. So $\phi(f + g)(x)$ is not equal to $\phi(f)(x) + \phi(g)(x)$ for all real numbers $x$. Hence $\phi$ is not a group homomorphism.
+\end{proof}
+
+% section 1/exercise 7
+\begin{exercise}
+    Let $F$ be as in Exercise 6 and $\phi: F \to F$ be defined by $\phi(f) = 5f$.
+\end{exercise}
+
+\begin{proof}
+    $\phi(f + g)(x) = (5(f + g))(x) = 5f(x) + 5g(x) = (\phi(f) + \phi(g))(x)$. Hence $\phi$ is a group homomorphism.
+\end{proof}
+
+% section 1/exercise 8
+\begin{exercise}
+    Let $F$ be the additive group of all continuous functions mapping $\mathbb{R}$ to $\mathbb{R}$. Let $\phi: F\to \mathbb{R}$ be defined by $\phi(g) = \int^{1}_{0}g(x)dx$.
+\end{exercise}
+
+\begin{proof}
+    \begin{align*}
+        \phi(f + g) & = \int^{1}_{0}(f + g)(x)dx                \\
+                    & = \int^{1}_{0}(f(x) + g(x))dx             \\
+                    & = \int^{1}_{0}f(x)dx + \int^{1}_{0}g(x)dx \\
+                    & = \phi(f) + \phi(g)
+    \end{align*}
+
+    Hence $\phi$ is a group homomorphism.
+\end{proof}
+
+% section 1/exercise 9
+\begin{exercise}
+    Let $M_{n}$ be the additive group of $n\times n$ matrices with real entries. Let $\phi: M_{n}\to \mathbb{R}$ be given by $\phi(A) = \det(A)$, the determinant of $A$.
+\end{exercise}
+
+\begin{proof}
+    $\phi(I_{n} + I_{n}) = \det(2I_{n}) = 2^{n}$. $\phi(I_{n}) + \phi(I_{n}) = \det(I_{n}) + \det(I_{n}) = 2$. So when $n > 1$, $\phi(I_{n} + I_{n}) \ne \phi(I_{n}) + \phi(I_{n})$. Hence $\phi$ is not a group homomorphism.
+\end{proof}
+
+% section 1/exercise 10
+\begin{exercise}
+    Let $M_{n}$ be as in Exercise 9 and $\phi: M_{n} \to \mathbb{R}$ be defined by $\phi(A) = \tr{A}$ where $\tr{A}$ is the trace of $A$, which is the sum of the entries on the diagonal.
+\end{exercise}
+
+\begin{proof}
+    Let $A = {(a_{i.j})}_{n\times n}$ and $B = {(b_{i.j})}_{n\times n}$.
+    \[
+        \phi(A + B) = \tr{A + B} = \sum^{n}_{i=1}(a_{i.i} + b_{i.i}) = \sum^{n}_{i=1}a_{i.i} + \sum^{n}_{i=1}b_{i.i} = \tr{A} + \tr{B}
+    \]
+
+    Hence $\phi$ is a group homomorphism.
+\end{proof}
+
+In Exercises 11 through 16, compute the kernel for the given homomorphism $\phi$.
+
+% section 1/exercise 11
+\begin{exercise}
+    $\phi: \mathbb{Z} \to \mathbb{Z}_{8}$ such that $\phi(1) = 6$.
+\end{exercise}
+
+\begin{proof}
+    $\phi(4) = \phi(1 + 1 + 1 + 1) = (6 + 6 + 6 + 6)\mod 8 = 0$, $\phi(3) = 2$, $\phi(2) = 4$, $\phi(1) = 6$, $\phi(0) = 0$.
+
+    If $n$ leaves remainer $r > 0$ when divided by $4$, then $\phi(n) = \phi(r) \ne 0$. Otherwise, $n$ is divisible by $4$, then $\phi(n) = 4$.
+
+    Hence $\ker\phi = 4\mathbb{Z}$.
+\end{proof}
+
+% section 1/exercise 12
+\begin{exercise}
+    $\phi: \mathbb{Z} \to \mathbb{Z}$ such that $\phi(1) = 12$.
+\end{exercise}
+
+\begin{proof}
+    For $n\in\mathbb{Z}$, $\phi(n) = 12n$. So $\phi(n) = 0$ iff $n = 0$. Hence $\ker\phi = \{ 0 \}$.
+\end{proof}
+
+% section 1/exercise 13
+\begin{exercise}
+    $\phi: \mathbb{Z}\times\mathbb{Z} \to \mathbb{Z}$ where $\phi(1,0) = 3$ and $\phi(0,1) = -5$.
+\end{exercise}
+
+\begin{proof}
+    $\phi(m, n) = 3m - 5n$. $\phi(m, n) = 0$ iff $3m = 5n$. $3m = 5n$ iff $m = 5k, n = 3k$ for some integer $k$.
+
+    Hence $\ker\phi = \{ (5k, 3k) \mid k\in\mathbb{Z} \}$.
+\end{proof}
+
+% section 1/exercise 14
+\begin{exercise}
+    $\phi: \mathbb{Z}\times\mathbb{Z} \to \mathbb{Z}$ where $\phi(1,0) = 6$ and $\phi(0,1) = 9$.
+\end{exercise}
+
+\begin{proof}
+    $\phi(m, n) = 6m + 9n$. $\phi(m, n) = 0$ iff $6m + 9n = 0$, equivalently, $2m + 3n = 0$. $2m + 3n = 0$ iff $m = 3k, n = -2k$ for some integer $k$.
+
+    Hence $\ker\phi = \{ (3k, -2k) \mid k\in\mathbb{Z} \}$.
+\end{proof}
+
+% section 1/exercise 15
+\begin{exercise}
+    $\phi: \mathbb{Z}\times\mathbb{Z} \to \mathbb{Z}\times\mathbb{Z}$ where $\phi(1,0) = (2,5)$ and $\phi(0,1) = (-3,2)$.
+\end{exercise}
+
+\begin{proof}
+    $\phi(m, n) = (0, 0)$ iff $(2m - 3n, 5m + 2n) = (0, 0)$. From the system of linear equations $2m - 3n = 5m + 2n = 0$, we solve for $m, n$ and obtain $m = n = 0$.
+
+    Hence $\ker\phi = \{ (0,0) \}$.
+\end{proof}
+
+% section 1/exercise 16
+\begin{exercise}
+    Let $D$ be the additive group of all differentiable functions mapping $\mathbb{R}$ to $\mathbb{R}$ and $F$ the additive group of all functions from $\mathbb{R}$ to $\mathbb{R}$. $\phi: D \to F$ is given by $\phi(f) = f'$, the derivative of $f$.
+\end{exercise}
+
+\begin{proof}
+    Derivative of a function is the zero function if and only if the function is a constant function.
+
+    Hence $\ker\phi =$ the set of constant functions mapping $\mathbb{R}$ to $\mathbb{R}$.
+\end{proof}
+
+In Exercises 17 through 22, find all orbits of the given permutation.
+
+% section 1/exercise 17
+\begin{exercise}
+    $\begin{pmatrix}
+            1 & 2 & 3 & 4 & 5 & 6 \\
+            5 & 1 & 3 & 6 & 2 & 4
+        \end{pmatrix}$
+\end{exercise}
+
+\begin{proof}
+    The orbits of the given permutation are $\{ 1, 5, 2 \}, \{ 3 \}, \{ 4, 6 \}$.
+\end{proof}
+
+% section 1/exercise 18
+\begin{exercise}
+    $\begin{pmatrix}
+            1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+            5 & 6 & 2 & 4 & 8 & 3 & 1 & 7
+        \end{pmatrix}$
+\end{exercise}
+
+\begin{proof}
+    The orbits of the given permutation are $\{ 1, 5, 8, 7 \}, \{ 2, 6, 3 \}, \{ 4 \}$.
+\end{proof}
+
+% section 1/exercise 19
+\begin{exercise}
+    $\begin{pmatrix}
+            1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+            2 & 3 & 5 & 1 & 4 & 6 & 8 & 7
+        \end{pmatrix}$
+\end{exercise}
+
+\begin{proof}
+    The orbits of the given permutation are $\{ 1, 2, 3, 5, 4 \}, \{ 6 \}, \{ 7, 8 \}$.
+\end{proof}
+
+% section 1/exercise 20
+\begin{exercise}
+    $\sigma: \mathbb{Z} \to \mathbb{Z}$ where $\sigma(n) = n + 1$
+\end{exercise}
+
+\begin{proof}
+    $\sigma$ has one orbit, which is $\mathbb{Z}$.
+\end{proof}
+
+% section 1/exercise 21
+\begin{exercise}
+    $\sigma: \mathbb{Z} \to \mathbb{Z}$ where $\sigma(n) = n + 2$
+\end{exercise}
+
+\begin{proof}
+    The orbits of $\sigma$ are $\{ 2n \mid n\in\mathbb{Z} \}$, $\{ 2n + 1 \mid n\in\mathbb{Z} \}$.
+\end{proof}
+
+% section 1/exercise 22
+\begin{exercise}
+    $\sigma: \mathbb{Z} \to \mathbb{Z}$ where $\sigma(n) = n - 3$
+\end{exercise}
+
+\begin{proof}
+    The orbits of $\sigma$ are $\{ 3n \mid n\in\mathbb{Z} \}$, $\{ 3n + 1 \mid n\in\mathbb{Z} \}$, $\{ 3n + 2 \mid n\in\mathbb{Z} \}$.
+\end{proof}
+
+In Exercises 23 through 25, express the permutation of $\{ 1, 2, 3, 4, 5, 6, 7, 8 \}$ as a product of disjoint cycles, and then as a product of transpositions.
+
+% section 1/exercise 23
+\begin{exercise}
+    $\begin{pmatrix}
+            1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+            8 & 2 & 6 & 3 & 7 & 4 & 5 & 1
+        \end{pmatrix}$
+\end{exercise}
+
+\begin{proof}
+    As product of disjoint cycles: $(1, 8)(3, 6, 4)(5, 7)$.
+
+    As product of transpositions: $(1, 8)(3, 4)(3, 6)(5, 7)$.
+\end{proof}
+
+% section 1/exercise 24
+\begin{exercise}
+    $\begin{pmatrix}
+            1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+            3 & 6 & 4 & 1 & 8 & 2 & 5 & 7
+        \end{pmatrix}$
+\end{exercise}
+
+\begin{proof}
+    As product of disjoint cycles: $(1, 3, 4)(2, 6)(5, 8, 7)$.
+
+    As product of transpositions: $(1, 4)(1, 3)(2, 6)(5, 7)(5, 8)$.
+\end{proof}
+
+% section 1/exercise 25
+\begin{exercise}
+    $\begin{pmatrix}
+            1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+            5 & 3 & 2 & 8 & 4 & 7 & 6 & 1
+        \end{pmatrix}$
+\end{exercise}
+
+\begin{proof}
+    As product of disjoint cycles: $(1, 5, 4, 8)(2, 3)(6, 7)$.
+
+    As product of transpositions: $(1, 8)(1, 4)(1, 5)(2, 3)(6, 7)$.
+\end{proof}
+
+% section 1/exercise 26
+\begin{exercise}
+    Figure 8.26 shows a Cayley digraph for the alternating group $A_{4}$ using the generating set $S = \{ (1, 2, 3), (1, 2)(3, 4) \}$. Continue labeling the other nine vertices with the elements of $A_{4}$, expressed as a product of disjoint cycles.
+\end{exercise}
+
+\begin{proof}
+    The Cayley digraph for the alternating group $A_{4}$. \\
+
+    \begin{tikzpicture}[>=Stealth]
+        \tikzset{arc type 1/.style={black,postaction={decorate,decoration={markings,mark=at position 0.5 with {\arrow{>}}}}}}
+
+        \coordinate (center1) at (0, 1);
+        \coordinate (center2) at ({sqrt(3)/2}, {-1/2});
+        \coordinate (center3) at ({-sqrt(3)/2}, {-1/2});
+        % (0, 1.5)
+        \coordinate (upper1) at (0, 2);
+        \coordinate (upper2) at ({-sqrt(3)/2}, {3+1/2});
+        \coordinate (upper3) at ({sqrt(3)/2}, {3+1/2});
+        % ({0.75*sqrt(3)}, -0.75)
+        \coordinate (right1) at ({1.5*sqrt(3)}, -2.5);
+        \coordinate (right2) at ({sqrt(3)}, -1);
+        \coordinate (right3) at ({2*sqrt(3)}, -1);
+        % (-0.75*sqrt(3), -0.75)
+        \coordinate (left1) at ({-1.5*sqrt(3)}, -2.5);
+        \coordinate (left2) at ({-2*sqrt(3)}, -1);
+        \coordinate (left3) at ({-sqrt(3)}, -1);
+
+        \node[label={[font=\small]above:$(1)$}] at (upper2) {};
+        \node[label={[font=\small]above:$(1,2,3)$}] at (upper3) {};
+        \node[label={[font=\small]right:$(1,3,2)$}] at (upper1) {};
+
+        \node[label={[font=\small]left:$(1,2)(3,4)$}] at (left2) {};
+        \node[label={[font=\small]right:$(2,4,3)$}] at (left3) {};
+        \node[label={[font=\small]below:$(1,4,3)$}] at (left1) {};
+
+        \node[label={[font=\small]left:$(1,4)(2,3)$}] at (right2) {};
+        \node[label={[font=\small]below:$(1,2,4)$}] at (right1) {};
+        \node[label={[font=\small]right:$(1,3,4)$}] at (right3) {};
+
+        \node[label={[font=\small]right:$(2,3,4)$}] at (center1) {};
+        \node[label={[font=\small]right:$(1,3)(2,4)$}] at (center2) {};
+        \node[label={[font=\small]left:$(1,4,2)$}] at (center3) {};
+
+        \draw[dashed] (center1) -- (upper1);
+        \draw[dashed] (center2) -- (right2);
+        \draw[dashed] (center3) -- (left3);
+        \draw[dashed] (upper3) -- (right3);
+        \draw[dashed] (left2) -- (upper2);
+        \draw[dashed] (right1) -- (left1);
+
+        \draw[arc type 1] (center1) -- (center2);
+        \draw[arc type 1] (center2) -- (center3);
+        \draw[arc type 1] (center3) -- (center1);
+        \draw[arc type 1] (upper1) -- (upper2);
+        \draw[arc type 1] (upper2) -- (upper3);
+        \draw[arc type 1] (upper3) -- (upper1);
+        \draw[arc type 1] (left1) -- (left2);
+        \draw[arc type 1] (left2) -- (left3);
+        \draw[arc type 1] (left3) -- (left1);
+        \draw[arc type 1] (right1) -- (right2);
+        \draw[arc type 1] (right2) -- (right3);
+        \draw[arc type 1] (right3) -- (right1);
+    \end{tikzpicture}
+\end{proof}
+
+\subsection*{Concepts}
+
+In Exercises 27 through 29, correct the definition of the italicized term without reference to the text, if correction is needed, so that it is in a form acceptable for publication.
+
+% section 1/exercise 27
+\begin{exercise}
+    For a permutation $\sigma$ of a set $A$, an \textit{orbit} of $\sigma$ is a nonempty minimal subset of $A$ that is mapped onto itself by $\sigma$.
+\end{exercise}
+
+\begin{proof}
+    Correct.
+\end{proof}
+
+% section 1/exercise 28
+\begin{exercise}
+    The left regular representation of a group $G$ is the map of $G$ into $S_{G}$ whose value at $g\in G$ is the permutation of $G$ that carries each $x\in G$ into $gx$.
+\end{exercise}
+
+\begin{proof}
+    Correct.
+\end{proof}
+
+% section 1/exercise 29
+\begin{exercise}
+    The \textit{alternating group} is the group of all even permutations.
+\end{exercise}
+
+\begin{proof}
+    Correction: The alternating group $A_{n}$ on $\{ 1, 2,\ldots, n \}$ is the subgroup of $S_{n}$ consisting of all even permutations of $\{ 1, 2,\ldots, n \}$.
+\end{proof}
+
+% section 1/exercise 30
+\begin{exercise}
+    Before the proof of Cayley's Theorem, it is shown that $\lambda_{x}$ is one-to-one. In the proof, one-to-one is shown again. Is it necessary to show one-to-one twice? Explain.
+\end{exercise}
+
+\begin{proof}
+    Yes, it is necessary to show one-to-one twice.
+
+    Because the 1st one-to-one show that each $\lambda_{x}$ is a permutation of the elements of $G$, meanwhile, the 2nd one-to-one mapping is the mapping from $G$ to $S_{G}$ where $\lambda_{x}\in S_{G}$. In other words, the two one-to-one mappings are different in their domain and codomain sets.
+\end{proof}
+
+% section 1/exercise 31
+\begin{exercise}
+    Determine whether each of the following is true or false.
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item Every permutation is a cycle.
+        \item Every cycle is a permutation.
+        \item The definition of even and odd permutations could have been given equally well before Theorem 8.19.
+        \item Every nontrivial subgroup $H$ of $S_{9}$ containing some odd permutation contains a transposition.
+        \item $A_{5}$ has 120 elements.
+        \item $S_{n}$ is not cyclic for any $n\geq 1$.
+        \item $A_{3}$ is a commutative group.
+        \item $S_{7}$ is isomorphic to the subgroup of all those elements of $S_{8}$ that leave the number $8$ fixed.
+        \item $S_{7}$ is isomorphic to the subgroup of all those elements of $S_{8}$ that leave the number $5$ fixed.
+        \item The odd permutations in $S_{8}$ form a subgroup of $S_{8}$.
+        \item Every group $G$ is isomorphic with a subgroup of $S_{G}$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item False.
+        \item True.
+        \item False.
+        \item False. For example: $H = \{ (1), (1,2)(3,4) \}$.
+        \item False.
+        \item False. When $n = 1$ or $2$, $S_{n}$ is cyclic.
+        \item True.
+        \item True.
+        \item True.
+        \item False.
+        \item True.
+    \end{enumerate}
+\end{proof}
+
+% section 1/exercise 32
+\begin{exercise}
+    The dihedral group is defined to be permutations with certain properties. Use the usual notation involving $\mu$ and $\rho$ for elements in $D_{n}$.
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item Identify which elements in $D_{3}$ are even. Do the even elements form a cyclic group?
+        \item Identify which of elements of $D_{4}$ are even. Do the even elements form a cyclic group?
+        \item For which values of $n$ do the even permutations of $D_{n}$ form a cyclic group?
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item Even elements in $D_{3}$ are $\rho^{0}, \rho, \rho^{2}$.
+        \item Even elements in $D_{4}$ are $\rho^{0}, \rho^{2}, \mu\rho, \mu\rho^{3}$
+        \item \textbf{Case 1.} $n$ is odd.
+
+              $\rho = (0,1,\ldots,n-1) = (0,1)(1,2)\cdots(n-2,n-1)$ is a product of an even number of transpositions, so $\rho$ is even. Therefore, $\iota, \rho, \rho^{2}, \ldots, \rho^{n-1}$ are even.
+
+              $\mu = (1,n-1)(2,n-2)\cdots (\frac{n-1}{2},\frac{n+1}{2})$. If $n\equiv 1\pmod{4}$, then $\mu$ is even, $\mu\rho^{k}$ is even for every integer $k$. Otherwise, $n\equiv 3\pmod{3}$, then $\mu$ is odd, $\mu\rho^{k}$ is odd for every integer $k$.
+
+              Hence if $n$ is odd, the even permutations of $D_{n}$ form a cyclic group if and only if $n\equiv 3\pmod{4}$.
+
+              \textbf{Case 2.} $n$ is even.
+
+              $\rho = (0,1\ldots,n-1) = (0,1)(1,2)\cdots (n-2)(n-1)$ is a product of an odd number of transpositions, so $\rho$ is odd. Therefore, $\rho^{k}$ is even if and only if $k$ is even.
+
+              $\mu = (1,n-1)(2,n-2)\cdots(\frac{n-2}{2},\frac{n+2}{2})$. If $n\equiv 0\pmod{4}$, $\mu$ is odd. Otherwise, $n\equiv 2\pmod{4}$, $\mu$ is even.
+
+              If $n\equiv 0\pmod{4}$, then $\rho^{2k}, \mu\rho^{2k+1}$ are even permutations, which does not form a cyclic group. If $n\equiv 2\pmod{4}$, then $\rho^{2k}, \mu\rho\rho^{2k}$ are even permutations, which does not form a cyclic group. In both cases, the even permutations don't form a cyclic group because either $\rho^{2k}$ or $\mu\rho^{k}$ cannot generate the permutation of the other type (the two types are $\rho^{m}$ and $\mu\rho^{m}$).
+
+              Hence the even permutations of $D_{n}$ form a cyclic group if and only if $n\equiv 3\pmod{4}$.
+    \end{enumerate}
+\end{proof}
+
+\subsection*{Proof Synopsis}
+
+% section 1/exercise 33
+\begin{exercise}
+    Give a two-sentence synopsis of the proof of Cayley's Theorem
+\end{exercise}
+
+\begin{proof}
+    Each element of a given group $G$ corresponds to a left regular representation, which is a permutation of $G$, an element of $S_{G}$. Then we show that this mapping is a homomorphism by the associative law.
+\end{proof}
+
+% section 1/exercise 34
+\begin{exercise}
+    Give a two-sentence synopsis of the proof of Theorem 8.19.
+\end{exercise}
+
+\begin{proof}
+    Consider the two cases: the 1st case is when two elements in the transposition are in different disjoint cycles of the permutation, the 2nd case is when two elements in the transposition are in the same disjoint cycle of the permutation. In each case, one can omit the disjoint cycles which do not contain the two elements in the transposition and then count the number of orbits.
+\end{proof}
+
+\subsection*{Theory}
+
+% section 1/exercise 35
+\begin{exercise}
+    Suppose that $\phi: G\to G'$ is a group homomorphism and $a\in \ker\phi$. Show that for any $g\in G$, $gag^{-1}\in \ker\phi$.
+\end{exercise}
+
+\begin{proof}
+    Let $e, e'$ be the identity elements of $G, G'$.
+    \begin{align*}
+        \phi(gag^{-1}) & = \phi(g)\phi(a)\phi(g^{-1}) \\
+                       & = \phi(g)e'\phi(g^{-1})      \\
+                       & = \phi(g)\phi(g^{-1})        \\
+                       & = \phi(gg^{-1})              \\
+                       & = \phi(e)                    \\
+                       & = e'
+    \end{align*}
+
+    Hence if $a\in\ker\phi$, then for any $g\in G$, $gag^{-1}\in\ker\phi$.
+\end{proof}
+
+% section 1/exercise 36
+\begin{exercise}
+    Prove that a homomorphism $\phi: G\to G'$ is one-to-one if and only if $\ker\phi$ is the trivial subgroup of $G$.
+\end{exercise}
+
+\begin{proof}
+    If $\phi$ is one-to-one, then $\phi(g) = e' = \phi(e)$ implies $g = e$. Hence $\ker\phi$ is the trivial subgroup of $G$.
+
+    If $\ker\phi$ is the trivial subgroup of $G$, then $\phi(a) = \phi(b)$ if and only if $ab^{-1} = e$, equivalently, $a = b$. Hence $\phi$ is one-to-one.
+
+    Thus a group homomorphism is one-to-one if and only if its kernel is the trivial subgroup.
+\end{proof}
+
+% section 1/exercise 37
+\begin{exercise}
+    Let $\phi: G\to G'$ be a group homomorphism. Show that $\phi(a) = \phi(b)$ if and only if $a^{-1}b\in \ker\phi$.
+\end{exercise}
+
+\begin{proof}
+    Let $e'$ be the identity element of $G'$.
+
+    $\phi(a^{-1}b) = \phi(a^{-1})\phi(b) = {(\phi(a))}^{-1}\phi(b)$. So $\phi(a^{-1}b) = e'$ if and only if $\phi(a) = \phi(b)$. In other words, $a^{-1}b\in\ker\phi$ if and only if $\phi(a) = \phi(b)$.
+\end{proof}
+
+% section 1/exercise 38
+\begin{exercise}
+    Use Exercise 37 to prove that if $\phi: G\to G'$ is a group homomorphism mapping onto $G'$ and $G$ is a finite group, then for any $b, c\in G'$, $\abs{\phi^{-1}[\{b\}]} = \abs{\phi^{-1}[\{c\}]}$. Conclude that if $\abs{G}$ is a prime number, then either $\phi$ is an isomorphism or else $G'$ is the trivial group.
+\end{exercise}
+
+\begin{proof}
+    Because $\phi$ is onto $G'$, there exist $x, y\in G$ such that $\phi(x) = b$ and $\phi(y) = c$.
+
+    If $\phi(g) = b$, then $\phi(gx^{-1}y) = \phi(g)\phi(x^{-1})\phi(y) = bb^{-1}c = c$. If $\phi(h) = c$, then $\phi(hy^{-1}x) = \phi(h)\phi(y^{-1})\phi(x) = cc^{-1}b = b$. So the mapping $f: \phi^{-1}[\{b\}] \to \phi^{-1}[\{c\}]$ which is defined as $f(g) = gx^{-1}y$ is a bijection. Therefore $\abs{\phi^{-1}[\{b\}]} = \abs{\phi^{-1}[\{c\}]}$.
+
+    Suppose that $\abs{G}$ is a prime number. We define an equivalence relation on $G$ as follows: $x\sim y$ if and only if $\phi(x) = \phi(y)$. According to the 1st part of this proof, all equivalence classes of this equivalence relation have the same number of elements. On the other hand, equivalence classes are disjoint, so
+    \[
+        \abs{G} = \text{number of elements in each equivalence class} \times \text{number of equivalence classes}
+    \]
+
+    Because $\abs{G}$ is a prime number, we conclude that
+    \begin{itemize}
+        \item the number of elements in each equivalence class is $1$, which means $\phi$ is one-to-one and onto. So $\phi$ is an isomorphism,
+        \item or, the number of equivalences classes is $1$. Together with $\phi$ being onto, we conclude that $G'$ has a single element. So $G'$ is a trivial group.
+    \end{itemize}
+\end{proof}
+
+% section 1/exercise 39
+\begin{exercise}
+    Show that if $\phi: G\to G'$ and $\gamma: G'\to G''$ are group homomorphisms, then $\gamma\circ\phi: G\to G''$ is also a group homomorphism.
+\end{exercise}
+
+\begin{proof}
+    Let $x, y$ be elements of $G$.
+    \begin{align*}
+        (\gamma\circ\phi)(xy) & = \gamma(\phi(xy))               \\
+                              & = \gamma(\phi(x)\phi(y))         \\
+                              & = \gamma(\phi(x))\gamma(\phi(y))
+    \end{align*}
+
+    Hence $\gamma\circ\phi$ is a group homomorphism.
+\end{proof}
+
+% section 1/exercise 40
+\begin{exercise}
+    Let $\phi: G\to G'$ be a group homomorphism. Show that $\phi[G]$ is abelian if and only if $xyx^{-1}y^{-1}\in \ker\phi$ for all $x,y\in G$.
+\end{exercise}
+
+\begin{proof}
+    Let $e'$ be the identity element of $G'$.
+
+    $\phi[G]$ is abelian if and only if $\phi(x)\phi(y) = \phi(y)\phi(x)$ for every $x,y\in G$. $\phi(x)\phi(y) = \phi(y)\phi(x)$ if and only if $\phi(xyx^{-1}y^{-1}) = e'$, since $\phi(xyx^{-1}y^{-1}) = \phi(x)\phi(y){(\phi(x))}^{-1}{(\phi(y))}^{-1} = \phi(x)\phi(y){(\phi(y)\phi(x))}^{-1}$. Hence $\phi[G]$ is abelian if and only if $xyx^{-1}y^{-1}\in\ker\phi$.
+\end{proof}
+
+% section 1/exercise 41
+\begin{exercise}
+    Prove the following about $S_{n}$ if $n\geq 3$.
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item Every permutation in $S_{n}$ can be written as a product of at most $n - 1$ transpositions.
+        \item Every permutation in $S_{n}$ that is not a cycle can be written as a product of at most $n - 2$ transpositions.
+        \item Every odd permutation in $S_{n}$ can be written as a product of $2n + 3$ transpositions, and every even permutation as a product of $2n + 8$ transpositions.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    Every permutation in $S_{n}$ can be written as a product of disjoint cycles. Each cycles of length $k$ can be written as the product of $k-1$ tranposition.
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item A permutation $\sigma\in S_{n}$ can be written as a product of disjoint cycles $\gamma_{1},\ldots,\gamma_{k}$ where $1\leq k < n$ and the sum of lengths of these disjoint cycles is not greater than $n$. $\gamma_{i}$ can be written as a product of as many transpositions as the length of the cycle minus $1$ (of course it can be written as a product of more transpositions). So $\sigma$ can be written as a product of
+              \[
+                  (\text{order}(\gamma_{1}) - 1) + \cdots + (\text{order}(\sigma_{k}) - 1) \leq n - 1
+              \]
+              transpositions.
+
+              Particularly, when $\sigma$ is a cycle of length $n$, it can be written as a product of precisely $n - 1$ transpositions.
+        \item If a permutation $\sigma\in S_{n}$ is not a cycle, then it can be written as a product of disjoint cycles $\gamma_{1},\gamma_{2},\ldots,\gamma_{k}$ where $2\leq k < n$, their total length is not greater than $n$. Each cycle can be written as a product of as many transpositions as the length of the cycle minus $1$. Therefore $\sigma$ can be written as a product of
+              \[
+                  (\text{order}(\gamma_{1}) - 1) + (\text{order}(\gamma_{2}) - 1) + \cdots + (\text{order}(\sigma_{k}) - 1) \leq n - 2
+              \]
+              transpositions.
+
+              Particularly, when $\sigma$ is a product of two disjoint cycles whose total lengths is equal to $n$, it can be written as a product of precisely $n - 2$ transpositions.
+        \item Let $\sigma$ be an odd permutation of $S_{n}$, $\tau$ an even permutation of $\sigma$.
+
+              According to part (a), $\sigma$ can be written as a product of $r$ transpositions, where $r \leq n - 1$ and $r$ is odd (because $\sigma$ is an odd permutation). So $\sigma = {(1,2)}^{2n + 3 - r}\sigma$, which means $\sigma$ can be written as a product of $2n + 3$ transpositions.
+
+              According to part (a), $\tau$ can be written as a product of $s$ transpositions, where $s \leq n - 1$ and $s$ is even (because $\tau$ is an even permutation). So $\tau = {(1,2)}^{2n + 8 - s}\tau$, which means $\tau$ can be written as a product of $2n + 8$ transpositions.
+    \end{enumerate}
+\end{proof}
+
+% section 1/exercise 42
+\begin{exercise}
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item Draw a figure like Fig. 8.20 to illustrate that if $i$ and $j$ are in different orbits of $\sigma$ and $\sigma(i) = i$, then the number of orbits of $(i,j)\sigma$ is one less than the number of orbits of $\sigma$.
+        \item Repeat part (a) if $\sigma(j) = j$ also.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item
+              \begin{tikzpicture}[>=Stealth]
+                  \coordinate (j) at (-1,-1);
+                  \coordinate (a) at (1,-1);
+                  \coordinate (b) at (1,1);
+                  \coordinate (c) at (-1,1);
+                  \coordinate (i) at (-2,0);
+
+                  \node[label={below left:$j$}] at (j) {};
+                  \node[label={below right:$a$}] at (a) {};
+                  \node[label={above right:$b$}] at (b) {};
+                  \node[label={above left:$c$}] at (c) {};
+                  \node[label={left:$i$}] at (i) {};
+
+                  \draw [->] (j) -- (a);
+                  \draw [->] (a) -- (b);
+                  \draw [->] (b) -- (c);
+                  \draw [dashed] (c) -- (j);
+                  \draw [->] (c) -- (i);
+                  \draw [->] (i) -- (j);
+              \end{tikzpicture}
+        \item
+              \begin{tikzpicture}[>=Stealth]
+                  \coordinate (i) at (-1,-1);
+                  \coordinate (a) at (1,-1);
+                  \coordinate (b) at (1,1);
+                  \coordinate (c) at (-1,1);
+                  \coordinate (j) at (-2,0);
+
+                  \node[label={below left:$i$}] at (i) {};
+                  \node[label={below right:$a$}] at (a) {};
+                  \node[label={above right:$b$}] at (b) {};
+                  \node[label={above left:$c$}] at (c) {};
+                  \node[label={left:$j$}] at (j) {};
+
+                  \draw [->] (a) -- (i);
+                  \draw [->] (b) -- (a);
+                  \draw [->] (c) -- (b);
+                  \draw [dashed] (i) -- (c);
+                  \draw [->] (j) -- (c);
+                  \draw [->] (i) -- (j);
+              \end{tikzpicture}
+    \end{enumerate}
+\end{proof}
+
+% section 1/exercise 43
+\begin{exercise}
+    Show that for every subgroup $H$ of $S_{n}$, for $n\geq 2$, either all the permutations in $H$ are even or exactly half of them are even.
+\end{exercise}
+
+\begin{proof}
+    Suppose that a subgroup $H$ of $S_{n}$ contains both even and odd permutations. Let $\sigma_{1}, \ldots, \sigma_{m}$ be all even permutations in $H$. Because $H$ has odd permutation, there exists an odd permutation $\tau$ in $H$. Let $A$ be the set of all even permutations in $H$, $B$ the set of all odd permutations in $H$. Define a mapping $f: A\to B$ as $f(\sigma_{i}) = \tau\sigma_{i}$. $f$ is one-to-one because $\tau\sigma_{i} = \tau\sigma_{j}$ implies $\sigma_{i} = \sigma_{j}$ due to the cancellation law. $f$ is onto because every odd permutation $\pi$ in $H$ can be written as $\pi = (\tau\tau^{-1})\pi = \tau(\tau^{-1}\pi)$ where $\tau^{-1}\pi$ is an even permutation in $H$ (product of two odd permutations is an even permutation and $H$ is closed). Therefore $f$ is a bijection, from which we conclude that $\abs{A} = \abs{B} = \frac{1}{2}\abs{H}$.
+
+    Hence either all permutations in $H$ are even or exactly half of them are even.
+\end{proof}
+
+% section 1/exercise 44
+\begin{exercise}
+    Let $\sigma$ be a permutation of a set $A$. We shall say ``$\sigma$ \textbf{moves} $a\in A$'' if $\sigma(a)\ne a$. If $A$ is a finite set, how many elements are moved by a cycle $\sigma\in S_{A}$ of length $n$?
+\end{exercise}
+
+\begin{proof}
+    $\sigma = (a_{1}, a_{2}, \ldots, a_{n})$ where $a_{i}$ are pairwise distinct. $\sigma$ leaves the elements other than $a_{i}$ ($i = 1,\ldots, n$) of $A$ unchanged. Hence if $A$ is a finite set, there are exactly $n$ elements of $A$ are moved by a cycle of length $n$.
+\end{proof}
+
+% section 1/exercise 45
+\begin{exercise}
+    Let $A$ be an infinite set. Let $H$ be the set of all $\sigma\in S_{A}$ such that the number of elements moved by $\sigma$ (see Exercise 44) is finite. Show that $H$ is a subgroup of $S_{A}$.
+\end{exercise}
+
+\begin{proof}
+    The identity permutation, which does not move any elements, is in $H$.
+
+    Let $\sigma,\tau\in H$ and $\sigma$ moves $a_{1}, \ldots, a_{n}$ only, $\tau$ moves $b_{1}, \ldots, b_{m}$ only. Then $\sigma$ permutes on $\{ a_{1}, \ldots, a_{n} \}$ only, $\tau$ permutes on $\{ b_{1}, \ldots, b_{m} \}$ only. Hence $\sigma\circ\tau$ permutes on $\{ a_{1},\ldots, a_{n} \} \cup \{ b_{1}, \ldots, b_{m} \}$ only, which means $\sigma\circ\tau$ moves finitely many elements of $A$. So $H$ is closed under composition. On the other hand, the inverse of $\sigma$ permutes on $\{ a_{1}, \ldots, a_{n} \}$ only, so $\sigma^{-1}$ is in $H$.
+
+    Hence $H$ is a subgroup of $S_{A}$.
+\end{proof}
+
+% section 1/exercise 46
+\begin{exercise}
+    Let $A$ be an infinite set. Let $K$ be the set of all $\sigma\in S_{A}$ that move (see Exercise 44) at most $50$ elements of $A$. Is $K$ a subgroup of $S_{A}$? Why?
+\end{exercise}
+
+\begin{proof}
+    $K$ is not a subgroup of $S_{A}$. Because $K$ does not contain the identity permutation, which does not move any elements of $A$.
+\end{proof}
+
+% section 1/exercise 47
+\begin{exercise}
+    Consider $S_{n}$ for a fixed $n\geq 2$ and let $\sigma$ be a fixed odd permutation. Show that every odd permutation in $S_{n}$ is a product of $\sigma$ and some permutation in $A_{n}$.
+\end{exercise}
+
+\begin{proof}
+    Let $\pi$ be an odd permutation in $S_{n}$. $\pi = (\sigma\sigma^{-1})\pi = \sigma(\sigma^{-1}\pi)$. The inverse of an odd permutation is an odd permutation, the product of two odd permutations is an even permutation, so $\sigma^{-1}\pi$ is an even permutation, which is an element of $A_{n}$.
+
+    Thus every odd permutation in $S_{n}$ is a product of $\sigma$ and a permutation in $A_{n}$.
+\end{proof}
+
+% section 1/exercise 48
+\begin{exercise}
+    Show that if $\sigma$ is a cycle of odd length, then $\sigma^{2}$ is a cycle.
+\end{exercise}
+
+\begin{proof}
+    Let $\sigma = (a_{1}, a_{2}, \ldots, a_{2n-1})$, $\tau = \sigma^{2}$.
+
+    For $1\leq k \leq n-1$, $\tau^{k}(a_{1}) = a_{2k+1}$. For $n\leq k < 2n-1$, $\tau^{k}(a_{1}) = a_{2(k-n+1)}$. For $k = 2n-1$, $\tau^{k}(a_{1}) = a_{1}$. So $\sigma^{2}$ is a cycle of the same length as the cycle $\sigma$.
+
+    \[
+        \tau = \sigma^{2} = (a_{1}, a_{3}, \ldots, a_{2n-1}, a_{2}, a_{4}, \ldots, a_{2n-2})
+    \]
+\end{proof}
+
+% section 1/exercise 49
+\begin{exercise}
+    Following the line of thought opened by Exercise 48, complete the following with a condition involving $n$ and $r$ so that the resulting statement is a theorem:
+    \begin{center}
+        If $\sigma$ is a cycle of length $n$, then $\sigma^{r}$ is also a cycle if and only if\ldots
+    \end{center}
+\end{exercise}
+
+\begin{proof}
+    Completion: If $\sigma$ is a cycle of length $n$, then $\sigma^{r}$ is also a cycle if and only if $n$ and $r$ are relatively prime.
+    \[
+        \sigma = (a_{0}, a_{1}, \ldots, a_{n-1})
+    \]
+
+    $\sigma^{k}$ does not move any elements other than $a_{0}, a_{1}, \ldots, a_{n-1}$ for any $k\in\mathbb{Z}$.
+
+    $(\Rightarrow)$ $n$ and $r$ are relatively prime.
+
+    We take modulo $n$ in the indices.
+    \begin{align*}
+        \sigma^{r}(a_{0})  & = a_{r}          \\
+        \sigma^{2r}(a_{0}) & = a_{2r}         \\
+        \vdots                                \\
+        \sigma^{nr}(a_{0}) & = a_{nr} = a_{0}
+    \end{align*}
+
+    For $1\leq i < j \leq n$, $ir - jr = (i - j)r$ is not divisible by $n$, because $\abs{i - j} < n$ and $r, n$ are relatively prime. So $a_{r}, a_{2r}, \ldots, a_{nr} = a_{0}$ are pairwise distinct. Hence $\sigma^{r}$ is a cycle of length $n$.
+
+    $(\Leftarrow)$ $\sigma^{r}$ is a cycle.
+
+    Assume that the greatest common divisor of $n$ and $r$ is $d > 1$. Let $n/d = x$, $r/d = y$. We take modulo $n$ in the indices.
+    \begin{align*}
+        \sigma^{r}(a_{0})  & = a_{r}                   \\
+        \sigma^{2r}(a_{0}) & = a_{2r}                  \\
+        \vdots                                         \\
+        \sigma^{xr}(a_{0}) & = a_{xr} = a_{ny} = a_{0}
+    \end{align*}
+
+    For $1\leq i < j \leq x$, $(i - j)r$ is not divisible by $n$, since $(i - j)r/n = (i - j)y/x$ and $\abs{i - j} < x$, $x, y$ are relatively prime. So $a_{r}, a_{2r}, \ldots, a_{xr} = a_{0}$ are pairwise distinct.
+    \[
+        \sigma^{r} = (a_{0}, a_{r}, a_{2r}, \ldots, a_{(x-1)r})(a_{1}, a_{1+r}, \ldots, a_{1+(x-1)r})\cdots (a_{r-1}, a_{r-1+r}, \ldots, a_{r-1+r(x-1)})
+    \]
+
+    So if $n, r$ are not relatively prime, $\sigma^{r}$ is not a cycle, which is a contradiction. Therefore $n, r$ are relatively prime.
+
+    Thus if $\sigma$ is a cycle of length $n$, $\sigma^{r}$ is a cycle if and only if $n$ and $r$ are relatively prime.
+\end{proof}
+
+% section 1/exercise 50
+\begin{exercise}
+    Show that $S_{n}$ is generated by $\{ (1,2), (1,2,3,\ldots, n) \}$.
+\end{exercise}
+
+\begin{proof}
+    \textbf{Step 1.} $(a_{1}, \ldots, a_{k})$ and $(a_{k}, b_{1}, \ldots, b_{\ell})$ are cycles where $\{ a_{1}, \ldots, a_{k} \} \cap \{ b_{1}, \ldots, b_{\ell} \} = \varnothing$ then
+    \[
+        (a_{1}, \ldots, a_{k})(a_{k}, b_{1}, \ldots, b_{\ell}) = (a_{1},\ldots,a_{k},b_{1},\ldots,b_{\ell}).
+    \]
+
+    Let $\tau = (a_{1}, \ldots, a_{k})(a_{k}, b_{1}, \ldots, b_{\ell})$. $\tau(a_{m}) = a_{m+1}$ where $1\leq m < k$. $\tau(a_{k}) = b_{1}$. $\tau(b_{m}) = b_{m+1}$ where $1\leq m < \ell$. $\tau(b_{\ell}) = a_{1}$. Therefore, $\tau$ is the following cycle
+    \[
+        (a_{1}, \ldots, a_{k})(a_{k}, b_{1}, \ldots, b_{\ell}) = (a_{1},\ldots,a_{k},b_{1},\ldots,b_{\ell}).
+    \]
+
+    \textbf{Step 2.} $\{ (1,2), (2,3), (3,4), \ldots, (n-1,n), (n,1) \}$ generates $S_{n}$.
+
+    Let $1\leq i < j\leq n$. According to Step 1
+    \begin{align*}
+        (i, j) & = (i,i+1)(i+1,i+2)\cdots (j-1,j)                         \\
+        (j, i) & = (j,j+1)(j+1,j+2)\cdots (n-1,n)(n,1)(1,2)\cdots (i-1,i)
+    \end{align*}
+
+    So every transposition can be generated from $\{ (1,2), (2,3), (3,4), \ldots, (n-1,n), (n,1) \}$. On the other hand, every permutation in $S_{n}$ ($n\geq 2$) can be rewritten as a product of transpositions. Hence $\{ (1,2), (2,3), (3,4), \ldots, (n-1,n), (n,1) \}$ generates $S_{n}$.
+
+    \textbf{Step 3.} (Hint from the book) Every transposition in $\{ (1,2), (2,3), (3,4), \ldots, (n-1,n), (n,1) \}$ can be written in the form ${(1,2,3,\ldots,n)}^{r}(1,2){(1,2,3,\ldots,n)}^{n-r}$.
+
+    When $n = 2$, ${(1,2)}^{0}(1,2){(1,2)}^{2} = (1,2)$, ${(1,2)}^{1}(1,2){(1,2)}^{1} = (1,2)$. So it is true for $n = 2$.
+
+    When $n\geq 3$, let's consider the following cases.
+
+    \begin{enumerate}[label={\textbf{Case \arabic*.}},itemindent=1cm]
+        \item $r = n-1$
+
+              If $1 < k < n$,
+              \begin{align*}
+                  ({(1,2,3,\ldots,n)}^{n-1}(1,2)(1,2,3,\ldots, n))(k) & = ({(1,2,3,\ldots,n)}^{n-1}(1,2))(k+1) \\
+                                                                      & = {(1,2,3,\ldots,n)}^{n-1}(k+1)        \\
+                                                                      & = (k + 1) + (n - 1)                    \\
+                                                                      & = k + n                                \\
+                                                                      & = k
+              \end{align*}
+
+              If $k = 1$
+              \begin{align*}
+                  ({(1,2,3,\ldots,n)}^{n-1}(1,2)(1,2,3,\ldots,n))(1) & = ({(1,2,3,\ldots,n)}^{n-1}(1,2))(2) \\
+                                                                     & = {(1,2,3,\ldots,n)}^{n-1}(1)        \\
+                                                                     & = n
+              \end{align*}
+
+              If $k = n$
+              \begin{align*}
+                  ({(1,2,3,\ldots,n)}^{n-1}(1,2)(1,2,3,\ldots,n))(n) & = ({(1,2,3,\ldots,n)}^{n-1}(1,2))(1) \\
+                                                                     & = {(1,2,3,\ldots,n)}^{n-1}(2)        \\
+                                                                     & = 2 + n - 1                          \\
+                                                                     & = n + 1                              \\
+                                                                     & = n
+              \end{align*}
+
+              Hence ${(1,2,3,\ldots,n)}^{n-1}(1,2)(1,2,3,\ldots,n) = (n,1)$.
+        \item $0\leq r < n - 1$
+
+              We prove ${(1,2,3,\ldots,n)}^{r}(1,2){(1,2,3,\ldots,n)}^{n-r} = (r+1,r+2)$ using mathematical induction.
+
+              When $r = 0$, ${(1,2,3,\ldots,n)}^{0}(1,2){(1,2,3,\ldots,n)}^{n} = \text{id}(1,2)\text{id} = (1,2)$. So the statement holds for $r = 0$.
+
+              Assume that the statement holds for $r = k$, where $0\leq k < n - 2$
+              \begin{align*}
+                    & {(1,2,3,\ldots,n)}^{k+1}(1,2){(1,2,3,\ldots,n)}^{n-k-1}                                                                    \\
+                  = & (1,2,3,\ldots,n){(1,2,3,\ldots,n)}^{k}(1,2){(1,2,3,\ldots,n)}^{n-k}{(1,2,3,\ldots,n)}^{-1}                                 \\
+                  = & (1,2,3,\ldots,n)(r+1,r+2){(1,2,3,\ldots,n)}^{-1}                                           & \text{(induction hypothesis)}
+              \end{align*}
+
+              If $m = 1$
+              \begin{align*}
+                    & ((1,2,3,\ldots,n)(k+1,k+2){(1,2,3,\ldots,n)}^{-1})(1) \\
+                  = & ((1,2,3,\ldots,n)(k+1,k+2))(n)                        \\
+                  = & (1,2,3,\ldots,n)(n)                                   \\
+                  = & 1
+              \end{align*}
+
+              If $1 < m \leq k+1$
+              \begin{align*}
+                  ((1,2,3,\ldots,n)(k+1,k+2){(1,2,3,\ldots,n)}^{-1})(m) & = ((1,2,3,\ldots,n)(k+1,k+2))(m-1) \\
+                                                                        & = (1,2,3,\ldots,n)(m-1)            \\
+                                                                        & = m
+              \end{align*}
+
+              If $k+3 < m\leq n$
+              \begin{align*}
+                  ((1,2,3,\ldots,n)(k+1,k+2){(1,2,3,\ldots,n)}^{-1})(m) & = ((1,2,3,\ldots,n)(k+1,k+2))(m-1) \\
+                                                                        & = (1,2,3,\ldots,n)(m-1)            \\
+                                                                        & = m
+              \end{align*}
+
+              If $m = k+2$
+              \begin{align*}
+                  ((1,2,3,\ldots,n)(k+1,k+2){(1,2,3,\ldots,n)}^{-1})(m) & = ((1,2,3,\ldots,n)(k+1,k+2){(1,2,3,\ldots,n)}^{-1})(k+2) \\
+                                                                        & = ((1,2,3,\ldots,n)(k+1,k+2))(k+1)                        \\
+                                                                        & = (1,2,3,\ldots,n)(k+2)                                   \\
+                                                                        & = k+3
+              \end{align*}
+
+              If $m = k+3$
+              \begin{align*}
+                  ((1,2,3,\ldots,n)(k+1,k+2){(1,2,3,\ldots,n)}^{-1})(m) & = ((1,2,3,\ldots,n)(k+1,k+2){(1,2,3,\ldots,n)}^{-1})(k+3) \\
+                                                                        & = ((1,2,3,\ldots,n)(k+1,k+2))(k+2)                        \\
+                                                                        & = (1,2,3,\ldots,n)(k+1)                                   \\
+                                                                        & = k+2
+              \end{align*}
+
+              So ${(1,2,3,\ldots)}^{k+1}(1,2){(1,2,3,\ldots,n)}^{n-k-1} = (1,2,3,\ldots,n)(k+1,k+2){(1,2,3,\ldots,n)}^{-1} = (k+2,k+3)$. Therefore the statement holds for $r = k+1$.
+
+              Due to the principle of mathematical induction, the statement holds for every $0\leq r < n-2$.
+    \end{enumerate}
+
+    Hence $(1,2), (2,3), (3,4), \ldots, (n-1, n), (n,1)$ can be written as ${(1,2,3,\ldots,n)}^{r}(1,2){(1,2,3,\ldots,n)}^{n-r}$ for some $0\leq r\leq n-1$.
+
+    \textbf{Step 4.}
+
+    Due to Step 3, $(1,2), (2,3), (3,4), \ldots, (n-1,n), (n,1)$ can be written as ${(1,2,3,\ldots,n)}^{r}(1,2){(1,2,3,\ldots,n)}^{n-r}$ for some $0\leq r\leq n-1$.
+
+    Due to Step 2, $\{ (1,2), (2,3), (3,4), \ldots, (n-1,n), (n,1) \}$ generates $S_{n}$.
+
+    Therefore $\{ (1,2,3,\ldots,n), (1,2) \}$ generates $S_{n}$.
+\end{proof}
+
+% section 1/exercise 51
+\begin{exercise}
+    Let $\sigma\in S_{n}$ and define a relation on $\{ 1, 2, 3, \ldots, n \}$ by $i\sim j$ if and only if $j = \sigma^{k}(i)$ for some $k\in\mathbb{Z}$
+    \begin{enumerate}[label={\textbf{\arabic*.}}]
+        \item Prove that $\sim$ is an equivalence relation.
+        \item Prove that for any $1\leq i\leq n$, the equivalence class of $i$ is the orbit of $i$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={\textbf{\arabic*.}}]
+        \item $a = \sigma^{0}(a)$, so $a\sim a$, $\sim$ is reflexive.
+
+              $a\sim b$ implies $a = \sigma^{k}(b)$ for some integer $k$. $a = \sigma^{k}(b)$ iff $b = \sigma^{-k}(a)$. $b = \sigma^{-k}(a)$ implies $b\sim a$. So $a\sim b$ implies $b\sim a$. Similarly, $b\sim a$ implies $a\sim b$. So $\sim$ is symmetric.
+
+              $a\sim b$ and $b\sim c$ imply $a = \sigma^{k}(b)$ and $b = \sigma^{\ell}(c)$ for some integers $k, \ell$. So $a = \sigma^{k+\ell}(c)$. Therefore $a\sim c$, from which we deduce that $\sim$ is transitive.
+
+              Hence $\sim$ is an equivalence relation.
+        \item $a$ is in the orbit of $i$ if and only if there exists an integer $k$ such that $\sigma^{k}(i) = a$, equivalently, $a\sim i$.
+
+              Hence the equivalence class of $i$ is precisely the orbit of $i$.
+    \end{enumerate}
+\end{proof}
+
+% section 1/exercise 52
+\begin{exercise}
+    The usual definition for the determinant of an $n\times n$ matrix $A = {(a_{i,j})}$ is
+    \[
+        \det(A) = \sum_{\sigma\in S_{n}}\text{sgn}(\sigma)a_{1,\sigma(1)}a_{2,\sigma(2)}a_{3,\sigma(3)}\cdots a_{n,\sigma(n)}
+    \]
+
+    where $\text{sgn}(\sigma)$ is the sign of $\sigma$. Using this definition, prove the following properties of determinants.
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item If a row of matrix $A$ has all zero entries, then $\det(A) = 0$.
+        \item If two different rows of $A$ are switched to obtain $B$, then $\det(B) = -\det(A)$.
+        \item If $r$ times one row of $A$ is added to another row of $A$ to obtain a matrix $B$, then $\det(A) = \det(B)$.
+        \item If a row of $A$ is multiplied by $r$ to obtain the matrix $B$, then $\det(B) = r\det(A)$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item If $A$ is the zero $n\times n$ matrix, then $a_{i,\sigma(i)} = 0$ for every $1\leq i \leq n$ and $\sigma\in S_{n}$. Therefore
+              \[
+                  \det(A) = \sum_{\sigma\in S_{n}}\text{sgn}(\sigma)a_{1,\sigma(1)}a_{2,\sigma(2)}a_{3,\sigma(3)}\cdots a_{n,\sigma(n)} = \sum_{\sigma\in S_{n}} 0 = 0.
+              \]
+        \item Suppose that we switch the $i$-row and $j$-row of $A$ to obtain $B$.
+              \begingroup
+              \allowdisplaybreaks{}
+              \begin{align*}
+                  \det(B) & = \sum_{\sigma\in S_{n}}\text{sgn}(\sigma)(\cdots b_{i,\sigma(i)}\cdots b_{j,\sigma(j)}\cdots)                 \\
+                          & = \sum_{\sigma\in S_{n}}\text{sgn}(\sigma)(\cdots a_{j,\sigma(j)}\cdots a_{i,\sigma(i)}\cdots)                 \\
+                          & = \sum_{\sigma\in S_{n}}\text{sgn}((i,j)\sigma)(\cdots a_{i,\sigma(i)}\cdots a_{j,\sigma(j)}\cdots)            \\
+                          & = -\sum_{\sigma\in S_{n}}\text{sgn}(\sigma)a_{1,\sigma(1)}a_{2,\sigma(2)}a_{3,\sigma(3)}\cdots a_{n,\sigma(n)} \\
+                          & = -\det(A).
+              \end{align*}
+              \endgroup
+        \item Suppose that we added $r$ times the $i$-row of $A$ to the $j$-row of $A$ to obtain $B$. Notice that $n\geq 2$, so $A_{n}$ is defined. Denote the transposition $(i,j)$ by $\tau$.
+              \begingroup
+              \allowdisplaybreaks{}
+              \begin{align*}
+                  \det(B) & = \sum_{\sigma\in S_{n}}\text{sgn}(\sigma)(\cdots a_{i,\sigma(i)}\cdots (a_{j,\sigma(j)} + a_{i,\sigma(j)})\cdots)                                                                              \\
+                          & = \sum_{\sigma\in S_{n}}\text{sgn}(\sigma)(\cdots a_{i,\sigma(i)}\cdots a_{j,\sigma(j)}\cdots) + \sum_{\sigma\in S_{n}}\text{sgn}(\sigma)(\cdots a_{i,\sigma(j)}\cdots a_{i,\sigma(j)}\cdots)   \\
+                          & = \det(A) + \sum_{\sigma\in S_{n}}\text{sgn}(\sigma)(\cdots a_{i,\sigma(i)}\cdots a_{i,\sigma(j)}\cdots)                                                                                        \\
+                          & = \det(A) + \sum_{\sigma\in A_{n}}(\text{sgn}(\sigma)(\cdots a_{i,\sigma(i)}\cdots a_{i,\sigma(j)}\cdots) + \text{sgn}(\sigma\tau)(\cdots a_{i,\sigma\tau(i)}\cdots a_{i,\sigma\tau(j)}\cdots)) \\
+                          & = \det(A) + \sum_{\sigma\in A_{n}}(\text{sgn}(\sigma)(\cdots a_{i,\sigma(i)}\cdots a_{i,\sigma(j)}\cdots) - \text{sgn}(\sigma)(\cdots a_{i,\sigma(i)}\cdots a_{i,\sigma(j)}\cdots))             \\
+                          & = \det(A).
+              \end{align*}
+              \endgroup
+        \item Suppose that we multiply the $i$-th row of $A$ by $r$ to obtain $B$.
+              \begingroup
+              \allowdisplaybreaks{}
+              \begin{align*}
+                  \det(B) & = \sum_{\sigma\in S_{n}}\text{sgn}(\sigma)(\cdots (ra_{i,\sigma(i)})\cdots)                                    \\
+                          & = r\sum_{\sigma\in S_{n}}\text{sgn}(\sigma)a_{1,\sigma(1)}a_{2,\sigma(2)}a_{3,\sigma(3)}\cdots a_{n,\sigma(n)} \\
+                          & = r\det(A).
+              \end{align*}
+              \endgroup
+    \end{enumerate}
+\end{proof}
+
+% section 1/exercise 53
+\begin{exercise}
+    Prove that any finite group $G$ is isomorphic with a subgroup of $\text{GL}(n,\mathbb{R})$ for some $n$.
+\end{exercise}
+
+\begin{proof}
+    This proof uses a property of matrix multiplication. \\
+
+    \textbf{Lemma.} $\phi: G\to G'$ is a group homomorphism. $H$ is a subgroup of $G'$, then $\phi[H]$ is a subgroup of $G'$.
+
+    \textit{Proof of the Lemma.} Let $e, e'$ be the identity elements of $G, G'$, respectively. Because $\phi(e) = e'$, $\phi[H]$ contains $e'$. $\phi(x), \phi(y)$ are elements of $\phi[H]$ (where $x,y\in H$), then $\phi(x)\phi(y) = \phi(xy) \in \phi[H]$ (because $\phi$ is a group homomorphism and $H$ is a subgroup of $G$). $\phi(x^{-1})\phi(x) = \phi(x)\phi(x^{-1}) = \phi(e) = e'$, so $\phi(x^{-1})$ is the inverse of $\phi(x)$. On the other hand, $x^{-1}\in H$, so $\phi(x^{-1})\in \phi[H]$. Hence $\phi[H]$ is a subgroup of $G'$. \\
+
+    Proof of the Lemma is completed.
+
+    Let $m$ be the number of elements of $G$. According to Cayley's theorem, $G$ is isomorphic to a subgroup of $S_{G}$. $S_{G}$ is isomorphic to $S_{m}$. Let $n = \text{factorial}(m)$.
+
+    Consider the set $E$ of all $n\times n$ matrices whose rows are $e_{1}, e_{2}, \ldots, e_{n}$, where all entries of $e_{i}$ is zero, except the $i$-th entry. Let $\phi: S_{n} \to E$ be defined as $\phi(\sigma) =$ the matrix whose $i$-th row is $e_{\sigma(i)}$. $\phi$ is a one-to-one and onto mapping. On the other hand, every permutation is a product of transpositions, each transposition corresponds to swapping two rows, and swapping two rows of the matrix $A$ on the left of a matrix product $AB$ also swaps two respective rows of the product matrix $AB$, so
+    \[
+        \phi(\sigma\tau) = \begin{bmatrix}
+            (\sigma\tau)(e_{1}) \\
+            (\sigma\tau)(e_{2}) \\
+            \vdots              \\
+            (\sigma\tau)(e_{n})
+        \end{bmatrix}
+        = \phi(\sigma)\begin{bmatrix}
+            \tau(e_{1}) \\
+            \tau(e_{2}) \\
+            \vdots      \\
+            \tau(e_{n})
+        \end{bmatrix}
+        = \phi(\sigma)\phi(\tau)\begin{bmatrix}
+            e_{1}  \\
+            e_{2}  \\
+            \vdots \\
+            e_{n}
+        \end{bmatrix}
+        = \phi(\sigma)\phi(\tau)I_{n}
+        = \phi(\sigma)\phi(\tau).
+    \]
+
+    According to the lemma above, $E$ is a subgroup of $\text{GL}(n, \mathbb{R})$.
+
+    To sum up
+    \begin{itemize}
+        \item $G$ is isomorphic to a subgroup of $S_{G}$
+        \item $S_{G}$ is isomorphic to $S_{m}$ where $m = \abs{G}$
+        \item $S_{m}$ is isomorphic to a subgroup of $S_{n}$ where $n = \text{factorial}(n)$
+        \item $S_{n}$ is isomorphic to the group $E$ of $n\times n$ matrices whose rows are $e_{1},\ldots, e_{n}$
+        \item $E$ which is a subgroup of $\text{GL}(n, \mathbb{R})$
+    \end{itemize}
+
+    Hence $G$ is isomorphic to a subgroup of $\text{GL}(n, \mathbb{R})$ where $n = \text{factorial}(\abs{G})$.
+\end{proof}
+
+% section 1/exercise 54
+\begin{exercise}
+    Prove Cayley's Theorem using the right regular representation rather than the left regular representation.
+\end{exercise}
+
+\begin{proof}
+    Let $G$ be a group. For each element $x\in G$, we defined a mapping $\tau_{x}: G\to G$ as $\tau_{x}(g) = gx$ for every $g\in G$. $\tau_{x}$ is an element of $S_{G}$. Let's consider the mapping $\phi: G\to S_{G}$ defined as $x\mapsto \tau_{x}$.
+
+    $\tau_{x} = \tau_{y}$ if and only if $gx = gy$ for every $g\in G$. Due to the cancellation law, $gx = gy$ if and only if $x = y$. So $\phi$ is one-to-one.
+
+    $\tau_{xy}(g) = (xy)g = x(yg) = \tau_{x}(yg) = \tau_{x}(\tau_{y}(g)) = (\tau_{x}\tau_{y})(g)$ for every $g\in G$. So $\phi$ is a homomorphism.
+
+    Therefore $\phi$ is a one-to-one group homomorphism from $G$ into $S_{G}$. Hence $G$ is isomorphic with a subgroup of $S_{G}$.
+\end{proof}
+
+% section 1/exercise 55
+\begin{exercise}
+    Let $\sigma\in S_{n}$. An inversion is a pair $(i, j)$ such that $i < j$ and $\sigma(i) > \sigma(j)$. Prove Theorem 8.19 by showing that multiplying a permutation by a transposition changes the number of inversions by an odd number.
+\end{exercise}
+
+\begin{proof}
+    I repeat.
+
+    \textbf{Theorem 8.19.} No permutation in $S_{n}$ can be expressed both as a product of an even number of transpositions and as a product of an odd number of transpositions.
+
+    But first, I prove the following statement.
+
+    \textbf{Lemma.} $\tau = (i, j)$ is a transposition in $S_{n}$. $\sigma$ is an element of $S_{n}$. Prove that the difference between the number of inversions of $\sigma$ and $\tau\sigma$ is an odd number.
+
+    \textit{Proof of the Lemma.} First, we count the number of inversions of $\tau$.
+
+    \begin{itemize}
+        \item For $(r, s)$ where $\{ r, s \}\cap\{ i, j \} = \emptyset$, $(r, s)$ is not an inversion.
+        \item For $(r, s)$ where $s = i, r < i$, $(r, s)$ is not an inversion.
+        \item For $(r, s)$ where $r = j, s > r$, $(r, s)$ is not an inversion.
+        \item For $(r, s)$ where $r = i, i < s < j$, $\frac{\tau(r) - \tau(s)}{r - s} = \frac{j - s}{i - s} < 0$, so $(r, s)$ is an inversion. There are $j - i - 1$ inversions of this type.
+        \item For $(r, s)$ where $i < r < j, s = j$, $\frac{\tau(r) - \tau(s)}{r - s} = \frac{r - i}{r - s} < 0$, so $(r, s)$ is an inversion. There are $j - i - 1$ inversions of this type.
+        \item For $(r, s)$ where $r = i, s = j$, $(r, s)$ is an inversion. There is $1$ inversion of this type.
+        \item For $(r, s)$ where $r = i, s > j$, $\frac{\tau(r) - \tau(s)}{r - s} = \frac{j - s}{i - s} > 0$, so $(r, s)$ is not an inversion.
+        \item For $(r, s)$ where $r < i, s = j$, $\frac{\tau(r) - \tau(s)}{r - s} = \frac{r - i}{r - j} > 0$, so $(r, s)$ is not an inversion.
+    \end{itemize}
+
+    To sum up, $\tau$ has $2(j - i) - 1$ inversions, an odd number of inversions.
+
+    Let $f: S_{n}\to \{ -1, 1 \}$ be defined as $f(\sigma) = \prod_{1\leq i < j\leq n}\frac{\sigma(i) - \sigma(j)}{i - j}$. For $\sigma_{1}, \sigma_{2}\in S_{n}$. If $\sigma$ has an odd number of inversions, $f(\sigma) = -1$. Otherwise, $f(\sigma) = 1$.
+    \begin{align*}
+        f(\sigma_{1}\sigma_{2}) & = \prod_{1\leq i < j \leq n}\frac{(\sigma_{1}\sigma_{2})(i) - (\sigma_{1}\sigma_{2})(j)}{i - j}                                                                                                      \\
+                                & = \prod_{1\leq i < j \leq n}\frac{\sigma_{1}(\sigma_{2}(i)) - \sigma_{1}(\sigma_{2}(j))}{\sigma_{2}(i) - \sigma_{2}(j)} \times \prod_{1\leq i < j\leq n} \frac{\sigma_{1}(i) - \sigma_{1}(i)}{i - j} \\
+                                & = f(\sigma_{1})f(\sigma_{2})
+    \end{align*}
+
+    So $f$ is a group homomorphism. Therefore $f(\tau\sigma) = f(\tau)f(\sigma) = -f(\sigma)$, which indicates the difference between the number of inversions of $\tau\sigma$ and $\sigma$ is an odd number.
+
+    Proof of the lemma is completed.
+    \bigskip
+
+    Back to proof of Theorem 8.19. Again, we consider a transposition $\tau$ and a permutation $\sigma$. If $\sigma$ can be rewritten both as a product of an odd and an even number of transpositions, then due to the Lemma, the number of inversions of $\sigma$ can be both odd and even, which is impossible because the number of inversions of a permutation is well-defined.
+
+    Hence a permutation can be rewritten either as a product of an odd number of transpositions, or as a product of an even number of transpositions.
+\end{proof}
+
+% section 1/exercise 56
+\begin{exercise}
+    The sixteen puzzle consists of 15 tiles numbered 1 through 15 arranged in a four-by-four grid with one position left blank. A move is sliding a tile adjacent to the blank position into the blank position. The goal is to arrange the numbers in order by a sequence of moves. Is it possible to start with the configuration pictured in Figure 8.27(a) and solve the puzzle as indicated in Figure 8.27(b)? Prove your answer by finding a sequence of moves to solve the puzzle or by proving that it is impossible to solve.
+    \begin{figure}[htp]
+        \centering
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            1  & 2  & 3  & 4  \\
+            \hline
+            5  & 6  & 7  & 8  \\
+            \hline
+            9  & 10 & 11 & 12 \\
+            \hline
+            13 & 15 & 14 &    \\
+            \hline
+        \end{tabular}
+        \hspace{2cm}
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            1  & 2  & 3  & 4  \\
+            \hline
+            5  & 6  & 7  & 8  \\
+            \hline
+            9  & 10 & 11 & 12 \\
+            \hline
+            13 & 14 & 15 &    \\
+            \hline
+        \end{tabular}
+    \end{figure}
+\end{exercise}
+
+\begin{proof}
+    Unsolved. See \url{https://en.wikipedia.org/wiki/Sliding_puzzle}
+    % unsolved
+    % see https://en.wikipedia.org/wiki/Sliding_puzzle
+\end{proof}
+
+\section{Finitely Generated Abelian Groups}
+
+
+
+\section{Cosets and the Theorem of Lagrange}
+
+
+
+\section{Plane Isometries}
