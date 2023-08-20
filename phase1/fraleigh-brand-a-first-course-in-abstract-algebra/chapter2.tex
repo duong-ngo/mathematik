@@ -2610,17 +2610,13 @@ Let $H$ be a subgroup of a group $G$ and let $a, b\in G$. In Exercises 32 throug
 \end{exercise}
 
 \begin{proof}
-    The statement is true.
+    The statement is false.
 
-    If $aH = bH$, then $a\in bH, b\in aH$, and there exist $x, y\in H$ such that $a = bx, b = ay$. Let $h$ be an element in $H$.
-    \[
-        \begin{split}
-            ha = ha(b^{-1}b) = (hx)b\in Hb, \\
-            hb = hb(a^{-1}a) = (hy)a\in Ha.
-        \end{split}
-    \]
+    Counterexample: $\{ \iota, \mu\rho \}$ is a subgroup of $D_{4}$.
 
-    So $Ha\subseteq Hb$ and $Hb\subseteq Ha$, which means $Ha = Hb$
+    The following left cosets are identical: $\mu\{ \iota, \mu\rho \} = \{ \mu, \rho \}$ and $\rho \{ \iota, \mu\rho \} = \{ \rho, \mu \}$.
+
+    But the corresponding right cosets are different: $\{ \iota, \mu\rho \}\mu = \{ \mu, \rho^{3} \}$ and $\{ \iota, \mu\rho \}\rho = \{ \rho, \mu\rho^{2} \}$.
 \end{proof}
 
 % section 10/exercise 33
