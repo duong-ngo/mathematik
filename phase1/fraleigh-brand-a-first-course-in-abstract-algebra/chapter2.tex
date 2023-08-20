@@ -2135,6 +2135,653 @@ The result in this exercise is the opposite of Theorem 9.20's.
 
 \section{Cosets and the Theorem of Lagrange}
 
+\subsection*{Computations}
 
+% section 10/exercise 1
+\begin{exercise}
+    Find all cosets of the subgroup $4\mathbb{Z}$ of $\mathbb{Z}$.
+\end{exercise}
+
+\begin{proof}
+    All cosets of the subgroup $4\mathbb{Z}$ of $\mathbb{Z}$ are
+    \begin{enumerate}[label={(\arabic*)}]
+        \item $4\mathbb{Z} = \{ \ldots, -16, -12, -8, -4, 0, 4, 8, 12, 16, \ldots \}$
+        \item $1 + 4\mathbb{Z} = \{ \ldots, -15, -11, -7, -3, 1, 5, 9, 13, 17, \ldots \}$
+        \item $2 + 4\mathbb{Z} = \{ \ldots, -14, -10, -6, -2, 2, 6, 10, 14, 18, \ldots \}$
+        \item $3 + 4\mathbb{Z} = \{ \ldots, -13, -9, -5, -1, 3, 7, 11, 15, 19, \ldots \}$
+    \end{enumerate}
+\end{proof}
+
+% section 10/exercise 2
+\begin{exercise}
+    Find all cosets of the subgroup $4\mathbb{Z}$ of $2\mathbb{Z}$.
+\end{exercise}
+
+\begin{proof}
+    All cosets of the subgroup $4\mathbb{Z}$ of $2\mathbb{Z}$ are
+    \begin{enumerate}[label={(\arabic*)}]
+        \item $4\mathbb{Z} = \{ \ldots, -8, -4, 0, 4, 8, \ldots \}$
+        \item $2 + \mathbb{Z} = \{ \ldots, -6, -2, 2, 6, 10, \ldots \}$
+    \end{enumerate}
+\end{proof}
+
+% section 10/exercise 3
+\begin{exercise}
+    Find all cosets of the subgroup $\anglebracket{3}$ in $\mathbb{Z}_{18}$.
+\end{exercise}
+
+\begin{proof}
+    $\anglebracket{3} = \{ 0, 3, 6, 9, 12, 15 \}$. All cosets of the subgroup $\anglebracket{3}$ in $\mathbb{Z}_{18}$ are
+    \begin{enumerate}[label={(\arabic*)}]
+        \item $\anglebracket{3} = \{ 0, 3, 6, 9, 12, 15 \}$
+        \item $1 + \anglebracket{3} = \{ 1, 4, 7, 10, 13, 16 \}$
+        \item $2 + \anglebracket{3} = \{ 2, 5, 8, 11, 14, 17 \}$
+    \end{enumerate}
+\end{proof}
+
+% section 10/exercise 4
+\begin{exercise}
+    Find all cosets of the subgroup $\anglebracket{6}$ in $\mathbb{Z}_{18}$.
+\end{exercise}
+
+\begin{proof}
+    $\anglebracket{6} = \{ 0, 6, 12 \}$. All cosets of the subgroup $\anglebracket{6}$ in $\mathbb{Z}_{18}$ are
+    \begin{enumerate}[label={(\arabic*)}]
+        \item $\anglebracket{6} = \{ 0, 6, 12 \}$
+        \item $1 + \anglebracket{6} = \{ 1, 7, 13 \}$
+        \item $2 + \anglebracket{6} = \{ 2, 8, 14 \}$
+        \item $3 + \anglebracket{6} = \{ 3, 9, 15 \}$
+        \item $4 + \anglebracket{6} = \{ 4, 10, 16 \}$
+        \item $5 + \anglebracket{6} = \{ 5, 11, 17 \}$
+    \end{enumerate}
+\end{proof}
+
+% section 10/exercise 5
+\begin{exercise}
+    Find all cosets of the subgroup $\anglebracket{18}$ of $\mathbb{Z}_{36}$.
+\end{exercise}
+
+\begin{proof}
+    $\anglebracket{18} = \{ 0, 18 \}$. All cosets of the subgroup $\anglebracket{18}$ in $\mathbb{Z}_{36}$ are
+    \begin{enumerate}[label={(\arabic*)}]
+        \item $\anglebracket{18} = \{ 0, 18 \}$
+        \item $1 + \anglebracket{18} = \{ 1, 19 \}$
+        \item $2 + \anglebracket{18} = \{ 2, 20 \}$
+        \item $3 + \anglebracket{18} = \{ 3, 21 \}$
+        \item $4 + \anglebracket{18} = \{ 4, 22 \}$
+        \item $5 + \anglebracket{18} = \{ 5, 23 \}$
+        \item $6 + \anglebracket{18} = \{ 6, 24 \}$
+        \item $7 + \anglebracket{18} = \{ 7, 25 \}$
+        \item $8 + \anglebracket{18} = \{ 8, 26 \}$
+        \item $9 + \anglebracket{18} = \{ 9, 27 \}$
+        \item $10 + \anglebracket{18} = \{ 10, 28 \}$
+        \item $11 + \anglebracket{18} = \{ 11, 29 \}$
+        \item $12 + \anglebracket{18} = \{ 12, 30 \}$
+        \item $13 + \anglebracket{18} = \{ 13, 31 \}$
+        \item $14 + \anglebracket{18} = \{ 14, 32 \}$
+        \item $15 + \anglebracket{18} = \{ 15, 33 \}$
+        \item $16 + \anglebracket{18} = \{ 16, 34 \}$
+        \item $17 + \anglebracket{18} = \{ 17, 35 \}$
+    \end{enumerate}
+\end{proof}
+
+% section 10/exercise 6
+\begin{exercise}
+    Find all left cosets of $\anglebracket{\mu\rho}$ in $D_{4}$.
+\end{exercise}
+
+\begin{proof}
+    All left cosets of $\anglebracket{\mu\rho}$ in $D_{4}$ are
+    \begin{enumerate}[label={(\arabic*)}]
+        \item $\iota\anglebracket{\mu\rho} = \{ \iota, \mu\rho \}$
+        \item $\rho\anglebracket{\mu\rho} = \{ \rho, \mu \}$
+        \item $\rho^{2}\anglebracket{\mu\rho} = \{ \rho^{2}, \mu\rho^{3} \}$
+        \item $\rho^{3}\anglebracket{\mu\rho} = \{ \rho^{3}, \mu\rho^{2} \}$
+    \end{enumerate}
+\end{proof}
+
+% section 10/exercise 7
+\begin{exercise}
+    Repeating the preceding exercise, but find the right cosets this time. Are they the same as the left cosets?
+\end{exercise}
+
+\begin{proof}
+    All right cosets of $\anglebracket{\mu\rho}$ in $D_{4}$ are
+    \begin{enumerate}[label={(\arabic*)}]
+        \item $\anglebracket{\mu\rho}\iota = \{ \iota, \mu\rho \}$
+        \item $\anglebracket{\mu\rho}\rho = \{ \rho, \mu\rho^{2} \}$
+        \item $\anglebracket{\mu\rho}\rho^{2} = \{ \rho^{2}, \mu\rho^{3} \}$
+        \item $\anglebracket{\mu\rho}\rho^{3} = \{ \rho^{3}, \mu \}$
+    \end{enumerate}
+
+    The left cosets and the right cosets of $D_{4}$ are not the same. But the left and right cosets of $\anglebracket{\mu\rho}$ containing $\iota$ are identical, the left and right cosets of $\anglebracket{\mu\rho}$ containing $\rho^{2}$ are identical.
+\end{proof}
+
+% section 10/exercise 8
+\begin{exercise}
+    Are the left and right cosets the same for the subgroup $\{ \iota, \rho^{4}, \mu, \mu\rho^{4} \}$ of $D_{8}$? If so, display the cosets. If not, find a left coset that is not the same as any right coset.
+\end{exercise}
+
+\begin{proof}
+    All left cosets of $\{ \iota, \rho^{4}, \mu, \mu\rho^{4} \}$ in $D_{8}$ are
+    \begin{enumerate}[label={(\arabic*)}]
+        \item $\iota\{ \iota, \rho^{4}, \mu, \mu\rho^{4} \} = \{ \iota, \rho^{4}, \mu, \mu\rho^{4} \}$
+        \item $\rho\{ \iota, \rho^{4}, \mu, \mu\rho^{4} \} = \{ \rho, \rho^{5}, \mu\rho^{7}, \mu\rho^{3} \}$
+        \item $\rho^{2}\{ \iota, \rho^{4}, \mu, \mu\rho^{4} \} = \{ \rho^{2}, \rho^{6}, \mu\rho^{6}, \mu\rho^{2} \}$
+        \item $\rho^{3}\{ \iota, \rho^{4}, \mu, \mu\rho^{4} \} = \{ \rho^{3}, \rho^{7}, \mu\rho^{5}, \mu\rho \}$
+    \end{enumerate}
+
+    All right cosets of $\{ \iota, \rho^{4}, \mu, \mu\rho^{4} \}$ in $D_{8}$ are
+    \begin{enumerate}[label={(\arabic*)}]
+        \item $\{ \iota, \rho^{4}, \mu, \mu\rho^{4} \}\iota = \{ \iota, \rho^{4}, \mu, \mu\rho^{4} \}$
+        \item $\{ \iota, \rho^{4}, \mu, \mu\rho^{4} \}\rho = \{ \rho, \rho^{5}, \mu\rho, \mu\rho^{5} \}$
+        \item $\{ \iota, \rho^{4}, \mu, \mu\rho^{4} \}\rho^{2} = \{ \rho^{2}, \rho^{6}, \mu\rho^{2}, \mu\rho^{6} \}$
+        \item $\{ \iota, \rho^{4}, \mu, \mu\rho^{4} \}\rho^{3} = \{ \rho^{3}, \rho^{7}, \mu\rho^{3}, \mu\rho^{7} \}$
+    \end{enumerate}
+
+    The left and right cosets are not the same for the subgroup $\{ \iota, \rho^{4}, \mu, \mu\rho^{4} \}$ of $D_{8}$. The left coset $\rho\{ \iota, \rho^{4}, \mu, \mu\rho^{4} \}$ is not the same as any right coset.
+\end{proof}
+
+% section 10/exercise 9
+\begin{exercise}
+    Find all left cosets of $\anglebracket{\rho^{2}} \leq D_{4}$.
+\end{exercise}
+
+\begin{proof}
+    All left cosets of $\anglebracket{\rho^{2}} \leq D_{4}$ are
+    \begin{enumerate}[label={(\arabic*)}]
+        \item $\iota\anglebracket{\rho^{2}} = \{ \iota, \rho^{2} \}$
+        \item $\rho\anglebracket{\rho^{2}} = \{ \rho, \rho^{3} \}$
+        \item $\mu\anglebracket{\rho^{2}} = \{ \mu, \mu\rho^{2} \}$
+        \item $\mu\rho\anglebracket{\rho^{2}} = \{ \mu\rho, \mu\rho^{3} \}$
+    \end{enumerate}
+\end{proof}
+
+% section 10/exercise 10
+\begin{exercise}
+    Repeat the previous exercise, but find the right cosets. Are the left and right cosets the same? If so, make the group table for $D_{4}$, ordering the elements so that the cosets are in blocks, see if the blocks form a group with four elements, and determine what group of order 4 the blocks form.
+\end{exercise}
+
+\begin{proof}
+    All right cosets of $\anglebracket{\rho^{2}} \leq D_{4}$ are
+    \begin{enumerate}[label={(\arabic*)}]
+        \item $\anglebracket{\rho^{2}}\iota = \{ \iota, \rho^{2} \}$
+        \item $\anglebracket{\rho^{2}}\rho = \{ \rho, \rho^{3} \}$
+        \item $\anglebracket{\rho^{2}}\mu = \{ \mu, \mu\rho^{2} \}$
+        \item $\anglebracket{\rho^{2}}\mu\rho = \{ \mu\rho, \mu\rho^{3} \}$
+    \end{enumerate}
+
+    In this case, the left and right cosets are the same.
+    \[
+        \begin{array}{c||c|c||c|c||c|c||c|c}
+                        & \iota       & \rho^{2}    & \rho        & \rho^{3}    & \mu         & \mu\rho^{2} & \mu\rho     & \mu\rho^{3} \\
+            \hline\hline
+            \iota       & \iota       & \rho^{2}    & \rho        & \rho^{3}    & \mu         & \mu\rho^{2} & \mu\rho     & \mu\rho^{3} \\
+            \hline
+            \rho^{2}    & \rho^{2}    & \iota       & \rho^{3}    & \rho        & \mu\rho^{2} & \mu         & \mu\rho^{3} & \mu\rho     \\
+            \hline\hline
+            \rho        & \rho        & \rho^{3}    & \rho^{2}    & \iota       & \mu\rho^{3} & \mu\rho     & \mu         & \mu\rho^{2} \\
+            \hline
+            \rho^{3}    & \rho^{3}    & \rho        & \iota       & \rho^{2}    & \mu\rho     & \mu\rho^{3} & \mu\rho^{2} & \mu         \\
+            \hline\hline
+            \mu         & \mu         & \mu\rho^{2} & \mu\rho     & \mu\rho^{3} & \iota       & \rho^{2}    & \rho        & \rho^{3}    \\
+            \hline
+            \mu\rho^{2} & \mu\rho^{2} & \mu         & \mu\rho^{3} & \mu\rho     & \rho^{2}    & \iota       & \rho^{3}    & \rho        \\
+            \hline\hline
+            \mu\rho     & \mu\rho     & \mu\rho^{3} & \mu\rho^{2} & \mu         & \rho^{3}    & \rho        & \iota       & \rho^{2}    \\
+            \hline
+            \mu\rho^{3} & \mu\rho^{3} & \mu\rho     & \mu         & \mu\rho^{2} & \rho        & \rho^{3}    & \rho^{2}    & \iota       \\
+        \end{array}
+    \]
+
+    The group of order 4 the blocks form is isomorphic to the Klein 4-group.
+\end{proof}
+
+% section 10/exercise 11
+\begin{exercise}
+    Find the index of $\anglebracket{\rho^{2}}$ in the group $D_{6}$.
+\end{exercise}
+
+\begin{proof}
+    $\anglebracket{\rho^{2}} = \{ \iota, \rho^{2}, \rho^{4} \}$ has 3 elements. $D_{6}$ has 12 elements. According to the definition of index in the case of finite groups, the index of $\anglebracket{\rho^{2}}$ in $D_{6}$ is 4.
+\end{proof}
+
+% section 10/exercise 12
+\begin{exercise}
+    Find the index of $\anglebracket{3}$ in the group $\mathbb{Z}_{24}$.
+\end{exercise}
+
+\begin{proof}
+    $\anglebracket{3} = \{ 0, 3, 6, 9, 12, 15, 18, 21 \}$ has 8 elements. $\mathbb{Z}_{24}$ has 24 elements. According to the definition of index in the case of finite groups, the index of $\anglebracket{3}$ in $\mathbb{Z}_{24}$ is 3.
+\end{proof}
+
+% section 10/exercise 13
+\begin{exercise}
+    Find the index of $12\mathbb{Z}$ in $\mathbb{Z}$.
+\end{exercise}
+
+\begin{proof}
+    All left cosets of $12\mathbb{Z}$ in $\mathbb{Z}$ are
+    \begin{enumerate}[label={(\arabic*)}]
+        \item $12\mathbb{Z}$
+        \item $1 + 12\mathbb{Z}$
+        \item $2 + 12\mathbb{Z}$
+        \item $3 + 12\mathbb{Z}$
+        \item $4 + 12\mathbb{Z}$
+        \item $5 + 12\mathbb{Z}$
+        \item $6 + 12\mathbb{Z}$
+        \item $7 + 12\mathbb{Z}$
+        \item $8 + 12\mathbb{Z}$
+        \item $9 + 12\mathbb{Z}$
+        \item $10 + 12\mathbb{Z}$
+        \item $11 + 12\mathbb{Z}$
+    \end{enumerate}
+
+    Hence the index of $12\mathbb{Z}$ in $\mathbb{Z}$ is 12.
+\end{proof}
+
+% section 10/exercise 14
+\begin{exercise}
+    Find the index of $12\mathbb{Z}$ in $3\mathbb{Z}$.
+\end{exercise}
+
+\begin{proof}
+    All left cosets of $12\mathbb{Z}$ in $3\mathbb{Z}$ are
+    \begin{enumerate}[label={(\arabic*)}]
+        \item $12\mathbb{Z}$
+        \item $3 + 12\mathbb{Z}$
+        \item $6 + 12\mathbb{Z}$
+        \item $9 + 12\mathbb{Z}$
+    \end{enumerate}
+
+    Thus the index of $12\mathbb{Z}$ in $3\mathbb{Z}$ is 4.
+\end{proof}
+
+% section 10/exercise 15
+\begin{exercise}
+    Let $\sigma = (1,2,5,4)(2,3)$ in $S_{5}$. Find the index of $\anglebracket{\sigma}$ in $S_{5}$.
+\end{exercise}
+
+\begin{proof}
+    $\sigma = (1,2,5,4)(2,3) = (1,2,3,5,4)$. The order of $\sigma$ in $S_{5}$ is 5. So the index of $\anglebracket{\sigma}$ in $S_{5}$ is $5!/5 = 24$.
+\end{proof}
+
+% section 10/exercise 16
+\begin{exercise}
+    Let $\mu = (1,2,4,5)(3,6)$ in $S_{6}$. Find the index of $\anglebracket{\mu}$ in $S_{6}$.
+\end{exercise}
+
+\begin{proof}
+    The order of $(1,2,4,5)$ in $S_{6}$ is 4. The order of $(3,6)$ in $S_{6}$ is 2. So the order of $\mu$ in $S_{6}$ is the least common multiple of 4 and 2, which is 4. So the index of $\anglebracket{\mu}$ in $S_{6}$ is $6!/4 = 180$.
+\end{proof}
+
+\subsection*{Concepts}
+
+In Exercises 17 through 19, correct the definition of the italicized term without reference to the text, if correction is needed, so that it is in a form acceptable for publication.
+
+% section 10/exercise 17
+\begin{exercise}
+    Let $G$ be a group and let $H\subseteq G$. The \textit{left coset of $H$ containing $a$} is $aH = \{ ah \mid h\in H \}$.
+\end{exercise}
+
+\begin{proof}
+    Correction: Let $G$ be a group and let $H\leq G$. The \textit{left coset of $H$ containing $a$} is $aH = \{ ah \mid h\in H \}$.
+\end{proof}
+
+% section 10/exercise 18
+\begin{exercise}
+    Let $G$ be a group and let $H\leq G$. The \textit{index of $H$ in $G$} is the number of right cosets of $H$ in $G$.
+\end{exercise}
+
+\begin{proof}
+    The definition is correct.
+\end{proof}
+
+% section 10/exercise 19
+\begin{exercise}
+    Let $\phi: G\to G'$. Then the \textit{kernel} of $\phi$ is $\ker\phi = \{ g \in G \mid \phi(g) = e \}$
+\end{exercise}
+
+\begin{proof}
+    Correction: Let $\phi: G\to G'$ be a group homomorphism. Then the \textit{kernel} of $\phi$ is $\ker\phi = \{ g \in G \mid \phi(g) = e' \}$ where $e'$ is the identity element of $G'$.
+\end{proof}
+
+% section 10/exercise 20
+\begin{exercise}
+    Determine whether each of the following is true or false.
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item Every subgroup of every group has left cosets.
+        \item The number of left cosets of a subgroup of a finite group divides the order of the group.
+        \item Every group of prime order is abelian.
+        \item One cannot have left cosets of a finite subgroup of an infinite group.
+        \item A subgroup of a group is a left coset of itself.
+        \item Only subgroups of finite groups can have left cosets.
+        \item $A_{n}$ is of index 2 in $S_{n}$ for $n > 1$.
+        \item The theorem of Lagrange is a nice result.
+        \item Every finite group contains an element of every order that divides the order of the group.
+        \item Every finite cyclic group contains an element of every order that divides the order of the group.
+        \item The kernel of a homomorphism is a subgroup of the range of the homomorphism.
+        \item Left cosets and right cosets of the kernel of a homomorphism are the same.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item True.
+        \item True.
+        \item True. Every group of prime order is cyclic, therefore abelian.
+        \item False.
+        \item True.
+        \item False.
+        \item True. Because $\abs{S_{n}} = n!{}$ and $\abs{A_{n}} = n!/2$ for $n > 1$.
+        \item Undeciable, because this statement is subjective. But in my opinion, it is a really nice result.
+        \item False. Example: In $D_{3}$, none of its element has order of 6.
+        \item True. Because cyclic group is abelian, and a finite abelian group $G$ has subgroup of any order which divides the order of $G$, and every subgroup of a cyclic group is cyclic.
+        \item False.
+        \item True.
+    \end{enumerate}
+\end{proof}
+
+In Exercises 21 through 26, give an example of the desired subgroup and group if possible. If impossible, say why
+it is impossible.
+
+% section 10/exercise 21
+\begin{exercise}
+    A subgroup $H\leq G$ with $G$ infinite and $H$ having only a finite number of left cosets in $G$
+\end{exercise}
+
+\begin{proof}
+    Example: $2\mathbb{Z} \leq \mathbb{Z}$. $2\mathbb{Z}$ has exactly 2 left cosets in $\mathbb{Z}$.
+\end{proof}
+
+% section 10/exercise 22
+\begin{exercise}
+    A subgroup of an abelian group $G$ whose left cosets and right cosets give different partition of $G$.
+\end{exercise}
+
+\begin{proof}
+    Impossible. Since $G$ is abelian, $aH = Ha$ for every subgroup $H\leq G$ and $a\in G$.
+\end{proof}
+
+% section 10/exercise 23
+\begin{exercise}
+    A subgroup of a group $G$ whose left cosets give a partition of $G$ into just one cell
+\end{exercise}
+
+\begin{proof}
+    For any group $G$, $G$ is its improper subgroup. $G$ is the only left coset of $G$, within $G$.
+\end{proof}
+
+% section 10/exercise 24
+\begin{exercise}
+    A subgroup of a group of order 6 whose left cosets give a partition of the group into 6 cells.
+\end{exercise}
+
+\begin{proof}
+    Example: $\mathbb{Z}_{6}$ and its trivial subgroup $\{0\}$. $\{0\}$ has 6 cosets, which are $\{0\}$, $\{1\}$, $\{2\}$, $\{3\}$, $\{4\}$, $\{5\}$.
+\end{proof}
+
+% section 10/exercise 25
+\begin{exercise}
+    A subgroup of a group of order 6 whose left cosets give a partition of the group into 12 cells
+\end{exercise}
+
+\begin{proof}
+    Impossible. Because 12 is larger than 6. A subgroup of a group of order 6 can have at most 6 left cosets, due to Lagrange's theorem.
+\end{proof}
+
+% section 10/exercise 26
+\begin{exercise}
+    A subgroup of a group of order 6 whose left cosets give a partition of the group into 4 cells
+\end{exercise}
+
+\begin{proof}
+    Impossible. Because 4 does not divide 6. According to the Lagrange's theorem, the number of left cosets of a subgroup of a finite group $G$ must divide the order of $G$.
+\end{proof}
+
+\subsection*{Proof Synopsis}
+
+% section 10/exercise 27
+\begin{exercise}
+    Give a one-sentence synopsis of the proof of the Theorem of Lagrange.
+\end{exercise}
+
+\begin{proof}
+    All left cosets of a subgroup of a finite group constitute a partion of the given finite group and those left cosets have the same number of elements, so the order of the subgroup divides the order of the group.
+\end{proof}
+
+\subsection*{Theory}
+
+% section 10/exercise 28
+\begin{exercise}
+    Prove that the relation ${\sim}_{R}$ that is used to define right cosets is an equivalence relation.
+\end{exercise}
+
+\begin{proof}
+    $H$ is a subgroup of $G$, $e$ is the identity element of $G$.
+
+    For $a\in G$, $aa^{-1} = e\in H$ (because $H$ is a subgroup), so $a {\sim}_{R} a$.
+
+    If $a {\sim}_{R} b$, then $ab^{-1}\in H$. It follows that its inverse ${(ab^{-1})} = ba^{-1}$ is also in $H$. So $a {\sim}_{R} b$ implies $b {\sim}_{R} a$. Analogously, $b {\sim}_{R} a$ implies $a {\sim}_{R} b$.
+
+    If $a {\sim}_{R} b$ and $b {\sim}_{R} c$ implies $ab^{-1}, bc^{-1}\in H$. So $(ab^{-1})(bc^{-1}) = ac^{-1}\in H$. Therefore $a {\sim}_{R} b$.
+
+    Hence ${\sim}_{R}$ is reflexive, symmetric, and transitive, which implies ${\sim}_{R}$ is an equivalence relation.
+\end{proof}
+
+% section 10/exercise 29
+\begin{exercise}
+    Let $H$ be a subgroup of a group $G$ and let $g\in G$. Define a one-to-one map of $H$ onto $Hg$. Prove that your map is one-to-one and is onto $Hg$.
+\end{exercise}
+
+\begin{proof}
+    Let $\phi: H\to Hg$ be the map defined as $\phi(x) = xg$ for every $x\in G$. If $ag = bg$ ($ag, bg$ are elements of $Hg$), then $a = b$ due to the right cancellation law. So $\phi$ is one-to-one. On the other hand, every element in $Hg$ is of the form $xg$ where $x\in H$, so $\phi(x) = xg$, which means $\phi$ is onto $Hg$. Hence the defined map $\phi$ is a one-to-one map from $H$ onto $Hg$.
+\end{proof}
+
+% section 10/exercise 30
+\begin{exercise}
+    Let $H$ be a subgroup of a group $G$ such that $g^{-1}hg\in H$ for all $g\in G$ and all $h\in H$. Show that every left coset $gH$ is the same as the right coset $Hg$.
+\end{exercise}
+
+\begin{proof}
+    An element of the left coset $gH$ is of the form $gh$, where $h\in H$. Because $ghg^{-1}\in H$, then $gh = gh(g^{-1}g) = (ghg^{-1})g \in Hg$. Therefore every element of $gH$ is also an element of $Hg$, so $gH \subseteq Hg$.
+
+    An element of the right coset $Hg$ is of the form $hg$, where $h\in H$. Since $g^{-1}hg\in H$, then $hg = (gg^{-1})hg = g(g^{-1}hg)\in gH$. It follows that every element of $Hg$ is also an element of $gH$, so $Hg \subseteq gH$.
+
+    Hence $gH = Hg$ if $g^{-1}hg\in H$ for all $g\in G$ and $h\in H$.
+\end{proof}
+
+% section 10/exercise 31
+\begin{exercise}
+    Let $H$ be a subgroup of a group $G$. Prove that if the partition of $G$ into left cosets of $H$ is the same as the partition into right cosets of $H$, then $g^{-1}hg$ for all $g\in G$ and all $h\in H$. (Note that this is the converse of Exercise 30.)
+\end{exercise}
+
+\begin{proof}
+    Because the left cosets of $H$ partition $G$ the same as the right cosets of $H$, each left coset of $H$ is some right coset of $H$.
+
+    Suppose that the left coset $aH$ and the right coset $Hg$ are identical. Let $h$ be an element of $H$. Because $g\in Hg$, so $g\in aH$, and there exists $x\in H$ such that $g = ax$, so $g^{-1} = x^{-1}a^{-1}$. On the other hand, $hg\in Hg$, so $hg\in aH$, and there exists $y\in H$ such that $hg = ay$. So $g^{-1}hg = (g^{-1}h)g = (x^{-1}a^{-1})(ay) = x^{-1}y$. Since $x^{-1}y\in H$, it follows that $g^{-1}hg\in H$, for every $g\in G$, $h\in H$.
+\end{proof}
+
+Let $H$ be a subgroup of a group $G$ and let $a, b\in G$. In Exercises 32 through 35 prove the statement or give a counterexample.
+
+% section 10/exercise 32
+\begin{exercise}
+    If $aH = bH$, then $Ha = Hb$.
+\end{exercise}
+
+\begin{proof}
+    The statement is true.
+
+    If $aH = bH$, then $a\in bH, b\in aH$, and there exist $x, y\in H$ such that $a = bx, b = ay$. Let $h$ be an element in $H$.
+    \[
+        \begin{split}
+            ha = ha(b^{-1}b) = (hx)b\in Hb, \\
+            hb = hb(a^{-1}a) = (hy)a\in Ha.
+        \end{split}
+    \]
+
+    So $Ha\subseteq Hb$ and $Hb\subseteq Ha$, which means $Ha = Hb$
+\end{proof}
+
+% section 10/exercise 33
+\begin{exercise}
+    If $Ha = Hb$, then $b\in Ha$.
+\end{exercise}
+
+\begin{proof}
+    The statement is true.
+
+    Let $e$ be the identity element of $G$, then $e$ is also the identity element of $H$. Since $b = eb\in Hb$ and $Hb = Ha$, we conclude that $b\in Ha$.
+\end{proof}
+
+% section 10/exercise 34
+\begin{exercise}
+    If $aH = bH$, then $Ha^{-1} = Hb^{-1}$.
+\end{exercise}
+
+\begin{proof}
+    The statement is true.
+
+    If $aH = bH$, then $a\in bH, b\in aH$, and there exist $x, y\in H$ such that $a = bx, b = ay$. Let $h$ be an element in $H$.
+    \[
+        \begin{split}
+            ha^{-1} = ha^{-1}(bb^{-1}) = (ha^{-1}b)b^{-1} = (hy)b^{-1} \in Hb^{-1}, \\
+            hb^{-1} = hb^{-1}(aa^{-1}) = (hb^{-1}a)a^{-1} = (hx)a^{-1} \in Ha^{-1}.
+        \end{split}
+    \]
+
+    So $Ha^{-1} \subseteq Hb^{-1}$ and $Hb^{-1} \subseteq Ha^{-1}$, which means $Ha^{-1} = Hb^{-1}$.
+\end{proof}
+
+% section 10/exercise 35
+\begin{exercise}
+    If $aH = bH$, then $a^{2}H = b^{2}H$.
+\end{exercise}
+
+\begin{proof}
+    The statement is not true in general.
+
+    Counterexample: $\{ \iota, \mu \}$ is a subgroup of $D_{3}$. The following left cosets are identical
+    \begin{align*}
+        \rho\{ \iota, \mu \}        & = \{ \rho, \mu\rho^{2} \}, \\
+        \mu\rho^{2}\{ \iota, \mu \} & = \{ \mu\rho^{2}, \rho \}.
+    \end{align*}
+
+    but
+    \begin{align*}
+        {(\rho)}^{2}\{ \iota, \mu \}        & = \{ \rho^{2}, \mu\rho \}, \\
+        {(\mu\rho^{2})}^{2}\{ \iota, \mu \} & = \{ \iota, \mu \}.
+    \end{align*}
+\end{proof}
+
+% section 10/exercise 36
+\begin{exercise}
+    Let $G$ be a group of order $pq$, where $p$ and $q$ are prime numbers. Show that every proper subgroup of $G$ is cyclic.
+\end{exercise}
+
+\begin{proof}
+    According to Lagrange's theorem, every proper subgroup of $G$ has order of 1, $p$, or $q$. If the order of the subgroup is 1, then it is cyclic. If the order of the subgroup is $p$ or $q$, then the order of nonidentity element in the subgroup must be $p$ or $q$ (respectively) due to Lagrange's theorem, which means the subgroup is cyclic.
+
+    Hence every proper subgroup of $G$ is cyclic.
+\end{proof}
+
+% section 10/exercise 37
+\begin{exercise}
+    Show that there are the same number of left as right cosets of a subgroup $H$ of a group $G$; that is, exhibit a one-to-one map of the collection of left cosets onto the collection of right cosets. (Note that this result is obvious by counting for finite groups. Your proof must hold for any group.)
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 10/exercise 38
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 10/exercise 39
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 10/exercise 40
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 10/exercise 41
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 10/exercise 42
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 10/exercise 43
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 10/exercise 44
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 10/exercise 45
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 10/exercise 46
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 10/exercise 47
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 10/exercise 48
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 10/exercise 49
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+% section 10/exercise 50
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
 
 \section{Plane Isometries}
