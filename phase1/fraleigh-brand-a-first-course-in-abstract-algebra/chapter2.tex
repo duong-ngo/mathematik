@@ -2687,97 +2687,258 @@ Let $H$ be a subgroup of a group $G$ and let $a, b\in G$. In Exercises 32 throug
 \end{exercise}
 
 \begin{proof}
+    \textbf{Lemma.} $aH = bH$ if and only if $Ha^{-1} = Hb^{-1}$.
+
+    \textit{Proof of the Lemma.} Let $h$ be an element of $H$.
+
+    If $aH = bH$, then $a\in bH, b\in aH$. So there exist $x, y$ such that $a = bx$ and $b = ay$.
+    \[
+        \begin{split}
+            ha^{-1} = ha^{-1}(bb^{-1}) = h(a^{-1}b)b^{-1} = (hy)b^{-1} \in Hb^{-1} \\
+            hb^{-1} = hb^{-1}(aa^{-1}) = h(b^{-1}a)a^{-1} = (hx)a^{-1} \in Ha^{-1}
+        \end{split}
+    \]
+
+    So $Ha^{-1}\subseteq Hb^{-1}$ and $Hb^{-1}\subseteq Ha^{-1}$. Hence $Ha^{-1} = Hb^{-1}$.
+
+    If $Ha^{-1} = Hb^{-1}$, then $a^{-1}\in Hb^{-1}, b^{-1}\in Ha^{-1}$. So there exist $u, v$ such that $a^{-1} = ub^{-1}$ and $b^{-1} = va^{-1}$.
+    \[
+        \begin{split}
+            ah = (bb^{-1})ah = b(b^{-1}a)h = b(vh) \in bH \\
+            bh = (aa^{-1})bh = a(a^{-1}b)h = a(uh) \in aH
+        \end{split}
+    \]
+
+    So $aH\subseteq bH$ and $bH\subseteq aH$. Hence $aH = bH$.
+
+    Proof of the Lemma is completed.
+
+    Back to main proof. Let $L_{H}$ be the collection of left cosets of $H$, $R_{H}$ the collection of right cosets of $H$. We define a mapping $f: L_{H}\to R_{H}$ as follows
+    \[
+        f: aH \mapsto Ha^{-1}
+    \]
+
+    Due to the Lemma, $f(aH) = Ha^{-1} = Hb^{-1} = f(bH)$ implies $aH = bH$, so $f$ is one-to-one. On the other hand, for every right coset $Hx$, $f(x^{-1}H) = Hx$, so $f$ is onto $R_{H}$. Therefore $f$ is a bijection from $L_{H}$ onto $R_{H}$. Hence the cardinality of the left cosets of $H$ and the cardinality of the right cosets of $H$ are equal.
 \end{proof}
 
 % section 10/exercise 38
 \begin{exercise}
+    Exercise 29 of Section 2 showed that every finite group of even order $2n$ contains an element of order $2$. Using the theorem of Lagrange, show that if $n$ is odd, then an abelian group of order $2n$ contains precisely one element of order $2$.
 \end{exercise}
 
 \begin{proof}
+    Let $a$ be an element of order $2$ in the given abelian group $G$ of order $2n$ where $n$ is odd. $\anglebracket{a}$ is a subgroup of $G$.
+
+    Assume (for proof by contradiction) that there is another element $b$ of order $2$ in $G$. Then $ab = ba$ is also an element of order $2$. Moreover, $\{ e, a, b, ab \}$ is a subgroup of $G$ ($e, a, b, ab$ are pairwise distinct). Due to the theorem of Lagrange, $4$ divides $2n$, but this contrary to $n$ being an odd number.
+
+    Thus in an abelian group of order $2n$, there is precisely one element of order $2$.
 \end{proof}
 
 % section 10/exercise 39
 \begin{exercise}
+    Show that a group with at least two elements but with no proper nontrivial subgroups must be finite and of prime order.
 \end{exercise}
 
 \begin{proof}
+    Let $G$ be a group with at least two elements and $G$ has no proper nontrivial subgroups. Let $e, a$ be the identity element and a nonidentity element of $G$.
+
+    Assume that $G$ is infinite. Because $G$ has no proper nontrivial subgroups, so $\anglebracket{a}$ is infinite and $\anglebracket{a} = G$. On the other hand, $\anglebracket{a^{2}}$ is a proper nontrivial subgroup of $\anglebracket{a} = G$, which contrary to $G$ having no proper nontrivial subgroups. Hence $G$ is finite.
+
+    Because $G$ does not have any proper nontrivial subgroup, then $\anglebracket{a} = G$. Let $n$ be the number of elements in $G$. Because $n\geq 2$, $n$ is divisible by a prime number $p$. If $n > p$, then $\anglebracket{a^{n/p}}$ is a proper nontrivial subgroup of $\anglebracket{a} = G$. Therefore $n = p$.
+
+    Thus $G$ is finite and $G$ is of prime order.
 \end{proof}
 
 % section 10/exercise 40
 \begin{exercise}
+    Prove Theorem 10.11: Suppose $H$ and $K$ are subgroups of a group $G$ such that $K\leq H\leq G$, and suppose $(H:K)$ and $(G:H)$ are both finite. Then $(G:K)$ is finite, and $(G:K) = (G:H)(H:K)$.
 \end{exercise}
 
 \begin{proof}
+    Let $a_{1}H, \ldots, a_{r}H$ be all distinct left cosets of $H$ in $G$. Let $b_{1}K, \ldots, b_{s}K$ be all distinct left cosets of $K$ in $H$.
+
+    For every $1\leq i\leq r, 1\leq j\leq s$, $(a_{i}b_{j})K$ is a left coset of $K$ in $G$. We will prove that for every left coset $xK$ of $K$ in $G$, there exist uniquely $1\leq i\leq r, 1\leq j\leq s$ such that $xK = a_{i}b_{j}K$.
+
+    Let $xK$ be a left coset of $K$ in $G$. $xK$ is a subset of $xH$. $xH$ is one of the $r$ left cosets of $H$ in $G$. So there exists uniquely $1\leq i\leq r$ such that $xH = a_{i}H$, equivalently, ${a_{i}}^{-1}x\in H$. ${a_{i}}^{-1}xK$ is a left coset of $K$ in $H$, so there exists uniquely $1\leq j\leq s$ such that ${a_{i}}^{-1}xK = b_{j}K$, equivalently, ${b_{j}}^{-1}{a_{i}}^{-1}xK = K$. Hence there exist uniquely $1\leq i\leq r, 1\leq j\leq s$ such that $xK = (a_{i}b_{j})K$.
+
+    So $(a_{i}b_{j})K$ for $1\leq i\leq r, 1\leq j\leq s$ are precisely all distinct left cosets of $K$ in $G$. Hence
+    \[
+        (G:K) = rs = (G:H)(H:K).\qedhere
+    \]
 \end{proof}
 
 % section 10/exercise 41
 \begin{exercise}
+    Show that if $H$ is a subgroup of index $2$ in a finite group $G$, then every left coset of $H$ is also a right coset of $H$.
 \end{exercise}
 
 \begin{proof}
+    $G$ being finite group is redundant.
+
+    The subgroup $H$ in the group $G$ has index of $2$ means $H$ has precisely $2$ left cosets in $G$, and precisely $2$ right cosets in $G$. There are two left cosets: one is $H$, the other is the complement of $H$ in $G$.
+
+    Let $aH$ be a left coset of $H$ in $G$.
+
+    If $aH = H$, then $a\in H$. So $Ha = H$ (right regular representation). Hence $Ha = aH = H$.
+
+    If $aH\ne H$, then $a\notin H$ (if $a\in H$, then $aH = H$). So $Ha\ne H$. Hence $Ha = aH$, which is the left coset other than $H$.
+
+    Hence every left coset of $H$ is also a right coset of $H$.
 \end{proof}
 
 % section 10/exercise 42
 \begin{exercise}
+    Show that if a group $G$ with identity $e$ has finite order $n$, then $a^{n} = e$ for all $a\in G$.
 \end{exercise}
 
 \begin{proof}
+    Due to the theorem of Lagrange, the order of $\anglebracket{a}$ divides $n$. Let the order of $\anglebracket{a}$ be $d$. Therefore $a^{n} = {(a^{d})}^{n/d} = e^{n/d} = e$. Thus $a^{n} = e$ for every $a\in G$.
 \end{proof}
 
 % section 10/exercise 43
 \begin{exercise}
+    Show that every left coset of the subgroup $\mathbb{Z}$ of the additive group of real numbers contains exactly one element $x$ such that $0\leq x < 1$.
 \end{exercise}
 
 \begin{proof}
+    Let $a + \mathbb{Z}$ be a left coset of $\mathbb{Z}$ in $\mathbb{R}$.
+
+    Assume that $a$ is not less than any integer, then $a$ is an upper bound of $\mathbb{Z}$. Then due to the completeness axiom, $\mathbb{Z}$ has a least upper bound $u$. Because $u$ is the least upper bound of $\mathbb{Z}$, there exists an integer $m$ such that $m > u - 1$, from which we obtain that $u < 1 + m$, and this contrary to the definition of least upper bound. Hence there exist integers which are greater than $a$.
+
+    Due to the well-ordering principle, in the set of integers greater than $a$ (this set has a lower bound due to its definition, and it is nonempty), there must be a smallest element, let that element be $n$. Then $n - 1\leq a < n$. $n$ is the only integer with such property. Therefore $0\leq a + (1 - n) < 1$, which means there exists an element $x$ in $a + \mathbb{Z}$ such that $0\leq x < 1$.
+
+    Assume that $x, y\in a + \mathbb{Z}$ and $0\leq x, y < 1$. From this, we deduce that $x < 1 \leq 1 + y$ and $x\ge 0 > y - 1$, so $-1 < x - y < 1$. On the other hand, due to the definition of $a + \mathbb{Z}$, $x - y\in\mathbb{Z}$. Therefore $x - y = 0$, which means $x = y$.
+
+    Thus, every left coset of $\mathbb{Z}$ in the addition group $\mathbb{Z}$ contains exactly one element $x$ such that $0\leq x < 1$.
 \end{proof}
 
 % section 10/exercise 44
 \begin{exercise}
+    Show that the function \textit{sine} assigns the same value to each element of any fixed left coset of the subgroup $\anglebracket{2\pi}$ of the additive group lR of real numbers.
 \end{exercise}
 
 \begin{proof}
+    The result follows from $\sin(x + k2\pi) = \sin(x)$ where $k\in\mathbb{Z}$.
 \end{proof}
 
 % section 10/exercise 45
 \begin{exercise}
+    Let $H$ and $K$ be subgroups of a group $G$. Define $\sim$ on $G$ by $a\sim b$ if and only if $a = hbk$ for some $h\in H$ and some $k\in K$.
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item Prove that $\sim$ is an equivalence relation on $G$.
+        \item Describe the elements in the equivalence class containing $a\in G$. (These equivalence classes are called \textbf{double cosets}.)
+    \end{enumerate}
 \end{exercise}
 
 \begin{proof}
+    Let $e$ be the identity element of $G$.
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item Because $H$ and $K$ are subgroups of $G$, then $e$ is the identity element of $H$ and $K$. $a = eae$, so $\sim$ is reflexive.
+
+              If $a\sim b$, then $a = hbk$ for some $h\in H$ and some $k\in K$, it follows that $b = h^{-1}ak^{-1}$. $h^{-1}\in H$ and $k^{-1}\in K$ because $H$ and $K$ are subgroups of $G$. So $b\sim a$. Therefore $\sim$ is symmetric.
+
+              If $a\sim b$, $b\sim c$, then $a = h_{1}bk_{1}$ and $b = h_{2}ck_{2}$ for some $h_{1}, h_{2}\in H$ and some $k_{1}, k_{2}\in K$. Then $a = (h_{1}h_{2})c(k_{2}k_{1})$, where $h_{1}h_{2}\in H$ and $k_{2}k_{1}\in K$ because $H$, $K$ are closed under the group operation of $G$. So $a\sim c$, which means $\sim$ is transitive.
+
+              Hence $\sim$ is an equivalence relation on $G$.
+        \item The equivalence class containing $a\in G$ is $\{ hak \mid h\in H, k\in K \}$.
+    \end{enumerate}
 \end{proof}
 
 % section 10/exercise 46
 \begin{exercise}
+    Let $S_{A}$ be the group of all permutations of the set $A$, and let $c$ be one particular element of $A$.
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item Show that $\{ \sigma\in S_{A} \mid \sigma(c) = c \}$ is a subgroup $S_{c,c}$ of $S_{A}$.
+        \item Let $d\ne c$ be another particular element of $A$. Is $S_{c,d} = \{ \sigma\in S_{A} \mid \sigma(c) = d \}$ a subgroup of $S_{A}$? Why or why not?
+        \item Characterize the set $S_{c,d}$ of part (b) in terms of the subgroup $S_{c,c}$ of part (a).
+    \end{enumerate}
 \end{exercise}
 
 \begin{proof}
+    \begin{enumerate}[label={\textbf{\alph*.}}]
+        \item The identity permutation is in $S_{c,c}$.
+
+              Let $\sigma,\tau$ be permutations in $S_{c,c}$. $(\sigma\tau)(c) = \sigma(\tau(c)) = \sigma(c) = c$. So $S_{c,c}$ is closed under mapping composition. $\sigma(c) = c$ implies $\sigma^{-1}(c) = c$, so $\sigma^{-1}$ is in $S_{c,c}$. Hence $S_{c,c}$ is a subgroup of $S_{A}$.
+        \item $S_{c,d}$ is not a subgroup of $S_{A}$ because the identity permutation isn't in $S_{c,d}$.
+        \item Let $\pi\in S_{c,d}$. Then $((c,d)\pi)(c) = (c,d)(d) = c$. So the product of the transposition $(c,d)$ and $\pi$ is an element in $S_{c,c}$.
+
+            Let $\sigma\in S_{c,c}$. Then $((c,d)\sigma)(c) = (c,d)(\sigma(c)) = (c,d)(c) = d$. So the product of the transposition $(c,d)$ and $\sigma$ is an element in $S_{c,d}$.
+
+            Hence $S_{c,d} = (c,d)S_{c,c}$.
+    \end{enumerate}
 \end{proof}
 
 % section 10/exercise 47
 \begin{exercise}
+    Show that a finite cyclic group of order $n$ has exactly one subgroup of each order $d$ dividing $n$, and that these are all the subgroups it has.
 \end{exercise}
 
 \begin{proof}
+    Let the given finite cyclic group be $G$. Let $a$ be a generator of $G$, $e$ be the identity element of $G$.
+
+    (In this paragraph, the finiteness of $G$ is not used) Let $H$ be a subgroup of $G$. Let $k$ be the least positive integer such that $a^{k}\in H$. Let $h$ be an element in $H$, then there exists an integer $m$ such that $a^{m} = h$. By the division algorithm, there exists integer $q$ and $0\leq r < k$ such that $m = kq + r$, so $a^{r} = a^{m-kq} = e$. According to the definition of $k$, we deduce that $r = 0$, which means $h = a^{m} = {(a^{k})}^{q}$. So $\anglebracket{a^{k}} = H$. Hence $H$ is cyclic, it follows that every subgroup of a cyclic group is cyclic.
+
+    \hrulefill{}
+
+    Let's consider the cyclic subgroup $\anglebracket{a^{k}}$. Let $c = \text{gcd}(n,k)$. $a^{k} = a^{c(k/c)}$. Because $n/c$ and $k/c$ are relatively prime, $n/c$ is the smallest positive integer such that $c(k/c)(n/c)$ is divisible by $n$. In other words, $n/c$ is the order of $\anglebracket{a^{k}}$.
+
+    If $\anglebracket{a^{k}} = \anglebracket{a^{\ell}}$, then $n/\text{gcd}(n,k) = n/\text{gcd}(n,\ell)$, which implies $\text{gcd}(n,k) = \text{gcd}(n,\ell)$. If $\text{gcd}(n,k) = \text{gcd}(n,\ell) = d$, then $\anglebracket{a^{k}} = \anglebracket{a^{d}} = \anglebracket{a^{\ell}}$. Hence $\anglebracket{a^{k}} = \anglebracket{a^{\ell}}$ if and only if $\text{gcd}(n,k) = \text{gcd}(n,\ell)$.
+
+    Let $d$ be a divisor of $n$. The order of $a$ is $n$, so the order of $a^{n/d}$ is $d$. The order of the cyclic subgroup $\anglebracket{a^{n/d}}$ is $d$.
+
+    Thus, a finite cyclic group of order $n$ has exactly one subgroup of each order $d$ dividing $n$ and these are all subgroups it has.
 \end{proof}
 
 % section 10/exercise 48
 \begin{exercise}
+    The \textbf{Euler phi-function} is defined for positive integers $n$ by $\varphi(n) = s$, where $s$ is the number of positive integers less than or equal to $n$ that are are relatively prime to $n$. Use Exercise 47 to show that
+    \[
+        n = \sum_{d \mid n}\varphi(d),
+    \]
+
+    the sum being taken over all positive integers $d$ dividing $n$.
 \end{exercise}
 
 \begin{proof}
+    Due to Exercise 43, in the cyclic group $\mathbb{Z}_{n}$, the order of any element is a divisor of $n$, and for every divisor $d$ of $n$, there is exactly one cyclic subgroup in $\mathbb{Z}_{n}$ of order $d$. Therefore, $n$ is equal to the sum of the number of elements whose order is $d$, where $d$ varies in the set of divisors of $n$. In other words
+    \[
+        n = \sum_{d \mid n}\#\text{(elements of order $d$)}
+    \]
+
+    $\anglebracket{n/d}$ is the only cyclic subgroup of order $d$ in $\mathbb{Z}_{n}$. Every element $x$ of order $d$ is a generator of $\anglebracket{n/d}$ and vice versa (due to Exercise 43). $\anglebracket{n/d}$ is isomorphic to $\mathbb{Z}_{d}$. $\mathbb{Z}_{d}$ has $\varphi(d)$ generators (there are $\varphi(d)$ positive integers not exceeding $d$ and relatively prime with $d$). Therefore $\anglebracket{n/d}$ has $\varphi(d)$ generators, from which we deduce that within $\mathbb{Z}_{n}$, there are $\varphi(d)$ elements of order $d$. Thus
+    \[
+        n = \sum_{d \mid n}\varphi(d).
+    \]
 \end{proof}
 
 % section 10/exercise 49
 \begin{exercise}
+    Let $G$ be a finite group. Show that if for each positive integer $m$ the number of solutions $x$ of the equation $x^{m} = e$ in $G$ is at most $m$, then $G$ is cyclic.
 \end{exercise}
 
 \begin{proof}
+    Denote by $n$ the number of elements in $G$. Let $a$ be an arbitrary element in $G$. $\anglebracket{a}$ is a subgroup of $G$. According to Lagrange's theorem, the order of $a$ is a divisor of $n$, let this divisor be $d$. Then $a^{n} = a^{d(n/d)} = e^{n/d} = e$. So the equation $x^{n} = e$ has exactly $n$ solutions.
+
+    If $n = 1$, $G$ is cyclic.
+
+    If $n$ is a prime number, then the order of a nonidentity element must be $n$ (due to Lagrange's theorem and $n$ being a prime), so $G$ is cyclic.
+
+    If $n$ is a composite, let $h$ be a maximal divisor of $n$ (the only multiple of $h$ and not exceeding $n$ is $n$). Suppose that the equation $x^{h} = e$ has $k$ solutions $e, a_{1}, \ldots, a_{k-1}$, where $k\leq h < n$. $x^{n} = x^{h(n/h)} = e$ has exacly $n$ solutions, they are $e, a_{1}, \ldots, a_{k-1}, a_{k}, \ldots, a_{n-1}$. So the orders of $a_{k}, \ldots, a_{n-1}$ are greater than $h$. But the orders of $a_{k}, \ldots, a_{n-1}$ are at most $n$ and are the multiple of $h$. Due to the definition of $h$, the orders of $a_{k}, \ldots, a_{n-1}$ are $n$, which is equal to the order of the finite group $G$. So $G$ is cyclic.
+
+    Thus $G$ is cyclic.
 \end{proof}
 
 % section 10/exercise 50
 \begin{exercise}
+    Show that a finite group cannot be written as the union of two of its proper subgroups. Does the statement remain true if ``two'' is replaced by ``three''?
 \end{exercise}
 
 \begin{proof}
+    Let $G$ be a finite group. If $G$ has exactly one element, then it can't be written as the union of two of its proper subgroups, because it doesn't have any proper subgroups.
+
+    If $G$ has $n$ elements ($n > 1$). Assume that $G = A\cup B$ where $A, B$ are proper subgroups of $G$. $A$ is not a subset of $B$, $B$ is not a subset of $A$ (because if so, then $A = G$ or $B = G$). $A\cap B$ is also a subgroup of $G$. Let the number of elements in $A\cap B$ be $d$. Due to Lagrange's theorem, the order of $A\cap B$ divides the orders of $A$ and $B$. Let the orders of $A$, $B$ be $ad, bd$, respectively. According to the principle of inclusion and exclusion, $ad + bd - d = n$. $ad + (b-1)d = n$, $(a-1)d + bd = n$, and $ad, bd$ divide $n$ (due to Lagrange's theorem). So $ad$ divides $(b - 1)d$ and $bd$ divides $(a - 1)d$. Therefore $a\leq b - 1$ and $b\leq a - 1$, which implies $a\leq a - 2$ and $b\leq b - 2$, this is impossible because $a > a - 2$ and $b > b - 2$. So the assumption is false. Hence $G$ cannot be written as the union of two of its proper subgroups.
+
+    The statement doesn't remain true if ``two'' is replaced by ``three''. Here is a counter example: the Klein 4-group $V$ has 4 elements $e, a, b, c$, where $c = ab = ba$, $b = ca = ac$, $a = bc = cb$. $\{e, a\}, \{e, b\}, \{e, c\}$ are proper subgroups of $V$ and the union of them is the whole set under $V$.
 \end{proof}
 
 \section{Plane Isometries}
