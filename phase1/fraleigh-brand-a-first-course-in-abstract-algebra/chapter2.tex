@@ -1,13 +1,16 @@
 % chktex-file 44
+\newpage
 \chapter{Structure of Groups}
 
+\newpage
 \section{Groups of Permutations}
 
 \subsection*{Computations}
 
 In Exercises 1 through 10 determine whether the given map is a group homomorphism.
 
-% section 1/exercise 1
+\newpage
+% section 8/exercise 1
 \begin{exercise}
     Let $\phi: \mathbb{Z}_{10} \to \mathbb{Z}_{2}$ be given by $\phi(x) = $ the remainder when $x$ is divided by $2$.
 \end{exercise}
@@ -16,7 +19,8 @@ In Exercises 1 through 10 determine whether the given map is a group homomorphis
     $\phi(x + y) = (x + y) \mod 2 = x \mod 2 + y \mod 2 = \phi(x) + \phi(y)$. Hence $\phi$ is a group homomorphism.
 \end{proof}
 
-% section 1/exercise 2
+\newpage
+% section 8/exercise 2
 \begin{exercise}
     Let $\phi: \mathbb{Z}_{9} \to \mathbb{Z}_{2}$ be given by $\phi(x) =$ the remainder when $x$ is divided by $2$.
 \end{exercise}
@@ -25,7 +29,8 @@ In Exercises 1 through 10 determine whether the given map is a group homomorphis
     $\phi(4 + 5) = \phi(0) = 0\mod 2 = 0$, $\phi(4) + \phi(5) = 4\mod 2 + 5\mod 2 = 0 + 1 = 1$. So $\phi(4 + 5) \ne \phi(4) + \phi(5)$. Hence $\phi$ is not a group homomorphism.
 \end{proof}
 
-% section 1/exercise 3
+\newpage
+% section 8/exercise 3
 \begin{exercise}
     Let $\phi: \mathbb{Q}^{*} \to \mathbb{Q}^{*}$ be given by $\phi(x) = \abs{x}$.
 \end{exercise}
@@ -34,7 +39,8 @@ In Exercises 1 through 10 determine whether the given map is a group homomorphis
     $\phi(x\cdot y) = \abs{x\cdot y} = \abs{x}\cdot\abs{y} = \phi(x)\cdot\phi(y)$. Hence $\phi$ is a group homomorphism.
 \end{proof}
 
-% section 1/exercise 4
+\newpage
+% section 8/exercise 4
 \begin{exercise}
     Let $\phi: \mathbb{R} \to \mathbb{R}^{+}$ be given by $\phi(x) = 2^{x}$.
 \end{exercise}
@@ -43,7 +49,8 @@ In Exercises 1 through 10 determine whether the given map is a group homomorphis
     $\phi(x + y) = {2}^{x+y} = {2}^{x}\cdot {2}^{y} = \phi(x)\cdot\phi(y)$. Hence $\phi$ is a group homomorphism.
 \end{proof}
 
-% section 1/exercise 5
+\newpage
+% section 8/exercise 5
 \begin{exercise}
     Let $\phi: D_{4} \to \mathbb{Z}_{4}$ be given by $\phi(\rho^{i}) = \phi(\mu\rho^{i}) = i$ for $0\leq i\leq 3$.
 \end{exercise}
@@ -52,7 +59,8 @@ In Exercises 1 through 10 determine whether the given map is a group homomorphis
     $\phi(\mu\rho\cdot\mu\rho) = \phi(\iota) = \phi(\rho^{0}) = 0$. $\phi(\mu\rho) + \phi(\mu\rho) = 1 + 1 = 2$. So $\phi(\mu\rho\cdot\mu\rho) \ne \phi(\mu\rho) + \phi(\mu\rho)$. Hence $\phi$ is not a group homomorphism.
 \end{proof}
 
-% section 1/exercise 6
+\newpage
+% section 8/exercise 6
 \begin{exercise}
     Let $F$ be the additive group of all functions mapping $\mathbb{R}$ to $\mathbb{R}$. Let $\phi: F \to F$ be given by $\phi(f) = g$ where $g(x) = f(x) + x$.
 \end{exercise}
@@ -61,7 +69,8 @@ In Exercises 1 through 10 determine whether the given map is a group homomorphis
     $\phi(f + g)(x) = (f + g)(x) + x = f(x) + g(x) + x$. $\phi(f)(x) + \phi(g)(x) = f(x) + g(x) + 2x$. So $\phi(f + g)(x)$ is not equal to $\phi(f)(x) + \phi(g)(x)$ for all real numbers $x$. Hence $\phi$ is not a group homomorphism.
 \end{proof}
 
-% section 1/exercise 7
+\newpage
+% section 8/exercise 7
 \begin{exercise}
     Let $F$ be as in Exercise 6 and $\phi: F \to F$ be defined by $\phi(f) = 5f$.
 \end{exercise}
@@ -70,7 +79,8 @@ In Exercises 1 through 10 determine whether the given map is a group homomorphis
     $\phi(f + g)(x) = (5(f + g))(x) = 5f(x) + 5g(x) = (\phi(f) + \phi(g))(x)$. Hence $\phi$ is a group homomorphism.
 \end{proof}
 
-% section 1/exercise 8
+\newpage
+% section 8/exercise 8
 \begin{exercise}
     Let $F$ be the additive group of all continuous functions mapping $\mathbb{R}$ to $\mathbb{R}$. Let $\phi: F\to \mathbb{R}$ be defined by $\phi(g) = \int^{1}_{0}g(x)dx$.
 \end{exercise}
@@ -86,7 +96,8 @@ In Exercises 1 through 10 determine whether the given map is a group homomorphis
     Hence $\phi$ is a group homomorphism.
 \end{proof}
 
-% section 1/exercise 9
+\newpage
+% section 8/exercise 9
 \begin{exercise}
     Let $M_{n}$ be the additive group of $n\times n$ matrices with real entries. Let $\phi: M_{n}\to \mathbb{R}$ be given by $\phi(A) = \det(A)$, the determinant of $A$.
 \end{exercise}
@@ -95,7 +106,8 @@ In Exercises 1 through 10 determine whether the given map is a group homomorphis
     $\phi(I_{n} + I_{n}) = \det(2I_{n}) = 2^{n}$. $\phi(I_{n}) + \phi(I_{n}) = \det(I_{n}) + \det(I_{n}) = 2$. So when $n > 1$, $\phi(I_{n} + I_{n}) \ne \phi(I_{n}) + \phi(I_{n})$. Hence $\phi$ is not a group homomorphism.
 \end{proof}
 
-% section 1/exercise 10
+\newpage
+% section 8/exercise 10
 \begin{exercise}
     Let $M_{n}$ be as in Exercise 9 and $\phi: M_{n} \to \mathbb{R}$ be defined by $\phi(A) = \tr{A}$ where $\tr{A}$ is the trace of $A$, which is the sum of the entries on the diagonal.
 \end{exercise}
@@ -111,7 +123,8 @@ In Exercises 1 through 10 determine whether the given map is a group homomorphis
 
 In Exercises 11 through 16, compute the kernel for the given homomorphism $\phi$.
 
-% section 1/exercise 11
+\newpage
+% section 8/exercise 11
 \begin{exercise}
     $\phi: \mathbb{Z} \to \mathbb{Z}_{8}$ such that $\phi(1) = 6$.
 \end{exercise}
@@ -124,7 +137,8 @@ In Exercises 11 through 16, compute the kernel for the given homomorphism $\phi$
     Hence $\ker\phi = 4\mathbb{Z}$.
 \end{proof}
 
-% section 1/exercise 12
+\newpage
+% section 8/exercise 12
 \begin{exercise}
     $\phi: \mathbb{Z} \to \mathbb{Z}$ such that $\phi(1) = 12$.
 \end{exercise}
@@ -133,7 +147,8 @@ In Exercises 11 through 16, compute the kernel for the given homomorphism $\phi$
     For $n\in\mathbb{Z}$, $\phi(n) = 12n$. So $\phi(n) = 0$ iff $n = 0$. Hence $\ker\phi = \{ 0 \}$.
 \end{proof}
 
-% section 1/exercise 13
+\newpage
+% section 8/exercise 13
 \begin{exercise}
     $\phi: \mathbb{Z}\times\mathbb{Z} \to \mathbb{Z}$ where $\phi(1,0) = 3$ and $\phi(0,1) = -5$.
 \end{exercise}
@@ -144,7 +159,8 @@ In Exercises 11 through 16, compute the kernel for the given homomorphism $\phi$
     Hence $\ker\phi = \{ (5k, 3k) \mid k\in\mathbb{Z} \}$.
 \end{proof}
 
-% section 1/exercise 14
+\newpage
+% section 8/exercise 14
 \begin{exercise}
     $\phi: \mathbb{Z}\times\mathbb{Z} \to \mathbb{Z}$ where $\phi(1,0) = 6$ and $\phi(0,1) = 9$.
 \end{exercise}
@@ -155,7 +171,8 @@ In Exercises 11 through 16, compute the kernel for the given homomorphism $\phi$
     Hence $\ker\phi = \{ (3k, -2k) \mid k\in\mathbb{Z} \}$.
 \end{proof}
 
-% section 1/exercise 15
+\newpage
+% section 8/exercise 15
 \begin{exercise}
     $\phi: \mathbb{Z}\times\mathbb{Z} \to \mathbb{Z}\times\mathbb{Z}$ where $\phi(1,0) = (2,5)$ and $\phi(0,1) = (-3,2)$.
 \end{exercise}
@@ -166,7 +183,8 @@ In Exercises 11 through 16, compute the kernel for the given homomorphism $\phi$
     Hence $\ker\phi = \{ (0,0) \}$.
 \end{proof}
 
-% section 1/exercise 16
+\newpage
+% section 8/exercise 16
 \begin{exercise}
     Let $D$ be the additive group of all differentiable functions mapping $\mathbb{R}$ to $\mathbb{R}$ and $F$ the additive group of all functions from $\mathbb{R}$ to $\mathbb{R}$. $\phi: D \to F$ is given by $\phi(f) = f'$, the derivative of $f$.
 \end{exercise}
@@ -179,7 +197,8 @@ In Exercises 11 through 16, compute the kernel for the given homomorphism $\phi$
 
 In Exercises 17 through 22, find all orbits of the given permutation.
 
-% section 1/exercise 17
+\newpage
+% section 8/exercise 17
 \begin{exercise}
     $\begin{pmatrix}
             1 & 2 & 3 & 4 & 5 & 6 \\
@@ -191,7 +210,8 @@ In Exercises 17 through 22, find all orbits of the given permutation.
     The orbits of the given permutation are $\{ 1, 5, 2 \}, \{ 3 \}, \{ 4, 6 \}$.
 \end{proof}
 
-% section 1/exercise 18
+\newpage
+% section 8/exercise 18
 \begin{exercise}
     $\begin{pmatrix}
             1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
@@ -203,7 +223,8 @@ In Exercises 17 through 22, find all orbits of the given permutation.
     The orbits of the given permutation are $\{ 1, 5, 8, 7 \}, \{ 2, 6, 3 \}, \{ 4 \}$.
 \end{proof}
 
-% section 1/exercise 19
+\newpage
+% section 8/exercise 19
 \begin{exercise}
     $\begin{pmatrix}
             1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
@@ -215,7 +236,8 @@ In Exercises 17 through 22, find all orbits of the given permutation.
     The orbits of the given permutation are $\{ 1, 2, 3, 5, 4 \}, \{ 6 \}, \{ 7, 8 \}$.
 \end{proof}
 
-% section 1/exercise 20
+\newpage
+% section 8/exercise 20
 \begin{exercise}
     $\sigma: \mathbb{Z} \to \mathbb{Z}$ where $\sigma(n) = n + 1$
 \end{exercise}
@@ -224,7 +246,8 @@ In Exercises 17 through 22, find all orbits of the given permutation.
     $\sigma$ has one orbit, which is $\mathbb{Z}$.
 \end{proof}
 
-% section 1/exercise 21
+\newpage
+% section 8/exercise 21
 \begin{exercise}
     $\sigma: \mathbb{Z} \to \mathbb{Z}$ where $\sigma(n) = n + 2$
 \end{exercise}
@@ -233,7 +256,8 @@ In Exercises 17 through 22, find all orbits of the given permutation.
     The orbits of $\sigma$ are $\{ 2n \mid n\in\mathbb{Z} \}$, $\{ 2n + 1 \mid n\in\mathbb{Z} \}$.
 \end{proof}
 
-% section 1/exercise 22
+\newpage
+% section 8/exercise 22
 \begin{exercise}
     $\sigma: \mathbb{Z} \to \mathbb{Z}$ where $\sigma(n) = n - 3$
 \end{exercise}
@@ -244,7 +268,8 @@ In Exercises 17 through 22, find all orbits of the given permutation.
 
 In Exercises 23 through 25, express the permutation of $\{ 1, 2, 3, 4, 5, 6, 7, 8 \}$ as a product of disjoint cycles, and then as a product of transpositions.
 
-% section 1/exercise 23
+\newpage
+% section 8/exercise 23
 \begin{exercise}
     $\begin{pmatrix}
             1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
@@ -258,7 +283,8 @@ In Exercises 23 through 25, express the permutation of $\{ 1, 2, 3, 4, 5, 6, 7, 
     As product of transpositions: $(1, 8)(3, 4)(3, 6)(5, 7)$.
 \end{proof}
 
-% section 1/exercise 24
+\newpage
+% section 8/exercise 24
 \begin{exercise}
     $\begin{pmatrix}
             1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
@@ -272,7 +298,8 @@ In Exercises 23 through 25, express the permutation of $\{ 1, 2, 3, 4, 5, 6, 7, 
     As product of transpositions: $(1, 4)(1, 3)(2, 6)(5, 7)(5, 8)$.
 \end{proof}
 
-% section 1/exercise 25
+\newpage
+% section 8/exercise 25
 \begin{exercise}
     $\begin{pmatrix}
             1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
@@ -286,7 +313,8 @@ In Exercises 23 through 25, express the permutation of $\{ 1, 2, 3, 4, 5, 6, 7, 
     As product of transpositions: $(1, 8)(1, 4)(1, 5)(2, 3)(6, 7)$.
 \end{proof}
 
-% section 1/exercise 26
+\newpage
+% section 8/exercise 26
 \begin{exercise}
     Figure 8.26 shows a Cayley digraph for the alternating group $A_{4}$ using the generating set $S = \{ (1, 2, 3), (1, 2)(3, 4) \}$. Continue labeling the other nine vertices with the elements of $A_{4}$, expressed as a product of disjoint cycles.
 \end{exercise}
@@ -355,7 +383,8 @@ In Exercises 23 through 25, express the permutation of $\{ 1, 2, 3, 4, 5, 6, 7, 
 
 In Exercises 27 through 29, correct the definition of the italicized term without reference to the text, if correction is needed, so that it is in a form acceptable for publication.
 
-% section 1/exercise 27
+\newpage
+% section 8/exercise 27
 \begin{exercise}
     For a permutation $\sigma$ of a set $A$, an \textit{orbit} of $\sigma$ is a nonempty minimal subset of $A$ that is mapped onto itself by $\sigma$.
 \end{exercise}
@@ -364,7 +393,8 @@ In Exercises 27 through 29, correct the definition of the italicized term withou
     Correct.
 \end{proof}
 
-% section 1/exercise 28
+\newpage
+% section 8/exercise 28
 \begin{exercise}
     The left regular representation of a group $G$ is the map of $G$ into $S_{G}$ whose value at $g\in G$ is the permutation of $G$ that carries each $x\in G$ into $gx$.
 \end{exercise}
@@ -373,7 +403,8 @@ In Exercises 27 through 29, correct the definition of the italicized term withou
     Correct.
 \end{proof}
 
-% section 1/exercise 29
+\newpage
+% section 8/exercise 29
 \begin{exercise}
     The \textit{alternating group} is the group of all even permutations.
 \end{exercise}
@@ -382,7 +413,8 @@ In Exercises 27 through 29, correct the definition of the italicized term withou
     Correction: The alternating group $A_{n}$ on $\{ 1, 2,\ldots, n \}$ is the subgroup of $S_{n}$ consisting of all even permutations of $\{ 1, 2,\ldots, n \}$.
 \end{proof}
 
-% section 1/exercise 30
+\newpage
+% section 8/exercise 30
 \begin{exercise}
     Before the proof of Cayley's Theorem, it is shown that $\lambda_{x}$ is one-to-one. In the proof, one-to-one is shown again. Is it necessary to show one-to-one twice? Explain.
 \end{exercise}
@@ -393,7 +425,8 @@ In Exercises 27 through 29, correct the definition of the italicized term withou
     Because the 1st one-to-one show that each $\lambda_{x}$ is a permutation of the elements of $G$, meanwhile, the 2nd one-to-one mapping is the mapping from $G$ to $S_{G}$ where $\lambda_{x}\in S_{G}$. In other words, the two one-to-one mappings are different in their domain and codomain sets.
 \end{proof}
 
-% section 1/exercise 31
+\newpage
+% section 8/exercise 31
 \begin{exercise}
     Determine whether each of the following is true or false.
     \begin{enumerate}[label={\textbf{\alph*.}}]
@@ -427,7 +460,8 @@ In Exercises 27 through 29, correct the definition of the italicized term withou
     \end{enumerate}
 \end{proof}
 
-% section 1/exercise 32
+\newpage
+% section 8/exercise 32
 \begin{exercise}
     The dihedral group is defined to be permutations with certain properties. Use the usual notation involving $\mu$ and $\rho$ for elements in $D_{n}$.
     \begin{enumerate}[label={\textbf{\alph*.}}]
@@ -463,7 +497,8 @@ In Exercises 27 through 29, correct the definition of the italicized term withou
 
 \subsection*{Proof Synopsis}
 
-% section 1/exercise 33
+\newpage
+% section 8/exercise 33
 \begin{exercise}
     Give a two-sentence synopsis of the proof of Cayley's Theorem
 \end{exercise}
@@ -472,7 +507,8 @@ In Exercises 27 through 29, correct the definition of the italicized term withou
     Each element of a given group $G$ corresponds to a left regular representation, which is a permutation of $G$, an element of $S_{G}$. Then we show that this mapping is a homomorphism by the associative law.
 \end{proof}
 
-% section 1/exercise 34
+\newpage
+% section 8/exercise 34
 \begin{exercise}
     Give a two-sentence synopsis of the proof of Theorem 8.19.
 \end{exercise}
@@ -483,7 +519,8 @@ In Exercises 27 through 29, correct the definition of the italicized term withou
 
 \subsection*{Theory}
 
-% section 1/exercise 35
+\newpage
+% section 8/exercise 35
 \begin{exercise}
     Suppose that $\phi: G\to G'$ is a group homomorphism and $a\in \ker\phi$. Show that for any $g\in G$, $gag^{-1}\in \ker\phi$.
 \end{exercise}
@@ -502,7 +539,8 @@ In Exercises 27 through 29, correct the definition of the italicized term withou
     Hence if $a\in\ker\phi$, then for any $g\in G$, $gag^{-1}\in\ker\phi$.
 \end{proof}
 
-% section 1/exercise 36
+\newpage
+% section 8/exercise 36
 \begin{exercise}
     Prove that a homomorphism $\phi: G\to G'$ is one-to-one if and only if $\ker\phi$ is the trivial subgroup of $G$.
 \end{exercise}
@@ -515,7 +553,8 @@ In Exercises 27 through 29, correct the definition of the italicized term withou
     Thus a group homomorphism is one-to-one if and only if its kernel is the trivial subgroup.
 \end{proof}
 
-% section 1/exercise 37
+\newpage
+% section 8/exercise 37
 \begin{exercise}
     Let $\phi: G\to G'$ be a group homomorphism. Show that $\phi(a) = \phi(b)$ if and only if $a^{-1}b\in \ker\phi$.
 \end{exercise}
@@ -526,7 +565,8 @@ In Exercises 27 through 29, correct the definition of the italicized term withou
     $\phi(a^{-1}b) = \phi(a^{-1})\phi(b) = {(\phi(a))}^{-1}\phi(b)$. So $\phi(a^{-1}b) = e'$ if and only if $\phi(a) = \phi(b)$. In other words, $a^{-1}b\in\ker\phi$ if and only if $\phi(a) = \phi(b)$.
 \end{proof}
 
-% section 1/exercise 38
+\newpage
+% section 8/exercise 38
 \begin{exercise}
     Use Exercise 37 to prove that if $\phi: G\to G'$ is a group homomorphism mapping onto $G'$ and $G$ is a finite group, then for any $b, c\in G'$, $\abs{\phi^{-1}[\{b\}]} = \abs{\phi^{-1}[\{c\}]}$. Conclude that if $\abs{G}$ is a prime number, then either $\phi$ is an isomorphism or else $G'$ is the trivial group.
 \end{exercise}
@@ -548,7 +588,8 @@ In Exercises 27 through 29, correct the definition of the italicized term withou
     \end{itemize}
 \end{proof}
 
-% section 1/exercise 39
+\newpage
+% section 8/exercise 39
 \begin{exercise}
     Show that if $\phi: G\to G'$ and $\gamma: G'\to G''$ are group homomorphisms, then $\gamma\circ\phi: G\to G''$ is also a group homomorphism.
 \end{exercise}
@@ -564,7 +605,8 @@ In Exercises 27 through 29, correct the definition of the italicized term withou
     Hence $\gamma\circ\phi$ is a group homomorphism.
 \end{proof}
 
-% section 1/exercise 40
+\newpage
+% section 8/exercise 40
 \begin{exercise}
     Let $\phi: G\to G'$ be a group homomorphism. Show that $\phi[G]$ is abelian if and only if $xyx^{-1}y^{-1}\in \ker\phi$ for all $x,y\in G$.
 \end{exercise}
@@ -575,7 +617,8 @@ In Exercises 27 through 29, correct the definition of the italicized term withou
     $\phi[G]$ is abelian if and only if $\phi(x)\phi(y) = \phi(y)\phi(x)$ for every $x,y\in G$. $\phi(x)\phi(y) = \phi(y)\phi(x)$ if and only if $\phi(xyx^{-1}y^{-1}) = e'$, since $\phi(xyx^{-1}y^{-1}) = \phi(x)\phi(y){(\phi(x))}^{-1}{(\phi(y))}^{-1} = \phi(x)\phi(y){(\phi(y)\phi(x))}^{-1}$. Hence $\phi[G]$ is abelian if and only if $xyx^{-1}y^{-1}\in\ker\phi$.
 \end{proof}
 
-% section 1/exercise 41
+\newpage
+% section 8/exercise 41
 \begin{exercise}
     Prove the following about $S_{n}$ if $n\geq 3$.
     \begin{enumerate}[label={\textbf{\alph*.}}]
@@ -610,7 +653,8 @@ In Exercises 27 through 29, correct the definition of the italicized term withou
     \end{enumerate}
 \end{proof}
 
-% section 1/exercise 42
+\newpage
+% section 8/exercise 42
 \begin{exercise}
     \begin{enumerate}[label={\textbf{\alph*.}}]
         \item Draw a figure like Fig. 8.20 to illustrate that if $i$ and $j$ are in different orbits of $\sigma$ and $\sigma(i) = i$, then the number of orbits of $(i,j)\sigma$ is one less than the number of orbits of $\sigma$.
@@ -665,7 +709,8 @@ In Exercises 27 through 29, correct the definition of the italicized term withou
     \end{enumerate}
 \end{proof}
 
-% section 1/exercise 43
+\newpage
+% section 8/exercise 43
 \begin{exercise}
     Show that for every subgroup $H$ of $S_{n}$, for $n\geq 2$, either all the permutations in $H$ are even or exactly half of them are even.
 \end{exercise}
@@ -676,7 +721,8 @@ In Exercises 27 through 29, correct the definition of the italicized term withou
     Hence either all permutations in $H$ are even or exactly half of them are even.
 \end{proof}
 
-% section 1/exercise 44
+\newpage
+% section 8/exercise 44
 \begin{exercise}
     Let $\sigma$ be a permutation of a set $A$. We shall say ``$\sigma$ \textbf{moves} $a\in A$'' if $\sigma(a)\ne a$. If $A$ is a finite set, how many elements are moved by a cycle $\sigma\in S_{A}$ of length $n$?
 \end{exercise}
@@ -685,7 +731,8 @@ In Exercises 27 through 29, correct the definition of the italicized term withou
     $\sigma = (a_{1}, a_{2}, \ldots, a_{n})$ where $a_{i}$ are pairwise distinct. $\sigma$ leaves the elements other than $a_{i}$ ($i = 1,\ldots, n$) of $A$ unchanged. Hence if $A$ is a finite set, there are exactly $n$ elements of $A$ are moved by a cycle of length $n$.
 \end{proof}
 
-% section 1/exercise 45
+\newpage
+% section 8/exercise 45
 \begin{exercise}
     Let $A$ be an infinite set. Let $H$ be the set of all $\sigma\in S_{A}$ such that the number of elements moved by $\sigma$ (see Exercise 44) is finite. Show that $H$ is a subgroup of $S_{A}$.
 \end{exercise}
@@ -698,7 +745,8 @@ In Exercises 27 through 29, correct the definition of the italicized term withou
     Hence $H$ is a subgroup of $S_{A}$.
 \end{proof}
 
-% section 1/exercise 46
+\newpage
+% section 8/exercise 46
 \begin{exercise}
     Let $A$ be an infinite set. Let $K$ be the set of all $\sigma\in S_{A}$ that move (see Exercise 44) at most $50$ elements of $A$. Is $K$ a subgroup of $S_{A}$? Why?
 \end{exercise}
@@ -707,7 +755,8 @@ In Exercises 27 through 29, correct the definition of the italicized term withou
     $K$ is not a subgroup of $S_{A}$. Because $K$ does not contain the identity permutation, which does not move any elements of $A$.
 \end{proof}
 
-% section 1/exercise 47
+\newpage
+% section 8/exercise 47
 \begin{exercise}
     Consider $S_{n}$ for a fixed $n\geq 2$ and let $\sigma$ be a fixed odd permutation. Show that every odd permutation in $S_{n}$ is a product of $\sigma$ and some permutation in $A_{n}$.
 \end{exercise}
@@ -718,7 +767,8 @@ In Exercises 27 through 29, correct the definition of the italicized term withou
     Thus every odd permutation in $S_{n}$ is a product of $\sigma$ and a permutation in $A_{n}$.
 \end{proof}
 
-% section 1/exercise 48
+\newpage
+% section 8/exercise 48
 \begin{exercise}
     Show that if $\sigma$ is a cycle of odd length, then $\sigma^{2}$ is a cycle.
 \end{exercise}
@@ -733,7 +783,8 @@ In Exercises 27 through 29, correct the definition of the italicized term withou
     \]
 \end{proof}
 
-% section 1/exercise 49
+\newpage
+% section 8/exercise 49
 \begin{exercise}
     Following the line of thought opened by Exercise 48, complete the following with a condition involving $n$ and $r$ so that the resulting statement is a theorem:
     \begin{center}
@@ -781,7 +832,8 @@ In Exercises 27 through 29, correct the definition of the italicized term withou
     Thus if $\sigma$ is a cycle of length $n$, $\sigma^{r}$ is a cycle if and only if $n$ and $r$ are relatively prime.
 \end{proof}
 
-% section 1/exercise 50
+\newpage
+% section 8/exercise 50
 \begin{exercise}
     Show that $S_{n}$ is generated by $\{ (1,2), (1,2,3,\ldots, n) \}$.
 \end{exercise}
@@ -909,7 +961,8 @@ In Exercises 27 through 29, correct the definition of the italicized term withou
     Therefore $\{ (1,2,3,\ldots,n), (1,2) \}$ generates $S_{n}$.
 \end{proof}
 
-% section 1/exercise 51
+\newpage
+% section 8/exercise 51
 \begin{exercise}
     Let $\sigma\in S_{n}$ and define a relation on $\{ 1, 2, 3, \ldots, n \}$ by $i\sim j$ if and only if $j = \sigma^{k}(i)$ for some $k\in\mathbb{Z}$
     \begin{enumerate}[label={\textbf{\arabic*.}}]
@@ -933,7 +986,8 @@ In Exercises 27 through 29, correct the definition of the italicized term withou
     \end{enumerate}
 \end{proof}
 
-% section 1/exercise 52
+\newpage
+% section 8/exercise 52
 \begin{exercise}
     The usual definition for the determinant of an $n\times n$ matrix $A = {(a_{i,j})}$ is
     \[
@@ -990,7 +1044,8 @@ In Exercises 27 through 29, correct the definition of the italicized term withou
     \end{enumerate}
 \end{proof}
 
-% section 1/exercise 53
+\newpage
+% section 8/exercise 53
 \begin{exercise}
     Prove that any finite group $G$ is isomorphic with a subgroup of $\text{GL}(n,\mathbb{R})$ for some $n$.
 \end{exercise}
@@ -1044,7 +1099,8 @@ In Exercises 27 through 29, correct the definition of the italicized term withou
     Hence $G$ is isomorphic to a subgroup of $\text{GL}(n, \mathbb{R})$ where $n = \text{factorial}(\abs{G})$.
 \end{proof}
 
-% section 1/exercise 54
+\newpage
+% section 8/exercise 54
 \begin{exercise}
     Prove Cayley's Theorem using the right regular representation rather than the left regular representation.
 \end{exercise}
@@ -1059,7 +1115,8 @@ In Exercises 27 through 29, correct the definition of the italicized term withou
     Therefore $\phi$ is a one-to-one group homomorphism from $G$ into $S_{G}$. Hence $G$ is isomorphic with a subgroup of $S_{G}$.
 \end{proof}
 
-% section 1/exercise 55
+\newpage
+% section 8/exercise 55
 \begin{exercise}
     Let $\sigma\in S_{n}$. An inversion is a pair $(i, j)$ such that $i < j$ and $\sigma(i) > \sigma(j)$. Prove Theorem 8.19 by showing that multiplying a permutation by a transposition changes the number of inversions by an odd number.
 \end{exercise}
@@ -1105,7 +1162,8 @@ In Exercises 27 through 29, correct the definition of the italicized term withou
     Hence a permutation can be rewritten either as a product of an odd number of transpositions, or as a product of an even number of transpositions.
 \end{proof}
 
-% section 1/exercise 56
+\newpage
+% section 8/exercise 56
 \begin{exercise}
     The sixteen puzzle consists of 15 tiles numbered 1 through 15 arranged in a four-by-four grid with one position left blank. A move is sliding a tile adjacent to the blank position into the blank position. The goal is to arrange the numbers in order by a sequence of moves. Is it possible to start with the configuration pictured in Figure 8.27(a) and solve the puzzle as indicated in Figure 8.27(b)? Prove your answer by finding a sequence of moves to solve the puzzle or by proving that it is impossible to solve.
     \begin{figure}[htp]
@@ -1142,10 +1200,12 @@ In Exercises 27 through 29, correct the definition of the italicized term withou
     % see https://en.wikipedia.org/wiki/Sliding_puzzle
 \end{proof}
 
+\newpage
 \section{Finitely Generated Abelian Groups}
 
 \subsection*{Computations}
 
+\newpage
 % section 9/exercise 1
 \begin{exercise}
     List the elements of $\mathbb{Z}_{2}\times\mathbb{Z}_{4}$. Find the order of each of the elements. Is this group cyclic?
@@ -1166,6 +1226,7 @@ In Exercises 27 through 29, correct the definition of the italicized term withou
     This group is not cyclic, since the order of every element is less than the order of the group.
 \end{proof}
 
+\newpage
 % section 9/exercise 2
 \begin{exercise}
     Repeat Exercise 1 from the group $\mathbb{Z}_{3}\times\mathbb{Z}_{4}$.
@@ -1192,6 +1253,7 @@ In Exercises 27 through 29, correct the definition of the italicized term withou
 
 In Exercise 3 through 7, find the order of the given element of the direct product.
 
+\newpage
 % section 9/exercise 3
 \begin{exercise}
     $(2,6)$ in $\mathbb{Z}_{4}\times\mathbb{Z}_{12}$
@@ -1201,6 +1263,7 @@ In Exercise 3 through 7, find the order of the given element of the direct produ
     The order of $2$ in $\mathbb{Z}_{4}$ is $2$. The order of $6$ in $\mathbb{Z}_{12}$ is $2$. So the order of $(2,6)$ in $\mathbb{Z}_{4}\times\mathbb{Z}_{12}$ is the least common multiple of $2$ and $2$, which is $2$.
 \end{proof}
 
+\newpage
 % section 9/exercise 4
 \begin{exercise}
     $(3,4)$ in $\mathbb{Z}_{21}\times\mathbb{Z}_{12}$
@@ -1210,6 +1273,7 @@ In Exercise 3 through 7, find the order of the given element of the direct produ
     The order of $3$ in $\mathbb{Z}_{21}$ is $21/\text{gcd}(3,21) = 7$. The order of $4$ in $\mathbb{Z}_{12}$ is $12/\text{gcd}(4,12) = 3$. So the order of $(3,4)$ in $\mathbb{Z}_{21}\times\mathbb{Z}_{12}$ is the least common multiple of $7$ and $3$, which is $21$.
 \end{proof}
 
+\newpage
 % section 9/exercise 5
 \begin{exercise}
     $(40,12)$ in $\mathbb{Z}_{45}\times\mathbb{Z}_{18}$
@@ -1219,6 +1283,7 @@ In Exercise 3 through 7, find the order of the given element of the direct produ
     The order of $40$ in $\mathbb{Z}_{45}$ is $45/\text{gcd}(45,40) = 9$. The order of $12$ in $\mathbb{Z}_{18}$ is $18/\text{gcd}(12,18) = 3$. So the order of $(45,12)$ in $\mathbb{Z}_{21}\times\mathbb{Z}_{18}$ is the least common multiple of $9$ and $3$, which is $9$.
 \end{proof}
 
+\newpage
 % section 9/exercise 6
 \begin{exercise}
     $(3,10,9)$ in $\mathbb{Z}_{4}\times\mathbb{Z}_{12}\times\mathbb{Z}_{15}$
@@ -1228,6 +1293,7 @@ In Exercise 3 through 7, find the order of the given element of the direct produ
     The order of $3$ in $\mathbb{Z}_{4}$ is $4/\text{gcd}(4,3) = 4$. The order of $10$ in $\mathbb{Z}_{12}$ is $12/\text{gcd}(10,12) = 6$. The order of $9$ in $\mathbb{Z}_{15}$ is $15/\text{gcd}(15,9) = 5$. So the order of $(3,10,9)$ in $\mathbb{Z}_{4}\times\mathbb{Z}_{12}\times\mathbb{Z}_{15}$ is the least common multiple of $4, 6$, and $5$, which is $60$.
 \end{proof}
 
+\newpage
 % section 9/exercise 7
 \begin{exercise}
     $(3,6,12,16)$ in $\mathbb{Z}_{4}\times\mathbb{Z}_{12}\times\mathbb{Z}_{20}\times\mathbb{Z}_{24}$
@@ -1237,6 +1303,7 @@ In Exercise 3 through 7, find the order of the given element of the direct produ
     The order of $3$ in $\mathbb{Z}_{4}$ is $4/\text{gcd}(4,3) = 4$. The order of $6$ in $\mathbb{Z}_{12}$ is $12/\text{gcd}(12,6) = 2$. The order of $12$ in $\mathbb{Z}_{20}$ is $20/\text{gcd}(20,12) = 5$. The order of $16$ in $\mathbb{Z}_{24}$ is $24/\text{gcd}(24,16) = 3$. So the order of $(3,6,12,16)$ in $\mathbb{Z}_{4}\times\mathbb{Z}_{12}\times\mathbb{Z}_{20}\times\mathbb{Z}_{24}$ is the least common multiple of $4, 2, 5$, and $3$, which is $60$.
 \end{proof}
 
+\newpage
 % section 9/exercise 8
 \begin{exercise}
     What is the largest order among the orders of all the cyclic subgroups of $\mathbb{Z}_{6}\times\mathbb{Z}_{8}$? of $\mathbb{Z}_{12}\times\mathbb{Z}_{15}$?
@@ -1248,6 +1315,7 @@ In Exercise 3 through 7, find the order of the given element of the direct produ
     For every element $(x,y)$ of $\mathbb{Z}_{12}\times\mathbb{Z}_{15}$, $60(x,y) = (60x,60y) = (0,0)$. On the other hand, the order of $(1,1)$ in $\mathbb{Z}_{12}\times\mathbb{Z}_{15}$ is $60$. So the largest order among the orders of all the cyclic subgroups of $\mathbb{Z}_{12}\times\mathbb{Z}_{15}$ is $60$.
 \end{proof}
 
+\newpage
 % section 9/exercise 9
 \begin{exercise}
     Find all proper nontrivial subgroups of $\mathbb{Z}_{2}\times\mathbb{Z}_{2}$
@@ -1257,6 +1325,7 @@ In Exercise 3 through 7, find the order of the given element of the direct produ
     They are $\mathbb{Z}_{2}\times\{ 0 \}$ and $\{ 0 \}\times\mathbb{Z}_{2}$. In fact, these two subgroups are isomorphic.
 \end{proof}
 
+\newpage
 % section 9/exercise 10
 \begin{exercise}
     Find all proper nontrivial subgroups of $\mathbb{Z}_{2}\times\mathbb{Z}_{2}\times\mathbb{Z}_{2}$
@@ -1270,6 +1339,7 @@ In Exercise 3 through 7, find the order of the given element of the direct produ
     \end{itemize}
 \end{proof}
 
+\newpage
 % section 9/exercise 11
 \begin{exercise}
     Find all subgroups of $\mathbb{Z}_{2}\times\mathbb{Z}_{4}$ of order $4$.
@@ -1289,6 +1359,7 @@ In Exercise 3 through 7, find the order of the given element of the direct produ
     Hence all subgroups of $\mathbb{Z}_{2}\times\mathbb{Z}_{4}$ of order $4$ are: $\{0\}\times\mathbb{Z}_{4}$, $\mathbb{Z}_{2}\times\{0,2\}$.
 \end{proof}
 
+\newpage
 % section 9/exercise 12
 \begin{exercise}
     Find all subgroups of $\mathbb{Z}_{2}\times\mathbb{Z}_{2}\times\mathbb{Z}_{4}$ that are isomorphic to the Klein $4$-group.
@@ -1304,6 +1375,7 @@ In Exercise 3 through 7, find the order of the given element of the direct produ
     \end{itemize}
 \end{proof}
 
+\newpage
 % section 9/exercise 13
 \begin{exercise}
     Disregarding the order of the factors, write direct products of two or more groups of the form $\mathbb{Z}_{n}$ so that the resulting product is isomorphic to $\mathbb{Z}_{60}$ in as many ways as possible.
@@ -1322,6 +1394,7 @@ In Exercise 3 through 7, find the order of the given element of the direct produ
     \endgroup
 \end{proof}
 
+\newpage
 % section 9/exercise 14
 \begin{exercise}
     Fill in the blanks
@@ -1344,6 +1417,7 @@ In Exercise 3 through 7, find the order of the given element of the direct produ
     \end{enumerate}
 \end{proof}
 
+\newpage
 % section 9/exercise 15
 \begin{exercise}
     Find the maximum possible order for some element of $\mathbb{Z}_{4}\times\mathbb{Z}_{6}$.
@@ -1353,6 +1427,7 @@ In Exercise 3 through 7, find the order of the given element of the direct produ
     The order of $(1,1)$ in $\mathbb{Z}_{4}\times\mathbb{Z}_{6}$ is $12$. For every element $(x,y)$ in $\mathbb{Z}_{4}\times\mathbb{Z}_{6}$, $12(x,y) = (12x,12y) = (0,0)$. So the maximum possible order for some element of $\mathbb{Z}_{4}\times\mathbb{Z}_{6}$ is $12$.
 \end{proof}
 
+\newpage
 % section 9/exercise 16
 \begin{exercise}
     Are the groups $\mathbb{Z}_{2}\times\mathbb{Z}_{12}$ and $\mathbb{Z}_{4}\times\mathbb{Z}_{6}$ isomorphic? Why or why not?
@@ -1368,6 +1443,7 @@ In Exercise 3 through 7, find the order of the given element of the direct produ
     Hence these two groups are isomorphic.
 \end{proof}
 
+\newpage
 % section 9/exercise 17
 \begin{exercise}
     Find the maximum possible order for some element of $\mathbb{Z}_{8}\times\mathbb{Z}_{28}\times\mathbb{Z}_{24}$.
@@ -1377,6 +1453,7 @@ In Exercise 3 through 7, find the order of the given element of the direct produ
     The order of $(1,1,1)$ in $\mathbb{Z}_{8}\times\mathbb{Z}_{28}\times\mathbb{Z}_{24}$ is the least common multiple of $8,24$, and $28$, which is $168$. For every element $(x,y,z)$ in $\mathbb{Z}_{8}\times\mathbb{Z}_{28}\times\mathbb{Z}_{24}$, $168(x,y,z) = (168x,168y,168z) = (0,0,0)$. So the maximum possible order of some element of $\mathbb{Z}_{8}\times\mathbb{Z}_{28}\times\mathbb{Z}_{24}$ is $168$.
 \end{proof}
 
+\newpage
 % section 9/exercise 18
 \begin{exercise}
     Are the groups $\mathbb{Z}_{8}\times\mathbb{Z}_{10}\times\mathbb{Z}_{24}$ and $\mathbb{Z}_{4}\times\mathbb{Z}_{12}\times\mathbb{Z}_{40}$ isomorphic? Why or why not?
@@ -1392,6 +1469,7 @@ In Exercise 3 through 7, find the order of the given element of the direct produ
     According to the primary version of the fundamental theorem of finitely generated abelian group, the two groups are not isomorphic.
 \end{proof}
 
+\newpage
 % section 9/exercise 19
 \begin{exercise}
     Find the maximum possible order for some element of $\mathbb{Z}_{4}\times\mathbb{Z}_{18}\times\mathbb{Z}_{15}$.
@@ -1401,6 +1479,7 @@ In Exercise 3 through 7, find the order of the given element of the direct produ
     The order of $(1,1,1)$ in $\mathbb{Z}_{4}\times\mathbb{Z}_{18}\times\mathbb{Z}_{15}$ is the least common multiple of $4,18$, and $15$, which is $180$. For every element $(x,y,z)$ in $\mathbb{Z}_{4}\times\mathbb{Z}_{18}\times\mathbb{Z}_{15}$, $180(x,y,z) = (180x,180y,180z) = (0,0,0)$. So the maximum possible order of some element of $\mathbb{Z}_{4}\times\mathbb{Z}_{18}\times\mathbb{Z}_{15}$ is $180$.
 \end{proof}
 
+\newpage
 % section 9/exercise 20
 \begin{exercise}
     Are the groups $\mathbb{Z}_{4}\times\mathbb{Z}_{18}\times\mathbb{Z}_{15}$ and $\mathbb{Z}_{3}\times\mathbb{Z}_{36}\times\mathbb{Z}_{10}$ isomorphic? Why or why not?
@@ -1420,6 +1499,7 @@ In Exercises 21 through 25, proceed as in Example 9.13 to find all abelian group
 
 If $n = {(p_{1})}^{k_{1}}{(p_{2})}^{k_{2}}\cdots {(p_{r})}^{k_{r}}$, then there are $p(k_{1})p(k_{2})\cdots p(k_{r})$ abelian groups of order $n$, up to isomorphism, where $p(k)$ is the number of partitions of $k$.
 
+\newpage
 % section 9/exercise 21
 \begin{exercise}
     Order 8
@@ -1434,6 +1514,7 @@ If $n = {(p_{1})}^{k_{1}}{(p_{2})}^{k_{2}}\cdots {(p_{r})}^{k_{r}}$, then there 
     \end{enumerate}
 \end{proof}
 
+\newpage
 % section 9/exercise 22
 \begin{exercise}
     Order 16
@@ -1450,6 +1531,7 @@ If $n = {(p_{1})}^{k_{1}}{(p_{2})}^{k_{2}}\cdots {(p_{r})}^{k_{r}}$, then there 
     \end{enumerate}
 \end{proof}
 
+\newpage
 % section 9/exercise 23
 \begin{exercise}
     Order 32
@@ -1468,6 +1550,7 @@ If $n = {(p_{1})}^{k_{1}}{(p_{2})}^{k_{2}}\cdots {(p_{r})}^{k_{r}}$, then there 
     \end{enumerate}
 \end{proof}
 
+\newpage
 % section 9/exercise 24
 \begin{exercise}
     Order 720
@@ -1489,6 +1572,7 @@ If $n = {(p_{1})}^{k_{1}}{(p_{2})}^{k_{2}}\cdots {(p_{r})}^{k_{r}}$, then there 
     \end{enumerate}
 \end{proof}
 
+\newpage
 % section 9/exercise 25
 \begin{exercise}
     Order 1089
@@ -1504,6 +1588,7 @@ If $n = {(p_{1})}^{k_{1}}{(p_{2})}^{k_{2}}\cdots {(p_{r})}^{k_{r}}$, then there 
     \end{enumerate}
 \end{proof}
 
+\newpage
 % section 9/exercise 26
 \begin{exercise}
     How many abelian groups (up to isomorphism) are there of order 24? of order 25? of order (24)\@(25)?
@@ -1513,6 +1598,7 @@ If $n = {(p_{1})}^{k_{1}}{(p_{2})}^{k_{2}}\cdots {(p_{r})}^{k_{r}}$, then there 
     There are 3 abelian groups of order 24 up to isomorphism. There are 2 abelian groups of order 25 up to isomorphism. There are 6 abelian groups of order (24)\@(25) up to isomorphism.
 \end{proof}
 
+\newpage
 % section 9/exercise 27
 \begin{exercise}
     Following the idea suggested in Exercise 26, let $m$ and $n$ be relatively prime positive integers. Show that if there are (up to isomorphism) $r$ abelian groups of order $m$ and $s$ of order $n$, then there are (up to isomorphism) $rs$ abelian groups of order $mn$.
@@ -1549,6 +1635,7 @@ If $n = {(p_{1})}^{k_{1}}{(p_{2})}^{k_{2}}\cdots {(p_{r})}^{k_{r}}$, then there 
     Because $f$ is one-to-one and onto, we conclude that $X\times Y$ and $Z$ have the same number of elements, which means there are $rs$ abelian groups of order $mn$.
 \end{proof}
 
+\newpage
 % section 9/exercise 28
 \begin{exercise}
     Use Exercise 27 to determine the number of abelian groups (up to isomorphism) of order ${(10)}^{5}$
@@ -1580,6 +1667,7 @@ If $n = {(p_{1})}^{k_{1}}{(p_{2})}^{k_{2}}\cdots {(p_{r})}^{k_{r}}$, then there 
     According to Exercise 27, there are $49$ abelian groups of order ${(10)}^{5}$, up to isomorphism.
 \end{proof}
 
+\newpage
 % section 9/exercise 29
 \begin{exercise}
     \begin{enumerate}[label={\textbf{\alph*.}}]
@@ -1612,6 +1700,7 @@ If $n = {(p_{1})}^{k_{1}}{(p_{2})}^{k_{2}}\cdots {(p_{r})}^{k_{r}}$, then there 
     \end{enumerate}
 \end{proof}
 
+\newpage
 % section 9/exercise 30
 \begin{exercise}
     Indicate schematically a Cayley digraph for $\mathbb{Z}_{m}\times \mathbb{Z}_{n}$ for the generating set $S = \{ (1,0), (0,1) \}$.
@@ -1630,6 +1719,7 @@ If $n = {(p_{1})}^{k_{1}}{(p_{2})}^{k_{2}}\cdots {(p_{r})}^{k_{r}}$, then there 
     The resulting Cayley digraph would have rectangular shape.
 \end{proof}
 
+\newpage
 % section 9/exercise 31
 \begin{exercise}
     Consider Cayley digraphs with two arc types, a solid one with an arrow and a dashed one with no arrow, and consisting of two regular $n$-gons, for $n\geq 3$, with solid arc sides, one inside the other, with dashed arcs joining the vertices of the outer $n$-gon to the inner one. Figure 7.11(b) shows such a Cayley digraph with $n = 3$, and Figure 7.13(b) shows one with $n = 4$. The arrows on the outer $n$-gon may have the same (clockwise or counterclockwise) direction as those on the inner $n$-gon, or they may have the opposite direction. Let $G$ be a group with such a Cayley digraph.
@@ -1652,6 +1742,7 @@ If $n = {(p_{1})}^{k_{1}}{(p_{2})}^{k_{2}}\cdots {(p_{r})}^{k_{r}}$, then there 
 
 \subsection*{Concepts}
 
+\newpage
 % section 9/exercise 32
 \begin{exercise}
     Determine whether each of the following is true or false.
@@ -1684,6 +1775,7 @@ If $n = {(p_{1})}^{k_{1}}{(p_{2})}^{k_{2}}\cdots {(p_{r})}^{k_{r}}$, then there 
     \end{enumerate}
 \end{proof}
 
+\newpage
 % section 9/exercise 33
 \begin{exercise}
     Give an example illustrating that not every non trivial abelian group is the internal direct product of two proper nontrivial subgroups.
@@ -1693,6 +1785,7 @@ If $n = {(p_{1})}^{k_{1}}{(p_{2})}^{k_{2}}\cdots {(p_{r})}^{k_{r}}$, then there 
     $\mathbb{Z}_{4}$ is not the internal direct product of two proper nontrivial subgroups.
 \end{proof}
 
+\newpage
 % section 9/exercise 34
 \begin{exercise}
     \begin{enumerate}
@@ -1708,6 +1801,7 @@ If $n = {(p_{1})}^{k_{1}}{(p_{2})}^{k_{2}}\cdots {(p_{r})}^{k_{r}}$, then there 
     \end{enumerate}
 \end{proof}
 
+\newpage
 % section 9/exercise 35
 \begin{exercise}
     Give an example of a nontrivial group that is not of prime order and is not the internal direct product of two nontrivial subgroups.
@@ -1717,6 +1811,7 @@ If $n = {(p_{1})}^{k_{1}}{(p_{2})}^{k_{2}}\cdots {(p_{r})}^{k_{r}}$, then there 
     $\mathbb{Z}_{p^{2}}$ where $p$ is a prime number. Because $\mathbb{Z}_{p^{2}} \not\simeq \mathbb{Z}_{p} \times \mathbb{Z}_{p}$.
 \end{proof}
 
+\newpage
 % section 9/exercise 36
 \begin{exercise}
     Determine whether each of the following is true or false.
@@ -1749,6 +1844,7 @@ If $n = {(p_{1})}^{k_{1}}{(p_{2})}^{k_{2}}\cdots {(p_{r})}^{k_{r}}$, then there 
     \end{enumerate}
 \end{proof}
 
+\newpage
 % section 9/exercise 37
 \begin{exercise}
     Let $p$ and $q$ be distinct prime numbers. How does the number (up to isomorphism) of abelian groups of order $p^{r}$ compare with the number (up to isomorphism) of abelian groups of order $q^{r}$?
@@ -1758,6 +1854,7 @@ If $n = {(p_{1})}^{k_{1}}{(p_{2})}^{k_{2}}\cdots {(p_{r})}^{k_{r}}$, then there 
     Every abelian group of order $p^{r}$ corresponds to a partition of $r$, in other words, a way to write $r$ as the sum of positive integers. The number of such ways is independent of $p$. So the number (up to isomorphism) of abelian groups of order $p^{r}$ is equal to the number (up to isomorphism) of abelian groups of order $q^{r}$.
 \end{proof}
 
+\newpage
 % section 9/exercise 38
 \begin{exercise}
     Let $G$ be an abelian group of order $72$.
@@ -1785,6 +1882,7 @@ If $n = {(p_{1})}^{k_{1}}{(p_{2})}^{k_{2}}\cdots {(p_{r})}^{k_{r}}$, then there 
     \end{enumerate}
 \end{proof}
 
+\newpage
 % section 9/exercise 39
 \begin{exercise}
     Let $G$ be an abelian group. Show that the elements of finite order in $G$ form a subgroup. This subgroup is called the \textbf{torsion subgroup} of $G$
@@ -1800,6 +1898,7 @@ If $n = {(p_{1})}^{k_{1}}{(p_{2})}^{k_{2}}\cdots {(p_{r})}^{k_{r}}$, then there 
 
 Exercises 40 through 43 deal with the concept of the torsion subgroup just defined.
 
+\newpage
 % section 9/exercise 40
 \begin{exercise}
     Find the order of the torsion subgroup of $\mathbb{Z}_{4} \times \mathbb{Z} \times \mathbb{Z}_{3}$; of $\mathbb{Z}_{12} \times \mathbb{Z} \times \mathbb{Z}_{12}$.
@@ -1811,6 +1910,7 @@ Exercises 40 through 43 deal with the concept of the torsion subgroup just defin
     An element $(x, y, z)$ in $\mathbb{Z}_{12} \times \mathbb{Z} \times \mathbb{Z}_{12}$ has finite order if and only if $y = 0$. The torsion subgroup of $\mathbb{Z}_{12} \times \mathbb{Z} \times \mathbb{Z}_{12}$ is $\mathbb{Z}_{12} \times \{0\} \times \mathbb{Z}_{12}$. This tursion subgroup has order of $144$.
 \end{proof}
 
+\newpage
 % section 9/exercise 41
 \begin{exercise}
     Find the torsion subgroup of the multiplicative group $\mathbb{R}^{*}$ of nonzero real numbers.
@@ -1820,6 +1920,7 @@ Exercises 40 through 43 deal with the concept of the torsion subgroup just defin
     A nonzero real number $x$ has finite order in the multiplicative group $\mathbb{R}^{*}$ if and only if $x^{n} = 1$ for some positive integer $n$. So the torsion subgroup of the multiplicative group $\mathbb{R}^{*}$ is $\{ 1, -1 \}$.
 \end{proof}
 
+\newpage
 % section 9/exercise 42
 \begin{exercise}
     Find the torsion subgroup $T$ of the multiplicative group $\mathbb{C}^{*}$ of nonzero complex numbers.
@@ -1829,6 +1930,7 @@ Exercises 40 through 43 deal with the concept of the torsion subgroup just defin
     A nonzero complex number $z$ has finite order in the multiplicative group $\mathbb{C}^{*}$ has finite order if and only if $z^{n} = 1$ for some positive integer $n$. So the torsion subgroup of the multiplicative group $\mathbb{C}^{*}$ is $\{ \cos(2\pi q) + i\sin(2\pi q) \mid q\in\mathbb{Q} \}$.
 \end{proof}
 
+\newpage
 % section 9/exercise 43
 \begin{exercise}
     An abelian group is \textbf{torsion free} if $e$ is the only element of finite order. Use Theorem 9.12 to show that every finitely generated abelian group is the internal direct product of its torsion subgroup and of a torsion-free subgroup. (Note that $\{e\}$ may be the torsion subgroup, and is also torsion free.)
@@ -1852,6 +1954,7 @@ Actually, the proof of Theorem 9.12 uses this result.
     Then $G = A\times B$. $A$ is the torsion subgroup of the internal direct product $A\times B$, $B$ is the torsion-free subgroup of the internal direct product $A\times B$. Thus $G$ is the internal direct product of its torsion subgroup and a torsion-free subgroup.
 \end{proof}
 
+\newpage
 % section 9/exercise 44
 \begin{exercise}
     Find the torsion coefficients for each of the following groups.
@@ -1874,6 +1977,7 @@ Actually, the proof of Theorem 9.12 uses this result.
 
 \subsection*{Proof Synopsis}
 
+\newpage
 % section 9/exercise 45
 \begin{exercise}
     Given a two-sentence synopsis of the proof of Theorem 9.5: The group $\mathbb{Z}_{m}\times \mathbb{Z}_{n}$ is cyclic and is isomorphic to $\mathbb{Z}_{mn}$ if and only if $m$ and $n$ are relatively prime, that is the gcd of $m$ and $n$ is $1$.
@@ -1887,6 +1991,7 @@ Actually, the proof of Theorem 9.12 uses this result.
 
 \subsection*{Theory}
 
+\newpage
 % section 9/exercise 46
 \begin{exercise}
     Prove that a direct product of abelian groups is abelian.
@@ -1903,6 +2008,7 @@ Actually, the proof of Theorem 9.12 uses this result.
     Thus the direct product of $G_{1}$ and $G_{2}$ is abelian.
 \end{proof}
 
+\newpage
 % section 9/exercise 47
 \begin{exercise}
     Let $G$ be an abelian group. Let $H$ be the subset of $G$ consisting of the identity $e$ together with all elements of $G$ of order $2$. Show that $H$ is a subgroup of $G$.
@@ -1920,6 +2026,7 @@ Actually, the proof of Theorem 9.12 uses this result.
     Thus $H$ is a subgroup of $G$.
 \end{proof}
 
+\newpage
 % section 9/exercise 48
 \begin{exercise}
     Following up the idea of Exercise 47 determine whether $H$ will always be a subgroup for every abelian group $G$ if $H$ consists of the identity $e$ together with all elements of $G$ of order $3$; of order $4$. For what positive integers $n$ will $H$ always be a subgroup for every abelian group $G$, if $H$ consists of the identity $e$ together with all elements of $G$ of order $n$? Compare with Exercise 54 of Section 5.
@@ -1953,6 +2060,7 @@ Actually, the proof of Theorem 9.12 uses this result.
     Hence, for $n = 1$ or any prime number, $H$ is always a subgroup for every abelian group $G$.
 \end{proof}
 
+\newpage
 % section 9/exercise 49
 \begin{exercise}
     Find a counterexample of Exercise 47 with the hypothesis that G is abelian omitted.
@@ -1964,6 +2072,7 @@ Actually, the proof of Theorem 9.12 uses this result.
 
 Let $H$ and $K$ be subgroups of a group $G$. Exercises 50 and 51 ask you to establish necessary and sufficient criteria for $G$ to appear as the internal direct product of $H$ and $K$.
 
+\newpage
 % section 9/exercise 50
 \begin{exercise}
     Let $H$ and $K$ be groups and let $G = H \times K$. Recall that both $H$ and $K$ appear as subgroups of $G$ in a natural way. Show that these subgroups $H$ (actually $H \times \{e\}$) and $K$ (actually $\{e\} \times K$) have the following properties.
@@ -1991,6 +2100,7 @@ Let $H$ and $K$ be subgroups of a group $G$. Exercises 50 and 51 ask you to esta
     \end{enumerate}
 \end{proof}
 
+\newpage
 % section 9/exercise 51
 \begin{exercise}
     Let $H$ and $K$ be subgroups of a group $G$ satisfying the three properties listed in the preceding exercise. Show that for each $g\in G$, the expression $g = hk$ for $h\in H$ and $k\in K$ is unique. Then let each $g$ be renamed $(h, k)$. Show that, under this renaming, $G$ becomes structurally identical (isomorphic) to $H\times K$.
@@ -2013,6 +2123,7 @@ Let $H$ and $K$ be subgroups of a group $G$. Exercises 50 and 51 ask you to esta
     Therefore $\phi$ is an isomorphism. Hence $G$ is isomorphic to $H\times K$.
 \end{proof}
 
+\newpage
 % section 9/exercise 52
 \begin{exercise}
     Show that a finite abelian group is not cyclic if and only if it contains a subgroup isomorphic to $\mathbb{Z}_{p}\times\mathbb{Z}_{p}$ for some prime $p$.
@@ -2065,6 +2176,7 @@ The result in this exercise is the opposite of Theorem 9.20's.
     Hence, a finite abelian group $G$ is not cyclic if and only if it contains a subgroup isomorphic to $\mathbb{Z}_{p}\times\mathbb{Z}_{p}$ for some prime $p$.
 \end{proof}
 
+\newpage
 % section 9/exercise 53
 \begin{exercise}
     Prove that if a finite abelian group has order a power of a prime $p$, then the order of every element in the group is a power of $p$.
@@ -2085,6 +2197,7 @@ The result in this exercise is the opposite of Theorem 9.20's.
     Thus the order of every element in $G$ is a power of $p$.
 \end{proof}
 
+\newpage
 % section 9/exercise 54
 \begin{exercise}
     Let $G, H$, and $K$ be finitely generated abelian groups. Show that if $G\times K$ is isomorphic to $H\times K$, then $G\simeq H$.
@@ -2117,6 +2230,7 @@ The result in this exercise is the opposite of Theorem 9.20's.
     Once again, due to the uniqueness part of the primary factor version of the fundamental theorem of finitely generated abelian group, we conclude that $\mathbb{Z}_{{(p_{1})}^{r_{1}}} \times \cdots \times \mathbb{Z}_{{(p_{a})}^{r_{a}}}$ and $\mathbb{Z}_{{(q_{1})}^{s_{1}}} \times \cdots \times \mathbb{Z}_{{(q_{b})}^{s_{b}}}$ are identical, disregarding the order of the factor. Hence $G\simeq H$.
 \end{proof}
 
+\newpage
 % section 9/exercise 55
 \begin{exercise}
     Using the notation of Theorem 9.14, prove that for any finite abelian group $G$, every cyclic subgroup of $G$ has order no more than $d_{k}$, the largest invariant factor for $G$.
@@ -2133,10 +2247,12 @@ The result in this exercise is the opposite of Theorem 9.20's.
     Thus the order of every cyclic subgroup of any finite abelian group $G$ is not greater than the largest invariant factor for $G$.
 \end{proof}
 
+\newpage
 \section{Cosets and the Theorem of Lagrange}
 
 \subsection*{Computations}
 
+\newpage
 % section 10/exercise 1
 \begin{exercise}
     Find all cosets of the subgroup $4\mathbb{Z}$ of $\mathbb{Z}$.
@@ -2152,6 +2268,7 @@ The result in this exercise is the opposite of Theorem 9.20's.
     \end{enumerate}
 \end{proof}
 
+\newpage
 % section 10/exercise 2
 \begin{exercise}
     Find all cosets of the subgroup $4\mathbb{Z}$ of $2\mathbb{Z}$.
@@ -2165,6 +2282,7 @@ The result in this exercise is the opposite of Theorem 9.20's.
     \end{enumerate}
 \end{proof}
 
+\newpage
 % section 10/exercise 3
 \begin{exercise}
     Find all cosets of the subgroup $\anglebracket{3}$ in $\mathbb{Z}_{18}$.
@@ -2179,6 +2297,7 @@ The result in this exercise is the opposite of Theorem 9.20's.
     \end{enumerate}
 \end{proof}
 
+\newpage
 % section 10/exercise 4
 \begin{exercise}
     Find all cosets of the subgroup $\anglebracket{6}$ in $\mathbb{Z}_{18}$.
@@ -2196,6 +2315,7 @@ The result in this exercise is the opposite of Theorem 9.20's.
     \end{enumerate}
 \end{proof}
 
+\newpage
 % section 10/exercise 5
 \begin{exercise}
     Find all cosets of the subgroup $\anglebracket{18}$ of $\mathbb{Z}_{36}$.
@@ -2225,6 +2345,7 @@ The result in this exercise is the opposite of Theorem 9.20's.
     \end{enumerate}
 \end{proof}
 
+\newpage
 % section 10/exercise 6
 \begin{exercise}
     Find all left cosets of $\anglebracket{\mu\rho}$ in $D_{4}$.
@@ -2240,6 +2361,7 @@ The result in this exercise is the opposite of Theorem 9.20's.
     \end{enumerate}
 \end{proof}
 
+\newpage
 % section 10/exercise 7
 \begin{exercise}
     Repeating the preceding exercise, but find the right cosets this time. Are they the same as the left cosets?
@@ -2257,6 +2379,7 @@ The result in this exercise is the opposite of Theorem 9.20's.
     The left cosets and the right cosets of $D_{4}$ are not the same. But the left and right cosets of $\anglebracket{\mu\rho}$ containing $\iota$ are identical, the left and right cosets of $\anglebracket{\mu\rho}$ containing $\rho^{2}$ are identical.
 \end{proof}
 
+\newpage
 % section 10/exercise 8
 \begin{exercise}
     Are the left and right cosets the same for the subgroup $\{ \iota, \rho^{4}, \mu, \mu\rho^{4} \}$ of $D_{8}$? If so, display the cosets. If not, find a left coset that is not the same as any right coset.
@@ -2282,6 +2405,7 @@ The result in this exercise is the opposite of Theorem 9.20's.
     The left and right cosets are not the same for the subgroup $\{ \iota, \rho^{4}, \mu, \mu\rho^{4} \}$ of $D_{8}$. The left coset $\rho\{ \iota, \rho^{4}, \mu, \mu\rho^{4} \}$ is not the same as any right coset.
 \end{proof}
 
+\newpage
 % section 10/exercise 9
 \begin{exercise}
     Find all left cosets of $\anglebracket{\rho^{2}} \leq D_{4}$.
@@ -2297,6 +2421,7 @@ The result in this exercise is the opposite of Theorem 9.20's.
     \end{enumerate}
 \end{proof}
 
+\newpage
 % section 10/exercise 10
 \begin{exercise}
     Repeat the previous exercise, but find the right cosets. Are the left and right cosets the same? If so, make the group table for $D_{4}$, ordering the elements so that the cosets are in blocks, see if the blocks form a group with four elements, and determine what group of order 4 the blocks form.
@@ -2337,6 +2462,7 @@ The result in this exercise is the opposite of Theorem 9.20's.
     The group of order 4 the blocks form is isomorphic to the Klein 4-group.
 \end{proof}
 
+\newpage
 % section 10/exercise 11
 \begin{exercise}
     Find the index of $\anglebracket{\rho^{2}}$ in the group $D_{6}$.
@@ -2346,6 +2472,7 @@ The result in this exercise is the opposite of Theorem 9.20's.
     $\anglebracket{\rho^{2}} = \{ \iota, \rho^{2}, \rho^{4} \}$ has 3 elements. $D_{6}$ has 12 elements. According to the definition of index in the case of finite groups, the index of $\anglebracket{\rho^{2}}$ in $D_{6}$ is 4.
 \end{proof}
 
+\newpage
 % section 10/exercise 12
 \begin{exercise}
     Find the index of $\anglebracket{3}$ in the group $\mathbb{Z}_{24}$.
@@ -2355,6 +2482,7 @@ The result in this exercise is the opposite of Theorem 9.20's.
     $\anglebracket{3} = \{ 0, 3, 6, 9, 12, 15, 18, 21 \}$ has 8 elements. $\mathbb{Z}_{24}$ has 24 elements. According to the definition of index in the case of finite groups, the index of $\anglebracket{3}$ in $\mathbb{Z}_{24}$ is 3.
 \end{proof}
 
+\newpage
 % section 10/exercise 13
 \begin{exercise}
     Find the index of $12\mathbb{Z}$ in $\mathbb{Z}$.
@@ -2380,6 +2508,7 @@ The result in this exercise is the opposite of Theorem 9.20's.
     Hence the index of $12\mathbb{Z}$ in $\mathbb{Z}$ is 12.
 \end{proof}
 
+\newpage
 % section 10/exercise 14
 \begin{exercise}
     Find the index of $12\mathbb{Z}$ in $3\mathbb{Z}$.
@@ -2397,6 +2526,7 @@ The result in this exercise is the opposite of Theorem 9.20's.
     Thus the index of $12\mathbb{Z}$ in $3\mathbb{Z}$ is 4.
 \end{proof}
 
+\newpage
 % section 10/exercise 15
 \begin{exercise}
     Let $\sigma = (1,2,5,4)(2,3)$ in $S_{5}$. Find the index of $\anglebracket{\sigma}$ in $S_{5}$.
@@ -2406,6 +2536,7 @@ The result in this exercise is the opposite of Theorem 9.20's.
     $\sigma = (1,2,5,4)(2,3) = (1,2,3,5,4)$. The order of $\sigma$ in $S_{5}$ is 5. So the index of $\anglebracket{\sigma}$ in $S_{5}$ is $5!/5 = 24$.
 \end{proof}
 
+\newpage
 % section 10/exercise 16
 \begin{exercise}
     Let $\mu = (1,2,4,5)(3,6)$ in $S_{6}$. Find the index of $\anglebracket{\mu}$ in $S_{6}$.
@@ -2419,6 +2550,7 @@ The result in this exercise is the opposite of Theorem 9.20's.
 
 In Exercises 17 through 19, correct the definition of the italicized term without reference to the text, if correction is needed, so that it is in a form acceptable for publication.
 
+\newpage
 % section 10/exercise 17
 \begin{exercise}
     Let $G$ be a group and let $H\subseteq G$. The \textit{left coset of $H$ containing $a$} is $aH = \{ ah \mid h\in H \}$.
@@ -2428,6 +2560,7 @@ In Exercises 17 through 19, correct the definition of the italicized term withou
     Correction: Let $G$ be a group and let $H\leq G$. The \textit{left coset of $H$ containing $a$} is $aH = \{ ah \mid h\in H \}$.
 \end{proof}
 
+\newpage
 % section 10/exercise 18
 \begin{exercise}
     Let $G$ be a group and let $H\leq G$. The \textit{index of $H$ in $G$} is the number of right cosets of $H$ in $G$.
@@ -2437,6 +2570,7 @@ In Exercises 17 through 19, correct the definition of the italicized term withou
     The definition is correct.
 \end{proof}
 
+\newpage
 % section 10/exercise 19
 \begin{exercise}
     Let $\phi: G\to G'$. Then the \textit{kernel} of $\phi$ is $\ker\phi = \{ g \in G \mid \phi(g) = e \}$
@@ -2446,6 +2580,7 @@ In Exercises 17 through 19, correct the definition of the italicized term withou
     Correction: Let $\phi: G\to G'$ be a group homomorphism. Then the \textit{kernel} of $\phi$ is $\ker\phi = \{ g \in G \mid \phi(g) = e' \}$ where $e'$ is the identity element of $G'$.
 \end{proof}
 
+\newpage
 % section 10/exercise 20
 \begin{exercise}
     Determine whether each of the following is true or false.
@@ -2485,6 +2620,7 @@ In Exercises 17 through 19, correct the definition of the italicized term withou
 In Exercises 21 through 26, give an example of the desired subgroup and group if possible. If impossible, say why
 it is impossible.
 
+\newpage
 % section 10/exercise 21
 \begin{exercise}
     A subgroup $H\leq G$ with $G$ infinite and $H$ having only a finite number of left cosets in $G$
@@ -2494,6 +2630,7 @@ it is impossible.
     Example: $2\mathbb{Z} \leq \mathbb{Z}$. $2\mathbb{Z}$ has exactly 2 left cosets in $\mathbb{Z}$.
 \end{proof}
 
+\newpage
 % section 10/exercise 22
 \begin{exercise}
     A subgroup of an abelian group $G$ whose left cosets and right cosets give different partition of $G$.
@@ -2503,6 +2640,7 @@ it is impossible.
     Impossible. Since $G$ is abelian, $aH = Ha$ for every subgroup $H\leq G$ and $a\in G$.
 \end{proof}
 
+\newpage
 % section 10/exercise 23
 \begin{exercise}
     A subgroup of a group $G$ whose left cosets give a partition of $G$ into just one cell
@@ -2512,6 +2650,7 @@ it is impossible.
     For any group $G$, $G$ is its improper subgroup. $G$ is the only left coset of $G$, within $G$.
 \end{proof}
 
+\newpage
 % section 10/exercise 24
 \begin{exercise}
     A subgroup of a group of order 6 whose left cosets give a partition of the group into 6 cells.
@@ -2521,6 +2660,7 @@ it is impossible.
     Example: $\mathbb{Z}_{6}$ and its trivial subgroup $\{0\}$. $\{0\}$ has 6 cosets, which are $\{0\}$, $\{1\}$, $\{2\}$, $\{3\}$, $\{4\}$, $\{5\}$.
 \end{proof}
 
+\newpage
 % section 10/exercise 25
 \begin{exercise}
     A subgroup of a group of order 6 whose left cosets give a partition of the group into 12 cells
@@ -2530,6 +2670,7 @@ it is impossible.
     Impossible. Because 12 is larger than 6. A subgroup of a group of order 6 can have at most 6 left cosets, due to Lagrange's theorem.
 \end{proof}
 
+\newpage
 % section 10/exercise 26
 \begin{exercise}
     A subgroup of a group of order 6 whose left cosets give a partition of the group into 4 cells
@@ -2541,6 +2682,7 @@ it is impossible.
 
 \subsection*{Proof Synopsis}
 
+\newpage
 % section 10/exercise 27
 \begin{exercise}
     Give a one-sentence synopsis of the proof of the Theorem of Lagrange.
@@ -2552,6 +2694,7 @@ it is impossible.
 
 \subsection*{Theory}
 
+\newpage
 % section 10/exercise 28
 \begin{exercise}
     Prove that the relation ${\sim}_{R}$ that is used to define right cosets is an equivalence relation.
@@ -2569,6 +2712,7 @@ it is impossible.
     Hence ${\sim}_{R}$ is reflexive, symmetric, and transitive, which implies ${\sim}_{R}$ is an equivalence relation.
 \end{proof}
 
+\newpage
 % section 10/exercise 29
 \begin{exercise}
     Let $H$ be a subgroup of a group $G$ and let $g\in G$. Define a one-to-one map of $H$ onto $Hg$. Prove that your map is one-to-one and is onto $Hg$.
@@ -2578,6 +2722,7 @@ it is impossible.
     Let $\phi: H\to Hg$ be the map defined as $\phi(x) = xg$ for every $x\in G$. If $ag = bg$ ($ag, bg$ are elements of $Hg$), then $a = b$ due to the right cancellation law. So $\phi$ is one-to-one. On the other hand, every element in $Hg$ is of the form $xg$ where $x\in H$, so $\phi(x) = xg$, which means $\phi$ is onto $Hg$. Hence the defined map $\phi$ is a one-to-one map from $H$ onto $Hg$.
 \end{proof}
 
+\newpage
 % section 10/exercise 30
 \begin{exercise}
     Let $H$ be a subgroup of a group $G$ such that $g^{-1}hg\in H$ for all $g\in G$ and all $h\in H$. Show that every left coset $gH$ is the same as the right coset $Hg$.
@@ -2591,6 +2736,7 @@ it is impossible.
     Hence $gH = Hg$ if $g^{-1}hg\in H$ for all $g\in G$ and $h\in H$.
 \end{proof}
 
+\newpage
 % section 10/exercise 31
 \begin{exercise}
     Let $H$ be a subgroup of a group $G$. Prove that if the partition of $G$ into left cosets of $H$ is the same as the partition into right cosets of $H$, then $g^{-1}hg$ for all $g\in G$ and all $h\in H$. (Note that this is the converse of Exercise 30.)
@@ -2604,6 +2750,7 @@ it is impossible.
 
 Let $H$ be a subgroup of a group $G$ and let $a, b\in G$. In Exercises 32 through 35 prove the statement or give a counterexample.
 
+\newpage
 % section 10/exercise 32
 \begin{exercise}
     If $aH = bH$, then $Ha = Hb$.
@@ -2619,6 +2766,7 @@ Let $H$ be a subgroup of a group $G$ and let $a, b\in G$. In Exercises 32 throug
     But the corresponding right cosets are different: $\{ \iota, \mu\rho \}\mu = \{ \mu, \rho^{3} \}$ and $\{ \iota, \mu\rho \}\rho = \{ \rho, \mu\rho^{2} \}$.
 \end{proof}
 
+\newpage
 % section 10/exercise 33
 \begin{exercise}
     If $Ha = Hb$, then $b\in Ha$.
@@ -2630,6 +2778,7 @@ Let $H$ be a subgroup of a group $G$ and let $a, b\in G$. In Exercises 32 throug
     Let $e$ be the identity element of $G$, then $e$ is also the identity element of $H$. Since $b = eb\in Hb$ and $Hb = Ha$, we conclude that $b\in Ha$.
 \end{proof}
 
+\newpage
 % section 10/exercise 34
 \begin{exercise}
     If $aH = bH$, then $Ha^{-1} = Hb^{-1}$.
@@ -2649,6 +2798,7 @@ Let $H$ be a subgroup of a group $G$ and let $a, b\in G$. In Exercises 32 throug
     So $Ha^{-1} \subseteq Hb^{-1}$ and $Hb^{-1} \subseteq Ha^{-1}$, which means $Ha^{-1} = Hb^{-1}$.
 \end{proof}
 
+\newpage
 % section 10/exercise 35
 \begin{exercise}
     If $aH = bH$, then $a^{2}H = b^{2}H$.
@@ -2670,6 +2820,7 @@ Let $H$ be a subgroup of a group $G$ and let $a, b\in G$. In Exercises 32 throug
     \end{align*}
 \end{proof}
 
+\newpage
 % section 10/exercise 36
 \begin{exercise}
     Let $G$ be a group of order $pq$, where $p$ and $q$ are prime numbers. Show that every proper subgroup of $G$ is cyclic.
@@ -2681,6 +2832,7 @@ Let $H$ be a subgroup of a group $G$ and let $a, b\in G$. In Exercises 32 throug
     Hence every proper subgroup of $G$ is cyclic.
 \end{proof}
 
+\newpage
 % section 10/exercise 37
 \begin{exercise}
     Show that there are the same number of left as right cosets of a subgroup $H$ of a group $G$; that is, exhibit a one-to-one map of the collection of left cosets onto the collection of right cosets. (Note that this result is obvious by counting for finite groups. Your proof must hold for any group.)
@@ -2721,6 +2873,7 @@ Let $H$ be a subgroup of a group $G$ and let $a, b\in G$. In Exercises 32 throug
     Due to the Lemma, $f(aH) = Ha^{-1} = Hb^{-1} = f(bH)$ implies $aH = bH$, so $f$ is one-to-one. On the other hand, for every right coset $Hx$, $f(x^{-1}H) = Hx$, so $f$ is onto $R_{H}$. Therefore $f$ is a bijection from $L_{H}$ onto $R_{H}$. Hence the cardinality of the left cosets of $H$ and the cardinality of the right cosets of $H$ are equal.
 \end{proof}
 
+\newpage
 % section 10/exercise 38
 \begin{exercise}
     Exercise 29 of Section 2 showed that every finite group of even order $2n$ contains an element of order $2$. Using the theorem of Lagrange, show that if $n$ is odd, then an abelian group of order $2n$ contains precisely one element of order $2$.
@@ -2734,6 +2887,7 @@ Let $H$ be a subgroup of a group $G$ and let $a, b\in G$. In Exercises 32 throug
     Thus in an abelian group of order $2n$, there is precisely one element of order $2$.
 \end{proof}
 
+\newpage
 % section 10/exercise 39
 \begin{exercise}
     Show that a group with at least two elements but with no proper nontrivial subgroups must be finite and of prime order.
@@ -2749,6 +2903,7 @@ Let $H$ be a subgroup of a group $G$ and let $a, b\in G$. In Exercises 32 throug
     Thus $G$ is finite and $G$ is of prime order.
 \end{proof}
 
+\newpage
 % section 10/exercise 40
 \begin{exercise}
     Prove Theorem 10.11: Suppose $H$ and $K$ are subgroups of a group $G$ such that $K\leq H\leq G$, and suppose $(H:K)$ and $(G:H)$ are both finite. Then $(G:K)$ is finite, and $(G:K) = (G:H)(H:K)$.
@@ -2767,6 +2922,7 @@ Let $H$ be a subgroup of a group $G$ and let $a, b\in G$. In Exercises 32 throug
     \]
 \end{proof}
 
+\newpage
 % section 10/exercise 41
 \begin{exercise}
     Show that if $H$ is a subgroup of index $2$ in a finite group $G$, then every left coset of $H$ is also a right coset of $H$.
@@ -2786,6 +2942,7 @@ Let $H$ be a subgroup of a group $G$ and let $a, b\in G$. In Exercises 32 throug
     Hence every left coset of $H$ is also a right coset of $H$.
 \end{proof}
 
+\newpage
 % section 10/exercise 42
 \begin{exercise}
     Show that if a group $G$ with identity $e$ has finite order $n$, then $a^{n} = e$ for all $a\in G$.
@@ -2795,6 +2952,7 @@ Let $H$ be a subgroup of a group $G$ and let $a, b\in G$. In Exercises 32 throug
     Due to the theorem of Lagrange, the order of $\anglebracket{a}$ divides $n$. Let the order of $\anglebracket{a}$ be $d$. Therefore $a^{n} = {(a^{d})}^{n/d} = e^{n/d} = e$. Thus $a^{n} = e$ for every $a\in G$.
 \end{proof}
 
+\newpage
 % section 10/exercise 43
 \begin{exercise}
     Show that every left coset of the subgroup $\mathbb{Z}$ of the additive group of real numbers contains exactly one element $x$ such that $0\leq x < 1$.
@@ -2812,6 +2970,7 @@ Let $H$ be a subgroup of a group $G$ and let $a, b\in G$. In Exercises 32 throug
     Thus, every left coset of $\mathbb{Z}$ in the addition group $\mathbb{Z}$ contains exactly one element $x$ such that $0\leq x < 1$.
 \end{proof}
 
+\newpage
 % section 10/exercise 44
 \begin{exercise}
     Show that the function \textit{sine} assigns the same value to each element of any fixed left coset of the subgroup $\anglebracket{2\pi}$ of the additive group lR of real numbers.
@@ -2821,6 +2980,7 @@ Let $H$ be a subgroup of a group $G$ and let $a, b\in G$. In Exercises 32 throug
     The result follows from $\sin(x + k2\pi) = \sin(x)$ where $k\in\mathbb{Z}$.
 \end{proof}
 
+\newpage
 % section 10/exercise 45
 \begin{exercise}
     Let $H$ and $K$ be subgroups of a group $G$. Define $\sim$ on $G$ by $a\sim b$ if and only if $a = hbk$ for some $h\in H$ and some $k\in K$.
@@ -2844,6 +3004,7 @@ Let $H$ be a subgroup of a group $G$ and let $a, b\in G$. In Exercises 32 throug
     \end{enumerate}
 \end{proof}
 
+\newpage
 % section 10/exercise 46
 \begin{exercise}
     Let $S_{A}$ be the group of all permutations of the set $A$, and let $c$ be one particular element of $A$.
@@ -2868,6 +3029,7 @@ Let $H$ be a subgroup of a group $G$ and let $a, b\in G$. In Exercises 32 throug
     \end{enumerate}
 \end{proof}
 
+\newpage
 % section 10/exercise 47
 \begin{exercise}
     Show that a finite cyclic group of order $n$ has exactly one subgroup of each order $d$ dividing $n$, and that these are all the subgroups it has.
@@ -2889,6 +3051,7 @@ Let $H$ be a subgroup of a group $G$ and let $a, b\in G$. In Exercises 32 throug
     Thus, a finite cyclic group of order $n$ has exactly one subgroup of each order $d$ dividing $n$ and these are all subgroups it has.
 \end{proof}
 
+\newpage
 % section 10/exercise 48
 \begin{exercise}
     The \textbf{Euler phi-function} is defined for positive integers $n$ by $\varphi(n) = s$, where $s$ is the number of positive integers less than or equal to $n$ that are are relatively prime to $n$. Use Exercise 47 to show that
@@ -2911,6 +3074,7 @@ Let $H$ be a subgroup of a group $G$ and let $a, b\in G$. In Exercises 32 throug
     \]
 \end{proof}
 
+\newpage
 % section 10/exercise 49
 \begin{exercise}
     Let $G$ be a finite group. Show that if for each positive integer $m$ the number of solutions $x$ of the equation $x^{m} = e$ in $G$ is at most $m$, then $G$ is cyclic.
@@ -2928,6 +3092,7 @@ Let $H$ be a subgroup of a group $G$ and let $a, b\in G$. In Exercises 32 throug
     Thus $G$ is cyclic.
 \end{proof}
 
+\newpage
 % section 10/exercise 50
 \begin{exercise}
     Show that a finite group cannot be written as the union of two of its proper subgroups. Does the statement remain true if ``two'' is replaced by ``three''?
@@ -2941,4 +3106,5 @@ Let $H$ be a subgroup of a group $G$ and let $a, b\in G$. In Exercises 32 throug
     The statement doesn't remain true if ``two'' is replaced by ``three''. Here is a counter example: the Klein 4-group $V$ has 4 elements $e, a, b, c$, where $c = ab = ba$, $b = ca = ac$, $a = bc = cb$, $a^{2} = b^{2} = c^{2} = e$. $\{e, a\}, \{e, b\}, \{e, c\}$ are proper subgroups of $V$ and the union of them is the whole set under $V$.
 \end{proof}
 
+\newpage
 \section{Plane Isometries}
