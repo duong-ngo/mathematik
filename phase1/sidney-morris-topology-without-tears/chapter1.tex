@@ -2,7 +2,308 @@
 
 \section{Topology}
 
+% chapter 1/section 1/exercise 1
+\begin{exercise}
+	Let $X = \{ a, b, c, d, e, f \}$. Determine whether or not each of the following collections of subsets of $X$ is a topology on $X$
+	\begin{enumerate}[label={(\alph*)}]
+		\item $\tau_{1} = \{ X, \varnothing, \{ a \}, \{ a, f \}, \{ b, f \}, \{ a, b, f \} \}$.
+		\item $\tau_{2} = \{ X, \varnothing, \{ a, b, f \}, \{ a, b, d \}, \{ a, b, d, f \} \}$.
+		\item $\tau_{3} = \{ X, \varnothing, \{ f \}, \{ e, f \}, \{ a, f \} \}$.
+	\end{enumerate}
+\end{exercise}
 
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item $\tau_{1}$ is a topology on $X$.
+		\item $\tau_{1}$ is not a topology on $X$, since $\{ a, b, f \}\cap\{ a, b, d \} = \{ a, b \}\notin \tau_{2}$.
+		\item $\tau_{3}$ is not a topology on $X$, since $\{ e, f \}\cup\{ a, f \} = \{ a, e, f \}\notin \tau_{3}$.
+	\end{enumerate}
+\end{proof}
+\newpage
+
+% chapter 1/section 1/exercise 2
+\begin{exercise}
+	Let $X = \{ a, b, d, d, e, f \}$. Which of the followig collections of subsets of $X$ is a topology on $X$? (Justify your answer.)
+	\begin{enumerate}[label={(\alph*)}]
+		\item $\tau_{1} = \{ X, \varnothing, \{ c \}, \{ b, d, e \}, \{ b, c, d, e \}, \{ b \} \}$;
+		\item $\tau_{2} = \{ X, \varnothing, \{ a \}, \{ b, d, e \}, \{ a, b, d \}, \{ a, b, d, e \} \}$;
+		\item $\tau_{3} = \{ X, \varnothing, \{ b \}, \{ a, b, c \}, \{ d, e, f \}, \{ b, d, e, f \} \}$.
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item $\tau_{1}$ is not a topology on $X$, since $\{ c \}\cup\{ b \} = \{ b, c \}\notin \tau_{1}$.
+		\item $\tau_{2}$ is not a topology on $X$, since $\{ b, d, e \}\cap \{ a, b, d \} = \{ b, d \}\notin\tau_{2}$.
+		\item $\tau_{3}$ is a topology on $X$, since
+		      \begin{itemize}
+			      \item union of any two sets in $\tau_{3}$ is in $\tau_{3}$ (this argument is valid because $\tau_{3}$ is finite)
+			            \begin{align*}
+				            \{ b \} \cup \{ a, b, c \}          & = \{ a, b, c \}\in \tau_{3},    \\
+				            \{ b \} \cup \{ d, e, f \}          & = \{ b, d, e, f \}\in \tau_{3}, \\
+				            \{ b \} \cup \{ b, d, e, f \}       & = \{ b, d, e, f \}\in \tau_{3}, \\
+				            \{ a, b, c \} \cup \{ d, e, f \}    & = X\in \tau_{3},                \\
+				            \{ a, b, c \} \cup \{ b, d, e, f \} & = X\in \tau_{3},                \\
+				            \{ d, e, f \} \cup \{ b, d, e, f \} & = \{ b, d, e, f \}\in \tau_{3}.
+			            \end{align*}
+			      \item intersection of any two sets in $\tau_{3}$ is in $\tau_{3}$
+			            \begin{align*}
+				            \{ b \} \cap \{ a, b, c \}          & = \{ b \}\in \tau_{3},       \\
+				            \{ b \} \cap \{ d, e, f \}          & = \varnothing\in \tau_{3},   \\
+				            \{ b \} \cap \{ b, d, e, f \}       & = \{ b \}\in \tau_{3},       \\
+				            \{ a, b, c \} \cap \{ d, e, f \}    & = \varnothing\in \tau_{3},   \\
+				            \{ a, b, c \} \cup \{ b, d, e, f \} & = \{ b \}\in \tau_{3},       \\
+				            \{ d, e, f \} \cup \{ b, d, e, f \} & = \{ d, e, f \}\in \tau_{3}.
+			            \end{align*}
+		      \end{itemize}
+	\end{enumerate}
+\end{proof}
+\newpage
+
+% chapter 1/section 1/exercise 3
+\begin{exercise}
+	If $X = \{ a, b, c, d, e, f \}$ and $\tau$ is the discrete topology on $X$, which of the following statments are true?
+	\begin{multicols}{4}
+		\begin{enumerate}[label={(\alph*)}]
+			\item $X\in \tau$;
+			\item $\{ X \}\in \tau$;
+			\item $\{\varnothing\}\in \tau$;
+			\item $\varnothing\in \tau$;
+			\item $\varnothing\in X$;
+			\item $\{\varnothing\}\in X$;
+			\item $\{ a \}\in \tau$;
+			\item $a\in \tau$;
+			\item $\varnothing\subseteq X$;
+			\item $\{ a \}\in X$;
+			\item $\{ \varnothing \}\subseteq X$;
+			\item $a\in X$;
+			\item $X\subseteq \tau$;
+			\item $\{ a \}\subseteq \tau$;
+			\item $\{ X \}\subseteq \tau$;
+			\item $a\subseteq \tau$.
+		\end{enumerate}
+	\end{multicols}
+\end{exercise}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item $X\in \tau$ --- true.
+		\item $\{ X \}\in \tau$ --- false.
+		\item $\{\varnothing\}\in \tau$ --- false.
+		\item $\varnothing\in \tau$ --- false.
+		\item $\varnothing\in X$ --- false.
+		\item $\{\varnothing\}\in X$ --- false.
+		\item $\{ a \}\in \tau$ --- true.
+		\item $a\in \tau$ --- false.
+		\item $\varnothing\subseteq X$ --- true.
+		\item $\{ a \}\in X$ --- false.
+		\item $\{ \varnothing \}\subseteq X$ --- false.
+		\item $a\in X$ --- true.
+		\item $X\subseteq \tau$ --- true.
+		\item $\{ a \}\subseteq \tau$ --- false.
+		\item $\{ X \}\subseteq \tau$ --- true.
+		\item $a\subseteq \tau$ --- false.
+	\end{enumerate}
+\end{proof}
+\newpage
+
+% chapter 1/section 1/exercise 4
+\begin{exercise}
+	Let $(X, \tau)$ be any topological space. Verify that \color{blue}{the intersection of any finite number of members of $\tau$ is a member of $\tau$}.
+\end{exercise}
+
+\begin{proof}
+	The intersection of $0$ members of $\tau$ is $\varnothing$, which is a member of $\tau$.
+
+	Assume that the intersection of $n$ members of $\tau$ is a member of $\tau$ (where $n$ is a nonnegative integer). From $(n+1)$ members of $\tau$, we pick out $n$ members. Due to the induction hypothesis, the intersection of these $n$ members is a member of $\tau$ --- denote the intersection by $A$. Due to the definition of topological space, the intersection of $A$ and the rest member is again a member of $\tau$. Therefore, the intersection of $(n+1)$ members of $\tau$ is a member of $\tau$.
+
+	Thus, according to the principle of mathematical induction, the intersection of any finite number of members of $\tau$ is a member of $\tau$.
+\end{proof}
+\newpage
+
+% chapter 1/section 1/exercise 5
+\begin{exercise}
+	Let $\mathbb{R}$ be the set of all real numbers. Prove that each of the following collections of subsets of $\mathbb{R}$ is a topology.
+	\begin{enumerate}[label={(\roman*)}]
+		\item $\tau_{1}$ consists of $\mathbb{R}$, $\varnothing$, and every interval $(-n, n)$, for $n$ any positive integer, where $(-n, n)$ denotes that set $\{ x\in\mathbb{R} : -n < x < n \}$;
+		\item $\tau_{2}$ consists of $\mathbb{R}$, $\varnothing$, and every interval $[-n, n]$, for $n$ any positive integer, where $[-n, n]$ denotes that set $\{ x\in\mathbb{R} : -n \leq x \leq n \}$;
+		      % chktex-file 9
+		      % chktex-file 17
+		\item $\tau_{3}$ consists of $\mathbb{R}$, $\varnothing$, and every interval $[n, \infty)$, for $n$ any positive integer, where $[n, \infty)$ denotes that set $\{ x\in\mathbb{R} : n\leq x \}$.
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\begin{enumerate}[label={(\roman*)}]
+		\item A union of a finite number of members of $\tau_{1}$ is a member of $\tau_{1}$, because
+		      \[
+			      \bigcup^{m}_{k=1} (-n_{k}, n_{k}) = (-n, n)
+		      \]
+
+		      where $n = \max\{ n_{1}, n_{2}, \ldots, n_{m} \}$. A union of infinite members of $\tau_{1}$ is $\mathbb{R}$, because
+		      \begin{itemize}
+			      \item $\bigcup^{\infty}_{k=1} (-n_{k}, n_{k})\subseteq \mathbb{R}$
+			      \item Let $x$ be a real number. Due to the Archimedean property, there exists a natural number $n$ such that $x < n$. From infinite members of $\tau_{1}$, there exists a natural number $n_{k}$ such that $n\leq n_{k}$, so that $x\in (-n, n)\subseteq (-n_{k}, n_{k})$. So $\mathbb{R}\subseteq \bigcup^{\infty}_{k=1} (-n_{k}, n_{k})$.
+		      \end{itemize}
+
+		      Intersection of any two members of $\tau_{1}$ is a member of $\tau_{1}$, because
+		      \[
+			      (-n_{1}, n_{1})\cap (-n_{2}, n_{2}) = (-n, n)
+		      \]
+
+		      where $n = \min\{ n_{1}, n_{2} \}$.
+
+		      Hence $\tau_{1}$ is a topology on $\mathbb{R}$.
+		\item A union of a finite number of members of $\tau_{2}$ is a member of $\tau_{2}$, because
+		      \[
+			      \bigcup^{m}_{k=1} [-n_{k}, n_{k}] = [-n, n]
+		      \]
+
+		      where $n = \max\{ n_{1}, n_{2}, \ldots, n_{m} \}$. A union of infinite members of $\tau_{2}$ is $\mathbb{R}$, because
+		      \begin{itemize}
+			      \item $\bigcup^{\infty}_{k=1} [-n_{k}, n_{k}]\subseteq \mathbb{R}$
+			      \item Let $x$ be a real number. Due to the Archimedean property, there exists a natural number $n$ such that $x < n$. From infinite members of $\tau_{2}$, there exists a natural number $n_{k}$ such that $n\leq n_{k}$, so that $x\in [-n, n]\subseteq [-n_{k}, n_{k}]$. So $\mathbb{R}\subseteq \bigcup^{\infty}_{k=1} [-n_{k}, n_{k}]$.
+		      \end{itemize}
+
+		      Intersection of any two members of $\tau_{2}$ is a member of $\tau_{2}$, because
+		      \[
+			      [-n_{1}, n_{1}]\cap [-n_{2}, n_{2}] = [-n, n]
+		      \]
+
+		      where $n = \min\{ n_{1}, n_{2} \}$.
+
+		      Hence $\tau_{2}$ is a topology on $\mathbb{R}$.
+		\item A union of members of $\tau_{3}$, $\bigcup_{n\in A} [n, \infty)$ (where $A\subseteq \mathbb{N}$) is a member of $\tau_{3}$, because
+		      \begin{itemize}
+			      \item if $A = \varnothing$, then the union is the empty set.
+			      \item if $A\ne\varnothing$, then $A$ has a least element --- let it be $a$, then $\bigcup_{n\in A} [n, \infty) = [a, \infty)$.
+		      \end{itemize}
+
+		      Intersection of any two members of $\tau_{3}$ is a member of $\tau_{3}$, because
+		      \[
+			      [n_{1}, \infty) \cap [n_{2}, \infty) = [n, \infty)
+		      \]
+
+		      where $n = \min\{ n_{1}, n_{2} \}$.
+
+		      Hence $\tau_{3}$ is a topology on $\mathbb{R}$.
+	\end{enumerate}
+\end{proof}
+\newpage
+
+% chapter 1/section 1/exercise 6
+\begin{exercise}
+	Let $\mathbb{N}$ be the set of all positive integers. Prove that each of the following collections of subsets of $\mathbb{N}$ is a topology.
+	\begin{enumerate}[label={(\roman*)}]
+		\item $\tau_{1}$ consists of $\mathbb{N}$, $\varnothing$, and every set $\{ 1, 2, \ldots, n \}$, for $n$ any positive integer. (This is called the {\color{red}{initial segment topology}}.)
+		\item $\tau_{2}$ consists of $\mathbb{N}$, $\varnothing$, and every set $\{ n, n+1, \ldots \}$, for $n$ any positive integer. (This is called the {\color{red}{final segment topology}}.)
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\begin{enumerate}[label={(\roman*)}]
+		\item A union of a finite number of members of $\tau_{1}$ is a member of $\tau_{1}$, because
+		      \[
+			      \bigcup^{m}_{k=1} \{ 1, 2, \ldots, n_{k} \} = \{ 1, 2, \ldots, n \}
+		      \]
+
+		      where $n = \max\{ n_{1}, n_{2}, \ldots, n_{k} \}$. A union of infinite members of $\tau_{1}$ is $\mathbb{N}$, which is a member of $\tau_{1}$.
+
+		      Intersection of any two members of $\tau_{1}$ is a member of $\tau_{1}$, because
+		      \[
+			      \{ 1, 2, \ldots, n_{1} \} \cap \{ 1, 2, \ldots, n_{2} \} = \{ 1, 2, \ldots, n \}
+		      \]
+
+		      where $n = \min\{ n_{1}, n_{2} \}$.
+
+		      Hence $\tau_{1}$ is a topology on $\mathbb{N}$.
+		\item A union of members of $\tau_{2}$ is a member of $\tau_{2}$, because
+		      \begin{itemize}
+			      \item if the union has no member, then the union is the empty set, which is a member of $\tau_{2}$.
+			      \item if the union is not empty, let's say $\bigcup_{n\in A} \{ n, n + 1, \ldots \}$, where $\varnothing\subset A\subseteq \mathbb{N}$, then $A$ has a least element --- let it be $a$, then $\bigcup_{n\in A} \{ n, n + 1, \ldots \} = \{ a, a+1, \ldots \}$, which is a member of $\tau_{2}$.
+		      \end{itemize}
+
+		      Intersection of any two members of $\tau_{2}$ is a member of $\tau_{2}$, because
+		      \[
+			      \{ n_{1}, n_{1} + 1, \ldots \}\cap \{ n_{2}, n_{2} + 1, \ldots \} = \{ n, n+1, \ldots \}
+		      \]
+
+		      where $n = \min\{ n_{1}, n_{2} \}$.
+
+		      Hence $\tau_{2}$ is a topology on $\mathbb{N}$.
+	\end{enumerate}
+\end{proof}
+\newpage
+
+% chapter 1/section 1/exercise 7
+\begin{exercise}
+	List all possible topologies on the following sets:
+	\begin{enumerate}[label={(\alph*)}]
+		\item $X = \{ a, b \}$.
+		\item $Y = \{ a, b, c \}$.
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item All possible topologies on $X$ are
+		      \begin{itemize}
+			      \item $\tau_{1} = \{ \varnothing, X \}$ (indiscrete topology).
+			      \item $\tau_{2} = \{ \varnothing, \{ a \}, X \}$.
+			      \item $\tau_{3} = \{ \varnothing, \{ b \}, X \}$.
+			      \item $\tau_{4} = \{ \varnothing, \{ a \}, \{ b \}, X \}$ (discrete topology).
+		      \end{itemize}
+		\item All possible topologies on $Y$ are
+		      \begin{itemize}
+			      \item $\tau_{1} = \{ \varnothing, Y \}$ (indiscrete topology).
+			      \item $\tau_{2} = \{ \varnothing, \{ a \}, Y \}$.
+			      \item $\tau_{3} = \{ \varnothing, \{ b \}, Y \}$.
+			      \item $\tau_{4} = \{ \varnothing, \{ c \}, Y \}$.
+			      \item $\tau_{5} = \{ \varnothing, \{ a \}, \{ b \}, \{ a, b \}, Y \}$.
+			      \item $\tau_{6} = \{ \varnothing, \{ b \}, \{ c \}, \{ b, c \}, Y \}$.
+			      \item $\tau_{7} = \{ \varnothing, \{ a \}, \{ c \}, \{ a, c \}, Y \}$.
+			      \item $\tau_{8} = \{ \varnothing, \{ a \}, \{ b \}, \{ a, b \}, \{ a, c \}, Y \}$.
+			      \item $\tau_{9} = \{ \varnothing, \{ a \}, \{ b \}, \{ a, b \}, \{ b, c \}, Y \}$.
+			      \item $\tau_{10} = \{ \varnothing, \{ a \}, \{ b \}, \{ a, b \}, \{ b, c \}, \{ a, c \}, Y \}$.
+			      \item $\tau_{11} = \{ \varnothing, \{ b \}, \{ c \}, \{ b, c \}, \{ a, b \}, Y \}$.
+			      \item $\tau_{12} = \{ \varnothing, \{ b \}, \{ c \}, \{ b, c \}, \{ a, c \}, Y \}$.
+			      \item $\tau_{13} = \{ \varnothing, \{ b \}, \{ c \}, \{ a, b \}, \{ b, c \}, \{ a, c \}, Y \}$.
+			      \item $\tau_{14} = \{ \varnothing, \{ a \}, \{ c \}, \{ a, c \}, \{ b, c \}, Y \}$.
+			      \item $\tau_{15} = \{ \varnothing, \{ a \}, \{ c \}, \{ a, c \}, \{ a, b \}, Y \}$.
+			      \item $\tau_{16} = \{ \varnothing, \{ a \}, \{ c \}, \{ a, b \}, \{ b, c \}, \{ a, c \}, Y \}$.
+			      \item $\tau_{17} = \{ \varnothing, \{ a \}, \{ a, b \}, Y \}$.
+			      \item $\tau_{18} = \{ \varnothing, \{ a \}, \{ a, c \}, Y \}$.
+			      \item $\tau_{19} = \{ \varnothing, \{ a \}, \{ a, b \}, \{ a, c \}, Y \}$.
+			      \item $\tau_{20} = \{ \varnothing, \{ a \}, \{ b, c \}, Y \}$.
+			      \item $\tau_{21} = \{ \varnothing, \{ b \}, \{ a, b \} Y \}$.
+			      \item $\tau_{22} = \{ \varnothing, \{ b \}, \{ b, c \}, Y \}$.
+			      \item $\tau_{23} = \{ \varnothing, \{ b \}, \{ a, b \}, \{ b, c \}, Y \}$.
+			      \item $\tau_{24} = \{ \varnothing, \{ b \}, \{ a, c \}, Y \}$.
+			      \item $\tau_{25} = \{ \varnothing, \{ c \}, \{ b, c \}, Y \}$.
+			      \item $\tau_{26} = \{ \varnothing, \{ c \}, \{ a, c \}, Y \}$.
+			      \item $\tau_{27} = \{ \varnothing, \{ c \}, \{ b, c \}, \{ a, c \}, Y \}$.
+			      \item $\tau_{28} = \{ \varnothing, \{ c \}, \{ a, b \}, Y \}$.
+			      \item $\tau_{29} = \{ \varnothing, \{ a \}, \{ b \}, \{ c \}, \{ a, b \}, \{ b, c \}, \{ a, c \}, Y \}$ (discrete topology).
+		      \end{itemize}
+	\end{enumerate}
+\end{proof}
+\newpage
+
+% chapter 1/section 1/exercise 8
+\begin{exercise}
+	Let $X$ be an infinite set and $\tau$ a topology on $X$. If every infinite subset of $X$ is in $\tau$, prove that $\tau$ is the discrete topology.
+\end{exercise}
+
+\begin{proof}
+	Let $x$ be an element of $X$. $A = X\setminus\{ x \}$ is an infinite set.
+
+	Because $A$ is an infinite set, then $A$ contains a countable subset $B = \{ x_{1}, x_{2}, x_{3}, \ldots \}$. Let $C = \{ x_{2}, x_{4}, x_{6}, \ldots \}$, then $C$, $A\setminus C$ is a partition of $A$, where both $C$ and $A\setminus C$ are infinite sets.
+
+	According to the hypothesis, $\{ x \}\cup C$ and $\{ x \}\cup (A\setminus C)$ are members of $\tau$, since they are infinite subsets of $X$. Therefore, the intersection of these two members is again a member of $\tau$. So $\{ x \}$ is a member of $\tau$ --- Furthermore, $x$ is an arbitrary element of $X$, so $\tau$ contains all singleton subsets of $X$.
+
+	Hence $\tau$ is the discrete topology.
+\end{proof}
+\newpage
 
 \section{Open Sets}
 
