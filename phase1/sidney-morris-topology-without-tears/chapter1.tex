@@ -37,7 +37,7 @@
 		\item $\tau_{2}$ is not a topology on $X$, since $\{ b, d, e \}\cap \{ a, b, d \} = \{ b, d \}\notin\tau_{2}$.
 		\item $\tau_{3}$ is a topology on $X$, since
 		      \begin{itemize}
-			      \item union of any two sets in $\tau_{3}$ is in $\tau_{3}$ (this argument is valid because $\tau_{3}$ is finite)
+			      \item the union of any two sets in $\tau_{3}$ is in $\tau_{3}$ (this argument is valid because $\tau_{3}$ is finite)
 			            \begin{align*}
 				            \{ b \} \cup \{ a, b, c \}          & = \{ a, b, c \}\in \tau_{3},    \\
 				            \{ b \} \cup \{ d, e, f \}          & = \{ b, d, e, f \}\in \tau_{3}, \\
@@ -46,7 +46,7 @@
 				            \{ a, b, c \} \cup \{ b, d, e, f \} & = X\in \tau_{3},                \\
 				            \{ d, e, f \} \cup \{ b, d, e, f \} & = \{ b, d, e, f \}\in \tau_{3}.
 			            \end{align*}
-			      \item intersection of any two sets in $\tau_{3}$ is in $\tau_{3}$
+			      \item the intersection of any two sets in $\tau_{3}$ is in $\tau_{3}$
 			            \begin{align*}
 				            \{ b \} \cap \{ a, b, c \}          & = \{ b \}\in \tau_{3},       \\
 				            \{ b \} \cap \{ d, e, f \}          & = \varnothing\in \tau_{3},   \\
@@ -146,7 +146,7 @@
 			      \item Let $x$ be a real number. Due to the Archimedean property, there exists a natural number $n$ such that $x < n$. From infinite members of $\tau_{1}$, there exists a natural number $n_{k}$ such that $n\leq n_{k}$, so that $x\in (-n, n)\subseteq (-n_{k}, n_{k})$. So $\mathbb{R}\subseteq \bigcup^{\infty}_{k=1} (-n_{k}, n_{k})$.
 		      \end{itemize}
 
-		      Intersection of any two members of $\tau_{1}$ is a member of $\tau_{1}$, because
+		      The intersection of any two members of $\tau_{1}$ is a member of $\tau_{1}$, because
 		      \[
 			      (-n_{1}, n_{1})\cap (-n_{2}, n_{2}) = (-n, n)
 		      \]
@@ -165,7 +165,7 @@
 			      \item Let $x$ be a real number. Due to the Archimedean property, there exists a natural number $n$ such that $x < n$. From infinite members of $\tau_{2}$, there exists a natural number $n_{k}$ such that $n\leq n_{k}$, so that $x\in [-n, n]\subseteq [-n_{k}, n_{k}]$. So $\mathbb{R}\subseteq \bigcup^{\infty}_{k=1} [-n_{k}, n_{k}]$.
 		      \end{itemize}
 
-		      Intersection of any two members of $\tau_{2}$ is a member of $\tau_{2}$, because
+		      The intersection of any two members of $\tau_{2}$ is a member of $\tau_{2}$, because
 		      \[
 			      [-n_{1}, n_{1}]\cap [-n_{2}, n_{2}] = [-n, n]
 		      \]
@@ -179,7 +179,7 @@
 			      \item if $A\ne\varnothing$, then $A$ has a least element --- let it be $a$, then $\bigcup_{n\in A} [n, \infty) = [a, \infty)$.
 		      \end{itemize}
 
-		      Intersection of any two members of $\tau_{3}$ is a member of $\tau_{3}$, because
+		      The intersection of any two members of $\tau_{3}$ is a member of $\tau_{3}$, because
 		      \[
 			      [n_{1}, \infty) \cap [n_{2}, \infty) = [n, \infty)
 		      \]
@@ -209,7 +209,7 @@
 
 		      where $n = \max\{ n_{1}, n_{2}, \ldots, n_{k} \}$. A union of infinite members of $\tau_{1}$ is $\mathbb{N}$, which is a member of $\tau_{1}$.
 
-		      Intersection of any two members of $\tau_{1}$ is a member of $\tau_{1}$, because
+		      The intersection of any two members of $\tau_{1}$ is a member of $\tau_{1}$, because
 		      \[
 			      \{ 1, 2, \ldots, n_{1} \} \cap \{ 1, 2, \ldots, n_{2} \} = \{ 1, 2, \ldots, n \}
 		      \]
@@ -223,7 +223,7 @@
 			      \item if the union is not empty, let's say $\bigcup_{n\in A} \{ n, n + 1, \ldots \}$, where $\varnothing\subset A\subseteq \mathbb{N}$, then $A$ has a least element --- let it be $a$, then $\bigcup_{n\in A} \{ n, n + 1, \ldots \} = \{ a, a+1, \ldots \}$, which is a member of $\tau_{2}$.
 		      \end{itemize}
 
-		      Intersection of any two members of $\tau_{2}$ is a member of $\tau_{2}$, because
+		      The intersection of any two members of $\tau_{2}$ is a member of $\tau_{2}$, because
 		      \[
 			      \{ n_{1}, n_{1} + 1, \ldots \}\cap \{ n_{2}, n_{2} + 1, \ldots \} = \{ n, n+1, \ldots \}
 		      \]
@@ -305,7 +305,256 @@
 \end{proof}
 \newpage
 
-\section{Open Sets}
+% chapter 1/section 1/exercise 9
+\begin{exercise}
+	Let $\mathbb{R}$ be the set of all real numbers. Precisely three of the following ten collections of subsets of $\mathbb{R}$ are topologies. Identify these and justify your answer.
+	\begin{enumerate}[label={(\roman*)}]
+		\item $\tau_{1}$ consists of $\mathbb{R}$, $\varnothing$, and every interval $(a, b)$, for $a$ and $b$ any real numbers with $a < b$;
+		\item $\tau_{2}$ consists of $\mathbb{R}$, $\varnothing$, and every interval $(-r, r)$, for $r$ any positive real number;
+		\item $\tau_{3}$ consists of $\mathbb{R}$, $\varnothing$, and every interval $(-r, r)$, for $r$ any positive rational number;
+		\item $\tau_{4}$ consists of $\mathbb{R}$, $\varnothing$, and every interval $[-r, r]$, for $r$ any positive rational number;
+		\item $\tau_{5}$ consists of $\mathbb{R}$, $\varnothing$, and every interval $(-r, r)$, for $r$ any positive irrational number;
+		\item $\tau_{6}$ consists of $\mathbb{R}$, $\varnothing$, and every interval $[-r, r]$, for $r$ any positive irrational number;
+		\item $\tau_{7}$ consists of $\mathbb{R}$, $\varnothing$, and every interval $[-r, r)$, for $r$ any positive real number;
+		\item $\tau_{8}$ consists of $\mathbb{R}$, $\varnothing$, and every interval $(-r, r]$, for $r$ any positive real number;
+		\item $\tau_{9}$ consists of $\mathbb{R}$, $\varnothing$, every interval $[-r, r]$, and every interval $(-r, r)$, for $r$ any positive real number;
+		\item $\tau_{10}$ consists of $\mathbb{R}$, $\varnothing$, every interval $[-n, n]$, and every interval $(-r, r)$, for $n$ any positive integer and $r$ any positive real number.
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	In this list, only $\tau_{2}$, $\tau_{9}$, $\tau_{10}$ are topologies on $\mathbb{R}$.
+
+	\begin{enumerate}[label={(\roman*)}]
+		\item \textbf{$\tau_{1}$ is not a topology on $\mathbb{R}$}. Because the union of $(1, 2)$ and $(3, 4)$ is not a member of $\tau_{1}$.
+		\item A union of members of $\tau_{2}$ is of the form
+		      \[
+			      A = \bigcup_{r\in S} (-r, r)
+		      \]
+
+		      where $S\subseteq \mathbb{R}_{> 0}$. Then $\bigcup_{r\in S} (-r, r)\subseteq \mathbb{R}$.
+		      \begin{enumerate}[label={\textbf{Case \arabic*.}},itemindent=1cm]
+			      \item $S = \varnothing$.
+
+			            Then the union is the empty set, which is a member of $\tau_{2}$.
+			      \item $S$ is bounded from above.
+
+			            According to the axiom of completeness, $S$ has a least upper bound. Let $u = \sup S$. Let $u'$ be a real number such that $u' < u$, then $u'$ is not the least upper bound of $S$, so there exists $a\in S$ such that $u' < a$. Therefore $u'$ is not an upper bound of $A$.
+
+			            $u$ is indeed an upper bound of $A$, and every real number strictly less than $u$ is not an upper bound of $A$. So $u = \sup A$. On the other hand, $-u$ is a lower bound of $A$. Let $v$ be a real number such that $v > -u$, then $-v < u$. Because $u = \sup A$, then $-v < \sup A$, and there exists $a\in A$ such that $a < -v$, which is equivalent to $v > -a\geq -\abs{a}$. So $v$ is not a lower bound of $A$. Therefore, $-u$ is the greatest lower bound of $A$. Hence $A \subseteq (-u, u)$.
+
+			            Let $x$ be an element of $(-u, u)$, then $-u < x < u$ and $-u < -\abs{x}\leq \abs{x} < u$. Then $\abs{x}$ is not an upper bound of $S$, so there exists $s\in S$ such that $\abs{x} < s$. Therefore, $x\in (-s, s)\subseteq A$. Hence $(-u, u)\subseteq A$.
+
+			            So $A = (-u, u)$, which is a member of $\tau_{2}$.
+			      \item $S$ is not bounded from above.
+
+			            Then $A$ is not bounded from above.
+
+			            Because $A$ is not bounded from above, and $r\in A\Longleftrightarrow -r\in A$ so $A$ is not bounded from below either. Let $x$ be a real number. Since $A$ is unbounded, then there exist real numbers $r$ and $r'$ in $A$ such that $r' < x < r$. Let $r_{0} = \max\{ \abs{r}, \abs{r'} \}$ ($r_{0}\in A$, because $r, r', -r, -r'\in A$). Since $S$ is not bounded from above, there exists $s\in S$ such that $r_{0} < s$, then $x\in (-r_{0}, r_{0})\subseteq (-s, s)\subseteq A$. So $\mathbb{R}\subseteq A$.
+
+			            Hence $A = \mathbb{R}$, which is a member of $\tau_{2}$.
+		      \end{enumerate}
+
+		      Hence the union of arbitrary members in $\tau_{2}$ is again a member of $\tau_{2}$.
+
+		      Let's consider the intersection of arbitrary two members $A, B$ in $\tau_{2}$
+		      \begin{enumerate}[label={\textbf{Case \arabic*.}},itemindent=1cm]
+			      \item $A = \varnothing$ or $B = \varnothing$.
+
+			            $A\cap B = \varnothing$, which is a member of $\tau_{2}$.
+			      \item $A = \mathbb{R}$ or $B = \mathbb{R}$.
+
+			            If $A = \mathbb{R}$, then $A\cap B = B$, which is a member of $\tau_{2}$.
+
+			            If $B = \mathbb{R}$, then $A\cap B = A$, which is a member of $\tau_{2}$.
+			      \item $A = (-r_{1}, r_{1})$ and $B = (-r_{2}, r_{2})$.
+
+			            Let $r = \min\{ r_{1}, r_{2} \}$, then $A\cap B = (-r, r)$, which is a member of $\tau_{2}$.
+		      \end{enumerate}
+
+		      Hence the intersection of any two members of $\tau_{2}$ is a member of $\tau_{2}$.
+
+		      Thus \textbf{$\tau_{2}$ is a topology on $\mathbb{R}$}.
+		\item Let $S = \{ r\in\mathbb{Q} \mid 0 < r < \sqrt{2} \}$. From the definition of $S$, we deduce that
+		      \[
+			      \bigcup_{r\in S} (-r, r)\subseteq (-\sqrt{2}, \sqrt{2}).
+		      \]
+
+		      Let $x$ be an element of $(-\sqrt{2}, \sqrt{2})$. According to the density of $\mathbb{Q}$ in $\mathbb{R}$, there exist rational numbers $q$ and $q'$ such that $-\sqrt{2} < q < x$ and $x < q' < \sqrt{2}$. Since $-\sqrt{2} < q, q' < \sqrt{2}$, then $\abs{q} < \sqrt{2}, \abs{q'} < \sqrt{2}$. Once again, according to the density of $\mathbb{Q}$ in $\mathbb{R}$, there exist rational numbers $q_{0}$ such that $\max\{ \abs{q}, \abs{q'} \} < q_{0} < \sqrt{2}$. So $q_{0}\in S$ and $x\in (-q_{0}, q_{0})\subseteq \bigcup_{r\in S} (-r, r)$, from which we deduce that $(-\sqrt{2}, \sqrt{2})\subseteq \bigcup_{r\in S}(-r, r)$.
+
+		      Hence $\bigcup_{r\in S} (-r, r) = (-\sqrt{2}, \sqrt{2})$, which is not a member of $\tau_{3}$.
+
+		      Thus \textbf{$\tau_{3}$ is not a topology on $\mathbb{R}$}.
+		\item Let $S = \{ r\in\mathbb{Q} \mid -\sqrt{2} < r < 2 \}$. From the definition of $S$, we deduce that
+		      \[
+			      \bigcup_{r\in S} [-r, r]\subseteq (-\sqrt{2}, \sqrt{2}).
+		      \]
+
+		      Let $x$ be an element of $(-\sqrt{2}, \sqrt{2})$. According to the density of $\mathbb{Q}$ in $\mathbb{R}$, there exist rational numbers $q$ and $q'$ such that $-\sqrt{2} < q < x$ and $x < q' < \sqrt{2}$. Since $-\sqrt{2} < q, q' < \sqrt{2}$, then $\abs{q} < \sqrt{2}, \abs{q'} < \sqrt{2}$. Once again, according to the density of $\mathbb{Q}$ in $\mathbb{R}$, there exist rational numbers $q_{0}$ such that $\max\{ \abs{q}, \abs{q'} \} < q_{0} < \sqrt{2}$. So $q_{0}\in S$ and $x\in [-q_{0}, q_{0}]\subseteq \bigcup_{r\in S} [-r, r]$, from which we deduce that $(-\sqrt{2}, \sqrt{2})\subseteq \bigcup_{r\in S}[-r, r]$.
+
+		      Hence $\bigcup_{r\in S} [-r, r] = (-\sqrt{2}, \sqrt{2})$, which is not a member of $\tau_{4}$.
+
+		      Thus \textbf{$\tau_{4}$ is not a topology on $\mathbb{R}$}.
+		\item Let $S = \{ s\in\mathbb{R}\setminus\mathbb{Q} \mid 0 < s < 1 \}$. From the definition of $S$, we deduce that
+		      \[
+			      \bigcup_{s\in S} (-s, s)\subseteq (-1, 1).
+		      \]
+
+		      Let $x$ be an element of $(-1, 1)$. According to the density of $\mathbb{R}\setminus\mathbb{Q}$ in $\mathbb{R}$, there exist irrational numbers $a$ and $a'$ such that $-1 < a < x$ and $x < a' < 1$. Since $-1 < a, a' < 1$, then $\abs{a} < 1, \abs{a'} < 1$. Once again, according to the density of $\mathbb{R}\setminus\mathbb{Q}$ in $\mathbb{R}$, there exist irrational number $a_{0}$ such that $\max\{ \abs{a}, \abs{a'} \} < a_{0} < 1$. So $a_{0}\in S$ and $x\in (-a_{0}, a_{0})\subseteq \bigcup_{s\in S} (-s, s)$, from which we deduce that $(-1, 1)\subseteq \bigcup_{s\in S}(-s, s)$.
+
+		      Hence $\bigcup_{s\in S} (-s, s) = (-1, 1)$, which is not a member of $\tau_{5}$.
+
+		      Thus \textbf{$\tau_{5}$ is not a topology on $\mathbb{R}$}.
+		\item Let $S = \{ s\in\mathbb{R}\setminus\mathbb{Q} \mid 0 < s < 1 \}$. From the definition of $S$, we deduce that
+		      \[
+			      A = \bigcup_{s\in S} [-s, s]\subseteq (-1, 1).
+		      \]
+
+		      Let $x$ be an element of $(-1, 1)$. According to the density of $\mathbb{R}\setminus\mathbb{Q}$ in $\mathbb{R}$, there exist irrational numbers $a$ and $a'$ such that $-1 < a < x$ and $x < a' < 1$. Since $-1 < a, a' < 1$, then $\abs{a} < 1, \abs{a'} < 1$. Once again, according to the density of $\mathbb{R}\setminus\mathbb{Q}$ in $\mathbb{R}$, there exist irrational number $a_{0}$ such that $\max\{ \abs{a}, \abs{a'} \} < a_{0} < 1$. So $a_{0}\in S$ and $x\in [-a_{0}, a_{0}]\subseteq A$, from which we deduce that $(-1, 1)\subseteq A$.
+
+		      Hence $A = (-1, 1)$, which is not a member of $\tau_{6}$.
+
+		      Thus \textbf{$\tau_{6}$ is not a topology on $\mathbb{R}$}.
+		\item Let $S = \{ s\in\mathbb{R} \mid 0 < s < 1 \}$. From the definition of $S$, we deduce that
+		      \[
+			      A = \bigcup_{s\in S} [-s, s) \subseteq (-1, 1)
+		      \]
+
+		      Let $x$ be an element of $(-1, 1)$. According to the density of $\mathbb{R}$, there exist real numbers $a$ and $a'$ such that $-1 < a < x$ and $x < a' < 1$. Since $-1 < a, a' < 1$, then $\abs{a} < 1$, $\abs{a'} < 1$. According to the density of $\mathbb{R}$, there exists a real number $a_{0}$ such that $\max\{ \abs{a}, \abs{a'} \} < a_{0} < 1$. So $a_{0}\in S$ and $x\in [-a_{0}, a_{0})\subseteq A$.
+
+		      Hence $A = (-1, 1)$, which is not a member of $\tau_{7}$.
+
+		      Thus \textbf{$\tau_{7}$ is not a topology on $\mathbb{R}$}.
+		\item Let $S = \{ s\in\mathbb{R} \mid 0 < s < 1 \}$. From the definition of $S$, we deduce that
+		      \[
+			      A = \bigcup_{s\in S} (-s, s] \subseteq (-1, 1)
+		      \]
+
+		      Let $x$ be an element of $(-1, 1)$. According to the density of $\mathbb{R}$, there exist real numbers $a$ and $a'$ such that $-1 < a < x$ and $x < a' < 1$. Since $-1 < a, a' < 1$, then $\abs{a} < 1$, $\abs{a'} < 1$. According to the density of $\mathbb{R}$, there exists a real number $a_{0}$ such that $\max\{ \abs{a}, \abs{a'} \} < a_{0} < 1$. So $a_{0}\in S$ and $x\in (-a_{0}, a_{0}]\subseteq A$.
+
+		      Hence $A = (-1, 1)$, which is not a member of $\tau_{8}$.
+
+		      Thus \textbf{$\tau_{8}$ is not a topology on $\mathbb{R}$}.
+		\item A union of members of $\tau_{9}$ is of the form
+		      \[
+			      A\cup B = \bigcup_{s\in S} [-s, s] \cup \bigcup_{r\in S'} (-r, r)
+		      \]
+
+		      where $S, S'\subseteq\mathbb{R}$, $A =  \bigcup_{s\in S} [-s, s]$ and $B =  \bigcup_{r\in S'} (-r, r)$.
+		      \begin{enumerate}[label={\textbf{Case \arabic*.}},itemindent=1cm]
+			      \item $S = \varnothing$.
+
+			            According to (ii), $A\cup B$ is a member of $\tau_{9}$.
+			      \item $S$ is bounded from above, $S$ does not have maximum element, $S' = \varnothing$.
+
+			            Let $u = \sup S$, then $u = \sup A$ and $-u = \inf A$. So $A\cup B = A\subseteq (-u, u)$.
+
+			            Let $x$ be an element of $(-u, u)$, then $-u < x < u$. Because $x$ is not the least upper bound nor greatest lower bound of $A$, then there exist $a$, $a'$ in $A$ such that $-u < a < x$ and $x < a' < u$. Because $a$, $a'$ are elements of $A$, then there exist $s_{1}$, $s_{2}$ in $S$ such that $a\in [-s_{1}, s_{1}]$ and $a'\in [-s_{2}, s_{2}]$. Let $s_{0} = \max\{ s_{1}, s_{2} \}$, then $s_{0}\in S$ and $x\in [-s_{0}, s_{0}]$. Therefore $(-u, u)\subseteq A$.
+
+			            Hence $A\cup B = A = (-u, u)$, which is a member of $\tau_{9}$.
+			      \item $S$ is bounded from above, $S$ does not have maximum element, $S'$ is bounded from above.
+
+			            Let $u = \sup S$, then $u = \sup A$ and $-u = \inf A$. According to \textbf{Case 2}, $A = (-u, u)$.
+
+			            Let $u' = \sup S'$, then $u' = \sup B$ and $-u' = \inf B$. According to (ii), $B = (-u', u')$.
+
+			            Let $u_{0} = \max\{ u, u' \}$, then $A\cup B = (-u_{0}, u_{0})$, which is a member of $\tau_{9}$.
+			      \item $S$ has maximum element, $S' = \varnothing$.
+
+			            Let $u = \max S$, then $u = \max A$ and $-u = \min A$, then $A = [-u, u]$.
+
+			            $A\cup B = A = [-u, u]$, which is a member of $\tau_{9}$.
+			      \item $S$ has maximum element, $S'$ is bounded from above.
+			            Let $u = \max S$, then $u = \max A$ and $-u = \min A$, then $A = [-u, u]$.
+
+			            Let $u' = \sup S'$, then $u' = \sup B$ and $-u' = \inf B$. According to (ii), $B = (-u', u')$.
+
+			            If $u\geq u'$, then $A\cup B = [-u, u]$, which is a member of $\tau_{9}$.
+
+			            If $u < u'$, then $A\cup B = (-u', u')$, which is a member of $\tau_{9}$.
+			      \item $S$ is not bounded from above or $S'$ is not bounded from above.
+
+			            In this case, $A\cup B = \mathbb{R}$, which is a member of $\tau_{9}$.
+		      \end{enumerate}
+
+		      So the union of arbitrary members of $\tau_{9}$ is again a member of $\tau_{9}$.
+
+		      Let's consider the intersection of arbitrary two members $X$, $Y$ in $\tau_{9}$.
+		      \begin{enumerate}[label={\textbf{Case \arabic*.}},itemindent=1cm]
+			      \item $X = \varnothing$ or $Y = \varnothing$.
+
+			            $X\cap Y = \varnothing$, which is a member of $\tau_{9}$.
+			      \item $X = \mathbb{R}$ or $Y = \mathbb{R}$.
+
+			            If $X = \mathbb{R}$, then $X\cap Y = Y$, which is a member of $\tau_{9}$.
+
+			            If $Y = \mathbb{R}$, then $X\cap Y = X$, which is a member of $\tau_{9}$.
+			      \item $X = (-r, r)$ and $Y = (-r', r')$.
+
+			            Let $r_{0} = \min\{ r, r' \}$, then $X\cap Y = (-r_{0}, r_{0})$, which is a member of $\tau_{9}$.
+			      \item $X = [-r, r]$ and $Y = [-r', r']$.
+
+			            Let $r_{0} = \min\{ r, r' \}$, then $X\cap Y = [-r_{0}, r_{0}]$, which is a member of $\tau_{9}$.
+			      \item $X = (-r, r)$ and $Y = [-r', r']$.
+
+			            If $r'\geq r$, then $X\cap Y = (-r, r)$, which is a member of $\tau_{9}$.
+
+			            If $r' < r$, then $X\cap Y = [-r', r']$, which is a member of $\tau_{9}$.
+		      \end{enumerate}
+
+		      So the intersection of arbitrary two members of $\tau_{9}$ is again a member of $\tau_{9}$.
+
+		      Thus \textbf{$\tau_{9}$ is a topology on $\mathbb{R}$}.
+		\item A union of members of $\tau_{10}$ is of the form
+		      \[
+			      A\cup B = \bigcup_{n\in S} [-n, n] \cup \bigcup_{r\in S'} (-r, r)
+		      \]
+
+		      where $S\subseteq\mathbb{Z}_{> 0}$, $S'\subseteq\mathbb{R}$, $A = \bigcup_{n\in S} [-n, n]$ and $B = \bigcup_{r\in S'} (-r, r)$.
+		      \begin{enumerate}[label={\textbf{Case \arabic*.}},itemindent=1cm]
+			      \item $S = \varnothing$.
+
+			            According to (ii), $A\cup B = B$ is a member of $\tau_{10}$.
+			      \item $S$ is bounded from above.
+			            $S$ is a subset of $\mathbb{Z}_{> 0}$ and $S$ is bounded from above, so that $S$ has a maximum element --- Let the maximum element be $a$ ($a$ is a positive integer), then $A = [-a, a]$.
+			            \begin{itemize}
+				            \item if $S' = \varnothing$, then $A\cup B = [-a, a]$.
+				            \item if $S'$ is bounded from above, then $B = (-u', u')$ (where $u' = \sup B$, according to (ii)). If $a\geq u'$, then $A\cup B = [-a, a]$. If $a < u'$, then $A\cup B = (-u', u')$.
+				            \item if $S'$ is not bounded from above, then $B = \mathbb{R}$, and $A\cup B = \mathbb{R}$.
+			            \end{itemize}
+
+			            In any of these three cases, $A\cup B$ is a member of $\tau_{10}$.
+			      \item $S$ is not bounded from above.
+
+			            Then $A = \mathbb{R}$, so $A\cup B = \mathbb{R}$, which is a member of $\tau_{10}$.
+		      \end{enumerate}
+
+		      So the union of arbitrary members of $\tau_{10}$ is again a member of $\tau_{10}$.
+
+		      Let's consider the intersection of two arbitrary members $X$, $Y$ of $\tau_{10}$.
+		      \begin{enumerate}[label={\textbf{Case \arabic*.}},itemindent=1cm]
+			      \item $X = \varnothing$ or $Y = \varnothing$.
+
+			            $X\cap Y = \varnothing$, which is a member of $\tau_{10}$.
+			      \item $X = [-n, n]$ and $Y = (-r, r)$.
+
+			            If $n\geq r$, then $X\cap Y = (-r, r)$, which is a member of $\tau_{10}$.
+
+			            If $n < r$, then $X\cap Y = [-n, n]$, which is a member of $\tau_{10}$.
+			      \item $X = \mathbb{R}$ or $Y = \mathbb{R}$.
+
+			            If $X = \mathbb{R}$, then $X\cap Y = Y$, which is a member of $\tau_{10}$.
+
+			            If $Y = \mathbb{R}$, then $X\cap Y = X$, which is a member of $\tau_{10}$.
+		      \end{enumerate}
+
+		      So the intersection of two arbitrary members of $\tau_{10}$ is again a member of $\tau_{10}$.
+
+		      Thus \textbf{$\tau_{10}$ is a topology on $\mathbb{R}$}.
+	\end{enumerate}
+\end{proof}
+
+\section{Open Sets, Closed Sets, and Clopen Sets}
 
 
 
