@@ -677,5 +677,102 @@
 \end{proof}
 \newpage
 
-\section{Finte-Closed Topology}
+% chapter 1/section 2/exercise 6
+\begin{exercise}
+    \begin{enumerate}[label={(\roman*)}]
+        \item Let $\tau$ be a topology on a set $X$ such that $\tau$ consists of precisely four sets; that is, $\tau = \{ X, \varnothing, A, B \}$, where $A$ and $B$ are non-empty distinct proper subsets of $X$. Prove that $A$ and $B$ must satisfy exactly one of the following conditions:
+              \[
+                  (a) B = X\setminus A;\qquad (b) A\subset B;\qquad (c) B\subset A.
+              \]
+        \item Using (i) list all topologies on $X = \{ 1, 2, 3, 4 \}$ which consist of exactly four sets.
+    \end{enumerate}
+\end{exercise}
 
+\begin{proof}
+    \begin{enumerate}[label={(\roman*)}]
+        \item Since $\tau$ is a topology on $X$, then $A\cup B$ and $A\cap B$ are members of $\tau$.
+
+              If $A\cap B = \varnothing$, then $A\cup B\ne \varnothing$, $A\cup B\ne A$, $A\cup B\ne B$. Therefore $A\cup B = X$. Together with $A\cap B = \varnothing$, we obtain that $B = X\setminus A$.
+
+              If $A\cap B\ne \varnothing$, then either $A\cap B = A$ or $A\cap B = B$. Equivalently, either $A\subset B$ or $B\subset A$.
+
+              Hence either $B = X\setminus A$, or $A\subset B$, or $B\subset A$.
+        \item All topologies on $X$ which consist of exactly four sets are
+              \begin{enumerate}[label={(\arabic*)}]
+                  \item $\{ X, \varnothing, \{ a \}, \{ b, c, d \} \}$.
+                  \item $\{ X, \varnothing, \{ b \}, \{ a, c, d \} \}$.
+                  \item $\{ X, \varnothing, \{ c \}, \{ a, b, d \} \}$.
+                  \item $\{ X, \varnothing, \{ d \}, \{ a, b, c \} \}$.
+                  \item $\{ X, \varnothing, \{ a, b \}, \{ c, d \} \}$.
+                  \item $\{ X, \varnothing, \{ a, c \}, \{ b, d \} \}$.
+                  \item $\{ X, \varnothing, \{ a, d \}, \{ b, c \} \}$.
+                  \item $\{ X, \varnothing, \{ a \}, \{ a, b \} \}$.
+                  \item $\{ X, \varnothing, \{ a \}, \{ a, c \} \}$.
+                  \item $\{ X, \varnothing, \{ a \}, \{ a, d \} \}$.
+                  \item $\{ X, \varnothing, \{ a \}, \{ a, b, c \} \}$.
+                  \item $\{ X, \varnothing, \{ a \}, \{ a, b, d \} \}$.
+                  \item $\{ X, \varnothing, \{ a \}, \{ a, c, d \} \}$.
+                  \item $\{ X, \varnothing, \{ b \}, \{ b, a \} \}$.
+                  \item $\{ X, \varnothing, \{ b \}, \{ b, c \} \}$.
+                  \item $\{ X, \varnothing, \{ b \}, \{ b, d \} \}$.
+                  \item $\{ X, \varnothing, \{ b \}, \{ b, a, c \} \}$.
+                  \item $\{ X, \varnothing, \{ b \}, \{ b, a, d \} \}$.
+                  \item $\{ X, \varnothing, \{ b \}, \{ b, c, d \} \}$.
+                  \item $\{ X, \varnothing, \{ c \}, \{ c, a \} \}$.
+                  \item $\{ X, \varnothing, \{ c \}, \{ c, b \} \}$.
+                  \item $\{ X, \varnothing, \{ c \}, \{ c, d \} \}$.
+                  \item $\{ X, \varnothing, \{ c \}, \{ c, a, b \} \}$.
+                  \item $\{ X, \varnothing, \{ c \}, \{ c, a, d \} \}$.
+                  \item $\{ X, \varnothing, \{ c \}, \{ c, b, d \} \}$.
+                  \item $\{ X, \varnothing, \{ d \}, \{ d, a \} \}$.
+                  \item $\{ X, \varnothing, \{ d \}, \{ d, b \} \}$.
+                  \item $\{ X, \varnothing, \{ d \}, \{ d, c \} \}$.
+                  \item $\{ X, \varnothing, \{ d \}, \{ d, a, b \} \}$.
+                  \item $\{ X, \varnothing, \{ d \}, \{ d, b, c \} \}$.
+                  \item $\{ X, \varnothing, \{ d \}, \{ d, a, c \} \}$.
+                  \item $\{ X, \varnothing, \{ a, b \}, \{ a, b, c \} \}$.
+                  \item $\{ X, \varnothing, \{ a, b \}, \{ a, b, d \} \}$.
+                  \item $\{ X, \varnothing, \{ a, c \}, \{ a, b, c \} \}$.
+                  \item $\{ X, \varnothing, \{ a, c \}, \{ a, c, d \} \}$.
+                  \item $\{ X, \varnothing, \{ a, d \}, \{ a, c, d \} \}$.
+                  \item $\{ X, \varnothing, \{ a, d \}, \{ a, b, d \} \}$.
+                  \item $\{ X, \varnothing, \{ b, c \}, \{ a, b, c \} \}$.
+                  \item $\{ X, \varnothing, \{ b, c \}, \{ b, c, d \} \}$.
+                  \item $\{ X, \varnothing, \{ b, d \}, \{ a, b, d \} \}$.
+                  \item $\{ X, \varnothing, \{ b, d \}, \{ b, c, d \} \}$.
+                  \item $\{ X, \varnothing, \{ c, d \}, \{ a, c, d \} \}$.
+                  \item $\{ X, \varnothing, \{ c, d \}, \{ b, c, d \} \}$.
+              \end{enumerate}
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter 1/section 2/exercise 7
+\begin{exercise}
+    \begin{enumerate}[label={(\roman*)}]
+        \item As recorded in \url{http://en.wikipedia.org/wiki/Finite_topological_space}, the number of distinct topologies on a set with $n \in \mathbb{N}$ points can be very large even for small $n$; namely when $n = 2$, there are $4$ topologies; when $n = 3$, there are $29$ topologies; when $n = 4$, there are $355$ topologies; when $n = 5$, there are $6942$ topologies etc. Using mathematical induction, prove that as $n$ increases, the number of topologies increases.
+        \item Using mathematical induction prove that if the finite set $X$ has $n\in\mathbb{N}$ points, then it has at least $(n - 1){!}$ distinct topologies.
+        \item If $X$ is any infinite set of cardinality $\aleph$, prove that there are at least $2^{\aleph}$ distinct topologies on $X$. Deduce that every infinite set has an uncountable number of distinct topologies on it.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\roman*)}]
+        \item When $n = 1$, a set of $1$ element has $1$ topology.
+
+              Assume that a set of $n$ element has $M$ topologies. Let's consider a set of $(n+1)$ elements $S = \{ a_{1}, a_{2}, \ldots, a_{n}, a_{n+1} \}$.
+
+              For each topology $\tau$ on $S\setminus\{ a_{n+1} \}$, $\tau\cup\{ S \}$ is a topology on $S$. On the other hand, $\{ S, \varnothing, \{ a_{n+1} \}, S\setminus\{ a_{n+1} \} \}$ is also a topology on $S$. So $S$ has at least $M+1$ topologies.
+        \item When $n = 1$, a set of $1$ element has $1 = (1-1){!}$ topology.
+
+              Assume that a set of $k$ element has at least $(k-1){!}$ topologies. Let's consider a set of $(k+1)$ elements $S = \{ a_{1}, a_{2}, \ldots, a_{k}, a_{k+1} \}$. Let $M$ be the number of topologies on $S\setminus\{a_{k+1}\}$.
+
+              For each topology $\tau$ on $S\setminus\{ a_{k+1} \}$, for each $i = 1, 2, \ldots, k$, $\tau\cup\{ S, \varnothing, \{ a_{i}, a_{k+1} \}, S\setminus\{ a_{i}, a_{k+1} \} \}$ is a topology on $S$. So there are at least $M\cdot k$ topologies on $S$. According to the induction hypothesis, $M\geq (k-1){!}$, so there are at least $k{!}$ topologies on $S$.
+
+              Thus, according to the principle of mathematical induction, a set of $n$ elements has at least $(n-1){!}$ topologies.
+        \item Let $S$ be a subset of $X$, then $\{ X, \varnothing, S \}$ is a topology on $X$. Since $\abs{X} = \aleph$, then $X$ has $2^{\aleph}$ distinct subsets. Therefore, $X$ has at least $2^{\aleph}$ topologies.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+\section{Finte-Closed Topology}
