@@ -776,3 +776,296 @@
 \newpage
 
 \section{Finte-Closed Topology}
+
+% chapter 1/section 3/exercise 1
+\begin{exercise}
+    Let $f$ be a function from a set $X$ into a set $Y$. Then we stated in {\color{blue}Example 1.3.9} that
+    \begin{equation*}
+        f^{-1}\left(\bigcup_{j\in J} B_{j}\right) = \bigcup_{j\in J} f^{-1}(B_{j}) \tag{1}
+    \end{equation*}
+
+    and
+    \begin{equation*}
+        f^{-1}\left(B_{1}\cap B_{2}\right) = f^{-1}(B_{1}) \cap f^{-1}(B_{2}) \tag{2}
+    \end{equation*}
+
+    for any subsets $B_{j}$ of $Y$, and any index set $J$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Prove that (1) is true.
+        \item Prove that (2) is true.
+        \item Find (concrete) sets $A_{1}$, $A_{2}$, $X$, and $Y$ and a function $f: X\to Y$ such that $f(A_{1}\cap A_{2}) \ne f(A_{1})\cap f(A_{2})$, where $A_{1}\subseteq X$ and $A_{2}\subseteq X$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Suppose that $x\in f^{-1}\left( \bigcup_{j\in J} B_{j} \right)$. Then $f(x)\in \bigcup_{j\in J} B_{j}$. According to the definition of union of sets, there exists $i\in J$ such that $f(x)\in B_{i}$, equivalently, $x\in f^{-1}(B_{i})$. Therefore, $x\in \bigcup_{j\in J} f^{-1}(B_{j})$. So $f^{-1}\left(\bigcup_{j\in J} B_{j}\right) \subseteq \bigcup_{j\in J} f^{-1}(B_{j})$.
+
+              Suppose that $x\in \bigcup_{j\in J} f^{-1}(B_{j})$. According to the definition of union of sets, there exists $i\in J$ such that $x\in f^{-1}(B_{i})$, equivalently, $f(x)\in B_{i}$. Therefore $f(x)\in \bigcup_{j\in J} B_{j}$, from which we deduce that $x\in f^{-1}\left( \bigcup_{j\in J} B_{j} \right)$. So $\bigcup_{j\in J} f^{-1}(B_{j}) \subseteq f^{-1}\left( \bigcup_{j\in J} B_{j} \right)$.
+
+              Thus $f^{-1}\left( \bigcup_{j\in J} B_{j} \right) = \bigcup_{j\in J} f^{-1}(B_{j})$.
+        \item Suppose that $x\in f^{-1}(B_{1}\cap B_{2})$. Then $f(x)\in B_{1}\cap B_{2}$, which means $f(x)\in B_{1}$ and $f(x)\in B_{2}$. Therefore $x\in f^{-1}(B_{1})$ and $x\in f^{-1}(B_{2})$, so $x\in f^{-1}(B_{1})\cap f^{-1}(B_{2})$. So $f^{-1}(B_{1}\cap B_{2})\subseteq f^{-1}(B_{1})\cap f^{-1}(B_{2})$.
+
+              Suppose that $x\in f^{-1}(B_{1})\cap f^{-1}(B_{2})$. Then $x\in f^{-1}(B_{1})$ and $x\in f^{-1}(B_{2})$. Therefore $f(x)\in B_{1}$ and $f(x)\in B_{2}$, which means $f(x)\in B_{1}\cap B_{2}$, so $x\in f^{-1}(B_{1}\cap B_{2})$. So $f^{-1}(B_{1})\cap f^{-1}(B_{2})\subseteq f^{-1}(B_{1}\cap B_{2})$.
+
+              Thus $f^{-1}(B_{1}\cap B_{2}) = f^{-1}(B_{1})\cap f^{-1}(B_{2})$.
+        \item For example, $X = \mathbb{R}$, $Y = \mathbb{R}$, $A_{1} = \mathbb{R}_{> 0}$, $A_{2} = \mathbb{R}_{< 0}$, and $f: \mathbb{R}\to \mathbb{R}$, $f(x) = \abs{x}$.
+
+              Then $f(A_{1})\cap f(A_{2}) = \mathbb{R}_{> 0}$, and $f(A_{1}\cap A_{2}) = \varnothing$. In this example, $f(A_{1}\cap A_{2})\ne f(A_{1})\cap f(A_{2})$.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter 1/section 3/exercise 2
+\begin{exercise}
+    Is the topology $\tau$ described in Exercise 1.1 \#6 (ii) the finite-closed topology? (Justify your answer.)
+\end{exercise}
+
+\begin{proof}
+    No. The final segment topology on $\mathbb{N}$ is not the finite-closed topology.
+
+    Let $S = \{ 1, 3 \}$. The complement of $S$ is $\{ 2 \}\cup \{ n\in\mathbb{N} \mid n\geq 4 \}$, which is not open. Therefore $S = \{ 1, 3 \}$ is not closed. On the other hand, in finite-closed topology, every finite subset is closed. Hence the final segment topology on $\mathbb{N}$ is not the finite-closed topology.
+\end{proof}
+\newpage
+
+% chapter 1/section 3/exercise 3
+\begin{exercise}
+    A topological space $(X, \tau)$ is said to be a {\color{red}$T_{1}$-space} if every singleton set $\{ x \}$ is closed in $(X, \tau)$. Show that precisely two of the following nine topological spaces are $T_{1}$-spaces. (Justify your answer.)
+    \begin{enumerate}[label={(\roman*)}]
+        \item a discrete space;
+        \item an indiscrete space with at least two points;
+        \item an infinite set with finite-closed topology;
+        \item Example 1.1.2;
+        \item Exercises 1.1 \#5 (i);
+        \item Exercises 1.1 \#5 (ii);
+        \item Exercises 1.1 \#5 (iii);
+        \item Exercises 1.1 \#6 (i);
+        \item Exercises 1.1 \#6 (ii).
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\roman*)}]
+        \item Yes.
+
+              Since in any discrete space, every singleton subset $\{ x \}$ is closed, due to its complement being open.
+        \item No.
+
+              Because in an indiscrete space with at least two points, any singleton subset is neither open nor closed.
+        \item Yes.
+
+              Any singleton subset of an infinite set with the finite-closed topology is finite, therefore closed.
+        \item No.
+
+              $X = \{ a, b, c, d, e, f \}$, $\tau_{1} = \{ X, \varnothing, \{ a \}, \{ c, d \}, \{ a, c, d \}, \{ b, c, d, e, f \} \}$. $(X, \tau_{1})$ is not a $T_{1}$-space because the subset $\{ b \}$ of $X$ is not closed.
+        \item No.
+
+              For any singleton subset $\{ x \}$ of $\mathbb{R}$, $\mathbb{R}\setminus\{x\}$ is not an interval of the form $(-n, n)$ where $n$ is a positive integer.
+        \item No.
+
+              For any singleton subset $\{ x \}$ of $\mathbb{R}$, $\mathbb{R}\setminus\{x\}$ is not an interval of the form $[-n, n]$ where $n$ is a positive integer.
+        \item No.
+
+              For any singleton subset $\{ x \}$ of $\mathbb{R}$, $\mathbb{R}\setminus\{x\}$ is not an interval of the form $[n, \infty)$ where $n$ is a positive integer.
+        \item No.
+
+              For example, the singleton subset $\{ 2 \}$ is not closed because its complement $\{ 1 \}\cup \{ n\in\mathbb{N} \mid n\geq 3 \}$ is not open.
+        \item No.
+
+              For example, the singleton subset $\{ 2 \}$ is not closed because its complement $\{ 1 \}\cup \{ n\in\mathbb{N} \mid n\geq 3 \}$ is not open.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter 1/section 3/exercise 4
+\begin{exercise}
+    Let $\tau$ be the finite-closed topology on a set $X$. If $\tau$ is also the discrete topology, prove that the set $X$ is finite.
+\end{exercise}
+
+\begin{proof}
+    Let $S$ be a finite subset of $X$. Since $\tau$ is the finite-closed topology on $X$, then $S$ is closed. Therefore, $X\setminus S$ is open. On the other hand, $\tau$ is also the discrete topology, then $S$ is also open. Therefore $X\setminus S$ is closed, which means $X\setminus S$ is finite due to $\tau$ being the finite-closed topology. Hence $X = S\cup X\setminus S$ is finite.
+\end{proof}
+\newpage
+
+% chapter 1/section 3/exercise 5
+\begin{exercise}
+    A topological space $(X, \tau)$ is said to be a {\color{red}$T_{0}$-space} if for each pair of distinct points $a$, $b$ in $X$, either there exists an open set containing $a$ and not $b$, or there exists an open set containing $b$ and not $a$.
+    \begin{enumerate}[label={(\roman*)}]
+        \item Prove that every $T_{1}$-space is a $T_{0}$-space.
+        \item Which of (i) $-$ (iv) in Exercise 3 above are $T_{0}$-spaces? (Justify your answer.)
+        \item Put a topology $\tau$ on the set $X = \{ 0, 1 \}$ so that $(X, \tau)$ will be a $T_{0}$-space but not a $T_{1}$-space. [The topological space you obtain is called the {\color{red}Sierpinski space}.]
+        \item Prove that each of the topological spaces described in Exercises 1.1 \#6 is a $T_{0}$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\roman*)}]
+        \item Let $a$ and $b$ be two arbitrary distinct points on the $T_{1}$-space $(X, \tau)$. Due to $(X, \tau)$ being a $T_{1}$-space, $\{ a \}$ and $\{ b \}$ are closed. Therefore, $X\setminus\{ a \}$ is open. On the other hand, $X\setminus\{ b \}$ contains $a$ but not $b$. Hence $(X, \tau)$ is also a $T_{0}$-space.
+        \item Topological space in Exercise 3 (i) is a $T_{0}$-space. Because in any discrete space, for every two distinct points $a$, $b$, $\{ a \}$, $\{ b \}$ are open sets and $\{ a \}$ does not contain $b$.
+
+              Topological space in Exercise 3 (ii) is not a $T_{0}$-space. Because in an indiscrete space, for every two distinct points $a$, $b$, there is no open set that contain $a$ but not $b$, there is no open set that contain $b$ but not $a$.
+
+              Topological space in Exercise 3 (iii) is a $T_{0}$-space. Because in an infinite set with finite-closed topology, for every two distinct points $a$, $b$, the complement of $\{ a \}$ is open, which contains $b$ but not $a$.
+
+              Topological space in Exercise 3 (iv) is not a $T_{0}$-space. Because there is no open set that contains $e$ but not $f$, there is no open set that contains $f$ but not $e$.
+        \item $X = \{ 0, 1 \}$ $\tau = \{ X, \varnothing, \{ 0 \} \}$, then $(X, \tau)$ is a $T_{0}$-space but not a $T_{1}$-space.
+        \item For any two distinct positive integer $m$, $n$, $\{ x\in\mathbb{N} \mid x\leq \min\{ m, n \} \}$ is an open set which contains $\min\{ m, n \}$ but not $\max\{ m, n \}$. So $\mathbb{N}$ with the initial segment topology is a $T_{0}$-space.
+
+              For any two distinct positive integer $m$, $n$, $\{ x\in\mathbb{N} \mid x\geq \max\{ m, n \} \}$ is an open set which contains $\max\{ m, n \}$ but not $\min\{ m, n \}$. So $\mathbb{N}$ with the final segment topology is a $T_{0}$-space.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter 1/section 3/execise 6
+\begin{exercise}
+    Let $X$ be any infinite set. The {\color{red}countable-closed topology} is defined to be the topology having as its closed sets $X$ and all countable (finite or countably infinite) subsets of $X$. Prove that this is indeed a topology on $X$.
+\end{exercise}
+
+\begin{proof}
+    $\varnothing$ and $X$ are closed sets.
+
+    Let $A_{1}$ and $A_{2}$ be $X$ or countable subsets of $X$. If at least one of them is $X$, then $A_{1}\cup A_{2} = X$. If none of them is $X$, then $A_{1}\cup A_{2}$ is a countable subset of $X$ because the union of two countable sets is a countable set.
+
+    Let ${(A_{i})}_{i\in I}$ be a family of sets. If this family contains countable subsets of $X$ only, then the intersection of this family is countable (since a subset of any countable set is also countable). Otherwise, this family contains $X$, then the intersection is either $X$ or a countable subset of $X$ (refer to the previous case).
+
+    Hence the countable-closed topology is indeed a topology on the infinite set $X$.
+\end{proof}
+\newpage
+
+% chapter 1/section 3/exercise 7
+\begin{exercise}
+    Let $\tau_{1}$ and $\tau_{2}$ be two topologies on a set $X$. Prove each of the following statements.
+    \begin{enumerate}[label={(\roman*)}]
+        \item If $\tau_{3}$ is defined by $\tau_{3} = \tau_{1}\cup \tau_{2}$, then $\tau_{3}$ is not necessarily a topology on $X$. (Justify your answer, by finding a concrete example.)
+        \item If $\tau_{4}$ is defined by $\tau_{4} = \tau_{1}\cap \tau_{2}$, then $\tau_{4}$ is a topology on $X$. (The topology $\tau_{4}$ is said to be the {\color{red}intersection} of the topologies $\tau_{1}$ and $\tau_{2}$.)
+        \item If $(X, \tau_{1})$ and $(X, \tau_{2})$ are $T_{1}$-spaces, then $(X, \tau_{4})$ is also a $T_{1}$-space.
+        \item If $(X, \tau_{1})$ and $(X, \tau_{2})$ are $T_{0}$-spaces, then $(X, \tau_{4})$ is not necessarily a $T_{0}$-space. (Justify your answer by finding a concrete example.)
+        \item If $\tau_{1}$, $\tau_{2}$, \ldots, $\tau_{n}$ are topologies on a set $X$, then $\tau = \bigcap^{n}_{i=1} \tau_{i}$ is a topology on $X$.
+        \item If for each $i\in I$, for some index set $I$, each $T_{i}$ is a topology on the set $X$, then $\tau = \bigcap_{i\in I} \tau_{i}$ is a topology on $X$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\roman*)}]
+        \item For example, let $X = \{ 0, 1, 2 \}$, $\tau_{1} = \{ X, \varnothing, \{ 0 \} \}$, $\tau_{2} = \{ X, \varnothing, \{ 1 \} \}$ are two topologies on $X$.
+
+              $\tau_{1}\cup\tau_{2} = \{ X, \varnothing, \{ 0 \}, \{ 1 \} \}$ is not a topology on $X$, since $\{ 0 \}\cup \{ 1 \} = \{ 0, 1 \}$ is not an open set.
+        \item $\varnothing$ and $X$ are open sets in $(X, \tau_{1})$, $(X, \tau_{2})$ so they are members of $\tau_{1}\cap \tau_{2}$.
+
+              If ${(A_{i})}_{i\in I}$ is a family of open sets in $(X, \tau_{1})$ and $(X, \tau_{2})$, then $\bigcup_{i\in I} A_{i}$ is an open set in $(X, \tau_{1})$ and $(X, \tau_{2})$. Therefore $\bigcup_{i\in I} A_{i}$ is a member of $\tau_{1}\cap\tau_{2}$.
+
+              If $A$, $B$ are open sets in $(X, \tau_{1})$, $(X, \tau_{2})$, then $A\cap B$ is a member of $\tau_{1}\cap \tau_{2}$.
+
+              Thus $\tau_{4} = \tau_{1}\cap\tau_{2}$ is a topology on $X$.
+        \item Let $\{ x \}$ be a singleton subset of $X$. Since $(X, \tau_{1})$, $(X, \tau_{2})$ are $T_{1}$-spaces, then $\{ x \}$ is closed in $(X, \tau_{1})$, $(X, \tau_{2})$. Therefore, the complement of $\{ x \}$ is open in $(X, \tau_{1})$, $(X, \tau_{2})$, so the complement of $\{ x \}$ is open in $(X, \tau_{1}\cap \tau_{2})$. Hence $\{x \}$ is closed in $(X, \tau_{1}\cap\tau_{2})$.
+
+              Thus $(X, \tau_{1}\cap\tau_{2})$ is also a $T_{1}$-space.
+        \item For example, let $X = \{ 0, 1 \}$ and $\tau_{1} = \{ X, \varnothing, \{ 0 \} \}$, $\tau_{2} = \{ X, \varnothing, \{ 1 \} \}$ are two topologies on $X$. $(X, \tau_{1})$ and $(X, \tau_{2})$ are $T_{0}$-spaces (furthermore, Sierpinski spaces.)
+
+              $(X, \tau_{1}\cap \tau_{2})$ is not a $T_{0}$-space, since in $(X, \tau_{1}\cap\tau_{2})$, there is no open set that contains $0$ but not $1$, there is no open set that contains $1$ but not $0$.
+        \item For $n = 1$, $\tau_{1}$ is a topology on $X$. For $n = 2$, $\tau_{1}\cap\tau_{2}$ is a topology on $X$.
+
+              Assume that for $n = k\geq 2$, $\bigcap^{k}_{i=1}\tau_{i}$ is a topology on $X$. According to the induction hypothesis and the definition of intersection of topologies, $\bigcap^{k+1}_{i=1}\tau_{i} = \left( \bigcap^{k}_{i=1} \tau_{i} \right) \cap \tau_{k+1}$ is a topology on $X$.
+
+              Thus, due to the principle of mathematical induction, $\tau = \bigcap^{n}_{i=1}\tau_{i}$ is a topology on $X$, for every positive integer $n$.
+        \item Since $\tau_{i}$ is a topology on $X$ for every $i\in I$, then $\varnothing$, $X$ are members of $\tau_{i}$.
+
+              Suppose that each set in the family ${(A_{j})}_{j\in J}$ is a member of $\bigcap_{i\in I} \tau_{i}$. Then $\bigcup_{j\in J} A_{j}$ is a member of $\tau_{i}$ for every $i\in I$. Therefore, $\bigcup_{j\in J} A_{j}$ is a member of $\bigcap_{i\in I} \tau_{i}$.
+
+              Suppose that $A$, $B$ are members of $\bigcap_{i\in I} \tau_{i}$. Then $A$, $B$ are members of $\tau_{i}$ for every $i\in I$, then $A\cap B$ is a member of $\tau_{i}$ for every $i\in I$. So $A\cap B$ is a member of $\bigcap_{i\in I} \tau_{i}$.
+
+              Thus, $\tau = \bigcap_{i\in I}\tau_{i}$ is a topology on $X$.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter 1/section 3/exercise 8
+\begin{exercise}
+    In Wikipedia, \url{http://en.wikipedia.org/wiki/Finite_topological_space}, as we noted in Exercises 1.2 \#7, it says that the number of topologies on a finite set with
+    $n\in \mathbb{N}$ points can be quite large, even for small $n$. This is also true even for $T_{0}$-spaces as defined in Exercises 1.3 \#5. Indeed that same Wikipedia source says, that if $n = 3$, there are 19 distinct $T_{0}$-spaces; for $n = 4$, there are 219 distinct $T_{0}$-spaces; for $n = 5$, there are 4231 distinct $T_{0}$-spaces. Prove, using mathematical induction, that as $n$ increases, the number of $T_{0}$-spaces increases.
+\end{exercise}
+
+\begin{proof}
+    When $n = 1$, there is 1 $T_{0}$-space.
+
+    Assume that there are $M$ $T_{0}$-spaces with $n$ points. Let's consider the set $S = \{ a_{1}, a_{2}, \ldots, a_{n}, a_{n+1} \}$. Let $\tau$ be a topology on $S\setminus\{ a_{n+1} \}$ such that $(S\setminus\{ a_{n+1} \}, \tau)$ is a $T_{0}$-space, then $(S, \tau\cup\{ S, \{ a_{n+1} \} \})$ is a $T_{0}$-space, so there are at least $M$ $T_{0}$-spaces with $(n+1)$ points. On the other hand, every discrete space is a $T_{0}$-space, so there are at least $M+1$ $T_{0}$-spaces with $(n+1)$ points.
+
+    Thus, as $n$ increases, the number of $T_{0}$-spaces increases.
+\end{proof}
+\newpage
+
+% chapter 1/section 3/exercise 9
+\begin{exercise}
+    A topological space $(X, \tau)$ is said to be a {\color{red}door space} if every subset of $X$ is either an open set or a closed set (or both).
+    \begin{enumerate}[label={(\roman*)}]
+        \item Is a discrete space a door space?
+        \item Is an in discrete space a door space?
+        \item If $X$ is an infinite set and $\tau$ is the finite-closed topology, is $(X, \tau)$ a door space?
+        \item Let $X$ be the set $\{ a, b, c, d \}$. Identify those topologies $\tau$ on which $X$ which make it into a door space?
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\roman*)}]
+        \item Yes.
+
+              In a discrete space, every subset of the underlying set is open and closed.
+        \item No.
+
+              If the underlying set of an indiscrete space has at least two elements, then every singleton subset is neither open nor closed.
+        \item No.
+
+              Since $X$ is an infinite set, then $X$ must contain a countably infinite subset $Y = \{ x_{1}, x_{2}, \ldots \}$. Let $Z = \{ x_{2}, x_{4}, \ldots \}$, then $Z$ is neither open nor closed.
+        \item The topologies on $X$ which make it into a door space are
+              \begin{enumerate}[label={(\arabic*)}]
+                  \item The discrete topology.
+                  \item $\{ X, \varnothing, \{ a \}, \{ b \}, \{ c \}, \{ a, b, c \}, \{ a, b \}, \{ b, c \}, \{ a, c \} \}$.
+                  \item $\{ X, \varnothing, \{ a \}, \{ b \}, \{ c \}, \{ a, b, c \}, \{ a, b \}, \{ b, c \}, \{ a, c \}, \{ a, d \}, \{ a, b, d \}, \{ a, c, d \} \}$.
+                  \item $\{ X, \varnothing, \{ a \}, \{ b \}, \{ c \}, \{ a, b, c \}, \{ a, b \}, \{ b, c \}, \{ a, c \}, \{ b, d \}, \{ a, b, d \}, \{ b, c, d \} \}$.
+                  \item $\{ X, \varnothing, \{ a \}, \{ b \}, \{ c \}, \{ a, b, c \}, \{ a, b \}, \{ b, c \}, \{ a, c \}, \{ c, d \}, \{ a, c, d \}, \{ b, c, d \} \}$.
+                  \item $\{ X, \varnothing, \{ a \}, \{ b \}, \{ d \}, \{ a, b, d \}, \{ a, b \}, \{ b, d \}, \{ a, d \} \}$.
+                  \item $\{ X, \varnothing, \{ a \}, \{ b \}, \{ d \}, \{ a, b, d \}, \{ a, b \}, \{ b, d \}, \{ a, d \}, \{ b, c \}, \{ a, b, c \}, \{ b, c, d \} \}$.
+                  \item $\{ X, \varnothing, \{ a \}, \{ b \}, \{ d \}, \{ a, b, d \}, \{ a, b \}, \{ b, d \}, \{ a, d \}, \{ a, c \}, \{ a, b, c \}, \{ a, c, d \} \}$.
+                  \item $\{ X, \varnothing, \{ a \}, \{ b \}, \{ d \}, \{ a, b, d \}, \{ a, b \}, \{ b, d \}, \{ a, d \}, \{ c, d \}, \{ a, c, d \}, \{ b, c, d \} \}$.
+                  \item $\{ X, \varnothing, \{ a \}, \{ c \}, \{ d \}, \{ a, c, d \}, \{ a, c \}, \{ a, d \}, \{ c, d \} \}$.
+                  \item $\{ X, \varnothing, \{ a \}, \{ c \}, \{ d \}, \{ a, c, d \}, \{ a, c \}, \{ a, d \}, \{ c, d \}, \{ a, b \}, \{ a, b, c \}, \{ a, b, d \} \}$.
+                  \item $\{ X, \varnothing, \{ a \}, \{ c \}, \{ d \}, \{ a, c, d \}, \{ a, c \}, \{ a, d \}, \{ c, d \}, \{ b, c \}, \{ a, b, c \}, \{ b, c, d \} \}$.
+                  \item $\{ X, \varnothing, \{ a \}, \{ c \}, \{ d \}, \{ a, c, d \}, \{ a, c \}, \{ a, d \}, \{ c, d \}, \{ b, d \}, \{ a, b, d \}, \{ b, c, d \} \}$.
+                  \item $\{ X, \varnothing, \{ b \}, \{ c \}, \{ d \}, \{ b, c, d \}, \{ b, c \}, \{ c, d \}, \{ b, d \} \}$.
+                  \item $\{ X, \varnothing, \{ b \}, \{ c \}, \{ d \}, \{ b, c, d \}, \{ b, c \}, \{ c, d \}, \{ b, d \}, \{ a, b \}, \{ a, b, c \}, \{ a, b, d \} \}$.
+                  \item $\{ X, \varnothing, \{ b \}, \{ c \}, \{ d \}, \{ b, c, d \}, \{ b, c \}, \{ c, d \}, \{ b, d \}, \{ a, c \}, \{ a, b, c \}, \{ a, c, d \} \}$.
+                  \item $\{ X, \varnothing, \{ b \}, \{ c \}, \{ d \}, \{ b, c, d \}, \{ b, c \}, \{ c, d \}, \{ b, d \}, \{ a, d \}, \{ a, b, d \}, \{ a, c, d \} \}$.
+                  \item $\{ X, \varnothing, \{ a \}, \{ a, b \}, \{ a, c \}, \{ a, d \}, \{ a, b, c \}, \{ a, b, d \}, \{ a, c, d \} \}$.
+                  \item $\{ X, \varnothing, \{ b \}, \{ a, b \}, \{ b, c \}, \{ b, d \}, \{ a, b, c \}, \{ a, b, d \}, \{ b, c, d \} \}$.
+                  \item $\{ X, \varnothing, \{ c \}, \{ b, c \}, \{ a, c \}, \{ c, d \}, \{ a, b, c \}, \{ a, c, d \}, \{ b, c, d \} \}$.
+                  \item $\{ X, \varnothing, \{ d \}, \{ a, d \}, \{ b, d \}, \{ c, d \}, \{ a, b, d \}, \{ a, c, d \}, \{ b, c, d \} \}$.
+              \end{enumerate}
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter 1/section 3/exercise 10
+\begin{exercise}
+    A subset $S$ of a topological space $(X, \tau)$ is said to be {\color{red}saturated} if it is an intersection of open sets in $(X, \tau)$.
+    \begin{enumerate}[label={(\roman*)}]
+        \item Verify that every open set is a saturated set.
+        \item Verify that in a $T_{1}$-space, every set is a saturated set.
+        \item Give an example of a topological space which has at least one subset which is not saturated.
+        \item Is it true that if the topological space $(X, \tau)$ is such that every subset is saturated, then $(X, \tau)$ is a $T_{1}$-space?
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\roman*)}]
+        \item Let $S$ be an open set in $(X, \tau)$, then $S = S\cap S$. So $S$ is a saturated set.
+        \item Let $S$ be a set in the $T_{1}$-space $(X, \tau)$.
+
+              Let $x$ be an element of $X\setminus S$. Since $(X, \tau)$ is a $T_{1}$-space, then $\{ x \}$ is closed. Therefore $X\setminus S$ is a union of closed sets. So due to the De Morgan's formula, $S$ is an intersection of open set.
+
+              Hence every set in a $T_{1}$-space is a saturated set.
+        \item $X = \{ 0, 1 \}$, $\tau = \{ X, \varnothing, \{ 0 \} \}$. $(X, \tau)$ is a Sierpinski space. $\{ 1 \}$ is not a saturated set in $(X, \tau)$.
+        \item Yes.
+
+              If every set in the topological space $(X, \tau)$ is saturated, then complement of every singleton subset is saturated. So the complement of every singleton subset is an intersection of open sets. So every singleton set is a union of closed sets, which means every singleton set is closed. Thus $(X, \tau)$ is a $T_{1}$-space.
+    \end{enumerate}
+\end{proof}
