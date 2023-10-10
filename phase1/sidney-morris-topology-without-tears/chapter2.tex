@@ -1,14 +1,193 @@
+% chktex-file 9
+% chktex-file 17
 \chapter{The Euclidean Topology}
 
 \section{Euclidean Topology}
 
+% chapter 2/section 1/exercise 1
+\begin{exercise}
+    Prove that if $a, b\in \mathbb{R}$ with $a < b$ then neither $[a, b)$ nor $(a, b]$ is an open subset of $\mathbb{R}$. Also show that neither is a closed subset of $\mathbb{R}$.
+\end{exercise}
 
+\begin{proof}
+    $a\in [a, b)$. Assume that there exist $c, d\in \mathbb{R}$ such that $a\in (c, d)\subseteq [a, b)$. However, $c < \frac{c+a}{2} < a < d$, then $\frac{c+a}{2}\in (c, d)$ and $\frac{c+a}{2}\notin [a, b)$. So $(c, d)\nsubseteq [a, b)$, which means the assumption is false. Therefore $[a, b)$ is not open.
+
+                                    The complement of $[a, b)$ in $\mathbb{R}$ is $(-\infty, a)\cup [b, +\infty)$. Assume that there exist $c, d\in \mathbb{R}$ such that $b\in (c, d)\subseteq (-\infty, a)\cup [b, +\infty)$. Let $x = \max\{ a, c \}$, and $y = \frac{x + b}{2}$. Then $a < y$, $c < y$, and $y < b$. So $y\in (c, d)$ but $y\notin (-\infty, a)\cup [b, +\infty)$. So $(c, d)\nsubseteq (-\infty, a)\cup [b, +\infty)$, which means $(-\infty, a)\cup [b, +\infty)$ is not open. Therefore $[a, b)$ is not closed.
+
+                                                                    $b\in (a, b]$. Assume that there exist $c, d\in \mathbb{R}$ such that $b\in (c, d)\subseteq (a, b]$. However, $b, c < \frac{b+d}{2} < d$, then $\frac{b+d}{2}\in (c, d)$ and $\frac{b+d}{2}\notin (a, b]$. So $(c, d)\nsubseteq (a, b]$, which means the assumption is false. Therefore $(a, b]$ is not open.
+
+                                                The complement of $(a, b]$ in $\mathbb{R}$ is $(-\infty, a]\cup (b, +\infty)$. Assume that there exist $c, d\in \mathbb{R}$ such that $a\in (c, d)\subseteq (-\infty, a]\cup (b, +\infty)$. Let $x = \min\{ b, d \}$ and $y = \frac{a+x}{2}$. Then $x\leq b, d$, $a < y < b$, $c < y < d$, so $y\in (c, d)$ but $y\notin (-\infty, a]\cup (b, +\infty)$. So $(c, d)\nsubseteq (-\infty, a]\cup (b, +\infty)$, which means $(-\infty, a]\cup (b, +\infty)$ is not open. Therefore, $(a, b]$ is not closed.
+
+    Thus $[a, b)$ and $(a, b]$ are not open nor closed.
+\end{proof}
+\newpage
+
+% chapter 2/section 1/exercise 2
+\begin{exercise}
+    Prove that the sets $[a, +\infty)$ and $(-\infty, a]$ are closed subsets of $\mathbb{R}$.
+\end{exercise}
+
+\begin{proof}
+    The complement of $[a, +\infty)$ in $\mathbb{R}$ is $(-\infty, a)$, which is an open set. So $[a, +\infty)$ is a closed subset of $\mathbb{R}$. On the other hand, $[a, +\infty)$ is not an open subset of $\mathbb{R}$ because there do not exist an open interval $(c, d)$ such that $a\in (c, d)\subseteq [a, +\infty)$.
+
+                                        The complement of $(-\infty, a]$ in $\mathbb{R}$ is $(a, +\infty)$, which is an open set. So $(-\infty, a]$ is a closed subset of $\mathbb{R}$. On the other hand, $(-\infty, a]$ is not an open subset of $\mathbb{R}$ because there do not exist an open interval $(c, d)$ such that $a\in (c, d)\subseteq (-\infty, a]$.
+\end{proof}
+\newpage
+
+% chapter 2/section 1/exercise 3
+\begin{exercise}
+    Show, by example, that the union of an infinite number of closed subsets of $\mathbb{R}$ is not necessarily a closed subset of $\mathbb{R}$.
+\end{exercise}
+
+\begin{proof}
+    I give two examples.
+
+    Example 1. $\bigcup_{q\in\mathbb{Q}} \{ q \} = \mathbb{Q}$. Although any singleton subset of $\mathbb{R}$ is closed, but $\mathbb{Q}$ is not a closed subset of $\mathbb{R}$.
+
+    Example 2. $\bigcup_{x\in\mathbb{R}, x < 1} (-\infty, x] = (-\infty, 1)$. $(-\infty, x]$ is closed because its complement $(x, +\infty)$ is open. $(-\infty, 1)$ is not closed, because its complement $[1, +\infty)$ is not open.
+\end{proof}
+\newpage
+
+% chapter 2/section 1/exercise 4
+\begin{exercise}
+    Prove each of the following statements.
+    \begin{enumerate}[label={(\roman*)}]
+        \item The set $\mathbb{Z}$ of all integers is not an open subset of $\mathbb{R}$.
+        \item The set $\mathbb{P}$ of all prime numbers is a closed subset of $\mathbb{R}$ but not an open subset of $\mathbb{R}$.
+        \item The set $\mathbb{I}$ of all irrational numbers is neither a closed subset nor an open subset of $\mathbb{R}$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\roman*)}]
+        \item Assume that there exists an open interval $(a, b)\subseteq \mathbb{Z}$. Let $x$ be an element of $(a, b)$, then $x$ is an integer. If $x+1\in (a, b)$, then so does $x+\frac{1}{2}$. But $x+\frac{1}{2}$ is not an integer. If $x+1\notin (a, b)$, then $x < b < x+1$, $\frac{x+b}{2}$ is not an integer. So the assumption is false. Therefore, $\mathbb{Z}$ does not contain any open interval. Hence $\mathbb{Z}$ is not an open subset of $\mathbb{R}$.
+        \item The complement of $\mathbb{P}$ in $\mathbb{R}$ is $(-\infty, 2)\cup\bigcup_{n\in\mathbb{Z}_{>0}} (p_{n}, p_{n+1})$, where $p_{n}$ is the $n$th prime. So $\mathbb{P}$ is closed.
+
+              Similar to (i), $\mathbb{P}$ does not contain any open interval. So $\mathbb{P}$ is not open.
+        \item Assume that there exists an open interval $(a, b)\subseteq \mathbb{Q}$. Due to the density of $\mathbb{Q}$ in $\mathbb{R}$, there exists a rational number $q$ in $(a - \sqrt{2}, b - \sqrt{2})$, so the irrational number $q + \sqrt{2}$ is in $(a, b)$. Therefore $(a, b)\nsubseteq \mathbb{Q}$, which means the assumption is false. So $\mathbb{Q}$ does not contain any open interval. Hence $\mathbb{Q}$ is not an open subset of $\mathbb{R}$, and the complement $\mathbb{I} = \mathbb{R}\setminus\mathbb{Q}$ is not a closed subset of $\mathbb{R}$.
+
+              Assume that there exists an open interval $(a, b)\subseteq \mathbb{I}$. Due to the density of $\mathbb{Q}$ in $\mathbb{R}$, there exists a rational number in $(a, b)$. Therefore $(a, b)\nsubseteq \mathbb{I}$, which means the assumption is false. So $\mathbb{I}$ does not contain any open interval. Hence $\mathbb{I}$ is not an open subset of $\mathbb{R}$.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter 2/section 1/exercise 5
+\begin{exercise}
+    If $F$ is a non-empty finite subset of $\mathbb{R}$, show that $F$ is closed in $\mathbb{R}$ but that $F$ is not open in $\mathbb{R}$.
+\end{exercise}
+
+\begin{proof}
+    $F = \bigcup_{x\in F}\{ x \}$. Since $\{ x \}$ is a closed subset of $\mathbb{R}$ for any real number $x$ and $F$ is a non-empty finite subset, then $F$ is a union of finitely many closed subsets of $\mathbb{R}$. Therefore $F$ is closed in $\mathbb{R}$.
+
+    Assume that $F$ contains an open interval $(a, b)$. Since $F$ is a non-empty finite subset of $\mathbb{R}$ and $\mathbb{R}$ is a totally ordered set, then $F$ has a least element. Let $c$ be the least element of $F$, then $a < c < b$. On the other hand, $a < \frac{a+c}{2} < c < b$, so $\frac{a+c}{2}\notin F$, which contradicts $(a, b)\subseteq F$. Hence the assumption is false, and $F$ does not contain any open interval. Therefore $F$ is not open in $\mathbb{R}$.
+\end{proof}
+\newpage
+
+% chapter 2/section 1/exercise 6
+\begin{exercise}
+    If $F$ is a non-empty countable subset of $\mathbb{R}$, prove that $F$ is not an open set, but that $F$ may or may not be a closed set depending on the choice of $F$.
+\end{exercise}
+
+\begin{proof}
+    If $F$ is a non-empty finite subset of $\mathbb{R}$, then $F$ is not open in $\mathbb{R}$, according to the previous exercise.
+
+    If $F$ is a countably infinite subset of $\mathbb{R}$, then $F$ does not contain any open interval, because any open interval is uncountably infinite. Therefore $F$ is not open in $\mathbb{R}$.
+
+    $F$ may be a closed set. For example: when $F$ is $\mathbb{Z}$.
+
+    $F$ may not be a closed set. For example: when $F$ is $\mathbb{Q}$.
+\end{proof}
+\newpage
+
+% chapter 2/section 1/exercise 7
+\begin{exercise}
+    \begin{enumerate}[label={(\roman*)}]
+        \item Let $S = \{ 0, 1, 1/2, 1/3, 1/4, 1/5, \ldots, 1/n, \ldots \}$. Prove that the set $S$ is closed in the euclidean topology on $\mathbb{R}$.
+        \item Is the set $T = \{ 1, 1/2, 1/3, 1/4, 1/5, \ldots, 1/n, \ldots \}$ closed in $\mathbb{R}$?
+        \item Is the set $\{ \sqrt{2}, 2\sqrt{2}, 3\sqrt{2}, \ldots, n\sqrt{2} \}$ closed in $\mathbb{R}$?
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\roman*)}]
+        \item Let $x\in \mathbb{R}\setminus S$. $x\ne 0$, because $0\in S$. If $x < 0$, then $x\in (x-1, \frac{x}{2})$, where $(x-1, \frac{x}{2})\subseteq \mathbb{R}\setminus S$. If $x > 0$, then $\frac{1}{x}$ is not a positive integer, because $x\notin S$. Let $n$ be the integral part of $\frac{1}{x}$, then $n < \dfrac{1}{x} < n+1$.
+
+              If $n = 0$, then $x > 1$, $x\in \left(\frac{1+x}{2}, 1+x\right)\subseteq \mathbb{R}\setminus S$.
+
+              If $n > 0$, then $\frac{1}{n+1} < x < \frac{1}{n}$. Let $a = \frac{1}{2}\left(x + \frac{1}{n+1} \right)$ and $b = \frac{1}{2}\left(x + \frac{1}{n}\right)$, then $x\in (a, b)\subseteq \mathbb{R}\setminus S$.
+
+              Hence $\mathbb{R}\setminus S$ is open, which means $S$ is closed in $\mathbb{R}$.
+        \item $0\in \mathbb{R}\setminus T$. Assume that there exists an open interval $(a, b)$ such that $0\in (a, b)\subseteq \mathbb{R}\setminus T$. Then $b > 0$. According to Archimedean property, there exists an integer $n$ such that $\frac{1}{b} < n$. Since $0 < \frac{1}{b} < n$, then $0 < \frac{1}{n} < b$. Therefore, $\frac{1}{n}\in (a, b)$. But this contradicts $\frac{1}{n}\in T$. So the assumption is false.
+
+              Hence $\mathbb{R}\setminus T$ is not open, and $T$ is not closed.
+        \item Let $A = \{ \sqrt{2}, 2\sqrt{2}, 3\sqrt{2}, \ldots, n\sqrt{2}, \ldots \}$. Let $x\in \mathbb{R}\setminus A$, then $x\ne\sqrt{2}$. $\sqrt{2}$ is the least element of $A$.
+
+              If $x < \sqrt{2}$, then $x\in \left(x-1, \frac{1}{2}(x+\sqrt{2})\right)\subseteq \mathbb{R}\setminus A$.
+
+              If $x > \sqrt{2}$, then $\frac{x}{\sqrt{2}} > 1$. Since $x\notin A$, then $\frac{x}{\sqrt{2}}$ is not a positive integer. Let $n$ be the integral part of $\frac{x}{\sqrt{2}}$, then $1\leq n < \frac{x}{\sqrt{2}} < n+1$. So $n\sqrt{2} < x < (n+1)\sqrt{2}$. Let $a = \frac{1}{2}(x + n\sqrt{2})$ and $b = \frac{1}{2}(x + (n+1)\sqrt{2})$, then $n\sqrt{2} < a, b < (n+1)\sqrt{2}$. Therefore $x\in (a, b)\subseteq \mathbb{R}\setminus A$.
+
+              Hence $\mathbb{R}\setminus A$ is open, and $A$ is closed in $\mathbb{R}$.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter 2/section 1/exercise 8
+\begin{exercise}
+    \begin{enumerate}[label={(\roman*)}]
+        \item Let $(X, \tau)$ be a topological space. A subset $S$ of $X$ is said to be an {\color{red}$F_{\sigma}$-set} if it is the union of a countable number of closed sets. Prove that all open intervals $(a, b)$ and all closed intervals $[a, b]$, are $F_{\sigma}$-sets in $\mathbb{R}$.
+        \item Let $(X, \tau)$ be a topological space. A subset $S$ of $X$ is said to be an {\color{red}$G_{\sigma}$-set} if it is the intersection of a countable number of open sets. Prove that all open intervals $(a, b)$ and all closed intervals $[a, b]$, are $G_{\sigma}$-sets in $\mathbb{R}$.
+        \item Prove that the set $\mathbb{Q}$ of rationals is an $F_{\sigma}$-set in $\mathbb{R}$.
+        \item Verify that the complement of an $F_{\sigma}$-set is a $G_{\sigma}$-set and the complement of a $G_{\sigma}$-set is an $F_{\sigma}$-set.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\roman*)}]
+        \item Every closed interval $[a, b]$ is an $F_{\sigma}$-set.
+
+              Let's consider an open interval $(a, b)$. For every positive integer $n \geq 2$, we define $a_{n}$ and $b_{n}$ as follows
+              \[
+                  a_{n} = a + \frac{b-a}{n}
+                  \qquad
+                  b_{n} = b - \frac{b-a}{n}
+              \]
+
+              Then $\bigcup_{n\in\mathbb{Z}_{\geq 2}} [a_{n}, b_{n}] \subseteq (a, b)$.
+
+              Let $x$ be an element of $(a, b)$, then $x = a + \frac{x - a}{b - a}(b - a) = b - \frac{b - x}{b - a}(b - a)$.
+
+              If $n\geq \max\left\{ \frac{b-a}{x-a}, \frac{b-a}{b-x} \right\}$, then $a_{n}\leq x\leq b_{n}$. So there exists a positive integer $n$ such that $x\in [a_{n}, b_{n}]$. Hence $(a, b)\subseteq \bigcup_{n\in\mathbb{Z}_{\geq 2}} [a_{n}, b_{n}]$.
+
+              Therefore
+              \[
+                  (a, b) = \bigcup_{n\in\mathbb{Z}_{\geq 2}} [a_{n}, b_{n}]
+              \]
+
+              which means every open interval $(a, b)$ is an $F_{\sigma}$-set.
+        \item Every open interval $(a, b)$ is a $G_{\sigma}$-set.
+
+              Let's consider a closed interval $[a, b]$. For every positive integer, we define $a_{n}$ and $b_{n}$ as follows
+              \[
+                  a_{n} = a - \frac{1}{n}
+                  \qquad
+                  b_{n} = b + \frac{1}{n}
+              \]
+
+              Then $[a, b]\subseteq \bigcap_{n\in\mathbb{Z}_{>0}} (a_{n}, b_{n})$, and $a = \sup a_{n}$, $b = \inf b_{n}$.
+
+              Let $x$ be an element of $\bigcap_{n\in\mathbb{Z}_{> 0}} (a_{n}, b_{n})$, then $x$ is an upper bound of ${(a_{n})}_{n\in\mathbb{Z}_{>0}}$, $x$ is a lower bound of ${(b_{n})}_{n\in\mathbb{Z}_{> 0}}$. According to the definition of supremum and infimum, $a\leq x\leq b$. Therefore $\bigcap_{n\in\mathbb{Z}_{>0}} (a_{n}, b_{n})\subseteq [a, b]$.
+
+              So $\bigcap_{n\in\mathbb{Z}_{>0}} (a_{n}, b_{n}) = [a, b]$, which means every closed interval $[a, b]$ is a $G_{\sigma}$-set.
+        \item Since $\mathbb{Q}$ is a countably infinite set, then $\mathbb{Q}$ is the union of its singleton subsets (which are closed). Therefore $\mathbb{Q}$ is an $F_{\sigma}$-set.
+        \item If $X$ is an $F_{\sigma}$-set then according to the De Morgan's formula, the complement of $X$ is an intersection of a countable number of open sets, which means the complement of $X$ is a $G_{\sigma}$-set.
+
+              If $X$ is a $G_{\sigma}$-set then according to the De Morgan's formula, the complement of $X$ is a union of of countable number of closed sets, which means the complement of $X$ is an $F_{\sigma}$-set.
+    \end{enumerate}
+\end{proof}
+\newpage
 
 \section{Basis for a Topology}
 
 
 
 \section{Basis for a Given Topology}
-
-
-
