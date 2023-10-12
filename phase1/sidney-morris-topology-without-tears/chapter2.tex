@@ -582,17 +582,59 @@
 
 % chapter 2/section 2/exercise 6
 \begin{exercise}
+	Let $\mathcal{B}_{1}$ be a basis for a topology $\tau_{1}$ on a set $X$ and $\mathcal{B}_{2}$  a basis for a topology on a set $Y$. The set $X\times Y$ consists of all ordered pairs $\anglebracket{x, y}$, $x\in X$ and $y\in Y$. Let $\mathcal{B}$ be the collection of subsets of $X\times Y$ consisting of all the sets $B_{1}\times B_{2}$ where $B_{1}\in \mathcal{B}_{1}$ and $B_{2}\in \mathcal{B}_{2}$. Prove that $\mathcal{B}$ is a basis for a topology on $X\times Y$. The topology so defined is called the {\color{red}product topology} on $X\times Y$.
 \end{exercise}
 
 \begin{proof}
+	Since $\mathcal{B}_{1}$ is a basis for a topology $\tau_{1}$ on a set $X$ and $\mathcal{B}_{2}$ is a basis for a topology on a set $Y$, then
+	\begin{align*}
+		X\times Y & = \left(\bigcup_{B_{1}\in\mathcal{B}_{1}} B_{1}\right) \times \left(\bigcup_{B_{2}\in \mathcal{B}_{2}} B_{2}\right).
+	\end{align*}
+
+	If $\anglebracket{x_{1}, x_{2}}$ is an element of $\bigcup_{\substack{B_{1}\in \mathcal{B}_{1} \\ B_{2}\in \mathcal{B}_{2}}} (B_{1}\times B_{2})$ then there exist $B_{1}\times B_{2} \in \mathcal{B}$ such that $x_{1}\in B_{1}$ and $x_{2}\in B_{2}$. On the other hand, $\anglebracket{x_{1}, x_{2}}$ is also an element of $X\times Y$. Therefore
+	\[
+		\bigcup_{\substack{B_{1}\in \mathcal{B}_{1} \\ B_{2}\in \mathcal{B}_{2}}} (B_{1}\times B_{2}) \subseteq \left(\bigcup_{B_{1}\in\mathcal{B}_{1}} B_{1}\right) \times \left(\bigcup_{B_{2}\in \mathcal{B}_{2}} B_{2}\right).
+	\]
+
+	If $\anglebracket{x_{1}, x_{2}}$ is an element of $\left(\bigcup_{B_{1}\in\mathcal{B}_{1}} B_{1}\right) \times \left(\bigcup_{B_{2}\in \mathcal{B}_{2}} B_{2}\right)$, then there exist $B_{1}\in \mathcal{B}_{1}$ and $B_{2}\in \mathcal{B}_{2}$ such that $x_{1}\in B_{1}$ and $x_{2}\in B_{2}$. Therefore $\anglebracket{x_{1}, x_{2}}\in B_{1}\times B_{2}$, which means $\anglebracket{x_{1}, x_{2}} \in \bigcup_{\substack{B_{1}\in \mathcal{B}_{1} \\ B_{2}\in \mathcal{B}_{2}}} (B_{1}\times B_{2})$. Therefore
+	\[
+		\left(\bigcup_{B_{1}\in\mathcal{B}_{1}} B_{1}\right) \times \left(\bigcup_{B_{2}\in \mathcal{B}_{2}} B_{2}\right) \subseteq \bigcup_{\substack{B_{1}\in \mathcal{B}_{1} \\ B_{2}\in \mathcal{B}_{2}}} (B_{1}\times B_{2}).
+	\]
+
+	Hence
+	\[
+		X\times Y = \bigcup_{\substack{B_{1}\in \mathcal{B}_{1} \\ B_{2}\in \mathcal{B}_{2}}} (B_{1}\times B_{2}).
+	\]
+
+	Let $A_{1}\times A_{2}$ and $B_{1}\times B_{2}$ be two members of $\mathcal{B}$.
+	\[
+		(A_{1}\times A_{2})\cap (B_{1}\times B_{2}) = (A_{1}\cap B_{1})\times (A_{2}\cap B_{2}).
+	\]
+
+	Since $\mathcal{B}_{1}$ is a basis for a topology $\tau_{1}$ on a set $X$ and $\mathcal{B}_{2}$ is a basis for a topology on a set $Y$, then $A_{1}\cap B_{1}$ is a union of members of $\mathcal{B}_{1}$ and $A_{2}\cap B_{2}$ is a union of members of $\mathcal{B}_{2}$. So $(A_{1}\times A_{2})\cap (B_{1}\times B_{2})$ is a union of members of $\mathcal{B}$.
+
+	Thus, due to Proposition 2.2.8, $\mathcal{B}$ is a basis for a topology on $X\times Y$.
 \end{proof}
 \newpage
 
 % chapter 2/section 2/exercise 7
 \begin{exercise}
+	Using Exercise 3 above and Exercise 2.1 \#8, prove that every open subset of $\mathbb{R}$ is an $F_{\sigma}$-set and a $G_{\sigma}$-set.
 \end{exercise}
 
 \begin{proof}
+	Let $A$ be an open subset of $\mathbb{R}$. Then $A$ is the intersection of a countable number of open set, therefore $A$ is a $G_{\sigma}$-set.
+
+	If $A$ is the empty set, then $A$ is indeed an $F_{\sigma}$-set.
+
+	Since $A$ is an open subset of $\mathbb{R}$, then $A$ is a union of open intervals in $\mathbb{R}$. On the other hand, if two open intervals are not disjoint, then their union is an open interval. Therefore, $A$ is a union of disjoint open intervals.
+	\[
+		A = \bigcup_{i\in I} O_{i}
+	\]
+
+	where $O_{i}$ ($i\in I$) are disjoint open intervals. Due to the density of $\mathbb{Q}$ in $\mathbb{R}$, each $O_{i}$ contains a rational number $q_{i}$. Moreover, for every rational number $q_{i}$, $q_{i}\notin O_{j}$, where $i\ne j$ and $j\in I$. Hence there is a bijection from ${\{ q_{i} \}}_{i\in I}$ to ${\{ O_{i} \}}_{i\in I}$. On the other hand, ${\{ q_{i} \}}_{i\in I}$ is countable (a subset of $\mathbb{Q}$, which is countably infinite), so ${\{ O_{i} \}}_{i\in I}$ is countable.
+
+	According to Exercise 2.1 \#8, every open interval is an $F_{\sigma}$-set (union of a countable number of closed sets). Therefore, $A$ is an $F_{\sigma}$-set.
 \end{proof}
 \newpage
 
