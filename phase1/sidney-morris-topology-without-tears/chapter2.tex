@@ -639,3 +639,122 @@
 \newpage
 
 \section{Basis for a Given Topology}
+
+% chapter 2/section 3/exercise 1
+\begin{exercise}
+	Determine whether or not each of the following collections is a basis for the euclidean topology on $\mathbb{R}^{2}$:
+	\begin{enumerate}[label={(\roman*)}]
+		\item the collection of all ``open'' squares with sides parallel to the axes;
+		\item the collection of all ``open'' discs;
+		\item the collection of all ``open'' squares;
+		\item the collection of all ``open'' rectangles;
+		\item the collection of all ``open'' triangles.
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\begin{enumerate}[label={(\roman*)}]
+		\item Yes.
+		\item Yes.
+		\item Yes.
+		\item Yes.
+		\item Yes.
+	\end{enumerate}
+\end{proof}
+\newpage
+
+% chapter 2/section 3/exercise 2
+\begin{exercise}
+	\begin{enumerate}[label={(\roman*)}]
+		\item Let $\mathcal{B}$ be a basis for a topology $\tau$ on a non-empty set $X$. If $\mathcal{B}_{1}$ is a collection of subsets of $X$ such that $\tau\supseteq \mathcal{B}_{1} \supseteq \mathcal{B}$, prove that $\mathcal{B}_{1}$ is also a basis for $\tau$.
+		\item Deduce from (i) that there exist an uncountable number of distinct bases for the euclidean topology on $\mathbb{R}$.
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\begin{enumerate}[label={(\roman*)}]
+		\item Let $A$ be an open set in $(X, \tau)$. Therefore, $A$ is a union of open sets of $\mathcal{B}$. Since $\tau \supseteq \mathcal{B}_{1} \supseteq \mathcal{B}$, then $A$ is also a union of open sets of $\mathcal{B}_{1}$. Hence $\mathcal{B}_{1}$ is also a basis for $\tau$.
+		\item Let $\mathcal{B}$ be the collection of open intervals $(a, b)$ where $a$ and $b$ are rational numbers. Then $\mathcal{B}$ is a basis for the euclidean topology on $\mathbb{R}$.
+
+		      According to (i), for every positive real number $r$, $\mathcal{B} \cup \{ (0, r) \}$ is a basis for the euclidean topology on $\mathbb{R}$. Therefore, there exist an uncountable number of distinct bases for the euclidean topology on $\mathbb{R}$.
+	\end{enumerate}
+\end{proof}
+\newpage
+
+% chapter 2/section 3/exercise 3
+\begin{exercise}
+	Let $\mathcal{B} = \{ (a, b] \mid a, b\in\mathbb{R}, a < b \}$. As seen in Example 2.3.1, $\mathcal{B}$ is a basis for a topology $\tau$ on $\mathbb{R}$ and $\tau$ is $\boxed{\text{not}}$ the euclidean topology on $\mathbb{R}$. Nevertheless, show that each interval $(a, b)$ is open in $(\mathbb{R}, \tau)$.
+\end{exercise}
+
+\begin{proof}
+	For every positive integer $n$, let $I_{n} = \left( a, b - \frac{b-a}{n} \right]$. The supremum of the set of ${\left\{b - \frac{b-a}{n}\right\}}_{n\in\mathbb{Z}_{>0}}$ is $b$, but $b$ is not the maximum element of this set. On the other hand
+	\[
+		(a, b) = \bigcup_{n\in\mathbb{Z}_{>0}} I_{n} = \bigcup_{n\in\mathbb{Z}_{>0}} \left( a, b - \frac{b-a}{n} \right]
+	\]
+
+	Therefore each open interval $(a, b)$ is open in $(\mathbb{R}, \tau)$.
+\end{proof}
+\newpage
+
+% chapter 2/section 3/exercise 4
+\begin{exercise}
+	Let $C[0, 1]$ be the set of all continuous real-valued functions on $[0, 1]$.
+	\begin{enumerate}[label={(\roman*)}]
+		\item Show that the collection $\mathcal{M}$, where $\mathcal{M} = \{ M(f, \varepsilon) \mid f\in C[0, 1] \text{ and $\varepsilon$ is a positive real number} \}$ and $M(f, \varepsilon) = \{ g \mid g\in C[0, 1] \text{ and } \int^{1}_{0} \abs{f(x) - g(x)}dx < \varepsilon \}$, is a basis for a topology $\tau_{1}$ on $C[0, 1]$.
+		\item Show that the collection $\mathcal{U}$, where $\mathcal{U} = \{ U(f, \varepsilon) \mid  f\in C[0, 1] \text{ and $\varepsilon$ is a positive real number} \}$ and $U(f, \varepsilon) = \{ g \mid g\in C[0, 1] \text{ and $\sup_{x\in [0,1]}\abs{f(x) - g(x)} < \varepsilon$ } \}$, is a basis for a topology $\tau_{2}$ on $C[0, 1]$.
+		\item Prove that $\tau_{1}\ne \tau_{2}$.
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\begin{enumerate}[label={(\roman*)}]
+		\item Due to the definition of $\mathcal{M}$ and $M(f, \varepsilon)$, we conclude that $C[0, 1] \supseteq \bigcup_{M(f, \varepsilon)\in \mathcal{M}} M(f, \varepsilon)$.
+		      \[
+			      C[0, 1] = \bigcup_{f\in C[0, 1]} \{ f \} \subseteq \bigcup_{f\in C[0, 1]} M(f, 1) \subseteq \bigcup_{M(f, \varepsilon)\in \mathcal{M}} M(f, \varepsilon).
+		      \]
+
+		      So $C[0, 1] = \bigcup_{M(f, \varepsilon)\in \mathcal{M}} M(f, \varepsilon)$. On the other hand
+		      \begin{align*}
+			      M(f_{1}, \varepsilon_{1})\cap M(f_{2}, \varepsilon_{2}) & = \left\{ f \mid f\in C[0, 1] \text{ and } \int^{1}_{0}\abs{f(x) - f_{1}(x)}dx < \varepsilon_{1} \text{ and } \int^{1}_{0}\abs{f(x) - f_{2}(x)}dx < \varepsilon_{2} \right\}
+		      \end{align*}
+
+              If $M(f_{1}, \varepsilon_{1})\cap M(f_{2}, \varepsilon_{2})\ne \varnothing$, let $g$ be an element of it. Let
+              \[
+                \begin{split}
+                    d_{1} = \int^{1}_{0}\abs{g(x) - f_{1}(x)}dx, \\
+                    d_{2} = \int^{1}_{0}\abs{g(x) - f_{2}(x)}dx.
+                \end{split}
+              \]
+
+              Then $d_{1} < \varepsilon_{1}$ and $d_{2} < \varepsilon_{2}$, and $M(g, \varepsilon_{1} - d_{1})\subseteq M(f_{1}, \varepsilon_{1})$, $M(g, \varepsilon_{2} - d_{2})\subseteq M(f_{2}, \varepsilon_{2})$. Let $\varepsilon = \min\{ \varepsilon_{1} - d_{1}, \varepsilon_{1} - d_{2} \}$, then $M(g, \varepsilon_{1})\subseteq M(f_{1}, \varepsilon_{1})\cap M(f_{2}, \varepsilon_{2})$. This holds for any element $g$ in $M(f_{1}, \varepsilon_{1})\cap M(f_{2}, \varepsilon_{2})$.
+
+              So $M(f_{1}, \varepsilon_{1})\cap M(f_{2}, \varepsilon_{2})$ is a union of elements of $\mathcal{M}$.
+
+              Hence $\mathcal{M}$ is a basis for a topology on $C[0, 1]$.
+		\item Due to the definition of $\mathcal{U}$ and $U(f, \varepsilon)$, we conclude that $C[0, 1]\supseteq \bigcup_{U(f, \varepsilon)\in \mathcal{U}} U(f, \varepsilon)$.
+        \[
+            C[0, 1] = \bigcup_{f\in C[0, 1]} \{ f \} \subseteq \bigcup_{f\in C[0, 1]} U(f, 1) \subseteq \bigcup_{U(f, \varepsilon)\in \mathcal{U}} U(f, \varepsilon).
+        \]
+
+        So $C[0, 1] = \bigcup_{U(f, \varepsilon)\in \mathcal{U}} U(f, \varepsilon)$. On the other hand
+        \[
+            U(f_{1}, \varepsilon_{1})\cap U(f_{2}, \varepsilon_{2}) = \left\{ f \mid f\in C[0, 1] \text{ and } \sup_{x\in [0, 1]} \abs{f(x) - f_{1}(x)} < \varepsilon_{1} \text{ and } \sup_{x\in [0, 1]} \abs{f(x) - f_{2}(x)} < \varepsilon_{2} \right\}
+        \]
+
+        If $U(f_{1}, \varepsilon_{1})\cap U(f_{2}, \varepsilon_{2})\ne \varnothing$, let $g$ be an element of it. Let
+              \[
+                \begin{split}
+                    d_{1} = \sup_{x\in [0, 1]}\abs{g(x) - f_{1}(x)}dx, \\
+                    d_{2} = \sup_{x\in [0, 1]}\abs{g(x) - f_{2}(x)}dx.
+                \end{split}
+              \]
+
+              Then $d_{1} < \varepsilon_{1}$ and $d_{2} < \varepsilon_{2}$, and $U(g, \varepsilon_{1} - d_{1})\subseteq U(f_{1}, \varepsilon_{1})$, $U(g, \varepsilon_{2} - d_{2})\subseteq U(f_{2}, \varepsilon_{2})$. Let $\varepsilon = \min\{ \varepsilon_{1} - d_{1}, \varepsilon_{1} - d_{2} \}$, then $U(g, \varepsilon_{1})\subseteq U(f_{1}, \varepsilon_{1})\cap U(f_{2}, \varepsilon_{2})$. This holds for any element $g$ in $U(f_{1}, \varepsilon_{1})\cap U(f_{2}, \varepsilon_{2})$.
+
+              So $U(f_{1}, \varepsilon_{1})\cap U(f_{2}, \varepsilon_{2})$ is a union of elements of $\mathcal{U}$.
+
+              Hence $\mathcal{U}$ is a basis for a topology on $C[0, 1]$.
+		\item % pending
+	\end{enumerate}
+\end{proof}
+\newpage
