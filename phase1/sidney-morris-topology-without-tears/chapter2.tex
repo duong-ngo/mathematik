@@ -718,43 +718,154 @@
 			      M(f_{1}, \varepsilon_{1})\cap M(f_{2}, \varepsilon_{2}) & = \left\{ f \mid f\in C[0, 1] \text{ and } \int^{1}_{0}\abs{f(x) - f_{1}(x)}dx < \varepsilon_{1} \text{ and } \int^{1}_{0}\abs{f(x) - f_{2}(x)}dx < \varepsilon_{2} \right\}
 		      \end{align*}
 
-              If $M(f_{1}, \varepsilon_{1})\cap M(f_{2}, \varepsilon_{2})\ne \varnothing$, let $g$ be an element of it. Let
-              \[
-                \begin{split}
-                    d_{1} = \int^{1}_{0}\abs{g(x) - f_{1}(x)}dx, \\
-                    d_{2} = \int^{1}_{0}\abs{g(x) - f_{2}(x)}dx.
-                \end{split}
-              \]
+		      If $M(f_{1}, \varepsilon_{1})\cap M(f_{2}, \varepsilon_{2})\ne \varnothing$, let $g$ be an element of it. Let
+		      \[
+			      \begin{split}
+				      d_{1} = \int^{1}_{0}\abs{g(x) - f_{1}(x)}dx, \\
+				      d_{2} = \int^{1}_{0}\abs{g(x) - f_{2}(x)}dx.
+			      \end{split}
+		      \]
 
-              Then $d_{1} < \varepsilon_{1}$ and $d_{2} < \varepsilon_{2}$, and $M(g, \varepsilon_{1} - d_{1})\subseteq M(f_{1}, \varepsilon_{1})$, $M(g, \varepsilon_{2} - d_{2})\subseteq M(f_{2}, \varepsilon_{2})$. Let $\varepsilon = \min\{ \varepsilon_{1} - d_{1}, \varepsilon_{1} - d_{2} \}$, then $M(g, \varepsilon_{1})\subseteq M(f_{1}, \varepsilon_{1})\cap M(f_{2}, \varepsilon_{2})$. This holds for any element $g$ in $M(f_{1}, \varepsilon_{1})\cap M(f_{2}, \varepsilon_{2})$.
+		      Then $d_{1} < \varepsilon_{1}$ and $d_{2} < \varepsilon_{2}$, and $M(g, \varepsilon_{1} - d_{1})\subseteq M(f_{1}, \varepsilon_{1})$, $M(g, \varepsilon_{2} - d_{2})\subseteq M(f_{2}, \varepsilon_{2})$. Let $\varepsilon = \min\{ \varepsilon_{1} - d_{1}, \varepsilon_{1} - d_{2} \}$, then $M(g, \varepsilon_{1})\subseteq M(f_{1}, \varepsilon_{1})\cap M(f_{2}, \varepsilon_{2})$. This holds for any element $g$ in $M(f_{1}, \varepsilon_{1})\cap M(f_{2}, \varepsilon_{2})$.
 
-              So $M(f_{1}, \varepsilon_{1})\cap M(f_{2}, \varepsilon_{2})$ is a union of elements of $\mathcal{M}$.
+		      So $M(f_{1}, \varepsilon_{1})\cap M(f_{2}, \varepsilon_{2})$ is a union of elements of $\mathcal{M}$.
 
-              Hence $\mathcal{M}$ is a basis for a topology on $C[0, 1]$.
+		      Hence $\mathcal{M}$ is a basis for a topology on $C[0, 1]$.
 		\item Due to the definition of $\mathcal{U}$ and $U(f, \varepsilon)$, we conclude that $C[0, 1]\supseteq \bigcup_{U(f, \varepsilon)\in \mathcal{U}} U(f, \varepsilon)$.
-        \[
-            C[0, 1] = \bigcup_{f\in C[0, 1]} \{ f \} \subseteq \bigcup_{f\in C[0, 1]} U(f, 1) \subseteq \bigcup_{U(f, \varepsilon)\in \mathcal{U}} U(f, \varepsilon).
-        \]
+		      \[
+			      C[0, 1] = \bigcup_{f\in C[0, 1]} \{ f \} \subseteq \bigcup_{f\in C[0, 1]} U(f, 1) \subseteq \bigcup_{U(f, \varepsilon)\in \mathcal{U}} U(f, \varepsilon).
+		      \]
 
-        So $C[0, 1] = \bigcup_{U(f, \varepsilon)\in \mathcal{U}} U(f, \varepsilon)$. On the other hand
-        \[
-            U(f_{1}, \varepsilon_{1})\cap U(f_{2}, \varepsilon_{2}) = \left\{ f \mid f\in C[0, 1] \text{ and } \sup_{x\in [0, 1]} \abs{f(x) - f_{1}(x)} < \varepsilon_{1} \text{ and } \sup_{x\in [0, 1]} \abs{f(x) - f_{2}(x)} < \varepsilon_{2} \right\}
-        \]
+		      So $C[0, 1] = \bigcup_{U(f, \varepsilon)\in \mathcal{U}} U(f, \varepsilon)$. On the other hand
+		      \[
+			      U(f_{1}, \varepsilon_{1})\cap U(f_{2}, \varepsilon_{2}) = \left\{ f \mid f\in C[0, 1] \text{ and } \sup_{x\in [0, 1]} \abs{f(x) - f_{1}(x)} < \varepsilon_{1} \text{ and } \sup_{x\in [0, 1]} \abs{f(x) - f_{2}(x)} < \varepsilon_{2} \right\}
+		      \]
 
-        If $U(f_{1}, \varepsilon_{1})\cap U(f_{2}, \varepsilon_{2})\ne \varnothing$, let $g$ be an element of it. Let
-              \[
-                \begin{split}
-                    d_{1} = \sup_{x\in [0, 1]}\abs{g(x) - f_{1}(x)}dx, \\
-                    d_{2} = \sup_{x\in [0, 1]}\abs{g(x) - f_{2}(x)}dx.
-                \end{split}
-              \]
+		      If $U(f_{1}, \varepsilon_{1})\cap U(f_{2}, \varepsilon_{2})\ne \varnothing$, let $g$ be an element of it. Let
+		      \[
+			      \begin{split}
+				      d_{1} = \sup_{x\in [0, 1]}\abs{g(x) - f_{1}(x)}dx, \\
+				      d_{2} = \sup_{x\in [0, 1]}\abs{g(x) - f_{2}(x)}dx.
+			      \end{split}
+		      \]
 
-              Then $d_{1} < \varepsilon_{1}$ and $d_{2} < \varepsilon_{2}$, and $U(g, \varepsilon_{1} - d_{1})\subseteq U(f_{1}, \varepsilon_{1})$, $U(g, \varepsilon_{2} - d_{2})\subseteq U(f_{2}, \varepsilon_{2})$. Let $\varepsilon = \min\{ \varepsilon_{1} - d_{1}, \varepsilon_{1} - d_{2} \}$, then $U(g, \varepsilon_{1})\subseteq U(f_{1}, \varepsilon_{1})\cap U(f_{2}, \varepsilon_{2})$. This holds for any element $g$ in $U(f_{1}, \varepsilon_{1})\cap U(f_{2}, \varepsilon_{2})$.
+		      Then $d_{1} < \varepsilon_{1}$ and $d_{2} < \varepsilon_{2}$, and $U(g, \varepsilon_{1} - d_{1})\subseteq U(f_{1}, \varepsilon_{1})$, $U(g, \varepsilon_{2} - d_{2})\subseteq U(f_{2}, \varepsilon_{2})$. Let $\varepsilon = \min\{ \varepsilon_{1} - d_{1}, \varepsilon_{1} - d_{2} \}$, then $U(g, \varepsilon_{1})\subseteq U(f_{1}, \varepsilon_{1})\cap U(f_{2}, \varepsilon_{2})$. This holds for any element $g$ in $U(f_{1}, \varepsilon_{1})\cap U(f_{2}, \varepsilon_{2})$.
 
-              So $U(f_{1}, \varepsilon_{1})\cap U(f_{2}, \varepsilon_{2})$ is a union of elements of $\mathcal{U}$.
+		      So $U(f_{1}, \varepsilon_{1})\cap U(f_{2}, \varepsilon_{2})$ is a union of elements of $\mathcal{U}$.
 
-              Hence $\mathcal{U}$ is a basis for a topology on $C[0, 1]$.
+		      Hence $\mathcal{U}$ is a basis for a topology on $C[0, 1]$.
 		\item % pending
 	\end{enumerate}
+\end{proof}
+\newpage
+
+% chapter 2/section 3/exercise 5
+\begin{exercise}
+	Let $(X, \tau)$ be a topological space. A non-empty collection $\mathcal{S}$ of open subsets of $X$ is said to be a {\color{red}{subbasis}} for $\tau$ if the collection of all finite intersections of members of $\mathcal{S}$ forms a basis for $\tau$.
+	\begin{enumerate}[label={(\roman*)}]
+		\item Prove that the collection of all open intervals of the form $(a, \infty)$ or $(-\infty, b)$ is a subbasis for the euclidean topology on $\mathbb{R}$.
+		\item Prove that $\mathcal{S} = \{ \{ a \}, \{ a, c, d \}, \{ b, c, d, e, f \} \}$ is a subbasis for the topology $\tau_{1}$ of Example 1.1.2.
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\begin{enumerate}[label={(\roman*)}]
+		\item For every open interval $(a, b)$, $(a, b) = (a, \infty)\cap (-\infty, b)$. Hence the collection of all open intervals of the form $(a, \infty)$ or $(-\infty, b)$ is a subbasis for the euclidean topology on $\mathbb{R}$.
+		\item \begin{align*}
+			      \{ a \} \cap \{ a, c, d \}             & = \{ a \},            \\
+			      \{ a, c, d \} \cap \{ b, c, d, e, f \} & = \{ c, d \},         \\
+			      \{ b, c, d, e, f \}                    & = \{ b, c, d, e, f \}
+		      \end{align*}
+
+		      and $\{ \{ a \}, \{ c, d \}, \{ b, c, d, e, f \} \}$ is a basis for $\tau_{1}$. Therefore $\mathcal{S}$ is a subbasis for $\tau_{1}$.
+	\end{enumerate}
+\end{proof}
+\newpage
+
+% chapter 2/section 3/exercise 6
+\begin{exercise}
+	Let $\mathcal{S}$ be a subbasis for a topology $\tau$ on the set $\mathbb{R}$. (See Exercise 5 above.) If all of the closed intervals $[a, b]$, with $a < b$, are in $\mathcal{S}$, prove that $\tau$ is the discrete topology.
+\end{exercise}
+
+\begin{proof}
+	Let $a$ be a real number. $[a-1, a]$ and $[a, a+1]$ are in $\mathcal{S}$. Since $\mathcal{S}$ is a subbasis for $\tau$, then all finite intersections of members of $\mathcal{S}$ form a basis $\mathcal{B}$ for $\tau$. Therefore $[a-1, a]\cap [a, a+1] = \{ a \}$ is in $\mathcal{B}$, which means every singleton subset of $\mathbb{R}$ is in $\mathcal{B}$. Hence $\tau$ is the discrete topology.
+\end{proof}
+\newpage
+
+% chapter 2/section 3/exercise 7
+\begin{exercise}
+	Let $X$ be a set with at least two elements and $\mathcal{S}$ the collection of all sets $X\setminus \{x\}$, $x\in X$. Prove that $\mathcal{S}$ is a subbasis for the finite-closed topology on $X$.
+\end{exercise}
+
+\begin{proof}
+	Let $A$ be an open subset of $X$. In the finite-closed topology, $X\setminus A$ is finite --- $X\setminus A = \{ x_{1}, x_{2}, \ldots, x_{n} \}$. Due to the De Morgan's law
+	\begin{align*}
+		A & = X\setminus (X\setminus A)                                                              \\
+		  & = X\setminus \{ x_{1}, x_{2}, \ldots, x_{n} \}                                           \\
+		  & = (X\setminus\{x_{1}\})\cap (X\setminus\{x_{2}\})\cap \cdots \cap (X\setminus\{x_{n}\}).
+	\end{align*}
+
+	Hence $A$ is a finite intersection of members of $\mathcal{S}$. So $\mathcal{S}$ is a subbasis for the finite-closed topology on $X$.
+\end{proof}
+\newpage
+
+% chapter 2/section 3/exercise 8
+\begin{exercise}
+	Let $X$ be any infinite set and $\tau$ the discrete topology on $X$. Find a subbasis $\mathcal{S}$ for $\tau$ such that $\mathcal{S}$ does not contain any singleton sets.
+\end{exercise}
+
+\begin{proof}
+	My choice: $\mathcal{S}$ is the collection of all $2$-element subsets of $X$.
+\end{proof}
+\newpage
+
+% chapter 2/section 3/exercise 9
+\begin{exercise}
+	Let $\mathcal{S}$ be the collection of all straight lines in the plane $\mathbb{R}^{2}$. If $\mathcal{S}$ is a subbasis for a topology $\tau$ on the set $\mathbb{R}^{2}$, what is the topology?
+\end{exercise}
+
+\begin{proof}
+	Let $\mathcal{B}$ be the basis formed by the subbasis $\mathcal{S}$. Every point in $\mathbb{R}^{2}$ is an intersection of two straight line, so every point in $\mathbb{R}^{2}$ is also in $\mathcal{B}$. Therefore $\tau$ is the discrete topology.
+\end{proof}
+\newpage
+
+% chapter 2/section 3/exercise 10
+\begin{exercise}
+	Let $\mathcal{S}$ be the collection of all straight lines in the plane which are parallel to the $X$-axis. If $\mathcal{S}$ is a subbasis for a topology $\tau$ on $\mathbb{R}^{2}$, describe the open sets in $(\mathbb{R}^{2}, \tau)$.
+\end{exercise}
+
+\begin{proof}
+	The open sets in $(\mathbb{R}^{2}, \tau)$ are of the following form
+	\[
+		\{ \anglebracket{x, y}\in\mathbb{R}^{2} \mid y\in A\subseteq\mathbb{R} \}.
+	\]
+\end{proof}
+\newpage
+
+% chapter 2/section 3/exercise 11
+\begin{exercise}
+	Let $\mathcal{S}$ be the collection of all circles in the plane. If $\mathbb{S}$ is a subbasis for a topology $\tau$ on $\mathbb{R}^{2}$, describe the open sets in $(\mathbb{R}^{2}, \tau)$.
+\end{exercise}
+
+\begin{proof}
+	Let $\anglebracket{x_{0}, y_{0}}$ be a point in the plane. Two following circles are tangent at $\anglebracket{x_{0}, y_{0}}$
+	\[
+		\begin{split}
+			{(x - (x_{0} - 1))}^{2} + {(y - y_{0})}^{2} = 1, \\
+			{(x - (x_{0} + 1))}^{2} + {(y - y_{0})}^{2} = 1.
+		\end{split}
+	\]
+
+	Hence $\tau$ is the discrete topology.
+\end{proof}
+\newpage
+
+% chapter 2/section 3/exercise 12
+\begin{exercise}
+	Let $\mathcal{S}$ be the collection of all circles in the plane which have their centers on the $X$-axis. If $\mathcal{S}$ is a subbasis for a topology $\tau$ on $\mathbb{R}^{2}$, describe the open sets in $(\mathbb{R}^{2}, \tau)$.
+\end{exercise}
+
+\begin{proof}
+	Every open set in $(\mathbb{R}^{2}, \tau)$ has (at least) one axis of symmetry, which is the $X$-axis.
 \end{proof}
 \newpage
