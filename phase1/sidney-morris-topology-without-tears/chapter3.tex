@@ -2,13 +2,103 @@
 
 \section{Limit Points and Closure}
 
+% chapter 3/section 1/exercise 1
+\begin{exercise}
+    \begin{enumerate}[label={(\alph*)}]
+        \item In Example 3.1.2, find all the limit points of the following sets:
+              \begin{enumerate}[label={(\roman*)}]
+                  \item $\{a\}$,
+                  \item $\{b,c\}$,
+                  \item $\{a,c,d\}$,
+                  \item $\{b,d,e\}$.
+              \end{enumerate}
+        \item Hence, find the closure of each of the above sets.
+        \item Now find the closure of each of the above sets using the method of Example 3.1.11.
+    \end{enumerate}
+\end{exercise}
 
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item \begin{enumerate}[label={(\roman*)}]
+                  \item $\{a\}$ has no limit points.
+                  \item The limit points of $\{b,c\}$ are $b$, $d$, $e$.
+                  \item The limit points of $\{a,c,d\}$ are $b$, $c$, $d$, $e$.
+                  \item The limit points of $\{b,d,e\}$ are $b$, $c$, $e$.
+              \end{enumerate}
+        \item \begin{enumerate}[label={(\roman*)}]
+                  \item The closure of $\{a\}$ is $\{a\}$.
+                  \item The closure of $\{b,c\}$ is $\{b,c,d,e\}$.
+                  \item The closure of $\{a,c,d\}$ is $X$.
+                  \item The closure of $\{b,d,e\}$ is $\{b,c,d,e\}$.
+              \end{enumerate}
+        \item The closed sets of $(X, \tau)$ are $\varnothing$, $X$, $\{a\}$, $\{b,c,d,e\}$, $\{a,b,e\}$, $\{b,e\}$.
+
+              \begin{enumerate}[label={(\roman*)}]
+                  \item The closure of $\{a\}$ is $\{a\}$.
+                  \item The closure of $\{b,c\}$ is $\{b,c,d,e\}$.
+                  \item The closure of $\{a,c,d\}$ is $X$.
+                  \item The closure of $\{b,d,e\}$ is $\{b,c,d,e\}$.
+              \end{enumerate}
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter 3/section 1/exercise 2
+\begin{exercise}
+    Let $(\mathbb{Z}, \tau)$ be the set of integers with the finite-closed topology. List the set of limit points of the following sets:
+    \begin{enumerate}[label={(\roman*)}]
+        \item $A = \{1,2,3,\ldots,10\}$.
+        \item An infinite subset $E$ of $\mathbb{Z}$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\roman*)}]
+        \item Let $n\in\mathbb{Z}$. Let $S = \mathbb{Z} \setminus (A\cup \{n\})$, then $S$ is an open set of $(\mathbb{Z}, \tau)$ since the complement of $S$ is a finite set. On the other hand, $S\cap A = \varnothing$.
+
+              Thus $A$ does not have any limit points.
+        \item Let $n\in\mathbb{Z}$. If $S$ is an open set of $(\mathbb{Z}, \tau)$ containing $n$, then $\mathbb{Z}\setminus S$ is finite. Assume that $S\cap E$ has less than two elements, then the complement of $S$ is infinite (a superset of $E\setminus (S\cap E)$), which contradicts $S$ being an open set. Therefore $S\cap E$ has at least two elements, which means $S\cap E$ is not empty and $S\cap E$ contains at least one element other than $n$. So every open set containing $n$ intersects $E$ non-trivally.
+
+              Thus every integer is a limit point of $E$.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter 3/section 1/exercise 3
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter 3/section 1/exercise 4
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter 3/section 1/exercise 5
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter 3/section 1/exercise 6
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
 
 \section{Neighborhoods}
 
 
 
 \section{Connectedness}
-
-
 
