@@ -7,7 +7,6 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{amsthm}
-\usepackage{amscdx}
 \usepackage{mathtools}
 \usepackage{mathrsfs}
 \usepackage{cases}
@@ -54,6 +53,7 @@
 \newtheorem{lemma}[theorem]{Lemma}
 
 \newtheorem{exercise}{Exercise}
+\counterwithin{exercise}{section}
 \newenvironment{sqcases}{%
     \matrix@check\sqcases\env@sqcases
 }{%
@@ -71,8 +71,8 @@
 \newcommand{\anglebracket}[1]{\left\langle{#1}\right\rangle}
 \newcommand{\innerprod}[2]{\left\langle{#1}\vert{#2}\rangle}
 
-\title{Linear Algebra Done Right: Notes and Exercises}
-\author{Sheldon Axler}
+\title{Sheldon Axler's Linear Algebra Done Right: Notes and Exercises}
+\author{Ngo Quang Duong}
 \date{\today}
 
 \begin{document}
