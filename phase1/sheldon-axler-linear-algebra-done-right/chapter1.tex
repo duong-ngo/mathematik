@@ -445,3 +445,419 @@
 \end{proof}
 
 \section{Subspaces}
+
+% chapter 1/section C/exercise 1
+\begin{exercise}
+    For each of the following subsets of $\mathbb{F}^{3}$, determine whether it is a subspace of $\mathbb{F}^{3}$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item $\{ (x_{1}, x_{2}, x_{3})\in \mathbb{F}^{3}: x_{1} + 2x_{2} + 3x_{3} = 0 \}$
+        \item $\{ (x_{1}, x_{2}, x_{3})\in \mathbb{F}^{3}: x_{1} + 2x_{2} + 3x_{3} = 4 \}$
+        \item $\{ (x_{1}, x_{2}, x_{3})\in \mathbb{F}^{3}: x_{1}x_{2}x_{3} = 0 \}$
+        \item $\{ (x_{1}, x_{2}, x_{3})\in \mathbb{F}^{3}: x_{1} = 5x_{3} \}$
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Yes. This is a subspace of $\mathbb{F}^{3}$.
+        \item No. This is not a subspace of $\mathbb{F}^{3}$.
+
+              Because $(4, 0, 0)$ is an element of the subset but $(8, 0, 0) = 2(4, 0, 0)$ is not.
+        \item No. This is not a subspace of $\mathbb{F}^{3}$.
+
+              Because $(1, 1, 0)$ and $(0, 0, 1)$ are elements of the subset, but $(1, 1, 1) = (1, 1, 0) + (0, 0, 1)$ is not.
+        \item Yes. This is a subspace of $\mathbb{F}^{3}$.
+    \end{enumerate}
+\end{proof}
+
+% chapter 1/section C/exercise 2
+\begin{exercise}
+    Verify all assertions about subspaces in Example 1.35.
+    \begin{enumerate}[label={(\alph*)}]
+        \item If $b\in\mathbb{F}$, then
+              \[
+                  \{ (x_{1}, x_{2}, x_{3}, x_{4})\in \mathbb{F}^{4}: x_{3} = 5x_{4} + b \}
+              \]
+
+              is a subspace of $\mathbb{F}^{4}$ if and only if $b = 0$.
+        \item The set of continuous real-valued functions on the interval $[0, 1]$ is a subspace of $\mathbb{R}^{[0,1]}$.
+        \item The set of differentiable real-valued functions on $\mathbb{R}$ is a subspace of $\mathbb{R}^{\mathbb{R}}$.
+        \item The set of differentiable real-valued functions $f$ on the interval $(0, 3)$ such that $f'(2) = b$ is a subspace of $\mathbb{R}^{(0, 3)}$ if and only if $b = 0$.
+        \item The set of all sequences of complex numbers with limit $0$ is a subspace of $\mathbb{C}^{\infty}$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item If $b = 0$.
+
+              $(0, 0, 0, 0)$ is in the subset. If $x$ and $y$ are in the subset, then so is $x + y$, because $x_{3} + y_{3} = 5x_{4} + 5y_{4} = 5(x_{4} + y_{4})$. If $x$ is in the subset, then so is $ax$ for every $a\in\mathbb{F}$, since $ax_{3} = 4ax_{4}$. So the subset is a subspace of $\mathbb{F}^{4}$.
+
+              If the subset is a subspace of $\mathbb{F}^{4}$, then $(0, 0, 0, 0)$ is in the subset, then $0 = 5\cdot 0 + b$, so $b = 0$.
+        \item The zero function $0: [0, 1]\to \mathbb{R}$ where $0(x) = 0$ for every $x\in [0, 1]$ is in the subset.
+
+              If $f, g$ are continuous real-valued functions on $[0, 1]$ then so is $f + g$ and $\lambda\cdot f$ (for every real number $\lambda$).
+
+              So the subset is a subspace of $\mathbb{R}^{[0,1]}$.
+        \item The zero function $0: \mathbb{R}\to \mathbb{R}$ where $0(x) = 0$ for every $x\in \mathbb{R}$ is in the subset.
+
+              If $f, g$ are differentiable real-valued functions on $\mathbb{R}$ then so is $f + g$ and $\lambda\cdot f$ (for every real number $\lambda$).
+
+              So the subset is a subspace of $\mathbb{R}^{\mathbb{R}}$.
+        \item If $b = 0$.
+
+              The zero function $0: (0, 3)\to \mathbb{R}$ where $0(x) = 0$ for every $x\in (0, 3)$ is in the subset. If $f, g$ are differentiable real-valued functions on $(0, 3)$ such that $f'(2) = g'(2) = 0$ then so is $f + g$ and $\lambda\cdot f$ (for every real number $\lambda$) because $(f + g)'(2) = f'(2) + g'(2) = 0$ and $(\lambda\cdot f)'(2) = \lambda \cdot f'(2) = 0$. So the subset is a subspace of $\mathbb{R}^{(0, 3)}$.
+
+              If the subset is a subspace of $\mathbb{R}^{(0, 3)}$ then the zero function $0: (0, 3)\to \mathbb{R}$ where $0(x) = 0$ for every $x\in (0, 3)$ is in the set. Therefore $b = 0'(2) = 0$.
+        \item The constant sequence ${\left\{0\right\}}^{\infty}_{n=1}$ is in the subset.
+
+              If two sequences of complex numbers ${\left\{a_{n}\right\}}^{\infty}_{n=1}$, ${\left\{b_{n}\right\}}^{\infty}_{n=1}$ have limit $0$ then so is  ${\left\{a_{n} + b_{n}\right\}}^{\infty}_{n=1}$ and  ${\left\{k a_{n}\right\}}^{\infty}_{n=1}$ (for every $k\in\mathbb{C}$).
+
+              Hence the set of all sequences of complex numbers with limit $0$ is a subspace of $\mathbb{C}^{\infty}$.
+    \end{enumerate}
+\end{proof}
+
+% chapter 1/section C/exercise 3
+\begin{exercise}
+    Show that the set of differentiable real-valued functions $f$ on the interval $(-4, 4)$ such that $f'(-1) = 3f(2)$ is a subspace of $\mathbb{R}^{(-4, 4)}$.
+\end{exercise}
+
+\begin{proof}
+    The zero function $0: (-4, 4)\to \mathbb{R}$ where $0(x) = 0$ for every $x\in (-4, 4)$ is in the set.
+
+    If $f, g$ are in the set, then $(f + g)'(-1) = f'(-1) + g'(-1) = 3f(2) + 3g(2) = 3 (f + g)(2)$, and $(\lambda\cdot f)'(-1) = \lambda\cdot f'(-1) = \lambda\cdot 3 f(2) = 3 (\lambda\cdot f)(2)$, which means $f + g$ and $\lambda\cdot f$ (for every $\lambda\in\mathbb{R}$) are also in the set.
+
+    Hence the set of differentiable real-valued functions $f$ on the interval $(-4, 4)$ such that $f'(-1) = 3f(2)$ is a subspace of $\mathbb{R}^{(-4, 4)}$.
+\end{proof}
+
+% chapter 1/section C/exercise 4
+\begin{exercise}
+    Suppose $b\in\mathbb{R}$. Show that the set of continuous real-valued functions $f$ on the interval $[0, 1]$ such that $\int^{1}_{0} f = b$ is a subspace of $\mathbb{R}^{[0,1]}$ if and only if $b = 0$.
+\end{exercise}
+
+\begin{proof}
+    If $b = 0$.
+
+    The zero function $0: [0, 1]\to \mathbb{R}$ where $0(x) = 0$ for every $x\in [0, 1]$ is in the set. If $f, g$ are in the set, then
+    \begin{align*}
+        \int^{1}_{0}(f + g)(x)dx          & = \int^{1}_{0}(f(x) + g(x))dx = \int^{1}_{0}f(x)dx + \int^{1}_{0}g(x)dx = 0 + 0 = 0, \\
+        \int^{1}_{0}(\lambda\cdot f)(x)dx & = \int^{1}_{0}\lambda\cdot f(x)dx = \lambda\int^{1}_{0}f(x)dx = 0.
+    \end{align*}
+
+    for every $\lambda \in \mathbb{R}$. So the set is a subspace of $\mathbb{R}^{[0, 1]}$.
+
+    If the set is a subspace of $\mathbb{R}^{[0, 1]}$.
+\end{proof}
+
+% chapter 1/section C/exercise 5
+\begin{exercise}
+    Is $\mathbb{R}^{2}$ a subspace of the complex vector space $\mathbb{C}^{2}$?
+\end{exercise}
+
+\begin{proof}
+    If the two vector spaces are over the field of real numbers, then yes.
+
+    If the two vector spaces are over the field of complex numbers, then no, because $\mathbb{R}^{2}$ will not be closed under scalar multiplication.
+\end{proof}
+
+% chapter 1/section C/exercise 6
+\begin{exercise}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Is $\{ (a, b, c)\in\mathbb{R}^{3}: a^{3} = b^{3} \}$ a subspace of $\mathbb{R}^{3}$?
+        \item Is $\{ (a, b, c)\in\mathbb{C}^{3}: a^{3} = b^{3} \}$ a subspace of $\mathbb{C}^{3}$?
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Yes. In $\mathbb{R}$, $a^{3} = b^{3}$ is equivalent to $a = b$. So the given subset is a subspace of $\mathbb{R}^{3}$.
+        \item No. $(1, 1, 0)$ and $(e^{2\pi\iota/3}, 1, 0)$ are in the given subset, but $(1 + e^{2\pi\iota/3}, 2, 0)$ is not.
+    \end{enumerate}
+\end{proof}
+
+% chapter 1/section C/exercise 7
+\begin{exercise}
+    Prove or give a counterexample: If $U$ is a nonempty subset of $\mathbb{R}^{2}$ such that $U$ is closed under addition and under taking additive inverses (meaning $-u\in U$ whenever $u\in U$), then $U$ is a subspace of $\mathbb{R}^{2}$.
+\end{exercise}
+
+\begin{proof}
+    No. Here is a counterexample.
+    \[
+        U = \mathbb{Q}^{2}
+    \]
+
+    This nonempty subset of $\mathbb{R}^{2}$ is closed under addition and additive inversion, but is not closed under scalar multiplication. $(1, 0)\in U$, but $\sqrt{2}(1, 0)\notin U$.
+\end{proof}
+
+% chapter 1/section C/exercise 8
+\begin{exercise}
+    Give an example of a nonempty subset $U$ of $\mathbb{R}^{2}$ such that $U$ is closed under scalar multiplication, but $U$ is not a subspace of $\mathbb{R}^{2}$.
+\end{exercise}
+
+\begin{proof}
+    \[
+        U = \{ (x, 0): x\in\mathbb{R} \} \cup \{ (0, x): x\in\mathbb{R} \}
+    \]
+
+    is a nonempty subset of $\mathbb{R}^{2}$ but is not closed under addition. So this subset $U$ is not a subspace of $\mathbb{R}^{2}$.
+\end{proof}
+
+% chapter 1/section C/exercise 9
+\begin{exercise}
+    A function $f: \mathbb{R}\to\mathbb{R}$ is called periodic if there exists a positive number $p$ such that $f(x) = f(x + p)$ for all $x\in\mathbb{R}$. Is the set of periodic functions from $\mathbb{R}$ to $\mathbb{R}$ a subspace of $\mathbb{R}^{\mathbb{R}}$? Explain.
+\end{exercise}
+
+\begin{proof}
+    No.
+
+    The set is not closed under addition. Because
+    \[
+        f+g: x\mapsto \underbrace{x - \left\lfloor x\right\rfloor}_{f(x)} + \underbrace{\frac{1}{10}\sin(x)}_{g(x)}
+    \]
+
+    is not periodic.
+\end{proof}
+
+% chapter 1/section C/exercise 10
+\begin{exercise}
+    Suppose $V_{1}$ and $V_{2}$ are subspaces of $V$. Prove that the intersection $V_{1}\cap V_{2}$ is a subspace of $V$.
+\end{exercise}
+
+\begin{proof}
+    Since $V_{1}$ and $V_{2}$ are subspaces of $V$, then the additive identity of $V$ is in $V_{1}$ and $V_{2}$, therefore the additive identity is also in $V_{1}\cap V_{2}$. So $V_{1}\cap V_{2}$ is nonempty. $V_{1}\cap V_{2}$ is closed under addition and scalar multiplication because $V_{1}$ and $V_{2}$ are closed under addition and scalar multiplication. Hence $V_{1}\cap V_{2}$ is a subspace of $V$.
+\end{proof}
+
+% chapter 1/section C/exercise 11
+\begin{exercise}
+    Prove that the intersection of every collection of subspaces of $V$ is a subspace of $V$.
+\end{exercise}
+
+\begin{proof}
+    Let ${\{V_{i}\}}_{i\in I}$ where $I\ne\varnothing$ is a collection of subspaces of $V$.
+
+    Since for all $i\in I$, the additive identity is in $V_{i}$, then the additive identity is in $\bigcap_{i\in I} V_{i}$.
+
+    If $v, w$ are in $\bigcap_{i\in I}V_{i}$, then $v, w$ are in $V_{i}$ for all $i\in I$. So $v + w$ is in $V_{i}$ for all $i\in I$. So $v+w\in \bigcap_{i\in I}V_{i}$. Therefore $\bigcap_{i\in I}V_{i}$ is closed under addition.
+
+    If $v$ is in $\bigcap_{i\in I}V_{i}$, then $v$ is in $V_{i}$ for all $i\in I$. So $\lambda\cdot v$ is in $V_{i}$ for all $i\in I$ and for all $\lambda\in\mathbb{F}$. So $\lambda\cdot v\in \bigcap_{i\in I}V_{i}$ for all $\lambda\in\mathbb{F}$. Therefore $\bigcap_{i\in I}V_{i}$ is closed under scalar multiplication.
+
+    Thus $\bigcap_{i\in I} V_{i}$ is a subspace of $V$.
+\end{proof}
+
+% chapter 1/section C/exercise 12
+\begin{exercise}
+    Prove that the union of two subspaces of $V$ is a subspace of $V$ if and only if one of the subspaces is contained in the other.
+\end{exercise}
+
+\begin{proof}
+    Let $V_{1}$ and $V_{2}$ be two subspaces of $V$.
+
+    If $V_{1}\subseteq V_{2}$ or $V_{2}\subseteq V_{1}$ then $V_{1}\cup V_{2}$ is also a subspace of $V$.
+
+    Suppose that $V_{1}$ and $V_{2}$ satisfy: $V_{1}\cup V_{2}$ is a subspace of $V$. Since $V_{1} + V_{2}$ is the smallest subspace containing $V_{1}, V_{2}$ and $V_{1}\cup V_{2}$ is the smallest set containing $V_{1}, V_{2}$. Together with $V_{1}\cup V_{2}$ being a subspace of $V$, we deduce that $V_{1}\cup V_{2} = V_{1} + V_{2}$.
+
+    Assume that none of the two subspaces contains the other, then there exists $v_{1}\in V_{1}, v_{1}\notin V_{2}$ and $v_{2}\in V_{2}, v_{2}\notin V_{1}$. So $v_{1} + v_{2}$ is not in $V_{1}$ or $V_{2}$ (because $(-v_{1}) + v_{1} + v_{2}\notin V_{1}$ and $v_{1} + v_{2} + (-v_{2})\notin V_{2}$). Hence $v_{1} + v_{2}\notin V_{1}\cup V_{2}$, which contradicts $V_{1}\cup V_{2} = V_{1} + V_{2}$. Therefore $V_{1}\subseteq V_{2}$ or $V_{2}\subseteq V_{1}$.
+\end{proof}
+
+% chapter 1/section C/exercise 13
+\begin{exercise}
+    Prove that the union of three subspaces of $V$ is a subspace of $V$ if and only if one of the subspaces contains the other two. ($V$ is a vector space over a field with characteristic other than two.)
+\end{exercise}
+
+\begin{proof}
+    Let $V_{1}, V_{2}, V_{3}$ be three subspaces of $V$.
+
+    If one of these three subspaces contains the other two, then their union is also a subspace of $V$.
+
+    Suppose that the three subspaces satisfy: $V_{1}\cup V_{2}\cap V_{3}$ is a subspace of $V$. Since $V_{1} + V_{2} + V_{3}$ is the smallest subspace containing $V_{1}, V_{2}, V_{3}$ and $V_{1}\cup V_{2}\cup V_{3}$ is the smallest set containing $V_{1}, V_{2}, V_{3}$. Together with $V_{1}\cup V_{2}\cup V_{3}$ being a subspace of $V$, we deduce that $V_{1}\cup V_{2}\cup V_{3} = V_{1} + V_{2} + V_{3}$.
+
+    If $V_{1}$ does not contain $V_{2}$ and $V_{2}$ does not contain $V_{1}$, then there exist $v_{1.2}\in V_{1}$, $v_{1.2}\notin V_{2}$, $v_{2.1}\in V_{2}$, $v_{2,1}\notin V_{1}$.
+
+    Let $a, b$ be a nonzero scalar such that $a - b = 1$, then $av_{1.2} + v_{2.1}\notin V_{1}\cup V_{2}$. On the other hand, $av_{1.2} + v_{2.1}\in V_{1} + V_{2}\subseteq V_{1} + V_{2} + V_{3} = V_{1}\cup V_{2}\cup V_{3}$. So $av_{1.2} + v_{2.1}\in V_{3}$. Similarly, $bv_{1.2} + v_{2.1}\in V_{3}$. Then $v_{1.2} = (a - b)v_{1.2} = av_{1.2} + v_{2.1} - (bv_{1.2} + v_{2.1})\in V_{3}$. Therefore $V_{1}\setminus V_{2}\subseteq V_{3}$. Analogously, $V_{2}\setminus V_{1}\subseteq V_{3}$.
+
+    Let $u$ be an element of $V_{1}\cap V_{2}$, $w$ be an element of $V_{1}\setminus V_{2}\subseteq V_{3}$. Then $u + w\notin V_{2}$ and $u + w\in V_{1}$. So $u + w\in V_{1}\setminus V_{2}\subseteq V_{3}$. Therefore $(u + w) + (-w)\in V_{3}$, and $u\in V_{3}$ for every $u\in V_{1}\cap V_{2}$. So $V_{1}\cap V_{2}\subseteq V_{3}$.
+
+    Hence $V_{1} = (V_{1}\setminus V_{2})\cup (V_{1}\cap V_{2})\subseteq V_{3}$ and $V_{2} = (V_{2}\setminus V_{1})\cup (V_{1}\cap V_{2})\subseteq V_{3}$.
+
+    Otherwise, $V_{1}\subseteq V_{2}$ or $V_{2}\subseteq V_{1}$. By applying Exercise 1.C.12, we obtain the desire result.
+\end{proof}
+
+% chapter 1/section C/exercise 14
+\begin{exercise}
+    Suppose
+    \[
+        U = \{ (x, -x, 2x)\in \mathbb{F}^{3}: x\in\mathbb{F} \}\text{ and } W = \{ (x, x, 2x)\in \mathbb{F}^{3}: x\in\mathbb{F} \}
+    \]
+
+    Describe $U + W$ using symbols, and also give a description of $U + W$ that uses no symbols.
+\end{exercise}
+
+\begin{proof}
+    \begin{align*}
+        U + W & = \{ (x, -x, 2x) + (y, y, 2y)\in \mathbb{F}^{3}: x, y\in\mathbb{F} \} \\
+              & = \{ (x+y, -x+y, 2(x+y))\in \mathbb{F}^{3}: x, y\in\mathbb{F} \}      \\
+              & = \{ (x, y, 2x)\in\mathbb{F}^{3}: x, y\in\mathbb{F} \}
+    \end{align*}
+
+    $U + W$ is a subspace of $\mathbb{F}^{3}$ where for every $v\in U + W$, the 3rd component of $v$ is twice the 1st component of $v$.
+\end{proof}
+
+% chapter 1/section C/exercise 15
+\begin{exercise}
+    Suppose $U$ is a subspace of $V$. What is $U + U$?
+\end{exercise}
+
+\begin{proof}
+    $U + U$ is $U$.
+\end{proof}
+
+% chapter 1/section C/exercise 16
+\begin{exercise}
+    Is the operation of addition on the subspaces of $V$ commutative? In other words, if $U$ and $W$ are subspaces of $V$, is $U + W = W + U$?
+\end{exercise}
+
+\begin{proof}
+    Yes. Because addition in a vector space is commutative, then every element of $U + W$ is an element of $W + U$ and vice versa.
+\end{proof}
+
+% chapter 1/section C/exercise 17
+\begin{exercise}
+    Is the operation of addition on the subspaces of $V$ associative? In other words, if $V_{1}$, $V_{2}$, $V_{3}$ are subspaces of $V$, is
+    \[
+        (V_{1} + V_{2}) + V_{3} = V_{1} + (V_{2} + V_{3})?
+    \]
+\end{exercise}
+
+\begin{proof}
+    Yes. Because addition in a vector space is associative, then every element of $(V_{1} + V_{2}) + V_{3}$ is an element of $V_{1} + (V_{2} + V_{3})$ and vice versa.
+\end{proof}
+
+% chapter 1/section C/exercise 18
+\begin{exercise}
+    Does the operation of addition on the subspaces of $V$ have an additive identity? Which subspaces have additive inverses?
+\end{exercise}
+
+\begin{proof}
+    Yes, the operation of addition on the subspaces of $V$ have an additive identity. Such an additive identity is the zero subspace, which contains the zero vector only.
+
+    Only the zero subspace has additive inverse, because the sum of a nonzero subspace $W$ with any subspace is never the zero subspace (since the sum contains $W$).
+\end{proof}
+
+% chapter 1/section C/exercise 19
+\begin{exercise}
+    Prove or give a counterexample: If $V_{1}, V_{2}, U$ are subspaces of $V$ such that
+    \[
+        V_{1} + U = V_{2} + U,
+    \]
+
+    then $V_{1} = V_{2}$.
+\end{exercise}
+
+\begin{proof}
+    I give a counterexample.
+
+    Let $V = \mathbb{F}^{2}$, $U = \{ (x, 0)\in \mathbb{F}^{2}: x\in\mathbb{F} \}$, $V_{1} = \{ (0, x)\in \mathbb{F}^{2}: x\in\mathbb{F} \}$, $V_{2} = \{ (x, y)\in \mathbb{F}^{2}: x\in\mathbb{F} \}$.
+
+    $V_{1} + U = V$ and $V_{2} + U = V$, but $V_{1}\ne V_{2}$.
+\end{proof}
+
+% chapter 1/section C/exercise 20
+\begin{exercise}
+    Suppose
+    \[
+        U = \{ (x, x, y, y)\in\mathbb{F}^{4}: x, y\in\mathbb{F} \}.
+    \]
+
+    Find a subspace $W$ of $\mathbb{F}^{4}$ such that $\mathbb{F}^{4} = U\oplus W$.
+\end{exercise}
+
+\begin{proof}
+    \[
+        (x_{1}, x_{2}, x_{3}, x_{4}) = (x_{2}, x_{2}, x_{4}, x_{4}) + (x_{1} - x_{2}, 0, x_{3} - x_{4}, 0)
+    \]
+
+    Let $W = \{ (x, 0, y, 0)\in\mathbb{F}^{4}: x, y\in\mathbb{F} \}$ then $\mathbb{F}^{4} = U\oplus W$.
+\end{proof}
+
+% chapter 1/section C/exercise 21
+\begin{exercise}
+    Suppose
+    \[
+        U = \{ (x, y, x+y, x-y, 2x)\in\mathbb{F}^{5}: x, y\in\mathbb{F} \}.
+    \]
+
+    Find a subspace $W$ of $\mathbb{F}^{5}$ such that $\mathbb{F}^{5} = U\oplus W$.
+\end{exercise}
+
+\begin{proof}
+    \[
+        (x_{1}, x_{2}, x_{3}, x_{4}, x_{5}) = (x_{1}, x_{2}, x_{1} + x_{2}, x_{1} - x_{2}, 2x_{1}) + (0, 0, x_{3} - x_{1} - x_{2}, x_{4} - x_{1} + x_{2}, x_{5} - 2x_{1})
+    \]
+
+    Let $W = \{ (0, 0, x, y, z)\in\mathbb{F}^{5}: x, y, z\in\mathbb{F} \}$, then $U + W = \mathbb{F}^{5}$ and $U\cap W = \{ (0, 0, 0, 0, 0) \}$. Hence $\mathbb{F}^{5} = U\oplus W$.
+\end{proof}
+
+% chapter 1/section C/exercise 22
+\begin{exercise}
+    Suppose
+    \[
+        U = \{ (x, y, x+y, x-y, 2x)\in\mathbb{F}^{5}: x, y\in\mathbb{F} \}.
+    \]
+
+    Find three subspaces $W_{1}, W_{2}, W_{3}$ of $\mathbb{F}^{5}$, none of which equals $\{0\}$, such that $\mathbb{F}^{5} = U\oplus W_{1}\oplus W_{2}\oplus W_{3}$.
+\end{exercise}
+
+\begin{proof}
+    Let $W_{1} = \{ (0, 0, x, 0, 0)\in\mathbb{F}^{5}: x\in\mathbb{F} \}$, $W_{2} = \{ (0, 0, 0, x, 0)\in\mathbb{F}^{5}: x\in\mathbb{F} \}$, $W_{3} = \{ (0, 0, 0, x, 0)\in\mathbb{F}^{5}: x\in\mathbb{F} \}$, then $\mathbb{F}^{5} = U\oplus W_{1}\oplus W_{2}\oplus W_{3}$.
+\end{proof}
+
+% chapter 1/section C/exercise 23
+\begin{exercise}
+    Prove or give a counterexample: If $V_{1}$, $V_{2}$, $U$ are subspaces of $V$ such that
+    \[
+        V = V_{1}\oplus U\text{ and } V = V_{2}\oplus U,
+    \]
+
+    then $V_{1} = V_{2}$.
+\end{exercise}
+
+\begin{proof}
+    I give a counterexample.
+
+    Let $V = \mathbb{F}^{2}$, $U = \{ (x, 0)\in \mathbb{F}^{2}: x\in\mathbb{F} \}$, $V_{1} = \{ (0, x)\in \mathbb{F}^{2}: x\in\mathbb{F} \}$, $V_{2} = \{ (x, x)\in \mathbb{F}^{2}: x\in\mathbb{F} \}$.
+
+    $V_{1} \oplus U = V$ and $V_{2} \oplus U = V$, but $V_{1}\ne V_{2}$.
+\end{proof}
+
+% chapter 1/section C/exercise 24
+\begin{exercise}
+    A function $f: \mathbb{R}\to \mathbb{R}$ is called \textit{even} if
+    \[
+        f(-x) = f(x)
+    \]
+
+    for all $x\in\mathbb{R}$. A function $f: \mathbb{R}\to \mathbb{R}$ is called \textit{odd} if
+    \[
+        f(-x) = -f(x)
+    \]
+
+    for all $x\in\mathbb{R}$. Let $V_{e}$ denote the set of real-valued even functions on $\mathbb{R}$ and let $V_{o}$ denote the set of real-valued odd functions on $\mathbb{R}$. Show that $\mathbb{R}^{\mathbb{R}} = V_{e}\oplus V_{o}$.
+\end{exercise}
+
+\begin{proof}
+    Let $f$ be a real-valued functions on $\mathbb{R}$. For all $x\in\mathbb{R}$,
+    \[
+        f(x) = \frac{1}{2}(f(x) + f(-x)) + \frac{1}{2}(f(x) - f(-x))
+    \]
+
+    Let $f_{e}(x) = \frac{1}{2}(f(x) + f(-x))$ and $f_{o}(x) = \frac{1}{2}(f(x) - f(-x))$. Since
+    \[
+        f_{e}(-x) = \frac{1}{2}(f(-x) + f(x)) = f_{e}(x)\qquad f_{o}(-x) = \frac{1}{2}(f(-x) - f(x)) = -f_{o}(x)
+    \]
+
+    then $f_{e}\in V_{e}$ and $f_{o}\in V_{o}$. So $\mathbb{R}^{\mathbb{R}} = V_{e} + V_{o}$.
+
+    Let $g$ be an even and odd function, then $g(-x) = g(x) = -g(x)$ for all $x\in\mathbb{R}$, which implies that $g(x) = 0$ for all $x\in\mathbb{R}$. Equivalently, $g$ is the zero function. Therefore $V_{e}\cap V_{o} = \{ 0 \}$.
+
+    Thus $\mathbb{R}^{\mathbb{R}} = V_{e}\oplus V_{o}$.
+\end{proof}
