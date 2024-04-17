@@ -2,7 +2,981 @@
 
 \section{Span and Linear Independence}
 
+% chapter2:sectionA:exercise1
+\begin{exercise}
+    Find a list of four distinct vectors in $\mathbb{F}^{3}$ whose span equals
+    \[
+        \{ (x, y, z)\in \mathbb{F}^{3}: x + y + z = 0 \}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    \begin{align*}
+        (x, y, -x-y) & = (x, 0, -x) + (0, y, -y)                                     \\
+                     & = x(1, 0, -1) + y(0, 1, -1)                                   \\
+                     & = x(2, 0, -2) + (-x)(1, 0, -1) + y(0, 2, -2) + (-y)(0, 1, -1)
+    \end{align*}
+
+    The list $(2, 0, -2), (1, 0, -1), (0, 2, -2), (0, 1, -1)$ spans $\{ (x, y, z)\in\mathbb{F}^{3}: x + y + z = 0 \}$.
+\end{proof}
+
+% chapter2:sectionA:exercise2
+\begin{exercise}
+    Prove or give a counterexample: If $v_{1}, v_{2}, v_{3}, v_{4}$ spans $V$, then the list
+    \[
+        v_{1} - v_{2}, v_{2} - v_{3}, v_{3} - v_{4}, v_{4}
+    \]
+
+    also spans $V$.
+\end{exercise}
+
+\begin{proof}
+    Let $v$ be a vector of $V$. Since $v_{1}, v_{2}, v_{3}, v_{4}$ spans $V$, then $v$ is a linear combination of $v_{1}, v_{2}, v_{3}, v_{4}$. So there exist scalars $a_{1}, a_{2}, a_{3}, a_{4}$ such that $v = a_{1}v_{1} + a_{2}v_{2} + a_{3}v_{3} + a_{4}v_{4}$.
+    \begin{align*}
+        a_{1}v_{1} + a_{2}v_{2} + a_{3}v_{3} + a_{4}v_{4} & = a_{1}(v_{1} - v_{2}) + (a_{1} + a_{2})v_{2} + a_{3}v_{3} + a_{4}v_{4}                                                                  \\
+                                                          & = a_{1}(v_{1} - v_{2}) + (a_{1} + a_{2})(v_{2} - v_{3}) + (a_{1} + a_{2} + a_{3})v_{3} + a_{4}v_{4}                                      \\
+                                                          & = a_{1}(v_{1} - v_{2}) + (a_{1} + a_{2})(v_{2} - v_{3}) + (a_{1} + a_{2} + a_{3})(v_{3} - v_{4}) + (a_{1} + a_{2} + a_{3} + a_{4})v_{4}.
+    \end{align*}
+
+    Let's consider an arbitrary linear combination of $v_{1} - v_{2}, v_{2} - v_{3}, v_{3} - v_{4}, v_{4}$
+    \begin{align*}
+        b_{1}(v_{1} - v_{2}) + b_{2}(v_{2} - v_{3}) + b_{3}(v_{3} - v_{4}) + b_{4}v_{4} & = b_{1}v_{1} + (b_{2} - b_{1})v_{2} + (b_{3} - b_{2})v_{3} + (b_{4} - b_{3})v_{4}.
+    \end{align*}
+
+    Hence the list $v_{1} - v_{2}, v_{2} - v_{3}, v_{3} - v_{4}, v_{4}$ also spans $V$.
+\end{proof}
+
+% chapter2:sectionA:exercise3
+\begin{exercise}\label{chapter2:sectionA:exercise3}
+    Suppose $v_{1}, \ldots, v_{m}$ is a list of vectors in $V$. For $k\in \{ 1, \ldots, m \}$, let
+    \[
+        w_{k} = v_{1} + \cdots + v_{k}.
+    \]
+
+    Show that $\text{span}(v_{1}, \ldots, v_{m}) = \text{span}(w_{1}, \ldots, w_{m})$.
+\end{exercise}
+
+\begin{proof}
+    Due to the definition of $w_{k}$, each $w_{k}$ is a linear combination of $v_{1}, \ldots, v_{m}$. So every linear combination of $w_{1}, \ldots, w_{m}$ is also a linear combination of $v_{1}, \ldots, v_{m}$. Therefore $\text{span}(w_{1}, \ldots, w_{m})\subseteq \text{span}(v_{1}, \ldots, v_{n})$.
+
+    On the other hand $v_{k} = w_{k} - w_{k-1}$ for every positive interger $2\leq k\leq m$, so each $v_{k}$ is a linear combination of $w_{1}, \ldots, w_{m}$. So every linear combination of $v_{1}, \ldots, v_{m}$ is also a linear combination of $w_{1}, \ldots, w_{m}$. Therefore $\text{span}(v_{1}, \ldots, v_{n})\subseteq \text{span}(w_{1}, \ldots, w_{m})$.
+
+    Hence $\text{span}(v_{1}, \ldots, v_{m}) = \text{span}(w_{1}, \ldots, w_{m})$.
+\end{proof}
+
+% chapter2:sectionA:exercise4
+\begin{exercise}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that a list of length one in a vector space is linearly independent if and only if the vector in the list is not $0$.
+        \item Show that a list of length two in a vector space is linearly independent if and only if neither of the two vectors in the list is a scalar multiple of the other.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Let the list of length one in a vector space be $v$.
+
+              If the list is linearly independent, then $av = 0\Longleftrightarrow a = 0$. $v$ is not $0$ because if $v$ is $0$, then $av = 0$ for all $a\in\mathbb{F}$.
+
+              If $v$ is not $0$, then $av = 0\Longleftrightarrow a = 0$ (if $a\ne 0$, then $a$ has a multiplicative inverse, then $0 = a^{-1}(av) = (a^{-1}a)v = 1v = v$), so the list is linearly independent.
+        \item Let the list of length two in a vector space be $v, w$.
+
+              If the list is linearly independent, then $av + bw = 0\Longleftrightarrow a = b = 0$, so $v$ cannot be a scalar multiple of $w$ and $w$ cannot be a scalar multiple of $v$.
+
+              If neither of $v$ and $w$ is a scalar multiple of the other, suppose that the two vectors are linearly dependent, then there exist scalars $a, b$ which are not both $0$ such that $av + bw = 0$. If $a\ne 0$ then $v$ is a scalar multiple of $w$, if $b\ne 0$ then $w$ is a scalar multiple of $v$. Therefore the list is linearly independent.
+    \end{enumerate}
+\end{proof}
+
+% chapter2:sectionA:exercise5
+\begin{exercise}
+    Find a number $t$ such that
+    \[
+        (3, 1, 4), (2, -3, 5), (5, 9, t)
+    \]
+
+    is not linearly independent in $\mathbb{R}^{3}$.
+\end{exercise}
+
+\begin{proof}
+    The linear combination of $0$
+    \[
+        x_{1}(3, 1, 4) + x_{2}(2, -3, 5) + x_{3}(5, 9, t) = (0, 0, 0)
+    \]
+
+    is nontrivial if and only if $x_{3}\ne 0$ because the list containing only the first two vectors is linearly independent. So the list is linearly dependent if and only if $(5, 9, t)$ is a linear combination of the other two vectors. From the equation
+    \[
+        x_{1}(3, 1, 4) + x_{2}(2, -3, 5) = (5, 9, t)
+    \]
+
+    we solve for $x_{1}, x_{2}$ and obtain that $x_{1} = 3, x_{2} = -2$. So $t = 2$.
+\end{proof}
+
+% chapter2:sectionA:exercise6
+\begin{exercise}
+    Show that the list $(2, 3, 1), (1, -1, 2), (7, 3, c)$ is linearly dependent in $\mathbb{F}^{3}$ if and only if $c = 8$.
+\end{exercise}
+
+\begin{proof}
+    The linear combination of $0$
+    \[
+        x_{1}(2, 3, 1) + x_{2}(1, -1, 2) + x_{3}(7, 3, c) = (0, 0, 0)
+    \]
+
+    is nontrivial if and only if $x_{3}\ne 0$ because the list containing only the first two vectors is linearly independent. So the list is dependent if and only if $(7, 3, c)$ is a linear combination of the other two vectors. From the equation
+    \[
+        x_{1}(2, 3, 1) + x_{2}(1, -1, 2) = (7, 3, c)
+    \]
+
+    we solve for $x_{1}, x_{2}$ and obtain that $x_{1} = 2, x_{2} = 3$, so $c = 8$.
+\end{proof}
+
+% chapter2:sectionA:exercise7
+\begin{exercise}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that if we think of $\mathbb{C}$ as a vector space over $\mathbb{R}$, then the list $1 + \iota$, $1 - \iota$ is linearly independent.
+        \item Show that if we think of $\mathbb{C}$ as a vector space over $\mathbb{C}$, then the list $1 + \iota$, $1 - \iota$ is linearly independent.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Let $a(1 + \iota) + b(1 - \iota) = 0$ be a linear combination of $0$ over $\mathbb{R}$. Then $a + b = 0$ and $a - b = 0$, which implies $a = b = 0$. Therefore $1 + \iota, 1 - \iota$ is linearly independent if we think of $\mathbb{C}$ as a vector space over $\mathbb{R}$.
+        \item $(\iota - 1)(1 + \iota) + (1 + \iota)(1 - \iota) = 0$ be a linear combination over $\mathbb{C}$. Therefore the list $1 + \iota, 1 - \iota$ is linearly dependent if we think of $\mathbb{C}$ as a vector space over $\mathbb{C}$.
+    \end{enumerate}
+\end{proof}
+
+% chapter2:sectionA:exercise8
+\begin{exercise}
+    Suppose $v_{1} , v_{2} , v_{3} , v_{4}$ is linearly independent in $V$. Prove that the list
+    \[
+        v_{1} - v_{2}, v_{2} - v_{3}, v_{3} - v_{4}, v_{4}
+    \]
+
+    is also linear independent.
+\end{exercise}
+
+\begin{proof}
+    Let $x_{1}(v_{1} - v_{2}) + x_{2}(v_{2} - v_{3}) + x_{3}(v_{3} - v_{4}) + x_{4}v_{4} = 0$ be a linear combination.
+    \[
+        x_{1}(v_{1} - v_{2}) + x_{2}(v_{2} - v_{3}) + x_{3}(v_{3} - v_{4}) + x_{4}v_{4} = x_{1}v_{1} + (x_{2} - x_{1})v_{2} + (x_{3} - x_{2})v_{3} + (x_{4} - x_{3})v_{4}
+    \]
+
+    Because $v_{1}, v_{2}, v_{3}, v_{4}$ is linearly independent in $V$, then $x_{1} = x_{2} - x_{1} = x_{3} - x_{2} = x_{4} - x_{3} = 0$, so $x_{1} = x_{2} = x_{3} = x_{4} = 0$. Hence $v_{1} - v_{2}, v_{2} - v_{3}, v_{3} - v_{4}, v_{4}$ is also linearly independent.
+\end{proof}
+
+% chapter2:sectionA:exercise9
+\begin{exercise}
+    Prove or give a counterexample: If $v_{1}, v_{2}, \ldots, v_{m}$ is a linearly independent list of vectors in $V$, then
+    \[
+        5 v_{1} - 4 v_{2}, v_{2}, v_{3}, \ldots, v_{m}
+    \]
+
+    is linearly independent.
+\end{exercise}
+
+\begin{proof}
+    The list is linearly independent. My proof is as follows.
+
+    Let $x_{1}(5v_{1} - 4v_{2}) + x_{2}v_{2} + x_{3}v_{3} + \cdots + x_{m}v_{m} = 0$ be a linear combination of $0$
+    \[
+        x_{1}(5v_{1} - 4v_{2}) + x_{2}v_{2} + x_{3}v_{3} + \cdots + x_{m}v_{m} = 5x_{1}v_{1} + (x_{2} - 4x_{1})v_{2} + x_{3}v_{3} + \cdots + x_{m}v_{m}
+    \]
+
+    Because $v_{1}, v_{2}, \ldots, v_{m}$ is linearly independent, then $5x_{1} = x_{2} - 4x_{1} = x_{3} = \cdots = x_{m} = 0$. Equivalently, $x_{1} = x_{2} = x_{3} = \cdots = x_{m} = 0$. Hence $5v_{1} - 4v_{2}, v_{2}, v_{3}, \ldots, v_{m}$ is linearly independent.
+\end{proof}
+
+% chapter2:sectionA:exercise10
+\begin{exercise}
+    Prove or give a counterexample: If $v_{1}, v_{2}, \ldots, v_{m}$ is a linearly independent list of vectors in $V$ and $\lambda\in\mathbb{F}$ with $\lambda\ne 0$, then $\lambda v_{1}, \lambda v_{2}, \ldots, \lambda v_{m}$ is linearly independent.
+\end{exercise}
+
+\begin{proof}
+    Let $a_{1}\lambda v_{1} + \cdots + a_{m}\lambda v_{m} = 0$ be a linear combination of $0$. Because $\lambda\ne 0$ then $\lambda$ has a multiplicative inverse.
+    \[
+        0 = \lambda^{-1}(a_{1}\lambda v_{1} + \cdots + a_{m}\lambda v_{m}) = (\lambda^{-1}\lambda)(a_{1}v_{1} + \cdots + a_{m}v_{m}) = a_{1}v_{1} + \cdots + a_{m}v_{m}.
+    \]
+
+    Because $v_{1}, v_{2}, \ldots, v_{m}$ is a linearly independent list, then $a_{1} = \cdots = a_{m} = 0$. Therefore $\lambda v_{1}, \lambda v_{2}, \ldots, \lambda v_{m}$ is linearly independent.
+\end{proof}
+
+% chapter2:sectionA:exercise11
+\begin{exercise}
+    Prove or give a counterexample: If $v_{1}, \ldots, v_{m}$ and $w_{1}, \ldots, w_{m}$ are linearly independent lists of vectors in $V$, then the list $v_{1} + w_{1}, \ldots, v_{m} + w_{m}$ is linearly independent.
+\end{exercise}
+
+\begin{proof}
+    Here is a counterexample.
+
+    For every positive integers $i\leq m$, $v_{i}$ is a vector in $\mathbb{R}^{m}$ where $i$th component is $1$ and the others are $0$, $w_{i}$ is a vector in $\mathbb{R}^{m}$ where $i$th component is $-1$ and the others are $0$. Then $v_{i} + w_{i}$ are $0$, so $v_{1} + w_{1}, \ldots, v_{m} + w_{m}$ is linearly dependent.
+\end{proof}
+
+% chapter2:sectionA:exercise12
+\begin{exercise}
+    Suppose $v_{1}, \ldots, v_{m}$ is linearly independent in $V$ and $w\in V$. Prove that if $v_{1} + w, \ldots, v_{m} + w$ is linearly dependent, then $w\in \text{span}(v_{1}, \ldots, v_{m})$.
+\end{exercise}
+
+\begin{proof}
+    If $v_{1} + w, \ldots, v_{m} + w$ is linearly dependent, then there exist scalars $a_{1}, \ldots, a_{m}$ which are not all $0$ such that
+    \[
+        a_{1}(v_{1} + w) + \cdots + a_{m}(v_{m} + w) = 0
+    \]
+
+    Then
+    \[
+        -(a_{1} + \cdots + a_{m})w = a_{1}v_{1} + \cdots + a_{m}v_{m}.
+    \]
+
+    If $a_{1} + \cdots + a_{m} = 0$, then $a_{1}v_{1} + \cdots + a_{m}v_{m} = 0$, which implies $a_{i}$ are all $0$ (because $v_{1}, \ldots, v_{m}$ is linearly independent). So $a_{1} + \cdots + a_{m}\ne 0$, and
+    \[
+        w = \lambda a_{1}v_{1} + \cdots + \lambda a_{m}v_{m}
+    \]
+
+    where $\lambda = -{(a_{1} + \cdots + a_{m})}^{-1}$. Hence $w$ is a linear combination of $v_{1}, \ldots, v_{m}$, equivalently, $w\in\text{span}(v_{1}, \ldots, v_{m})$.
+\end{proof}
+
+% chapter2:sectionA:exercise13
+\begin{exercise}\label{chapter2:sectionA:exercise13}
+    Suppose $v_{1}, \ldots, v_{m}$ is linearly independent in $V$ and $w\in V$. Show that
+    \[
+        v_{1}, \ldots, v_{m}, w \text{ is linearly independent }\Longleftrightarrow w\notin \text{span}(v_{1}, \ldots, v_{m}).
+    \]
+\end{exercise}
+
+\begin{proof}
+    $(\Rightarrow)$ $v_{1}, \ldots, v_{m}, w$ is linearly independent.
+
+    Suppose $w\in\text{span}(v_{1}, \ldots, v_{m})$, then there exist scalars $a_{1}, \ldots, a_{m}$ such that $w = a_{1}v_{1} + \cdots + a_{m}v_{m}$, which means $(-1)w + a_{1}v_{1} + \cdots + a_{m}v_{m}$. This violates the linear independence of $v_{1}, \ldots, v_{m}, w$. So $w\notin \text{span}(v_{1}, \ldots, v_{m})$.
+
+    $(\Leftarrow)$ $w\notin \text{span}(v_{1}, \ldots, v_{m})$.
+
+    Suppose $v_{1}, \ldots, v_{m}, w$ is linearly dependent, then there exist scalars $a_{1}, \ldots, a_{m}, a_{0}$ which are not all $0$ such that $a_{1}v_{1} + \cdots + a_{m}v_{m} + a_{0}w = 0$. If $a_{0} = 0$, then $a_{1} = \cdots = a_{m} = 0$ due to $v_{1}, \ldots, v_{m}$ being linearly independent. So $a_{0}\ne 0$, then $w = (-{a_{0}}^{-1}a_{1})v_{1} + \cdots + (-{a_{0}}^{-1}a_{m})v_{m}$, which makes $w\in\text{span}(v_{1}, \ldots, v_{m})$. So $v_{1}, \ldots, v_{m}, w$ is linearly independent.
+\end{proof}
+
+% chapter2:sectionA:exercise14
+\begin{exercise}\label{chapter2:sectionA:exercise14}
+    Suppose $v_{1}, \ldots, v_{m}$ is a list of vectors in $V$. For $k\in \{ 1,\ldots, m \}$, let
+    \[
+        w_{k} = v_{1} + \cdots + v_{k}.
+    \]
+
+    Show that the list $v_{1}, \ldots, v_{m}$ is linearly independent if and only if the list $w_{1}, \ldots, w_{m}$ is linearly independent.
+\end{exercise}
+
+\begin{proof}
+    I give a proof using mathematical induction.
+
+    $(\Rightarrow)$ $v_{1}, \ldots, v_{m}$ is linearly independent.
+
+    For $m = 1$, $w_{1}$ is linearly independent. Suppose $w_{1}, \ldots, w_{n}$ is linearly independent (inductive hypothesis). Let $a_{1}w_{1} + \cdots + a_{n}w_{n} + a_{n+1}w_{n+1} = 0$ be a linear combination of $0$. If $a_{n+1}\ne 0$ (contradictive hypothesis), then
+    \begin{align*}
+        w_{n+1}                          & = {(-a_{n+1})}^{-1}(a_{1}w_{1} + \cdots + a_{n}w_{n})                                  \\
+        v_{1} + \cdots + v_{n} + v_{n+1} & = {(-a_{n+1})}^{-1}(a_{1}w_{1} + \cdots + a_{n}w_{n})                                  \\
+        v_{n+1}                          & = (-1)v_{1} + \cdots + (-1)v_{n} + {(-a_{n+1})}^{-1}(a_{1}w_{1} + \cdots + a_{n}w_{n})
+    \end{align*}
+
+    On the other hand, each vector of the list $w_{1}, w_{2}, \ldots, w_{n}$ is a linear combination of $v_{1}, \ldots, v_{n}$. From these, we deduce that $v_{n+1}$ is a linear combination of $v_{1}, \ldots, v_{n}$, which violates the linearly independence of $v_{1}, \ldots, v_{m}$, so $a_{n+1} = 0$. From $a_{n+1} = 0$, it follows that $a_{1} = \cdots = a_{n} = 0$ due to the inductive hypothesis. Hence $w_{1}, \ldots, w_{n+1}$ is linearly independent.
+
+    So, according to the principle of mathematical induction, $w_{1}, \ldots, w_{m}$ is linearly independent.
+
+    $(\Leftarrow)$ $w_{1}, \ldots, w_{m}$ is linearly independent.
+
+    For $m = 1$, $v_{1}$ is linearly independent. Suppose $v_{1}, \ldots, v_{n}$ is linearly independent (inductive hypothesis). Let $b_{1}v_{1} + \cdots + b_{n}v_{n} + b_{n+1}v_{n+1} = 0$ be a linear combination of $0$. If $b_{n+1}\ne 0$ (contradictive hypothesis), then
+    \begin{align*}
+        v_{n+1}         & = {(-b_{n+1})}^{-1}(b_{1}v_{1} + \cdots + b_{n}v_{n})                                            \\
+        w_{n+1} - w_{n} & = {(-b_{n+1})}^{-1}(b_{1}w_{1} + b_{2}(w_{2} - w_{1}) + \cdots + b_{n}(w_{n} - w_{n-1}))         \\
+        w_{n+1}         & = w_{n} + {(-b_{n+1})}^{-1}(b_{1}w_{1} + b_{2}(w_{2} - w_{1}) + \cdots + b_{n}(w_{n} - w_{n-1}))
+    \end{align*}
+
+    So $w_{n+1}$ is a linear combination of $w_{1}, \ldots, w_{n}$, which violates the linearly independence of $w_{1}, \ldots, w_{m}$, so $b_{n+1} = 0$. From $b_{n+1} = 0$, it follows that $b_{1} = \cdots = b_{n} = 0$ due to the inductive hypothesis. Hence $v_{1}, \ldots, v_{n+1}$ is linearly independent.
+
+    So, according to the principle of mathematical induction, $v_{1}, \ldots, v_{m}$ is linearly independent.
+\end{proof}
+
+% chapter2:sectionA:exercise15
+\begin{exercise}
+    Explain why there does not exist a list of six polynomials that is linearly independent in $\mathcal{P}_{4}(\mathbb{F})$.
+\end{exercise}
+
+\begin{proof}
+    The list $p_{0}: x\mapsto 1$, $p_{1}: x\mapsto x$, $p_{2}: x\mapsto x^{2}$, $p_{3}: x\mapsto x^{3}$, $p_{4}: x\mapsto x^{4}$ spans $\mathcal{P}_{4}(\mathbb{F})$. This list has the length of $5$.
+
+    In a vector space, the length of every independent list does not exceed the length of any list that spans the vector space; On the other hand, $6 > 5$, so there does not exist a list of six polynomials that is linearly independent in $\mathcal{P}_{4}(\mathbb{F})$.
+\end{proof}
+
+% chapter2:sectionA:exercise16
+\begin{exercise}
+    Explain why no list of four polynomials spans $\mathcal{P}_{4}(\mathbb{F})$.
+\end{exercise}
+
+\begin{proof}
+    The list of polynomials $p_{0}: x\mapsto 1$, $p_{1}: x\mapsto x$, $p_{2}: x\mapsto x^{2}$, $p_{3}: x\mapsto x^{3}$, $p_{4}: x\mapsto x^{4}$ is independent.
+
+    In a vector space, the length of every independent list does not exceed the length of any list that spans the vector space; On the other hand, $4 < 5$, so there does not exist a list of four polynomials that spans $\mathcal{P}_{4}(\mathbb{F})$.
+\end{proof}
+
+% chapter2:sectionA:exercise17
+\begin{exercise}\label{chapter2:sectionA:exercise17}
+    Prove that $V$ is infinite-dimensional if and only if there is a sequence $v_{1}, v_{2}, \ldots$ of vectors in $V$ such that $v_{1}, \ldots, v_{m}$ is linearly independent for every positive integer $m$.
+\end{exercise}
+
+\begin{proof}
+    $(\Rightarrow)$ $V$ is infinite-dimensional.
+
+    According to the definition, there is no list of vectors that spans $V$.
+
+    For $m = 1$, there exists a vector $v_{1}$ such that $v_{1}$ is linearly independent, because if not, $V$ is the zero vector space and $V$ is spanned by the empty list.
+
+    Suppose for $m = n$, there exists a list of $n$ vectors $v_{1}, \ldots, v_{n}$ that is linearly independent. Because this list does not spans $V$, due to $V$ being infinite-dimensional, then there exists another vector $v_{n+1}$ such that $v_{n+1}\notin \text{span}(v_{1}, \ldots, v_{n})$. According to Exercise~\ref{chapter2:sectionA:exercise13}, $v_{1}, \ldots, v_{n}, v_{n+1}$ is linearly independent.
+
+    Due to the principle of mathematical induction, there is a sequence $v_{1}, v_{2}, \ldots$ of vectors in $V$ such that $v_{1}, \ldots, v_{m}$ is linearly independent for every positive integer $m$.
+
+    $(\Leftarrow)$ There is a sequence $v_{1}, v_{2}, \ldots$ of vectors in $V$ such that $v_{1}, \ldots, v_{m}$ is linearly independent for every positive integer $m$.
+
+    If $V$ is finite-dimensional, then there exists a list that spans $V$. Let the length of such a list be $k$. But there exists a list of length $(k + 1)$ that is independent. On the other hand, in a vector space, the length of every independent list does not exceed the length of any list that spans the vector space. Hence $V$ is infinite-dimensional.
+\end{proof}
+
+% chapter2:sectionA:exercise18
+\begin{exercise}
+    Prove that $\mathbb{F}^{\infty}$ is infinite-dimensional.
+\end{exercise}
+
+\begin{proof}
+    Let $v_{n}$ be the sequence of $0$s and $1$s, where the $n$th component is $1$ and the others are $0$.
+
+    For each positive integer $m$, $v_{1}, \ldots, v_{m}$ is linearly independent. According to Exercise~\ref{chapter2:sectionA:exercise17}, $\mathbb{F}^{\infty}$ is infinite-dimensional.
+\end{proof}
+
+% chapter2:sectionA:exercise19
+\begin{exercise}
+    Prove that the real vector space of all continuous real-valued functions on
+    the interval $[0, 1]$ is infinite-dimensional.
+\end{exercise}
+
+\begin{proof}
+    For every nonnegative integer, let $p_{n}$ be the polynomial $x^{n}$.
+
+    For each positive integer $m$, $p_{0}, p_{1}, \ldots, p_{m}$ is linearly independent. According to Exercise~\ref{chapter2:sectionA:exercise17}, the real vector space of all continuous real-valued functions on the interval $[0, 1]$ is infinite-dimensional.
+\end{proof}
+
+% chapter2:sectionA:exercise20
+\begin{exercise}
+    Suppose $p_{0}, p_{1}  \ldots, p_{m}$ are polynomials in $P_{m}(\mathbb{F})$ such that $p_{k}(2) = 0$ for each $k \in \{0, \ldots, m\}$. Prove that $p_{0}, p_{1}, \ldots, p_{m}$ is not linearly independent in $P_{m} (\mathbb{F})$.
+\end{exercise}
+
+\begin{proof}
+    $p_{k}(2) = 0$ for each $k\in\{ 0, \ldots, m \}$ means $p_{k}(x)$ is divisible by the polynomial $x - 2$. Due to the Euclidean division algorithm, for each $k\in\{ 0, \ldots, m \}$, there exists a polynomial $q_{k}$ such that $p_{k}(x) = (x-2)\cdot q_{k}(x)$. Moreover, $\text{deg} q_{k} < \text{deg} p_{k}$, so the degree of every polynomial $q_{k}$ does not exceed $m - 1$.
+
+    The list of polynomials $1, x, x^{2}, \ldots, x^{m-1}$ spans $\mathcal{P}_{m-1}(\mathbb{F})$, and this list is of the length $m$. $q_{k}\in \mathcal{P}_{m-1}(\mathbb{F})$ for every $k\in\{ 0,\ldots, m \}$. The list of $q_{0}, \ldots, q_{m}$ is not independent, because its length $m + 1 > m$ (in a vector space, the length of an independent list does not exceed the length of any list that spans the vector space).
+
+    Therefore $p_{0}, p_{1}, \ldots, p_{m}$ is not independent.
+\end{proof}
+
 \section{Bases}
 
+% chapter2:sectionB:exercise1
+\begin{exercise}
+    Find all vector spaces that have exactly one basis.
+\end{exercise}
+
+\begin{proof}
+    The zero vector space $\{ 0 \}$ has exactly one basis, which is the empty list.
+
+    If a vector space has a basis of length $n > 1$: $v_{1}, \ldots, v_{n}$, then $v_{1} + v_{2}, v_{2}, \ldots, v_{n}$ is also a basis. So if a vector space has a basis of length $n > 1$, then it has at least two bases.
+
+    If a vector space has a basis of length $1$, then it has exactly one basis if and only if $\mathbb{F}$ is the field of two elements.
+\end{proof}
+
+% chapter2:sectionB:exercise2
+\begin{exercise}
+    Verify all assertions in Example 2.27.
+    \begin{enumerate}[label={(\alph*)}]
+        \item The list $(1, 0, \ldots, 0), (0, 1, \ldots, 0), \ldots, (0, \ldots, 0, 1)$ is a basis of $\mathbb{F}^{n}$.
+        \item The list $(1, 2), (3, 5)$ is a basis of $\mathbb{F}^{2}$.
+        \item The list $(1, 2, -4), (7, -5, 6)$ is linearly independent in $\mathbb{F}^{3}$ but is not a basis of $\mathbb{F}^{3}$ because it does not span $\mathbb{F}^{3}$.
+        \item The list $(1, 2), (3, 5), (4, 13)$ spans $\mathbb{F}^{2}$ but is not a basis of $\mathbb{F}^{2}$ because it is not linearly independent.
+        \item The list $(1, 1, 0), (0, 0, 1)$ is a basis of $\{ (x, x, y)\in\mathbb{F}^{3}: x, y\in\mathbb{F} \}$.
+        \item The list $(1, -1, 0), (1, 0, -1)$ is a basis of
+              \[
+                  \{ (x, y, z)\in\mathbb{F}^{3}: x + y + z = 0 \}.
+              \]
+        \item The list $1, z, \ldots, z^{m}$ is a basis of $\mathcal{P}_{m}(\mathbb{F})$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Let $(x_{1}, x_{2}, \ldots, x_{n})$ be a vector in $\mathbb{F}^{n}$.
+              \[
+                  (x_{1}, x_{2}, \ldots, x_{n}) = x_{1}(1, 0, \ldots, 0) + x_{2}(0, 1, \ldots, 0) + \cdots + x_{n}(0, \ldots, 0, 1)
+              \]
+
+              So the list spans $\mathbb{F}^{n}$. Also the list is linearly independent because $a_{1}(1, 0, \ldots, 0) + a_{2}(0, 1, \ldots, 0) + \cdots + a_{n}(0, \ldots, 0, 1) = (0, 0, \ldots, 0)$ if and only if $a_{1} = a_{2} = \cdots = a_{n} = 0$. Hence the list is a basis of $\mathbb{F}^{n}$.
+
+        \item No vector in the list $(1, 2), (3, 5)$ is the scalar multiple of the other, so the list is independent. Let $(x, y)$ be a vector in $\mathbb{R}^{2}$.
+              \[
+                  (x, y) = (-5x + 3y)(1, 2) + (2x - y)(3, 5)
+              \]
+
+              So the list spans $\mathbb{F}^{2}$. Hence the list is a basis of $\mathbb{F}^{2}$.
+        \item No vector in the list $(1, 2, -4), (7, -5, 6)$ is the scalar multiple of the other, so the list is independent.
+
+              $(8, -3, 0)$ is not a linear combination of $(1, 2, -4), (7, -5, 6)$, so the list does not span $\mathbb{F}^{3}$. Hence the list is not a basis of $\mathbb{F}^{3}$.
+        \item According to (b), the list spans $\mathbb{F}^{2}$. On the other hand,
+              \[
+                  (4, 13) = 19(1, 2) + (-5)(3, 5)
+              \]
+
+              so the list is not linearly independent. Hence the list is not a basis of $\mathbb{F}^{2}$.
+        \item The list $(1, 1, 0), (0, 0, 1)$ is linearly independent.
+              \[
+                  (x, x, y) = x(1, 1, 0) + y(0, 0, 1)
+              \]
+
+              so the list spans $\{ (x, x, y)\in\mathbb{F}^{3}: x, y\in\mathbb{F} \}$. Hence the list is a basis of $\{ (x, x, y)\in\mathbb{F}^{3}: x, y\in\mathbb{F} \}$.
+        \item The list $(1, -1, 0), (1, 0, -1)$ is linearly independent. A vector in $\{ (x, y, z)\in\mathbb{F}^{3}: x + y + z = 0 \}$ is of the form $(-x-y, x, y)$.
+              \[
+                  (-x-y, x, y) = (-x, x, 0) + (-y, 0, y) = (-x)(1, -1, 0) + (-y)(1, 0, -1)
+              \]
+
+              So the list also spans $\{ (x, y, z)\in\mathbb{F}^{3}: x + y + z = 0 \}$. Hence the list is a basis of $\{ (x, y, z)\in\mathbb{F}^{3}: x + y + z = 0 \}$.
+        \item The list $1, z, \ldots, z^{m}$ is linearly independent. Every polynomial of degree not exceeding $m$ is of the form $a_{0} + a_{1}z + \cdots + a_{m}z^{m}$, so the list also spans $\mathcal{P}_{m}(\mathbb{F})$. Hence the list is a basis of $\mathcal{P}_{m}(\mathbb{F})$.
+    \end{enumerate}
+\end{proof}
+
+% chapter2:sectionB:exercise3
+\begin{exercise}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Let $U$ be the subspace of $\mathbb{R}^{5}$ defined by
+              \[
+                  U = \{ (x_{1}, x_{2}, x_{3}, x_{4}, x_{5})\in\mathbb{R}^{5}: x_{1} = 3x_{2} \text{ and } x_{3} = 7x_{4} \}
+              \]
+
+              Find a basis of $U$.
+        \item Extend the basis in (a) to a basis of $\mathbb{R}^{5}$.
+        \item Find a subspace $W$ of $\mathbb{R}^{5}$ such that $\mathbb{R}^{5} = U\oplus W$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item A vector in $U$ is of the form $(3x_{2}, x_{2}, 7x_{4}, x_{4}, x_{5})$.
+              \[
+                  (3x_{2}, x_{2}, 7x_{4}, x_{4}, x_{5}) = x_{2}(3, 1, 0, 0, 0) + x_{4}(0, 0, 7, 1, 0) + x_{5}(0, 0, 0, 0, 1)
+              \]
+
+              So the list $(3, 1, 0, 0, 0), (0, 0, 7, 1, 0), (0, 0, 0, 0, 1)$ spans $U$. On the other hand, the list is linearly independent. Hence the list is a basis of $U$.
+        \item Extend the list in (a) to
+              \[
+                  (3, 1, 0, 0, 0), (0, 0, 7, 1, 0), (0, 0, 0, 0, 1), (1, 0, 0, 0, 0), (0, 0, 1, 0, 0)
+              \]
+
+              we obtain a basis of $\mathbb{R}^{5}$.
+        \item $W = \text{span}((1, 0, 0, 0, 0), (0, 0, 1, 0, 0))$ satisfies $\mathbb{R}^{5} = U\oplus W$.
+    \end{enumerate}
+\end{proof}
+
+% chapter2:sectionB:exercise4
+\begin{exercise}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Let $U$ be the subspace of $\mathbb{C}^{5}$ defined by
+              \[
+                  U = \{ (x_{1}, x_{2}, x_{3}, x_{4}, x_{5})\in\mathbb{C}^{5}: 6z_{1} = z_{2} \text{ and } z_{3} + 2z_{4} + 3z_{5} = 0 \}
+              \]
+
+              Find a basis of $U$.
+        \item Extend the basis in (a) to a basis of $\mathbb{C}^{5}$.
+        \item Find a subspace $W$ of $\mathbb{C}^{5}$ such that $\mathbb{C}^{5} = U\oplus W$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item A vector in $U$ is of the form $(z_{1}, 6z_{1}, -2z_{4} - 3z_{5}, z_{4}, z_{5})$.
+              \[
+                  (z_{1}, 6z_{1}, -2z_{4} - 3z_{5}, z_{4}, z_{5}) = z_{1}(1, 6, 0, 0, 0) + z_{4}(0, 0, -2, 1, 0) + z_{5}(0, 0, -3, 0, 1)
+              \]
+
+              The list $(1, 6, 0, 0, 0), (0, 0, -2, 1, 0), (0, 0, -3, 0, 1)$ spans $U$ and is linearly independent, so it is a basis of $U$.
+        \item Extend the list in (a) to
+              \[
+                  (1, 6, 0, 0, 0), (0, 0, -2, 1, 0), (0, 0, -3, 0, 1), (1, 0, 0, 0, 0), (0, 0, 1, 0, 0)
+              \]
+
+              we obtain a basis of $\mathbb{C}^{5}$.
+        \item  $W = \text{span}((1, 0, 0, 0, 0), (0, 0, 1, 0, 0))$ satisfies $\mathbb{C}^{5} = U\oplus W$.
+    \end{enumerate}
+\end{proof}
+
+% chapter2:sectionB:exercise5
+\begin{exercise}
+    Suppose $V$ is finite-dimensional and $U, W$ are subspaces of $V$ such that $V = U + W$. Prove that there exists a basis of $V$ consisting of vectors in $U \cup W$.
+\end{exercise}
+
+\begin{proof}
+    Since $v$ is finite-dimensional, $V$ has a basis. Let $v_{1}, \ldots, v_{n}$ be a basis of $V$. Because $V = U + W$, we deduce that for every positive integer $m\leq n$, there exist $u_{m}\in U$ and $w_{m}\in W$ such that $v_{m} = u_{m} + w_{m}$. $v_{1}, \ldots, v_{n}$ spans $V$ so $u_{1}, \ldots, u_{n}, w_{1}, \ldots, w_{n}$ spans $W$. Because every spanning list contains a basis, so the list $u_{1}, \ldots, u_{n}, w_{1}, \ldots, w_{n}$ can be reduced to a basis of $V$. Hence $V$ has a basis consisting of vectors in $U\cup W$.
+\end{proof}
+
+% chapter2:sectionB:exercise6
+\begin{exercise}
+    Prove or give a counterexample: If $p_{0}, p_{1}, p_{2}, p_{3}$ is a list in $\mathcal{P}_{3} (\mathbb{F})$ such that none of the polynomials $p_{0}, p_{1}, p_{2}, p_{3}$ has degree $2$, then $p_{0}, p_{1}, p_{2}, p_{3}$ is not a basis of $\mathcal{P}_{3} (\mathbb{F})$.
+\end{exercise}
+
+\begin{proof}
+    Here is a counterexample.
+
+    $p_{0}(z) = 1$, $p_{1}(z) = z$, $p_{2}(z) = z^{2} + z^{3}$, $p_{3}(z) = z^{3}$. This list contains no polynomials of degree $2$ but it is a basis of $\mathcal{P}_{3} (\mathbb{F})$.
+\end{proof}
+
+% chapter2:sectionB:exercise7
+\begin{exercise}
+    Suppose $v_{1}, v_{2}, v_{3}, v_{4}$ is a basis of $V$. Prove that
+    \[
+        v_{1} + v_{2}, v_{2} + v_{3}, v_{3} + v_{4}, v_{4}
+    \]
+
+    is also a basis of $V$.
+\end{exercise}
+
+\begin{proof}
+    Because $v_{1}, v_{2}, v_{3}, v_{4}$ is a basis of $V$, then every vector in $V$ is of the form $a_{1}v_{1} + a_{2}v_{2} + a_{3}v_{3} + a_{4}v_{4}$.
+    \begin{align*}
+        a_{1}v_{1} + a_{2}v_{2} + a_{3}v_{3} + a_{4}v_{4} & = a_{1}(v_{1} + v_{2}) + (a_{2} - a_{1})v_{2} + a_{3}v_{3} + a_{4}v_{4}                                                                 \\
+                                                          & = a_{1}(v_{1} + v_{2}) + (a_{2} - a_{1})(v_{2} + v_{3}) + (a_{3} - a_{2} + a_{1})v_{3} + a_{4}v_{4}                                     \\
+                                                          & = a_{1}(v_{1} + v_{2}) + (a_{2} - a_{1})(v_{2} + v_{3}) + (a_{3} - a_{2} + a_{1})(v_{3} + v_{4}) + (a_{4} - a_{3} + a_{2} - a_{1})v_{4}
+    \end{align*}
+
+    so $v_{1} + v_{2}, v_{2} + v_{3}, v_{3} + v_{4}, v_{4}$ spans $V$.
+
+    Let $x_{1}(v_{1} + v_{2}) + x_{2}(v_{2} + v_{3}) + x_{3}(v_{3} + v_{4}) + x_{4}v_{4} = 0$ be a linear combination of $0$. From this, we deduce that $x_{1}v_{1} + (x_{1} + x_{2})v_{2} + (x_{2} + x_{3})v_{3} + (x_{3} + x_{4})v_{4} = 0$. Because $v_{1}, v_{2}, v_{3}, v_{4}$ is linearly independent (it is a basis of $V$), $x_{1} = x_{1} + x_{2} = x_{2} + x_{3} = x_{3} + x_{4} = 0$. So $x_{1} = x_{2} = x_{3} = x_{4} = 0$, which implies $v_{1} + v_{2}, v_{2} + v_{3}, v_{3} + v_{4}, v_{4}$ is linearly independent.
+
+    Hence $v_{1} + v_{2}, v_{2} + v_{3}, v_{3} + v_{4}, v_{4}$ is also a basis of $V$.
+\end{proof}
+
+% chapter2:sectionB:exercise8
+\begin{exercise}
+    Prove or give a counterexample: If $v_{1} , v_{2} , v_{3} , v_{4}$ is a basis of $V$ and $U$ is a subspace of $V$ such that $v_{1} , v_{2} \in U$ and $v_{3} \notin U$ and $v_{4} \notin U$, then $v_{1} , v_{2}$ is a basis of $U$.
+\end{exercise}
+
+\begin{proof}
+    Here is a counterexample.
+
+    $V = \mathbb{R}^{4}$, $U = \{ (x_{1}, x_{2}, x_{3}, 0)\in\mathbb{R}^{4} \}$. The list $(1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 1), (0, 0, 0, 1)$ is a basis of $V$; $(1, 0, 0, 0), (0, 1, 0, 0)\in U$ and $(0, 0, 1, 1), (0, 0, 0, 1)\notin U$. However, $(1, 0, 0, 0), (0, 1, 0, 0)$ is not a basis of $U$.
+\end{proof}
+
+% chapter2:sectionB:exercise9
+\begin{exercise}
+    Suppose $v_{1}, \ldots, v_{m}$ is a list of vectors in $V$. For $k\in\{ 1, \ldots, m \}$, let
+    \[
+        w_{k} = v_{1} + \cdots + v_{k}.
+    \]
+
+    Show that $v_{1}, \ldots, v_{m}$ is a basis of $V$ if and only if $w_{1}, \ldots, w_{m}$ is a basis of $V$.
+\end{exercise}
+
+\begin{proof}
+    The result follows from Exercise~\ref{chapter2:sectionA:exercise3} and~\ref{chapter2:sectionA:exercise14}.
+\end{proof}
+
+% chapter2:sectionB:exercise10
+\begin{exercise}
+    Suppose $U$ and $W$ are subspaces of $V$ such that $V = U \oplus W$. Suppose also that $u_{1}, \ldots, u_{m}$ is a basis of $U$ and $w_{1}, \ldots, w_{n}$ is a basis of $W$. Prove that
+    \[
+        u_{1}, \ldots, u_{m}, w_{1}, \ldots, w_{n}
+    \]
+
+    is a basis of $V$.
+\end{exercise}
+
+\begin{proof}
+    Let $v$ be a vector in $V$. Due to the definition of sum of subspaces, there exist vectors $u\in U$ and $w\in W$ such that $v = u + w$. Because $u_{1}, \ldots, u_{m}$ is a basis of $U$, $u = x_{1}u_{1} + \cdots + x_{m}u_{m}$ for some $x_{1}, \ldots, x_{m}$. Because $w_{1}, \ldots, w_{n}$ is a basis of $W$, $w = y_{1}w_{1} + \cdots + y_{m}w_{m}$ for some $y_{1}, \ldots, y_{m}$. So
+    \[
+        v = (x_{1}u_{1} + \cdots + x_{m}u_{m}) + (y_{1}w_{1} + \cdots + y_{m}w_{m}).
+    \]
+
+    Therefore $u_{1}, \ldots, u_{m}, w_{1}, \ldots, w_{m}$ spans $V$.
+
+    Let $a_{1}u_{1} + \cdots + a_{m}u_{m} + b_{1}w_{1} + \cdots + b_{m}w_{m} = 0$ be a linear combination of $0$. Then $a_{1}u_{1} + \cdots + a_{m}u_{m} = (-b_{1})w_{1} + \cdots + (-b_{m})w_{m}$. Since $U\cap W = \{0\}$ (according to the definition of direct sum of subspaces) and $a_{1}u_{1} + \cdots + a_{m}u_{m}\in U$, $b_{1}w_{1} + \cdots + b_{m}w_{m}\in W$, we deduce that $a_{1}u_{1} + \cdots + a_{m}u_{m} = b_{1}w_{1} + \cdots + b_{m}w_{m} = 0$. Since $u_{1}, \ldots, u_{m}$ is a basis of $U$ and $w_{1}, \ldots, w_{m}$ is a basis of $W$, $a_{1} = \cdots = a_{m} = 0$, $b_{1} = \cdots = b_{m} = 0$. Therefore $u_{1}, \ldots, u_{m}, w_{1}, \ldots, w_{m}$ is linearly independent.
+
+    Hence $u_{1}, \ldots, u_{m}, w_{1}, \ldots, w_{m}$ is a basis of $V$.
+\end{proof}
+
+% chapter2:sectionB:exercise11
+\begin{exercise}
+    Suppose $V$ is a real vector space. Show that if $v_{1}, \ldots, v_{n}$ is a basis of $V$ (as a real vector space), then $v_{1}, \ldots, v_{n}$ is also a basis of the complexification $V_{\mathbb{C}}$ (as a complex vector space).
+\end{exercise}
+
+\begin{proof}
+    Let $u + \iota w$ be a vector in $V_{\mathbb{C}}$, where $u, w\in V$. Because $v_{1}, \ldots, v_{n}$ is a basis of $V$, then there exist real numbers $a_{1}, \ldots, a_{n}, b_{1}, \ldots, b_{n}$ such that
+    \[
+        u = a_{1}v_{1} + \cdots + a_{n}v_{n}\qquad w = b_{1}v_{1} + \cdots + b_{n}v_{n}
+    \]
+
+    On the other hand
+    \[
+        u + \iota w = (a_{1}v_{1} + \cdots + a_{n}v_{n}) + \iota (b_{1}v_{1} + \cdots + b_{n}v_{n}) = (a_{1} + b_{1}\iota) v_{1} + \cdots + (a_{n} + b_{n}\iota) v_{n}.
+    \]
+
+    So $v_{1}, \ldots, v_{n}$ spans $V_{\mathbb{C}}$.
+
+    Let $z_{1}v_{1} + \cdots + z_{n}v_{n} = 0 = 0 + \iota 0$ be a linear combination of $0$ in $V_{\mathbb{C}}$ and $z_{k} = x_{k} + y_{k}\iota$ where $x_{k}, y_{k}\in\mathbb{R}$ for every positive integer $k\leq n$. Then
+    \[
+        (x_{1}v_{1} + \cdots + x_{n}v_{n}) + \iota (y_{1}v_{1} + \cdots + y_{n}v_{n}) = 0 + \iota 0
+    \]
+
+    According to the definition of $V_{\mathbb{C}}$, $x_{1}v_{1} + \cdots + x_{n}v_{n} = y_{1}v_{1} + \cdots + y_{n}v_{n} = 0$. Together with $v_{1}, \ldots, v_{n}$ being a basis of $V$ (as a real vector space), we deduce that $x_{1} = \cdots = x_{n} = 0$, $y_{1} = \cdots = y_{n} = 0$. So $z_{1} = \cdots = z_{n} = 0$, and $v_{1}, \ldots, v_{n}$ is linearly independent in $V_{\mathbb{C}}$ (as a complex vector space).
+
+    Thus $v_{1}, \ldots, v_{n}$ is also a basis of the complexification $V_{\mathbb{C}}$ (as a complex vector space).
+\end{proof}
+
 \section{Dimension}
+
+% chapter2:sectionC:exercise1
+\begin{exercise}
+    Show that the subspaces of $\mathbb{R}^{2}$ are precisely $\{0\}$, all lines in $\mathbb{R}^{2}$ containing the origin, and $\mathbb{R}^{2}$.
+\end{exercise}
+
+\begin{proof}
+    I skip this exercise.
+\end{proof}
+
+% chapter2:sectionC:exercise2
+\begin{exercise}
+    Show that the subspaces of $\mathbb{R}^{3}$ are precisely $\{0\}$, all lines in $\mathbb{R}^{3}$ containing the origin, all planes in $\mathbb{R}^{3}$ containing the origin, and $\mathbb{R}^{3}$.
+\end{exercise}
+
+\begin{proof}
+    I skip this exercise.
+\end{proof}
+
+% chapter2:sectionC:exercise3
+\begin{exercise}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Let $U = \{ p\in\mathcal{P}_{4}(\mathbb{F}): p(6) = 0 \}$. Find a basis of $U$.
+        \item Extend the basis in (a) to a basis of $\mathcal{P}_{4}(\mathbb{F})$.
+        \item Find a subspace $W$ of $\mathcal{P}_{4}(\mathbb{F})$ such that $\mathcal{P}_{4}(\mathbb{F}) = U\oplus W$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item A basis of $U$ is
+              \[
+                  b_{1}(z) = z - 6; b_{2}(z) = {(z - 6)}^{2}; b_{3}(z) = {(z - 6)}^{3}; b_{4}(z) = {(z-6)}^{4}.
+              \]
+        \item Extend the basis in (a) to
+              \[
+                  b_{0}(z) = 1; b_{1}(z) = z - 6; b_{2}(z) = {(z - 6)}^{2}; b_{3}(z) = {(z - 6)}^{3}; b_{4}(z) = {(z-6)}^{4}.
+              \]
+
+              we obtain a basis of $\mathcal{P}_{4}(\mathbb{F})$.
+        \item $W = \text{span}(b_{0}) = \mathbb{F}$.
+    \end{enumerate}
+\end{proof}
+
+% chapter2:sectionC:exercise4
+\begin{exercise}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Let $U = \{ p\in\mathcal{P}_{4}(\mathbb{R}): p''(6) = 0 \}$. Find a basis of $U$.
+        \item Extend the basis in (a) to a basis of $\mathcal{P}_{4}(\mathbb{R})$.
+        \item Find a subspace $W$ of $\mathcal{P}_{4}(\mathbb{R})$ such that $\mathcal{P}_{4}(\mathbb{R}) = U\oplus W$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item A basis of $U$ is
+              \[
+                  b_{0}(z) = 1; b_{1}(z) = z; b_{3}(z) = {(z - 6)}^{3}; b_{4}(z) = {(z - 6)}^{4}.
+              \]
+        \item Extend the basis in (a) to
+              \[
+                  b_{0}(z) = 1; b_{1}(z) = z; b_{2}(z) = z^{2}; b_{3}(z) = {(z - 6)}^{3}; b_{4}(z) = {(z - 6)}^{4}
+              \]
+
+              we obtain a basis of $\mathcal{P}_{4}(\mathbb{R})$.
+        \item $W = \text{span}(b_{2})$.
+    \end{enumerate}
+\end{proof}
+
+% chapter2:sectionC:exercise5
+\begin{exercise}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Let $U = \{ p\in\mathcal{P}_{4}(\mathbb{F}): p(2) = p(5) \}$. Find a basis of $U$.
+        \item Extend the basis in (a) to a basis of $\mathcal{P}_{4}(\mathbb{F})$.
+        \item Find a subspace $W$ of $\mathcal{P}_{4}(\mathbb{F})$ such that $\mathcal{P}_{4}(\mathbb{F}) = U\oplus W$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item A basis of $U$ is
+              \[
+                  b_{0}(z) = 1; b_{2}(z) = (z - 2)(z - 5); b_{3}(z) = z(z - 2)(z - 5); b_{4}(z) = z^{2}(z - 2)(z - 5).
+              \]
+        \item Extend the basis in (a) to
+              \[
+                  b_{0}(z) = 1; b_{1} = z; b_{2}(z) = (z - 2)(z - 5); b_{3}(z) = z(z - 2)(z - 5); b_{4}(z) = z^{2}(z - 2)(z - 5).
+              \]
+
+              we obtain a basis of $\mathcal{P}_{4}(\mathbb{F})$.
+        \item $W = \text{span}(b_{1})$.
+    \end{enumerate}
+\end{proof}
+
+% chapter2:sectionC:exercise6
+\begin{exercise}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Let $U = \{ p\in\mathcal{P}_{4}(\mathbb{F}): p(2) = p(5) = p(6) \}$. Find a basis of $U$.
+        \item Extend the basis in (a) to a basis of $\mathcal{P}_{4}(\mathbb{F})$.
+        \item Find a subspace $W$ of $\mathcal{P}_{4}(\mathbb{F})$ such that $\mathcal{P}_{4}(\mathbb{F}) = U\oplus W$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item A basis of $U$ is
+              \[
+                  b_{0}(z) = 1; b_{3}(z) = (z-2)(z-5)(z-6); b_{4}(z) = z(z-2)(z-5)(z-6).
+              \]
+        \item Extend the basis in (a) to
+              \[
+                  b_{0}(z) = 1; b_{1}(z) = 2; b_{2}(z) = z^{2}; b_{3}(z) = (z-2)(z-5)(z-6); b_{4}(z) = z(z-2)(z-5)(z-6).
+              \]
+
+              we obtain a basis of $\mathcal{P}_{4}(\mathbb{F})$.
+        \item $W = \text{span}(b_{1}, b_{2})$.
+    \end{enumerate}
+\end{proof}
+
+% chapter2:sectionC:exercise7
+\begin{exercise}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Let $U = \{ p\in\mathcal{P}_{4}(\mathbb{R}): \int^{1}_{-1}p = 0 \}$. Find a basis of $U$.
+        \item Extend the basis in (a) to a basis of $\mathcal{P}_{4}(\mathbb{R})$.
+        \item Find a subspace $W$ of $\mathcal{P}_{4}(\mathbb{R})$ such that $\mathcal{P}_{4}(\mathbb{R}) = U\oplus W$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item A basis of $U$ is
+              \[
+                  b_{1}(z) = z; b_{2}(z) = 1 - 3z^{2}; b_{3}(z) = z^{3}; b_{4}(z) = 1 - 5z^{4}
+              \]
+        \item Extend the basis in (a) to
+              \[
+                  b_{0}(z) = 1; b_{1}(z) = z; b_{2}(z) = 1 - 3z^{2}; b_{3}(z) = z^{3}; b_{4}(z) = 1 - 5z^{4}
+              \]
+
+              we obtain a basis of $\mathcal{P}_{4}(\mathbb{R})$.
+        \item $W = \text{span}(b_{0}) = \mathbb{R}$.
+    \end{enumerate}
+\end{proof}
+
+% chapter2:sectionC:exercise8
+\begin{exercise}
+    Suppose $v_{1}, \ldots, v_{m}$ is linearly independent in $V$ and $w \in V$. Prove that
+    \[
+        \dim\text{span}(v_{1} + w, \ldots, v_{m} + w)\geq m - 1.
+    \]
+\end{exercise}
+
+\begin{proof}
+    For every positive integer $1 < k \leq m$, $v_{k} - v_{1} = (v_{k} + m) - (v_{1} + m)$.
+
+    Therefore $v_{2} - v_{1}, \ldots, v_{m} - v_{1}$ are in $\text{span}(v_{1} + w, \ldots, v_{m} + w)$ and $\text{span}(v_{2} - v_{1}, \ldots, v_{m} - v_{1})$ is a subspace of $\text{span}(v_{1} + w, \ldots, v_{m} + w)$. So
+    \[
+        \dim \text{span}(v_{1}+w, \ldots, v_{m}+w) \geq \dim\text{span}(v_{2} - v_{1}, \ldots, v_{m} - v_{1}).
+    \]
+
+    Let $a_{2}(v_{2} - v_{1}) + \cdots + a_{m}(v_{m} - v_{1}) = 0$ be a linear combination of $0$, then
+    \[
+        (-(a_{2} + \cdots + a_{m}))v_{1} + a_{2}v_{2} + \cdots + a_{m}v_{m} = 0.
+    \]
+
+    Since $v_{1}, \ldots, v_{m}$ is linearly independent, then $a_{2} = \cdots = a_{m} = 0$. Therefore $v_{2} - v_{1}, \ldots, v_{m} - v_{1}$ is linearly independent, and $\dim \text{span}(v_{2} - v_{1}, \ldots, v_{m} - v_{1}) = m - 1$.
+
+    Hence $\dim \text{span}(v_{1} + w, \ldots, v_{m} + w)\geq m - 1$.
+\end{proof}
+
+% chapter2:sectionC:exercise9
+\begin{exercise}
+    Suppose $m$ is a positive integer and $p_{0}, p_{1}, \ldots, p_{m} \in \mathcal{P}(\mathbb{F})$ are such that each $p_{k}$ has degree $k$. Prove that $p_{0}, p_{1}, \ldots, p_{m}$ is a basis of $P_{m} (\mathbb{F})$.
+\end{exercise}
+
+\begin{proof}
+    I skip this exercise.
+\end{proof}
+
+% chapter2:sectionC:exercise10
+\begin{exercise}
+    Suppose $m$ is a positive integer. For $0 \leq k \leq m$, let
+    \[
+        p_{k}(x) = x^{k}{(1-x)}^{m-k}.
+    \]
+
+    Show that $p_{0}, \ldots, p_{m}$ is a basis of $\mathcal{P}_{m}(\mathbb{F})$.
+\end{exercise}
+
+\begin{proof}
+    I introduce a proof using mathematical induction.
+
+    Let's use the following notation: $b_{m,k}(x) = x^{k}{(1-x)}^{m-k}$.
+
+    For $m = 1$, $b_{1,0}(x) = 1-x, b_{1,1} = x$ is a basis of $\mathcal{P}_{1}(\mathbb{F})$.
+
+    Suppose for $m = n$, $b_{n,0}, b_{n,1}, \ldots, b_{n,n}$ is a basis of $\mathcal{P}_{n}(\mathbb{F})$. Since $b_{n+1,k}(x) = b_{n,k}(x)\cdot x$ for $0\leq k < n+1$, then $b_{n+1,0}, b_{n+1,1}, \ldots, b_{n+1,n}$ is linearly independent. On the other hand, $b_{n+1,n+1}$ is not a linear combination of $b_{n+1,0}, b_{n+1,1}, \ldots, b_{n+1,n}$ (because a linear combination of this list has root $1$, but $b_{n+1, n+1}(1) = 1\ne 0$), so $b_{n+1,0}, b_{n+1,1}, \ldots, b_{n+1,n+1}$ is linearly independent. This new list has length $n+1$, so it is a basis of $\mathcal{P}_{n+1}(\mathbb{F})$.
+
+    According to the principle of mathematical induction, $b_{m,0}, b_{m,1}, \ldots, b_{m,m}$ is a basis of $\mathcal{P}_{m}(\mathbb{F})$ for every positive integer $m$.
+\end{proof}
+
+% chapter2:sectionC:exercise11
+\begin{exercise}
+    Suppose $U$ and $W$ are both four-dimensional subspaces of $\mathbb{C}^{6}$. Prove that there exist two vectors in $U \cap W$ such that neither of these vectors is a scalar multiple of the other.
+\end{exercise}
+
+\begin{proof}
+    I skip this exercise.
+\end{proof}
+
+% chapter2:sectionC:exercise12
+\begin{exercise}
+    Suppose that $U$ and $W$ are subspaces of $\mathbb{R}^{8}$ such that $\dim U = 3$, $\dim W = 5$, and $U + W = \mathbb{R}^{8}$. Prove that $\mathbb{R}^{8} = U \oplus W$.
+\end{exercise}
+
+\begin{proof}
+    I skip this exercise.
+\end{proof}
+
+% chapter2:sectionC:exercise13
+\begin{exercise}
+    Suppose $U$ and $W$ are both five-dimensional subspaces of $\mathbb{R}^{9}$. Prove that $U \cap W \ne \{0\}$.
+\end{exercise}
+
+\begin{proof}
+    I skip this exercise.
+\end{proof}
+
+% chapter2:sectionC:exercise14
+\begin{exercise}
+    Suppose $V$ is a ten-dimensional vector space and $V_{1} , V_{2} , V_{3}$ are subspaces of $V$ with $\dim V_{1} = \dim V_{2} = \dim V_{3} = 7$. Prove that $V_{1} \cap V_{2} \cap V_{3} \ne \{0\}$.
+\end{exercise}
+
+\begin{proof}
+    I skip this exercise.
+\end{proof}
+
+% chapter2:sectionC:exercise15
+\begin{exercise}
+    Suppose $V$ is a finite-dimensional vector space and $V_{1} , V_{2} , V_{3}$ are subspaces of $V$ with $\dim V_{1} + \dim V_{2} + \dim V_{3} > 2\dim V$. Prove that $V_{1} \cap V_{2} \cap V_{3} \ne \{0\}$.
+\end{exercise}
+
+\begin{proof}
+    According to the Grassmann formula for vector space dimensions
+    \begin{align*}
+        \dim (V_{1}\cap V_{2}\cap V_{3}) & = \dim (V_{1} \cap V_{2}) + \dim V_{3} - \dim ((V_{1}\cap V_{2}) + V_{3})                          \\
+                                         & = \dim V_{1} + \dim V_{2} - \dim (V_{1}\cap V_{2}) + \dim V_{3} - \dim ((V_{1}\cap V_{2}) + V_{3}) \\
+                                         & > 2\dim V - \dim (V_{1}\cap V_{2}) - \dim((V_{1}\cap V_{2}) + V_{3})                               \\
+                                         & = (\dim V - \dim (V_{1}\cap V_{2})) + (\dim V - \dim((V_{1}\cap V_{2}) + V_{3}))                   \\
+                                         & \geq 0 + 0 = 0.
+    \end{align*}
+
+    So $\dim (V_{1}\cap V_{2}\cap V_{3}) > 0$, which implies $V_{1}\cap V_{2}\cap V_{3}\ne \{0\}$.
+\end{proof}
+
+% chapter2:sectionC:exercise16
+\begin{exercise}
+    Suppose $V$ is finite-dimensional and $U$ is a subspace of $V$ with $U \ne V$. Let $n = \dim V$ and $m = \dim U$. Prove that there exist $n - m$ subspaces of $V$, each of dimension $n - 1$, whose intersection equals $U$.
+\end{exercise}
+
+\begin{proof}
+    Let $v_{1}, \ldots, v_{m}$ be a basis of $U$, this list can be extended to a basis of $V$
+    \[
+        v_{1}, \ldots, v_{m}, v_{m+1}, \ldots, v_{m + p}
+    \]
+
+    where $p = n-m$. Let $V_{k} = \text{span}(v_{1}, \ldots, v_{n})$ (without $v_{m+k}$) where $k$ is a positive integer such that $1\leq k\leq p$.
+
+    I will prove that: $V_{1}\cap \cdots\cap V_{p} = U$. Let $w$ be a vector in $V_{1}\cap \cdots\cap V_{p}$. Then
+    \begin{align*}
+        w & = w_{1} = (a_{1,1}v_{1} + \cdots + a_{1,m}v_{m}) + a_{1,m+1}v_{m+2} + \cdots + a_{1,m+p}v_{m+p} \\
+        \vdots                                                                                              \\
+        w & = w_{p} = (a_{p,1}v_{1} + \cdots + a_{p,m}v_{m}) + a_{p,m+1}v_{m+1} + \cdots + a_{p,m+p}v_{m+p}
+    \end{align*}
+
+    where $a_{k,m+k} = 0$ for every positive integer $1\leq k\leq p$. For every pair of distinct positive integers $i, j$ such that $1\leq i, j\leq p$, $w_{i} = w_{j}$. Since $v_{1}, \ldots, v_{m+p}$ is linearly independent, we obtain that $a_{i,m+j} = a_{j,m+i} = 0$. Hence $w$ is a linear combination of $v_{1}, \ldots, v_{m}$, and $V_{1}\cap \cdots\cap V_{p}\subseteq U$. On the other hand, $U$ is a subspace of $V_{k}$ for every $1\leq k\leq p$ so $U\subseteq V_{1}\cap \cdots V_{p}$. So $U = V_{1}\cap\cdots\cap V_{p}$.
+
+    Therefore, the intersection of $n - m$ subspaces $V_{1}, \ldots, V_{p}$ (these are $(n-1)$-dimensional subspaces) of $V$ equals $U$.
+\end{proof}
+
+% chapter2:sectionC:exercise17
+\begin{exercise}
+    Suppose that $V_{1} , \ldots, V_{m}$ are finite-dimensional subspaces of $V$. Prove that $V_{1} + \cdots + V_{m}$ is finite-dimensional and
+    \[
+        \dim (V_{1} + \cdots + V_{m}) \leq \dim V_{1} + \cdots + \dim V_{m}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    I skip this exercise.
+\end{proof}
+
+% chapter2:sectionC:exercise18
+\begin{exercise}
+    Suppose $V$ is finite-dimensional, with $\dim V = n \geq 1$. Prove that there exist one-dimensional subspaces $V_{1}, \ldots, V_{n}$ of $V$ such that
+    \[
+        V = V_{1} \oplus \cdots \oplus V_{n}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    I skip this exercise.
+\end{proof}
+
+% chapter2:sectionC:exercise19
+\begin{exercise}
+    Explain why you might guess, motivated by analogy with the formula for the number of elements in the union of three finite sets, that if $V_{1}, V_{2}, V_{3}$ are subspaces of a finite-dimensional vector space, then
+    \begin{align*}
+        \dim (V_{1} + V_{2} + V_{3}) &                                                                          \\
+        =                            & \dim V_{1} + \dim V_{2} + \dim V_{3}                                     \\
+        -                            & \dim (V_{1}\cap V_{2}) - \dim (V_{1}\cap V_{3}) - \dim (V_{2}\cap V_{3}) \\
+        +                            & \dim (V_{1} \cap V_{2}\cap V_{3}).
+    \end{align*}
+\end{exercise}
+
+\begin{proof}
+    The formula is similar to the formula of the principle of inclusion and exclusion. However, it is false. Here is a counterexample.
+
+    $V_{1}, V_{2}, V_{3}$ are subspaces of $\mathbb{F}^{2}$. $V_{1} = \text{span}((1, 0))$, $V_{2} = \text{span}((0, 1))$, $V_{3} = \text{span}((1, 1))$. Then
+    \[
+        V_{1}\cap V_{2} = V_{2}\cap V_{3} = V_{1}\cap V_{3} = V_{1}\cap V_{2}\cap V_{3} = \{0\}
+    \]
+
+    and $\dim (V_{1} + V_{2} + V_{3}) = 2$, meanwhile $\dim V_{1} + \dim V_{2} + \dim V_{3} - \dim (V_{1}\cap V_{2}) - \dim (V_{1}\cap V_{3}) - \dim (V_{2}\cap V_{3}) + \dim (V_{1}\cap V_{2}\cap V_{3}) = 3$.
+\end{proof}
+
+% chapter2:sectionC:exercise20
+\begin{exercise}
+    Prove that if $V_{1}, V_{2}$, and $V_{3}$ are subspaces of a finite-dimensional vector space, then
+    \begin{align*}
+        \dim (V_{1} + V_{2} + V_{3}) &                                                                                                                    \\
+        =                            & \dim V_{1} + \dim V_{2} + \dim V_{3}                                                                               \\
+        -                            & \frac{\dim (V_{1}\cap V_{2}) + \dim (V_{1}\cap V_{3}) + \dim (V_{2}\cap V_{3})}{3}                                 \\
+        -                            & \frac{\dim ((V_{1} + V_{2})\cap V_{3}) + \dim ((V_{1} + V_{3})\cap V_{2}) + \dim ((V_{2} + V_{3}) \cap V_{1})}{3}.
+    \end{align*}
+\end{exercise}
+
+\begin{proof}
+    According to the Grassmann formula for vector space dimensions
+    \begin{align*}
+        \dim (V_{1} + V_{2} + V_{3}) & = \dim (V_{2} + V_{3}) + \dim V_{1} - \dim ((V_{2} + V_{3})\cap V_{1})                             \\
+                                     & = \dim V_{2} + \dim V_{3} + \dim V_{1} - \dim (V_{2}\cap V_{3}) - \dim ((V_{2} + V_{3})\cap V_{1}) \\
+        \dim (V_{1} + V_{2} + V_{3}) & = \dim (V_{1} + V_{3}) + \dim V_{2} - \dim ((V_{1} + V_{3})\cap V_{2})                             \\
+                                     & = \dim V_{1} + \dim V_{3} + \dim V_{2} - \dim (V_{1}\cap V_{3}) - \dim ((V_{1} + V_{3})\cap V_{2}) \\
+        \dim (V_{1} + V_{2} + V_{3}) & = \dim (V_{1} + V_{2}) + \dim V_{3} - \dim ((V_{1} + V_{2})\cap V_{3})                             \\
+                                     & = \dim V_{1} + \dim V_{2} + \dim V_{3} - \dim (V_{1}\cap V_{2}) - \dim ((V_{1} + V_{2})\cap V_{3})
+    \end{align*}
+
+    Add up the left hand sides and the right hand sides and divide both sides by $3$, we obtain the desired formula.
+\end{proof}
 
