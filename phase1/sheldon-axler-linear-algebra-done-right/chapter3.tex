@@ -1,12 +1,982 @@
 \chapter{Linear Maps}
 
-\section{The Vector Space of Linear Maps}
+\section{Vector Space of Linear Maps}
+
+% chapter3:sectionA:exercise1
+\begin{exercise}
+    Suppose $b, c\in\mathbb{R}$. Define $T: \mathbb{R}^{3}\to \mathbb{R}^{2}$ by
+    \[
+        T(x, y, z) = (2x - 4y + 3z + b, 6x + cxyz).
+    \]
+
+    Show that $T$ is linear if and only if $b = c = 0$.
+\end{exercise}
+
+\begin{proof}
+    I skip this exercise.
+\end{proof}
+
+% chapter3:sectionA:exercise2
+\begin{exercise}
+    Suppose $b, c \in \mathbb{R}$ . Define $T: \mathcal{P}(\mathbb{R})\to \mathbb{R}^{2}$ by
+    \[
+        Tp = \left( 3p(4) + 5p'(6) + bp(1)p(2), \int^{2}_{-1}x^{3}p(x)dx + c \sin p(0) \right)
+    \]
+
+    Show that $T$ is linear if and only if $b = c = 0$.
+\end{exercise}
+
+\begin{proof}
+    I skip this exercise.
+\end{proof}
+
+% chapter3:sectionA:exercise3
+\begin{exercise}
+    Suppose that $T\in \mathcal{L}(\mathbb{F}^{n}, \mathbb{F}^{m})$. Show that there exist scalars $A_{j,k}\in\mathbb{F}$ for $j = 1, \ldots, m$ and $k = 1, \ldots, n$ such that
+    \[
+        T(x_{1}, \ldots, x_{n}) = (A_{1,1}x_{1} + \cdots + A_{1,n}x_{n}, \ldots, A_{m,1}x_{1} + \cdots + A_{m,n}x_{n})
+    \]
+
+    for every $(x_{1}, \ldots, x_{n})\in\mathbb{F}^{n}$.
+\end{exercise}
+
+\begin{proof}
+    Let $e_{1}, \ldots, e_{n}$ be the standard basis of $\mathbb{F}^{n}$ and let $T(e_{i}) = (A_{1,i}, \ldots, A_{m, i})$ for all $i\in\{ 1, 2, \ldots, n \}$. Hence
+    \[
+        T(x_{1}, \ldots, x_{n}) = (A_{1,1}x_{1} + \cdots + A_{1,n}x_{n}, \ldots, A_{m,1}x_{1} + \cdots + A_{m,n}x_{n})
+    \]
+
+    for every $(x_{1}, \ldots, x_{n})\in\mathbb{F}^{n}$.
+\end{proof}
+
+% chapter3:sectionA:exercise4
+\begin{exercise}
+    Suppose $T\in \mathcal{L}(V, W)$ and $v_{1}, \ldots, v_{m}$ is a list of vectors in $V$ such that $Tv_{1}, \ldots, Tv_{m}$ is a linearly independent list in $W$. Prove that $v_{1}, \ldots, v_{m}$ is linearly independent.
+\end{exercise}
+
+\begin{proof}
+    Let $x_{1}v_{1} + \cdots + x_{n}v_{n} = 0$ be a linear combination of $0$ in $V$.
+    \[
+        0 = T(0) = T(x_{1}v_{1} + \cdots + x_{n}v_{n}) = x_{1}Tv_{1} + \cdots + x_{n}Tv_{n}.
+    \]
+
+    Since $Tv_{1}, \ldots, Tv_{n}$ is linearly independent, then $x_{1}, \ldots, x_{n}$ are all zero. Hence $v_{1}, \ldots, v_{n}$ is linearly independent.
+\end{proof}
+
+% chapter3:sectionA:exercise5
+\begin{exercise}
+    Prove that $\mathcal{L}(V, W)$ is a vector space, as was asserted in 3.6.
+\end{exercise}
+
+\begin{proof}
+    I skip this exercise.
+\end{proof}
+
+% chapter3:sectionA:exercise6
+\begin{exercise}
+    Prove that multiplication of linear maps has the associative, identity, and distributive properties asserted in 3.8.
+\end{exercise}
+
+\begin{proof}
+    I skip this exercise.
+\end{proof}
+
+% chapter3:sectionA:exercise7
+\begin{exercise}
+    Show that every linear map from a one-dimensional vector space to itself is
+    multiplication by some scalar. More precisely, prove that if $\dim V = 1$ and $T\in \mathcal{L}(V)$, then there exists $\lambda\in\mathbb{F}$ such that $Tv = \lambda v$ for all $v\in V$.
+\end{exercise}
+
+\begin{proof}
+    Let $e$ be a basis of $V$. Then for every $v\in V$, there exists uniquely $x\in\mathbb{F}$ such that $v = xe$, and there exists uniquely $\lambda\in\mathbb{F}$ such that $Te = \lambda e$.
+    \[
+        Tv = T(xe) = xTe = x(\lambda e) = (x\lambda)e = (\lambda x)e = \lambda(xe) = \lambda v.
+    \]
+
+    Hence the result follows.
+\end{proof}
+
+% chapter3:sectionA:exercise8
+\begin{exercise}
+    Give an example of a function $\varphi: \mathbb{R}^{2}\to \mathbb{R}$ such that
+    \[
+        \varphi(av) = a\varphi(v)
+    \]
+
+    for all $a\in\mathbb{R}$ and all $v\in\mathbb{R}^{2}$ but $\varphi$ is not linear.
+\end{exercise}
+
+\begin{proof}
+    $\varphi: (x, y) \mapsto \sqrt[3]{x^{3} + y^{3}}$ satisfies
+    \[
+        \varphi(ax, ay) = a\varphi(x, y)
+    \]
+
+    but $\varphi$ is not linear.
+\end{proof}
+
+% chapter3:sectionA:exercise9
+\begin{exercise}
+    Give an example of a function $\varphi: \mathbb{C}\to \mathbb{C}$ such that
+    \[
+        \varphi(w + z) = \varphi(w) + \varphi(z)
+    \]
+
+    for all $w, z\in\mathbb{C}$ but $\varphi$ is not linear. (Here $\mathbb{C}$ is thought of as a complex vector space.)
+\end{exercise}
+
+\begin{proof}
+    $\varphi: \mathbb{C}\to \mathbb{C}$ defined by
+    \[
+        \varphi(z) = \bar{z}
+    \]
+
+    satisfies $\varphi(z + w) = \varphi(z) + \varphi(w)$ but is not linear.
+\end{proof}
+
+% chapter3:sectionA:exercise10
+\begin{exercise}
+    Prove or give a counterexample: If $q\in \mathcal{P}(\mathbb{R})$ and $T: \mathcal{P}(\mathbb{R})\to \mathcal{P}(\mathbb{R})$ is defined by $Tp = q\circ p$, then $T$ is a linear map.
+\end{exercise}
+
+\begin{proof}
+    Here is a counterexample.
+
+    $q(x) = 1$. $Tp = q\circ p$ then $(Tp)(x) = q(p(x)) = 1$ for all $x\in\mathbb{R}$. $T$ is not a linear map because
+    \[
+        (T(p_{1} + p_{2}))(x) = 1\ne 1 + 1 = (Tp_{1})(x) + (Tp_{2})(x)
+    \]
+
+    for all $x\in\mathbb{R}$.
+\end{proof}
+
+% chapter3:sectionA:exercise11
+\begin{exercise}\label{chapter3:sectionA:exercise11}
+    Suppose $V$ is finite-dimensional and $T\in\mathcal{L}(V)$. Prove that $T$ is a scalar multiple of the identity if and only if $ST = TS$ for every $S\in \mathcal{L}(V)$.
+\end{exercise}
+
+\begin{proof}
+    Let $v_{1}, \ldots, v_{n}$ be a basis of $V$ and $Tv_{i}$ be $x_{i,1}v_{1} + \cdots + x_{i,n}v_{n}$ for each $i\in\{ 1, \ldots, n \}$.
+
+    Due to the linear map lemma, for each $i\in \{ 1, \ldots, n \}$, there exists $S_{i}$ from $V$ to $V$ such that $S_{i}v_{i} = v_{i}$ and $S_{i}v_{j} = 0$ for every $j\ne i$.
+    \begin{align*}
+        (S_{i}T)(v_{i}) & = S_{i}(x_{i,1}v_{1} + \cdots + x_{i,n}v_{n}) = x_{i,i}v_{i}     \\
+        (TS_{i})(v_{i}) & = T(S_{i}v_{i}) = Tv_{i} = x_{i,1}v_{1} + \cdots + x_{i,n}v_{n}.
+    \end{align*}
+
+    Because $S_{i}T = TS_{i}$, and $v_{1}, \ldots, v_{n}$ is linearly independent, from the two formulas above, we deduce that $x_{i,j} = 0$ for every $j\ne i$.
+
+    Due to the linear map lemma, for every pair $i\ne j$ and $i, j\in \{ 1, \ldots, n \}$, there exists a linear map $S_{i,j} = S_{j,i}$ from $V$ to $V$ such that $S_{i,j}v_{i} = v_{j}$, $S_{i,j}v_{j} = v_{i}$ and $S_{i,j}v_{k} = 0$ where $k\ne i, j$.
+    \begin{align*}
+        (S_{i,j}T)(v_{i}) & = S_{i,j}(x_{i,i}v_{i}) = x_{i,i}v_{j} \\
+        (TS_{i,j})(v_{i}) & = Tv_{j} = x_{j,j}v_{j}
+    \end{align*}
+
+    Because $S_{i,j}T = TS_{i,j}$, and $v_{1}, \ldots, v_{n}$ is linearly independent, from the two formulas above, we deduce that $x_{i,i} = x_{j,j}$.
+
+    So for every $i\ne j$ in $\{1, \ldots, n\}$, $x_{i,j} = 0$ and $x_{i,i} = x_{j,j}$. Let $x_{1,1} = \lambda$, then $Tv_{i} = \lambda v_{i}$ for every $i\in\{1, \ldots, n\}$. Let $v = x_{1}v_{1} + \cdots + x_{n}v_{n}$ be an arbitrary vector in $V$, then
+    \[
+        Tv = x_{1}Tv_{1} + \cdots + x_{n}Tv_{n} = \lambda (x_{1}v_{1} + \cdots + x_{n}v_{n}) = \lambda v.
+    \]
+
+    Thus $T$ is a scalar multiple of the identity map.
+\end{proof}
+
+% chapter3:sectionA:exercise12
+\begin{exercise}
+    Suppose $U$ is a subspace of $V$ with $U\ne V$. Suppose $S\in \mathcal{L}(V, W)$ and $S \ne 0$ (which means that $Su \ne 0$ for some $u \in U$). Define $T : V \to W$ by
+    \[
+        Tv = \begin{cases}
+            Sv & \text{if $v\in U$},                 \\
+            0  & \text{if $v\in V$ and $v\notin U$.}
+        \end{cases}
+    \]
+
+    Prove that $T$ is not a linear map on $V$.
+\end{exercise}
+
+\begin{proof}
+    Let $u$ be a vector in $U$ such that $Su\ne 0$, $w$ be a vector in $V$ such that $w\notin U$. Then $u + w\notin U$. Due to the definition of $T$, $T(u + w) = 0$. On the other hand, $Tu + Tw = Su + 0 = Su\ne 0$. Therefore $T(u + w)\ne Tu + Tw$, so $T$ is not a linear map on $V$.
+\end{proof}
+
+% chapter3:sectionA:exercise13
+\begin{exercise}\label{chapter3:sectionA:exercise13}
+    Suppose $V$ is finite-dimensional. Prove that every linear map on a subspace of $V$ can be extended to a linear map on $V$. In other words, show that if $U$ is a subspace of $V$ and $S \in \mathcal{L}(U, W)$, then there exists $T\in \mathcal{L}(V, W)$ such that $Tu = Su$ for all $u\in U$.
+\end{exercise}
+
+\begin{proof}
+    Let $u_{1}, \ldots, u_{m}$ be a basis of $U$.
+
+    Since $V$ is finite-dimensional, we can extend the list $u_{1}, \ldots, u_{m}$ to $u_{1}, \ldots, u_{m}, v_{1}, \ldots, v_{n}$ such that the new list is a basis of $V$.
+
+    We define a linear map $T$ from $V$ to $W$ by the images of every vector within $u_{1}, \ldots, u_{m}, v_{1}, \ldots, v_{n}$: $Tu_{1} = Su_{1}$, \ldots, $Tu_{m} = Su_{m}$, $Tv_{1}$ is some vector in $W$, \ldots, $Tv_{n}$ is some vector in $W$. According to this construction, the linear map $T$ is indeed an extension of the linear map $S$.
+\end{proof}
+
+% chapter3:sectionA:exercise14
+\begin{exercise}
+    Suppose $V$ is finite-dimensional with $\dim V > 0$, and suppose $W$ is infinite-dimensional. Prove that $\mathcal{L}(V, W)$ is infinite-dimensional.
+\end{exercise}
+
+\begin{proof}
+    According to Exercise~\ref{chapter2:sectionA:exercise17}, there exists a sequence of vectors $w_{1}, w_{2}, \ldots$ in $W$ such that for every positive integer $n$, the list $w_{1}, w_{2}, \ldots, w_{n}$ is linearly independent.
+
+    Let $m = \dim V$ and $v_{1}, \ldots, v_{m}$ a basis of $V$.
+
+    For each positive integer $n$, let $T_{n}$ be a linear map from $V$ to $W$ such that $T_{n}v_{i} = 0$ for every $i\ne 1$ and $T_{n}v_{1} = w_{n}$. Let $\lambda_{1}T_{1} + \lambda_{2}T_{2} + \cdots + \lambda_{n}T_{n} = 0$ be a linear combination of $0$, from this we deduce that
+    \[ \lambda_{1}T_{1}v_{1} + \lambda_{2}T_{2}v_{1} + \cdots + \lambda_{n}T_{n}v_{1} = 0v_{1} = 0 \]
+
+    and the left-hand side is reduced to $\lambda_{1}w_{1} + \lambda_{2}w_{2} + \cdots + \lambda_{n}w_{n} = 0$. Because $w_{1}, \ldots, w_{n}$ is linearly independent, so $\lambda_{1} = \lambda_{2} = \cdots = \lambda_{n} = 0$. Therefore $T_{1}, \ldots, T_{n}$ is linearly independent. Once again, according to Exercise~\ref{chapter2:sectionA:exercise17}, $\mathcal{L}(V, W)$ is infinite-dimensional.
+\end{proof}
+
+% chapter3:sectionA:exercise15
+\begin{exercise}
+    Suppose $v_{1} , \ldots, v_{m}$ is a linearly dependent list of vectors in $V$. Suppose also that $W \ne \{0\}$. Prove that there exist $w_{1} , \ldots, w_{m} \in W$ such that no $T \in \mathcal{L}(V, W)$ satisfies $Tv_{k} = w_{k}$ for each $k = 1, \ldots, m$.
+\end{exercise}
+
+\begin{proof}
+    Because $v_{1} , \ldots, v_{m}$ is a linearly dependent list, there exist scalars $\lambda_{1}, \ldots, \lambda_{m}$ which are not all zero such that $\lambda_{1}v_{1} + \cdots + \lambda_{m}v_{m} = 0$. Without loss of generality, assume that $\lambda_{1}\ne 0$.
+
+    Since $W\ne \{0\}$, there exists a non-zero vector $w_{1}$ in $W$. Let $w_{2} = \cdots = w_{m} = 0$ (they are all zero vector), then $\lambda_{1}w_{1} + \lambda_{2}w_{2} + \cdots + \lambda_{m}w_{k} = \lambda_{1}w_{1}\ne 0$. There does not exist a linear map $T$ from $V$ to $W$ such that $Tv_{k} = w_{k}$ for each $k = 1,\ldots, m$, because $0 = T(\lambda_{1}v_{1} + \lambda_{2}v_{2} + \cdots + \lambda_{m}v_{k}) = \lambda_{1}w_{1} + \lambda_{2}w_{2} + \cdots + \lambda_{m}w_{k} \ne 0$.
+
+    Hence there exist $w_{1}, \ldots, w_{m}\in W$ such that no $T\in\mathcal{L}(V, W)$ satisfies $Tv_{k} = w_{k}$ for each $k = 1, \ldots, m$.
+\end{proof}
+
+% chapter3:sectionA:exercise16
+\begin{exercise}
+    Suppose $V$ is finite-dimensional with $\dim V > 1$. Prove that there exist $S, T \in \mathcal{L}(V)$ such that $ST \ne TS$.
+\end{exercise}
+
+\begin{proof}
+    Because $V$ is finite-dimensional and $\dim V > 1$, there exist two vectors $v_{1}, v_{2}\in V$ such that they are linearly independent. Let $S', T'\in\mathcal{L}(\text{span}(v_{1}, v_{2}))$ such that $S'v_{1} = v_{2}, S'v_{2} = v_{1}$ and $T'v_{1} = v_{1}, T'v_{2} = 0$. According to Exercise~\ref{chapter3:sectionA:exercise13}, $S'$ and $T'$ can both be extended to linear maps $S$ and $T$ in $\mathcal{L}(V)$, respectively.
+    \begin{align*}
+        (ST)(v_{1}) & = S(Tv_{1}) = Sv_{1} = v_{2} \\
+        (TS)(v_{1}) & = T(Sv_{1}) = Tv_{2} = 0
+    \end{align*}
+
+    So $ST\ne TS$. Hence there exists two linear maps in $\mathcal{L}(V)$ which are not commutative.
+\end{proof}
+
+% chapter3:sectionA:exercise17
+\begin{exercise}\label{chapter3:sectionA:exercise17}
+    Suppose $V$ is finite-dimensional. Show that the only two-sided ideals of $\mathcal{L}(V)$ are $\{0\}$ and $\mathcal{L}(V)$.
+        [A subspace $\mathcal{E}$ of $\mathcal{L}(V)$ is called a \textbf{two-sided ideal} of $\mathcal{L}(V)$ if $TE \in \mathcal{E}$ and $ET \in \mathcal{E}$ for all $E \in \mathcal{E}$ and all $T \in \mathcal{L}(V)$.]
+\end{exercise}
+
+\begin{proof}
+    Suppose that $\mathcal{E}$ is a two-sided ideal of $\mathcal{L}(V)$ and $\mathcal{E}\ne \{0\}$. I will show that the identity map $\text{id}_{V}$ is in $\mathcal{E}$.
+
+    Since $\mathcal{E}\ne \{0\}$, there exists $E\in\mathcal{E}$ such that $E$ is not the zero map. $E$ is not the zero map, so there exists a vector $v\ne 0$ such that $Ev\ne 0$. Let $v_{1}, \ldots, v_{n}$ be a basis of $V$. Since $v = x_{1}v_{1} + \cdots + x_{n}v_{n}$ for some scalars $x_{1}, \ldots, x_{n}$ and $v\ne 0$, there exists positive integer $k$ such that $x_{k}\ne 0$, then $v_{1}, \ldots, v_{k-1}, v, v_{k+1}, \ldots, v_{n}$ is also a basis of $V$. Therefore, without loss of generality, we can assume $v = v_{1}$. Let $w_{1} = Ev_{1}$. Similarly there exists a basis $w_{1}, \ldots, w_{n}$.
+
+    Let's define linear maps $R_{i}$ and $S_{i}$ for every positive integer $i\in [\![ 1, n ]\!]$ as follows:
+    \[
+        R_{i}v_{k} = \begin{cases}
+            v_{i} & \text{if $k = i$}  \\
+            0     & \text{if $k\ne i$}
+        \end{cases}
+        \qquad
+        S_{i}w_{k} = \begin{cases}
+            v_{i} & \text{if $k = i$}  \\
+            0     & \text{if $k\ne i$}
+        \end{cases}
+    \]
+
+    For every positive integer $k\in [\![ 1, n ]\!]$
+    \[
+        \sum^{n}_{i=1}(S_{i}ER_{i})(v_{k}) = (S_{k}E)(v_{k}) = S_{k}(Ev_{k}) = S_{k}w_{k} = v_{k}.
+    \]
+
+    So $\sum^{n}_{i=1}S_{i}ER_{i}$ is the identity map $\text{id}_{V}$. Since $\text{id}_{V} = S_{i}ER_{i}\in\mathcal{E}$ for every positive integer $i\in [\![ 1, n ]\!]$, $\text{id}_{V}\in\mathcal{E}$. Moreover, for every linear map $T$, $\text{id}_{V}T\in\mathcal{E}$, which means $T\in\mathcal{E}$ for every $T\in\mathcal{L}(V)$. Therefore $\mathcal{E} = \mathcal{L}(V)$.
+
+    Hence the only subspaces of $\mathcal{L}(V)$, which are two-side ideals, are $\{0\}$ and $\mathcal{L}(V)$.
+\end{proof}
 
 \section{Null Spaces and Ranges}
 
+% chapter3:sectionB:exercise1
+\begin{exercise}
+    Give an example of a linear map $T$ with $\dim \kernel{T} = 3$ and $\dim \range{T} = 2$.
+\end{exercise}
+
+\begin{proof}
+    Here is one example. $T: \mathbb{R}^{3}\to \mathbb{R}^{3}$, where $T((x, y, z)) = (x, y, 0)$.
+\end{proof}
+
+% chapter3:sectionB:exercise2
+\begin{exercise}
+    Suppose $S, T\in \mathcal{L}(V)$ are such that $\range{S}\subseteq \kernel{T}$. Prove that ${(ST)}^{2} = 0$.
+\end{exercise}
+
+\begin{proof}
+    Let $v$ be a vector in $V$. ${(ST)}^{2}(v) = S(T(STv))$. Because $STv\in\range{S}\subseteq \kernel{T}$, then $T(STv) = 0$, and $S(T(STv)) = 0$. Hence ${(ST)}^{2} = 0$.
+\end{proof}
+
+% chapter3:sectionB:exercise3
+\begin{exercise}
+    Suppose $v_{1}, \ldots, v_{m}$ is a list of vectors in $V$. Define $T\in \mathcal{L}(\mathbb{F}^{m}, V)$ by
+    \[ T(z_{1}, \ldots, z_{m}) = z_{1}v_{1} + \cdots + z_{m}v_{m}. \]
+
+    \begin{enumerate}[label={(\alph*)}]
+        \item What property of $T$ corresponds to $v_{1}, \ldots, v_{m}$ spanning $V$?
+        \item What property of $T$ corresponds to the list $v_{1}, \ldots, v_{m}$ being linearly independent?
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Surjectivity of $T$.
+        \item Injectivity of $T$.
+    \end{enumerate}
+\end{proof}
+
+% chapter3:sectionB:exercise4
+\begin{exercise}
+    Show that $\{T \in \mathcal{L}(\mathbb{R}^{5}, \mathbb{R}^{4} ): \dim \kernel{T} > 2\}$ is not a subspace of $\mathcal{L}(\mathbb{R}^{5}, \mathbb{R}^{4})$.
+\end{exercise}
+
+\begin{proof}
+    Let $S, T$ be linear maps in $\mathcal{L}(\mathbb{R}^{5}, \mathbb{R}^{4})$ such that
+    \begin{align*}
+        S(x_{1}, x_{2}, x_{3}, x_{4}, x_{5}) & = (x_{1}, x_{2}, 0, 0), \\
+        T(x_{1}, x_{2}, x_{3}, x_{4}, x_{5}) & = (0, 0, x_{3}, x_{4}).
+    \end{align*}
+
+    According to this definition and the fundamental theorem of linear maps, $\dim \kernel{S} = \dim \kernel{T} = 5 - 2 = 3 > 2$. However
+    \[
+        (S + T)(x_{1}, x_{2}, x_{3}, x_{4}, x_{5}) = (x_{1}, x_{2}, x_{3}, x_{4})
+    \]
+
+    and $\dim\kernel{(S+T)} = 5 - 4 = 1 < 2$. So $\{T \in \mathcal{L}(\mathbb{R}^{5}, \mathbb{R}^{4} ): \dim \kernel{T} > 2\}$ is not closed under addition, so it is not a subspace of $\mathcal{L}(\mathbb{R}^{5}, \mathbb{R}^{4})$.
+\end{proof}
+
+% chapter3:sectionB:exercise5
+\begin{exercise}
+    Give an example of $T \in \mathcal{L}(\mathbb{R}^{4})$ such that $\range{T} = \kernel{T}$.
+\end{exercise}
+
+\begin{proof}
+    Let $T$ be a linear map in $\mathcal{L}(\mathbb{R}^{4})$ such that $T((x_{1}, x_{2}, x_{3}, x_{4})) = (x_{1} - x_{2}, x_{1} - x_{2}, x_{3} - x_{4}, x_{3} - x_{4})$.
+
+    Then $\kernel{T} = \{ (a, a, b, b): a, b\in \mathbb{R} \}$, $\range{T} = \{ (a, a, b, b): a, b\in \mathbb{R} \}$.
+\end{proof}
+
+% chapter3:sectionB:exercise6
+\begin{exercise}
+    Prove that there does not exist $T \in \mathcal{L}(\mathbb{R}^{5})$ such that $\range{T} = \kernel{T}$.
+\end{exercise}
+
+\begin{proof}
+    According to the fundamental theorem of linear maps, $\dim \mathbb{R}^{5} = \dim\kernel{T} + \dim\range{T}$, so $5 = \dim\kernel{T} + \dim\range{T}$. Since $5$ is odd, then $\dim\kernel{T}\ne \dim\range{T}$, which means $\range{T}\ne \kernel{T}$.
+\end{proof}
+
+% chapter3:sectionB:exercise7
+\begin{exercise}
+    Suppose $V$ and $W$ are finite-dimensional with $2 \leq \dim V \leq \dim W$. Show that $\{T \in \mathcal{L}(V, W) : T \text{ is not injective} \}$ is not a subspace of $\mathcal{L}(V, W)$.
+\end{exercise}
+
+\begin{proof}
+    Let $v_{1}, v_{2}, \ldots, v_{n}$ be a basis of $V$, $w_{1}, w_{2}, \ldots, w_{n}, w_{n+1}, \ldots, w_{n+m}$ be a basis of $W$. According to the hypothesis, $n\geq 2, m\geq 0$.
+
+    I define two linear maps $S, T$ in $\mathcal{L}(V, W)$ as follows:
+    \[
+        Sv_{k} = \begin{cases}
+            w_{1} & \text{if $k = 1$}, \\
+            0     & \text{otherwise}
+        \end{cases}
+        \qquad
+        Tv_{k} = \begin{cases}
+            0     & \text{if $k = 1$}, \\
+            w_{k} & \text{otherwise}
+        \end{cases}
+    \]
+
+    By this definition, $S, T$ are not injective. However, $S + T$ is injective. Hence $\{T \in \mathcal{L}(V, W) : T \text{ is not injective} \}$ is not a subspace of $\mathcal{L}(V, W)$, because it is not closed under addition.
+\end{proof}
+
+% chapter3:sectionB:exercise8
+\begin{exercise}
+    Suppose $V$ and $W$ are finite-dimensional with $\dim V \geq \dim W \geq 2$. Show
+    that $\{T \in \mathcal{L}(V, W) : T \text{ is not surjective}\}$ is not a subspace of $\mathcal{L}(V, W)$.
+\end{exercise}
+
+\begin{proof}
+    Let $w_{1}, w_{2}, \ldots, w_{n}$ be a basis of $W$, $v_{1}, v_{2}, \ldots, v_{n}, v_{n+1}, \ldots, v_{n+m}$ be a basis of $V$. According to the hypothesis, $n\geq 2, m\geq 0$.
+
+    I define two linear maps $S, T$ in $\mathcal{L}(V, W)$ as follows:
+    \[
+        Sv_{k} = \begin{cases}
+            w_{1} & \text{if $k = 1$}, \\
+            0     & \text{otherwise}
+        \end{cases}
+        \qquad
+        Tv_{k} = \begin{cases}
+            w_{k} & \text{if $1 < k\leq n$}, \\
+            0     & \text{otherwise}
+        \end{cases}
+    \]
+
+    By this definition, $S, T$ are not surjective. However,
+    \[
+        (S+T)(v_{k}) = \begin{cases}
+            w_{k} & \text{if $1\leq k\leq n$}, \\
+            0     & \text{otherwise}
+        \end{cases}
+    \]
+
+    which means $S + T$ is surjective. Hence $\{T \in \mathcal{L}(V, W) : T \text{ is not surjective} \}$ is not a subspace of $\mathcal{L}(V, W)$, because it is not closed under addition.
+\end{proof}
+
+% chapter3:sectionB:exercise9
+\begin{exercise}\label{chapter3:sectionB:exercise9}
+    Suppose $T \in \mathcal{L}(V, W)$ is injective and $v_{1}, \ldots, v_{n}$ is linearly independent in $V$. Prove that $Tv_{1} , \ldots, Tv_{n}$ is linearly independent in $W$.
+\end{exercise}
+
+\begin{proof}
+    Suppose that $x_{1}Tv_{1} + \cdots + x_{n}Tv_{n} = 0$ is a linear combination of $0$. Then $T(x_{1}v_{1} + \cdots + x_{n}v_{n}) = 0$. Because $T$ is injective, it follows that $\kernel{T} = \{0\}$ and then $x_{1}v_{1} + \cdots + x_{n}v_{n} = 0$. Since $v_{1}, \ldots, v_{n}$ is linearly independent in $V$, $x_{1} = \cdots = x_{n} = 0$. Hence $Tv_{1} , \ldots, Tv_{n}$ is linearly independent in $W$.
+\end{proof}
+
+% chapter3:sectionB:exercise10
+\begin{exercise}
+    Suppose $v_{1} ,\ldots, v_{n}$ spans $V$ and $T \in \mathcal{L}(V, W)$. Show that $Tv_{1} , \ldots, Tv_{n}$ spans $\range{T}$.
+\end{exercise}
+
+\begin{proof}
+    Let $w$ be a vector in $\range{T}$, then there exists a vector $v\in V$ such that $Tv = w$. Because $v_{1} ,\ldots, v_{n}$ spans $V$, there exists scalars $x_{1}, \ldots, x_{n}$ such that $v = x_{1}v_{1} + \cdots + x_{n}v_{n}$. Then $w = Tv = x_{1}Tv_{1} + \cdots + x_{n}Tv_{n}$. Hence $Tv_{1}, \ldots, Tv_{n}$ spans $\range{T}$.
+\end{proof}
+
+% chapter3:sectionB:exercise11
+\begin{exercise}\label{chapter3:sectionB:exercise11}
+    Suppose that $V$ is finite-dimensional and that $T \in \mathcal{L}(V, W)$. Prove that there exists a subspace $U$ of $V$ such that
+    \[
+        U \cap \kernel{T} = \{ 0 \}     \quad\text{and}\quad \range{T} = \{ Tu: u\in U \}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    Let $v_{1}, \ldots, v_{n}$ be a basis of $\kernel{T}$. We extend this list to create a basis of $V$, and let it be
+    \[ v_{1}, \ldots, v_{n}, v_{n+1}, \ldots, v_{n+m}. \]
+
+    Let $U = \text{span}(v_{n+1}, \ldots, v_{n+m})$, then $U\cap \kernel{T} = \{0\}$, and $V = U\oplus \kernel{T}$. Let $v$ be a vector in $V$. According to the definition of direct sum of subspaces, there exist uniquely two vectors $v_{0}\in\kernel{T}$ and $u\in U$ such that $v = v_{0} + u$. $Tv = Tv_{0} + Tu = Tu$. Therefore $\range{T} = \{ Tu: u\in U \}$.
+
+    Hence $U = \text{span}(v_{n+1}, \ldots, v_{n+m})$ is what we want to construct in this problem. $U$ is also a linear complement of $\kernel{T}$ in $V$.
+\end{proof}
+
+% chapter3:sectionB:exercise12
+\begin{exercise}
+    Suppose $T$ is a linear map from $\mathbb{F}^{4}$ to $\mathbb{F}^{2}$ such that
+    \[
+        \kernel{T} = \{ (x_{1}, x_{2}, x_{3}, x_{4})\in\mathbb{F}^{4} : x_{1} = 5x_{2} \text{ and } x_{3} = 7x_{4} \}.
+    \]
+
+    Prove that $T$ is surjective.
+\end{exercise}
+
+\begin{proof}
+    $\kernel{T} = \{ (5x_{2}, x_{2}, 7x_{4}, x_{4}) \}$. $(5x_{2}, x_{2}, 7x_{4}, x_{4}) = x_{2}(5, 1, 0, 0) + x_{4}(0, 0, 7, 1)$. $(5, 1, 0, 0)$ and $(0, 0, 7, 1)$ is a basis of $\kernel{T}$, so $\dim\kernel{T} = 2$. According to the fundamental theorem of linear maps, $\dim\mathbb{F}^{4} = \dim\kernel{T} + \dim\range{T}$, then $\dim\range{T} = 4 - 2 = 2 = \dim\mathbb{F}^{2}$. Therefore, $\range{T} = \mathbb{F}^{2}$, which implies $T$ is surjective.
+\end{proof}
+
+% chapter3:sectionB:exercise13
+\begin{exercise}
+    Suppose $U$ is a three-dimensional subspace of $\mathbb{R}^{8}$ and that $T$ is a linear map from $\mathbb{R}^{8}$ to $\mathbb{R}^{5}$ such that $\kernel{T}= U$. Prove that $T$ is surjective.
+\end{exercise}
+
+\begin{proof}
+    According to the fundamental theorem of linear maps, $\dim\mathbb{R}^{8} = \dim\kernel{T} + \dim\range{T}$, so $\dim\range{T} = 8 - \dim\kernel{T} = 8 - \dim U = 8 - 3 = 5 = \dim\mathbb{R}^{5}$. Therefore, $\range{T} = \mathbb{R}^{5}$, which implies $T$ is surjective.
+\end{proof}
+
+% chapter3:sectionB:exercise14
+\begin{exercise}
+    Prove that there does not exist a linear map from $\mathbb{F}^{5}$ to $\mathbb{F}^{2}$ whose null space equals $\{(x_{1} , x_{2} , x_{3} , x_{4} , x_{5} ) \in \mathbb{F}^{5} : x_{1} = 3x_{2} \text{ and } x_{3} = x_{4} = x_{5} \}$.
+\end{exercise}
+
+\begin{proof}
+    $\{(x_{1} , x_{2} , x_{3} , x_{4} , x_{5} ) \in \mathbb{F}^{5} : x_{1} = 3x_{2} \text{ and } x_{3} = x_{4} = x_{5} \} = \{ (3x_{2}, x_{2}, x_{3}, x_{3}, x_{3}) \}$.
+    \[
+        (3x_{2}, x_{2}, x_{3}, x_{3}, x_{3}) = x_{2}(3, 1, 0, 0, 0) + x_{3}(0, 0, 1, 1, 1)
+    \]
+
+    so the dimension of $\{(x_{1} , x_{2} , x_{3} , x_{4} , x_{5} ) \in \mathbb{F}^{5} : x_{1} = 3x_{2} \text{ and } x_{3} = x_{4} = x_{5} \}$ is $2$.
+
+    Assume that there exists a linear map $T\in\mathcal{L}(\mathbb{F}^{5}, \mathbb{F}^{2})$ such that $\kernel{T} = \{(x_{1} , x_{2} , x_{3} , x_{4} , x_{5} ) \in \mathbb{F}^{5} : x_{1} = 3x_{2} \text{ and } x_{3} = x_{4} = x_{5} \}$. According to the fundamental theorem of linear maps, $\dim\range{T} = 5 - \dim\kernel{T} = 5 - 2 = 3$. However, this is not the case, because $\range{T}$ must be a subspace of $\mathbb{F}^{2}$.
+
+    Hence there does not exist a linear map $T\in\mathcal{L}(\mathbb{F}^{5}, \mathbb{F}^{2})$ such that $\kernel{T} = \{(x_{1} , x_{2} , x_{3} , x_{4} , x_{5} ) \in \mathbb{F}^{5} : x_{1} = 3x_{2} \text{ and } x_{3} = x_{4} = x_{5} \}$.
+\end{proof}
+
+% chapter3:sectionB:exercise15
+\begin{exercise}\label{chapter3:sectionB:exercise15}
+    Suppose there exists a linear map on $V$ whose null space and range are both finite-dimensional. Prove that $V$ is finite-dimensional.
+\end{exercise}
+
+\begin{proof}
+    Let $v_{1}, \ldots, v_{n}$ be a basis of $\kernel{T}$, and $w_{1}, \ldots, w_{m}$ a basis of $\range{T}$. There exist vectors $u_{1}, \ldots, u_{m}$ such that $Tu_{1} = w_{1}, \ldots, Tu_{m} = w_{m}$.
+
+    Let $v$ be a vector in $V$. There exist scalar $a_{1}, \ldots, a_{m}$ such that $Tv = a_{1}w_{1} + \cdots + a_{m}w_{m}$. Then
+    \[
+        Tv = a_{1}w_{1} + \cdots + a_{m}w_{m} = a_{1}Tu_{1} + \cdots + a_{m}Tu_{m} = T(a_{1}u_{1} + \cdots + a_{m}u_{m})
+    \]
+
+    it follows that $v - (a_{1}u_{1} + \cdots + a_{m}u_{m})\in \kernel{T}$. So there exist scalars $b_{1}, \ldots, b_{n}$ such that
+    \[
+        v - (a_{1}u_{1} + \cdots + a_{m}u_{m}) = b_{1}v_{1} + \cdots + b_{n}v_{n}.
+    \]
+
+    Therefore $v = a_{1}u_{1} + \cdots + a_{m}u_{m} + b_{1}v_{1} + \cdots + b_{n}v_{n}$, which means $u_{1}, \ldots, u_{m}, v_{1}, \ldots, v_{n}$ spans $V$. Hence $V$ is finite-dimensional.
+\end{proof}
+
+% chapter3:sectionB:exercise16
+\begin{exercise}
+    Suppose $V$ and $W$ are both finite-dimensional. Prove that there exists an injective linear map from $V$ to $W$ if and only if $\dim V \leq \dim W$.
+\end{exercise}
+
+\begin{proof}
+    $(\Rightarrow)$ There exists an injective linear map $T$ from $V$ to $W$. According to the fundamental theorem of linear maps, $\dim V = \dim\kernel{T} + \dim\range{T}$. Since $T$ is injective, $\dim\kernel{T} = 0$, and $\dim V = \dim\range{T}$. On the other hand, $\range{T}$ is a subspace of $W$, so $\dim\range{T}\leq \dim W$. Hence $\dim V\leq \dim W$.
+
+    $(\Leftarrow)$ $\dim V\leq \dim W$. Let $v_{1}, \ldots, v_{n}$ be a basis of $V$, and $w_{1}, \ldots, w_{n}, w_{n+1}, \ldots, w_{n+m}$ be a basis of $W$. Let $T$ be the linear map that $Tv_{k} = w_{k}$ for every positive integer $k\in [\![ 1,n ]\!]$. Then $T$ is an injective linear map from $V$ to $W$.
+\end{proof}
+
+% chapter3:sectionB:exercise17
+\begin{exercise}
+    Suppose $V$ and $W$ are both finite-dimensional. Prove that there exists a surjective linear map from $V$ to $W$ if and only if $\dim V \geq \dim W$.
+\end{exercise}
+
+\begin{proof}
+    $(\Rightarrow)$ There exists a surjective linear map $T$ from $V$ to $W$. According to the fundamental theorem of linear maps, $\dim V = \dim\kernel{T} + \dim\range{T}$. Since $T$ is surjective, $\dim\range{T} = \dim W$. On the other hand, $\dim\range{T} = \dim V - \dim\kernel{T}\leq \dim V$, so $\dim V\geq \dim W$.
+
+    $(\Leftarrow)$ $\dim V\geq \dim W$. Let $w_{1}, \ldots, w_{n}$ be a basis of $W$, and $v_{1}, \ldots, v_{n}, v_{n+1}, \ldots, v_{n+m}$ be a basis of $V$. Let $T$ be the linear map that $Tv_{k} = w_{k}$ for every positive integer $k\in [\![ 1,n ]\!]$ and $Tv_{k} = 0$ for every positive integer $k\in [\![ n+1, n+m ]\!]$. Then $T$ is a surjective linear map from $V$ to $W$.
+\end{proof}
+
+% chapter3:sectionB:exercise18
+\begin{exercise}
+    Suppose $V$ and $W$ are finite-dimensional and that $U$ is a subspace of $V$. Prove that there exists $T\in \mathcal{L}(V, W)$ such that $\kernel{T} = U$ if and only if $\dim U \geq \dim V - \dim W$.
+\end{exercise}
+
+\begin{proof}
+    $(\Rightarrow)$ There exists $T\in \mathcal{L}(V, W)$ such that $\kernel{T} = U$. According to the fundamental theorem of linear maps, $\dim V = \dim\kernel{T} + \dim\range{T}$. Since $\dim\kernel{T} = \dim U$ and $\dim\range{T}\leq \dim W$, $\dim V\leq \dim U + \dim W$, which means $\dim U\geq \dim V - \dim W$.
+
+    $(\Leftarrow)$ $\dim U\geq \dim V - \dim W$. Since $U$ is a subspace of $V$, which is finite-dimensional, then $U$ is also finite-dimensional. Let $u_{1}, \ldots, u_{n}$ be a basis of $U$, extend this list to a basis $u_{1}, \ldots, u_{n}, v_{1}, \ldots, v_{m}$ of $V$. Because $\dim U\geq \dim V - \dim W$, $\dim W\geq (m + n) - n = m$. Let $w_{1}, \ldots, w_{m}, w_{m+1}, \ldots, w_{m+p}$ be a basis of $W$. Let $T$ be the linear map such that $Tu_{i} = 0$ for every positive integer $i\in[\![ 1,n ]\!]$, $Tv_{j} = w_{j}$ for every positive integer $i\in[\![ 1,m ]\!]$. Now I have to show that $\kernel{T} = U$.
+
+    Due to the definition of $T$, it follows that $U\subseteq \kernel{T}$. Let $v$ be a vector in $\kernel{T}$, then $v = a_{1}u_{1} + \cdots + a_{n}u_{n} + b_{1}v_{1} + \cdots + b_{m}v_{m}$. $Tv = b_{1}Tv_{1} + \cdots + b_{m}Tv_{m} = b_{1}w_{1} + \cdots + b_{m}w_{m}$. Since $w_{1}, \ldots, w_{m}$ are linearly independent, $b_{1} = \cdots = b_{m} = 0$, so $v = a_{1}u_{1} + \cdots + a_{n}u_{n}\in U$. Therefore $\kernel{T}\subseteq U$. Hence $\kernel{T} = U$.
+\end{proof}
+
+% chapter3:sectionB:exercise19
+\begin{exercise}
+    Suppose $W$ is finite-dimensional and $T\in\mathcal{L}(V, W)$. Prove that $T$ is injective if and only if there exists $S\in\mathcal{L}(W, V)$ such that $ST$ is the identity operator on $V$.
+\end{exercise}
+
+\begin{proof}
+    $(\Rightarrow)$ There exists $S\in\mathcal{L}(W, V)$ such that $ST$ is the identity operator on $V$. Let $v\in\kernel{T}$. Since $ST = \text{id}_{V}$, then $(ST)(v) = v$. On the other hand, $(ST)(v) = S(Tv) = S(0) = 0$. So $v = 0$, which means $\kernel{T} = \{0\}$. Hence $T$ is injective.
+
+    $(\Leftarrow)$ $T$ is injective, then $\dim\kernel{T} = 0$. $W$ is finite-dimensional, so $\range{T}$ is also finite-dimensional. According to Exercise~\ref{chapter3:sectionB:exercise15}, $V$ is finite-dimensional. On the other hand, $\dim V = \dim\kernel{T} + \dim\range{T} = \dim\range{T}\leq \dim W$.
+
+    Let $v_{1}, \ldots, v_{n}$ be a basis of $V$. According to Exercise~\ref{chapter3:sectionB:exercise9}, $w_{1} = Tv_{1}, \ldots, w_{n} = Tv_{n}$ is linearly independent. Extend this list to a basis $w_{1}, \ldots, w_{n}, w_{n+1}, \ldots, w_{n+m}$ of $W$.
+
+    I define a linear map $S$ from $W$ to $V$ as follows
+    \[
+        Sw_{k} = \begin{cases}
+            v_{k} & \text{if $1\leq k\leq n$}, \\
+            0     & \text{otherwise}.
+        \end{cases}
+    \]
+
+    Then $ST$ is the identity operator on $V$.
+\end{proof}
+
+% chapter3:sectionB:exercise20
+\begin{exercise}
+    Suppose $V$ is finite-dimensional and $T\in\mathcal{L}(V, W)$. Prove that $T$ is surjective if and only if there exists $S\in\mathcal{L}(W, V)$ such that $TS$ is the identity operator on $W$.
+\end{exercise}
+
+\begin{proof}
+    $(\Rightarrow)$ There exists $S\in\mathcal{L}(W, V)$ such that $TS$ is the identity operator on $W$. Let $w\in W$. Since $TS = \text{id}_{W}$, then $(TS)(w) = w$, and $T(Sw) = w$. So $w\in \range{T}$, and $\range{T} = W$. Therefore $T$ is surjective.
+
+    $(\Leftarrow)$ $T$ is surjective, then $\range{T} = W$. According to the proof of the fundamental theorem of linear maps, if $u_{1}, \ldots, u_{m}$ is a basis of $\kernel{T}$, the extended list $u_{1}, \ldots, u_{m}, v_{1}, \ldots, v_{n}$ is a basis of of $V$, then $w_{1} = Tv_{1}, \ldots, w_{n} = Tv_{n}$ is a basis of $\range{T}$.
+
+    I define a linear map $S$ from $W$ to $V$ by $Sw_{k} = v_{k}$ for every positive integer $k\in[\![ 1, n ]\!]$. Then $TS$ is the identity operator on $W$.
+\end{proof}
+
+% chapter3:sectionB:exercise21
+\begin{exercise}
+    Suppose $V$ is finite-dimensional, $T \in \mathcal{L}(V, W)$, and $U$ is a subspace of $W$. Prove that $\{v \in V : Tv \in U\}$ is a subspace of $V$ and
+    \[
+        \dim\{ v\in V : Tv\in U \} = \dim \kernel{T} + \dim (U\cap \range{T}).
+    \]
+\end{exercise}
+
+\begin{proof}
+    Let $X = \{v \in V : Tv \in U\}$. Because $T0 = 0\in U$, $0\in X$. If $v\in X$, then $Tv\in U$, and $T(\lambda v)\in U$ for every $\lambda\in\mathbb{F}$. If $v_{1}, v_{2}\in X$, then $T(v_{1} + v_{2}) = Tv_{1} + Tv_{2}\in U$. So $X$ contains $0$, is closed under addition and scalar multiplication. Therefore $X$ is a subspace of $V$.
+
+    Due to the definition of null space and $X$, it follows that $\kernel{T}$ is a subspace of $X$. Let $S$ be the linear map from $X$ to $U$ that $Su = Tu$ for every $u\in U$. Then $\kernel{T} = \kernel{S}$.
+
+    $\range{S}$ is a subspace of $U\cap \range{T}$. For each vector $w$ in $U\cap \range{T}$, there exists a vector $v\in V$ such that $Tv = w$. On the other hand, since $w\in U$, then $v\in U$. So $Sv = w$, and it follows that $U\cap \range{T}$ is a subspace of $\range{S}$. Then $\range{S} = U\cap \range{T}$.
+
+    According to the fundamental theorem of linear map,
+    \[
+        \dim X = \dim\kernel{S} + \dim\range{S} = \dim\kernel{T} + \dim (U\cap\range{T}).\qedhere
+    \]
+\end{proof}
+
+% chapter3:sectionB:exercise22
+\begin{exercise}
+    Suppose $U$ and $V$ are finite-dimensional vector spaces and $S \in \mathcal{L}(V, W)$ and $T \in \mathcal{L}(U, V)$. Prove that
+    \[
+        \dim\kernel{ST} \leq \dim\kernel{S} + \dim\kernel{T}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    \[
+        \begin{CD}
+            U @>T>>     V @>S>>     W
+        \end{CD}
+    \]
+
+    Because $U, V$ are finite-dimensional, then so are $\kernel{T}$, $\range{T}$, $\kernel{S}$, $\range{S}$.
+
+    According to the fundamental theorem of linear maps,
+    \[
+        \dim\kernel{ST} = \dim U - \dim\range{ST} = \dim \kernel{T} + \dim\range{T} - \dim\range{ST}.
+    \]
+
+    and
+    \[
+        \dim\range{T} = \dim \kernel{S\vert_{\range{T}}} + \dim\range{ST} = \dim (\kernel{S}\cap\range{T}) + \dim\range{ST}.
+    \]
+
+    On the other hand, $\dim (\kernel{S}\cap\range{T}) \leq \dim\kernel{S}$ (where $S\vert_{\range{T}}$ is the linear map $S$ restricted on $\range{T}$ instead of the entire $V$). Therefore
+    \[
+        \dim\kernel{ST} \leq \dim\kernel{T} + \dim\kernel{S}.
+    \]
+
+    The equality holds if and only if $\kernel{S}\subseteq \range{T}$.
+\end{proof}
+
+% chapter3:sectionB:exercise23
+\begin{exercise}
+    Suppose $U$ and $V$ are finite-dimensional vector spaces and $S \in \mathcal{L}(V, W)$ and $T \in \mathcal{L}(U, V)$. Prove that
+    \[
+        \dim\range{ST} \leq \min\{\dim\range{S}, \dim\range{T}\}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    \[
+        \begin{CD}
+            U @>T>>     V @>S>>     W
+        \end{CD}
+    \]
+
+    Because $U, V$ are finite-dimensional, then so are $\kernel{T}$, $\range{T}$, $\kernel{S}$, $\range{S}$.
+
+    $ST\in\mathcal{L}(U, W)$. If $w\in\range{ST}$, then there exists $u\in U$ such that $(ST)(u) = w$. So $S(Tu) = w$, and $w$ is also in $\range{S}$. So $\range{ST}$ is a subspace of $\range{S}$, and $\dim\range{ST}\leq \dim\range{S}$.
+
+    According to the fundamental theorem of linear maps,
+    \[
+        \dim\range{T} = \dim \kernel{S\vert_{\range{T}}} + \dim\range{ST} = \dim (\kernel{S}\cap\range{T}) + \dim\range{ST} \geq \dim\range{ST}
+    \]
+
+    So $\dim\range{ST}\leq \dim\range{T}$. Hence
+    \[
+        \dim\range{ST}\leq \min\{ \dim\range{S}, \dim\range{T} \}.\qedhere
+    \]
+\end{proof}
+
+% chapter3:sectionB:exercise24
+\begin{exercise}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Suppose $\dim V = 5$ and $S, T \in \mathcal{L}(V)$ are such that $ST = 0$. Prove that $\dim \range{TS} \leq 2$.
+        \item Give an example of $S, T \in \mathcal{L}(\mathbb{F}^{5})$ with $ST = 0$ and $\dim\range{TS} = 2$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    Unsolved.
+\end{proof}
+
+% chapter3:sectionB:exercise25
+\begin{exercise}
+    Suppose that $W$ is finite-dimensional and $S, T \in \mathcal{L}(V, W)$. Prove that $\kernel{S} \subseteq \kernel{T}$ if and only if there exists $E \in \mathcal{L}(W)$ such that $T = ES$.
+\end{exercise}
+
+\begin{proof}
+    $(\Rightarrow)$ There exists $E\in\mathcal{L}(W)$ such that $T = ES$. Let $v$ be a vector in $\kernel{S}$. Then $Tv = (ES)(v) = E(Sv) = E0 = 0$. So $v$ is also in $\kernel{T}$. Therefore $\kernel{S}\subseteq\kernel{T}$.
+
+    $(\Leftarrow)$ $\kernel{S}\subseteq\kernel{T}$. Since $W$ is finite-dimensional, then so are $\range{S}$ and $\range{T}$.
+
+    \begin{enumerate}[label={\textbf{Step \arabic*.}},itemindent={1cm}]
+        \item Construct a linear complement of $\kernel{S}$ in $\kernel{T}$.
+
+              Let $Sv_{1}, \ldots, Sv_{n}$ be a basis of $\range S\vert_{\kernel{T}}$. Let $0 = a_{1}v_{1} + \cdots + a_{n}v_{n}$ be a linear combination of $0$ in $V$. Then $0 = S(a_{1}v_{1} + \cdots + a_{n}v_{n}) = a_{1}Sv_{1} + \cdots + a_{n}Sv_{n}$. Because $Sv_{1}, \ldots, Sv_{n}$ is linearly independent, it follows that $a_{1} = \cdots = a_{n} = 0$. So $v_{1}, \ldots, v_{n}$ is linearly independent.
+
+              Let $v$ be a vector in $\kernel{T}$. There exist scalars $b_{1}, \ldots, b_{n}$ such that $Sv = b_{1}Sv_{1} + \cdots + b_{n}Sv_{n}$. So $S(v - b_{1}v_{1} - \cdots - b_{n}v_{n}) = 0$, which means $v$ is the sum of $b_{1}v_{1} + \cdots + b_{n}v_{n}$ and a vector in $\kernel{S}$. Therefore $\kernel{T} = \kernel{S} + \text{span}(v_{1}, \ldots, v_{n})$.
+
+              A vector $x_{1}v_{1} + \cdots + x_{n}v_{n}$ in $\text{span}(v_{1}, \ldots, v_{n})$ is in $\kernel{S}$ if and only if $x_{1}Sv_{1} + \cdots + x_{n}Sv_{n} = 0$. On the other hand, $x_{1}Sv_{1} + \cdots + x_{n}Sv_{n} = 0$ if and only if $x_{1} = \cdots = x_{n} = 0$. So $\kernel{S}\cap \text{span}(v_{1}, \ldots, v_{n}) = \{0\}$.
+
+              Hence $\kernel{T} = \kernel{S}\oplus\text{span}(v_{1}, \ldots, v_{n})$.
+        \item Construct a linear complement of $\kernel T$ in $V$.
+
+              Let $Tu_{1}, \ldots, Tu_{m}$ be a basis of $\range{T}$.
+
+              Let $0 = a_{1}u_{1} + \cdots + a_{n}u_{n}$ be a linear combination of $0$ in $V$. Then
+              \[
+                  0 = T0 = T(a_{1}u_{1} + \cdots + a_{n}u_{n}) = a_{1}Tu_{1} + \cdots + a_{n}Tu_{n}.
+              \]
+
+              Since $Tu_{1}, \ldots, Tu_{m}$ is linearly independent, $a_{1} = \cdots = a_{m} = 0$. So $u_{1}, \ldots, u_{m}$ is linearly independent.
+
+              $x_{1}u_{1} + \cdots + x_{m}u_{m}$ is in $\kernel{T}$ if and only if $T(x_{1}u_{1} + \cdots + x_{m}u_{m}) = 0$.
+              \[
+                  x_{1}Tu_{1} + \cdots + x_{m}Tu_{m} = T(x_{1}u_{1} + \cdots + x_{m}u_{m}) = 0.
+              \]
+
+              $x_{1}Tu_{1} + \cdots + x_{m}Tu_{m} = 0$ if and only if $x_{1} = \cdots = x_{m} = 0$. So $\kernel{T}\cap\text{span}(u_{1}, \ldots, u_{m}) = \{0\}$.
+
+              Let $v$ be a vector in $V$, then there exist scalars $a_{1}, \ldots, a_{m}$ such that $Tv = a_{1}Tu_{1} + \cdots + a_{m}Tu_{m}$. So
+              \[
+                  Tv = a_{1}Tu_{1} + \cdots + a_{m}Tu_{m} = T(a_{1}u_{1} + \cdots + a_{m}u_{m}).
+              \]
+
+              It follows that $v - (a_{1}u_{1} + \cdots + a_{m}u_{m})$ is in $\kernel{T}$. So $V = \kernel{T} + \text{span}(u_{1}, \ldots, u_{m})$.
+
+              Because $V = \kernel{T} + \text{span}(u_{1}, \ldots, u_{m})$ and $\kernel{T}\cap \text{span}(u_{1}, \ldots, u_{m}) = \{0\}$, we conclude that $V = \kernel{T}\oplus \text{span}(u_{1}, \ldots, u_{m})$.
+        \item Construct a linear map $E$ in $\mathcal{L}(W)$.
+
+              Due to \textbf{Step 1} and \textbf{Step 2}
+              \[
+                  V = \underbrace{\kernel{S} \oplus \text{span}(v_{1}, \ldots, v_{n})}_{\kernel{T}} \oplus \text{span}(u_{1}, \ldots, u_{m}).
+              \]
+
+              On the other hand, $Sv_{1}, \ldots, Sv_{n}, Su_{1}, \ldots, Su_{m}$ is a basis of $\range{S}$, because, if $x_{1}Sv_{1} + \cdots + x_{n}Sv_{n} + y_{1}Su_{1} + \cdots + y_{m}Su_{m} = 0$ is a linear combination of $0$ in $\range{S}$, then $S(x_{1}v_{1} + \cdots + x_{n}v_{n} + y_{1}u_{1} + \cdots + y_{m}u_{m}) = 0$. But $\kernel{S}\cap \text{span}(v_{1}, \ldots, v_{n}, u_{1}, \ldots, u_{m}) = \{0\}$, so $x_{1}v_{1} + \cdots + x_{n}v_{n} + y_{1}u_{1} + \cdots + y_{m}u_{m} = 0$, which implies $x_{1} = \cdots = x_{n} = 0$, $y_{1} = \cdots = y_{m} = 0$ because the list $v_{1}, \ldots, v_{n}, u_{1}, \ldots, u_{m}$ is linearly independent.
+
+              I define the linear map $E$ in $\mathcal{L}(W)$ as follows:
+              \[
+                  E(Sv_{i}) = 0\qquad E(Su_{j}) = Tu_{j}.
+              \]
+
+              Let $v$ be a vector in $V$. There exist $v_{0}$ in $\kernel{S}$ and scalars $a_{1}, \ldots, a_{n}, b_{1}, \ldots, b_{m}$ such that $v = v_{0} + a_{1}v_{1} + \cdots + a_{n}v_{n} + b_{1}u_{1} + \cdots + b_{m}u_{m}$. Note that $Tv_{0} = Sv_{0} = 0$ because $\kernel S\subseteq \kernel T$ and $Tv_{1} = \cdots = Tv_{n} = 0$.
+              \begin{align*}
+                  (ES)(v) & = E(Sv_{0} + a_{1}Sv_{1} + \cdots + a_{n}Sv_{n} + b_{1}Su_{1} + \cdots + b_{m}Su_{m})                 \\
+                          & = E(Sv_{0}) + (a_{1}E(Sv_{1}) + \cdots + a_{n}E(Sv_{n})) + (b_{1}E(Su_{1}) + \cdots + b_{m}E(Su_{m})) \\
+                          & = 0 + (0 + \cdots + 0) + (b_{1}Tu_{1} + \cdots + b_{m}Tu_{m})                                         \\
+                          & = Tv_{0} + (a_{1}Tv_{1} + \cdots + a_{n}Tv_{n}) + (b_{1}Tu_{1} + \cdots + b_{m}Tu_{m})                \\
+                          & = T(v_{0} + a_{1}v_{1} + \cdots + a_{n}v_{n} + b_{1}u_{1} + \cdots + b_{m}u_{m})                      \\
+                          & = Tv.
+              \end{align*}
+
+              Hence $T = ES$.\qedhere
+    \end{enumerate}
+\end{proof}
+
+% chapter3:sectionB:exercise26
+\begin{exercise}
+    Suppose that $V$ is finite-dimensional and $S, T \in \mathcal{L}(V, W)$. Prove that $\range{S} \subseteq \range{T}$ if and only if there exists $E \in \mathcal{L}(V)$ such that $S = TE$.
+\end{exercise}
+
+\begin{proof}
+    $(\Rightarrow)$ There exists $E \in \mathcal{L}(V)$ such that $S = TE$. Let $w$ be a vector in $\range{S}$, then there exists a vector $v$ in $V$ such that $Sv = w$. So $(TE)(v) = w$, and $T(Ev) = w$. Therefore $w$ is also in $\range{T}$. Hence $\range{S}\subseteq\range{T}$.
+
+    $(\Leftarrow)$ $\range{S} \subseteq \range{T}$.
+
+    According to the fundamental theorem of linear maps, $\range{S}$ and $\range{T}$ are finite-dimensional.
+
+    Let $Su_{1}, \ldots, Su_{n}$ be a basis of $\range{S}$.
+
+    $u_{1}, \ldots, u_{n}$ is linearly independent. Extend the list $u_{1}, \ldots, u_{n}$ to create a basis of $V$ and let it be
+    \[
+        u_{1}, \ldots, u_{n}, u_{n+1}, \ldots, u_{n+m}, u_{n+m+1}, \ldots, u_{n+m+p}.
+    \]
+
+    Since $\range{S}\subseteq \range{T}$, there exist vectors $v_{k}$ such that $Su_{k} = Tv_{k}$ for every positive integer $k\in [\![ 1, n+m+p ]\!]$.
+
+    I define the linear map $E$ in $\mathcal{L}(V)$ as follows: $Eu_{k} = v_{k}$ for every positive integer $k\in [\![ 1, n+m+p ]\!]$.
+
+    Then $(TE)(u_{k}) = T(Eu_{k}) = Tv_{k} = Su_{k}$ for every positive integer $k\in [\![ 1, n+m+p ]\!]$.
+
+    Hence $S = TE$.\qedhere
+\end{proof}
+
+% chapter3:sectionB:exercise27
+\begin{exercise}
+    Suppose $P \in \mathcal{L}(V)$ and $P^{2} = P$. Prove that $V = \kernel{P}\oplus \range{P}$.
+\end{exercise}
+
+\begin{proof}
+    Let $v$ be a vector in $V$. $v = (v - Pv) + Pv$. On the other hand, $P(v - Pv) = Pv - P^{2}v = 0$. So $V = \kernel{P}\oplus \range{P}$.
+
+    Let $w$ be a vector in $\kernel{P}\cap\range{P}$. Then there exists vector $v$ in $V$ such that $Pv = w$. On the other hand, $Pw = 0$ because $w\in\kernel{P}$. So $w = Pv = P^{2}v = Pw = 0$. Therefore $\kernel{P}\cap\range{P} = \{0\}$.
+
+    Hence $V = \kernel{P}\oplus\range{P}$.
+\end{proof}
+
+% chapter3:sectionB:exercise28
+\begin{exercise}
+    Suppose $D \in \mathcal{L}(\mathcal{P}(\mathbb{R}))$ is such that $\deg Dp = (\deg p) - 1$ for every non-constant polynomial $p \in \mathcal{P}(\mathbb{R})$. Prove that $D$ is surjective.
+\end{exercise}
+
+\begin{proof}
+    Let $a$ be a polynomial of degree $1$, let $c$ be a constant polynomial, then $a + c$ is a polynomial of degree $1$. $D(a + c)$ is a constant polynomial, because $\deg D(a+c) = \deg (a + c) - 1 = 0$. On the other hand, $D(a + c) = Da + Dc$, so $Dc$ is a constant polynomial.
+
+    Suppose that $Dc\ne 0$. Because $\deg Da = 0$, it follows that $Da\ne 0$.
+    \[
+        D\left(\frac{-Dc}{Da}a + c\right) = \frac{-Dc}{Da}\cdot Da + Dc = 0.
+    \]
+
+    It follows that $\deg D\left(\frac{-Dc}{Da}a + c\right) = -\infty \ne 0 = \deg\left(\frac{-Dc}{Da}a + c\right) - 1$. So the assumption $Dc\ne 0$ is false. Therefore $Dc = 0$. So $0$ is in $\range{D}$.
+
+    I will prove the following statement by using mathematical induction: for each nonnegative integer $n$, every polynomial of degree $n$ in $\mathcal{L}(\mathcal{P}(\mathbb{R}))$ is in $\range{D}$.
+
+    When $n = 0$. Let $c_{0}$ be a nonzero constant polynomial. Let $c_{1}$ be a polynomial of degree $1$. $\deg Dc_{1} = 0$, so there exist a nonzero constant polynomial $d_{0}$ such that $Dc_{1} = d_{0}$. $D\left(\frac{c_{0}}{d_{0}}c_{1}\right) = \frac{c_{0}}{d_{0}}\cdot d_{0} = c_{0}$. So $c_{0}\in\range{D}$.
+
+    Assume that for every nonnegative integer $n\leq k$, every polynomial of degree $k$ is in $\range{D}$. Let $p_{k+1}$ be a polynomial of degree $(k+1)$, $p_{k+2}$ be a polynomial of degree $(k+2)$, $q_{k+1} = Dp_{k+2}$. Let $a_{k+1}$ and $b_{k+1}$ be the leading coefficients of $p_{k+1}$ and $q_{k+1}$. Since
+    \[
+        \deg\left(\frac{1}{a_{k+1}}p_{k+1} - \frac{1}{b_{k+1}}q_{k+1}\right) \leq k
+    \]
+
+    then $\frac{1}{a_{k+1}}p_{k+1} - \frac{1}{b_{k+1}}q_{k+1}$ is in $\range{D}$. Together with $q_{k+1}$ being in $\range{D}$, we conclude that $p_{k+1}$ is also in $\range{D}$.
+
+    Due to the principle of mathematical induction, every nonzero polynomial is in $\range{D}$.
+
+    Because the zero polynomial and every nonzero polynomial are in $\range{D}$, it follows that every polynomial is in $D$. Thus $D$ is surjective.
+\end{proof}
+
+% chapter3:sectionB:exercise29
+\begin{exercise}
+    Suppose $p \in \mathcal{P}(\mathbb{R})$. Prove that there exists a polynomial $q \in \mathcal{P}(\mathbb{R})$ such that $5q'' + 3q' = p$.
+\end{exercise}
+
+\begin{proof}
+    If $p$ is the zero polynomial, then $q(x) = 1$ satisfies.
+
+    If $p$ is a nonzero polynomial, let $p: x\mapsto a_{0} + a_{1}x + \cdots + a_{n}x^{n}$ where $a_{n}\ne 0$. Any polynomial $q$ that satisfies the differential equation must have degree $(n+1)$.
+
+    Let $q(x) = b_{0} + b_{1}x + \cdots + b_{n+1}x^{n+1}$. The coefficient of $x^{k}$ in $5q''(x) + 3q'(x)$ where $k < n$ is
+    \[
+        5(k+2)(k+1)b_{k+2} + 3(k+1)b_{k+1}.
+    \]
+
+    The coefficient of $x^{k}$ in $5q''(x) + 3q'(x)$ where $k = n$ is
+    \[
+        (n+1)b_{n+1}.
+    \]
+
+    We obtain a system of $(n+1)$ linear equations:
+    \begin{align*}
+        (n+1)b_{n+1}                       & = a_{n} \\
+        5(k+2)(k+1)b_{k+2} + 3(k+1)b_{k+1} & = a_{k}
+    \end{align*}
+
+    This system of linear equations has more unknowns than equations (there are $(n+2)$ unknowns and $(n+1)$ equations), so it has at least one solution. Therefore there exists a polynomial $q\in\mathcal{P}(\mathbb{R})$ such that $5q'' + 3q' = p$.
+\end{proof}
+
+% chapter3:sectionB:exercise30
+\begin{exercise}\label{chapter3:sectionB:exercise30}
+    Suppose $\varphi \in \mathcal{L}(V, \mathbb{F})$ and $\varphi \ne 0$. Suppose $u \in V$ is not in $\kernel{\varphi}$. Prove that
+    \[
+        V = \kernel{\varphi} \oplus \{ au : a\in\mathbb{F} \}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    Let $v$ be a vector in $V$. $\varphi u\ne 0$ so $\varphi u$ is a basis of $\mathbb{F}$. So there exists a scalar $\lambda\in\mathbb{F}$ such that $\varphi v = \lambda\cdot \varphi u$. So $\varphi(v - \lambda u) = 0$, which implies $v - \lambda u$ is in $\kernel{\varphi}$. So $V = \kernel{\varphi} + \text{span}(u)$.
+
+    Let $v_{0}$ be a vector in $\kernel{\varphi}\cap\text{span}(u)$. So there exists s scalar $\lambda_{0}$ such that $v_{0} = \lambda_{0}u$. $\varphi v_{0} = 0$ and $\varphi v_{0} = \lambda_{0}\cdot \varphi u$. So $\lambda_{0} = 0$. Therefore $v_{0} = 0$, and $\kernel{\varphi}\cap\text{span}(u) = \{0\}$.
+
+    Hence $V = \kernel{\varphi} \oplus \text{span}(u)$.
+\end{proof}
+
+% chapter3:sectionB:exercise31
+\begin{exercise}
+    Suppose $V$ is finite-dimensional, $X$ is a subspace of $V$, and $Y$ is a finite-dimensional subspace of $W$. Prove that there exists $T \in \mathcal{L}(V, W)$ such that $\kernel{T} = X$ and $\range{T} = Y$ if and only if $\dim X + \dim Y = \dim V$.
+\end{exercise}
+
+\begin{proof}
+    $(\Rightarrow)$ There exists $T \in \mathcal{L}(V, W)$ such that $\kernel{T} = X$ and $\range{T} = Y$.
+
+    According to the fundamental theorem of linear maps, $\dim V = \dim X + \dim Y$.
+
+    $(\Leftarrow)$ $\dim V = \dim X + \dim Y$.
+
+    Let $v_{1}, \ldots, v_{n}$ be a basis of $X$. Extend this list to create a basis of $V$, and let it be $v_{1}, \ldots, v_{n}, v_{n+1}, \ldots, v_{n+m}$.
+
+    Let $w_{1}, \ldots, w_{m}$ be a basis of $Y$. I define the linear map $T$ from $V$ to $W$ as follows:
+    \[
+        Tv_{k} = \begin{cases}
+            0       & \text{if $1\leq k\leq n$} \\
+            w_{k-n} & \text{otherwise}
+        \end{cases}
+    \]
+
+    From this definition, and the linear independence of $w_{1}, \ldots, w_{m}$, it follows that $\range{T} = Y$ and $\kernel{T} = X$.
+\end{proof}
+
+% chapter3:sectionB:exercise32
+\begin{exercise}
+    Suppose $V$ is finite-dimensional with $\dim V > 1$. Show that if $\varphi: \mathcal{L}(V) \to \mathbb{F}$ is a linear map such that $\varphi(ST) = \varphi(S)\varphi(T)$ for all $S, T \in \mathcal{L}(V)$, then $\varphi = 0$.
+\end{exercise}
+
+\begin{proof}
+    Let $v_{1}, v_{2}, \ldots, v_{n}$ be a basis of $V$.
+
+    Let $S$ be a linear map in $\kernel{\varphi}$, $T$ a linear map in $\mathcal{L}(V)$. $\varphi(ST) = \varphi(S)\varphi(T) = 0$, $\varphi(TS) = \varphi(T)\varphi(S) = 0$. So $ST$, $TS$ are also in $\kernel{\varphi}$. Therefore $\varphi{T}$ is a two-sided ideal. According to Exercise~\ref{chapter3:sectionA:exercise17}, $\kernel{\varphi}$ is either $\{0\}$ or $\mathcal{L}(V)$.
+
+    Let $R$ be the linear map in $\mathcal{L}(V)$ that $Rv_{1} = v_{2}$, $Rv_{i} = 0$ for every positive integer $i\in[\![ 2, n ]\!]$, then $R^{2} = 0$. So $\varphi(R^{2}) = \varphi(R)\varphi(R) = 0$, and $\varphi(R) = 0$. Since $R\ne 0$, then $\kernel{\varphi}\ne \{0\}$. Hence $\kernel{\varphi} = \mathcal{L}(V)$, which implies $\varphi = 0$.
+\end{proof}
+
+% chapter3:sectionB:exercise33
+\begin{exercise}
+    Suppose that $V$ and $W$ are real vector spaces and $T \in \mathcal{L}(V, W)$. Define $T_{\mathbb{C}}: V_{\mathbb{C}} \to W_{\mathbb{C}}$ by
+    \[
+        T_{\mathbb{C}}(u + \iota v) = Tu + \iota Tv
+    \]
+
+    for all $u, v\in V$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that $T_{\mathbb{C}}$ is a (complex) linear map from $V_{\mathbb{C}}$ to $W_{\mathbb{C}}$.
+        \item Show that $T_{\mathbb{C}}$ is injective if and only if $T$ is injective.
+        \item Show that $\range T_{\mathbb{C}} = W_{\mathbb{C}}$ if and only if $\range T = W$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item \begingroup\allowdisplaybreaks
+              \begin{align*}
+                  T_{\mathbb{C}}((u_{1} + \iota v_{1}) + (u_{2} + \iota v_{2})) & = T_{\mathbb{C}}((u_{1} + u_{2}) + \iota (v_{1} + v_{2}))                    \\
+                                                                                & = T(u_{1} + u_{2}) + \iota T(v_{1} + v_{2})                                  \\
+                                                                                & = (Tu_{1} + Tu_{2}) + \iota (Tv_{1} + Tv_{2})                                \\
+                                                                                & = (Tu_{1} + \iota Tv_{1}) + (Tu_{2} + \iota Tv_{2})                          \\
+                                                                                & = T_{\mathbb{C}}(u_{1} + \iota v_{1}) + T_{\mathbb{C}}(u_{2} + \iota v_{2}), \\
+                  T_{\mathbb{C}}((a + b\iota)(u + \iota v))                     & = T_{\mathbb{C}}((au - bv) + \iota (av + bu))                                \\
+                                                                                & = T(au - bv) + \iota T(av + bu)                                              \\
+                                                                                & = (T(au) + \iota^{2} T(bv)) + (\iota T(av) + \iota T(bu))                    \\
+                                                                                & = (T(au) + \iota T(bu)) + \iota (T(av) + \iota T(bv))                        \\
+                                                                                & = (a + b\iota) Tu + (a + b\iota)\iota Tv                                     \\
+                                                                                & = (a + b\iota) (Tu + \iota Tv)                                               \\
+                                                                                & = (a + b\iota) T_{\mathbb{C}}(u + \iota v).
+              \end{align*}
+              \endgroup
+
+              Thus $T_{\mathbb{C}}$ is a linear map.
+        \item $(\Rightarrow)$ $T$ is injective.
+
+              $Tu = Tv = 0$ if and only if $u = v = 0$. So $T_{\mathbb{C}}(u + \iota v) = 0$ if and only if $u + \iota v = 0 + \iota 0$. Hence $T_{\mathbb{C}}$ is injective.
+
+              $(\Leftarrow)$ $T_{\mathbb{C}}$ is injective.
+
+              $T_{\mathbb{C}}(u + \iota v) = 0$ if and only if $u + \iota v = 0$. If $Tu = 0$, then $0 = Tu + \iota T0 = T_{\mathbb{C}}(u + \iota 0)$. $T_{\mathbb{C}}(u + \iota 0) = 0$ if and only if $u = 0$. Hence $T$ is injective.
+        \item $(\Rightarrow)$ $T$ is surjective.
+
+              Let $w + \iota z$ be a vector in $W_{\mathbb{C}}$. There exist vectors $u, v$ in $V$ such that $Tu = w$, $Tv = z$. $T_{\mathbb{C}}(u + \iota v) = Tu + \iota Tv = w + \iota z$. Hence $T_{\mathbb{C}}$ is surjective.
+
+              $(\Leftarrow)$ $T_{\mathbb{C}}$ is surjective.
+
+              Let $w$ be a vector in $W$. There exists a vector $u + \iota v$ in $V_{\mathbb{C}}$ such that $T_{\mathbb{C}}(u + \iota v) = w + \iota 0$.
+
+              So $w + \iota 0 = T_{\mathbb{C}}(u + \iota v) = Tu + \iota Tv$. Therefore $w = Tu$ and $0 = Tv$. Hence $T$ is surjective.
+    \end{enumerate}
+\end{proof}
+
 \section{Matrices}
 
-\section{Invertibility and Isomorphic Vector Spaces}
+\section{Invertibility and Isomorphisms}
 
 \section{Products and Quotients of Vector Spaces}
 
