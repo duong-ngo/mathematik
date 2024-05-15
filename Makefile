@@ -96,3 +96,21 @@ updatecls: cleanaux
 # format specific TeX file
 %.format: %.tex
 	@latexindent $(LATEXINDENT_OPTIONS) $<
+
+linear-algebra:
+	@$(MAKE) phase1/sheldon-axler-linear-algebra-done-right/main.pdf
+
+multilinear-algebra:
+	@$(MAKE) phase1/werner-greub-multilinear-algebra/main.pdf
+
+topology:
+	@$(MAKE) phase1/james-munkres-topology/main.pdf
+
+algebra:
+	@$(MAKE) phase1/fraleigh-a-first-course-in-abstract-algebra/main.pdf
+
+analysis:
+	@$(MAKE) phase1/vladimir-zorich-mathematical-analysis/main.pdf
+
+ag:
+	@$(MAKE) phase1/ideals-varieties-and-algorithms/main.pdf

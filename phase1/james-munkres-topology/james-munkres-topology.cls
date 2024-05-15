@@ -1,30 +1,32 @@
-\documentclass{book}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{james-munkres-topology}
 
-\usepackage[left=2cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
-\usepackage[unicode=true,hidelinks]{hyperref}
+\LoadClass[oneside]{book}
 
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage{amscd}
-\usepackage{mathtools}
-\usepackage{mathrsfs}
-\usepackage{cases}
+\RequirePackage[left=2cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
+\RequirePackage[unicode=true,hidelinks]{hyperref}
 
-\usepackage{fancyhdr}
-\usepackage{xcolor}
-\usepackage{titlesec}
-\usepackage{indentfirst}
-\usepackage{chngcntr}
-\usepackage{caption}
-\usepackage{subcaption}
-\usepackage{booktabs}
-\usepackage[inline]{enumitem}
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{amssymb}
+\RequirePackage{amsthm}
+\RequirePackage{mathtools}
+\RequirePackage{mathrsfs}
+\RequirePackage{cases}
+
+\RequirePackage{fancyhdr}
+\RequirePackage{xcolor}
+\RequirePackage{titlesec}
+\RequirePackage{indentfirst}
+\RequirePackage{chngcntr}
+\RequirePackage{caption}
+\RequirePackage{subcaption}
+\RequirePackage{booktabs}
+\RequirePackage[inline]{enumitem}
 
 \setcounter{chapter}{0}
-\counterwithin{subsection}{chapter}
-\renewcommand\thesection{\thechapter.\Alph{section}}
+\setcounter{section}{-1}
+\counterwithout{section}{chapter}
 
 \pagestyle{fancy}
 \setlength{\headheight}{16pt}
@@ -66,33 +68,11 @@
 \def\arraystretch{1.2}%
 \array{@{}l@{\quad}l@{}}%
 }
-\newcommand{\rank}{\operatorname{rank}}
-\newcommand{\kernel}[1]{\operatorname{null}\,{#1}}
-\newcommand{\range}[1]{\operatorname{range}\,{#1}}
-\newcommand{\lmap}[1]{\mathcal{L}\left({#1}\right)}
+
+\newcommand{\tr}[1]{\left({#1}\right)}
+\newcommand{\card}[1]{\left\vert{#1}\right\vert}
+\newcommand{\rank}{\text{rank}}
 \newcommand{\abs}[1]{\left\vert{#1}\right\vert}
 \newcommand{\norm}[1]{\left\Vert{#1}\right\Vert}
 \newcommand{\anglebracket}[1]{\left\langle{#1}\right\rangle}
 \newcommand{\innerprod}[2]{\left\langle{#1}\vert{#2}\rangle}
-
-\title{Sheldon Axler's Linear Algebra Done Right: Notes and Exercises}
-\author{Ngo Quang Duong}
-\date{\today}
-
-\begin{document}
-
-\maketitle
-
-\tableofcontents
-
-\input{chapter1.tex}
-\input{chapter2.tex}
-\input{chapter3.tex}
-\input{chapter4.tex}
-\input{chapter5.tex}
-\input{chapter6.tex}
-\input{chapter7.tex}
-\input{chapter8.tex}
-\input{chapter9.tex}
-
-\end{document}
