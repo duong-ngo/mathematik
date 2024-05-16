@@ -114,3 +114,6 @@ analysis:
 
 ag:
 	@$(MAKE) phase1/ideals-varieties-and-algorithms/main.pdf
+
+algebra0:
+	@$(MAKE) phase2/aluffi-algebra-chapter-0/main.pdf

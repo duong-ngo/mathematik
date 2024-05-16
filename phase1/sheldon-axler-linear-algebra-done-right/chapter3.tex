@@ -1844,7 +1844,7 @@
 \begin{proof}
     $\kernel{\mathcal{A}}$ consists of linear operators $T$ in $V$ such that $ST = 0$.
 
-    $ST = 0$ if and only if $\range{T} \subseteq \kernel{S}$. I define the map $f$ from $\kernel{\mathcal{A}}$ to $\lmap{V, \kernel{S}}$ as follows: $T\mapsto T$. This map $f$ is linear and an isomorphism. Therefore $\kernel{\mathcal{A}}$ and $\lmap{V, \kernel{S}}$ are isomorphic, and
+    $ST = 0$ if and only if $\range{T} \subseteq \kernel{S}$. I define the map $f$ from $\kernel{\mathcal{A}}$ to $\lmap{V, \kernel{S}}$ as follows: $T\mapsto \bar{T}$, where $Tv = \bar{T}v$. This map $f$ is linear and an isomorphism. Therefore $\kernel{\mathcal{A}}$ and $\lmap{V, \kernel{S}}$ are isomorphic, and
     \[
         \dim\kernel{\mathcal{A}} = \dim \lmap{V, \kernel{S}} = (\dim V)(\dim\kernel{S}).
     \]
@@ -2049,6 +2049,529 @@
 \newpage
 
 \section{Products and Quotients of Vector Spaces}
+
+% chapter3:sectionE:exercise1
+\begin{exercise}
+    Suppose $T$ is a function from $V$ to $W$. The graph of $T$ is the subset of $V\times W$ defined by
+    \[
+        \text{graph of $T$} = \{ (v, Tv)\in V\times W: v\in V \}.
+    \]
+
+    Prove that $T$ is a linear map if and only if the graph of $T$ is a subspace of $V\times W$.
+\end{exercise}
+
+\begin{proof}
+    If $T$ is a linear map, then
+    \begin{itemize}
+        \item $(0,0)$ is in the graph of $T$.
+        \item if $(v_{1}, Tv_{1})$ and $(v_{2}, Tv_{2})$ are in the graph of $T$ then $(v_{1} + v_{2}, Tv_{1} + Tv_{2}) = (v_{1} + v_{2}, T(v_{1} + v_{2}))$ is in the graph of $T$.
+        \item if $(v, Tv)$ is in the graph of $T$, then $\lambda (v, Tv) = (\lambda v, \lambda Tv) = (\lambda v, T(\lambda v))$ is in the graph of $T$.
+    \end{itemize}
+
+    so the graph of $T$ is a subspace of $V\times W$.
+
+    If the graph of $T$ is a subspace of $V\times W$, then for every $v_{1}, v_{2}\in V$ and $\lambda\in\mathbb{F}$,
+    \begin{align*}
+        (v_{1}, Tv_{1}) + (v_{2}, Tv_{2}) & = (v_{1}+v_{2}, Tv_{1} + Tv_{2}),  \\
+        \lambda (v_{1}, Tv_{1})           & = (\lambda v_{1}, \lambda Tv_{1}).
+    \end{align*}
+
+    Due to the definition of a function and the graph of a function, $(v_{1}+v_{2}, Tv_{1} + Tv_{2}) = (v_{1} + v_{2}, T(v_{1} + v_{2}))$ and $(\lambda v_{1}, \lambda Tv_{1}) = (\lambda v_{1}, T(\lambda v_{1}))$.
+
+    Therefore $Tv_{1} + Tv_{2} = T(v_{1} + V_{2})$ and $T(\lambda v_{1}) = \lambda Tv_{1}$. Hence $T$ is a linear map from $V$ to $W$.
+\end{proof}
+\newpage
+
+% chapter3:sectionE:exercise2
+\begin{exercise}
+    Suppose that $V_{1} , \ldots, V_{m}$ are vector spaces such that $V_{1} \times \cdots \times V_{m}$ is finite-dimensional. Prove that $V_{k}$ is finite-dimensional for each $k = 1, \ldots, m$.
+\end{exercise}
+
+\begin{proof}
+    Assume that at least one vector space $V_{k}$ is infinite-dimensional, then there exists a sequence $\{ v_{n} \}$ of vectors in $V_{k}$ such that any finite list from this sequence (starting from the first) is linearly independent. The sequence of vectors $\{ (\ldots, 0, v_{n}, 0, \ldots) \}$ satisfies the same property. Therefore $V_{1}\times \cdots \times V_{m}$ is infinite-dimensional.
+
+    Hence $V_{k}$ is finite-dimensional for each $k = 1,\ldots, m$.
+\end{proof}
+\newpage
+
+% chapter3:sectionE:exercise3
+\begin{exercise}
+    Suppose $V_{1} , \ldots, V_{m}$ are vector spaces. Prove that $\lmap{V_{1} \times \cdots\times V_{m} , W}$ and $\lmap{V_{1} , W} \times \cdots \times \lmap{V_{m} , W}$ are isomorphic vector spaces.
+\end{exercise}
+
+\begin{proof}
+    I skip this exercise.
+\end{proof}
+\newpage
+
+% chapter3:sectionE:exercise4
+\begin{exercise}
+    Suppose $W_{1} , \ldots, W_{m}$ are vector spaces. Prove that $\lmap{V, W_{1} \times \cdots \times W_{m}}$ and $\lmap{V, W_{1}} \times \cdots \times \lmap{V, W_{m}}$ are isomorphic vector spaces.
+\end{exercise}
+
+\begin{proof}
+    I skip this exercise.
+\end{proof}
+\newpage
+
+% chapter3:sectionE:exercise5
+\begin{exercise}
+    For $m$ a positive integer, define $V^{m}$ by
+    \[
+        V^{m} = \underbrace{V\times \cdots \times V}_{\text{$m$ times}}.
+    \]
+
+    Prove that $V^{m}$ and $\lmap{\mathbb{F}^{m}, V}$ are isomorphic vector spaces.
+\end{exercise}
+
+\begin{proof}
+    Let $e_{1}, \ldots, e_{m}$ be a basis of $\mathbb{F}^{m}$.
+
+    Let $(v_{1}, \ldots, v_{m})$ be a vector in $V^{m}$. I define a linear map $T$ from $V^{m}$ to $\lmap{\mathbb{F}^{m}, V}$ as follows: $T((v_{1}, \ldots, v_{m}))$ is the linear map that maps $e_{k}$ to $v_{k}$ for $k = 1,\ldots, m$.
+
+    I define a linear map $S$ from $\lmap{\mathbb{F}^{m}, V}$ to $V^{m}$ as follows: $SF$ is $(Fe_{1}, \ldots, Fe_{m})$, where $F\in\lmap{\mathbb{F}^{n}, V}$.
+
+    $ST = \text{id}_{\lmap{\mathbb{F}^{m}, V}}$ and $TS = \text{id}_{V^{m}}$, so $T$ and $S$ are isomorphism. Thus $V^{m}$ and $\lmap{\mathbb{F}^{m}, V}$ are isomorphic.
+\end{proof}
+\newpage
+
+% chapter3:sectionE:exercise6
+\begin{exercise}
+    Suppose that $v$, $x$ are vectors in $V$ and that $U$, $W$ are subspaces of $V$ such that $v + U = x + W$. Prove that $U = W$.
+\end{exercise}
+
+\begin{proof}
+    Because $v + U = x + W$, there exist vectors $u_{0}\in U$, $w_{0}\in W$ such that $v + 0 = x + w_{0}$ and $v + u_{0} = x + 0$. So $w_{0} = v - x$ and $u_{0} = x - v$. Therefore $v - x$ is in $U$ and $W$.
+
+    Let $u$ be a vector in $U$. Because $v + U = x + W$, there exists a vector $w$ in $W$ such that $v + u = x + w$. $u = (x - v) + w\in W$, so $U\subseteq W$.
+
+    Let $w$ be a vector in $W$. Because $v + U = x + W$, there exists a vector $u$ in $U$ such that $v + u = x + w$. $w = u + (v - x)\in U$, so $W\subseteq U$.
+
+    Thus $U = W$.
+\end{proof}
+\newpage
+
+% chapter3:sectionE:exercise7
+\begin{exercise}
+    Let $U = \{(x, y, z) \in \mathbb{R}^{3}: 2x + 3y + 5z = 0\}$. Suppose $A \subseteq \mathbb{R}^{3}$. Prove that $A$ is a translate of $U$ if and only if there exists $c\in\mathbb{R}$ such that
+    \[
+        A = \{ (x, y, z)\in\mathbb{R}^{3}: 2x + 3y + 5z = c \}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    If there exists $c\in\mathbb{R}$ such that $A = \{ (x, y, z)\in\mathbb{R}^{3}: 2x + 3y + 5z = c \}$, let $(x_{1}, y_{1}, z_{1})$ and $(x_{2}, y_{2}, z_{2})$ be elements of $A$, then
+    \[
+        2(x_{2} - x_{1}) + 3(y_{2} - y_{1}) + 5(z_{2} - z_{1}) = c - c = 0.
+    \]
+
+    So $(x_{2} - x_{1}, y_{2} - y_{1}, z_{2} - z_{1})\in U$. Therefore $A$ is a translate of $U$.
+
+    \bigskip
+    If $A$ is a translate of $U$, then there exists $(x_{1}, y_{1}, z_{1})$ such that $A = (x_{1}, y_{1}, z_{1}) + U$. Let $(x_{2}, y_{2}, z_{2})$ be an element of $A$, then $(x_{2} - x_{1}, y_{2} - y_{1}, z_{2} - z_{1})\in U$, which means
+    \[
+        2x_{2} + 3y_{2} + 5z_{2} = 2x_{1} + 3y_{1} + 5z_{1}.
+    \]
+
+    Let $c = 2x_{1} + 3y_{1} + 5z_{1}$, we conclude that $A = \{ (x, y, z)\in\mathbb{R}^{3}: 2x + 3y + 5z = c \}$.
+\end{proof}
+\newpage
+
+% chapter3:sectionE:exercise8
+\begin{exercise}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Suppose $T \in \lmap{V, W}$ and $c \in W$. Prove that $\{x \in V : Tx = c\}$ is either the empty set or is a translate of $\kernel{T}$.
+        \item Explain why the set of solutions to a system of linear equations such as 3.27 is either the empty set or is a translate of some subspace of $\mathbb{F}^{n}$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    I skip this exercise.
+\end{proof}
+\newpage
+
+% chapter3:sectionE:exercise9
+\begin{exercise}
+    Prove that a nonempty subset $A$ of $V$ is a translate of some subspace of $V$ if and only if $\lambda v + (1 - \lambda)w\in A$ for all $v, w\in A$ and all $\lambda \in\mathbb{F}$.
+\end{exercise}
+
+In this exercise $\text{char}(\mathbb{F})\ne 2$. Here is a counterexample: $\mathbb{F} = \mathbb{F}_{2}$; $V = \mathbb{F}^{2}_{2}$ and $A = \{ (0,0), (0,1), (1,1) \}$.
+
+\begin{proof}
+    $(\Rightarrow)$ $A$ is a translate of a subspace $U$ of $V$.
+
+    There exists a vector $v_{0}\in V$ such that $A = v_{0} + U$. If $v, w\in A$, then there exist vectors $u_{1}, u_{2}\in U$ such that $v = v_{0} + u_{1}$ and $w = v_{0} + u_{2}$. For every $\lambda\in\mathbb{F}$,
+    \[
+        \lambda v + (1 - \lambda)w = \lambda (v_{0} + u_{1}) + (1 - \lambda)(v_{0} + u_{2}) = v_{0} + \underbrace{(\lambda u_{1} + (1 - \lambda)u_{2})}_{\in U} \in A.
+    \]
+
+    $(\Leftarrow)$ $\lambda v + (1 - \lambda)w\in A$ for all $v, w\in A$ and all $\lambda \in\mathbb{F}$.
+
+    Let $v_{0}$ be an element of $A$, and $U = \{ (-v_{0}) + a : a\in A \}$.
+
+    Due to this definition and $v_{0}\in A$, it follows that $0\in U$.
+
+    If $u\in U$, then $u + v_{0}\in A$. For all $\lambda\in\mathbb{F}$, $\lambda (u + v_{0}) + (1 - \lambda)v_{0}\in A$, we have $\lambda u + v_{0}\in A$, which means $\lambda u\in U$. So $U$ is closed under scalar multiplication.
+
+    If $u_{1}, u_{2}\in U$ then $u_{1} + v_{0}, u_{2} + v_{0}\in A$.
+    \[
+        \frac{1}{2}(u_{1} + v_{0}) + \left(1 - \frac{1}{2}\right)(u_{2} + v_{0})\in A.
+    \]
+
+    Then $\frac{1}{2}(u_{1} + u_{2}) + v_{0}\in A$. Therefore $\frac{1}{2}(u_{1} + u_{2})\in U$. Since $U$ is closed under scalar multiplication, $u_{1} + u_{2}\in U$. So $U$ is closed under addition.
+
+    Hence $U$ is a subspace of $V$, and $A = v_{0} + U$ is a translate of $U$.
+\end{proof}
+\newpage
+
+% chapter3:sectionE:exercise10
+\begin{exercise}
+    Suppose $A_{1} = v + U_{1}$ and $A_{2} = w + U_{2}$ for some $v, w \in V$ and some subspaces $U_{1}, U_{2}$ of $V$. Prove that the intersection $A_{1} \cap A_{2}$ is either a translate of some subspace of $V$ or is the empty set.
+\end{exercise}
+
+\begin{proof}
+    Assume that $A_{1}\cap A_{2}$ is a nonempty set. Let $v_{0}$ be an element of $A_{1}\cap A_{2}$.
+
+    Let $a$ be an element of $A_{1}\cap A_{2}$, then $a - v_{0}\in U_{1}$ and $a - v_{0}\in U_{2}$. Therefore $a - v_{0}\in U_{1}\cap U_{2}$. So $a\in v_{0} + (U_{1}\cap U_{2})$, and $A_{1}\cap A_{2}\subseteq v_{0} + (U_{1}\cap U_{2})$.
+
+    Let $b$ be an element of $v_{0} + (U_{1}\cap U_{2})$, then there exists $u\in U_{1}\cap U_{2}$ such that $b = v_{0} + u$. Because $u\in U_{1}$ and $u\in U_{2}$, it follows that $b\in v_{0} + U_{1} = v + U_{1}$ and $b\in v_{0} + U_{2} = w + U_{2}$. So $b\in A_{1}\cap A_{2}$.
+
+    Hence $A_{1}\cap A_{2} = v_{0} + (U_{1}\cap U_{2})$. Thus $A_{1}\cap A_{2}$ is either the empty set or a translate of a subspace of $V$.
+\end{proof}
+\newpage
+
+% chapter3:sectionE:exercise11
+\begin{exercise}
+    Suppose $U = \{(x_{1} , x_{2} , \ldots ) \in \mathbb{F}^{\infty} : x_{k} \ne 0 \text{ for only finitely many $k$} \}$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that $U$ is a subspace of $\mathbb{F}^{\infty}$.
+        \item Prove that $\mathbb{F}^{\infty}/U$ is infinite-dimensional.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item I skip this exercise.
+        \item Let $(p_{n})$ be the sequence of prime numbers.
+
+              Let $u_{k}$ be the vector in $\mathbb{F}^{\infty}$ where the $n$th slot is $p^{n}_{k}$ and the other slots are $0$. $u_{1} + U, u_{2} + U, \ldots$ are pairwise distinct, since $u_{i} - u_{j}$ has infinite nonzero slots.
+
+              Assume that $u_{1} + U$, \ldots, $u_{k} + U$ is linearly dependent, then there exist scalars $a_{1}, \ldots, a_{k}$ which are not all $0$ such that
+              \[
+                  (a_{1}u_{1} + U) + \cdots + (a_{k}u_{k} + U) = 0 + U.
+              \]
+
+              If $a_{i}\ne 0$ then $(a_{1}u_{1} + U) + \cdots + (a_{k}u_{k} + U)$ has infinite slots which are nonzero. Therefore the assumption is false, so for every positive integer $k$, $u_{1} + U$, $u_{2} + U$, \ldots, $u_{k} + U$ is linearly independent. Hence $\mathbb{F}^{\infty}/U$ is infinite-dimensional.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter3:sectionE:exercise12
+\begin{exercise}
+    Suppose $v_{1} , \ldots, v_{m} \in V$. Let
+    \[
+        A = \{ \lambda_{1}v_{1} + \cdots + \lambda_{m}v_{m}: \lambda_{1}, \ldots,\lambda_{m}\in\mathbb{F} \text{ and } \lambda_{1} + \cdots + \lambda_{m} = 1 \}.
+    \]
+    \begin{enumerate}[label={(\alph*)}]
+        \item Prove that $A$ is a translate of some subspace of $V$.
+        \item Prove that if $B$ is a translate of some subspace of $V$ and $\{ v_{1}, \ldots, v_{m} \} \subseteq B$, then $A\subseteq B$.
+        \item Prove that $A$ is a translate of some subspace of $V$ of dimension less than $m$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Let $v_{0}$ be a vector in $A$, then there exist scalars $\lambda_{k}$ for $k = 1, \ldots, m$ such that $\lambda_{1} + \cdots + \lambda_{m} = 1$ and
+              \[
+                  v_{0} = \lambda_{1}v_{1} + \cdots + \lambda_{m}v_{m}.
+              \]
+
+              Let $U = \{ a - v_{0} : a\in A \}$. Because $v_{0}\in A$, it follows that $0\in U$.
+
+              Let $u, w$ be elements of $U$, then there exist scalars $x_{k}$ and $y_{k}$ for $k = 1,\ldots, m$ such that $x_{1} + \cdots + x_{m} = 1$, $y_{1} + \cdots + y_{m} = 1$, and
+              \[
+                  u + v_{0} = x_{1}v_{1} + \cdots + x_{m}v_{m}\qquad w + v_{0} = y_{1}v_{1} + \cdots + y_{m}v_{m}.
+              \]
+              \begin{align*}
+                  (u + w) + v_{0} & = (u + v_{0}) + (w + v_{0}) + (-1)v_{0}                                                                                        \\
+                                  & = (x_{1}v_{1} + \cdots + x_{m}v_{m}) + (y_{1}v_{1} + \cdots + y_{m}v_{m}) + (-1)(\lambda_{1}v_{1} + \cdots + \lambda_{m}v_{m}) \\
+                                  & = (x_{1} + y_{1} - \lambda_{1})v_{1} + \cdots + (x_{m} + y_{m} - \lambda_{m})v_{m}.
+              \end{align*}
+
+              Since $\sum^{m}_{k=1}(x_{k} + y_{k} - \lambda_{k}) = \sum^{m}_{k=1}x_{k} + \sum^{m}_{k=1}y_{k} - \sum^{m}_{k=1}\lambda_{k} = 1 + 1 - 1 = 1$, then $(u + w) + v_{0}$ is in $A$. So $u + w$ is in $U$.
+
+              For every scalar $\lambda\in\mathbb{F}$
+              \begin{align*}
+                  \lambda u + v_{0} & = (\lambda x_{1}v_{1} + \cdots + \lambda x_{m}v_{m} - \lambda v_{0}) + v_{0}                                  \\
+                                    & = (\lambda x_{1}v_{1} + \cdots + \lambda x_{m}v_{k}) + (1 - \lambda)v_{0}                                     \\
+                                    & = (\lambda x_{1} + (1 - \lambda)\lambda_{1})v_{1} + \cdots + (\lambda x_{m} + (1 - \lambda)\lambda_{m})v_{m}.
+              \end{align*}
+
+              Since $\sum^{m}_{k=1}(\lambda x_{k} + (1 - \lambda)\lambda_{k}) = \sum^{m}_{k=1}\lambda x_{k} + \sum^{m}_{k=1}(1 - \lambda)\lambda_{k} = \lambda + (1 - \lambda) = 1$, then $\lambda u + v_{0}$ is in $A$. So $\lambda u$ is in $U$.
+
+              Hence $U$ is a vector space, and $A = v_{0} + U$, which is a translate of $U$.
+        \item Let $B = v + W$, where $W$ is a subspace of $V$.
+
+              Since $v_{k}\in B$ for $k = 1, \ldots, m$, it follows that $v_{k} - v\in W$.
+
+              Let $\lambda_{1}v_{1} + \cdots + \lambda_{m}v_{m}$ be an element of $A$ (where $\lambda_{1} + \cdots + \lambda_{m} = 1$).
+              \begin{align*}
+                  (\lambda_{1}v_{1} + \cdots + \lambda_{m}v_{m}) - v & = (\lambda_{1}v_{1} + \cdots + \lambda_{m}v_{m}) - (\lambda_{1}v + \cdots + \lambda_{m}v) \\
+                                                                     & = \lambda_{1}(v_{1} - v) + \cdots + \lambda_{m}(v_{m} - v).
+              \end{align*}
+
+              Because $\lambda_{1}(v_{1} - v) + \cdots + \lambda_{m}(v_{m} - v)$ is a linear combination of $v_{1} - v$, \ldots, $v_{m} - v$, then $(\lambda_{1}v_{1} + \cdots + \lambda_{m}v_{m}) - v\in W$. Hence $\lambda_{1}v_{1} + \cdots + \lambda_{m}v_{m}\in B$, which implies $A\subseteq B$.
+        \item (Continue with (a)) Let $u$ be a vector in $U$, then $u + v_{0}$ is in $A$. Then there exist scalars $a_{k}$ for $k = 1, \ldots, m$ such that $a_{1} + \cdots + a_{m} = 1$ and
+              \[
+                  u + v_{0} = a_{1}v_{1} + \cdots + a_{m}v_{m}
+              \]
+
+              So
+              \[
+                  u = (a_{1} - \lambda_{1})v_{1} + \cdots + (a_{m} - \lambda_{m})v_{m}
+              \]
+
+              where $\sum^{m}_{k=1}(a_{k} - \lambda_{k}) = 1 - 1 = 0$.
+
+              Let $x_{1}, \ldots, x_{m}$ be scalars such that $x_{1} + \cdots + x_{m} = 0$, then
+              \[
+                  (x_{1}v_{1} + \cdots + x_{m}v_{m}) + v_{0} = (x_{1} + \lambda_{1})v_{1} + \cdots + (x_{m} + \lambda_{m})v_{m}
+              \]
+
+              where $\sum^{m}_{k=1}(x_{k} + \lambda_{k}) = 0 + 1 = 1$. Then $x_{1}v_{1} + \cdots + x_{m}v_{m} = 0$.
+
+              Hence
+              \[
+                  U = \{ x_{1}v_{1} + \cdots + x_{m}v_{m} : x_{1}, \ldots, x_{m}\in \mathbb{F} \text{ and } x_{1} + \cdots + x_{m} = 0 \}.
+              \]
+
+              I define a subspace $U_{1}$ of $V$ as the span of $v_{1}, \ldots, v_{m-1}$, and define a map $T$ from $U$ to $U_{1}$ as follows:
+              \[
+                  T: x_{1}v_{1} + \cdots + x_{m}v_{m} \mapsto x_{1}v_{1} + \cdots + x_{m-1}v_{m-1}.
+              \]
+
+              I define a map $S$ from $U_{1}$ to $U$ as follows:
+              \[
+                  S: x_{1}v_{1} + \cdots + x_{m-1}v_{m-1} \mapsto x_{1}v_{1} + \cdots + x_{m-1}v_{m-1} + (1 - x_{1} - \cdots - x_{m-1})v_{m}.
+              \]
+
+              $T$ and $S$ are linear maps and $ST = \text{id}_{U}$, $TS = \text{id}_{U_{1}}$. Therefore $T$ is an isomorphism and $U$ is isomorphic to $U_{1}$. The dimension of $U_{1}$ is less than or equal to $(m - 1)$, so the dimension of $U$ is less than $m$.
+
+              Hence $A$ is the translate of a subspace of $V$ of dimension less than $m$.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter3:sectionE:exercise13
+\begin{exercise}
+    Suppose $U$ is a subspace of $V$ such that $V/U$ is finite-dimensional. Prove that $V$ is isomorphic to $U \times (V/U)$.
+\end{exercise}
+
+\begin{proof}
+    Let $T$ be the linear map from $V$ to $V/U$, which is defined by $Tv = v + U$. $Tv = 0 + U$ if and only if $v + U = 0 + U$. $v + U = 0 + U$ if and only if $v\in U$. So $\kernel{T} = U$.
+
+    Let $v_{1} + U, \ldots, v_{n} + U$ be a basis of $V/U$, and $v$ a vector in $V$. There exist scalars $a_{k}$ for $k = 1,\ldots, n$ such that
+    \[
+        Tv = v + U = (a_{1}v_{1} + U) + \cdots + (a_{n}v_{n} + U).
+    \]
+
+    Hence for all $v\in V$, we have $v - (a_{1}v_{1} + \cdots + a_{n}v_{n})\in U$, so $V = U + \text{span}(v_{1}, \ldots, v_{n})$.
+
+    If $v$ is a vector in $U \cap \text{span}(v_{1}, \ldots, v_{n})$, then $Tv = 0 + U = x_{1}Tv_{1} + \cdots + x_{n}Tv_{n}$ for some scalars $x_{1}, \ldots, x_{n}$. We deduce that $x_{1} = \cdots = x_{n} = 0$ because $Tv_{1}, \ldots, Tv_{n}$ is a basis of $V/U$. This implies $v = 0$, so $U \cap \text{span}(v_{1}, \ldots, v_{n}) = \{0\}$.
+
+    Hence $V = U \oplus \text{span}(v_{1}, \ldots, v_{n})$. I define the map $S$ from $V$ to $U\times (V/U)$ as follows: $Sv = (u, v + U)$, where $v = u + (v - u)$, $u\in U$ and $v - u\in \text{span}(v_{1}, \ldots, v_{n})$ (the only way to write $v$ as the sum of a vector in $U$ and a vector in $\text{span}(v_{1}, \ldots, v_{n})$).
+
+    Next, I prove that $S$ is a linear map.
+
+    Let $w_{1}, w_{2}$ be vectors in $V$. There exist a unique $u_{1}\in U$ such that $w_{1} - u_{1}\in \text{span}(v_{1}, \ldots, v_{n})$, an a unique $u_{2}\in U$ such that $w_{2} - u_{2}\in \text{span}(v_{1}, \ldots, v_{n})$.
+    \begin{align*}
+        S(w_{1} + w_{2}) & = (u_{1} + u_{2}, T(w_{1} + w_{2})) \\
+                         & = (u_{1} + u_{2}, Tw_{1} + Tw_{2})  \\
+                         & = (u_{1}, Tw_{1}) + (u_{2}, Tw_{2}) \\
+                         & = Sw_{1} + Sw_{2},                  \\
+        S(\lambda w_{1}) & = (\lambda u_{1}, T(\lambda w_{1})) \\
+                         & = (\lambda u_{1}, \lambda Tw_{1})   \\
+                         & = \lambda (u_{1}, Tw_{1})           \\
+                         & = \lambda Sw_{1}.
+    \end{align*}
+
+    So $S$ is indeed a linear map. I define a map $R$ from $U\times (V/U)$ to $V$ as follows:
+    \[
+        R((u, v + U)) = u + a_{1}v_{1} + \cdots + a_{n}v_{n},
+    \]
+
+    where $v + U = (a_{1}v_{1} + U) + \cdots + (a_{n}v_{n} + U)$ ($a_{1}, \ldots, a_{n}$ are unique because $v_{1} + U, \ldots, v_{n} + U$ is a basis of $V/U$).
+    \begin{align*}
+        R((u_{1}, w_{1} + U) + (u_{2}, w_{2} + U)) & = R((u_{1} + u_{2}, (w_{1} + w_{2}) + U))                                                 \\
+                                                   & = (u_{1} + u_{2}) + ((b_{1} + c_{1})v_{1} + \cdots + (b_{n} + c_{n})v_{n})                \\
+                                                   & \phantom{=}\text{where ($w_{1} + U = (b_{1}v_{1} + U) + \cdots + (b_{n}v_{n} + U))$}      \\
+                                                   & \phantom{=}\text{and ($w_{2} + U = (c_{1}v_{1} + U) + \cdots + (c_{n}v_{n} + U)$)}        \\
+                                                   & = (u_{1} + b_{1}v_{1} + \cdots + b_{n}v_{n}) + (u_{2} + c_{1}v_{1} + \cdots + c_{n}v_{n}) \\
+                                                   & = R((u_{1}, w_{1} + U)) + R((u_{2}, w_{2} + U)),                                          \\
+        R(\lambda (u_{1}, w_{1} + U))              & = R((\lambda u_{1}, \lambda w_{1} + U))                                                   \\
+                                                   & = \lambda u_{1} + \lambda (c_{1}v_{1} + \cdots + c_{n}v_{n})                              \\
+                                                   & = \lambda (u_{1} + c_{1}v_{1} + \cdots + c_{n}v_{n})                                      \\
+                                                   & = \lambda R((u_{1}, w_{1} + U)).
+    \end{align*}
+
+    So $R$ is also a linear map. On the other hand,
+    \begin{align*}
+        (RS)(v)          & = R((u, v + U))                                                                  \\
+                         & = R((u, (u + a_{1}v_{1} + \cdots + a_{n}v_{n}) + U))                             \\
+                         & = R((u, (a_{1}v_{1} + \cdots + a_{n}v_{n}) + U))                                 \\
+                         & = u + a_{1}v_{1} + \cdots + a_{n}v_{n}                                           \\
+                         & = v,                                                                             \\
+        (SR)((u, w + U)) & = S(u + d_{1}v_{1} + \cdots + d_{n}v_{n})                                        \\
+                         & \phantom{=}\text{(where $w + U = (d_{1}v_{1} + U) + \cdots + (d_{n}v_{n} + U)$)} \\
+                         & = (u, (d_{1}v_{1} + \cdots + d_{n}v_{n}) + U)                                    \\
+                         & = (u, w + U).
+    \end{align*}
+
+    So $S$ and $R$ are isomorphisms. Thus $V$ is isomorphic to $U\times (V/U)$.
+\end{proof}
+\newpage
+
+% chapter3:sectionE:exercise14
+\begin{exercise}
+    Suppose $U$ and $W$ are subspaces of $V$ and $V = U \oplus W$. Suppose $w_{1} , \ldots, w_{m}$ is a basis of $W$. Prove that $w_{1} + U, \ldots, w_{m} + U$ is a basis of $V/U$.
+\end{exercise}
+
+\begin{proof}
+    Let $v$ be a vector in $V$. There exists a unique pair of vectors $u, w$ where $u\in U, w\in W$ such that $v = u + w$. Since $w_{1}, \ldots, w_{m}$ is a basis of $W$, there exist scalars $a_{k}$ for $k = 1,\ldots, m$ such that $w = a_{1}w_{1} + \cdots + a_{m}w_{m}$. Then
+    \[
+        v + U = (u + w) + U = w + U = a_{1}(w_{1} + U) + \cdots + a_{m}(w_{m} + U)
+    \]
+
+    which means $w_{1} + U, \ldots, w_{m} + U$ spans $V/U$.
+
+    Suppose that $a_{1}(w_{1} + U) + \cdots + a_{m}(w_{m} + U) = 0 + U$, then $a_{1}w_{1} + \cdots + a_{m}w_{m}\in U$. But $U\cap W = \{0\}$ because $V = U\oplus W$, it follows that $a_{1} = \cdots = a_{m} = 0$. Therefore $w_{1} + U, \ldots, w_{m} + U$ is linearly independent.
+
+    Hence $w_{1} + U, \ldots, w_{m} + U$ is a basis of $V/U$.
+\end{proof}
+\newpage
+
+% chapter3:sectionE:exercise15
+\begin{exercise}
+    Suppose $U$ is a subspace of $V$ and $v_{1} + U, \ldots, v_{m} + U$ is a basis of $V/U$ and $u_{1} , \ldots, u_{n}$ is a basis of $U$. Prove that $v_{1} , \ldots, v_{m} , u_{1} , \ldots, u_{n}$ is a basis of $V$.
+\end{exercise}
+
+\begin{proof}
+    If $a_{1}v_{1} + \cdots + a_{m}v_{m} \in U$, then
+    \[
+        a_{1}(v_{1} + U) + \cdots + a_{m}(v_{m} + U) = (a_{1}v_{1} + \cdots + a_{m}v_{m}) + U = 0 + U.
+    \]
+
+    This implies $a_{1} = \cdots = a_{m} = 0$, because $v_{1} + U, \ldots, v_{m} + U$ is a basis of $V/U$. So $\text{span}(v_{1}, \ldots, v_{m})\cap U = \{0\}$. Particularly, $a_{1}v_{1} + \cdots + a_{m}v_{m} = 0\in U$ if and only if $a_{1} = \cdots = a_{m}$, which means $v_{1}, \ldots, v_{m}$ is linearly independent.
+
+    Let $v$ be a vector in $V$. There exist scalars $b_{1}, \ldots, b_{m}$ such that
+    \[
+        v + U = b_{1}(v_{1} + U) + \cdots + b_{m}(v_{m} + U) = (b_{1}v_{1} + \cdots + b_{m}v_{m}) + U
+    \]
+
+    because $v_{1} + U, \ldots, v_{m} + U$ is a basis of $V/U$. So $v - (b_{1}v_{1} + \cdots + b_{m}v_{m})\in U$. Therefore $V = U + \text{span}(v_{1}, \ldots, v_{m})$. Together with $U\cap \text{span}(v_{1}, \ldots, v_{m}) = \{0\}$, it follows that $V = U \oplus \text{span}(v_{1}, \ldots, v_{m})$.
+
+    $v_{1}, \ldots, v_{m}$ is a basis of $\text{span}(v_{1}, \ldots, v_{m})$, $u_{1}, \ldots, u_{n}$ is a basis of $U$, so $v_{1} , \ldots, v_{m} , u_{1} , \ldots, u_{n}$ is a basis of $V$.
+\end{proof}
+\newpage
+
+% chapter3:sectionE:exercise16
+\begin{exercise}
+    Suppose $\varphi \in \lmap{V,\mathbb{F}}$ and $\varphi\ne 0$. Prove that $\dim V/(\kernel{\varphi}) = 1$.
+\end{exercise}
+
+\begin{proof}
+    Because $V/(\kernel{\varphi})$ is isomorphic to $\range{\varphi}$ and $\dim\range{\varphi} = 1$, it follows that $\dim V/(\kernel{\varphi}) = 1$.
+\end{proof}
+\newpage
+
+% chapter3:sectionE:exercise17
+\begin{exercise}
+    Suppose $U$ is a subspace of $V$ such that $\dim V/U = 1$. Prove that there exists $\varphi \in \lmap{V, \mathbb{F}}$ such that $\kernel{\varphi} = U$.
+\end{exercise}
+
+\begin{proof}
+    Because $\dim V/U = 1$, there exists a vector $w\in V$ such that $w + U$ is a basis of $V/U$.
+
+    Let $T$ be the map from $V$ to $V/U$ where $Tv = v + U$. Let $\varphi$ be the map from $V$ to $\mathbb{F}$, defined by $\varphi v = \lambda$, where $Tv = v + U = \lambda w + U$. $\varphi$ is well-defined, because $w + U$ is a basis of $V/U$. $T$ and $\varphi$ are both linear maps.
+
+    $\varphi v = 0$ if and only if $v + U = 0 + U$, equivalently, $v\in U$. So $\kernel{\varphi} = U$.
+
+    I constructed a linear map $\varphi\in\lmap{V, \mathbb{F}}$ where $\kernel{\varphi} = U$.
+\end{proof}
+\newpage
+
+% chapter3:sectionE:exercise18
+\begin{exercise}
+    Suppose that $U$ is a subspace of $V$ such that $V/U$ is finite-dimensional.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that if $W$ is a finite-dimensional subspace of $V$ and $V = U + W$, then $\dim W \geq \dim V/U$.
+        \item Prove that there exists a finite-dimensional subspace $W$ of $V$ such that $\dim W = \dim V/U$ and $V = U\oplus W$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    Let's define $T\in\lmap{V, V/U}$ by $Tv = v + U$, then $\kernel{T} = U$.
+
+    \begin{enumerate}[label={(\alph*)}]
+        \item I consider $T\vert_{W}: W\to V/U$. Let $v + U$ be a vector in $V/U$, then $Tv = v + U$. Since $V = U + W$, there exist vector $u$ in $U$ and $w$ in $W$ such that $v = u + w$.
+              \[
+                  Tw = T(v - u) = (v - u) + U = v + U.
+              \]
+
+              Therefore $T\vert_{W}$ is surjective. Hence $\dim W\geq \dim V/U$, due to the fundamental theorem of linear maps.
+        \item Let $w_{1} + U, \ldots, w_{n} + U$ be a basis of $V/U$.
+              \[
+                  a_{1}(w_{1} + U) + \cdots + a_{n}(w_{n} + U) = 0 + U
+              \]
+
+              if and only if $a_{1} = \cdots = a_{n} = 0$ because $w_{1} + U, \ldots, w_{n} + U$ be a basis of $V/U$. On the other hand,
+              \[
+                  (a_{1}w_{1} + \cdots + a_{n}w_{n}) + U = a_{1}(w_{1} + U) + \cdots + a_{n}(w_{n} + U)
+              \]
+
+              so $a_{1}w_{1} + \cdots + a_{n}w_{n}\in U$ if and only if $a_{1} = \cdots = a_{n} = 0$. Therefore $\text{span}(w_{1}, \ldots, w_{n})\cap U = \{ 0 \}$  and $a_{1}w_{1} + \cdots + a_{n}w_{n} = 0\in U$ if and only if $a_{1} = \cdots = a_{n} = 0$, which means $w_{1}, \ldots, w_{n}$ is linearly independent.
+
+              Let $W = \text{span}(w_{1}, \ldots, w_{n})$. Because $w_{1}, \ldots, w_{n}$ is linearly independent, it follows that $w_{1}, \ldots, w_{n}$ is a basis of $W$ and then $\dim W = n = \dim V/U$.
+
+              Let $v$ be a vector in $V$. Because $w_{1} + U, \ldots, w_{n} + U$ be a basis of $V/U$, there exist scalars $x_{1}, \ldots, x_{n}$ such that
+              \[
+                  Tv = a_{1}(w_{1} + U) + \cdots + a_{n}(w_{n} + U).
+              \]
+
+              Equivalently,
+              \[
+                  v + U = (a_{1}w_{1} + \cdots + a_{n}w_{n}) + U.
+              \]
+
+              Therefore $v - (a_{1}w_{1} + \cdots + a_{n}w_{n})\in U$, which means $V = U + W$. Together with $U\cap W = \{0\}$, we conclude that $V = U\oplus W$.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter3:sectionE:exercise19
+\begin{exercise}
+    Suppose $T\in\lmap{V, W}$ and $U$ is a subspace of $V$. Let $\pi$ denote the quotient map from $V$ onto $V/U$. Prove that there exists $S\in\lmap{V/U, W}$ such that $T = S\circ \pi$ if and only if $U\subseteq \kernel{T}$.
+\end{exercise}
+
+\begin{proof}
+    $(\Rightarrow)$ There exists $S\in\lmap{V/U, W}$ such that $T = S\circ \pi$.
+
+    Let $u$ be a vector in $U$, then $Tu = S(\pi(u)) = S(0 + U) = 0$. So $u\in \kernel{T}$ for every $u\in U$, which means $U\subseteq \kernel{T}$.
+
+    $(\Leftarrow)$ $U\subseteq \kernel{T}$.
+
+    $v_{1} + U = v_{2} + U$ if and only if $v_{1} - v_{2}\in U$. $v_{1} - v_{2}\in U$ implies $v_{1} - v_{2}\in \kernel{T}$. $v_{1} - v_{2}\in \kernel{T}$ if and only if $v_{1} + \kernel{T} = v_{2} + \kernel{T}$.
+
+    So the map $f: V/U\to V/(\kernel{T})$ where $f(v_{1} + U) = v_{1} + \kernel{T}$ is well-defined. $f$ is also a linear map.
+
+    Let $\widetilde{T}$ be a map from $V/(\kernel{T})$ to $W$ where $\widetilde{T}(v + \kernel{T}) = Tv$. This map is well-defined and linear. Let $S = \widetilde{T}\circ f$, then for every $v\in V$
+    \[
+        S(v + U) = \widetilde{T}(f(v + U)) = \widetilde{T}(v + \kernel{T}) = Tv.
+    \]
+
+    Hence I constructed a linear map $S\in\lmap{V/U, W}$ such that $T = S\circ \pi$.
+\end{proof}
+\newpage
 
 \section{Duality}
 
