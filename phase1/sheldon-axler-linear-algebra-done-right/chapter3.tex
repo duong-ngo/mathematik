@@ -19,7 +19,7 @@
 
 % chapter3:sectionA:exercise2
 \begin{exercise}
-    Suppose $b, c \in \mathbb{R}$ . Define $T: \mathcal{P}(\mathbb{R})\to \mathbb{R}^{2}$ by
+    Suppose $b, c \in \mathbb{R}$. Define $T: \mathcal{P}(\mathbb{R})\to \mathbb{R}^{2}$ by
     \[
         Tp = \left( 3p(4) + 5p'(6) + bp(1)p(2), \int^{2}_{-1}x^{3}p(x)dx + c \sin p(0) \right)
     \]
@@ -263,7 +263,7 @@
 \end{exercise}
 
 \begin{proof}
-    Because $V$ is finite-dimensional and $\dim V > 1$, there exist two vectors $v_{1}, v_{2}\in V$ such that they are linearly independent. Let $S', T'\in\mathcal{L}(\text{span}(v_{1}, v_{2}))$ such that $S'v_{1} = v_{2}, S'v_{2} = v_{1}$ and $T'v_{1} = v_{1}, T'v_{2} = 0$. According to Exercise~\ref{chapter3:sectionA:exercise13}, $S'$ and $T'$ can both be extended to linear maps $S$ and $T$ in $\mathcal{L}(V)$, respectively.
+    Because $V$ is finite-dimensional and $\dim V > 1$, there exist two vectors $v_{1}, v_{2}\in V$ such that they are linearly independent. Let $S', T'\in\mathcal{L}(\operatorname{span}(v_{1}, v_{2}))$ such that $S'v_{1} = v_{2}, S'v_{2} = v_{1}$ and $T'v_{1} = v_{1}, T'v_{2} = 0$. According to Exercise~\ref{chapter3:sectionA:exercise13}, $S'$ and $T'$ can both be extended to linear maps $S$ and $T$ in $\mathcal{L}(V)$, respectively.
     \begin{align*}
         (ST)(v_{1}) & = S(Tv_{1}) = Sv_{1} = v_{2} \\
         (TS)(v_{1}) & = T(Sv_{1}) = Tv_{2} = 0
@@ -280,7 +280,7 @@
 \end{exercise}
 
 \begin{proof}
-    Suppose that $\mathcal{E}$ is a two-sided ideal of $\mathcal{L}(V)$ and $\mathcal{E}\ne \{0\}$. I will show that the identity map $\text{id}_{V}$ is in $\mathcal{E}$.
+    Suppose that $\mathcal{E}$ is a two-sided ideal of $\mathcal{L}(V)$ and $\mathcal{E}\ne \{0\}$. I will show that the identity map $\operatorname{id}_{V}$ is in $\mathcal{E}$.
 
     Since $\mathcal{E}\ne \{0\}$, there exists $E\in\mathcal{E}$ such that $E$ is not the zero map. $E$ is not the zero map, so there exists a vector $v\ne 0$ such that $Ev\ne 0$. Let $v_{1}, \ldots, v_{n}$ be a basis of $V$. Since $v = x_{1}v_{1} + \cdots + x_{n}v_{n}$ for some scalars $x_{1}, \ldots, x_{n}$ and $v\ne 0$, there exists positive integer $k$ such that $x_{k}\ne 0$, then $v_{1}, \ldots, v_{k-1}, v, v_{k+1}, \ldots, v_{n}$ is also a basis of $V$. Therefore, without loss of generality, we can assume $v = v_{1}$. Let $w_{1} = Ev_{1}$. Similarly there exists a basis $w_{1}, \ldots, w_{n}$.
 
@@ -302,7 +302,7 @@
         \sum^{n}_{i=1}(S_{i}ER_{i})(v_{k}) = (S_{k}E)(v_{k}) = S_{k}(Ev_{k}) = S_{k}w_{k} = v_{k}.
     \]
 
-    So $\sum^{n}_{i=1}S_{i}ER_{i}$ is the identity map $\text{id}_{V}$. Since $\text{id}_{V} = S_{i}ER_{i}\in\mathcal{E}$ for every positive integer $i\in [\![ 1, n ]\!]$, $\text{id}_{V}\in\mathcal{E}$. Moreover, for every linear map $T$, $\text{id}_{V}T\in\mathcal{E}$, which means $T\in\mathcal{E}$ for every $T\in\mathcal{L}(V)$. Therefore $\mathcal{E} = \mathcal{L}(V)$.
+    So $\sum^{n}_{i=1}S_{i}ER_{i}$ is the identity map $\operatorname{id}_{V}$. Since $\operatorname{id}_{V} = S_{i}ER_{i}\in\mathcal{E}$ for every positive integer $i\in [\![ 1, n ]\!]$, $\operatorname{id}_{V}\in\mathcal{E}$. Moreover, for every linear map $T$, $\operatorname{id}_{V}T\in\mathcal{E}$, which means $T\in\mathcal{E}$ for every $T\in\mathcal{L}(V)$. Therefore $\mathcal{E} = \mathcal{L}(V)$.
 
     Hence the only subspaces of $\mathcal{L}(V)$, which are two-side ideals, are $\{0\}$ and $\mathcal{L}(V)$.
 \end{proof}
@@ -483,9 +483,9 @@
     Let $v_{1}, \ldots, v_{n}$ be a basis of $\kernel{T}$. We extend this list to create a basis of $V$, and let it be
     \[ v_{1}, \ldots, v_{n}, v_{n+1}, \ldots, v_{n+m}. \]
 
-    Let $U = \text{span}(v_{n+1}, \ldots, v_{n+m})$, then $U\cap \kernel{T} = \{0\}$, and $V = U\oplus \kernel{T}$. Let $v$ be a vector in $V$. According to the definition of direct sum of subspaces, there exist uniquely two vectors $v_{0}\in\kernel{T}$ and $u\in U$ such that $v = v_{0} + u$. $Tv = Tv_{0} + Tu = Tu$. Therefore $\range{T} = \{ Tu: u\in U \}$.
+    Let $U = \operatorname{span}(v_{n+1}, \ldots, v_{n+m})$, then $U\cap \kernel{T} = \{0\}$, and $V = U\oplus \kernel{T}$. Let $v$ be a vector in $V$. According to the definition of direct sum of subspaces, there exist uniquely two vectors $v_{0}\in\kernel{T}$ and $u\in U$ such that $v = v_{0} + u$. $Tv = Tv_{0} + Tu = Tu$. Therefore $\range{T} = \{ Tu: u\in U \}$.
 
-    Hence $U = \text{span}(v_{n+1}, \ldots, v_{n+m})$ is what we want to construct in this problem. $U$ is also a linear complement of $\kernel{T}$ in $V$.
+    Hence $U = \operatorname{span}(v_{n+1}, \ldots, v_{n+m})$ is what we want to construct in this problem. $U$ is also a linear complement of $\kernel{T}$ in $V$.
 \end{proof}
 \newpage
 
@@ -599,7 +599,7 @@
 \end{exercise}
 
 \begin{proof}
-    $(\Rightarrow)$ There exists $S\in\mathcal{L}(W, V)$ such that $ST$ is the identity operator on $V$. Let $v\in\kernel{T}$. Since $ST = \text{id}_{V}$, then $(ST)(v) = v$. On the other hand, $(ST)(v) = S(Tv) = S(0) = 0$. So $v = 0$, which means $\kernel{T} = \{0\}$. Hence $T$ is injective.
+    $(\Rightarrow)$ There exists $S\in\mathcal{L}(W, V)$ such that $ST$ is the identity operator on $V$. Let $v\in\kernel{T}$. Since $ST = \operatorname{id}_{V}$, then $(ST)(v) = v$. On the other hand, $(ST)(v) = S(Tv) = S(0) = 0$. So $v = 0$, which means $\kernel{T} = \{0\}$. Hence $T$ is injective.
 
     $(\Leftarrow)$ $T$ is injective, then $\dim\kernel{T} = 0$. $W$ is finite-dimensional, so $\range{T}$ is also finite-dimensional. According to Exercise~\ref{chapter3:sectionB:exercise15}, $V$ is finite-dimensional. On the other hand, $\dim V = \dim\kernel{T} + \dim\range{T} = \dim\range{T}\leq \dim W$.
 
@@ -623,7 +623,7 @@
 \end{exercise}
 
 \begin{proof}
-    $(\Rightarrow)$ There exists $S\in\mathcal{L}(W, V)$ such that $TS$ is the identity operator on $W$. Let $w\in W$. Since $TS = \text{id}_{W}$, then $(TS)(w) = w$, and $T(Sw) = w$. So $w\in \range{T}$, and $\range{T} = W$. Therefore $T$ is surjective.
+    $(\Rightarrow)$ There exists $S\in\mathcal{L}(W, V)$ such that $TS$ is the identity operator on $W$. Let $w\in W$. Since $TS = \operatorname{id}_{W}$, then $(TS)(w) = w$, and $T(Sw) = w$. So $w\in \range{T}$, and $\range{T} = W$. Therefore $T$ is surjective.
 
     $(\Leftarrow)$ $T$ is surjective, then $\range{T} = W$. According to the proof of the fundamental theorem of linear maps, if $u_{1}, \ldots, u_{m}$ is a basis of $\kernel{T}$, the extended list $u_{1}, \ldots, u_{m}, v_{1}, \ldots, v_{n}$ is a basis of of $V$, then $w_{1} = Tv_{1}, \ldots, w_{n} = Tv_{n}$ is a basis of $\range{T}$.
 
@@ -734,7 +734,7 @@
 \newpage
 
 % chapter3:sectionB:exercise25
-\begin{exercise}
+\begin{exercise}\label{chapter3:sectionB:exercise25}
     Suppose that $W$ is finite-dimensional and $S, T \in \mathcal{L}(V, W)$. Prove that $\kernel{S} \subseteq \kernel{T}$ if and only if there exists $E \in \mathcal{L}(W)$ such that $T = ES$.
 \end{exercise}
 
@@ -748,11 +748,11 @@
 
               Let $Sv_{1}, \ldots, Sv_{n}$ be a basis of $\range S\vert_{\kernel{T}}$. Let $0 = a_{1}v_{1} + \cdots + a_{n}v_{n}$ be a linear combination of $0$ in $V$. Then $0 = S(a_{1}v_{1} + \cdots + a_{n}v_{n}) = a_{1}Sv_{1} + \cdots + a_{n}Sv_{n}$. Because $Sv_{1}, \ldots, Sv_{n}$ is linearly independent, it follows that $a_{1} = \cdots = a_{n} = 0$. So $v_{1}, \ldots, v_{n}$ is linearly independent.
 
-              Let $v$ be a vector in $\kernel{T}$. There exist scalars $b_{1}, \ldots, b_{n}$ such that $Sv = b_{1}Sv_{1} + \cdots + b_{n}Sv_{n}$. So $S(v - b_{1}v_{1} - \cdots - b_{n}v_{n}) = 0$, which means $v$ is the sum of $b_{1}v_{1} + \cdots + b_{n}v_{n}$ and a vector in $\kernel{S}$. Therefore $\kernel{T} = \kernel{S} + \text{span}(v_{1}, \ldots, v_{n})$.
+              Let $v$ be a vector in $\kernel{T}$. There exist scalars $b_{1}, \ldots, b_{n}$ such that $Sv = b_{1}Sv_{1} + \cdots + b_{n}Sv_{n}$. So $S(v - b_{1}v_{1} - \cdots - b_{n}v_{n}) = 0$, which means $v$ is the sum of $b_{1}v_{1} + \cdots + b_{n}v_{n}$ and a vector in $\kernel{S}$. Therefore $\kernel{T} = \kernel{S} + \operatorname{span}(v_{1}, \ldots, v_{n})$.
 
-              A vector $x_{1}v_{1} + \cdots + x_{n}v_{n}$ in $\text{span}(v_{1}, \ldots, v_{n})$ is in $\kernel{S}$ if and only if $x_{1}Sv_{1} + \cdots + x_{n}Sv_{n} = 0$. On the other hand, $x_{1}Sv_{1} + \cdots + x_{n}Sv_{n} = 0$ if and only if $x_{1} = \cdots = x_{n} = 0$. So $\kernel{S}\cap \text{span}(v_{1}, \ldots, v_{n}) = \{0\}$.
+              A vector $x_{1}v_{1} + \cdots + x_{n}v_{n}$ in $\operatorname{span}(v_{1}, \ldots, v_{n})$ is in $\kernel{S}$ if and only if $x_{1}Sv_{1} + \cdots + x_{n}Sv_{n} = 0$. On the other hand, $x_{1}Sv_{1} + \cdots + x_{n}Sv_{n} = 0$ if and only if $x_{1} = \cdots = x_{n} = 0$. So $\kernel{S}\cap \operatorname{span}(v_{1}, \ldots, v_{n}) = \{0\}$.
 
-              Hence $\kernel{T} = \kernel{S}\oplus\text{span}(v_{1}, \ldots, v_{n})$.
+              Hence $\kernel{T} = \kernel{S}\oplus\operatorname{span}(v_{1}, \ldots, v_{n})$.
         \item Construct a linear complement of $\kernel T$ in $V$.
 
               Let $Tu_{1}, \ldots, Tu_{m}$ be a basis of $\range{T}$.
@@ -769,24 +769,24 @@
                   x_{1}Tu_{1} + \cdots + x_{m}Tu_{m} = T(x_{1}u_{1} + \cdots + x_{m}u_{m}) = 0.
               \]
 
-              $x_{1}Tu_{1} + \cdots + x_{m}Tu_{m} = 0$ if and only if $x_{1} = \cdots = x_{m} = 0$. So $\kernel{T}\cap\text{span}(u_{1}, \ldots, u_{m}) = \{0\}$.
+              $x_{1}Tu_{1} + \cdots + x_{m}Tu_{m} = 0$ if and only if $x_{1} = \cdots = x_{m} = 0$. So $\kernel{T}\cap\operatorname{span}(u_{1}, \ldots, u_{m}) = \{0\}$.
 
               Let $v$ be a vector in $V$, then there exist scalars $a_{1}, \ldots, a_{m}$ such that $Tv = a_{1}Tu_{1} + \cdots + a_{m}Tu_{m}$. So
               \[
                   Tv = a_{1}Tu_{1} + \cdots + a_{m}Tu_{m} = T(a_{1}u_{1} + \cdots + a_{m}u_{m}).
               \]
 
-              It follows that $v - (a_{1}u_{1} + \cdots + a_{m}u_{m})$ is in $\kernel{T}$. So $V = \kernel{T} + \text{span}(u_{1}, \ldots, u_{m})$.
+              It follows that $v - (a_{1}u_{1} + \cdots + a_{m}u_{m})$ is in $\kernel{T}$. So $V = \kernel{T} + \operatorname{span}(u_{1}, \ldots, u_{m})$.
 
-              Because $V = \kernel{T} + \text{span}(u_{1}, \ldots, u_{m})$ and $\kernel{T}\cap \text{span}(u_{1}, \ldots, u_{m}) = \{0\}$, we conclude that $V = \kernel{T}\oplus \text{span}(u_{1}, \ldots, u_{m})$.
+              Because $V = \kernel{T} + \operatorname{span}(u_{1}, \ldots, u_{m})$ and $\kernel{T}\cap \operatorname{span}(u_{1}, \ldots, u_{m}) = \{0\}$, we conclude that $V = \kernel{T}\oplus \operatorname{span}(u_{1}, \ldots, u_{m})$.
         \item Construct a linear map $E$ in $\mathcal{L}(W)$.
 
               Due to \textbf{Step 1} and \textbf{Step 2}
               \[
-                  V = \underbrace{\kernel{S} \oplus \text{span}(v_{1}, \ldots, v_{n})}_{\kernel{T}} \oplus \text{span}(u_{1}, \ldots, u_{m}).
+                  V = \underbrace{\kernel{S} \oplus \operatorname{span}(v_{1}, \ldots, v_{n})}_{\kernel{T}} \oplus \operatorname{span}(u_{1}, \ldots, u_{m}).
               \]
 
-              On the other hand, $Sv_{1}, \ldots, Sv_{n}, Su_{1}, \ldots, Su_{m}$ is a basis of $\range{S}$, because, if $x_{1}Sv_{1} + \cdots + x_{n}Sv_{n} + y_{1}Su_{1} + \cdots + y_{m}Su_{m} = 0$ is a linear combination of $0$ in $\range{S}$, then $S(x_{1}v_{1} + \cdots + x_{n}v_{n} + y_{1}u_{1} + \cdots + y_{m}u_{m}) = 0$. But $\kernel{S}\cap \text{span}(v_{1}, \ldots, v_{n}, u_{1}, \ldots, u_{m}) = \{0\}$, so $x_{1}v_{1} + \cdots + x_{n}v_{n} + y_{1}u_{1} + \cdots + y_{m}u_{m} = 0$, which implies $x_{1} = \cdots = x_{n} = 0$, $y_{1} = \cdots = y_{m} = 0$ because the list $v_{1}, \ldots, v_{n}, u_{1}, \ldots, u_{m}$ is linearly independent.
+              On the other hand, $Sv_{1}, \ldots, Sv_{n}, Su_{1}, \ldots, Su_{m}$ is a basis of $\range{S}$, because, if $x_{1}Sv_{1} + \cdots + x_{n}Sv_{n} + y_{1}Su_{1} + \cdots + y_{m}Su_{m} = 0$ is a linear combination of $0$ in $\range{S}$, then $S(x_{1}v_{1} + \cdots + x_{n}v_{n} + y_{1}u_{1} + \cdots + y_{m}u_{m}) = 0$. But $\kernel{S}\cap \operatorname{span}(v_{1}, \ldots, v_{n}, u_{1}, \ldots, u_{m}) = \{0\}$, so $x_{1}v_{1} + \cdots + x_{n}v_{n} + y_{1}u_{1} + \cdots + y_{m}u_{m} = 0$, which implies $x_{1} = \cdots = x_{n} = 0$, $y_{1} = \cdots = y_{m} = 0$ because the list $v_{1}, \ldots, v_{n}, u_{1}, \ldots, u_{m}$ is linearly independent.
 
               I define the linear map $E$ in $\mathcal{L}(W)$ as follows:
               \[
@@ -922,11 +922,11 @@
 \end{exercise}
 
 \begin{proof}
-    Let $v$ be a vector in $V$. $\varphi u\ne 0$ so $\varphi u$ is a basis of $\mathbb{F}$. So there exists a scalar $\lambda\in\mathbb{F}$ such that $\varphi v = \lambda\cdot \varphi u$. So $\varphi(v - \lambda u) = 0$, which implies $v - \lambda u$ is in $\kernel{\varphi}$. So $V = \kernel{\varphi} + \text{span}(u)$.
+    Let $v$ be a vector in $V$. $\varphi u\ne 0$ so $\varphi u$ is a basis of $\mathbb{F}$. So there exists a scalar $\lambda\in\mathbb{F}$ such that $\varphi v = \lambda\cdot \varphi u$. So $\varphi(v - \lambda u) = 0$, which implies $v - \lambda u$ is in $\kernel{\varphi}$. So $V = \kernel{\varphi} + \operatorname{span}(u)$.
 
-    Let $v_{0}$ be a vector in $\kernel{\varphi}\cap\text{span}(u)$. So there exists s scalar $\lambda_{0}$ such that $v_{0} = \lambda_{0}u$. $\varphi v_{0} = 0$ and $\varphi v_{0} = \lambda_{0}\cdot \varphi u$. So $\lambda_{0} = 0$. Therefore $v_{0} = 0$, and $\kernel{\varphi}\cap\text{span}(u) = \{0\}$.
+    Let $v_{0}$ be a vector in $\kernel{\varphi}\cap\operatorname{span}(u)$. So there exists s scalar $\lambda_{0}$ such that $v_{0} = \lambda_{0}u$. $\varphi v_{0} = 0$ and $\varphi v_{0} = \lambda_{0}\cdot \varphi u$. So $\lambda_{0} = 0$. Therefore $v_{0} = 0$, and $\kernel{\varphi}\cap\operatorname{span}(u) = \{0\}$.
 
-    Hence $V = \kernel{\varphi} \oplus \text{span}(u)$.
+    Hence $V = \kernel{\varphi} \oplus \operatorname{span}(u)$.
 \end{proof}
 \newpage
 
@@ -942,7 +942,10 @@
 
     $(\Leftarrow)$ $\dim V = \dim X + \dim Y$.
 
-    Let $v_{1}, \ldots, v_{n}$ be a basis of $X$. Extend this list to create a basis of $V$, and let it be $v_{1}, \ldots, v_{n}, v_{n+1}, \ldots, v_{n+m}$.
+    Let $v_{1}, \ldots, v_{n}$ be a basis of $X$. Extend this list to create a basis of $V$, and let it be
+    \[
+        v_{1}, \ldots, v_{n}, v_{n+1}, \ldots, v_{n+m}.
+    \]
 
     Let $w_{1}, \ldots, w_{m}$ be a basis of $Y$. I define the linear map $T$ from $V$ to $W$ as follows:
     \[
@@ -987,7 +990,7 @@
 
 \begin{proof}
     \begin{enumerate}[label={(\alph*)}]
-        \item \begingroup\allowdisplaybreaks
+        \item \begingroup\allowdisplaybreaks{}
               \begin{align*}
                   T_{\mathbb{C}}((u_{1} + \iota v_{1}) + (u_{2} + \iota v_{2})) & = T_{\mathbb{C}}((u_{1} + u_{2}) + \iota (v_{1} + v_{2}))                    \\
                                                                                 & = T(u_{1} + u_{2}) + \iota T(v_{1} + v_{2})                                  \\
@@ -1107,7 +1110,7 @@
 
     Let $v_{1}, \ldots, v_{n}$ be a basis of $V$. The list $Tv_{1}, \ldots, Tv_{n}$ spans $\range{T}$, and this list can be reduced to a linearly independent list that spans $\range{T}$. Let $Tu_{1}, \ldots, Tu_{\ell}$ ($\ell\leq n$) be vectors from the list $Tv_{1}, \ldots, Tv_{n}$ such that $Tu_{1}, \ldots, Tu_{\ell}$ are linearly independent and spans $\range{W}$.
 
-    $Tu_{1}, \ldots, Tu_{\ell}$ is linearly independent in $W$, then the list $u_{1}, \ldots, u_{\ell}$ is linearly independent in $V$. Next, I will prove that $V = \kernel{T} \oplus\text{span}(u_{1}, \ldots, u_{\ell})$.
+    $Tu_{1}, \ldots, Tu_{\ell}$ is linearly independent in $W$, then the list $u_{1}, \ldots, u_{\ell}$ is linearly independent in $V$. Next, I will prove that $V = \kernel{T} \oplus\operatorname{span}(u_{1}, \ldots, u_{\ell})$.
 
     Let $v$ be a vector in $V$, there exist scalars $a_{1}, \ldots, a_{\ell}$ such that
     \[
@@ -1119,17 +1122,17 @@
         T(v - a_{1}u_{1} - \cdots - a_{\ell}u_{\ell}) = 0.
     \]
 
-    Therefore $v = (a_{1}u_{1} + \cdots + a_{\ell}u_{\ell}) + u$, where $u\in\kernel{T}$. If $v_{0}$ is a vector in $\kernel{T}\cap \text{span}(u_{1}, \ldots, u_{\ell})$, then there exist scalars $x_{1}, \ldots, x_{\ell}$ such that $v_{0} = x_{1}u_{1} + \cdots + x_{\ell}u_{\ell}$ and $Tv_{0} = 0$. It follows that
+    Therefore $v = (a_{1}u_{1} + \cdots + a_{\ell}u_{\ell}) + u$, where $u\in\kernel{T}$. If $v_{0}$ is a vector in $\kernel{T}\cap \operatorname{span}(u_{1}, \ldots, u_{\ell})$, then there exist scalars $x_{1}, \ldots, x_{\ell}$ such that $v_{0} = x_{1}u_{1} + \cdots + x_{\ell}u_{\ell}$ and $Tv_{0} = 0$. It follows that
     \[
         x_{1}Tu_{1} + \cdots + x_{\ell}Tu_{\ell} = 0
     \]
 
     and this implies $x_{1} = \cdots = x_{\ell} = 0$ because $Tu_{1}, \ldots, Tu_{\ell}$ is a linearly independent list. So
     \[
-        \kernel{T}\cap\text{span}(u_{1}, \ldots, u_{\ell}) = \{0\}.
+        \kernel{T}\cap\operatorname{span}(u_{1}, \ldots, u_{\ell}) = \{0\}.
     \]
 
-    Hence $V = \kernel{T}\oplus\text{span}(u_{1}, \ldots, u_{\ell})$.
+    Hence $V = \kernel{T}\oplus\operatorname{span}(u_{1}, \ldots, u_{\ell})$.
 
     Let $u_{k+1}, \ldots, u_{n}$ be a basis of $\kernel{T}$, then $u_{1}, \ldots, u_{n}$ is a basis of $V$.
 
@@ -1378,7 +1381,7 @@
 \end{exercise}
 
 \begin{proof}
-    Since $T^{-1}$ is the inverse of $T$, then $T^{-1}T = \text{id}_{V}$ and $TT^{-1} = \text{id}_{W}$. Due to the definition of inverse linear map, $T$ is the inverse of $T^{-1}$. Therefore ${\left(T^{-1}\right)}^{-1} = T$.
+    Since $T^{-1}$ is the inverse of $T$, then $T^{-1}T = \operatorname{id}_{V}$ and $TT^{-1} = \operatorname{id}_{W}$. Due to the definition of inverse linear map, $T$ is the inverse of $T^{-1}$. Therefore ${\left(T^{-1}\right)}^{-1} = T$.
 \end{proof}
 \newpage
 
@@ -1390,8 +1393,8 @@
 \begin{proof}
     \[
         \begin{split}
-            {(ST)}{(T^{-1}S^{-1})} = S(TT^{-1})S^{-1} = S\text{id}_{V}S^{-1} = SS^{-1} = \text{id}_{W}, \\
-            {(T^{-1}S^{-1})(ST)} = T^{-1}(S^{-1}S)T = T^{-1}\text{id}_{V}T = T^{-1}T = \text{id}_{U}
+            {(ST)}{(T^{-1}S^{-1})} = S(TT^{-1})S^{-1} = S\operatorname{id}_{V}S^{-1} = SS^{-1} = \operatorname{id}_{W}, \\
+            {(T^{-1}S^{-1})(ST)} = T^{-1}(S^{-1}S)T = T^{-1}\operatorname{id}_{V}T = T^{-1}T = \operatorname{id}_{U}
         \end{split}
     \]
 
@@ -1451,7 +1454,7 @@
         \end{cases}
     \]
 
-    Then $S_{1}, \ldots, S_{n}$ are noninvertible. But $\sum^{n}_{k=1}S_{k} = \text{id}_{V}$, which is invertible. So the set of noninvertible linear maps from $V$ to itself is not a subspace of $\mathcal{L}(V)$, because it is not closed under linear maps addition.
+    Then $S_{1}, \ldots, S_{n}$ are noninvertible. But $\sum^{n}_{k=1}S_{k} = \operatorname{id}_{V}$, which is invertible. So the set of noninvertible linear maps from $V$ to itself is not a subspace of $\mathcal{L}(V)$, because it is not closed under linear maps addition.
 \end{proof}
 \newpage
 
@@ -1507,14 +1510,14 @@
         S(v - x_{1}v_{1} - \cdots - x_{n}v_{n}) = 0.
     \]
 
-    Therefore $v - x_{1}v_{1} - \cdots - x_{n}v_{n}$ is in $U$ and $V = U + \text{span}(v_{1}, \ldots, v_{n})$.
+    Therefore $v - x_{1}v_{1} - \cdots - x_{n}v_{n}$ is in $U$ and $V = U + \operatorname{span}(v_{1}, \ldots, v_{n})$.
 
-    Let $u$ be a vector in $U\cap \text{span}(v_{1}, \ldots, v_{n})$. Then $Su = 0$ and there exist scalars $a_{k}$ for $k = 1,\ldots, n$ such that
+    Let $u$ be a vector in $U\cap \operatorname{span}(v_{1}, \ldots, v_{n})$. Then $Su = 0$ and there exist scalars $a_{k}$ for $k = 1,\ldots, n$ such that
     \[
         u = a_{1}v_{1} + \cdots + a_{n}v_{n}.
     \]
 
-    $0 = Su = a_{1}Sv_{1} + \cdots + a_{n}Sv_{n}$. Since $Sv_{1}, \ldots, Sv_{n}$ is linearly independent, it follows that $a_{1} = \cdots = a_{n} = 0$. So $U\cap \text{span}(v_{1}, \ldots, v_{n}) = \{ 0 \}$. Therefore $V = U \oplus \text{span}(v_{1}, \ldots, v_{n})$.
+    $0 = Su = a_{1}Sv_{1} + \cdots + a_{n}Sv_{n}$. Since $Sv_{1}, \ldots, Sv_{n}$ is linearly independent, it follows that $a_{1} = \cdots = a_{n} = 0$. So $U\cap \operatorname{span}(v_{1}, \ldots, v_{n}) = \{ 0 \}$. Therefore $V = U \oplus \operatorname{span}(v_{1}, \ldots, v_{n})$.
 
     Let $v$ be a vector in $V$, then $v = u + c_{1}v_{1} + \cdots + c_{n}v_{n}$.
     \[
@@ -1523,7 +1526,7 @@
 
     Therefore $Tv_{1}, \ldots, Tv_{n}$ spans $\range{T}$.
 
-    Let $d_{1}Tv_{1} + \cdots + d_{n}Tv_{n} = 0$ be a linear combination of $0$ in $\range{T}$, then $T(d_{1}v_{1} + \cdots + d_{n}v_{n}) = 0$. So $d_{1}v_{1} + \cdots + d_{n}v_{n}$ is in $\kernel{T} = U$. However, $\kernel{T}\cap\text{span}(v_{1}, \ldots, v_{n}) = \{0\}$, so $d_{1}v_{1} + \cdots + d_{n}v_{n} = 0$, and $d_{1}v_{1} + \cdots + d_{n}v_{n} = 0$ implies $d_{1} = \cdots = d_{n} = 0$ because $v_{1}, \ldots, v_{n}$ is linearly independent. So $Tv_{1}, \ldots, Tv_{n}$ is linearly independent.
+    Let $d_{1}Tv_{1} + \cdots + d_{n}Tv_{n} = 0$ be a linear combination of $0$ in $\range{T}$, then $T(d_{1}v_{1} + \cdots + d_{n}v_{n}) = 0$. So $d_{1}v_{1} + \cdots + d_{n}v_{n}$ is in $\kernel{T} = U$. However, $\kernel{T}\cap\operatorname{span}(v_{1}, \ldots, v_{n}) = \{0\}$, so $d_{1}v_{1} + \cdots + d_{n}v_{n} = 0$, and $d_{1}v_{1} + \cdots + d_{n}v_{n} = 0$ implies $d_{1} = \cdots = d_{n} = 0$ because $v_{1}, \ldots, v_{n}$ is linearly independent. So $Tv_{1}, \ldots, Tv_{n}$ is linearly independent.
 
     Hence $Tv_{1}, \ldots, Tv_{n}$ is a basis of $\range{T}$.
 
@@ -1551,7 +1554,7 @@
         F(Sv_{k}) = Tv_{k}\quad \text{(if $1\leq k\leq n$)} \qquad\text{and}\qquad Fw_{k} = z_{k} \quad\text{(if $n+1\leq k\leq n+m$)}.
     \]
 
-    Then $EF = FE = \text{id}_{W}$, due to the definition of these two linear maps. Therefore $E$ is invertible and $S = ET$.
+    Then $EF = FE = \operatorname{id}_{W}$, due to the definition of these two linear maps. Therefore $E$ is invertible and $S = ET$.
 \end{proof}
 \newpage
 
@@ -1582,16 +1585,16 @@
         T(v - x_{1}v_{1} - \cdots - x_{m}v_{m}) = 0.
     \]
 
-    This means $v - x_{1}v_{1} - \cdots - x_{m}v_{m}\in \kernel{T}$, so $V = \kernel{T} + \text{span}(v_{1}, \ldots, v_{m})$. Let $v_{0}\in \kernel{T} \cap \text{span}(v_{1}, \ldots, v_{m})$ and $v_{0} = a_{1}v_{1} + \cdots + a_{m}v_{m}$ then
+    This means $v - x_{1}v_{1} - \cdots - x_{m}v_{m}\in \kernel{T}$, so $V = \kernel{T} + \operatorname{span}(v_{1}, \ldots, v_{m})$. Let $v_{0}\in \kernel{T} \cap \operatorname{span}(v_{1}, \ldots, v_{m})$ and $v_{0} = a_{1}v_{1} + \cdots + a_{m}v_{m}$ then
     \[
         0 = Tv_{0} = T(a_{1}v_{1} + \cdots + a_{m}v_{m}) = a_{1}Tv_{1} + \cdots + a_{m}Tv_{m} = a_{1}w_{1} + \cdots + a_{m}w_{m}.
     \]
 
-    Because $w_{1}, \ldots, w_{m}$ is linearly independent, it follows that $a_{1} = \cdots = a_{m} = 0$, and $v_{0} = 0$. Therefore $\kernel{T} + \text{span}(v_{1}, \ldots, v_{m}) = \{0\}$ and $V = \kernel{T} \oplus \text{span}(v_{1}, \ldots, v_{m})$. Let $v_{m+1}, \ldots, v_{m+n}$ be a basis of $\kernel{T}$.
+    Because $w_{1}, \ldots, w_{m}$ is linearly independent, it follows that $a_{1} = \cdots = a_{m} = 0$, and $v_{0} = 0$. Therefore $\kernel{T} + \operatorname{span}(v_{1}, \ldots, v_{m}) = \{0\}$ and $V = \kernel{T} \oplus \operatorname{span}(v_{1}, \ldots, v_{m})$. Let $v_{m+1}, \ldots, v_{m+n}$ be a basis of $\kernel{T}$.
 
-    Similarly, $V = \kernel{S} \oplus\text{span}(u_{1}, \ldots, u_{m})$. Let $u_{m+1}, \ldots, u_{m+n}$ be a basis of $\kernel{T}$.
+    Similarly, $V = \kernel{S} \oplus\operatorname{span}(u_{1}, \ldots, u_{m})$. Let $u_{m+1}, \ldots, u_{m+n}$ be a basis of $\kernel{T}$.
 
-    I define the linear map $E,F\in\lmap{V}$ as follows: $Eu_{k} = v_{k}$, $Fv_{k} = u_{k}$ for $k = 1,\ldots, m+n$. By this definition, $EF = FE = \text{id}_{V}$.
+    I define the linear map $E,F\in\lmap{V}$ as follows: $Eu_{k} = v_{k}$, $Fv_{k} = u_{k}$ for $k = 1,\ldots, m+n$. By this definition, $EF = FE = \operatorname{id}_{V}$.
 
     If $1\leq k\leq m$, $(TE)(u_{k}) = T(Eu_{k}) = Tv_{k} = w_{k} = Su_{k}$.
 
@@ -1622,7 +1625,7 @@
         F_{S}: v\mapsto E_{1}v\qquad  F_{T}: v\mapsto E^{-1}_{1}v
     \]
 
-    Then $F_{S}F_{T} = \text{id}_{\kernel{T}}$ and $F_{T}F_{S} = \text{id}_{\kernel{S}}$. So $F_{S}$ and $F_{T}$ are isomorphisms. Therefore $\kernel{S}$ and $\kernel{T}$ are isomorphic, and $\dim\kernel{S} = \dim\kernel{T}$.
+    Then $F_{S}F_{T} = \operatorname{id}_{\kernel{T}}$ and $F_{T}F_{S} = \operatorname{id}_{\kernel{S}}$. So $F_{S}$ and $F_{T}$ are isomorphisms. Therefore $\kernel{S}$ and $\kernel{T}$ are isomorphic, and $\dim\kernel{S} = \dim\kernel{T}$.
 
     $(\Leftarrow)$ $\dim\kernel{S} = \dim\kernel{T}$.
 
@@ -1632,7 +1635,7 @@
 
     Let $Su_{1}, \ldots, Su_{m}$ be a basis of $\range{S}$; $Tv_{1}, \ldots, Tv_{m}$ be a basis of $\range{T}$. Remind that
     \[
-        V = \kernel{S}\oplus\text{span}(u_{1}, \ldots, u_{m}) = \kernel{T}\oplus\text{span}(v_{1}, \ldots, v_{m}).
+        V = \kernel{S}\oplus\operatorname{span}(u_{1}, \ldots, u_{m}) = \kernel{T}\oplus\operatorname{span}(v_{1}, \ldots, v_{m}).
     \]
 
     Let $u_{m+1}, \ldots, u_{m+n}$ be a basis of $\kernel{S}$, and $v_{m+1}, \ldots, v_{m+n}$ be a basis of $\kernel{T}$. Then $u_{1}, \ldots, u_{m+n}$ and $v_{1}, \ldots, v_{m+n}$ are bases of $V$.
@@ -1659,7 +1662,7 @@
 
     Let $Tu_{1}, \ldots, Tu_{n}$ be a basis of $\range{T} = W$, then $u_{1}, \ldots, u_{n}$ is linearly independent in $V$.
 
-    Let $U = \text{span}(u_{1}, \ldots, u_{n})$, and $u\in U$. Let $w$ be a vector in $W$, then there exist scalars $a_{1}, \ldots, a_{n}$ such that
+    Let $U = \operatorname{span}(u_{1}, \ldots, u_{n})$, and $u\in U$. Let $w$ be a vector in $W$, then there exist scalars $a_{1}, \ldots, a_{n}$ such that
     \[
         a_{1}Tu_{1} + \cdots + a_{n}Tu_{n} = w.
     \]
@@ -1698,7 +1701,7 @@
 
     \bigskip
 
-    Let $u_{1}, \ldots, u_{m}$ be a basis of $U$, extend this list to create a basis of $V$ and let it be $u_{1}, \ldots, u_{m}, v_{1}, \ldots, v_{n}$. Let $V_{1} = \text{span}(v_{1}, \ldots, v_{n})$.
+    Let $u_{1}, \ldots, u_{m}$ be a basis of $U$, extend this list to create a basis of $V$ and let it be $u_{1}, \ldots, u_{m}, v_{1}, \ldots, v_{n}$. Let $V_{1} = \operatorname{span}(v_{1}, \ldots, v_{n})$.
 
     I define a map $f$ from $\mathcal{E}$ to $\lmap{V_{1}, W}$ as follows: $f: T\mapsto T\vert_{V_{1}}$. $f$ is a linear map.
 
@@ -1966,7 +1969,7 @@
 \begin{proof}
     I define the linear map $T\in\lmap{\mathbb{F}^{n,1}}$ as follows: $Tx = Ax$, where $Ax$ is the matrix multiplication of $A$ and the column matrix $x$.
 
-    (a) is equivalent to $T$ is injective. (b) is equivalent to $T$ is surjective. On the other hand, $T$ is injective if and only if $T$ is surjective. Therefore (a) and (b) are equivalent.
+    (a) is equivalent to $T$ is injective.\@(b) is equivalent to $T$ is surjective. On the other hand, $T$ is injective if and only if $T$ is surjective. Therefore (a) and (b) are equivalent.
 \end{proof}
 \newpage
 
@@ -1998,13 +2001,13 @@
                     & = \sum^{n}_{p=1}I_{p,k}v_{p} = v_{k}.
     \end{align*}
 
-    So $ST = TS = \text{id}_{V}$. Therefore $T$ is invertible.
+    So $ST = TS = \operatorname{id}_{V}$. Therefore $T$ is invertible.
 
-    If $T$ is invertible, then there exists $S\in\lmap{V}$ such that $ST = TS = \text{id}_{V}$.
+    If $T$ is invertible, then there exists $S\in\lmap{V}$ such that $ST = TS = \operatorname{id}_{V}$.
     \[
         \begin{split}
-            I = \mathcal{M}(\text{id}_{V}, (v_{1}, \ldots, v_{n})) = \mathcal{M}(ST, (v_{1}, \ldots, v_{n})) = \mathcal{M}(S, (v_{1}, \ldots, v_{n}))\mathcal{M}(T, (v_{1}, \ldots, v_{n})), \\
-            I = \mathcal{M}(\text{id}_{V}, (v_{1}, \ldots, v_{n})) = \mathcal{M}(TS, (v_{1}, \ldots, v_{n})) = \mathcal{M}(T, (v_{1}, \ldots, v_{n}))\mathcal{M}(S, (v_{1}, \ldots, v_{n})).
+            I = \mathcal{M}(\operatorname{id}_{V}, (v_{1}, \ldots, v_{n})) = \mathcal{M}(ST, (v_{1}, \ldots, v_{n})) = \mathcal{M}(S, (v_{1}, \ldots, v_{n}))\mathcal{M}(T, (v_{1}, \ldots, v_{n})), \\
+            I = \mathcal{M}(\operatorname{id}_{V}, (v_{1}, \ldots, v_{n})) = \mathcal{M}(TS, (v_{1}, \ldots, v_{n})) = \mathcal{M}(T, (v_{1}, \ldots, v_{n}))\mathcal{M}(S, (v_{1}, \ldots, v_{n})).
         \end{split}
     \]
 
@@ -2039,12 +2042,12 @@
 \begin{proof}
     Let $n$ be the number of rows of $A$. $T_{A}, T_{B}$ are linear maps in $\lmap{\mathbb{F}^{n,1}}$ where $T_{A}x = Ax$ and $T_{B}x = Bx$.
 
-    $AB = I$ means $T_{A}T_{B} = \text{id}_{\mathbb{F}^{n,1}}$. According to Exercise~\ref{chapter3:sectionD:exercise11}, $T_{A}$ and $T_{B}$ are invertible.
+    $AB = I$ means $T_{A}T_{B} = \operatorname{id}_{\mathbb{F}^{n,1}}$. According to Exercise~\ref{chapter3:sectionD:exercise11}, $T_{A}$ and $T_{B}$ are invertible.
     \[
-        T^{-1}_{A} = T^{-1}_{A}\text{id}_{\mathbb{F}^{n,1}} = T^{-1}_{A}(T_{A}T_{B}) = (T^{-1}_{A}T_{A})T_{B} = T_{B}.
+        T^{-1}_{A} = T^{-1}_{A}\operatorname{id}_{\mathbb{F}^{n,1}} = T^{-1}_{A}(T_{A}T_{B}) = (T^{-1}_{A}T_{A})T_{B} = T_{B}.
     \]
 
-    Therefore $T_{B}T_{A} = T^{-1}_{A}T_{A} = \text{id}_{\mathbb{F}^{n,1}}$, and $BA = I$.
+    Therefore $T_{B}T_{A} = T^{-1}_{A}T_{A} = \operatorname{id}_{\mathbb{F}^{n,1}}$, and $BA = I$.
 \end{proof}
 \newpage
 
@@ -2131,7 +2134,7 @@
 
     I define a linear map $S$ from $\lmap{\mathbb{F}^{m}, V}$ to $V^{m}$ as follows: $SF$ is $(Fe_{1}, \ldots, Fe_{m})$, where $F\in\lmap{\mathbb{F}^{n}, V}$.
 
-    $ST = \text{id}_{\lmap{\mathbb{F}^{m}, V}}$ and $TS = \text{id}_{V^{m}}$, so $T$ and $S$ are isomorphism. Thus $V^{m}$ and $\lmap{\mathbb{F}^{m}, V}$ are isomorphic.
+    $ST = \operatorname{id}_{\lmap{\mathbb{F}^{m}, V}}$ and $TS = \operatorname{id}_{V^{m}}$, so $T$ and $S$ are isomorphism. Thus $V^{m}$ and $\lmap{\mathbb{F}^{m}, V}$ are isomorphic.
 \end{proof}
 \newpage
 
@@ -2355,7 +2358,7 @@ In this exercise $\text{char}(\mathbb{F})\ne 2$. Here is a counterexample: $\mat
                   S: x_{1}v_{1} + \cdots + x_{m-1}v_{m-1} \mapsto x_{1}v_{1} + \cdots + x_{m-1}v_{m-1} + (1 - x_{1} - \cdots - x_{m-1})v_{m}.
               \]
 
-              $T$ and $S$ are linear maps and $ST = \text{id}_{U}$, $TS = \text{id}_{U_{1}}$. Therefore $T$ is an isomorphism and $U$ is isomorphic to $U_{1}$. The dimension of $U_{1}$ is less than or equal to $(m - 1)$, so the dimension of $U$ is less than $m$.
+              $T$ and $S$ are linear maps and $ST = \operatorname{id}_{U}$, $TS = \operatorname{id}_{U_{1}}$. Therefore $T$ is an isomorphism and $U$ is isomorphic to $U_{1}$. The dimension of $U_{1}$ is less than or equal to $(m - 1)$, so the dimension of $U$ is less than $m$.
 
               Hence $A$ is the translate of a subspace of $V$ of dimension less than $m$.
     \end{enumerate}
@@ -2375,15 +2378,15 @@ In this exercise $\text{char}(\mathbb{F})\ne 2$. Here is a counterexample: $\mat
         Tv = v + U = (a_{1}v_{1} + U) + \cdots + (a_{n}v_{n} + U).
     \]
 
-    Hence for all $v\in V$, we have $v - (a_{1}v_{1} + \cdots + a_{n}v_{n})\in U$, so $V = U + \text{span}(v_{1}, \ldots, v_{n})$.
+    Hence for all $v\in V$, we have $v - (a_{1}v_{1} + \cdots + a_{n}v_{n})\in U$, so $V = U + \operatorname{span}(v_{1}, \ldots, v_{n})$.
 
-    If $v$ is a vector in $U \cap \text{span}(v_{1}, \ldots, v_{n})$, then $Tv = 0 + U = x_{1}Tv_{1} + \cdots + x_{n}Tv_{n}$ for some scalars $x_{1}, \ldots, x_{n}$. We deduce that $x_{1} = \cdots = x_{n} = 0$ because $Tv_{1}, \ldots, Tv_{n}$ is a basis of $V/U$. This implies $v = 0$, so $U \cap \text{span}(v_{1}, \ldots, v_{n}) = \{0\}$.
+    If $v$ is a vector in $U \cap \operatorname{span}(v_{1}, \ldots, v_{n})$, then $Tv = 0 + U = x_{1}Tv_{1} + \cdots + x_{n}Tv_{n}$ for some scalars $x_{1}, \ldots, x_{n}$. We deduce that $x_{1} = \cdots = x_{n} = 0$ because $Tv_{1}, \ldots, Tv_{n}$ is a basis of $V/U$. This implies $v = 0$, so $U \cap \operatorname{span}(v_{1}, \ldots, v_{n}) = \{0\}$.
 
-    Hence $V = U \oplus \text{span}(v_{1}, \ldots, v_{n})$. I define the map $S$ from $V$ to $U\times (V/U)$ as follows: $Sv = (u, v + U)$, where $v = u + (v - u)$, $u\in U$ and $v - u\in \text{span}(v_{1}, \ldots, v_{n})$ (the only way to write $v$ as the sum of a vector in $U$ and a vector in $\text{span}(v_{1}, \ldots, v_{n})$).
+    Hence $V = U \oplus \operatorname{span}(v_{1}, \ldots, v_{n})$. I define the map $S$ from $V$ to $U\times (V/U)$ as follows: $Sv = (u, v + U)$, where $v = u + (v - u)$, $u\in U$ and $v - u\in \operatorname{span}(v_{1}, \ldots, v_{n})$ (the only way to write $v$ as the sum of a vector in $U$ and a vector in $\operatorname{span}(v_{1}, \ldots, v_{n})$).
 
     Next, I prove that $S$ is a linear map.
 
-    Let $w_{1}, w_{2}$ be vectors in $V$. There exist a unique $u_{1}\in U$ such that $w_{1} - u_{1}\in \text{span}(v_{1}, \ldots, v_{n})$, an a unique $u_{2}\in U$ such that $w_{2} - u_{2}\in \text{span}(v_{1}, \ldots, v_{n})$.
+    Let $w_{1}, w_{2}$ be vectors in $V$. There exist a unique $u_{1}\in U$ such that $w_{1} - u_{1}\in \operatorname{span}(v_{1}, \ldots, v_{n})$, an a unique $u_{2}\in U$ such that $w_{2} - u_{2}\in \operatorname{span}(v_{1}, \ldots, v_{n})$.
     \begin{align*}
         S(w_{1} + w_{2}) & = (u_{1} + u_{2}, T(w_{1} + w_{2})) \\
                          & = (u_{1} + u_{2}, Tw_{1} + Tw_{2})  \\
@@ -2461,16 +2464,16 @@ In this exercise $\text{char}(\mathbb{F})\ne 2$. Here is a counterexample: $\mat
         a_{1}(v_{1} + U) + \cdots + a_{m}(v_{m} + U) = (a_{1}v_{1} + \cdots + a_{m}v_{m}) + U = 0 + U.
     \]
 
-    This implies $a_{1} = \cdots = a_{m} = 0$, because $v_{1} + U, \ldots, v_{m} + U$ is a basis of $V/U$. So $\text{span}(v_{1}, \ldots, v_{m})\cap U = \{0\}$. Particularly, $a_{1}v_{1} + \cdots + a_{m}v_{m} = 0\in U$ if and only if $a_{1} = \cdots = a_{m}$, which means $v_{1}, \ldots, v_{m}$ is linearly independent.
+    This implies $a_{1} = \cdots = a_{m} = 0$, because $v_{1} + U, \ldots, v_{m} + U$ is a basis of $V/U$. So $\operatorname{span}(v_{1}, \ldots, v_{m})\cap U = \{0\}$. Particularly, $a_{1}v_{1} + \cdots + a_{m}v_{m} = 0\in U$ if and only if $a_{1} = \cdots = a_{m}$, which means $v_{1}, \ldots, v_{m}$ is linearly independent.
 
     Let $v$ be a vector in $V$. There exist scalars $b_{1}, \ldots, b_{m}$ such that
     \[
         v + U = b_{1}(v_{1} + U) + \cdots + b_{m}(v_{m} + U) = (b_{1}v_{1} + \cdots + b_{m}v_{m}) + U
     \]
 
-    because $v_{1} + U, \ldots, v_{m} + U$ is a basis of $V/U$. So $v - (b_{1}v_{1} + \cdots + b_{m}v_{m})\in U$. Therefore $V = U + \text{span}(v_{1}, \ldots, v_{m})$. Together with $U\cap \text{span}(v_{1}, \ldots, v_{m}) = \{0\}$, it follows that $V = U \oplus \text{span}(v_{1}, \ldots, v_{m})$.
+    because $v_{1} + U, \ldots, v_{m} + U$ is a basis of $V/U$. So $v - (b_{1}v_{1} + \cdots + b_{m}v_{m})\in U$. Therefore $V = U + \operatorname{span}(v_{1}, \ldots, v_{m})$. Together with $U\cap \operatorname{span}(v_{1}, \ldots, v_{m}) = \{0\}$, it follows that $V = U \oplus \operatorname{span}(v_{1}, \ldots, v_{m})$.
 
-    $v_{1}, \ldots, v_{m}$ is a basis of $\text{span}(v_{1}, \ldots, v_{m})$, $u_{1}, \ldots, u_{n}$ is a basis of $U$, so $v_{1} , \ldots, v_{m} , u_{1} , \ldots, u_{n}$ is a basis of $V$.
+    $v_{1}, \ldots, v_{m}$ is a basis of $\operatorname{span}(v_{1}, \ldots, v_{m})$, $u_{1}, \ldots, u_{n}$ is a basis of $U$, so $v_{1} , \ldots, v_{m} , u_{1} , \ldots, u_{n}$ is a basis of $V$.
 \end{proof}
 \newpage
 
@@ -2480,7 +2483,10 @@ In this exercise $\text{char}(\mathbb{F})\ne 2$. Here is a counterexample: $\mat
 \end{exercise}
 
 \begin{proof}
-    Because $V/(\kernel{\varphi})$ is isomorphic to $\range{\varphi}$ and $\dim\range{\varphi} = 1$, it follows that $\dim V/(\kernel{\varphi}) = 1$.
+    Because $V/(\kernel{\varphi})$ is isomorphic to $\range{\varphi}$ and $\dim\range{\varphi} = 1$, it follows that
+    \[
+        \dim V/(\kernel{\varphi}) = 1.\qedhere
+    \]
 \end{proof}
 \newpage
 
@@ -2529,9 +2535,9 @@ In this exercise $\text{char}(\mathbb{F})\ne 2$. Here is a counterexample: $\mat
                   (a_{1}w_{1} + \cdots + a_{n}w_{n}) + U = a_{1}(w_{1} + U) + \cdots + a_{n}(w_{n} + U)
               \]
 
-              so $a_{1}w_{1} + \cdots + a_{n}w_{n}\in U$ if and only if $a_{1} = \cdots = a_{n} = 0$. Therefore $\text{span}(w_{1}, \ldots, w_{n})\cap U = \{ 0 \}$  and $a_{1}w_{1} + \cdots + a_{n}w_{n} = 0\in U$ if and only if $a_{1} = \cdots = a_{n} = 0$, which means $w_{1}, \ldots, w_{n}$ is linearly independent.
+              so $a_{1}w_{1} + \cdots + a_{n}w_{n}\in U$ if and only if $a_{1} = \cdots = a_{n} = 0$. Therefore $\operatorname{span}(w_{1}, \ldots, w_{n})\cap U = \{ 0 \}$  and $a_{1}w_{1} + \cdots + a_{n}w_{n} = 0\in U$ if and only if $a_{1} = \cdots = a_{n} = 0$, which means $w_{1}, \ldots, w_{n}$ is linearly independent.
 
-              Let $W = \text{span}(w_{1}, \ldots, w_{n})$. Because $w_{1}, \ldots, w_{n}$ is linearly independent, it follows that $w_{1}, \ldots, w_{n}$ is a basis of $W$ and then $\dim W = n = \dim V/U$.
+              Let $W = \operatorname{span}(w_{1}, \ldots, w_{n})$. Because $w_{1}, \ldots, w_{n}$ is linearly independent, it follows that $w_{1}, \ldots, w_{n}$ is a basis of $W$ and then $\dim W = n = \dim V/U$.
 
               Let $v$ be a vector in $V$. Because $w_{1} + U, \ldots, w_{n} + U$ be a basis of $V/U$, there exist scalars $x_{1}, \ldots, x_{n}$ such that
               \[
@@ -2543,7 +2549,12 @@ In this exercise $\text{char}(\mathbb{F})\ne 2$. Here is a counterexample: $\mat
                   v + U = (a_{1}w_{1} + \cdots + a_{n}w_{n}) + U.
               \]
 
-              Therefore $v - (a_{1}w_{1} + \cdots + a_{n}w_{n})\in U$, which means $V = U + W$. Together with $U\cap W = \{0\}$, we conclude that $V = U\oplus W$.
+              Therefore
+              \[
+                  v - (a_{1}w_{1} + \cdots + a_{n}w_{n})\in U
+              \]
+
+              which means $V = U + W$. Together with $U\cap W = \{0\}$, we conclude that $V = U\oplus W$.\qedhere
     \end{enumerate}
 \end{proof}
 \newpage
@@ -2574,4 +2585,953 @@ In this exercise $\text{char}(\mathbb{F})\ne 2$. Here is a counterexample: $\mat
 \newpage
 
 \section{Duality}
+
+% chapter3:sectionF:exercise1
+\begin{exercise}\label{chapter3:sectionF:exercise1}
+    Explain why each linear functional is surjective or is the zero map.
+\end{exercise}
+
+\begin{proof}
+    Let $V$ be a vector space over the field $\mathbb{F}$ and $\varphi$ a linear functional on $V$.
+
+    If $\varphi$ is not the zero map, then there exists a vector $v$ in $V$ such that $\varphi(v) = \lambda_{0}\ne 0$. Then for every $\lambda\in\mathbb{F}$, we have
+    \[
+        \varphi(\lambda\lambda_{0}^{-1}v) = \lambda\lambda_{0}^{-1}\lambda_{0} = \lambda.
+    \]
+
+    Therefore $\varphi$ is surjective. Hence a linear functional is either surjective or is the linear map.
+\end{proof}
+\newpage
+
+% chapter3:sectionF:exercise2
+\begin{exercise}
+    Give three distinct examples of linear functionals on $\mathbb{R}^{[0, 1]}$.
+\end{exercise}
+
+\begin{proof}
+    $T_{1}(f) = 0$ for every $f\in \mathbb{R}^{[0, 1]}$.
+
+    $T_{2}(f) = f(0)$ for every $f\in \mathbb{R}^{[0, 1]}$.
+
+    $T_{3}(f) = -f(0)$ for every $f\in \mathbb{R}^{[0, 1]}$.
+\end{proof}
+\newpage
+
+% chapter3:sectionF:exercise3
+\begin{exercise}
+    Suppose $V$ is finite-dimensional and $v \in V$ with $v \ne 0$. Prove that there exists $\varphi\in V'$ such that $\varphi(v) = 1$.
+\end{exercise}
+
+\begin{proof}
+    If $v\ne 0$ then $v$ is linearly independent. Extend this to create a basis of $V$ and let it be $v, v_{1}, \ldots, v_{n}$.
+
+    Let $\varphi, \varphi_{1}, \ldots, \varphi_{n}$ be the dual basis of $V$, then $\varphi(v) = 1$ due to the definition of dual basis.
+\end{proof}
+\newpage
+
+% chapter3:sectionF:exercise4
+\begin{exercise}
+    Suppose $V$ is finite-dimensional and $U$ is a subspace of $V$ such that $U \ne V$. Prove that there exists $\varphi\in V'$ such that $\varphi(u) = 0$ for every $u\in U$ but $\varphi \ne 0$.
+\end{exercise}
+
+\begin{proof}
+    Let $u_{1}, \ldots u_{m}$ be a basis of $U$. We can extend this list to create a basis of $V$, and let that basis be $u_{1}, \ldots u_{m}, v_{1}, \ldots, v_{n}$. Because $U\ne V$, it follows that $n > 0$.
+
+    Let $\varphi_{1}, \ldots, \varphi_{m}, \varphi_{m+1}, \ldots, \varphi_{m+n}$ be the dual basis of $u_{1}, \ldots u_{m}, v_{1}, \ldots, v_{n}$. Let $\varphi = \varphi_{m+1}$ then $\varphi\ne 0$ and for every $u = a_{1}u_{1} + \cdots + a_{m}u_{m}\in U$,
+    \[
+        \varphi(u) = \varphi(a_{1}u_{1} + \cdots + a_{m}u_{m}) = \psi_{1}(a_{1}u_{1} + \cdots + a_{m}u_{m}) = \sum^{m}_{k=1}a_{k}\varphi_{m+1}(u_{k}) = 0.
+    \]
+
+    So there exists $\varphi\in V'$ such that $\varphi(u) = 0$ for every $u\in U$ but $\varphi\ne 0$.
+\end{proof}
+\newpage
+
+% chapter3:sectionF:exercise5
+\begin{exercise}
+    Suppose $T \in \lmap{V, W}$ and $w_{1} , \ldots, w_{m}$ is a basis of $\range{T}$. Hence for each $v\in V$, there exist unique numbers $\varphi_{1} (v), \ldots, \varphi_{m} (v)$ such that
+    \[
+        Tv = \varphi_{1}(v)w_{1} + \cdots + \varphi_{m}(v)w_{m},
+    \]
+
+    thus defining functions $\varphi_{1}, \ldots, \varphi_{m}$ from $V$ to $\mathbb{F}$. Show that each of the functions $\varphi_{1}, \ldots, \varphi_{m}$ is a linear functional on $V$.
+\end{exercise}
+
+\begin{proof}
+    Let $v, u$ be vectors in $V$ and $\lambda\in\mathbb{F}$
+    \begin{align*}
+        T(v + u)     & = \varphi_{1}(v + u)w_{1} + \cdots + \varphi_{m}(v + u)w_{m},         \\
+        T(\lambda v) & = \varphi_{1}(\lambda v)w_{1} + \cdots + \varphi_{m}(\lambda v)w_{m}.
+    \end{align*}
+
+    On the other hand
+    \begin{align*}
+        T(v + u)     & = Tv + Tu                                                                                                     \\
+                     & = (\varphi_{1}(v)w_{1} + \cdots + \varphi_{m}(v)w_{m}) + (\varphi_{1}(u)w_{1} + \cdots + \varphi_{m}(u)w_{m}) \\
+                     & = (\varphi_{1}(v) + \varphi_{1}(u))w_{1} + \cdots + (\varphi_{m}(v) + \varphi_{m}(u))w_{m},                   \\
+        T(\lambda v) & = \lambda Tv                                                                                                  \\
+                     & = \lambda (\varphi_{1}(v)w_{1} + \cdots + \varphi_{m}(v)w_{m})                                                \\
+                     & = \lambda\varphi_{1}(v)w_{1} + \cdots + \lambda\varphi_{m}(v)w_{m}
+    \end{align*}
+
+    Because $w_{1} , \ldots, w_{m}$ is a basis of $\range{T}$, we can identify the coefficients and conclude that $\varphi_{k}(v + u) = \varphi_{k}(v) + \varphi_{k}(u)$ and $\varphi_{k}(\lambda v) = \lambda \varphi_{k}(v)$. Hence $\varphi_{1}, \ldots, \varphi_{m}$ are linear functionals on $V$.
+\end{proof}
+\newpage
+
+% chapter3:sectionF:exercise6
+\begin{exercise}\label{chapter3:sectionF:exercise6}
+    Suppose $\varphi, \beta \in V'$. Prove that $\kernel{\varphi} \subseteq \kernel{\beta}$ if and only if there exists $c \in \mathbb{F}$ such that $\beta = c\varphi$.
+\end{exercise}
+
+\begin{proof}[1st Proof]
+    According to Exercise~\ref{chapter3:sectionB:exercise25}, there exists a linear map $f$ in $\lmap{\mathbb{F}}$ such that $\beta = f\varphi$ if and only if $\kernel{\varphi}\subseteq\kernel{\beta}$. On the other hand, let $c = f(1)$, then $f(\lambda) = \lambda c$. So $\beta = c\varphi$.
+\end{proof}
+
+\begin{proof}[2nd Proof]
+    $(\Rightarrow)$ There exists $c \in \mathbb{F}$ such that $\beta = c\varphi$.
+
+    If $v\in \kernel{\varphi}$, then $\beta(v) = c\varphi(v) = 0$, which implies $v\in \kernel{\beta}$. Therefore $\kernel{\varphi} \subseteq \kernel{\beta}$.
+
+    \bigskip
+
+    $(\Leftarrow)$ $\kernel{\varphi} \subseteq \kernel{\beta}$. Due to Exercise~\ref{chapter3:sectionF:exercise1}, we consider the following two possibilities
+
+    $\varphi = 0$. Then $\kernel\varphi = V$, $\kernel{\beta} = V$ and $\varphi(v) = \beta(v) = 0$ for all $v\in V$. So there exists $c\in\mathbb{F}$ such that $\beta = c\varphi$.
+
+    $\varphi$ is surjective. So there exists $v_{0}\in V$ such that $\varphi(v_{0}) = 1$. Let $v$ be a vector in $V$, and let $\varphi(v) = \lambda$.
+    \[
+        \varphi(v) = \lambda = \lambda\cdot 1 = \lambda \varphi(v_{0}) = \varphi(\lambda v_{0}).
+    \]
+
+    So $v - \lambda v_{0}\in \kernel{\varphi}\subseteq \kernel{\beta}$.
+    \[
+        \beta(v - \lambda v_{0}) = 0 \Longrightarrow \beta(v) = \lambda\beta(v_{0}) = \beta(v_{0})\varphi(v).
+    \]
+
+    Let $c = \beta(v_{0})$, we have $\beta(v) = c\varphi(v)$ for every $v\in V$. Hence there exists $c\in\mathbb{F}$ such that $\beta = c\varphi$.
+\end{proof}
+\newpage
+
+% chapter3:sectionF:exercise7
+\begin{exercise}
+    Suppose that $V_{1} , \ldots, V_{m}$ are vector spaces. Prove that ${(V_{1} \times \cdots \times V_{m})}'$ and $V_{1}' \times \cdots \times V_{m}'$ are isomorphic vector spaces.
+\end{exercise}
+
+\begin{proof}
+    Let $\varphi$ be a linear functional on $V_{1} \times \cdots \times V_{m}$. I define maps from $V_{k}$ to $\mathbb{F}$ as follows: $\varphi_{k}(v) = \varphi(\ldots, v, \ldots)$ ($v$ is at the $k$th slot, and other slots are $0$). $\varphi_{k}$ is indeed a linear functional on $V_{k}$. The map $T: \varphi\mapsto (\varphi_{1}, \ldots, \varphi_{m})$ is well-defined and is a linear map.
+
+    Let $(\varphi_{1}, \ldots, \varphi_{m})$ be an element of $V_{1}' \times \cdots \times V_{m}'$. I define a map $S$ from $V_{1}' \times \cdots \times V_{m}'$ to ${(V_{1} \times \cdots \times V_{m})}'$ as follows: $S(\varphi_{1}, \ldots, \varphi_{m}) = \varphi$ where $\varphi(v_{1}, \ldots, v_{m}) = (\varphi_{1}(v_{1}), \ldots, \varphi_{m}(v_{m}))$. The map $S$ is well-defined and is a linear map.
+
+    On the other hand $ST = \operatorname{id}_{{(V_{1} \times \cdots \times V_{m})}'}$ and $TS = \operatorname{id}_{V_{1}' \times \cdots \times V_{m}'}$. Hence $T$, $S$ are isomorphisms. Thus ${(V_{1} \times \cdots \times V_{m})}'$ and $V_{1}' \times \cdots \times V_{m}'$ are isomorphic vector spaces.
+\end{proof}
+\newpage
+
+% chapter3:sectionF:exercise8
+\begin{exercise}
+    Suppose $v_{1} , \ldots, v_{n}$ is a basis of $V$ and $\varphi_{1}, \ldots, \varphi_{n}$ is the dual basis of $V'$. Define $\Gamma: V\to \mathbb{F}^{n}$ and $\Lambda: \mathbb{F}^{n}\to V$ by
+    \[
+        \Gamma(v) = (\varphi_{1}(v), \ldots, \varphi_{n}(v)) \text{  and  } \Lambda(a_{1}, \ldots, a_{n}) = a_{1}v_{1} + \cdots + a_{n}v_{n}.
+    \]
+
+    Explain why $\Gamma$ and $\Lambda$ are inverses of each other.
+\end{exercise}
+
+\begin{proof}
+    \begin{align*}
+        (\Gamma\Lambda)(a_{1}, \ldots, a_{n}) & = \Gamma(\Lambda(a_{1}, \ldots, a_{n}))                                                                   \\
+                                              & = \Gamma(a_{1}v_{1} + \cdots + a_{n}v_{n})                                                                \\
+                                              & = (\varphi_{1}(a_{1}v_{1} + \cdots + a_{n}v_{n}), \ldots, \varphi_{k}(a_{1}v_{1} + \cdots + a_{n}v_{n})).
+    \end{align*}
+
+    Because $\varphi_{1}, \ldots, \varphi_{n}$ is the dual basis of $v_{1} , \ldots, v_{n}$, $\varphi_{k}(a_{1}v_{1} + \cdots + a_{n}v_{n}) = a_{k}$. Therefore
+    \[
+        (\Gamma\Lambda)(a_{1}, \ldots, a_{n}) = (a_{1}, \ldots, a_{n}).
+    \]
+    \begin{align*}
+        (\Lambda\Gamma)(v) & = \Lambda(\Gamma(v))                                  \\
+                           & = \Lambda(\varphi_{1}(v), \ldots, \varphi_{n}(v))     \\
+                           & = \varphi_{1}(v)v_{1} + \cdots + \varphi_{n}(v)v_{n}.
+    \end{align*}
+
+    Besides $\varphi_{k}(v) = \varphi_{k}(a_{1}v_{1} + \cdots + a_{n}v_{n}) = a_{k}$, so
+    \[
+        (\Lambda\Gamma)(v) = a_{1}v_{1} + \cdots + a_{n}v_{n} = v.
+    \]
+
+    Hence $\Gamma$ and $\Lambda$ are inverses of each other.
+\end{proof}
+\newpage
+
+% chapter3:sectionF:exercise9
+\begin{exercise}
+    Suppose $m$ is a positive integer. Show that the dual basis of the basis $1, x, \ldots, x^{m}$ of $\mathcal{P}_{m}(\mathbb{R})$ is $\varphi_{0}, \varphi_{1}, \ldots, \varphi_{m}$, where
+    \[
+        \varphi_{k}(p) = \frac{p^{(k)}(0)}{k!}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    According to the definition of dual basis, $\varphi_{k}(x^{k}) = 1$ and $\varphi_{k}(x^{n}) = 0$ for $n\ne k$. If $p(x) = a_{0} + a_{1}x + \cdots + a_{m}x^{m}$, then
+    \[
+        \varphi_{k}(p) = \varphi_{k}(a_{k}x^{k}) = a_{k} = \frac{p^{(k)}(0)}{k!}.
+    \]
+
+    The last equality is followed from Taylor's expansion at $0$ of $p$.
+\end{proof}
+\newpage
+
+% chapter3:sectionF:exercise10
+\begin{exercise}
+    Suppose $m$ is a positive integer.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that $1, x - 5, \ldots, {(x-5)}^{m}$ is a basis of $\mathcal{P}_{m}(\mathbb{R})$.
+        \item What is the dual basis of the basis in (a)?
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item I skip this exercise.
+        \item Let $\varphi_{0}, \varphi_{1}, \ldots, \varphi_{m}$ be the dual basis of $1, x - 5, \ldots, {(x - 5)}^{m}$.
+
+              Let $p(x) = a_{0} + a_{1}x + \cdots + a_{m}x^{m}$, then
+              \[
+                  \varphi_{k}(p) = \varphi_{k}(a_{k}{(x - 5)}^{k}) = a_{k} = \frac{p^{(k)}(5)}{k!}.
+              \]
+
+              The last equality is followed from Taylor's expansion at $5$ of $p$.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter3:sectionF:exercise11
+\begin{exercise}
+    Suppose $v_{1} , \ldots, v_{n}$ is a basis of $V$ and $\varphi_{1} , \ldots, \varphi_{n}$ is the corresponding dual basis of $V'$. Suppose $\psi \in V'$. Prove that
+    \[
+        \psi = \psi(v_{1})\varphi_{1} + \cdots + \psi(v_{n})\varphi_{n}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    Because $V$ is finite-dimensional, then $\varphi_{1} , \ldots, \varphi_{n}$ is also a basis of $V'$. So there exist $a_{k}$ for $k = 1, \ldots, n$ such that
+    \[
+        \psi = a_{1}\varphi_{1} + \cdots + a_{n}\varphi_{n}.
+    \]
+
+    $\psi(v_{k}) = (a_{1}\varphi_{1} + \cdots + a_{n}\varphi_{n})(v_{k}) = a_{k}\varphi_{k}(v_{k}) = a_{k}$. Therefore
+    \[
+        \psi = \psi(v_{1})\varphi_{1} + \cdots + \psi(v_{n})\varphi_{n}.\qedhere
+    \]
+\end{proof}
+\newpage
+
+% chapter3:sectionF:exercise12
+\begin{exercise}
+    Suppose $S, T\in \lmap{V, W}$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Prove that ${(S + T)}' = S' + T'$.
+        \item Prove that ${(\lambda T)}' = \lambda T'$ for all $\lambda\in \mathbb{F}$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    I skip this exercise.
+\end{proof}
+\newpage
+
+% chapter3:sectionF:exercise13
+\begin{exercise}
+    Show that the dual map of the identity operator on $V$ is the identity operator
+    on $V'$.
+\end{exercise}
+
+\begin{proof}
+    Let $I$ be the identity operator on $V$ and $I'$ be the dual map of $V$. For every linear functional $\varphi$ on $V$, we have
+    \[
+        I'(\varphi) = \varphi\circ I.
+    \]
+
+    So for every $v\in V$, $(I'(\varphi))(v) = (\varphi\circ I)(v) = \varphi(v)$. Therefore $I'(\varphi) = \varphi$ for every $\varphi\in V'$. Hence $I'$ is the identity operator on $V'$.
+\end{proof}
+\newpage
+
+% chapter3:sectionF:exercise14
+\begin{exercise}
+    Define $T: \mathbb{R}^{3} \to \mathbb{R}^{2}$ by
+    \[
+        T(x, y, z) = (4x + 5y + 6z, 7x + 8y + 9z).
+    \]
+
+    Suppose $\varphi_{1}, \varphi_{2}$ denotes the dual basis of the standard basis of $\mathbb{R}^{2}$ and $\psi_{1}, \psi_{2}, \psi_{3}$ denotes the dual basis of the standard basis of $\mathbb{R}^{3}$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Describe the linear functionals $T'(\varphi_{1})$ and $T'(\varphi_{2})$.
+        \item Write $T'(\varphi_{1})$ and $T'(\varphi_{2})$ as linear combinations of $\psi_{1}, \psi_{2}, \psi_{3}$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{align*}
+        (T'(\varphi_{1}))(x, y, z) & = (\varphi_{1}\circ T)(x, y, z) = \varphi_{1}(T(x, y, z)) \\
+                                   & = \varphi_{1}(4x + 5y + 6z, 7x + 8y + 9z)                 \\
+                                   & = \varphi_{1}(4x + 5y + 6z, 0)                            \\
+                                   & = 4x + 5y + 6z,                                           \\
+        (T'(\varphi_{2}))(x, y, z) & = (\varphi_{2}\circ T)(x, y, z) = \varphi_{2}(T(x, y, z)) \\
+                                   & = \varphi_{2}(4x + 5y + 6z, 7x + 8y + 9z)                 \\
+                                   & = \varphi_{2}(0, 7x + 8y + 9z)                            \\
+                                   & = 7x + 8y + 9z.
+    \end{align*}
+
+    $T'(\varphi_{1})$ maps a vector $v\in \mathbb{R}^{3}$ to the 1st slot of $Tv$ and $T'(\varphi_{2})$ maps a vector $v\in \mathbb{R}^{3}$ to the 2nd slot of $Tv$.
+    \begin{align*}
+        (T'(\varphi_{1}))(x, y, z) & = 4x + 5y + 6z                                                  \\
+                                   & = 4\psi_{1}(x, y, z) + 5\psi_{2}(x, y, z) + 6\psi_{2}(x, y, z), \\
+        (T'(\varphi_{2}))(x, y, z) & = 7x + 8y + 9z                                                  \\
+                                   & = 7\psi_{1}(x, y, z) + 8\psi_{2}(x, y, z) + 9\psi_{2}(x, y, z).
+    \end{align*}
+
+    So $T'(\varphi_{1}) = 4\psi_{1} + 5\psi_{2} + 6\psi_{3}$ and $T'(\varphi_{2}) = 7\psi_{1} + 8\psi_{2} + 9\psi_{3}$.
+\end{proof}
+\newpage
+
+% chapter3:sectionF:exercise15
+\begin{exercise}
+    Define $T: \mathcal{P}(\mathbb{R})\to \mathcal{P}(\mathbb{R})$ by
+    \[
+        (Tp)(x) = x^{2}p(x) + p''(x)
+    \]
+
+    for each $x\in \mathbb{R}$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Suppose $\varphi\in\mathcal{P}(\mathbb{R})'$ is defined by $\varphi(p) = p'(4)$. Describe the linear functional $T'(\varphi)$ on $\mathcal{P}(\mathbb{R})$.
+        \item Suppose $\varphi\in\mathcal{P}(\mathbb{R})'$ is defined by $\varphi(p) = \int^{1}_{0}p$. Evaluate $(T'(\varphi))(x^{3})$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item
+              \begin{align*}
+                  (T'(\varphi))(p) & = (\varphi\circ T)(p) = \varphi(T(p))                 \\
+                                   & = \varphi(x^{2}p(x) + p''(x))                         \\
+                                   & = (2x p(x) + x^{2}p'(x) + p{'}{'}{'}(x))\vert_{x = 4} \\
+                                   & = 8p(4) + 16p'(4) + p{'}{'}{'}(4).
+              \end{align*}
+        \item
+              \begin{align*}
+                  (T'(\varphi))(x^{3}) & = \varphi(x^{2}x^{3} + 6x)                \\
+                                       & = \int^{1}_{0}(x^{5} + 6x)dx              \\
+                                       & = \frac{1}{6} + 3 = \frac{19}{6}.\qedhere
+              \end{align*}
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter3:sectionF:exercise16
+\begin{exercise}\label{chapter3:sectionF:exercise16}
+    Suppose $W$ is finite-dimensional and $T\in\lmap{V, W}$. Prove that
+    \[
+        T' = 0 \Longleftrightarrow T = 0.
+    \]
+\end{exercise}
+
+\begin{proof}
+    $W$ is finite-dimensional then $W'$, $\kernel{T'}$, $\range{T}$, ${(\range{T})}^{0}$ are also finite-dimensional.
+
+    In any case, we have $\kernel{T'} = {(\range{T})}^{0}$.
+    \begin{align*}
+        T' = 0 & \Longleftrightarrow \kernel{T'} = W'                 \\
+               & \Longleftrightarrow {(\range{T})}^{0} = W'           \\
+               & \Longleftrightarrow \dim{(\range{T})}^{0} = \dim W'  \\
+               & \Longleftrightarrow \dim W - \dim \range{T} = \dim W \\
+               & \Longleftrightarrow \dim\range{T} = 0                \\
+               & \Longleftrightarrow T = 0.\qedhere
+    \end{align*}
+\end{proof}
+\newpage
+
+% chapter3:sectionF:exercise17
+\begin{exercise}
+    Suppose $V$ and $W$ are finite-dimensional and $T \in \lmap{V, W}$. Prove that $T$ is invertible if and only if $T' \in \lmap{W', V'}$ is invertible.
+\end{exercise}
+
+\begin{proof}
+    My reasoning is valid because $V$ and $W$ are finite-dimensional.
+
+    $T$ is injective if and only if $T'$ is surjective. $T$ is surjective if and only if $T'$ is injective.
+
+    $T$ is invertible if and only if $T$ is injective and surjective. $T'$ is invertible if and only if $T'$ is invertible.
+
+    Hence $T$ is invertible if and only if $T'$ is invertible.
+\end{proof}
+\newpage
+
+% chapter3:sectionF:exercise18
+\begin{exercise}
+    Suppose $V$ and $W$ are finite-dimensional. Prove that the map that takes $T\in \lmap{V, W}$ to $T'\in \lmap{W', V'}$ is an isomorphism of $\lmap{V, W}$ onto $\lmap{W', V'}$.
+\end{exercise}
+
+\begin{proof}
+    Because ${(S + T)}' = S' + T'$ and ${(\lambda T)}' = \lambda T'$ for every $S, T\in \lmap{V, W}$ and $\lambda\in\mathbb{F}$, then the map $D$ that takes a linear map in $\lmap{V, W}$ to its dual map in $\lmap{W', V'}$ is another linear map.
+
+    According to Exercise~\ref{chapter3:sectionF:exercise16}, $T' = 0$ if and only if $T = 0$, so $D$ is injective. On the other hand
+    \[
+        \dim\lmap{V, W} = (\dim V)(\dim W) = (\dim V')(\dim W') = \dim\lmap{W', V'}.
+    \]
+
+    So $D$ is also an isomorphism of $\lmap{V, W}$ onto $\lmap{W', V'}$.
+\end{proof}
+\newpage
+
+% chapter3:sectionF:exercise19
+\begin{exercise}\label{chapter3:sectionF:exercise19}
+    Suppose $U \subseteq V$. Explain why
+    \[
+        U^{0} = \{ \varphi\in V': U\subseteq \kernel{\varphi} \}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    If $\psi\in U^{0}$, then $\psi(u) = 0$ for every $u\in U$. On the other hand, $\kernel{\psi}$ is the set of vector $v\in V$ such that $\psi(v) = 0$. Therefore $U\subseteq \kernel{\psi}$, and $U^{0}\subseteq \{ \varphi\in V': U\subseteq \kernel{\varphi} \}$.
+
+    If $\psi\in \{ \varphi\in V': U\subseteq \kernel{\varphi} \}$, then for every $u\in U$, $\psi(u) = 0$ and then $\psi\in U^{0}$. So $\{ \varphi\in V': U\subseteq \kernel{\varphi} \}\subseteq U^{0}$.
+
+    Thus $U^{0} = \{ \varphi\in V': U\subseteq \kernel{\varphi} \}$.
+\end{proof}
+\newpage
+
+% chapter3:sectionF:exercise20
+\begin{exercise}\label{chapter3:sectionF:exercise20}
+    Suppose $V$ is finite-dimensional and $U$ is a subspace of $V$. Show that
+    \[
+        U = \{  v\in V: \varphi(v) = 0 \text{ for every $\varphi \in U^{0}$ } \}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    If $u\in U$, then $\varphi(u) = 0$ for every $\varphi\in U^{0}$ --- This is true, according to the definition of the annihilator of $U$. So
+    \[
+        U \subseteq \{  v\in V: \varphi(v) = 0 \text{ for every $\varphi \in U^{0}$ } \}.
+    \]
+
+    Next, I prove the inclusion in the opposite direction.
+
+    Because $V$ is finite-dimensional, then so is $U$. Let $u_{1}, \ldots, u_{m}$ be a basis of $U$. We extend this list to create a basis of $V$, and let it be
+    \[
+        u_{1}, \ldots, u_{m}, u_{m+1}, \ldots, u_{m+n}.
+    \]
+
+    Let $\varphi_{1}, \ldots, \varphi_{m+n}$ be the dual basis of the above basis of $V$, and $\varphi$ an element of $U^{0}\subseteq V'$. There exist scalars $a_{k}$ for $k = 1, \ldots, m+n$ such that
+    \[
+        \varphi = a_{1}\varphi_{1} + \cdots + a_{m+n}\varphi_{m+n}.
+    \]
+
+    Since $\varphi(u) = 0$ for every $u\in U$, then $\varphi(u_{1}) = \cdots = \varphi(u_{m}) = 0$. Therefore $a_{k}\varphi_{k}(u_{k}) = 0$ for $k = 1,\ldots, m$, so $a_{k} = 0$ for $k = 1,\ldots, m$. It follows that
+    \[
+        \varphi = a_{m+1}\varphi_{m+1} + \cdots + a_{m+n}\varphi_{m+n}.
+    \]
+
+    So $U^{0} = \operatorname{span}(\varphi_{m+1}, \ldots, \varphi_{m+n})$. On the other hand, $\varphi_{m+1}, \ldots, \varphi_{m+n}$ is linearly independent, so $\varphi_{m+1}, \ldots, \varphi_{m+n}$ is also a basis of $U^{0}$.
+
+    If $v = a_{1}u_{1} + \cdots + a_{m+n}u_{m+n}\in \{  v\in V: \varphi(v) = 0 \text{ for every $\varphi \in U^{0}$ } \}$, then $\varphi_{k}(v) = 0$ for $k = m+1, \ldots, m+n$. It follows that $a_{m+1} = \cdots = a_{m+n} = 0$, and $v = a_{1}u_{1} + \cdots + a_{m}u_{m}$. Therefore
+    \[
+        \{  v\in V: \varphi(v) = 0 \text{ for every $\varphi \in U^{0}$ } \}\subseteq U.
+    \]
+
+    Thus $U = \{  v\in V: \varphi(v) = 0 \text{ for every $\varphi \in U^{0}$ } \}$.
+\end{proof}
+\newpage
+
+% chapter3:sectionF:exercise21
+\begin{exercise}
+    Suppose $V$ is finite-dimensional and $U$ and $W$ are subspaces of $V$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Prove that $W^{0}\subseteq U^{0}$ if and only if $U\subseteq W$.
+        \item Prove that $W^{0} = U^{0}$ if and only if $U = W$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item $(\Rightarrow)$ $W^{0}\subseteq U^{0}$.
+
+              Let $v$ be a vector in $U$ and $\varphi\in W^{0}$. $\varphi$ is also in $U^{0}$ because $W^{0}\subseteq U^{0}$. Due to the definition of annihilator, $\varphi(v) = 0$, and it follows that $v$ is also in $W$. Therefore $U\subseteq W$.
+
+              $(\Leftarrow)$ $U\subseteq W$.
+
+              Let $\varphi$ be a vector in $W^{0}$, and $u\in U$. $u$ is also in $W$ because $U\subseteq W$. So $\varphi(u) = 0$, and it follows that $\varphi\in U^{0}$.
+
+              Hence $W^{0}\subseteq U^{0}$ if and only if $U\subseteq W$.
+        \item $W^{0} = U^{0}$ if and only if $W^{0}\subseteq U^{0}$ and $U^{0}\subseteq W^{0}$.
+
+              $U = W$ if and only if $U\subseteq W$ and $W\subseteq U$.
+
+              In combination with (a), we conclude that $W^{0} = U^{0}$ if and only if $U = W$.\qedhere
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter3:sectionF:exercise22
+\begin{exercise}\label{chapter3:sectionF:exercise22}
+    Suppose $V$ is finite-dimensional and $U$ and $W$ are subspaces of $V$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that ${(U + W)}^{0} = U^{0}\cap W^{0}$.
+        \item Show that ${(U\cap W)}^{0} = U^{0} + W^{0}$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item If $\varphi\in {(U + W)}^{0}$, then $\varphi(u + w) = 0$ for every $u\in U$ and $w\in W$. So $\varphi(u + 0) = 0$ and $\varphi(0 + w) = 0$  for every $u\in U$ and $w\in W$. Therefore $\varphi\in U^{0}$ and $\varphi\in W^{0}$. So $\varphi\in U^{0}\cap W^{0}$. Hence ${(U + W)}^{0}\subseteq U^{0}\cap W^{0}$.
+
+              If $\varphi\in U^{0}\cap W^{0}$, then $\varphi\in U^{0}$ and $\varphi\in W^{0}$. Let $u\in U$ and $w\in W$, then $\varphi(u) = 0$ and $\varphi(w) = 0$. So $\varphi(u + w) = \varphi(u) + \varphi(w) = 0$. Therefore $U^{0}\cap W^{0}\subseteq {(U + W)}^{0}$.
+
+              Hence ${(U + W)}^{0} = U^{0}\cap W^{0}$.
+        \item If $\varphi\in U^{0} + W^{0}$, then there exist $\psi_{1}\in U^{0}$ and $\psi_{2}\in W^{0}$ such that $\varphi = \psi_{1} + \psi_{2}$. For every $v\in U\cap W$, $\varphi(v) = \psi_{1}(v) + \psi_{2}(v) = 0 + 0 = 0$. So $\varphi\in {(U + W)}^{0}$. Hence $U^{0} + W^{0}$ is a subspace of ${(U\cap W)}^{0}$.
+
+              If $\varphi\in {(U\cap W)}^{0}$, I use the condition that $V$ is finite-dimensional.
+              \begin{align*}
+                  \dim (U^{0} + W^{0}) & = \dim U^{0} + \dim W^{0} - \dim (U^{0} + W^{0})                  \\
+                                       & = (\dim V - \dim U) + (\dim V - \dim W) - \dim {(U + W)}^{0}      \\
+                                       & \phantom{=} \text{(since ${(U  +W)}^{0} = U^{0}\cap W^{0}$)}      \\
+                                       & = (\dim V - \dim U) + (\dim V - \dim W) - (\dim V - \dim (U + W)) \\
+                                       & = \dim V - (\dim U + \dim W - \dim (U + W))                       \\
+                                       & = \dim V - \dim (U \cap W)                                        \\
+                                       & = \dim {(U\cap W)}^{0}.
+              \end{align*}
+
+              Thus ${(U\cap W)}^{0} = U^{0} + W^{0}$.\qedhere
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter3:sectionF:exercise23
+\begin{exercise}\label{chapter3:sectionF:exercise23}
+    Suppose $V$ is finite-dimensional and $\varphi_{1}, \ldots, \varphi_{m}\in V'$. Prove that the following three sets are equal to each other.
+    \begin{enumerate}[label={(\alph*)}]
+        \item $\operatorname{span}(\varphi_{1}, \ldots, \varphi_{m})$
+        \item ${((\kernel{\varphi_{1}})\cap \cdots \cap (\kernel{\varphi_{m}}))}^{0}$
+        \item $\{ \varphi\in V': (\kernel{\varphi_{1}})\cap \cdots \cap (\kernel{\varphi_{m}})\subseteq \kernel{\varphi} \}$
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    I will use mathematical induction by $m$.
+
+    For $m = 1$. Let $\varphi\in V'$. According to Exercise~\ref{chapter3:sectionF:exercise6}, $\varphi\in\operatorname{span}(\varphi_{1})$ if and only if $\varphi_{1}(v) = 0$ implies $\varphi(v) = 0$. Moreover, $\varphi_{1}(v) = 0$ implies $\varphi(v) = 0$ if and only if $\varphi \in {(\kernel{\varphi_{1}})}^{0}$ (due to the definition of annihilator). Therefore
+    \[
+        \operatorname{span}(\varphi_{1}) = {(\kernel{\varphi_{1}})}^{0}.
+    \]
+
+    Suppose that for $m = k\geq 1$, (a) and (b) are equal. According to Exercise~\ref{chapter3:sectionF:exercise22}
+    \[
+        {((\kernel{\varphi_{1}})\cap \cdots \cap (\kernel{\varphi_{k+1}}))}^{0} = {((\kernel{\varphi_{1}})\cap \cdots \cap (\kernel{\varphi_{k}}))}^{0} + {(\kernel{\varphi_{k+1}})}^{0}.
+    \]
+
+    According to the induction hypothesis and the case $m = 1$,
+    \begin{align*}
+        {((\kernel{\varphi_{1}})\cap \cdots \cap (\kernel{\varphi_{k}}))}^{0} + {(\kernel{\varphi_{k+1}})}^{0} & = \operatorname{span}(\varphi_{1}, \ldots, \varphi_{k}) + \operatorname{span}(\varphi_{k+1}) \\
+                                                                                                               & = \operatorname{span}(\varphi_{1}, \ldots, \varphi_{k+1}).
+    \end{align*}
+
+    By the principle of mathematical induction, we conclude that (a) and (b) are equal.
+
+    Due to Exercise~\ref{chapter3:sectionF:exercise19}, (b) and (c) are equal.
+
+    Thus, (a), (b), (c) are equal to each other.
+\end{proof}
+\newpage
+
+% chapter3:sectionF:exercise24
+\begin{exercise}
+    Suppose $V$ is finite-dimensional and $v_{1} , \ldots, v_{m} \in V$. Define a linear map $\Gamma: V'\to \mathbb{F}^{m}$ by $\Gamma(\varphi) = (\varphi(v_{1}), \ldots, \varphi(v_{m}))$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Prove that $v_{1}, \ldots, v_{m}$ spans $V$ if and only if $\Gamma$ is injective.
+        \item Prove that $v_{1}, \ldots, v_{m}$ is linearly independent if and only if $\Gamma$ is surjective.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    Let $u_{1}, \ldots, u_{n}$ be a basis of $V$ and $\varphi_{1}, \ldots, \varphi_{n}$ be the dual basis.
+
+    \begin{enumerate}[label={(\alph*)}]
+        \item $(\Rightarrow)$ $v_{1}, \ldots, v_{m}$ spans $V$.
+
+              Let $\varphi\in\kernel{\Gamma}$, then $\varphi(v_{1}) = \cdots = \varphi(v_{m}) = 0$. $\varphi(v_{1}) = \cdots = \varphi(v_{m}) = 0$ if and only if for all $a_{k}\in\mathbb{F}$ ($k = 1,\ldots,m$), $\varphi(a_{1}v_{1} + \cdots + a_{m}v_{m}) = 0$.
+
+              Because $v_{1}, \ldots, v_{m}$ spans $V$, the above statement means $\varphi(v) = 0$ for all $v\in V$, or equivalently, $\varphi = 0$. Therefore $\kernel{\Gamma} = \{0\}$, and we conclude that $\Gamma$ is injective.
+
+              $(\Leftarrow)$ $\Gamma$ is injective.
+
+              Assume that $\operatorname{span}(v_{1}, \ldots, v_{m}) = U\ne V$. Let $u_{1}, \ldots, u_{n}$ be a basis of $U$ and $u_{1}, \ldots, u_{n}$, $u_{n+1}, \ldots, u_{n+p}$ be a basis of $V$ (because $U\ne V$, then $p > 0$). There exists a linear functional $\psi$ on $V$ such that
+              \[
+                  \psi(u_{k}) = \begin{cases}
+                      0 & \text{if $k = 1, \ldots, n$},    \\
+                      1 & \text{if $k = n+1, \ldots, n+p$}
+                  \end{cases}
+              \]
+
+              By this definition, $\psi(u) = 0$ for all $u\in U$, and $\psi(v_{1}) = \cdots = \psi(v_{m}) = 0$.
+
+              So $\Gamma(\psi) = 0$ by definition of $\psi$ and $\Gamma$. On the other hand, $\psi\ne 0$ because $\psi(u_{n+1})\ne 0$. This contradicts the hypothesis that $\Gamma$ is injective, so the assumption is false.
+
+              Hence $v_{1}, \ldots, v_{m}$ spans $V$.
+        \item $(\Rightarrow)$ $v_{1}, \ldots, v_{m}$ is linearly independent.
+
+              Extend the list $v_{1}, \ldots, v_{m}$ to create a basis of $V$ and let it be $v_{1}, \ldots, v_{m}, v_{m+1},\ldots, v_{m+n}$.
+
+              Let $\varphi_{1}, \ldots, \varphi_{m}, \varphi_{m+1}, \ldots, \varphi_{m+n}$ be the dual basis, and $(a_{1}, \ldots, a_{m})$ be an element in $\mathbb{F}^{m}$. I choose $\varphi = a_{1}\varphi_{1} + \cdots + a_{m}\varphi_{m}$.
+
+              It follows from the definition of the dual basis that $\varphi(v_{1}) = a_{1}$, \ldots, $\varphi(v_{m}) = a_{m}$. Therefore
+              \[
+                  \Gamma(\varphi) = (\varphi(v_{1}), \ldots, \varphi(v_{m})) = (a_{1}, \ldots, a_{m})
+              \]
+
+              and we conclude that $\mathbb{F}^{m} = \range{\Gamma}$, or equivalently, $\Gamma$ is surjective.
+
+              $(\Leftarrow)$ $\Gamma$ is surjective.
+
+              Let $a_{1}v_{1} + \cdots + a_{m}v_{m} = 0$ be a linear combination of $0$ in $V$. Because $\Gamma$ is surjective, then there exist $\varphi_{k}\in V'$ for $k = 1,\ldots, m$ such that $\varphi_{k}(v_{i}) = 1$ if $i = k$ and $\varphi_{k}(v_{i}) = 0$ if $i\ne k$. On the other hand, for all $k = 1,\ldots, m$,
+              \[
+                  a_{k} = \varphi_{k}(a_{1}v_{1} + \cdots + a_{m}v_{m}) = \varphi_{k}(0) = 0.
+              \]
+
+              Hence $v_{1}, \ldots, v_{m}$ is linearly independent.\qedhere
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter3:sectionF:exercise25
+\begin{exercise}
+    Suppose $V$ is finite-dimensional and $\varphi_{1} , \ldots, \varphi_{m} \in V'$. Define a linear map $\Gamma: V\to \mathbb{F}^{m}$ by $\Gamma(v) = (\varphi_{1}(v), \ldots, \varphi_{m}(v))$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Prove that $\varphi_{1}, \ldots, \varphi_{m}$ spans $V'$ if and only if $\Gamma$ is injective.
+        \item Prove that $\varphi_{1}, \ldots, \varphi_{m}$ is linearly independent if and only if $\Gamma$ is surjective.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item $(\Rightarrow)$ $\varphi_{1}, \ldots, \varphi_{m}$ spans $V'$.
+
+              Let $v$ be a vector in $\kernel{\Gamma}$, then $\varphi_{1}(v) = \cdots = \varphi_{m}(v) = 0$. Let $\varphi$ be an element of $V'$. Because $\varphi_{1}, \ldots, \varphi_{m}$ spans $V'$, there exist $a_{k}\in \mathbb{F}$ for $k = 1,\ldots,m$ such that
+              \[
+                  \varphi = a_{1}\varphi_{1} + \cdots + a_{m}\varphi_{m}.
+              \]
+
+              It follows that $\varphi(v) = a_{1}\varphi_{1}(v) + \cdots + a_{m}\varphi_{m}(v) = 0$. So $\varphi(v) = 0$ for all $\varphi\in V'$.
+
+              Let $v_{1}, \ldots, v_{n}$ be a basis of $V$, then there exist $\lambda_{k}\in\mathbb{F}$ for $k = 1,\ldots, m$ such that
+              \[
+                  v = \lambda_{1}v_{1} + \cdots + \lambda_{m}v_{m}.
+              \]
+
+              Let $\psi_{1}, \ldots, \psi_{n}$ be the dual basis of $v_{1}, \ldots, v_{n}$, then $\lambda_{k} = \psi_{k}(v) = 0$ for $k = 1,\ldots,n$. Therefore $v = 0$, which means $\kernel{\Gamma} = \{0\}$ and $\Gamma$ is injective.
+
+              $(\Leftarrow)$ $\Gamma$ is injective.
+
+              Let $\psi_{1}, \ldots, \psi_{n}$ be a basis of $\operatorname{span}(\varphi_{1}, \ldots, \varphi_{m})$. Let $\psi_{1}, \ldots, \psi_{n}, \psi_{n+1}, \ldots, \psi_{n+p}$ be a basis of $V'$. Assume that $\operatorname{span}(\varphi_{1}, \ldots, \varphi_{m})\ne V'$, then $p > 0$.
+
+              By Exercise~\ref{chapter3:sectionF:exercise30}, there exists a basis $u_{1}, \ldots, u_{n}, u_{n+1}, \ldots, u_{n+p}$, of which dual basis is $\psi_{1}, \ldots, \psi_{n}, \psi_{n+1}, \ldots, \psi_{n+p}$. It follows from the definition of $\Gamma$ and the dual basis that $\Gamma(u_{n+1}) = (\varphi_{1}(u_{n+1}), \ldots, \varphi_{m}(u_{n+1})) = 0$. This contradicts the hypothesis that $\Gamma$ is injective. So $\operatorname{span}(\varphi_{1}, \ldots, \varphi_{m})\ne V'$.
+
+              Hence $\varphi_{1}, \ldots, \varphi_{m}$ spans $V'$.
+        \item $(\Rightarrow)$ $\varphi_{1}, \ldots, \varphi_{m}$ is linearly independent.
+
+              Extend this list to create a basis of $V'$ and let it be $\varphi_{1}, \ldots, \varphi_{m}, \varphi_{m+1}, \ldots, \varphi_{m+n}$.
+
+              By Exercise~\ref{chapter3:sectionF:exercise30}, there exists a basis $u_{1}, \ldots, u_{m}, u_{m+1}, \ldots, u_{m+n}$, of which dual basis is $\varphi_{1}, \ldots, \varphi_{m}, \varphi_{m+1}, \ldots, \varphi_{m+n}$.
+
+              Let $(a_{1}, \ldots, a_{m})$ be an element in $\mathbb{F}^{m}$, then
+              \[
+                  \Gamma(a_{1}u_{1} + \cdots + a_{m}u_{m}) = (\varphi_{1}(a_{1}u_{1}), \ldots, \varphi_{m}(a_{m}u_{m})) = (a_{1}, \ldots, a_{m}).
+              \]
+
+              So $\range{\Gamma} = \mathbb{F}^{m}$, and it follows that $\Gamma$ is surjective.
+
+              $(\Leftarrow)$ $\Gamma$ is surjective.
+
+              Assume $a_{1}\varphi_{1} + \cdots + a_{m}\varphi_{m} = 0$ is a linear combination of $0$ in $V'$. Because $\Gamma$ is surjective, for each $k = 1,\ldots, m$, there exists a vector $v_{k}\in V$ such that $\varphi_{k}(v_{k}) = 1$ and $\varphi_{j}(v_{k}) = 0$ where $j\ne k$. Then
+              \[
+                  0 = (a_{1}\varphi_{1} + \cdots + a_{m}\varphi_{m})(v_{k}) = a_{k}.
+              \]
+
+              So $a_{1} = \cdots = a_{m} = 0$, which implies $\varphi_{1}, \ldots, \varphi_{m}$ is linearly independent.\qedhere
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter3:sectionF:exercise26
+\begin{exercise}\label{chapter3:sectionF:exercise26}
+    Suppose $V$ is finite-dimensional and $\Omega$ is a subspace of $V'$. Prove that
+    \[
+        \Omega = {\{ v\in V: \varphi(v) = 0 \text{ for every $\varphi\in \Omega$ } \}}^{0}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    Because $V$ is finite-dimensional, then $V'$ and $\Omega$ are also finite-dimensional.
+
+    Let $U = \{ v\in V: \varphi(v) = 0 \text{ for every $\varphi\in \Omega$ } \}$. This definition is equivalent to
+    \[
+        U = \bigcap_{\varphi\in \Omega} \kernel{\varphi}.
+    \]
+
+    Let $\varphi_{1}, \ldots, \varphi_{n}$ be a basis of $\Omega$, then
+    \[
+        \bigcap_{\varphi\in \Omega} \kernel{\varphi} \subseteq \kernel{\varphi_{1}}\cap \cdots\cap \kernel{\varphi_{n}}.
+    \]
+
+    Assume $v$ is a vector in $\kernel{\varphi_{1}}\cap \cdots\cap \kernel{\varphi_{n}}$, then $\varphi_{k}(v) = 0$ for $k = 1, \ldots, n$. Let $\varphi$ be an element of $\Omega$. Because $\varphi_{1}, \ldots, \varphi_{n}$ is a basis of $\Omega$, there exist scalars $a_{k}\in \mathbb{F}$ for $k = 1,\ldots, n$ such that
+    \[
+        \varphi = a_{1}\varphi_{1} + \cdots + a_{n}\varphi_{n}.
+    \]
+
+    Then $\varphi(v) = 0$ as well, which means $v\in \kernel{\varphi}\subseteq \bigcap_{\varphi\in \Omega} \kernel{\varphi}$. So
+    \[
+        \kernel{\varphi_{1}}\cap \cdots\cap \kernel{\varphi_{n}} \subseteq \bigcap_{\varphi\in \Omega} \kernel{\varphi}.
+    \]
+
+    Hence
+    \[
+        \bigcap_{\varphi\in \Omega} \kernel{\varphi} = \kernel{\varphi_{1}}\cap \cdots\cap \kernel{\varphi_{n}}.
+    \]
+
+    It follows that $U = \kernel{\varphi_{1}}\cap\cdots\cap\kernel{\varphi_{n}}$. According to Exercise~\ref{chapter3:sectionF:exercise23},
+    \[
+        \operatorname{span}(\varphi_{1}, \ldots, \varphi_{n}) = {\left(\kernel{\varphi_{1}}\cap\cdots\cap\kernel{\varphi_{n}}\right)}^{0}.
+    \]
+
+    Since $\Omega = \operatorname{span}(\varphi_{1}, \ldots, \varphi_{n})$ and $U = \left(\kernel{\varphi_{1}}\cap\cdots\cap\kernel{\varphi_{n}}\right)$, we conclude that $\Omega = U^{0}$.
+\end{proof}
+\newpage
+
+% chapter3:sectionF:exercise27
+\begin{exercise}\label{chapter3:sectionF:exercise27}
+    Suppose $T\in \lmap{\mathcal{P}_{5}(\mathbb{R})}$ and $\kernel{T'} = \operatorname{span}(\varphi)$, where $\varphi$ is the linear functional on $\mathcal{P}_{5}(\mathbb{R})$ defined by $\varphi(p) = p(8)$. Prove that
+    \[
+        \range{T} = \{ p\in\mathcal{P}_{5}(\mathbb{R}): p(8) = 0 \}    .
+    \]
+\end{exercise}
+
+\begin{proof}
+    Remind that $\kernel{T'} = {(\range{T})}^{0}$. Together with $\kernel{T'} = \operatorname{span}(\varphi)$, it follows that ${(\range{T})}^{0} = \operatorname{span}(\varphi)$. Hence
+    \[
+        \range{T} = \kernel{\varphi} = \{ p\in\mathcal{P}_{5}(\mathbb{R}): p(8) = 0 \}.\qedhere
+    \]
+\end{proof}
+\newpage
+
+% chapter3:sectionF:exercise28
+\begin{exercise}\label{chapter3:sectionF:exercise28}
+    Suppose $V$ is finite-dimensional and $\varphi_{1}, \ldots, \varphi_{m}$ is a linearly independent list in $V'$. Prove that
+    \[
+        \dim\left( (\kernel{\varphi_{1}})\cap \cdots \cap (\kernel{\varphi_{m}}) \right) = (\dim V) - m.
+    \]
+\end{exercise}
+
+\begin{proof}
+    According to Exercise~\ref{chapter3:sectionF:exercise23}, ${\left((\kernel{\varphi_{0}})\cap\cdots\cap(\kernel{\varphi_{m}})\right)}^{0} = \operatorname{span}(\varphi_{1}, \ldots, \varphi_{m})$, so
+    \[
+        \dim {\left((\kernel{\varphi_{0}})\cap\cdots\cap(\kernel{\varphi_{m}})\right)}^{0} = \dim  \operatorname{span}(\varphi_{1}, \ldots, \varphi_{m}).
+    \]
+
+    Because  $\varphi_{1}, \ldots, \varphi_{m}$ is a linearly independent list in $V'$, $\dim  \operatorname{span}(\varphi_{1}, \ldots, \varphi_{m}) = m$.
+
+    On the other hand,
+    \[
+        \dim {\left((\kernel{\varphi_{0}})\cap\cdots\cap(\kernel{\varphi_{m}})\right)}^{0} = \dim V -  \dim {\left((\kernel{\varphi_{0}})\cap\cdots\cap(\kernel{\varphi_{m}})\right)}.
+    \]
+
+    Hence
+    \[
+        \dim\left( (\kernel{\varphi_{1}})\cap \cdots \cap (\kernel{\varphi_{m}}) \right) = (\dim V) - m.\qedhere
+    \]
+\end{proof}
+\newpage
+
+% chapter3:sectionF:exercise29
+\begin{exercise}\label{chapter3:sectionF:exercise29}
+    Suppose $V$ and $W$ are finite-dimensional and $T\in\lmap{V, W}$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Prove that if $\varphi\in W'$ and $\kernel{T'} = \operatorname{span}(\varphi)$, then $\range{T} = \kernel{\varphi}$.
+        \item Prove that if $\psi\in V'$ and $\range{T'} = \operatorname{span}(\psi)$, then $\kernel{T} = \kernel{\psi}$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item For any linear map $T$, we have $\kernel{T'} = {(\range{T})}^{0}$. So ${(\range{T})}^{0} = \operatorname{span}(\varphi)$.
+
+              $w\in \range{T}$ if and only if $\varphi(w) = 0$ (because ${(\range{T})}^{0} = \operatorname{span}(\varphi)$). $\varphi(w) = 0$ if and only if $w\in\kernel{\varphi}$. Hence $\range{T} = \kernel{\varphi}$.
+
+        \item For any linear map $T$ whose domain and codomain are finite-dimensional vector spaces, we have $\range{T'} = {(\kernel{T})}^{0}$. So ${(\kernel{T})}^{0} = \operatorname{span}(\psi)$.
+
+              According to Exercise~\ref{chapter3:sectionF:exercise20},
+              \[
+                  \kernel{T} = \{ v\in V: \varphi(v) = 0 \text{ for every $\varphi\in{(\kernel T)}^{0}$} \}.
+              \]
+
+              Therefore
+              \begin{align*}
+                  \kernel{T} & = \{ v\in V: \varphi(v) = 0 \text{ for every $\varphi\in\operatorname{span}(\psi)$} \} \\
+                             & = \{ v\in V: \psi(v) = 0 \}                                                            \\
+                             & = \kernel{\psi}.\qedhere
+              \end{align*}
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter3:sectionF:exercise30
+\begin{exercise}\label{chapter3:sectionF:exercise30}
+    Suppose $V$ is finite-dimensional and $\varphi_{1}, \ldots, \varphi_{n}$ is a basis of $V'$. Show that there exists a basis of $V$ whose dual basis is $\varphi_{1}, \ldots, \varphi_{n}$.
+\end{exercise}
+
+\begin{proof}
+    Let $v_{1}, \ldots, v_{n}$ be a basis of $V$ and $\psi_{1}, \ldots, \psi_{n}$ be the dual basis. There exists an invertible matrix $A$ with $n$ rows, $n$ columns such that
+    \begin{align*}
+        \varphi_{1} & = A_{1,1}\psi_{1} + \cdots + A_{1,n}\psi_{n}, \\
+                    & \ldots                                        \\
+        \varphi_{n} & = A_{n,1}\psi_{1} + \cdots + A_{n,n}\psi_{n}.
+    \end{align*}
+
+    Let $B$ be the inverse matrix of $C = A^{T}$. I define vectors $u_{1}, \ldots, u_{n}$ of $V$ as follows:
+    \begin{align*}
+        u_{1} & = B_{1,1}v_{1} + \cdots + B_{1,n}v_{n}, \\
+              & \ldots                                  \\
+        u_{n} & = B_{n,1}v_{1} + \cdots + B_{n,n}v_{n}.
+    \end{align*}
+
+    Since $B$ is invertible, it follows that $u_{1}, \ldots, u_{n}$ is also a basis of $V$. Then
+    \[
+        \varphi_{i}(u_{j}) = \sum^{n}_{r=1} A_{i,r}\psi_{r}(u_{j}) = \sum^{n}_{r=1} C_{r,i}\psi_{r}(u_{j}) = \sum^{n}_{r=1} C_{r,i}B_{j,r} = {(BC)}_{j,i} = I_{j,i}
+    \]
+
+    So $u_{1}, \ldots, u_{n}$ is a basis of $V$ and its dual basis is $\varphi_{1}, \ldots, \varphi_{n}$.
+\end{proof}
+\newpage
+
+% chapter3:sectionF:exercise31
+\begin{exercise}
+    Suppose $U$ is a subspace of $V$. Let $i: U\to V$ be the inclusion map defined by $i(u) = u$. Thus $i'\in \lmap{V', U'}$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that $\kernel{i'} = U^{0}$.
+        \item Prove that if $V$ is finite-dimensional, then $\range{i'} = U'$.
+        \item Prove that if $V$ is finite-dimensional, then $\tilde{i'}$ is an isomorphism from $V'/U^{0}$ onto $U'$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item $\varphi\in \kernel{i'}$ if and only if $i'(\varphi) = 0$. And $i'(\varphi) = 0$ if and only if $\varphi\circ i = 0$.
+
+              $\varphi\circ i = 0$ if and only if $\varphi(i(u)) = 0$ for all $u\in U$. Equivalently, $\varphi(u) = 0$ for all $\varphi\in U^{0}$.
+
+              Hence $\kernel{i'} = U^{0}$.
+        \item Because $V$ is finite-dimensional, then so are $U$, $V'$, $U'$ and $U^{0}$.
+              \begin{align*}
+                  \dim \range{i'} & = \dim V' - \dim\kernel{i'} & \text{(fundamental theorem of linear maps)} \\
+                                  & = \dim V - \dim U^{0}       & \text{($\kernel{i'} = U^{0}$)}              \\
+                                  & = \dim U = \dim U'.
+              \end{align*}
+
+              On the other hand, $\range{i'}$ is a subspace of $U'$, so $\range{i'} = U'$.
+        \item According to the first isomorphism theorem, $\tilde{i'}$ is an isomorphism from $V'/(\kernel{i'})$ onto $U'$. On the other hand, according to (a), $\kernel{\tilde{i'}} = U^{0}$, so we conclude that $\tilde{i'}$ is an isomorphism from $V'/U^{0}$ onto $U'$.\qedhere
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter3:sectionF:exercise32
+\begin{exercise}
+    The \textit{double dual space} of $V$, denoted by $V''$, is defined to be the dual space of $V'$. In other words, $V'' = {(V')}'$. Define $\Lambda: V\to V''$ by
+    \[
+        (\Lambda v)(\varphi) = \varphi(v)
+    \]
+
+    for each $v\in V$ and each $\varphi\in V'$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that $\Lambda$ is a linear map from $V$ to $V''$.
+        \item Show that if $T\in \lmap{V}$, then $T''\circ \Lambda = \Lambda\circ T$, where $T'' = {(T')}'$.
+        \item Show that if $V$ is finite-dimensional, then $\Lambda$ is an isomorphism from $V$ onto $V''$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item For each $v_{1}, v_{2}\in V$, $\varphi\in V'$, $\lambda_{1}, \lambda_{2}\in \mathbb{F}$
+              \begin{align*}
+                  (\Lambda (\lambda_{1}v_{1} + \lambda_{2}v_{2}))(\varphi) & = \varphi(\lambda_{1}v_{1} + \lambda_{2}v_{2})                               \\
+                                                                           & = \lambda_{1}\varphi(v_{1}) + \lambda_{2}\varphi(v_{2})                      \\
+                                                                           & = \lambda_{1}(\Lambda v_{1})(\varphi) + \lambda_{2}(\Lambda v_{2})(\varphi).
+              \end{align*}
+
+              Hence $\Lambda$ is a linear map from $V$ to $V''$.
+        \item For each $v\in V$ and $\varphi\in V'$, we have
+              \begin{align*}
+                  ((T''\circ \Lambda)(v))(\varphi) & = (T''(\Lambda v))(\varphi)                                                \\
+                                                   & = ((\Lambda v)\circ T')(\varphi)  & \text{(definition of dual map)}        \\
+                                                   & = (\Lambda v)(T'(\varphi))                                                 \\
+                                                   & = (T'(\varphi))(v)                & \text{(definition of double dual map)} \\
+                                                   & = \varphi(Tv)                     & \text{(definition of dual map)}        \\
+                                                   & = (\Lambda(Tv))(\varphi)          & \text{(definition of double dual map)} \\
+                                                   & = ((\Lambda\circ T)(v))(\varphi).
+              \end{align*}
+
+              Therefore $T''\circ \Lambda = \Lambda \circ T$.
+        \item Because $V$ is finite-dimensional, then so are $V'$ and $V''$.
+
+              Let $v\in \kernel{\Lambda}$.
+
+              $\Lambda v = 0$ if and only if $(\Lambda v)(\varphi) = 0$ for all $\varphi\in V'$. So $\Lambda v = 0$ if and only if $\varphi(v) = 0$ for all $\varphi\in V'$.
+
+              Let $v_{1}, \ldots, v_{n}$ be a basis of $V$ and $\varphi_{1}, \ldots, \varphi_{n}$ be its dual basis. There exist scalars $\lambda_{1}, \ldots, \lambda_{n}$ such that:
+              \[
+                  v = \lambda_{1}v_{1} + \cdots + \lambda_{n}v_{n}.
+              \]
+
+              For each $k = 1,\ldots, n$, $\varphi_{k}(v) = 0$, and this implies $\lambda_{k} = 0$. So $v = 0$. Hence $\kernel{\Lambda} = \{0\}$, and $\Gamma$ is injective.
+
+              On the other hand, $\dim V = \dim V''$, so $\Gamma$ is also an isomorphism.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter3:sectionF:exercise33
+\begin{exercise}
+    Suppose $U$ is a subspace of $V$. Let $\pi: V\to V/U$ be the usual quotient map. Thus $\pi'\in \lmap{(V/U)', V'}$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that $\pi'$ is injective.
+        \item Show that $\range \pi' = U^{0}$.
+        \item Conclude that $\pi'$ is an isomorphism from ${(V/U)}'$ onto $U^{0}$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Let $\varphi$ be an element of $\kernel{\pi'}$.
+
+              $\varphi\in\kernel{\pi'}$ iff $\pi'(\varphi) = 0$. $\pi'(\varphi) = 0$ iff $\varphi(\pi(v)) = 0$ for all $v\in V$. $\varphi(\pi(v)) = 0$ for all $v\in V$ iff $\varphi\in {(\range{pi})}^{0}$. Therefore $\kernel{\pi'} = {(\range{\pi})}^{0}$.
+
+              On the other hand, $\pi$ is surjective, to ${(\range{\pi})}^{0} = {(V/U)}^{0} = \{0\}$ (the annihilator of the entire codomain). So $\kernel{\pi'} = \{0\}$, and we conclude that $\pi'$ is injective.
+        \item Let $\varphi$ be an element of $\range{\pi'}$. Then there exists $\psi\in {(V/U)}'$ such that $\pi'(\psi) = \varphi$. According to the definition of dual map, $\varphi = \psi\circ \pi$. Therefore, for every $u\in U$,
+              \[
+                  \varphi(u) = \psi(\pi(u)) = \psi(0 + U) = 0.
+              \]
+
+              So $\varphi\in U^{0}$, and then $\range{\pi'}\subseteq U^{0}$.
+
+              Now suppose $\varphi$ is an element of $U^{0}$, then $\varphi(u) = 0$ for all $u\in U$. I define $\psi\in {(V/U)}'$ as follows:
+              \[
+                  \psi(v + U) = \varphi(v).
+              \]
+
+              $\psi$ is well-defined, since if $v_{1} + U = v_{2} + U$, then $v_{1} - v_{2}\in U$ and
+              \[
+                  \varphi(v_{1} + U) - \varphi(v_{2} + U) = \varphi(v_{1}) - \varphi(v_{2}) = \varphi(v_{1} - v_{2}) = 0.
+              \]
+
+              Hence $\pi'(\psi) = \psi\circ\pi = \varphi$, which means $\varphi\in \range{\pi'}$ and $U^{0}\subseteq \range{\pi'}$.
+
+              Thus $\range{\pi'} = U^{0}$.
+        \item Because $\pi'$ is injective, it follows that ${(V/U)}'$ is isomorphic to $\range{\pi'}$. Moreover, $\range{\pi'} = U^{0}$, so $\pi'$ is an isomorphism from ${(V/U)}'$ onto $U^{0}$.\qedhere
+    \end{enumerate}
+\end{proof}
+\newpage
 

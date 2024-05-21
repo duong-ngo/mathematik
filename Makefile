@@ -106,9 +106,6 @@ multilinear-algebra:
 topology:
 	@$(MAKE) phase1/james-munkres-topology/main.pdf
 
-algebra:
-	@$(MAKE) phase1/fraleigh-a-first-course-in-abstract-algebra/main.pdf
-
 analysis:
 	@$(MAKE) phase1/vladimir-zorich-mathematical-analysis/main.pdf
 
@@ -117,3 +114,6 @@ ag:
 
 algebra0:
 	@$(MAKE) phase2/aluffi-algebra-chapter-0/main.pdf
+
+functional-analysis:
+	@$(MAKE) phase2/kreyzig-functional-analysis/main.pdf
