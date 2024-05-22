@@ -1,0 +1,271 @@
+% chktex-file 8
+\chapter{Metric Spaces}
+
+\section{Metric Space}
+
+\begin{exercise}\label{chapter1:section1:exercise1}
+    Show that the real line is a metric space.
+\end{exercise}
+
+\begin{proof}
+    $\abs{x - y}\geq 0$ for all $x, y\in\mathbb{R}$.
+
+    $\abs{x - y} = \abs{y - x}$ for all $x, y\in\mathbb{R}$.
+
+    $\abs{x - y} = 0$ iff $x - y = 0$ iff $x = y$.
+
+    $\abs{x - y} = \abs{(x - z) + (z - y)}\leq \abs{x-z} + \abs{z-y}$ for all $x, y, z\in\mathbb{R}$.
+\end{proof}
+
+\begin{exercise}\label{chapter1:section1:exercise2}
+    Does $d(x, y) = {(x - y)}^{2}$ define a metric on the set of all real numbers?
+\end{exercise}
+
+\begin{proof}
+    No.
+
+    Here is my counterexample: ${(2 - 0)}^{2} > {(2 - 1)}^{2} + {(1 - 0)}^{2}$.
+\end{proof}
+
+\begin{exercise}\label{chapter1:section1:exercise3}
+    Show that $d(x, y) = \sqrt{\abs{x - y}}$ defines a metric on the set of all real numbers.
+\end{exercise}
+
+\begin{proof}
+    $\sqrt{\abs{x - y}}\geq 0$ for all $x, y\in\mathbb{R}$.
+
+    $\sqrt{\abs{x - y}} = \sqrt{\abs{y - x}}$ for all $x, y\in\mathbb{R}$.
+
+    $\sqrt{\abs{x - y}} = 0$ iff $x = y$.
+
+    For all $x, y, z\in\mathbb{R}$
+    \[
+        \abs{x - y}\leq \abs{x - z} + \abs{z - y} \leq \abs{x - z} + \abs{z - y} + 2\sqrt{\abs{x - z}}\sqrt{\abs{z - y}}
+    \]
+
+    so $\sqrt{\abs{x - y}}\leq \sqrt{\abs{x - z}} + \sqrt{\abs{z - y}}$.
+\end{proof}
+
+\begin{exercise}\label{chapter1:section1:exercise4}
+    Find all metrics on a set $X$ consisting of two points. Consisting of one point.
+\end{exercise}
+
+\begin{proof}
+    If $X$ consists of two points, let $X = \{ a, b \}$.
+
+    I define $d_{c}(x, y) = c$ if $x\ne y$ and $0$ if $x = y$, where $c$ is a positive real number. Then $d_{c}$ is indeed a metric. Now let $d$ be a metric on $X$, then $d(a, a) = d(b, b) = 0$ and $d(a, b) = r$ where $r$ is a real number, then $d = d_{r}$. Hence all metrics on $X$ are $d_{c}$, where
+    \[
+        d_{c}(x, y) = \begin{cases}
+            c & \text{if $x\ne y$} \\
+            0 & \text{if $x = y$}
+        \end{cases}
+    \]
+
+    If $X$ consists of one point, then all possible metrics are $d: X\times X\to \mathbb{R}$ such that $d(x, x) = 0$.
+\end{proof}
+
+\begin{exercise}\label{chapter1:section1:exercise5}
+    Let $d$ be a metric on $X$. Determine all constants $k$ such that (i) $kd$, (ii) $d + k$ is a metric on $X$.
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\roman*)}]
+        \item If $X$ consists of only one element, then $kd$ is a metric for all $k\in\mathbb{R}$.
+
+              If $X$ consists of more than one element, then $kd$ is a metric if and only if $k$ is a positive real number.
+        \item If $k > 0$ then $d + k$ is not a metric, because $d(x, y) + k$ is never $0$ if $k > 0$.
+
+              If $k < 0$ then $d + k$ is not a metric, because $d(x, y) + k$ can be negative.
+
+              If $k = 0$ then $d + k$ is a metric.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}\label{chapter1:section1:exercise6}
+    Show that $d$ in $1.1-6$ satisfies the triangle inequality.
+\end{exercise}
+
+\begin{proof}
+    $X$ is the set of all bounded sequences of complex numbers, any $x\in X$ is of the form $x = (\xi_{1}, \xi_{2}, \ldots)$. $d$ is a metric on $X$ defined by
+    \[
+        d(x, y) = \sup_{j\in\mathbb{N}}\abs{\xi_{j} - \eta_{j}}.
+    \]
+
+    Let $x, y, z$ be bounded sequences of complex numbers. $x = {(\xi_{n})}$, $y = {(\eta_{n})}$, $z = (\zeta_{n})$.
+
+    For every $n\in\mathbb{N}$, $\abs{\xi_{n} - \eta_{n}}\leq \abs{\xi_{n} - \zeta_{n}} + \abs{\zeta_{n} - \eta_{n}}$. On the other hand
+    \[
+        \abs{\xi_{n} - \zeta_{n}} + \abs{\zeta_{n} - \eta_{n}} \leq \sup_{j\in\mathbb{N}}\abs{\xi_{j} - \zeta_{j}} + \sup_{j\in\mathbb{N}}\abs{\zeta_{j} - \eta_{j}}.
+    \]
+
+    So $\sup_{j\in\mathbb{N}}\abs{\xi_{n} - \zeta_{n}} + \sup_{j\in\mathbb{N}}\abs{\zeta_{n} - \eta_{n}}$ is an upper bound of $\abs{\xi_{1} - \eta_{1}}, \abs{\xi_{2} - \eta_{2}}, \ldots$ Because supremum is the least upper bound, it follows that
+    \[
+        \sup_{j\in\mathbb{N}}\abs{\xi_{j} - \eta_{j}} \leq \sup_{j\in\mathbb{N}}\abs{\xi_{j} - \zeta_{j}} + \sup_{j\in\mathbb{N}}\abs{\zeta_{j} - \eta_{j}}.
+    \]
+
+    Thus $d(x, y)\leq d(x, z) + d(z, y)$.
+\end{proof}
+
+\begin{exercise}\label{chapter1:section1:exercise7}
+    If $A$ is the subspace of $L^{\infty}$ consisting of all sequences of zeros and ones, what is the induced metric on $A$?
+\end{exercise}
+
+\begin{proof}
+    The induced metric on $A$ is the discrete metric.
+\end{proof}
+
+\begin{exercise}\label{chapter1:section1:exercise8}
+    Show that another metric $\tilde{d}$ on the set $X$ in 1.1-7 is defined by
+    \[
+        \tilde{d}(x, y) = \int^{b}_{a}\abs{x(t) - y(t)}dt.
+    \]
+\end{exercise}
+
+\begin{proof}
+    For all $x, y\in X$, $\tilde{d}(x, y) = \int^{b}_{a}\abs{x(t) - y(t)}dt\geq 0$.
+
+    $\tilde{d}(x, y) = \int^{b}_{a}\abs{x(t) - y(t)}dt = 0$ if and only if $x(t) = y(t)$ for all $t\in [a, b]$, equivalently, $x = y$.
+
+    Because $\abs{x(t) - y(t)} = \abs{y(t) - x(t)}$, $\tilde{d}(x, y) = \tilde{d}(y, x)$.
+
+    For all $x, y, z\in X$,
+    \begin{align*}
+        \tilde{d}(x, y) & = \int^{b}_{a}\abs{x(t) - y(t)}dt                                        \\
+                        & \leq \int^{b}_{a}(\abs{x(t) - z(t)} + \abs{z(t) - y(t)})dt               \\
+                        & \leq \int^{b}_{a}\abs{x(t) - z(t)}dt + \int^{b}_{a}{\abs{z(t) - y(t)}}dt \\
+                        & = \tilde{d}(x, z) + \tilde{d}(z, y).\qedhere
+    \end{align*}
+\end{proof}
+
+\begin{exercise}\label{chapter1:section1:exercise9}
+    Show that $d$ in 1.1-8 is a metric.
+\end{exercise}
+
+\begin{proof}
+    $d(x, y) = d(y, x)$ for all $x, y\in X$.
+
+    $d(x, y)\geq 0$ for all $x, y\in X$ because $d(x, y)$ is either $0$ or $1$.
+
+    $d(x, y) = 0$ if and only if $x = y$ by definition of $d$.
+
+    For all $x, y, z\in X$,
+    \begin{itemize}
+        \item if $x = y$, $y = z$, then $d(x, y) = d(x, z) + d(z, y)$.
+        \item if $x = y$, $y\ne z$, then $d(x, y) < d(x, z) + d(z, y)$.
+        \item if $x\ne y$, and $z = x$ or $z = y$, then $d(x, y) = d(x, z) + d(z, y)$.
+        \item if $x, y, z$ are pairwise distinct, then $d(x, y) < d(x, z) + d(z, y)$.
+    \end{itemize}
+
+    Hence $d(x, y)\leq d(x, z) + d(z, y)$.
+\end{proof}
+
+\begin{exercise}[Hamming distance]\label{chapter1:section1:exercise10}
+    Let $X$ be the set of all $n$-tuples of zeros and ones. Show that $X$ consists of $2^{n}$ elements and a metric $d$ on $X$ is defined by $d(x, y) =$ number of places where $x$ and $y$ have different entries.
+\end{exercise}
+
+\begin{proof}
+    The $k$th slot of an element of $X$ is either zero or one, and every element of $X$ has $n$ slots, so $X$ has $2^{n}$ elements.
+
+    I will prove $d$ is a metric on $X$ by using mathematical induction. For each $n$, I use the notation $d_{n}$ instead of $d$.
+
+    The statement is true for $n = 1$ because when $n = 1$, $d_{1}$ is the discrete metric.
+
+    Assume the statement is true for $n = k\geq 1$.
+    \begin{align*}
+        d_{n+1}(x, y) & = d_{n}(x, y) + d_{1}(x_{n+1}, y_{n+1})                                                                            \\
+                      & \leq d_{n}(x, z) + d_{n}(z, y) + d_{1}(x_{n+1}, y_{n+1})                           & \text{(induction hypothesis)} \\
+                      & \leq d_{n}(x, z) + d_{n}(z, y) + d_{1}(x_{n+1}, z_{n+1}) + d_{1}(z_{n+1}, y_{n+1})                                 \\
+                      & = d_{n+1}(x, z) + d_{n+1}(z, y).
+    \end{align*}
+
+    In $d_{n}(x, y)$, we take the first $n$ slots and omit the last.
+
+    Hence for every $n$, $d_{n}$ is a metric on the set of all $n$-tuples of zeros and ones.
+\end{proof}
+
+\begin{exercise}\label{chapter1:section1:exercise11}
+    Prove (1).
+\end{exercise}
+
+\begin{proof}
+    For $n = 2$, $d(x_{1}, x_{2})\leq d(x_{1}, x_{2})$.
+
+    Assume that $d(x_{1}, x_{k})\leq d(x_{1}, x_{2}) + \cdots + d(x_{k-1}, x_{k})$, then
+    \begin{align*}
+        d(x_{1}, x_{k+1}) & \leq d(x_{1}, x_{k}) + d(x_{k}, x_{k+1})                               \\
+                          & \leq d(x_{1}, x_{2}) + \cdots + d(x_{k-1}, x_{k}) + d(x_{k}, x_{k+1}).
+    \end{align*}
+
+    According to the principle of mathematical induction
+    \[
+        d(x_{1}, x_{n}) \leq d(x_{1}, x_{2}) + \cdots + d(x_{n-1}, x_{n}).\qedhere
+    \]
+\end{proof}
+
+\begin{exercise}[Triangle inequality]\label{chapter1:section1:exercise12}
+    The triangle inequality has several useful consequences. For instance, using (1), show that
+    \[
+        \abs{d(x, y) - d(z, w)}\leq d(x, z) + d(y, w).
+    \]
+\end{exercise}
+
+\begin{proof}
+    Because
+    \[
+        d(x, y)\leq d(x, z) + d(z, w) + d(w, y)
+    \]
+
+    and
+    \[
+        d(z, w)\leq d(z, x) + d(x, y) + d(y, w)
+    \]
+
+    it follows that $\abs{d(x, y) - d(z, w)}\leq d(x, z) + d(y, w)$.
+\end{proof}
+
+\begin{exercise}\label{chapter1:section1:exercise13}
+    Using the triangle inequality, show that
+    \[
+        \abs{d(x, z) - d(y, z)} \leq d(x, y).
+    \]
+\end{exercise}
+
+\begin{proof}
+    $d(x, z)\leq d(x, y) + d(y, z)$ and $d(y, z)\leq d(x, y) + d(x, z)$. Therefore $d(x, z) - d(y, z)\leq d(x, y)$ and $d(y, z) - d(x, z)\leq d(x, y)$. Hence
+    \[
+        \abs{d(x, z) - d(y, z)} \leq d(x, y).\qedhere
+    \]
+\end{proof}
+
+\begin{exercise}[Axioms of a metric]\label{chapter1:section1:exercise14}
+    (M1) to (M4) could be replaced by other axioms (without changing the definition). For instance, show that (M3) and (M4) could be obtain from (M2) and
+    \[
+        d(x, y)\leq d(z, x) + d(z, y).
+    \]
+\end{exercise}
+
+\begin{proof}
+    Suppose that (M1) (M2) (M4) hold. Then $d(x, y)\leq d(y, x) + d(y, y) = d(y, x)$ and $d(y, x)\leq d(x, y) + d(x, x) = d(x, y)$. So $d(x, y) = d(y, x)$.
+
+    Finally, $d(x, y)\leq d(z, x) + d(z, y) = d(x, z) + d(z, y)$.
+\end{proof}
+
+\begin{exercise}\label{chapter1:section1:exercise15}
+    Show that nonnegativity of a metric follows from (M2) to (M4).
+\end{exercise}
+
+\begin{proof}
+    For all $x, y\in X$, $d(x, y) + d(y, x) \geq d(x, x) = 0$. So $d(x, y) + d(y, x) = 2d(x, y)\geq 0$ for all $x, y\in X$. Therefore $d(x, y)\geq 0$ for all $x, y\in X$.
+
+    Hence nonnegativity of a metric follows from (M2) to (M4).
+\end{proof}
+
+\section{Further Examples of Metric Spaces}
+
+\section{Open Set, Closed Set, Neighborhood}
+
+\section{Convergence, Cauchy Sequence, Completeness}
+
+\section{Examples. Completeness Proofs}
+
+\section{Completion of Metric Spaces}

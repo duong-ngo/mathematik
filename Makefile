@@ -116,4 +116,4 @@ algebra0:
 	@$(MAKE) phase2/aluffi-algebra-chapter-0/main.pdf
 
 functional-analysis:
-	@$(MAKE) phase2/kreyzig-functional-analysis/main.pdf
+	@$(MAKE) phase2/kreyszig-functional-analysis/main.pdf
