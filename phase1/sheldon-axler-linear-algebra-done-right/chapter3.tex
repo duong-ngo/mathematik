@@ -1,3 +1,4 @@
+% chktex-file 7
 \chapter{Linear Maps}
 
 \section{Vector Space of Linear Maps}
@@ -54,7 +55,9 @@
 
 % chapter3:sectionA:exercise4
 \begin{exercise}
-    Suppose $T\in \mathcal{L}(V, W)$ and $v_{1}, \ldots, v_{m}$ is a list of vectors in $V$ such that $Tv_{1}, \ldots, Tv_{m}$ is a linearly independent list in $W$. Prove that $v_{1}, \ldots, v_{m}$ is linearly independent.
+    Suppose $T\in \mathcal{L}(V, W)$ and $v_{1}, \ldots, v_{m}$ is a list of vectors in $V$ such that $Tv_{1}, \ldots, Tv_{m}$ is a linearly independent list in $W$.
+
+    Prove that $v_{1}, \ldots, v_{m}$ is linearly independent.
 \end{exercise}
 
 \begin{proof}
@@ -220,7 +223,12 @@
 \begin{proof}
     Let $u_{1}, \ldots, u_{m}$ be a basis of $U$.
 
-    Since $V$ is finite-dimensional, we can extend the list $u_{1}, \ldots, u_{m}$ to $u_{1}, \ldots, u_{m}, v_{1}, \ldots, v_{n}$ such that the new list is a basis of $V$.
+    Since $V$ is finite-dimensional, we can extend the list $u_{1}, \ldots, u_{m}$ to
+    \[
+        u_{1}, \ldots, u_{m}, v_{1}, \ldots, v_{n}
+    \]
+
+    such that the new list is a basis of $V$.
 
     We define a linear map $T$ from $V$ to $W$ by the images of every vector within $u_{1}, \ldots, u_{m}, v_{1}, \ldots, v_{n}$: $Tu_{1} = Su_{1}$, \ldots, $Tu_{m} = Su_{m}$, $Tv_{1}$ is some vector in $W$, \ldots, $Tv_{n}$ is some vector in $W$. According to this construction, the linear map $T$ is indeed an extension of the linear map $S$.
 \end{proof}
@@ -810,7 +818,9 @@
 
 % chapter3:sectionB:exercise26
 \begin{exercise}
-    Suppose that $V$ is finite-dimensional and $S, T \in \mathcal{L}(V, W)$. Prove that $\range{S} \subseteq \range{T}$ if and only if there exists $E \in \mathcal{L}(V)$ such that $S = TE$.
+    Suppose that $V$ is finite-dimensional and $S, T \in \mathcal{L}(V, W)$.
+
+    Prove that $\range{S} \subseteq \range{T}$ if and only if there exists $E \in \mathcal{L}(V)$ such that $S = TE$.
 \end{exercise}
 
 \begin{proof}
@@ -1036,7 +1046,9 @@
 \end{exercise}
 
 \begin{proof}
-    Let $v_{1}, \ldots, v_{n}$ be a basis of $V$, $w_{1}, \ldots, w_{m}$ be a basis of $W$, $\mathcal{M}(T)$ be the matrix of $T$ with respect to these two bases.
+    Let $v_{1}, \ldots, v_{n}$ be a basis of $V$, $w_{1}, \ldots, w_{m}$ be a basis of $W$.
+
+    Let $\mathcal{M}(T)$ be the matrix of $T$ with respect to these two bases.
 
     $Tv_{i}$ is a linear combination of $w_{1}, \ldots, w_{m}$ where the coefficients are the $i$th column of $\mathcal{M}(T)$. The list $Tv_{1}, \ldots, Tv_{n}$ spans $\range{T}$. So there are $\dim\range{T}$ vectors in $Tv_{1}, \ldots, Tv_{n}$ that are linearly independent, and there are at least $\dim\range{T}$ columns of $\mathcal{M}(T)$ that are nonzero. Therefore $\mathcal{M}(T)$ has at least $\dim\range{T}$ nonzero entries.
 \end{proof}
@@ -1454,7 +1466,9 @@
         \end{cases}
     \]
 
-    Then $S_{1}, \ldots, S_{n}$ are noninvertible. But $\sum^{n}_{k=1}S_{k} = \operatorname{id}_{V}$, which is invertible. So the set of noninvertible linear maps from $V$ to itself is not a subspace of $\mathcal{L}(V)$, because it is not closed under linear maps addition.
+    Then $S_{1}, \ldots, S_{n}$ are noninvertible.
+
+    But $\sum^{n}_{k=1}S_{k} = \operatorname{id}_{V}$, which is invertible. So the set of noninvertible linear maps from $V$ to itself is not a subspace of $\mathcal{L}(V)$, because it is not closed under linear maps addition.
 \end{proof}
 \newpage
 
@@ -1948,7 +1962,7 @@
 \newpage
 
 % chapter3:sectionD:exercise21
-\begin{exercise}
+\begin{exercise}\label{chapter3:sectionD:exercise21}
     Suppose $n$ is a positive integer and $A_{j, k} \in \mathbb{F}$ for all $j, k = 1, \ldots, n$. Prove that the following are equivalent (note that in both parts below, the number of equations equals the number of variables).
     \begin{enumerate}[label={(\alph*)}]
         \item The trivial solution $x_{1} = \cdots = x_{n} = 0$ is the only solution to the homogeneous system of equations

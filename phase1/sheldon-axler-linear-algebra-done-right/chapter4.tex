@@ -1,2 +1,317 @@
 \chapter{Polynomials}
 
+\section{Polynomials}
+
+% chapter4:sectionA:exercise1
+\begin{exercise}
+    Suppose $w, z \in \mathbb{C}$. Verify the following equalities and inequalities.
+    \begin{enumerate}[label={(\alph*)}]
+        \item $z + \conj{z} = 2\operatorname{Re}z$
+        \item $z - \conj{z} = 2(\operatorname{Im}z)\iota$
+        \item $z\conj{z} = \abs{z}^{2}$
+        \item $\conj{w+z} = \conj{w} + \conj{z}$ and $\conj{wz} = \conj{w}\conj{z}$
+        \item $\conj{\conj{z}} = z$
+        \item $\abs{\operatorname{Re}z}\leq \abs{z}$ and $\abs{\operatorname{Im}z}\leq \abs{z}$
+        \item $\abs{\conj{z}} = \abs{z}$
+        \item $\abs{wz} = \abs{w}\abs{z}$
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    I skip this exercise.
+\end{proof}
+\newpage
+
+% chapter4:sectionA:exercise2
+\begin{exercise}
+    Prove that if $w, z\in\mathbb{C}$, then $\abs{\abs{w} - \abs{z}}\leq \abs{w - z}$.
+\end{exercise}
+
+\begin{proof}
+    I skip this exercise.
+\end{proof}
+\newpage
+
+% chapter4:sectionA:exercise3
+\begin{exercise}
+    Suppose $V$ is a complex vector space and $\varphi\in V'$. Define $\sigma: V\to \mathbb{R}$ by $\sigma(v) = \operatorname{Re} \varphi(v)$ for each $v\in V$. Show that
+    \[
+        \varphi(v) = \sigma(v) - \iota\sigma(\iota v)
+    \]
+
+    for all $v\in V$.
+\end{exercise}
+
+\begin{proof}
+    \begin{align*}
+        \varphi(v) & = \operatorname{Re}(\varphi(v)) + \iota\operatorname{Im}(\varphi(v)) \\
+                   & = \sigma(v) - \iota\operatorname{Re}(\iota\varphi(v))                \\
+                   & = \sigma(v) - \iota\operatorname{Re}(\varphi(\iota v))               \\
+                   & = \sigma(v) - \iota\sigma(\iota v).\qedhere
+    \end{align*}
+\end{proof}
+\newpage
+
+% chapter4:sectionA:exercise4
+\begin{exercise}
+    Suppose $m$ is a positve integer. Is the set
+    \[
+        \{0\}\cup \{ p\in\mathscr{P}(\mathbb{F}): \deg{p} = m \}
+    \]
+
+    a subspace of $\mathscr{P}(\mathbb{F})$?
+\end{exercise}
+
+\begin{proof}
+    No.
+
+    Let $p(x) = x^{m}$ and $q(x) = 1 - x^{m}$. These two polynomials are in the given set. However, $p + q$ has degree $0$. Therefore the given set is not closed under addition. Hence the given set is not a subspace of $\mathscr{P}(\mathbb{F})$.
+\end{proof}
+\newpage
+
+% chapter4:sectionA:exercise5
+\begin{exercise}
+    Is the set
+    \[
+        \{0\}\cup \{ p\in\mathscr{P}(\mathbb{F}): \deg{p}\text{ is even} \}
+    \]
+
+    a subspace of $\mathscr{P}(\mathbb{F})$?
+\end{exercise}
+
+\begin{proof}
+    No.
+
+    Let $p(x) = x^{2}$ and $q(x) = x - x^{2}$. These two polynomials have degree $2$, which is an even number. However, $p + q$ has degree $1$, which is an odd number. So the given set is not closed under addition. Hence the given set is not a subspace of $\mathscr{P}(\mathbb{F})$.
+\end{proof}
+\newpage
+
+% chapter4:sectionA:exercise6
+\begin{exercise}
+    Suppose that $m$ and $n$ are positive integers with $m \leq n$, and suppose $\lambda_{1} , \ldots, \lambda_{m} \in \mathbb{F}$. Prove that there exists a polynomial $p \in \mathscr{P}(\mathbb{F})$ with $\deg{p} = n$ such that $0 = p(\lambda_{1}) = \cdots = p(\lambda_{m})$ and such that $p$ has no other zeros.
+\end{exercise}
+
+\begin{proof}
+    I define $p$ as follows:
+    \[
+        p(x) = {(x - \lambda_{1})}^{1+(n-m)}(x-\lambda_{2})\cdots (x - \lambda_{m}).
+    \]
+
+    Then $0 = p(\lambda_{1}) = \cdots = p(\lambda_{m})$ and $p$ does have any other zeros.
+\end{proof}
+\newpage
+
+% chapter4:sectionA:exercise7
+\begin{exercise}\label{chapter4:sectionA:exercise7}
+    Suppose that $m$ is a nonnegative integer, $z_{1} , \ldots, z_{m+1}$ are distinct elements of $\mathbb{F}$, and $w_{1} , \ldots, w_{m+1} \in \mathbb{F}$. Prove that there exists a unique polynomial $p\in\mathscr{P}_{m}(\mathbb{F})$ such that
+    \[
+        p(z_{k}) = w_{k}
+    \]
+
+    for each $k = 1,\ldots, m+1$.
+\end{exercise}
+
+\begin{proof}
+    The only polynomial in $\mathscr{P}_{m}(\mathbb{F})$ such that the distinct numbers $z_{1} , \ldots, z_{m+1}$ are its zeros, is the zero polynomial. Equivalently, the following system of linear equations
+    \begin{align*}
+        a_{0} + a_{1}z_{1} + \cdots + a_{m}z_{1}^{m}       & = 0 \\
+        \ldots                                                   \\
+        a_{0} + a_{1}z_{m+1} + \cdots + a_{m+1}z_{m+1}^{m} & = 0
+    \end{align*}
+
+    has only one solution, which is the trivial solution. According to Exercise~\ref{chapter3:sectionD:exercise21}, the following system of linear equations
+    \begin{align*}
+        a_{0} + a_{1}z_{1} + \cdots + a_{m}z_{1}^{m}       & = w_{1}   \\
+        \ldots                                                         \\
+        a_{0} + a_{1}z_{m+1} + \cdots + a_{m+1}z_{m+1}^{m} & = w_{m+1}
+    \end{align*}
+
+    has a unique solution. Hence there exists a unique polynomial $p\in\mathscr{P}_{m}(\mathbb{F})$ such that $p(z_{k}) = w_{k}$ for each $k = 1,\ldots, m+1$.
+\end{proof}
+\newpage
+
+% chapter4:sectionA:exercise8
+\begin{exercise}
+    Suppose $p\in \mathscr{P}(\mathbb{C})$ has degree $m$. Prove that $p$ has $m$ distinct zeros if and only if $p$ and its derivative $p'$ have no zeros in common.
+\end{exercise}
+
+\begin{proof}
+    If $p$ has $m$ distinct zeros, then there exist $m$ distinct complex numbers $\lambda_{1}, \ldots, \lambda_{m}$ and a nonzero complex number $c$ such that
+    \[
+        p(z) = c(z - \lambda_{1})\cdots (z - \lambda_{m})
+    \]
+
+    $p'(z) = c\sum^{n}_{i=1}\prod_{j\ne i}(z - \lambda_{j})$. Then $p'(\lambda_{k})\ne 0$ for $k = 1, \ldots, m$.
+
+    If $p$ does not have distinct zeros, then there exists a complex number $\lambda$ and a polynomial $q$ such that
+    \[
+        p(z) = {(z - \lambda)}^{2}q(z)
+    \]
+
+    $p'(z) = 2(z - \lambda)q(z) + {(z - \lambda)}^{2}q'(z)$. So $p'$ and $p$ have a zero in common, which is $\lambda$.
+
+    Hence $p$ has $m$ distinct zeros if and only if $p$ and its derivative $p'$ have no zeros in common.
+\end{proof}
+\newpage
+
+% chapter4:sectionA:exercise9
+\begin{exercise}
+    Prove that every polynomial of odd degree with real coefficients has a real zero.
+\end{exercise}
+
+\begin{proof}
+    By the factorization theorem of polynomial over $\mathbb{R}$, a polynomial is product of a constant, polynomials of degree $1$ and polynomials of degree $2$.
+
+    If a polynomial of odd degree with real coefficients does not have a real zero, then its factorization contains no polynomials of degree $1$, and it follows that the degree of the polynomial is even, which is a contradiction.
+
+    Hence every polynomial of odd degree with real coefficients has a real zero.
+\end{proof}
+\newpage
+
+% chapter4:sectionA:exercise10
+\begin{exercise}
+    For $p\in\mathscr{P}(\mathbb{F})$, define $Tp: \mathbb{R}\to \mathbb{R}$ by
+    \[
+        (Tp)(x) = \begin{cases}
+            \frac{p(x) - p(3)}{x - 3} & \text{if $x\ne 3$} \\
+            p'(3)                     & \text{if $x = 3$}
+        \end{cases}
+    \]
+
+    for each $x\in\mathbb{R}$. Show that $Tp\in\mathscr{P}(\mathbb{R})$ for every polynomial $p\in\mathscr{P}(\mathbb{R})$ and also show that $T: \mathscr{P}(\mathbb{R})\to \mathscr{P}(\mathbb{R})$ is a linear map.
+\end{exercise}
+
+\begin{proof}
+    There exist unique polynomial $q$ and $r$ where $\deg r < 1$ such that $p(x) = (x - 3)q(x) + r$. Then $p(3) = 0q(3) + r$, so $r = p(3)$. Therefore, when $x\ne 3$, $(p(x) - p(3))/(x - 3)$ is a polynomial. So $Tp\in\mathscr{P}(\mathbb{R})$.
+
+    When $x\ne 3$
+    \begin{align*}
+        (T(p + q))(x)     & = \frac{(p(x) + q(x)) - (p(3) + q(3))}{x - 3}           \\
+                          & = \frac{p(x) - p(3)}{x - 3} + \frac{q(x) - q(3)}{x - 3} \\
+                          & = (Tp)(x) + (Tq)(x),                                    \\
+        (T(\lambda p))(x) & = \frac{(\lambda p)(x) - (\lambda p)(3)}{x - 3}         \\
+                          & = \frac{\lambda (p(x) - p(3))}{x - 3}                   \\
+                          & = \lambda (Tp)(x).
+    \end{align*}
+
+    When $x = 3$
+    \[
+        \begin{split}
+            (T(p + q))(x) = (p + q)'(3) = p'(3) + q'(3) = (Tp)(x) + (Tq)(x), \\
+            (T(\lambda p))(x) = (\lambda p)'(3) = \lambda p'(3) = \lambda (Tp)(x).
+        \end{split}
+    \]
+
+    Hence $T: \mathscr{P}(\mathbb{R})\to \mathscr{P}(\mathbb{R})$ is a linear map.
+\end{proof}
+\newpage
+
+% chapter4:sectionA:exercise11
+\begin{exercise}
+    Suppose $p\in\mathscr{P}(\mathbb{C})$. Define $q: \mathbb{C}\to \mathbb{C}$ by
+    \[
+        q(z) = p(z)\conj{p(\conj{z})}.
+    \]
+
+    Prove that $q$ is a polynomial with real coefficients.
+\end{exercise}
+
+\begin{proof}
+    According to the fundamental theorem of algebra, $p(z)$ can be written as $c(z - \lambda_{1})\cdots (z - \lambda_{m})$ where $c, \lambda_{1}, \ldots, \lambda_{m}$ are complex numbers.
+    \begin{align*}
+        q(z) = p(z)\conj{p(\conj{z})} & = c(z - \lambda_{1})\cdots (z - \lambda_{m}) \times \conj{c}(z - \conj{\lambda_{1}})\cdots (z - \conj{\lambda_{m}}) \\
+                                      & = c\conj{c}(z - \lambda_{1})(z - \conj{\lambda_{1}})\cdots (z - \lambda_{m})(z - \conj{\lambda_{m}}).
+    \end{align*}
+
+    $c\conj{c}$ is a real number, and for every $k = 1, \ldots, m$, $(z - \lambda_{k})(z - \conj{z_{k}})$ has real coefficients. Therefore $q$ is a polynomial with real coefficients.
+\end{proof}
+\newpage
+
+% chapter4:sectionA:exercise12
+\begin{exercise}
+    Suppose $m$ is a nonnegative integer and $p \in \mathscr{P}_{m} (\mathbb{C})$ is such that there are distinct real numbers $x_{0} , x_{1} , \ldots, x_{m}$ with $p(x_{k}) \in \mathbb{R}$ for each $k = 0, 1, \ldots, m$. Prove that all coefficients of $p$ are real.
+\end{exercise}
+
+\begin{proof}
+    According to Exercise~\ref{chapter4:sectionA:exercise7}, if a polynomial $q\in\mathscr{P}_{m}(\mathbb{C})$ satisfies $q(x_{k}) = p(x_{k})$ for each $k = 1,\ldots, m$, then $q = p$.
+
+    The following system of linear equations (with real coefficients):
+    \begin{align*}
+        a_{0} + a_{1}x_{0} + \cdots + a_{m}x_{0}^{m} & = p(x_{0}) \\
+                                                     & \ldots     \\
+        a_{0} + a_{1}x_{m} + \cdots + a_{m}x_{m}^{m} & = p(x_{m})
+    \end{align*}
+
+    has a unique solution over $\mathbb{R}$. Hence all coefficients of $p$ are real.
+\end{proof}
+\newpage
+
+% chapter4:sectionA:exercise13
+\begin{exercise}
+    Suppose $p\in\mathscr{P}(\mathbb{F})$ with $p\ne 0$. Let $U = \{ pq: q\in\mathscr{P}(\mathbb{F}) \}$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that $\dim\mathscr{P}(\mathbb{F})/U = \deg p$.
+        \item Find a basis of $\mathscr{P}(\mathbb{F}/U)$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Let $f: \mathscr{P}(\mathbb{F})\to \mathscr{P}(\mathbb{F})$ be a map defined by
+              \[
+                  f(p) = r
+              \]
+
+              where $k, r$ are unique polynomials such that $\deg r < \deg p$ and $p(x) = k(x)q(x) + r(x)$.
+
+              $f$ is a linear map (this is true due to the Euclidean division algorithm). The null space of $f$ is $U$, and the range of $f$ is the space of polynomials of degree less than $\deg p$.
+
+              On the other hand $\mathscr{P}(\mathbb{F})/U$ is isomorphic to $\range{f}$. Therefore $\dim\mathscr{P}(\mathbb{F})/U = \deg p$.
+        \item Let $p(x) = a_{0} + a_{1}x + \cdots + a_{m}x^{m}$ where $a_{m}\ne 0$. A basis of $\mathscr{P}(\mathbb{F}/U)$ is
+              \[
+                  1 + U, x + U, \ldots, x^{m-1} + U.\qedhere
+              \]
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter4:sectionA:exercise14
+\begin{exercise}
+    Suppose $p, q\in\mathscr{P}(\mathbb{C})$ are nonconstant polynomials with no zeros in common. Let $m = \deg{p}$ and $n = \deg{q}$. Use linear algebra as outlined below in (a)-(c) to prove that there exist $r\in\mathscr{P}_{n-1}(\mathbb{C})$ and $s\in\mathscr{P}_{m-1}(\mathbb{C})$ such that
+    \[
+        rp + sq = 1.
+    \]
+
+    \begin{enumerate}[label={(\alph*)}]
+        \item Define $T: \mathscr{P}_{n-1}(\mathbb{C})\times\mathscr{P}_{m-1}(\mathbb{C})\to \mathscr{P}_{m+n-1}(\mathbb{C})$ by
+              \[
+                  T(r, s) = rp + sq.
+              \]
+
+              Show that the linear map $T$ is injective.
+        \item Show that the linear map $T$ in (a) is surjective.
+        \item Use (b) to conclude that there exist $r\in\mathscr{P}_{n-1}(\mathbb{C})$ and $s\in\mathscr{P}_{m-1}(\mathbb{C})$ such that $rp + sq = 1$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Let $(r, s)$ be an element of $\kernel{T}$, then $rp = (-s)q$.
+
+              Let $q(z) = c(z - \lambda_{1})\cdots (c - \lambda _{n})$.
+
+              Because $p$ and $q$ have no zeros in common, it follows that $(z - \lambda_{1})$ divides $r$. So $\frac{r}{z - \lambda_{1}}p = (-s)\frac{q}{z - \lambda_{1}}$.
+
+              Keep dividing, then we obtain that $(z - \lambda_{1})\cdots (c - \lambda _{n})$ divides $r$. However, $\deg r \leq n-1 < n$, so $r = 0$. It follows that $sq = 0$, so $s = 0$.
+
+              Hence $\kernel{T} = \{0\}$. Thus $T$ is injective.
+        \item Because $T$ is injective and
+              \[
+                  \dim \mathscr{P}_{n-1}(\mathbb{C})\times\mathscr{P}_{m-1}(\mathbb{C}) = \dim \mathscr{P}_{m+n-1}(\mathbb{C}) = m + n
+              \]
+
+              it follows that $T$ is surjective, and an isomorphism.
+        \item According to (a) and (b), there exist $r\in\mathscr{P}_{n-1}(\mathbb{C})$ and $s\in\mathscr{P}_{m-1}(\mathbb{C})$ such that $rp + sq = 1$.
+    \end{enumerate}
+\end{proof}
+\newpage
