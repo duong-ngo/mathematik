@@ -2,6 +2,942 @@
 
 \section{Invariant Subspaces}
 
+% chapter5:sectionA:exercise1
+\begin{exercise}
+    Suppose $T\in\lmap{V}$ and $U$ is a subspace of $V$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Prove that if $U\subseteq \kernel{T}$, then $U$ is invariant under $T$.
+        \item Prove that if $\range{T}\subseteq U$, then $U$ is invariant under $T$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    I skip this exercise.
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise2
+\begin{exercise}
+    Suppose that $T\in\lmap{V}$ and $V_{1}, \ldots, V_{m}$ are subspaces of $V$ invariant under $T$. Prove that $V_{1} + \cdots + V_{m}$ is invariant under $T$.
+\end{exercise}
+
+\begin{proof}
+    I skip this exercise.
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise3
+\begin{exercise}
+    Suppose $T\in\lmap{V}$. Prove that the intersection of every collection of subspaces of $V$ invariant under $T$ is invariant under $T$.
+\end{exercise}
+
+\begin{proof}
+    I skip this exercise.
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise4
+\begin{exercise}
+    Prove or give a counterexample: If $V$ is finite-dimensional and $U$ is a subspace of $V$ that is invariant under every operator on $V$, then $U = \{0\}$ or $U = V$.
+\end{exercise}
+
+\begin{proof}
+    The answer is affirmative.
+
+    If $U = \{0\}$ or $U = V$, then $U$ is invariant under every operator on $V$.
+
+    Let $U$ be a subspace of $V$ such that $U\ne \{0\}$ and $U\ne V$ and invariant under $T$.
+
+    Let $u_{1}, \ldots, u_{m}$ be a basis of $U$. Extend this list to obtain a basis of $V$ and let it be
+    \[
+        u_{1}, \ldots, u_{m}, v_{1}, \ldots, v_{n}.
+    \]
+
+    I define the operator $T$ on $V$ as follows: $Tu_{1} = v_{1}$, $Tu_{k} = u_{k}$ for $k = 2,\ldots, m$, and $Tv_{i} = v_{i}$ for $i = 1,\ldots, n$. Then $U$ is not invariant under $T$.
+
+    Hence if $V$ is finite-dimensional and $U$ is a subspace of $V$ that is invariant under every operator on $V$, then $U = \{0\}$ or $U = V$.
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise5
+\begin{exercise}
+    Suppose $T\in\lmap{\mathbb{R}^{2}}$ is defined by $T(x, y) = (-3y, x)$. Find the eigenvalues of $T$.
+\end{exercise}
+
+\begin{proof}
+    Suppose $\lambda$ is an eigenvalue of $T$, then there exists $(x, y)$ such that $(-3y, x) = (\lambda x, \lambda y)$.
+    \[
+        -3x = -3\lambda y = \lambda^{2}x
+    \]
+
+    it follows that $x(\lambda^{2} + 3) = 0$ so $x = 0$. Because $x = \lambda y$, we deduce that $\lambda y = 0$. However $y\ne 0$ because $(x, y)$ is an eigenvector, so $\lambda = 0$. Therefore $x = y = 0$.
+
+    Hence $T$ has no (real) eigenvalues.
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise6
+\begin{exercise}
+    Define $T\in\lmap{\mathbb{F}^{2}}$ by $T(w, z) = (z, w)$. Find all eigenvalues and eigenvectors of $T$.
+\end{exercise}
+
+\begin{proof}
+    The eigenvalues of $T$ are $1$ and $-1$.
+
+    The eigenvectors of $T$ with respect to $1$ are of the form $(z, z)$.
+
+    The eigenvectors of $T$ with respect to $-1$ are of the form $(z, -z)$.
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise7
+\begin{exercise}
+    Define $T\in\lmap{\mathbb{F}^{3}}$ by $T(z_{1}, z_{2}, z_{3}) = (2z_{2}, 0, 5z_{3})$. Find all eigenvalues and eigenvectors of $T$.
+\end{exercise}
+
+\begin{proof}
+    The only eigenvalues of $T$ are $0$ and $5$.
+
+    The eigenvectors of $T$ with respect to $0$ are of the form $(z, 0, 0)$.
+
+    The eigenvectors of $T$ with respect to $0$ are of the form $(0, 0, z)$.
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise8
+\begin{exercise}
+    Suppose $P\in\lmap{V}$ is such that $P^{2} = P$. Prove that if $\lambda$ is an eigenvalue of $P$, then $\lambda = 0$ or $\lambda = 1$.
+\end{exercise}
+
+\begin{proof}
+    If $\lambda$ is an eigenvalue of $P$, then for every eigenvector $v$ of $P$ with respect to $\lambda$, we have
+    \[
+        \lambda v = Pv = P^{2}v = \lambda^{2}v
+    \]
+
+    Hence $\lambda = \lambda^{2}$, which implies $\lambda = 0$ or $\lambda = 1$.
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise9
+\begin{exercise}
+    Define $T: \mathscr{P}(\mathbb{R})\to \mathscr{P}(\mathbb{R})$ by $Tp = p'$. Find all eigenvalues and eigenvectors of $T$.
+\end{exercise}
+
+\begin{proof}
+    If $\deg P > 0$, then $\deg p' = (\deg p) - 1$. So every nonconstant polynomial is not an eigenvector of $T$.
+
+    If $\deg P = 0$, then $p' = 0 = 0p$. So every nonzero constant polynomial is an eigenvector of $T$ with respect to the eigenvalue $0$.
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise10
+\begin{exercise}
+    Define $T\in\lmap{\mathscr{P}(\mathbb{R})}$ by $(Tp)(x) = xp'(x)$ for all $x\in \mathbb{R}$. Find all eigenvalues and eigenvectors of $T$.
+\end{exercise}
+
+The original problem is $T\in\lmap{\mathscr{P}_{4}(\mathbb{R})}$
+
+\begin{proof}
+    Let $\lambda$ be an eigenvalue of $T$ and $p(x) = a_{0} + a_{1}x + \cdots + a_{n}x^{n}$ an eigenvector corresponding to $\lambda$.
+    \[
+        \begin{split}
+            xp'(x) = a_{1}x + 2a_{2}x^{2} + \cdots + na_{n}x^{n} \\
+            \lambda p(x) = \lambda a_{0} + \lambda a_{1}x + \cdots + \lambda a_{n}x^{n}.
+        \end{split}
+    \]
+
+    By comparing the coefficients, we obtain $0 = \lambda a_{0}$, $a_{1} = \lambda a_{1}$, \ldots, $na_{n} = \lambda a_{n}$.
+
+    So $\lambda = 0$ and $p$ is a nonzero constant polynomial, or $\lambda = n$ and $p(x) = x^{n}$.
+
+    Hence the eigenvalues of $T$ are nonnegative integer $n$ and the corresponding eigenvectors are of the form $kx^{n}$ (where $k$ is a nonzero constant in $\mathbb{F}$).
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise11
+\begin{exercise}
+    Suppose $V$ is finite-dimensional, $T\in\lmap{V}$, and $\alpha\in\mathbb{F}$. Prove that there exists $\delta > 0$ such that $T - \lambda I$ is invertible for all $\lambda\in\mathbb{F}$ such that $0 < \abs{\alpha - \lambda} < \delta$.
+\end{exercise}
+
+\begin{proof}
+    $T$ has at most $(\dim V)$ eigenvalues. Let $\lambda_{1}, \ldots, \lambda_{m}$ be the distinct eigenvalues of $T$.
+
+    If $\alpha$ is not an eigenvalue of $T$, I choose
+    \[
+        \delta = \min\left\{ \abs{\alpha - \lambda_{i}}: 1\leq i\leq m \right\}.
+    \]
+
+    Then for all $\lambda$ such that $0 < \abs{\alpha - \lambda} < \delta$, $\lambda$ is not an eigenvalue of $T$.
+
+    If $\alpha = \lambda_{k}$ for some $k$ in $1, \ldots, m$, I choose
+    \[
+        \delta = \min\left\{ \abs{\alpha - \lambda_{i}}: 1\leq i\leq m\wedge i\ne k \right\}.
+    \]
+
+    Then for all $\lambda$ such that $0 < \abs{\alpha - \lambda} < \delta$, $\lambda$ is not an eigenvalue of $T$.
+
+    On the other hand, $\lambda\in\mathbb{F}$ is not an eigenvalue of $T$ if and only if $T - \lambda I$ is invertible.
+
+    Hence there exists $\delta > 0$ such that $T - \lambda I$ is invertible for all $\lambda\in\mathbb{F}$ such that $0 < \abs{\alpha - \lambda} < \delta$.
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise12
+\begin{exercise}
+    Suppose $V = U\oplus W$, where $U$ and $W$ are nonzero subspaces of $V$. Define $P\in\lmap{V}$ by $P(u + w) = u$ for each $u\in U$ and each $w\in W$. Find all eigenvalues and eigenvectors of $P$.
+\end{exercise}
+
+\begin{proof}
+    Let $\lambda$ be an eigenvalue of $P$ and $u + w$ be an eigenvector corresponding to $\lambda$ (where $u\in U$, $w\in W$), then $P(u + w) = \lambda(u + w)$. According to the definition of $P$, $\lambda (u + w) = u$, so $(\lambda - 1)u + \lambda w = 0$.
+
+    Because $U\cap W = \{0\}$, it follows that $(\lambda - 1)u = 0$ and $\lambda w = 0$. Therefore $\lambda = 1$ or $\lambda = 0$.
+
+    Hence the eigenvalues of $P$ are $1$ and $0$. The eigenvectors corresponding to $1$ is $ku$ (where $k\in\mathbb{F}$ and $k\ne 0$). The eigenvectors corresponding to $0$ is $kw$ (where $k\in\mathbb{F}$ and $k\ne 0$).
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise13
+\begin{exercise}
+    Suppose $T\in\lmap{V}$. Suppose $S\in\lmap{V}$ is invertible.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Prove that $T$ and $S^{-1}TS$ have the same eigenvalues.
+        \item What is the relationship between the eigenvectors of $T$ and the eigenvectors of $S^{-1}TS$?
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item If $\lambda$ is an eigenvalue of $T$.
+
+              Let $v$ be an eigenvector corresponding to $\lambda$. Since $S$ is invertible, there exists $w\in V$ such that $Sw = v$. Therefore
+              \[
+                  (S^{-1}TS)(w) = (S^{-1}T)(v) = S^{-1}(\lambda v) = \lambda w.
+              \]
+
+              Hence $\lambda$ is also an eigenvalue of $S^{-1}TS$.
+
+              If $\lambda$ is an eigenvalue of $S^{-1}TS$.
+
+              Let $w$ be an eigenvector corresponding to $\lambda$, then $(S^{-1}TS)(w) = \lambda w$. Let $v = Sw$. Then apply $S$ to $(S^{-1}TS)(w)$ and $\lambda w$, we obtain that $(TS)(w) = S(\lambda w)$ and
+              \[
+                  Tv = T(Sw) = S(\lambda w) = \lambda Sw = \lambda v.
+              \]
+
+              Hence $\lambda$ is also an eigenvalue of $T$.
+
+              Thus $T$ and $S^{-1}TS$ have the same eigenvalues.
+        \item Let $A$ be the set of eigenvectors of $T$ with respect to an eigenvalue $\lambda$. Let $B$ be the set of eigenvectors of $S^{-1}TS$ with respect to the eigenvalue $\lambda$.
+
+              There is a bijection from $A$ onto $B$ defined by $v\mapsto S^{-1}v$. In other word, $v$ is an eigenvector of $T$ corresponding to $\lambda$ if and only if $S^{-1}v$ is an eigenvector of $S^{-1}TS$ corresponding to $\lambda$.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise14
+\begin{exercise}
+    Give an example of an operator on $\mathbb{R}^{4}$ that has no (real) eigenvalues.
+\end{exercise}
+
+\begin{proof}
+    I define $T\in\lmap{\mathbb{R}^{4}}$ as follows:
+    \[
+        T(x_{1}, x_{2}, x_{3}, x_{4}) = (-x_{2}, x_{1}, -x_{4}, x_{3}).
+    \]
+
+    If $\lambda$ is an eigenvalue of $T$ and $(x_{1}, x_{2}, x_{3}, x_{4})$ is an eigenvector corresponding to $\lambda$, then
+    \[
+        (-x_{2}, x_{1}, -x_{4}, x_{3}) = \lambda (x_{1}, x_{2}, x_{3}, x_{4}).
+    \]
+
+    Therefore $x_{2} = -\lambda x_{1} = -\lambda^{2}x_{2}$ and $x_{4} = -\lambda x_{3} = -\lambda^{2}x_{4}$. Because $\lambda^{2} + 1\ne 0$, it follows that $x_{2} = 0$ and $x_{4} = 0$. So $x_{1} = 0$ and $x_{3} = 0$. This contradicts $(x_{1}, x_{2}, x_{3}, x_{4})$ being an eigenvector.
+
+    Hence $T$ has no (real) eigenvalues.
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise15
+\begin{exercise}\label{chapter5:sectionA:exercise15}
+    Suppose $V$ is finite-dimensional, $T\in\lmap{V}$, and $\lambda\in\mathbb{F}$. Show that $\lambda$ is an eigenvalue of $T$ if and only if $\lambda$ is an eigenvalue of the dual operator $T'\in\lmap{V'}$.
+\end{exercise}
+
+\begin{proof}
+    The range of a linear map and the range of its dual map have the same dimension. $T' - \lambda I'$ is the dual map of $T - \lambda I$. According to the fundamental theorem of linear maps
+    \begin{align*}
+        \dim\kernel{(T - \lambda I)} & = \dim V - \dim\range{(T - \lambda I)}    \\
+                                     & = \dim V' - \dim\range{(T' - \lambda I')} \\
+                                     & = \dim\kernel{(T' - \lambda I')}.
+    \end{align*}
+
+    $\lambda$ is an eigenvalue of $T$ if and only if $\kernel{(T - \lambda I)}\ne \{0\}$. $\lambda$ is an eigenvalue of $T'$ if and only if $\kernel{(T' - \lambda I')}\ne \{0\}$. Therefore $\lambda$ is an eigenvalue of $T$ if and only if $\lambda$ is an eigenvalue of $T'$.
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise16
+\begin{exercise}
+    Suppose $v_{1}, \ldots, v_{n}$ is a basis of $V$ and $T\in\lmap{V}$. Prove that if $\lambda$ is an eigenvalue of $T$, then
+    \[
+        \abs{\lambda}\leq n\max\left\{ \abs{{\mathcal{M}(T)}_{j,k}}: 1\leq j, k\leq n \right\},
+    \]
+
+    where ${\mathcal{M}(T)}_{j,k}$ denotes the entry in row $j$, column $k$ of the matrix of $T$ with respect to the basis $v_{1}, \ldots, v_{n}$.
+\end{exercise}
+
+\begin{proof}
+    Let $A = \mathcal{M}(T)$ and $v = x_{1}v_{1} + \cdots + x_{n}v_{n}$ be an eigenvector of $T$ with respect to $\lambda$, then
+    \[
+        A\begin{pmatrix}x_{1} \\ \vdots \\ x_{n}\end{pmatrix} = \begin{pmatrix}
+            A_{1,1}x_{1} + \cdots + A_{1,n}x_{n} \\
+            \vdots                               \\
+            A_{n,1}x_{1} + \cdots + A_{n,n}x_{n}
+        \end{pmatrix} = \begin{pmatrix}
+            \lambda x_{1} \\ \vdots \\ \lambda x_{n}
+        \end{pmatrix}
+    \]
+
+    By Cauchy-Schwarz inequality
+    \begin{align*}
+        \abs{\lambda}^{2}\abs{x_{1}}^{2} + \cdots + \abs{\lambda}^{2}\abs{x_{n}}^{2} & = \sum^{n}_{i=1}{\abs{A_{i,1}x_{1} + \cdots + A_{i,n}x_{n}}}^{2}                                                \\
+                                                                                     & \leq \sum^{n}_{i=1}(\abs{x_{1}}^{2} + \cdots + \abs{x_{n}}^{2})(\abs{A_{i,1}}^{2} + \cdots + \abs{A_{i,n}}^{2}) \\
+                                                                                     & = (\abs{x_{1}}^{2} + \cdots + \abs{x_{n}}^{2})\sum_{j,k}\abs{A_{j,k}}^{2}                                       \\
+                                                                                     & \leq n^{2}(\abs{x_{1}}^{2} + \cdots + \abs{x_{n}}^{2})\max\left\{\abs{A_{j,k}}^{2}: 1\leq j, k\leq n\right\}
+    \end{align*}
+
+    Because $\abs{x_{1}}^{2} + \cdots + \abs{x_{n}}^{2}\ne 0$, we deduce that
+    \[
+        \lambda^{2}\leq n^{2}\max\left\{\abs{A_{j,k}}^{2}: 1\leq j, k\leq n\right\}.
+    \]
+
+    Hence
+    \[
+        \abs{\lambda}\leq n\max\left\{\abs{A_{j,k}}: 1\leq j, k\leq n\right\}.\qedhere
+    \]
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise17
+\begin{exercise}
+    Suppose $\mathbb{F} = \mathbb{R}$, $T\in\lmap{V}$, and $\lambda\in\mathbb{R}$. Prove that $\lambda$ is an eigenvalue of $T$ if and only if $\lambda$ is an eigenvalue of the complexification of $T_{\mathbb{C}}$.
+\end{exercise}
+
+\begin{proof}
+    $(\Rightarrow)$ $\lambda$ is an eigenvalue of $T$.
+
+    Let $v$ be an eigenvector of $T$ corresponding to $\lambda$. Then according to the definition of $T_{\mathbb{C}}$
+    \[
+        T_{\mathbb{C}}(v + \iota v) = Tv + \iota Tv = \lambda v + \iota \lambda v.
+    \]
+
+    Hence $\lambda$ is also an eigenvalue of $T_{\mathbb{C}}$.
+
+    $(\Rightarrow)$ $\lambda$ is an eigenvalue of $T_{\mathbb{C}}$.
+
+    Let $u + \iota v$ be an eigenvector of $T_{\mathbb{C}}$ corresponding to $\lambda$. Because $\lambda\in\mathbb{R}$ and due to the definition of eigenvalue and eigenvector
+    \[
+        \begin{split}
+            T_{\mathbb{C}}(u + \iota v) = Tu + \iota Tv, \\
+            T_{\mathbb{C}}(u + \iota v) = \lambda u + \iota \lambda v.
+        \end{split}
+    \]
+
+    Hence $Tu = \lambda u$ and $Tv = \lambda v$. Because $u + \iota v\ne 0 + \iota 0$, it follows that at least one vector in the list $u, v$ is nonzero. Hence $\lambda$ is also an eigenvalue of $T$.
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise18
+\begin{exercise}
+    Suppose $\mathbb{F} = \mathbb{R}$, $T\in\lmap{V}$, and $\lambda\in\mathbb{C}$. Prove that $\lambda$ is an eigenvalue of the complexification $T_{\mathbb{C}}$ if and only if $\conj{\lambda}$ is an eigenvalue of $T_{\mathbb{C}}$.
+\end{exercise}
+
+\begin{proof}
+    Let $a = \operatorname{Re}\lambda$ and $b = \operatorname{Im}\lambda$.
+
+    $(\Rightarrow)$ $\lambda$ is an eigenvalue of $T_{\mathbb{C}}$.
+
+    Let $u + \iota v$ be an eigenvector of $T_{\mathbb{C}}$ corresponding to $\lambda$, then
+    \[
+        Tu + \iota Tv = T_{\mathbb{C}}(u + \iota v) = \lambda (u + \iota v) = (a + b\iota)(u + \iota v) = (au - bv) + \iota(av + bu).
+    \]
+
+    So $Tu = au - bv$ and $Tv = av + bu$. Then
+    \[
+        T_{\mathbb{C}}(u - \iota v) = Tu - \iota Tv = (au - bv) - \iota (av + bu) = (a - b\iota)(u - \iota v) = \conj{\lambda}(u - \iota v).
+    \]
+
+    Moreover, $u + \iota v\ne 0 + \iota 0$ so $u - \iota v\ne 0 + \iota 0$. Hence $\conj{\lambda}$ is an eigenvalue of $T_{\mathbb{C}}$.
+
+    $(\Leftarrow)$ $\conj{\lambda}$ is an eigenvalue of $T_{\mathbb{C}}$.
+
+    According to the previous part, $\conj{\conj{\lambda}}$ is an eigenvalue of $T_{\mathbb{C}}$. Hence $\lambda$ is an eigenvalue of $T_{\mathbb{C}}$.
+
+    \bigskip
+
+    Thus $\lambda$ is an eigenvalue of $T_{\mathbb{C}}$ if and only if $\conj{\lambda}$ is an eigenvalue of $T_{\mathbb{C}}$.
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise19
+\begin{exercise}
+    Show that the forward shift operator $T\in\lmap{\mathbb{F}^{\infty}}$ defined by
+    \[
+        T(z_{1}, z_{2}, \ldots) = (0, z_{1}, z_{2}, \ldots)
+    \]
+
+    has no eigenvalues.
+\end{exercise}
+
+\begin{proof}
+    Assume $\lambda$ is an eigenvalue of $T$. Let $(z_{1}, z_{2}, \ldots)$ be an eigenvector of $T$ corresponding to $\lambda$.
+    \[
+        T(z_{1}, z_{2}, \ldots) = (\lambda z_{1}, \lambda z_{2}, \ldots).
+    \]
+
+    Identify $(\lambda z_{1}, \lambda z_{2}, \ldots)$ and $(0, z_{1}, z_{2}, \ldots)$, we obtain $\lambda z_{1} = 0$ and $\lambda z_{n+1} = z_{n}$. If $\lambda\ne 0$, then $z_{n} = 0$ for every positive integer $n$. If $\lambda = 0$, then $z_{n} = 0$ for every positive integer $n$. This contradicts $(z_{1}, z_{2}, \ldots)$ being an eigenvector.
+
+    Thus $T$ has no eigenvalues.
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise20
+\begin{exercise}
+    Define the backward shift operator $S\in\lmap{\mathbb{F}^{\infty}}$ by
+    \[
+        S(z_{1}, z_{2}, z_{3}, \ldots) = (z_{2}, z_{3}, \ldots)
+    \]
+
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that every element of $\mathbb{F}$ is an eigenvalue of $S$.
+        \item Find all eigenvectors of $S$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Let $\lambda$ be an element of $\mathbb{F}$, then
+              \[
+                  S(1, \lambda, \lambda^{2}, \ldots) = (\lambda, \lambda^{2}, \ldots) = \lambda (1, \lambda, \lambda^{2}, \ldots)
+              \]
+
+              So $\lambda$ is an eigenvalue of $S$.
+        \item Let $\lambda$ be an eigenvalue of $S$. Let $(z_{1}, z_{2}, z_{3}, \ldots)$ be an eigenvector of $S$ corresponding to $\lambda$. Then
+              \[
+                  (z_{2}, z_{3}, \ldots) = (\lambda z_{1}, \lambda z_{2}, \ldots)
+              \]
+
+              So $z_{n} = \lambda^{n-1}z_{1}$ for every positive integer $n > 1$. Because $(z_{1}, z_{2}, z_{3}, \ldots)$ is nonzero, it follows that $z_{1}\ne 0$. Hence the eigenvectors of $S$ corresponding to the eigenvalue $\lambda$ are of the form
+              \[
+                  (z_{1}, \lambda z_{1}, \lambda^{2}z_{1}, \ldots)
+              \]
+
+              where $z_{1}\ne 0$.\qedhere
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise21
+\begin{exercise}
+    Suppose $T\in\lmap{V}$ is invertible.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Suppose $\lambda\in\mathbb{F}$ with $\lambda \ne 0$. Prove that $\lambda$ is an eigenvalue of $T$ if and only if $\frac{1}{\lambda}$ is an eigenvalue of $T^{-1}$.
+        \item Prove that $T$ and $T^{-1}$ have the same eigenvectors.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item If $\lambda$ is an eigenvalue of $T$, then there exists a nonzero vector $v$ such that $Tv = \lambda v$. So $v = T^{-1}(\lambda v)$, and it follows that $T^{-1}v = \frac{1}{\lambda}v$. Hence $\frac{1}{\lambda}$ is an eigenvalue of $T^{-1}$.
+
+              If $\frac{1}{\lambda}$ is an eigenvalue of $T^{-1}$, then $\frac{1}{1/\lambda} = \lambda$ is an eigenvalue of ${(T^{-1})}^{-1} = T$.
+        \item If $v$ is an eigenvector of $T$ with respect to the eigenvalue $\lambda$, then $v$ is also an eigenvector of $T^{-1}$ with respect to the eigenvalue $\frac{1}{\lambda}$.
+
+              If $v$ is an eigenvector of $T^{-1}$ with respect to the eigenvalue $\frac{1}{\lambda}$, then $v$ is also an eigenvector of $T$ with respect to the eigenvalue $\lambda$.
+
+              Hence $T$ and $T^{-1}$ have the same eigenvectors.\qedhere
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise22
+\begin{exercise}
+    Suppose $T \in \lmap{V}$ and there exist nonzero vectors $u$ and $w$ in $V$ such that
+    \[
+        Tu = 3w \qquad\text{and}\qquad Tw = 3u.
+    \]
+
+    Prove that $3$ or $-3$ is an eigenvalue of $T$.
+\end{exercise}
+
+\begin{proof}
+    $T^{2}u = T(Tu) = T(3w) = 9u$. So $(T^{2} - 9I)(u) = 0$, it follows that
+    \[
+        (T - 3I)(T + 3I)(u) = 0\qquad (T + 3I)(T - 3I)(u) = 0.
+    \]
+
+    Assume that $(T + 3I)(u)\ne 0$ and $(T - 3I)(u)\ne 0$. Then let $v_{1} = (T + 3I)(u)$ and $v_{2} = (T - 3I)(u)$. Therefore $(T - 3I)(v_{1}) = 0$ and $(T + 3I)(v_{2}) = 0$. So $\kernel{(T - 3I)}\ne \{0\}$ and $\kernel{(T + 3I)}\ne \{0\}$, which is a contradiction.
+
+    Hence  $(T + 3I)(u) = 0$ or $(T - 3I)(u) = 0$. Thus $3$ or $-3$ is an eigenvalue of $T$.
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise23
+\begin{exercise}
+    Suppose $V$ is finite-dimensional and $S, T \in \lmap{V}$. Prove that $ST$ and $TS$ have the same eigenvalues.
+\end{exercise}
+
+\begin{proof}
+    Assume $\lambda$ is a nonzero eigenvalue of $ST$ and $v$ is an eigenvector of $ST$ corresponding to $\lambda$, then $(ST)(v) = \lambda v$, and $(TS)(Tv) = \lambda Tv$. Because $\lambda$ and $v$ are nonzero, $S(Tv) = \lambda v$ is nonzero, so $Tv\ne 0$. Hence $\lambda$ is an eigenvalue of $TS$.
+
+    Assume $\lambda$ is a nonzero eigenvalue of $TS$ and $v$ is an eigenvector of $TS$ corresponding to $\lambda$, then $(TS)(v) = \lambda v$, and $(ST)(Sv) = \lambda Sv$. Because $\lambda$ and $v$ are nonzero, $T(Sv) = \lambda v$ is nonzero, so $Sv\ne 0$. Hence $\lambda$ is an eigenvalue of $ST$.
+
+    According to Exercise~\ref{chapter3:sectionD:exercise11}, $ST$ is invertible iff $S, T$ are invertible, and $TS$ is invertible iff $S, T$ are invertible. Therefore $ST$ is not invertible iff $TS$ is not invertible. Equivalently, $(ST - 0I)$ is not invertible iff $(TS - 0I)$ is not invertible. So $0$ is an eigenvalue of $ST$ iff $0$ is an eigenvalue of $TS$.
+
+    Hence $ST$ and $TS$ have the same eigenvalues.
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise24
+\begin{exercise}
+    Suppose $A$ is an $n$-by-$n$ matrix with entries in $\mathbb{F}$. Define $T\in\lmap{\mathbb{F}^{n}}$ by $Tx = Ax$, where elements of $\mathbb{F}^{n}$ are thought of as $n$-by-$1$ column vectors.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Suppose the sum of the entries in each row of $A$ equals $1$. Prove that $1$ is an eigenvalue of $T$.
+        \item Suppose the sum of the entries in each column of $A$ equals $1$. Prove that $1$ is an eigenvalue of $T$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item \[
+                  \begin{pmatrix}
+                      A_{1,1} & \cdots & A_{1,n} \\
+                      \vdots  & \ddots & \vdots  \\
+                      A_{n,1} & \cdots & A_{n,n}
+                  \end{pmatrix}
+                  \begin{pmatrix}
+                      1      \\
+                      \vdots \\
+                      1
+                  \end{pmatrix}
+                  = \begin{pmatrix}
+                      A_{1,1} + \cdots + A_{1,n} \\
+                      \vdots                     \\
+                      A_{n,1} + \cdots + A_{n,n}
+                  \end{pmatrix}
+                  = \begin{pmatrix}
+                      1      \\
+                      \vdots \\
+                      1
+                  \end{pmatrix}
+              \]
+
+              So $1$ is an eigenvalue of $T$.
+        \item Let $T'$ be the dual map of $T$, then $T'x = A^{T}x$. The sum of the entries in each column of $A$ equals $1$ so the sum of entries in each row of $A^{T}$ equals $1$. Due to (a), it follows that $1$ is an eigenvalue of $T'$. According to Exercise~\ref{chapter5:sectionA:exercise15}, $1$ is also an eigenvalue of $T$.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise25
+\begin{exercise}\label{chapter5:sectionA:exercise25}
+    Suppose $T \in \lmap{V}$ and $u, w$ are eigenvectors of $T$ such that $u + w$ is also an eigenvector of $T$. Prove that $u$ and $w$ are eigenvectors of $T$ corresponding to the same eigenvalue.
+\end{exercise}
+
+\begin{proof}
+    Assume that $u$ and $w$ are eigenvectors of $T$ corresponding to eigenvalues $\lambda_{1}$ and $\lambda_{2}$, respectively.
+
+    Because $u + w$ is also an eigenvector of $T$, there exists $\lambda\in\mathbb{F}$ such that $T(u + w) = \lambda(u + w)$. So
+    \[
+        \lambda(u + w) = T(u + w) = Tu + Tw = \lambda_{1}u + \lambda_{2}w.
+    \]
+
+    Therefore $(\lambda - \lambda_{1})u + (\lambda - \lambda_{2})w = 0$.
+
+    If $\lambda - \lambda_{1}$ and $\lambda - \lambda_{2}$ are both zero, then $u$ and $w$ correspond to the same eigenvalue.
+
+    If If $\lambda - \lambda_{1}$ and $\lambda - \lambda_{2}$ are not both zero, then $u$ and $w$ are linearly dependent, which means at least one vector is a scalar multiple of the other. Therefore they correspond to the same eigenvalue.
+
+    Hence $u$ and $w$ are eigenvectors of $T$ corresponding to the same eigenvalue.
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise26
+\begin{exercise}\label{chapter5:sectionA:exercise26}
+    Suppose $T \in \lmap{V}$ is such that every nonzero vector in $V$ is an eigenvector of $T$. Prove that $T$ is a scalar multiple of the identity operator.
+\end{exercise}
+
+\begin{proof}
+    According to Exercise~\ref{chapter5:sectionA:exercise25}, for every nonzero vector $v$, there exists $\lambda\in\mathbb{F}$ such that $Tv = \lambda v$. Of course, $T0 = \lambda 0$.
+
+    Hence $T$ is a scalar multiple of the identity operator.
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise27
+\begin{exercise}
+    Suppose that $V$ is finite-dimensional and $k \in \{1, \ldots, \dim V - 1\}$. Suppose $T \in \lmap{V}$ is such that every subspace of $V$ of dimension $k$ is invariant under $T$. Prove that $T$ is a scalar multiple of the identity operator.
+\end{exercise}
+
+\begin{proof}
+    Let $n = \dim V$.
+
+    The statement is true for $k = 1$, which is Exercise~\ref{chapter5:sectionA:exercise26}.
+
+    Assume that the statement is true for $k = p$, where $1\leq p < \dim V - 1$.
+
+    Let $U$ be a subspace of $V$ of dimension $p$. Let $v_{1}, \ldots, v_{p}$ be a basis of $U$. Extend this list to create a basis of $V$ and let it be
+    \[
+        v_{1}, \ldots, v_{p}, \ldots, v_{n}
+    \]
+
+    The subspaces $\operatorname{span}(v_{1}, \ldots, v_{p}, v_{p+1})$ and $\operatorname{span}(v_{1}, \ldots, v_{p}, v_{p+2})$ are invariant under $T$. On the other hand
+    \[
+        \operatorname{span}(v_{1}, \ldots, v_{p}, v_{p+1})\cap \operatorname{span}(v_{1}, \ldots, v_{p}, v_{p+2}) = \operatorname{span}(v_{1}, \ldots, v_{p}) = U.
+    \]
+
+    If $u\in U$, then $Tu$ is in $\operatorname{span}(v_{1}, \ldots, v_{p}, v_{p+1})$ and $\operatorname{span}(v_{1}, \ldots, v_{p}, v_{p+2})$ so $Tu\in U$, which means $U$ is invariant under $T$. According to the induction hypothesis, $T$ is a scalar multiple of the identity operator.
+
+    Thus, due to the principle of mathematical induction, if every subspace of $V$ of dimension $k$ (where $1\leq k < \dim V - 1$) is invariant under $T$, then $T$ is a scalar multiple of the identity operator.
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise28
+\begin{exercise}
+    Suppose $V$ is finite-dimensional and $T\in \lmap{V}$. Prove that $T$ has at most $1 + \dim\range{T}$ distinct eigenvalues.
+\end{exercise}
+
+\begin{proof}
+    Let $\lambda_{1}, \ldots, \lambda_{m}$ be the distinct eigenvalues of $T$. Let $v_{1}, \ldots, v_{m}$ be eigenvectors corresponding to $\lambda_{1}, \ldots, \lambda_{m}$. Then $v_{1}, \ldots, v_{m}$ is linearly independent.
+
+    If $\lambda_{1}, \ldots, \lambda_{m}$ are nonzero, then
+    \begin{align*}
+        m & = \dim\operatorname{span}(v_{1}, \ldots, v_{m})                       \\
+          & = \dim\operatorname{span}(\lambda_{1}v_{1}, \ldots, \lambda_{m}v_{m}) \\
+          & = \dim\operatorname{span}(Tv_{1}, \ldots, Tv_{m})                     \\
+          & \leq \dim\range{T} < 1 + \dim\range{T}.
+    \end{align*}
+
+    If there is one eigenvalue equals $0$, I assume it is $\lambda_{1}$, then
+    \begin{align*}
+        m & = \dim\operatorname{span}(v_{1}, \ldots, v_{m})                           \\
+          & = 1 + \dim\operatorname{span}(v_{2}, \ldots, v_{m})                       \\
+          & = 1 + \dim\operatorname{span}(\lambda_{2}v_{2}, \ldots, \lambda_{m}v_{m}) \\
+          & = 1 + \dim\operatorname{span}(Tv_{2}, \ldots, Tv_{m})                     \\
+          & \leq 1 + \dim\range{T}.
+    \end{align*}
+
+    Thus $T$ has at most $1 + \dim\range{T}$ distinct eigenvalues.
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise29
+\begin{exercise}
+    Suppose $T\in\lmap{\mathbb{R}^{3}}$ and $-4$, $5$ and $\sqrt{7}$ are eigenvalues of $T$. Prove that there exists $x\in\mathbb{R}^{3}$ such that $Tx - 9x = (-4, 5, \sqrt{7})$.
+\end{exercise}
+
+\begin{proof}
+    There exist nonzero vectors $v_{1}, v_{2}, v_{3}$ which are eigenvectors of $T$ correspond to  $-4$, $5$ and $\sqrt{7}$, respectively. Moreover, $v_{1}, v_{2}, v_{3}$ is linearly independent, so $v_{1}, v_{2}, v_{3}$ is a basis of $\mathbb{R}^{3}$. So there exists $b_{1}, b_{2}, b_{3}\in\mathbb{R}$ such that
+    \[
+        b_{1}v_{1} + b_{2}v_{2} + b_{3}v_{3} = (-4, 5, \sqrt{7}).
+    \]
+
+    $Tv_{1} = -4v_{1}$, $Tv_{2} = 5v_{2}$, $Tv_{3} = \sqrt{7}v_{3}$. Let $x = a_{1}v_{1} + a_{2}v_{2} + a_{3}v_{3}$ where $a_{1}, a_{2}, a_{3}\in\mathbb{R}$.
+    \begin{align*}
+        Tx - 9x & = (-4a_{1})v_{1} + (5a_{2})v_{2} + (\sqrt{7}a_{3})v_{3} - (9a_{1})v_{1} - (9a_{2})v_{2} - (9a_{3})v_{3} \\
+                & = (-13a_{1})v_{1} + (-4a_{2})v_{2} + (\sqrt{7} - 9)a_{3}v_{3}
+    \end{align*}
+
+    Let $a_{1} = \frac{b_{1}}{-13}$, $a_{2} = \frac{b_{2}}{-4}$, $a_{3} = \frac{b_{3}}{\sqrt{7} - 9}$, then $Tx - 9x = (-4, 5, \sqrt{7})$.
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise30
+\begin{exercise}
+    Suppose $T\in\lmap{V}$ and $(T - 2I)(T - 3I)(T - 4I) = 0$. Suppose $\lambda$ is an eigenvalue of $T$. Prove that $\lambda = 2$ or $\lambda = 3$ or $\lambda = 4$.
+\end{exercise}
+
+\begin{proof}
+    Let $v$ be an eigenvector of $T$ corresponding to $\lambda$.
+    \begin{align*}
+        (T - 2I)(T - 3I)(T - 4I)(v) & = (T - 2I)(T - 3I)(Tv - 4v)                                          \\
+                                    & = (T - 2I)(T - 3I)((\lambda - 4)v)                                   \\
+                                    & = (T - 2I)((\lambda - 4)\lambda v - 3(\lambda - 4)v)                 \\
+                                    & = (T - 2I)((\lambda - 3)(\lambda - 4)v)                              \\
+                                    & = \lambda (\lambda - 3)(\lambda - 4)v - 2(\lambda - 3)(\lambda - 4)v \\
+                                    & = (\lambda - 2)(\lambda - 3)(\lambda - 4)v.
+    \end{align*}
+
+    Because $(T - 2I)(T - 3I)(T - 4I) = 0$ and $v$ is nonzero, it follows that
+    \[
+        (\lambda - 2)(\lambda - 3)(\lambda - 4) = 0.
+    \]
+
+    So $\lambda = 2$ or $\lambda = 3$ or $\lambda = 4$.
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise31
+\begin{exercise}
+    Given an example of $T\in\lmap{\mathbb{R}^{2}}$ such that $T^{4} = -I$.
+\end{exercise}
+
+\begin{proof}
+    Let $T(x_{1}, x_{2}) = \left(\frac{x_{1}}{\sqrt{2}} + \frac{x_{2}}{\sqrt{2}}, \frac{-x_{1}}{\sqrt{2}} + \frac{x_{2}}{\sqrt{2}}\right)$.
+    \begin{align*}
+        T^{2}(x_{1}, x_{2}) & = (x_{2}, -x_{1}),                         \\
+        T^{4}(x_{1}, x_{2}) & = T^{2}(x_{2}, -x_{1}) = (-x_{1}, -x_{2}).
+    \end{align*}
+
+    So $T^{4} = -I$.
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise32
+\begin{exercise}
+    Suppose $T\in\lmap{V}$ has no eigenvalues and $T^{4} = I$. Prove that $T^{2} = -I$.
+\end{exercise}
+
+\begin{proof}
+    $T^{4} - I = 0$ implies $(T^{2} - I)(T^{2} + I) = 0$. Then either $T^{2} = I$ or $T^{2} = -I$. If $T^{2} = I$, then $(T - I)(T + I) = 0$, which implies $1$ or $-1$ is an eigenvalue of $T$. However, since $T$ has no eigenvalues, $T^{2}\ne I$. Hence $T^{2} = -I$.
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise33
+\begin{exercise}
+    Suppose $T\in\lmap{V}$ and $m$ is a positive integer.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Prove that $T$ is injective if and only if $T^{m}$ is injective.
+        \item Prove that $T$ is surjective if and only if $T^{m}$ is surjective.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    I prove these using mathematical induction and the results: $ST$ is injective implies $T$ is injective; $ST$ is surjective implies $S$ is surjective; composition of two injections is an injection; composition of two surjections is a surjection.
+
+    \begin{enumerate}[label={(\alph*)}]
+        \item When $m = 1$, the statement is true.
+
+              Assume when $m = n$, the statement is true.
+
+              If $T^{n+1}$ is injective, then $T^{n}T$ is injective, so $T$ is injective.
+
+              If $T$ is injective, then $T^{n}$ is injective (induction hypothesis). So $T^{n+1} = T^{n}T$ is injective.
+
+              Thus, according to the principle of mathematical induction, for every positive integer $m$, $T$ is injective if and only if $T^{m}$ is injective.
+        \item When $m = 1$, the statement is true.
+
+              Assume when $m = n$, the statement is true.
+
+              If $T^{n+1}$ is surjective, then $TT^{n}$ is surjective, so $T$ is surjective.
+
+              If $T$ is surjective, then $T^{n}$ is surjective (induction hypothesis). So $T^{n+1} = T^{n}T$ is surjective.
+
+              Thus, according to the principle of mathematical induction, for every positive integer $m$, $T$ is surjective if and only if $T^{m}$ is surjective.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise34
+\begin{exercise}
+    Suppose $V$ is finite-dimensional and $v_{1}, \ldots, v_{m} \in V$. Prove that the list $v_{1} , \ldots, v_{m}$ is linearly independent if and only if there exists $T \in \lmap{V}$ such that $v_{1} , \ldots, v_{m}$ are eigenvectors of $T$ corresponding to distinct eigenvalues.
+\end{exercise}
+
+In this exercise, $\mathbb{F}$ must have infinite elements.
+
+\begin{proof}
+    If there exists a linear map $T\in\lmap{V}$ such that $v_{1} , \ldots, v_{m}$ are eigenvectors of $T$ corresponding to distinct eigenvalues, then these vectors are linearly independent.
+
+    If the list $v_{1} , \ldots, v_{m}$ is linearly independent, we can add vectors to this list to obtain a basis of $V$, and let such a basis be
+    \[
+        v_{1} , \ldots, v_{m}, v_{m+1}, \ldots, v_{m+n}
+    \]
+
+    Let $\lambda_{1}, \ldots, \lambda_{m}$ be distinct elements of $\mathbb{F}$. I define the linear map $T\in\lmap{V}$ as follows: $Tv_{i} = \lambda_{i}v_{i}$ for $i = 1, \ldots, m$ and $Tv_{i} = 0$ for $i > m$. So $v_{1} , \ldots, v_{m}$ are eigenvectors of $T$ corresponding to distinct eigenvalues $\lambda_{1}, \ldots, \lambda_{m}$.
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise35
+\begin{exercise}
+    Suppose that $\lambda_{1}, \ldots, \lambda_{n}$ is a list of distinct real numbers. Prove that the list $e^{\lambda_{1}x} , \ldots, e^{\lambda_{n}x}$ is linearly independent in the vector space of real-valued functions on $\mathbb{R}$.
+\end{exercise}
+
+\begin{proof}
+    Let $D$ be the linear operator on the vector space of differentiable real-valued functions on $\mathbb{R}$ defined by $Df = f'$. Because $De^{\lambda_{i}x} = \lambda_{i}e^{\lambda_{i}x}$ so $e^{\lambda_{i}x}$ is an eigenvector of $D$ corresponding to the eigenvalue $\lambda_{i}$ for $i = 1, \ldots, n$.
+
+    Because $\lambda_{1}, \ldots, \lambda_{n}$ are pairwise distinct, it follows that $e^{\lambda_{1}x} , \ldots, e^{\lambda_{n}x}$ is linearly independent in the vector space of differentiable real-valued functions on $\mathbb{R}$, and also in the vector space of real-valued functions on $\mathbb{R}$.
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise36
+\begin{exercise}
+    Suppose that $\lambda_{1}, \ldots, \lambda_{n}$ is a list of distinct positive numbers. Prove that the list $\cos{(\lambda_{1}x)} , \ldots, \cos{(\lambda_{n}x)}$ is linearly independent in the vector space of real-valued functions on $\mathbb{R}$.
+\end{exercise}
+
+\begin{proof}
+    Let $D$ be the linear operator on the vector space of twice differentiable real-valued functions on $\mathbb{R}$ defined by $Df = f'$. Because $D^{2}(\cos(\lambda_{i}x)) = -\lambda_{i}^{2}\cos(\lambda_{i}x)$, $\cos(\lambda_{i}x)$ is an eigenvalue of $D^{2}$ corresponding to the eigenvalue $\lambda_{i}^{2}$ for $i = 1, \ldots, n$.
+
+    Because $\lambda_{1}^{2}, \ldots, \lambda_{n}^{2}$ are pairwise distinct, it follows that $\cos{(\lambda_{1}x)} , \ldots, \cos{(\lambda_{n}x)}$ is linearly independent in the vector space of twice differentiable real-valued functions on $\mathbb{R}$, and also in the vector space of real-valued functions on $\mathbb{R}$.
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise37
+\begin{exercise}
+    Suppose $V$ is finite-dimensional and $T \in \lmap{V}$. Define $A \in \lmap{\lmap{V}}$ by
+    \[
+        \mathcal{A}(S) = TS
+    \]
+
+    for each $S\in\lmap{V}$. Prove that the set of eigenvalues of $T$ equals the set of eigenvalues of $\mathcal{A}$.
+\end{exercise}
+
+\begin{proof}
+    Let $\lambda$ be an eigenvalue of $T$ and $v$ be a corresponding eigenvector. Let $v_{1}, \ldots, v_{n}$ be a basis of $V$. I define the linear map $S\in\lmap{V}$ as follows: $Sv_{i} = v$ for $i = 1, \ldots, n$. Then
+    \[
+        (TS)(v_{i}) = Tv = \lambda v = \lambda Sv_{i}
+    \]
+
+    for $i = 1, \ldots, n$. Hence $TS = \lambda S$, which means $\lambda$ is an eigenvalue of $\mathcal{A}$.
+
+    \bigskip
+    Let $\lambda$ be an eigenvalue of $\mathcal{A}$ and $S$ be a corresponding eigenvector. Then $(TS)(v) = \lambda Sv$ for all $v\in V$. Therefore $T(Sv) = \lambda Sv$ for all $v\in V$. Because $S\ne 0$, then there exists $v_{0}\in V$ such that $Sv_{0}\ne 0$. So $T(Sv_{0}) = \lambda Sv_{0}$ and we conclude that $\lambda$ is an eigenvalue of $T$.
+
+    Thus the set of eigenvalues of $T$ equals the set of eigenvalues of $\mathcal{A}$.
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise38
+\begin{exercise}
+    Suppose $V$ is finite-dimensional, $T\in\lmap{V}$, and $U$ is a subspace of $V$ invariant under $T$. The \textit{quotient operator} $T/U\in\lmap{V/U}$ is defined by
+    \[
+        (T/U)(v + U) = Tv + U
+    \]
+
+    for each $v\in V$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that the definition of $T/U$ makes sense (which requires using the
+              condition that $U$ is invariant under $T$) and show that $T/U$ is an operator
+              on $V/U$.
+        \item Show that each eigenvalue of $T/U$ is an eigenvalue of $T$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Assume $v + U = w + U$, then $v - w\in U$. Because $U$ is invariant under $T$, $Tv - Tw\in U$, so $Tv + U = Tw + U$. So
+              \[
+                  (T/U)(v + U) = Tv + U = Tw + U = (T/U)(w + U).
+              \]
+
+              Hence the definition of $T/U$ make sense ($T/U$ is well-defined).
+
+              Moreover, $T/U$ is a linear map. So $T/U$ is an operator on $V/U$.
+        \item Assume $\lambda$ is an eigenvalue of $T/U$ and $v + U$ be a corresponding eigenvector. According to the definition of eigenvector, $v\notin U$. Then $(T/U)(v + U) = Tv + U = \lambda v + U$, which implies $Tv - \lambda v \in U$.
+
+              Let $Tv - \lambda v = u$. For $u'\in U$,
+              \[
+                  T(v + u') = Tv + Tu' = \lambda v + u + Tu'.
+              \]
+
+              Because $v\notin U$ and $u'\in U$, it follows that $v + u'\notin U$, so $v + u'$ is nonzero.
+
+              I will find $u'\in U$ such that $u + Tu' = \lambda u'$, or equivalently, $u = (T - \lambda I)(u')$.
+
+              If the restriction on $U$ of $T - \lambda I$ is not invertible, then $T - \lambda I$ is also not invertible. So $\lambda$ is an eigenvalue of $T$.
+
+              If the restriction on $U$ of $T - \lambda I$ is invertible, then there exists $u'$ such that $u = (T - \lambda I)(u')$. Therefore $T(v + u') = \lambda v + \lambda u' = \lambda (v + u')$. So $\lambda$ is an eigenvalue of $T$.
+
+              Hence each eigenvalue of $T/U$ is an eigenvalue of $T$.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise39
+\begin{exercise}
+    Suppose $V$ is finite-dimensional and $T \in \lmap{V}$. Prove that $T$ has an eigenvalue if and only if there exists a subspace of $V$ of dimension $\dim V - 1$ that is invariant under $T$.
+\end{exercise}
+
+\begin{proof}
+    Unsolved.
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise40
+\begin{exercise}
+    Suppose $S,T\in\lmap{V}$ and $S$ is invertible. Suppose $p\in\mathscr{P}(\mathbb{F})$ is a polynomial. Prove that
+    \[
+        p(STS^{-1}) = Sp(T)S^{-1}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    Let $p(x) = a_{0} + a_{1}x + \cdots + a_{n}x^{n}$. We have
+    \[
+        {(STS^{-1})}^{k} = ST^{k}S^{-1}
+    \]
+
+    for every nonnegative integer $k$, so
+    \begin{align*}
+        p(STS^{-1}) & = a_{0}(SIS^{-1}) + a_{1}(STS^{-1}) + \cdots + a_{n}(ST^{n}S^{-1}) \\
+                    & = S(a_{0}I + a_{1}T + \cdots + a_{n}T^{n})S^{-1}                   \\
+                    & = Sp(T)S^{-1}.\qedhere
+    \end{align*}
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise41
+\begin{exercise}
+    Suppose $T\in\lmap{V}$ and $U$ is a subspace of $V$ invariant under $T$. Prove that $U$ is invariant under $p(T)$ for every polynomial $p\in\mathscr{P}(\mathbb{F})$.
+\end{exercise}
+
+\begin{proof}
+    Because $U$ is invariant under $T$ and $U$ is invariant under $I$, then $U$ is invariant under $T^{m}$ for every nonnegative integer $m$. Therefore $U$ is invariant under $p(T)$ for every polynomial $p\in\mathscr{P}(\mathbb{F})$.
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise42
+\begin{exercise}
+    Define $T\in\lmap{\mathbb{F}^{n}}$ by $T(x_{1}, x_{2}, x_{3}, \ldots, x_{n}) = (x_{1}, 2x_{2}, 3x_{3}, \ldots, nx_{n})$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Find all eigenvalues and eigenvectors of $T$.
+        \item Find all subspaces of $\mathbb{F}^{n}$ that are invariant under $T$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Assume $\lambda$ is an eigenvalue of $T$ and let $(x_{1}, x_{2}, x_{3}, \ldots, x_{n})$ be a corresponding eigenvector. Then
+              \[
+                  (\lambda x_{1}, \lambda x_{2}, \lambda x_{3}, \ldots, \lambda x_{n}) = (x_{1}, 2x_{2}, 3x_{3}, \ldots, nx_{n})
+              \]
+
+              Hence $(\lambda - k)x_{k} = 0$ for $k = 1,\ldots, n$. So $\lambda = 1$, or $\lambda = 2$, \ldots, or $\lambda = n$.
+
+              The eigenvectors corresponding to $\lambda = k$ is a scalar multiple (nonzero) of $e_{k}$ (where $e_{1}, \ldots, e_{n}$ is the standard basis of $\mathbb{F}^{n}$).
+        \item Find all subspaces of $\mathbb{F}^{n}$ that are invariant under $T$.
+
+              I will prove the following statement: If $V$ is a subspace of $\mathbb{F}^{n}$ that is invariant under $T$ and $(x_{1}, \ldots, x_{n})\in V$, then $x_{1}e_{1}, \ldots, x_{n}e_{n}\in V$.
+
+              If $(x_{1}, \ldots, x_{n})\in V$ then for every $k = 1, \ldots, n$
+              \[
+                  (0, \ldots, 0, (k-1)!x_{k}, \ldots, n(n-1)\cdots (n - k + 1)x_{n})\in V.
+              \]
+
+              Therefore $(0, \ldots, 0, (n-1)!x_{n})\in V$ and $x_{n}e_{n}\in V$. So $(x_{1}, \ldots, x_{n-1}, 0)\in V$. Similarly, $x_{k}e_{k}\in V$ for $k = n-1, \ldots, 1$.
+
+              Let $i_{1}, \ldots, i_{k}$ be the positive integers in $\{ 1, \ldots, n \}$ such that there exists an element in $V$ where the $i_{j}$th slot is nonzero. According to the statement that we have just proved, $V$ is the span of $e_{i_{1}}$, \ldots, $e_{i_{k}}$.
+
+              Hence all subspaces of $\mathbb{F}^{n}$ that are invariant under $T$ are spans of vectors in the list $e_{1}, \ldots, e_{n}$.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter5:sectionA:exercise43
+\begin{exercise}
+    Suppose that $V$ is finite-dimensional, $\dim V > 1$, and $T\in\lmap{V}$. Prove that $\{ p(T): p\in\mathscr{P}(\mathbb{F}) \}\ne \lmap{V}$.
+\end{exercise}
+
+\begin{proof}
+    Unsolved.
+\end{proof}
+\newpage
+
 \section{The Minimal Polynomial}
 
 \section{Upper-Triangular Matrices}
