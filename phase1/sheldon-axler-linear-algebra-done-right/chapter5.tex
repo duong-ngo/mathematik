@@ -156,7 +156,7 @@ The original problem is $T\in\lmap{\mathscr{P}_{4}(\mathbb{R})}$
 \newpage
 
 % chapter5:sectionA:exercise11
-\begin{exercise}
+\begin{exercise}\label{chapter5:sectionA:exercise11}
     Suppose $V$ is finite-dimensional, $T\in\lmap{V}$, and $\alpha\in\mathbb{F}$. Prove that there exists $\delta > 0$ such that $T - \lambda I$ is invertible for all $\lambda\in\mathbb{F}$ such that $0 < \abs{\alpha - \lambda} < \delta$.
 \end{exercise}
 
@@ -854,7 +854,60 @@ In this exercise, $\mathbb{F}$ must have infinite elements.
 \end{exercise}
 
 \begin{proof}
-    Unsolved.
+    $(\Rightarrow)$ $T$ has an eigenvalue $\lambda$.
+
+    If $\lambda  = 0$. Let $Tv_{1}, \ldots, Tv_{m}$ be a basis of $\range{T}$, then $v_{1}, \ldots, v_{m}$ is linearly independent. Let $v$ be a vector in $V$, then there exist $a_{1}, \ldots, a_{m}\in\mathbb{F}$ such that
+    \[
+        Tv = a_{1}Tv_{1} + \cdots + a_{m}Tv_{m} = T(a_{1}v_{1} + \cdots + a_{m}v_{m}).
+    \]
+
+    So $v - (a_{1}v_{1} + \cdots + a_{m}v_{m})$ is in $\kernel{T}$. Let $u_{1}, \ldots, u_{p}$ be a basis of $\kernel{T}$.
+    \[
+        \kernel{T}\cap\operatorname{span}(v_{1}, \ldots, v_{m}) = \{ 0 \}.
+    \]
+
+    Because $\lambda = 0$, it follows that $\kernel{T}\ne \{ 0 \}$. So $p\geq 1$. The subspace
+    \[
+        \operatorname{span}(v_{1}, \ldots, v_{m})\oplus\operatorname{span}(u_{1}, \ldots, u_{p-1})
+    \]
+
+    is an invariant subspace of dimension $\dim V - 1$ under $T$.
+
+    If $\lambda\ne 0$. Let $v_{1}$ be an eigenvector of $T$ corresponding to $\lambda$ and let $v_{1}, \ldots, v_{n}$ be a basis of $V$. Then the matrix of $T$ with respect to this basis is
+    \[
+        \begin{pmatrix}
+            \lambda & A_{1,2} & \cdots & A_{1,n} \\
+            0       & A_{2,2} & \cdots & A_{2,n} \\
+            \vdots  & \vdots  &        & \vdots  \\
+            0       & A_{n,2} & \cdots & A_{n,n}
+        \end{pmatrix}.
+    \]
+
+    I choose $w_{1} = v_{1}$, $w_{k} = v_{k} - \lambda^{-1}A_{1,k}v_{1}$ for $1 < k\leq n$. Then $w_{1}, \ldots, w_{n}$ is a basis of $V$ and the matrix of $T$ with respect to this basis is
+    \[
+        \begin{pmatrix}
+            \lambda & 0       & \cdots & 0       \\
+            0       & A_{2,2} & \cdots & A_{2,n} \\
+            \vdots  & \vdots  &        & \vdots  \\
+            0       & A_{n,2} & \cdots & A_{n,n}
+        \end{pmatrix}.
+    \]
+
+    Then $\operatorname{span}(w_{2}, \ldots, w_{n})$ is a subspace of $V$ of dimension $\dim V - 1$, which is invariant under $T$.
+
+    $(\Leftarrow)$ There exists a subspace of $V$ of dimension $\dim V - 1$ that is invariant under $T$.
+
+    Let $n = \dim V$. Let $U$ be such subspace and $v_{1}, \ldots, v_{n-1}$ be a basis of $U$. This list can be extended to become a basis of $V$, let such a basis be $v_{1}, \ldots, v_{n}$. Let $A$ be the matrix of $T$ with respect to this basis, then
+    \[
+        A = \begin{pmatrix}
+            A_{1,1}   & \cdots & A_{1,n-1}   & A_{1,n}   \\
+            \vdots    &        & \vdots      & \vdots    \\
+            A_{n-1,1} & \cdots & A_{n-1,n-1} & A_{n-1,n} \\
+            0         & \cdots & 0           & A_{n,n}
+        \end{pmatrix}.
+    \]
+
+    $A - A_{n,n}I$ is the matrix of $T - A_{n,n}I$ with respect to $v_{1}, \ldots, v_{n}$. $A - A_{n,n}I$ is not invertible because its $n$th row is zero, hence $T - A_{n,n}I$ is not invertible. Therefore $A_{n,n}$ is an eigenvalue of $T$. So $T$ has an eigenvalue.
 \end{proof}
 \newpage
 
@@ -892,7 +945,7 @@ In this exercise, $\mathbb{F}$ must have infinite elements.
 \newpage
 
 % chapter5:sectionA:exercise42
-\begin{exercise}
+\begin{exercise}\label{chapter5:sectionA:exercise42}
     Define $T\in\lmap{\mathbb{F}^{n}}$ by $T(x_{1}, x_{2}, x_{3}, \ldots, x_{n}) = (x_{1}, 2x_{2}, 3x_{3}, \ldots, nx_{n})$.
     \begin{enumerate}[label={(\alph*)}]
         \item Find all eigenvalues and eigenvectors of $T$.
@@ -934,11 +987,694 @@ In this exercise, $\mathbb{F}$ must have infinite elements.
 \end{exercise}
 
 \begin{proof}
-    Unsolved.
+    This result follows Exercise~\ref{chapter5:sectionB:exercise19}.
 \end{proof}
 \newpage
 
 \section{The Minimal Polynomial}
+
+% chapter5:sectionB:exercise1
+\begin{exercise}
+    Suppose $T\in \lmap{V}$. Prove that $9$ is an eigenvalue of $T^{2}$ if and only if $3$ or $-3$ is an eigenvalue of $T$.
+\end{exercise}
+
+\begin{proof}
+    If $9$ is an eigenvalue of $T^{2}$ then there exists a nonzero vector $v$ such that $(T^{2} - 9I)(v) = 0$, so $(T - 3I)(T + 3I)(v) = 0$. Then $3$ or $-3$ is an eigenvalue of $T$ (otherwise, $(T - 3I)(T + 3I)(v) \ne 0$).
+
+    And if $3$ is an eigenvalue of $T$, then there exists a nonzero vector $v_{1}$ such that $(T^{2} - 9I)(v_{1}) = (T + 3I)(T - 3I)(v_{1}) = 0$. If $-3$ is an eigenvalue of $T$, then there exists a nonzero vector $v_{2}$ such that $(T^{2} - 9I)(v_{2}) = (T - 3I)(T + 3I)(v_{2}) = 0$. Hence $9$ is an eigenvalue of $T^{2}$.
+\end{proof}
+\newpage
+
+% chapter5:sectionB:exercise2
+\begin{exercise}
+    Suppose $V$ is a complex vector space and $T\in\lmap{V}$ has no eigenvalues. Prove that every subspace of $V$ invariant under $T$ is either $\{0\}$ or infinite-dimensional.
+\end{exercise}
+
+\begin{proof}
+    Let $U$ be a subspace of $V$ such that $U$ is invariant under $T$.
+
+    If $U$ is finite-dimensional and $\dim U > 0$, then $T\vert_{U}$ has an eigenvalue.
+
+    So if $T$ has no eigenvalues, then $T\vert_{U}$ also has no eigenvalues, therefore either $\dim U = 0$ or $U$ is infinite-dimensional.
+\end{proof}
+\newpage
+
+% chapter5:sectionB:exercise3
+\begin{exercise}
+    Suppose $n$ is a positive integer and $T\in\lmap{\mathbb{F}^{n}}$ is defined by
+    \[
+        T(x_{1}, \ldots, x_{n}) = (x_{1} + \cdots + x_{n}, \ldots, x_{1} + \cdots + x_{n}).
+    \]
+
+    \begin{enumerate}[label={(\alph*)}]
+        \item Find all eigenvalues and eigenvectors of $T$.
+        \item Find the minimal polynomial of $T$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Let $\lambda$ be an eigenvalue of $T$ and $(x_{1}, \ldots, x_{n})$ be a corresponding eigenvector. Then
+              \[
+                  (x_{1} + \cdots + x_{n}, \ldots, x_{1} + \cdots + x_{n}) = (\lambda x_{1}, \ldots, \lambda x_{n}).
+              \]
+
+              It follows that $\lambda x_{1} = \cdots = \lambda x_{n}$. Then either $\lambda = 0$ or $x_{1} = \cdots = x_{n}$. Hence all eigenvalues of $T$ are $0$ and $n$. The eigenvectors of $T$ corresponding to $0$ are nonzero vectors of the vector space
+              \[
+                  \{ (x_{1}, \ldots, x_{n}): x_{1} + \cdots + x_{n} = 0 \}.
+              \]
+
+              The eigenvectors of $T$ corresponding to $n$ are nonzero vectors of the vector space
+              \[
+                  \operatorname{span}((1, \ldots, 1)).
+              \]
+        \item Because $T$ has two different eigenvalues, it follows the the degree of the minimal polynomial of $T$ is at least $2$.
+              \[
+                  T^{2}(x_{1}, \ldots, x_{n}) = (n(x_{1} + \cdots + x_{n}), \ldots, n(x_{1} + \cdots + x_{n})) = nT(x_{1}, \ldots, x_{n}).
+              \]
+
+              So $T^{2} - nT = 0$. Hence $x^{2} - nx$ is the minimal polynomial of $T$.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter5:sectionB:exercise4
+\begin{exercise}
+    Suppose $\mathbb{F} = \mathbb{C}$, $T\in\lmap{V}$, $p\in\mathscr{P}(\mathbb{C})$, and $\alpha\in\mathbb{C}$. Prove that $\alpha$ is an eigenvalue of $p(T)$ if and only if $\alpha = p(\lambda)$ for some eigenvalue $\lambda$ of $T$.
+\end{exercise}
+
+\begin{proof}
+    If $\lambda$ is an eigenvalue of $T$ and $v$ is an eigenvector of $T$ corresponding to $\lambda$, then
+    \begin{align*}
+        (p(T))(v) = (a_{0}I + a_{1}T + \cdots + a_{n}T^{n})(v) & = a_{0}v + a_{1}\lambda v + \cdots + a_{n}\lambda^{n}v  \\
+                                                               & = (a_{0} + a_{1}\lambda + \cdots + a_{n}\lambda^{n})(v) \\
+                                                               & = p(\lambda)v                                           \\
+                                                               & = \alpha v.
+    \end{align*}
+
+    Hence $\alpha$ is an eigenvalue of $p(T)$.
+    \bigskip
+
+    Let $p$ be a polynomial of degree $n$ and $v$ be an eigenvector of $p(T)$ corresponding to $\alpha$.
+    \[
+        (p(T) - \alpha I)(v) = 0.
+    \]
+
+    According to the fundamental theorem of algebra, $p(z) - \alpha$ can be rewritten in the following form
+    \[
+        p(z) - \alpha = c(z - z_{1})\cdots (z - z_{n})
+    \]
+
+    So $c(T - z_{1}I)\cdots (T - z_{n}I)(v) = 0$. If none of $z_{1}, \ldots, z_{n}$ is an eigenvalue of $T$, then $c(T - z_{1}I)\cdots (T - z_{n}I)(v) \ne 0$. Therefore there is $\lambda$ in the list $z_{1}, \ldots, z_{n}$ such that $\lambda$ is an eigenvalue of $T$, this implies $p(\lambda) - \alpha = 0$. Hence $\alpha = p(\lambda)$ for some eigenvalue $\lambda$ of $T$.
+\end{proof}
+\newpage
+
+% chapter5:sectionB:exercise5
+\begin{exercise}
+    Give an example of an operator on $\mathbb{R}^{2}$ that shows the result in Exercise 4 does not hold if $\mathbb{C}$ is replaced with $\mathbb{R}$.
+\end{exercise}
+
+\begin{proof}
+    I define $T\in\lmap{\mathbb{R}^{2}}$ as follows: $T(x, y) = (-y, x)$, this linear operator $T$ has no eigenvalue. However, $T^{2}(x, y) = (-x, -y)$, which means $-1$ is an eigenvalue of $T^{2}$.
+\end{proof}
+\newpage
+
+% chapter5:sectionB:exercise6
+\begin{exercise}
+    Suppose $T \in \lmap{\mathbb{F}^{2}}$ is defined by $T(w, z) = (-z, w)$. Find the minimal polynomial of $T$.
+\end{exercise}
+
+\begin{proof}
+    $T^{2}(w, z) = T(-z, w) = (-w, -z)$. $p(x) = x^{2} + 1$ is the minimal polynomial of $T$.
+\end{proof}
+\newpage
+
+% chapter5:sectionB:exercise7
+\begin{exercise}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Give an example of $S, T\in\lmap{\mathbb{F}^{2}}$ such that the minimal polynomial of $ST$ does not equal the minimal polynomial of $TS$.
+        \item Suppose $V$ is finite-dimensional and $S,T \in \lmap{V}$. Prove that if at least one of $S, T$ is invertible, then the minimal polynomial of $ST$ equals the minimal polynomial of $TS$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item I choose $S(x, y) = (0, y)$ and $T(x, y) = (0, x)$.
+              \[
+                  (ST)(x, y) = S(0, x) = (0, x)\qquad (TS)(x, y) = T(0, y) = (0, 0)
+              \]
+
+              The minimal polynomial of $ST$ is $p(x) = x^{2}$, meanwhile the minimal polynomial of $TS$ is $p(x) = x$.
+        \item Let $p, q$ be the minimal polynomials of $ST, TS$, respectively.
+
+              If $S$ is invertible, then
+              \[
+                  \begin{split}
+                      0 = p(ST) = S^{-1}p(ST)S = p(S^{-1}STS) = p(TS), \\
+                      0 = q(TS) = Sq(TS)S^{-1} = q(STSS^{-1}) = q(ST).
+                  \end{split}
+              \]
+
+              so $\deg p\geq \deg q$ and $\deg q\geq \deg p$. Due to the uniqueness of the minimal polynomial, we deduce that $p = q$.
+
+              If $T$ is invertible, then
+              \[
+                  \begin{split}
+                      0 = p(ST) = Tp(ST)T^{-1} = p(TSTT^{-1}) = p(TS), \\
+                      0 = q(TS) = T^{-1}q(TS)T = q(T^{-1}TST) = q(ST).
+                  \end{split}
+              \]
+
+              so $\deg p\geq \deg q$ and $\deg q\geq \deg p$. Due to the uniqueness of the minimal polynomial, we deduce that $p = q$.
+
+              Hence if at least one of $S, T$ is invertible, then the minimal polynomial of $ST$ equals the minimal polynomial of $TS$.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter5:sectionB:exercise8
+\begin{exercise}
+    Suppose $T\in\lmap{\mathbb{R}^{2}}$ is the operator of counterclockwise rotation by $1^\circ$. Find the minimal polynomial of $T$.
+\end{exercise}
+
+\begin{proof}
+    According to the definition of $T$,
+    \[
+        T(x, y) = (x\cos 1^{\circ} + y \sin 1^{\circ}, -x\sin 1^{\circ} + y\cos 1^{\circ}).
+    \]
+    \begin{align*}
+        T^{2}(x, y) & = (x\cos 2^{\circ} + y\sin 2^{\circ}, -x\sin 2^{\circ} + y\cos 2^{\circ})
+    \end{align*}
+
+    So
+    \begin{align*}
+        T^{2}(1, 0) & = (\cos 2^{\circ}, -\sin 2^{\circ})                          \\
+                    & = (2\cos^{2} 1^{\circ} - 1, -2\sin 1^{\circ}\cos 1^{\circ})  \\
+                    & = 2\cos 1^{\circ}(\cos 1^{\circ}, -\sin 1^{\circ}) + (-1, 0) \\
+                    & = 2\cos 1^{\circ} T(1, 0) - I(1, 0).
+    \end{align*}
+
+    The minimal polynomial of $T$ is $p(x) = x^{2} - 2x\cos 1^{\circ} + 1$.
+\end{proof}
+\newpage
+
+% chapter5:sectionB:exercise9
+\begin{exercise}
+    Suppose $T\in\lmap{V}$ is such that with respect to some basis of $V$, all entries of the matrix of $T$ are rational numbers. Explain why all coefficients of the minimal polynomial of $T$ are rational numbers.
+\end{exercise}
+
+\begin{proof}
+    Assume that all entries of the matrix of $T$ with respect to the basis $v_{1}, \ldots, v_{n}$ of $V$ are rational numbers. Let
+    \[
+        a_{0} + a_{1}z + \cdots + a_{m-1}z^{m-1} + z^{m}
+    \]
+
+    be the minimal polynomial of $T$. $x_{0}I + x_{1}T + \cdots + x_{m-1}T^{m-1} + T^{m} = 0$ if and only if $x_{0}v_{k} + x_{1}Tv_{k} + \cdots + x_{m-1}T^{m-1}v_{k} + T^{m}v_{k} = 0$ for all $k = 1,\ldots, m$. $T^{i}v_{k}$ can be rewritten as a linear combination of $v_{1}, \ldots, v_{m}$. So from  $x_{0}v_{k} + x_{1}Tv_{k} + \cdots + x_{m-1}T^{m-1}v_{k} + T^{m}v_{k} = 0$ for all $k = 1,\ldots, m$, we obtain a system of linear equations of $m$ unknowns $x_{0}, x_{1}, \ldots, x_{m-1}$ where all coefficients are rational numbers. The solutions of this system of linear equations are the coefficients of the minimal polynomial of $T$. This solution is also unique due to the uniqueness of minimal polynomial of $T$. The solution also must comprise of rational numbers because all coefficients are rational numbers. Hence $a_{0}, a_{1}, \ldots, a_{m-1}$ are rational numbers.
+\end{proof}
+\newpage
+
+% chapter5:sectionB:exercise10
+\begin{exercise}
+    Suppose $V$ is finite-dimensional, $T\in\lmap{V}$, and $v\in V$. Prove that
+    \[
+        \operatorname{span}(v, Tv, \ldots, T^{m}v) = \operatorname{span}(v, Tv, \ldots, T^{\dim V - 1}v)
+    \]
+
+    for all integers $m\geq \dim V - 1$.
+\end{exercise}
+
+\begin{proof}
+    Let $p$ be the minimal polynomial of $T$, then $\deg T\leq \dim V$.
+
+    I give a proof using mathematical induction on $m$.
+
+    When $m = \dim V - 1$, $\operatorname{span}(v, Tv, \ldots, T^{m}v) = \operatorname{span}(v, Tv, \ldots, T^{\dim V - 1}v)$.
+
+    Assume $\operatorname{span}(v, Tv, \ldots, T^{m}v) = \operatorname{span}(v, Tv, \ldots, T^{\dim V - 1}v)$ for every positive integer $m$ such that $\dim V - 1\leq m < n$.
+
+    Let $p(x) = a_{0} + a_{1}x + \cdots + a_{k-1}x^{k-1} + x^{k}$, then $k\leq \dim V$, $k\leq n$, and
+    \[
+        T^{n}v = -a_{k-1}T^{n-1}v - \cdots - a_{1}T^{n-k+1}v - a_{0}T^{n-k}v.
+    \]
+
+    According to the induction hypothesis, $T^{n-1}, \ldots, T^{n-k}$ are in $\operatorname{span}(v, Tv, \ldots, T^{\dim V - 1}v)$. Therefore $T^{n}v$ is also in $\operatorname{span}(v, Tv, \ldots, T^{\dim V - 1}v)$.
+
+    Hence, due to the principle of mathematical induction
+    \[
+        \operatorname{span}(v, Tv, \ldots, T^{m}v) = \operatorname{span}(v, Tv, \ldots, T^{\dim V - 1}v)
+    \]
+
+    for all integers $m\geq \dim V - 1$.
+\end{proof}
+\newpage
+
+% chapter5:sectionB:exercise11
+\begin{exercise}
+    Suppose $V$ is a two dimensional vector space, $T\in\lmap{V}$, and the matrix of $T$ with respect to some basis of $V$ is $\begin{pmatrix}a & c \\ b & d\end{pmatrix}$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that $T^{2} - (a + d)T + (ad - bc)I = 0$.
+        \item Show that the minimal polynomial of $T$ equals
+              \[
+                  \begin{cases}
+                      z - a                        & \text{if $b = c = 0$ and $a = d$}, \\
+                      z^{2} - (a + d)z + (ad - bc) & \text{otherwise}
+                  \end{cases}
+              \]
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    Let $v_{1}, v_{2}$ be the basis such that the matrix of $T$ with respect to this basis is $\begin{pmatrix}a & c \\ b & d\end{pmatrix}$.
+
+    \begin{align*}
+        T^{2}(x_{1}v_{1} + x_{2}v_{2}) & = T(x_{1}av_{1} + x_{1}bv_{2} + x_{2}cv_{1} + x_{2}dv_{2})                                                     \\
+                                       & = (a + d)T(x_{1}v_{1} + x_{2}v_{2}) + T(-x_{1}dv_{1} + x_{1}bv_{2} + x_{2}cv_{1} - x_{2}av_{2})                \\
+                                       & = (a + d)T(x_{1}v_{1} + x_{2}v_{2}) + (-x_{1}d + x_{2}c)(av_{1} + bv_{2}) + (x_{1}b - x_{2}a)(cv_{1} + dv_{2}) \\
+                                       & = (a + d)T(x_{1}v_{1} + x_{2}v_{2}) + (bc - ad)(x_{1}v_{1} + x_{2}v_{2}).
+    \end{align*}
+
+    Hence $T^{2} - (a + d)T + (ad - bc)I = 0$.
+
+    If $b = c = 0$ and $a = d$, then $z - a$ is the minimal polynomial of $T$.
+
+    Otherwise, if the degree of the minimal polynomial of $T$ is $1$, then there exists $\lambda\in\mathbb{F}$ such that $T = \lambda I$. So $Tv_{1} = \lambda v_{1} = av_{1} + bv_{2}$ and $Tv_{2} = \lambda v_{2} = cv_{1} + dv_{2}$. Therefore $a = d = \lambda$ and $b = c = 0$. So the degree of the minimal polynomial of $T$ must be $2$. Therefore the minimal polynomial of $T$ is $z^{2} - (a + d)z + (ad - bc)$.
+\end{proof}
+\newpage
+
+% chapter5:sectionB:exercise12
+\begin{exercise}
+    Define $T\in\lmap{\mathbb{F}^{n}}$ by $T(x_{1}, x_{2}, x_{3}, \ldots, x_{n}) = (x_{1}, 2x_{2}, 3x_{3}, \ldots, nx_{n})$. Find the minimal polynomial of $T$.
+\end{exercise}
+
+\begin{proof}
+    According to Exercise~\ref{chapter5:sectionA:exercise42}, $T$ has $n$ distinct eigenvalues, which are $1, \ldots, n$.
+
+    On the other hand, every eigenvalue of $T$ is a root of the minimal polynomial of $T$. Moreover, the degree of the minimal polynomial of $T$ does not exceed $n$. Therefore the minimal polynomial of $T$ is $(z - 1)(z - 2)\cdots (z - n)$.
+\end{proof}
+\newpage
+
+% chapter5:sectionB:exercise13
+\begin{exercise}
+    Suppose $T\in\lmap{V}$ and $p\in\mathscr{P}(\mathbb{F})$. Prove that there exists a unique $r\in \mathscr{P}(\mathbb{F})$ such that $p(T) = r(T)$ and $\deg r$ is less than the degree of the minimal polynomial of $T$.
+\end{exercise}
+
+\begin{proof}
+    Let $q$ be the minimal polynomial of $T$. By the Euclid division algorithm, there exist unique polynomials $s$, $r$ such that $p = sq + r$ and $\deg r < \deg q$. Therefore $p(T) = s(T)q(T) + r(T) = r(T)$.
+
+    If $r$ and $r'$ are polynomials such that $p(T) = r(T)$, $p(T) = r'(T)$ and $\deg r, \deg r' < \deg q$, then $(r - r')(T) = 0$. However, $\deg (r - r') < \deg q$, so $r - r' = 0$ (because $q$ is the minimal polynomial of $T$), which means $r = r'$.
+
+    Hence there exists a unique $r\in \mathscr{P}(\mathbb{F})$ such that $p(T) = r(T)$ and $\deg r$ is less than the degree of the minimal polynomial of $T$.
+\end{proof}
+\newpage
+
+% chapter5:sectionB:exercise14
+\begin{exercise}
+    Suppose $V$ is finite-dimensional and $T\in\lmap{V}$ has minimal polynomial $4 + 5z - 6z^{2} - 7z^{3} + 2z^{4} + z^{5}$. Find the minimal polynomial of $T^{-1}$.
+\end{exercise}
+
+\begin{proof}
+    Because the constant term of the minimal polynomial is nonzero, it follows that $T$ is invertible. Let $S = T^{-1}$. Let $a_{0} + a_{1}z + \cdots + z^{n}$ be the minimal polynomial of $T^{-1}$.
+    \[
+        4I + 5T - 6T^{2} - 7T^{3} + 2T^{4} + T^{5} = 0
+    \]
+
+    so
+    \[
+        0 = T^{-5}(4I + 5T - 6T^{2} - 7T^{3} + 2T^{4} + T^{5}) = 4S^{5} + 5S^{4} - 6S^{3} - 7S^{2} + 2S + I.
+    \]
+
+    Hence the minimal polynomial of $T^{-1}$ is a divisor of $1 + 2z - 7z^{2} - 6z^{3} + 5z^{4} + 4z^{5}$, and $n\leq 5$.
+    \[
+        a_{0}I + a_{1}S+ \cdots + a_{n-1}S^{n-1} + S^{n} = 0.
+    \]
+
+    So
+    \[
+        a_{0}T^{n} + a_{1}T^{n-1} + \cdots + a_{n-1}T + I = 0.
+    \]
+
+    It follows that $n\geq 5$. Hence $n = 5$.
+
+    Thus the minimal polynomial of $T^{-1}$ is
+    \[
+        \frac{1}{4} + \frac{1}{2}z - \frac{7}{4}z^{2} - \frac{3}{2}z^{3} + \frac{5}{4}z^{4} + z^{5}.\qedhere
+    \]
+\end{proof}
+\newpage
+
+% chapter5:sectionB:exercise15
+\begin{exercise}
+    Suppose $V$ is a finite-dimensional complex vector space with $\dim V > 0$ and $T\in\lmap{V}$. Define $f: \mathbb{C}\to \mathbb{R}$ by
+    \[
+        f(\lambda) = \dim\range{(T - \lambda I)}.
+    \]
+
+    Prove that $f$ is not a continuous function.
+\end{exercise}
+
+\begin{proof}
+    Because $\dim V > 0$ and $V$ is a complex vector space, then $T$ has an eigenvalue $\alpha$.
+
+    According to Exercise~\ref{chapter5:sectionA:exercise11}, there exists a positive real number $\delta$ such that for all $\lambda$, $0 < \abs{\alpha - \lambda} < \delta$ implies $(T - \lambda I)$ is invertible. Hence
+    \begin{align*}
+        \lim\limits_{\lambda\to \alpha} f(\lambda) & = \lim\limits_{\lambda\to \alpha} \dim\range{(T - \lambda I)} \\
+                                                   & = \dim V                                                      \\
+                                                   & \ne \dim\range{(T - \alpha I)} = f(\alpha).
+    \end{align*}
+
+    Thus $f$ is not a continuous function. Moreover, all discontinuous points of $f$ are eigenvalues of $T$.
+\end{proof}
+\newpage
+
+% chapter5:sectionB:exercise16
+\begin{exercise}
+    Suppose $a_{0}, \ldots, a_{n-1}\in\mathbb{F}$. Let $T$ be the operator on $\mathbb{F}^{n}$ whose matrix (with respect to the standard basis) is
+    \[
+        \begin{pmatrix}
+            0 &   &        &        &   & -a_{0}   \\
+            1 & 0 &        &        &   & -a_{1}   \\
+              & 1 & \ddots &        &   & -a_{2}   \\
+              &   &        & \ddots &   & \vdots   \\
+              &   &        &        & 0 & -a_{n-2} \\
+              &   &        &        & 1 & -a_{n-1}
+        \end{pmatrix}
+    \]
+
+    Here all entries of the matrix are $0$ except for all 1's on the line under the
+    diagonal and the entries in the last column (some of which might also be $0$). Show that the minimal polynomial of $T$ is the polynomial
+    \[
+        a_{0} + a_{1}z + \cdots + a_{n-1}z^{n-1} + z^{n}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    Let $e_{1}, \ldots, e_{n}$ be the standard basis of $\mathbb{F}^{n}$.
+    \begin{itemize}
+        \item $Ie_{1} = e_{1}$.
+        \item $Te_{1} = e_{2}$.
+        \item $T^{2}e_{1} = Te_{2} = e_{3}$.
+        \item \ldots
+        \item $T^{n-1}e_{1} = Te_{n-1} = e_{n}$.
+        \item $T^{n}e_{1} = Te_{n} = -a_{0}e_{1} - a_{1}e_{2} - \cdots - a_{n-1}e_{n-1}$.
+    \end{itemize}
+
+    Because $e_{1}, \ldots, e_{n}$ is linearly independent, $Ie_{1}, Te_{1}, \ldots, T^{n-1}e_{1}$ is linearly independent. So for every $b_{0}, b_{1}, \ldots, b_{n-1}$ such that they are not all zero, $(b_{0}I + b_{1}T + \cdots + b_{n-1}T^{n-1})(v_{1})\ne 0$. So the minimal polynomial of $T$ has degree greater than $(n - 1)$. On the other hand, the degree of the minimal polynomial of $T$ does not exceed $n$. Therefore the degree of the minimal polynomial of $T$ is $n$.
+
+    $T^{n}e_{1} = Te_{n} = -a_{0}e_{1} - a_{1}e_{2} - \cdots - a_{n-1}e_{n-1}$, it follows that
+    \[
+        (a_{0}I + a_{1}T + \cdots + a_{n-1}T^{n-1} + T^{n})(v_{1}) = 0.
+    \]
+
+    Moreover, for $k = 2, \ldots, n$
+    \begin{align*}
+        (a_{0}I + a_{1}T + \cdots + a_{n-1}T^{n-1} + T^{n})(v_{k}) & = (a_{0}I + a_{1}T + \cdots + a_{n-1}T^{n-1} + T^{n})(T^{k-1})(v_{1}) \\
+                                                                   & = (T^{k-1})(a_{0}I + a_{1}T + \cdots + a_{n-1}T^{n-1} + T^{n})(v_{1}) \\
+                                                                   & = T^{k-1}(0)                                                          \\
+                                                                   & = 0.
+    \end{align*}
+
+    Hence $a_{0}I + a_{1}T + \cdots + a_{n-1}T^{n-1} + T^{n} = 0$. Thus $a_{0} + a_{1}z + \cdots + a_{n-1}z^{n-1} + z^{n}$ is the minimal polynomial of $T$.
+\end{proof}
+\newpage
+
+% chapter5:sectionB:exercise17
+\begin{exercise}
+    Suppose $V$ is finite-dimensional, $T \in \lmap{V}$, and $p$ is the minimal polynomial of $T$. Suppose $\lambda \in \mathbb{F}$. Show that the minimal polynomial of $T - \lambda I$ is the polynomial $q$ defined by $q(z) = p(z + \lambda)$.
+\end{exercise}
+
+\begin{proof}
+    Let $r$ be the minimal polynomial of $T - \lambda I$. Then $r(T - \lambda I) = 0$.
+
+    Assume $\deg r < \deg p$. I define $s\in\mathscr{P}(\mathbb{F})$ as follows: $s(z) = r(z - \lambda)$, then $s(T) = r(T - \lambda I) = 0$ and $s$ is monic. However $\deg s = \deg r < \deg p$, which contradicts $p$ being the minimal polynomial of $T$. Hence $\deg r\geq \deg p$.
+
+    Let $q(z) = p(z + \lambda)$. $q$ is monic, $\deg q = \deg p$ and $q(T - \lambda I) = p(T) = 0$. Therefore $q$ is the minimal polynomial of $T - \lambda I$.
+\end{proof}
+\newpage
+
+% chapter5:sectionB:exercise18
+\begin{exercise}
+    Suppose $V$ is finite-dimensional, $T \in \lmap{V}$, and $p$ is the minimal polynomial of $T$. Suppose $\lambda \in \mathbb{F}\setminus\{0\}$. Show that the minimal polynomial of $\lambda T$ is the polynomial $q$ defined by $q(z) = \lambda^{\deg p}p\left(\dfrac{z}{\lambda}\right)$.
+\end{exercise}
+
+\begin{proof}
+    Let $r$ be the minimal polynomial of $\lambda T$. Then $r(\lambda T) = 0$.
+
+    Assume $\deg r < \deg p$. I define $s\in\mathscr{P}(\mathbb{F})$ as follows: $s(z) = \dfrac{1}{\lambda^{\deg r}}r(\lambda z)$. $s$ is monic and $s(T) = 0$. This contradicts $p$ being the minimal polynomial of $T$. Hence $\deg r\geq \deg p$.
+
+    Let $q(z) = \lambda^{\deg p}p\left(\dfrac{z}{\lambda}\right)$. $q$ is monic and $q(\lambda T) = 0$. Therefore $q$ is the minimal polynomial of $\lambda T$.
+\end{proof}
+\newpage
+
+% chapter5:sectionB:exercise19
+\begin{exercise}\label{chapter5:sectionB:exercise19}
+    Suppose $V$ is finite-dimensional and $T\in\lmap{V}$. Let $\mathcal{E}$ be the subspace of $\lmap{V}$ defined by
+    \[
+        \mathcal{E} = \{ q(T): q\in\mathscr{P}(\mathbb{F}) \}.
+    \]
+
+    Prove that $\dim\mathcal{E}$ equals the degree of the minimal polynomial of $T$.
+\end{exercise}
+
+\begin{proof}
+    Let $p$ be the minimal polynomial of $T$. Let $q(T)$ be an element of $\mathcal{E}$. According to the Euclidean division algorithm, there exist unique polynomials $s$, $r$ such that $\deg r < \deg p$ and $q = ps + r$. So $q(T) = p(T)s(T) + r(T) = r(T)$. Therefore
+    \[
+        \mathcal{E} = \{ q(T): q\in\mathscr{P}(\mathbb{F}) \} = \{ q(T): q\in\mathscr{P}_{(\deg p) - 1}(\mathbb{F}) \}
+    \]
+
+    $I, T, \ldots, T^{(\deg p) - 1}$ is linearly independent, since the degree of the minimal polynomial of $T$ is $\deg p$. On the other hand, if $q(T)\in \mathcal{E}$, there exists $r\in\mathscr{P}_{(\deg p) - 1}(\mathbb{F})$ such that $q(T) = r(T)$. Moreover, $r(T)$ is in $\operatorname{span}(I, T, \ldots, T^{(\deg p) - 1})$. Therefore $I, T, \ldots, T^{(\deg p) - 1}$ is a basis of $\mathcal{E}$. Thus $\dim \mathcal{E} = \deg p$.
+\end{proof}
+\newpage
+
+% chapter5:sectionB:exercise20
+\begin{exercise}
+    Suppose $T \in \lmap{\mathbb{F}^{4}}$ is such that the eigenvalues of $T$ are $3, 5, 8$. Prove that ${(T - 3I)}^{2}{(T - 5I)}^{2}{(T - 8I)}^{2} = 0$.
+\end{exercise}
+
+\begin{proof}
+    Let $p$ be the minimal polynomial of $T$. Because the eigenvalues of $T$ are $3, 5, 8$, these are also the roots of $p$. So
+    \[
+        p(z) = (z - 3)(z - 5)(z - 8)q(z)
+    \]
+
+    where $q$ is a monic polynomial and $\deg q\leq 1$ (because $3\leq \deg p\leq 4$). Therefore, either $q(z) = 1$, or $q(z) = z - 3$, or $q(z) = z - 5$, or $q(z) = z - 8$ (because the roots of the minimal polynomial of $T$ are the eigenvalues of $T$). In every of these cases, we can conclude ${(T - 3I)}^{2}{(T - 5I)}^{2}{(T - 8I)}^{2} = 0$.
+\end{proof}
+\newpage
+
+% chapter5:sectionB:exercise21
+\begin{exercise}
+    Suppose $V$ is finite-dimensional and $T \in \lmap{V}$. Prove that the minimal
+    polynomial of $T$ has degree at most $1 + \dim \range{T}$.
+\end{exercise}
+
+\begin{proof}
+    Let $p$ be the minimal polynomial of $T$ and
+    \[
+        p(z) = a_{0} + a_{1}z + \cdots + a_{n-1}z^{n-1} + z^{n}.
+    \]
+
+    $\range{T}$ is invariant under $T$. Let $q$ be the minimal polynomial of $T\vert_{\range{T}}$.
+
+    Let $s(z) = z\times q(z)$. For all $v\in V$, $s(T)v = q(T)(Tv)$. On the other hand, $Tv\in \range{T}$, so
+    \[
+        q(T)(Tv) = q(T\vert_{\range{T}})(Tv) = 0.
+    \]
+
+    So $s$ is a polynomial multiple of $p$. Hence
+    \[
+        \deg p \leq \deg s = 1 + \deg q \leq 1 + \dim\range{T}.
+    \]
+
+    Thus $\deg p\leq 1 + \dim\range{T}$.
+\end{proof}
+\newpage
+
+% chapter5:sectionB:exercise22
+\begin{exercise}
+    Suppose $V$ is finite-dimensional and $T\in\lmap{V}$. Prove that $T$ is invertible if and only if $I\in\operatorname{span}(T, T^{2}, \ldots, T^{\dim V})$.
+\end{exercise}
+
+\begin{proof}
+    Let the minimal polynomial of $T$ be $p(z) = a_{0} + a_{1}z + \cdots + a_{n-1}z^{n-1} + z^{n}$.
+
+    If $T$ is invertible, then $a_{0}\ne 0$, and
+    \[
+        I = -a_{0}^{-1}(a_{1}T + \cdots + a_{n-1}T^{n-1} + T^{n}).
+    \]
+
+    So $I\in\operatorname{span}(T, T^{2}, \ldots, T^{n})\subseteq \operatorname{span}(T, T^{2}, \ldots, T^{\dim V})$.
+
+    \bigskip
+    If $I\in\operatorname{span}(T, T^{2}, \ldots, T^{\dim V})$, then there exist $c_{1}, \ldots, c_{\dim V}$ in $\mathbb{F}$ such that
+    \[
+        I = c_{1}T + \cdots + c_{\dim V}T^{\dim V}
+    \]
+
+    So the polynomial $q(z) = 1 - c_{1}z - \cdots - c_{\dim V}z^{\dim V}$ is a multiple of $p$. Assume $T$ is not invertible, then $0$ is a root of $p$. So $0$ is also a root of $q$, but this is a contradiction because $q(0) = 1$. Hence the assumption is false, and we conclude that $T$ is invertible.
+
+    Thus $T$ is invertible if and only if $I\in\operatorname{span}(T, T^{2}, \ldots, T^{\dim V})$.
+\end{proof}
+\newpage
+
+% chapter5:sectionB:exercise23
+\begin{exercise}
+    Suppose $V$ is finite-dimensional and $T\in\lmap{V}$. Let $n = \dim V$. Prove that if $v\in V$, then $\operatorname{span}(v, Tv, \ldots, T^{n-1}v)$ is invariant under $T$.
+\end{exercise}
+
+\begin{proof}
+    Let $p$ be the minimal polynomial of $T$ and
+    \[
+        p(z) = a_{0} + a_{1}z + \cdots + a_{n-1}z^{n-1} + z^{n}.
+    \]
+
+    Then $T^{n}v = -a_{0}v - a_{1}Tv - \cdots - a_{n-1}T^{n-1}v$. Hence
+    \[
+        Tv, T(Tv), \ldots, T(T^{n-1}v) \in \operatorname{span}(v, Tv, \ldots, T^{n-1}v).
+    \]
+
+    Therefore $\operatorname{span}(v, Tv, \ldots, T^{n-1}v)$ is invariant under $T$.
+\end{proof}
+\newpage
+
+% chapter5:sectionB:exercise24
+\begin{exercise}
+    Suppose $V$ is a finite-dimensional complex vector space. Suppose $T\in\lmap{V}$ is such that $5$ and $6$ are eigenvalues of $T$ and that $T$ has no other eigenvalues. Prove that ${(T - 5I)}^{\dim V - 1}{(T - 6I)}^{\dim V - 1} = 0$.
+\end{exercise}
+
+\begin{proof}
+    Let $p$ be the minimal polynomial of $T$ and $\lambda$ be a root of $p$. Then there exists a polynomial $q$ such that $p(z) = (z - \lambda)q(z)$.
+    \[
+        0 = p(T) = (T - \lambda I)q(T)
+    \]
+
+    $q(T)\ne 0$ because $\deg q < \deg p$, $\deg q\ne 0$ and $p$ is the minimal polynomial of $T$. So there exists a vector $v$ in $V$ such that $q(T)v\ne 0$, then $0 = p(T)v = (T - \lambda I)(q(T)v)$. So $\lambda$ is an eigenvalue of $T$.
+
+    According to the hypothesis, $\lambda$ is either $5$ or $6$. From this and the fundamental theorem of algebra, we have
+    \[
+        p(z) = {(z - 5)}^{m}{(z - 6)}^{n}
+    \]
+
+    where $m, n\geq 1$ and $m + n \leq \dim V$. Hence ${(z - 5)}^{\dim V - 1}{(z - 6)}^{\dim V - 1}$ is a multiple of $p$. Thus
+    \[
+        {(T - 5I)}^{\dim V - 1}{(T - 6I)}^{\dim V - 1} = 0.\qedhere
+    \]
+\end{proof}
+\newpage
+
+% chapter5:sectionB:exercise25
+\begin{exercise}
+    Suppose $V$ is finite-dimensional, $T\in\lmap{V}$, and $U$ is a subspace of $V$ that is invariant under $T$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Prove that the minimal polynomial of $T$ is a polynomial multiple of the minimal polynomial of the quotient operator $T/U$.
+        \item Prove that
+              \[
+                  \text{(minimal polynomial of $T\vert_{U}$)}\times\text{(minimal polynomial of $T/U$)}
+              \]
+
+              is a polynomial multiple of the minimal polynomial of $T$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Let $p$ be the minimal polynomial of $T$, then $p(T) = 0$.
+
+              For every nonnegative integer $k$
+              \[
+                  {(T/U)}^{k}(v + U) = T^{k}v + U.
+              \]
+
+              Therefore
+              \[
+                  p(T/U)(v + U) = p(T)v + U = 0 + U = 0.
+              \]
+
+              So $p(T/U) = 0$. Hence $p$ is a polynomial multiple of the minimal polynomial of the quotient operator $T/U$.
+        \item Let $q_{1}$ be the minimal polynomial of $T\vert_{U}$ and $q_{2}$ be the minimal polynomial of $T/U$.
+
+              For all $v\in V$, $q_{2}(T/U)v = q_{2}(T)v + U$. However, $q_{2}(T/U) = 0$, so $q_{2}(T)v + U = 0 + U$, which means $q_{2}(T)v\in U$. Therefore
+              \[
+                  q_{1}(T)q_{2}(T)(v) = q_{1}(T)(q_{2}(T)v) = q_{1}(T\vert_{U})(q_{2}(T)v) = 0.
+              \]
+
+              Hence $(q_{1}q_{2})(T) = 0$. Thus $q_{1}q_{2}$ is a polynomial multiple of the minimal polynomial of $T$.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter5:sectionB:exercise26
+\begin{exercise}
+    Suppose $V$ is finite-dimensional, $T\in\lmap{V}$, and $U$ is a subspace of $V$ that is invariant under $T$. Prove that the set of eigenvalues of $T$ equals the union of the set of eigenvalues of $T\vert_{U}$ and the set of eigenvalues of $T/U$.
+\end{exercise}
+
+\begin{proof}
+    Let $\mu_{T}$, $\mu_{T\vert_{U}}$, $\mu_{T/U}$ be minimal polynomials of $T$, $T\vert_{U}$, $T/U$, respectively. We have
+    \begin{enumerate}[label={(\arabic*)}]
+        \item $\mu_{T}$ is a polynomial multiple of $\mu_{T\vert_U}$.
+        \item $\mu_{T}$ is a polynomial multiple of $\mu_{T/U}$.
+        \item $\mu_{T\vert_{U}}\times \mu_{T/U}$ is a polynomial multiple of $\mu_{T}$.
+    \end{enumerate}
+
+    According to (1) and (2), if $\lambda$ is an eigenvalue of $T\vert_{U}$ or $T/U$, then $\lambda$ is also an eigenvalue of $T$.
+
+    According to (3), if $\lambda$ is an eigenvalue of $T$, then $\lambda$ is an eigenvalue of $T\vert_{U}$ or $T/U$.
+\end{proof}
+\newpage
+
+% chapter5:sectionB:exercise27
+\begin{exercise}
+    Suppose $\mathbb{F} = \mathbb{R}$, $V$ is finite-dimensional, and $T\in\lmap{V}$. Prove that the minimal polynomial of $T_{\mathbb{C}}$ equals the minimal polynomial of $T$.
+\end{exercise}
+
+\begin{proof}
+    Let $p$ be the minimal polynomial of $T$, $q$ be the minimal polynomial of $T_{\mathbb{C}}$. For all $u, v\in V$ and every nonnegative integer $k$
+    \[
+        T_{\mathbb{C}}^{k}(u + \iota v) = T^{k}u + \iota T^{k}v.
+    \]
+
+    So
+    \[
+        p(T_{\mathbb{C}})(u + \iota v) = p(T)u + \iota p(T)v = 0 + \iota 0.
+    \]
+
+    Hence $p$ is a polynomial multiple of $q$. On the other hand
+    \[
+        0 = q(T_{\mathbb{C}})(u + \iota v) = q(T)u + \iota q(T)v.
+    \]
+
+    So $q(T) = 0$. It follows that $q$ is a polynomial multiple of $p$.
+
+    Also, $p, q$ are monic polynomials. Hence $p = q$.
+\end{proof}
+\newpage
+
+% chapter5:sectionB:exercise28
+\begin{exercise}
+    Suppose $V$ is finite-dimensional and $T \in \lmap{V}$. Prove that the minimal polynomial of $T' \in \lmap{V'}$ equals the minimal polynomial of $T$.
+\end{exercise}
+
+\begin{proof}
+    Since $(ST)' = T'S'$, then the dual map of $T^{n}$ is ${(T')}^{n}$, for every nonnegative integer $n$. For every $p\in\mathscr{P}(\mathbb{F})$, every $\varphi\in V'$, we have
+    \[
+        p(T')(\varphi) = \varphi\circ p(T).
+    \]
+
+    If $p$ is the minimal polynomial of $T$, then $p$ is a polynomial multiple of the minimal polynomial of $T'$.
+
+    If $p$ is the minimal polynomial of $T'$, then $\varphi\circ p(T) = 0$ for all $\varphi\in V'$. Assume $p(T)\ne 0$, then there exists $v\in V$ such that $p(T)v = v_{1}\ne 0$. Let $v_{1}, \ldots, v_{n}$ be a basis of $V$ and $\varphi_{1}, \ldots, \varphi_{n}$ be the dual basis of $V$, then $\varphi_{1}(v_{1}) = 1\ne 0$, which is a contradiction to $\varphi\circ p(T) = 0$. Hence $p(T) = 0$. So $p$ is a polynomial multiple of the minimal polynomial of $T$.
+
+    Thus the minimal polynomial of $T' \in \lmap{V'}$ equals the minimal polynomial of $T$.
+\end{proof}
+\newpage
+
+% chapter5:sectionB:exercise29
+\begin{exercise}
+    Show that every operator on a finite-dimensional vector space of dimension at least two has an invariant subspace of dimension two.
+\end{exercise}
+
+\begin{proof}
+    Unsolved.
+\end{proof}
+\newpage
 
 \section{Upper-Triangular Matrices}
 
