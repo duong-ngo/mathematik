@@ -1561,7 +1561,7 @@ In this exercise, $\mathbb{F}$ must have infinite elements.
 \newpage
 
 % chapter5:sectionB:exercise25
-\begin{exercise}
+\begin{exercise}\label{chapter5:sectionB:exercise25}
     Suppose $V$ is finite-dimensional, $T\in\lmap{V}$, and $U$ is a subspace of $V$ that is invariant under $T$.
     \begin{enumerate}[label={(\alph*)}]
         \item Prove that the minimal polynomial of $T$ is a polynomial multiple of the minimal polynomial of the quotient operator $T/U$.
@@ -1648,7 +1648,7 @@ In this exercise, $\mathbb{F}$ must have infinite elements.
 \newpage
 
 % chapter5:sectionB:exercise28
-\begin{exercise}
+\begin{exercise}\label{chapter5:sectionB:exercise28}
     Suppose $V$ is finite-dimensional and $T \in \lmap{V}$. Prove that the minimal polynomial of $T' \in \lmap{V'}$ equals the minimal polynomial of $T$.
 \end{exercise}
 
@@ -1677,6 +1677,292 @@ In this exercise, $\mathbb{F}$ must have infinite elements.
 \newpage
 
 \section{Upper-Triangular Matrices}
+
+% chapter5:sectionC:exercise1
+\begin{exercise}
+    Prove or give a counterexample: If $T \in \lmap{V}$ and $T^{2}$ has an upper-triangular matrix with respect to some basis of $V$, then $T$ has an upper-triangular matrix with respect to some basis of $V$.
+\end{exercise}
+
+\begin{proof}
+    I give a counterexample.
+
+    Let $V = \mathbb{R}^{2}$ and $T(x, y) = (-y, x)$. Then $T^{2} = -I$, $T^{2}$ has an upper-triangular matrix with respect to any basis of $V$. However, the minimal polynomial of $T$ is $p(z) = z^{2} + 1$, which is not a product of monic polynomial of degree $1$. Therefore with respect to any basis of $V$, the matrix of $T$ is not an upper-triangular matrix.
+\end{proof}
+\newpage
+
+% chapter5:sectionC:exercise2
+\begin{exercise}\label{chapter5:sectionC:exercise2}
+    Suppose $A$ and $B$ are upper-triangular matrices of the same size, with $\alpha_{1} , \ldots, \alpha_{n}$ on the diagonal of $A$ and $\beta_{1} , \ldots, \beta_{n}$ on the diagonal of $B$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that $A + B$ is an upper-triangular matrix with $\alpha_{1} + \beta_{1}, \ldots, \alpha_{n} + \beta_{n}$ on the diagonal.
+        \item Show that $AB$ is an upper-triangular matrix with $\alpha_{1}\beta_{1}, \ldots, \alpha_{n}\beta_{n}$ on the diagonal.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item ${(A + B)}_{j,k} = A_{j,k} + B_{j,k}$. If $j > k$, then $A_{j,k} + B_{j,k} = 0$, and it follows that ${(A + B)}_{j,k} = 0$. Hence $A + B$ is an upper-triangular matrix.
+
+              If $j = k$, then $A_{j,j} = \alpha_{j}$ and $B_{j,j} = \beta_{j}$. So ${(A + B)}_{j,j} = \alpha_{j} + \beta_{j}$.
+
+              Thus $A + B$ is an upper-triangular matrix with $\alpha_{1} + \beta_{1}, \ldots, \alpha_{n} + \beta_{n}$ on the diagonal.
+        \item If $j > k$
+              \begin{align*}
+                  {(AB)}_{j,k} & = \sum^{n}_{r=1}A_{j,r}B_{r,k}                                                                                                       \\
+                               & = \sum^{j}_{r=1}A_{j,r}B_{r,k} + \sum^{n}_{r=j+1}A_{j,r}B_{r,k}                                                                      \\
+                               & = 0 + 0 = 0                                                     & \text{($B_{r,k} = 0$ for $r\leq j$ and $A_{j,r} = 0$ for $r > j$)}
+              \end{align*}
+
+              If $j = k$
+              \begin{align*}
+                  {(AB)}_{j,j} & = \sum^{n}_{r=1}A_{j,r}B_{r,j}                                                     \\
+                               & = \sum^{j-1}_{r=1}A_{j,r}B_{r,j} + A_{j,j}B_{j,j} + \sum^{n}_{r=j+1}A_{j,r}B_{r,j} \\
+                               & = 0 + \alpha_{j}\beta_{j} + 0                                                      \\
+                               & = \alpha_{j}\beta_{j}.
+              \end{align*}
+
+              Thus $AB$ is an upper-triangular matrix with $\alpha_{1}\beta_{1}, \ldots, \alpha_{n}\beta_{n}$ on the diagonal.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter5:sectionC:exercise3
+\begin{exercise}
+    Suppose $T \in \lmap{V}$ is invertible and $v_{1}, \ldots, v_{n}$ is a basis of $V$ with respect to which the matrix of $T$ is upper triangular, with $\lambda_{1} , \ldots, \lambda_{n}$ on the diagonal. Show that the matrix of $T^{-1}$ is also upper triangular with respect to the basis $v_{1}, \ldots, v_{n}$, with
+    \[
+        \frac{1}{\lambda_{1}}, \ldots, \frac{1}{\lambda_{n}}
+    \]
+
+    on the diagonal.
+\end{exercise}
+
+\begin{proof}
+    Let $A = \mathcal{M}(T, (v_{1}, \ldots, v_{n}))$.
+
+    Using mathematical induction, I will show that $T^{-1}v_{k}\in\operatorname{span}(v_{1}, \ldots, v_{k})$ for each $k = 1,\ldots, n$.
+
+    $Tv_{1} = \lambda_{1}v_{1}$ and $T$ is invertible so $T^{-1}v_{1} = \dfrac{1}{\lambda_{1}}v_{1}$.
+
+    Assume $T^{-1}v_{k}\in\operatorname{span}(v_{1}, \ldots, v_{k})$ for $1\leq k < n$. $(T - \lambda_{k+1}I)(v_{k+1}) \in \operatorname{span}(v_{1}, \ldots, v_{k})$ and $\operatorname{span}(v_{1}, \ldots, v_{k})$ is invariant under $T^{-1}$, so
+    \[
+        \frac{-1}{\lambda_{k}}T^{-1}(T - \lambda_{k+1}I)(v_{k+1}) \in \operatorname{span}(v_{1}, \ldots, v_{k}).
+    \]
+
+    So $(T^{-1} - \frac{1}{\lambda_{k+1}}I)(v_{k+1}) \in \operatorname{span}(v_{1}, \ldots, v_{k})$. Therefore $T^{-1}v_{k+1}\in \operatorname{span}(v_{1}, \ldots, v_{k+1})$.
+
+    By the principle of mathematical induction, we conclude that $T^{-1}v_{k}\in\operatorname{span}(v_{1}, \ldots, v_{k})$ for each $k = 1,\ldots, n$. So the matrix of $T^{-1}$ with respect to $v_{1}, \ldots, v_{n}$ is upper-triangular.
+
+    Moreover, the product of the matrix of $T$ and $T^{-1}$ with respect to $v_{1}, \ldots, v_{n}$ is the identity matrix. By Exercise~\ref{chapter5:sectionC:exercise2}, the matrix $T^{-1}$ with respect to $v_{1}, \ldots, v_{n}$ is upper-triangular with
+    \[
+        \frac{1}{\lambda_{1}}, \ldots, \frac{1}{\lambda_{n}}
+    \]
+
+    on the diagonal.
+\end{proof}
+\newpage
+
+% chapter5:sectionC:exercise4
+\begin{exercise}
+    Give an example of an operator whose matrix with respect to some basis contains only $0$'s on the diagonal, but the operator is invertible.
+\end{exercise}
+
+\begin{proof}
+    On $\mathbb{F}^{n}$ where $n > 1$, we define the linear operator $T$ as follows: $Te_{1} = e_{2}$, $Te_{2} = e_{3}$, \ldots, $Te_{n-1} = e_{n}$, $Te_{n} = e_{1}$. The minimal polynomial of $T$ is $z^{n} - 1$, of which constant term is nonzero. Therefore $T$ is invertible. On the other hand, the matrix of $T$ with respect to the standard basis $e_{1}, \ldots, e_{n}$ contains only $0$'s on the diagonal.
+\end{proof}
+\newpage
+
+% chapter5:sectionC:exercise5
+\begin{exercise}
+    Give an example of an operator whose matrix with respect to some basis contains only nonzero numbers on the diagonal, but the operator is not invertible.
+\end{exercise}
+
+\begin{proof}
+    On $\mathbb{F}^{n}$ where $n > 1$, we define the linear operator $T$ as follows:
+    \[
+        T(x_{1}, \ldots, x_{n}) = (x_{1} + \cdots + x_{n}, \ldots, x_{1} + \cdots + x_{n}).
+    \]
+
+    The minimal polynomial of $T$ is $T^{2} - nT$. All entries of the matrix of $T$ with respect to the standard basis are $1$. $T$ is not invertible because the constant term of the minimal polynomial $T^{2} - nT$ is $0$.
+\end{proof}
+\newpage
+
+% chapter5:sectionC:exercise6
+\begin{exercise}
+    Suppose $\mathbb{F} = \mathbb{C}$, $V$ is finite-dimensional, and $T \in \lmap{V}$. Prove that if $k \in \{1, \ldots, \dim V\}$, then $V$ has a $k$-dimensional subspace invariant under $T$.
+\end{exercise}
+
+\begin{proof}
+    According to 5.47, $T$ has an upper-triangular matrix with respect to some basis $v_{1}, \ldots, v_{n}$ of $V$.
+
+    Therefore, for every $k \in \{1, \ldots, \dim V\}$, $\operatorname{span}(v_{1}, \ldots, v_{k})$ is invariant under $T$. So for every $k \in \{1, \ldots, \dim V\}$, $V$ has a $k$-dimensional subspace invariant under $T$.
+\end{proof}
+\newpage
+
+% chapter5:sectionC:exercise7
+\begin{exercise}
+    Suppose $V$ is finite-dimensional, $T\in\lmap{V}$, and $v\in V$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Prove that there exists a unique monic polynomial $p_{v}$ of smallest degree such that $p_{v}(T)v = 0$.
+        \item Prove that the minimal polynomial of $T$ is a polynomial multiple of $p_{v}$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    Let $p$ be the minimal polynomial of $T$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item $p$ is monic and $p(T)v = 0$. So there exists a monic polynomial $p_{v}$ of smallest degree such that $p_{v}(T)v = 0$.
+
+              Assume $q$ is a monic polynomial such that $q(T)v = 0$ and $\deg q = \deg p$. By Euclidean division algorithm, there exist unique polynomials $s$, $r$ such that $q = sp_{v} + r$ and $\deg r < \deg p_{v}$. So
+              \[
+                  0 = q(T)v = s(T)(p_{v}(T)v) + r(v) = r(v)
+              \]
+
+              Because $\deg r < \deg p_{v}$, it follows that $r = 0$. Hence $q = sp_{v}$. $s$ must be monic and $\deg s = 0$ so $s = 1$. Therefore $q = p_{v}$. Thus there exists a unique monic polynomial $p_{v}$ of smallest degree such that $p_{v}(T)v = 0$.
+        \item By Euclidean division algorithm, there exist unique polynomials $s$, $r$ such that $p = sp_{v} + r$ and $\deg r < \deg p_{v}$.
+              \[
+                  0 = p(T)v = s(T)(p_{v}(T)v) + r(T)v = r(T)v.
+              \]
+
+              Because $\deg r < \deg p_{v}$, it follows that $\deg r = 0$. Hence $p$ is a polynomial multiple of $p_{v}$.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter5:sectionC:exercise8
+\begin{exercise}
+    Suppose $V$ is finite-dimensional, $T \in \lmap{V}$, and there exists a nonzero vector $v \in V$ such that $T^{2}v + 2Tv = -2v$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Prove that if $\mathbb{F} = \mathbb{R}$, then there does not exist a basis of $V$ with respect to which $T$ has an upper-triangular matrix.
+        \item Prove that if $\mathbb{F} = \mathbb{C}$ and $A$ is an upper-triangular matrix that equals the matrix of $T$ with respect to some basis of $V$, then $-1 + \iota$ or $-1 - \iota$ appears on the diagonal of $A$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Assume $T$ has an eigenvalue $\lambda$. Let $w$ be an eigenvector of $T$ corresponding to $\lambda$, then
+              \[
+                  -2w = T^{2}w + 2Tw = \lambda^{2}v + 2\lambda w.
+              \]
+
+              So $(\lambda^{2} + 2\lambda + 2)v = 0$. It follows that $\lambda^{2} + 2\lambda + 2 = 0$. However, there is no real number $\lambda$ such that $\lambda^{2} + 2\lambda + 2 = 0$ so the assumption is false. Hence $T$ has no eigenvalue. Thus there does not exist a basis of $V$ with respect to which $T$ has an upper-triangular matrix.
+        \item The polynomial $p$ where $p(z) = z^{2} + 2z + 2$ satisfies $p(T) = 0$, so $p$ is a polynomial multiple of the minimal polynomial of $T$. The two roots of $p$ are $-1+\iota$ and $-1-\iota$.
+
+              So the minimal polynomial of $T$ is of the form
+              \[
+                  {(z + 1 - \iota)}^{m}{(z + 1 + \iota)}^{n}
+              \]
+
+              where $m$ and $n$ are not both $0$ and $m + n\leq 2$. Hence $-1 + \iota$ or $-1-\iota$ appears on the diagonal of $A$.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter5:sectionC:exercise9
+\begin{exercise}
+    Suppose $B$ is a square matrix with complex entries. Prove that there exists an invertible square matrix $A$ with complex entries such that $A^{-1}BA$ is an upper-triangular matrix.
+\end{exercise}
+
+\begin{proof}
+    Let $n$ be the number of columns of $B$.
+
+    I define the linear operator $T$ on $\mathbb{C}^{n}$ as follows: $Tx = Bx$ for all $x\in\mathbb{C}^{n,1}$.
+
+    There exists a basis $v_{1}, \ldots, v_{n}$ of $\mathbb{C}^{n}$ such that the matrix of $T$ with respect to this basis is an upper-triangular matrix. Let
+    \[
+        A = \mathcal{M}(I, (v_{1}, \ldots, v_{n}), (e_{1}, \ldots, e_{n}))
+    \]
+
+    where $e_{1}, \ldots, e_{n}$ is the standard basis of $\mathbb{C}^{n}$. By the change-of-basis formula,
+    \[
+        \mathcal{M}(T, (v_{1}, \ldots, v_{n})) = A^{-1}BA.
+    \]
+
+    $\mathcal{M}(T, (v_{1}, \ldots, v_{n}))$ is an upper-triangular matrix.
+\end{proof}
+\newpage
+
+% chapter5:sectionC:exercise10
+\begin{exercise}\label{chapter5:sectionC:exercise10}
+    Suppose $T\in\lmap{V}$ and $v_{1}, \ldots, v_{n}$ is a basis of $V$. Show that the following are equivalent.
+    \begin{enumerate}[label={(\alph*)}]
+        \item The matrix of $T$ with respect to $v_{1}, \ldots, v_{n}$ is lower triangular.
+        \item $\operatorname{span}(v_{k}, \ldots, v_{n})$ is invariant under $T$ for each $k = 1, \ldots, n$.
+        \item $Tv_{k}\in \operatorname{span}(v_{k}, \ldots, v_{n})$ for each $k = 1, \ldots, n$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    $(a) \Rightarrow (b)$ Since the matrix of $T$ with respect to $v_{1}, \ldots, v_{n}$ is lower triangular, then for each $k\in 1,\ldots, n$, for each $j\in k,\ldots, n$, $Tv_{j}\in \operatorname{span}(v_{k}, \ldots, v_{n})$. Therefore $\operatorname{span}(v_{k}, \ldots, v_{n})$ is invariant under $T$.
+
+    $(b) \Rightarrow (c)$ For each $k = 1,\ldots, n$, $\operatorname{span}(v_{k}, \ldots, v_{n})$ is invariant under $T$, then $Tv_{k}\in \operatorname{span}(v_{k}, \ldots, v_{n})$.
+
+    $(c) \Rightarrow (a)$ Let $A$ be the matrix of $T$ with respect to $v_{1}, \ldots, v_{n}$. Since $Tv_{k}\in \operatorname{span}(v_{k}, \ldots, v_{n})$, then $A_{j,k} = 0$ if $j < k$. Therefore $A$ is a lower-triangular matrix.
+\end{proof}
+\newpage
+
+% chapter5:sectionC:exercise11
+\begin{exercise}
+    Suppose $\mathbb{F} = \mathbb{C}$ and $V$ is finite-dimensional. Prove that if $T\in\lmap{V}$, then there exists a basis of $V$ with respect to which $T$ has a lower-triangular matrix.
+\end{exercise}
+
+\begin{proof}
+    Because $T$ is a linear operator on a complex vector space, there exists a basis $v_{1}, \ldots, v_{n}$ with respect to which the matrix of $T$ is upper triangular.
+
+    Let $w_{1} = v_{n}, \ldots, w_{n} = v_{1}$ then $w_{1}, \ldots, w_{n}$ is a basis of $V$. Because $Tv_{k}\in \operatorname{span}(v_{1}, \ldots, v_{k})$ for each $k = 1,\ldots, n$, then $Tw_{k}\in \operatorname{span}(w_{k}, \ldots, w_{n})$ for each $k = 1,\ldots, n$.
+
+    By Exercise~\ref{chapter5:sectionC:exercise10}, it follows that the matrix of $T$ with respect to $w_{1}, \ldots, w_{n}$ is a lower-triangular matrix.
+\end{proof}
+\newpage
+
+% chapter5:sectionC:exercise12
+\begin{exercise}
+    Suppose $V$ is finite-dimensional, $T\in\lmap{V}$ has an upper-triangular matrix with respect to some basis of $V$, and $U$ is a subspace of $V$ that is invariant under $T$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Prove that $T\vert_{U}$ has an upper-triangular matrix with respect to some basis of $U$.
+        \item Prove that the quotient operator $T/U$ has an upper-triangular matrix with respect to some basis of $V/U$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    Let $p$ be the minimal polynomial of $T$. Because $T$ has an upper-triangular matrix with respect to some basis of $V$, then $p$ is a product of monic polynomials of degree $1$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item The polynomial of $T$ is a polynomial multiple of the minimal polynomial of $T\vert_{U}$. Therefore the minimal polynomial of $T\vert_{U}$ is also a product of monic polynomials of degree $1$. Hence $T\vert_{U}$ has an upper-triangular matrix with respect to some basis of $U$.
+        \item The polynomial of $T$ is a polynomial multiple of the minimal polynomial of $T/U$. Therefore the minimal polynomial of $T/U$ is also a product of monic polynomials of degree $1$. Hence $T/U$ has an upper-triangular matrix with respect to some basis of $U$.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter5:sectionC:exercise13
+\begin{exercise}
+    Suppose $V$ is finite-dimensional and $T\in \lmap{V}$. Suppose there exists a subspace $U$ of $V$ that is invariant under $T$ such that $T\vert_{U}$ has an upper-triangular matrix with respect to some basis of $U$ and also $T/U$ has an upper-triangular matrix with respect to some basis of $V/U$. Prove that $T$ has an upper-triangular matrix with respect to some basis of $V$.
+\end{exercise}
+
+\begin{proof}
+    Let $\mu_{T}$, $\mu_{T\vert_{U}}$, $\mu_{T/U}$ be minimal polynomials of $T$, $T\vert_{U}$, $T/U$, respectively.
+
+    $T\vert_{U}$ has an upper-triangular matrix with respect to some basis of $U$, so $\mu_{T\vert_{U}}$ is a product of monic polynomial of degree $1$.
+
+    $T/U$ has an upper-triangular matrix with respect to some basis of $U$, so $\mu_{T/U}$ is a product of monic polynomial of degree $1$.
+
+    By Exercise~\ref{chapter5:sectionB:exercise25}, $\mu_{T\vert_{U}}\times \mu_{T/U}$ is a polynomial multiple of $\mu_{T}$.
+
+    Therefore $\mu_{T}$ is a product of monic polynomial of degree $1$. Equivalently, $T$ has an upper-triangular matrix with respect to some basis of $V$.
+\end{proof}
+\newpage
+
+% chapter5:sectionC:exercise14
+\begin{exercise}
+    Suppose $V$ is finite-dimensional and $T \in \lmap{V}$. Prove that $T$ has an upper-triangular matrix with respect to some basis of $V$ if and only if the dual operator $T'$ has an upper-triangular matrix with respect to some basis of the dual space $V'$.
+\end{exercise}
+
+\begin{proof}
+    By Exercise~\ref{chapter5:sectionB:exercise28}, the minimal polynomials of $T$ and its dual map $T'$ are equal.
+
+    On the other hand, $T$ has an upper-triangular matrix with respect to some basis of $V$ if and only if the minimal polynomial of $T$ is a product of monic polynomials of degree $1$ AND $T'$ has an upper-triangular matrix with respect to some basis of $V'$ if and only if the minimal polynomial of $T'$ is a product of monic polynomials of degree $1$.
+
+    Thus $T$ has an upper-triangular matrix with respect to some basis of $V$ if and only if the dual operator $T'$ has an upper-triangular matrix with respect to some basis of the dual space $V'$.
+\end{proof}
+\newpage
 
 \section{Diagonalizable Operators}
 
