@@ -830,18 +830,16 @@ In this exercise, $\mathbb{F}$ must have infinite elements.
               Moreover, $T/U$ is a linear map. So $T/U$ is an operator on $V/U$.
         \item Assume $\lambda$ is an eigenvalue of $T/U$ and $v + U$ be a corresponding eigenvector. According to the definition of eigenvector, $v\notin U$. Then $(T/U)(v + U) = Tv + U = \lambda v + U$, which implies $Tv - \lambda v \in U$.
 
-              Let $Tv - \lambda v = u$. For $u'\in U$,
+              Let $Tv - \lambda v = u$. For $u_{1}\in U$,
               \[
-                  T(v + u') = Tv + Tu' = \lambda v + u + Tu'.
+                  T(v + u_{1}) = Tv + Tu_{1} = \lambda v + u + Tu_{1}.
               \]
 
-              Because $v\notin U$ and $u'\in U$, it follows that $v + u'\notin U$, so $v + u'$ is nonzero.
-
-              I will find $u'\in U$ such that $u + Tu' = \lambda u'$, or equivalently, $u = (T - \lambda I)(u')$.
+              Because $v\notin U$ and $u_{1}\in U$, it follows that $v + u_{1}\notin U$, so $v + u_{1}$ is nonzero.
 
               If the restriction on $U$ of $T - \lambda I$ is not invertible, then $T - \lambda I$ is also not invertible. So $\lambda$ is an eigenvalue of $T$.
 
-              If the restriction on $U$ of $T - \lambda I$ is invertible, then there exists $u'$ such that $u = (T - \lambda I)(u')$. Therefore $T(v + u') = \lambda v + \lambda u' = \lambda (v + u')$. So $\lambda$ is an eigenvalue of $T$.
+              If the restriction on $U$ of $T - \lambda I$ is invertible, then there exists $u_{1}$ such that $-u = (T - \lambda I)(u_{1})$. Therefore $T(v + u_{1}) = \lambda v + \lambda u_{1} = \lambda (v + u_{1})$. So $\lambda$ is an eigenvalue of $T$.
 
               Hence each eigenvalue of $T/U$ is an eigenvalue of $T$.
     \end{enumerate}
@@ -1059,7 +1057,7 @@ In this exercise, $\mathbb{F}$ must have infinite elements.
 \newpage
 
 % chapter5:sectionB:exercise4
-\begin{exercise}
+\begin{exercise}\label{chapter5:sectionB:exercise4}
     Suppose $\mathbb{F} = \mathbb{C}$, $T\in\lmap{V}$, $p\in\mathscr{P}(\mathbb{C})$, and $\alpha\in\mathbb{C}$. Prove that $\alpha$ is an eigenvalue of $p(T)$ if and only if $\alpha = p(\lambda)$ for some eigenvalue $\lambda$ of $T$.
 \end{exercise}
 
@@ -1966,5 +1964,714 @@ In this exercise, $\mathbb{F}$ must have infinite elements.
 
 \section{Diagonalizable Operators}
 
+% chapter5:sectionD:exercise1
+\begin{exercise}
+    Suppose $V$ is a finite-dimensional complex vector space and $T\in\lmap{V}$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Prove that if $T^{4} = I$, then $T$ is diagonalizable.
+        \item Prove that if $T^{4} = T$, then $T$ is diagonalizable.
+        \item Give an example of an operator $T\in\lmap{\mathbb{C}^{2}}$ such that $T^{4} = T^{2}$ and $T$ is not diagonalizable.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item $z^{4} - 1$ is a polynomial multiple of the minimal polynomial of $T$. $z^{4} - 1$ has four distinct zeros in $\mathbb{C}$ (they are $1$, $-1$, $\iota$, $-\iota$), so the minimal polynomial of $T$ has no multiple zero. Hence $T$ is diagonalizable.
+        \item $z^{4} - z$ is a polynomial multiple of the minimal polynomial of $T$. $z^{4} - z$ has four distinct zeros in $\mathbb{C}$ (they are $0$, $1$, $\frac{-1-\sqrt{3}\iota}{2}$, $\frac{-1+\sqrt{3}\iota}{2}$), so the minimal polynomial of $T$ has no multiple zero. Hence $T$ is diagonalizable.
+        \item I define the linear operator $T\in\lmap{\mathbb{C}^{2}}$ as follows:
+              \[
+                  T(z_{1}, z_{2}) = (z_{2}, 0).
+              \]
+
+              The minimal polynomial of $T$ is $z^{2}$, so $T^{4} = T^{2}$. However, since the minimal polynomial of $T$ has multiple root, it follows that $T$ is not diagonalizable.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter5:sectionD:exercise2
+\begin{exercise}\label{chapter5:sectionD:exercise2}
+    Suppose $T\in\lmap{V}$ has a diagonal matrix $A$ with respect to some basis of $V$. Prove that if $\lambda\in\mathbb{F}$, then $\lambda$ appears on the diagonal of $A$ precisely $\dim E(\lambda, T)$ times.
+\end{exercise}
+
+\begin{proof}
+    Let $v_{1}, \ldots, v_{n}$ be a basis with respect to which $T$ has a diagonal matrix $A$.
+
+    If $\lambda$ is not an eigenvalue of $T$, then $\lambda$ does not appear on the diagonal of $A$, which means it appears $0 = \dim E(\lambda, T)$ times on the diagonal of $A$.
+
+    If $\lambda$ is an eigenvalue of $T$, then $\lambda$ appears on the diagonal of $A$. Without loss of generality, assume that $v_{1}, \ldots, v_{m}$ are precisely the vectors in the list $v_{1}, \ldots, v_{n}$ that are also eigenvectors of $T$ corresponding to $\lambda$. Let $v$ be a vector in $E(\lambda, T)$. There exist scalars $x_{1}, \ldots, x_{n}$ such that
+    \[
+        v = x_{1}v_{1} + \cdots + x_{m}v_{m} + x_{m+1}v_{m+1} + \cdots + x_{n}v_{n}.
+    \]
+
+    Since $v_{m+1}, \ldots, v_{n}$ are also eigenvectors of $T$ but not corresponding to $\lambda$, there exist scalars $\lambda_{m+1}, \ldots, \lambda$ that are not equal to $\lambda$ such that $Tv_{m+1} = \lambda_{m+1} v_{m+1}$, \ldots, $Tv_{n} = \lambda_{n}v_{n}$. From $Tv = \lambda v$, we deduce that
+    \begin{align*}
+        T(x_{1}v_{1} + \cdots + x_{m}v_{m} + x_{m+1}v_{m+1} + \cdots + x_{n}v_{n})
+         & = \lambda (x_{1}v_{1} + \cdots + x_{m}v_{m}) + \lambda (x_{m+1}v_{m+1} + \cdots + x_{n}v_{n}).
+    \end{align*}
+    \begin{multline*}
+        T(x_{1}v_{1} + \cdots + x_{m}v_{m} + x_{m+1}v_{m+1} + \cdots + x_{n}v_{n}) \\
+        = x_{1}Tv_{1} + \cdots + x_{m}Tv_{m} + x_{m+1}Tv_{m+1} + \cdots + x_{n}Tv_{n} \\
+        = \lambda (x_{1}v_{1} + \cdots + x_{m}v_{m}) + (\lambda_{m+1}x_{m+1}v_{m+1} + \cdots + \lambda_{n}x_{n}v_{n}).
+    \end{multline*}
+
+    Hence $(\lambda - \lambda_{k})x_{k} = 0$ for each $k\in\{ m+1, \ldots, n \}$. However, $\lambda \ne \lambda_{k}$ for each $k\in\{ m+1, \ldots, n \}$ so $x_{k} = 0$ for each $k\in\{ m+1, \ldots, n \}$.
+
+    Therefore $v_{1}, \ldots, v_{m}$ is an independent list that spans $E(\lambda, T)$, so $m = \dim E(\lambda, T)$. This means $\lambda$ appears $\dim E(\lambda, T)$ on the diagonal of $A$.
+
+    Thus $\lambda$ appears on the diagonal of $A$ precisely $\dim E(\lambda, T)$ times.
+\end{proof}
+\newpage
+
+% chapter5:sectionD:exercise3
+\begin{exercise}\label{chapter5:sectionD:exercise3}
+    Suppose $V$ is finite-dimensional and $T \in \lmap{V}$. Prove that if the operator $T$ is diagonalizable, then $V = \kernel{T}\oplus\range{T}$.
+\end{exercise}
+
+\begin{proof}
+    Let $v_{1}, \ldots, v_{n}$ be a basis with respect to which $T$ has a diagonal matrix, and $Tv_{k} = \lambda_{k}v_{k}$ for each $k\in \{ 1, \ldots, n \}$.
+
+    $\kernel{T} = \kernel{(T - 0I)} = E(0, T)$, let $m = \dim E(0, T)$. By Exercise~\ref{chapter5:sectionD:exercise2}, $0$ appears $m$ times on the diagonal of the matrix of $T$ with respect to $v_{1}, \ldots, v_{n}$. Without loss of generality, let $Tv_{k} = \lambda_{k}v_{k}$ for each $k\in \{ 1, \ldots, n \}$, where $\lambda_{k} = 0$ for each $k\in\{ 1, \ldots, m \}$, and $\lambda_{k} \ne 0$ for each $k\in\{ m+1, \ldots, n \}$. Also by Exercise~\ref{chapter5:sectionD:exercise2}, $v_{1}, \ldots, v_{m}$ is a basis of $\kernel{T}$.
+    \begin{align*}
+        T(x_{1}v_{1} + \cdots + x_{n}v_{n}) & = x_{1}Tv_{1} + \cdots + x_{m}Tv_{m} + x_{m+1}Tv_{m+1} + \cdots + x_{n}Tv_{n} \\
+                                            & = x_{m+1}Tv_{m+1} + \cdots + x_{n}Tv_{n}                                      \\
+                                            & = x_{m+1}\lambda_{m+1}v_{m+1} + \cdots + x_{n}\lambda_{n}v_{n}.
+    \end{align*}
+
+    So $v_{m+1}, \ldots, v_{n}$ spans $T$ and $Tv_{m+1}, \ldots, Tv_{n}$ spans $\range{T}$. Suppose
+    \[
+        a_{m+1}Tv_{m+1} + \cdots + a_{n}Tv_{n} = 0.
+    \]
+
+    Then $T(a_{m+1}v_{m+1} + \cdots + a_{n}v_{n}) = 0$ and $a_{m+1}v_{m+1} + \cdots + a_{n}v_{n}\in\kernel{T}$. Since $v_{1}, \ldots, v_{m}$ is a basis of $\kernel{T}$, there exist scalars $b_{1}, \ldots, b_{m}$ such that
+    \[
+        a_{m+1}v_{m+1} + \cdots + a_{n}v_{n} = b_{1}v_{1} + \cdots + b_{m}v_{m}.
+    \]
+
+    Because $v_{1}, \ldots, v_{n}$ is a basis of $V$, it follows that $a_{m+1} = \cdots = a_{n} = 0$ and $b_{1} = \cdots = b_{m} = 0$. So $Tv_{m+1}, \ldots, Tv_{n}$ is a basis of $\range{T}$, $v_{m+1}, \ldots, v_{n}$ is a basis of $\range{T}$, and $\kernel{T}\cap\range{T} = \{0\}$.
+
+    On the other hand
+    \[
+        x_{1}v_{1} + \cdots + x_{n}v_{n} = \underbrace{x_{1}v_{1} + \cdots + x_{m}v_{m}}_{\in\kernel{T}} + \underbrace{x_{m+1}v_{m+1} + \cdots + x_{n}v_{n}}_{\in\range{T}}
+    \]
+
+    so $V = \kernel{T} + \range{T}$. Thus $V = \kernel{T}\oplus\range{T}$.
+\end{proof}
+\newpage
+
+% chapter5:sectionD:exercise4
+\begin{exercise}
+    Suppose $V$ is finite-dimensional and $T\in\lmap{V}$. Prove that the following are equivalent.
+    \begin{enumerate}[label={(\alph*)}]
+        \item $V = \kernel{T}\oplus \range{T}$.
+        \item $V = \kernel{T} + \range{T}$.
+        \item $\kernel{T}\cap \range{T} = \{0\}$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    (a) implies (b) and (c) due to the definition of direct sum.
+
+    According to the fundamental theorem of linear maps,
+    \[
+        \dim V = \dim\kernel{T} + \dim\range{T}.
+    \]
+
+    Moreover,
+    \[
+        \dim V = \dim\kernel{T} + \dim\range{T} = \dim (\kernel{T} + \range{T}) - \dim (\kernel{T}\cap\range{T}).
+    \]
+
+    Therefore (b) implies (c) and (c) implies (a).
+\end{proof}
+\newpage
+
+% chapter5:sectionD:exercise5
+\begin{exercise}
+    Suppose $V$ is a finite-dimensional complex vector space and $T$. Prove that $T$ is diagonalizable if and only if
+    \[
+        V = \kernel{(T - \lambda I)} \oplus \range{(T - \lambda I)}
+    \]
+
+    for every $\lambda\in\mathbb{C}$.
+\end{exercise}
+
+\begin{proof}
+    If $T$ is diagonalizable, then there exists a basis $v_{1}, \ldots, v_{n}$ of $V$ with respect to which $T$ has a diagonal matrix $A$. Then the matrix of $T - \lambda I$ with respect to $v_{1}, \ldots, v_{n}$ is $A - \lambda I$, which is a diagonal matrix. So $T - \lambda I$ is diagonalizable. By Exercise~\ref{chapter5:sectionD:exercise3}, $V = \kernel{(T - \lambda I)}\oplus \range{(T - \lambda I)}$ for all $\lambda\in \mathbb{C}$.
+
+    To prove the implication of the other direction, I use mathematical induction on $\dim V$. Assume the statement is true for every complex vector space of dimension less than $\dim V$.
+
+    Let $\lambda$ be an eigenvalue of $T$, then $\kernel{(T - \lambda I)}\ne \{0\}$ and $\range{(T - \lambda I)}$ is a proper subspace of $V$. Since $\range{(T - \lambda I)}$ is invariant under $T$ and $\range{(T - \lambda I)}$ is a proper subspace of $V$ so according to the induction hypothesis, the restriction of $T$ on $\range{(T - \lambda I)}$ is diagonalizable.
+
+    So there exists a basis of $\range{(T - \lambda I)}$ consisting of eigenvectors of the restriction of $T$ on $\range{(T - \lambda I)}$. These vectors are also eigenvectors of $T$, let them be $v_{1}, \ldots, v_{m}$. Let $v_{m+1}, \ldots, v_{m+n}$ be a basis of $\kernel{(T - \lambda I)}$.
+
+    Because $V = \kernel{(T - \lambda I)} \oplus \range{(T - \lambda I)}$, we conclude that $v_{1}, \ldots, v_{m}, v_{m+1}, \ldots, v_{m+n}$ is a basis of $V$. Further, these vectors are eigenvectors of $T$, so $T$ is diagonalizable.
+
+    According to the principle of mathematical induction, if $V = \kernel{(T - \lambda I)} \oplus \range{(T - \lambda I)}$ for every $\lambda\in\mathbb{C}$, then $T$ is diagonalizable.
+\end{proof}
+\newpage
+
+% chapter5:sectionD:exercise6
+\begin{exercise}
+    Suppose $T\in\lmap{\mathbb{F}^{5}}$ and $\dim E(8, T) = 4$. Prove that $T - 2I$ or $T - 6I$ is invertible.
+\end{exercise}
+
+\begin{proof}
+    $z - 8$ is not the minimal polynomial of $T$, because if so, $T = 8I$ and it follows that $\dim E(8, T) = 5\ne 4$.
+
+    On the other hand, the minimal polynomial of $T$ is a multiple polynomial of $z - 8$ and has at least another zero other than $8$. Let $8, \lambda_{1}, \ldots, \lambda_{n}$ be the distinct roots of the minimal polynomial of $T$, then if $n > 1$
+    \[
+        \dim E(8, T) + \dim (\lambda_{1}, T) + \cdots + \dim (\lambda_{n}, T) > \dim E(8, T) + 1 = 5.
+    \]
+
+    Meanwhile,
+    \[
+        \dim E(8, T) + \dim (\lambda_{1}, T) + \cdots + \dim (\lambda_{n}, T) \leq \dim \mathbb{F}^{5} = 5.
+    \]
+
+    So the assumption is false. Hence $p$ has exactly one zero other than $8$, let it be $\lambda$. $\lambda$ cannot be both $2$ and $6$, so $T - 2I$ or $T - 6I$ is invertible.
+\end{proof}
+\newpage
+
+% chapter5:sectionD:exercise7
+\begin{exercise}
+    Suppose $T\in\lmap{V}$ is invertible. Prove that
+    \[
+        E(\lambda, T) = E\left(\frac{1}{\lambda}, T^{-1}\right)
+    \]
+
+    for every $\lambda\in\mathbb{F}$ with $\lambda\ne 0$.
+\end{exercise}
+
+\begin{proof}
+    \begin{align*}
+        v\in E(\lambda, T) & \Longleftrightarrow Tv = \lambda v                                \\
+                           & \Longleftrightarrow v = T^{-1}(\lambda v)                         \\
+                           & \Longleftrightarrow \frac{1}{\lambda}v = T^{-1}v                  \\
+                           & \Longleftrightarrow v\in E\left(\frac{1}{\lambda}, T^{-1}\right).
+    \end{align*}
+
+    Thus $E(\lambda, T) = E\left(\frac{1}{\lambda}, T^{-1}\right)$.
+\end{proof}
+\newpage
+
+% chapter5:sectionD:exercise8
+\begin{exercise}
+    Suppose $V$ is finite-dimensional and $T\in\lmap{V}$. Let $\lambda_{1}, \ldots, \lambda_{m}$ denote the distinct nonzero eigenvalues of $T$. Prove that
+    \[
+        \dim E(\lambda_{1}, T) + \cdots + \dim E(\lambda_{m}, T)\leq \dim\range{T}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    Let $v$ be a vector in $E(\lambda_{1}, T) + \cdots + E(\lambda_{m}, T)$, then there exist vectors $v_{k}\in E(\lambda_{k}, T)$ for each $k\in\{ 1, \ldots, m \}$ such that
+    \[
+        v = v_{1} + \cdots + v_{m}.
+    \]
+
+    On the other hand
+    \begin{align*}
+        v & = v_{1} + \cdots + v_{m}                                                                 \\
+          & = \frac{1}{\lambda_{1}}\lambda_{1}v_{1} + \cdots + \frac{1}{\lambda_{m}}\lambda_{1}v_{m} \\
+          & =  \frac{1}{\lambda_{1}}Tv_{1} + \cdots + \frac{1}{\lambda_{m}}Tv_{m}                    \\
+          & = T\left(\frac{1}{\lambda_{1}}v_{1} + \cdots + \frac{1}{\lambda_{m}}v_{m}\right).
+    \end{align*}
+
+    So $v\in \range{T}$, therefore $E(\lambda_{1}, T) + \cdots + E(\lambda_{m}, T)$ is a subspace of $\range{T}$.
+
+    $\lambda_{1}, \ldots, \lambda_{m}$ are distinct eigenvalues of $T$, so the sum
+    \[
+        E(\lambda_{1}, T) + \cdots + E(\lambda_{m}, T)
+    \]
+
+    is a direct sum. Thus
+    \[
+        \dim E(\lambda_{1}, T) + \cdots + \dim E(\lambda_{m}, T) = \dim(E(\lambda_{1}, T) + \cdots + E(\lambda_{m}, T))\leq \dim\range{T}.\qedhere
+    \]
+\end{proof}
+\newpage
+
+% chapter5:sectionD:exercise9
+\begin{exercise}
+    Suppose $R, T\in \lmap{\mathbb{F}^{3}}$ each have $2, 6, 7$ as eigenvalues. Prove that there exists an invertible operator $S\in\lmap{\mathbb{F}^{3}}$ such that $R = S^{-1}TS$.
+\end{exercise}
+
+\begin{proof}
+    $R, T\in \lmap{\mathbb{F}^{3}}$ each have $2, 6, 7$ as eigenvalues. So $R$ and $T$ are diagonalizable.
+
+    Let $v_{1}, v_{2}, v_{3}$ be eigenvectors of $R$ corresponding to $2, 6, 7$, respectively. Let $w_{1}, w_{2}, w_{3}$ be eigenvectors of $T$ corresponding to $2, 6, 7$, respectively. Then $v_{1}, v_{2}, v_{3}$ and $w_{1}, w_{2}, w_{3}$ are two bases of $\mathbb{F}^{3}$. Denote $\lambda_{1} = 2$, $\lambda_{2} = 6$, $\lambda_{3} = 7$.
+
+    I define the operator $S\in\lmap{\mathbb{F}^{3}}$ as follows: $Sw_{1} = v_{1}$, $Sw_{2} = v_{2}$, $Sw_{3} = v_{1}$. $S$ is invertible. For each $i\in\{1, 2, 3\}$,
+    \[
+        (S^{-1}TS)(w_{i}) = (S^{-1}T)(v_{i}) = S^{-1}(\lambda_{i}v_{i}) = \lambda_{i}S^{-1}v_{i} = \lambda_{i}w_{i} = Rw_{i}.
+    \]
+
+    Hence $R = S^{-1}TS$.
+\end{proof}
+\newpage
+
+% chapter5:sectionD:exercise10
+\begin{exercise}
+    Find $R, T\in \lmap{\mathbb{F}^{4}}$ such that $R$ and $T$ each have $2, 6, 7$ as eigenvalues, $R$ and $T$ have no other eigenvalues, and there does not exist an invertible operator $S\in\lmap{\mathbb{F}^{4}}$ such that $R = S^{-1}TS$.
+\end{exercise}
+
+\begin{proof}
+    Let
+    \[
+        R(z_{1}, z_{2}, z_{3}, z_{4}) = (2z_{1}, 2z_{2}, 6z_{3}, 7z_{4})
+    \]
+
+    then $R$ is diagonalizable and the minimal polynomial of $R$ is $(z - 2)(z - 6)(z - 7)$.
+
+    Let $Se_{1} = e_{2}$, $Se_{2} = e_{3}$, $Se_{3} = e_{4}$, $Se_{4} = -168e_{1} + 220e_{2} - 98e_{3} + 17e_{4}$. The matrix of $S$ with respect to the standard basis of $\mathbb{F}^{4}$ is
+    \[
+        \begin{pmatrix}
+            0 & 0 & 0 & -168 \\
+            1 & 0 & 0 & 220  \\
+            0 & 1 & 0 & -98  \\
+            0 & 0 & 1 & 17
+        \end{pmatrix}
+    \]
+
+    so the minimal polynomial of $S$ is
+    \[
+        z^{4} - 17z^{3} + 98z^{2} - 220z + 168 = {(z - 2)}^{2}(z - 6)(z - 7).
+    \]
+
+    Let $p$ denote the minimal polynomial of $R$. Assume there exists an invertible operator $S\in\lmap{\mathbb{F}^{4}}$ such that $R = S^{-1}TS$, then
+    \[
+        p(T) = p(SRS^{-1}) = Sp(R)S^{-1} = 0.
+    \]
+
+    So $p$ is a polynomial multiple of ${(z - 2)}^{2}(z - 6)(z - 7)$, which is a contradiction. So there does not exist an invertible operator $S\in\lmap{\mathbb{F}^{4}}$ such that $R = S^{-1}TS$ for the given operators $R$ and $T$.
+\end{proof}
+\newpage
+
+% chapter5:sectionD:exercise11
+\begin{exercise}
+    Find $T\in\lmap{\mathbb{C}^{3}}$ such that $6$ and $7$ are eigenvalues of $T$ and such that $T$ does not have a diagonal matrix with respect to any basis of $\mathbb{C}^{3}$.
+\end{exercise}
+
+\begin{proof}
+    I define the operator $T$ on $\mathbb{C}^{3}$ as follows: $Te_{1} = e_{2}$, $Te_{2} = e_{3}$, $Te_{3} = 252e_{1} - 120e_{2} + 19e_{3}$.
+
+    The matrix of $T$ with respect to the standard basis is
+    \[
+        \begin{pmatrix}
+            0 & 0 & 252  \\
+            1 & 0 & -120 \\
+            0 & 1 & 19
+        \end{pmatrix}
+    \]
+
+    which is also the companion matrix of the polynomial
+    \[
+        z^{3} - 19z^{2} + 120z - 252 = {(z - 6)}^{2}(z - 7).
+    \]
+
+    This is also the minimal polynomial of $T$. Therefore $T$ is not diagonalizable (because it has a double root).
+\end{proof}
+\newpage
+
+% chapter5:sectionD:exercise12
+\begin{exercise}
+    Suppose $T\in\lmap{\mathbb{C}^{3}}$ is such that $6$ and $7$ are eigenvalues of $T$. Furthermore, suppose $T$ does not have a diagonal matrix with respect to any basis of $\mathbb{C}^{3}$. Prove that there exists $(z_{1}, z_{2}, z_{3}) \in \mathbb{C}^{3}$ such that
+    \[
+        T(z_{1}, z_{2}, z_{3}) = (6 + 8z_{1}, 7 + 8z_{2}, 13 + 8z_{3}).
+    \]
+\end{exercise}
+
+\begin{proof}
+    $T$ does not have a diagonal matrix with respect to any basis of $\mathbb{C}^{3}$, so $T$ does not have any eigenvalue other than $6$ and $7$ (otherwise, $T$ has three distinct eigenvalues, which makes $T$ diagonalizable). So $8$ is not an eigenvalue of $T$. Therefore $T - 8I$ is invertible. So there exists $(z_{1}, z_{2}, z_{3}) \in \mathbb{C}^{3}$ such that $(T - 8I)(z_{1}, z_{2}, z_{3}) = (6, 7, 13)$. Equivalently, there exists $(z_{1}, z_{2}, z_{3}) \in \mathbb{C}^{3}$ such that $T(z_{1}, z_{2}, z_{3}) = (6 + 8z_{1}, 7 + 8z_{2}, 13 + 8z_{3})$.
+\end{proof}
+\newpage
+
+% chapter5:sectionD:exercise13
+\begin{exercise}
+    Suppose $A$ is a diagonal matrix with distinct entries on the diagonal and $B$ is a matrix of the same size as $B$. Show that $AB = BA$ if and only if $B$ is a diagonal matrix.
+\end{exercise}
+
+\begin{proof}
+    Let $n$ be the number of rows of $A$, $B$. $AB = BA$ if and only if for all pairs $(j, k)$ such that $1\leq j, k\leq n$,
+    \[
+        \sum^{n}_{r=1}A_{j,r}B_{r,k} = \sum^{n}_{r=1}B_{j,r}A_{r,k}.
+    \]
+
+    Since $A$ is a diagonal matrix, then the statement is equivalent to
+    \[
+        A_{j,j}B_{j,k} = B_{j,k}A_{k,k}
+    \]
+
+    for all pairs $(j, k)$ such that $1\leq j, k\leq n$.
+
+    Since the entries on the diagonal of $A$ are distinct, the statement is equivalent to $B_{j,k} = 0$ for all pairs $(j, k)$ such that $1\leq j, k\leq n$ and $j\ne k$. Equivalently, this means $B$ is a diagonal matrix.
+\end{proof}
+\newpage
+
+% chapter5:sectionD:exercise14
+\begin{exercise}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Give an example of a finite-dimensional complex vector space and an
+              operator $T$ on that vector space such that $T^{2}$ is diagonalizable but $T$ is not diagonalizable.
+        \item Suppose $\mathbb{F} = \mathbb{C}$, $k$ is a positive integer, and $T\in\lmap{V}$ is invertible. Prove that $T$ is diagonalizable if and only if $T^{k}$ is diagonalizable.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item I define the linear operator $T$ on $\mathbb{C}^{2}$ as follows: $T(z_{1}, z_{2}) = (0, z_{1})$. Due to this definition, $T^{2} = 0$, so $T^{2}$ is diagonalizable. However, $T$ is not diagonalizable because the minimal polynomial of $T$ is $z^{2}$, which is not a product of different monic polynomials of degree $1$.
+        \item If $T$ is diagonalizable, then there exists a basis $v_{1}, \ldots, v_{n}$ of $V$ such that the matrix of $T$ with respect to this basis is a diagonal matrix. Let $Tv_{i} = \lambda_{i}v_{i}$, where $\lambda_{i}$ is the $i$th entry on the diagonal of the matrix of $T$. Then $T^{k}v_{i} = \lambda_{i}^{k}v_{i}$. Therefore the matrix of $T^{k}$ with respect to the basis $v_{1}, \ldots, v_{n}$ is a diagonal matrix, and the $i$th entry on the diagonal of this matrix is $\lambda_{i}^{k}$.
+
+              Assume that the statement is true for all positive integer less than $m$. If $T^{k}$ is diagonalizable, then the minimal polynomial of $T^{k}$ is
+              \[
+                  (z - \lambda_{1})\cdots (z - \lambda_{m})
+              \]
+
+              where $\lambda_{1}, \ldots, \lambda_{m}$ are distinct nonzero complex numbers. Each nonzero complex number $\lambda_{i}$ has $k$ $k$-roots, let them be $\lambda_{i,1}, \ldots, \lambda_{i,k}$. A $k$-root of $\lambda_{i}$ is not equal to a $k$-root of $\lambda_{j}$ for all $i\ne j$ (this is proved by contradiction). Hence
+              \begin{align*}
+                  (z^{k} - \lambda_{1})\cdots (z^{k} - \lambda_{m}) & = \prod^{m}_{i=1}(z^{k} - \lambda_{i})                           \\
+                                                                    & = \prod^{m}_{i=1}\left(\prod^{k}_{j=1}(z - \lambda_{i,j})\right)
+              \end{align*}
+
+              Hence
+              \[
+                  \prod^{m}_{i=1}\left(\prod^{k}_{j=1}(T - \lambda_{i,j}I)\right) = 0.
+              \]
+
+              So this polynomial is a product of distinct monic polynomial of degree $1$ and is a multiple polynomial of the minimal polynomial of $T$. Therefore the minimal polynomial of $T$ is also a product of distinct monic polynomial of degree $1$. Therefore $T$ is diagonalizable.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter5:sectionD:exercise15
+\begin{exercise}
+    Suppose $V$ is a finite-dimensional complex vector space, $T\in\lmap{V}$, and $p$ is the minimal polynomial of $T$. Prove that the following are equivalent.
+    \begin{enumerate}[label={(\alph*)}]
+        \item $T$ is diagonalizable.
+        \item There does not exist $\lambda\in\mathbb{C}$ such that $p$ is a polynomial multiple of ${(z - \lambda)}^{2}$.
+        \item $p$ and its derivative $p'$ have no zeros in common.
+        \item The greatest common divisor of $p$ and $p'$ is the constant polynomial $1$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    $T$ is diagonalizable if and only if $p$ is the product of distinct monic polynomial of degree $1$. Together with the second version of the fundamental theorem of algebra, it follows that (a) and (b) are equivalent.
+
+    (b) and (c) are equivalent due to Exercise~\ref{chapter4:sectionA:exercise8}.
+
+    Now I will prove that (c) and (d) are equivalent.
+
+    If (c) is true, assume that the greatest common disisor of $p$ and $p'$ is a nonconstant polynomial, then $p$ and $p'$ have at least one zero in common. So the assumption is false. Therefore (d) is true. So (c) implies (d).
+
+    If (d) is true, then there exist polynomials $s$ and $r$ such that
+    \[
+        sp + rp' = 1.
+    \]
+
+    From $sp + rp' = 1$, we deduce that every zero of $p$ is not a zero of $p'$ and vice versa, so $p$ and $p'$ have no zeros in common. Hence (d) implies (c).
+
+    Thus (c) and (d) are equivalent.
+\end{proof}
+\newpage
+
+% chapter5:sectionD:exercise16
+\begin{exercise}
+    Suppose that $T\in\lmap{V}$ is diagonalizable. Let $\lambda_{1}, \ldots, \lambda_{m}$ denote the distinct eigenvalues of $T$. Prove that a subspace $U$ of $V$ is invariant under $T$ if and only if there exist subspaces $U_{1}, \ldots, U_{m}$ of $V$ such that $U_{k}\subseteq E(\lambda_{k}, T)$ for each $k$ and $U = U_{1}\oplus \cdots \oplus U_{m}$.
+\end{exercise}
+
+\begin{proof}
+    If there exist subspaces $U_{1}, \ldots, U_{m}$ of $V$ such that $U_{k}\subseteq E(\lambda_{k}, T)$ for each $k$ and $U = U_{1}\oplus \cdots \oplus U_{m}$, then for every $u\in U$, there exist $v_{1}\in U_{1}, \ldots, v_{m}\in U_{m}$ such that
+    \[
+        u = v_{1} + \cdots + v_{m}
+    \]
+
+    and $Tu = Tv_{1} + \cdots + Tv_{m} = \lambda_{1}v_{1} + \cdots + \lambda_{m}v_{m}\in U_{1}\oplus \cdots \oplus U_{m} = U$. Therefore $U$ is invariant under $T$.
+
+    \bigskip
+
+    If $U$ is invariant under $T$. Since $T$ is diagonalizable, then so is $T\vert_{U}$. Let $\alpha_{1}, \ldots, \alpha_{p}$ be the distinct eigenvalues of $T\vert_{U}$, then $\{ \alpha_{1}, \ldots, \alpha_{p} \}\subseteq \{ \lambda_{1}, \ldots, \lambda_{n} \}$.
+
+    Let $U_{k} = E(\lambda_{k}, T\vert_{U})$ for each $k\in\{ 1, \ldots, n \}$, then
+    \begin{align*}
+        U & = E(\alpha_{1}, T\vert_{U})\oplus\cdots\oplus E(\alpha_{p}, T\vert_{U})   \\
+          & = E(\lambda_{1}, T\vert_{U})\oplus\cdots\oplus E(\lambda_{m}, T\vert_{U}) \\
+          & = U_{1}\oplus\cdots \oplus U_{m}.
+    \end{align*}
+\end{proof}
+\newpage
+
+% chapter5:sectionD:exercise17
+\begin{exercise}
+    Suppose $V$ is finite-dimensional. Prove that $\lmap{V}$ has a basis consisting of diagonalizable operators.
+\end{exercise}
+
+\begin{proof}
+    Let $v_{1}, \ldots, v_{n}$ be a basis of $V$.
+
+    Let $E_{i,j}$ be the linear map such that
+    \[
+        E_{i,j}v_{k} = \begin{cases}
+            v_{i} & \text{if $k = j$} \\
+            0     & \text{otherwise}
+        \end{cases}
+    \]
+
+    Then the list $E_{i,j}$ ($1\leq i, j\leq n$) is a basis of $\lmap{V}$. Replace this list by $E_{1,1}, \ldots, E_{n,n}$, $E_{i,i} + E_{i,j}$ ($1\leq i, j\leq n$, $i\ne j$), then this list is still a basis of $\lmap{V}$.
+
+    If $i\ne j$,
+    \begin{align*}
+        (E_{i,i} + E_{i,j})(E_{i,i} + E_{i,j}) & = E_{i,i}E_{i,i} + E_{i,j}E_{i,i} + E_{i,i}E_{i,j} + E_{i,j}E_{i,j} \\
+                                               & = E_{i,i} + 0 + E_{i,j} + 0                                         \\
+                                               & = E_{i,i} + E_{i,j}
+    \end{align*}
+
+    So $z^{2} - z = z(z - 1)$ is the minimal polynomial of $E_{i,i} + E_{i,j}$. Therefore $E_{i,i} + E_{i,j}$ is diagonalizable for all $i\ne j$.
+
+    Thus the list $E_{1,1}, \ldots, E_{n,n}$, $E_{i,i} + E_{i,j}$ ($1\leq i, j\leq n$, $i\ne j$) consisting of diagonalizable operators and is a basis of $\lmap{V}$.
+\end{proof}
+\newpage
+
+% chapter5:sectionD:exercise18
+\begin{exercise}
+    Suppose that $T \in \lmap{V}$ is diagonalizable and $U$ is a subspace of $V$ that is invariant under $T$. Prove that the quotient operator $T/U$ is a diagonalizable operator on $V/U$.
+\end{exercise}
+
+\begin{proof}
+    $T$ is diagonalizable so the minimal polynomial of $T$ is a product of distinct monic polynomial of degree $1$. On the other hand, the minimal polynomial of $T$ is a polynomial multiple of the minimal polynomial of $T/U$. Therefore the minimal polynomial of $T/U$ is also a product of distinct monic polynomial of degree $1$. Thus $T/U$ is a diagonalizable operator on $V/U$.
+\end{proof}
+\newpage
+
+% chapter5:sectionD:exercise19
+\begin{exercise}
+    Prove or give a counterexample: If $T \in \lmap{V}$ and there exists a subspace $U$ of $V$ that is invariant under $T$ such that $T\vert_{U}$ and $T/U$ are both diagonalizable, then $T$ is diagonalizable.
+\end{exercise}
+
+\begin{proof}
+    I give a counterexample.
+
+    On $V = \mathbb{F}^{2}$, I define the linear operator $T$ as follows: $T(x, y) = (y, 0)$. The minimal polynomial of $T$ is $z^{2} = 0$, so $T$ is not diagonalizable.
+
+    $\kernel{T} = \operatorname{span}((1, 0))$. Let $U = \kernel{T}$ then $U$ is invariant under $T$. $T\vert_{U} = 0$ so $T\vert_{U}$ is diagonalizable.
+
+    $V/U = \operatorname{span}((0, 1) + U)$, so
+    \[
+        T/U((0, 1) + U) = T(0, 1) + U = (1, 0) + U = 0 + U.
+    \]
+
+    Therefore $T/U = 0$, which means $T/U$ is diagonalizable.
+\end{proof}
+\newpage
+
+% chapter5:sectionD:exercise20
+\begin{exercise}
+    Suppose $V$ is finite-dimensional and $T \in \lmap{V}$. Prove that $T$ is diagonalizable if and only if the dual operator $T'$ is diagonalizable.
+\end{exercise}
+
+\begin{proof}
+    A linear operator is diagonalizable if and only if its minimal polynomial is a product of distinct monic polynomial of degree $1$. By Exercise~\ref{chapter5:sectionB:exercise28}, the minimal polynomials of $T$ and its dual map $T'$ are equal. Thus $T$ is diagonalizable if and only if the dual operator $T'$ is diagonalizable.
+\end{proof}
+\newpage
+
+% chapter5:sectionD:exercise21
+\begin{exercise}
+    The \textit{Fibonacci sequence} $F_{0}, F_{1}, F_{2}, \ldots$ is defined by
+    \[
+        F_{0} = 0, F_{1} = 1, \text{ and } F_{n} = F_{n-2} + F_{n-1} \text{ for $n\geq 2$}.
+    \]
+
+    Define $T\in\lmap{\mathbb{R}^{2}}$ by $T(x, y) = (y, x + y)$.
+
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that $T^{n}(0, 1) = (F_{n}, F_{n+1})$ for each nonnegative integer $n$.
+        \item Find the eigenvalues of $T$.
+        \item Find a basis of $\mathbb{R}^{2}$ consisting of eigenvectors of $T$.
+        \item Use the solution to (c) to compute $T^{n}(0, 1)$. Conclude that
+              \[
+                  F_{n} = \frac{1}{\sqrt{5}}\left[{\left(\frac{1 + \sqrt{5}}{2}\right)}^{n} - {\left(\frac{1 - \sqrt{5}}{2}\right)}^{n}\right]
+              \]
+
+              for each nonnegative integer $n$.
+        \item Use (d) to conclude that if $n$ is a nonnegative integer, then the Fibonacci number $F_{n}$ is the integer that is closest to
+              \[
+                  \frac{1}{\sqrt{5}}{\left(\frac{1 + \sqrt{5}}{2}\right)}^{n}.
+              \]
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item I give a proof using mathematical induction.
+
+              $T^{0}(0, 1) = (0, 1) = (F_{0}, F_{1})$.
+
+              Assume $T^{n}(0, 1) = (F_{n}, F_{n+1})$, then according to the induction hypothesis
+              \[
+                  T^{n+1}(0, 1) = T(F_{n}, F_{n+1}) = (F_{n+1}, F_{n} + F_{n+1}) = (F_{n+1}, F_{n+2}).
+              \]
+
+              Thus, due to the principle of mathematical induction $T^{n}(0, 1) = (F_{n}, F_{n+1})$ for each nonnegative integer $n$.
+        \item Let $\lambda$ be an eigenvalue of $T$ and $(x, y)$ be a corresponding eigenvector.
+              \[
+                  T(x, y) = (y, x + y) = (\lambda x, \lambda y).
+              \]
+
+              Therefore $\lambda y^{2} = \lambda x(x + y)$. If $\lambda = 0$ then $x = y = 0$, which contradicts the definition of eigenvector. So $\lambda\ne 0$ and it follows that $x(x + y) = y^{2}$. $x = 0$ if and only if $y = 0$, therefore $x, y\ne 0$. From $x(x + y) = y^{2}$, we deduce that $\frac{y}{x}$ is a root of the quadratic equation $t^{2} - t - 1 = 0$. The two roots of this equation are $\frac{1 + \sqrt{5}}{2}$ and $\frac{1 - \sqrt{5}}{2}$.
+
+              Hence the eigenvalues of $T$ are $\frac{1 + \sqrt{5}}{2}$ and $\frac{1 - \sqrt{5}}{2}$.
+        \item A basis of $\mathbb{R}^{2}$ consisting of eigenvectors of $T$ is
+              \[
+                  \left( 1, \frac{1+\sqrt{5}}{2} \right), \left( 1, \frac{1-\sqrt{5}}{2} \right).
+              \]
+        \item \begin{align*}
+                  T^{n}(0, 1) & = \frac{1}{\sqrt{5}}T^{n}\left(1, \frac{1+\sqrt{5}}{2}\right) - \frac{1}{\sqrt{5}}T^{n}\left(1, \frac{1-\sqrt{5}}{2}\right)                                                                                                                                   \\
+                              & = \frac{1}{\sqrt{5}}{\left(\frac{1+\sqrt{5}}{2}\right)}^{n}\left(1, \frac{1+\sqrt{5}}{2}\right) - \frac{1}{\sqrt{5}}{\left(\frac{1-\sqrt{5}}{2}\right)}^{n}\left(1, \frac{1-\sqrt{5}}{2}\right)                                                               \\
+                              & = \left(\frac{1}{\sqrt{5}}\left[{\left(\frac{1 + \sqrt{5}}{2}\right)}^{n} - {\left(\frac{1 - \sqrt{5}}{2}\right)}^{n}\right], \frac{1}{\sqrt{5}}\left[{\left(\frac{1 + \sqrt{5}}{2}\right)}^{n+1} - {\left(\frac{1 - \sqrt{5}}{2}\right)}^{n+1}\right]\right)
+              \end{align*}
+
+              Hence
+              \[
+                  F_{n} = \frac{1}{\sqrt{5}}\left[{\left(\frac{1 + \sqrt{5}}{2}\right)}^{n} - {\left(\frac{1 - \sqrt{5}}{2}\right)}^{n}\right]
+              \]
+
+              for each nonnegative integer $n$.
+        \item \[
+                  \abs{F_{n} - \frac{1}{\sqrt{5}}{\left(\frac{1 + \sqrt{5}}{2}\right)}^{n}} = \abs{\frac{1}{\sqrt{5}}{\left(\frac{1 - \sqrt{5}}{2}\right)}^{n}}\leq \frac{1}{\sqrt{5}} < \frac{1}{2}.
+              \]
+
+              So $F_{n}$ is the integer that is closest to
+              \[
+                  \frac{1}{\sqrt{5}}{\left(\frac{1 + \sqrt{5}}{2}\right)}^{n}.
+              \]
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter5:sectionD:exercise22
+\begin{exercise}
+    Suppose $T\in\lmap{V}$ and $A$ is an $n$-by-$n$ matrix that is the matrix of $T$ with respect to some basis of $V$. Prove that if
+    \[
+        \abs{A_{j,j}} > \sum^{n}_{\substack{k=1\\ k\ne j}}\abs{A_{j,k}}
+    \]
+
+    for each $j\in \{ 1, \ldots, n \}$, then $T$ is invertible.
+\end{exercise}
+
+\begin{proof}
+    Assume that $T$ is not invertible, then there exists a nonzero vector $v$ such that $Tv = 0$. So $0$ is an eigenvalue of $T$.
+
+    According to the Gershgorin disk theorem, there exists $j$ in $\{ 1, \ldots, n \}$ such that
+    \[
+        \abs{0 - A_{j,j}} < \sum^{n}_{\substack{k=1 \\ k\ne j}}\abs{A_{j,k}}.
+    \]
+
+    But this is a contradiction, since
+    \[
+        \abs{A_{j,j}} > \sum^{n}_{\substack{k=1\\ k\ne j}}\abs{A_{j,k}}
+    \]
+
+    for each $j\in \{ 1, \ldots, n \}$. Therefore the assumption is false, and thus $T$ is invertible.
+\end{proof}
+\newpage
+
+% chapter5:sectionD:exercise23
+\begin{exercise}
+    Suppose the definition of the Gershgorin disks is changed so that the radius of the $k$th disk is the sum of the absolute values of the entries in column (instead of row) $k$ of $A$, excluding the diagonal entry. Show that the Gershgorin disk theorem (5.67) still holds with this changed definition.
+\end{exercise}
+
+\begin{proof}
+    Assume that the linear operator $T$ has matrix $A$ with respect to a basis $v_{1}, \ldots, v_{n}$ of $V$, then the matrix of the dual map $T'$ of $T$ has matrix $B = A^{\top}$ with respect to the dual basis of $v_{1}, \ldots, v_{n}$.
+
+    Let $\lambda$ be an eigenvalue of $T$, then $\lambda$ is also an eigenvalue of $T'$. According to the Gershgorin disk theorem, there exists $j$ in $\{ 1, \ldots, n \}$ such that
+    \[
+        \lambda \in \left\{ z : \abs{z - B_{j,j}} < \sum^{n}_{\substack{k=1\\k\ne j}} \abs{B_{j,k}} \right\}.
+    \]
+
+    Equivalently
+    \[
+        \lambda\in \left\{ z : \abs{z - A_{j,j}} < \sum^{n}_{\substack{k=1\\k\ne j}} \abs{A_{k,j}} \right\}.
+    \]
+
+    Thus the Gershgorin disk theorem where the radius of the $k$th disk is the sum of the absolute values of the entries in column $k$ of $A$, excluding the diagonal entry still holds.
+\end{proof}
+\newpage
+
 \section{Commuting Operators}
 
+% chapter5:sectionE:exercise1
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter5:sectionE:exercise2
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter5:sectionE:exercise3
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter5:sectionE:exercise4
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter5:sectionE:exercise5
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter5:sectionE:exercise6
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter5:sectionE:exercise7
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter5:sectionE:exercise8
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter5:sectionE:exercise9
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter5:sectionE:exercise10
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
