@@ -2598,80 +2598,247 @@ In this exercise, $\mathbb{F}$ must have infinite elements.
 
 % chapter5:sectionE:exercise1
 \begin{exercise}
+    Give an example of two commuting operators $S, T$ on $\mathbb{F}^{4}$ such that there is a subspace of $\mathbb{F}^{4}$ that is invariant under $S$ but not under $T$ and there is a subspace of $\mathbb{F}^{4}$ that is invariant under $T$ but not under $S$.
 \end{exercise}
 
 \begin{proof}
+    I define $S$ and $T$ as follows:
+    \begin{align*}
+        S(x_{1}, x_{2}, x_{3}, x_{4}) & = (x_{1}, x_{1} + x_{2}, x_{1} + x_{2} + x_{3}, x_{1} + x_{2} + x_{3} + x_{4}), \\
+        T(x_{1}, x_{2}, x_{3}, x_{4}) & = (x_{1}, x_{2} - x_{1}, x_{3} - x_{2}, x_{4} - x_{3}).
+    \end{align*}
+
+    Hence $ST = TS = I$. Let
+    \[
+        U = \{ (x_{1}, x_{2}, 0, 0): x_{1}, x_{2}\in\mathbb{F} \}\qquad V = \{ (0, 0, x_{3}, x_{4}): x_{3}, x_{4}\in\mathbb{F} \}.
+    \]
+
+    $U$ is invariant under $S$ but is not invariant under $T$. $V$ is invariant under $T$ but is not invariant under $S$.
 \end{proof}
 \newpage
 
 % chapter5:sectionE:exercise2
 \begin{exercise}
+    Suppose $\mathcal{E}$ is a subset of $\lmap{V}$ and every element of $\mathcal{E}$ is diagonalizable. Prove that there exists a basis of $V$ with respect to which every element of $\mathcal{E}$ has a diagonal matrix if and only if every pair of elements of $\mathcal{E}$ commutes.
 \end{exercise}
 
 \begin{proof}
+    If there exists a basis of $V$ with respect to which every element of $\mathcal{E}$ has a diagonal matrix, then every pair of elements of $\mathcal{E}$ commutes because any two diagonal matrices commute.
+
+    To prove the implication of the other direction, I give a proof using mathematical induction on $\dim V$.
+
+    If $\dim V = 1$, every pair of elements of $\mathcal{E}$ commute, and all elements of $\mathcal{E}$ are simultaneously diagonalizable.
+
+    Let $n$ be a positive integer greater than $1$. Assume that the statement is true for every vector space of dimension less than $n$. Let $\dim V = n$.
+
+    If each element of $\mathcal{E}$ has precisely one eigenvalue, then each of them is a multiple of a scalar and the identity operator. So every pair of elements of $\mathcal{E}$ commute, and all elements of $\mathcal{E}$ are simultaneously diagonalizable with respect to any basis of $V$.
+
+    Otherwise, there exists an operator $T\in\mathcal{E}$ such that $T$ have at least two eigenvalues. Let $\lambda_{1}, \ldots, \lambda_{m}$ be the distinct eigenvalues of $T$, then $m\geq 2$. Because $T$ is diagonalizable,
+    \[
+        V = E(\lambda_{1}, T)\oplus \cdots \oplus E(\lambda_{m}, T).
+    \]
+
+    By the induction hypothesis, for each $i\in \{ 1, \ldots, m \}$, for all $S\in\mathcal{E}$, there exists a basis of $E(\lambda_{i}, T)$ consisting of eigenvectors of $S\vert_{E(\lambda_{i}, T)}$. Putting all these bases together gives a basis of $V$ with respect to which every element of $\mathcal{E}$ has a diagonal matrix.
+
+    So due to the principle of mathematical induction, if every pair of elements of $\mathcal{E}$ commutes, then there exists a basis of $V$ with respect to which every element of $\mathcal{E}$ has a diagonal matrix.
 \end{proof}
 \newpage
 
 % chapter5:sectionE:exercise3
-\begin{exercise}
+\begin{exercise}\label{chapter5:sectionE:exercise3}
+    Suppose $S, T\in\lmap{V}$ are such that $ST = TS$. Suppose $p\in \mathscr{P}(\mathbb{F})$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Prove that $\kernel{p(S)}$ is invariant under $T$.
+        \item Prove that $\range{p(S)}$ is invariant under $T$.
+    \end{enumerate}
 \end{exercise}
 
 \begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Let $v\in \kernel{p(S)}$. Then $p(S)v = 0$. Because $S$ and $T$ commute, it follows that $p(S)$ and $T$ commute.
+              \[
+                  p(S)(Tv) = T(p(S)v) = 0.
+              \]
+
+              So $Tv\in\kernel{p(S)}$. Thus $\kernel{p(S)}$ is invariant under $T$.
+        \item Let $w\in \range{p(S)}$. Then there exists $v\in V$ such that $p(S)v = w$. Because $S$ and $T$ commute, it follows that $p(S)$ and $T$ commute.
+              \[
+                  Tw = T(p(S)v) = p(S)(Tv).
+              \]
+
+              Hence $Tw\in \range{p(S)}$. Thus $\range{p(S)}$ is invariant under $T$.
+    \end{enumerate}
 \end{proof}
 \newpage
 
 % chapter5:sectionE:exercise4
 \begin{exercise}
+    Prove or give a counterexample: If $A$ is a diagonal matrix and $B$ is an upper-triangular matrix of the same size as $A$, then $A$ and $B$ commute.
 \end{exercise}
 
 \begin{proof}
+    I give a counterexample.
+    \[
+        A = \begin{pmatrix}
+            1 & 0 \\
+            0 & 0
+        \end{pmatrix}\qquad
+        B = \begin{pmatrix}
+            1 & 1 \\
+            0 & 0
+        \end{pmatrix}
+    \]
+
+    Then
+    \[
+        AB = \begin{pmatrix}
+            1 & 1 \\
+            0 & 0
+        \end{pmatrix}\qquad
+        BA = \begin{pmatrix}
+            1 & 0 \\
+            0 & 0
+        \end{pmatrix}.
+    \]
 \end{proof}
 \newpage
 
 % chapter5:sectionE:exercise5
 \begin{exercise}
+    Prove that a pair of operators on a finite-dimensional vector space commute if and only if their dual operators commute.
 \end{exercise}
 
 \begin{proof}
+    Let $S$ and $T$ be two linear operators on a finite-dimensional vector space $V$. Let $v_{1}, \ldots, v_{n}$ be a basis of $V$ and $\varphi_{1}, \ldots, \varphi_{n}$ is the dual basis.
+
+    Let
+    \[
+        A = \mathcal{M}(S, (v_{1}, \ldots, v_{n}))\qquad
+        B = \mathcal{M}(T, (v_{1}, \ldots, v_{n}))
+    \]
+
+    then
+    \[
+        A^{\top} = \mathcal{M}(S', (\varphi_{1}, \ldots, \varphi_{n}))\qquad
+        B^{\top} = \mathcal{M}(T', (\varphi_{1}, \ldots, \varphi_{n}))
+    \]
+
+    $S$ and $T$ commute if and only if $A$ and $B$ commute. $S'$ and $T'$ commute if and only if $A^{\top}$ and $B^{\top}$ commute. $A$ and $B$ commute if and only if $A^{\top}$ and $B^{\top}$ commute, which is deduced from
+    \[
+        {(AB)}^{\top} = B^{\top}A^{\top}\qquad {(BA)}^{\top} = A^{\top}B^{\top}.
+    \]
+
+    Thus $S$ and $T$ commute if and only if $S'$ and $T'$ commute.
 \end{proof}
 \newpage
 
 % chapter5:sectionE:exercise6
 \begin{exercise}
+    Suppose $V$ is a finite-dimensional complex vector space and $S, T\in\lmap{V}$ commute. Prove that there exist $\alpha, \lambda\in\mathbb{C}$ such that
+    \[
+        \range{(S - \alpha I)} + \range{(T - \lambda I)} \ne V.
+    \]
 \end{exercise}
 
 \begin{proof}
+    Unsolved.
 \end{proof}
 \newpage
 
 % chapter5:sectionE:exercise7
 \begin{exercise}
+    Suppose $V$ is a complex vector space, $S \in \lmap{V}$ is diagonalizable, and $T\in\lmap{V}$ commutes with $S$. Prove that there is a basis of $V$ such that $S$ has a diagonal matrix with respect to this basis and $T$ has an upper-triangular matrix with respect to this basis.
 \end{exercise}
 
 \begin{proof}
+    Let $\lambda_{1}, \ldots, \lambda_{m}$ be the distinct eigenvalues of $S$. Because $S$ is diagonalizable, it follows that
+    \[
+        V = E(\lambda_{1}, S) \oplus \cdots \oplus E(\lambda_{m}, S).
+    \]
+
+    For each $i\in\{1, \ldots, m\}$, $S\vert_{E(\lambda_{i}, S)}$ and $T\vert_{E(\lambda_{i}, S)}$ commute, so there exists a basis of $E(\lambda_{i}, S)$ with respect to which $S$ and $T$ have upper-triangular matrix. Putting all these bases gives a basis of $V$ with respect to which $S$ and $T$ have upper-triangular matrix. Moreover, these vectors are eigenvectors of $S$, so the matrix of $S$ with respect to this basis is not just upper-triangular matrix but also diagonal.
+
+    Thus there exists a basis of $V$ such that $S$ has a diagonal matrix and $T$ has an upper-triangular matrix with respect to this basis.
 \end{proof}
 \newpage
 
 % chapter5:sectionE:exercise8
 \begin{exercise}
+    Suppose $m = 3$ in Example 5.72 and $D_{x}$, $D_{y}$ are the commuting partial
+    differentiation operators on $\mathscr{P}_{3}(\mathbb{R}^{2})$ from that example. Find a basis of $\mathscr{P}_{3}(\mathbb{R}^{2})$ with respect to which $D_{x}$ and $D_{y}$ each have an upper-triangular matrix.
 \end{exercise}
 
 \begin{proof}
+    I choose the following basis
+    \[
+        1, x, y, x^{2}, y^{2}, xy, x^{2}y, xy^{2}, x^{3}, y^{3}.
+    \]
+
+    \[
+        \mathcal{M}(D_{x}) = \begin{pmatrix}
+            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+            0 & 1 & 0 & 2 & 0 & 0 & 0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 3 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 0 & 2 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0
+        \end{pmatrix}
+    \]
+
+    \[
+        \mathcal{M}(D_{y}) = \begin{pmatrix}
+            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+            0 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 2 & 0 & 0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 3 \\
+            0 & 0 & 0 & 0 & 0 & 0 & 0 & 2 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0
+        \end{pmatrix}
+    \]
+
+    The matrices of $D_{x}$ and $D_{y}$ with respect to this basis are upper triangular.
 \end{proof}
 \newpage
 
 % chapter5:sectionE:exercise9
 \begin{exercise}
+    Suppose $V$ is a finite-dimensional nonzero complex vector space. Suppose that $E \subseteq \lmap{V}$ is such that $S$ and $T$ commute for all $S, T\in \mathcal{E}$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Prove that there is a vector in $V$ that is an eigenvector for every element of $\mathcal{E}$.
+        \item Prove that there is basis of $V$ with respect to which every element of $\mathcal{E}$ has an upper-triangular matrix.
+    \end{enumerate}
 \end{exercise}
 
 \begin{proof}
+    Unsolved.
 \end{proof}
 \newpage
 
 % chapter5:sectionE:exercise10
 \begin{exercise}
+    Give an example of two commuting operators $S$, $T$ on a finite-dimensional real vector space such that $S + T$ has a eigenvalue that does not equal an eigenvalue of $S$ plus an eigenvalue of $T$ and $ST$ has a eigenvalue that does not equal an eigenvalue of $S$ times an eigenvalue of $T$.
 \end{exercise}
 
 \begin{proof}
+    I define $S, T$ on $\lmap{\mathbb{R}^{2}}$ as follows:
+    \[
+        S(x, y) = (y, -x)\qquad T(x, y) = (-y, x)
+    \]
+
+    Then
+    \begin{align*}
+        (ST)(x, y) & = S(-y, x) = (x, y) \\
+        (TS)(x, y) & = T(y, -x) = (x, y)
+    \end{align*}
+
+    so $ST = TS = I$. $S$ and $T$ have no (real) eigenvalue. On the other hand, $S + T = 0$ and $ST = I$. $0$ is the only eigenvalue of $S + T$, $1$ is the only eigenvalue of $ST$.
 \end{proof}
 \newpage
