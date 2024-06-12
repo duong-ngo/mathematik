@@ -1,4 +1,4 @@
-\documentclass[oneside]{book}
+\documentclass[12pt,oneside]{book}
 
 \usepackage[left=2cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
 \usepackage[unicode=true,hidelinks]{hyperref}
@@ -7,7 +7,6 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{amsthm}
-\usepackage{amscdx}
 \usepackage{mathtools}
 \usepackage{mathrsfs}
 \usepackage{cases}
@@ -32,11 +31,6 @@
 \cfoot{\thepage}
 \rfoot{}
 
-\titleformat{\chapter}[display]{\flushright\bf\huge}{\chaptertitlename\,\thechapter}{10pt}{}
-\titleformat{\section}{\bf\Large}{\thesection}{10pt}{}
-\titleformat{\subsection}{\bf\large}{\thesubsection}{10pt}{}
-\titleformat{\subsubsection}{\bf\large}{\thesubsubsection}{10pt}{}
-
 \captionsetup{labelfont={bf},labelsep=period}
 \counterwithin{figure}{chapter}
 \counterwithin{table}{chapter}
@@ -52,6 +46,7 @@
 \newtheorem{lemma}[theorem]{Lemma}
 
 \newtheorem{exercise}{Exercise}
+\counterwithin{exercise}{section}
 \newenvironment{sqcases}{%
     \matrix@check\sqcases\env@sqcases
 }{%
@@ -68,6 +63,10 @@
 \newcommand{\norm}[1]{\left\Vert{#1}\right\Vert}
 \newcommand{\anglebracket}[1]{\left\langle{#1}\right\rangle}
 \newcommand{\innerprod}[2]{\left\langle{#1}\vert{#2}\rangle}
+\newcommand{\set}[1]{\left\{{#1}\right\}}
+\newcommand{\powerset}[1]{\mathcal{P}\left({#1}\right)}
+\newcommand{\mapsfrom}{\mathrel{\reflectbox{\ensuremath{\mapsto}}}}
+\newcommand{\longmapsfrom}{\mathrel{\reflectbox{\ensuremath{\longmapsto}}}}
 
 \title{Vladimir A.\@ Zorich's Mathematical Analysis: Exercises}
 \author{Ngo Quang Duong}
@@ -81,8 +80,26 @@
 
 \part{Mathematical Analysis 1}
 
+\input{chapter1.tex}
+\input{chapter2.tex}
+\input{chapter3.tex}
+\input{chapter4.tex}
+\input{chapter5.tex}
+\input{chapter6.tex}
+\input{chapter7.tex}
+\input{chapter8.tex}
 
 \part{Mathematical Analysis 2}
 
+\input{chapter9.tex}
+\input{chapter10.tex}
+\input{chapter11.tex}
+\input{chapter12.tex}
+\input{chapter13.tex}
+\input{chapter14.tex}
+\input{chapter15.tex}
+\input{chapter16.tex}
+\input{chapter17.tex}
+\input{chapter18.tex}
 
 \end{document}
