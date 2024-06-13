@@ -5,6 +5,407 @@ of Real Numbers}
 
 \section{The Most Important Classes of Real Numbers and Computational Aspects of Operations with Real Numbers}
 
+% chapter2:section2:exercise1
+\begin{exercise}
+    Using the principle of induction, show that
+    \begin{enumerate}[label={(\alph*)}]
+        \item the sum $x_{1} + \cdots + x_{n}$ of real numbers is defined independently of the insertion of parentheses to specify the order of addition;
+        \item the same is true of the product $x_{1}\cdots x_{n}$;
+        \item $\abs{x_{1} + \cdots + x_{n}}\leq \abs{x_{1}} + \cdots + \abs{x_{n}}$
+        \item $\abs{x_{1}\cdots x_{n}} = \abs{x_{1}}\cdots \abs{x_{n}}$.
+        \item $\left((m, n\in\mathbb{N})\land (m < n)\right)\implies \left(\right)$
+        \item ${(1 + x)}^{n}\geq 1 + nx$ for $x > -1$ and $n\in\mathbb{N}$, equality holding only when $n = 1$ or $x = 0$ (Bernoulli's inequality);
+        \item ${(a + b)}^{n} = a^{n} + \frac{n}{1!}a^{n-1}b + \frac{n(n-1)}{2!}a^{n-2}b^{2} + \cdots + \frac{n(n-1)\cdots 2}{(n-1)!}ab^{n-1} + b^{n}$ (Newton's binomial formula).
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    I skip this exercise.
+\end{proof}
+\newpage
+
+% chapter2:section2:exercise2
+\begin{exercise}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Verify that $\mathbb{Z}$ and $\mathbb{Q}$ are inductive sets.
+        \item Give examples of inductive sets different from $\mathbb{N}$, $\mathbb{Z}$, $\mathbb{Q}$, and $\mathbb{R}$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    I skip this exercise.
+\end{proof}
+\newpage
+
+% chapter2:section2:exercise3
+\begin{exercise}
+    Show that an inductive set is not bounded above.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter2:section2:exercise4
+\begin{exercise}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that an inductive set is infinite (that is, equipotent with one of its subsets different from itself).
+        \item The set $E_{n} = \{ x\in\mathbb{N} \mid x\leq n \}$ is finite. (We denote $\operatorname{card} E_{n}$ by $n$.)
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter2:section2:exercise5
+\begin{exercise}[The Euclidean algorithm]
+    \begin{enumerate}[label={(\alph*)}]
+        \item Let $m, n \in \mathbb{N}$ and $m > n$. Their greatest common divisor ($\text{gcd}(m, n) = d \in \mathbb{N}$) can be found in a finite number of steps using the following algorithm of Euclid involving successive divisions with remainder.
+        \begin{align*}
+            m & = q_{1}n + r_{1} & (r_{1} < n) \\
+            n & = q_{2}r_{1} + r_{2} & (r_{2} < r_{1}) \\
+            r_{1} & = q_{3}r_{2} + r_{3} & (r_{3} < r_{2}) \\
+                  & \vdots \\
+            r_{k-1} & = q_{k+1}r_{k} + 0.
+        \end{align*}
+
+        Then $d = r_{k}$.
+        \item If $d = \text{gcd}(m, n)$, one can choose numbers $p, q \in \mathbb{Z}$ such that $pm + qn = d$; in particular, if $m$ and $n$ are relatively prime, then $pm + qn = 1$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter2:section2:exercise6
+\begin{exercise}
+    Try to give your own proof of the fundamental theorem of arithmetic (Para-
+    graph a in Sect. 2.2.2).
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter2:section2:exercise7
+\begin{exercise}
+    Show that if the product $m\cdot n$ of natural numbers is divisible by a prime $p$, that is, $m\cdot n = p\cdot k$, where $k \in \mathbb{N}$, then either $m$ or $n$ is divisible by $p$.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter2:section2:exercise8
+\begin{exercise}
+    It follows from the fundamental theorem of arithmetic that the set of prime numbers is infinite.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter2:section2:exercise9
+\begin{exercise}
+    Show that if the natural number $n$ is not of the form $k^{m}$, where $k, m \in \mathbb{N}$, then the equation $x^{m} = n$ has no rational roots.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter2:section2:exercise10
+\begin{exercise}
+    Show that the expression of a rational number in any $q$-ary computation system is periodic, that is, starting from some rank it consists of periodically repeating groups of digits.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter2:section2:exercise11
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter2:section2:exercise12
+\begin{exercise}
+    Knowing that $\frac{m}{n} := m \cdot n$ ``rules'' for addition, multiplication, and division of fractions, and also the condition for two fractions to be equal.
+\end{exercise}
+
+\begin{proof}
+    I skip this exercise.
+\end{proof}
+\newpage
+
+% chapter2:section2:exercise13
+\begin{exercise}
+    Verify that the rational numbers $\mathbb{Q}$ satisfy all the axioms for real numbers except the axiom of completeness.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter2:section2:exercise14
+\begin{exercise}
+    Adopting the geometric model of the set of real numbers (the real line), show how to construct the numbers $a + b$, $a - b$, $ab$, and $\frac{a}{b}$ in this model.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter2:section2:exercise15
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter2:section2:exercise16
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter2:section2:exercise17
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter2:section2:exercise18
+\begin{exercise}
+    Let $-A$ be the set of numbers of the form $-a$, where $a \in A \subset R$. Show that $\sup(-A) = -\inf A$.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter2:section2:exercise19
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter2:section2:exercise20
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter2:section2:exercise21
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter2:section2:exercise22
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter2:section2:exercise23
+\begin{exercise}
+    Show that if $\mathbb{R}$ and $\mathbb{R}'$ are two models of the set of real numbers and $f: \mathbb{R}\to \mathbb{R}'$ is a mapping such that $f(x + y) = f(x) + f(y)$ and $f(x\cdot y) = f(x)\cdot f(y)$ for any $x, y\in \mathbb{R}$, then
+    \begin{enumerate}[label={(\alph*)}]
+        \item $f(0) = 0'$;
+        \item $f(1) = 1'$ if $f(x)\not\equiv 0'$, which we shell henceforth assume;
+        \item $f(m) = m'$ where $m\in\mathbb{Z}$ and $m'\in\mathbb{Z}'$, and the mapping $f: \mathbb{Z}\to \mathbb{Z}'$ is injective and preserves the order.
+        \item $f(\frac{m}{n}) = \frac{m'}{n'}$, where $m, n\in\mathbb{Z}$, $n\ne 0$, $m',n'\in\mathbb{Z}'$, $n'\ne 0'$, $f(m) = m'$, $f(n) = n'$. Thus $f: \mathbb{Q}\to \mathbb{Q}'$ is a bijection that preserves order.
+        \item $f: \mathbb{R}\to \mathbb{R}'$ is a bijection that preserves order.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter2:section2:exercise24
+\begin{exercise}
+    On the basis of the preceding exercise and the axiom of completeness, show
+that the axiom system for the set of real numbers determines it completely up to an
+isomorphism (method of realizing it), that is, if $\mathbb{R}$ and $\mathbb{R}'$ are two sets satisfying these axioms, then there exists a one-to-one correspondence $f: \mathbb{R}\to \mathbb{R}'$ that preserves the arithmetic operations and the order: $f(x + y) = f(x) + f(y)$, $f(x\cdot y) = f(x)\cdot f(y)$, and $(x\leq y) \Longleftarrow (f(x) \leq f(y))$.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter2:section2:exercise25
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter2:section2:exercise26
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter2:section2:exercise27
+\begin{exercise}
+    Write ${(100)}_{10}$ in the binary and ternary systems.
+\end{exercise}
+
+\begin{proof}
+    \begin{align*}
+        {(100)}_{10} & = 1\cdot 2^{6} + 1\cdot 2^{5} + 0\cdot 2^{4} + 0\cdot 2^{3} + 1\cdot 2^{2} + 0\cdot 2^{1} + 0\cdot 2^{0} \\
+                     & = {(1100100)}_{2}, \\
+        {(100)}_{10} & = 1\cdot 3^{4} + 2\cdot 3^{2} + 0\cdot 3^{1} + 1\cdot 3^{0} \\
+                     & = {(1201)}_{3}.
+    \end{align*}
+\end{proof}
+\newpage
+
+% chapter2:section2:exercise28
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter2:section2:exercise29
+\begin{exercise}
+    What is the smallest number of questions to be answered ``yes'' or ``no'' that one must pose in order to be sure of determining a 7-digit telephone number?
+\end{exercise}
+
+\begin{proof}
+    I skip this exercise.
+\end{proof}
+\newpage
+
+% chapter2:section2:exercise30
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
 \section{Basic Lemmas Connected with the Completeness of the Real Numbers}
 
+% chapter2:section3:exercise1
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter2:section3:exercise2
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter2:section3:exercise3
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter2:section3:exercise4
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
 \section{Countable and Uncountable Sets}
+
+% chapter2:section4:exercise1
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter2:section4:exercise2
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter2:section4:exercise3
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter2:section4:exercise4
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter2:section4:exercise5
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter2:section4:exercise6
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter2:section4:exercise7
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter2:section4:exercise8
+\begin{exercise}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
