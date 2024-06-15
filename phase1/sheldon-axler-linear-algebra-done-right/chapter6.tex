@@ -2,7 +2,1573 @@
 
 \section{Inner Products and Norms}
 
+% chapter6:sectionA:exercise1
+\begin{exercise}
+    Prove or give a counterexample: If $v_{1}, \ldots, v_{m} \in V$, then
+    \[
+        \sum^{m}_{j=1}\sum^{m}_{k=1}\innerprod{v_{j}, v_{k}}\geq 0.
+    \]
+\end{exercise}
+
+\begin{proof}
+    \[
+        \sum^{m}_{j=1}\sum^{m}_{k=1}\innerprod{v_{j}, v_{k}} = \innerprod{\sum^{m}_{k=1}v_{k}, \sum^{m}_{k=1}v_{k}}\geq 0.\qedhere
+    \]
+\end{proof}
+\newpage
+
+% chapter6:sectionA:exercise2
+\begin{exercise}
+    Suppose $S\in\lmap{V}$. Define ${\innerprod{\cdot, \cdot}}_{1}$ by
+    \[
+        {\innerprod{u, v}}_{1} = \innerprod{Su, Sv}
+    \]
+
+    for all $u, v\in V$. Show that ${\innerprod{\cdot, \cdot}}_{1}$ is an inner product on $V$ if and only if $S$ is injective.
+\end{exercise}
+
+\begin{proof}
+    According to the definition of ${\innerprod{\cdot, \cdot}}_{1}$, it is positive, the first slot is additive and homogeneity, and it is also conjugate symmetric.
+
+    The following statement are equivalent
+    \begin{itemize}
+        \item ${\innerprod{\cdot, \cdot}}_{1}$ is an inner product.
+        \item ${\innerprod{v, v}}_{1} = 0\Longleftrightarrow v = 0$.
+        \item $\innerprod{Sv, Sv} = 0\Longleftrightarrow Sv = 0$.
+        \item $Sv = 0\Longleftrightarrow v = 0$.
+        \item $S$ is injective.
+    \end{itemize}
+\end{proof}
+\newpage
+
+% chapter6:sectionA:exercise3
+\begin{exercise}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that the function taking an ordered pair $\left((x_{1}, x_{2}), (y_{1}, y_{2})\right)$ of elements of $\mathbb{R}^{2}$ to $\abs{x_{1}y_{1}} + \abs{y_{1}y_{2}}$ is not an inner product on $\mathbb{R}^{2}$.
+        \item Show that the function taking an order pair $\left((x_{1}, x_{2}, x_{3}), (y_{1}, y_{2}, y_{3})\right)$ of elements of $\mathbb{R}^{3}$ to $x_{1}y_{1} + x_{3}y_{3}$ is not an inner product on $\mathbb{R}^{2}$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item I give a counterexample.
+              \begin{align*}
+                  \innerprod{(1, 0), (1, 0)}   & = \abs{1\cdot 1} + \abs{0\cdot 0} = 1                                    \\
+                  \innerprod{-2(1, 0), (1, 0)} & = \abs{-2\cdot 1} + \abs{0\cdot 0} = 2 \ne -2\innerprod{(1, 0), (1, 0)}.
+              \end{align*}
+
+              So the first slot is not homogeneity.
+        \item I give a counterexample.
+              \begin{align*}
+                  \innerprod{(0, 1, 0), (0, 1, 0)} & = 0\cdot 0 + 0\cdot 0 = 0
+              \end{align*}
+
+              So it is not definite.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter6:sectionA:exercise4
+\begin{exercise}
+    Suppose $T\in\lmap{V}$ is such that $\norm{Tv}\leq \norm{v}$ for every $v\in V$. Prove that $T - \sqrt{2}I$ is injective.
+\end{exercise}
+
+\begin{proof}
+    If $T$ does not have any eigenvalue, then $\sqrt{2}$ is not an eigenvalue of $T$, and it follows that $T - \sqrt{2}I$ is injective.
+
+    If $T$ has an eigenvalue, let $\lambda$ be an eigenvalue of $T$ and $v_{0}$ be a corresponding eigenvector.
+    \[
+        \norm{Tv_{0}} = \norm{\lambda v_{0}}\leq \norm{v_{0}}.
+    \]
+
+    On the other hand, $\norm{\lambda v_{0}} = \abs{\lambda}\norm{v_{0}}$ and $\norm{v_{0}} \ne 0$, so $\lambda \leq 1$. Therefore $\sqrt{2}$ is not an eigenvalue of $T$. So $T - \sqrt{2}I$ is injective.
+\end{proof}
+\newpage
+
+% chapter6:sectionA:exercise5
+\begin{exercise}
+    Suppose $V$ is a real inner product space.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that $\innerprod{u + v, u - v} = \norm{u}^{2} - \norm{v}^{2}$ for every $u, v\in V$.
+        \item Show that if $u, v\in V$ have the same norm, then $u + v$ is orthogonal to $u - v$.
+        \item Use (b) to show that the diagonals of a rhombus are perpendicular to each other.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    I skip this exercise.
+\end{proof}
+\newpage
+
+% chapter6:sectionA:exercise6
+\begin{exercise}
+    Suppose $u, v \in V$. Prove that $\innerprod{u, v} = 0 \Longleftrightarrow \norm{u}\leq \norm{u + av}$ for all $a\in\mathbb{F}$.
+\end{exercise}
+
+\begin{proof}
+    $(\Rightarrow)$ $\innerprod{u, v} = 0$.
+
+    Then $\innerprod{u, av} = \conj{a}\innerprod{u, v} = 0$. By Pythagorean theorem
+    \[
+        \norm{u + av}^{2} = \norm{u}^{2} + \norm{av}^{2} \geq \norm{u}^{2}
+    \]
+
+    for all $a\in\mathbb{F}$.
+
+    $(\Leftarrow)$ $\norm{u}\leq \norm{u + av}$ for all $a\in\mathbb{F}$. If $v = 0$, then $\innerprod{u, v} = 0$. Assume $v\ne 0$. Let
+    \[
+        a = -\frac{\innerprod{u, v}}{\norm{v}^{2}}.
+    \]
+
+    Then
+    \[
+        \norm{u - \frac{\innerprod{u, v}}{\norm{v}^{2}}v}\geq \norm{u}
+    \]
+
+    However
+    \[
+        \norm{u - \frac{\innerprod{u, v}}{\norm{v}^{2}}v}^{2} + \norm{\frac{\innerprod{u, v}}{\norm{v}^{2}}v}^{2} = \norm{u}^{2}
+    \]
+
+    So
+    \[
+        \norm{u - \frac{\innerprod{u, v}}{\norm{v}^{2}}v} = \norm{u}.
+    \]
+
+    It follows that
+    \[
+        \norm{\frac{\innerprod{u, v}}{\norm{v}^{2}}v}^{2} = 0
+    \]
+
+    or
+    \[
+        \frac{\innerprod{u, v}}{\norm{v}^{2}}v = 0
+    \]
+
+    which implies $\innerprod{u, v} = 0$.
+\end{proof}
+\newpage
+
+% chapter6:sectionA:exercise7
+\begin{exercise}
+    Suppose $u, v\in V$. Prove that $\norm{au + bv} = \norm{bu + av}$ for all $a, b\in\mathbb{R}$ if and only if $\norm{u} = \norm{v}$.
+\end{exercise}
+
+\begin{proof}
+    \begin{align*}
+        \norm{au + bv}^{2} & = \innerprod{au + bv, au + bv}                                                                        \\
+                           & = \innerprod{au, au} + \innerprod{au, bv} + \innerprod{bv, au} + \innerprod{bv, bv}                   \\
+                           & = \abs{a}^{2}\norm{u}^{2} + a\conj{b}\innerprod{u, v} + b\conj{a}\innerprod{v, u} + b^{2}\norm{v}^{2} \\
+                           & = a^{2}\norm{u}^{2} + ab\innerprod{u, v} + ab\conj{\innerprod{u, v}} + b^{2}\norm{v}^{2}              \\
+                           & = a^{2}\norm{u}^{2} + 2ab \operatorname{Re}(\innerprod{u, v}) + b^{2}\norm{v}^{2}.
+    \end{align*}
+
+    Analogously
+    \[
+        \norm{bu + av}^{2} = b^{2}\norm{u}^{2} + 2ab \operatorname{Re}(\innerprod{u, v}) + a^{2}\norm{v}^{2}.
+    \]
+
+    $\norm{au + bv} = \norm{bu + av}$ for all $a, b\in\mathbb{R}$ if and only if $a^{2}\norm{u}^{2} + b^{2}\norm{v}^{2} = b^{2}\norm{u}^{2} + a^{2}\norm{v}^{2}$ for all $a, b\in\mathbb{R}$.
+
+    $a^{2}\norm{u}^{2} + b^{2}\norm{v}^{2} = b^{2}\norm{u}^{2} + a^{2}\norm{v}^{2}$ for all $a, b\in\mathbb{R}$ if and only if $\norm{u} = \norm{v}$.
+\end{proof}
+\newpage
+
+% chapter6:sectionA:exercise8
+\begin{exercise}
+    Suppose $a, b, c, x, y \in \mathbb{R}$ and $a^{2} + b^{2} + c^{2} + x^{2} + y^{2} \leq 1$. Prove that $a + b + c + 4x + 9y \leq 10$.
+\end{exercise}
+
+\begin{proof}
+    I skip this exercise.
+\end{proof}
+\newpage
+
+% chapter6:sectionA:exercise9
+\begin{exercise}
+    Suppose $u, v \in V$ and $\norm{u} = \norm{v} = 1$ and $\innerprod{u, v} = 1$. Prove that $u = v$.
+\end{exercise}
+
+\begin{proof}
+    I skip this exercise.
+\end{proof}
+\newpage
+
+% chapter6:sectionA:exercise10
+\begin{exercise}
+    Suppose $u, v \in V$ and $\norm{u}\leq 1$ and $\norm{v}\leq 1$. Prove that
+    \[
+        \sqrt{1 - \norm{u}^{2}}\sqrt{1 - \norm{v}^{2}} \leq 1 - \abs{\innerprod{u, v}}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    By Cauchy-Schwarz's inequality, $\abs{\innerprod{u, v}}\leq \norm{u}\norm{v}\leq 1$.
+    \begin{align*}
+        (1 - \norm{u}^{2})(1 - \norm{v}^{2}) & = 1 - (\norm{u}^{2} + \norm{v}^{2}) + \norm{u}^{2}\norm{v}^{2} \\
+                                             & \leq 1 - 2\norm{u}\norm{v} + \norm{u}^{2}\norm{v}^{2}          \\
+                                             & = {(1 - \norm{u}\norm{v})}^{2}.
+    \end{align*}
+
+    Hence $\sqrt{1 - \norm{u}^{2}}\sqrt{1 - \norm{v}^{2}} \leq 1 - \abs{\innerprod{u, v}}$.
+\end{proof}
+\newpage
+
+% chapter6:sectionA:exercise11
+\begin{exercise}
+    Find vectors $u, v \in \mathbb{R}^{2}$ such that $u$ is a scalar multiple of $(1, 3)$, $v$ is orthogonal to $(1, 3)$, and $(1, 2) = u + v$.
+\end{exercise}
+
+\begin{proof}
+    Let $u = a(1, 3)$. $\innerprod{v, (1, 3)} = 0$ and $u + v = (1, 2)$. From these, we establish the following equation
+    \[
+        \innerprod{(1, 2) - a(1, 3), (1, 3)} = 0
+    \]
+
+    which is equivalent to $7 - 10a = 0$. So $a = \frac{7}{10}$.
+
+    Hence
+    \[
+        u = \left(\frac{7}{10}, \frac{21}{10}\right)\qquad v = \left(\frac{3}{10}, \frac{-1}{10}\right).
+    \]
+\end{proof}
+\newpage
+
+% chapter6:sectionA:exercise12
+\begin{exercise}
+    Suppose $a, b, c, d$ are positive numbers.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Prove that $(a + b + c + d)\left(\dfrac{1}{a} + \dfrac{1}{b} + \dfrac{1}{c} + \dfrac{1}{d}\right)\geq 16$.
+        \item For which positive numbers $a, b, c, d$ is the inequality above an equality?
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    I skip this exercise.
+\end{proof}
+\newpage
+
+% chapter6:sectionA:exercise13
+\begin{exercise}
+    Show that the square of an average is less than or equal to the average of the squares. More precisely, show that if $a_{1}, \ldots, a_{n} \in \mathbb{R}$, then the square of the average of $a_{1}, \ldots, a_{n}$ is less than or equal to the average of $a_{1}^{2}, \ldots, a_{n}^{2}$.
+\end{exercise}
+
+\begin{proof}
+    I skip this exercise.
+\end{proof}
+\newpage
+
+% chapter6:sectionA:exercise14
+\begin{exercise}
+    Suppose $v \in V$ and $v \ne 0$. Prove that $v/\norm{v}$ is the unique closest element on the unit sphere of $V$ to $v$. More precisely, prove that if $u \in V$ and $\norm{u} = 1$, then
+    \[
+        \norm{v - \frac{v}{\norm{v}}}\leq \norm{v - u},
+    \]
+
+    with equality only if $u = v/\norm{v}$.
+\end{exercise}
+
+\begin{proof}
+    By the triangle inequality
+    \begin{align*}
+        \norm{v - u} & \geq \abs{\norm{v} - \norm{u}}               \\
+                     & = \abs{\norm{v} - 1}                         \\
+                     & = \abs{\norm{v} - \frac{\norm{v}}{\norm{v}}} \\
+                     & = \norm{v}\abs{1 - \frac{1}{\norm{v}}}       \\
+                     & = \norm{v - \frac{v}{\norm{v}}}.
+    \end{align*}
+
+    The equality holds if and only if $\norm{v - u} = \abs{\norm{v} - \norm{u}}$, if and only if $u = kv$ where $k > 0$. On the other hand $\norm{u} = 1$, so $k = 1/\norm{v}$, which means $u = v/\norm{v}$.
+\end{proof}
+\newpage
+
+% chapter6:sectionA:exercise15
+\begin{exercise}\label{chapter6:sectionA:exercise15}
+    Suppose $u, v$ are nonzero vectors in $\mathbb{R}^{2}$. Prove that
+    \[
+        \innerprod{u, v} = \norm{u}\norm{v}\cos\theta
+    \]
+
+    where $\theta$ is the angle between $u$ and $v$ (thinking of $u$ and $v$ as arrows with initial point at the origin).
+\end{exercise}
+
+\begin{proof}
+    I skip this exercise.
+\end{proof}
+\newpage
+
+% chapter6:sectionA:exercise16
+\begin{exercise}
+    The angle between two vectors (thought of as arrows with initial point at the origin) in $\mathbb{R}^{2}$ or $\mathbb{R}^{3}$ can be defined geometrically. However, geometry is not as clear in $\mathbb{R}^{n}$ for $n > 3$. Thus the angle between two nonzero vectors $x, y \in \mathbb{R}^{n}$ is defined to be
+    \[
+        \arccos\frac{\innerprod{x, y}}{\norm{x}\norm{y}},
+    \]
+
+    where the motivation for this definition comes from Exercise~\ref{chapter6:sectionA:exercise15}. Explain why the Cauchy-Schwarz inequality is needed to show that this definition makes sense.
+\end{exercise}
+
+\begin{proof}
+    The domain of the $\arccos$ function is $[-1, 1]$. And the Cauchy-Schwarz inequality ensures that
+    \[
+        -1 \leq \frac{\innerprod{x, y}}{\norm{x}\norm{y}} \leq 1.
+    \]
+
+    So the definition makes sense.
+\end{proof}
+\newpage
+
+% chapter6:sectionA:exercise17
+\begin{exercise}
+    Prove that
+    \[
+        {\left(\sum^{n}_{k=1}a_{k}b_{k}\right)}^{2} \leq \left(\sum^{n}_{k=1}ka_{k}^{2}\right)\left(\sum^{n}_{k=1}\frac{b_{k}^{2}}{k}\right)
+    \]
+
+    for all real numbers $a_{1}, \ldots, a_{n}$ and $b_{1}, \ldots, b_{n}$.
+\end{exercise}
+
+\begin{proof}
+    I skip this exercise.
+\end{proof}
+\newpage
+
+% chapter6:sectionA:exercise18
+\begin{exercise}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Suppose $f: \mathbb{R}_{\geq 1} \to \mathbb{R}_{\geq 0}$ is continuous. Show that
+              \[
+                  {\left(\int^{\infty}_{1}f\right)}^{2}\leq \int^{\infty}_{1}x^{2}{\left(f(x)\right)}^{2}dx.
+              \]
+        \item For which continuous functions $f$ is the inequality in (a) an equality with both sides finite?
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item By Cauchy-Schwarz inequality
+              \begin{align*}
+                  {\left(\int^{\infty}_{1}f\right)}^{2} & = {\left(\int^{\infty}_{1}\frac{1}{x}xf(x)\right)}^{2}                                                           \\
+                                                        & \leq \left(\int^{\infty}_{1}\frac{1}{x^{2}}dx\right)\left(\int^{\infty}_{1}x^{2}{\left(f(x)\right)}^{2}dx\right) \\
+                                                        & = \int^{\infty}_{1}x^{2}{\left(f(x)\right)}^{2}dx.
+              \end{align*}
+        \item The inequality becomes an equality if $f(x) = \dfrac{k}{x^{2}}$, where $k$ is a nonnegative real number.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter6:sectionA:exercise19
+\begin{exercise}
+    Suppose $v_{1}, \ldots, v_{n}$ is a basis of $V$ and $T\in\lmap{V}$. Prove that if $\lambda$ is an eigenvalue of $T$, then
+    \[
+        \abs{\lambda}^{2}\leq \sum^{n}_{j=1}\sum^{n}_{k=1}\abs{{\mathcal{M}(T)}_{j,k}}^{2},
+    \]
+
+    where ${\mathcal{M}(T)}_{j,k}$ denotes the entry in row $j$, column $k$ of the matrix $T$ with respect to the basis $v_{1}, \ldots, v_{n}$.
+\end{exercise}
+
+\begin{proof}
+    Let $A = \mathcal{M}(T)$. Let $v$ be an eigenvector corresponding to $\lambda$ and
+    \[
+        v = x_{1}v_{1} + \cdots + x_{n}v_{n}.
+    \]
+
+    Since $Tv = \lambda v$, we have
+    \[
+        \begin{pmatrix}
+            A_{1,1} & \cdots & A_{1,n} \\
+            \vdots  &        & \vdots  \\
+            A_{n,1} & \cdots & A_{n,n}
+        \end{pmatrix}
+        \begin{pmatrix}
+            x_{1}  \\
+            \vdots \\
+            x_{n}
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            \lambda x_{1} \\
+            \vdots        \\
+            \lambda x_{n}
+        \end{pmatrix}
+    \]
+
+    So
+    \[
+        \begin{pmatrix}
+            A_{1,1}x_{1} + \cdots + A_{1,n}x_{n} \\
+            \vdots                               \\
+            A_{n,1}x_{1} + \cdots + A_{n,n}x_{n}
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            \lambda x_{1} \\
+            \vdots        \\
+            \lambda x_{n}
+        \end{pmatrix}
+    \]
+
+    \begin{align*}
+        \sum^{n}_{k=1} \abs{\lambda}^{2}\abs{x_{k}}^{2} & = \abs{A_{1,1}x_{1} + \cdots + A_{1,n}x_{n}}^{2} + \cdots + \abs{A_{n,1}x_{1} + \cdots + A_{n,n}x_{n}}^{2}             \\
+                                                        & = \sum^{n}_{j=1}\abs{\sum^{n}_{k=1}A_{j,k}x_{k}}^{2}                                                                   \\
+                                                        & \leq \sum^{n}_{j=1}\left[\left(\sum^{n}_{k=1}\abs{A_{j,k}}^{2}\right)\left(\sum^{n}_{k=1}\abs{x_{k}}^{2}\right)\right] \\
+                                                        & = \left(\sum^{n}_{k=1}\abs{x_{k}}^{2}\right)\sum^{n}_{j=1}\sum^{n}_{k=1}\abs{A_{j,k}}^{2}
+    \end{align*}
+
+    $\sum^{n}_{k=1}\abs{x_{k}}^{2}\ne 0$ because $v$ is an eigenvector, so
+    \[
+        \abs{\lambda}^{2}\leq \sum^{n}_{j=1}\sum^{n}_{k=1}\abs{A_{j,k}}^{2} = \sum^{n}_{j=1}\sum^{n}_{k=1}\abs{{\mathcal{M}(T)}_{j,k}}^{2}.\qedhere
+    \]
+\end{proof}
+\newpage
+
+% chapter6:sectionA:exercise20
+\begin{exercise}
+    Prove that if $u, v \in V$, then $\abs{\norm{u} - \norm{v}}\leq \norm{u - v}$.
+\end{exercise}
+
+\begin{proof}
+    I skip this exercise.
+\end{proof}
+\newpage
+
+% chapter6:sectionA:exercise21
+\begin{exercise}
+    Suppose $u, v \in V$ are such that
+    \[
+        \norm{u} = 3, \quad \norm{u + v} = 4, \quad \norm{u - v} = 6.
+    \]
+
+    What number does $\norm{v}$ equal?
+\end{exercise}
+
+\begin{proof}
+    I skip this exercise.
+\end{proof}
+\newpage
+
+% chapter6:sectionA:exercise22
+\begin{exercise}
+    Show that if $u, v \in V$, then
+    \[
+        \norm{u + v}\norm{u - v}\leq \norm{u}^{2} + \norm{v}^{2}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    $\norm{u + v}\norm{u - v} \leq \frac{1}{2}\left(\norm{u+v}^{2} + \norm{u-v}^{2}\right) = \norm{u}^{2} + \norm{v}^{2}$.
+\end{proof}
+\newpage
+
+% chapter6:sectionA:exercise23
+\begin{exercise}
+    Suppose $v_{1}, \ldots, v_{m}\in V$ are such that $\norm{v_{k}}\leq 1$ for each $k = 1, \ldots, m$. Show that there exist $a_{1}, \ldots, a_{m}\in \{ 1, -1 \}$ such that
+    \[
+        \norm{a_{1}v_{1} + \cdots + a_{m}v_{m}} \leq \sqrt{m}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    I give a proof using mathematical induction on $m$.
+
+    When $m = 1$, $\norm{a_{1}v_{1}} = \norm{v_{1}}\leq 1 = \sqrt{1}$.
+
+    Assume the statement is true for $m = n$. Then there exist $a_{1}, \ldots, a_{n}\in \{ 1, -1 \}$ such that $\norm{a_{1}v_{1} + \cdots + a_{n}v_{n}} \leq \sqrt{n}$. Let $a_{n+1}\in \{ 1, -1 \}$, notice that $a_{1}, \ldots, a_{n+1}$ are real numbers, then
+    \begin{align*}
+        \norm{a_{1}v_{1} + \cdots + a_{n+1}v_{n+1}}^{2} & = \sum^{n+1}_{j=1}\sum^{n+1}_{k=1}\innerprod{a_{j}v_{j}, a_{k}v_{k}}                                                                                                                       \\
+                                                        & = \sum^{n+1}_{j=1}\sum^{n+1}_{k=1}a_{j}a_{k}\innerprod{v_{j}, v_{k}}                                                                                                                       \\
+                                                        & = \sum^{n+1}_{j=1}\norm{v_{j}}^{2} + 2\sum_{1\leq j<k\leq n+1}a_{j}a_{k}\operatorname{Re}\innerprod{v_{j},v_{k}}                                                                           \\
+                                                        & = \sum^{n+1}_{j=1}\norm{v_{j}}^{2} + 2\sum_{1\leq j<k\leq n+1}a_{j}a_{k}\operatorname{Re}\innerprod{v_{j}, v_{k}} + 2\sum^{n}_{j=1}a_{j}a_{n+1}\operatorname{Re}\innerprod{v_{j}, v_{n+1}} \\
+                                                        & = \norm{a_{1}v_{1} + \cdots + a_{n}v_{n}}^{2} + 1 + 2a_{n+1}\sum^{n}_{j=1}a_{j}\operatorname{Re}\innerprod{v_{j}, v_{n+1}}
+    \end{align*}
+
+    If $\sum^{n}_{j=1}a_{j}\operatorname{Re}\innerprod{v_{j}, v_{n+1}} > 0$, I choose $a_{n+1} = -1$, otherwise, I choose $a_{n+1} = -1$. Then together with the induction hypothesis
+    \[
+        \norm{a_{1}v_{1} + \cdots + a_{n+1}v_{n+1}}^{2} \leq n+1
+    \]
+
+    so $\norm{a_{1}v_{1} + \cdots + a_{n+1}v_{n+1}} \leq \sqrt{n+1}$.
+
+    By the principle of mathematical induction, there exist $a_{1}, \ldots, a_{m}\in \{ 1, -1 \}$ such that
+    \[
+        \norm{a_{1}v_{1} + \cdots + a_{m}v_{m}} \leq \sqrt{m}.
+    \]
+\end{proof}
+\newpage
+
+% chapter6:sectionA:exercise24
+\begin{exercise}
+    Prove or give a counterexample: If $\norm{\cdot}$ is the norm associated with an inner product on $\mathbb{R}^{2}$, then there exists $(x, y) \in \mathbb{R}^{2}$ such that $\norm{(x, y)} \ne \max\{ \abs{x}, \abs{y} \}$.
+\end{exercise}
+
+\begin{proof}
+    Assume there exists an inner product on $\mathbb{R}^{2}$ such that $\norm{(x, y)} = \max\{ \abs{x}, \abs{y} \}$ for all $(x, y)\in \mathbb{R}^{2}$.
+    \begin{align*}
+        2(\norm{(1, 2)}^{2} + \norm{(3, 4)}^{2}) & = 2(4 + 16) = 40, \\
+        \norm{(4, 6)}^{2} + \norm{(1, 1)}^{2}    & = 36 + 1 = 37.
+    \end{align*}
+
+    So this norm does not satisfy the parallelogram equality and it is associated with an inner product, therefore the assumption is false.
+
+    Hence if $\norm{\cdot}$ is the norm associated with an inner product on $\mathbb{R}^{2}$, then there exists $(x, y) \in \mathbb{R}^{2}$ such that $\norm{(x, y)} \ne \max\{ \abs{x}, \abs{y} \}$.
+\end{proof}
+\newpage
+
+% chapter6:sectionA:exercise25
+\begin{exercise}
+    Suppose $p > 0$. Prove that there is an inner product on $\mathbb{R}^{2}$ such that the associated norm is given by
+    \[
+        \norm{(x, y)} = {\left(\abs{x}^{p} + \abs{y}^{p}\right)}^{1/p}
+    \]
+
+    for all $(x, y)\in\mathbb{R}^{2}$ if and only if $p = 2$.
+\end{exercise}
+
+\begin{proof}
+    If $p = 2$, $\norm{\cdot}$ is associated with the dot product on $\mathbb{R}^{2}$, which is an inner product.
+
+    If $p\ne 2$
+    \begin{align*}
+        2{\left( \norm{(1, 0)}^{2} + \norm{(0, 1)}^{2} \right)} & = 4                                   \\
+        \norm{1,1}^{2} + \norm{1,-1}^{2}                        & = 2^{2/p} + 2^{2/p} = 2^{1+2/p} \ne 4
+    \end{align*}
+
+    then $\norm{\cdot}$ does not satisfy the parallelogram equality.
+
+    Hence there is an inner product on $\mathbb{R}^{2}$ such that the associated norm is given by $\norm{(x, y)} = {\left(\abs{x}^{p} + \abs{y}^{p}\right)}^{1/p}$ for all $(x, y)\in\mathbb{R}^{2}$ if and only if $p = 2$.
+\end{proof}
+\newpage
+
+% chapter6:sectionA:exercise26
+\begin{exercise}
+    Suppose $V$ is a real inner product space. Prove that
+    \[
+        \innerprod{u, v} = \frac{\norm{u + v}^{2} - \norm{u - v}^{2}}{4}
+    \]
+
+    for all $u, v\in V$.
+\end{exercise}
+
+\begin{proof}
+    In a real inner product space,
+    \[
+        \begin{split}
+            \norm{u+v}^{2} = \innerprod{u, u} + \innerprod{u, v} + \innerprod{v, u} + \innerprod{v,v} = \norm{u}^{2} + 2\innerprod{u, v} + \norm{v}^{2} \\
+            \norm{u-v}^{2} = \innerprod{u, u} - \innerprod{u, v} - \innerprod{v, u} + \innerprod{v,v} = \norm{u}^{2} - 2\innerprod{u, v} + \norm{v}^{2}
+        \end{split}
+    \]
+
+    So
+    \[
+        \innerprod{u, v} = \frac{\norm{u + v}^{2} - \norm{u - v}^{2}}{4}
+    \]
+
+    for all $u, v\in V$.
+\end{proof}
+\newpage
+
+% chapter6:sectionA:exercise27
+\begin{exercise}
+    Suppose $V$ is a complex inner product space. Prove that
+    \[
+        \innerprod{u, v} = \frac{\norm{u + v}^{2} - \norm{u - v}^{2} + \norm{u + \iota v}^{2}\iota - \norm{u - \iota v}^{2}\iota}{4}
+    \]
+
+    for all $u, v\in V$.
+\end{exercise}
+
+\begin{proof}
+    In a real inner product space,
+    \begin{align*}
+        \norm{u+v}^{2}         & = \innerprod{u + v, u + v} = \innerprod{u, u} + \innerprod{v, v} + \innerprod{u, v} + \innerprod{v, u},    \\
+        \norm{u-v}^{2}         & = \innerprod{u - v, u - v} = \innerprod{u, u} + \innerprod{u, -v} + \innerprod{-v, u} + \innerprod{-v, -v} \\
+                               & = \innerprod{u, u} + \innerprod{v, v} - \innerprod{u, v} - \innerprod{v, u},                               \\
+        \norm{u + \iota v}^{2} & = \innerprod{u + \iota v, u + \iota v}                                                                     \\
+                               & = \innerprod{u, u} + \innerprod{u, \iota v} + \innerprod{\iota v, u} + \innerprod{\iota v, \iota v}        \\
+                               & = \innerprod{u, u} + \innerprod{v, v} - \iota\innerprod{u, v} + \iota\innerprod{v, u},                     \\
+        \norm{u - \iota v}^{2} & = \innerprod{u - \iota v, u - \iota v}                                                                     \\
+                               & = \innerprod{u, u} + \innerprod{u, -\iota v} + \innerprod{-\iota v, u} + \innerprod{-\iota v, -\iota v}    \\
+                               & = \innerprod{u, u} + \innerprod{v, v} + \iota\innerprod{u, v} - \iota\innerprod{v, u}
+    \end{align*}
+
+    Therefore
+    \begin{align*}
+        \norm{u + v}^{2} - \norm{u - v}^{2} + \norm{u + \iota v}^{2}\iota - \norm{u - \iota v}^{2}\iota & = 2\innerprod{u, v} + 2\innerprod{v, u} - \iota (2\iota\innerprod{u, v} - 2\iota\innerprod{v, u}) \\
+                                                                                                        & = 2\innerprod{u, v} + 2\innerprod{v, u} + 2\innerprod{u, v} - 2\innerprod{v, u}                   \\
+                                                                                                        & = 4\innerprod{u, v}.\qedhere
+    \end{align*}
+\end{proof}
+\newpage
+
+% chapter6:sectionA:exercise28
+\begin{exercise}
+    A norm on a vector space $U$ is a function
+    \[
+        \norm{\cdot}: U\to \mathbb{R}_{\geq 0}
+    \]
+
+    such that $\norm{u} = 0$ if and only if $u = 0$, $\norm{\alpha u} = \abs{\alpha}\norm{u}$ for all $\alpha\in\mathbb{F}$ and all $u\in U$, and $\norm{u + v}\leq \norm{u} + \norm{v}$ for all $u, v\in U$. Prove that a norm satisfying the parallelogram equality comes from an inner product (in other words, show that if $\norm{\cdot}$ is a norm on $U$ satisfying the parallelogram equality, then there is an inner product $\innerprod{\cdot, \cdot}$ on $U$ such that $\norm{u} = {\innerprod{u, u}}^{1/2}$ for all $u \in U$).
+\end{exercise}
+
+\begin{proof}[Proof when $U$ is a real vector space]
+    Let's define
+    \begin{align*}
+        \innerprod{u, v} & = \frac{\norm{u}^{2} + \norm{v}^{2} - \norm{u - v}^{2}}{2} \\
+                         & = \frac{\norm{u + v}^{2} - \norm{u}^{2} - \norm{v}^{2}}{2} \\
+                         & = \frac{\norm{u + v}^{2} - \norm{u - v}^{2}}{4}
+    \end{align*}
+\end{proof}
+
+\begin{proof}[Proof when $U$ is a complex vector space]
+    Let's define
+    \[
+        \innerprod{u, v} = \frac{\norm{u + v}^{2} - \norm{u - v}^{2} + \norm{u + \iota v}^{2}\iota - \norm{u - \iota v}^{2}\iota}{4}
+    \]
+\end{proof}
+\newpage
+
+% chapter6:sectionA:exercise29
+\begin{exercise}
+    Suppose $V_{1}, \ldots, V_{m}$ are inner product spaces. Show that the equation
+    \[
+        \innerprod{(u_{1}, \ldots, u_{m}), (v_{1}, \ldots, v_{m})} = \innerprod{u_{1}, v_{1}} + \cdots + \innerprod{u_{m}, v_{m}}
+    \]
+
+    defines an inner product on $V_{1}\times \cdots \times V_{m}$.
+\end{exercise}
+
+\begin{proof}
+    I skip this exercise.
+\end{proof}
+\newpage
+
+% chapter6:sectionA:exercise30
+\begin{exercise}
+    Suppose $V$ is a real inner product space. For $u, v, w, x \in V$, define
+    \[
+        \innerprod{u + \iota v, w + \iota x}_{\mathbb{C}} = \innerprod{u, w} + \innerprod{v, x} + (\innerprod{v, w} - \innerprod{u, x})\iota.
+    \]
+
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that ${\innerprod{\cdot, \cdot}}_{\mathbb{C}}$ makes $V_{\mathbb{C}}$ into a complex inner product space.
+        \item Show that if $u, v\in V$, then
+              \[
+                  {\innerprod{u, v}}_{\mathbb{C}} = \innerprod{u, v} \quad\text{and}\quad \norm{u + \iota v}_{\mathbb{C}}^{2} = \norm{u}^{2} + \norm{v}^{2}.
+              \]
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Check for positivity.
+              \[
+                  \innerprod{u + \iota v, u + \iota v}_{\mathbb{C}} = \innerprod{u, u} + \innerprod{v, v} + (\innerprod{v, u} - \innerprod{u, v})\iota = \innerprod{u, u} + \innerprod{v, v} \geq 0.
+              \]
+
+              Check for definiteness.
+
+              $\innerprod{u + \iota v, u + \iota v}_{\mathbb{C}} = 0$ if and only if $\innerprod{u, u} + \innerprod{v, v} = 0$. $\innerprod{u, u} + \innerprod{v, v} = 0$ if and only if $u = v = 0$.
+
+              Check if the first slot is additive.
+              \begin{align*}
+                  \innerprod{(u_{1} + \iota v_{1}) + (u_{2} + \iota v_{2}), w + \iota x}_{\mathbb{C}} & = \innerprod{u_{1} + u_{2}, w} + \innerprod{v_{1} + v_{2}, x} + (\innerprod{v_{1} + v_{2}, w} - \innerprod{u_{1} + u_{2}, x})\iota \\
+                                                                                                      & = \innerprod{u_{1}, w} + \innerprod{v_{1}, x} + (\innerprod{v_{1},w} - \innerprod{u_{1}, x})\iota                                  \\
+                                                                                                      & + \innerprod{u_{2}, w} + \innerprod{v_{2}, x} + (\innerprod{v_{2}, w} - \innerprod{u_{2}, x})\iota                                 \\
+                                                                                                      & = \innerprod{u_{1} + \iota v_{1}, w + \iota x}_{\mathbb{C}} + \innerprod{u_{2} + \iota v_{2}, w + \iota x}_{\mathbb{C}}.
+              \end{align*}
+
+              Check if the first slot is homogeneity. Let $\lambda = a + b\iota$.
+              \begin{align*}
+                  \innerprod{(a + b\iota)(u  + \iota v), w + \iota x}_{\mathbb{C}} & = \innerprod{(au - bv) + \iota (av + bu), w + \iota x}_{\mathbb{C}}                                            \\
+                                                                                   & = \innerprod{au - bv, w} + \innerprod{av + bu, x} + (\innerprod{av + bu, w} - \innerprod{au - bv, x})\iota     \\
+                                                                                   & = a\innerprod{u, w} + a\innerprod{v, x} + b\innerprod{u, x} - b\innerprod{v, w}                                \\
+                                                                                   & + (a\innerprod{v, w} + b\innerprod{u, w} - a\innerprod{u, x} + b\innerprod{v, x})\iota                         \\
+                                                                                   & = a\innerprod{u + \iota v, w + \iota x}_{\mathbb{C}} + b\iota\innerprod{u + \iota v, w + \iota x}_{\mathbb{C}} \\
+                                                                                   & = (a + b\iota)\innerprod{u + \iota v, w + \iota x}_{\mathbb{C}}.
+              \end{align*}
+        \item \[
+                  \begin{split}
+                      \innerprod{u, v}_{\mathbb{C}} = \innerprod{u, v} + \innerprod{0, 0} + (\innerprod{v, 0} - \innerprod{u, 0})\iota = \innerprod{u, v}, \\
+                      \norm{u + \iota v}_{\mathbb{C}}^{2} = \innerprod{u, u} + \innerprod{v, v} = \norm{u}^{2} + \norm{v}^{2}.
+                  \end{split}
+              \]
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter6:sectionA:exercise31
+\begin{exercise}\label{chapter6:sectionA:exercise31}
+    Suppose $u, v, w \in V$. Prove that
+    \[
+        \norm{w - \frac{1}{2}(u + v)}^{2} = \frac{\norm{w - u}^{2} + \norm{w - v}^{2}}{2} - \frac{\norm{u - v}^{2}}{4}
+    \]
+\end{exercise}
+
+\begin{proof}
+    \begin{align*}
+        \norm{w - \frac{1}{2}(u + v)}^{2} & = \norm{\frac{1}{2}(w - u) + \frac{1}{2}(w - v)}^{2}                                         \\
+                                          & = \frac{1}{4}\norm{(w - u) + (v - u)}^{2}                                                    \\
+                                          & = \frac{1}{2}(\norm{w - u}^{2} + \norm{w - v}^{2}) - \frac{1}{4}\norm{(w - u) - (w - v)}^{2} \\
+                                          & = \frac{\norm{w - u}^{2} + \norm{w - v}^{2}}{2} - \frac{\norm{u - v}^{2}}{4}.
+    \end{align*}
+\end{proof}
+\newpage
+
+% chapter6:sectionA:exercise32
+\begin{exercise}
+    Suppose that $E$ is a subset of $V$ with the property that $u, v\in E$ implies $\frac{1}{2}(u + v)\in E$. Let $w\in V$. Show that there is at most one point in $E$ that is closest to $w$. In other words, show that there is at most one $u\in E$ such that
+    \[
+        \norm{w - u}\leq \norm{w - x}
+    \]
+
+    for all $x\in E$.
+\end{exercise}
+
+\begin{proof}
+    There either exists or does not exist a point $u\in E$ such that $\norm{w - u}\leq \norm{w - x}$ for all $x\in E$.
+
+    If there is $u\in E$ such that $\norm{w - u}\leq \norm{w - x}$ for all $x\in E$. Assume that $v\in E$ also satisfies it and $u - v\ne 0$, then $\norm{w - v}\leq \norm{w - u}$ and $\norm{w - u}\leq \norm{w - v}$. So $\norm{w - v} = \norm{w - u}$. By Exercise~\ref{chapter6:sectionA:exercise31}
+    \[
+        \norm{w - \frac{1}{2}(u + v)}^{2} = \frac{\norm{w - u}^{2} + \norm{w - v}^{2}}{2} - \frac{\norm{u - v}^{2}}{4} < \frac{\norm{w - u}^{2} + \norm{w - v}^{2}}{2} = \norm{w - u}^{2}.
+    \]
+
+    So the distance from $\frac{1}{2}(u + v)$ to $w$ is even smaller than the distance from $u$ to $w$, which is a contradiction.
+
+    Thus there is at most one $u\in E$ such that $\norm{w - u}\leq \norm{w - x}$ for all $x\in E$.
+\end{proof}
+\newpage
+
+% chapter6:sectionA:exercise33
+\begin{exercise}
+    Suppose $f, g$ are differentiable functions from $\mathbb{R}$ to $\mathbb{R}^{n}$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that
+              \[
+                  {\innerprod{f(t), g(t)}}' = \innerprod{f'(t), g(t)} + \innerprod{f(t), g'(t)}.
+              \]
+        \item Suppose $c$ is a positive number and $\norm{f(t)} = c$ for every $t\in\mathbb{R}$. Show that $\innerprod{f'(t), f(t)} = 0$ for every $t\in\mathbb{R}$.
+        \item Interpret the result in (b) geometrically in terms of tangent vector to a curve lying on a sphere in $\mathbb{R}^{n}$ centered at the origin.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    We are working on the inner product space $\mathbb{R}^{n}$.
+
+    \begin{enumerate}[label={(\alph*)}]
+        \item There exist differentiable functions $f_{k}, g_{k}$ for $k\in \{1, \ldots, n\}$ such that
+              \[
+                  f(t) = (f_{1}(t), \ldots, f_{n}(t))\qquad g(t) = (g_{1}(t), \ldots, g_{n}(t)).
+              \]
+              \begin{align*}
+                  {\innerprod{f(t), g(t)}}' & = \left(\sum^{n}_{j=1} f_{j}(t)g_{j}(t)\right)'                           \\
+                                            & = \sum^{n}_{j=1} (f_{j}(t)g_{j}(t))'                                      \\
+                                            & = \sum^{n}_{j=1} (f_{j}{'}(t)g_{j}(t) + f_{j}(t)g_{j}{'}(t))              \\
+                                            & = \sum^{n}_{j=1} f_{j}{'}(t)g_{j}(t) + \sum^{n}_{j=1} f_{j}(t)g_{j}{'}(t) \\
+                                            & = \innerprod{f'(t), g(t)} + \innerprod{f(t), g'(t)}.
+              \end{align*}
+        \item $\norm{f(t)} = c$ for every $t\in\mathbb{R}$ then $\innerprod{f(t), f(t)} = c^{2}$ for every $t\in\mathbb{R}$, which implies
+              \[
+                  \innerprod{f'(t), f(t)} + \innerprod{f(t), f'(t)} = \innerprod{f(t), f(t)}' = 0.
+              \]
+
+              Therefore $\innerprod{f(t), f'(t)} = 0$ for every $t\in\mathbb{R}$.
+        \item The tangent vector to a curve lying on a sphere in $\mathbb{R}^{n}$ centered at the origin is orthogonal to the vector connecting the origin and the tangent point.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter6:sectionA:exercise34
+\begin{exercise}
+    Use inner products to prove Apollonius' identity: In a triangle with sides of
+    length $a$, $b$, and $c$, let d be the length of the line segment from the midpoint of the side of length $c$ to the opposite vertex. Then
+    \[
+        a^{2} + b^{2} = \frac{1}{2}c^{2} + 2d^{2}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    This follows Exercise~\ref{chapter6:sectionA:exercise31}.
+\end{proof}
+\newpage
+
+% chapter6:sectionA:exercise35
+\begin{exercise}
+    Fix a positve integer $n$. The \textit{Laplacian} $\Delta p$ of a twice differentiable real-valued function $p$ on $\mathbb{R}^{n}$ is the function $\mathbb{R}^{n}$ defined by
+    \[
+        \Delta p = \frac{\partial^{2}p}{\partial x_{1}^{2}} + \cdots + \frac{\partial^{2}p}{\partial x_{n}^{2}}.
+    \]
+
+    The function $p$ is called \textit{harmonic} if $\Delta p = 0$.
+
+    A polynomial on $\mathbb{R}^{n}$ is a linear combination (with coefficients in $\mathbb{R}$) of functions of the form $x_{1}^{m_{1}}\cdots x_{n}^{m_{n}}$, where $m_{1}, \ldots, m_{n}$ are nonnegative integers.
+
+    Suppose $q$ is a polynomial on $\mathbb{R}^{n}$. Prove that there exists a harmonic polynomial $p$ on $\mathbb{R}^{n}$ such that $p(x) = q(x)$ for every $x \in \mathbb{R}^{n}$ with $\norm{x} = 1$.
+\end{exercise}
+
+\begin{proof}
+    Unsolved.
+\end{proof}
+\newpage
+
 \section{Orthonormal Bases}
+
+% chapter6:sectionB:exercise1
+\begin{exercise}
+    Suppose $e_{1}, \ldots, e_{m}$ is a list of vectors in $V$ such that
+    \[
+        \norm{a_{1}e_{1} + \cdots + a_{m}e_{m}}^{2} = \abs{a_{1}}^{2} + \cdots + \abs{a_{m}}^{2}
+    \]
+
+    for all $a_{1}, \ldots, a_{m}\in \mathbb{F}$. Show that $e_{1}, \ldots, e_{m}$ is an orthonormal list.
+\end{exercise}
+
+\begin{proof}
+    If $1\leq i\leq m$
+    \[
+        \norm{e_{i}}^{2} = \norm{0e_{1} + \cdots + 1e_{i} + \cdots + 0e_{n}}^{2} = 1.
+    \]
+
+    So $\norm{e_{i}} = 1$ for each $i\in \{ 1,\ldots, n \}$.
+
+    If $i \ne j$ and $1\leq i, j\leq m$,
+    \begin{align*}
+        \innerprod{e_{i}, e_{j}} & = \frac{1}{2}(\norm{e_{i} + e_{j}}^{2} - \norm{e_{i}}^{2} - \norm{e_{j}}^{2}) \\
+                                 & = \frac{1}{2}(1 + 1 - 1 - 1) = 0.
+    \end{align*}
+
+    Hence $e_{1}, \ldots, e_{m}$ is an orthonormal list.
+\end{proof}
+\newpage
+
+% chapter6:sectionB:exercise2
+\begin{exercise}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Suppose $\theta\in\mathbb{R}$. Show that both
+              \[
+                  (\cos\theta, \sin\theta), (-\sin\theta, \cos\theta) \quad\text{and}\quad (\cos\theta, \sin\theta), (\sin\theta, -\cos\theta)
+              \]
+
+              are orthonormal bases of $\mathbb{R}^{2}$.
+        \item Show that each orthonormal basis of $\mathbb{R}^{2}$ is of the form given by one of the two possibilities in (a).
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item I skip this exercise.
+        \item Let $(x_{1}, y_{1}), (x_{2}, y_{2})$ be an orthonormal basis of $\mathbb{R}^{2}$.
+
+              Then $x_{1}^{2} + y_{1}^{2} = 1$, so there exists a real number $\theta$ such that $x_{1} = \cos\theta$ and $y_{1} = \sin\theta$. Because $x_{1}x_{2} + y_{1}y_{2} = 0$, it follows that $x_{2}\cos\theta + y_{2}\sin\theta = 0$. Hence there exists $t\in\mathbb{R}^{2}$ such that $x_{2} = t\sin\theta$ and $y_{2} = -t\cos\theta$. Moreover, $x_{2}^{2} + y_{2}^{2} = 1$ so $t$ is either $1$ or $-1$.
+
+              Hence each orthonormal basis of $\mathbb{R}^{2}$ is of the form given by one of the two possibilities in (a).
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter6:sectionB:exercise3
+\begin{exercise}
+    Suppose $e_{1}, \ldots, e_{m}$ is an orthonormal list in $V$ and $v\in V$. Prove that
+    \[
+        \norm{v}^{2} = \abs{\innerprod{v, e_{1}}}^{2} + \cdots + \abs{\innerprod{v, e_{m}}}^{2} \Longleftrightarrow v\in\operatorname{span}(e_{1}, \ldots, e_{m}).
+    \]
+\end{exercise}
+
+\begin{proof}
+    Let $w = \innerprod{v, e_{1}}e_{1} + \cdots + \innerprod{v, e_{m}}e_{m}$.
+    \begin{align*}
+        \innerprod{v - w, w} & = \innerprod{v, w} - \norm{w}^{2}                                                                                                                                                          \\
+                             & = \conj{\innerprod{v, e_{1}}}\innerprod{v, e_{1}} + \cdots + \conj{\innerprod{v, e_{m}}}\innerprod{v, e_{m}} - ( \abs{\innerprod{v, e_{1}}}^{2} + \cdots + \abs{\innerprod{v, e_{m}}}^{2}) \\
+                             & = 0.
+    \end{align*}
+
+    By Pythagorean theorem, $\norm{v}^{2} = \norm{v - w}^{2} + \norm{w}^{2}$.
+    \begin{align*}
+        \norm{v}^{2} = \abs{\innerprod{v, e_{1}}}^{2} + \cdots + \abs{\innerprod{v, e_{m}}}^{2} & \Longleftrightarrow \norm{v - w} = 0                               \\
+                                                                                                & \Longleftrightarrow v = w                                          \\
+                                                                                                & \Longleftrightarrow v\in\operatorname{span}(e_{1}, \ldots, e_{m}).
+    \end{align*}
+\end{proof}
+\newpage
+
+% chapter6:sectionB:exercise4
+\begin{exercise}\label{chapter6:sectionB:exercise4}
+    Suppose $n$ is a positive integer. Prove that
+    \[
+        \frac{1}{\sqrt{2\pi}}, \frac{\cos x}{\sqrt{\pi}}, \frac{\cos 2x}{\sqrt{\pi}}, \ldots, \frac{\cos nx}{\sqrt{\pi}}, \frac{\sin x}{\sqrt{\pi}}, \frac{\sin 2x}{\sqrt{\pi}}, \ldots, \frac{\sin nx}{\sqrt{\pi}}
+    \]
+
+    is an orthonormal list of vectors in $C[-\pi, \pi]$, the vector space of continuous real-valued functions on $[-\pi, \pi]$ with the inner product
+    \[
+        \innerprod{f, g} = \int^{\pi}_{-\pi} fg.
+    \]
+\end{exercise}
+
+\begin{proof}
+    \[
+        \int^{\pi}_{-\pi}\frac{1}{\sqrt{2\pi}}\frac{1}{\sqrt{2\pi}}dx = 1.
+    \]
+
+    \[
+        \begin{split}
+            \int^{\pi}_{-\pi}{\left(\frac{\cos kx}{\sqrt{\pi}}\right)}^{2}dx = \int^{\pi}_{-\pi}\frac{{(\cos kx)}^{2}}{\pi}dx = \int^{\pi}_{-\pi}\frac{1 + \cos (2kx)}{2\pi}dx = \left(\frac{x}{2\pi} + \frac{\sin(2kx)}{4k\pi}\right)\Bigl{\vert}^{\pi}_{-\pi} = 1, \\
+            \int^{\pi}_{-\pi}{\left(\frac{\sin kx}{\sqrt{\pi}}\right)}^{2}dx = \int^{\pi}_{-\pi}\frac{{(\sin kx)}^{2}}{\pi}dx = \int^{\pi}_{-\pi}\frac{1 - \cos (2kx)}{2\pi}dx = \left(\frac{x}{2\pi} - \frac{\sin(2kx)}{4k\pi}\right)\Bigl{\vert}^{\pi}_{-\pi} = 1.
+        \end{split}
+    \]
+
+    \[
+        \begin{split}
+            \int^{\pi}_{-\pi}\frac{1}{\sqrt{2\pi}}\frac{\cos kx}{\sqrt{\pi}}dx = \frac{1}{\pi\sqrt{2}}\frac{\sin kx}{k}\Bigl{\vert}^{\pi}_{-\pi} = 0, \\
+            \int^{\pi}_{-\pi}\frac{1}{\sqrt{2\pi}}\frac{\sin kx}{\sqrt{\pi}}dx = \frac{1}{\pi\sqrt{2}}\frac{-\cos kx}{k}\Bigl{\vert}^{\pi}_{-\pi} = 0.
+        \end{split}
+    \]
+
+    If $1\leq i\ne j\leq n$
+    \begingroup
+    \allowdisplaybreaks{}
+    \begin{align*}
+        \int^{\pi}_{-\pi}\frac{\cos ix}{\sqrt{\pi}}\frac{\cos jx}{\sqrt{\pi}}dx & = \int^{\pi}_{-\pi}\frac{\cos ix \cos jx}{\pi}dx                                                                     \\
+                                                                                & = \frac{1}{2\pi}\int^{\pi}_{-\pi}\left(\cos((i + j)x) + \cos((i - j)x)\right)dx                                      \\
+                                                                                & = \frac{1}{2\pi}\left(\frac{\sin ((i + j)x)}{i + j} + \frac{\sin ((i - j)x)}{i - j}\right)\Biggl{\vert}^{\pi}_{-\pi} \\
+                                                                                & = 0,                                                                                                                 \\
+        \int^{\pi}_{-\pi}\frac{\sin ix}{\sqrt{\pi}}\frac{\sin jx}{\sqrt{\pi}}dx & = \int^{\pi}_{-\pi}\frac{\sin ix \sin jx}{\pi}dx                                                                     \\
+                                                                                & = \frac{1}{2\pi}\int^{\pi}_{-\pi}\left(\cos((i - j)x) - \cos((i + j)x)\right)dx                                      \\
+                                                                                & = \frac{1}{2\pi}\left(\frac{\sin ((i - j)x)}{i - j} - \frac{\sin ((i + j)x)}{i + j}\right)\Biggl{\vert}^{\pi}_{-\pi} \\
+                                                                                & = 0                                                                                                                  \\
+        \int^{\pi}_{-\pi}\frac{\cos ix}{\sqrt{\pi}}\frac{\sin jx}{\sqrt{\pi}}dx & = \int^{\pi}_{-\pi}\frac{\cos ix \sin jx}{\pi}dx                                                                     \\
+                                                                                & = \frac{1}{2\pi}\int^{\pi}_{-\pi}\left(\sin((i + j)x) + \sin((j - i)x)\right)dx                                      \\
+                                                                                & = \frac{1}{2\pi}\left(\frac{\cos ((i + j)x)}{i + j} + \frac{\cos ((j - i)x)}{j - i}\right)\Biggl{\vert}^{\pi}_{-\pi} \\
+                                                                                & = 0
+    \end{align*}
+    \endgroup
+
+    and
+    \begin{align*}
+        \int^{\pi}_{-\pi}\frac{\cos ix}{\sqrt{\pi}}\frac{\sin ix}{\sqrt{\pi}}dx & = \int^{\pi}_{-\pi}\frac{\cos ix \sin ix}{\pi}dx                            \\
+                                                                                & = \frac{1}{2\pi}\int^{\pi}_{-\pi} \sin 2ix dx                               \\
+                                                                                & = \frac{1}{2\pi}\left(\frac{-\cos 2ix}{2i}\right)\Biggl{\vert}^{\pi}_{-\pi} \\
+                                                                                & = 0
+    \end{align*}
+
+    Hence
+    \[
+        \frac{1}{\sqrt{2\pi}}, \frac{\cos x}{\sqrt{\pi}}, \frac{\cos 2x}{\sqrt{\pi}}, \ldots, \frac{\cos nx}{\sqrt{\pi}}, \frac{\sin x}{\sqrt{\pi}}, \frac{\sin 2x}{\sqrt{\pi}}, \ldots, \frac{\sin nx}{\sqrt{\pi}}
+    \]
+
+    is an orthonormal list of vectors in $C[-\pi, \pi]$ with the given inner product.
+\end{proof}
+\newpage
+
+% chapter6:sectionB:exercise5
+\begin{exercise}
+    Suppose $f: [-\pi, \pi] \to \mathbb{R}$ is continuous. For each nonnegative integer $k$, define
+    \[
+        a_{k} = \frac{1}{\sqrt{\pi}}\int^{\pi}_{-\pi} f(x)\cos(kx) dx\quad\text{and}\quad b_{k} = \frac{1}{\sqrt{\pi}}\int^{\pi}_{-\pi} f(x)\sin(kx) dx.
+    \]
+
+    Prove that
+    \[
+        \frac{a_{0}^{2}}{2} + \sum^{\infty}_{k=1}(a_{k}^{2} + b_{k}^{2}) \leq \int^{\pi}_{\pi} f^{2}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    By Bessel's inequality, for every positive integer $n$
+    \[
+        \abs{\innerprod{f, \frac{1}{\sqrt{2\pi}}}}^{2} + \sum^{n}_{k=1}\abs{\innerprod{f, \frac{\cos kx}{\sqrt{\pi}}}}^{2} + \sum^{n}_{k=1}\abs{\innerprod{f, \frac{\sin kx}{\sqrt{\pi}}}}^{2} \leq \int^{\pi}_{-\pi} f^{2}.
+    \]
+
+    Therefore
+    \[
+        \frac{a_{0}^{2}}{2} + \sum^{n}_{k=1}(a_{k}^{2} + b_{k}^{2}) \leq \int^{\pi}_{\pi} f^{2}.
+    \]
+
+    Let's define
+    \[
+        c_{n} = \frac{a_{0}^{2}}{2} + \sum^{n}_{k=1}(a_{k}^{2} + b_{k}^{2}).
+    \]
+
+    The sequence is increasing and $\int^{\pi}_{-\pi} f^{2}$ is its upper bound, so it converges. Since limit preserves order, it follows that
+    \[
+        \frac{a_{0}^{2}}{2} + \sum^{\infty}_{k=1}(a_{k}^{2} + b_{k}^{2}) \leq \int^{\pi}_{\pi} f^{2}.
+    \]
+\end{proof}
+\newpage
+
+% chapter6:sectionB:exercise6
+\begin{exercise}
+    Suppose $e_{1}, \ldots, e_{n}$ is an orthonormal basis of $V$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Prove that if $v_{1}, \ldots, v_{n}$ are vectors in $V$ such that
+              \[
+                  \norm{e_{k} - v_{k}} < \frac{1}{\sqrt{n}}
+              \]
+
+              for each $k$, then $v_{1} , \ldots, v_{n}$ is a basis of $V$.
+        \item Show that there exist $v_{1}, \ldots, v_{n}\in V$ such that
+              \[
+                  \norm{e_{k} - v_{k}} \leq \frac{1}{\sqrt{n}}
+              \]
+
+              for each $k$, but $v_{1} , \ldots, v_{n}$ is not linearly independent.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Assume $v_{1}, \ldots, v_{n}$ is linearly dependent, then there exist scalars $c_{1}, \ldots, c_{n}$ that are not all zero such that
+              \[
+                  c_{1}v_{1} + \cdots c_{n}v_{n} = 0.
+              \]
+
+              So
+              \[
+                  c_{1}(v_{1} - e_{1}) + \cdots + c_{n}(v_{n} - e_{n}) = -(c_{1}e_{1} + \cdots + c_{n}e_{n}).
+              \]
+
+              Hence
+              \begin{align*}
+                  \norm{-(c_{1}e_{1} + \cdots + c_{n}e_{n})} & = {(\abs{c_{1}}^{2} + \cdots + \abs{c_{n}}^{2})}^{1/2}                       \\
+                                                             & = \norm{c_{1}(v_{1} - e_{1}) + \cdots + c_{n}(v_{n} - e_{n})}                \\
+                                                             & \leq \norm{c_{1}(v_{1} - e_{1})} + \cdots + \norm{c_{n}(v_{n} - e_{n})}      \\
+                                                             & = \abs{c_{1}}\norm{v_{1} - e_{1}} + \cdots + \abs{c_{n}}\norm{v_{n} - e_{n}} \\
+                                                             & < \frac{1}{\sqrt{n}}(\abs{c_{1}} + \cdots + \abs{c_{n}}).
+              \end{align*}
+
+              On the other hand, according to the Cauchy-Schwarz's inequality on $\mathbb{F}^{n}$
+              \[
+                  {(\abs{c_{1}}^{2} + \cdots + \abs{c_{n}}^{2})}^{1/2} \geq \frac{1}{\sqrt{n}}(\abs{c_{1}} + \cdots + \abs{c_{n}}).
+              \]
+
+              Therefore the assumption is false. Thus $v_{1} , \ldots, v_{n}$ is linearly independent, and it is a basis of $V$, since the list is of length $n$, equals to the length of the orthonormal basis $e_{1}, \ldots, e_{n}$.
+        \item Let's define
+              \[
+                  v_{k} = e_{k} - \frac{1}{n}\sum^{n}_{j=1}e_{j}
+              \]
+
+              for each $k\in \{ 1,\ldots, n \}$. Then
+              \[
+                  \norm{e_{k} - v_{k}} = \norm{\frac{1}{n}\sum^{n}_{j=1}e_{j}} = \frac{1}{\sqrt{n}}
+              \]
+
+              for each $k\in \{ 1,\ldots, n \}$. $v_{1}, \ldots, v_{n}$ is linearly dependent since $v_{1} + \cdots + v_{n} = 0$.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter6:sectionB:exercise7
+\begin{exercise}
+    Suppose $T \in \lmap{\mathbb{R}^{3}}$ has an upper-triangular matrix with respect to the basis $(1, 0, 0)$, $(1, 1, 1)$, $(1, 1, 2)$. Find an orthonormal basis of $\mathbb{R}^{3}$ with respect to which $T$ has an upper-triangular matrix.
+\end{exercise}
+
+\begin{proof}
+    Because $T$ has an upper-triangular matrix with respect to the basis $(1, 0, 0)$, $(1, 1, 1)$, $(1, 1, 2)$ then after applying the Gram{-}Schmidt procedure, the matrix of $T$ with respect to the new basis, which is orthonormal, is still an upper-triangular matrix.
+
+    The desired orthonormal basis is
+    \[
+        (1, 0, 0), \left(0, \frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}\right), \left(0, \frac{-1}{\sqrt{2}}, \frac{1}{\sqrt{2}}\right).
+    \]
+\end{proof}
+\newpage
+
+% chapter6:sectionB:exercise8
+\begin{exercise}
+    Make $\mathscr{P}_{2}(\mathbb{R})$ into an inner product space by defining $\innerprod{p, q} = \int^{1}_{0}pq$ for all $p, q \in \mathscr{P}_{2}(\mathbb{R})$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Apply the Gram-Schmidt procedure to the basis $1, x, x^{2}$ to produce an orthonormal basis of $\mathscr{P}_{2}(\mathbb{R})$.
+        \item The differentiation operator (the operator that takes $p$ to $p'$) on $\mathscr{P}_{2}(\mathbb{R})$ has an upper-triangular matrix with respect to the basis $1, x, x^{2}$, which is not an orthonormal basis. Find the matrix of the differentiation operator on $\mathscr{P}_{2}(\mathbb{R})$ with respect to the orthonormal basis produced in (a) and verify that this matrix is upper triangular, as expected from the proof of 6.37.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item After applying the Gram-Schmidt procedure to the basis $1, x, x^{2}$, we obtain
+              \[
+                  1, \sqrt{12}\left(x - \frac{1}{2}\right), \sqrt{180}\left(x^{2} - x + \frac{1}{6}\right)
+              \]
+        \item The matrix of the differentiation operator on $\mathscr{P}_{2}(\mathbb{R})$ with respect to the basis in (a) is
+              \[
+                  \begin{pmatrix}
+                      0 & 1 & 1                  \\
+                      0 & 0 & \frac{1}{\sqrt{3}} \\
+                      0 & 0 & 0
+                  \end{pmatrix}
+              \]
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter6:sectionB:exercise9
+\begin{exercise}\label{chapter6:sectionB:exercise9}
+    Suppose $e_{1} , \ldots, e_{m}$ is the result of applying the Gram-Schmidt procedure to a linearly independent list $v_{1}, \ldots, v_{m}$ in $V$. Prove that $\innerprod{v_{k}, e_{k}} > 0$ for each $k = 1, \ldots, m$.
+\end{exercise}
+
+\begin{proof}
+    According to the formula of the Gram-Schmidt procedure
+    \[
+        f_{k} = v_{k} - \frac{\innerprod{v_{k}, f_{1}}}{\norm{f_{1}}^{2}}f_{1} - \cdots - \frac{\innerprod{v_{k}, f_{k-1}}}{\norm{f_{k-1}}^{2}}f_{k-1}
+    \]
+
+    So
+    \begin{align*}
+        \innerprod{f_{k}, v_{k}} & = \norm{v_{k}}^{2} - \frac{\innerprod{v_{k}, f_{1}}\conj{\innerprod{v_{k}, f_{1}}}}{\norm{f_{1}}^{2}} - \cdots - \frac{\innerprod{v_{k}, f_{k-1}}\conj{\innerprod{v_{k}, f_{k-1}}}}{\norm{f_{k-1}}^{2}} \\
+                                 & = \norm{v_{k}}^{2} - \innerprod{v_{k}, e_{1}}\conj{\innerprod{v_{k}, e_{1}}} - \cdots - \innerprod{v_{k}, e_{k-1}}\conj{\innerprod{v_{k}, e_{k-1}}}                                                     \\
+                                 & = \norm{v_{k}}^{2} - \abs{\innerprod{v_{k}, e_{1}}}^{2} - \cdots - \abs{\innerprod{v_{k}, e_{k-1}}}^{2}.
+    \end{align*}
+
+    So $\innerprod{f_{k}, v_{k}}$ is a real number. According to Bessel's inequality, $\innerprod{f_{k}, v_{k}}\geq 0$. But the equality does not hold, because $v_{k}\notin\operatorname{span}(v_{1}, \ldots, v_{k-1}) = \operatorname{span}(e_{1}, \ldots, e_{k-1})$, so $\innerprod{f_{k}, v_{k}} > 0$. Thus
+    \[
+        \innerprod{v_{k}, e_{k}} = \innerprod{v_{k}, \frac{f_{k}}{\norm{f_{k}}}} = \conj{\left(\frac{1}{\norm{f_{k}}}\right)}\innerprod{v_{k}, f_{k}} = \frac{1}{\norm{f_{k}}}\innerprod{f_{k}, v_{k}} > 0.
+    \]
+\end{proof}
+\newpage
+
+% chapter6:sectionB:exercise10
+\begin{exercise}
+    Suppose $v_{1}, \ldots, v_{m}$ is a linearly independent list in $V$. Explain why the orthonormal list produced by the formulas of the Gram-Schmidt procedure (6.32) is the only orthonormal list $e_{1} , \ldots, e_{m}$ in $V$ such that $\innerprod{v_{k}, e_{k}} > 0$ and $\operatorname{span}(v_{1} , \ldots, v_{k}) = \operatorname{span}(e_{1} , \ldots, e_{k})$ for each $k = 1, \ldots, m$.
+\end{exercise}
+
+\begin{proof}
+    When $m = 1$, $e_{1}$ is the only orthonormal list in $V$ such that $\innerprod{v_{1}, e_{1}} > 0$ and $\operatorname{span}(v_{1}) = \operatorname{span}(e_{1})$.
+
+    Assume for positive integer $m$ less than $(n+1)$, the orthonormal list produced by the formulas of the Gram-Schmidt procedure is the only orthonormal list $e_{1} , \ldots, e_{m}$ in $V$ such that $\innerprod{v_{k}, e_{k}} > 0$ and $\operatorname{span}(v_{1} , \ldots, v_{k}) = \operatorname{span}(e_{1} , \ldots, e_{k})$ for each $k = 1, \ldots, m$.
+
+    Let $v_{1}, \ldots, v_{n}, v_{n+1}$ be a linearly independent list and $f_{1}, \ldots, f_{n}, f_{n+1}$ be an orthonormal list in $V$ such that $\innerprod{v_{k}, f_{k}} > 0$ and $\operatorname{span}(v_{1} , \ldots, v_{k}) = \operatorname{span}(f_{1} , \ldots, f_{k})$ for each $k = 1, \ldots, n+1$. By the induction hypothesis, it follows that $f_{1} = e_{1}$, \ldots, $f_{n} = e_{n}$.
+
+    Since $\operatorname{span}(v_{1}, \ldots, v_{n+1}) = \operatorname{span}(f_{1}, \ldots, f_{n+1}) = \operatorname{span}(e_{1}, \ldots, e_{n+1})$, then there exist scalars $c_{1}, \ldots, c_{n}, c_{n+1}$ such that
+    \[
+        f_{n+1} = c_{1}e_{1} + \cdots + c_{n}e_{n} + c_{n+1}e_{n+1}
+    \]
+
+    Because $f_{i} = e_{i}$ for each $i\in\{ 1,\ldots, n \}$, it follows that $\innerprod{f_{n+1}, e_{i}} = c_{i} = 0$ for each $i\in\{ 1,\ldots, n \}$. Therefore $f_{n+1} = c_{n+1}e_{n+1}$. $\innerprod{v_{n+1}, f_{n+1}} = \conj{c_{n+1}}\innerprod{v_{n+1}, e_{n+1}}$ is a positive real number and $\norm{f_{n+1}} = 1$, so $\conj{c_{n+1}}$ is a positive real number and $\abs{c_{n+1}} = 1$. Hence $c_{n+1} = 1$, from which we conclude that $f_{n+1} = e_{n+1}$.
+
+    By the principle of mathematical induction, the result follows.
+\end{proof}
+\newpage
+
+% chapter6:sectionB:exercise11
+\begin{exercise}
+    Find a polynomial $q\in\mathscr{P}_{2}(\mathbb{R})$ such that $p\left(\frac{1}{2}\right) = \int^{1}_{0}pq$ for every $p\in\mathscr{P}_{2}(\mathbb{R})$.
+\end{exercise}
+
+\begin{proof}
+    $1, x, x^{2}$ is a basis of $\mathscr{P}_{2}(\mathbb{R})$. Apply the Gram-Schmidt procedure to this basis, we obtain the following orthonormal basis:
+    \[
+        e_{1} = 1, e_{2} = \sqrt{12}\left(x - \frac{1}{2}\right), e_{3} = \sqrt{180}\left(x^{2} - x + \frac{1}{6}\right)
+    \]
+
+    For the linear functional $\varphi: \mathscr{P}_{2}(\mathbb{R})\to \mathbb{R}$ defined by $\varphi(p) = p(1/2)$, there exists a polynomial $q\in\mathscr{P}_{2}(\mathbb{R})$ such that
+    \[
+        \varphi(p) = \int^{1}_{0}pq
+    \]
+
+    and
+    \begin{align*}
+        q & = \conj{\varphi(e_{1})}e_{1} + \conj{\varphi(e_{2})}e_{2} + \conj{\varphi(e_{3})}e_{3} \\
+          & = -\frac{3}{2} + 15x - 15x^{2}
+    \end{align*}
+\end{proof}
+\newpage
+
+% chapter6:sectionB:exercise12
+\begin{exercise}
+    Find a polynomial $q\in\mathscr{P}_{2}(\mathbb{R})$ such that
+    \[
+        \int^{1}_{0}p(x)\cos(\pi x)dx = \int^{1}_{0}pq
+    \]
+
+    for every $p\in\mathscr{P}_{2}(\mathbb{R})$.
+\end{exercise}
+
+\begin{proof}
+    $1, x, x^{2}$ is a basis of $\mathscr{P}_{2}(\mathbb{R})$. Apply the Gram-Schmidt procedure to this basis, we obtain the following orthonormal basis:
+    \[
+        e_{1} = 1, e_{2} = \sqrt{12}\left(x - \frac{1}{2}\right), e_{3} = \sqrt{180}\left(x^{2} - x + \frac{1}{6}\right)
+    \]
+
+    For the linear functional $\varphi: \mathscr{P}_{2}(\mathbb{R})\to \mathbb{R}$ defined by $\varphi(p) = \int^{1}_{0}p(x)\cos(\pi x)dx$, there exists a polynomial $q\in\mathscr{P}_{2}(\mathbb{R})$ such that
+    \[
+        \varphi(p) = \int^{1}_{0}pq
+    \]
+
+    and
+    \[
+        q = \conj{\varphi(e_{1})}e_{1} + \conj{\varphi(e_{2})}e_{2} + \conj{\varphi(e_{3})}e_{3} = \frac{-24(x - 1/2)}{\pi^{2}}.
+    \]
+\end{proof}
+\newpage
+
+% chapter6:sectionB:exercise13
+\begin{exercise}
+    Show that a list $v_{1} , \ldots, v_{m}$ of vectors in $V$ is linearly dependent if and only if the Gram-Schmidt formula in 6.32 produces $f_{k} = 0$ for some $k \in \{1, \ldots, m\}$.
+\end{exercise}
+
+\begin{proof}
+    $(\Rightarrow)$ $v_{1} , \ldots, v_{m}$ is linearly dependent.
+
+    By the linearly dependence lemma, there exists a least positive integer $n$ not exceeding $m$ such that $v_{n}\in\operatorname{span}(v_{1}, \ldots, v_{n-1})$. So $v_{1}, \ldots, v_{n-1}$ is linearly independent. From the Gram-Schmidt formula
+    \[
+        f_{n} = v_{n} - \frac{\innerprod{v_{n}, f_{1}}}{\norm{f_{1}}^{2}}f_{1} - \cdots - \frac{\innerprod{v_{n}, f_{n-1}}}{\norm{f_{n-1}}^{2}}f_{n-1}
+    \]
+
+    Since $\operatorname{span}(v_{1}, \ldots, v_{n-1}) = \operatorname{span}(f_{1}, \ldots, f_{n-1})$, there exist scalars $c_{1}, \ldots, c_{n-1}$ such that
+    \[
+        v_{n} = c_{1}f_{1} + \cdots + c_{n-1}f_{n-1}.
+    \]
+
+    So
+    \[
+        f_{n} = \left(c_{1} - \frac{\innerprod{v_{n}, f_{1}}}{\norm{f_{1}}^{2}}\right)f_{1} + \cdots + \left( c_{n-1} - \frac{\innerprod{v_{n}, f_{n-1}}}{\norm{f_{n-1}}^{2}} \right)f_{n-1}
+    \]
+
+    Since $\innerprod{f_{n}, f_{i}} = 0$ for each $i\in \{ 1, \ldots, n-1 \}$, it follows that
+    \[
+        c_{i} - \frac{\innerprod{v_{n}, f_{i}}}{\norm{f_{i}}^{2}} = 0
+    \]
+
+    for each $i\in \{ 1, \ldots, n-1 \}$. Hence $f_{n} = 0$.
+
+    \bigskip
+
+    $(\Leftarrow)$ $f_{k} = 0$ for some $k\in\{1,\ldots, m\}$.
+
+    Let $k$ be the least positive integer such that $f_{k} = 0$.
+    From the Gram-Schmidt formula
+    \[
+        f_{k} = v_{k} - \frac{\innerprod{v_{k}, f_{1}}}{\norm{f_{1}}^{2}}f_{1} - \cdots - \frac{\innerprod{v_{k}, f_{k-1}}}{\norm{f_{k-1}}^{2}}f_{k-1}.
+    \]
+
+    Because $f_{k} = 0$, it follows that $v_{k}\in\operatorname{span}(f_{1}, \ldots, f_{k-1})$. On the other hand, $\operatorname{span}(v_{1}, \ldots, v_{k-1}) = \operatorname{span}(f_{1}, \ldots, f_{k-1})$, so $v_{k}\in\operatorname{span}(v_{1}, \ldots, v_{k-1})$, which means $v_{1}, \ldots, v_{m}$ is linearly dependent.
+\end{proof}
+\newpage
+
+% chapter6:sectionB:exercise14
+\begin{exercise}
+    Suppose $V$ is a real inner product space and $v_{1} , \ldots, v_{m}$ is a linearly independent list of vectors in $V$. Prove that there exist exactly $2^{m}$ orthonormal lists $e_{1}, \ldots, e_{m}$ of vectors in $V$ such that
+    \[
+        \operatorname{span}(v_{1}, \ldots, v_{k}) = \operatorname{span}(e_{1}, \ldots, e_{k})
+    \]
+
+    for all $k\in\{1, \ldots, m\}$.
+\end{exercise}
+
+\begin{proof}
+    When $m = 1$, $\operatorname{span}(v_{1}) = \operatorname{span}(f_{1})$ and $\norm{f_{1}} = 1$ if and only if $f_{1} = c_{1}e_{1}$, where $\abs{c_{1}} = 1$.
+
+    Assume that for $m$ less than $n$, $\operatorname{span}(v_{1}, \ldots, v_{k}) = \operatorname{span}(f_{1}, \ldots, f_{k})$ for all $k \in \{ 1, \ldots, m \}$ and $f_{1}, \ldots, f_{m}$ is an orthonormal list if and only if $f_{k} = c_{k}e_{k}$ where $\abs{c_{k}} = 1$ for each $k \in \{ 1, \ldots, m \}$.
+
+    Let $v_{1}, \ldots, v_{n}$ be a linearly independent list and $f_{1}, \ldots, f_{n}$ be an orthonormal list such that $\operatorname{span}(v_{1}, \ldots, v_{k}) = \operatorname{span}(f_{1}, \ldots, f_{k})$ for all $k \in \{ 1, \ldots, n \}$. Let $e_{1}, \ldots, e_{n}$ be the orthonormal list obtained by applying the Gram-Schmidt procedure to $v_{1}, \ldots, v_{n}$. According to the induction hypothesis, there exist scalars $c_{1}, \ldots, c_{n-1}$ where $\abs{c_{1}} = \cdots = \abs{c_{n-1}} = 1$ and $f_{k} = c_{k}e_{k}$ for each $k\in\{1, \ldots, n-1\}$.
+
+    Since $\operatorname{span}(f_{1}, \ldots, f_{n}) = \operatorname{span}(e_{1}, \ldots, e_{n})$, there exist scalars $a_{1}, \ldots, a_{n}$ such that
+    \[
+        f_{n} = a_{1}e_{1} + \cdots + a_{n}e_{n}
+    \]
+
+    Since $\innerprod{f_{n}, f_{i}} = 0$ for all $1\leq i < n$ and $\operatorname{span}(f_{1}, \ldots, f_{k}) = \operatorname{span}(e_{1}, \ldots, e_{k})$ for each $k\in \{ 1,\ldots, n \}$, it follows that $\innerprod{f_{n}, e_{i}} = 0$ for all $1\leq i < n$. Therefore $a_{1} = \cdots = a_{n-1} = 0$. So $f_{n} = a_{n}e_{n}$ and $\abs{a_{n}} = \norm{f_{n}}/\norm{e_{n}} = 1/1 = 1$.
+
+    By the principle of mathematical induction, every orthonormal list $f_{1}, \ldots, f_{m}$ such that
+    \[
+        \operatorname{span}(v_{1}, \ldots, v_{k}) = \operatorname{span}(f_{1}, \ldots, f_{k})
+    \]
+
+    for all $k\in\{1, \ldots, m\}$ is of the form
+    \[
+        f_{k} = c_{k}e_{k}
+    \]
+
+    where $\abs{c_{k}} = 1$. Since $V$ is a real inner product space, $c_{k} = 1$ or $c_{k} = -1$. Hence there exist exactly $2^{m}$ such orthonormal lists.
+\end{proof}
+\newpage
+
+% chapter6:sectionB:exercise15
+\begin{exercise}
+    Suppose $\innerprod{\cdot, \cdot}_{1}$ and $\innerprod{\cdot, \cdot}_{2}$ are inner products on $V$ such that $\innerprod{u, v}_{1} = 0$ if and only if $\innerprod{u, v}_{2} = 0$. Prove that there is a positive number $c$ such that $\innerprod{u, v}_{1} = c\innerprod{u, v}_{2}$ for every $u, v\in V$.
+\end{exercise}
+
+\begin{proof}
+    If $\dim V = 0$ then we can choose $c = 1$.
+
+    Assume $\dim V > 0$, then there exists a nonzero vector $v_{0}\in V$.
+
+    Let $U$ be the orthogonal complement of $\{v_{0}\}$ with respect to $\innerprod{\cdot, \cdot}_{1}$. Since $\innerprod{u, v}_{1} = 0$ if and only if $\innerprod{u, v}_{2} = 0$ then $U$ is also the orthogonal complement of $\{v_{0}\}$ with respect to $\innerprod{\cdot, \cdot}_{2}$.
+
+    Let $v$ be an arbitrary vector in $V$.
+    \[
+        \begin{split}
+            v = \frac{\innerprod{v, v_{0}}_{1}}{\norm{v_{0}}_{1}^{2}}v_{0} + \left( v - \frac{\innerprod{v, v_{0}}_{1}}{\norm{v_{0}}_{1}^{2}}v_{0} \right), \\
+            v = \frac{\innerprod{v, v_{0}}_{2}}{\norm{v_{0}}_{2}^{2}}v_{0} + \left( v - \frac{\innerprod{v, v_{0}}_{2}}{\norm{v_{0}}_{2}^{2}}v_{0} \right).
+        \end{split}
+    \]
+
+
+    Since $V = \{ v_{0} \} \oplus U$, it follows that
+    \[
+        \frac{\innerprod{v, v_{0}}_{1}}{\norm{v_{0}}_{1}^{2}} = \frac{\innerprod{v, v_{0}}_{2}}{\norm{v_{0}}_{2}^{2}}
+    \]
+
+    So for any non zero vector $w$ in $V$, we also have
+    \[
+        \frac{\innerprod{v, w}_{1}}{\norm{w}_{1}^{2}} = \frac{\innerprod{v, w}_{2}}{\norm{w}_{2}^{2}}.
+    \]
+
+    Moreover,
+    \begin{align*}
+        \frac{\innerprod{w, v_{0}}_{1}}{\norm{v_{0}}_{1}^{2}} & = \frac{\innerprod{w, v_{0}}_{2}}{\norm{v_{0}}_{2}^{2}}                                                                                                                                                                                                                                         \\
+        \frac{\innerprod{v_{0}, w}_{1}}{\norm{w}_{1}^{2}}     & = \frac{\innerprod{v_{0}, w}_{2}}{\norm{w}_{2}^{2}} \implies \frac{\conj{\innerprod{w, v_{0}}_{1}}}{\norm{w}_{1}^{2}} = \frac{\conj{\innerprod{w, v_{0}}_{2}}}{\norm{w}_{2}^{2}} \implies \frac{\innerprod{w, v_{0}}_{1}}{\norm{w}_{1}^{2}} = \frac{\innerprod{w, v_{0}}_{2}}{\norm{w}_{2}^{2}}
+    \end{align*}
+
+    Hence
+    \[
+        \frac{\norm{v_{0}}_{1}^{2}}{\norm{v_{0}}_{2}^{2}} = \frac{\norm{w}_{1}^{2}}{\norm{w}_{2}^{2}}.
+    \]
+
+    Let $c = {\norm{v_{0}}_{1}^{2}}/{\norm{v_{0}}_{2}^{2}}$ and for every $u, v\in V$, if $u = 0$ or $v = 0$, then $\innerprod{u, v}_{1} = c\innerprod{u, v}_{2} = 0$, and if $u\ne 0$ and $v\ne 0$, then
+    \[
+        \innerprod{u, v}_{1} = \frac{\norm{v}_{1}^{2}}{\norm{v}_{2}^{2}}\innerprod{u, v}_{2} = c\innerprod{u, v}_{2}.
+    \]
+\end{proof}
+\newpage
+
+% chapter6:sectionB:exercise16
+\begin{exercise}
+    Suppose $V$ is finite-dimensional. Suppose $\innerprod{\cdot, \cdot}_{1}, \innerprod{\cdot, \cdot}_{2}$ are inner products on $V$ with corresponding norms $\norm{\cdot}_{1}$ and $\norm{\cdot}_{2}$. Prove that there exists a positive number $c$ such that $\norm{v}_{1}\leq c\norm{v}_{2}$ for every $v \in V$.
+\end{exercise}
+
+\begin{proof}
+    Let $e_{1}, \ldots, e_{n}$ be an orthonormal basis of $V$ with respect to $\innerprod{\cdot, \cdot}_{2}$. There exist scalars $a_{1}, \ldots, a_{n}$ such that $v = a_{1}e_{1} + \cdots + a_{n}e_{n}$. For each $k\in \{ 1, \ldots, n \}$, let
+    \[
+        c_{k} = \frac{\norm{e_{k}}_{1}}{\norm{e_{k}}_{2}}
+    \]
+
+    I define $m = \max\{ c_{1}, \ldots, c_{n} \}$ and $c = m\sqrt{n}$.
+    \begin{align*}
+        \norm{v}_{1} & = \norm{a_{1}e_{1} + \cdots + a_{n}e_{n}}_{1}                                                                                                       \\
+                     & \leq \norm{a_{1}e_{1}}_{1} + \cdots + \norm{a_{n}e_{n}}_{1}                                                    & \text{(triangle inequality)}       \\
+                     & = \abs{a_{1}}\norm{e_{1}}_{1} + \cdots + \abs{a_{n}}\norm{e_{n}}_{1}                                                                                \\
+                     & \leq \abs{a_{1}} c_{1}\norm{e_{1}}_{2} + \cdots + \abs{a_{n}}c_{n}\norm{e_{n}}_{2}                                                                  \\
+                     & \leq \abs{a_{1}} m\norm{e_{1}}_{2} + \cdots + \abs{a_{n}}m\norm{e_{n}}_{2}                                                                          \\
+                     & = m (\abs{a_{1}} \norm{e_{1}}_{2} + \cdots + \abs{a_{n}}\norm{e_{n}}_{2})                                                                           \\
+                     & \leq m \sqrt{n\left(\abs{a_{1}}^{2}\norm{e_{1}}_{2}^{2} + \cdots + \abs{a_{n}}^{2}\norm{e_{n}}_{2}^{2}\right)} & \text{(Cauchy-Schwarz inequality)} \\
+                     & = m\sqrt{n}\norm{v}_{2}                                                                                                                             \\
+                     & = c\norm{v}_{2}.
+    \end{align*}
+\end{proof}
+\newpage
+
+% chapter6:sectionB:exercise17
+\begin{exercise}
+    Suppose $\mathbb{F} = \mathbb{C}$ and $V$ is finite-dimensional. Prove that if $T$ is an operator on $V$ such that $1$ is the only eigenvalue of $T$ and $\norm{Tv}\leq \norm{v}$ for all $v\in V$, then $T$ is the identity operator.
+\end{exercise}
+
+\begin{proof}
+    Because $T$ is an operator on the finite-dimensional complex inner product vector space $V$, there exists an orthonormal basis $e_{1}, \ldots, e_{n}$ of $V$ to which $T$ has an upper-triangular matrix $A$.
+
+    Because $1$ is the only eigenvalue of $T$, and $T$ is an operator on a finite-dimensional complex vector space, all entries on the diagonal of $A$ are equal to $1$. For each $k\in\{ 1,\ldots, n \}$
+    \begin{align*}
+        \norm{Te_{k}}^{2} & = \norm{A_{1,k}e_{1} + \cdots + A_{k-1,k}e_{k-1} + e_{k}}^{2}                       \\
+                          & = \norm{A_{1,k}e_{1}}^{2} + \cdots + \norm{A_{k-1,k}e_{k-1}}^{2} + \norm{e_{k}}^{2} \\
+                          & = \abs{A_{1,k}}^{2} + \cdots + \abs{A_{k-1,k}}^{2} + \norm{e_{k}}^{2}.
+    \end{align*}
+
+    Since $\norm{Te_{k}}\leq \norm{e_{k}}$, it follows that $\abs{A_{1,k}}^{2} + \cdots + \abs{A_{k-1,k}}^{2}\leq 0$. On the other hand, $\abs{A_{1,k}}^{2} + \cdots + \abs{A_{k-1,k}}^{2}\geq 0$, so $A_{1,k} = \cdots = A_{k-1,k} = 0$ for each $k\in\{ 1,\ldots, n \}$. Therefore $A$ is the identity matrix, and $T$ is the identity operator.
+\end{proof}
+\newpage
+
+% chapter6:sectionB:exercise18
+\begin{exercise}\label{chapter6:sectionB:exercise18}
+    Suppose $u_{1}, \ldots, u_{m}$ is a linearly independent list in $V$. Show that there exists $v \in V$ such that $\innerprod{u_{k}, v} = a_{k}$ for all $k\in \{ 1, \ldots, m \}$ where $a_{1}, \ldots, a_{m}\in \mathbb{F}$.
+\end{exercise}
+
+\begin{proof}
+    Let $A$ be the matrix with $m$ rows, $m$ columns where the entry at $i$th row and $j$th column is $\innerprod{u_{i}, u_{j}}$.
+
+    Assume $\operatorname{rank} A = p < m$, then there are $p$ columns $k_{1}, \ldots, k_{p}$ of $A$ which are linearly independent and other columns are linear combinations of these $p$ columns. Let $k$ be an index other than $k_{1}, \ldots, k_{p}$ then there exist scalars $c_{1}, \ldots, c_{p}$ such that
+    \[
+        \operatorname{column}_{k} = c_{1}\operatorname{column}_{k_{1}} + \cdots + c_{p}\operatorname{column}_{k_{p}}.
+    \]
+
+    Equivalently, for each $j\in\{ 1,\ldots, m \}$
+    \[
+        \innerprod{u_{j}, u_{k}} = c_{1}\innerprod{u_{j}, u_{k_{1}}} + \cdots + c_{p}\innerprod{u_{j}, u_{k_{p}}}.
+    \]
+
+    Hence, for each $j\in\{ 1,\ldots, m \}$
+    \[
+        \innerprod{u_{j}, u_{k} - \conj{c_{1}}u_{k_{1}} - \cdots - \conj{c_{p}}u_{k_{p}}} = 0.
+    \]
+
+    This means $u_{k} - \conj{c_{1}}u_{k_{1}} - \cdots - \conj{c_{p}}u_{k_{p}}$ is orthogonal to any vector within $\operatorname{span}(u_{1}, \ldots, u_{m})$. Moreover, $u_{k} - \conj{c_{1}}u_{k_{1}} - \cdots - \conj{c_{p}}u_{k_{p}}$ is in $\operatorname{span}(u_{1}, \ldots, u_{m})$, so
+    \[
+        u_{k} - \conj{c_{1}}u_{k_{1}} - \cdots - \conj{c_{p}}u_{k_{p}} = 0.
+    \]
+
+    This is a contradiction, since $u_{1}, \ldots, u_{m}$ is a linearly independent list in $V$. Hence $\operatorname{rank} A = m$, it follows that $A$ is invertible, so the system of $m$ linear equations
+    \begin{align*}
+        a_{k} & = x_{1}\innerprod{u_{k}, u_{1}} + \cdots + x_{m}\innerprod{u_{k}, u_{m}}
+    \end{align*}
+
+    has a solution.
+
+    Let $v = c_{1}u_{1} + \cdots + c_{m}u_{m}$. For each $k\in\{ 1,\ldots, m \}$.
+    \begin{align*}
+        \innerprod{u_{k}, v} & = \conj{c_{1}}\innerprod{u_{k}, u_{1}} + \cdots + \conj{c_{m}}\innerprod{u_{k}, u_{m}}
+    \end{align*}
+
+    Thus there exists $v\in \operatorname{span}(u_{1}, \ldots, u_{m})$ such that $\innerprod{u_{k}, v} = a_{k}$ for all $k\in \{ 1, \ldots, m \}$.
+\end{proof}
+\newpage
+
+% chapter6:sectionB:exercise19
+\begin{exercise}
+    Suppose $v_{1}, \ldots, v_{n}$ is a basis of $V$. Prove that there exists a basis $u_{1}, \ldots, u_{n}$ of $V$ such that
+    \[
+        \innerprod{v_{j}, u_{k}} = \begin{cases}
+            0 & \text{if $j\ne k$}, \\
+            1 & \text{if $j = k$}.
+        \end{cases}
+    \]
+\end{exercise}
+
+\begin{proof}
+    By Exercise~\ref{chapter6:sectionB:exercise18}, there exist vectors $u_{1}, \ldots, u_{n}$ of $V$ such that
+    \[
+        \innerprod{v_{j}, u_{k}} = \begin{cases}
+            0 & \text{if $j\ne k$}, \\
+            1 & \text{if $j = k$}.
+        \end{cases}
+    \]
+
+    Let $c_{1}u_{1} + \cdots + c_{n}u_{n} = 0$, then for each $j\in\{1,\ldots, n\}$,
+    \[
+        0 = \innerprod{v_{j}, c_{1}u_{1} + \cdots + c_{n}u_{n}} = \conj{c_{j}}.
+    \]
+
+    Therefore $c_{j} = 0$ for each $j\in\{1,\ldots, n\}$, hence $u_{1}, \ldots, u_{n}$ is linearly independent. Because $\dim V = n$, we conclude that $u_{1}, \ldots, u_{n}$ is a basis of $V$.
+\end{proof}
+\newpage
+
+% chapter6:sectionB:exercise20
+\begin{exercise}
+    Suppose $\mathbb{F} = \mathbb{C}$, $V$ is finite-dimensional, and $\mathcal{E} \subseteq \lmap{V}$ is such that
+    \[
+        ST = TS
+    \]
+
+    for all $S, T\in\mathcal{E}$. Prove that there is an orthonormal basis of $V$ with respect to which every element of $\mathcal{E}$ has an upper-triangular matrix.
+\end{exercise}
+
+\begin{proof}
+    Use Exercise~\ref{chapter5:sectionE:exercise9}.
+
+    Unsolved.
+\end{proof}
+\newpage
+
+% chapter6:sectionB:exercise21
+\begin{exercise}
+    Suppose $\mathbb{F} = \mathbb{C}$, $V$ is finite-dimensional, $T\in\lmap{V}$, and all eigenvalues of $T$ have absolute value less than $1$. Let $\varepsilon > 0$. Prove that there exists a positive integer $m$ such that $\norm{T^{m}v}\leq \varepsilon \norm{v}$ for every $v\in V$.
+\end{exercise}
+
+\begin{proof}
+    Unsolved.
+\end{proof}
+\newpage
+
+% chapter6:sectionB:exercise22
+\begin{exercise}
+    Suppose $C[-1, 1]$ is the vector space of continuous real-valued functions
+    on the interval $[-1, 1]$ with inner product given by
+    \[
+        \innerprod{f, g} = \int^{1}_{-1} fg
+    \]
+
+    for all $f, g\in C[-1, 1]$. Let $\varphi$ be the linear functional on $C[-1, 1]$ defined by $\varphi(f) = f(0)$. Show that there does not exist $g\in C[-1, 1]$ such that
+    \[
+        \varphi(f) = \innerprod{f, g}
+    \]
+
+    for every $f\in C[-1, 1]$.
+\end{exercise}
+
+\begin{proof}
+    Assume that there exists $g\in C[-1, 1]$ such that $f(0) = \innerprod{f, g}$ for every $f\in C[-1, 1]$.
+
+    Choose $f(x) = x^{2}g(x)$. Then
+    \[
+        0 = f(0) = \int^{1}_{-1}x^{2}{(g(x))}^{2}dx
+    \]
+
+    On the other hand, $\int^{1}_{-1}x^{2}{(g(x))}^{2}dx = 0$ if and only if $x^{2}{(g(x))}^{2} = 0$ for all $x\in [-1, 1]$. Hence $g(x) = 0$ for all $x\in [-1,1]\setminus\{0\}$. Moreover, $g$ is continuous, so $g(x) = 0$ for all $x\in [-1,1]$. Therefore $f(0) = \innerprod{f, g} = 0$ for all $f\in C[-1, 1]$, which is a contradiction.
+
+    Hence there does not exist $g\in C[-1, 1]$ such that
+    \[
+        \varphi(f) = \innerprod{f, g}
+    \]
+
+    for every $f\in C[-1, 1]$.
+\end{proof}
+\newpage
+
+% chapter6:sectionB:exercise23
+\begin{exercise}
+    For all $u, v \in V$, define $d(u, v) = \norm{u - v}$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that $d$ is a metric on $V$.
+        \item Show that if $V$ is finite-dimensional, then $d$ is a complete metric on $V$ (meaning that every Cauchy sequence converges).
+        \item Show that every finite-dimensional subspace of $V$ is a closed subset of $V$ (with respect to the metric $d$).
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item $d(u, v) = \norm{u - v}\geq 0$ for all $u, v\in V$ and $d(u, v) = 0$ iff $u = v$.
+
+              $d(u, v) = \norm{u - v} = \norm{v - u} = d(v, u)$.
+
+              $d(u, v) = \norm{u - v}\leq \norm{u - w} + \norm{w - v} = d(u, w) + d(w, v)$ for all $u, v, w\in V$.
+
+              Thus $d$ is a metric on $V$.
+        \item Let $e_{1}, \ldots, e_{m}$ be an orthonormal basis of $V$. Let ${(v_{n})}_{n\in\mathbb{N}}$ be a Cauchy sequence in $V$. Then for every $\varepsilon > 0$, there exists a positive integer $N$ such that for all $n > N$, $p > 0$
+              \[
+                  \norm{v_{n+p} - v_{n}} < \varepsilon.
+              \]
+
+              Therefore
+              \[
+                  \norm{\innerprod{v_{n+p} - v_{n}, e_{1}}e_{1} + \cdots + \innerprod{v_{n+p - v_{n}, e_{m}}}e_{m}} < \varepsilon.
+              \]
+
+              Equivalently
+              \[
+                  \sqrt{\abs{\innerprod{v_{n+p} - v_{n}, e_{1}}}^{2} + \cdots + \abs{\innerprod{v_{n+p} - v_{n}, e_{m}}}^{2}} < \varepsilon
+              \]
+
+              Hence for every $\varepsilon > 0$, there exists a positive integer $N$ such that for all $n > N$, $p > 0$,
+              \[
+                  \abs{ \innerprod{v_{n+p}, e_{i}} - \innerprod{v_{n}, e_{i}} } < \sqrt{\abs{\innerprod{v_{n+p} - v_{n}, e_{1}}}^{2} + \cdots + \abs{\innerprod{v_{n+p} - v_{n}, e_{m}}}^{2}} < \varepsilon.
+              \]
+
+              Therefore the numerical sequences ${(\innerprod{v_{n}, e_{i}})}_{n\in\mathbb{N}}$ are convergent. Let
+              \[
+                  \lim\limits_{n\to\infty}\innerprod{v_{n}, e_{i}} = a_{i} \in \mathbb{F}
+              \]
+
+              Let $\varepsilon$ be a positive real sequence. Then there exist positive integers $N_{i}$ for each $i\in\{ 1,\ldots, m \}$ such that for all $n > N_{i}$
+              \[
+                  \abs{\innerprod{v_{n}, e_{i}} - a_{i}} < \frac{\varepsilon}{\sqrt{m}}.
+              \]
+
+              Let $N = \max\{ N_{1}, \ldots, N_{m} \}$, then for all $n > N$
+              \begin{align*}
+                  \norm{v_{n} - (a_{1}e_{1} + \cdots + a_{m}e_{m})} & = \norm{\innerprod{v_{n}, e_{1}}e_{1} + \cdots + \innerprod{v_{n}, e_{m}}e_{m} - (a_{1}e_{1} + \cdots + a_{m}e_{m})} \\
+                                                                    & = \norm{(\innerprod{v_{n}, e_{1}} - a_{1})e_{1} + \cdots + (\innerprod{v_{n}, e_{m}} - a_{m})e_{m}}                  \\
+                                                                    & = \sqrt{{(\innerprod{v_{n}, e_{1}} - a_{1})}^{2} + \cdots + {(\innerprod{v_{n}, e_{m}} - a_{m})}^{2}}                \\
+                                                                    & < \sqrt{m\cdot \frac{\varepsilon^{2}}{m}} = \varepsilon.
+              \end{align*}
+
+              So $v_{n}\to a_{1}e_{1} + \cdots + a_{m}e_{m}$ as $n\to\infty$. Thus $d$ is a complete metric on $V$.
+        \item Let $U$ be a finite-dimensional subspace of $V$. According to $(b)$, $U$ is a complete metric space, so $U$ contains all of its limit points. Thus $U$ is a closed subset of $V$.
+    \end{enumerate}
+\end{proof}
+\newpage
 
 \section{Orthogonal Complements and Minimization Problems}
 
