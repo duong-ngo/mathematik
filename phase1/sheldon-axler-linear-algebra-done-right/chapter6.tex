@@ -1538,7 +1538,7 @@
 
               Equivalently
               \[
-                  \sqrt{\abs{\innerprod{v_{n+p} - v_{n}, e_{1}}}^{2} + \cdots + \abs{\innerprod{v_{n+p} - v_{n}, e_{m}}}^{2}} < \varepsilon
+                  \sqrt{\abs{\innerprod{v_{n+p} - v_{n}, e_{1}}}^{2} + \cdots + \abs{\innerprod{v_{n+p} - v_{n}, e_{m}}}^{2}} < \varepsilon.
               \]
 
               Hence for every $\varepsilon > 0$, there exists a positive integer $N$ such that for all $n > N$, $p > 0$,
@@ -1548,10 +1548,10 @@
 
               Therefore the numerical sequences ${(\innerprod{v_{n}, e_{i}})}_{n\in\mathbb{N}}$ are convergent. Let
               \[
-                  \lim\limits_{n\to\infty}\innerprod{v_{n}, e_{i}} = a_{i} \in \mathbb{F}
+                  \lim\limits_{n\to\infty}\innerprod{v_{n}, e_{i}} = a_{i} \in \mathbb{F}.
               \]
 
-              Let $\varepsilon$ be a positive real sequence. Then there exist positive integers $N_{i}$ for each $i\in\{ 1,\ldots, m \}$ such that for all $n > N_{i}$
+              Let $\varepsilon$ be a positive real sequence. Then for each $i\in\{ 1,\ldots, m \}$, there exist positive integers $N_{i}$  such that for all $n > N_{i}$
               \[
                   \abs{\innerprod{v_{n}, e_{i}} - a_{i}} < \frac{\varepsilon}{\sqrt{m}}.
               \]
@@ -1572,3 +1572,569 @@
 
 \section{Orthogonal Complements and Minimization Problems}
 
+% chapter6:sectionC:exercise1
+\begin{exercise}
+    Suppose $v_{1}, \ldots, v_{m}\in V$. Prove that
+    \[
+        {\{ v_{1}, \ldots, v_{m} \}}^{\bot} = {(\operatorname{span}(v_{1}, \ldots, v_{m}))}^{\bot}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    \begin{align*}
+        v\in {\{ v_{1}, \ldots, v_{m} \}}^{\bot} & \Longleftrightarrow \innerprod{v, a_{1}v_{1} + \cdots + a_{m}v_{m}} = 0\quad\forall a_{1}, \ldots, a_{m}\in\mathbb{F} \\
+                                                 & \Longleftrightarrow v\in {(\operatorname{span}(v_{1}, \ldots, v_{m}))}^{\bot}.
+    \end{align*}
+
+    Thus ${\{ v_{1}, \ldots, v_{m} \}}^{\bot} = {(\operatorname{span}(v_{1}, \ldots, v_{m}))}^{\bot}$.
+\end{proof}
+\newpage
+
+% chapter6:sectionC:exercise2
+\begin{exercise}
+    Suppose $U$ is a subspace of $V$ with basis $u_{1}, \ldots, u_{m}$ and
+    \[
+        u_{1}, \ldots, u_{m}, v_{1}, \ldots, v_{n}
+    \]
+
+    is a basis of $V$. Prove that if the Gram-Schmidt procedure is applied to the basis of $V$ above, procuding a list $e_{1}, \ldots, e_{m}, f_{1}, \ldots, f_{n}$, then $e_{1}, \ldots, e_{m}$ is an orthogonal basis of $U$ and $f_{1}, \ldots, f_{n}$ is an orthonormal basis of $U^{\bot}$.
+\end{exercise}
+
+\begin{proof}
+    Due to the Gram-Schmidt procedure,
+    \[
+        \operatorname{span}(u_{1}, \ldots, u_{m}) = \operatorname{span}(e_{1}, \ldots, e_{m}).
+    \]
+
+    $u_{1}, \ldots, u_{m}$ is a basis of $U$, so $e_{1}, \ldots, e_{m}$ is an orthogonal basis of $U$.
+
+    For each $i\in\{ 1,\ldots, n \}$, $f_{i}$ is orthogonal to all vectors in $e_{1}, \ldots, e_{m}$. So $f_{1}, \ldots, f_{n}$ are in $U^{\bot}$. On the other hand, $\dim U^{\bot} = \dim V - \dim U = (m + n) - m = n$. Therefore $f_{1}, \ldots, f_{n}$ is an orthonormal basis of $U^{\bot}$.
+\end{proof}
+\newpage
+
+% chapter6:sectionC:exercise3
+\begin{exercise}
+    Suppose $U$ is the subspsace of $\mathbb{R}^{4}$ defined by
+    \[
+        U = \operatorname{span}((1, 2, 3, -4), (-5, 4, 3, 2)).
+    \]
+
+    Find an orthonormal basis of $U$ and an orthonormal basis of $U^{\bot}$.
+\end{exercise}
+
+\begin{proof}
+    I skip this exercise.
+\end{proof}
+\newpage
+
+% chapter6:sectionC:exercise4
+\begin{exercise}
+    Suppose $e_{1}, \ldots, e_{n}$ is a list of vectors in $V$ with $\norm{e_{k}} = 1$ for each $k = 1, \ldots, n$ and
+    \[
+        \norm{v}^{2} = \abs{\innerprod{v, e_{1}}}^{2} + \cdots + \abs{\innerprod{v, e_{n}}}^{2}
+    \]
+
+    for all $v\in V$. Prove that $e_{1}, \ldots, e_{n}$ is an orthonormal basis of $V$.
+\end{exercise}
+
+\begin{proof}
+    Replace $v$ with $e_{i}$, we obtain $\norm{e_{i}}^{2} = \abs{\innerprod{e_{i}, e_{1}}}^{2} + \cdots + \abs{\innerprod{e_{i}, e_{n}}}^{2}$, it follows that
+    \[
+        \sum^{n}_{\substack{j=1 \\ j\ne i}} \abs{\innerprod{e_{i}, e_{j}}}^{2} = 0
+    \]
+
+    so $\innerprod{e_{i}, e_{j}} = 0$ if $i\ne j$. Therefore $e_{1}, \ldots, e_{n}$ is an orthonormal list in $V$.
+
+    Let $w = \innerprod{v,e_{1}}e_{1} + \cdots + \innerprod{v, e_{n}}e_{n}$.
+    \begin{align*}
+        \innerprod{v - w, w} & = \innerprod{v, w} - \innerprod{w, w}                                                                                                                                                   \\
+                             & = \innerprod{v, e_{1}}\conj{\innerprod{v, e_{1}}} + \cdots + \innerprod{v, e_{n}}\conj{\innerprod{v, e_{n}}} - \abs{\innerprod{v, e_{1}}}^{2} - \cdots - \abs{\innerprod{v, e_{n}}}^{2} \\
+                             & = 0,                                                                                                                                                                                    \\
+        \innerprod{v, v - w} & = \innerprod{v, v} - \innerprod{v, w}                                                                                                                                                   \\
+                             & = \abs{\innerprod{v, e_{1}}}^{2} + \cdots + \abs{\innerprod{v, e_{n}}}^{2} - \innerprod{v, e_{1}}\conj{\innerprod{v, e_{1}}} - \cdots - \innerprod{v, e_{n}}\conj{\innerprod{v, e_{n}}} \\
+                             & = 0.
+    \end{align*}
+
+    So $\innerprod{v - w, v - w} = \innerprod{v - w, v} - \innerprod{v - w, w} = 0 - \conj{0} = 0$. Hence $v = w$. So $e_{1}, \ldots, e_{n}$ is a spanning list of $V$. Thus $e_{1}, \ldots, e_{n}$ is an orthonormal basis of $V$.
+\end{proof}
+\newpage
+
+% chapter6:sectionC:exercise5
+\begin{exercise}
+    Suppose that $V$ is finite-dimensional and $U$ is a subspace of $V$. Show that $P_{U^{\bot}} = I - P_{U}$, where $I$ is the identity operator on $V$.
+\end{exercise}
+
+\begin{proof}
+    Let $v$ be a vector in $V$. Because $V = U\oplus U^{\bot}$, there exist vectors $u\in U$ and $w\in U^{\bot}$ such that $v = u + w$. Moreover, $u = P_{U}v$ and $w = P_{U^{\bot}}v$. Thus $P_{U^{\bot}} = I - P_{U}$.
+\end{proof}
+\newpage
+
+% chapter6:sectionC:exercise6
+\begin{exercise}
+    Suppose $V$ is finite-dimensional and $T\in\lmap{V, W}$. Show that
+    \[
+        T = TP_{{(\kernel{T})}^{\bot}} = P_{\range{T}}T.
+    \]
+\end{exercise}
+
+\begin{proof}
+    Let $v$ be a vector in $V$. Because $V = \kernel{T} \oplus {(\kernel{T})}^{\bot}$ so there exist unique vectors $u\in\kernel{T}$ and $w\in {(\kernel{T})}^{\bot}$ such that $v = u + w$.
+    \begin{align*}
+        (TP_{{(\kernel{T})}^{\bot}})(v) & = Tw = 0 + Tw = Tu + Tw = Tv, \\
+        (P_{\range{T}}T)(v)             & = P_{\range{T}}(Tv) = Tv.
+    \end{align*}
+
+    Hence $T = TP_{{(\kernel{T})}^{\bot}} = P_{\range{T}}T$.
+\end{proof}
+\newpage
+
+% chapter6:sectionC:exercise7
+\begin{exercise}
+    Suppose that $X$ and $Y$ are finite-dimensional subspaces of $V$. Prove that $P_{X}P_{Y} = 0$ if and only if $\innerprod{x, y} = 0$ for all $x\in X$ and all $y\in Y$.
+\end{exercise}
+
+\begin{proof}
+    $(\Rightarrow)$ $P_{X}P_{Y} = 0$.
+
+    Let $y$ be an arbitrary vector in $Y$. Because $P_{X}P_{Y} = 0$, it follows that
+    \[
+        0 = (P_{X}P_{Y})(y) = P_{X}y
+    \]
+
+    then $y$ is orthogonal to all vectors of $X$. Therefore $\innerprod{x, y} = 0$ for all $x\in X$ and all $y\in Y$.
+
+    \bigskip
+
+    $(\Leftarrow)$ $\innerprod{x, y} = 0$ for all $x\in X$ and all $y\in Y$.
+
+    Let $v$ be a vector in $V$. Because $V = Y\oplus Y^{\bot}$, then there exist unique vectors $u\in Y$ and $w\in Y^{\bot}$ such that $v = u + w$.
+    \[
+        (P_{X}P_{Y})(v) = (P_{X}P_{Y})(u + w) = P_{X}u.
+    \]
+
+    Moreover, $\innerprod{x, y} = 0$ for all $x\in X$ and all $y\in Y$, so $P_{X}u = 0$. Therefore $(P_{X}P_{Y})(v) = 0$ for every vector $v\in V$. Thus $P_{X}P_{Y} = 0$.
+\end{proof}
+\newpage
+
+% chapter6:sectionC:exercise8
+\begin{exercise}
+    Suppose $U$ is a finite-dimensional subspace of $V$ and $v\in V$. Define a linear functional $\varphi: U\to \mathbb{F}$ by
+    \[
+        \varphi(u) = \innerprod{u, v}
+    \]
+
+    for all $u\in U$. By the Riesz respresentation theorem as applied to the inner product space $U$, there exists a unique vector $w\in U$ such that
+    \[
+        \varphi(u) = \innerprod{u, w}
+    \]
+
+    for all $u\in U$. Show that $w = P_{U}v$.
+\end{exercise}
+
+\begin{proof}
+    $\varphi(u) = \innerprod{u, v}$ and $\varphi(u) = \innerprod{u, w}$ so $\innerprod{u, v} = \innerprod{u, w}$ for all $u\in U$. Therefore $\innerprod{u, v - w} = 0$ for all $u\in U$. Hence $v - w\in U^{\bot}$. So $P_{U}v = w$.
+\end{proof}
+\newpage
+
+% chapter6:sectionC:exercise9
+\begin{exercise}
+    Suppose $V$ is finite-dimensional. Suppose $P \in \lmap{V}$ is such that $P^{2} = P$ and every vector in $\kernel{P}$ is orthogonal to every vector in $\range{P}$. Prove that there exists a subspace $U$ of $V$ such that $P = P_{U}$.
+\end{exercise}
+
+\begin{proof}
+    By Exercise~\ref{chapter3:sectionB:exercise27}, $V = \kernel{P}\oplus \range{P}$. On the other hand, every vector in $\kernel{P}$ is orthogonal to every vector in $\range{P}$, so $\range{P}$ is a subspace of ${(\kernel{P})}^{\bot}$. Moreover,
+    \[
+        \dim {(\kernel{P})}^{\bot} = \dim V - \dim\kernel{P} = \dim\range{P}.
+    \]
+
+    So $\range{P} = {(\kernel{P})}^{\bot}$. Let $U = {(\kernel{P})}^{\bot}$ and $v = (v - Pv) + Pv$ where $v - Pv\in\kernel{P}$ and $Pv\in\range{P} = {(\kernel{P})}^{\bot}$, then
+    \[
+        P_{U}v = P_{U}((v - Pv) + Pv) = P_{U}(Pv) = Pv.
+    \]
+
+    Hence $P_{U} = P$.
+\end{proof}
+\newpage
+
+% chapter6:sectionC:exercise10
+\begin{exercise}
+    Suppose $V$ is finite-dimensional and $P \in \lmap{V}$ is such that $P^{2} = P$ and
+    \[
+        \norm{Pv} \leq \norm{v}
+    \]
+
+    for every $v\in V$. Prove that there exists a subspace $U$ of $V$ such that $P = P_{U}$.
+\end{exercise}
+
+\begin{proof}
+    By Exercise~\ref{chapter3:sectionB:exercise27}, $V = \kernel{P}\oplus \range{P}$. Let $U = \range{P}$. Let $tu$ be a vector in $U = \range{P}$ where $t\in\mathbb{F}$ and $w$ be a vector in $\kernel{P}$.
+    \[
+        \norm{tu}^{2} = \norm{P(tu + w)}^{2} \leq \norm{tu + w}^{2} = \norm{tu + w}^{2} = \norm{tu}^{2} + \norm{w}^{2} + 2\operatorname{Re}(\innerprod{tu, w}).
+    \]
+
+    So $\norm{w}^{2} + 2\operatorname{Re}(t\innerprod{u, w})\geq 0$.
+
+    Assume $\innerprod{u, w}\ne 0$ then $w\ne 0$. Let
+    \[
+        t = -\innerprod{w, u}\frac{\norm{w}^{2}}{\abs{\innerprod{u, w}}^{2}}
+    \]
+
+    then
+    \[
+        \norm{w}^{2} + 2\operatorname{Re}(t\innerprod{u, w}) = \norm{w}^{2} - 2\conj{\innerprod{u,w}}\innerprod{u,w}\frac{\norm{w}^{2}}{\abs{\innerprod{u,w}}^{2}} = -\norm{w}^{2} < 0
+    \]
+
+    which is a contradiction. So $\innerprod{u, w}\ne 0$ for every $u\in U = \range{P}$ and every $w\in\kernel{P}$. Thus $\range{P} = {(\kernel{P})}^{\bot}$, it follows that $P = P_{U}$.
+\end{proof}
+\newpage
+
+% chapter6:sectionC:exercise11
+\begin{exercise}
+    Suppose $T\in\lmap{V}$ and $U$ is a finite-dimensional subspace of $V$. Prove that
+    \[
+        \text{$U$ is invariant under $T$} \Longleftrightarrow P_{U}TP_{U} = TP_{U}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    $V = U\oplus U^{\bot}$.
+
+    $(\Rightarrow)$ $U$ is invariant under $T$.
+
+    For each $v\in V$, there exist unique vectors $u\in U$ and $w\in U^{\bot}$ such that $v = u + w$.
+    \begin{align*}
+        (P_{U}TP_{U})(v) & = (P_{U}T)(u) = P_{U}(Tu)                                           \\
+                         & = Tu                          & \text{($U$ is invariant under $T$)} \\
+                         & = T(P_{U}u)                                                         \\
+                         & = T(P_{U}(u + w)) = T(P_{U}v)                                       \\
+                         & = (TP_{U})(v).
+    \end{align*}
+
+    Hence $P_{U}TP_{U} = TP_{U}$.
+
+    $(\Leftrightarrow)$ $P_{U}TP_{U} = TP_{U}$.
+
+    Let $u$ be a vector in $U$, then
+    \[
+        (P_{U}TP_{U})(u) = (P_{U}T)(u) = P_{U}(Tu).
+    \]
+
+    On the other hand
+    \[
+        (P_{U}TP_{U})(u) = (TP_{U})(u) = Tu.
+    \]
+
+    Hence $P_{U}(Tu) = Tu$. This implies $Tu\in U$. Hence $U$ is invariant under $T$.
+\end{proof}
+\newpage
+
+% chapter6:sectionC:exercise12
+\begin{exercise}
+    Suppose $V$ is finite-dimensional, $T \in \lmap{V}$, and $U$ is a subspace of $V$. Prove that
+    \[
+        \text{$U$ and $U^{\bot}$ are both invariant under $T$} \Longleftrightarrow P_{U}T = TP_{U}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    $(\Rightarrow)$ $U$ and $U^{\bot}$ are both invariant under $T$.
+
+    Let $v$ be a vector in $V$. Because $V = U\oplus U^{\bot}$, there exist unique vectors $u$ in $U$ and $w$ in $U^{\bot}$ such that $v = u + w$.
+    \begin{align*}
+        (P_{U}T)(v) & = (P_{U}T)(u + w) = P_{U}(Tu) + P_{U}(Tw) = Tu, \\
+        (TP_{U})(v) & = (TP_{U})(u + w) = T(P_{U}(u + w)) = Tu.
+    \end{align*}
+
+    Hence $P_{U}T = TP_{U}$.
+
+    \bigskip
+
+    $(\Leftarrow)$ $P_{U}T = TP_{U}$.
+
+    Let $v$ be a vector in $V$.
+
+    If $v\in U$, then $P_{U}(Tv) = T(P_{U}v) = Tv$. Therefore $Tv\in U$. So $U$ is invariant under $T$.
+
+    If $v\in U^{\bot}$, then $P_{U}(Tv) = T(P_{U}v) = T(0) = 0$. Therefore $Tv\in U^{\bot}$. So $U^{\bot}$ is invariant under $T$.
+
+    Hence $U$ and $U^{\bot}$ are both invariant under $T$.
+\end{proof}
+\newpage
+
+% chapter6:sectionC:exercise13
+\begin{exercise}
+    Suppose $\mathbb{F} = \mathbb{R}$ and $V$ is finite-dimensional. For each $v \in V$, let $\varphi_{v}$ denote the linear functional on $V$ defined by
+    \[
+        \varphi_{v}(u) = \innerprod{u, v}
+    \]
+
+    for all $u\in V$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that $v\mapsto \varphi_{v}$ is an injective linear map from $V$ to $V'$.
+        \item Use (a) and a dimension-counting argument to show that $v\mapsto \varphi_{v}$ is an isomorphism from $V$ onto $V'$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item For every $v, v_{1}, v_{2}\in V$ and $\lambda\in\mathbb{R}$
+              \begin{align*}
+                  \varphi_{v_{1} + v_{2}}(u) = \innerprod{u, v_{1} + v_{2}} = \innerprod{u, v_{1}} + \innerprod{u, v_{2}} = \varphi_{v_{1}}(u) + \varphi_{v_{2}}(u), \\
+                  \varphi_{\lambda v}(u) = \innerprod{u, \lambda v} = \conj{\lambda}\innerprod{u, v} = \lambda\innerprod{u, v}.
+              \end{align*}
+
+              So $v\mapsto \varphi_{v}$ is a linear map from $V$ to $V'$.
+
+              If $\varphi_{v} = 0$ then $\innerprod{u, v} = 0$ for all $u\in V$. It follows that $v\in V^{\bot} = \{0\}$. Therefore $v = 0$. Thus $v\mapsto \varphi_{v}$ is injective.
+
+              Thus $v\mapsto \varphi_{v}$ is an injective linear map from $V$ to $V'$.
+        \item $\dim V = \dim V'$. $v\mapsto \varphi_{v}$ is an injective linear map from $V$ to $V'$. Hence $v\mapsto \varphi_{v}$ is also an isomorphism from $V$ onto $V'$.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter6:sectionC:exercise14
+\begin{exercise}
+    Suppose that $e_{1}, \ldots, e_{n}$ is an orthonormal basis of $V$. Explain why the dual basis (see 3.112) of $e_{1}, \ldots, e_{n}$ is $e_{1}, \ldots, e_{n}$ under the identification of $V'$ with $V$ provided by the Riesz representation theorem (6.58).
+\end{exercise}
+
+\begin{proof}
+    The dual basis of $e_{1}, \ldots, e_{n}$ consists of the linear functionals $v\mapsto \innerprod{v, e_{i}}$ for $i\in\{ 1,\ldots, n \}$.
+\end{proof}
+\newpage
+
+% chapter6:sectionC:exercise15
+\begin{exercise}
+    In $\mathbb{R}^{4}$, let
+    \[
+        U = \operatorname{span}((1, 1, 0, 0), (1, 1, 1, 2)).
+    \]
+
+    Find $u\in U$ such that $\norm{u - (1, 2, 3, 4)}$ is as small as possible.
+\end{exercise}
+
+\begin{proof}
+    $\norm{u - (1, 2, 3, 4)}$ is minimized if and only if $u$ is the orthogonal projection of $(1, 2, 3, 4)$ on $U$.
+
+    An orthonormal basis of $U$, provided by the Gram-Schmidt procedure is
+    \[
+        \left(\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}, 0, 0\right), \left(0, 0, \frac{1}{\sqrt{5}}, \frac{2}{\sqrt{5}}\right).
+    \]
+
+    The orthogonal projection of $(1, 2, 3, 4)$ onto $U$ is
+    \[
+        \innerprod{(1, 2, 3 ,4), \left(\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}, 0, 0\right)}\left(\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}, 0, 0\right) + \innerprod{(1, 2, 3, 4), \left(0, 0, \frac{1}{\sqrt{5}}, \frac{2}{\sqrt{5}}\right)}\left(0, 0, \frac{1}{\sqrt{5}}, \frac{2}{\sqrt{5}}\right)
+    \]
+
+    which is
+    \[
+        \left( \frac{3}{2}, \frac{3}{2}, \frac{11}{5}, \frac{22}{5} \right).
+    \]
+\end{proof}
+\newpage
+
+% chapter6:sectionC:exercise16
+\begin{exercise}
+    Suppose $C[-1, 1]$ is the vector space of continuous real-valued functions on the interval $[-1, 1]$ with inner product given by
+    \[
+        \innerprod{f, g} = \int^{1}_{-1}fg
+    \]
+
+    for all $f, g\in C[-1, 1]$. Let $U$ be the subspace of $C[-1, 1]$ defined by
+    \[
+        U = \{ f\in C[-1, 1]: f(0) = 0 \}.
+    \]
+
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that $U^{\bot} = \{0\}$.
+        \item Show that 6.49 and 6.52 do not hold without the finite-dimensional hypothesis.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Let $g\in U^{\bot}$, then $x^{2}g(x)\in U$.
+              \[
+                  0 = \innerprod{x^{2}g(x), g} = \int^{1}_{-1}x^{2}{(g(x))}^{2}dx.
+              \]
+
+              Therefore $xg(x) = 0$ for all $x\in[-1, 1]$. Hence $g(x) = 0$ for all $x\in[-1,1]\setminus\{0\}$. Since $g$ is continuous, it follows that $g(0) = 0$. Hence $g(x) = 0$ for all $x\in [-1,1]$. Thus $U^{\bot} = \{0\}$.
+        \item $C[-1, 1]\ne U\oplus U^{\bot}$, so 6.49 does not hold without the finite-dimensional hypothesis.
+
+              ${\left(U^{\bot}\right)}^{\bot} = {\{0\}}^{\bot} = C[-1, 1]\ne U$, so 6.52 does not hold without the finite-dimensional hypothesis.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter6:sectionC:exercise17
+\begin{exercise}
+    Find $p\in \mathscr{P}_{3}(\mathbb{R})$ such that $p(0) = 0$, $p'(0) = 0$, and $\displaystyle\int^{1}_{0}\abs{2 + 3x - p(x)}^{2}dx$ is as small as possible.
+\end{exercise}
+
+\begin{proof}
+    On $C[0, 1]$, we define the following inner product
+    \[
+        \innerprod{f, g} = \int^{1}_{0}fg.
+    \]
+
+    The subspace $U$ of $\mathscr{P}_{3}(\mathbb{R})$ consisting of $p$ satisfying $p(0) = 0$ and $p'(0) = 0$ is a subspace of $C[0, 1]$. $\displaystyle\int^{1}_{0}\abs{2 + 3x - p(x)}^{2}dx$ is minimized if and only if $p$ is the orthogonal projection of $2 + 3x$ onto $U$.
+
+    $x^{2}, x^{3}$ is a basis of $U$. By applying the Gram-Schmidt procedure to this basis, we obtain the following orthonormal basis
+    \[
+        \sqrt{5}x^{2}, \sqrt{7}(6x^{3} - 5x^{2})
+    \]
+
+    So the polynomial $p$ that minimize $\displaystyle\int^{1}_{0}\abs{2 + 3x - p(x)}^{2}dx$ is
+    \[
+        \frac{17\sqrt{5}}{12}x^{2} + \frac{-29\sqrt{7}}{60}(6x^{3} - 5x^{2}) = \frac{-29\sqrt{7}}{10}x^{3} + \frac{17\sqrt{5} + 29\sqrt{7}}{12}x^{2}.
+    \]
+\end{proof}
+\newpage
+
+% chapter6:sectionC:exercise18
+\begin{exercise}
+    Find $p\in \mathscr{P}_{5}(\mathbb{R})$ that makes $\displaystyle\int^{\pi}_{-\pi}\abs{\sin x - p(x)}^{2}dx$ as small as possible.
+\end{exercise}
+
+\begin{proof}
+    Later.
+\end{proof}
+\newpage
+
+% chapter6:sectionC:exercise19
+\begin{exercise}
+    Suppose $V$ is finite-dimensional and $P \in \lmap{V}$ is an orthogonal projection of $V$ onto some subspace of $V$. Prove that $P^{\dagger} = P$.
+\end{exercise}
+
+\begin{proof}
+    Due to the hypothesis, there exists a subspace $U$ of $V$ such that $P = P_{U}$. Then $\range{P} = U$ and $\kernel{P} = U^{\bot}$.
+    \begin{align*}
+        P^{\dagger} & = {(T\vert_{{(\kernel{P})}^{\bot}})}^{-1}P_{\range{P}} & \text{(definition of pseudoinverse)}              \\
+                    & = {(T\vert_{U})}^{-1}P_{\range{P}}                     & ({(\kernel{P})}^{\bot} = U)                       \\
+                    & = IP_{\range{P}}                                       & (T\vert_{U} = I \implies {(T\vert_{U})}^{-1} = I) \\
+                    & = P_{\range{P}} = P.
+    \end{align*}
+\end{proof}
+\newpage
+
+% chapter6:sectionC:exercise20
+\begin{exercise}\label{chapter6:sectionC:exercise20}
+    Suppose $V$ is finite-dimensional and $T\in \lmap{V, W}$. Show that
+    \[
+        \kernel{T^{\dagger}} = {(\range{T})}^{\bot} \quad \text{and} \quad \range{T^{\dagger}} = {(\kernel{T})}^{\bot}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    According to the definition of pseudoinverse
+    \[
+        T^{\dagger} = {(T\vert_{{(\kernel{T})}^{\bot}})}^{-1}P_{\range{T}}.
+    \]
+    \begin{align*}
+        w\in \kernel{T^{\dagger}} & \Longleftrightarrow T^{\dagger}w = 0                                              \\
+                                  & \Longleftrightarrow ({(T\vert_{{(\kernel{T})}^{\bot}})}^{-1}P_{\range{T}})(w) = 0 \\
+                                  & \Longleftrightarrow {(T\vert_{{(\kernel{T})}^{\bot}})}^{-1}(P_{\range{T}}(w)) = 0 \\
+                                  & \Longleftrightarrow P_{\range{T}}(w) = 0                                          \\
+                                  & \Longleftrightarrow w\in {(\range T)}^{\bot}.
+    \end{align*}
+
+    Thus $\kernel{T^{\dagger}} = {(\range{T})}^{\bot}$.
+
+    \begin{align*}
+        v\in \range{T^{\dagger}} & \Longleftrightarrow \exists w\in W: T^{\dagger}w = v                                              \\
+                                 & \Longleftrightarrow \exists w\in W: {(T\vert_{{(\kernel{T})}^{\bot}})}^{-1}(P_{\range{T}}(w)) = v \\
+                                 & \Longleftrightarrow \exists w\in W: P_{\range{T}}(w) = T\vert_{{(\kernel{T})}^{\bot}}(v)          \\
+                                 & \Longleftrightarrow v\in {(\kernel{T})}^{\bot}.
+    \end{align*}
+
+    Thus $\range{T^{\dagger}} = {(\kernel{T})}^{\bot}$.
+\end{proof}
+\newpage
+
+% chapter6:sectionC:exercise21
+\begin{exercise}
+    Suppose $T\in\lmap{\mathbb{F}^{3}, \mathbb{F}^{2}}$ is defined by
+    \[
+        T(a, b, c) = (a + b + c, 2b + 3c).
+    \]
+    \begin{enumerate}[label={(\alph*)}]
+        \item For $(x, y)\in\mathbb{F}^{2}$, find a formula for $T^{\dagger}(x, y)$.
+        \item Verify that the equation $TT^{\dagger} = P_{\range{T}}$ from 6.69(b) holds with the formula for $T^{\dagger}$ obtained in (a).
+        \item Verify that the equation $T^{\dagger}T = P_{{(\kernel{T})}^{\bot}}$ from 6.69(c) holds with the formula for $T^{\dagger}$ obtained in (a).
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    Later.
+\end{proof}
+\newpage
+
+% chapter6:sectionC:exercise22
+\begin{exercise}
+    Suppose $V$ is finite-dimensional and $T\in\lmap{V, W}$. Prove that
+    \[
+        TT^{\dagger}T = T\qquad\text{and}\qquad T^{\dagger}TT^{\dagger} = T^{\dagger}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    Let $v$ be a vector in $V$. Since $V = \kernel{T} \oplus {(\kernel{T})}^{\bot}$, there exist unique vectors $u\in \kernel{T}$ and $u_{0}\in {(\kernel{T})}^{\bot}$ such that $v = u + u_{0}$.
+    \begin{align*}
+        (TT^{\dagger}T)(v) & = (TT^{\dagger})(Tv)                                                                \\
+                           & = (TT^{\dagger})(T(u + u_{0}))                                                      \\
+                           & = (T{(T\vert_{{(\kernel{T})}^{\bot}})}^{-1}P_{\range{T}})(Tu_{0})                   \\
+                           & = (T{(T\vert_{{(\kernel{T})}^{\bot}})}^{-1})(Tu_{0})                                \\
+                           & = (T({(T\vert_{{(\kernel{T})}^{\bot}})}^{-1}T))(u_{0})                              \\
+                           & = (T({(T\vert_{{(\kernel{T})}^{\bot}})}^{-1}T\vert_{{(\kernel{T})}^{\bot}}))(u_{0}) \\
+                           & = Tu_{0} = Tu + Tu_{0} = T(u + u_{0}) = Tv.
+    \end{align*}
+
+    Thus $TT^{\dagger}T = T$.
+
+    \bigskip
+
+    Let $w$ be a vector in $W$. Since $W = \range{T}\oplus {(\range{T})}^{\bot}$, there exist unique vectors $u\in \range{T}$ and $u_{0}\in {(\range{T})}^{\bot}$ such that $w = u + u_{0}$. There exists a vector $v\in {(\kernel{T})}^{\bot}$ such that $T\vert_{{(\kernel{T})}^{\bot}}(v) = u$.
+    \begin{align*}
+        (T^{\dagger}TT^{\dagger})(w) & = (T^{\dagger}T{(T\vert_{{(\kernel{T})}^{\bot}})}^{-1}P_{\range{T}})(w)    \\
+                                     & = T^{\dagger}(T({(T\vert_{{(\kernel{T})}^{\bot}})}^{-1}(u)))               \\
+                                     & = T^{\dagger}(Tv)                                                          \\
+                                     & = T^{\dagger}u                                                             \\
+                                     & = T^{\dagger}u + T^{\dagger}u_{0} = T^{\dagger}(u + u_{0}) = T^{\dagger}w.
+    \end{align*}
+
+    Thus $T^{\dagger}TT^{\dagger} = T^{\dagger}$.
+\end{proof}
+\newpage
+
+% chapter6:sectionC:exercise23
+\begin{exercise}
+    Suppose $V$ and $W$ are finite-dimensional and $T\in\lmap{V, W}$. Prove that
+    \[
+        {(T^{\dagger})}^{\dagger} = T.
+    \]
+\end{exercise}
+
+\begin{proof}
+    Because $\kernel{T^{\dagger}} = {(\range{T})}^{\bot}$ and $\range{T^{\dagger}} = {(\kernel{T})}^{\bot}$ (see Exercise~\ref{chapter6:sectionC:exercise20}), then according to the definition of pseudoinverse
+    \begin{align*}
+        {(T^{\dagger})}^{\dagger} & = {(T^{\dagger}\vert_{{(\kernel{T^{\dagger}})}^{\bot}})}^{-1}P_{\range{T^{\dagger}}} \\
+                                  & = {(T^{\dagger}\vert_{\range{T}})}^{-1}P_{{(\kernel{T})}^{\bot}}.
+    \end{align*}
+
+    If $v\in \kernel{T}$, then
+    \begin{align*}
+        {(T^{\dagger})}^{\dagger}(v) & = ({(T^{\dagger}\vert_{\range{T}})}^{-1}P_{{(\kernel{T})}^{\bot}})(v) \\
+                                     & = {(T^{\dagger}\vert_{\range{T}})}^{-1}(0)                            \\
+                                     & = 0 = Tv.
+    \end{align*}
+
+    If $v\in {(\kernel{T})}^{\bot}$, then
+    \begin{align*}
+        {(T^{\dagger})}^{\dagger}(v) & = ({(T^{\dagger}\vert_{\range{T}})}^{-1}P_{{(\kernel{T})}^{\bot}})(v) \\
+                                     & = {(T^{\dagger}\vert_{\range{T}})}^{-1}(v)                            \\
+                                     & = T\vert_{{(\kernel{T})}^{\bot}}(v) = Tv.
+    \end{align*}
+
+    Since $V = \kernel{T}\oplus {(\kernel{T})}^{\bot}$, we conclude that ${(T^{\dagger})}^{\dagger} = T$.
+\end{proof}
+\newpage
