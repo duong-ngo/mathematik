@@ -1,7 +1,7 @@
 \documentclass[12pt]{book}
 
 \usepackage[left=2cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
-\usepackage[unicode=true,hidelinks]{hyperref}
+\usepackage[unicode=true,colorlinks=true,linkcolor=blue]{hyperref}
 
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -52,7 +52,7 @@
 \newtheorem{lemma}[theorem]{Lemma}
 
 \newtheorem{exercise}{Exercise}
-\counterwithin{exercise}{section}
+\counterwithin{exercise}{chapter}
 \newenvironment{sqcases}{%
     \matrix@check\sqcases\env@sqcases
 }{%
@@ -64,15 +64,24 @@
 \def\arraystretch{1.2}%
 \array{@{}l@{\quad}l@{}}%
 }
-\newcommand{\rank}{\operatorname{rank}}
-\newcommand{\kernel}[1]{\operatorname{null}\,{#1}}
-\newcommand{\range}[1]{\operatorname{range}\,{#1}}
-\newcommand{\lmap}[1]{\mathcal{L}\left({#1}\right)}
+\newcommand{\rank}{\text{rank}}
 \newcommand{\abs}[1]{\left\vert{#1}\right\vert}
 \newcommand{\norm}[1]{\left\Vert{#1}\right\Vert}
 \newcommand{\anglebracket}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\innerprod}[2]{\left\langle{#1}\vert{#2}\rangle}
+\newcommand{\set}[1]{\left\{{#1}\right\}}
+\newcommand{\powerset}[1]{\mathcal{P}\left({#1}\right)}
+\newcommand{\mapsfrom}{\mathrel{\reflectbox{\ensuremath{\mapsto}}}}
+\newcommand{\longmapsfrom}{\mathrel{\reflectbox{\ensuremath{\longmapsto}}}}
+\newcommand{\floor}[1]{\left\lfloor{#1}\right\rfloor}
+\newcommand{\ceiling}[1]{\left\lceil{#1}\right\rceil}
+\newcommand{\fraction}[1]{\left\{{#1}\right\}}
+\newcommand{\openinterval}[1]{\left]{#1}\right[}
+\newcommand{\closedinterval}[1]{\left[{#1}\right]}
+\newcommand{\halfopenleft}[1]{\left]{#1}\right]}
+\newcommand{\halfopenright}[1]{\left[{#1}\right)}
 
-\title{Paolo Aluffi's Algebra: Chapter 0: Exercises}
+\title{Kristopher Tapp's Differential Geometry of Curves and Surfaces: Notes and Exercises}
 \author{Ngo Quang Duong}
 \date{\today}
 
@@ -88,8 +97,5 @@
 \input{chapter4.tex}
 \input{chapter5.tex}
 \input{chapter6.tex}
-\input{chapter7.tex}
-\input{chapter8.tex}
-\input{chapter9.tex}
 
 \end{document}

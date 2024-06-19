@@ -612,10 +612,74 @@
 \begin{proof}[Proof when $U$ is a real vector space]
     Let's define
     \begin{align*}
-        \innerprod{u, v} & = \frac{\norm{u}^{2} + \norm{v}^{2} - \norm{u - v}^{2}}{2} \\
-                         & = \frac{\norm{u + v}^{2} - \norm{u}^{2} - \norm{v}^{2}}{2} \\
+        \innerprod{u, v} & = \frac{\norm{u}^{2} + \norm{v}^{2} - \norm{u - v}^{2}}{2}.
+    \end{align*}
+
+    By the parallelogram equality, we also have
+    \begin{align*}
+        \innerprod{u,v } & = \frac{\norm{u + v}^{2} - \norm{u}^{2} - \norm{v}^{2}}{2} \\
                          & = \frac{\norm{u + v}^{2} - \norm{u - v}^{2}}{4}
     \end{align*}
+
+    \begin{itemize}
+        \item Positivity and definiteness.
+              \[
+                  \innerprod{u, u} = \frac{\norm{u}^{2} + \norm{u}^{2} - \norm{u - u}^{2}}{2} = \norm{u}^{2}\geq 0.
+              \]
+
+              $\innerprod{\cdot, \cdot}$ is positive and definite because $\norm{\cdot}$ by definition is positive and definite.
+        \item Additivity.
+              \begin{align*}
+                  \norm{a + b + c}^{2} + \norm{a}^{2} + \norm{b}^{2} + \norm{c}^{2} & = \frac{1}{2}\norm{2a + b + c}^{2} + \frac{1}{2}\norm{b + c}^{2} + \norm{b}^{2} + \norm{c}^{2}                               \\
+                                                                                    & = \frac{1}{2}\norm{2a + b + c}^{2} + \frac{1}{2}\norm{b + c}^{2} + \frac{1}{2}\norm{b + c}^{2} + \frac{1}{2}\norm{b - c}^{2} \\
+                                                                                    & = \frac{1}{2}\norm{2a + b + c}^{2} + \frac{1}{2}\norm{(a + b) - (a + c)}^{2} + \norm{b + c}^{2}                              \\
+                                                                                    & = \norm{a + b}^{2} + \norm{a + c}^{2} + \norm{b + c}^{2}.
+              \end{align*}
+
+              \begin{align*}
+                  \innerprod{a + b, c} & = \frac{\norm{a + b + c}^{2} - \norm{a + b}^{2} - \norm{c}^{2}}{2}                                          \\
+                                       & = \frac{\norm{a + c}^{2} + \norm{b + c}^{2} - \norm{a}^{2} - \norm{b}^{2} - 2\norm{c}^{2}}{2}               \\
+                                       & = \frac{\norm{a + c}^{2} - \norm{a}^{2} - \norm{c}^{2} + \norm{b + c}^{2} - \norm{b}^{2} - \norm{c}^{2}}{2} \\
+                                       & = \innerprod{a, c} + \innerprod{b, c}.
+              \end{align*}
+
+              Hence the 1st slot is additive.
+        \item Homogeneity.
+
+              If $\lambda$ is an integer, then $\innerprod{\lambda u, v} = \lambda\innerprod{u, v}$.
+
+              If $\lambda$ is a rational number, then $\innerprod{\lambda u, v} = \lambda\innerprod{u, v}$.
+
+              If $\lambda$ is a real number, there exists a rational sequence ${(\lambda_{n})}$ that converges to $\lambda$. Let $\varepsilon$ be a positive real number, then there exists a positive number $N$ such that for all $n > N$, we have
+              \[
+                  \abs{\lambda - \lambda_{n}} < \frac{\varepsilon}{(1 + \norm{u})(1 + \norm{v})}.
+              \]
+
+              Then
+              \begin{align*}
+                  \abs{\innerprod{\lambda u, v} - \innerprod{\lambda_{n} u, v}} & = \abs{\innerprod{(\lambda - \lambda_{n})u, v}}                          \\
+                                                                                & \leq \norm{(\lambda - \lambda_{n})u}\norm{v}                             \\
+                                                                                & = \abs{\lambda - \lambda_{n}}\norm{u}\norm{v}                            \\
+                                                                                & < \varepsilon \frac{\norm{u}}{1 + \norm{u}}\frac{\norm{v}}{1 + \norm{v}} \\
+                                                                                & < \varepsilon.
+              \end{align*}
+
+              More over
+              \begin{align*}
+                  \abs{\lambda\innerprod{u, v} - \lambda_{n}\innerprod{u, v}} & = \abs{\lambda - \lambda_{n}}\abs{\innerprod{u, v}}                      \\
+                                                                              & \leq \abs{\lambda - \lambda_{n}}\norm{u}\norm{v}                         \\
+                                                                              & < \varepsilon \frac{\norm{u}}{1 + \norm{u}}\frac{\norm{v}}{1 + \norm{v}} \\
+                                                                              & < \varepsilon.
+              \end{align*}
+
+              So $\innerprod{\lambda_{n}u, v}\to \innerprod{\lambda u, v}$, $\lambda_{n}\innerprod{u, v}\to \lambda\innerprod{u, v}$ as $n\to\infty$. Besides, $\innerprod{\lambda_{n}u, v} = \lambda_{n}\innerprod{u, v}$, so $\innerprod{\lambda u, v} = \lambda\innerprod{u, v}$.
+        \item Conjugacy.
+              \[
+                  \innerprod{u, v} = \innerprod{v, u}.
+              \]
+    \end{itemize}
+
+    Therefore $\innerprod{\cdot, \cdot}$ as defined is an inner product. Thus the norm comes from an inner product.
 \end{proof}
 
 \begin{proof}[Proof when $U$ is a complex vector space]
@@ -623,6 +687,59 @@
     \[
         \innerprod{u, v} = \frac{\norm{u + v}^{2} - \norm{u - v}^{2} + \norm{u + \iota v}^{2}\iota - \norm{u - \iota v}^{2}\iota}{4}
     \]
+
+    By the parallelogram equality, we have
+    \[
+        \frac{\norm{u + v}^{2} - \norm{u - v}^{2}}{4} = \frac{\norm{u + v}^{2} - \norm{u}^{2} - \norm{v}^{2}}{2} = \frac{\norm{u}^{2} + \norm{v}^{2} - \norm{u - v}^{2}}{2}.
+    \]
+
+    Similar to the case of real vector space, for every $a, b, c\in U$, we have $(\star)$
+    \[
+        \norm{a + b + c}^{2} + \norm{a}^{2} + \norm{b}^{2} + \norm{c}^{2} = \norm{a + b}^{2} + \norm{b + c}^{2} + \norm{c + a}^{2}
+    \]
+
+    \begin{itemize}
+        \item Positivity and definiteness.
+              \[
+                  \innerprod{u, u} = \frac{4\norm{u}^{2} + \iota(\norm{(1 + \iota)u}^{2} - \norm{(1 - \iota)u}^{2})}{4} = \norm{u}^{2} + \frac{\iota(2\norm{u}^{2} - 2\norm{u}^{2})}{4} = \norm{u}^{2} \geq 0.
+              \]
+
+              $\innerprod{\cdot, \cdot}$ is positive and definite because $\norm{\cdot}$ by definition is positive and definite.
+        \item Additivity.
+
+              By $(\star)$
+              \begin{align*}
+                  \innerprod{a + b, c} & = \frac{\norm{a + b + c}^{2} - \norm{a + b - c}^{2}}{4} + \frac{\iota(\norm{a + b + \iota c}^{2} - \norm{a + b - \iota c}^{2})}{4} \\
+                                       & = \frac{\norm{a + c}^{2} - \norm{a - c}^{2} + \norm{b + c}^{2} - \norm{b - c}^{2}}{4}                                              \\
+                                       & + \frac{\iota(\norm{a + \iota c}^{2} - \norm{a - \iota c}^{2} + \norm{b + \iota c}^{2} - \norm{b - \iota c}^{2})}{4}               \\
+                                       & = \innerprod{a, c} + \innerprod{b, c}.
+              \end{align*}
+
+              Hence the 1st slot is additive.
+        \item Homogeneity.
+
+              Similar to the case of real vector space, if $\lambda$ is a real number, then $\innerprod{\lambda u, v} = \lambda\innerprod{u, v}$.
+              \begin{align*}
+                  \innerprod{\iota u, v} & = \frac{\norm{\iota u + v}^{2} - \norm{\iota u - v}^{2} + \norm{\iota u + \iota v}^{2}\iota - \norm{\iota u - \iota v}^{2}\iota}{4} \\
+                                         & = \iota\frac{\norm{u + v}^{2} - \norm{u - v}^{2} + \norm{\iota(u + \iota v)}^{2}\iota - \norm{\iota(u - \iota v)}^{2}\iota}{4}      \\
+                                         & = \iota\frac{\norm{u + v}^{2} - \norm{u - v}^{2} + \norm{u + \iota v}^{2}\iota - \norm{u - \iota v}^{2}\iota}{4}                    \\
+                                         & = \iota\innerprod{u, v}.
+              \end{align*}
+
+              Hence if $\lambda = a + b\iota$ where $a, b\in\mathbb{R}$, we have
+              \[
+                  \innerprod{\lambda u, v} = a\innerprod{u, v} + b\iota\innerprod{u, v} = \lambda\innerprod{u, v}.
+              \]
+        \item Conjugate symmetry.
+              \begin{align*}
+                  \innerprod{v, u} & = \frac{\norm{v + u}^{2} - \norm{v - u}^{2} + \norm{v + \iota u}^{2}\iota - \norm{v - \iota u}^{2}}{4}                     \\
+                                   & = \frac{\norm{u + v}^{2} - \norm{u - v}^{2} + \norm{\iota (u - \iota v)}^{2}\iota - \norm{\iota(u + \iota v)}^{2}\iota}{4} \\
+                                   & = \frac{\norm{u + v}^{2} - \norm{u - v}^{2} + \norm{ u - \iota v}^{2}\iota - \norm{u + \iota v}^{2}\iota}{4}               \\
+                                   & = \conj{\innerprod{u, v}}.
+              \end{align*}
+    \end{itemize}
+
+    Therefore $\innerprod{\cdot, \cdot}$ as defined is an inner product. Thus the norm comes from an inner product.
 \end{proof}
 \newpage
 
@@ -684,6 +801,14 @@
                                                                                    & + (a\innerprod{v, w} + b\innerprod{u, w} - a\innerprod{u, x} + b\innerprod{v, x})\iota                         \\
                                                                                    & = a\innerprod{u + \iota v, w + \iota x}_{\mathbb{C}} + b\iota\innerprod{u + \iota v, w + \iota x}_{\mathbb{C}} \\
                                                                                    & = (a + b\iota)\innerprod{u + \iota v, w + \iota x}_{\mathbb{C}}.
+              \end{align*}
+
+              Check for conjugate symmetry.
+              \begin{align*}
+                  \innerprod{w + \iota x, u + \iota v}_{\mathbb{C}} & = \innerprod{w, u} + \innerprod{x, v} + (\innerprod{x, u} - \innerprod{w, v})\iota        \\
+                                                                    & = \innerprod{u, w} + \innerprod{v, x} - (\innerprod{v, w} - \innerprod{u, x})\iota        \\
+                                                                    & = \conj{\innerprod{u, w} + \innerprod{v, x} + (\innerprod{v, w} - \innerprod{u, x})\iota} \\
+                                                                    & = \innerprod{u + \iota v, w + \iota x}.
               \end{align*}
         \item \[
                   \begin{split}
