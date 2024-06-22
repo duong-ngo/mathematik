@@ -2,9 +2,973 @@
 
 \section{Self-Adjoint and Normal Operators}
 
+% chapter7:sectionA:exercise1
+\begin{exercise}
+    Suppose $n$ is a positive integer. Define $T\in\lmap{\mathbb{F}^{n}}$ by
+    \[
+        T(z_{1}, \ldots, z_{n}) = (0, z_{1}, \ldots, z_{n-1}).
+    \]
+
+    Find a formula for $T^{*}(z_{1}, \ldots, z_{n})$.
+\end{exercise}
+
+\begin{proof}
+    \begin{align*}
+        \innerprod{(z_{1}, \ldots, z_{n}), T^{*}(w_{1}, \ldots, w_{n})} & = \innerprod{T(z_{1}, \ldots, z_{n}), (w_{1}, \ldots, w_{n})}      \\
+                                                                        & = \innerprod{(0, z_{1}, \ldots, z_{n-1}), (w_{1}, \ldots, w_{n})}  \\
+                                                                        & = 0 + z_{1}\conj{w_{2}} + \cdots + z_{n-1}\conj{w_{n}}             \\
+                                                                        & = z_{1}\conj{w_{2}} + \cdots + z_{n-1}\conj{w_{n}} + z_{n}\conj{0} \\
+                                                                        & = \innerprod{(z_{1}, \ldots, z_{n}), (w_{2}, \ldots, w_{n}, 0)}.
+    \end{align*}
+
+    Thus $T^{*}(w_{1}, \ldots, w_{n}) = (w_{2}, \ldots, w_{n}, 0)$.
+\end{proof}
+\newpage
+
+% chapter7:sectionA:exercise2
+\begin{exercise}
+    Suppose $T\in\lmap{V, W}$. Prove that
+    \[
+        T = 0 \Longleftrightarrow T^{*} = 0 \Longleftrightarrow T^{*}T = 0 \Longleftrightarrow TT^{*} = 0.
+    \]
+\end{exercise}
+
+\begin{proof}
+    \begin{align*}
+        T = 0 & \Longleftrightarrow \kernel{T} = V                                                                           \\
+              & \Longleftrightarrow {(\kernel{T})}^{\bot} = \{ 0 \}                                                          \\
+              & \Longleftrightarrow \range{T^{*}} = \{ 0 \}         & \text{(since $\range{T^{*}} = {(\kernel{T})}^{\bot}$)} \\
+              & \Longleftrightarrow T^{*} = 0.
+    \end{align*}
+
+    $T^{*}T$ and $TT^{*}$ are self-adjoint operators.
+    \begin{align*}
+        T = 0     & \Longleftrightarrow \innerprod{Tv, Tv} = 0\quad\forall v\in V         \\
+                  & \Longleftrightarrow \innerprod{v, T^{*}(Tv)} = 0\quad\forall v\in V   \\
+                  & \Longleftrightarrow \innerprod{v, (T^{*}T)v} = 0\quad\forall v\in V   \\
+                  & \Longleftrightarrow T^{*}T = 0,                                       \\
+        T^{*} = 0 & \Longleftrightarrow \innerprod{T^{*}v, T^{*}v} = 0\quad\forall v\in V \\
+                  & \Longleftrightarrow \innerprod{T(T^{*}v), v} = 0\quad\forall v\in V   \\
+                  & \Longleftrightarrow \innerprod{(TT^{*})v, v} = 0\quad\forall v\in V   \\
+                  & \Longleftrightarrow TT^{*} = 0.
+    \end{align*}
+
+    Thus $T = 0 \Longleftrightarrow T^{*} = 0 \Longleftrightarrow T^{*}T = 0 \Longleftrightarrow TT^{*} = 0$.
+\end{proof}
+\newpage
+
+% chapter7:sectionA:exercise3
+\begin{exercise}
+    Suppose $T\in\lmap{V}$ and $\lambda\in\mathbb{F}$. Prove that
+    \[
+        \text{$\lambda$ is an eigenvalue of $T$} \Longleftrightarrow \text{$\conj{\lambda}$ is an eigenvalue of $T^{*}$}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    For every $\lambda\in\mathbb{F}$, ${(T - \lambda I)}^{*} = T^{*} - \conj{\lambda}I$.
+
+    $\kernel{(T^{*} - \conj{\lambda}I)} = {(\range{(T - \lambda I)})}^{\bot}$ and $\kernel{(T - \lambda I)} = {(\range{(T^{*} - \conj{\lambda}I)})}^{\bot}$.
+
+    If $\lambda$ is an eigenvalue of $T$, then $\kernel{(T - \lambda I)}\ne \{0\}$, so ${(\range{(T^{*} - \conj{\lambda}I)})}^{\bot}\ne \{0\}$, and it follows that ${\range{(T^{*} - \conj{\lambda}I)}}\ne V$. Therefore $\kernel{(T^{*} - \conj{\lambda} I)}\ne \{0\}$ (follows from the fundamental theorem of linear maps). So $\conj{\lambda}$ is an eigenvalue of $T^{*}$.
+
+    \bigskip
+
+    If $\conj{\lambda}$ is an eigenvalue of $T^{*}$, then $\conj{\conj{\lambda}} = \lambda$ is an eigenvalue of ${(T^{*})}^{*} = T$.
+
+    \bigskip
+
+    Thus $\lambda$ is an eigenvalue of $T$ if and only if $\conj{\lambda}$ is an eigenvalue of $T^{*}$.
+\end{proof}
+
+\begin{proof}
+    For every $\lambda\in\mathbb{F}$, ${(T - \lambda I)}^{*} = T^{*} - \conj{\lambda}I$.
+
+    $\lambda$ is not an eigenvalue of $T$ if and only if $T - \lambda I$ is invertible.
+
+    $T - \lambda I$ is invertible if and only if there exists $S\in\lmap{V}$ such that $S(T - \lambda I) = (T - \lambda I)S = I$.
+
+    $S(T - \lambda I) = (T - \lambda I)S = I$ if and only if $(T^{*} - \conj{\lambda}I)S^{*} = S^{*}(T^{*} - \conj{\lambda}I) = I$.
+
+    $T^{*} - \conj{\lambda} I$ is invertible if and only if there exists $S^{*}\in\lmap{V}$ such that $(T^{*} - \conj{\lambda}I)S^{*} = S^{*}(T^{*} - \conj{\lambda}I) = I$.
+
+    $T^{*} - \conj{\lambda} I$ is invertible if and only if $\conj{\lambda}$ is not an eigenvalue of $T^{*}$.
+
+    Therefore $\lambda$ is not an eigenvalue of $T$ if and only if $\conj{\lambda}$ is not an eigenvalue of $T^{*}$. So $\lambda$ is an eigenvalue of $T$ if and only if $\conj{\lambda}$ is an eigenvalue of $T^{*}$.
+\end{proof}
+\newpage
+
+% chapter7:sectionA:exercise4
+\begin{exercise}
+    Suppose $T\in\lmap{V}$ and $U$ is a subspace of $V$. Prove that
+    \[
+        \text{$U$ is invariant under $T$}\Longleftrightarrow \text{$U^{\bot}$ is invariant under $T^{*}$}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    Let $u$ be an arbitrary vector in $U$ and $w$ be an arbitrary vector in $U^{\bot}$.
+
+    If $U$ is invariant under $T$, then $Tu\in U$ and $\innerprod{u, T^{*}w} = \innerprod{Tu, w} = 0$. It follows that $T^{*}w$ is orthogonal to every $u\in U$. Therefore $T^{*}w\in U^{\bot}$ for every $w\in U^{\bot}$, so $U^{\bot}$ is invariant under $T^{*}$.
+
+    If $U^{\bot}$ is invariant under $T^{*}$, then $T^{*}w\in U^{\bot}$ and $\innerprod{Tu, w} = \innerprod{u, T^{*}w} = 0$. It follows that $Tu$ is orthogonal to every $w\in U^{\bot}$. Therefore $Tu\in U$ for every $u\in U$, so $U$ is invariant under $T$.
+\end{proof}
+\newpage
+
+% chapter7:sectionA:exercise5
+\begin{exercise}\label{chapter7:sectionA:exercise5}
+    Suppose $T\in\lmap{V, W}$. Suppose $e_{1}, \ldots, e_{n}$ is an orthonormal basis of $V$ and $f_{1}, \ldots, f_{m}$ is an orthonormal basis of $W$. Prove that
+    \[
+        \norm{Te_{1}}^{2} + \cdots + \norm{Te_{n}}^{2} = \norm{T^{*}f_{1}}^{2} + \cdots + \norm{T^{*}f_{m}}^{2}.
+    \]
+\end{exercise}
+
+\begin{quote}
+    The numbers $\norm{Te_{1}}^{2}, \ldots, \norm{Te_{n}}^{2}$ in the equation above depend on the orthonormal basis $e_{1}, \ldots, e_{n}$, but the right side of the equation does not depend on $e_{1}, \ldots, e_{n}$. Thus the equation above shows that the sum on the left side does not depend on which orthonormal basis $e_{1}, \ldots, e_{n}$ is used.
+\end{quote}
+
+\begin{proof}
+    According to the definition of self-adjoint
+    \[
+        \sum^{n}_{j=1}\norm{Te_{j}}^{2} = \sum^{n}_{j=1}\innerprod{Te_{j}, Te_{j}} = \sum^{n}_{j=1}\innerprod{e_{j}, T^{*}(Te_{j})}.
+    \]
+
+    Since $Te_{j} = \innerprod{Te_{j}, f_{1}}f_{1} + \cdots + \innerprod{Te_{j}, f_{m}}f_{m}$, then
+    \begin{align*}
+        \sum^{n}_{j=1}\innerprod{e_{j}, T^{*}(Te_{j})} & = \sum^{n}_{j=1}\innerprod{e_{j}, T^{*}\left( \sum^{m}_{k=1}\innerprod{Te_{j}, f_{k}}f_{k} \right)} \\
+                                                       & = \sum^{n}_{j=1}\innerprod{e_{j}, \sum^{m}_{k=1}\innerprod{Te_{j}, f_{k}} T^{*}f_{k}}               \\
+                                                       & = \sum^{n}_{j=1}\sum^{m}_{k=1}\conj{\innerprod{Te_{j}, f_{k}}}\innerprod{e_{j}, T^{*}f_{k}}         \\
+                                                       & =  \sum^{n}_{j=1}\sum^{m}_{k=1}\abs{\innerprod{T^{*}f_{k}, e_{j}}}^{2}                              \\
+                                                       & = \sum^{m}_{k=1}\sum^{n}_{j=1}\abs{\innerprod{T^{*}f_{k}, e_{j}}}^{2}.
+    \end{align*}
+
+    By Parseval's theorem
+    \[
+        \sum^{m}_{k=1}\sum^{n}_{j=1}\abs{\innerprod{T^{*}f_{k}, e_{j}}}^{2} =  \sum^{m}_{k=1}\norm{T^{*}f_{k}}^{2}.
+    \]
+
+    Thus
+    \[
+        \norm{Te_{1}}^{2} + \cdots + \norm{Te_{n}}^{2} = \norm{T^{*}f_{1}}^{2} + \cdots + \norm{T^{*}f_{m}}^{2}.
+    \]
+\end{proof}
+\newpage
+
+% chapter7:sectionA:exercise6
+\begin{exercise}
+    Suppose $T\in\lmap{V, W}$. Prove that
+    \begin{enumerate}[label={(\alph*)}]
+        \item $T$ is injective $\Longleftrightarrow$ $T^{*}$ is surjective.
+        \item $T$ is surjective $\Longleftrightarrow$ $T^{*}$ is injective.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item \begin{align*}
+                  \text{$T$ is injective} & \Longleftrightarrow \kernel{T} = \{0\}            \\
+                                          & \Longleftrightarrow {(\kernel{T})}^{\bot} = V     \\
+                                          & \Longleftrightarrow \range{T^{*}} = V             \\
+                                          & \Longleftrightarrow \text{$T^{*}$ is surjective}.
+              \end{align*}
+        \item \begin{align*}
+                  \text{$T$ is surjective} & \Longleftrightarrow \range{T} = W                \\
+                                           & \Longleftrightarrow {(\range{T})}^{\bot} = \{0\} \\
+                                           & \Longleftrightarrow \kernel{T^{*}} = \{0\}       \\
+                                           & \Longleftrightarrow \text{$T^{*}$ is injective}.
+              \end{align*}
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter7:sectionA:exercise7
+\begin{exercise}\label{chapter7:sectionA:exercise7}
+    Suppose $T\in\lmap{V, W}$, then
+    \begin{enumerate}[label={(\alph*)}]
+        \item $\dim \kernel{T^{*}} = \dim \kernel{T} + \dim W - \dim V$.
+        \item $\dim \range{T^{*}} = \dim \range{T}$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Because $\kernel{T^{*}} = {(\range{T})}^{\bot}$, it follows that $\dim \kernel{T^{*}} = \dim {(\range{T})}^{\bot}$.
+
+              Moreover, $\dim {(\range{T})}^{\bot} = \dim W - \dim \range{T}$. By the fundamental theorem of linear maps, $\dim\range{T} = \dim V - \dim\kernel{T}$.
+
+              Thus $\dim\kernel{T^{*}} = \dim W + \dim\kernel{T} - \dim V$.
+        \item By (a) and the fundamental theorem of linear maps
+        \[
+            \dim\range{T^{*}} = \dim W - \dim\kernel{T^{*}} = \dim V - \dim\kernel{T} = \dim\range{T}.
+        \]
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter7:sectionA:exercise8
+\begin{exercise}
+    Suppose $A$ is an $m$-by-$n$ matrix with entries in $\mathbb{F}$. Use (b) in Exercise~\ref{chapter7:sectionA:exercise7} to prove that the row rank of $A$ equals the column rank of $A$.
+\end{exercise}
+
+\begin{proof}
+    Let $T\in \lmap{\mathbb{F}^{n}, \mathbb{F}^{m}}$ defined by $T: x\mapsto Ax$. The adjoint $T^{*}\in \lmap{\mathbb{F}^{m}, \mathbb{F}^{n}}$ is $y\mapsto A^{*}y$.
+    \begin{align*}
+        \text{column rank of $A$} & = \dim\range{T} \\
+                                  & = \dim\range{T^{*}} \\
+                                  & = \text{column rank of $A^{*}$} \\
+                                  & = \text{row rank of $A$}.
+    \end{align*}
+
+    Thus the row rank of $A$ equals the column rank of $A$.
+\end{proof}
+\newpage
+
+% chapter7:sectionA:exercise9
+\begin{exercise}
+    Prove that the product of two self-adjoint operators on $V$ is self-adjoint if and only if the two operators commute.
+\end{exercise}
+
+\begin{proof}
+    Let $S, T$ be two self-adjoint operators on $V$.
+    \begin{align*}
+        \text{$ST$ is self-adjoint} & \Longleftrightarrow ST = {(ST)}^{*} \\
+                                    & \Longleftrightarrow S^{*}T^{*} = {(ST)}^{*} & \text{(since $S, T$ are self-adjoint)} \\
+                                    & \Longleftrightarrow S^{*}T^{*} = T^{*}S^{*} \\
+                                    & \Longleftrightarrow ST = TS & \text{(since $S, T$ are self-adjoint)}        \\
+                                    & \Longleftrightarrow \text{$S$ and $T$ commute.}
+    \end{align*}
+\end{proof}
+\newpage
+
+% chapter7:sectionA:exercise10
+\begin{exercise}
+    Suppose $\mathbb{F} = \mathbb{C}$ and $T \in \lmap{V}$. Prove that $T$ is self-adjoint if and only if
+    \[
+        \innerprod{Tv, v} = \innerprod{T^{*}v, v}
+    \]
+
+    for all $v\in V$.
+\end{exercise}
+
+\begin{proof}
+    An operator $S$ on a complex vector space $V$ is $0$ if and only if $\innerprod{Sv, v} = 0$ for all $v\in V$.
+    \begin{align*}
+        \text{$T$ is self-adjoint} & \Longleftrightarrow T - T^{*} = 0 \\
+                                   & \Longleftrightarrow \innerprod{(T - T^{*})v, v} = 0\,\forall v\in V \\
+                                   & \Longleftrightarrow \innerprod{Tv, v} = \innerprod{T^{*}v, v}\,\forall v\in V.
+    \end{align*}
+\end{proof}
+\newpage
+
+% chapter7:sectionA:exercise11
+\begin{exercise}
+    Define an operator $S: \mathbb{F}^{2}\to \mathbb{F}^{2}$ by $S(w, z) = (-z, w)$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Find a formula for $S^{*}$.
+        \item Show that $S$ is normal but not self-adjoint.
+        \item Find all eigenvalues of $S$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{quote}
+    If $\mathbb{F} = \mathbb{R}$, then $S$ is the operator on $\mathbb{R}^{2}$ of counterclockwise rotation by $90^{\circ}$.
+\end{quote}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item \begin{align*}
+            \innerprod{(w, z), S^{*}(x, y)} & = \innerprod{S(w, z), (x, y)} \\
+                                            & = \innerprod{(-z, w), (x, y)} \\
+                                            & = -z\conj{x} + w\conj{y} \\
+                                            & = w\conj{y} + z\conj{(-x)} \\
+                                            & = \innerprod{(w, z), (y, -x)}.
+        \end{align*}
+
+        Hence $S^{*}(x, y) = (y, -x)$.
+        \item \[
+            \begin{split}
+                (SS^{*})(w, z) = S(z, -w) = (w, z), \\
+                (S^{*}S)(w, z) = S^{*}(-z, w) = (w, z),
+            \end{split}
+        \]
+
+        so $SS^{*} = S^{*}S$, which means $S$ is normal.
+        \[
+            S(1, 0) = (0, 1) \ne (0, -1) = S^{*}(1, 0)
+        \]
+
+        so $S$ is not self-adjoint.
+        \item
+        \[
+            S^{2}(w, z) = S(-z, w) = (-w, -z)
+        \]
+
+        Therefore $z^{2} + 1$ is a polynomial multiple of the minimal polynomial of $S$. On the other hand, the minimal polynomial of $S$ cannot have degree $1$. So $z^{2} + 1$ is the minimal polynomial of $S$.
+
+        If $\mathbb{F} = \mathbb{R}$, then $S$ has no eigenvalues. If $\mathbb{F} = \mathbb{C}$, the eigenvalues of $S$ are $\iota$ and $-\iota$.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter7:sectionA:exercise12
+\begin{exercise}
+    An operator $B\in\lmap{V}$ is called skew if
+    \[
+        B^{*} = -B
+    \]
+
+    Suppose that $T\in\lmap{V}$. Prove that $T$ is normal if and only if there exist commuting operators $A$ and $B$ such that $A$ is self-adjoint, $B$ is a skew operator, and $T = A + B$.
+\end{exercise}
+
+\begin{proof}
+    Let $A = \frac{T + T^{*}}{2}$ and $B = \frac{T - T^{*}}{2}$.
+    \begin{align*}
+        A^{*} & = \conj{\left(\frac{1}{2}\right)}(T^{*} + {(T^{*})}^{*}) = \frac{1}{2}(T^{*} + T) = A, \\
+        B^{*} & = \conj{\left(\frac{1}{2}\right)}T^{*} + \conj{\left(\frac{-1}{2}\right)}{(T^{*})}^{*} = \frac{1}{2}(T^{*} - T) = -B.
+    \end{align*}
+
+    So $A$ is a self-adjoint operator, and $B$ is a skew operator.
+    \begin{align*}
+        AB - BA & = \frac{(T + T^{*})(T - T^{*}) - (T - T^{*})(T + T^{*})}{4} \\
+                & = \frac{(T^{2} + T^{*}T - TT^{*} - {(T^{*})}^{2}) - (T^{2} - T^{*}T + TT^{*} - {(T^{*})}^{2})}{4} \\
+                & = \frac{T^{*}T - TT^{*}}{2}.
+    \end{align*}
+
+    So $A$ and $B$ commute if and only if $T$ is normal.
+\end{proof}
+\newpage
+
+% chapter7:sectionA:exercise13
+\begin{exercise}
+    Suppose $\mathbb{F} = \mathbb{R}$. Define $\mathcal{A}\in \lmap{\lmap{V}}$ by $\mathcal{A}T = T^{*}$ for all $T\in\lmap{V}$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Find all eigenvalues of $\mathcal{A}$.
+        \item Find the minimal polynomial of $\mathcal{A}$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Assume $\lambda\in\mathbb{R}$ is an eigenvalue of $\mathcal{A}$, and $T$ is a corresponding eigenvector.
+        \[
+            T^{*} = \mathcal{A}T = \lambda T.
+        \]
+
+        It follows that $T = {(T^{*})}^{*} = {(\lambda T)}^{*} = \conj{\lambda}T^{*} = \lambda T^{*}$. Therefore $T = \lambda T^{*} = \lambda^{2}T$, and $(1 - \lambda^{2})T = 0$. Because $T$ is not the zero vector, we conclude that $\lambda^{2} = 1$, which means $\lambda = 1$ or $\lambda = -1$.
+
+        If $T$ is nonzero and self-adjoint, then $\mathcal{A}T = T = 1T$. If $T$ is nonzero and skew, then $\mathcal{A}T = -T = (-1)T$.
+
+        If $\dim V = 1$, the only eigenvalue of $\mathcal{A}$ is $1$. Otherwise the eigenvalues of $\mathcal{A}$ are $1$ and $-1$.
+        \item Find the minimal polynomial of $\mathcal{A}$.
+
+        If $\dim V = 1$, the minimal polynomial of $\mathcal{A}$ is $(z - 1)$. Otherwise, by (a), the minimal polynomial of $\mathcal{A}$ is a polynomial multiple of $z^{2} - 1$. Moreover $\mathcal{A}^{2}T = \mathcal{A}T^{*} = {(T^{*})}^{*} = T$. Hence the minimal polynomial of $\mathcal{A}$ is $z^{2} - 1$.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter7:sectionA:exercise14
+\begin{exercise}
+    Define an inner product on $\mathscr{P}_{2}(\mathbb{R})$ by $\innerprod{p, q} = \int^{1}_{0}pq$. Define an operator $T\in\lmap{\mathscr{P}_{2}(\mathbb{R})}$ by
+    \[
+        T(ax^{2} + bx + c) = bx.
+    \]
+
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that with this inner product, the operator $T$ is not self-adjoint.
+        \item The matrix of $T$ with respect to the basis $1, x, x^{2}$ is
+        \[
+            \begin{pmatrix}
+                0 & 0 & 0 \\
+                0 & 1 & 0 \\
+                0 & 0 & 0
+            \end{pmatrix}.
+        \]
+
+        This matrix equals its conjugate transpose, even though $T$ is not self-adjoint. Explain why this is not a contradiction.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item \begin{align*}
+            \innerprod{ax^{2} + bx + c, T^{*}(c)} & = \innerprod{T(ax^{2} + bx + c), c} \\
+            & = \innerprod{bx, c} \\
+            & = \int^{1}_{0}bcx dx \\
+            & = \frac{bc}{2}, \\
+            \innerprod{ax^{2} + bx + c, T(c)} & = \innerprod{ax^{2} + bx + c, 0} \\
+                                              & = 0.
+        \end{align*}
+
+        Choose $b, c$ such that $bc\ne 0$, then $\innerprod{ax^{2} + bx + c, T^{*}(c)}\ne \innerprod{ax^{2} + bx + c, T(c)}$. Therefore $T^{*}(c)\ne T(c)$, which implies $T$ is not self-adjoint.
+        \item This is not a contradiction because $1, x, x^{2}$ is not an orthonormal basis of $\mathscr{P}_{2}(\mathbb{R})$.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter7:sectionA:exercise15
+\begin{exercise}
+    Suppose $T\in\lmap{V}$ is invertible. Prove that
+    \begin{enumerate}[label={(\alph*)}]
+        \item $T$ is self-adjoint $\Longleftrightarrow$ $T^{-1}$ is self-adjoint;
+        \item $T$ is normal $\Longleftrightarrow$ $T^{-1}$ is normal.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    $T$ is invertible, then there exist a unique operator $T^{-1}$ such that $TT^{-1} = T^{-1}T = I$.
+
+    Therefore $I = {(TT^{-1})}^{*} = {(T^{-1})}^{*}T^{*}$ and $I = {(T^{-1}T)}^{*} = T^{*}{(T^{-1})}^{*}$, so
+    \[
+        {(T^{-1})}^{*} = {(T^{*})}^{-1}.
+    \]
+
+    \begin{enumerate}[label={(\alph*)}]
+        \item Because ${(T^{-1})}^{*} = {(T^{*})}^{-1}$, it follows that $T = T^{*} \Longleftrightarrow {(T^{-1})}^{*} = T^{-1}$. So $T$ is self-adjoint if and only if $T^{-1}$ is self-adjoint.
+        \item Because ${(T^{-1})}^{*} = {(T^{*})}^{-1}$, we have
+        \begin{align*}
+            {(T^{-1})}^{*}T^{-1} & = {(T^{*})}^{-1}T^{-1} = {(TT^{*})}^{-1}, \\
+            T^{-1}{(T^{-1})}^{*} & = T^{-1}{(T^{*})}^{-1} = {(T^{*}T)}^{-1}.
+        \end{align*}
+
+        Hence $TT^{*} = T^{*}T$ if and only if ${(T^{-1})}^{*}T^{-1} = T^{-1}{(T^{-1})}^{*}$. Thus $T$ is normal if and only if $T^{-1}$ is normal.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter7:sectionA:exercise16
+\begin{exercise}
+    Suppose $\mathbb{F} = \mathbb{R}$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that the set of self-adjoint operators on $V$ is a subspace of $\lmap{V}$.
+        \item What is the dimension of the subspace of $\lmap{V}$ in (a) [in terms of $\dim V$]?
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item $0 = 0^{*}$ so $0$ is in the set of self-adjoint operator.
+
+        If $S, T$ are self-adjoint operator, then ${(S + T)}^{*} = {S^{*} + T^{*}} = S + T$ and ${(\lambda S)}^{*} = \conj{\lambda}S^{*} = \lambda S^{*} = \lambda S$. So the set of self-adjoint operators on $V$ is closed under addition and scalar multiplication.
+
+        Thus the set of self-adjoint operators on $V$ is a subspace of $\lmap{V}$.
+        \item Let $n = \dim V$ and $e_{1}, \ldots, e_{n}$ be an orthonormal basis of $V$. If $T$ is a self-adjoint operator on $V$, then the matrix of $T$ with respect to $e_{1}, \ldots, e_{n}$ is symmetric (we are working with $\mathbb{F} = \mathbb{R}$).
+
+        Let $E_{i,i}$ be the operator on $V$ such that $E_{i,i}e_{i} = e_{i}$ and $E_{i,i}e_{j} = 0$ if $j\ne i$.
+
+        Let $E_{i,j}$ be the operator on $V$ where $i<j$ such that $E_{i,j}e_{i} = e_{j}$, $E_{i,j}e_{j} = e_{i}$ and $E_{i,j}e_{k} = 0$ if $k\notin\{i, j\}$.
+
+        All operators $E_{i,i}, E_{i,j}$ are self-adjoint (there are $n(n + 1)/2$ of them) and they constitute an independent list. Moreover,
+        \[
+            T = \innerprod{Te_{1}, e_{1}}E_{1,1} + \cdots + \innerprod{Te_{n}, e_{n}}E_{n,n} + \sum_{1\leq i < j\leq n}\innerprod{Te_{i}, e_{j}}E_{i, j} = \sum_{1\leq i\leq j\leq n}\innerprod{Te_{i}, e_{j}}E_{i,j}.
+        \]
+
+        Therefore the list $E_{i,i}, E_{i,j}$ spans the subspace of self-adjoint operators on $V$, hence it is a basis of the subspace. Thus the dimension of the subspace in (a) is $\dim V \times (\dim V + 1)/2$.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter7:sectionA:exercise17
+\begin{exercise}
+    Suppose $\mathbb{F} = \mathbb{C}$. Show that the set of self-adjoint operators on $V$ is not a subspace of $\lmap{V}$.
+\end{exercise}
+
+\begin{proof}
+    Let $\lambda$ be a complex number but not a real number, then for every nonzero self-adjoint operator $T$ on $V$, ${(\lambda T)}^{*} = \conj{\lambda}T^{*} = \conj{\lambda}T \ne \lambda T$. So the set of self-adjoint operators on $V$ is not closed under scalar multiplication. Thus the set of self-adjoint operators on $V$ is not a subspace of $\lmap{V}$.
+\end{proof}
+\newpage
+
+% chapter7:sectionA:exercise18
+\begin{exercise}
+    Suppose $\dim V\geq 2$. Show that the set of normal operators on $V$ is not a subspace of $\lmap{V}$.
+\end{exercise}
+
+\begin{proof}
+    Let $e_{1}, \ldots, e_{n}$ be an orthonormal basis of $V$. I define $S$ and $T$ as follows:
+    \[
+        Se_{i} = \begin{cases}
+            -e_{2} & \text{if $i = 1$} \\
+            e_{1}  & \text{if $i = 2$} \\
+            0      & \text{otherwise}
+        \end{cases}\qquad
+        Te_{i} = \begin{cases}
+            e_{2} & \text{if $i = 1$} \\
+            e_{1} & \text{if $i = 2$} \\
+            0 & \text{otherwise}
+        \end{cases}
+    \]
+
+    \begin{align*}
+        \innerprod{a_{1}e_{1} + \cdots + a_{n}e_{n}, S^{*}(b_{1}e_{1} + \cdots + b_{n}e_{n})} & = \innerprod{S(a_{1}e_{1} + \cdots + a_{n}e_{n}), b_{1}e_{1} + \cdots + b_{n}e_{n}} \\
+        & = \innerprod{a_{2}e_{1} + (-a_{1})e_{2}, b_{1}e_{1} + b_{2}e_{2} + \cdots + b_{n}e_{n}} \\
+        & = a_{2}\conj{b_{1}} + (-a_{1})\conj{b_{2}} \\
+        & = \innerprod{a_{1}e_{1} + a_{2}e_{2} + \cdots + a_{n}e_{n}, -b_{2}e_{1} + b_{1}e_{2}} \\
+        \innerprod{a_{1}e_{1} + \cdots + a_{n}e_{n}, T^{*}(b_{1}e_{1} + \cdots + b_{n}e_{n})} & = \innerprod{T(a_{1}e_{1} + \cdots + a_{n}e_{n}), b_{1}e_{1} + \cdots + b_{n}e_{n}} \\
+        & = \innerprod{a_{2}e_{1} + a_{1}e_{2}, b_{1}e_{1} + b_{2}e_{2} + \cdots + b_{n}e_{n}} \\
+        & = a_{2}\conj{b_{1}} + a_{1}\conj{b_{2}} \\
+        & = \innerprod{a_{1}e_{1} + a_{2}e_{2} + \cdots + a_{n}e_{n}, b_{2}e_{1} + b_{1}e_{2}}
+    \end{align*}
+
+    So
+    \[
+        \begin{split}
+            S^{*}(b_{1}e_{1} + \cdots + b_{n}e_{n}) = -b_{2}e_{1} + b_{1}e_{2} \\
+            T^{*}(b_{1}e_{1} + \cdots + b_{n}e_{n}) = b_{2}e_{1} + b_{1}e_{2} \\
+        \end{split}
+    \]
+    \begin{align*}
+        (SS^{*})(b_{1}e_{1} + \cdots + b_{n}e_{n}) & = S(-b_{2}e_{1} + b_{1}e_{2}) = b_{1}e_{1} + b_{2}e_{2} \\
+        (S^{*}S)(b_{1}e_{1} + \cdots + b_{n}e_{n}) & = S^{*}(-b_{1}e_{2} + b_{2}e_{1}) = b_{1}e_{1} + b_{2}e_{2} \\
+        (TT^{*})(b_{1}e_{1} + \cdots + b_{n}e_{n}) & = T(b_{2}e_{1} + b_{1}e_{2}) = b_{1}e_{1} + b_{2}e_{2} \\
+        (T^{*}T)(b_{1}e_{1} + \cdots + b_{n}e_{n}) & = T^{*}(b_{1}e_{2} + b_{2}e_{1}) = b_{1}e_{1} + b_{2}e_{2}
+    \end{align*}
+
+    So $S$ and $T$ are normal operators. $R = S + T$.
+    \begin{align*}
+        \innerprod{a_{1}e_{1} + \cdots + a_{n}e_{n}, R^{*}(b_{1}e_{1} + \cdots + b_{n}e_{n})} & = \innerprod{R(a_{1}e_{1} + \cdots + a_{n}e_{n}), b_{1}e_{1} + \cdots + b_{n}e_{n}} \\
+        & = \innerprod{2a_{2}e_{1}, b_{1}e_{1} + \cdots + b_{n}e_{n}} \\
+        & = 2a_{2}\conj{b_{1}} \\
+        & = \innerprod{a_{1}e_{1} + \cdots + a_{n}e_{n}, 2b_{1}e_{2}}
+    \end{align*}
+
+    Hence $R^{*}(b_{1}e_{1} + \cdots + b_{n}e_{n}) = 2b_{1}e_{2}$.
+    \begin{align*}
+        (RR^{*})(b_{1}e_{1} + \cdots + b_{n}e_{n}) & = R(2b_{1}e_{2}) = 2b_{1}e_{1} \\
+        (R^{*}R)(b_{1}e_{1} + \cdots + b_{n}e_{n}) & = R^{*}(b_{1}e_{2} + b_{2}e_{1}) = 2b_{2}e_{2}
+    \end{align*}
+
+    So $R$ and $R^{*}$ does not commute. Therefore the set of normal operators on $V$ is not closed under addition. Thus the set of normal operators on $V$ is not a subspace of $\lmap{V}$ if $\dim V\geq 2$.
+\end{proof}
+\newpage
+
+% chapter7:sectionA:exercise19
+\begin{exercise}
+    Suppose $T\in\lmap{V}$ and $\norm{T^{*}v} \leq \norm{Tv}$ for every $v\in V$. Prove that $T$ is normal.
+\end{exercise}
+
+\begin{quote}
+    This exercise fails on infinite-dimensional inner product spaces, leading to what are called hyponormal operators, which have a well-developed theory.
+\end{quote}
+
+\begin{proof}
+    Let $v$ be a nonzero vector in $V$. Let $e_{1} = v/\norm{v}$ and $e_{1}, \ldots, e_{n}$ be an orthonormal basis of $V$. By Exercise~\ref{chapter7:sectionA:exercise5}, we have
+    \[
+        \norm{Te_{1}}^{2} + \cdots + \norm{Te_{n}}^{2} = \norm{T^{*}e_{1}}^{2} + \cdots + \norm{T^{*}e_{n}}^{2}.
+    \]
+
+    According to the hypothesis, $\norm{Te_{i}}^{2}\geq \norm{T^{*}e_{i}}^{2}$ for each $i\in\{1,\ldots, n\}$. Together with the inequality, we conclude that $\norm{Te_{i}}^{2} = \norm{Te_{i}}^{2}$ for each $i\in\{1,\ldots, n\}$.
+
+    Therefore
+    \[
+        \norm{Tv} = \norm{T\left(\norm{v}\frac{v}{\norm{v}}\right)} = \norm{\norm{v}T\left(\frac{v}{\norm{v}}\right)} = \norm{\norm{v}T^{*}\left(\frac{v}{\norm{v}}\right)} = \norm{T^{*}v}.
+    \]
+
+    If $v = 0$ then $\norm{Tv} = \norm{T^{*}v} = 0$. Hence $\norm{Tv} = \norm{T^{*}v}$ for every $v\in V$. This means $T$ is normal.
+\end{proof}
+\newpage
+
+% chapter7:sectionA:exercise20
+\begin{exercise}
+    Suppose $P\in\lmap{V}$ is such that $P^{2} = P$. Prove that the following are equivalent.
+    \begin{enumerate}[label={(\alph*)}]
+        \item $P$ is self-adjoint.
+        \item $P$ is normal.
+        \item There is a subspace $U$ of $V$ such that $P = P_{U}$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    I will show that $(a) \implies (b) \implies (c) \implies (a)$.
+
+    Suppose (a) is true, then $P^{*}P = PP = PP^{*}$, so $P$ is normal. Therefore (b) is true.
+
+    Suppose (b) is true. Since $P^{2} = P$, then $V = \kernel{P}\oplus\range{P}$ and every vector $v$ in $V$ admits the decomposition $v = (v - Pv) + Pv$. $\kernel{P}$ is the eigenspace with respect to the eigenvalue $0$, $\range{P}$ is the eigenspace with respect to the eigenvalue $1$.
+
+    Since $P$ is normal, then the eigenvectors with respect to different eigenvalues are orthogonal. Let $e_{1}, \ldots, e_{m}$ be an orthonormal basis of $\kernel{P}$ and $f_{1}, \ldots, f_{n}$ be an orthonormal basis of $\range{P}$, then $e_{i}$ and $f_{j}$ are orthogonal, for every $i\in\{1,\ldots, m\}$ and $j\in\{ 1,\ldots,n \}$. Therefore $e_{1}, \ldots, e_{m}$, $f_{1}, \ldots, f_{n}$ is an orthonormal basis of $V$ and each of these vectors are eigenvectors of $P$. Let $U = \operatorname{span}(f_{1}, \ldots, f_{n})$.
+    \begin{align*}
+        v & = \innerprod{v,e_{1}}e_{1} + \cdots + \innerprod{v,e_{m}}e_{m} + \innerprod{v, f_{1}}f_{1} + \cdots + \innerprod{v, f_{n}}f_{n} \\
+        Pv & = 0 + \innerprod{v, f_{1}}Pf_{1} + \cdots + \innerprod{v, f_{n}}Pf_{n} \\
+           & = \innerprod{v, e_{1}}P_{U}e_{1} + \cdots + \innerprod{v, e_{n}}P_{U}e_{n} + \innerprod{v, f_{1}}P_{U}f_{1} + \cdots + \innerprod{v, f_{n}}P_{U}f_{n} \\
+           & = P_{U}v.
+    \end{align*}
+
+    Hence $P = P_{U}$, so (c) is true.
+
+    Suppose (c) is true. $V = U\oplus U^{\bot}$.
+
+    Let $v\in V$ and $u\in U$, then $v - u\in U^{\bot}$. For every $w\in V$
+    \begin{align*}
+        \innerprod{Pv, w} & = \innerprod{u, w} = \innerprod{u, P_{U}w} = \innerprod{P_{U}v, P_{U}w}, \\
+        \innerprod{P^{*}v, w} & = \innerprod{v, Pw} = \innerprod{v, P_{U}w} = \innerprod{P_{U}v, P_{U}w}.
+    \end{align*}
+
+    Hence $\innerprod{Pv - P^{*}v, w} = 0$ for every $v, w\in V$. So $Pv = P^{*}v$ for every $v\in V$. Thus $P = P^{*}$, which means (a) is true.
+\end{proof}
+\newpage
+
+% chapter7:sectionA:exercise21
+\begin{exercise}
+    Suppose $D: \mathscr{P}_{8}(\mathbb{R}) \to \mathscr{P}_{8}(\mathbb{R})$ is the differentiation operator defined by $Dp = p'$. Prove that there does not exist an inner product on $\mathscr{P}_{8}(\mathbb{R})$ that makes $D$ a normal operator.
+\end{exercise}
+
+\begin{proof}
+    Assume that $D$ is a normal operator for some inner product $\innerprod{\cdot, \cdot}$ on $\mathscr{P}_{8}(\mathbb{R})$.
+    \[
+        \innerprod{x, D^{*}(1)} = \innerprod{Dx, 1} = \innerprod{1, 1} > 0.
+    \]
+
+    Therefore $D^{*}(1)\ne 0$. However, on the other hand
+    \[
+        \innerprod{D^{*}1, D^{*}1} = \innerprod{(DD^{*})1, 1} = \innerprod{(D^{*}D)1, 1} = \innerprod{D^{*}0, 1} = \innerprod{0, 1} = 0.
+    \]
+
+    This contradicts the property of definiteness of inner product so the assumption is false. Thus $D$ is not a normal operator, no matter which inner product are used on $\mathscr{P}_{8}(\mathbb{R})$.
+\end{proof}
+\newpage
+
+% chapter7:sectionA:exercise22
+\begin{exercise}
+    Give an example of an operator $T\in\lmap{\mathbb{R}^{3}}$ such that $T$ is normal but not self-adjoint.
+\end{exercise}
+
+\begin{proof}
+    Let $T(x, y, z) = (-y, x, 0)$.
+    \begin{align*}
+        \innerprod{(x_{1}, y_{1}, z_{1}), T^{*}(x_{2}, y_{2}, z_{2})} & = \innerprod{T(x_{1}, y_{1}, z_{1}), (x_{2}, y_{2}, z_{2})} \\
+        & = \innerprod{(-y_{1}, x_{1}, 0), (x_{2}, y_{2}, z_{2})} \\
+        & = (-y_{1})x_{2} + x_{1}y_{2} \\
+        & = \innerprod{(x_{1}, y_{1}, z_{1}), (y_{2}, -x_{2}, 0)}
+    \end{align*}
+
+    so $T^{*}(x, y, z) = (y, -x, 0)$. Hence $T$ is not self-adjoint.
+    \begin{align*}
+        (TT^{*})(x, y, z) & = T(y, -x, 0) = (x, y, 0) \\
+        (T^{*}T)(x, y, z) & = T^{*}(-y, x, 0) = (x, y, 0)
+    \end{align*}
+
+    so $TT^{*} = T^{*}T$. Hence $T$ is normal.
+\end{proof}
+\newpage
+
+% chapter7:sectionA:exercise23
+\begin{exercise}
+    Suppose $T$ is a normal operator on $V$. Suppose also that $v, w \in V$ satisfy the equations
+    \[
+        \norm{v} = \norm{w} = 2,\quad Tv = 3v,\quad Tw = 4w.
+    \]
+
+    Show that $\norm{T(v + w)} = 10$.
+\end{exercise}
+
+\begin{proof}
+    Since $\norm{v}$ and $\norm{w}$ are positive, $v$ and $w$ are nonzero. Because $Tv = 3v$ and $Tw = 4w$ so $v$ and $w$ are eigenvectors of $T$ with respect to two different eigenvalues $3$ and $4$. Therefore $v$ and $w$ are orthogonal (because eigenvectors of two different eigenvalues of a normal operator are orthogonal).
+    \begin{align*}
+        \norm{T(v + w)}^{2} & = \norm{Tv + Tw}^{2} = \norm{3v + 4w}^{2} \\
+                            & = \norm{3v}^{2} + \norm{4w}^{2} & \text{(Pythagorean theorem)} \\
+                            & = 9\cdot 4 + 16\cdot 4 = 100.
+    \end{align*}
+
+    Thus $\norm{T(v + w)} = 10$.
+\end{proof}
+\newpage
+
+% chapter7:sectionA:exercise24
+\begin{exercise}\label{chapter7:sectionA:exercise24}
+    Suppose $T\in\lmap{V}$ and
+    \[
+        a_{0} + a_{1}z + a_{2}z^{2} + \cdots + a_{m-1}z^{m-1} + z^{m}
+    \]
+
+    is the minimal polynomial of $T$. Prove that the minimal polynomial of $T^{*}$ is
+    \[
+        \conj{a_{0}} + \conj{a_{1}}z + \conj{a_{2}}z^{2} + \cdots + \conj{a_{m-1}}z^{m-1} + z^{m}
+    \]
+\end{exercise}
+
+\begin{quote}
+    This exercise shows that the minimal polynomial of $T^{*}$ equals the minimal polynomial of $T$ if $\mathbb{F} = \mathbb{R}$.
+\end{quote}
+
+\begin{proof}
+    Consider two polynomials $p(z)$ and $q(z) = \conj{p(\conj{z})}$. Then $p(z) = \conj{q(\conj{z})}$.
+    \begin{align*}
+        p(T)v = 0\,\forall v\in V & \Longleftrightarrow \innerprod{p(T)v, w} = 0,\forall v, w\in V \\
+                                  & \Longleftrightarrow \innerprod{v, {(p(T))}^{*}w} = 0\,\forall v, w\in V \\
+                                  & \Longleftrightarrow \innerprod{v, q(T)w} = 0\,\forall v, w\in V \\
+                                  & \Longleftrightarrow q(T)w = 0\,\forall w\in V.
+    \end{align*}
+
+    Denote the minimal polynomials of $T$ and $T^{*}$ by $\mu_{T}$ and $\mu_{T^{*}}$, respectively.
+
+    Let $p = \mu_{T}$, then $q$ is a polynomial multiple of the minimal polynomial of $T^{*}$, so $\deg \mu_{T^{*}}\leq \deg q = \deg p = \deg \mu_{T}$.
+
+    Let $q = \mu_{T^{*}}$, then $p$ is a polynomial multiple of the minimal polynomial of $T$, so $\deg \mu_{T}\leq \deg p = \deg q = \deg \mu_{T^{*}}$.
+
+    Therefore $\deg \mu_{T} = \deg \mu_{T^{*}}$ and $\mu_{T^{*}}(z) = \conj{\mu_{T}(\conj{z})}$ and the result follows.
+\end{proof}
+\newpage
+
+% chapter7:sectionA:exercise25
+\begin{exercise}
+    Suppose $T \in \lmap{V}$. Prove that $T$ is diagonalizable if and only if $T^{*}$ is diagonalizable.
+\end{exercise}
+
+\begin{proof}
+    If $T$ is diagonalizable, then the minimal polynomial $p_{T}$ of $T$ is a product of different monic polynomials of degree $1$
+    \[
+        p_{T}(z) = (z - \lambda_{1})\cdots (z - \lambda_{n})
+    \]
+
+    where $n\geq 0$. By Exercise~\ref{chapter7:sectionA:exercise24}, the minimal polynomial of $T^{*}$ is
+    \[
+        p_{T^{*}}(z) = (z - \conj{\lambda_{1}})\cdots (z - \conj{\lambda_{n}})
+    \]
+
+    and $\conj{\lambda_{1}}, \ldots, \conj{\lambda_{n}}$ are pairwise distinct. So $T^{*}$ is diagonalizable.
+
+    To prove statement in the other direction, we apply the previous direction. If $T^{*}$ is diagonalizable, then $T = {(T^{*})}^{*}$ is diagonalizable.
+
+    Thus $T$ is diagonalizable if and only if $T^{*}$ is diagonalizable.
+\end{proof}
+\newpage
+
+% chapter7:sectionA:exercise26
+\begin{exercise}
+    Fix $u, x\in V$. Define $T\in \lmap{V}$ by $Tv = \innerprod{v, u}x$ for every $v\in V$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Prove that if $V$ is a real vector space, then $T$ is self-adjoint if and only if the list $u, x$ is linearly dependent.
+        \item Prove that $T$ is normal if and only if the list $u, x$ is linearly dependent.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{align*}
+        \innerprod{v, T^{*}w} & = \innerprod{Tv, w} = \innerprod{\innerprod{v, u}x, w} \\
+                              & = \innerprod{v, u}\innerprod{x, w} \\
+                              & = \innerprod{v, \conj{\innerprod{x, w}}u} \\
+                              & = \innerprod{v, \innerprod{w, x}u}
+    \end{align*}
+
+    Therefore $T^{*}w = \innerprod{w, x}u$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item If $T$ is self-adjoint, then $\innerprod{v, x}u = \innerprod{v, u}x$ for every $v\in V$. If either $u$ or $x$ is zero, then $u, x$ is linearly independent. If $u$ and $x$ are nonzero, then $\innerprod{v, x}$ and $\innerprod{v, u}$ are not simultaneously zero, so $u, x$ is linearly dependent.
+
+        If $u, x$ is linearly dependent, then $u$ is a scalar multiple of $x$ or vice versa.
+        \begin{itemize}
+            \item If $u = \lambda x$ (notice that $\lambda\in\mathbb{R}$), then
+            \[
+                Tv = \innerprod{v, u}x = \innerprod{v, \lambda x}x = \innerprod{v, x}\lambda x = \innerprod{v, x}u = T^{*}v
+            \]
+
+            for every $v\in V$.
+            \item If $x = \lambda u$ (notice that $\lambda\in\mathbb{R}$), then
+            \[
+                T^{*}v = \innerprod{v, x}u = \innerprod{v, \lambda u}u = \innerprod{v, u}\lambda u = \innerprod{v, u}x = Tv.
+            \]
+        \end{itemize}
+
+        Therefore $T$ is self-adjoint.
+        \item \begin{align*}
+            TT^{*} = T^{*}T & \Longleftrightarrow (TT^{*})v = (T^{*}T)v\,\forall v\in V \\
+                            & \Longleftrightarrow T(\innerprod{v, x}u) = T^{*}(\innerprod{v, u}x)\,\forall v\in V \\
+                            & \Longleftrightarrow \innerprod{v, x}Tu = \innerprod{v, u}T^{*}x \,\forall v\in V \\
+                            & \Longleftrightarrow \innerprod{v, x}\innerprod{u, u}x = \innerprod{v, u}\innerprod{x, x}u\,\forall v\in V.
+        \end{align*}
+
+        If $T$ is normal, then $\innerprod{v, x}\innerprod{u, u}x = \innerprod{v, u}\innerprod{x, x}u\,\forall v\in V$. If either $u$ or $x$ is zero, then $u, x$ is linearly dependent. If $u$ and $x$ are non zero, then $\innerprod{v, x}\innerprod{u, u}$ and $\innerprod{v, u}\innerprod{x, x}$ are not simultaneously zero, so $u, x$ is linearly dependent.
+
+        If $u, x$ is linearly dependent, then $u$ is a scalar multiple of $x$ or vice versa.
+        \begin{itemize}
+            \item If $u = \lambda x$ (notice that $\lambda\in\mathbb{R}$), then
+            \begin{align*}
+                \innerprod{v, u}\innerprod{x, x}u & = \innerprod{v, \lambda x}\innerprod{x, x}\lambda x \\
+                & = \innerprod{v, x}\innerprod{x, x}\lambda^{2} x \\
+                & = \innerprod{v, x}\innerprod{\lambda x, \lambda x}x \\
+                & = \innerprod{v, x}\innerprod{u, u}x
+            \end{align*}
+
+            for every $v\in V$.
+            \item If $x = \lambda u$ (notice that $\lambda\in\mathbb{R}$), then
+            \begin{align*}
+                \innerprod{v, x}\innerprod{u, u}x & = \innerprod{v, \lambda u}\innerprod{u, u}\lambda u \\
+                & = \innerprod{v, u}\innerprod{u, u}\lambda^{2}u \\
+                & = \innerprod{v, u}\innerprod{\lambda u, \lambda u}u \\
+                & = \innerprod{v, u}\innerprod{x, x}u.
+            \end{align*}
+
+            for every $v\in V$.
+        \end{itemize}
+
+        So $T$ is normal.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter7:sectionA:exercise27
+\begin{exercise}\label{chapter7:sectionA:exercise27}
+    Suppose $T\in\lmap{V}$ is normal. Prove that
+    \[
+        \kernel{T^{k}} = \kernel{T}\quad\text{and}\quad \range{T^{k}} = \range{T}
+    \]
+
+    for every positive integer $k$.
+\end{exercise}
+
+\begin{proof}
+    I give a proof using mathematical induction.
+
+    The statement is true for $k = 1$, since $\kernel{T} = \kernel{T}$.
+
+    Assume the statement is true for $n$. We have $\kernel{T^{n}}\subseteq\kernel{T^{n+1}}$. Because $T$ is normal, it follows that $T^{*}$ is also normal.
+    \[
+        V = \kernel{T^{*}}\oplus{(\kernel{T^{*}})}^{\bot} = \kernel{T^{*}}\oplus\range{T} = \kernel{T^{*}}\oplus\range{T^{*}}
+    \]
+
+    where ${(\kernel{T^{*}})}^{\bot} = \range{T} = \range{T^{*}}$.
+
+    Let $v$ be a vector in $\kernel{T^{n+1}}$ then $T^{n+1}v = 0$. $T^{n+1}v = 0$ so $\innerprod{T^{n+1}v, w} = 0$ for every $w\in V$.
+
+    Because $V$ is the orthogonal sum of $\kernel{T^{*}}$ and $\range{T^{*}}$, there exist unique vectors $u\in \kernel{T^{*}}$ and $\hat{u}\in\range{T^{*}}$ such that $w = u + \hat{u}$. Because $\hat{u}\in \range{T^{*}}$, there exists a vector $\hat{v}\in V$ such that $T^{*}\hat{v} = \hat{u}$.
+    \begin{align*}
+        \innerprod{T^{n}v, w} & = \innerprod{T^{n}v, u + \hat{u}} \\
+                              & = \innerprod{T^{n}v, u} + \innerprod{T^{n}v, \hat{u}} \\
+                              & = \innerprod{T^{n}v, u} + \innerprod{T^{n}v, T^{*}\hat{v}} \\
+                              & = 0 + \innerprod{T^{n+1}v, \hat{v}} \\
+                              & = \innerprod{0, \hat{v}} = 0
+    \end{align*}
+
+    where $\innerprod{T^{n}v, u} = 0$ because $T^{n}v\in\range{T}$ and $u\in\kernel{T^{*}} = {(\range{T})}^{\bot}$.
+
+    So $\innerprod{T^{n}v, w} = 0$ for every $w\in V$, hence $T^{n}v = 0$, which precisely means $v\in\kernel{T^{n}}$. Therefore $\kernel{T^{n+1}}\subseteq \kernel{T^{n}}$.
+
+    Hence $\kernel{T^{n}} = \kernel{T^{n+1}}$. According to the induction hypothesis, $\kernel{T^{n+1}} = \kernel{T^{n}} = \kernel{T}$.
+
+    By the principle of mathematical induction, $\kernel{T^{k}} = \kernel{T}$ for every positive integer $k$.
+
+    Because $T$ is normal, then so is $T^{k}$, and we have
+    \begin{align*}
+        \range{T^{k}} & = \range{(T^{k})}^{*} & \text{(because $T^{k}$ is normal)} \\
+                      & = {(\kernel{T^{k}})}^{\bot} & \text{(range of the adjoint map)} \\
+                      & = {(\kernel{T})}^{\bot} & \text{(because $\kernel{T^{k}} = \kernel{T}$)} \\
+                      & = \range{T^{*}}  & \text{(range of the adjoint map)} \\
+                      & = \range{T} & \text{(because $T$ is normal)}
+    \end{align*}
+
+    Thus $\kernel{T^{k}} = \kernel{T}$ and $\range{T^{k}} = \range{T}$ for every positive integer $k$.
+\end{proof}
+\newpage
+
+% chapter7:sectionA:exercise28
+\begin{exercise}
+    Suppose $T\in\lmap{V}$ is normal. Prove that if $\lambda\in\mathbb{F}$, then the minimal polynomial of $T$ is not a polynomial multiple of ${(x - \lambda)}^{2}$.
+\end{exercise}
+
+\begin{quote}
+    This exercise, together with the fundamental theorem of algebra, and the necessarily and sufficient condition of an operator to be diagonalizable give another proof for the complex spectral theorem.
+\end{quote}
+
+\begin{proof}
+    Assume that the minimal polynomial of $T$ is divisible by ${(x - \lambda)}^{2}$ for some $\lambda\in\mathbb{F}$, then the minimal polynomial $\mu_{T}$ of $T$ is of the form $\mu_{T}(x) = {(x - \lambda)}^{2}p(x)$.
+
+    Because ${(x - \lambda)}^{2}p(x)$ is the minimal polynomial of $T$, then there exists a vector $v\in V$ such that $(T - \lambda I)p(T)v \ne 0$. It follows that $p(T)v \ne 0$. On the other hand, ${(T - \lambda I)}^{2}(p(T)v) = 0$ so $p(T)v\in \kernel{{(T - \lambda I)}^{2}}$ but $p(T)v\notin \kernel{(T - \lambda I)}$.
+
+    Since $T$ is normal, then $(T - \lambda I)$ is also normal. By Exercise~\ref{chapter7:sectionA:exercise27}, $\kernel{(T - \lambda I)} = \kernel{{(T - \lambda I)}^{2}}$. Hence $p(T)v\in \kernel{{(T - \lambda I)}^{2}}$ but $p(T)v\notin \kernel{(T - \lambda I)}$ is indeed a contradiction, so the assumption is false.
+
+    Thus the minimal polynomial of a normal operator does not have a multiple root.
+\end{proof}
+\newpage
+
+% chapter7:sectionA:exercise29
+\begin{exercise}
+    Prove or give a counterexample: If $T\in \lmap{V}$ and there is an orthonormal basis $e_{1}, \ldots, e_{n}$ of $V$ such that $\norm{Te_{k}} = \norm{T^{*}e_{k}}$ for each $k = 1,\ldots, n$, then $T$ is normal.
+\end{exercise}
+
+\begin{proof}
+    I give a counterexample.
+
+    Let $V = \mathbb{C}^{2}$, $e_{1}, e_{2}$ is the standard basis, and $T(x, y) = (x + y, - x - y)$ then $T^{*}(x, y) = (x - y, x - y)$.
+
+    $\norm{Te_{1}} = \norm{T^{*}e_{1}} = \sqrt{2}$, $\norm{Te_{2}} = \norm{T^{*}e_{2}} = \sqrt{2}$. However
+    \[
+        \norm{T(e_{1} + e_{2})} = \norm{T(1, 1)} = \norm{(2, -2)} = \sqrt{8} \ne 0 = \norm{T^{*}(1, 1)} = \norm{T^{*}(e_{1} + e_{2})}
+    \]
+
+    so $T$ is not a normal operator.
+\end{proof}
+\newpage
+
+% chapter7:sectionA:exercise30
+\begin{exercise}
+    Suppose that $T\in\lmap{\mathbb{F}^{3}}$ is normal and $T(1, 1, 1) = (2, 2, 2)$. Suppose $(z_{1}, z_{2}, z_{3})\in\kernel{T}$. Prove that $z_{1} + z_{2} + z_{3} = 0$.
+\end{exercise}
+
+\begin{proof}
+    If $z_{1} = z_{2} = z_{3} = 0$ then $z_{1} + z_{2} + z_{3} = 0$.
+
+    If $z_{1}, z_{2}, z_{3}$ are not simultaneously zero, then $(z_{1}, z_{2}, z_{3})$ is an eigenvector of $T$ corresponding to the eigenvalue $0$. $(1, 1, 1)$ is an eigenvector of $T$ corresponding to the eigenvalue $2$. Because $T$ is normal, it follows that the eigenvectors of $T$ with respect to different eigenvalues of $T$ are orthogonal, so
+    \[
+        0 = \innerprod{(z_{1}, z_{2}, z_{3}), (1, 1, 1)} = z_{1} + z_{2} + z_{3}.
+    \]
+
+    Thus $z_{1} + z_{2} + z_{3} = 0$.
+\end{proof}
+\newpage
+
+% chapter7:sectionA:exercise31
+\begin{exercise}\label{chapter7:sectionA:exercise31}
+    Fix a positive integer $n$. In the inner product space of continuous real-valued functions on $[-\pi, \pi]$ with inner product $\innerprod{f, g} = \int^{\pi}_{-\pi}fg$, let
+    \[
+        V = \operatorname{span}(1, \cos x, \cos 2x, \ldots, \cos nx, \sin x, \sin 2x, \ldots, \sin nx).
+    \]
+
+    \begin{enumerate}[label={(\alph*)}]
+        \item Define $D\in\lmap{V}$ by $Df = f'$. Show that $D^{*} = -D$. Conclude that $D$ is normal but not self-adjoint.
+        \item Define $T\in\lmap{V}$ by $Tf = f''$. Show that $T$ is self-adjoint.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    An orthonormal basis of $V$ is
+    \[
+        \frac{1}{\sqrt{2\pi}}, \frac{\cos x}{\sqrt{\pi}}, \frac{\cos 2x}{\sqrt{\pi}}, \ldots, \frac{\cos nx}{\sqrt{\pi}}, \frac{\sin x}{\sqrt{\pi}}, \frac{\sin 2x}{\sqrt{\pi}}, \ldots, \frac{\sin nx}{\sqrt{\pi}}.
+    \]
+
+    The matrix of $D$ with respect to this basis has $(2n+1)$ rows and $(2n+1)$ columns, where
+    \[
+        {\mathcal{M}(D)}_{1+k, 1+2k} = k\qquad {\mathcal{M}(D)}_{1+2k, 1+k} = -k
+    \]
+
+    for $1\leq k\leq n$, and the other entries are zero. $\mathcal{M}(D) + {(\mathcal{M}(D))}^{*} = 0$ so $D^{*} = -D$. Therefore $D^{*}D = (-D)D = D(-D) = DD^{*}$ and $D^{*} = -D\ne D$, hence $D$ is normal but not self-adjoint.
+
+    $T = D^{2}$ so $T^{*} = D^{*}D^{*} = (-D)(-D) = D^{2}$, therefore $T = T^{*}$, so $T$ is self-adjoint.
+\end{proof}
+\newpage
+
+% chapter7:sectionA:exercise32
+\begin{exercise}
+    Suppose $T: V \to W$ is a linear map. Show that under the standard identification of $V$ with $V'$ (see 6.58) and the corresponding identification of $W$ with $W'$, the adjoint map $T^{*}: W\to V$ corresponds to the dual map $T': W'\to V'$. More precisely, show that
+    \[
+        T'(\varphi_{w}) = \varphi_{T^{*}w}
+    \]
+
+    for all $w\in W$, there $\varphi_{w}$ and $\varphi_{T^{*}w}$ are defined as in 6.58.
+\end{exercise}
+
+\begin{proof}
+    For every vector $v\in V$, we have
+    \begin{align*}
+        T'(\varphi_{w})(v) & = \varphi_{w}(Tv) & \text{(definition of dual map)} \\
+                           & = \innerprod{Tv, w} & \text{(definition of $\varphi_{w}$)} \\
+                           & = \innerprod{v, T^{*}w} & \text{(definition of adjoint map)} \\
+                           & = \varphi_{T^{*}w}(v) & \text{(definition of $\varphi_{T^{*}w}$)}
+    \end{align*}
+
+    so $T'(\varphi_{w}) = \varphi_{T^{*}w}$. Therefore the adjoint map $T^{*}$ corresponds to the dual map $T'$.
+\end{proof}
+\newpage
+
 \section{The Spectral Theorem}
 
-\section{Positive Operators and Isometries}
+\section{Positive Operators}
 
 \section{Isometries, Unitary Operators, and Matrix Factorization}
 
