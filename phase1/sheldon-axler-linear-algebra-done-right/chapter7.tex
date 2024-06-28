@@ -198,9 +198,9 @@
 
               Thus $\dim\kernel{T^{*}} = \dim W + \dim\kernel{T} - \dim V$.
         \item By (a) and the fundamental theorem of linear maps
-        \[
-            \dim\range{T^{*}} = \dim W - \dim\kernel{T^{*}} = \dim V - \dim\kernel{T} = \dim\range{T}.
-        \]
+              \[
+                  \dim\range{T^{*}} = \dim W - \dim\kernel{T^{*}} = \dim V - \dim\kernel{T} = \dim\range{T}.
+              \]
     \end{enumerate}
 \end{proof}
 \newpage
@@ -213,8 +213,8 @@
 \begin{proof}
     Let $T\in \lmap{\mathbb{F}^{n}, \mathbb{F}^{m}}$ defined by $T: x\mapsto Ax$. The adjoint $T^{*}\in \lmap{\mathbb{F}^{m}, \mathbb{F}^{n}}$ is $y\mapsto A^{*}y$.
     \begin{align*}
-        \text{column rank of $A$} & = \dim\range{T} \\
-                                  & = \dim\range{T^{*}} \\
+        \text{column rank of $A$} & = \dim\range{T}                 \\
+                                  & = \dim\range{T^{*}}             \\
                                   & = \text{column rank of $A^{*}$} \\
                                   & = \text{row rank of $A$}.
     \end{align*}
@@ -231,10 +231,10 @@
 \begin{proof}
     Let $S, T$ be two self-adjoint operators on $V$.
     \begin{align*}
-        \text{$ST$ is self-adjoint} & \Longleftrightarrow ST = {(ST)}^{*} \\
-                                    & \Longleftrightarrow S^{*}T^{*} = {(ST)}^{*} & \text{(since $S, T$ are self-adjoint)} \\
-                                    & \Longleftrightarrow S^{*}T^{*} = T^{*}S^{*} \\
-                                    & \Longleftrightarrow ST = TS & \text{(since $S, T$ are self-adjoint)}        \\
+        \text{$ST$ is self-adjoint} & \Longleftrightarrow ST = {(ST)}^{*}                                                      \\
+                                    & \Longleftrightarrow S^{*}T^{*} = {(ST)}^{*}     & \text{(since $S, T$ are self-adjoint)} \\
+                                    & \Longleftrightarrow S^{*}T^{*} = T^{*}S^{*}                                              \\
+                                    & \Longleftrightarrow ST = TS                     & \text{(since $S, T$ are self-adjoint)} \\
                                     & \Longleftrightarrow \text{$S$ and $T$ commute.}
     \end{align*}
 \end{proof}
@@ -253,8 +253,8 @@
 \begin{proof}
     An operator $S$ on a complex vector space $V$ is $0$ if and only if $\innerprod{Sv, v} = 0$ for all $v\in V$.
     \begin{align*}
-        \text{$T$ is self-adjoint} & \Longleftrightarrow T - T^{*} = 0 \\
-                                   & \Longleftrightarrow \innerprod{(T - T^{*})v, v} = 0\,\forall v\in V \\
+        \text{$T$ is self-adjoint} & \Longleftrightarrow T - T^{*} = 0                                              \\
+                                   & \Longleftrightarrow \innerprod{(T - T^{*})v, v} = 0\,\forall v\in V            \\
                                    & \Longleftrightarrow \innerprod{Tv, v} = \innerprod{T^{*}v, v}\,\forall v\in V.
     \end{align*}
 \end{proof}
@@ -277,35 +277,35 @@
 \begin{proof}
     \begin{enumerate}[label={(\alph*)}]
         \item \begin{align*}
-            \innerprod{(w, z), S^{*}(x, y)} & = \innerprod{S(w, z), (x, y)} \\
-                                            & = \innerprod{(-z, w), (x, y)} \\
-                                            & = -z\conj{x} + w\conj{y} \\
-                                            & = w\conj{y} + z\conj{(-x)} \\
-                                            & = \innerprod{(w, z), (y, -x)}.
-        \end{align*}
+                  \innerprod{(w, z), S^{*}(x, y)} & = \innerprod{S(w, z), (x, y)}  \\
+                                                  & = \innerprod{(-z, w), (x, y)}  \\
+                                                  & = -z\conj{x} + w\conj{y}       \\
+                                                  & = w\conj{y} + z\conj{(-x)}     \\
+                                                  & = \innerprod{(w, z), (y, -x)}.
+              \end{align*}
 
-        Hence $S^{*}(x, y) = (y, -x)$.
+              Hence $S^{*}(x, y) = (y, -x)$.
         \item \[
-            \begin{split}
-                (SS^{*})(w, z) = S(z, -w) = (w, z), \\
-                (S^{*}S)(w, z) = S^{*}(-z, w) = (w, z),
-            \end{split}
-        \]
+                  \begin{split}
+                      (SS^{*})(w, z) = S(z, -w) = (w, z), \\
+                      (S^{*}S)(w, z) = S^{*}(-z, w) = (w, z),
+                  \end{split}
+              \]
 
-        so $SS^{*} = S^{*}S$, which means $S$ is normal.
-        \[
-            S(1, 0) = (0, 1) \ne (0, -1) = S^{*}(1, 0)
-        \]
+              so $SS^{*} = S^{*}S$, which means $S$ is normal.
+              \[
+                  S(1, 0) = (0, 1) \ne (0, -1) = S^{*}(1, 0)
+              \]
 
-        so $S$ is not self-adjoint.
+              so $S$ is not self-adjoint.
         \item
-        \[
-            S^{2}(w, z) = S(-z, w) = (-w, -z)
-        \]
+              \[
+                  S^{2}(w, z) = S(-z, w) = (-w, -z)
+              \]
 
-        Therefore $z^{2} + 1$ is a polynomial multiple of the minimal polynomial of $S$. On the other hand, the minimal polynomial of $S$ cannot have degree $1$. So $z^{2} + 1$ is the minimal polynomial of $S$.
+              Therefore $z^{2} + 1$ is a polynomial multiple of the minimal polynomial of $S$. On the other hand, the minimal polynomial of $S$ cannot have degree $1$. So $z^{2} + 1$ is the minimal polynomial of $S$.
 
-        If $\mathbb{F} = \mathbb{R}$, then $S$ has no eigenvalues. If $\mathbb{F} = \mathbb{C}$, the eigenvalues of $S$ are $\iota$ and $-\iota$.
+              If $\mathbb{F} = \mathbb{R}$, then $S$ has no eigenvalues. If $\mathbb{F} = \mathbb{C}$, the eigenvalues of $S$ are $\iota$ and $-\iota$.
     \end{enumerate}
 \end{proof}
 \newpage
@@ -323,13 +323,13 @@
 \begin{proof}
     Let $A = \frac{T + T^{*}}{2}$ and $B = \frac{T - T^{*}}{2}$.
     \begin{align*}
-        A^{*} & = \conj{\left(\frac{1}{2}\right)}(T^{*} + {(T^{*})}^{*}) = \frac{1}{2}(T^{*} + T) = A, \\
+        A^{*} & = \conj{\left(\frac{1}{2}\right)}(T^{*} + {(T^{*})}^{*}) = \frac{1}{2}(T^{*} + T) = A,                                \\
         B^{*} & = \conj{\left(\frac{1}{2}\right)}T^{*} + \conj{\left(\frac{-1}{2}\right)}{(T^{*})}^{*} = \frac{1}{2}(T^{*} - T) = -B.
     \end{align*}
 
     So $A$ is a self-adjoint operator, and $B$ is a skew operator.
     \begin{align*}
-        AB - BA & = \frac{(T + T^{*})(T - T^{*}) - (T - T^{*})(T + T^{*})}{4} \\
+        AB - BA & = \frac{(T + T^{*})(T - T^{*}) - (T - T^{*})(T + T^{*})}{4}                                       \\
                 & = \frac{(T^{2} + T^{*}T - TT^{*} - {(T^{*})}^{2}) - (T^{2} - T^{*}T + TT^{*} - {(T^{*})}^{2})}{4} \\
                 & = \frac{T^{*}T - TT^{*}}{2}.
     \end{align*}
@@ -350,18 +350,18 @@
 \begin{proof}
     \begin{enumerate}[label={(\alph*)}]
         \item Assume $\lambda\in\mathbb{R}$ is an eigenvalue of $\mathcal{A}$, and $T$ is a corresponding eigenvector.
-        \[
-            T^{*} = \mathcal{A}T = \lambda T.
-        \]
+              \[
+                  T^{*} = \mathcal{A}T = \lambda T.
+              \]
 
-        It follows that $T = {(T^{*})}^{*} = {(\lambda T)}^{*} = \conj{\lambda}T^{*} = \lambda T^{*}$. Therefore $T = \lambda T^{*} = \lambda^{2}T$, and $(1 - \lambda^{2})T = 0$. Because $T$ is not the zero vector, we conclude that $\lambda^{2} = 1$, which means $\lambda = 1$ or $\lambda = -1$.
+              It follows that $T = {(T^{*})}^{*} = {(\lambda T)}^{*} = \conj{\lambda}T^{*} = \lambda T^{*}$. Therefore $T = \lambda T^{*} = \lambda^{2}T$, and $(1 - \lambda^{2})T = 0$. Because $T$ is not the zero vector, we conclude that $\lambda^{2} = 1$, which means $\lambda = 1$ or $\lambda = -1$.
 
-        If $T$ is nonzero and self-adjoint, then $\mathcal{A}T = T = 1T$. If $T$ is nonzero and skew, then $\mathcal{A}T = -T = (-1)T$.
+              If $T$ is nonzero and self-adjoint, then $\mathcal{A}T = T = 1T$. If $T$ is nonzero and skew, then $\mathcal{A}T = -T = (-1)T$.
 
-        If $\dim V = 1$, the only eigenvalue of $\mathcal{A}$ is $1$. Otherwise the eigenvalues of $\mathcal{A}$ are $1$ and $-1$.
+              If $\dim V = 1$, the only eigenvalue of $\mathcal{A}$ is $1$. Otherwise the eigenvalues of $\mathcal{A}$ are $1$ and $-1$.
         \item Find the minimal polynomial of $\mathcal{A}$.
 
-        If $\dim V = 1$, the minimal polynomial of $\mathcal{A}$ is $(z - 1)$. Otherwise, by (a), the minimal polynomial of $\mathcal{A}$ is a polynomial multiple of $z^{2} - 1$. Moreover $\mathcal{A}^{2}T = \mathcal{A}T^{*} = {(T^{*})}^{*} = T$. Hence the minimal polynomial of $\mathcal{A}$ is $z^{2} - 1$.
+              If $\dim V = 1$, the minimal polynomial of $\mathcal{A}$ is $(z - 1)$. Otherwise, by (a), the minimal polynomial of $\mathcal{A}$ is a polynomial multiple of $z^{2} - 1$. Moreover $\mathcal{A}^{2}T = \mathcal{A}T^{*} = {(T^{*})}^{*} = T$. Hence the minimal polynomial of $\mathcal{A}$ is $z^{2} - 1$.
     \end{enumerate}
 \end{proof}
 \newpage
@@ -376,30 +376,30 @@
     \begin{enumerate}[label={(\alph*)}]
         \item Show that with this inner product, the operator $T$ is not self-adjoint.
         \item The matrix of $T$ with respect to the basis $1, x, x^{2}$ is
-        \[
-            \begin{pmatrix}
-                0 & 0 & 0 \\
-                0 & 1 & 0 \\
-                0 & 0 & 0
-            \end{pmatrix}.
-        \]
+              \[
+                  \begin{pmatrix}
+                      0 & 0 & 0 \\
+                      0 & 1 & 0 \\
+                      0 & 0 & 0
+                  \end{pmatrix}.
+              \]
 
-        This matrix equals its conjugate transpose, even though $T$ is not self-adjoint. Explain why this is not a contradiction.
+              This matrix equals its conjugate transpose, even though $T$ is not self-adjoint. Explain why this is not a contradiction.
     \end{enumerate}
 \end{exercise}
 
 \begin{proof}
     \begin{enumerate}[label={(\alph*)}]
         \item \begin{align*}
-            \innerprod{ax^{2} + bx + c, T^{*}(c)} & = \innerprod{T(ax^{2} + bx + c), c} \\
-            & = \innerprod{bx, c} \\
-            & = \int^{1}_{0}bcx dx \\
-            & = \frac{bc}{2}, \\
-            \innerprod{ax^{2} + bx + c, T(c)} & = \innerprod{ax^{2} + bx + c, 0} \\
-                                              & = 0.
-        \end{align*}
+                  \innerprod{ax^{2} + bx + c, T^{*}(c)} & = \innerprod{T(ax^{2} + bx + c), c} \\
+                                                        & = \innerprod{bx, c}                 \\
+                                                        & = \int^{1}_{0}bcx dx                \\
+                                                        & = \frac{bc}{2},                     \\
+                  \innerprod{ax^{2} + bx + c, T(c)}     & = \innerprod{ax^{2} + bx + c, 0}    \\
+                                                        & = 0.
+              \end{align*}
 
-        Choose $b, c$ such that $bc\ne 0$, then $\innerprod{ax^{2} + bx + c, T^{*}(c)}\ne \innerprod{ax^{2} + bx + c, T(c)}$. Therefore $T^{*}(c)\ne T(c)$, which implies $T$ is not self-adjoint.
+              Choose $b, c$ such that $bc\ne 0$, then $\innerprod{ax^{2} + bx + c, T^{*}(c)}\ne \innerprod{ax^{2} + bx + c, T(c)}$. Therefore $T^{*}(c)\ne T(c)$, which implies $T$ is not self-adjoint.
         \item This is not a contradiction because $1, x, x^{2}$ is not an orthonormal basis of $\mathscr{P}_{2}(\mathbb{R})$.
     \end{enumerate}
 \end{proof}
@@ -425,12 +425,12 @@
     \begin{enumerate}[label={(\alph*)}]
         \item Because ${(T^{-1})}^{*} = {(T^{*})}^{-1}$, it follows that $T = T^{*} \Longleftrightarrow {(T^{-1})}^{*} = T^{-1}$. So $T$ is self-adjoint if and only if $T^{-1}$ is self-adjoint.
         \item Because ${(T^{-1})}^{*} = {(T^{*})}^{-1}$, we have
-        \begin{align*}
-            {(T^{-1})}^{*}T^{-1} & = {(T^{*})}^{-1}T^{-1} = {(TT^{*})}^{-1}, \\
-            T^{-1}{(T^{-1})}^{*} & = T^{-1}{(T^{*})}^{-1} = {(T^{*}T)}^{-1}.
-        \end{align*}
+              \begin{align*}
+                  {(T^{-1})}^{*}T^{-1} & = {(T^{*})}^{-1}T^{-1} = {(TT^{*})}^{-1}, \\
+                  T^{-1}{(T^{-1})}^{*} & = T^{-1}{(T^{*})}^{-1} = {(T^{*}T)}^{-1}.
+              \end{align*}
 
-        Hence $TT^{*} = T^{*}T$ if and only if ${(T^{-1})}^{*}T^{-1} = T^{-1}{(T^{-1})}^{*}$. Thus $T$ is normal if and only if $T^{-1}$ is normal.
+              Hence $TT^{*} = T^{*}T$ if and only if ${(T^{-1})}^{*}T^{-1} = T^{-1}{(T^{-1})}^{*}$. Thus $T$ is normal if and only if $T^{-1}$ is normal.
     \end{enumerate}
 \end{proof}
 \newpage
@@ -448,21 +448,21 @@
     \begin{enumerate}[label={(\alph*)}]
         \item $0 = 0^{*}$ so $0$ is in the set of self-adjoint operator.
 
-        If $S, T$ are self-adjoint operator, then ${(S + T)}^{*} = {S^{*} + T^{*}} = S + T$ and ${(\lambda S)}^{*} = \conj{\lambda}S^{*} = \lambda S^{*} = \lambda S$. So the set of self-adjoint operators on $V$ is closed under addition and scalar multiplication.
+              If $S, T$ are self-adjoint operator, then ${(S + T)}^{*} = {S^{*} + T^{*}} = S + T$ and ${(\lambda S)}^{*} = \conj{\lambda}S^{*} = \lambda S^{*} = \lambda S$. So the set of self-adjoint operators on $V$ is closed under addition and scalar multiplication.
 
-        Thus the set of self-adjoint operators on $V$ is a subspace of $\lmap{V}$.
+              Thus the set of self-adjoint operators on $V$ is a subspace of $\lmap{V}$.
         \item Let $n = \dim V$ and $e_{1}, \ldots, e_{n}$ be an orthonormal basis of $V$. If $T$ is a self-adjoint operator on $V$, then the matrix of $T$ with respect to $e_{1}, \ldots, e_{n}$ is symmetric (we are working with $\mathbb{F} = \mathbb{R}$).
 
-        Let $E_{i,i}$ be the operator on $V$ such that $E_{i,i}e_{i} = e_{i}$ and $E_{i,i}e_{j} = 0$ if $j\ne i$.
+              Let $E_{i,i}$ be the operator on $V$ such that $E_{i,i}e_{i} = e_{i}$ and $E_{i,i}e_{j} = 0$ if $j\ne i$.
 
-        Let $E_{i,j}$ be the operator on $V$ where $i<j$ such that $E_{i,j}e_{i} = e_{j}$, $E_{i,j}e_{j} = e_{i}$ and $E_{i,j}e_{k} = 0$ if $k\notin\{i, j\}$.
+              Let $E_{i,j}$ be the operator on $V$ where $i<j$ such that $E_{i,j}e_{i} = e_{j}$, $E_{i,j}e_{j} = e_{i}$ and $E_{i,j}e_{k} = 0$ if $k\notin\{i, j\}$.
 
-        All operators $E_{i,i}, E_{i,j}$ are self-adjoint (there are $n(n + 1)/2$ of them) and they constitute an independent list. Moreover,
-        \[
-            T = \innerprod{Te_{1}, e_{1}}E_{1,1} + \cdots + \innerprod{Te_{n}, e_{n}}E_{n,n} + \sum_{1\leq i < j\leq n}\innerprod{Te_{i}, e_{j}}E_{i, j} = \sum_{1\leq i\leq j\leq n}\innerprod{Te_{i}, e_{j}}E_{i,j}.
-        \]
+              All operators $E_{i,i}, E_{i,j}$ are self-adjoint (there are $n(n + 1)/2$ of them) and they constitute an independent list. Moreover,
+              \[
+                  T = \innerprod{Te_{1}, e_{1}}E_{1,1} + \cdots + \innerprod{Te_{n}, e_{n}}E_{n,n} + \sum_{1\leq i < j\leq n}\innerprod{Te_{i}, e_{j}}E_{i, j} = \sum_{1\leq i\leq j\leq n}\innerprod{Te_{i}, e_{j}}E_{i,j}.
+              \]
 
-        Therefore the list $E_{i,i}, E_{i,j}$ spans the subspace of self-adjoint operators on $V$, hence it is a basis of the subspace. Thus the dimension of the subspace in (a) is $\dim V \times (\dim V + 1)/2$.
+              Therefore the list $E_{i,i}, E_{i,j}$ spans the subspace of self-adjoint operators on $V$, hence it is a basis of the subspace. Thus the dimension of the subspace in (a) is $\dim V \times (\dim V + 1)/2$.
     \end{enumerate}
 \end{proof}
 \newpage
@@ -493,46 +493,46 @@
         Te_{i} = \begin{cases}
             e_{2} & \text{if $i = 1$} \\
             e_{1} & \text{if $i = 2$} \\
-            0 & \text{otherwise}
+            0     & \text{otherwise}
         \end{cases}
     \]
 
     \begin{align*}
-        \innerprod{a_{1}e_{1} + \cdots + a_{n}e_{n}, S^{*}(b_{1}e_{1} + \cdots + b_{n}e_{n})} & = \innerprod{S(a_{1}e_{1} + \cdots + a_{n}e_{n}), b_{1}e_{1} + \cdots + b_{n}e_{n}} \\
-        & = \innerprod{a_{2}e_{1} + (-a_{1})e_{2}, b_{1}e_{1} + b_{2}e_{2} + \cdots + b_{n}e_{n}} \\
-        & = a_{2}\conj{b_{1}} + (-a_{1})\conj{b_{2}} \\
-        & = \innerprod{a_{1}e_{1} + a_{2}e_{2} + \cdots + a_{n}e_{n}, -b_{2}e_{1} + b_{1}e_{2}} \\
-        \innerprod{a_{1}e_{1} + \cdots + a_{n}e_{n}, T^{*}(b_{1}e_{1} + \cdots + b_{n}e_{n})} & = \innerprod{T(a_{1}e_{1} + \cdots + a_{n}e_{n}), b_{1}e_{1} + \cdots + b_{n}e_{n}} \\
-        & = \innerprod{a_{2}e_{1} + a_{1}e_{2}, b_{1}e_{1} + b_{2}e_{2} + \cdots + b_{n}e_{n}} \\
-        & = a_{2}\conj{b_{1}} + a_{1}\conj{b_{2}} \\
-        & = \innerprod{a_{1}e_{1} + a_{2}e_{2} + \cdots + a_{n}e_{n}, b_{2}e_{1} + b_{1}e_{2}}
+        \innerprod{a_{1}e_{1} + \cdots + a_{n}e_{n}, S^{*}(b_{1}e_{1} + \cdots + b_{n}e_{n})} & = \innerprod{S(a_{1}e_{1} + \cdots + a_{n}e_{n}), b_{1}e_{1} + \cdots + b_{n}e_{n}}     \\
+                                                                                              & = \innerprod{a_{2}e_{1} + (-a_{1})e_{2}, b_{1}e_{1} + b_{2}e_{2} + \cdots + b_{n}e_{n}} \\
+                                                                                              & = a_{2}\conj{b_{1}} + (-a_{1})\conj{b_{2}}                                              \\
+                                                                                              & = \innerprod{a_{1}e_{1} + a_{2}e_{2} + \cdots + a_{n}e_{n}, -b_{2}e_{1} + b_{1}e_{2}}   \\
+        \innerprod{a_{1}e_{1} + \cdots + a_{n}e_{n}, T^{*}(b_{1}e_{1} + \cdots + b_{n}e_{n})} & = \innerprod{T(a_{1}e_{1} + \cdots + a_{n}e_{n}), b_{1}e_{1} + \cdots + b_{n}e_{n}}     \\
+                                                                                              & = \innerprod{a_{2}e_{1} + a_{1}e_{2}, b_{1}e_{1} + b_{2}e_{2} + \cdots + b_{n}e_{n}}    \\
+                                                                                              & = a_{2}\conj{b_{1}} + a_{1}\conj{b_{2}}                                                 \\
+                                                                                              & = \innerprod{a_{1}e_{1} + a_{2}e_{2} + \cdots + a_{n}e_{n}, b_{2}e_{1} + b_{1}e_{2}}
     \end{align*}
 
     So
     \[
         \begin{split}
             S^{*}(b_{1}e_{1} + \cdots + b_{n}e_{n}) = -b_{2}e_{1} + b_{1}e_{2} \\
-            T^{*}(b_{1}e_{1} + \cdots + b_{n}e_{n}) = b_{2}e_{1} + b_{1}e_{2} \\
+            T^{*}(b_{1}e_{1} + \cdots + b_{n}e_{n}) = b_{2}e_{1} + b_{1}e_{2}  \\
         \end{split}
     \]
     \begin{align*}
-        (SS^{*})(b_{1}e_{1} + \cdots + b_{n}e_{n}) & = S(-b_{2}e_{1} + b_{1}e_{2}) = b_{1}e_{1} + b_{2}e_{2} \\
+        (SS^{*})(b_{1}e_{1} + \cdots + b_{n}e_{n}) & = S(-b_{2}e_{1} + b_{1}e_{2}) = b_{1}e_{1} + b_{2}e_{2}     \\
         (S^{*}S)(b_{1}e_{1} + \cdots + b_{n}e_{n}) & = S^{*}(-b_{1}e_{2} + b_{2}e_{1}) = b_{1}e_{1} + b_{2}e_{2} \\
-        (TT^{*})(b_{1}e_{1} + \cdots + b_{n}e_{n}) & = T(b_{2}e_{1} + b_{1}e_{2}) = b_{1}e_{1} + b_{2}e_{2} \\
+        (TT^{*})(b_{1}e_{1} + \cdots + b_{n}e_{n}) & = T(b_{2}e_{1} + b_{1}e_{2}) = b_{1}e_{1} + b_{2}e_{2}      \\
         (T^{*}T)(b_{1}e_{1} + \cdots + b_{n}e_{n}) & = T^{*}(b_{1}e_{2} + b_{2}e_{1}) = b_{1}e_{1} + b_{2}e_{2}
     \end{align*}
 
     So $S$ and $T$ are normal operators. $R = S + T$.
     \begin{align*}
         \innerprod{a_{1}e_{1} + \cdots + a_{n}e_{n}, R^{*}(b_{1}e_{1} + \cdots + b_{n}e_{n})} & = \innerprod{R(a_{1}e_{1} + \cdots + a_{n}e_{n}), b_{1}e_{1} + \cdots + b_{n}e_{n}} \\
-        & = \innerprod{2a_{2}e_{1}, b_{1}e_{1} + \cdots + b_{n}e_{n}} \\
-        & = 2a_{2}\conj{b_{1}} \\
-        & = \innerprod{a_{1}e_{1} + \cdots + a_{n}e_{n}, 2b_{1}e_{2}}
+                                                                                              & = \innerprod{2a_{2}e_{1}, b_{1}e_{1} + \cdots + b_{n}e_{n}}                         \\
+                                                                                              & = 2a_{2}\conj{b_{1}}                                                                \\
+                                                                                              & = \innerprod{a_{1}e_{1} + \cdots + a_{n}e_{n}, 2b_{1}e_{2}}
     \end{align*}
 
     Hence $R^{*}(b_{1}e_{1} + \cdots + b_{n}e_{n}) = 2b_{1}e_{2}$.
     \begin{align*}
-        (RR^{*})(b_{1}e_{1} + \cdots + b_{n}e_{n}) & = R(2b_{1}e_{2}) = 2b_{1}e_{1} \\
+        (RR^{*})(b_{1}e_{1} + \cdots + b_{n}e_{n}) & = R(2b_{1}e_{2}) = 2b_{1}e_{1}                 \\
         (R^{*}R)(b_{1}e_{1} + \cdots + b_{n}e_{n}) & = R^{*}(b_{1}e_{2} + b_{2}e_{1}) = 2b_{2}e_{2}
     \end{align*}
 
@@ -585,8 +585,8 @@
 
     Since $P$ is normal, then the eigenvectors with respect to different eigenvalues are orthogonal. Let $e_{1}, \ldots, e_{m}$ be an orthonormal basis of $\kernel{P}$ and $f_{1}, \ldots, f_{n}$ be an orthonormal basis of $\range{P}$, then $e_{i}$ and $f_{j}$ are orthogonal, for every $i\in\{1,\ldots, m\}$ and $j\in\{ 1,\ldots,n \}$. Therefore $e_{1}, \ldots, e_{m}$, $f_{1}, \ldots, f_{n}$ is an orthonormal basis of $V$ and each of these vectors are eigenvectors of $P$. Let $U = \operatorname{span}(f_{1}, \ldots, f_{n})$.
     \begin{align*}
-        v & = \innerprod{v,e_{1}}e_{1} + \cdots + \innerprod{v,e_{m}}e_{m} + \innerprod{v, f_{1}}f_{1} + \cdots + \innerprod{v, f_{n}}f_{n} \\
-        Pv & = 0 + \innerprod{v, f_{1}}Pf_{1} + \cdots + \innerprod{v, f_{n}}Pf_{n} \\
+        v  & = \innerprod{v,e_{1}}e_{1} + \cdots + \innerprod{v,e_{m}}e_{m} + \innerprod{v, f_{1}}f_{1} + \cdots + \innerprod{v, f_{n}}f_{n}                       \\
+        Pv & = 0 + \innerprod{v, f_{1}}Pf_{1} + \cdots + \innerprod{v, f_{n}}Pf_{n}                                                                                \\
            & = \innerprod{v, e_{1}}P_{U}e_{1} + \cdots + \innerprod{v, e_{n}}P_{U}e_{n} + \innerprod{v, f_{1}}P_{U}f_{1} + \cdots + \innerprod{v, f_{n}}P_{U}f_{n} \\
            & = P_{U}v.
     \end{align*}
@@ -597,7 +597,7 @@
 
     Let $v\in V$ and $u\in U$, then $v - u\in U^{\bot}$. For every $w\in V$
     \begin{align*}
-        \innerprod{Pv, w} & = \innerprod{u, w} = \innerprod{u, P_{U}w} = \innerprod{P_{U}v, P_{U}w}, \\
+        \innerprod{Pv, w}     & = \innerprod{u, w} = \innerprod{u, P_{U}w} = \innerprod{P_{U}v, P_{U}w},  \\
         \innerprod{P^{*}v, w} & = \innerprod{v, Pw} = \innerprod{v, P_{U}w} = \innerprod{P_{U}v, P_{U}w}.
     \end{align*}
 
@@ -634,14 +634,14 @@
     Let $T(x, y, z) = (-y, x, 0)$.
     \begin{align*}
         \innerprod{(x_{1}, y_{1}, z_{1}), T^{*}(x_{2}, y_{2}, z_{2})} & = \innerprod{T(x_{1}, y_{1}, z_{1}), (x_{2}, y_{2}, z_{2})} \\
-        & = \innerprod{(-y_{1}, x_{1}, 0), (x_{2}, y_{2}, z_{2})} \\
-        & = (-y_{1})x_{2} + x_{1}y_{2} \\
-        & = \innerprod{(x_{1}, y_{1}, z_{1}), (y_{2}, -x_{2}, 0)}
+                                                                      & = \innerprod{(-y_{1}, x_{1}, 0), (x_{2}, y_{2}, z_{2})}     \\
+                                                                      & = (-y_{1})x_{2} + x_{1}y_{2}                                \\
+                                                                      & = \innerprod{(x_{1}, y_{1}, z_{1}), (y_{2}, -x_{2}, 0)}
     \end{align*}
 
     so $T^{*}(x, y, z) = (y, -x, 0)$. Hence $T$ is not self-adjoint.
     \begin{align*}
-        (TT^{*})(x, y, z) & = T(y, -x, 0) = (x, y, 0) \\
+        (TT^{*})(x, y, z) & = T(y, -x, 0) = (x, y, 0)     \\
         (T^{*}T)(x, y, z) & = T^{*}(-y, x, 0) = (x, y, 0)
     \end{align*}
 
@@ -662,8 +662,8 @@
 \begin{proof}
     Since $\norm{v}$ and $\norm{w}$ are positive, $v$ and $w$ are nonzero. Because $Tv = 3v$ and $Tw = 4w$ so $v$ and $w$ are eigenvectors of $T$ with respect to two different eigenvalues $3$ and $4$. Therefore $v$ and $w$ are orthogonal (because eigenvectors of two different eigenvalues of a normal operator are orthogonal).
     \begin{align*}
-        \norm{T(v + w)}^{2} & = \norm{Tv + Tw}^{2} = \norm{3v + 4w}^{2} \\
-                            & = \norm{3v}^{2} + \norm{4w}^{2} & \text{(Pythagorean theorem)} \\
+        \norm{T(v + w)}^{2} & = \norm{Tv + Tw}^{2} = \norm{3v + 4w}^{2}                                \\
+                            & = \norm{3v}^{2} + \norm{4w}^{2}           & \text{(Pythagorean theorem)} \\
                             & = 9\cdot 4 + 16\cdot 4 = 100.
     \end{align*}
 
@@ -691,9 +691,9 @@
 \begin{proof}
     Consider two polynomials $p(z)$ and $q(z) = \conj{p(\conj{z})}$. Then $p(z) = \conj{q(\conj{z})}$.
     \begin{align*}
-        p(T)v = 0\,\forall v\in V & \Longleftrightarrow \innerprod{p(T)v, w} = 0,\forall v, w\in V \\
+        p(T)v = 0\,\forall v\in V & \Longleftrightarrow \innerprod{p(T)v, w} = 0,\forall v, w\in V          \\
                                   & \Longleftrightarrow \innerprod{v, {(p(T))}^{*}w} = 0\,\forall v, w\in V \\
-                                  & \Longleftrightarrow \innerprod{v, q(T)w} = 0\,\forall v, w\in V \\
+                                  & \Longleftrightarrow \innerprod{v, q(T)w} = 0\,\forall v, w\in V         \\
                                   & \Longleftrightarrow q(T)w = 0\,\forall w\in V.
     \end{align*}
 
@@ -743,8 +743,8 @@
 \begin{proof}
     \begin{align*}
         \innerprod{v, T^{*}w} & = \innerprod{Tv, w} = \innerprod{\innerprod{v, u}x, w} \\
-                              & = \innerprod{v, u}\innerprod{x, w} \\
-                              & = \innerprod{v, \conj{\innerprod{x, w}}u} \\
+                              & = \innerprod{v, u}\innerprod{x, w}                     \\
+                              & = \innerprod{v, \conj{\innerprod{x, w}}u}              \\
                               & = \innerprod{v, \innerprod{w, x}u}
     \end{align*}
 
@@ -752,53 +752,53 @@
     \begin{enumerate}[label={(\alph*)}]
         \item If $T$ is self-adjoint, then $\innerprod{v, x}u = \innerprod{v, u}x$ for every $v\in V$. If either $u$ or $x$ is zero, then $u, x$ is linearly independent. If $u$ and $x$ are nonzero, then $\innerprod{v, x}$ and $\innerprod{v, u}$ are not simultaneously zero, so $u, x$ is linearly dependent.
 
-        If $u, x$ is linearly dependent, then $u$ is a scalar multiple of $x$ or vice versa.
-        \begin{itemize}
-            \item If $u = \lambda x$ (notice that $\lambda\in\mathbb{R}$), then
-            \[
-                Tv = \innerprod{v, u}x = \innerprod{v, \lambda x}x = \innerprod{v, x}\lambda x = \innerprod{v, x}u = T^{*}v
-            \]
+              If $u, x$ is linearly dependent, then $u$ is a scalar multiple of $x$ or vice versa.
+              \begin{itemize}
+                  \item If $u = \lambda x$ (notice that $\lambda\in\mathbb{R}$), then
+                        \[
+                            Tv = \innerprod{v, u}x = \innerprod{v, \lambda x}x = \innerprod{v, x}\lambda x = \innerprod{v, x}u = T^{*}v
+                        \]
 
-            for every $v\in V$.
-            \item If $x = \lambda u$ (notice that $\lambda\in\mathbb{R}$), then
-            \[
-                T^{*}v = \innerprod{v, x}u = \innerprod{v, \lambda u}u = \innerprod{v, u}\lambda u = \innerprod{v, u}x = Tv.
-            \]
-        \end{itemize}
+                        for every $v\in V$.
+                  \item If $x = \lambda u$ (notice that $\lambda\in\mathbb{R}$), then
+                        \[
+                            T^{*}v = \innerprod{v, x}u = \innerprod{v, \lambda u}u = \innerprod{v, u}\lambda u = \innerprod{v, u}x = Tv.
+                        \]
+              \end{itemize}
 
-        Therefore $T$ is self-adjoint.
+              Therefore $T$ is self-adjoint.
         \item \begin{align*}
-            TT^{*} = T^{*}T & \Longleftrightarrow (TT^{*})v = (T^{*}T)v\,\forall v\in V \\
-                            & \Longleftrightarrow T(\innerprod{v, x}u) = T^{*}(\innerprod{v, u}x)\,\forall v\in V \\
-                            & \Longleftrightarrow \innerprod{v, x}Tu = \innerprod{v, u}T^{*}x \,\forall v\in V \\
-                            & \Longleftrightarrow \innerprod{v, x}\innerprod{u, u}x = \innerprod{v, u}\innerprod{x, x}u\,\forall v\in V.
-        \end{align*}
+                  TT^{*} = T^{*}T & \Longleftrightarrow (TT^{*})v = (T^{*}T)v\,\forall v\in V                                                  \\
+                                  & \Longleftrightarrow T(\innerprod{v, x}u) = T^{*}(\innerprod{v, u}x)\,\forall v\in V                        \\
+                                  & \Longleftrightarrow \innerprod{v, x}Tu = \innerprod{v, u}T^{*}x \,\forall v\in V                           \\
+                                  & \Longleftrightarrow \innerprod{v, x}\innerprod{u, u}x = \innerprod{v, u}\innerprod{x, x}u\,\forall v\in V.
+              \end{align*}
 
-        If $T$ is normal, then $\innerprod{v, x}\innerprod{u, u}x = \innerprod{v, u}\innerprod{x, x}u\,\forall v\in V$. If either $u$ or $x$ is zero, then $u, x$ is linearly dependent. If $u$ and $x$ are non zero, then $\innerprod{v, x}\innerprod{u, u}$ and $\innerprod{v, u}\innerprod{x, x}$ are not simultaneously zero, so $u, x$ is linearly dependent.
+              If $T$ is normal, then $\innerprod{v, x}\innerprod{u, u}x = \innerprod{v, u}\innerprod{x, x}u\,\forall v\in V$. If either $u$ or $x$ is zero, then $u, x$ is linearly dependent. If $u$ and $x$ are non zero, then $\innerprod{v, x}\innerprod{u, u}$ and $\innerprod{v, u}\innerprod{x, x}$ are not simultaneously zero, so $u, x$ is linearly dependent.
 
-        If $u, x$ is linearly dependent, then $u$ is a scalar multiple of $x$ or vice versa.
-        \begin{itemize}
-            \item If $u = \lambda x$ (notice that $\lambda\in\mathbb{R}$), then
-            \begin{align*}
-                \innerprod{v, u}\innerprod{x, x}u & = \innerprod{v, \lambda x}\innerprod{x, x}\lambda x \\
-                & = \innerprod{v, x}\innerprod{x, x}\lambda^{2} x \\
-                & = \innerprod{v, x}\innerprod{\lambda x, \lambda x}x \\
-                & = \innerprod{v, x}\innerprod{u, u}x
-            \end{align*}
+              If $u, x$ is linearly dependent, then $u$ is a scalar multiple of $x$ or vice versa.
+              \begin{itemize}
+                  \item If $u = \lambda x$ (notice that $\lambda\in\mathbb{R}$), then
+                        \begin{align*}
+                            \innerprod{v, u}\innerprod{x, x}u & = \innerprod{v, \lambda x}\innerprod{x, x}\lambda x \\
+                                                              & = \innerprod{v, x}\innerprod{x, x}\lambda^{2} x     \\
+                                                              & = \innerprod{v, x}\innerprod{\lambda x, \lambda x}x \\
+                                                              & = \innerprod{v, x}\innerprod{u, u}x
+                        \end{align*}
 
-            for every $v\in V$.
-            \item If $x = \lambda u$ (notice that $\lambda\in\mathbb{R}$), then
-            \begin{align*}
-                \innerprod{v, x}\innerprod{u, u}x & = \innerprod{v, \lambda u}\innerprod{u, u}\lambda u \\
-                & = \innerprod{v, u}\innerprod{u, u}\lambda^{2}u \\
-                & = \innerprod{v, u}\innerprod{\lambda u, \lambda u}u \\
-                & = \innerprod{v, u}\innerprod{x, x}u.
-            \end{align*}
+                        for every $v\in V$.
+                  \item If $x = \lambda u$ (notice that $\lambda\in\mathbb{R}$), then
+                        \begin{align*}
+                            \innerprod{v, x}\innerprod{u, u}x & = \innerprod{v, \lambda u}\innerprod{u, u}\lambda u \\
+                                                              & = \innerprod{v, u}\innerprod{u, u}\lambda^{2}u      \\
+                                                              & = \innerprod{v, u}\innerprod{\lambda u, \lambda u}u \\
+                                                              & = \innerprod{v, u}\innerprod{x, x}u.
+                        \end{align*}
 
-            for every $v\in V$.
-        \end{itemize}
+                        for every $v\in V$.
+              \end{itemize}
 
-        So $T$ is normal.
+              So $T$ is normal.
     \end{enumerate}
 \end{proof}
 \newpage
@@ -829,10 +829,10 @@
 
     Because $V$ is the orthogonal sum of $\kernel{T^{*}}$ and $\range{T^{*}}$, there exist unique vectors $u\in \kernel{T^{*}}$ and $\hat{u}\in\range{T^{*}}$ such that $w = u + \hat{u}$. Because $\hat{u}\in \range{T^{*}}$, there exists a vector $\hat{v}\in V$ such that $T^{*}\hat{v} = \hat{u}$.
     \begin{align*}
-        \innerprod{T^{n}v, w} & = \innerprod{T^{n}v, u + \hat{u}} \\
-                              & = \innerprod{T^{n}v, u} + \innerprod{T^{n}v, \hat{u}} \\
+        \innerprod{T^{n}v, w} & = \innerprod{T^{n}v, u + \hat{u}}                          \\
+                              & = \innerprod{T^{n}v, u} + \innerprod{T^{n}v, \hat{u}}      \\
                               & = \innerprod{T^{n}v, u} + \innerprod{T^{n}v, T^{*}\hat{v}} \\
-                              & = 0 + \innerprod{T^{n+1}v, \hat{v}} \\
+                              & = 0 + \innerprod{T^{n+1}v, \hat{v}}                        \\
                               & = \innerprod{0, \hat{v}} = 0
     \end{align*}
 
@@ -846,11 +846,11 @@
 
     Because $T$ is normal, then so is $T^{k}$, and we have
     \begin{align*}
-        \range{T^{k}} & = \range{(T^{k})}^{*} & \text{(because $T^{k}$ is normal)} \\
-                      & = {(\kernel{T^{k}})}^{\bot} & \text{(range of the adjoint map)} \\
-                      & = {(\kernel{T})}^{\bot} & \text{(because $\kernel{T^{k}} = \kernel{T}$)} \\
-                      & = \range{T^{*}}  & \text{(range of the adjoint map)} \\
-                      & = \range{T} & \text{(because $T$ is normal)}
+        \range{T^{k}} & = \range{(T^{k})}^{*}       & \text{(because $T^{k}$ is normal)}             \\
+                      & = {(\kernel{T^{k}})}^{\bot} & \text{(range of the adjoint map)}              \\
+                      & = {(\kernel{T})}^{\bot}     & \text{(because $\kernel{T^{k}} = \kernel{T}$)} \\
+                      & = \range{T^{*}}             & \text{(range of the adjoint map)}              \\
+                      & = \range{T}                 & \text{(because $T$ is normal)}
     \end{align*}
 
     Thus $\kernel{T^{k}} = \kernel{T}$ and $\range{T^{k}} = \range{T}$ for every positive integer $k$.
@@ -956,10 +956,10 @@
 \begin{proof}
     For every vector $v\in V$, we have
     \begin{align*}
-        T'(\varphi_{w})(v) & = \varphi_{w}(Tv) & \text{(definition of dual map)} \\
-                           & = \innerprod{Tv, w} & \text{(definition of $\varphi_{w}$)} \\
-                           & = \innerprod{v, T^{*}w} & \text{(definition of adjoint map)} \\
-                           & = \varphi_{T^{*}w}(v) & \text{(definition of $\varphi_{T^{*}w}$)}
+        T'(\varphi_{w})(v) & = \varphi_{w}(Tv)       & \text{(definition of dual map)}           \\
+                           & = \innerprod{Tv, w}     & \text{(definition of $\varphi_{w}$)}      \\
+                           & = \innerprod{v, T^{*}w} & \text{(definition of adjoint map)}        \\
+                           & = \varphi_{T^{*}w}(v)   & \text{(definition of $\varphi_{T^{*}w}$)}
     \end{align*}
 
     so $T'(\varphi_{w}) = \varphi_{T^{*}w}$. Therefore the adjoint map $T^{*}$ corresponds to the dual map $T'$.
@@ -967,6 +967,749 @@
 \newpage
 
 \section{The Spectral Theorem}
+
+% chapter7:sectionB:exercise1
+\begin{exercise}
+    Prove that a normal operator on a complex inner product space is self-adjoint if and only if all its eigenvalues are real.
+\end{exercise}
+
+\begin{proof}
+    Let $T$ be a normal operator on the complex inner product space $V$.
+
+    $(\Rightarrow)$ $T$ is self-adjoint.
+
+    Let $\lambda$ be an eigenvalue of $T$ and $v$ be a corresponding eigenvector. Since $T$ is self-adjoint, $\innerprod{Tv, v} = \innerprod{v, T^{*}v} = \innerprod{v, Tv}$.
+    \[
+        \lambda\innerprod{v, v} = \innerprod{\lambda v, v} = \innerprod{Tv, v} = \innerprod{v, Tv} = \innerprod{v, \lambda v} = \conj{\lambda}\innerprod{v, v}
+    \]
+
+    and because $\innerprod{v,v} > 0$, we conclude that $\lambda = \conj{\lambda}$, which means $\lambda\in\mathbb{R}$. Hence all eigenvalues of $T$ are real.
+
+    $(\Leftarrow)$ All eigenvalues of $T$ are real.
+
+    Because $T$ is a normal operator on a complex inner product space, then by the complex spectral theorem, there exists an orthonormal basis of the complex inner product space to which $T$ has a diagonal matrix. Since all eigenvalues of $T$ are real, so all entries on the diagonal of the diagonal matrix are real, this makes the matrix of $T$ and $T^{*}$ with respect to the orthonormal basis identical. Therefore $T = T^{*}$, equivalently, $T$ is self-adjoint.
+\end{proof}
+\newpage
+
+% chapter7:sectionB:exercise2
+\begin{exercise}
+    Suppose $\mathbb{F} = \mathbb{C}$. Suppose $T \in \lmap{V}$ is normal and has only one eigenvalue. Prove that $T$ is a scalar multiple of the identity operator.
+\end{exercise}
+
+\begin{proof}
+    $T$ is normal so according to the complex spectral theorem, there exists an orthonormal basis of $V$ to which $T$ has a diagonal matrix. Since $T$ has only one eigenvalue (let it be $\lambda$), then the diagonal matrix is $\lambda I$. Therefore $T$ is a scalar multiple of the identity operator.
+\end{proof}
+\newpage
+
+% chapter7:sectionB:exercise3
+\begin{exercise}
+    Suppose $\mathbb{F} = \mathbb{C}$ and $T\in\lmap{V}$ is normal. Prove that the set of eigenvalues of $T$ is contained in $\{0, 1\}$ if and only if there is a subspace $U$ of $V$ such that $T = P_{U}$.
+\end{exercise}
+
+\begin{proof}
+    $(\Rightarrow)$ The set of eigenvalues of $T$ is contained in $\{0, 1\}$.
+
+    By the complex spectral theorem, there exists an orthonormal basis of $V$ to which $T$ has a diagonal matrix. In this basis, let $e_{1}, \ldots, e_{m}$ be the eigenvectors with respect to $0$ and $e_{m+1}, \ldots, e_{m+n}$ be the eigenvectors with respect to $1$.
+
+    Let $U = \operatorname{span}(e_{m+1}, \ldots, e_{m+n})$ and $v$ be a vector in $V$. There exist scalars $a_{1}, \ldots, a_{m}, a_{m+1}, \ldots, a_{m+n}$ such that
+    \[
+        v = \underbrace{a_{1}e_{1} + \cdots + a_{m}e_{m}}_{\in U^{\bot}} + \underbrace{a_{m+1}e_{m+1} + \cdots + a_{m+n}e_{m+n}}_{\in U}.
+    \]
+
+    Then
+    \[
+        Tv = a_{m+1}e_{m+1} + \cdots + a_{m+n}e_{m+n} = P_{U}v.
+    \]
+
+    Hence $T = P_{U}$.
+
+    $(\Leftarrow)$ There is a subspace $U$ of $V$ such that $T = P_{U}$.
+
+    $V = U\oplus U^{\bot}$. Let $v$ be a vector in $V$, then there exist unique vectors $u\in U$ and $w\in U^{\bot}$ such that $v = u + w$. Then
+    \[
+        P_{U}^{2}v = P_{U}(P_{U}v) = P_{U}u = P_{U}(u + w) = P_{U}v.
+    \]
+
+    Therefore $P_{U}^{2} = P_{U}$, so $T^{2} = T$. $z^{2} - z$ is therefore a polynomial multiple of the minimal polynomial of $T$. $z^{2} - z$ has two roots $0$ and $1$, so the set of roots of the minimal polynomial of $T$ is contained in $\{ 0, 1 \}$. Because the eigenvalues of $T$ is precisely the set of roots of its minimal polynomial, so the set of eigenvalues of $T$ is contained in $\{ 0, 1 \}$.
+\end{proof}
+\newpage
+
+% chapter7:sectionB:exercise4
+\begin{exercise}
+    Prove that a normal operator on a complex inner product space is skew (meaning it equals the negative of its adjoint) if and only if all its eigenvalues are purely imaginary (meaning that they have real part equal to $0$).
+\end{exercise}
+
+\begin{proof}
+    Let $T$ be a normal operator on the complex inner product space $V$.
+
+    $(\Rightarrow)$ $T$ is skew.
+
+    $T$ is skew means $T^{*} = -T$. Let $\lambda$ be an eigenvalue of $T$ and $v$ be a corresponding eigenvector.
+    \[
+        \lambda\innerprod{v, v} = \innerprod{\lambda v, v} = \innerprod{Tv, v} = \innerprod{v, T^{*}v} = \innerprod{v, -Tv} = \innerprod{v, -\lambda v} = -\conj{\lambda}\innerprod{v, v}.
+    \]
+
+    Because $\innerprod{v, v} > 0$, it follows that $\lambda = -\conj{\lambda}$. Therefore $\lambda$ is purely imaginary.
+
+    $(\Leftarrow)$ All eigenvalues of $T$ are purely imaginary.
+
+    Because $T$ is a normal operator on a complex inner product space, then by the complex spectral theorem, there exists an orthonormal basis of the complex inner product space to which $T$ has a diagonal matrix $A$. Since all eigenvalues of $T$ are purely imaginary, then so are all entries on the diagonal of the diagonal matrix $A$. This makes $A^{*} = -A$. Therefore $T^{*} = -T$. Hence $T$ is skew.
+\end{proof}
+\newpage
+
+% chapter7:sectionB:exercise5
+\begin{exercise}
+    Prove or give a counterexample: If $T \in \lmap{\mathbb{C}^{3}}$ is a diagonalizable operator, then $T$ is normal (with respect to the usual inner product).
+\end{exercise}
+
+\begin{proof}
+    I give a counterexample.
+
+    $Te_{1} = e_{1}$, $T(e_{1} + e_{2}) = 2(e_{1} + e_{2})$, $T(e_{1} + e_{2} + e_{3}) = 3(e_{1} + e_{2} + e_{3})$. Then $T$ has three distinct eigenvalues, so $T$ is diagonalizable.
+    \[
+        T(x, y, z) = (x + y + z, 2y + z, 3z).
+    \]
+
+    However, the eigenvectors corresponding to different eigenvalues of $T$ are not orthogonal. Therefore $T$ is not normal.
+\end{proof}
+\newpage
+
+% chapter7:sectionB:exercise6
+\begin{exercise}
+    Suppose $V$ is a complex inner product space and $T \in \lmap{V}$ is a normal operator such that $T^{9} = T^{8}$. Prove that $T$ is self-adjoint and $T^{2} = T$.
+\end{exercise}
+
+\begin{proof}
+    $z^{9} - z^{8} = z^{8}(z - 1)$ is a polynomial multiple of the minimal polynomial of $T$.
+
+    Because $T$ is a normal operator on a complex inner product space, then $T$ is diagonalizable according to the complex spectral theorem. $T$ is diagonalizable, so the minimal polynomial of $T$ is a product of distinct monic polynomial of degree $1$. Hence the set of roots of the minimal polynomial of $T$ is contained in the set of roots of $z^{9} - z^{8}$. Therefore the set of roots of the minimal polynomial of $T$ is contained in $\{ 0, 1 \}$. So the minimal polynomial of $T$ is a divisor of $z^{2} - z$. Thus $T^{2} = T$.
+\end{proof}
+\newpage
+
+% chapter7:sectionB:exercise7
+\begin{exercise}
+    Give an example of an operator $T$ on a complex vector space such that $T^{9} = T^{8}$ but $T^{2} \ne T$.
+\end{exercise}
+
+\begin{proof}
+    Let $T$ be an operator on $\mathbb{C}^{3}$ such that its matrix with respect to the standard basis is
+    \[
+        \begin{pmatrix}
+            0 & 0 & 0  \\
+            1 & 0 & 0  \\
+            0 & 1 & -1
+        \end{pmatrix}
+    \]
+
+    which is also the companion matrix of $z^{3} - z^{2}$. Hence the minimal polynomial of $T$ is $z^{3} - z^{2}$. Therefore $T^{3} = T^{2}$ and $T^{2}\ne T$ ($z^{2} - z$ is a nontrivial proper divisor of $z^{3} - z^{2}$). $T^{3} = T^{2}$ implies $T^{9} = T^{8}$.
+\end{proof}
+\newpage
+
+% chapter7:sectionB:exercise8
+\begin{exercise}
+    Suppose $\mathbb{F} = \mathbb{C}$ and $T\in\lmap{V}$. Prove that $T$ is normal if and only if every eigenvector of $T$ is also an eigenvector of $T^{*}$.
+\end{exercise}
+
+\begin{proof}
+    Let $n = \dim V$.
+
+    $(\Rightarrow)$ $T$ is normal.
+
+    According to the complex spectral theorem, there exists an orthonormal basis $e_{1}, \ldots, e_{n}$ of $V$ to which $T$ has a diagonal matrix. The eigenvalues corresponding to $e_{1}, \ldots, e_{n}$ are $\lambda_{1}, \ldots, \lambda_{n}$. The matrix of $T^{*}$ with respect to $e_{1}, \ldots, e_{n}$ is the conjugate transpose of the previous matrix, so it is also a diagonal matrix, and the eigenvalues corresponding to $e_{1}, \ldots, e_{n}$ are $\conj{\lambda_{1}}, \ldots, \conj{\lambda_{n}}$.
+
+    Let $v$ be an eigenvector of $T$ with respect to an eigenvalue $\lambda$, and $a_{1}, \ldots, a_{n}$ are scalars such that $v = a_{1}e_{1} + \cdots + a_{n}e_{n}$.
+    \[
+        \lambda v = Tv = T(a_{1}e_{1} + \cdots + a_{n}e_{n}) = a_{1}\lambda_{1}e_{1} + \cdots + a_{n}\lambda_{n}e_{n}.
+    \]
+
+    Therefore
+    \[
+        (\lambda - \lambda_{1})a_{1}e_{1} + \cdots + (\lambda - \lambda_{n})a_{n}e_{n} = 0.
+    \]
+
+    Hence $(\lambda - \lambda_{i})a_{i} = 0$ for every $i\in\{1,\ldots, n\}$. On the other hand, $a_{1}, \ldots, a_{n}$ are not all zero, so there exists $i\in \{1,\ldots, n\}$ such that $\lambda = \lambda_{i}$, so
+    \[
+        v = \sum_{i \text{ such that } \lambda_{i} = \lambda}a_{i}e_{i}.
+    \]
+
+    Due to the matrices of $T^{*}$ and $T$ with respect to $e_{1}, \ldots, e_{n}$, we conclude that
+    \[
+        T^{*}v = \sum_{i \text{ such that } \lambda_{i} = \lambda}a_{i}\conj{\lambda}e_{i} = \conj{\lambda}v.
+    \]
+
+    Hence $v$ is also an eigenvector of $T^{*}$. Thus every eigenvector of $T$ is also an eigenvector of $T^{*}$.
+
+    \bigskip
+
+    $(\Leftarrow)$ Every eigenvector of $T$ is also an eigenvector of $T^{*}$.
+
+    According to Schur's theorem, there exists an orthonormal basis $e_{1}, \ldots, e_{n}$ of $V$ to which $T$ has an upper-triangular matrix. Let $A = \mathcal{M}(T, (e_{1}, \ldots, e_{n}))$, then $A^{*}$ is the matrix of $T^{*}$ with respect to $e_{1}, \ldots, e_{n}$.
+
+    $e_{1}$ is an eigenvector of $T$, so it is also an eigenvector of $T^{*}$.
+    \[
+        T^{*}e_{1} = \conj{A_{1,1}}e_{1} + \cdots + \conj{A_{1,n}}e_{n}
+    \]
+
+    therefore $A_{1,j} = 0$ if $j > 1$.
+
+    Assume for every positive integer $\ell$ less than $k$, $A_{\ell,j} = 0$ if $j > \ell$ (I mean $A_{\ell,\ell+1}, \ldots, A_{\ell, n}$ are zero).
+
+    According to the induction hypothesis
+    \[
+        Te_{k} = A_{1,k}e_{1} + \cdots + A_{k,k}e_{k} = A_{k,k}e_{k}
+    \]
+
+    so $e_{k}$ is an eigenvector of $T$, and also an eigenvector of $T^{*}$.
+    \[
+        T^{*}e_{k} = \conj{A_{k,1}}e_{1} + \cdots + \conj{A_{k,n}}e_{n} = \conj{A_{k,k}}e_{k} + \cdots + \conj{A_{k,n}}e_{n}.
+    \]
+
+    Because $e_{k}$ is an eigenvector of $T^{*}$, it follows that $\conj{A_{k,k+1}} = \cdots = \conj{A_{k,n}} = 0$. Therefore $A_{k, k+1}, \ldots, A_{k, n}$ are zero.
+
+    By the principle of mathematical induction, we conclude that $A_{j,k} = 0$ if $k > j$. Moreover, $A$ is an upper-triangular matrix. Therefore $A$ is a diagonal matrix, and so is $A^{*}$. Hence $A$ and $A^{*}$ commute (because diagonal matrices commute), which implies $T$ and $T^{*}$ commute. Thus $T$ is a normal operator.
+\end{proof}
+\newpage
+
+% chapter7:sectionB:exercise9
+\begin{exercise}\label{chapter7:sectionB:exercise9}
+    Suppose $\mathbb{F} = \mathbb{C}$ and $T\in\lmap{V}$. Prove that $T$ is normal if and only if there exists a polynomial $p\in\mathscr{P}(\mathbb{C})$ such that $T^{*} = p(T)$.
+\end{exercise}
+
+\begin{proof}
+    If there exists a polynomial $p\in\mathscr{P}(\mathbb{C})$ such that $T^{*} = p(T)$ then $T^{*}$ and $T$ commute because $p(T)$ and $T$ commute. Therefore $T$ is normal.
+
+    Now suppose $T$ is normal. By the complex spectral theorem, there exists an orthonormal basis $e_{1}, \ldots, e_{n}$ of $V$ to which $T$ has a diagonal matrix $A$. It follows that the matrix of $T^{*}$ with respect to $e_{1}, \ldots, e_{n}$ is $A^{*}$, the conjugate transpose of $A$.
+
+    Let $Te_{k} = \lambda_{k}e_{k}$ for each $k\in\{1,\ldots, n\}$, then $T^{*}e_{k} = \conj{\lambda_{k}}e_{k}$ for each $k\in\{1,\ldots, n\}$. Let $\lambda_{1}, \lambda_{n_{1}}, \ldots, \lambda_{n_{r}}$ be the distinct eigenvalues of $T$, where $1 < n_{1} < \cdots < n_{r}$, where $r\geq 0$. By the Lagrange interpolating polynomial theorem, there exists a polynomial $p\in\mathscr{P}(\mathbb{C})$ such that $p(\lambda_{k}) = \conj{\lambda_{k}}$ where $k\in \{ 1, n_{1}, \ldots, n_{r} \}$, therefore $p(\lambda_{k}) = \conj{\lambda_{k}}$ where $k\in \{ 1, \ldots, n \}$. It follows that $T^{*}e_{k} = p(T)e_{k}$ for each $k\in\{1,\ldots, n\}$, so $T^{*}v = p(T)v$ for every $v\in V$.
+
+    Thus there exists a polynomial $p\in\mathscr{P}(\mathbb{C})$ such that $T^{*} = p(T)$.
+\end{proof}
+\newpage
+
+% chapter7:sectionB:exercise10
+\begin{exercise}
+    Suppose $V$ is a complex inner product space. Prove that every normal operator on $V$ has a square root.
+\end{exercise}
+
+\begin{quote}
+    An operator $S \in \lmap{V}$ is called a square root of $T\in \lmap{V}$ if $S^{2} = T$.
+\end{quote}
+
+\begin{proof}
+    Let $T$ be a normal operator on $V$. By the complex spectral theorem, there exists an orthonormal basis $e_{1}, \ldots, e_{n}$ to which $T$ has a diagonal matrix. Let $Te_{k} = \lambda_{k}e_{k}$ for each $k\in\{ 1,\ldots, n \}$.
+
+    There exists a complex number $\alpha_{k}$ such that $\alpha_{k}^{2} = \lambda_{k}$ for each $k\in\{1,\ldots, n\}$. Let
+    \[
+        S(x_{1}e_{1} + \cdots + x_{n}e_{n}) = x_{1}\alpha_{1}e_{1} + \cdots + x_{n}\alpha_{n}e_{n}
+    \]
+
+    then
+    \begin{align*}
+        S^{2}(x_{1}e_{1} + \cdots + x_{n}e_{n}) & = x_{1}\alpha_{1}^{2}e_{1} + \cdots + x_{n}\alpha_{n}^{2}e_{n} \\
+                                                & = x_{1}\lambda_{1}e_{1} + \cdots + x_{n}\lambda_{n}e_{n}       \\
+                                                & = T(x_{1}e_{1} + \cdots + x_{n}e_{n}).
+    \end{align*}
+
+    So $S^{2} = T$, hence $T$ has a square root.
+\end{proof}
+\newpage
+
+% chapter7:sectionB:exercise11
+\begin{exercise}
+    Prove that every self-adjoint operator on $V$ has a cube root.
+\end{exercise}
+
+\begin{quote}
+    An operator $S \in \lmap{V}$ is called a cube root of $T\in\lmap{V}$ if $S^{3} = T$.
+\end{quote}
+
+\begin{proof}
+    Let $T$ be a self-adjoint operator on $V$. If $\mathbb{F} = \mathbb{R}$, we can apply the real spectral theorem. If $\mathbb{F} = \mathbb{C}$, then $T$ is normal and we can apply the complex spectral theorem.
+
+    By the real and complex spectral theorems, there exists an orthonormal basis of $e_{1}, \ldots, e_{n}$ to which $T$ has a diagonal matrix. Let $Te_{k} = \lambda_{k}e_{k}$ for each $k\in\{ 1,\ldots, n \}$.
+
+    There exists $\alpha_{k}\in\mathbb{F}$ such that $\alpha_{k}^{3} = \lambda_{k}$ for each $k\in\{1,\ldots, n\}$. Let
+    \[
+        S(x_{1}e_{1} + \cdots + x_{n}e_{n}) = x_{1}\alpha_{1}e_{1} + \cdots + x_{n}\alpha_{n}e_{n}
+    \]
+
+    then
+    \begin{align*}
+        S^{3}(x_{1}e_{1} + \cdots + x_{n}e_{n}) & = x_{1}\alpha_{1}^{3}e_{1} + \cdots + x_{n}\alpha_{n}^{3}e_{n} \\
+                                                & = x_{1}\lambda_{1}e_{1} + \cdots + x_{n}\lambda_{n}e_{n}       \\
+                                                & = T(x_{1}e_{1} + \cdots + x_{n}e_{n}).
+    \end{align*}
+
+    So $S^{3} = T$, hence $T$ has a cube root.
+\end{proof}
+\newpage
+
+% chapter7:sectionB:exercise12
+\begin{exercise}
+    Suppose $V$ is a complex vector space and $T \in \lmap{V}$ is normal. Prove that if $S$ is an operator on $V$ that commutes with $T$, then $S$ commutes with $T^{*}$.
+\end{exercise}
+
+\begin{quote}
+    The result in this exercise is called Fuglede's theorem.
+\end{quote}
+
+\begin{proof}
+    By Exercise~\ref{chapter7:sectionB:exercise9}, there exists a polynomial $p\in\mathscr{P}(\mathbb{C})$ such that $T^{*} = p(T)$.
+
+    If $S$ commutes with $T$ then $S$ commutes with $p(T)$, hence $S$ commutes with $T^{*}$.
+\end{proof}
+\newpage
+
+% chapter7:sectionB:exercise13
+\begin{exercise}
+    Without using the complex spectral theorem, use the version of Schur's theorem that applies to two commuting operators (take $\mathcal{E} = \{T, T^{*}\}$ in Exercise~\ref{chapter6:sectionB:exercise20}) to give a different proof that if $\mathbb{F} = \mathbb{C}$ and $T \in \lmap{V}$ is normal, then $T$ has a diagonal matrix with respect to some orthonormal basis of $V$.
+\end{exercise}
+
+\begin{proof}
+    By Exercise~\ref{chapter6:sectionB:exercise20}, there exists an orthonormal basis $e_{1}, \ldots, e_{n}$ to which $T$ and $T^{*}$ have upper-triangular matrices.
+
+    On the other hand, with respect to $e_{1}, \ldots, e_{n}$, the matrix of $T^{*}$ is the conjugate transpose of the matrix of $T$, so the matrices of $T$ and $T^{*}$ are lower-triangular. Therefore the matrix of $T$ with respect to the orthonormal basis $e_{1}, \ldots, e_{n}$ is a diagonal matrix.
+\end{proof}
+\newpage
+
+% chapter7:sectionB:exercise14
+\begin{exercise}\label{chapter7:sectionB:exercise14}
+    Suppose $\mathbb{F} = \mathbb{R}$ and $T \in \lmap{V}$. Prove that $T$ is self-adjoint if and only if all pairs of eigenvectors corresponding to distinct eigenvalues of $T$ are orthogonal and $V = E(\lambda_{1}, T)\oplus \cdots\oplus E(\lambda_{m}, T)$, where $\lambda_{1}, \ldots, \lambda_{m}$ denote the distinct eigenvalues of $T$.
+\end{exercise}
+
+\begin{proof}
+    $(\Rightarrow)$ $T$ is self-adjoint.
+
+    Let $v_{i}, v_{j}$ be eigenvectors with respect to distinct eigenvalues $\lambda_{i}$ and $\lambda_{j}$ of $T$.
+    \begin{align*}
+        (\lambda_{i} - \lambda_{j})\innerprod{v_{i}, v_{j}} & = \innerprod{\lambda_{i}v_{i}, v_{j}} - \innerprod{v_{i}, \lambda_{j}v_{j}} \\
+                                                            & = \innerprod{Tv_{i}, v_{j}} - \innerprod{v_{i}, Tv_{j}}                     \\
+                                                            & = \innerprod{v_{i}, Tv_{j}} - \innerprod{v_{i}, Tv_{j}}                     \\
+                                                            & = 0.
+    \end{align*}
+
+    Hence all pairs of eigenvectors corresponding to distinct eigenvalues of $T$ are orthogonal.
+
+    If $T$ is self-adjoint then according to the real spectral theorem, $T$ is diagonalizable. So if $\lambda_{1}, \ldots, \lambda_{m}$ are the distinct eigenvalues of $T$, then $V = E(\lambda_{1}, T)\oplus \cdots\oplus E(\lambda_{m}, T)$.
+
+    \bigskip
+    $(\Leftarrow)$ All pairs of eigenvectors corresponding to distinct eigenvalues of $T$ are orthogonal and $V = E(\lambda_{1}, T)\oplus \cdots\oplus E(\lambda_{m}, T)$, where $\lambda_{1}, \ldots, \lambda_{m}$ denote the distinct eigenvalues of $T$.
+
+    Combine orthonormal bases of $E(\lambda_{1}, T), \ldots, E(\lambda_{m}, T)$, we obtain an orthonormal basis of $V$, and each vector in this basis is an eigenvector of $T$.
+
+    The matrix of $T$ with respect to this basis is a diagonal matrix of which all entries are real numbers, so the matrix of $T^{*}$ is the same as the matrix of $T$ with respect to this orthonormal basis. Hence $T = T^{*}$, which implies $T$ is self-adjoint.
+\end{proof}
+\newpage
+
+% chapter7:sectionB:exercise15
+\begin{exercise}
+    Suppose $\mathbb{F} = \mathbb{C}$ and $T \in \lmap{V}$. Prove that $T$ is normal if and only if all pairs of eigenvectors corresponding to distinct eigenvalues of $T$ are orthogonal and $V = E(\lambda_{1}, T)\oplus \cdots\oplus E(\lambda_{m}, T)$, where $\lambda_{1}, \ldots, \lambda_{m}$ denote the distinct eigenvalues of $T$.
+\end{exercise}
+
+\begin{proof}
+    $(\Rightarrow)$ $T$ is normal.
+
+    Let $v_{i}, v_{j}$ be eigenvectors with respect to distinct eigenvalues $\lambda_{i}$ and $\lambda_{j}$ of $T$. Because $T$ is normal, it follows that $T^{*}v_{j} = \conj{\lambda_{j}}v_{j}$.
+    \begin{align*}
+        (\lambda_{i} - \lambda_{j})\innerprod{v_{i}, v_{j}} & = \lambda_{i}\innerprod{v_{i}, v_{j}} - \lambda_{j}\innerprod{v_{i}, v_{j}}        \\
+                                                            & = \innerprod{\lambda_{i}v_{i}, v_{j}} - \innerprod{v_{i}, \conj{\lambda_{j}}v_{j}} \\
+                                                            & = \innerprod{Tv_{i}, v_{j}} - \innerprod{v_{i}, \conj{\lambda_{j}}v_{j}}           \\
+                                                            & = \innerprod{v_{i}, T^{*}v_{j}} - \innerprod{v_{i}, \conj{\lambda_{j}}v_{j}}       \\
+                                                            & = \innerprod{v_{i}, T^{*}v_{j} - \conj{\lambda_{j}}v_{j}}                          \\
+                                                            & = 0.
+    \end{align*}
+
+    Hence $\innerprod{v_{i}, v_{j}} = 0$, which means all pairs of eigenvectors corresponding to different eigenvalues of $T$ are orthogonal.
+
+    Because $T$ is normal, then by the complex spectral theorem, $T$ is diagonalizable. So if $\lambda_{1}, \ldots, \lambda_{m}$ are the distinct eigenvalues of $T$ then $V = E(\lambda_{1}, T)\oplus \cdots\oplus E(\lambda_{m}, T)$.
+
+    \bigskip
+    $(\Leftarrow)$ All pairs of eigenvectors corresponding to distinct eigenvalues of $T$ are orthogonal and $V = E(\lambda_{1}, T)\oplus \cdots\oplus E(\lambda_{m}, T)$, where $\lambda_{1}, \ldots, \lambda_{m}$ denote the distinct eigenvalues of $T$.
+
+    Combine orthonormal bases of $E(\lambda_{1}, T), \ldots, E(\lambda_{m}, T)$, we obtain an orthonormal basis of $V$, and each vector in this basis is an eigenvector of $T$.
+
+    The matrix of $T$ with respect to this basis is a diagonal matrix, and the matrix of $T^{*}$ with respect to this orthonormal basis is the conjugate transpose of the previous, which is again a diagonal matrix. Because two diagonal matrices commute so $T$ commutes with its adjoint map $T^{*}$. Hence $T$ is normal.
+\end{proof}
+\newpage
+
+% chapter7:sectionB:exercise16
+\begin{exercise}
+    Suppose $\mathbb{F} = \mathbb{C}$ and $E \subseteq \lmap{V}$. Prove that there is an orthonormal basis of $V$ with respect to which every element of $\mathcal{E}$ has a diagonal matrix if and only if $S$ and $T$ are commuting normal operators for all $S, T \in \mathcal{E}$.
+\end{exercise}
+
+\begin{quote}
+    This exercise extends the complex spectral theorem to the context of a collection of commuting normal operators.
+\end{quote}
+
+\begin{proof}
+    Suppose that there is an orthonormal basis of $V$ with respect to which every element of $\mathcal{E}$ has a diagonal matrix, then every element of $\mathcal{E}$ is normal and all pairs of elements of $\mathcal{E}$ are commuting.
+
+    \bigskip
+
+    Suppose that $S$ and $T$ are commuting normal operators for all $S, T \in \mathcal{E}$. By Exercise~\ref{chapter6:sectionB:exercise20}, there exists an orthonormal basis $e_{1}, \ldots, e_{n}$ of $V$ to which every operator in $\mathcal{E}$ has an upper-triangular matrix.
+
+    Let $T$ be an operator in $\mathcal{E}$ and $A$ be its matrix with respect to $e_{1}, \ldots, e_{n}$. Because $T$ is normal, then $AA^{*} = A^{*}A$, it follows that the entry in the 1st row and 1st column of $AA^{*}$ and $A^{*}A$ is
+    \[
+        \norm{A_{1,1}}^{2} = A_{1,1}\conj{A_{1,1}} + A_{1,2}\conj{A_{1,2}} + \cdots + A_{1,n}\conj{A_{1,n}} = \norm{A_{1,1}}^{2} + \norm{A_{1,2}}^{2} + \cdots + \norm{A_{1,n}}^{2}
+    \]
+
+    so $A_{1,2}, \ldots, A_{1,n}$ are zero.
+
+    Assume for every positive integer $\ell$ less than $k$, $A_{\ell, j} = 0$ if $j > \ell$. By the induction hypothesis and because $A$ is upper-triangular, the entries at row $k$, column $k$ of $AA^{*}$ and $A^{*}A$ are
+    \begin{align*}
+        A_{k,1}\conj{A_{k,1}} + \cdots + A_{k,n}\conj{A_{k,n}} & = \norm{A_{k,k}}^{2} + \cdots + \norm{A_{k,n}}^{2},                      \\
+        \conj{A_{1,k}}A_{1,k} + \cdots + \conj{A_{n,k}}A_{n,k} & = \norm{A_{1,k}}^{2} + \cdots + \norm{A_{k,k}}^{2} = \norm{A_{k,k}}^{2}.
+    \end{align*}
+
+    Identify these, we obtain that $A_{k,j} = 0$ if $j > k$. So by the principle of mathematical induction, we conclude that $A_{k, j} = 0$ if $j > k$ for every $k\in\{ 1,\ldots, n \}$. Therefore $A$ is a diagonal matrix. Thus the matrix of $T$ with respect to $e_{1}, \ldots, e_{n}$ is a diagonal matrix, which is true for every element of $\mathcal{E}$.
+\end{proof}
+\newpage
+
+% chapter7:sectionB:exercise17
+\begin{exercise}
+    Suppose $\mathbb{F} = \mathbb{R}$ and $\mathcal{E} \subseteq \lmap{V}$. Prove that there is an orthonormal basis of $V$ with respect to which every element of $\mathcal{E}$ has a diagonal matrix if and only if $S$ and $T$ are commuting self-adjoint operators for all $S, T \in \mathcal{E}$.
+\end{exercise}
+
+\begin{quote}
+    This exercise extends the real spectral theorem to the context of a collection
+    of commuting self-adjoint operators.
+\end{quote}
+
+\begin{proof}
+    If there exists an orthonormal basis of $V$ to which every element of $\mathcal{E}$ has a diagonal matrix, then every element of $\mathcal{E}$ is self-adjoint, and for all pair of self-adjoint operators $S, T\in\mathcal{E}$, $S$ commutes with $T$.
+
+    To prove the implication of the other direction, I give a proof using mathematical induction on $\dim V$.
+
+    If $\dim V = 1$, let $v$ be a nonzero vector in $V$ then $v/\norm{v}$ is an orthonormal basis of $V$ to which every element of $\mathcal{E}$ has a diagonal matrix.
+
+    Assume for every vector space of dimension less than $n$, for every $\mathcal{E}\subseteq\lmap{V}$ containing commuting self-adjoint operators, there is an orthonormal basis of $V$ to which every element of $\mathcal{E}$ has a diagonal matrix.
+
+    Let $\dim V = n$. According to the real spectral theorem, each element of $\mathcal{E}$ is diagonalizable, hence each element has an eigenvalue. Let's consider the two following cases.
+    \begin{itemize}
+        \item Every element of $\mathcal{E}$ has exactly one eigenvalue.
+
+              We can pick any orthonormal basis of $V$, and the matrix of every element of $\mathcal{E}$ with respect to this orthonormal basis is a diagonal matrix.
+        \item There exists an element of $\mathcal{E}$ having at least two eigenvalues.
+
+              Let $T$ be such an element of $\mathcal{E}$ and $\lambda_{1}, \ldots, \lambda_{m}$ be the distinct eigenvalues of $T$. By Exercise~\ref{chapter7:sectionB:exercise14}, $V = E(\lambda_{1}, T)\oplus \cdots \oplus E(\lambda_{m}, T)$.
+
+              For every element $S$ of $\mathcal{E}$, $E(\lambda_{1}, T), \ldots, E(\lambda_{m}, T)$ are invariant under $S$ because $S$ commutes with $T$.
+
+              Moreover, $E(\lambda_{1}, T), \ldots, E(\lambda_{m}, T)$ are proper subspace of $V$ because $m\geq 2$.
+
+              By the induction hypothesis, for every $k\in\{1,\ldots, m\}$ there exists an orthonormal basis of $E(\lambda_{k}, T)$ such that every vector in this basis is an eigenvector of every element of $\mathcal{E}$ (restricted to $E(\lambda_{k}, T)$, of course).
+
+              On the other hand, a vector in $E(\lambda_{i}, T)$ and a vector in $E(\lambda_{j}, T)$ are orthogonal. So by combining all the above orthonormal bases of $E(\lambda_{1}, T), \ldots, E(\lambda_{m}, T)$, we obtain an orthonormal basis of $V$, of which vectors are eigenvectors of every element in $\mathcal{E}$.
+
+              Therefore every element of $\mathcal{E}$ has a diagonal matrix with respect to this orthonormal basis.
+    \end{itemize}
+
+    Thus by the principle of mathematical induction, there is an orthonormal basis of $V$, to which every element of $\mathcal{E}$ has a diagonal matrix.
+\end{proof}
+\newpage
+
+% chapter7:sectionB:exercise18
+\begin{exercise}
+    Give an example of a real inner product space $V$, an operator $T \in \lmap{V}$, and real numbers $b, c$ with $b^{2} < 4c$ such that
+    \[
+        T^{2} + bT + cI
+    \]
+
+    is not invertible.
+\end{exercise}
+
+\begin{quote}
+    This exercise shows that the hypothesis that $T$ is self-adjoint cannot be deleted in 7.26, even for real vector spaces.
+\end{quote}
+
+\begin{proof}
+    Here is an example.
+
+    Let $T(x, y) = (y, -x)$, then $T^{2}(x, y) = T(y, -x) = (-x, -y)$.
+
+    Therefore $T^{2} + I = 0$, $b^{2} - 4c = 0 - 4 = -4 < 0$, and $T^{2} + I$ is not invertible.
+\end{proof}
+\newpage
+
+% chapter7:sectionB:exercise19
+\begin{exercise}
+    Suppose $T \in \lmap{V}$ is self-adjoint and $U$ is a subspace of $V$ that is invariant under $T$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Prove that $U^{\bot}$ is invariant under $T$.
+        \item Prove that $T\vert_{U}\in \lmap{U}$ is self-adjoint.
+        \item Prove that $T\vert_{U^{\bot}}\in \lmap{U^{\bot}}$ is self-adjoint.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Let $w$ be a vector in $U^{\bot}$ and $u$ be a vector in $U$. Due to the definition of adjoint map, $\innerprod{u, T^{*}w} = \innerprod{Tu, w}$. Because $U$ is invariant under $T$, so $Tu$ is in $U$, therefore $\innerprod{Tu, w} = 0$. Hence $\innerprod{u, Tw} = \innerprod{u, T^{*}w} = 0$ for every $u\in U$ and $w\in U^{\bot}$, so $Tw\in U^{\bot}$ for every $w\in U^{\bot}$. Thus $U^{\bot}$ is invariant under $T$.
+        \item Let $u_{1}, u_{2}$ be vectors in $U$. Because $U$ is invariant under $T$ and $T$ is self-adjoint
+              \[
+                  \innerprod{u_{1}, {(T\vert_{U})}^{*}u_{2}} = \innerprod{T\vert_{U}u_{1}, u_{2}} = \innerprod{Tu_{1}, u_{2}} = \innerprod{u_{1}, Tu_{2}} = \innerprod{u_{1}, T\vert_{U}u_{2}}.
+              \]
+
+              Therefore ${(T\vert_{U})}^{*} = T\vert_{U}$, hence $T\vert_{U}\in\lmap{U}$ is self-adjoint.
+        \item In (b), replace $U$ with $U^{\bot}$, which is invariant under $T$, we conclude that $T\vert_{U^{\bot}}\in \lmap{U^{\bot}}$ is self-adjoint.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter7:sectionB:exercise20
+\begin{exercise}
+    Suppose $T \in \lmap{V}$ is normal and $U$ is a subspace of $V$ that is invariant under $T$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Prove that $U^{\bot}$ is invariant under $T$.
+        \item Prove that $U$ is invariant under $T^{*}$.
+        \item Prove that ${(T\vert_{U})}^{*} = {(T^{*})\vert_{U}}$.
+        \item Prove that $T\vert_{U}\in \lmap{U}$ and $T\vert_{U^{\bot}}\in \lmap{U^{\bot}}$ are normal operators.
+    \end{enumerate}
+\end{exercise}
+
+\begin{quote}
+    This exercise can be used to give yet another proof of the complex spectral theorem (use induction on $\dim V$ and the result that $T$ has an eigenvector).
+\end{quote}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Let $e_{1}, \ldots, e_{m}$ be an orthonormal basis of $U$, and $f_{1}, \ldots, f_{n}$ be an orthonormal basis of $U^{\bot}$. Let $A$ be the matrix of $T$ with respect to this orthonormal basis $e_{1}, \ldots, e_{m}, f_{1}, \ldots, f_{n}$.
+              \[
+                  A =
+                  \begin{pmatrix}
+                      A_{1,1} & \cdots & A_{1,m} & A_{1,m+1}   & \cdots & A_{1,m+n}   \\
+                      \vdots  &        & \vdots  & \vdots      &        & \vdots      \\
+                      A_{m,1} & \cdots & A_{m,m} & A_{m,m+1}   & \cdots & A_{m,m+n}   \\
+                      0       & \cdots & 0       & A_{m+1,m+1} & \cdots & A_{m+1,m+n} \\
+                      \vdots  &        & \vdots  & \vdots      &        & \vdots      \\
+                      0       & \cdots & 0       & A_{m+n,m+1} & \cdots & A_{m+n,m+n}
+                  \end{pmatrix}
+              \]
+
+              Because $U$ is invariant under $T$, then $A_{j,k} = 0$ for entries that simultaneously satisfy $m+1\leq j\leq m+n$ and $1\leq k\leq m$. The matrix of $T^{*}$ with respect to the same orthonormal basis is $A^{*}$.
+
+              Because $AA^{*} = A^{*}A$, then then ${(AA^{*})}_{r,r} = {(A^{*}A)}_{r,r}$ where $1\leq r\leq m$. By the definition of matrix multiplication, we identity the entries at row $r$, column $r$ of $AA^{*}$, $A^{*}A$, and obtain that
+              \[
+                  \norm{A_{r,1}}^{2} + \cdots + \norm{A_{r,m}}^{2} + \norm{A_{r,m+1}}^{2} + \cdots + \norm{A_{r,m+n}}^{2} = \norm{A_{r,1}}^{2} + \cdots + \norm{A_{r,m}}^{2}
+              \]
+
+              Therefore $A_{r,m+1} = \cdots = A_{r,m+n} = 0$. Hence
+              \[
+                  A =
+                  \begin{pmatrix}
+                      A_{1,1} & \cdots & A_{1,m} & 0           & \cdots & 0           \\
+                      \vdots  &        & \vdots  & \vdots      &        & \vdots      \\
+                      A_{m,1} & \cdots & A_{m,m} & 0           & \cdots & 0           \\
+                      0       & \cdots & 0       & A_{m+1,m+1} & \cdots & A_{m+1,m+n} \\
+                      \vdots  &        & \vdots  & \vdots      &        & \vdots      \\
+                      0       & \cdots & 0       & A_{m+n,m+1} & \cdots & A_{m+n,m+n}
+                  \end{pmatrix}.
+              \]
+
+              So $U^{\bot}$ is invariant under $T$.
+        \item $U^{\bot}$ is invariant under $T$ so $U = {(U^{\bot})}^{\bot}$ is invariant under $T^{*}$.
+        \item Let $u_{1}, u_{2}$ be vectors in $U$.
+              \begin{align*}
+                  \innerprod{u_{1}, {(T\vert_{U})}^{*}u_{2}} & = \innerprod{T\vert_{U}u_{1}, u_{2}}        \\
+                                                             & = \innerprod{Tu_{1}, u_{2}}                 \\
+                                                             & = \innerprod{u_{1}, T^{*}u_{2}}             \\
+                                                             & = \innerprod{u_{1}, (T^{*})\vert_{U}u_{2}}.
+              \end{align*}
+
+              Hence ${(T\vert_{U})}^{*} = {(T^{*})}\vert_{U}$.
+        \item For every vector $u\in U$
+              \begin{align*}
+                  (T\vert_{U}{(T\vert_{U})}^{*})u & = (T\vert_{U}{(T^{*})}\vert_{U})u & \text{(due to (c))} \\
+                                                  & = T\vert_{U}(T^{*}u)                                    \\
+                                                  & = T(T^{*}u) = (TT^{*})u                                 \\
+                                                  & = (T^{*}T)u                                             \\
+                                                  & = (T^{*})(T\vert_{U}u)                                  \\
+                                                  & = ({(T^{*})\vert_{U}}T\vert_{U})u                       \\
+                                                  & = ({(T\vert_{U})}^{*}T\vert_{U})u & \text{(due to (c))}
+              \end{align*}
+
+              so $T\vert_{U}$ is normal. Analogously, $T\vert_{U^{\bot}}$ is normal.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter7:sectionB:exercise21
+\begin{exercise}
+    Suppose that $T$ is a self-adjoint operator on a finite-dimensional inner product space and that $2$ and $3$ are the only eigenvalues of $T$. Prove that
+    \[
+        T^{2} - 5T + 6I = 0.
+    \]
+\end{exercise}
+
+\begin{proof}
+    $T$ is self-adjoint so $T$ is also normal. By the real and complex spectral theorems, $T$ is diagonalizable.
+
+    Because $T$ is diagonalizable, the minimal polynomial of $T$ is a product of distinct monic polynomial of degree $1$. Moreover, the eigenvalues of $T$ are precisely the roots of the minimal polynomial of $T$. $2$ and $3$ are the only eigenvalues of $T$.
+
+    Therefore the minimal polynomial of $T$ is $(z - 2)(z - 3)$. Thus $T^{2} - 5T + 6I = 0$.
+\end{proof}
+\newpage
+
+% chapter7:sectionB:exercise22
+\begin{exercise}
+    Give an example of an operator $T \in \lmap{\mathbb{C}^{3}}$ such that $2$ and $3$ are the only eigenvalues of $T$ and $T^{2} - 5T + 6I\ne 0$.
+\end{exercise}
+
+\begin{proof}
+    Here is an example.
+
+    Let $T\in\lmap{\mathbb{C}^{3}}$ such that the matrix of $T$ with respect to the standard basis is
+    \[
+        \begin{pmatrix}
+            0 & 0 & 12  \\
+            1 & 0 & -16 \\
+            0 & 1 & 7
+        \end{pmatrix}
+    \]
+
+    then the minimal polynomial of $T$ is ${(z-2)}^{2}(z-3)$. Hence $T^{2} - 5T + 6I\ne 0$.
+\end{proof}
+\newpage
+
+% chapter7:sectionB:exercise23
+\begin{exercise}
+    Suppose $T \in \lmap{V}$ is self-adjoint, $\lambda \in \mathbb{F}$, and $\varepsilon > 0$. Suppose there exists $v \in V$ such that $\norm{v} = 1$ and
+    \[
+        \norm{Tv - \lambda v} < \varepsilon.
+    \]
+
+    Prove that $T$ has an eigenvalue $\lambda'$ such that $\abs{\lambda - \lambda'} < \varepsilon$.
+\end{exercise}
+
+\begin{quote}
+    This exercise shows that for a self-adjoint operator, a number that is close to satisfying an equation that would make it an eigenvalue is close to an eigenvalue.
+\end{quote}
+
+\begin{proof}
+    $T$ is self-adjoint so $T$ is also normal. By the real and complex spectral theorems, there exists an orthonormal basis of $V$ of which vectors are eigenvectors of $T$. Let the orthonormal basis be $e_{1}, \ldots, e_{n}$ and $Te_{k} = \lambda_{k}e_{k}$ for each $k\in\{1,\ldots,n\}$.
+
+    There are scalars $a_{1}, \ldots, a_{n}$ such that $v = a_{1}e_{1} + \cdots + a_{n}e_{n}$. Because $\norm{v} = 1$, it follows that $\abs{a_{1}}^{2} + \cdots + \abs{a_{n}}^{2} = 1$.
+    \begin{align*}
+        \norm{Tv - \lambda v} & = \norm{a_{1}\lambda_{1}e_{1} + \cdots + a_{n}\lambda_{n}e_{n} - \lambda (a_{1}e_{1} + \cdots + a_{n}e_{n})} \\
+                              & = \norm{a_{1}(\lambda_{1} - \lambda)e_{1} + \cdots + a_{n}(\lambda_{n} - \lambda)e_{n}} < \varepsilon.
+    \end{align*}
+
+    Assume $\abs{\lambda_{k} - \lambda}\geq\varepsilon$ for every $k\in\{ 1,\ldots,n \}$. By the Pythagorean theorem
+    \begin{align*}
+        \norm{Tv - \lambda v} & = \norm{a_{1}(\lambda_{1} - \lambda)e_{1} + \cdots + a_{n}(\lambda_{n} - \lambda)e_{n}}                           \\
+                              & = \sqrt{\norm{a_{1}(\lambda_{1} - \lambda)e_{1}}^{2} + \cdots + \norm{a_{n}(\lambda_{n} - \lambda)e_{n}}^{2}}     \\
+                              & = \sqrt{\abs{a_{1}}^{2}\abs{\lambda_{1} - \lambda}^{2} + \cdots + \abs{a_{n}}^{2}\abs{\lambda_{n} - \lambda}^{2}} \\
+                              & \geq \sqrt{(\abs{a_{1}}^{2} + \cdots + \abs{a_{n}}^{2})\varepsilon^{2}} = \varepsilon
+    \end{align*}
+
+    and this contracts $\norm{Tv - \lambda v} < \varepsilon$. Hence there exists $k\in\{1,\ldots, n\}$ such that $\abs{\lambda - \lambda_{k}} < \varepsilon$.
+
+    Thus $T$ has an eigenvalue $\lambda'$ such that $\abs{\lambda - \lambda'} < \varepsilon$.
+\end{proof}
+\newpage
+
+% chapter7:sectionB:exercise24
+\begin{exercise}
+    Suppose $U$ is a finite-dimensional vector space and $T\in\lmap{U}$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Suppose $\mathbb{F} = \mathbb{R}$. Prove that $T$ is diagonalizable if and only if there is a basis of $U$ such that the matrix of $T$ with respect to this basis equals its transpose.
+        \item Suppose $\mathbb{F} = \mathbb{C}$. Prove that $T$ is diagonalizable if and only if there is a basis of $U$ such that the matrix of $T$ with respect to this basis commutes with its conjugate transpose.
+    \end{enumerate}
+\end{exercise}
+
+\begin{quote}
+    This exercise adds another equivalence to the list of conditions equivalent to diagonalizability in 5.55.
+\end{quote}
+
+\begin{proof}
+    Let $n = \dim U$.
+
+    \begin{enumerate}[label={(\alph*)}]
+        \item Suppose $T$ is diagonalizable, then there exists a basis of $U$ to which $T$ has a diagonal matrix $A$. Because $A$ is a diagonal matrix with real entries, then $A$ equals its transpose.
+
+              Suppose there is a basis $u_{1}, \ldots, u_{n}$ of $U$ such that the matrix $A$ of $T$ with respect to this basis equals its transpose. Let $S\in\lmap{\mathbb{F}^{n}}$ such that $S: x\mapsto Ax$ then $A$ is the matrix of $S$ with respect to the standard basis of $\mathbb{F}^{n}$. The matrix of $S^{*}$ with respect to the standard basis (hence also orthonormal) of $\mathbb{F}^{n}$ is the conjugate transpose of $A$. However, all entries of $A$ are real numbers and $A = A^{\top}$ so $A = A^{*}$. Therefore $S$ is a self-adjoint operator on $\lmap{\mathbb{F}^{n}}$.
+
+              By the real spectral theorem, $S$ is diagonalizable and there exists an orthonormal basis $f_{1}, \ldots, f_{n}$ of $\mathbb{F}^{n}$ to which the matrix of $S$ is diagonal. Let $C = \mathcal{M}(I, (f_{1}, \ldots, f_{n}), (e_{1}, \ldots, e_{n}))$, then
+              \[
+                  \mathcal{M}(S, (f_{1},\ldots, f_{n})) = C^{-1}AC
+              \]
+
+              Because $C$ is invertible, there exists a basis $v_{1}, \ldots, v_{n}$ of $U$ such that
+              \[
+                  C = \mathcal{M}(I, (v_{1}, \ldots, v_{n}), (u_{1}, \ldots, u_{n})).
+              \]
+
+              Then
+              \[
+                  \mathcal{M}(T, (v_{1}, \ldots, v_{n})) = C^{-1}AC = \mathcal{M}(S, (f_{1},\ldots, f_{n}))
+              \]
+
+              which is a diagonal matrix. Hence $T$ is diagonalizable.
+        \item Suppose $T$ is diagonalizable, then there exists a basis of $U$ to which $T$ has a diagonal matrix $A$. Because $A$ is a diagonal matrix, then so is $A^{*}$ and $A$ commutes with $A^{*}$.
+
+              Suppose there is a basis $u_{1}, \ldots, u_{n}$ of $U$ such that the matrix of $T$ with respect to this basis commutes with its conjugate transpose. Let $S\in\lmap{\mathbb{F}^{n}}$ such that $S: x\mapsto Ax$ then $A$ is the matrix of $S$ with respect to the standard basis (hence also orthonormal) of $\mathbb{F}^{n}$. The matrix of $S^{*}$ with respect to the standard basis of $\mathbb{F}^{n}$ is $A^{*}$. $A$ commutes with $A^{*}$ so $S$ is normal.
+
+              By the complex spectral theorem, $S$ is diagonalizable and there exists an orthonormal basis $f_{1}, \ldots, f_{n}$ of $\mathbb{F}^{n}$ to which the matrix of $S$ is diagonal. Let $C = \mathcal{M}(I, (f_{1}, \ldots, f_{n}), (e_{1}, \ldots, e_{n}))$, then
+              \[
+                  \mathcal{M}(S, (f_{1},\ldots, f_{n})) = C^{-1}AC
+              \]
+
+              Because $C$ is invertible, there exists a basis $v_{1}, \ldots, v_{n}$ of $U$ such that
+              \[
+                  C = \mathcal{M}(I, (v_{1}, \ldots, v_{n}), (u_{1}, \ldots, u_{n})).
+              \]
+
+              Then
+              \[
+                  \mathcal{M}(T, (v_{1}, \ldots, v_{n})) = C^{-1}AC = \mathcal{M}(S, (f_{1},\ldots, f_{n}))
+              \]
+
+              which is a diagonal matrix. Hence $T$ is diagonalizable.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter7:sectionB:exercise25
+\begin{exercise}
+    Suppose that $T \in \lmap{V}$ and there is an orthonormal basis $e_{1}, \ldots, e_{n}$ of $V$ consisting of eigenvectors of $T$, with corresponding eigenvalues $\lambda_{1}, \ldots, \lambda_{n}$. Show that if $k \in \{1, \ldots, n\}$, then the pseudoinverse $T^{\dagger}$ satisfies the equation
+    \[
+        T^{\dagger}e_{k} = \begin{cases}
+            \frac{1}{\lambda_{k}}e_{k} & \text{if $\lambda_{k}\ne 0$}, \\
+            0                          & \text{if $\lambda_{k} = 0$}.
+        \end{cases}
+    \]
+\end{exercise}
+
+\begin{proof}
+    According to the definition of the pseudoinverse map
+    \[
+        T^{\dagger} = {(T\vert_{{(\kernel T)}^{\bot}})}^{-1}P_{\range{T}}
+    \]
+
+    Let $v$ be a vector in $V$. $v = a_{1}e_{1} + \cdots + a_{n}e_{n}$.
+    \[
+        Tv = T(a_{1}e_{1} + \cdots + a_{n}e_{n}) = \sum_{k: \lambda_{k}\ne 0} a_{k}\lambda_{k}e_{k}
+    \]
+
+    so $\range T$ is the span of $e_{k}$ where $\lambda_{k}\ne 0$. $\kernel{T}$ is the span of $e_{k}$ where $\lambda_{k} = 0$. Therefore ${(\kernel{T})}^{\bot} = \range{T}$.
+
+    If $\lambda_{k}\ne 0$
+    \begin{align*}
+        T^{\dagger}e_{k} & = ({(T\vert_{{(\kernel T)}^{\bot}})}^{-1}P_{\range{T}})e_{k}                                               \\
+                         & = {(T\vert_{{(\kernel T)}^{\bot}})}^{-1}e_{k}                                                              \\
+                         & = \frac{1}{\lambda_{k}}e_{k}                                 & \text{(since $Te_{k} = \lambda_{k}e_{k}$)}.
+    \end{align*}
+
+    If $\lambda_{k} = 0$, $T^{\dagger}e_{k} = ({(T\vert_{{(\kernel T)}^{\bot}})}^{-1}P_{\range{T}})e_{k} = {(T\vert_{{(\kernel T)}^{\bot}})}^{-1}(0) = 0$.
+
+    Thus
+    \[
+        T^{\dagger}e_{k} = \begin{cases}
+            \frac{1}{\lambda_{k}}e_{k} & \text{if $\lambda_{k}\ne 0$}, \\
+            0                          & \text{if $\lambda_{k} = 0$}.
+        \end{cases}
+    \]
+\end{proof}
+\newpage
 
 \section{Positive Operators}
 
