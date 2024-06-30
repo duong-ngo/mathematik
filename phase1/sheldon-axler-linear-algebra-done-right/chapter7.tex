@@ -1333,7 +1333,7 @@
 \newpage
 
 % chapter7:sectionB:exercise16
-\begin{exercise}
+\begin{exercise}\label{chapter7:sectionB:exercise16}
     Suppose $\mathbb{F} = \mathbb{C}$ and $E \subseteq \lmap{V}$. Prove that there is an orthonormal basis of $V$ with respect to which every element of $\mathcal{E}$ has a diagonal matrix if and only if $S$ and $T$ are commuting normal operators for all $S, T \in \mathcal{E}$.
 \end{exercise}
 
@@ -1366,7 +1366,7 @@
 \newpage
 
 % chapter7:sectionB:exercise17
-\begin{exercise}
+\begin{exercise}\label{chapter7:sectionB:exercise17}
     Suppose $\mathbb{F} = \mathbb{R}$ and $\mathcal{E} \subseteq \lmap{V}$. Prove that there is an orthonormal basis of $V$ with respect to which every element of $\mathcal{E}$ has a diagonal matrix if and only if $S$ and $T$ are commuting self-adjoint operators for all $S, T \in \mathcal{E}$.
 \end{exercise}
 
@@ -1432,7 +1432,7 @@
 \newpage
 
 % chapter7:sectionB:exercise19
-\begin{exercise}
+\begin{exercise}\label{chapter7:sectionB:exercise19}
     Suppose $T \in \lmap{V}$ is self-adjoint and $U$ is a subspace of $V$ that is invariant under $T$.
     \begin{enumerate}[label={(\alph*)}]
         \item Prove that $U^{\bot}$ is invariant under $T$.
@@ -1669,7 +1669,7 @@
 \newpage
 
 % chapter7:sectionB:exercise25
-\begin{exercise}
+\begin{exercise}\label{chapter7:sectionB:exercise25}
     Suppose that $T \in \lmap{V}$ and there is an orthonormal basis $e_{1}, \ldots, e_{n}$ of $V$ consisting of eigenvectors of $T$, with corresponding eigenvalues $\lambda_{1}, \ldots, \lambda_{n}$. Show that if $k \in \{1, \ldots, n\}$, then the pseudoinverse $T^{\dagger}$ satisfies the equation
     \[
         T^{\dagger}e_{k} = \begin{cases}
@@ -1712,6 +1712,676 @@
 \newpage
 
 \section{Positive Operators}
+
+% chapter7:sectionC:exercise1
+\begin{exercise}
+    Suppose $T \in \lmap{V}$. Prove that if both $T$ and $-T$ are positive operators, then $T = 0$.
+\end{exercise}
+
+\begin{proof}
+    $T$ and $-T$ are positive operators, so $\innerprod{Tv, v}\geq 0$ and $\innerprod{-Tv, v}\geq 0$ for every $v\in V$. Therefore $\innerprod{Tv, v}\geq 0$ and $\innerprod{Tv, v}\leq 0$ for every $v\in V$. So $\innerprod{Tv, v} = 0$ for every $v\in V$.
+
+    Since $T$ is self-adjoint (because $T$ is a positive operator) and $\innerprod{Tv, v} = 0$ for every $v\in V$, then $T = 0$.
+\end{proof}
+\newpage
+
+% chapter7:sectionC:exercise2
+\begin{exercise}
+    Suppose $T\in\lmap{\mathbb{F}^{4}}$ is the operator whose matrix (with respect to the standard basis) is
+    \[
+        \begin{pmatrix}
+            2  & -1 & 0  & 0  \\
+            -1 & 2  & -1 & 0  \\
+            0  & -1 & 2  & -1 \\
+            0  & 0  & -1 & 2
+        \end{pmatrix}.
+    \]
+
+    Show that $T$ is an invertible positive operator.
+\end{exercise}
+
+\begin{proof}
+    Because the matrix of $T$ with respect to the standard basis is symmetric and all entries are real numbers, then $T$ is self-adjoint.
+    \[
+        \begin{pmatrix}
+            2  & -1 & 0  & 0  \\
+            -1 & 2  & -1 & 0  \\
+            0  & -1 & 2  & -1 \\
+            0  & 0  & -1 & 2
+        \end{pmatrix}
+        \begin{pmatrix}
+            z_{1} \\
+            z_{2} \\
+            z_{3} \\
+            z_{4}
+        \end{pmatrix} =
+        \begin{pmatrix}
+            2z_{1} - z_{2}          \\
+            -z_{1} + 2z_{2} - z_{3} \\
+            -z_{2} + 2z_{3} - z_{4} \\
+            -z_{3} + 2z_{4}
+        \end{pmatrix}
+    \]
+
+    So
+    \begin{align*}
+          & \innerprod{T(z_{1}, z_{2}, z_{3}, z_{4}), (z_{1}, z_{2}, z_{3}, z_{4})}                                                                                                                                  \\
+        = & (2z_{1} - z_{2})\conj{z_{1}} + (2z_{2} - z_{1} - z_{3})\conj{z_{2}} + (2z_{3} - z_{2} - z_{4})\conj{z_{3}} + (2z_{4} - z_{3})\conj{z_{4}}                                                                \\
+        = & 2\abs{z_{1}}^{2} + 2\abs{z_{2}}^{2} + 2\abs{z_{3}}^{2} + 2\abs{z_{4}}^{2} - (z_{2}\conj{z_{1}} + z_{1}\conj{z_{2}}) - (\conj{z_{2}}z_{3} + z_{2}\conj{z_{3}}) - (z_{4}\conj{z_{3}} + z_{3}\conj{z_{4}}).
+    \end{align*}
+
+    By Cauchy-Schwarz's inequality
+    \[
+        \begin{split}
+            \abs{z_{2}\conj{z_{1}} + z_{1}\conj{z_{2}}} = \abs{\innerprod{(z_{1}, z_{2}), (z_{2}, z_{1})}} \leq \abs{z_{1}}^{2} + \abs{z_{2}}^{2} \\
+            \abs{\conj{z_{2}}z_{3} + z_{2}\conj{z_{3}}} = \abs{\innerprod{(z_{2}, z_{3}), (z_{3}, z_{2})}} \leq \abs{z_{2}}^{2} + \abs{z_{3}}^{2} \\
+            \abs{\conj{z_{3}}z_{4} + z_{3}\conj{z_{4}}} = \abs{\innerprod{(z_{3}, z_{4}), (z_{4}, z_{3})}} \leq \abs{z_{3}}^{2} + \abs{z_{4}}^{2}
+        \end{split}
+    \]
+
+    therefore
+    \[
+        \innerprod{T(z_{1}, z_{2}, z_{3}, z_{4}), (z_{1}, z_{2}, z_{3}, z_{4})} \geq \abs{z_{1}}^{2} + \abs{z_{4}}^{2} \geq 0.
+    \]
+
+    $\innerprod{T(z_{1}, z_{2}, z_{3}, z_{4}), (z_{1}, z_{2}, z_{3}, z_{4})} = 0$ if and only if $\abs{z_{1}} = \abs{z_{2}} = \abs{z_{3}} = \abs{z_{4}} = 0$. Hence $T$ is a positive invertible operator.
+\end{proof}
+\newpage
+
+% chapter7:sectionC:exercise3
+\begin{exercise}
+    Suppose $n$ is a positive integer and $T\in\lmap{\mathbb{F}^{n}}$ is the operator whose matrix (with respect to the standard basis) consists of all $1$'s. Show that $T$ is a positive operator.
+\end{exercise}
+
+\begin{proof}
+    $T$ is self-adjoint, since the matrix of $T$ with respect to the standard basis is symmetric and all of its entries are real numbers.
+
+    Let $S$ be the operator on $\mathbb{F}^{n}$ whose matrix with respect to the standard basis consists of all $\frac{1}{\sqrt{n}}$.
+    \begin{align*}
+        S^{2}e_{k} & = S\left(\frac{1}{\sqrt{n}}e_{1} + \cdots + \frac{1}{\sqrt{n}}e_{n}\right)                                                                                                                                                                      \\
+                   & = \underbrace{\frac{1}{\sqrt{n}}\left(\frac{1}{\sqrt{n}}e_{1} + \cdots + \frac{1}{\sqrt{n}}e_{n}\right) + \cdots + \frac{1}{\sqrt{n}}\left(\frac{1}{\sqrt{n}}e_{1} + \cdots + \frac{1}{\sqrt{n}}e_{n}\right)}_{\text{$n$ pairs of parentheses}} \\
+                   & = e_{1} + \cdots + e_{n}                                                                                                                                                                                                                        \\
+                   & = Te_{k}.
+    \end{align*}
+
+    Hence $T = S^{2}$. Moreover, $S$ is self-adjoint. So $T$ is a positive operator.
+\end{proof}
+\newpage
+
+% chapter7:sectionC:exercise4
+\begin{exercise}
+    Suppose $n$ is an integer with $n > 1$. Show that there exists an $n$-by-$n$ matrix $A$ such that all of the entries of $A$ are positive numbers and $A = A^{*}$, but the operator on $\mathbb{F}^{n}$ whose matrix (with respect to the standard basis) equals $A$ is not a positive operator.
+\end{exercise}
+
+\begin{proof}
+    Let $A_{j,j} = 1$ and $A_{j,k} = 2$ if $j\ne k$ and $(x_{1}, \ldots, x_{n})\in \mathbb{F}^{n}$.
+    \begin{align*}
+        \innerprod{Ax, x} & = \sum^{n}_{j=1}\left(x_{j}\conj{x_{j}} + (2x_{1} + \cdots + 2x_{n})\conj{x_{j}} - 2x_{j}\conj{x_{j}}\right) \\
+                          & = \sum^{n}_{j=1}\left(-x_{j}\conj{x_{j}} + (2x_{1} + \cdots + 2x_{n})\conj{x_{j}}\right)                     \\
+                          & = 2\left(\sum^{n}_{j=1}x_{j}\right)\left(\sum^{n}_{j=1}\conj{x_{j}}\right) - \sum^{n}_{j=1}\abs{x_{j}}^{2}   \\
+                          & = 2\abs{\sum^{n}_{j=1}x_{j}}^{2} - \sum^{n}_{j=1}\abs{x_{j}}^{2}
+    \end{align*}
+
+    If $n$ is even, let $x_{1} = 1, x_{2} = -1, \ldots, x_{n-1} = 1, x_{n} = -1$, then $\innerprod{Ax, x} = -n < 0$.
+
+    If $n$ is odd, let $x_{1} = 1, x_{2} = -1, \ldots, x_{n-1} = -1, x_{n} = 1$, then $\innerprod{Ax, x} = 2 - n < 0$ (since $n > 1$ and $n$ is odd).
+
+    So the operator on $\mathbb{F}^{n}$ whose matrix equals the chosen matrix $A$ is not a positive operator.
+\end{proof}
+\newpage
+
+% chapter7:sectionC:exercise5
+\begin{exercise}
+    Suppose $T\in\lmap{V}$ is self-adjoint. Prove that $T$ is a positive operator if and only if for every orthonormal basis $e_{1}, \ldots, e_{n}$ of $V$, all entries on the diagonal of $\mathcal{M}(T, (e_{1}, \ldots, e_{n}))$ are nonnegative numbers.
+\end{exercise}
+
+\begin{proof}
+    $(\Rightarrow)$ $T$ is a positive operator.
+
+    Let $e_{1}, \ldots, e_{n}$ be an orthonormal basis of $V$. The entries on the diagonal of $\mathcal{M}(T, (e_{1}, \ldots, e_{n}))$ are $\innerprod{Te_{i}, e_{i}}$, which are nonnegative numbers, according to the definition of positive operator.
+
+    \bigskip
+    $(\Leftarrow)$ For every orthonormal basis $e_{1}, \ldots, e_{n}$ of $V$, all entries on the diagonal of $\mathcal{M}(T, (e_{1}, \ldots, e_{n}))$ are nonnegative numbers.
+
+    Let $v$ be a nonzero vector of $V$ then $f_{1} = v/\norm{v}$ is an orthonormal list of $V$. Extend this list to an orthonormal basis of $V$, we obtain $f_{1}, \ldots, f_{n}$. The entry in the first row, first column of the matrix of $T$ with respect to $f_{1}, \ldots, f_{n}$ is $\innerprod{Tf_{1}, f_{1}}$.
+    \[
+        \innerprod{Tv, v} = \norm{v}^{2}\innerprod{T\left(\frac{v}{\norm{v}}\right), \frac{v}{\norm{v}}} = \norm{v}^{2}\innerprod{Tf_{1}, f_{1}}\geq 0.
+    \]
+
+    So $\innerprod{Tv, v}\geq 0$ for every nonzero vector $v\in V$. Moreover, $\innerprod{T(0), 0} = 0$. Hence $\innerprod{Tv, v}\geq 0$ for every vector $v\in V$. Thus $T$ is a positive operator.
+\end{proof}
+\newpage
+
+% chapter7:sectionC:exercise6
+\begin{exercise}\label{chapter7:sectionC:exercise6}
+    Prove that the sum of two positive operators on $V$ is a positive operator.
+\end{exercise}
+
+\begin{proof}
+    Let $S, T$ be two positive operators on $V$, then $S, T$ are self-adjoint. Therefore $S + T$ is also a self-adjoint operator.
+
+    Let $v$ be a vector in $V$.
+    \[
+        \innerprod{(S + T)v, v} = \innerprod{Sv + Tv, v} = \innerprod{Sv, v} + \innerprod{Tv, v}.
+    \]
+
+    Because $\innerprod{Tv, v}\geq 0$ and $\innerprod{Sv, v}\geq 0$, it follows that $\innerprod{(S + T)v, v}\geq 0$. Thus $S + T$ is a positive operator.
+\end{proof}
+\newpage
+
+% chapter7:sectionC:exercise7
+\begin{exercise}
+    Suppose $S \in \lmap{V}$ is an invertible positive operator and $T\in\lmap{V}$ is a positive operator. Prove that $S + T$ is invertible.
+\end{exercise}
+
+\begin{proof}
+    By Exercise~\ref{chapter7:sectionC:exercise6}, $S + T$ is a positive operator.
+
+    Assume a vector $v\in V$ satisfies $\innerprod{(S + T)v, v} = 0$, then $\innerprod{Sv, v} + \innerprod{Tv, v} = \innerprod{(S + T)v, v} = 0$. Because $\innerprod{Sv, v}\geq 0$ and $\innerprod{Tv, v}\geq 0$, it follows that $\innerprod{Sv, v} = \innerprod{Tv, v} = 0$. $S$ is an invertible positive operator, so $v = 0$. Hence $\innerprod{(S + T)v, v} = 0$ if and only if $v = 0$. Thus $S + T$ is a positive invertible operator.
+\end{proof}
+\newpage
+
+% chapter7:sectionC:exercise8
+\begin{exercise}
+    Suppose $T \in \lmap{V}$. Prove that $T$ is a positive operator if and only if the pseudoinverse $T^{\dagger}$ is a positive operator.
+\end{exercise}
+
+\begin{proof}
+    If $T$ is a positive operator, then $T$ is self-adjoint, and hence normal. By the real and complex spectral theorems, there exists an orthonormal basis $e_{1}, \ldots, e_{n}$ of $V$ where each of these vectors are eigenvectors of $T$. Let $Te_{k} = \lambda_{k}e_{k}$ for each $k\in\{1,\ldots,n\}$. Because $T$ is a positive operator, then $T$ is self-adjoint and $\lambda_{k}$ is a nonnegative real number for each $k\in\{1,\ldots,n\}$. By Exercise~\ref{chapter7:sectionB:exercise25}
+    \[
+        T^{\dagger}e_{k} = \begin{cases}
+            \frac{1}{\lambda_{k}}e_{k} & \text{if $\lambda_{k}\ne 0$}, \\
+            0                          & \text{if $\lambda_{k} = 0$}.
+        \end{cases}
+    \]
+
+    Therefore $T^{\dagger}$ is also self-adjoint and all eigenvalues of $T^{\dagger}$ are nonnegative. Thus $T^{\dagger}$ is a positive operator.
+
+    If $T^{\dagger}$ is a positive operator, then due to the previous implication, we conclude that ${(T^{\dagger})}^{\dagger}$ is a positive operator. By Exericse~\ref{chapter6:sectionC:exercise23}, ${(T^{\dagger})}^{\dagger} = T$, so $T$ is a positive operator.
+\end{proof}
+\newpage
+
+% chapter7:sectionC:exercise9
+\begin{exercise}
+    Suppose $T \in \lmap{V}$ is a positive operator and $S \in \lmap{W, V}$. Prove that $S^{*}TS$ is a positive operator on $W$.
+\end{exercise}
+
+\begin{proof}
+    The adjoint map of $S^{*}TS$ is $S^{*}T^{*}{(S^{*})}^{*} = S^{*}T^{*}S$. Moreover, $T$ is self-adjoint, so $T = T^{*}$. Therefore $S^{*}T^{*}S = S^{*}TS$. Hence $S^{*}TS$ is self-adjoint.
+
+    Let $w$ be a vector in $W$.
+    \begin{align*}
+        \innerprod{(S^{*}TS)w, w} & = \innerprod{(TS)w, Sw}        & \text{(definition of adjoint map)}  \\
+                                  & = \innerprod{T(Sw), Sw} \geq 0 & \text{($T$ is a positive operator)}
+    \end{align*}
+
+    Hence $S^{*}TS$ is a positive operator.
+\end{proof}
+\newpage
+
+% chapter7:sectionC:exercise10
+\begin{exercise}
+    Suppose $T$ is a positive operator on $V$. Suppose $v, w \in V$ are such that
+    \[
+        Tv = w \qquad\text{and}\qquad Tw = v.
+    \]
+
+    Prove that $v = w$.
+\end{exercise}
+
+\begin{proof}
+    Because $T$ is a positive operator, then $\innerprod{T(v - w), v - w}\geq 0$.
+    \[
+        0\leq \innerprod{T(v - w), v - w} = \innerprod{Tv - Tw, v - w} = \innerprod{w - v, v - w}.
+    \]
+
+    If $v\ne w$, then $\innerprod{w - v, v - w} = -\norm{v - w}^{2} < 0$, which is a contradiction. Hence $v = w$.
+\end{proof}
+\newpage
+
+% chapter7:sectionC:exercise11
+\begin{exercise}
+    Suppose $T$ is a positive operator on $V$ and $U$ is a subspace of $V$ invariant under $T$. Prove that $T\vert_{U} \in \lmap{U}$ is a positive operator on $U$.
+\end{exercise}
+
+\begin{proof}
+    By Exercise~\ref{chapter7:sectionB:exercise19}, $T\vert_{U}$ is self-adjoint. Let $u$ be a vector in $U$.
+    \[
+        \innerprod{T\vert_{U}u, u} = \innerprod{Tu, u}\geq 0.
+    \]
+
+    Hence $T\vert_{U}\in\lmap{U}$ is a positive operator on $U$.
+\end{proof}
+\newpage
+
+% chapter7:sectionC:exercise12
+\begin{exercise}
+    Suppose $T\in\lmap{V}$ is a positive operator. Prove that $T^{k}$ is a positive operator for every positive integer $k$.
+\end{exercise}
+
+\begin{proof}
+    Because $T$ is a positive operator, then there exists an orthonormal basis $e_{1}, \ldots, e_{n}$ of $V$ to which $T$ has a diagonal matrix (each of these vectors is an eigenvector of $T$) and all eigenvalues of $T$ are nonnegative real numbers. Let $Te_{j} = \lambda_{j}e_{j}$ for each $j\in\{ 1, \ldots, n \}$.
+
+    So $T^{k}e_{j} = \lambda_{j}^{k}e_{j}$ for each $j\in\{ 1, \ldots, n \}$. Hence $T^{k}$ has a diagonal matrix (whose entries on the diagonal are nonnegative real numbers) with respect to the orthonormal basis $e_{1}, \ldots, e_{n}$. Thus $T^{k}$ is a positive operator for every positive integer $k$.
+\end{proof}
+
+\newpage
+
+% chapter7:sectionC:exercise13
+\begin{exercise}
+    Suppose $T \in \lmap{V}$ is self-adjoint and $\alpha\in\mathbb{R}$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Prove that $T - \alpha I$ is a positive operator if and only if $\alpha$ is less than or equal to every eigenvalue of $T$.
+        \item Prove that $\alpha I - T$ is a positive operator if and only if $\alpha$ is greater than or equal to every eigenvalue of $T$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    Since $T$ is self-adjoint and hence normal, we can apply the real and complex spectral theorems, and conclude that there exists an orthonormal basis $e_{1}, \ldots, e_{n}$ of $V$ to which $T$ has a diagonal matrix $A$. $T$ is self-adjoint so all eigenvalues of $T$ are real numbers, which implies all entries on the diagonal of $A$ are real numbers.
+    \begin{enumerate}[label={(\alph*)}]
+        \item The matrix of $T - \alpha I$ with respect to the orthonormal basis $e_{1}, \ldots, e_{n}$ is $A - \alpha I$. This is a diagonal matrix whose entries on the diagonal are real numbers.
+
+              $T - \alpha I$ is a positive operator if and only if all entries on the diagonal of $A - \alpha I$ are nonnegative numbers. All entries on the diagonal of $A - \alpha I$ are nonnegative numbers if and only if $\alpha$ is less than or equal to every eigenvalue of $T$.
+
+              Thus $T - \alpha I$ is a positive operator if and only if $\alpha$ is less than or equal to every eigenvalue of $T$.
+        \item The matrix of $\alpha I - T$ with respect to the orthonormal basis $e_{1}, \ldots, e_{n}$ is $\alpha I - A$. This is a diagonal matrix whose entries on the diagonal are real numbers.
+
+              $\alpha T - I$ is a positive operator if and only if all entries on the diagonal of $\alpha I - A$ are nonnegative numbers. All entries on the diagonal of $\alpha I - A$ are nonnegative numbers if and only if $\alpha$ is greater than or equal to every eigenvalue of $T$.
+
+              Thus $\alpha I - T$ is a positive operator if and only if $\alpha$ is greater than or equal to every eigenvalue of $T$.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter7:sectionC:exercise14
+\begin{exercise}
+    Suppose $T$ is a positive operator on $V$ and $v_{1}, \ldots, v_{m} \in V$. Prove that
+    \[
+        \sum^{m}_{j=1}\sum^{m}_{k=1}\innerprod{Tv_{k}, v_{j}} \geq 0.
+    \]
+\end{exercise}
+
+\begin{proof}
+    Because $T$ is a positive operator, then there exists a unique positive operator $\sqrt{T}$ such that $T = \sqrt{T}\sqrt{T}$.
+
+    \begin{align*}
+        \sum^{m}_{j=1}\sum^{m}_{k=1}\innerprod{Tv_{k}, v_{j}} & = \sum^{m}_{j=1}\sum^{m}_{k=1}\innerprod{\sqrt{T}v_{k}, \sqrt{T}v_{j}} & \text{($\sqrt{T}$ is self-adjoint)}  \\
+                                                              & = \sum^{m}_{j=1}\innerprod{\sum^{m}_{k=1}\sqrt{T}v_{k}, \sqrt{T}v_{j}} & \text{(additivity of inner product)} \\
+                                                              & = \innerprod{\sum^{m}_{k=1}\sqrt{T}v_{k}, \sum^{m}_{j=1}\sqrt{T}v_{j}} & \text{(additivity of inner product)} \\
+                                                              & \geq 0                                                                 & \text{(positivity of inner product)}
+    \end{align*}
+\end{proof}
+\newpage
+
+% chapter7:sectionC:exercise15
+\begin{exercise}
+    Suppose $T\in\lmap{V}$ is self-adjoint. Prove that there exist positive operators $A, B\in\lmap{V}$ such that
+    \[
+        T = A - B\quad\text{and}\quad \sqrt{T^{*}T} = A + B\quad\text{and}\quad AB = BA = 0.
+    \]
+\end{exercise}
+
+\begin{proof}
+    Let $A = \frac{T + \sqrt{T^{*}T}}{2}$ and $B = \frac{\sqrt{T^{*}T} - T}{2}$, then $T = A - B$ and $\sqrt{T^{*}T} = A + B$.
+
+    Because $T$ is self-adjoint, then by the real and complex spectral theorems, there exists an orthonormal basis $e_{1}, \ldots, e_{n}$ of $V$ to which $T$ has a diagonal matrix $C$. The matrix of $T^{*}$ with respect to this orthonormal basis is $C^{*}$. The matrix of $\sqrt{T^{*}T}$ with respect to this orthonormal basis is also a diagonal matrix, where the entry in the $j$th row, $j$th column is $\sqrt{C_{j,j}C^{*}_{j,j}} = \abs{C_{j,j}}$. Therefore $T$ and $\sqrt{T^{*}T}$ are commuting.
+
+    $A$ and $B$ are diagonal matrices with real entries. Because $T$ is self-adjoint, then $C_{j,j}$ is a real number for every $j\in\{1,\ldots, n\}$. The entry in the $j$th row, $j$th column of $A$ is $(C_{j,j} + \abs{C_{j,j}})/2 \geq 0$. The entry in the $j$th row, $j$th column of $B$ is $(\abs{C_{j,j}} - C_{j,j})/2 \geq 0$. Hence $A$ and $B$ are positive operators.
+
+    Because $T = T^{*}$ and $T\sqrt{T^{*}T} = \sqrt{T^{*}T}T$, we have
+    \begin{align*}
+        AB & = \frac{(T + \sqrt{T^{*}T})(\sqrt{T^{*}T} - T)}{4} = \frac{T\sqrt{T^{*}T} + T^{*}T - T^{2} - \sqrt{T^{*}T}T}{4} = \frac{T\sqrt{T^{*}T} - \sqrt{T^{*}T}T}{4} = 0, \\
+        BA & = \frac{(\sqrt{T^{*}T} - T)(T + \sqrt{T^{*}T})}{4} = \frac{\sqrt{T^{*}T}T - T^{2} + T^{*}T - T\sqrt{T^{*}T}}{4} = \frac{\sqrt{T^{*}T}T - T\sqrt{T^{*}T}}{4} = 0.
+    \end{align*}
+
+    Thus there exist positive operators $A, B\in\lmap{V}$ such that $T = A - B$ and $\sqrt{T^{*}T} = A + B$ and $AB = BA = 0$.
+\end{proof}
+\newpage
+
+% chapter7:sectionC:exercise16
+\begin{exercise}
+    Suppose $T$ is a positive operator on $V$. Prove that
+    \[
+        \kernel{\sqrt{T}} = \kernel{T}\quad\text{and}\quad\range{\sqrt{T}} = \range{T}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    If $v\in \kernel{\sqrt{T}}$ then $Tv = \sqrt{T}(\sqrt{T}v) = 0$, therefore $v\in\kernel{T}$, so $\kernel{\sqrt{T}}\subseteq\kernel{T}$.
+    \[
+        \innerprod{Tv, v} = \innerprod{\sqrt{T}(\sqrt{T}v), v} = \innerprod{\sqrt{Tv}, \sqrt{T}v}.
+    \]
+
+    Therefore if $v\in\kernel{T}$ then $\norm{\sqrt{T}v} = 0$ and it follows that $v\in\kernel{\sqrt{T}}$. So $\kernel{T}\subseteq\kernel{\sqrt{T}}$.
+
+    Hence $\kernel{\sqrt{T}} = \kernel{T}$. On the other hand,
+    \[
+        \range{\sqrt{T}} = {(\kernel{\sqrt{T}})}^{\bot} = {(\kernel{T})}^{\bot} = (\range{T^{*}}) = \range{T}.
+    \]
+
+    So $\range{\sqrt{T}} = \range{T}$.
+\end{proof}
+\newpage
+
+% chapter7:sectionC:exercise17
+\begin{exercise}
+    Suppose that $T \in \lmap{V}$ is a positive operator. Prove that there exists a polynomial $p$ with real coefficients such that $\sqrt{T} = p(T)$.
+\end{exercise}
+
+\begin{proof}
+    $T$ is a positive operator on $V$ so there exists an orthonormal basis $e_{1}, \ldots, e_{n}$ to which $T$ has a diagonal matrix whose entries on the diagonal are nonnegative. Let $Te_{k} = \lambda_{k}e_{k}$ for every $k\in\{1,\ldots,n\}$. $\lambda_{k}$ is nonnegative number for every $k\in\{1,\ldots,n\}$.
+
+    The positive square root of $T$ satisfies $\sqrt{T}e_{k} = \sqrt{\lambda_{k}}e_{k}$ for every $k\in\{1,\ldots,n\}$. Assume $\lambda_{1}, \lambda_{n_{1}}, \ldots, \lambda_{n_{r}}$ are the distinct eigenvalues of $T$. By the Lagrange interpolating polynomial formula, there exists a polynomial $p$ with real coefficients such that $p(\lambda_{i}) = \sqrt{\lambda_{i}}$ where $i\in\{1, n_{1}, \ldots, n_{r}\}$. Therefore $p(\lambda_{i}) = \sqrt{\lambda_{i}}$ for each $i\in\{1,\ldots,n\}$.
+
+    For each vector $v\in V$, there exist scalars $a_{1}, \ldots, a_{n}$ such that $v = a_{1}e_{1} + \cdots + a_{n}e_{n}$.
+    \begin{align*}
+        \sqrt{T}v & = \sqrt{T}(a_{1}e_{1} + \cdots + a_{n}e_{n})                           \\
+                  & = a_{1}\sqrt{T}e_{1} + \cdots + a_{n}\sqrt{T}e_{n}                     \\
+                  & = a_{1}\sqrt{\lambda_{1}}e_{1} + \cdots + a_{n}\sqrt{\lambda_{n}}e_{n} \\
+                  & = a_{1}p(\lambda_{1})e_{1} + \cdots + a_{n}p(\lambda_{n})e_{n}         \\
+                  & = a_{1}p(T)e_{1} + \cdots + a_{n}p(T)e_{n}                             \\
+                  & = p(T)(a_{1}e_{1} + \cdots + a_{n}e_{n})                               \\
+                  & = p(T)v.
+    \end{align*}
+
+    Hence there exists a polynomial $p$ with real coefficients such that $\sqrt{T} = p(T)$.
+\end{proof}
+\newpage
+
+% chapter7:sectionC:exercise18
+\begin{exercise}
+    Suppose $S$ and $T$ are positive operators on $V$. Prove that $ST$ is a positive operator if and only if $S$ and $T$ commute.
+\end{exercise}
+
+\begin{proof}
+    If $ST$ is a positive operator then $ST$ is self-adjoint. Therefore ${(ST)}^{*} = ST$. Moreover, ${(ST)}^{*} = T^{*}S^{*} = TS$, so $ST = TS$. Hence $S$ and $T$ commute.
+
+    If $S$ and $T$ commute, then by Exercise~\ref{chapter7:sectionB:exercise16} and~\ref{chapter7:sectionB:exercise17}, there exists an orthonormal basis of $V$ to which $S$ and $T$ have diagonal matrices. Moreover, the entries on the diagonals of these matrices are nonnegative, so the matrix of $ST$ with respect to this orthonormal basis is also a diagonal matrix with nonnegative entries on the diagonal. Hence $ST$ is a positive operator.
+\end{proof}
+\newpage
+
+% chapter7:sectionC:exercise19
+\begin{exercise}
+    Show that the identity operator on $\mathbb{F}^{2}$ has infinitely many self-adjoint square roots.
+\end{exercise}
+
+\begin{proof}
+    Let $T_{\phi}\in\lmap{\mathbb{F}^{2}}$ defined by
+    \[
+        T(x, y) = \begin{pmatrix}
+            \cos\phi & \sin\phi  \\
+            \sin\phi & -\cos\phi
+        \end{pmatrix}
+        \begin{pmatrix}
+            x \\
+            y
+        \end{pmatrix}
+    \]
+
+    then $T = T^{*}$ and $T_{\phi}^{2} = I$. Thus the identity operator on $\mathbb{F}^{2}$ has infinitely many self-adjoint square roots.
+\end{proof}
+\newpage
+
+% chapter7:sectionC:exercise20
+\begin{exercise}\label{chapter7:sectionC:exercise20}
+    Suppose $T \in \lmap{V}$ and $e_{1}, \ldots, e_{n}$ is an orthonormal basis of $V$. Prove that $T$ is a positive operator if and only if there exist $v_{1}, \ldots, v_{n} \in V$ such that
+    \[
+        \innerprod{Te_{k}, e_{j}} = \innerprod{v_{k}, v_{j}}
+    \]
+
+    for all $j, k = 1,\ldots, n$.
+\end{exercise}
+
+\begin{quote}
+    The numbers ${\{ \innerprod{Te_{i}, e_{j}} \}}_{j,k=1,\ldots, n}$ are the entries in the matrix of $T$ with respect to the orthonormal basis $e_{1}, \ldots, e_{n}$.
+\end{quote}
+
+\begin{proof}
+    $(\Rightarrow)$ $T$ is a positive operator on $V$.
+
+    Let $v_{k} = \sqrt{T}e_{k}$ for every $k\in\{1,\ldots,n\}$ then $\innerprod{Te_{k}, e_{j}} = \innerprod{\sqrt{T}e_{k}, \sqrt{T}e_{j}} = \innerprod{v_{k}, v_{j}}$ for every $j, k = 1,\ldots,n$.
+
+    $(\Leftarrow)$ There exist $v_{1}, \ldots, v_{n} \in V$ such that $\innerprod{Te_{k}, e_{j}} = \innerprod{v_{k}, v_{j}}$ for all $j, k = 1,\ldots, n$.
+    \[
+        \mathcal{M}(T, (e_{1}, \ldots, e_{n})) =
+        \begin{pmatrix}
+            \innerprod{Te_{1}, e_{1}} & \cdots & \innerprod{Te_{n}, e_{1}} \\
+            \vdots                    &        & \vdots                    \\
+            \innerprod{Te_{1}, e_{n}} & \cdots & \innerprod{Te_{n}, e_{n}}
+        \end{pmatrix} =
+        \begin{pmatrix}
+            \innerprod{v_{1}, v_{1}} & \cdots & \innerprod{v_{n}, v_{1}} \\
+            \vdots                   &        & \vdots                   \\
+            \innerprod{v_{1}, v_{n}} & \cdots & \innerprod{v_{n}, v_{n}}
+        \end{pmatrix}.
+    \]
+
+    Because of the conjugate symmetry and the positive property of inner product, we conclude that the matrix $\mathcal{M}(T, (e_{1}, \ldots, e_{n}))$ is identical to its conjugate transpose. Therefore $T$ is a self-adjoint operator on $V$.
+
+    Let $v$ be a vector in $V$. There exist scalars $a_{1}, \ldots, a_{n}$ such that $v = a_{1}e_{1} + \cdots + a_{n}e_{n}$.
+    \begin{align*}
+        \innerprod{Tv, v} & = \innerprod{T(a_{1}e_{1} + \cdots + a_{n}e_{n}), a_{1}e_{1} + \cdots + a_{n}e_{n}} \\
+                          & = \innerprod{a_{1}Te_{1} + \cdots + a_{n}Te_{n}, a_{1}e_{1} + \cdots + a_{n}e_{n}}  \\
+                          & = \sum^{n}_{j=1}\sum^{n}_{k=1}\innerprod{a_{k}Te_{k}, a_{j}e_{j}}                   \\
+                          & = \sum^{n}_{j=1}\sum^{n}_{k=1}a_{k}\conj{a_{j}}\innerprod{Te_{k}, e_{j}}            \\
+                          & = \sum^{n}_{j=1}\sum^{n}_{k=1}a_{k}\conj{a_{j}}\innerprod{v_{k}, v_{j}}             \\
+                          & = \sum^{n}_{j=1}\sum^{n}_{k=1}\innerprod{a_{k}v_{k}, a_{j}v_{j}}                    \\
+                          & = \innerprod{\sum^{n}_{j=1}a_{j}v_{j}, \sum^{n}_{j=1}a_{j}v_{j}} \geq 0.
+    \end{align*}
+
+    Hence $\innerprod{Tv, v}\geq 0$ for every $v\in V$. Together with $T$ being a self-adjoint operator on $V$, we conclude that $T$ is a positive operator on $V$.
+\end{proof}
+\newpage
+
+% chapter7:sectionC:exercise21
+\begin{exercise}
+    Suppose $n$ is a positive integer. The $n$-by-$n$ Hilbert matrix is the $n$-by-$n$ matrix whose entry in row $j$, column $k$ is $\frac{1}{j + k - 1}$. Suppose $T\in\lmap{V}$ is an operator whose matrix with respect to some orthonormal basis of $V$ is the $n$-by-$n$ Hilbert matrix. Prove that $T$ is an invertible positive operator.
+\end{exercise}
+
+\begin{proof}
+    Because the $n$-by-$n$ Hilbert matrix is symmetric and all of its entries are real number, so $T$ is self-adjoint.
+
+    Consider the inner product space $\mathscr{P}_{n-1}(\mathbb{R})$ with the inner product $\innerprod{p, q} = \int^{1}_{0}pq$. Then the matrix (whose the entry in row $j$, column $k$ is $\innerprod{x^{j-1}, x^{k-1}} = \int^{1}_{0}x^{j-1}x^{k-1}dx = \frac{1}{j + k - 1}$) is the $n$-by-$n$ Hilbert matrix.
+
+    Let $p_{1}, \ldots, p_{n}$ be an orthonormal basis of $\mathscr{P}_{n-1}(\mathbb{R})$. I define $S\in\lmap{\mathscr{P}_{n-1}(\mathbb{R})}$ as follows:
+    \[
+        Sp_{k} = \sum^{n}_{j=1}\innerprod{x^{k-1}, x^{j-1}}p_{j}
+    \]
+
+    for each $k\in\{1,\ldots, n\}$. Moreover, because $p_{1}, \ldots, p_{n}$ is an orthonormal basis of $\mathscr{P}_{n-1}(\mathbb{R})$, it follows that
+    \[
+        Sp_{k} = \sum^{n}_{j=1}\innerprod{Sp_{k}, p_{j}}p_{j}
+    \]
+
+    so $\innerprod{Sp_{k}, p_{j}} = \innerprod{x^{k-1}, x^{j-1}}$ for each $j, k\in \{ 1,\ldots,n \}$. By Exercise~\ref{chapter7:sectionC:exercise20}, $S$ is a positive operator.
+
+    Because $x^{0}, x^{1}, \ldots, x^{n-1}$ is linearly independent, so the columns of the following matrix
+    \[
+        \begin{pmatrix}
+            \innerprod{x^{1-1}, x^{1-1}} & \innerprod{x^{2-1}, x^{1-1}} & \cdots & \innerprod{x^{n-1}, x^{1-1}} \\
+            \innerprod{x^{1-1}, x^{2-1}} & \innerprod{x^{2-1}, x^{2-1}} & \cdots & \innerprod{x^{n-1}, x^{2-1}} \\
+            \vdots                       & \vdots                       &        & \vdots                       \\
+            \innerprod{x^{1-1}, x^{n-1}} & \innerprod{x^{2-1}, x^{n-1}} & \cdots & \innerprod{x^{n-1}, x^{n-1}} \\
+        \end{pmatrix}
+    \]
+
+    are linearly independent. So the $n$-by-$n$ Hilbert matrix is invertible. Therefore $S$ is an invertible positive operator.
+
+    \bigskip
+    $V$ and $\mathscr{P}_{n-1}(\mathbb{R})$ are isomorphic, where an isomorphism from $V$ onto $\mathscr{P}_{n-1}(\mathbb{R})$ is defined by the linear map $f: e_{k}\mapsto p_{k}$ (for each $k\in\{1,\ldots,n\}$) where $e_{1}, \ldots, e_{n}$ is the orthonormal basis of $V$ to which the matrix of $T$ is the $n$-by-$n$ Hilbert matrix. By identifing $e_{k}$ and $p_{k}$, we identify $T$ and $S$, and we conclude that $T$ is an invertible positive operator.
+\end{proof}
+\newpage
+
+% chapter7:sectionC:exercise22
+\begin{exercise}
+    Suppose $T \in \lmap{V}$ is a positive operator and $u \in V$ is such that $\norm{u} = 1$ and $\norm{Tu}\geq \norm{Tv}$ for all $v \in V$ with $\norm{v} = 1$ Show that $u$ is an eigenvector of $T$ corresponding to the largest eigenvalue of $T$.
+\end{exercise}
+
+\begin{proof}
+    Because $T$ is a positive operator on $V$, there exists an orthonormal basis $e_{1}, \ldots, e_{n}$ of $V$ to which $T$ has a diagonal matrix whose entries on the diagonal are nonnegative. Let $Te_{k} = \lambda_{k}e_{k}$ for every $k\in\{1,\ldots,n\}$. Let $\lambda$ be the largest eigenvalue of $T$.
+
+    There exist scalars $a_{1}, \ldots, a_{n}$ such that $u = a_{1}e_{1} + \cdots + a_{n}e_{n}$ and $\abs{a_{1}}^{2} + \cdots + \abs{a_{n}}^{2} = 1$.
+    \begin{align*}
+        \norm{Tu} & = \norm{T(a_{1}e_{1} + \cdots + a_{n}e_{n})}                                          \\
+                  & = \norm{a_{1}Te_{1} + \cdots + a_{n}Te_{n}}                                           \\
+                  & = \norm{a_{1}\lambda_{1}e_{1} + \cdots + a_{n}\lambda_{n}e_{n}}                       \\
+                  & = \sqrt{\abs{a_{1}}^{2}{\lambda_{1}}^{2} + \cdots + \abs{a_{n}}^{2}{\lambda_{n}}^{2}} \\
+                  & \leq \sqrt{\abs{a_{1}}^{2}{\lambda}^{2} + \cdots + \abs{a_{n}}^{2}{\lambda}^{2}}      \\
+                  & = \lambda.
+    \end{align*}
+
+    Let $w$ be an eigenvector of $T$ with respect to $\lambda$, and $v = w/\norm{w}$. Due to the hypothesis, $\norm{Tu}\geq \norm{Tv} = \lambda$. Therefore $\norm{Tu} = \lambda$, and $a_{k} = 0$ if $\lambda_{k} < \lambda$. Hence
+    \[
+        u = \sum_{k: \lambda_{k} = \lambda}a_{k}e_{k}
+    \]
+
+    so $u$ is an eigenvector of $T$ corresponding to the largest eigenvalue $\lambda$ of $T$.
+\end{proof}
+\newpage
+
+% chapter7:sectionC:exercise23
+\begin{exercise}
+    For $T\in\lmap{V}$ and $u, v\in V$, define ${\innerprod{u, v}}_{T} = \innerprod{Tu, v}$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Suppose $T\in\lmap{V}$. Prove that ${\innerprod{\cdot,\cdot}}_{T}$ is an inner product on $V$ if and only if $T$ is an invertible positive operator (with respect to the original inner product $\innerprod{\cdot, \cdot}$).
+        \item Prove that every inner product on $V$ is of the form ${\innerprod{\cdot, \cdot}}_{T}$ for some positive invertible operator $T\in\lmap{V}$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item $(\Rightarrow)$ $\innerprod{\cdot,\cdot}_{T}$ is an inner product on $V$.
+
+              For every $u, v\in V$
+              \[
+                  \innerprod{Tu, v} = \innerprod{u, v}_{T} = \conj{\innerprod{v, u}_{T}} = \conj{\innerprod{Tv, u}} = \innerprod{u, Tv}
+              \]
+
+              so $T$ is self-adjoint. On the other hand, $0\leq \innerprod{v, v}_{T} = \innerprod{Tv, v}$ for every $v\in V$ so $T$ is a positive operator on $V$.
+              \begin{align*}
+                  Tu = 0 & \Longleftrightarrow \innerprod{Tu, v} = 0\,\forall v\in V    \\
+                         & \Longleftrightarrow \innerprod{u, v}_{T} = 0\,\forall v\in V \\
+                         & \Longleftrightarrow u = 0
+              \end{align*}
+
+              so $T$ is injective.
+
+              For each $w\in V$, $v\mapsto \innerprod{v, w}$ is a linear functional on $V$. According to Riesz's representation theorem, there exists a unique vector $u\in V$ such that $\innerprod{v, w} = \innerprod{v, u}_{T}$ for every $v\in V$. Therefore $\innerprod{u, v}_{T} = \innerprod{w, v}$ for every $v\in V$, so $Tu = w$. Hence $T$ is surjective.
+
+              Thus $T$ is an invertible positive operator on $V$.
+              \bigskip
+
+              $(\Leftarrow)$ $T$ is an invertible positive operator.
+
+              For all $u_{1}, u_{2}, u, v\in V$ and $\lambda\in\mathbb{F}$.
+              \begin{align*}
+                  \innerprod{u_{1} + u_{2}, v}_{T} & = \innerprod{T(u_{1} + u_{2}), v} = \innerprod{Tu_{1} + Tu_{2}, v}                                                                   \\
+                                                   & = \innerprod{Tu_{1}, v} + \innerprod{Tu_{2}, v} = \innerprod{u_{1}, v}_{T} + \innerprod{u_{2}, v}_{T}                                \\
+                  \innerprod{\lambda u, v}         & = \innerprod{T(\lambda u), v} = \innerprod{\lambda Tu, v}                                                                            \\
+                                                   & = \lambda\innerprod{Tu, v} = \lambda\innerprod{u, v}_{T}                                                                             \\
+                  \innerprod{v, u}_{T}             & = \innerprod{Tv, u} = \innerprod{v, Tu}                                                               & \text{($T$ is self-adjoint)} \\
+                                                   & = \conj{\innerprod{Tu, v}} = \conj{\innerprod{u, v}_{T}}
+              \end{align*}
+
+              $\innerprod{v, v}_{T} = \innerprod{Tv, v}\geq 0$ for every $v\in V$ because $T$ is a positive operator.
+              \begin{align*}
+                  \innerprod{v, v}_{T} = 0 & \Longleftrightarrow \innerprod{Tv, v} = 0                                                                    \\
+                                           & \Longleftrightarrow \innerprod{\sqrt{T}v, \sqrt{T}v} = 0                                                     \\
+                                           & \Longleftrightarrow \sqrt{T}v = 0                                                                            \\
+                                           & \Longleftrightarrow Tv = 0                               & \text{(because $\kernel{\sqrt{T}} = \kernel{T}$)} \\
+                                           & \Longleftrightarrow v = 0                                & \text{(because $T$ is invertible)}
+              \end{align*}
+
+              Hence $\innerprod{\cdot,\cdot}_{T}$ is an inner product on $V$.
+        \item Let $[\![\cdot,\cdot]\!]$ be an inner product on $V$.
+
+              For each $v\in V$, $\varphi_{v}: u\mapsto [\![u, v]\!]$ is a linear functional on $V$. By Riesz's representation theorem, there exists a unique vector $Tv$ such that $\varphi_{v}(u) = \innerprod{u, Tv}$. Now I will prove that $T$ is an invertible linear map.
+
+              For every $u\in V$, $\lambda\in\mathbb{F}$
+              \begin{align*}
+                  \innerprod{u, T(v_{1} + v_{2})} & = [\![u, v_{1} + v_{2}]\!] = [\![u, v_{1}]\!] + [\![u, v_{2}]\!] \\
+                                                  & = \innerprod{u, Tv_{1}} + \innerprod{u, Tv_{2}}                  \\
+                                                  & = \innerprod{u, Tv_{1} + Tv_{2}}                                 \\
+                  \innerprod{u, T(\lambda v)}     & = [\![u, \lambda v]\!] = \conj{\lambda}[\![u, v]\!]              \\
+                                                  & = \conj{\lambda}\innerprod{u, Tv}                                \\
+                                                  & = \innerprod{u, \lambda Tv}
+              \end{align*}
+
+              hence $T(v_{1} + v_{2}) = Tv_{1} + Tv_{2}$ and $T(\lambda v) = \lambda Tv$. So $T$ is a linear map.
+
+              $Tv = 0$ if and only if $\innerprod{u, Tv} = 0$ for every $u\in V$. $\innerprod{u, Tv} = 0$ for every $u\in V$ if and only if $[\![u, v]\!] = 0$ for every $u\in V$. $[\![u, v]\!] = 0$ for every $u\in V$ if and only if $v = 0$. Therefore $T$ is injective.
+
+              For each $v\in V$, $u\mapsto \innerprod{u, v}$ is a linear functional on $V$. By Riesz's representation theorem, there exists a vector $w\in V$ such that $[\![u, w]\!] = \innerprod{u, v}$ for every $u\in V$. Then $Tw = v$, so $T$ is surjective. Thus $T$ is an invertible linear map.
+
+              So for all $u, v\in V$.
+              \[
+                  [\![u, v]\!] = \conj{[\![v, u]\!]} = \conj{\innerprod{v, Tu}} = \innerprod{Tu, v}
+              \]
+
+              hence $\innerprod{Tu, v} = \innerprod{u, Tv}$ for all $u, v\in V$. Therefore $T$ is self-adjoint. Moreover
+              \[
+                  0\leq [\![v,v]\!] = \innerprod{v, Tv} = \innerprod{Tv, v}
+              \]
+
+              so $T$ is a positive operator on $V$.
+
+              Hence for every inner product $[\![\cdot, \cdot]\!]$ on $V$, there exists an invertible positive operator $T$ on $V$ such that $[\![u, v]\!] = \innerprod{u, Tv} = \innerprod{Tu, v}$.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter7:sectionC:exercise24
+\begin{exercise}
+    Suppose $S$ and $T$ are positive operators on $V$. Prove that
+    \[
+        \kernel{(S + T)} = \kernel{S}\cap\kernel{T}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    $S$ and $T$ are positive operators on $V$, then $(S + T)$ is self-adjoint and $\innerprod{(S + T)v, v} = \innerprod{Sv, v} + \innerprod{Tv, v}\geq 0$ for every $v\in V$. So $(S + T)$ is a positive operator on $V$.
+
+    If $v\in \kernel{S}\cap \kernel{T}$ then $Sv = Tv = 0$ so $(S + T)v = 0$. Hence $v\in \kernel{(S + T)}$, so $\kernel{S}\cap\kernel{T}\subseteq \kernel{(S + T)}$.
+
+    If $v\in \kernel{(S + T)}$ then $Sv + Tv = 0$.
+    \[
+        0 = \innerprod{(S + T)v, v} = \innerprod{Sv, v} + \innerprod{Tv, v}.
+    \]
+
+    Because $\innerprod{Sv, v}\geq 0$ and $\innerprod{Tv, v}\geq 0$, it follows that $\innerprod{Sv, v} = 0$ and $\innerprod{Tv, v} = 0$. Therefore $\sqrt{S}v = 0$ and $\sqrt{T}v = 0$, so $Sv = Tv = 0$. Hence $v\in \kernel{S}\cap\kernel{T}$.
+
+    Thus $\kernel{(S + T)} = \kernel{S}\cap\kernel{T}$.
+\end{proof}
+\newpage
+
+% chapter7:sectionC:exercise25
+\begin{exercise}
+    Let $T$ be the second derivative operator in Exercise~\ref{chapter7:sectionA:exercise31}{(b)} in Section 7A. Show that $-T$ is a positive operator.
+\end{exercise}
+
+\begin{proof}
+    By Exercise~\ref{chapter7:sectionA:exercise31}, $T$ is self-adjoint, so $-T$ is self-adjoint.
+
+    Let $f$ be a function in $V$, then there exist real numbers $a_{0}, a_{1}, \ldots, a_{n}, b_{1}, \ldots, b_{n}$ such that
+    \[
+        f(x) = a_{0}1 + a_{1}\cos x + \cdots + a_{n}\cos nx + b_{1}\sin x + \cdots + b_{n}\sin nx
+    \]
+
+    then
+    \[
+        (-Tf)(x) = 0 + a_{1}\cos x + \cdots + n^{2}a_{n}\cos nx + b_{1}\sin x + \cdots + b_{n}n^{2}\sin nx
+    \]
+
+    so
+    \begin{align*}
+        \innerprod{-Tf, f} & = \innerprod{a_{1}\cos x, a_{1}\cos x} + \cdots + \innerprod{n^{2}a_{n}\cos nx, \cos nx}      \\
+                           & + \innerprod{b_{1}\sin x, b_{1}\sin x} + \cdots + \innerprod{n^{2}b_{n}\sin nx, b_{n}\sin nx} \\
+                           & \geq 0.
+    \end{align*}
+
+    Hence $-T$ is a positive operator.
+\end{proof}
+\newpage
 
 \section{Isometries, Unitary Operators, and Matrix Factorization}
 
