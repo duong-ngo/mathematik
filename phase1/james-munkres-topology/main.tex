@@ -1,4 +1,15 @@
-\documentclass{james-munkres-topology}
+\documentclass[oneside]{book}
+
+\usepackage[left=2cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage[unicode=true,hidelinks]{hyperref}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{cases}
 \usepackage{pgf,tikz}
 \usetikzlibrary{shapes}
 \usetikzlibrary{shapes.arrows}
@@ -18,6 +29,48 @@
 \usetikzlibrary{angles}
 \usetikzlibrary{matrix}
 \usepackage{tikz-cd}
+
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{indentfirst}
+\usepackage{chngcntr}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage[inline]{enumitem}
+
+\setcounter{chapter}{0}
+\setcounter{section}{0}
+\counterwithout{section}{chapter}
+
+\captionsetup{labelfont={bf},labelsep=period}
+\counterwithin{figure}{chapter}
+\counterwithin{table}{chapter}
+
+\theoremstyle{definition}
+
+\newtheorem{exercise}{Exercise}
+\counterwithin{exercise}{section}
+\newenvironment{sqcases}{%
+    \matrix@check\sqcases\env@sqcases
+}{%
+    \endarray\right.%
+}
+\def\env@sqcases{%
+\let\@ifnextchar\new@ifnextchar
+\left\lbrack{}
+\def\arraystretch{1.2}%
+\array{@{}l@{\quad}l@{}}%
+}
+
+\newcommand{\tr}[1]{\left({#1}\right)}
+\newcommand{\card}[1]{\left\vert{#1}\right\vert}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\abs}[1]{\left\vert{#1}\right\vert}
+\newcommand{\norm}[1]{\left\Vert{#1}\right\Vert}
+\newcommand{\anglebracket}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\innerprod}[2]{\left\langle{#1}\vert{#2}\rangle}
 
 \title{James Munkres's Topology: Exercises}
 \author{Ngo Quang Duong}
