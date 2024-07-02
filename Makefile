@@ -100,6 +100,9 @@ updatecls: cleanaux
 linear-algebra:
 	@$(MAKE) phase1/sheldon-axler-linear-algebra-done-right/main.pdf
 
+mira:
+	@$(MAKE) phase2/mira/main.pdf
+
 multilinear-algebra:
 	@$(MAKE) phase1/werner-greub-multilinear-algebra/main.pdf
 
