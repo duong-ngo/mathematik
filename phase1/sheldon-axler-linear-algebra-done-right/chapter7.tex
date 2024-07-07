@@ -2064,7 +2064,7 @@
 \newpage
 
 % chapter7:sectionC:exercise17
-\begin{exercise}
+\begin{exercise}\label{chapter7:sectionC:exercise17}
     Suppose that $T \in \lmap{V}$ is a positive operator. Prove that there exists a polynomial $p$ with real coefficients such that $\sqrt{T} = p(T)$.
 \end{exercise}
 
@@ -2384,6 +2384,631 @@
 \newpage
 
 \section{Isometries, Unitary Operators, and Matrix Factorization}
+
+% chapter7:sectionD:exercise1
+\begin{exercise}
+    Suppose $\dim V \geq 2$ and $S \in \lmap{V, W}$. Prove that $S$ is an isometry if and only if $Se_{1}, Se_{2}$ is an orthonormal list in $W$ for every orthonormal list $e_{1}, e_{2}$ of length two in $V$.
+\end{exercise}
+
+\begin{proof}
+    If $S$ is an isometry then $Se_{1}, Se_{2}$ is an orthonormal list in $W$ for every orthonormal list $e_{1}, e_{2}$ of length two in $V$.
+
+    \bigskip
+    Suppose $Se_{1}, Se_{2}$ is an orthonormal list in $W$ for every orthonormal list $e_{1}, e_{2}$ of length two in $V$. Let $v$ be a vector in $V$. If $v\ne 0$, there exists another nonzero vector $w$ in $V$ such that $v$ and $w$ are linearly independent (since $\dim V\geq 2$). By apply the Gram-Schmidt's procedure to $v, w$, we obtain $v/\norm{v}$ and another vector $w_{0}$. Therefore $S(v/\norm{v}), Sw_{0}$ is an orthonormal list of length two, and
+    \[
+        \norm{Sv} = \norm{\norm{v}S\left(\frac{v}{\norm{v}}\right)} = \norm{v}\norm{S\left(\frac{v}{\norm{v}}\right)} = \norm{v}.
+    \]
+
+    If $v = 0$ then $\norm{Sv} = \norm{0} = \norm{v}$. Therefore $\norm{Sv} = \norm{v}$, hence $S$ is an isometry.
+\end{proof}
+\newpage
+
+% chapter7:sectionD:exercise2
+\begin{exercise}
+    Suppose $T \in \lmap{V, W}$. Prove that $T$ is a scalar multiple of an isometry if and only if $T$ preserves orthogonality.
+\end{exercise}
+
+\begin{quote}
+    The phrase ``$T$ preserves orthogonality'' means that $\innerprod{Tu, Tv} = 0$ for all $u, v \in V$ such that $\innerprod{u, v} = 0$.
+\end{quote}
+
+\begin{proof}
+    If $T$ is a scalar multiple of an isometry $S$, then $T = a S$ for some scalar $a\in\mathbb{F}$. If $\innerprod{u, v} = 0$ then $\innerprod{Tu, Tv} = \innerprod{aSu, aSv} = a\conj{a}\innerprod{Su, Sv} = 0$. So $T$ preserves orthogonality.
+
+    \bigskip
+    Suppose $T$ preserves orthogonality. Let $v$ be a nonzero vector in $V$ and $u \in {\{v\}}^{\bot}$, then $\innerprod{u, v} = 0$, it follows that
+    \[
+        0 = \innerprod{Tu, Tv} = \innerprod{u, (T^{*}T)v}
+    \]
+
+    for all $u\in {\{v\}}^{\bot}$. Therefore $(T^{*}T)v\in\operatorname{span}(v)$, so $v$ is an eigenvector of $T^{*}T$. Because every nonzero vector $v$ of $V$ is an eigenvector of $T^{*}T$, then $T^{*}T$ is a scalar multiple of the identity operator, according to Exercise~\ref{chapter5:sectionA:exercise26}. So there exists $\lambda\in\mathbb{F}$ such that $T^{*}T = \lambda I$.
+
+    Moreover, $\innerprod{(T^{*}T)v, v} = \innerprod{Tv, Tv}\geq 0$ and $\innerprod{(T^{*}T)v, v} = \innerprod{\lambda v, v} = \lambda\innerprod{v, v}$ so $\lambda\geq 0$.
+
+    If $\lambda = 0$ then $\innerprod{Tv, Tv} = \innerprod{(T^{*}T)v, v} = \innerprod{\lambda v, v} = 0$ for every $v\in V$, so $Tv = 0$ (definiteness of inner product) for every $v\in V$. Hence $T = 0$.
+
+    If $\lambda \ne 0$ then $\lambda > 0$, then there exists $a\in\mathbb{F}$ such that $a\conj{a} = \lambda$. Therefore
+    \[
+        \left({\conj{a}}^{-1}T^{*}\right)\left(a^{-1}T\right) = I
+    \]
+
+    hence $a^{-1}T$ is an isometry. Thus, in both cases, $T$ is a scalar multiple of an isometry.
+\end{proof}
+\newpage
+
+% chapter7:sectionD:exercise3
+\begin{exercise}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that the product of two unitary operators on $V$ is a unitary operator.
+        \item Show that the inverse of a unitary operator on $V$ is a unitary operator.
+    \end{enumerate}
+\end{exercise}
+
+\begin{quote}
+    This exercise shows that the set of unitary operators on $V$ is a group, where the group operation is the usual product of two operators.
+\end{quote}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Let $S, T$ be two unitary operators on $V$, then $S^{*}S = T^{*}T = I$.
+              \[
+                  {(ST)}^{*}(ST) = (T^{*}S^{*})(ST) = T^{*}(S^{*}S)T = T^{*}T = I.
+              \]
+
+              So $ST$ is a unitary operator on $V$. Thus the product of two unitary operators on $V$ is a unitary operator.
+        \item Let $S$ be a unitary operator on $V$, then $S$ is invertible and $S^{-1} = S^{*}$. $S$ is a unitary operator on $V$ so $S^{*}$ is also a unitary operator on $V$. So $S^{-1}$ is also a unitary operator on $V$. Thus the inverse of a unitary operator on $V$ is a unitary operator on $V$.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter7:sectionD:exercise4
+\begin{exercise}\label{chapter7:sectionD:exercise4}
+    Suppose $\mathbb{F} = \mathbb{C}$ and $A, B \in \lmap{V}$ are self-adjoint. Show that $A + \iota B$ is unitary if and only if $AB = BA$ and $A^{2} + B^{2} = I$.
+\end{exercise}
+
+\begin{proof}
+    Because $A, B$ are self-adjoint, it follows that the adjoint of $A + \iota B$ is $A - \iota B$.
+
+    $(\Rightarrow)$ $A + \iota B$ is unitary.
+
+    $A + \iota B$ is unitary if and only if
+    \[
+        (A + \iota B)(A - \iota B) = (A - \iota B)(A + \iota B) = I.
+    \]
+
+    Therefore $(A^{2} + B^{2}) + \iota(BA - AB) = I$ and $(A^{2} + B^{2}) + \iota (AB - BA) = I$. So
+    \[
+        AB - BA = \frac{1}{2\iota}(I - I) = 0
+    \]
+
+    and $A^{2} + B^{2} = (A^{2} + B^{2}) + \iota(BA - AB) = I$.
+
+    \bigskip
+    $(\Leftarrow)$ $AB = BA$ and $A^{2} + B^{2} = I$.
+    \[
+        \begin{split}
+            (A - \iota B)(A + \iota B) = (A^{2} + B^{2}) + \iota (AB - BA) = I, \\
+            (A + \iota B)(A - \iota B) = (A^{2} + B^{2}) + \iota (BA - AB) = I.
+        \end{split}
+    \]
+
+    So $A + \iota B$ is unitary.
+\end{proof}
+\newpage
+
+% chapter7:sectionD:exercise5
+\begin{exercise}
+    Suppose $S\in\lmap{V}$. Prove that the following are equivalent.
+    \begin{enumerate}[label={(\alph*)}]
+        \item $S$ is a self-adjoint unitary operator.
+        \item $S = 2P - I$ for some orthogonal projection $P$ on $V$.
+        \item There exists a subspace $U$ of $V$ such that $Su = u$ for every $u \in U$ and $Sw = -w$ for every $w \in U^{\bot}$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    I will prove $(a) \implies (b) \implies (c) \implies (a)$.
+
+    Suppose (a) is true, then $S = S^{*}$ and $S^{*}S = SS^{*} = I$. Let $P = (I + S)/2$.
+    \[
+        P^{2} = \frac{1}{4}(I^{2} + IS + SI + S^{2}) = \frac{1}{4}(I + S + S + S^{*}S) = \frac{1}{4}(2I + 2S) = P.
+    \]
+
+    Because $P^{2} = P$, it follows that only $0$ and $1$ can be the eigenvalues of $P$ and $V = \kernel{P}\oplus\range{P}$.
+    \[
+        P^{*} = \frac{1}{2}I^{*} + \frac{1}{2}S^{*} = \frac{1}{2}I + \frac{1}{2}S = P.
+    \]
+
+    So $P$ is self-adjoint. Let $u$ be a vector in $\range{P}$ and $w$ be a vector in $\kernel{P}$. Because $u\in\range{P}$, there exists a vector $v\in V$ such that $Pv = u$.
+    \[
+        \innerprod{u, w} = \innerprod{Pv, w} = \innerprod{v, Pw} = \innerprod{v, 0} = 0.
+    \]
+
+    So $u$ is orthogonal to $w$ for every $u\in\range{P}$ and $w\in\kernel{P}$. Moreover, $V = \kernel{P}\oplus\range{P}$ so $\kernel{P}$ is the orthogonal complement of $\range{P}$ in $V$. Let $U = \range{P}$, then $P$ is the orthogonal projection onto $U$. Hence $S = 2P - I = 2P_{U} - I$. So (a) implies (b).
+
+    Suppose (b) is true, then there exists a subspace $U$ of $V$ such that $P = P_{U}$. Let $u\in U$ and $w\in U^{\bot}$, then
+    \begin{align*}
+        Su & = (2P - I)u = 2Pu - Iu = 2u - u = u, \\
+        Sw & = (2P - I)w = 2Pw - Iw = 0 - w = -w.
+    \end{align*}
+
+    So (b) implies (c).
+
+    Suppose (c) is true.
+
+    $V = U\oplus U^{\bot}$. Let $v_{1}, v_{2}$ be two vectors in $V$ and $v_{1} = u_{1} + w_{1}, v_{2} = u_{2} + w_{2}$ where $u_{1}, u_{2}\in U$ and $w_{1}, w_{2}\in U^{\bot}$.
+    \begin{align*}
+        \innerprod{Sv_{1}, v_{2}} & = \innerprod{u_{1} - w_{1}, v_{2}} = \innerprod{v_{1}, v_{2}} - \innerprod{2w_{1}, v_{2}} \\
+                                  & = \innerprod{v_{1}, v_{2}} - \innerprod{w_{1}, 2v_{2}}                                    \\
+                                  & = \innerprod{v_{1}, v_{2}} - \innerprod{w_{1}, 2w_{2}}                                    \\
+                                  & = \innerprod{v_{1}, v_{2}} - \innerprod{v_{1}, 2w_{2}}                                    \\
+                                  & = \innerprod{v_{1}, v_{2} - 2w_{2}} = \innerprod{v_{1}, u_{2} - w_{2}}                    \\
+                                  & = \innerprod{v_{1}, Sv_{2}}
+    \end{align*}
+
+    therefore $S$ is self-adjoint. For every vector $v$ in $V$, there exist unique vectors $u\in U$ and $w\in U^{\bot}$ such that $v = u + w$
+    \[
+        (S^{*}S)v = S^{2}v = S^{2}(u + w) = S(u - w) = u + w = v.
+    \]
+
+    So $S^{*}S = I$ and $SS^{*} = S^{*}S = I$ (because $S$ is self-adjoint). Therefore $S$ is a unitary self-adjoint operator, or equivalently, (a) is true. Hence (c) implies (a).
+\end{proof}
+\newpage
+
+% chapter7:sectionD:exercise6
+\begin{exercise}
+    Suppose $T_{1}, T_{2}$ are both normal operators on $\mathbb{F}^{3}$ with $2, 5, 7$ as eigenvalues. Prove that there exists a unitary operator $S \in \lmap{\mathbb{F}^{3}}$ such that $T_{1} = S^{*} T_{2} S$.
+\end{exercise}
+
+\begin{proof}
+    $T_{1}, T_{2}$ are operators on $\mathbb{F}^{3}$ and has three distinct eigenvalues, so they are diagonalizable. Moreover, $T_{1}, T_{2}$ are normal operators, so eigenvectors of an operator with respect to distinct eigenvalues are orthogonal.
+
+    Let $e_{1}, e_{2}, e_{3}$ be an orthonormal basis of $\mathbb{F}^{3}$ such that $T_{1}e_{1} = 2e_{1}$, $T_{1}e_{2} = 5e_{2}$, $T_{1}e_{3} = 7e_{3}$.
+
+    Let $f_{1}, f_{2}, f_{3}$ be an orthonormal basis of $\mathbb{F}^{3}$ such that $T_{2}f_{1} = 2f_{1}$, $T_{2}f_{2} = 5f_{2}$, $T_{2}f_{3} = 7f_{3}$.
+
+    Let's define an operator $S$ on $\mathbb{F}^{3}$ by $Se_{1} = f_{1}, Se_{2} = f_{2}, Se_{3} = f_{3}$, then $S$ is unitary, since
+    \begin{align*}
+        \norm{S(x_{1}e_{1} + x_{2}e_{2} + x_{3}e_{3})} & = \norm{x_{1}Se_{1} + x_{2}Se_{2} + x_{3}Se_{3}}                                                                \\
+                                                       & = \sqrt{\abs{x_{1}}^{2}\norm{Se_{1}}^{2} + \abs{x_{2}}^{2}\norm{Se_{2}}^{2} + \abs{x_{3}}^{2}\norm{Se_{3}}^{2}} \\
+                                                       & = \sqrt{\abs{x_{1}}^{2}\norm{f_{1}}^{2} + \abs{x_{2}}^{2}\norm{f_{2}}^{2} + \abs{x_{3}}^{2}\norm{f_{3}}^{2}}    \\
+                                                       & = \sqrt{\abs{x_{1}}^{2}\norm{e_{1}}^{2} + \abs{x_{2}}^{2}\norm{e_{2}}^{2} + \abs{x_{3}}^{2}\norm{e_{3}}^{2}}    \\
+                                                       & = \norm{x_{1}e_{1} + x_{2}e_{2} + x_{3}e_{3}}.
+    \end{align*}
+
+    Furthermore
+    \begin{align*}
+        (S^{*}T_{2}S)(x_{1}e_{1} + x_{2}e_{2} + x_{3}e_{3}) & = (S^{*}T_{2})(x_{1}f_{1} + x_{2}f_{2} + x_{3}f_{3}) \\
+                                                            & = S^{*}(2x_{1}f_{1} + 5x_{2}f_{2} + 7x_{3}f_{3})     \\
+                                                            & = 2x_{1}e_{1} + 5x_{2}e_{2} + 7x_{3}e_{3}            \\
+                                                            & = T_{1}(x_{1}e_{1} + x_{2}e_{2} + x_{3}e_{3}).
+    \end{align*}
+
+    Hence $S^{*}T_{2}S = T_{1}$.
+\end{proof}
+\newpage
+
+% chapter7:sectionD:exercise7
+\begin{exercise}
+    Give an example of two self-adjoint operators $T_{1}, T_{2} \in \lmap{\mathbb{F}^{4}}$ such that the eigenvalues of both operators are $2, 5, 7$ but there does not exist a unitary operator $S \in \lmap{\mathbb{F}^{4}}$ such that $T_{1} = S^{*} T_{2} S$. Be sure to explain why there is no unitary operator with the required property.
+\end{exercise}
+
+\begin{proof}
+    Here is an example.
+    \[
+        \begin{split}
+            T_{1}(x_{1}e_{1} + x_{2}e_{2} + x_{3}e_{3} + x_{4}e_{4}) & = 2x_{1}e_{1} + 5x_{2}e_{2} + 7x_{3}e_{3} + 2x_{4}e_{4}, \\
+            T_{2}(x_{1}e_{1} + x_{2}e_{2} + x_{3}e_{3} + x_{4}e_{4}) & = 2x_{1}e_{1} + 5x_{2}e_{2} + 7x_{3}e_{3} + 5x_{4}e_{4}.
+        \end{split}
+    \]
+
+    Assume there exists a unitary operator $S$ such that $T_{1} = S^{*} T_{2} S$.
+
+    Let $v = S^{-1}e_{4}$ and $w = S^{-1}e_{2}$, then
+    \begin{align*}
+        T_{1}v & = (S^{*}T_{2}S)v = (S^{*}T_{2})e_{4} = S^{*}(5e_{4}) = S^{-1}(5e_{4}) = 5v, \\
+        T_{1}w & = (S^{*}T_{2}S)w = (S^{*}T_{2})e_{2} = S^{*}(5e_{2}) = S^{-1}(5e_{2}) = 5w
+    \end{align*}
+
+    so $v, w\in E(5, T_{1}) = \operatorname{span}(e_{2})$. Hence $v, w$ is linearly dependent. However, $v = S^{-1}e_{4}$ and $w = S^{-1}e_{2}$ so $v, w$ is an orthonormal list, which implies linear independence. So the assumption is false.
+
+    Thus there exists no unitary operator $S$ such that $T_{1} = S^{*} T_{2} S$.
+\end{proof}
+\newpage
+
+% chapter7:sectionD:exercise8
+\begin{exercise}
+    Prove or give a counterexample: If $S\in\lmap{V}$ and there exists an orthonormal basis $e_{1}, \ldots, e_{n}$ of $V$ such that $\norm{Se_{k}} = 1$ for each $e_{k}$, then $S$ is a unitary operator.
+\end{exercise}
+
+\begin{proof}
+    Here is a counterexample.
+
+    If $\dim V > 1$ and $S\in\lmap{V}$ is defined by $Se_{k} = e_{1}$ for every $k\in\{1,\ldots, n\}$. So $\range{S} = \operatorname{span}(e_{1})\ne V$, which means $S$ is not invertible. Hence $S$ is not a unitary operator.
+\end{proof}
+\newpage
+
+% chapter7:sectionD:exercise9
+\begin{exercise}
+    Suppose $\mathbb{F} = \mathbb{C}$ and $T\in\lmap{V}$. Suppose every eigenvalue of $T$ has absolute value $1$ and $\norm{Tv}\leq\norm{v}$ for every $v\in V$. Prove that $T$ is a unitary operator.
+\end{exercise}
+
+\begin{proof}
+    By Schur's theorem, there exists an orthonormal basis $e_{1}, \ldots, e_{n}$ of $V$ to which $T$ has an upper-triangular matrix $A$. Then the eigenvalues of $T$ are precisely the entries on the diagonal of $A$.
+
+    Since $\norm{Te_{j}} = \norm{A_{1,j}e_{1} + \cdots + A_{j,j}e_{j}} = \sqrt{\abs{A_{1,j}}^{2} + \cdots + \abs{A_{j-1,j}}^{2} + \abs{A_{j,j}}^{2}} \leq \norm{e_{j}} = 1$ and $\abs{A_{j,j}} = 1$ then $A_{1,j} = \cdots = A_{j-1,j} = 0$.
+
+    Therefore $A_{j,k} = 0$ if $j < k$. Moreover, $A$ is an upper-triangular matrix, so $A$ is a symmetric matrix whose entries on the diagonal have absolute value $1$. So $Te_{1}, \ldots, Te_{n}$ is also an orthonormal basis of $V$. Hence $T$ is a unitary operator.
+\end{proof}
+\newpage
+
+% chapter7:sectionD:exercise10
+\begin{exercise}
+    Suppose $\mathbb{F} = \mathbb{C}$ and $T\in\lmap{V}$ is a self-adjoint operator such that $\norm{Tv}\leq \norm{v}$ for all $v\in V$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that $I - T^{2}$ is a positive operator.
+        \item Show that $T + \iota\sqrt{I - T^{2}}$ is a unitary operator.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Because $T$ is a self-adjoint operator, then the adjoint map of $I - T^{2}$ is $I - T^{2}$, so $I - T^{2}$ is self-adjoint.
+
+              For every $v\in V$
+              \[
+                  \innerprod{(I - T^{2})v, v} = \innerprod{v, v} - \innerprod{T^{2}v, v} = \norm{v}^{2} - \innerprod{Tv, Tv} = \norm{v}^{2} - \norm{Tv}^{2}\geq 0.
+              \]
+
+              Hence $I - T^{2}$ is a positive operator.
+        \item By Exercise~\ref{chapter7:sectionC:exercise17}, $\sqrt{I - T^{2}}$ is a polynomial of $(I - T^{2})$, so it is also a polynomial of $T$. Therefore $\sqrt{I - T^{2}}$ commutes with $T$.
+
+              $T\sqrt{I - T^{2}} = \sqrt{I - T^{2}}T$ and $T^{2} + {(\sqrt{I - T^{2}})}^{2} = I$, and $T$ and $\sqrt{I - T^{2}}$ are self-adjoint, so by Exercise~\ref{chapter7:sectionD:exercise4}, it follows that $T + \iota\sqrt{I - T^{2}}$ is a unitary operator.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter7:sectionD:exercise11
+\begin{exercise}
+    Suppose $S\in\lmap{V}$. Prove that $S$ is a unitary operator if and only if
+    \[
+        \{ Sv : v\in V \text{ and } \norm{v}\leq 1 \} = \{ v\in V: \norm{v}\leq 1 \}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    $(\Rightarrow)$ $S$ is a unitary operator.
+
+    If $w\in \{ Sv : v\in V \text{ and } \norm{v}\leq 1 \}$ then there exists $v\in V$ such that $\norm{v}\leq 1$ and $Sv = w$. Moreover, $\norm{w} = \norm{Sv} = \norm{v}\leq 1$ so $w\in \{ v\in V: \norm{v}\leq 1 \}$. Hence
+    \[
+        \{ Sv : v\in V \text{ and } \norm{v}\leq 1 \} \subseteq \{ v\in V: \norm{v}\leq 1 \}.
+    \]
+
+    If $w\in \{ v\in V: \norm{v}\leq 1 \}$ then $\norm{w}\leq 1$. Let $v = S^{-1}w$ then $\norm{v} = \norm{S^{-1}w} = \norm{S^{*}w} = \norm{w}\leq 1$ and $\norm{Sv} = \norm{w}\leq 1$. So $w\in \{ Sv : v\in V \text{ and } \norm{v}\leq 1 \}$. Hence
+    \[
+        \{ Sv : v\in V \text{ and } \norm{v}\leq 1 \} \supseteq \{ v\in V: \norm{v}\leq 1 \}.
+    \]
+
+    Thus
+    \[
+        \{ Sv : v\in V \text{ and } \norm{v}\leq 1 \} = \{ v\in V: \norm{v}\leq 1 \}.
+    \]
+
+    \bigskip
+    $(\Leftarrow)$ $\{ Sv : v\in V \text{ and } \norm{v}\leq 1 \} = \{ v\in V: \norm{v}\leq 1 \}$.
+
+    Let $A = \{ Sv : v\in V \text{ and } \norm{v}\leq 1 \}$ and $B = \{ v\in V: \norm{v}\leq 1 \}$.
+
+    \begin{enumerate}[label={(\roman*)}]
+        \item Prove that $\norm{Sv}\leq\norm{v}$ and $S$ is invertible.
+
+              Let $v$ be a nonzero vector in $V$. $\norm{v/\norm{v}} = 1$ so $v/\norm{v}\in A$ and $v/\norm{v}\in B$. Therefore $\norm{S(v/\norm{v})}\leq 1$, which means $\norm{Sv}\leq\norm{v}$. Moreover, there exists $u\in B$ such that $Su = v/\norm{v}$, so $S(\norm{v}u) = v$, which implies $S$ is surjective. Because $S$ is an operator on a finite-dimensional vector space, then surjectivity implies invertibility. Hence $S$ is invertible.
+        \item Prove that if $\norm{w} = 1$ and $Sv = w$ then $\norm{v} = 1$.
+
+              Let $w$ be a vector in $V$ such that $\norm{w} = 1$, then $w\in B = A$, so there exists $v\in B$ such that $Sv = w$. Therefore $1 = \norm{w} = \norm{Sv}\leq \norm{v}$. Moreover, because $v\in B$, we have $\norm{v}\leq 1$. So $\norm{v} = 1$. Thus if $\norm{w} = 1$ then any $v$ in the preimage of $w$ has norm $1$.
+        \item Prove that $\norm{v} = \norm{Sv}$ for $v\ne 0$.
+
+              Let $v$ be a nonzero vector in $V$, then $Sv\ne 0$, because $S$ is invertible.
+              \[
+                  \norm{\frac{Sv}{\norm{Sv}}} = 1 \implies \norm{S\left(\frac{v}{\norm{Sv}}\right)} = 1
+              \]
+
+              $\dfrac{v}{\norm{Sv}}$ is in the preimage of $S\left(\dfrac{v}{\norm{Sv}}\right)$, which has norm $1$, so $\dfrac{v}{\norm{Sv}}$ also has norm $1$. Therefore $\norm{v} = \norm{Sv}$.
+    \end{enumerate}
+
+    Thus $\norm{v} = \norm{Sv}$ for every $v\in V$. Hence $S$ is a unitary operator.
+\end{proof}
+\newpage
+
+% chapter7:sectionD:exercise12
+\begin{exercise}
+    Prove or give a counterexample: If $S\in\lmap{V}$ is invertible and $\norm{S^{-1}v} = \norm{Sv}$ for every $v\in V$, then $S$ is unitary.
+\end{exercise}
+
+\begin{proof}
+    Here is a counterexample.
+
+    $V = \mathbb{F}^{2}$, $S\in\lmap{V}$ and the matrix of $S$ with respect to the standard basis is
+    \[
+        \begin{pmatrix}
+            1 & 1  \\
+            0 & -1
+        \end{pmatrix}
+    \]
+
+    then $S^{2} = I$, so $S = S^{-1}$, which implies $\norm{S^{-1}v} = \norm{Sv}$ for every $v\in V$. However, $S$ is not unitary because $S^{-1}\ne S^{*}$.
+\end{proof}
+\newpage
+
+% chapter7:sectionD:exercise13
+\begin{exercise}
+    Explain why the columns of a square matrix of complex numbers form an orthonormal list in $\mathbb{C}^{n}$ if and only if the rows of the matrix form an orthonormal list in $\mathbb{C}^{n}$.
+\end{exercise}
+
+\begin{proof}
+    Let $A$ be a square matrix of complex numbers.
+
+    The columns of $A$ form an orthonormal list in $\mathbb{C}^{n}$ if and only if $A^{*}A = I$.
+
+    The rows of $A$ form an orthonormal list in $\mathbb{C}^{n}$ if and only if $AA^{*} = I$.
+
+    $A^{*}A = I$ if and only if $AA^{*} = I$, so the columns of a square matrix of complex numbers form an orthonormal list in $\mathbb{C}^{n}$ if and only if the rows of the matrix form an orthonormal list in $\mathbb{C}^{n}$.
+\end{proof}
+\newpage
+
+% chapter7:sectionD:exercise14
+\begin{exercise}
+    Suppose $v \in V$ with $\norm{v} = 1$ and $b \in \mathbb{F}$. Also suppose $\dim V \geq 2$. Prove that there exists a unitary operator $S \in \lmap{V}$ such that $\innerprod{Sv, v} = b$ if and only if $\abs{b}\leq 1$.
+\end{exercise}
+
+\begin{proof}
+    $(\Rightarrow)$ There exists a unitary operator $S \in \lmap{V}$ such that $\innerprod{Sv, v} = b$.
+
+    By Cauchy-Schwarz's inequality, $\abs{b} = \abs{\innerprod{Sv, v}}\leq \norm{Sv}\norm{v} = \norm{v}^{2}\leq 1$.
+
+    $(\Leftarrow)$ $\abs{b}\leq 1$.
+
+    Let $v = e_{1}, \ldots, e_{n}$ be an orthonormal basis of $V$. Because $\abs{b}\leq 1$ and $\dim V > 1$, there exists $f_{1}\in V$ such that $\norm{f_{1}} = 1$ and $\innerprod{f_{1}, v} = b$ (remind that $f_{1} = \innerprod{f_{1}, e_{1}}e_{1} + \cdots + \innerprod{f_{2}, e_{n}}e_{n}$).
+
+    Let $f_{1}, \ldots, f_{n}$ be an orthonormal basis of $V$ and define $S\in\lmap{V}$ such that $Se_{k} = f_{k}$ for each $k\in\{ 1,\ldots,n \}$. Hence $S$ is a unitary operator.
+\end{proof}
+\newpage
+
+% chapter7:sectionD:exercise15
+\begin{exercise}
+    Suppose $T$ is a unitary operator on $V$ such that $T - I$ is invertible.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Prove that $(T + I){(T - I)}^{-1}$ is a skew operator (meaning that it equals the negative of its adjoint).
+        \item Prove that if $\mathbb{F} = \mathbb{C}$, then $\iota (T + I){(T - I)}^{-1}$ is a self-adjoint operator.
+    \end{enumerate}
+\end{exercise}
+
+\begin{quote}
+    The function $z \mapsto \iota (z + 1){(z - 1)}^{-1}$ maps the unit circle in $\mathbb{C}$ (except for the point $1$) to $\mathbb{R}$. Thus (b) illustrates the analogy between the unitary operators and the unit circle in $\mathbb{C}$, along with the analogy between the self-adjoint operators and $\mathbb{R}$.
+\end{quote}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item The adjoint map of $(T + I){(T - I)}^{-1}$ is
+              \begin{align*}
+                  {\left((T + I){(T - I)}^{-1}\right)}^{*} & = {\left({(T - I)}^{-1}\right)}^{*}{(T + I)}^{*} \\
+                                                           & = {\left({(T - I)}^{*}\right)}^{-1}(T^{*} + I)   \\
+                                                           & = {(T^{*} - I)}^{-1}(T^{*} + I)                  \\
+                                                           & = {(T^{*} - T^{*}T)}^{-1}(T^{*} + T^{*}T)        \\
+                                                           & = {(I - T)}^{-1}{(T^{*})}^{-1}T^{*}(I + T)       \\
+                                                           & = {(I - T)}^{-1}(I + T).
+              \end{align*}
+
+              Moreover, because $(I + T)(I - T) = (I - T)(I + T)$ so ${(I + T)}{(I - T)}^{-1} = {(I - T)}^{-1}(I + T)$. Hence the adjoint map of $(T + I){(T - I)}^{-1}$ is
+              \[
+                  (I + T){(I - T)}^{-1} = -(T + I){(T - I)}^{-1}.
+              \]
+
+              Hence ${(T + I)}{(T - I)}^{-1}$ is a skew operator.
+        \item If $\mathbb{F} = \mathbb{C}$, the adjoint map of $\iota (T + I){(T - I)}^{-1}$ is
+              \[
+                  \bar{\iota}\left(-(T + I){(T - I)}^{-1}\right) = \iota (T + I){(T - I)}^{-1}
+              \]
+
+              so $\iota (T + I){(T - I)}^{-1}$ is a self-adjoint operator.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter7:sectionD:exercise16
+\begin{exercise}
+    Suppose $\mathbb{F} = \mathbb{C}$ and $T \in \lmap{V}$ is self-adjoint. Prove that $(T + \iota I){(T - \iota I)}^{-1}$ is a unitary operator and $1$ is not an eigenvalue of this operator.
+\end{exercise}
+
+\begin{proof}
+    Because $T$ is self-adjoint, every eigenvalue of $T$ is real, so ${(T - \iota I)}$ and ${(T + \iota I)}$ are invertible.
+
+    The inverse of $(T + \iota I){(T - \iota I)}^{-1}$ is
+    \[
+        {(T - \iota I)}{(T + \iota I)}^{-1}.
+    \]
+
+    The adjoint of $(T + \iota I){(T - \iota I)}^{-1}$ is
+    \[
+        {(T^{*} + \iota I)}^{-1}(T^{*} - \iota I) = {(T + \iota I)}^{-1}(T - \iota I).
+    \]
+
+    Because $(T - \iota I)(T + \iota I) = (T + \iota I)(T - \iota I)$ so ${(T - \iota I)}{(T + \iota I)}^{-1} = {(T + \iota I)}^{-1}(T - \iota I)$.
+
+    Hence the inverse and the adjoint of $(T + \iota I){(T - \iota I)}^{-1}$ are identical. Thus $(T + \iota I){(T - \iota I)}^{-1}$ is a unitary operator.
+
+    \bigskip
+    Assume $1$ is an eigenvalue of $(T + \iota I){(T - \iota I)}^{-1}$, then $1$ is also an eigenvalue of its inverse, ${(T + \iota I)}^{-1}(T - \iota I)$. Let $v$ be an eigenvector of ${(T + \iota I)}^{-1}(T - \iota I)$ corresponding to $1$, then ${(T + \iota I)}^{-1}(T - \iota I)v = v$. It follows that $(T - \iota I)v = {(T + \iota I)}v$, hence $v = 0$, which is a contradiction because an eigenvector is nonzero.
+
+    Thus $1$ is not an eigenvalue of $(T + \iota I){(T - \iota I)}^{-1}$.
+\end{proof}
+\newpage
+
+% chapter7:sectionD:exercise17
+\begin{exercise}
+    Explain why the characterizations of unitary matrices given by 7.57 hold.
+\end{exercise}
+
+\begin{quote}
+    Suppose $Q$ is an $n$-by-$n$ matrix. The the following are equivalent.
+    \begin{enumerate}[label={(\alph*)}]
+        \item $Q$ is a unitary matrix.
+        \item The rows of $Q$ form an orthonormal list in $\mathbb{F}^{n}$.
+        \item $\norm{Qv} = \norm{v}$ for every $v\in\mathbb{F}^{n}$.
+        \item $Q^{*}Q = QQ^{*} = I$, the $n$-by-$n$ matrix with $1$'s on the diagonal and $0$'s elsewhere.
+    \end{enumerate}
+\end{quote}
+
+\begin{proof}
+    Let $T\in\lmap{\mathbb{F}^{n}}$ be the linear operator defined by $Av = Qv$. The matrix of $T$ with respect to the standard basis of $\mathbb{F}^{n}$ is $Q$, so $Q$ is a unitary matrix if and $T$ is a unitary operator.
+
+    Thus (a), (b), (c), (d) are equivalent, because
+    \begin{enumerate}[label={(\alph*)}]
+        \item $Q$ is a unitary matrix if and $T$ is a unitary operator.
+        \item The rows of $Q$ form an orthonormal list in $\mathbb{F}^{n}$ if and only if $Q^{*}$ is a unitary matrix. $T^{*}$ is a unitary matrix if and only if $T^{*}$ is a unitary operator, $T^{*}$ is a unitary operator if and only if $T$ is a unitary operator.
+        \item $\norm{Qv} = \norm{v}$ for every $v\in V$ if and only if $\norm{Tv} = \norm{v}$ for every $v\in V$. $\norm{Tv} = \norm{v}$ for every $v\in V$ if and only if $T$ is a unitary operator.
+        \item $QQ^{*} = Q^{*}Q = I$ if and only if $TT^{*} = T^{*}T = I$. $TT^{*} = T^{*}T = I$ if and only if $T$ is a unitary operator.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter7:sectionD:exercise18
+\begin{exercise}
+    A square matrix $A$ is called symmetric if it equals its transpose. Prove that if $A$ is a symmetric matrix with real entries, then there exists a unitary matrix $Q$ with real entries such that $Q^{*}AQ$ is a diagonal matrix.
+\end{exercise}
+
+\begin{proof}
+    Let $n$ be the number of columns of $A$. Let $T\in\lmap{\mathbb{R}^{n}}$ such that the matrix of $T$ with respect to the standard basis of $\mathbb{R}^{n}$ is $A$.
+
+    Because $A = A^{\top}$, $T$ is self-adjoint. According to the real spectral theorem, there exists an orthonormal list $v_{1}, \ldots, v_{n}$ of $\mathbb{R}^{n}$ to which $T$ has a diagonal matrix $D$.
+
+    Let $Q = \mathcal{M}(I, (v_{1}, \ldots, v_{n}), (e_{1}, \ldots, e_{n}))$, then $Q$ is a unitary matrix and $D = Q^{*}AQ$.
+\end{proof}
+\newpage
+
+% chapter7:sectionD:exercise19
+\begin{exercise}
+    Suppose $n$ is a positive integer. For this exercise, we adopt the notation that
+    a typical element $z$ of $\mathbb{C}^{n}$ is denoted by $z = (z_{0}, z_{1}, \ldots, z_{n-1})$. Define linear functionals $\omega_{0}, \omega_{1}, \ldots, \omega_{n-1}$ on $\mathbb{C}^{n}$ by
+    \[
+        \omega_{j}(z_{0}, z_{1}, \ldots, z_{n-1}) = \frac{1}{\sqrt{n}}\sum^{n-1}_{m=0}z_{m}e^{-2\pi \iota jm/n}.
+    \]
+
+    The \textit{discrete Fourier transform} is the operator $\mathscr{F}: \mathbb{C}^{n}\to \mathbb{C}^{n}$ defined by
+    \[
+        \mathscr{F}z = (\omega_{0}(z), \omega_{1}(z), \ldots, \omega_{n-1}(z)).
+    \]
+
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that $\mathscr{F}$ is a unitary operator on $\mathbb{C}^{n}$.
+        \item Show that if $(z_{0}, \ldots, z_{n-1})\in\mathbb{C}^{n}$ and $z_{n}$ is defined to equal $z_{0}$, then
+              \[
+                  \mathscr{F}^{-1}(z_{0}, z_{1}, \ldots, z_{n-1}) = \mathscr{F}(z_{n}, z_{n-1}, \ldots, z_{1}).
+              \]
+        \item Show that $\mathscr{F}^{4} = I$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{quote}
+    The discrete Fourier transform has many important applications in data analysis. The usual Fourier transform involves expressions of the form $\int^{\infty}_{-\infty}f(x)e^{-2\pi \iota tx}dx$ for complex-valued integrable functions $f$ defined on $\mathbb{R}$.
+\end{quote}
+
+\begin{proof}
+    Let $e_{1}, \ldots, e_{n}$ be the standard basis of $\mathbb{C}^{n}$.
+    \begin{align*}
+        \innerprod{\mathscr{F}e_{j}, \mathscr{F}e_{k}} & = \innerprod{(\omega_{0}(e_{j}), \omega_{1}(e_{j}), \ldots, \omega_{n-1}(e_{j})), (\omega_{0}(e_{k}), \omega_{1}(e_{k}), \ldots, \omega_{n-1}(e_{k}))} \\
+                                                       & = \sum^{n-1}_{m=0}\omega_{p}(e_{j})\conj{\omega_{p}(e_{k})}                                                                                            \\
+                                                       & = \sum^{n-1}_{m=0}\left(\frac{1}{\sqrt{n}}e^{-2\pi\iota jm/n} \times \frac{1}{\sqrt{n}}e^{2\pi\iota km/n}\right)                                       \\
+                                                       & = \frac{1}{n}\sum^{n-1}_{m=0}e^{-2\pi\iota (j - k)m/n}                                                                                                 \\
+                                                       & = \delta_{j,k}
+    \end{align*}
+
+    so $\mathscr{F}e_{1}, \ldots, \mathscr{F}e_{n}$ is an orthonormal list in $\mathbb{C}^{n}$. Hence $\mathscr{F}$ is a unitary operator on $\mathbb{C}^{n}$.
+
+    Since $z_{0} = z_{n}$.
+    \begingroup
+    \allowdisplaybreaks{}
+    \begin{align*}
+        \innerprod{(w_{0}, w_{1}, \ldots, w_{n-1}), \mathscr{F}^{*}(z_{0}, z_{1}, \ldots, z_{n-1})} & = \innerprod{\mathscr{F}(w_{0}, w_{1}, \ldots, w_{n-1}), (z_{0}, z_{1}, \ldots, z_{n-1})}                          \\
+                                                                                                    & = \sum^{n-1}_{j=0}\omega_{j}(w_{0}, w_{1}, \ldots, w_{n-1})\conj{z_{j}}                                            \\
+                                                                                                    & = \sum^{n-1}_{j=0}\left(\frac{1}{\sqrt{n}}\sum^{n-1}_{m=0}w_{m}e^{-2\pi\iota jm/n}\conj{z_{j}}\right)              \\
+                                                                                                    & = \sum^{n-1}_{m=0}w_{m}\conj{\left(\sum^{n-1}_{j=0}\frac{1}{\sqrt{n}}z_{j}e^{2\pi\iota jm/n}\right)}               \\
+                                                                                                    & = \sum^{n-1}_{m=0}w_{m}\conj{\left(\sum^{n-1}_{j=0}\frac{1}{\sqrt{n}}z_{j}e^{2\pi\iota (j - n)m/n}\right)}         \\
+                                                                                                    & = \sum^{n-1}_{m=0}w_{m}\conj{\left(\sum^{n-1}_{j=0}\frac{1}{\sqrt{n}}z_{n-j}e^{2\pi\iota ((n - j) - n)m/n}\right)} \\
+                                                                                                    & = \sum^{n-1}_{m=0}w_{m}\conj{\left(\sum^{n-1}_{j=0}\frac{1}{\sqrt{n}}z_{n-j}e^{-2\pi\iota jm/n}\right)}            \\
+                                                                                                    & = \sum^{n-1}_{m=0}w_{m}\conj{\omega_{j}(z_{n}, z_{n-1}, \ldots, z_{1})}.
+    \end{align*}
+    \endgroup
+
+    Therefore
+    \begin{multline*}
+        \innerprod{(w_{0}, w_{1}, \ldots, w_{n-1}), \mathscr{F}^{*}(z_{0}, z_{1}, \ldots, z_{n-1})} \\
+        = \innerprod{(w_{0}, w_{1}, \ldots, w_{n-1}), (\omega_{0}(z_{n}, z_{n-1}, \ldots,z_{1}), \ldots, (\omega_{n-1}(z_{n}, z_{n-1}, \ldots,z_{1})))} \\
+        = \innerprod{(w_{0}, w_{1}, \ldots, w_{n-1}), \mathscr{F}(z_{n}, z_{n-1}, \ldots, z_{1})}.
+    \end{multline*}
+
+    Together with $\mathscr{F}$ being a unitary operator, we have
+    \[
+        \mathscr{F}^{-1}(z_{0}, z_{1}, \ldots, z_{n-1}) = \mathscr{F}^{*}(z_{0}, z_{1}, \ldots, z_{n-1}) = \mathscr{F}(z_{n}, z_{n-1}, \ldots, z_{1}).
+    \]
+
+    By (b)
+    \[
+        \mathscr{F}^{4}(z_{0}, z_{1}, \ldots, z_{n-1}) = \mathscr{F}^{2}(z_{n}, z_{n-1}, \ldots, z_{1}) = (z_{0}, z_{1}, \ldots, z_{n-1})
+    \]
+
+    so $\mathscr{F}^{4} = I$.
+\end{proof}
+\newpage
+
+% chapter7:sectionD:exercise20
+\begin{exercise}
+    Suppose $A$ is a square matrix with linearly independent columns. Prove that there exist unique matrices $R$ and $Q$ such that $R$ is lower triangular with only positive numbers on its diagonal, $Q$ is unitary, and $A = RQ$.
+\end{exercise}
+
+\begin{quote}
+    You should try not using the QR-decomposition.
+
+    Hint: Apply the Gram-Schmidt's procedure to the rows of $A$ in reversed order.
+\end{quote}
+
+\begin{proof}[Proof using QR-decomposition]
+    According to the QR-decomposition theorem, there exists a upper-triangular matrix $U$ with only positive numbers on its diagonal and a unitary matrix $S$ such that $A^{*} = SU$. Therefore $A = U^{*}S^{*}$, where $S^{*}$ is a unitary matrix and $U^{*}$ is a lower-triangular matrix with only positive numbers on its diagonal.
+
+    Assume $A = RQ$ where $R$ is lower triangular with only positive numbers on its diagonal, $Q$ is unitary, then $A^{*} = Q^{*}R^{*} = SU$. According to the QR-decomposition theorem, $Q^{*} = S$ and $R^{*} = U$, so $Q = S^{*}$ and $R = U^{*}$.
+
+    Thus there exist unique matrices $R$ and $Q$ such that $R$ is lower triangular with only positive numbers on its diagonal, $Q$ is unitary, and $A = RQ$.
+\end{proof}
+
+\begin{proof}[Proof without QR-decomposition]
+    $A$ is a square matrix and the columns of $A$ are linearly independent, so the rows of $A$ are linearly independent.
+
+    Let $w_{1}, \ldots, w_{n}$ be the rows of $A$. Apply the Gram-Schmidt's procedure to $v_{1} = w_{n}, \ldots, v_{n} = w_{1}$ to get an orthonormal basis $e_{n}, \ldots, e_{1}$ of $\mathbb{F}^{n}$. Then
+    \[
+        \operatorname{span}(v_{k}, \ldots, v_{n}) = \operatorname{span}(e_{k}, \ldots, e_{n})
+    \]
+
+    and $\innerprod{v_{k}, e_{k}} > 0$ for every $k\in\{1,\ldots,n\}$.
+
+    Let $Q$ be a unitary matrix whose $k$th row is $e_{n+1-k}$. Let $R$ be the $n$-by-$n$ matrix defined by
+    \[
+        R_{j,k} = \innerprod{v_{n+1-j}, e_{n+1-k}}.
+    \]
+
+    If $j < k$, then $\innerprod{v_{n+1-j}, e_{n+1-k}} = 0$ because $(n+1-j) > (n+1-k)$ and $e_{n+1-k}$ is orthogonal to $\operatorname{span}(e_{n+1-j}, \ldots, e_{n}) = \operatorname{span}(v_{n+1-j}, \ldots, v_{n})$, so $R$ is lower triangular. Moreover, $R_{j,j} = \innerprod{v_{n+1-j}, e_{n+1-j}} > 0$ so all entries on the diagonal of $R$ are positive.
+
+    The $j$th rows of $RQ$ is
+    \[
+        \innerprod{v_{n+1-j}, e_{n}}e_{n} + \cdots + \innerprod{v_{n+1-j}, e_{n+1-j}}e_{n+1-j}
+    \]
+
+    which equals to $v_{n+1-j}$ and $w_{j}$. Therefore $A = RQ$.
+
+    Suppose we have $A = \widetilde{R}\widetilde{Q}$ where $\widetilde{R}$ is lower triangular and $\widetilde{Q}$ is unitary. Let $q_{n}, \ldots, q_{1}$ be the rows of $\widetilde{Q}$, then $\operatorname{span}(v_{k}, \ldots, v_{n}) =  \operatorname{span}(q_{k}, \ldots, q_{n})$ and $\innerprod{v_{k}, q_{k}} > 0$ for every $k\in\{1,\ldots, n\}$. By Exercise~\ref{chapter6:sectionB:exercise10}, $q_{k} = e_{k}$ for every $k\in\{1,\ldots,n\}$. Hence $Q = \widetilde{Q}$ and $R = \widetilde{R}$ (since $e_{1},  \ldots, e_{n}$ form a basis).
+
+    Thus there exist unique matrices $R$ and $Q$ such that $R$ is lower-triangular with only positive numbers on its diagonal, $Q$ is unitary, and $A = RQ$.
+\end{proof}
+\newpage
 
 \section{Singular Value Decomposition}
 
