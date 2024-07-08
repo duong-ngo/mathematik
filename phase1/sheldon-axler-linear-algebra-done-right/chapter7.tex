@@ -3012,5 +3012,493 @@
 
 \section{Singular Value Decomposition}
 
+% chapter7:sectionE:exercise1
+\begin{exercise}
+    Suppose $T\in \lmap{V, W}$. Show that $T = 0$ if and only if all singular values of $T$ are $0$.
+\end{exercise}
+
+\begin{proof}
+    \begin{align*}
+        T = 0 & \Longleftrightarrow Tv = 0\,\forall v\in V                     \\
+              & \Longleftrightarrow \innerprod{Tv, Tv} = 0\,\forall v\in V     \\
+              & \Longleftrightarrow \innerprod{T^{*}Tv, v} = 0\,\forall v\in V \\
+              & \Longleftrightarrow T^{*}T = 0
+    \end{align*}
+
+    the last equivalence is true since $T^{*}T$ is self-adjoint. $T^{*}T$ is diagonalizable, so $T^{*}T = 0$ if and only if all eigenvalues of $T^{*}T$ are $0$, equivalently, all singular values of $T$ are $0$.
+\end{proof}
+\newpage
+
+% chapter7:sectionE:exercise2
+\begin{exercise}
+    Suppose $T\in \lmap{V, W}$ and $s > 0$. Prove that $s$ is a singular value of $T$ if and only if there exist nonzero vectors $v \in V$ and $w \in W$ such that
+    \[
+        Tv = sw \quad\text{and}\quad T^{*}w = sv.
+    \]
+\end{exercise}
+
+\begin{quote}
+    The vectors $v, w$ satisfying both equations above are called a Schmidt pair. Erhard Schmidt introduced the concept of singular values in 1907.
+\end{quote}
+
+\begin{proof}
+    $(\Rightarrow)$ $s$ is a singular value of $T$.
+
+    Then $s^{2}$ is an eigenvalue of $T^{*}T$. So there exists a nonzero vector $v$ such that $T^{*}Tv = s^{2}v$.
+
+    Let $w = \frac{1}{s}Tv$, then $w$ is nonzero, $Tv = sw$ and $T^{*}w = \frac{1}{s}T^{*}Tv = sv$.
+
+    \bigskip
+    $(\Leftarrow)$ There exist nonzero vectors $v \in V$ and $w \in W$ such that $Tv = sw$ and $T^{*}w = sv$.
+
+    $T^{*}Tv = T^{*}(sw) = s^{2}v$. So $s^{2}$ is an eigenvalue of $T^{*}T$, and it follows that $s$ is a singular value of $T$.
+\end{proof}
+\newpage
+
+% chapter7:sectionE:exercise3
+\begin{exercise}
+    Give an example of $T\in\lmap{\mathbb{C}^{2}}$ such that $0$ is the only eigenvalue of $T$ and the singular values of $T$ are $5$, $0$.
+\end{exercise}
+
+\begin{proof}
+    Let $T(z, w) = (0, 5z)$, then the matrix of $T$ with respect to the standard basis of $\mathbb{C}^{2}$ is $\begin{pmatrix}0 & 5 \\ 0 & 0 \end{pmatrix}$. The only eigenvalue of $T$ is $0$ (because the minimal polynomial of $T$ is $z^{2}$).
+
+    $T^{*}(z, w) = (5w, 0)$, and the matrix of $T^{*}$ with respect to the standard basis of $\mathbb{C}^{2}$ is $\begin{pmatrix}0 & 0 \\ 5 & 0\end{pmatrix}$.
+
+    The matrix of $T^{*}T$ with respect to the standard basis of $\mathbb{C}^{2}$ is $\begin{pmatrix}25 & 0 \\ 0 & 0\end{pmatrix}$ so the eigenvalues of $T^{*}T$ are $25$ and $0$. Hence the singular values of $T$ are $5, 0$.
+\end{proof}
+\newpage
+
+% chapter7:sectionE:exercise4
+\begin{exercise}\label{chapter7:sectionE:exercise4}
+    Suppose that $T\in\lmap{V, W}$, $s_{1}$ is the largest singular value of $T$, and $s_{n}$ is the smallest singular value of $T$. Prove that
+    \[
+        \left\{ \norm{Tv}: v\in V\text{ and }\norm{v} = 1\right\} = [s_{n}, s_{1}].
+    \]
+\end{exercise}
+
+\begin{proof}
+    Let $s_{1}, \ldots, s_{n}$ be the singular values of $T^{*}T$ and $e_{1}, \ldots, e_{n}$ be an orthonormal basis of $V$ such that $T^{*}Te_{k} = s_{k}^{2}e_{k}$ for every $k\in\{1,\ldots,n\}$ (this is possible due to the spectral theorem).
+
+    Let $v$ be a vector in $V$ such that $\norm{v} = 1$. So there exist $a_{1}, \ldots, a_{n}\in\mathbb{F}$ such that
+    \[
+        \abs{a_{1}}^{2} + \cdots + \abs{a_{n}}^{2} = 1\qquad v = a_{1}e_{1} + \cdots + a_{n}e_{n}.
+    \]
+
+    \begin{align*}
+        \innerprod{Tv, Tv} & = \innerprod{T^{*}Tv, v}                                                                           & \text{(the definition of adjoint map)} \\
+                           & = \innerprod{s_{1}^{2}a_{1}e_{1} + \cdots + s_{n}^{2}a_{n}e_{n}, a_{1}e_{1} + \cdots + a_{n}e_{n}}                                          \\
+                           & = s_{1}^{2}\abs{a_{1}}^{2} + \cdots + s_{n}^{2}\abs{a_{n}}^{2}
+    \end{align*}
+
+    Hence $s_{n}^{2}\leq \norm{Tv}^{2}\leq s_{1}^{2}$, where
+    \begin{itemize}
+        \item $\norm{Tv}^{2} = s_{1}^{2}$ if and only if $a_{k} = 0$ for every $k$ that satisfies $s_{k}\ne s_{1}$,
+        \item $\norm{Tv}^{2} = s_{n}^{2}$ if and only if $a_{k} = 0$ for every $k$ that satisfies $s_{k}\ne s_{n}$.
+    \end{itemize}
+
+    Thus $\left\{ \norm{Tv}: v\in V\text{ and }\norm{v} = 1\right\} = [s_{n}, s_{1}]$.
+\end{proof}
+\newpage
+
+% chapter7:sectionE:exercise5
+\begin{exercise}
+    Suppose $T\in\lmap{\mathbb{C}^{2}}$ is defined by $T(x, y) = (-4y, x)$. Find the singular values of $T$.
+\end{exercise}
+
+\begin{proof}
+    $T^{*}(x, y) = (y, -4x)$, so $T^{*}T(x, y) = T^{*}(-4y, x) = (x, 16y)$. The matrix of $T^{*}T$ with respect to the standard basis of $\mathbb{C}^{2}$ is $\begin{pmatrix}0 & 0 \\ 0 & 16\end{pmatrix}$. Hence the singular values of $T$ are $4, 0$.
+\end{proof}
+\newpage
+
+% chapter7:sectionE:exercise6
+\begin{exercise}
+    Find the singular values of the differentiation operator $D \in \lmap{\mathscr{P}_{2}(\mathbb{R})}$ defined by $Dp = p'$, where the inner product on $\mathscr{P}_{2}(\mathbb{R})$ is as in Example 6.34.
+\end{exercise}
+
+\begin{proof}
+    An orthonormal basis of $\mathscr{P}_{2}(\mathbb{R})$ is
+    \[
+        \sqrt{\frac{1}{2}}, \sqrt{\frac{3}{2}}x, \sqrt{\frac{45}{8}}\left(x^{2} - \frac{1}{3}\right)
+    \]
+
+    and the matrices of $D$, $D^{*}$ with respect to this basis are
+    \[
+        \begin{pmatrix}
+            0 & \sqrt{\frac{3}{2}} & 0                   \\
+            0 & 0                  & \sqrt{\frac{45}{2}} \\
+            0 & 0                  & 0
+        \end{pmatrix}
+        \qquad
+        \begin{pmatrix}
+            0                  & 0                   & 0 \\
+            \sqrt{\frac{3}{2}} & 0                   & 0 \\
+            0                  & \sqrt{\frac{45}{2}} & 0
+        \end{pmatrix}
+    \]
+
+    so the matrix of $D^{*}D$ with respect to the basis is
+    \[
+        \begin{pmatrix}
+            0 & 0           & 0            \\
+            0 & \frac{3}{2} & 0            \\
+            0 & 0           & \frac{45}{2}
+        \end{pmatrix}.
+    \]
+
+    Hence the singular values of $D$ are $\sqrt{\frac{45}{2}}, \sqrt{\frac{3}{2}}, 0$.
+\end{proof}
+\newpage
+
+% chapter7:sectionE:exercise7
+\begin{exercise}\label{chapter7:sectionE:exercise7}
+    Suppose that $T \in \lmap{V}$ is self-adjoint or that $\mathbb{F} = \mathbb{C}$ and $T \in \lmap{V}$ is normal. Let $\lambda_{1}, \ldots, \lambda_{n}$ be the eigenvalues of $T$, each included in this list as many times as the dimension of the corresponding eigenspace. Show that the singular values of $T$ are $\abs{\lambda_{1}}, \ldots, \abs{\lambda_{n}}$, after these numbers have been sorted into decreasing order.
+\end{exercise}
+
+\begin{proof}
+    According to the complex spectral theorem, there exists an orthonormal basis $e_{1}, \ldots, e_{n}$ of $V$ of which vectors are eigenvectors of $T$. Without loss of generality, suppose that $Te_{k} = \lambda_{k}e_{k}$ for every $k\in\{1,\ldots,n\}$.
+
+    Because $T$ is normal, so $T^{*}e_{k} = \conj{\lambda_{k}}e_{k}$ for every $k\in\{1,\ldots,n\}$. Hence $T^{*}Te_{k} = \abs{\lambda_{k}}^{2}e_{k}$ for every $k\in\{1,\ldots,n\}$. Therefore the singular values of $T$ are $\abs{\lambda_{1}}, \ldots, \abs{\lambda_{n}}$ after sorted into decreasing order.
+\end{proof}
+\newpage
+
+% chapter7:sectionE:exercise8
+\begin{exercise}\label{chapter7:sectionE:exercise8}
+    Suppose $T\in\lmap{V, W}$. Suppose $s_{1}\geq s_{2}\geq \cdots\geq s_{m} > 0$ and $e_{1}, \ldots, e_{m}$ is an orthonormal list in $V$ and $f_{1}, \ldots, f_{m}$ is an orthonormal list in $W$ such that
+    \[
+        Tv = s_{1}\innerprod{v,e_{1}}f_{1} + \cdots + s_{m}\innerprod{v,e_{m}}f_{m}
+    \]
+
+    for every $v\in V$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Prove that $f_{1}, \ldots, f_{m}$ is an orthonormal basis of $\range{T}$.
+        \item Prove that $e_{1}, \ldots, e_{m}$ is an orthonormal basis of ${(\kernel{T})}^{\bot}$.
+        \item Prove that $s_{1}, \ldots, s_{m}$ are the positive singular values of $T$.
+        \item Prove that if $k\in\{1,\ldots, m\}$, then $e_{k}$ is an eigenvector $T^{*}T$ with corresponding eigenvalue $s_{k}^{2}$.
+        \item Prove that
+              \[
+                  TT^{*}w = s_{1}^{2}\innerprod{w, f_{1}}f_{1} + \cdots + s_{m}^{2}\innerprod{w, f_{m}}f_{m}
+              \]
+
+              for all $w\in W$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item The list $f_{1}, \ldots, f_{m}$ spans $\range{T}$ and it is also an orthonormal list so it is an orthonormal basis of $\range{T}$.
+        \item $Tv = 0$ if and only if $\innerprod{v, e_{1}} = \cdots = \innerprod{v, e_{m}} = 0$.
+
+              So $v\in\kernel{T}$ if and only if $v$ is orthogonal to $\operatorname{span}(e_{1}, \ldots, e_{m})$.
+
+              Therefore $e_{1}, \ldots, e_{m}$ is an orthonormal basis of ${(\kernel{T})}^{\bot}$.
+        \item For every $v\in V$ and $w\in W$
+              \begin{align*}
+                  \innerprod{v, T^{*}w} & = \innerprod{Tv, w}                                                                                                  \\
+                                        & = \innerprod{s_{1}\innerprod{v, e_{1}}f_{1} + \cdots + s_{m}\innerprod{v, e_{m}}f_{m}, w}                            \\
+                                        & = s_{1}\innerprod{v,e_{1}}\conj{\innerprod{w, f_{1}}} + \cdots + s_{m}\innerprod{v,e_{m}}\conj{\innerprod{w, f_{m}}} \\
+                                        & = \innerprod{v, s_{1}\innerprod{w, f_{1}}e_{1} + \cdots + s_{m}\innerprod{w, f_{m}}e_{m}}
+              \end{align*}
+
+              so $T^{*}w = s_{1}\innerprod{w, f_{1}}e_{1} + \cdots + s_{m}\innerprod{w, f_{m}}e_{m}$, and
+              \begin{align*}
+                  T^{*}(Tv) & = T^{*}(s_{1}\innerprod{v,e_{1}}f_{1} + \cdots + s_{m}\innerprod{v,e_{m}}f_{m})    \\
+                            & = s_{1}\innerprod{v,e_{1}}T^{*}f_{1} + \cdots + s_{m}\innerprod{v,e_{m}}T^{*}f_{m} \\
+                            & = s_{1}^{2}\innerprod{v,e_{1}}e_{1} + \cdots + s_{m}^{2}\innerprod{v,e_{m}}e_{m}.
+              \end{align*}
+
+              So the matrix of $T^{*}T$ with respect to $e_{1}, \ldots, e_{m}, \ldots, e_{\dim V}$ is a diagonal matrix with
+              \[
+                  s_{1}^{2}, \ldots, s_{m}^{2}, 0, \ldots, 0
+              \]
+
+              on the diagonal. Hence $s_{1}, \ldots, s_{m}$ are the positive singular values of $T$.
+        \item From the proof of (c), we obtain that $T^{*}(Te_{k}) = s_{k}^{2}e_{k}$ for every $k\in\{1,\ldots,m\}$, so $e_{k}$ is an eigenvector of $T^{*}T$ with corresponding eigenvalue $s_{k}^{2}$.
+        \item For every $w\in W$
+              \begin{align*}
+                  TT^{*}w & = T(s_{1}\innerprod{w, f_{1}}e_{1} + \cdots + s_{m}\innerprod{w, f_{m}}e_{m})     \\
+                          & = s_{1}\innerprod{w,f_{1}}Te_{1} + \cdots + s_{m}\innerprod{w,f_{m}}Te_{m}        \\
+                          & = s_{1}^{2}\innerprod{w,f_{1}}f_{1} + \cdots + s_{m}^{2}\innerprod{w,f_{m}}f_{m}.
+              \end{align*}
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter7:sectionE:exercise9
+\begin{exercise}
+    Suppose $T\in\lmap{V, W}$. Show that $T$ and $T^{*}$ have the same positive singular values.
+\end{exercise}
+
+\begin{proof}
+    This is a direct corollary of Exercise~\ref{chapter7:sectionE:exercise8} (c) and (e) (the previous exercise).
+\end{proof}
+\newpage
+
+% chapter7:sectionE:exercise10
+\begin{exercise}
+    Suppose $T\in\lmap{V, W}$ has singular values $s_{1}, \ldots, s_{n}$. Prove that if $T$ is an invertible linear map, then $T^{-1}$ has singular values
+    \[
+        \frac{1}{s_{n}}, \ldots, \frac{1}{s_{1}}
+    \]
+\end{exercise}
+
+\begin{proof}
+    Because $T$ is invertible, $s_{1}, \ldots, s_{n}$ are all positive numbers.
+
+    By the SVD theorem, $T$ admits a singular value decomposition
+    \[
+        Tv = s_{1}\innerprod{v, e_{1}}f_{1} + \cdots + s_{n}\innerprod{v, e_{n}}f_{n}
+    \]
+
+    where $T^{*}Te_{k} = s_{k}^{2}e_{k}$ and $Te_{k} = s_{k}f_{k}$ for every $k\in\{1,\ldots,n\}$. On the other hand
+    \[
+        T^{-1}w = T^{\dagger}w = \frac{1}{s_{1}}\innerprod{w,f_{1}}e_{1} + \cdots + \frac{1}{s_{n}}\innerprod{w,f_{n}}f_{n}
+    \]
+
+    so the singular values of $T^{-1}$ are
+    \[
+        \frac{1}{s_{n}}, \ldots, \frac{1}{s_{1}}.\qedhere
+    \]
+\end{proof}
+\newpage
+
+% chapter7:sectionE:exercise11
+\begin{exercise}\label{chapter7:sectionE:exercise11}
+    Suppose that $T\in\lmap{V, W}$ and $v_{1}, \ldots, v_{n}$ is an orthonormal basis of $V$. Let $s_{1}, \ldots, s_{n}$ denote the singular values of $T$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Prove that $\norm{Tv_{1}}^{2} + \cdots + \norm{Tv_{n}}^{2} = s_{1}^{2} + \cdots + s_{n}^{2}$.
+        \item Prove that if $W = V$ and $T$ is a positive operator, then
+              \[
+                  \innerprod{Tv_{1}, v_{1}} + \cdots + \innerprod{Tv_{n}, v_{n}} = s_{1} + \cdots + s_{n}.
+              \]
+    \end{enumerate}
+\end{exercise}
+
+\begin{quote}
+    See the comment after Exercise~\ref{chapter7:sectionA:exercise5}.
+\end{quote}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item By the SVD theorem, there exists an orthonormal list $e_{1}, \ldots, e_{m}$ ($m\leq n$) of $V$ and an orthonormal list $f_{1}, \ldots, f_{m}$ in $W$ such that
+              \[
+                  Tv = s_{1}\innerprod{v,e_{1}}f_{1} + \cdots + s_{m}\innerprod{v, e_{m}}f_{m}
+              \]
+
+              and $Te_{k} = s_{k}f_{k}$ for every $k\in\{1,\ldots,n\}$ (yes, $n$ instead of $m$, because $s_{k} = 0$ if $k > m$). So
+              \begin{align*}
+                  \sum^{n}_{j=1}\norm{Tv_{j}}^{2} & = \sum^{n}_{j=1}\norm{s_{1}\innerprod{v_{j}, e_{1}}f_{1} + \cdots + s_{m}\innerprod{v_{j}, e_{m}}f_{m}}^{2} \\
+                                                  & = \sum^{n}_{j=1}\left(\sum^{m}_{k=1}s_{k}^{2}\abs{\innerprod{v_{j}, e_{k}}}^{2}\right)                      \\
+                                                  & = \sum^{m}_{k=1}s_{k}^{2}\left(\sum^{n}_{j=1}\abs{\innerprod{v_{j}, e_{k}}}^{2}\right)                      \\
+                                                  & = \sum^{m}_{k=1}s_{k}^{2}\norm{e_{k}}^{2} = \sum^{m}_{k=1}s_{k}^{2} = \sum^{n}_{k=1}s_{k}^{2}.
+              \end{align*}
+
+              Hence $\norm{Tv_{1}}^{2} + \cdots + \norm{Tv_{n}}^{2} = s_{1}^{2} + \cdots + s_{n}^{2}$.
+        \item If $T$ is a positive operator, then $\sqrt{T}$ is also a positive operator.
+
+              Because $T$ is a positive operator, then $T$ is diagonalizable and all eigenvalues of $T$ are nonnegative. Let $\lambda_{1}\geq\lambda_{2}\geq\cdots\geq\lambda_{n}$ be the eigenvalues of $T$ (each are included as many as the dimension of the corresponding eigenspace of $T$). Hence the eigenvalues of $T^{*}T$ are $\lambda_{1}^{2}\geq\lambda_{2}^{2}\geq\cdots\geq \lambda_{n}^{2}$, which are precisely $s_{1}^{2}\geq s_{2}^{2}\geq\cdots\geq s_{n}^{2}$.
+
+              Because $\lambda_{1}, \ldots, \lambda_{n}, s_{1}, \ldots, s_{n}$ are nonnegative numbers, it follows that $\lambda_{1} = s_{1}, \ldots, \lambda_{n} = s_{n}$. So $\sqrt{s_{1}}, \ldots, \sqrt{s_{n}}$ are the singular values of $\sqrt{T}$. By (a)
+              \begin{align*}
+                  \innerprod{Tv_{1}, v_{1}} + \cdots + \innerprod{Tv_{n}, v_{n}} & = \innerprod{\sqrt{T}v_{1}, \sqrt{T}v_{1}} + \cdots + \innerprod{\sqrt{T}v_{n}, \sqrt{T}v_{n}} \\
+                                                                                 & = \norm{\sqrt{T}v_{1}}^{2} + \cdots + \norm{\sqrt{T}v_{n}}^{2}                                 \\
+                                                                                 & = {(\sqrt{s_{1}})}^{2} + \cdots + {(\sqrt{s_{n}})}^{2}                                         \\
+                                                                                 & = s_{1} + \cdots + s_{n}.
+              \end{align*}
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter7:sectionE:exercise12
+\begin{exercise}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Give an example of a finite-dimensional vector space and an operator $T$ on it such that the singular values of $T^{2}$ do not equal the squares of the singular values of $T$.
+        \item Suppose $T\in\lmap{V}$ is normal. Prove that the singular values of $T^{2}$ equal the squares of the singular values of $T$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Here is an example.
+
+              On $\mathbb{C}^{2}$, let $T(x, y) = (0, x)$, then $T^{2} = 0$.
+
+              The singular values of $T$ are $1, 0$, meanwhile the singular values of $T^{2}$ are $0, 0$.
+        \item $T$ is normal, so $T$ commutes with $T^{*}$, and
+              \[
+                  {(T^{2})}^{*}T^{2} = {(T^{*})}^{2}T^{2} = T^{*}T^{*}TT = T^{*}TT^{*}T = {(T^{*}T)}^{2}.
+              \]
+
+              $T^{*}T$ is self-adjoint and hence normal. According to the real and complex spectral theorems, there exists an orthonormal basis $e_{1}, \ldots, e_{n}$ of $V$ such that $e_{1}, \ldots, e_{n}$ are eigenvectors of $T^{*}T$. Let $T^{*}Te_{k} = \lambda_{k}e_{k}$ for every $k\in\{1,\ldots,n\}$, then
+              \[
+                  {(T^{2})}^{*}T^{2}e_{k} = {(T^{*}T)}^{2}e_{k} = \lambda_{k}^{2}e_{k}
+              \]
+
+              so $\lambda_{1}^{2}, \ldots, \lambda_{n}^{2}$ are the eigenvalues of ${(T^{2})}^{*}T^{2}$.
+
+              Hence the singular values of $T^{2}$ equal the squares of the singular values of $T$.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter7:sectionE:exercise13
+\begin{exercise}
+    Suppose $T_{1}, T_{2} \in \lmap{V}$. Prove that $T_{1}$ and $T_{2}$ have the same singular values if and only if there exist unitary operators $S_{1}, S_{2} \in \lmap{V}$ such that $T_{1} = S_{1}T_{2}S_{2}$.
+\end{exercise}
+
+\begin{proof}
+    $(\Rightarrow)$ There exist unitary operators $S_{1}, S_{2} \in \lmap{V}$ such that $T_{1} = S_{1}T_{2}S_{2}$.
+    \[
+        T_{1}^{*}T_{1} = (S_{2}^{*}T_{2}^{*}S_{1}^{*})(S_{1}T_{2}S_{2}) = S_{2}^{*}T_{2}^{*}T_{2}S_{2}.
+    \]
+
+    $T_{1}^{*}T_{1}$ are self-adjoint and hence normal, so by the real and complex spectral theorems, there exists an orthonormal basis $e_{1}, \ldots, e_{n}$ of $V$ to which $T_{1}^{*}T_{1}$ have a diagonal matrix.
+
+    Let $T_{1}^{*}T_{1}e_{k} = \lambda_{k}e_{k}$ for every $k\in\{1,\ldots,n\}$. Let $f_{k} = S_{2}e_{k}$ for every $k\in\{1,\ldots,n\}$, then $e_{k} = S_{2}^{*}f_{k}$ for every $k\in\{1,\ldots,n\}$.
+    \begin{align*}
+        (T_{2}^{*}T_{2})f_{k} & = (T_{2}^{*}T_{2}S_{2})e_{k}               \\
+                              & = (S_{2}S_{2}^{*}T_{2}^{*}T_{2}S_{2})e_{k} \\
+                              & = (S_{2}T_{1}^{*}T_{1})e_{k}               \\
+                              & = S_{2}(\lambda_{k}e_{k})                  \\
+                              & = \lambda_{k}f_{k}
+    \end{align*}
+
+    so $\lambda_{1}, \ldots, \lambda_{n}$ are the eigenvalues of $T_{1}^{*}T_{1}$ and $T_{2}^{*}T_{2}$. Therefore $T_{1}$ and $T_{2}$ have the same singular values.
+
+    \bigskip
+    $(\Leftarrow)$ $T_{1}$ and $T_{2}$ have the same singular values.
+
+    Let $s_{1}\geq s_{2}\geq \cdots \geq s_{n}$ be the singular values of $T_{1}$ and $T_{2}$.
+
+    According to the SVD theorem, there exist four orthonormal bases
+    \[
+        e_{1}, \ldots, e_{n}; f_{1}, \ldots, f_{n}; v_{1}, \ldots, v_{n}; w_{1}, \ldots, w_{n}
+    \]
+
+    of $V$ such that $T_{1}e_{k} = s_{k}f_{k}$, $T_{2}v_{1} = s_{k}w_{k}$, and $T_{1}^{*}T_{1}e_{k} = s_{k}^{2}e_{k}$, $T_{2}^{*}T_{2}v_{k} = s_{k}^{2}v_{k}$ for every $k\in\{1,\ldots, n\}$.
+
+    Let $S_{2}$ be the unitary operator that maps $e_{k}$ to $v_{k}$ and $S_{1}$ be the unitary operator that maps $w_{k}$ to $f_{k}$. Then for every $k\in\{1,\ldots,n\}$,
+    \[
+        S_{1}T_{2}S_{2}e_{k} = S_{1}T_{2}v_{k} = S_{1}(s_{k}w_{k}) = s_{k}f_{k} = T_{1}e_{k}.
+    \]
+
+    Hence $T_{1} = S_{1}T_{2}S_{2}$.
+\end{proof}
+\newpage
+
+% chapter7:sectionE:exercise14
+\begin{exercise}\label{chapter7:sectionE:exercise14}
+    Suppose $T\in\lmap{V, W}$. Let $s_{n}$ denote the smallest singular value of $T$. Prove that $s_{n}\norm{v}\leq \norm{Tv}$ for every $v\in V$.
+\end{exercise}
+
+\begin{proof}
+    By the SVD theorem, there exist an orthonormal list $e_{1}, \ldots, e_{m}$ in $V$ and an orthonormal list $f_{1}, \ldots, f_{m}$ such that $Te_{k} = s_{k}f_{k}$, $T^{*}Te_{k} = s_{k}^{2}e_{k}$ for every $k\in\{1,\ldots,n\}$ and
+    \[
+        Tv = s_{1}\innerprod{v,e_{1}}f_{1} + \cdots + s_{m}\innerprod{v,e_{m}}f_{k}.
+    \]
+
+    where $s_{1}\geq s_{2}\geq \cdots \geq s_{m}$ are the positive singular values of $T$.
+    \begin{align*}
+        \norm{Tv}^{2} & = \norm{s_{1}\innerprod{v,e_{1}}f_{1} + \cdots + s_{m}\innerprod{v,e_{m}}f_{m}}^{2}                                              \\
+                      & = s_{1}^{2}\abs{\innerprod{v, e_{1}}}^{2} + \cdots + s_{m}^{2}\abs{\innerprod{v, e_{m}}}^{2}                                     \\
+                      & = s_{1}^{2}\abs{\innerprod{v, e_{1}}}^{2} + \cdots + s_{n}^{2}\abs{\innerprod{v, e_{n}}}^{2}   & \text{($s_{k} = 0$ if $k > m$)} \\
+                      & \geq s_{n}^{2}\abs{\innerprod{v, e_{1}}}^{2} + \cdots + s_{n}^{2}\abs{\innerprod{v,e_{n}}}^{2}                                   \\
+                      & = s_{n}^{2}\norm{v}^{2}                                                                        & \text{(Parseval's identity)}
+    \end{align*}
+
+    so $s_{n}\norm{v}\leq \norm{Tv}$ for every $v\in V$.
+\end{proof}
+\newpage
+
+% chapter7:sectionE:exercise15
+\begin{exercise}
+    Suppose $T\in\lmap{V}$ and $s_{1}\geq \cdots\geq s_{n}$ are the singular values of $T$. Prove that if $\lambda$ is an eigenvalue of $T$, then $s_{1}\geq \abs{\lambda}\geq s_{n}$.
+\end{exercise}
+
+\begin{proof}[Short proof]
+    Let $\lambda$ be an eigenvalue of $T$ and $v$ be a corresponding eigenvector, then $\norm{v_{0}} = 1$ where $v_{0} = v/\norm{v}$.
+
+    Because $\norm{Tv_{0}} = \norm{\lambda v_{0}} = \abs{\lambda}$, then by Exercise~\ref{chapter7:sectionE:exercise4}, we conclude that $s_{1}\geq \abs{\lambda}\geq s_{n}$.
+\end{proof}
+
+\begin{proof}[Another proof]
+    By the SVD theorem, there exist an orthonormal list $e_{1}, \ldots, e_{m}$ in $V$ and an orthonormal list $f_{1}, \ldots, f_{m}$ such that $Te_{k} = s_{k}f_{k}$, $T^{*}Te_{k} = s_{k}^{2}e_{k}$ for every $k\in\{1,\ldots,n\}$ and
+    \[
+        Tv = s_{1}\innerprod{v,e_{1}}f_{1} + \cdots + s_{m}\innerprod{v,e_{m}}f_{k}.
+    \]
+
+    where $s_{1}\geq s_{2}\geq \cdots \geq s_{m}$ are the positive singular values of $T$.
+    \begin{align*}
+        \norm{Tv}^{2} & = \norm{s_{1}\innerprod{v,e_{1}}f_{1} + \cdots + s_{m}\innerprod{v,e_{m}}f_{m}}^{2}                                              \\
+                      & = s_{1}^{2}\abs{\innerprod{v, e_{1}}}^{2} + \cdots + s_{m}^{2}\abs{\innerprod{v, e_{m}}}^{2}                                     \\
+                      & = s_{1}^{2}\abs{\innerprod{v, e_{1}}}^{2} + \cdots + s_{n}^{2}\abs{\innerprod{v, e_{n}}}^{2}   & \text{($s_{k} = 0$ if $k > m$)} \\
+                      & \leq s_{1}^{2}\abs{\innerprod{v, e_{1}}}^{2} + \cdots + s_{1}^{2}\abs{\innerprod{v,e_{n}}}^{2}                                   \\
+                      & = s_{1}^{2}\norm{v}^{2}                                                                        & \text{(Parseval's identity)}
+    \end{align*}
+
+    so $\norm{Tv}\leq s_{1}\norm{v}$ for every $v\in V$. Together with Exercise~\ref{chapter7:sectionE:exercise14}, we conclude that for every $v\in V$
+    \[
+        s_{1}\norm{v}\geq \norm{Tv}\geq s_{n}\norm{v}.
+    \]
+
+    Let $\lambda$ be an eigenvalue of $T$ and $v_{0}$ be a corresponding eigenvector, then
+    \[
+        s_{1}\norm{v_{0}}\geq \norm{\lambda v_{0}}\geq s_{n}\norm{v_{0}}.
+    \]
+
+    Because $v_{0}\ne 0$, $\norm{v_{0}} > 0$ and $\norm{\lambda v_{0}} = \abs{\lambda}\norm{v_{0}}$, it follows that $s_{1}\geq \abs{\lambda} \geq s_{n}$.
+\end{proof}
+\newpage
+
+% chapter7:sectionE:exercise16
+\begin{exercise}\label{chapter7:sectionE:exercise16}
+    Suppose $T\in\lmap{V, W}$. Prove that ${(T^{*})}^{\dagger} = {(T^{\dagger})}^{*}$.
+\end{exercise}
+
+\begin{quote}
+    Compare the result in this exercise to the analogous result for invertible
+    linear maps.
+\end{quote}
+
+\begin{proof}
+    By the SVD theorem, there exist an orthonormal list $e_{1}, \ldots, e_{m}$ in $V$ and an orthonormal list $f_{1}, \ldots, f_{m}$ such that $Te_{k} = s_{k}f_{k}$, $T^{*}Te_{k} = s_{k}^{2}e_{k}$ for every $k\in\{1,\ldots,n\}$ and
+    \[
+        Tv = s_{1}\innerprod{v,e_{1}}f_{1} + \cdots + s_{m}\innerprod{v,e_{m}}f_{k}
+    \]
+
+    where $s_{1}\geq s_{2}\geq \cdots \geq s_{m}$ are the positive singular values of $T$.
+
+    Moreover,
+    \begin{align*}
+        T^{*}w       & = s_{1}\innerprod{w,f_{1}}e_{1} + \cdots + s_{m}\innerprod{w, f_{m}}e_{m},                    \\
+        T^{\dagger}w & = \frac{1}{s_{1}}\innerprod{w,f_{1}}e_{1} + \cdots + \frac{1}{s_{m}}\innerprod{w,f_{m}}e_{m}.
+    \end{align*}
+
+    Apply these results to ${(T^{*})}^{\dagger}$ and ${(T^{\dagger})}^{*}$, we obtain that
+    \begin{align*}
+        {(T^{*})}^{\dagger}v & = \frac{1}{s_{1}}\innerprod{v,e_{1}}f_{1} + \cdots + \frac{1}{s_{m}}\innerprod{v,e_{m}}f_{m}, \\
+        {(T^{\dagger})}^{*}v & = \frac{1}{s_{1}}\innerprod{v,e_{1}}f_{1} + \cdots + \frac{1}{s_{m}}\innerprod{v,e_{m}}f_{m}.
+    \end{align*}
+
+    Thus ${(T^{*})}^{\dagger} = {(T^{\dagger})}^{*}$.
+\end{proof}
+\newpage
+
+% chapter7:sectionE:exercise17
+\begin{exercise}
+    Suppose $T \in \lmap{V}$. Prove that $T$ is self-adjoint if and only if $T^{\dagger}$ is self-adjoint.
+\end{exercise}
+
+\begin{proof}
+    By Exercise~\ref{chapter6:sectionC:exercise23} and~\ref{chapter7:sectionE:exercise16}
+    \begin{align*}
+        T = T^{*} & \Longleftrightarrow T^{\dagger} = {(T^{*})}^{\dagger} & \text{(because ${(T^{\dagger})}^{\dagger} = T$)}             \\
+                  & \Longleftrightarrow T^{\dagger} = {(T^{\dagger})}^{*} & \text{(because ${(T^{*})}^{\dagger} = {(T^{\dagger})}^{*}$)}
+    \end{align*}
+
+    hence $T$ is self-adjoint if and only if $T^{\dagger}$ is self-adjoint.
+\end{proof}
+\newpage
+
 \section{Consequences of Singular Value Decomposition}
 
