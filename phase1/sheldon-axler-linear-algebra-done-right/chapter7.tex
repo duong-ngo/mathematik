@@ -1968,7 +1968,7 @@
 \newpage
 
 % chapter7:sectionC:exercise13
-\begin{exercise}
+\begin{exercise}\label{chapter7:sectionC:exercise13}
     Suppose $T \in \lmap{V}$ is self-adjoint and $\alpha\in\mathbb{R}$.
     \begin{enumerate}[label={(\alph*)}]
         \item Prove that $T - \alpha I$ is a positive operator if and only if $\alpha$ is less than or equal to every eigenvalue of $T$.
@@ -3230,7 +3230,24 @@
 \end{exercise}
 
 \begin{proof}
-    This is a direct corollary of Exercise~\ref{chapter7:sectionE:exercise8} (c) and (e) (the previous exercise).
+    Let $s_{1}, \ldots, s_{m}$ be the positive singular values of $T$ and $e_{1}, \ldots, e_{m}$ be an orthonormal list in $V$ such that $T^{*}Te_{k} = s_{k}^{2}e_{k}$ for every $k\in\{1,\ldots,m\}$ and $f_{1}, \ldots, f_{m}$ be an orthonormal list in $W$ such that $f_{k} = Te_{k}$ for every $k\in\{1,\ldots,m\}$. By the SVD theorem, we have
+    \[
+        Tv = s_{1}\innerprod{v,e_{1}}f_{1} + \cdots + s_{m}\innerprod{v,e_{m}}f_{m}
+    \]
+
+    and
+    \[
+        T^{*}w = s_{1}\innerprod{w, f_{1}}e_{1} + \cdots + s_{m}\innerprod{w, f_{m}}e_{m}.
+    \]
+
+    By Exercise~\ref{chapter7:sectionE:exercise8} (c) and (e) (the previous exercise),
+    \[
+        TT^{*}w = s_{1}^{2}\innerprod{w,f_{1}}f_{1} + \cdots + s_{m}^{2}\innerprod{w,f_{m}}f_{m}
+    \]
+
+    so $s_{1}, \ldots, s_{m}$ are the positive singular values of $T^{*}$.
+
+    Thus $T$ and $T^{*}$ have the same positive singular values.
 \end{proof}
 \newpage
 
@@ -3411,7 +3428,7 @@
 \newpage
 
 % chapter7:sectionE:exercise15
-\begin{exercise}
+\begin{exercise}\label{chapter7:sectionE:exercise15}
     Suppose $T\in\lmap{V}$ and $s_{1}\geq \cdots\geq s_{n}$ are the singular values of $T$. Prove that if $\lambda$ is an eigenvalue of $T$, then $s_{1}\geq \abs{\lambda}\geq s_{n}$.
 \end{exercise}
 
@@ -3429,11 +3446,10 @@
 
     where $s_{1}\geq s_{2}\geq \cdots \geq s_{m}$ are the positive singular values of $T$.
     \begin{align*}
-        \norm{Tv}^{2} & = \norm{s_{1}\innerprod{v,e_{1}}f_{1} + \cdots + s_{m}\innerprod{v,e_{m}}f_{m}}^{2}                                              \\
-                      & = s_{1}^{2}\abs{\innerprod{v, e_{1}}}^{2} + \cdots + s_{m}^{2}\abs{\innerprod{v, e_{m}}}^{2}                                     \\
-                      & = s_{1}^{2}\abs{\innerprod{v, e_{1}}}^{2} + \cdots + s_{n}^{2}\abs{\innerprod{v, e_{n}}}^{2}   & \text{($s_{k} = 0$ if $k > m$)} \\
-                      & \leq s_{1}^{2}\abs{\innerprod{v, e_{1}}}^{2} + \cdots + s_{1}^{2}\abs{\innerprod{v,e_{n}}}^{2}                                   \\
-                      & = s_{1}^{2}\norm{v}^{2}                                                                        & \text{(Parseval's identity)}
+        \norm{Tv}^{2} & = \norm{s_{1}\innerprod{v,e_{1}}f_{1} + \cdots + s_{m}\innerprod{v,e_{m}}f_{m}}^{2}                                           \\
+                      & = s_{1}^{2}\abs{\innerprod{v, e_{1}}}^{2} + \cdots + s_{m}^{2}\abs{\innerprod{v, e_{m}}}^{2}                                  \\
+                      & \leq s_{1}^{2}\abs{\innerprod{v, e_{1}}}^{2} + \cdots + s_{1}^{2}\abs{\innerprod{v,e_{m}}}^{2}                                \\
+                      & = s_{1}^{2}\norm{v}^{2}                                                                        & \text{(Bessel's inequality)}
     \end{align*}
 
     so $\norm{Tv}\leq s_{1}\norm{v}$ for every $v\in V$. Together with Exercise~\ref{chapter7:sectionE:exercise14}, we conclude that for every $v\in V$
@@ -3502,3 +3518,1011 @@
 
 \section{Consequences of Singular Value Decomposition}
 
+% chapter7:sectionF:exercise1
+\begin{exercise}
+    Prove that if $S, T\in \lmap{V, W}$, then $\abs{\norm{S} - \norm{T}}\leq \norm{S - T}$.
+\end{exercise}
+
+\begin{quote}
+    The inequality above is called the reverse triangle inequality.
+\end{quote}
+
+\begin{proof}
+    By the triangle inequality,
+    \[
+        \begin{split}
+            \norm{S} + \norm{T - S}\leq \norm{T}, \\
+            \norm{T} + \norm{S - T}\leq \norm{S}.
+        \end{split}
+    \]
+
+    Since $\norm{S - T} = \norm{T - S}$, it follows that $\norm{S} - \norm{T}\leq \norm{S - T}$ and $\norm{T} - \norm{S}\leq \norm{S - T}$. Therefore $\abs{\norm{S} - \norm{T}}\leq\norm{S - T}$.
+\end{proof}
+\newpage
+
+% chapter7:sectionF:exercise2
+\begin{exercise}\label{chapter7:sectionF:exercise2}
+    Suppose that $T\in\lmap{V}$ is self-adjoint or that $\mathbb{F} = \mathbb{C}$ and $T\in\lmap{V}$ is normal. Prove that
+    \[
+        \norm{T} = \max\{ \abs{\lambda}: \text{$\lambda$ is an eigenvalue of $T$} \}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    According to the complex spectral theorem, there exists an orthonormal basis $e_{1}, \ldots, e_{n}$ of $V$ of which vectors are eigenvectors of $T$ and to which $T$ has a diagonal basis. Let $Te_{k} = \lambda_{k}e_{k}$ for every $k\in\{1,\ldots,n\}$.
+
+    Because $T$ is normal, it follows that $T^{*}e_{k} = \conj{\lambda_{k}}e_{k}$ for every $k\in\{1,\ldots,n\}$. Therefore
+    \[
+        T^{*}Te_{k} = \abs{\lambda_{k}}^{2}e_{k}
+    \]
+
+    for every $k\in\{1,\ldots,n\}$. So the list $\abs{\lambda_{1}}, \ldots, \abs{\lambda_{n}}$ after sorted in decreasing order are the singular values of $T$. Because $\norm{T}$ equals the largest singular value of $T$, so we conclude that
+    \[
+        \norm{T} = \max\{ \abs{\lambda}: \text{$\lambda$ is an eigenvalue of $T$} \}.\qedhere
+    \]
+\end{proof}
+\newpage
+
+% chapter7:sectionF:exercise3
+\begin{exercise}\label{chapter7:sectionF:exercise3}
+    Suppose $T\in\lmap{V,W}$ and $v\in V$. Prove that
+    \[
+        \norm{Tv} = \norm{T}\norm{v} \Longleftrightarrow T^{*}Tv = \norm{T}^{2}v.
+    \]
+\end{exercise}
+
+\begin{proof}
+    By the SVD theorem,
+    \[
+        Tv = s_{1}\innerprod{v,e_{1}}f_{1} + \cdots + s_{m}\innerprod{v,e_{m}}f_{m}
+    \]
+
+    where $s_{1}\geq s_{2} \geq \cdots \geq s_{m}$ are the positive singular values of $T$, $e_{1}, \ldots, e_{m}$ is an orthonormal list of $V$ where $T^{*}Te_{k} = s_{k}^{2}e_{k}$ and $f_{1}, \ldots, f_{m}$ is an orthonormal list of $W$ where $Te_{k} = s_{k}f_{k}$ for every $k\in\{1,\ldots,m\}$.
+
+    Because $\norm{Tv} = \norm{T}\norm{v}$ if and only if
+    \[
+        s_{1}^{2}\abs{\innerprod{v,e_{1}}}^{2} + \cdots + s_{m}^{2}\abs{\innerprod{v,e_{m}}}^{2} = s_{1}^{2}\norm{v}^{2}.
+    \]
+
+    However, $s_{1}^{2}\abs{\innerprod{v,e_{1}}}^{2} + \cdots + s_{m}^{2}\abs{\innerprod{v,e_{m}}}^{2} \leq s_{1}^{2}\abs{\innerprod{v,e_{1}}}^{2} + \cdots + s_{1}^{2}\abs{\innerprod{v,e_{m}}}^{2} \leq s_{1}^{2}\norm{v}^{2}$ according to the Bessel's inequality. The equality holds if and only if $v\in\operatorname{span}(e_{1}, \ldots, e_{m})$ and $\innerprod{v,e_{k}} = 0$ if $s_{k}\ne s_{1}$, which means $v$ is a linear combination of eigenvectors of $T^{*}T$ corresponding to the eigenvalue $s_{1}$ in the list $e_{1}, \ldots, e_{m}$, equivalently, $T^{*}Tv = s_{1}^{2}v = \norm{T}^{2}v$.
+
+    Thus $\norm{Tv} = \norm{T}\norm{v}$ if and only if $T^{*}Tv = \norm{T}^{2}v$.
+\end{proof}
+\newpage
+
+% chapter7:sectionF:exercise4
+\begin{exercise}
+    Suppose $T\in\lmap{V, W}$, $v\in V$, and $\norm{Tv} = \norm{T}\norm{v}$. Prove that if $u\in V$ and $\innerprod{u, v} = 0$, then $\innerprod{Tu, Tv} = 0$.
+\end{exercise}
+
+\begin{proof}
+    By Exercise~\ref{chapter7:sectionF:exercise3}, $T^{*}Tv = \norm{T}^{2}v$, then
+    \[
+        \innerprod{Tu, Tv} = \innerprod{u, T^{*}Tv} = \innerprod{u, \norm{T}^{2}v} = \norm{T}^{2}\innerprod{u, v}.
+    \]
+
+    Therefore if $\innerprod{u, v} = 0$, then $\innerprod{Tu, Tv} = 0$.
+\end{proof}
+\newpage
+
+% chapter7:sectionF:exercise5
+\begin{exercise}\label{chapter7:sectionF:exercise5}
+    Suppose $U$ is a finite-dimensional inner product space, $T\in\lmap{V, U}$, and $S\in\lmap{U, W}$. Prove that
+    \[
+        \norm{ST}\leq \norm{S}\norm{T}
+    \]
+\end{exercise}
+
+\begin{proof}
+    According to the definition of norm of a linear map, there exists a vector $v$ in $V$ such that $\norm{v}\leq 1$ and $\norm{ST} = \norm{STv}$. Then
+    \[
+        \norm{ST} = \norm{STv}\leq \norm{S}\norm{Tv} \leq \norm{S}\norm{T}.
+    \]
+
+    Hence $\norm{ST}\leq\norm{S}\norm{T}$.
+\end{proof}
+\newpage
+
+% chapter7:sectionF:exercise6
+\begin{exercise}
+    Prove or give a counterexample: If $S, T \in \lmap{V}$, then $\norm{ST} = \norm{TS}$.
+\end{exercise}
+
+\begin{proof}
+    Here is a counterexample.
+
+    $V = \mathbb{C}^{2}$, $S, T\in\lmap{V}$ such that the matrices of $S, T$ with respect to the standard basis of $\mathbb{C}^{2}$ are $\begin{pmatrix}1 & 1 \\ 0 & 0 \end{pmatrix}, \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}$, respectively.
+
+    Then the matrices of $ST$ and $TS$ with respect to the standard basis of $\mathbb{C}^{2}$ are $\begin{pmatrix}0 & 1 \\ 0 & 0\end{pmatrix}, \begin{pmatrix}0 & 0 \\ 0 & 0\end{pmatrix}$ respectively.
+
+    The singular values of $ST$ are $1, 0$, and the singular values of $TS$ are $0, 0$, so $\norm{ST} = 1\ne 0 = \norm{TS}$.
+\end{proof}
+\newpage
+
+% chapter7:sectionF:exercise7
+\begin{exercise}\label{chapter7:sectionF:exercise7}
+    Show that defining $d(S, T) = \norm{S - T}$ for $S, T \in \lmap{V, W}$ makes $d$ a metric on $\lmap{V, W}$.
+\end{exercise}
+
+\begin{quote}
+    This exercise is intended for readers who are familiar with metric spaces.
+\end{quote}
+
+\begin{proof}
+    For every $S, T\in\lmap{V, W}$, $\norm{S - T}\geq 0$ so $d(S, T)\geq 0$.
+
+    $d(S, T) = 0 \Longleftrightarrow \norm{S - T} = 0 \Longleftrightarrow S = T$.
+
+    For every $S, T\in\lmap{V, W}$,
+    \[
+        d(S, T) = \norm{S - T} = \norm{(-1)(T - S)} = \abs{-1}\norm{T - S} = \norm{T - S} = d(T, S).
+    \]
+
+    For every $R, S, T\in\lmap{V, W}$,
+    \[
+        d(S, T) = \norm{S - T}\leq \norm{S - R} + \norm{R - T} = d(S, R) + d(R, T).
+    \]
+
+    Thus $d$ is a metric on $\lmap{V, W}$.
+\end{proof}
+\newpage
+
+% chapter7:sectionF:exercise8
+\begin{exercise}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Prove that if $T\in\lmap{V}$ and $\norm{I - T} < 1$, then $T$ is invertible.
+        \item Suppose that $S\in\lmap{V}$ is invertible. Prove that if $T\in\lmap{V}$ and $\norm{S - T} < 1/\norm{S^{-1}}$, then $T$ is invertible.
+    \end{enumerate}
+\end{exercise}
+
+\begin{quote}
+    This exercise shows that the set of invertible operators in $\lmap{V}$ is an open subset of $\lmap{V}$, using the metric defined in Exercise~\ref{chapter7:sectionF:exercise7}.
+\end{quote}
+
+\begin{quote}[Additional notes]
+    The following proof exploits the fact that $V$ is finite-dimensional.
+\end{quote}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Assume $T$ is not injective, then there exists a nonzero vector such that $Tv = 0$. Let $u = v/\norm{v}$ then $\norm{u} = 1$ and $\norm{Iu - Tu} = \norm{u - 0} = \norm{u} = 1$, which is a contradiction because $\norm{I - T} < 1$.
+
+              Hence $T$ is injective. Because $V$ is finite-dimensional, it follows that $T$ is also invertible.
+        \item $\norm{S - T} < 1/\norm{S^{-1}}$ so by Exercise~\ref{chapter7:sectionF:exercise5}
+              \[
+                  \norm{I - S^{-1}T} = \norm{S^{-1}(S - T)}\leq \norm{S^{-1}}\norm{S - T} < \norm{S^{-1}}\times (1/\norm{S^{-1}}) = 1.
+              \]
+
+              By (a), $S^{-1}T$ is invertible. Hence $T = SS^{-1}T$ is invertible.
+        \item Let $S$ be an element in the set of invertible operators in $\lmap{V}$, then by (b), the open ball $B(S; 1/\norm{S^{-1}})$ is contained in the set of invertible operators in $\lmap{V}$.
+
+              According to the definion of open set in a metric space, the set of invertible operators in $\lmap{V}$ is an open subset of $\lmap{V}$.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter7:sectionF:exercise9
+\begin{exercise}
+    Suppose $T \in \lmap{V}$. Prove that for every $\varepsilon > 0$, there exists an invertible operator $S \in \lmap{V}$ such that $0 < \norm{T - S} < \varepsilon$.
+\end{exercise}
+
+\begin{quote}[Additional notes]
+    This exercise shows that the set of invertible operators in $\lmap{V}$ is dense in $\lmap{V}$.
+\end{quote}
+
+\begin{proof}
+    Let $s_{1}\geq s_{2}\geq \cdots \geq s_{m} > 0 = s_{m+1} = \cdots = s_{\dim V}$ be the singular values of $T$. By the SVD theorem, there exist an orthonormal list $e_{1}, \ldots, e_{m}$ in $V$ and an orthonormal list $f_{1}, \ldots, f_{m}$ in $V$ such that $T^{*}Te_{k} = s_{k}^{2}e_{k}$ and $Te_{k} = s_{k}f_{k}$ for every $k\in\{ 1,\ldots,n \}$ and
+    \[
+        Tv = s_{1}\innerprod{v,e_{1}}f_{1} + \cdots + s_{m}\innerprod{v,e_{m}}f_{m}
+    \]
+
+    for every $v\in V$. Let $e_{1}, \ldots, e_{\dim V}$ and $f_{1}, \ldots, f_{\dim V}$ be orthonormal bases of $V$. Because $s_{k} = 0$ if $k > m$, then
+    \[
+        Tv = s_{1}\innerprod{v,e_{1}}f_{1} + \cdots + s_{\dim V}\innerprod{v, e_{\dim V}}f_{\dim V}.
+    \]
+
+    Let's define $S\in\lmap{V}$ as follows:
+    \[
+        Sv = \left(s_{1} + \frac{\varepsilon}{2}\right)\innerprod{v,e_{1}}f_{1} + \cdots + \left(s_{\dim V} + \frac{\varepsilon}{2}\right)\innerprod{v, e_{\dim V}}f_{\dim V}
+    \]
+
+    then $S$ is invertible because the singular values of $S$ are all positive, and
+    \[
+        (S - T)v = \frac{\varepsilon}{2}\innerprod{v,e_{1}}f_{1} + \cdots + \frac{\varepsilon}{2}\innerprod{v,e_{\dim V}}f_{\dim V}.
+    \]
+
+    Therefore $\norm{T - S} = \norm{S - T} = \frac{\varepsilon}{2}$. Thus there exists an invertible operator $S\in\lmap{V}$ such that $0 < \norm{T - S} < \varepsilon$.
+\end{proof}
+\newpage
+
+% chapter7:sectionF:exercise10
+\begin{exercise}
+    Suppose $\dim V > 1$ and $T\in\lmap{V}$ is not invertible. Prove that for every $\varepsilon > 0$, there exists $S\in\lmap{V}$ such that $0 < \norm{T - S} < \varepsilon$ and $S$ is not invertible.
+\end{exercise}
+
+\begin{proof}
+    Let $s_{1}\geq s_{2}\geq \cdots \geq s_{m} > 0 = s_{m+1} = \cdots = s_{\dim V}$ be the singular values of $T$. By the SVD theorem, there exist an orthonormal list $e_{1}, \ldots, e_{m}$ in $V$ and an orthonormal list $f_{1}, \ldots, f_{m}$ in $V$ such that $T^{*}Te_{k} = s_{k}^{2}e_{k}$ and $Te_{k} = s_{k}f_{k}$ for every $k\in\{ 1,\ldots,n \}$ and
+    \[
+        Tv = s_{1}\innerprod{v,e_{1}}f_{1} + \cdots + s_{m}\innerprod{v,e_{m}}f_{m}
+    \]
+
+    for every $v\in V$.
+
+    Because $T$ is not invertible, then $m < \dim V$. Let's define $S\in\lmap{V}$ as follow
+    \[
+        Sv = \left(s_{1} + \frac{\varepsilon}{2}\right)\innerprod{v,e_{1}}f_{1} + \cdots + \left(s_{m} + \frac{\varepsilon}{2}\right)\innerprod{v, e_{m}}f_{m}
+    \]
+
+    then $S$ is not invertible because $S$ has $m$ positive singular values and $m < \dim V$. On the other hand,
+    \[
+        (S - T)v = \frac{\varepsilon}{2}\innerprod{v,e_{1}}f_{1} + \cdots + \frac{\varepsilon}{2}\innerprod{v,e_{m}}f_{m}
+    \]
+
+    so $\norm{T - S} = \norm{S - T} = \frac{\varepsilon}{2}$. Thus there exists an operator $S\in\lmap{V}$ such that $S$ is not invertible and $0 < \norm{T - S} < \varepsilon$.
+\end{proof}
+\newpage
+
+% chapter7:sectionF:exercise11
+\begin{exercise}
+    Suppose $\mathbb{F} = \mathbb{C}$ and $T\in\lmap{V}$. Prove that for every $\varepsilon > 0$ there exists a diagonalizable operator $S\in\lmap{V}$ such that $0 < \norm{T - S} < \varepsilon$.
+\end{exercise}
+
+\begin{proof}
+    According to the Schur's decomposition theorem, there exists an orthonormal basis $e_{1}, \ldots, e_{n}$ to which $T$ has a upper-triangular matrix $A$.
+    \[
+        \begin{pmatrix}
+            A_{1,1} & A_{1,2} & \cdots & A_{1,n} \\
+            0       & A_{2,2} & \cdots & A_{2,n} \\
+            \vdots  & \vdots  & \ddots & \vdots  \\
+            0       & 0       & \cdots & A_{n,n}
+        \end{pmatrix}.
+    \]
+
+    Let $r = \min\{ \abs{A_{j,j} - A_{k,k}} : j,k=1,\ldots,n \}$. Consider the list $A_{1,1}, \ldots, A_{n,n}$ and the open disks $\{ z\in\mathbb{C} : \abs{z - A_{j,j}} < \min\{ \varepsilon, r \} \}$. These open disks are disjoint and within these disks (there are possible duplicated disks due to duplication in the list $A_{1,1}, \ldots, A_{n,n}$) we can pick distinct points $B_{1,1}, \ldots, B_{n,n}$ such that $B_{k,k}\ne A_{k,k}$ for every $k\in\{1,\ldots,n\}$. Let $S$ be the operator on $V$ whose matrix with respect to $e_{1}, \ldots, e_{n}$ is
+    \[
+        \begin{pmatrix}
+            B_{1,1} & A_{1,2} & \cdots & A_{1,n} \\
+            0       & B_{2,2} & \cdots & A_{2,n} \\
+            \vdots  & \vdots  & \ddots & \vdots  \\
+            0       & 0       & \cdots & B_{n,n}
+        \end{pmatrix}.
+    \]
+
+    The eigenvalues of $S$ are $B_{1,1}, \ldots, B_{n,n}$, so $S$ has distinct $n$ eigenvalues, which means $S$ is diagonalizable.
+    \begin{align*}
+        (T - S)v       & = (B_{1,1} - A_{1,1})\innerprod{v,e_{1}}e_{1} + \cdots + (B_{n,n} - A_{n,n})\innerprod{v,e_{n}}e_{n}                \\
+        {(T - S)}^{*}v & = \conj{(B_{1,1} - A_{1,1})}\innerprod{v,e_{1}}e_{1} + \cdots + \conj{(B_{n,n} - A_{n,n})}\innerprod{v,e_{n}}e_{n}.
+    \end{align*}
+
+    From these, we deduce that
+    \[
+        {(T - S)}^{*}(T - S)v = \abs{B_{1,1} - A_{1,1}}^{2}\innerprod{v,e_{1}}e_{1} + \cdots + \abs{B_{n,n} - A_{n,n}}^{2}\innerprod{v,e_{n}}e_{n}
+    \]
+
+    so the singular values of $(T - S)$ are $\abs{B_{1,1} - A_{1,1}}, \ldots, \abs{B_{n,n} - A_{n,n}}$, after sorted in decreasing order. Moreover, $0 < \abs{B_{k,k} - A_{k,k}} < \varepsilon$ for every $k\in\{ 1,\ldots,n \}$ so $0 < \norm{T - S} < \varepsilon$.
+
+    Thus for every $\varepsilon > 0$, there exists a diagonalizable operator $S$ such that $0 < \norm{T - S} < \varepsilon$.
+\end{proof}
+\newpage
+
+% chapter7:sectionF:exercise12
+\begin{exercise}\label{chapter7:sectionF:exercise12}
+    Suppose $T\in\lmap{V}$ is a positive operator. Show that $\norm{\sqrt{T}} = \sqrt{\norm{T}}$.
+\end{exercise}
+
+\begin{proof}
+    Let $\lambda_{1}, \ldots, \lambda_{n}$ be the eigenvalues of $\sqrt{T}$, each is included as many as the dimension of the corresponding eigenspace, and listed in decreasing order. $\sqrt{T}$ is also a positive operator, so the $\lambda_{k}$ is nonnegative for every $k\in\{1,\ldots,n\}$.
+
+    Because $\sqrt{T}$ is self-adjoint, and hence normal, so according to the real and complex spectral theorems, there exists an orthonormal basis $e_{1}, \ldots, e_{n}$ of $V$ such that $\sqrt{T}e_{k} = \lambda_{k}e_{k}$ for every $k\in\{1,\ldots, n\}$.
+
+    The adjoint map of $\sqrt{T}$ is $\sqrt{T}$, and
+    \[
+        Te_{k} = \sqrt{T}(\sqrt{T}e_{k}) = \lambda_{k}^{2}e_{k}
+    \]
+
+    for every $k\in\{1,\ldots,n\}$ so the singular values of $\sqrt{T}$ are $\lambda_{1}, \ldots, \lambda_{n}$, so $\norm{\sqrt{T}} = \lambda_{1}$. Moreover, $T$ is positive, and hence self-adjoint
+    \[
+        T^{*}Te_{k} = T^{2}e_{k} = \lambda_{k}^{4}e_{k}
+    \]
+
+    for every $k\in\{1,\ldots,n\}$ so the singular values of $T$ are $\lambda_{1}^{2}, \ldots, \lambda_{n}^{2}$.
+
+    Hence $\norm{\sqrt{T}} = \lambda_{1} = \sqrt{\lambda_{1}^{2}} = \sqrt{\norm{T}}$.
+\end{proof}
+\newpage
+
+% chapter7:sectionF:exercise13
+\begin{exercise}
+    Suppose $S, T\in\lmap{V}$ are positive operators. Show that
+    \[
+        \norm{S - T}\leq \max\{ \norm{S}, \norm{T} \} \leq \norm{S + T}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    Due to the definition of norm of operator, there exists a vector $v\in V$ such that $\norm{v} = 1$ and $\norm{\sqrt{S}} = \norm{\sqrt{S}v}$. According to Exercise~\ref{chapter7:sectionC:exercise6}, $S + T$ is a positive operator. By Exercise~\ref{chapter7:sectionF:exercise12}
+    \begin{align*}
+        \norm{S} & = \norm{\sqrt{S}}^{2} = \innerprod{\sqrt{S}v, \sqrt{S}v} = \innerprod{Sv, v}                    \\
+                 & \leq \innerprod{Sv, v} + \innerprod{Tv, v}                                                      \\
+                 & = \innerprod{(S + T)v, v} = \innerprod{\sqrt{S + T}v, \sqrt{S + T}v} = \norm{\sqrt{S + T}v}^{2} \\
+                 & \leq \norm{\sqrt{S + T}}^{2} = \norm{S + T}.
+    \end{align*}
+
+    Analogously, $\norm{T}\leq \norm{S + T}$. Therefore $\max\{ \norm{S}, \norm{T} \}\leq \norm{S + T}$.
+
+    \bigskip
+    $S$ and $T$ are self-adjoint, then so is $S - T$.
+
+    $S - (S - T) = T$ is a positive operator, $\norm{S}I - S$ is a positive operator, therefore $\norm{S}I - (S - T)$ is a positive operator.
+
+    $(S - T) - (-T) = S$ is a positive operator, $(-T) + \norm{T}I$ is a positive operator, therefore $(S - T) - (-\norm{T})I$ is a positive operator.
+
+    Let $\lambda = \max\{ \norm{S}, \norm{T} \}$, it follows that
+    \[
+        \lambda I - (S - T)\qquad\text{and}\qquad (S - T) - (-\lambda)I
+    \]
+
+    are positive operators.
+
+    $(S - T)$ is self-adjoint and hence normal, so by the real and complex spectral theorems, there exists an orthonormal basis $e_{1}, \ldots, e_{n}$ of $V$ such that $(S - T)e_{k} = \lambda_{k}e_{k}$ for every $k\in\{ 1,\ldots,n \}$ where $\lambda_{1}, \ldots, \lambda_{n}$ are the eigenvalues of $T$, each is included as many as the dimension of the corresponding eigenspace. Apply Exercise~\ref{chapter7:sectionC:exercise13} to the positive operators $\lambda I - (S - T)$, $(S - T) - (-\lambda)I$, we obtain
+    \begin{align*}
+        \lambda \geq \max\{ \lambda_{1}, \ldots, \lambda_{n} \} \geq \min\{ \lambda_{1}, \ldots, \lambda_{n} \} \geq -\lambda.
+    \end{align*}
+
+    From this inequalities, we conclude that $\max\{ \abs{\lambda_{1}}, \ldots, \abs{\lambda_{n}} \}\leq \lambda$. By Exercise~\ref{chapter7:sectionF:exercise2},
+    \[
+        \max\{ \abs{\lambda_{1}}, \ldots, \abs{\lambda_{n}} \} = \norm{S - T}.
+    \]
+
+    Hence $\norm{S - T}\leq \lambda = \max\{ \norm{S}, \norm{T} \}$.
+\end{proof}
+\newpage
+
+% chapter7:sectionF:exercise14
+\begin{exercise}
+    Suppose $U$ and $W$ are subspaces of $V$ such that $\norm{P_{U} - P_{W}} < 1$. Prove that $\dim U = \dim W$.
+\end{exercise}
+
+\begin{proof}
+    Assume $\dim U\ne \dim W$.
+    \begin{itemize}
+        \item If $\dim U < \dim W$, then by the fundamental theorem of linear maps
+              \[
+                  \dim U^{\bot} + \dim W = \dim V + \dim W - \dim U > \dim V
+              \]
+
+              so $U^{\bot}\cap W\ne \{ 0 \}$. There is a nonzero vector $w$ in $U^{\bot}\cap W$, so
+              \[
+                  \norm{(P_{U} - P_{W})(w/\norm{w})} = 1
+              \]
+
+              which is a contradiction, since $\norm{P_{U} - P_{W}} < 1$.
+        \item If $\dim U > \dim W$, then by the fundamental theorem of linear maps
+              \[
+                  \dim U + \dim W^{\bot} = \dim U + \dim V - \dim W > \dim V
+              \]
+
+              so $U\cap W^{\bot}\ne \{ 0 \}$. There is a nonzero vector $u$ in $U\cap W^{\bot}$, so
+              \[
+                  \norm{(P_{U} - P_{W})(u/\norm{u})} = 1
+              \]
+
+              which is a contradiction, since $\norm{P_{U} - P_{W}} < 1$.
+    \end{itemize}
+
+    Hence the assumption is false. Thus $\dim U = \dim W$.
+\end{proof}
+\newpage
+
+% chapter7:sectionF:exercise15
+\begin{exercise}
+    Define $T\in\lmap{\mathbb{F}^{3}}$ by
+    \[
+        T(z_{1}, z_{2}, z_{3}) = (z_{3}, 2z_{1}, 3z_{2}).
+    \]
+
+    Find (explicitly) a unitary operator $S\in\lmap{\mathbb{F}^{3}}$ such that $T = S\sqrt{T^{*}T}$.
+\end{exercise}
+
+\begin{proof}
+    \[
+        T(z_{1}, z_{2}, z_{3}) = 2z_{1}(0, 1, 0)+ 3z_{2}(0, 0, 1) + z_{3}(1, 0, 0)
+    \]
+
+    this is also a singular value decomposition of $T$. Due to the proof of the polar decomposition theorem
+    \begin{align*}
+        T^{*}(z_{1}, z_{2}, z_{3}) & = 2z_{2}(1, 0, 0) + 3z_{3}(0, 1, 0) + 1z_{1}(0, 0, 1) = (2z_{2}, 3z_{3}, z_{1}) \\
+        S(z_{1}, z_{2}, z_{3})     & = z_{1}(0, 1, 0) + z_{2}(0, 0, 1) + z_{3}(1, 0, 0) = (z_{3}, z_{1}, z_{2})
+    \end{align*}
+
+    then $T = S\sqrt{T^{*}T}$.
+\end{proof}
+\newpage
+
+% chapter7:sectionF:exercise16
+\begin{exercise}
+    Suppose $S\in\lmap{V}$ is a positive invertible operator. Prove that there exists $\delta > 0$ such that $T$ is a positive operator for every self-adjoint operator $T\in \lmap{V}$ with $\norm{S - T} < \delta$.
+\end{exercise}
+
+\begin{proof}
+    Here is how I find such a $\delta$. For every nonzero vector $v\in V$
+    \begin{align*}
+        \innerprod{Tv, v} & = \innerprod{Sv, v} - \innerprod{(S - T)v, v}                                                                                             \\
+                          & \geq \innerprod{Sv, v} - \norm{(S - T)v}\norm{v}                                             & \text{(Cauchy-Schwarz's inequality)}       \\
+                          & \geq \innerprod{Sv, v} - \norm{S - T}\norm{v}^{2}                                            & (\norm{(S - T)v}\leq \norm{S - T}\norm{v}) \\
+                          & = \innerprod{\sqrt{S}v, \sqrt{S}v} - \norm{S - T}\norm{v}^{2}                                                                             \\
+                          & = \norm{\sqrt{S}v}^{2} - \norm{S - T}\norm{v}^{2}                                                                                         \\
+                          & = \norm{v}^{2}\norm{\sqrt{S}\left(\frac{v}{\norm{v}}\right)}^{2} - \norm{S - T}\norm{v}^{2}.
+    \end{align*}
+
+    Let $s$ be the smallest singular value of $\sqrt{S}$, then by Exercise~\ref{chapter7:sectionE:exercise15}
+    \[
+        \norm{\sqrt{S}\left(\frac{v}{\norm{v}}\right)} \geq s.
+    \]
+
+    So I choose $\delta = s$ (the smallest singular value of $\sqrt{S}$). $s$ is a positive number because $s$ is nonnegative and $S$ is a invertible.
+
+    If $\norm{S - T} < \delta$ and $T$ is self-adjoint, then $\innerprod{Tv, v}\geq 0$ for every $v\in V$.
+
+    Thus if $\norm{S - T}$ is less than the smallest singular value of $\sqrt{S}$ and $T$ is self-adjoint, then $T$ is a positive operator.
+\end{proof}
+\newpage
+
+% chapter7:sectionF:exercise17
+\begin{exercise}
+    Prove that if $u\in V$ and $\varphi_{u}$ is the linear functional on $V$ defined by the equation $\varphi_{u}(v) = \innerprod{v, u}$, then $\norm{\varphi_{u}} = \norm{u}$.
+\end{exercise}
+
+\begin{quote}
+    Here we are thinking of the scalar field $\mathbb{F}$ as an inner product space with $\innerprod{\alpha, \beta} = \alpha\conj{\beta}$ for all $\alpha, \beta \in \mathbb{F}$. Thus $\norm{\varphi_{u}}$ means the norm of $\varphi_{u}$ as a linear map from $V$ to $\mathbb{F}$.
+\end{quote}
+
+\begin{proof}
+    \begin{align*}
+        \norm{\varphi_{u}} & = \max\left\{ \norm{\varphi_{u}(v)} : v\in V\text{ and }\norm{v} = 1 \right\}   \\
+                           & = \max\left\{ \norm{\innerprod{v, u}} : v\in V\text{ and }\norm{v} = 1 \right\} \\
+                           & \leq \norm{u}.
+    \end{align*}
+
+    The inequality on the third line comes from the Cauchy-Schwarz's inequality, since
+    \[
+        \norm{\innerprod{v,u}} = \abs{\innerprod{v,u}}\leq \norm{v}\norm{u} = \norm{u}.
+    \]
+
+    On the other hand, $\norm{\varphi_{u}(u)} = \norm{\innerprod{u, u}} = \innerprod{u,u} = \norm{u}^{2}$.
+
+    If $u = 0$ then $\norm{\varphi_{u}} = 0 = \norm{u}$. If $u\ne 0$, then
+    \[
+        \norm{\varphi_{u}\left(\frac{u}{\norm{u}}\right)} = \norm{u}.
+    \]
+
+    Together with $\norm{\varphi_{u}} \leq \norm{u}$, we conclude that $\norm{\varphi_{u}} = \norm{u}$.
+\end{proof}
+\newpage
+
+% chapter7:sectionF:exercise18
+\begin{exercise}
+    Suppose $e_{1}, \ldots, e_{n}$ is an orthonormal basis of $V$ and $T \in \lmap{V, W}$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Prove that $\max\{ \norm{Te_{1}}, \ldots, \norm{Te_{n}} \}\leq \norm{T} \leq {(\norm{Te_{1}}^{2} + \cdots + \norm{Te_{n}}^{2})}^{1/2}$.
+        \item Prove that $\norm{T} = {(\norm{Te_{1}}^{2} + \cdots + \norm{Te_{n}}^{2})}^{1/2}$ if and only if $\dim\range{T}\leq 1$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{quote}
+    Here $e_{1}, \ldots, e_{n}$ is an arbitrary orthonormal basis of $V$, not necessarily connected with a singular value decomposition of $T$. If $s_{1}, \ldots, s_{n}$ is the list of singular values of $T$, then the right side of the inequality above equals ${(s_{1}^{2} + \cdots + s_{n}^{2})}^{1/2}$, as was shown in Exercise~\ref{chapter7:sectionE:exercise11}.
+\end{quote}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item By the definition of $\norm{T}$, $\norm{Te_{k}}\leq \norm{T}$ for every $k\in\{1,\ldots,n\}$. Therefore
+              \[
+                  \max\{ \norm{Te_{1}}, \ldots, \norm{Te_{n}} \}\leq \norm{T}.
+              \]
+
+              Let $s_{1} \geq \cdots \geq s_{n}$ be the singular values of $T$, then
+              \[
+                  \norm{T} = s_{1}\leq {(s_{1}^{2} + \cdots + s_{n}^{2})}^{1/2}.
+              \]
+
+              By Exercise~\ref{chapter7:sectionE:exercise11}, $s_{1}^{2} + \cdots + s_{n}^{2} = \norm{Te_{1}}^{2} + \cdots + \norm{Te_{n}}^{2}$. Hence
+              \[
+                  \norm{T}\leq {(\norm{Te_{1}}^{2} + \cdots + \norm{Te_{n}}^{2})}^{1/2}.
+              \]
+
+              Thus $\max\{ \norm{Te_{1}}, \ldots, \norm{Te_{n}} \}\leq \norm{T} \leq {(\norm{Te_{1}}^{2} + \cdots + \norm{Te_{n}}^{2})}^{1/2}$.
+        \item According to the proof in (a), $\norm{T} = {(\norm{Te_{1}}^{2} + \cdots + \norm{Te_{n}}^{2})}^{1/2}$ if and only if $s_{2} = \cdots = s_{n} = 0$. On the other hand $\dim\range{T}$ equals the number of positive singular values of $T$, so $\dim\range{T}\leq 1$ if and only if $T$ has at most one positive singular value.
+
+              Therefore $\norm{T} = {(\norm{Te_{1}}^{2} + \cdots + \norm{Te_{n}}^{2})}^{1/2}$ if and only if $\dim\range{T}\leq 1$.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter7:sectionF:exercise19
+\begin{exercise}
+    Prove that if $T\in\lmap{V, W}$, then $\norm{T^{*}T} = \norm{T}^{2}$.
+\end{exercise}
+
+\begin{quote}
+    This formula for $\norm{T^{*}T}$ leads to the important subject of $C^{*}$-algebras.
+\end{quote}
+
+\begin{proof}
+    Let $s_{1}\geq s_{2}\geq \cdots \geq s_{m} > 0 = s_{m+1} = \cdots = s_{\dim V}$ be the singular values of $T$. By the SVD theorem, there exist an orthonormal list $e_{1}, \ldots, e_{m}$ in $V$ and an orthonormal list $f_{1}, \ldots, f_{m}$ in $V$ such that $T^{*}Te_{k} = s_{k}^{2}e_{k}$ and $Te_{k} = s_{k}f_{k}$ for every $k\in\{ 1,\ldots,n \}$ and
+    \[
+        Tv = s_{1}\innerprod{v,e_{1}}f_{1} + \cdots + s_{m}\innerprod{v,e_{m}}f_{m}
+    \]
+
+    for every $v\in V$. Moreover,
+    \[
+        T^{*}w = s_{1}\innerprod{w,f_{1}}e_{1} + \cdots + s_{m}\innerprod{w,f_{m}}e_{n}
+    \]
+
+    and
+    \[
+        T^{*}Tv = s_{1}^{2}\innerprod{v,e_{1}}e_{1} + \cdots + s_{m}^{2}\innerprod{v,e_{m}}e_{m}.
+    \]
+
+    Therefore $\norm{T^{*}T} = s_{1}^{2} = \norm{T}^{2}$.
+\end{proof}
+\newpage
+
+% chapter7:sectionF:exercise20
+\begin{exercise}
+    Suppose $T \in \lmap{V}$ is normal. Prove that $\norm{T^{k}} = \norm{T}^{k}$ for every positive integer $k$.
+\end{exercise}
+
+\begin{proof}
+    $T$ is normal so $T$ commutes with $T^{*}$.
+
+    Due to the definition of norm of operator, there exists a vector $v$ in $V$ such that $\norm{v} = 1$ and $\norm{Tv} = \norm{T}$. By Exercise~\ref{chapter7:sectionF:exercise3}, $\norm{Tv} = \norm{T}$ if and only if $T^{*}Tv = \norm{T}^{2}v$.
+    \begin{align*}
+        {(T^{k})}^{*}T^{k}v & = \underbrace{T^{*}\cdots T^{*}}_{k}\underbrace{T\cdots T}_{k}v \\
+                            & = \underbrace{(T^{*}T)\cdots (T^{*}T)}_{k}v                     \\
+                            & = \norm{T}^{2k}v.
+    \end{align*}
+
+    Hence by Exercise~\ref{chapter7:sectionF:exercise3}, $\norm{T^{k}} = \norm{T}^{k}$ for every positive integer $k$.
+\end{proof}
+\newpage
+
+% chapter7:sectionF:exercise21
+\begin{exercise}
+    Suppose $\dim V > 1$ and $\dim W > 1$. Prove that the norm on $\lmap{V, W}$ does not come from an inner product. In other words, prove that there does not exist an inner product on $\lmap{V, W}$ such that
+    \[
+        \max\left\{ \norm{Tv} : v\in V\text{ and }\norm{v}\leq 1 \right\} = \sqrt{\innerprod{T, T}}
+    \]
+
+    for all $T\in \lmap{V, W}$.
+\end{exercise}
+
+\begin{proof}
+    Let $e_{1}, e_{2}, \ldots, e_{n}$ be an orthonormal basis of $V$. $T\in\lmap{V}$ are defined as follows:
+    \[
+        Tv = \innerprod{v,e_{1}}e_{2}
+    \]
+
+    then
+    \[
+        T^{*}v = \innerprod{v,e_{2}}e_{1}.
+    \]
+
+    The singular values of $T$ are $1, 0, \ldots, 0$; the singular values of $T^{*}$ are $1, 0, \ldots, 0$.
+    \begin{align*}
+        (T + T^{*})v & = \innerprod{v, e_{1}}e_{2} + \innerprod{v, e_{2}}e_{1}, \\
+        (T - T^{*})v & = \innerprod{v, e_{1}}e_{2} - \innerprod{v, e_{2}}e_{1}.
+    \end{align*}
+
+    Therefore
+    \begin{align*}
+        (T^{*} + T)(T + T^{*})v & = \innerprod{v, e_{1}}e_{1} + \innerprod{v, e_{2}}e_{2}, \\
+        (T^{*} - T)(T - T^{*})v & = \innerprod{v, e_{1}}e_{1} + \innerprod{v, e_{2}}e_{2}.
+    \end{align*}
+
+    So the singular values of $T + T^{*}$ are $1, 1, \ldots, 0$ and the singular values of $T - T^{*}$ are $1, 1, \ldots, 0$. Hence
+    \[
+        2(\norm{T}^{2} + \norm{T^{*}}^{2}) = 2(1 + 1) = 4 \ne 2 = 1 + 1 = \norm{T + T^{*}}^{2} + \norm{T - T^{*}}^{2}.
+    \]
+
+    This means the norm on $\lmap{V, W}$ does not satisfy the parallelogram equality. Thus the norm on $\lmap{V, W}$ does not come from an inner product.
+\end{proof}
+\newpage
+
+% chapter7:sectionF:exercise22
+\begin{exercise}
+    Suppose $T \in \lmap{V, W}$. Let $n = \dim V$ and let $s_{1} \geq \cdots \geq s_{n}$ denote the singular values of $T$. Prove that if $1 \leq k \leq n$, then
+    \[
+        \min\{ \norm{T\vert_{U}}: \text{$U$ is a subspace of $V$ with $\dim U = k$} \} = s_{n-k+1}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    $T\vert_U\in \lmap{U, W}$ and ${(T\vert_{U})}^{*}\in \lmap{W, U}$. By the SVD theorem, let $m$ be the number of positive singular values of $T$, we have
+    \[
+        T^{*}w = s_{1}\innerprod{w, f_{1}}e_{1} + \cdots + s_{m}\innerprod{w, f_{m}}e_{m}.
+    \]
+
+    Let $U_{k} = \operatorname{span}(e_{n-k+1}, \ldots, e_{n})$, then
+    \begin{align*}
+        \norm{{(T\vert_{U_{k}})}^{*}w} & = \norm{s_{n-k+1}\innerprod{w, f_{n-k+1}}e_{n-k+1} + \cdots + s_{m}\innerprod{w, f_{m}}e_{m}}^{2}                                          \\
+                                       & = s_{n-k+1}^{2}\abs{\innerprod{w, f_{n-k+1}}}^{2} + \cdots + s_{m}^{2}\abs{\innerprod{w, f_{m}}}^{2}                                       \\
+                                       & \leq s_{n-k+1}^{2}\abs{\innerprod{w, f_{n-k+1}}}^{2} + \cdots + s_{n-k+1}^{2}\abs{\innerprod{w, f_{m}}}^{2}                                \\
+                                       & \leq s_{n-k+1}^{2}\norm{w}^{2}                                                                              & \text{(Bessel's inequality)}
+    \end{align*}
+
+    (it is possible that $n-k+1 > m$) so $\norm{{(T\vert_{U_{k}})}^{*}} \leq s_{n-k+1}$. On the other hand, $\norm{{(T\vert_{U_{k}})}^{*}e_{n-k+1}} = s_{n-k+1}$, so $\norm{{(T\vert_{U_{k}})}^{*}} = s_{n-k+1}$.
+
+    \bigskip
+    Let $U$ be a subspace of $V$ such that $\dim U = k$. The list ${(T\vert_{U})}^{*}f_{1}, \ldots, {(T\vert_{U})}^{*}f_{n - k + 1}$ is linearly dependent, since the length of this list is $(k + 1)$, which is greater than $\dim U = k$. So there exist $a_{1}, \ldots, a_{k+1}$ which are not all $0$ such that
+    \[
+        a_{1}{(T\vert_{U})}^{*}f_{1} + \cdots + a_{n-k+1}{(T\vert_{U})}^{*}f_{n-k+1} = 0
+    \]
+
+    hence
+    \[
+        {(T\vert_{U})}^{*}(a_{1}f_{1} + \cdots + a_{n-k+1}f_{n-k+1}) = 0
+    \]
+
+    however
+    \[
+        a_{1}f_{1} + \cdots + a_{n-k+1}f_{n-k+1}\ne 0
+    \]
+
+    since $f_{1}, \ldots, f_{n-k+1}$ is linearly independent and $a_{1}, \ldots, a_{n-k+1}$ are not all $0$. Therefore
+    \begin{align*}
+        \norm{{(T\vert_{U})}^{*}(a_{1}f_{1} + \cdots + a_{n-k+1}f_{n-k+1})}^{2} & = \norm{s_{1}a_{1}f_{1} + \cdots + s_{n-k+1}a_{n-k+1}f_{n-k+1}}^{2}           \\
+                                                                                & = s_{1}^{2}\abs{a_{1}}^{2} + \cdots + s_{n-k+1}^{2}\abs{a_{n-k+1}}^{2}        \\
+                                                                                & \geq s_{n-k+1}^{2}\abs{a_{1}}^{2} + \cdots + s_{n-k+1}^{2}\abs{a_{n-k+1}}^{2} \\
+                                                                                & = s_{n-k+1}^{2}\norm{a_{1}f_{1} + \cdots + a_{n-k+1}f_{n-k+1}}^{2}.
+    \end{align*}
+
+    (The expression are valid even when $n-k+1 > m$, because $s_{j} = 0$ for $j > m$.)
+
+    Hence $\norm{T\vert_{U}} = \norm{{(T\vert_{U})}^{*}}\geq s_{n-k+1}$. Thus
+    \[
+        \min\{ \norm{T\vert_{U}}: \text{$U$ is a subspace of $V$ with $\dim U = k$} \} = s_{n-k+1}.
+    \]
+\end{proof}
+\newpage
+
+% chapter7:sectionF:exercise23
+\begin{exercise}
+    Suppose $T \in \lmap{V, W}$. Show that $T$ is uniformly continuous with respect
+    to the metrics on $V$ and $W$ that arise from the norms on those spaces (see Exercise~\ref{chapter6:sectionB:exercise23}).
+\end{exercise}
+
+\begin{proof}
+    For every $v_{1}, v_{2}\in V$, $\norm{Tv_{1} - Tv_{2}} = \norm{T(v_{1} - v_{2})} \leq \norm{T}\norm{v_{1} - v_{2}}$.
+
+    So for every $\varepsilon > 0$, if
+    \[
+        \norm{v_{1} - v_{2}} < \delta = \frac{\varepsilon}{\norm{T} + 1}
+    \]
+
+    then
+    \[
+        \norm{Tv_{1} - Tv_{2}} < \frac{\varepsilon\norm{T}}{\norm{T} + 1} < \varepsilon.
+    \]
+
+    Thus $T$ is uniformly continuous.
+\end{proof}
+\newpage
+
+% chapter7:sectionF:exercise24
+\begin{exercise}
+    Suppose $T\in\lmap{V}$ is invertible. Prove that
+    \[
+        \norm{T^{-1}} = \norm{T}^{-1} \Longleftrightarrow \text{$\dfrac{T}{\norm{T}}$ is a unitary operator}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    Let $s_{1}\geq \cdots \geq s_{n}$ be the singular values of $T$. Because $T$ is invertible, $s_{1}, \ldots, s_{n}$ are all positive numbers.
+
+    Let $e_{1}, \ldots, e_{n}$ and $f_{1}, \ldots, f_{n}$ be orthonormal bases of $V$ such that $T^{*}Te_{k} = s_{k}^{2}e_{k}$, $Te_{k} = s_{k}e_{k}$ for every $k\in\{1,\ldots,n\}$. By the SVD theorem
+    \begin{align*}
+        Tv                     & = s_{1}\innerprod{v,e_{1}}f_{1} + \cdots + s_{n}\innerprod{v,e_{n}}e_{n},                     \\
+        T^{-1}v = T^{\dagger}v & = \frac{1}{s_{1}}\innerprod{v,f_{1}}e_{1} + \cdots + \frac{1}{s_{n}}\innerprod{v,f_{n}}e_{n}.
+    \end{align*}
+
+    $(\Rightarrow)$ $\norm{T^{-1}} = \norm{T}^{-1}$.
+
+    $\norm{T^{-1}} = 1/s_{n}$ and $\norm{T}^{-1} = 1/s_{1}$, so all singular values of $T$ are equal. Therefore
+    \[
+        \frac{T}{\norm{T}}v = \innerprod{v,e_{1}}f_{1} + \cdots + \innerprod{v,e_{n}}f_{n}
+    \]
+
+    so $T/\norm{T}$ maps the orthonormal basis $e_{1}, \ldots, e_{n}$ to the orthonormal basis $f_{1}, \ldots, f_{n}$. Therefore $T/\norm{T}$ is a unitary operator.
+
+    \bigskip
+    $(\Leftarrow)$ $T/\norm{T}$ is a unitary operator.
+    \begin{align*}
+        T^{*}Tv                      & = s_{1}^{2}\innerprod{v,e_{1}}e_{1} + \cdots + s_{n}^{2}\innerprod{v,e_{n}}e_{n},                                           \\
+        \frac{T^{*}T}{\norm{T}^{2}}v & = \frac{s_{1}^{2}}{\norm{T}^{2}}\innerprod{v,e_{1}}e_{1} + \cdots + \frac{s_{n}^{2}}{\norm{T}^{2}}\innerprod{v,e_{n}}e_{n}.
+    \end{align*}
+
+    $T/\norm{T}$ is a unitary operator then $T^{*}T/\norm{T}^{2}$ is the identity operator. Therefore $s_{1} = \cdots = s_{n} = \norm{T}$ (substitute $v$ with $e_{1}, \ldots, e_{n}$). Hence $\norm{T^{-1}} = 1/s_{n} = 1/s_{1} = \norm{T}^{-1}$.
+\end{proof}
+\newpage
+
+% chapter7:sectionF:exercise25
+\begin{exercise}
+    Fix $u, x\in V$ with $u\ne 0$. Define $T\in\lmap{V}$ by $Tv = \innerprod{v, u}x$ for every $v\in V$. Prove that
+    \[
+        \sqrt{T^{*}T}v = \frac{\norm{x}}{\norm{u}}\innerprod{v, u}u
+    \]
+
+    for every $v\in V$.
+\end{exercise}
+
+\begin{proof}
+    Suppose $x\ne 0$, then
+    \[
+        Tv = \innerprod{v, u}x = \norm{u}\norm{x}\innerprod{v,\frac{u}{\norm{u}}}\frac{x}{\norm{x}}.
+    \]
+
+    This is a singular value decomposition of $T$. Moreover
+    \[
+        T^{*}v = \norm{u}\norm{x}\innerprod{v, \frac{x}{\norm{x}}}\frac{u}{\norm{u}}.
+    \]
+
+    So
+    \begin{align*}
+        T^{*}Tv        & = \norm{u}^{2}\norm{x}^{2}\innerprod{v, \frac{u}{\norm{u}}}\frac{u}{\norm{u}},                                      \\
+        \sqrt{T^{*}T}v & = \norm{u}\norm{x}\innerprod{v, \frac{u}{\norm{u}}}\frac{u}{\norm{u}} = \frac{\norm{x}}{\norm{u}}\innerprod{v, u}u.
+    \end{align*}
+
+    If $x = 0$, then $T = 0$ and it follows that
+    \[
+        \sqrt{T^{*}T}v = 0 = \frac{\norm{x}}{\norm{u}}\innerprod{v, u}u.
+    \]
+
+    Thus
+    \[
+        \sqrt{T^{*}T}v = \frac{\norm{x}}{\norm{u}}\innerprod{v, u}u.
+    \]
+\end{proof}
+\newpage
+
+% chapter7:sectionF:exercise26
+\begin{exercise}
+    Suppose $T \in \lmap{V}$. Prove that $T$ is invertible if and only if there exists a unique unitary operator $S\in \lmap{V}$ such that $T = S\sqrt{T^{*}T}$.
+\end{exercise}
+
+\begin{proof}
+    Let $s_{1}\geq \cdots \geq s_{n}$ be the singular values of $T$. According to the SVD theorem (for linear operators instead of general linear maps), there are orthonormal bases $e_{1}, \ldots, e_{n}$ and $f_{1}, \ldots, f_{m}$ of $V$ such that
+    \[
+        Tv = s_{1}\innerprod{v,e_{1}}f_{1} + \cdots + s_{n}\innerprod{v,e_{n}}f_{n}
+    \]
+
+    for every $v\in V$. Then
+    \[
+        \sqrt{T^{*}T}v =  s_{1}\innerprod{v,e_{1}}e_{1} + \cdots + s_{n}\innerprod{v,e_{n}}e_{n}.
+    \]
+
+    $(\Rightarrow)$ $T$ is invertible.
+
+    Then $s_{1}, \ldots, s_{n}$ are positive numbers and
+    \[
+        T^{-1}v = T^{\dagger}v = \frac{1}{s_{1}}\innerprod{v,f_{1}}e_{1} + \cdots + \frac{1}{s_{n}}\innerprod{v,f_{n}}e_{n}.
+    \]
+
+    According to the polar decomposition theorem, there exists a unitary operator $S$ on $V$ such that $T = S\sqrt{T^{*}T}$. Assume the unitary operator $R$ on $V$ satisfies $T = R\sqrt{T^{*}T}$, then $R^{*} = \sqrt{T^{*}T}T^{-1}$ then for every $k\in\{1,\ldots,n\}$
+    \[
+        R^{*}f_{k} = \sqrt{T^{*}T}T^{-1}f_{k} = \sqrt{T^{*}T}\frac{1}{s_{k}}e_{k} = s_{k}\frac{1}{s_{k}}e_{k} = e_{k}.
+    \]
+
+    So $Re_{k} = f_{k}$ for every $k\in\{1,\ldots,n\}$. Hence every unitary operator $R$ that satisfies $T = R\sqrt{T^{*}T}$ maps $e_{k}$ to $f_{k}$ for every $k\in\{1,\ldots,n\}$. Thus there exists a unique unitary operator $S$ on $V$ such that $T = S\sqrt{T^{*}T}$.
+    \bigskip
+
+    $(\Leftarrow)$ There exists a unique unitary operator $S$ on $V$ such that $T = S\sqrt{T^{*}T}$.
+
+    Assume $T$ is not invertible, then $s_{n} = 0$, then
+    \begin{align*}
+        Tv             & = s_{1}\innerprod{v,e_{1}}f_{1} + \cdots + s_{n-1}\innerprod{v,e_{n-1}}f_{n-1},  \\
+        \sqrt{T^{*}T}v & =  s_{1}\innerprod{v,e_{1}}e_{1} + \cdots + s_{n-1}\innerprod{v,e_{n-1}}e_{n-1}.
+    \end{align*}
+
+    The unitary operator $R$ that maps $e_{k}$ to $f_{k}$ for every $k\in \{ 1,\ldots, n \}$ satisfies $T = R\sqrt{T^{*}T}$, so $R = S$. The unitary operator $U$ that maps $e_{k}$ to $f_{k}$ for every $k\in \{ 1,\ldots, n-1 \}$ and maps $e_{n}$ to $-1f_{n}$ satisifes $T = U\sqrt{T^{*}T}$, so $U = S$. Hence $R = U$, however, this is a contradiction, since $Re_{n} = f_{n}\ne -f_{n} = Ue_{n}$, so the assumption is false.
+
+    Thus $T$ is invertible.
+\end{proof}
+\newpage
+
+% chapter7:sectionF:exercise27
+\begin{exercise}
+    Suppose $T\in\lmap{V}$ and $s_{1}, \ldots, s_{n}$ are the singular values of $T$. Let $e_{1}, \ldots, e_{n}$ and $f_{1}, \ldots, f_{n}$ be orthonormal bases of $V$ such that
+    \[
+        Tv = s_{1}\innerprod{v, e_{1}}f_{1} + \cdots + s_{n}\innerprod{v, e_{n}}f_{n}
+    \]
+
+    for all $v\in V$. Define $S\in \lmap{V}$ by
+    \[
+        Sv = \innerprod{v, e_{1}}f_{1} + \cdots + \innerprod{v, e_{n}}f_{n}
+    \]
+
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that $S$ is unitary and $\norm{T - S} = \max\{ \abs{s_{1} - 1}, \ldots, \abs{s_{n} - 1} \}$.
+        \item Show that if $E\in\lmap{V}$ is unitary, then $\norm{T - E}\geq \norm{T - S}$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{quote}
+    This exercise finds a unitary operator $S$ that is as close as possible (among the unitary operators) to a given operator $T$.
+\end{quote}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Let $s = \max\{ \abs{s_{1} - 1}, \ldots, \abs{s_{n} - 1} \}$.
+              For every $v\in V$
+              \begin{align*}
+                  \norm{(T - S)v}^{2} & = \norm{(s_{1} - 1)\innerprod{v,e_{1}}f_{1} + \cdots + (s_{n} - 1)\innerprod{v,e_{n}}f_{n}}^{2}                                                     \\
+                                      & = {\abs{s_{1} - 1}}^{2}\abs{\innerprod{v,e_{1}}}^{2} + \cdots + {\abs{s_{n} - 1}}^{2}\abs{\innerprod{v,e_{n}}}^{2} & \text{(Pythagorean's theorem)} \\
+                                      & \leq s^{2}\abs{\innerprod{v,e_{1}}}^{2} + \cdots + s^{2}\abs{\innerprod{v,e_{n}}}^{2}                                                               \\
+                                      & = s^{2}\norm{v}^{2}                                                                                                & \text{(Parseval's identity)}
+              \end{align*}
+
+              so $\norm{T - S}\leq s$. However, let $v$ be a nonzero linear combination of $e_{k}$ such that $\abs{s_{k} - 1} = s$, then $\norm{(T - S)v} = s\norm{v}$. Thus $\norm{T - S} = s = \max\{ \abs{s_{1} - 1}, \ldots, \abs{s_{n} - 1} \}$.
+        \item $E\in\lmap{V}$ is unitary, then $Ee_{1}, \ldots, Ee_{n}$ is an orthonormal basis of $V$. Let $u_{k} = Ee_{k}$ for every $k\in\{1,\ldots,n\}$, then $Ev = \innerprod{v,e_{1}}u_{1} + \cdots + \innerprod{v,e_{n}}u_{n}$.
+
+              For every $k\in\{1,\ldots,n\}$
+              \begin{align*}
+                  \norm{(T - E)e_{k}} & = \norm{s_{k}f_{k} - Ee_{k}}                 \\
+                                      & \geq \abs{\norm{s_{k}f_{k}} - \norm{Ee_{k}}} \\
+                                      & = \abs{\norm{s_{k}f_{k}} - 1}                \\
+                                      & = \abs{s_{k}\norm{f_{k}} - \norm{f_{k}}}     \\
+                                      & = \abs{s_{k} - 1}\norm{f_{k}}                \\
+                                      & = \abs{s_{k} - 1}\norm{e_{k}}
+              \end{align*}
+
+              so $\norm{T - E}\geq \abs{s_{k} - 1}$ for every $k\in\{1,\ldots,n\}$. Therefore
+              \[
+                  \norm{T - E}\geq \max\{ \abs{s_{1} - 1}, \ldots, \abs{s_{n} - 1} \} = \norm{T - S}.
+              \]
+
+              Thus $\norm{T - E}\geq \norm{T - S}$.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter7:sectionF:exercise28
+\begin{exercise}
+    Suppose $T\in\lmap{V}$. Prove that there exists a unitary operator $S \in \lmap{V}$ such that $T = \sqrt{TT^{*}}S$.
+\end{exercise}
+
+\begin{proof}
+    Let $s_{1}\geq \cdots \geq s_{n}$ be the singular values of $T$. According to the SVD theorem (for linear operators instead of general linear maps), there are orthonormal bases $e_{1}, \ldots, e_{n}$ and $f_{1}, \ldots, f_{m}$ of $V$ such that
+    \[
+        Tv = s_{1}\innerprod{v,e_{1}}f_{1} + \cdots + s_{n}\innerprod{v,e_{n}}f_{n}
+    \]
+
+    for every $v\in V$. Then
+    \[
+        \sqrt{TT^{*}}v =  s_{1}\innerprod{v,f_{1}}f_{1} + \cdots + s_{n}\innerprod{v,f_{n}}f_{n}.
+    \]
+
+    Let $S\in\lmap{V}$ be the unitary operator that maps $e_{k}$ to $f_{k}$ for every $k\in\{1,\ldots,n\}$, then
+    \[
+        \sqrt{TT^{*}}Se_{k} = \sqrt{TT^{*}}f_{k} = s_{k}f_{k} = Te_{k}
+    \]
+
+    for every $k\in\{1,\ldots,n\}$. Thus $T = \sqrt{TT^{*}}S$.
+\end{proof}
+\newpage
+
+% chapter7:sectionF:exercise29
+\begin{exercise}
+    Suppose $T\in\lmap{V}$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Use the polar decomposition to show that there exists a unitary operator $S\in\lmap{V}$ such that $TT^{*} = ST^{*}TS^{*}$.
+        \item Show how (a) implies that $T$ and $T^{*}$ have the same singular values.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    Let $n = \dim V$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item By the polar decomposition theorem, there exists a unitary operator $S\in\lmap{V}$ such that $T = S\sqrt{T^{*}T}$. It follows that $T^{*} = {(S\sqrt{T^{*}T})}^{*} = \sqrt{T^{*}T}S^{*}$, so $TT^{*} = ST^{*}TS$.
+        \item From (a), we have
+              \[
+                  T^{*}T = S^{*}ST^{*}TS^{*}S = S^{*}(ST^{*}TS^{*})S = S^{*}TT^{*}S.
+              \]
+
+              Also from (a) and the real and complex spectral theorems, we deduce that $TT^{*}$ and $ST^{*}TS^{*}$ have the same list of eigenvalues (each is included as many as the dimension of the corresponding eigenspace). The list of eigenvalues of $TT^{*}$ is $s_{1}^{2}\geq \cdots \geq s_{n}^{2}$.
+
+              Let $e_{1}, \ldots, e_{n}$ be an orthonormal basis of $V$ such that $TT^{*}e_{k} = s_{k}^{2}e_{k}$ for every $k\in\{1,\ldots,n\}$. Let $f_{k} = S^{*}e_{k}$ for every $k\in\{1,\ldots,n\}$, then
+              \[
+                  T^{*}Tf_{k} = S^{*}TT^{*}Sf_{k} = S^{*}TT^{*}e_{k} = S^{*}(s_{k}^{2}e_{k}) = s_{k}^{2}f_{k}
+              \]
+
+              so $s_{1}^{2}\geq \cdots \geq s_{n}^{2}$ are also the eigenvalues of $T^{*}T$.
+
+              Thus $T$ and $T^{*}$ have the same singular values.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter7:sectionF:exercise30
+\begin{exercise}
+    Suppose $T\in\lmap{V}, S\in\lmap{V}$ is a unitary operator, and $R\in\lmap{V}$ is a positive operator such that $T = SR$. Prove that $R = \sqrt{T^{*}T}$.
+\end{exercise}
+
+\begin{quote}
+    This exercise shows that if we write $T$ as the product of a unitary operator and a positive operator (as in the polar decomposition), then the positive operator equals $\sqrt{T^{*}T}$.
+\end{quote}
+
+\begin{proof}
+    $R$ is a positive operator so it is self-adjoint. From $T = SR$, we have $T^{*} = R^{*}S^{*} = RS^{*}$, and  $T^{*}T = RS^{*}SR = R^{2}$.
+
+    $T^{*}T$ is a positive operator, then so does $R^{2}$. Every positive operator has a unique positive square root. The positive square root of $R^{2}$ is $R$ (because $R$ is a positive operator the square of $R$ is $R^{2}$!). Moreover, $T^{*}T = R^{2}$. Thus $R = \sqrt{T^{*}T}$.
+\end{proof}
+\newpage
+
+% chapter7:sectionF:exercise31
+\begin{exercise}
+    Suppose $\mathbb{F} = \mathbb{C}$ and $T \in \lmap{V}$ is normal. Prove that there exists a unitary operator $S \in \lmap{V}$ such that $T = S\sqrt{T^{*}T}$ and such that $S$ and $\sqrt{T^{*}T}$ both have diagonal matrices with respect to the same orthonormal basis of $V$.
+\end{exercise}
+
+\begin{proof}
+    According to the complex spectral theorem, there exists an orthonormal basis $e_{1}, \ldots, e_{n}$ of $V$ such that $e_{1}, \ldots, e_{n}$ are eigenvectors of $T$. Let $Te_{k} = \lambda_{k}e_{k}$ for every $k\in\{1,\ldots,n\}$.
+    \begin{align*}
+        Tv     & = \lambda_{1}\innerprod{v,e_{1}}e_{1} + \cdots + \lambda_{n}\innerprod{v,e_{n}}e_{n},               \\
+        T^{*}v & = \conj{\lambda_{1}}\innerprod{v,e_{1}}e_{1} + \cdots + \conj{\lambda_{n}}\innerprod{v,e_{n}}e_{n}.
+    \end{align*}
+
+    From these, we obtain the expressions for $T^{*}T$ and $\sqrt{T^{*}T}$
+    \begin{align*}
+        T^{*}Tv        & = \abs{\lambda_{1}}^{2}\innerprod{v,e_{1}}e_{1} + \cdots + \abs{\lambda_{n}}^{2}\innerprod{v,e_{n}}e_{n}, \\
+        \sqrt{T^{*}T}v & = \abs{\lambda_{1}}\innerprod{v,e_{1}}e_{1} + \cdots + \abs{\lambda_{n}}\innerprod{v,e_{n}}e_{n}.
+    \end{align*}
+
+    Define the unitary operator $S$ on $V$ as follow
+    \[
+        Se_{k} = \begin{cases}
+            \frac{\lambda_{k}}{\abs{\lambda_{k}}}e_{k} & \text{if $\lambda_{k}\ne 0$} \\
+            1e_{k}                                     & \text{if $\lambda_{k} = 0$}
+        \end{cases}
+    \]
+
+    (actually, we can replace $1$ by any complex number $z$ such that $\abs{z} = 1$), then $S\sqrt{T^{*}T}e_{k} = Te_{k}$ for every $k\in\{1,\ldots,n\}$, so $T = S\sqrt{T^{*}T}$. Thus $S$ and $\sqrt{T^{*}T}$ have diagonal matrices with respect to the same orthonormal basis $e_{1}, \ldots, e_{n}$ of $V$ and $T = S\sqrt{T^{*}T}$.
+\end{proof}
+\newpage
+
+% chapter7:sectionF:exercise32
+\begin{exercise}
+    Suppose that $T\in\lmap{V, W}$ and $T\ne 0$. Let $s_{1}, \ldots, s_{m}$ denote the positive singular values of $T$. Show that there exists an orthonormal basis $e_{1}, \ldots, e_{m}$ of ${(\kernel{T})}^{\bot}$ such that
+    \[
+        T\left( E\left( \frac{e_{1}}{s_{1}}, \ldots, \frac{e_{m}}{s_{m}} \right) \right)
+    \]
+
+    equals the ball in $\range{T}$ of radius $1$ centered at $0$.
+\end{exercise}
+
+\begin{proof}
+    By the SVD theorem, there exist an orthonormal list $e_{1}, \ldots, e_{m}$ in $V$ and an orthonormal list $f_{1}, \ldots, f_{m}$ in $W$ such that
+    \[
+        Tv = s_{1}\innerprod{v,e_{1}}f_{1} + \cdots + s_{m}\innerprod{v,e_{m}}f_{m}
+    \]
+
+    for every $v\in V$.
+
+    By the Pythagorean theorem
+    \[
+        \norm{Tv}^{2} = \norm{s_{1}\innerprod{v,e_{1}}f_{1} + \cdots + s_{m}\innerprod{v,e_{m}}f_{m}}^{2} = s_{1}^{2}\abs{\innerprod{v, e_{1}}}^{2} + \cdots + s_{m}^{2}\abs{\innerprod{v, e_{m}}}^{2} < 1.
+    \]
+
+    By the definition of the open unit ball and ellipsoid
+    \[
+        v\in E\left(\frac{e_{1}}{s_{1}}, \ldots, \frac{e_{m}}{s_{m}}\right) \Longleftrightarrow \norm{Tv} < 1.
+    \]
+
+    Therefore the image of the given ellipsoid under $T$ is the open unit ball in $\range{T}$. Moreover, according to Exercise~\ref{chapter7:sectionE:exercise8}\,(b), $e_{1}, \ldots, e_{m}$ is an orthonormal basis of ${(\kernel{T})}^{\bot}$.
+
+    Thus there exists an orthonormal basis $e_{1}, \ldots, e_{m}$ of ${(\kernel{T})}^{\bot}$ such that
+    \[
+        T\left( E\left( \frac{e_{1}}{s_{1}}, \ldots, \frac{e_{m}}{s_{m}} \right) \right)
+    \]
+
+    is the open unit ball in $\range{T}$.
+\end{proof}
+\newpage
