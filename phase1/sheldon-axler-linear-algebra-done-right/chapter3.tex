@@ -640,7 +640,7 @@
 \newpage
 
 % chapter3:sectionB:exercise21
-\begin{exercise}
+\begin{exercise}\label{chapter3:sectionB:exercise21}
     Suppose $V$ is finite-dimensional, $T \in \mathcal{L}(V, W)$, and $U$ is a subspace of $W$. Prove that $\{v \in V : Tv \in U\}$ is a subspace of $V$ and
     \[
         \dim\{ v\in V : Tv\in U \} = \dim \kernel{T} + \dim (U\cap \range{T}).
@@ -662,12 +662,16 @@
 \newpage
 
 % chapter3:sectionB:exercise22
-\begin{exercise}
+\begin{exercise}\label{chapter3:sectionB:exercise22}
     Suppose $U$ and $V$ are finite-dimensional vector spaces and $S \in \mathcal{L}(V, W)$ and $T \in \mathcal{L}(U, V)$. Prove that
     \[
         \dim\kernel{ST} \leq \dim\kernel{S} + \dim\kernel{T}.
     \]
 \end{exercise}
+
+\begin{quote}[Additional notes]
+    This result is a form of the Sylvester rank inequality.
+\end{quote}
 
 \begin{proof}
     \[

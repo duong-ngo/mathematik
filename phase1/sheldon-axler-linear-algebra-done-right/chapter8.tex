@@ -2,7 +2,978 @@
 
 \section{Generalized Eigenvectors and Nilpotent Operators}
 
+% chapter8:sectionA:exercise1
+\begin{exercise}\label{chapter8:sectionA:exercise1}
+    Suppose $T\in\lmap{V}$. Prove that if $\dim\kernel{T^{4}} = 8$ and $\dim\kernel{T^{6}} = 9$, then $\dim\kernel{T^{m}} = 9$ for all integers $m\geq 5$.
+\end{exercise}
+
+\begin{proof}
+    Because $\kernel{T^{4}}\subseteq \kernel{T^{5}}\subseteq \kernel{T^{6}}$, then
+    \[
+        \dim\kernel{T^{4}}\leq \dim\kernel{T^{5}}\leq \dim\kernel{T^{6}}.
+    \]
+
+    So $8\leq \dim\kernel{T^{5}}\leq 9$. If $\dim\kernel{T^{5}} = 8$ then $\dim\kernel{T^{m}} = 8$ for every $m\geq 4$, which is a contradiction to $\dim\kernel{T^{6}} = 9$. Therefore $\dim\kernel{T^{5}} = 9 = \dim\kernel{T^{6}}$. Hence $\dim\kernel{T^{m}} = 9$ for all integers $m\geq 5$.
+\end{proof}
+\newpage
+
+% chapter8:sectionA:exercise2
+\begin{exercise}\label{chapter8:sectionA:exercise2}
+    Suppose $T\in\lmap{V}$, $m$ is a positive integer, $v\in V$, and $T^{m-1}v\ne 0$ but $T^{m}v = 0$. Prove that $v, Tv, T^{2}v, \ldots, T^{m-1}v$ is linearly independent.
+\end{exercise}
+
+\begin{proof}
+    Assume
+    \[
+        a_{0}v + a_{1}Tv + a_{2}T^{2}v + \cdots + a_{m-1}T^{m-1}v = 0.
+    \]
+
+    So
+    \[
+        0 = T^{m-1}(a_{0}v + a_{1}Tv + a_{2}T^{2}v + \cdots + a_{m-1}T^{m-1}v) = a_{0}T^{m-1}v
+    \]
+
+    which implies $a_{0} = 0$ because $T^{m-1}v\ne 0$.
+
+    Assume $a_{j} = 0$ for every $0\leq j < k \leq m-1$, then we have
+    \[
+        a_{k}T^{k}v + \cdots + a_{m-1}T^{m-1}v = 0.
+    \]
+
+    Apply $T^{m-k-1}$, we obtain that
+    \[
+        0 = T^{m-k-1}(a_{k}T^{k}v + \cdots + a_{m-1}T^{m-1}v) = a_{k}T^{m-1}v.
+    \]
+
+    Because $T^{m-1}v\ne 0$, we conclude that $a_{k} = 0$. By the principle of mathematical induction, $a_{k} = 0$ for every $k\in\{0,1,\ldots,m-1\}$.
+
+    Thus $v, Tv, T^{2}v, \ldots, T^{m-1}v$ is linearly independent.
+\end{proof}
+\newpage
+
+% chapter8:sectionA:exercise3
+\begin{exercise}\label{chapter8:sectionA:exercise3}
+    Suppose $T\in\lmap{V}$. Prove that
+    \[
+        V = \kernel{T}\oplus\range{T} \Longleftrightarrow \kernel{T}^{2} = \kernel{T}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    Due to the fundamental theorem of linear maps, $\dim V = \dim\kernel{T} + \dim\range{T}$. On the other hand,
+    \[
+        \dim{(\kernel{T} + \range{T})} = \dim\kernel{T} + \dim\range{T} - \dim{(\kernel{T} \cap \range{T})}
+    \]
+
+    so $V = \kernel{T}\oplus\range{T}$ if and only if $\kernel{T} \cap \range{T} = \{0\}$.
+
+    \bigskip
+    $(\Rightarrow)$ $V = \kernel{T}\oplus \range{T}$.
+
+    Then $\kernel{T}\cap \range{T} = \{0\}$. Let $v\in\kernel{T^{2}}$, then $T(Tv) = T^{2}v = 0$. Therefore $Tv\in\kernel{T}$. On the other hand, $Tv\in\range{T}$, so $Tv = 0$, which means $v\in\kernel{T}$. Hence $\kernel{T^{2}}\subseteq\kernel{T}$.
+
+    Moreover, $\kernel{T}\subseteq\kernel{T^{2}}$. Therefore $\kernel{T^{2}} = \kernel{T}$.
+
+    \bigskip
+    $(\Leftarrow)$ $\kernel{T^{2}} = \kernel{T}$.
+
+    Let $v\in \kernel{T}\cap\range{T}$. Then $Tv = 0$ and there exists $u\in V$ such that $Tu = v$. Hence $T^{2}u = Tv = 0$, so $u\in\kernel{T^{2}} = \kernel{T}$. Therefore $v = Tu = 0$, so $\kernel{T}\cap\range{T} = \{0\}$. Thus $V = \kernel{T}\oplus\range{T}$.
+\end{proof}
+\newpage
+
+% chapter8:sectionA:exercise4
+\begin{exercise}\label{chapter8:sectionA:exercise4}
+    Suppose $T\in\lmap{V}$, $\lambda\in\mathbb{F}$, and $m$ is a positive integer such that the minimal polynomial of $T$ is a polynomial multiple of ${(z - \lambda)}^{m}$. Prove that
+    \[
+        \dim\kernel{{(T - \lambda I)}^{m}} \geq m.
+    \]
+\end{exercise}
+
+\begin{proof}
+    Let the minimal polynomial of $T$ be $p(z) {(z - \lambda)}^{m}$. Due to the definition of minimal polynomial, there exists a vector $v\in V$ such that $p(T){(T - \lambda I)}^{m-1}v\ne 0$.
+
+    I will prove that the list $p(T)v, p(T){(T - \lambda I)}v, \ldots, p(T){(T - \lambda I)}^{m-1}v$ is linearly independent. Assume
+    \[
+        a_{0}p(T)v + a_{1}p(T){(T - \lambda I)}v + \cdots + a_{m-1}p(T){(T - \lambda I)}^{m-1}v = 0.
+    \]
+
+    Apply ${(T - \lambda I)}^{m-1}$ to both sides, we obtain $a_{0}p(T){(T - \lambda I)}^{m-1}v = 0$, so $a_{0} = 0$ because
+    \[
+        p(T){(T - \lambda I)}^{m-1}v\ne 0.
+    \]
+
+    Suppose $a_{j} = 0$ for every $0\leq j < k\leq m-1$, then
+    \[
+        a_{k}p(T){(T - \lambda I)}^{k}v + \cdots + a_{m-1}p(T){(T - \lambda I)}^{m-1}v = 0.
+    \]
+
+    Apply ${(T - \lambda I)}^{m-k-1}$ to both side, we get $a_{k}p(T){(T - \lambda I)}^{m-1}v = 0$, so $a_{k} = 0$.
+
+    Hence $a_{k} = 0$ for every $k\in\{ 0, 1,\ldots, m-1 \}$, by the principle of mathematical induction. So $p(T)v, p(T)(T - \lambda I)v, \ldots, p(T){(T - \lambda I)}^{m-1}v$ is a linearly independent list of length $m$.
+
+    Moreover, $p(T)v, p(T)(T - \lambda I)v, \ldots, p(T){(T - \lambda I)}^{m-1}v$ are in $\kernel{{(T - \lambda I)}^{m}}$, since the minimal polynomial of $T$ is $p(z){(z - \lambda)}^{m}$. Thus $\dim\kernel{{(T - \lambda I)}^{m}}\geq m$.
+\end{proof}
+\newpage
+
+% chapter8:sectionA:exercise5
+\begin{exercise}\label{chapter8:sectionA:exercise5}
+    Suppose $T\in\lmap{V}$ and $m$ is a positive integer. Prove that
+    \[
+        \dim\kernel{T^{m}}\leq m\dim\kernel{T}.
+    \]
+\end{exercise}
+
+\begin{quote}
+    Hint: Exercise~\ref{chapter3:sectionB:exercise21} may be useful.
+\end{quote}
+
+\begin{proof}
+    The inequality is true for $m = 1$.
+
+    Assume the inequality is true for $m = k$. By Exercise~\ref{chapter3:sectionB:exercise22} and the induction hypothesis,
+    \[
+        \dim\kernel{T^{k+1}} \leq \dim\kernel{T^{k}} + \dim\kernel{T} \leq k\dim\kernel{T} + \dim\kernel{T} = (k + 1)\dim\kernel{T}.
+    \]
+
+    By the principle of mathematical induction, for every positive integer $m$,
+    \[
+        \dim\kernel{T^{m}} \leq m\dim\kernel{T}.\qedhere
+    \]
+\end{proof}
+\newpage
+
+% chapter8:sectionA:exercise6
+\begin{exercise}\label{chapter8:sectionA:exercise6}
+    Suppose $T\in\lmap{V}$. Show that
+    \[
+        V = \range{T^{0}} \supseteq \range{T^{1}} \supseteq \cdots \supseteq \range{T^{k}} \supseteq \range{T^{k+1}} \supseteq \cdots.
+    \]
+\end{exercise}
+
+\begin{proof}
+    $V = \range{I} = \range{T^{0}}$.
+
+    Let $k$ be a nonnegative integer. Assume $v\in \range{T^{k+1}}$, then there exists $u\in V$ such that $T^{k}(Tu) = T^{k+1}u = v$. So $v\in \range{T^{k}}$. Hence $\range{T^{k}}\supseteq \range{T^{k+1}}$ for every nonnegative integer $k$. Thus
+    \[
+        V = \range{T^{0}}\supseteq \range{T}\supseteq \cdots \supseteq \range{T^{k}}\supseteq \range{T^{k+1}}\supseteq \cdots.\qedhere
+    \]
+\end{proof}
+\newpage
+
+% chapter8:sectionA:exercise7
+\begin{exercise}\label{chapter8:sectionA:exercise7}
+    Suppose $T\in\lmap{V}$ and $m$ is a nonnegative integer such that
+    \[
+        \range{T^{m}} = \range{T^{m+1}}.
+    \]
+
+    Prove that $\range{T^{k}} = \range{T^{m}}$ for all $k > m$.
+\end{exercise}
+
+\begin{quote}[Additional notes]
+    I don't know whether it is possible to prove this result without the fundamental theorem of linear maps.
+\end{quote}
+
+\begin{proof}
+    Because $\kernel{T^{m}}\subseteq \kernel{T^{m+1}}$ and by the fundamental theorem of linear maps, we conclude that $\kernel{T^{m}} = \kernel{T^{m+1}}$.
+
+    Therefore, $\kernel{T^{k}} = \kernel{T^{m}}$ for all $k > m$. Once again, by the fundamental theorem of linear maps, $\dim\range{T^{k}} = \dim\range{T^{m}}$. Moreover, $\range{T^{m}}\supseteq \range{T^{k}}$ for all $k > m$. So $\range{T^{k}} = \range{T^{m}}$ for all $k > m$.
+\end{proof}
+\newpage
+
+% chapter8:sectionA:exercise8
+\begin{exercise}\label{chapter8:sectionA:exercise8}
+    Suppose $T\in\lmap{V}$. Prove that
+    \[
+        \range{T^{\dim V}} = \range{T^{\dim V + 1}} = \range{T^{\dim V + 2}} = \cdots.
+    \]
+\end{exercise}
+
+\begin{quote}[Additional notes]
+    I don't know whether it is possible to prove this result without the fundamental theorem of linear maps.
+\end{quote}
+
+\begin{proof}
+    By Exercise~\ref{chapter8:sectionA:exercise6},
+    \[
+        \range{T^{\dim V}} \supseteq \range{T^{\dim V + 1}} \supseteq \range{T^{\dim V + 2}} \supseteq \cdots.
+    \]
+
+    On the other hand,
+    \[
+        \kernel{T^{\dim V}} = \kernel{T^{\dim V + 1}} = \kernel{T^{\dim V + 2}} = \cdots.
+    \]
+
+    By the fundamental theorem of linear maps, for every nonnegative integer $k$,
+    \[
+        \dim\range{T^{\dim V + k}} = \dim V - \dim\kernel{T^{\dim V + k}} = \dim V - \dim\kernel{T^{\dim V}} = \dim\range{T^{\dim V}}
+    \]
+
+    so $\range{T^{\dim V + k}} = \range{T^{\dim V}}$ for every nonnegative integer $k$. Thus
+    \[
+        \range{T^{\dim V}} = \range{T^{\dim V + 1}} = \range{T^{\dim V + 2}} = \cdots.\qedhere
+    \]
+\end{proof}
+\newpage
+
+% chapter8:sectionA:exercise9
+\begin{exercise}\label{chapter8:sectionA:exercise9}
+    Suppose $T\in\lmap{V}$ and $m$ is a nonnegative integer. Prove that
+    \[
+        \kernel{T^{m}} = \kernel{T^{m+1}} \Longleftrightarrow \range{T^{m}} = \range{T^{m+1}}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    We have $\kernel{T^{m}} \subseteq \kernel{T^{m+1}}$ and $\range{T^{m}} \subseteq \range{T^{m+1}}$ for every nonnegative integer $m$.
+
+    By the fundamental theorem of linear maps,
+    \[
+        \dim\kernel{T^{m}} + \dim\range{T^{m}} = \dim V = \dim\kernel{T^{m+1}} + \dim\range{T^{m+1}}
+    \]
+
+    so $\dim\kernel{T^{m+1}} - \dim\kernel{T^{m}} = \dim\range{T^{m}} - \dim\range{T^{m+1}}$. Thus
+    \[
+        \kernel{T^{m}} = \kernel{T^{m+1}} \Longleftrightarrow \range{T^{m}} = \range{T^{m+1}}.\qedhere
+    \]
+\end{proof}
+\newpage
+
+% chapter8:sectionA:exercise10
+\begin{exercise}\label{chapter8:sectionA:exercise10}
+    Define $T\in\lmap{\mathbb{C}^{2}}$ by $T(w, z) = (z, 0)$. Find all generalized eigenvectors of $T$.
+\end{exercise}
+
+\begin{proof}
+    $T^{2}(w, z) = T(z, 0) = (0, 0)$. The minimal polynomial of $T$ is $z^{2}$, so the only eigenvalue of $T$ is $0$. For every $v\in \mathbb{C}^{2}$, ${(T - 0I)}^{2}v = T^{2}v = 0$, so every vector in $\mathbb{C}^{2}$ is a generalized eigenvectors of $T$.
+\end{proof}
+\newpage
+
+% chapter8:sectionA:exercise11
+\begin{exercise}\label{chapter8:sectionA:exercise11}
+    Suppose that $T\in\lmap{V}$. Prove that there is a basis of $V$ consisting of generalized eigenvectors of $T$ if and only if the minimal polynomial of $T$ equals $(z - \lambda_{1})\cdots (z - \lambda_{m})$ for some $\lambda_{1}, \ldots, \lambda_{m}\in\mathbb{F}$.
+\end{exercise}
+
+\begin{quote}
+    This exercise states that the condition for there to be a basis of $V$ consisting
+    of generalized eigenvectors of $T$ is the same as the condition for there to be
+    a basis with respect to which $T$ has an upper-triangular matrix.
+
+    \textbf{Caution:} If $T$ has an upper-triangular matrix with respect to a basis
+    $v_{1}, \ldots, v_{n}$ of $V$, then $v_{1}$ is an eigenvector of $T$ but it is not necessarily true that $v_{2}, \ldots v_{n}$ are generalized eigenvectors of $T$.
+\end{quote}
+
+\begin{proof}
+    $(\Rightarrow)$ There is a basis of $V$ consisting of generalized eigenvectors of $T$.
+
+    Let such a basis be $e_{1}, \ldots, e_{n}$. For every $j\in\{1,\ldots,n\}$, $e_{j}$ is a generalized eigenvectors of $T$, so there exists a positive integer $r_{j}$ and $\alpha_{j}\in\mathbb{F}$ such that ${(T - \alpha_{j})}^{r_{j}}e_{j} = 0$.
+
+    Let $p(z) = {(z - \alpha_{1})}^{r_{1}}\cdots {(z - \alpha_{n})}^{r_{n}}$, then $p(T)e_{j} = 0$ for every $j\in\{ 1,\ldots, n \}$ (this is true because ${(T - \alpha_{j})}^{r_{j}}e_{j} = 0$ and $a(T)$ commutes with $b(T)$ for all polynomials $a, b$). The minimal polynomial of $T$ is a divisor of $p$, so it is also a product of polynomials of degree $1$, equivalently, the minimal polynomial of $T$ equals $(z - \lambda_{1})\cdots (z - \lambda_{m})$ for some $\lambda_{1}, \ldots, \lambda_{m}\in\mathbb{F}$.
+
+    \bigskip
+    $(\Leftarrow)$ The minimal polynomial of $T$ equals $(z - \lambda_{1})\cdots (z - \lambda_{m})$ for some $\lambda_{1}, \ldots, \lambda_{m}\in\mathbb{F}$.
+
+    It is possible that there are duplicated values in the list $\lambda_{1}, \ldots, \lambda_{m}$. We dedupe this list to get the list $\alpha_{1}, \ldots, \alpha_{r}$ of distinct values. Let $n_{j}$ be the numbers of $\alpha_{j}$ in the list $\lambda_{1}, \ldots, \lambda_{m}$ then
+    \[
+        (z - \lambda_{1})\cdots (z - \lambda_{m}) = {(z - \alpha_{1})}^{n_{1}}\cdots {(z - \alpha_{r})}^{n_{r}}.
+    \]
+
+    I give a proof using mathematical induction on $r$.
+
+    If $r = 1$, then ${(T - \alpha_{1}I)}^{r_{1}}v = 0$ for every $v\in V$. Therefore there exists a basis of $V$ consisting of generalized eigenvectors of $T$.
+
+    Suppose the proposition is true for every positive integer $j < r$.
+
+    $V = \kernel{{(T - \alpha_{r}I)}^{\dim V}}\oplus \range{{(T - \alpha_{r}I)}^{\dim V}}$. Let $v$ be a vector in $\range{{(T - \alpha_{r}I)}^{\dim V}}$.
+
+    $U = \range{{(T - \alpha_{r}I)}^{\dim V}}$ is invariant under $T$, because $\range{p(T)}$ is invariant under $T$ for every polynomial $p$. Let $w$ be a vector in $U$, then there exists $u\in U$ such that ${(T - \alpha_{r}I)}^{\dim V}u = w$. We have
+    \begin{align*}
+        {(T - \alpha_{1}I)}^{n_{1}}\cdots {(T - \alpha_{r-1}I)}^{n_{r-1}}w & = {(T - \alpha_{1}I)}^{n_{1}}\cdots {(T - \alpha_{r-1}I)}^{n_{r-1}}{(T - \alpha_{r}I)}^{\dim V}u                                      \\
+                                                                           & = {(T - \alpha_{1}I)}^{n_{1}}\cdots {(T - \alpha_{r-1}I)}^{n_{r-1}}{(T - \alpha_{r}I)}^{n_{r}}{(T - \alpha_{r}I)}^{(\dim V) - n_{r}}u \\
+                                                                           & = 0.
+    \end{align*}
+
+    Therefore ${(z - \alpha_{1})}^{n_{1}}\cdots {(z - \alpha_{r-1})}^{n_{r-1}}$ is a polynomial multiple of the minimal polynomial of $T\vert_{U}$. Due to the induction hypothesis, there exists a basis of $U$ consisting of generalized eigenvectors of $T\vert_{U}$, which are also generalized eigenvectors of $T$.
+
+    Combine a basis of $\kernel{{(T - \alpha_{r}I)}^{\dim V}}$ and a basis of $\range{{(T - \alpha_{r}I)}^{\dim V}}$, which consist of generalized eigenvectors of $T$, we obtain a basis of $V$ consisting of generalized eigenvectors of $T$. Due to the principle of mathematical induction, there exists a basis of $V$ consisting of generalized eigenvectors of $V$.
+
+    Thus there is a basis of $V$ consisting of generalized eigenvectors of $T$.
+\end{proof}
+
+\newpage
+
+% chapter8:sectionA:exercise12
+\begin{exercise}\label{chapter8:sectionA:exercise12}
+    Suppose $T\in\lmap{V}$ is such that every vector in $V$ is a generalized eigenvector of $T$. Prove that there exists $\lambda\in\mathbb{F}$ such that $T - \lambda I$ is nilpotent.
+\end{exercise}
+
+\begin{proof}
+    By Exercise~\ref{chapter8:sectionA:exercise11}, there exists a basis of $V$ consisting of generalized eigenvectors of $T$. Let $\lambda_{1}, \ldots, \lambda_{m}$ be the eigenvalues of $T$.
+
+    Assume $m > 1$. Let $v_{1}$ be a vector in $\kernel{{(T - \lambda_{1}I)}^{\dim V}}$ and $v_{2}$ be a vector in $\kernel{{(T - \lambda_{2}I)}^{\dim V}}$, then $v_{1}, v_{2}$ is a linearly independent list, and $v_{1} + v_{2}\ne 0$.
+
+    Due to the hypothesis, $v_{1} + v_{2}$ is also a generalized eigenvector of $T$.
+    \begin{itemize}
+        \item If $v_{1} + v_{2}$ corresponds to $\lambda_{1}$ then $v_{2}$ is a generalized eigenvector corresponding to $\lambda_{1}$, which is a contradiction.
+        \item If $v_{1} + v_{2}$ corresponds to $\lambda_{2}$ then $v_{1}$ is a generalized eigenvector corresponding to $\lambda_{2}$, which is a contradiction.
+        \item If $v_{1} + v_{2}$ corresponds to $\lambda_{k}$ where $k\ne 1$ and $k\ne 2$ then $v_{1} + v_{2}\in\kernel{{(T - \lambda_{k}I)}^{\dim V}}$ and
+              \[
+                  v_{1} + v_{2} = v_{k} \in \kernel{{(T - \lambda_{k}I)}^{\dim V}} \cap \left(\kernel{{(T - \lambda_{1}I)}^{\dim V}}\oplus\kernel{{(T - \lambda_{2}I)}^{\dim V}}\right)
+              \]
+
+              which is impossible because $v_{1} + v_{2} - v_{k} = 0$ implies linear dependence, meanwhile, eigenvectors corresponding to different eigenvalues are linearly independent.
+    \end{itemize}
+
+    Hence $m = 1$ ($m\ne 0$ because $T$ has a generalized eigenvector). Thus there exists $\lambda\in\mathbb{F}$ such that $\kernel{{(T - \lambda I)}^{\dim V}} = V$, so $T - \lambda I$ is nilpotent.
+\end{proof}
+\newpage
+
+% chapter8:sectionA:exercise13
+\begin{exercise}\label{chapter8:sectionA:exercise13}
+    Suppose $S, T\in\lmap{V}$ and $ST$ is nilpotent. Prove that $TS$ is nilpotent.
+\end{exercise}
+
+\begin{proof}
+    $ST$ is nilpotent, so there exists a positive integer $k$ such that ${(ST)}^{k} = 0$.
+    \[
+        {(TS)}^{k+1} = T{(ST)}^{k}S = 0.
+    \]
+
+    Therefore $TS$ is nilpotent.
+\end{proof}
+\newpage
+
+% chapter8:sectionA:exercise14
+\begin{exercise}\label{chapter8:sectionA:exercise14}
+    Suppose $T\in\lmap{V}$ is nilpotent and $T\ne 0$. Prove that $T$ is not diagonalizable.
+\end{exercise}
+
+\begin{proof}
+    Assume $T$ is diagonalizable then there exists a basis $e_{1}, \ldots, e_{\dim V}$ of $V$ consisting of eigenvectors of $T$. Because $T$ is nilpotent, if $T$ has an eigenvalue then the eigenvalue must be $0$. Hence the matrix of $T$ with respect to $e_{1}, \ldots, e_{\dim V}$ is the zero matrix. This is a contradiction because $T\ne 0$. Thus $T$ is not diagonalizable.
+\end{proof}
+\newpage
+
+% chapter8:sectionA:exercise15
+\begin{exercise}\label{chapter8:sectionA:exercise15}
+    Suppose $\mathbb{F} = \mathbb{C}$ and $T\in\lmap{V}$. Prove that $T$ is diagonalizable if and only if every generalized eigenvector of $T$ is an eigenvector of $T$.
+\end{exercise}
+
+\begin{proof}
+    Suppose every generalized eigenvector of $T$ is an eigenvector of $T$. By the fundamental theorem of algebra, the minimal polynomial of $T$ is a product of polynomials of degree $1$, so by Exercise~\ref{chapter8:sectionA:exercise11}, there is a basis of $V$ consisting generalized eigenvectors of $T$. Because every generalized eigenvector of $T$ is an eigenvector of $T$, then the basis consists of eigenvectors of $T$. Therefore $T$ is diagonalizable.
+
+    \bigskip
+    Suppose $T$ is diagonalizable. Let $\lambda_{1}, \ldots, \lambda_{m}$ be the distinct eigenvalues of $T$.
+
+    $T$ is diagonalizable then so is $T - \lambda_{k}I$. On the other hand,
+    \[
+        {(T - \lambda_{k}I)}\vert_{\kernel{(T - \lambda_{k}I)}^{\dim V}}
+    \]
+
+    is nilpotent. By Exercise~\ref{chapter8:sectionA:exercise15}, we conclude that ${(T - \lambda_{k}I)}\vert_{\kernel{(T - \lambda_{k}I)}^{\dim V}} = 0$. Therefore $(T - \lambda_{k}I)v = 0$ if ${(T - \lambda_{k}I)}^{\dim V}v = 0$.
+
+    Hence every generalized eigenvector of $T$ is an eigenvector of $T$.
+\end{proof}
+\newpage
+
+% chapter8:sectionA:exercise16
+\begin{exercise}\label{chapter8:sectionA:exercise16}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Give an example of nilpotent operators $S$, $T$ on the same vector space such that neither $S + T$ nor $ST$ is nilpotent.
+        \item Suppose $S, T \in \lmap{V}$ are nilpotent and $ST = TS$. Prove that $S + T$ and $ST$ are nilpotent.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item On $\mathbb{C}^{2}$, define $S(w, z) = (0, w)$ and $T(w, z) = (z, 0)$.
+              \[
+                  \begin{split}
+                      S^{2}(w, z) = S(0, w) = (0, 0) \\
+                      T^{2}(w, z) = T(z, 0) = (0, 0)
+                  \end{split}
+              \]
+
+              so $S, T$ are nilpotent. However, $S + T = I$ and $(ST)(z, w) = (z, 0)$ and ${ST}\ne 0$, ${(ST)}^{2}\ne 0$, so $S + T$ and $ST$ are not nilpontent.
+        \item Because $S, T$ are nilpotent, there exist positive integers $m, n$ such that $S^{m} = 0$ and $T^{n} = 0$.
+
+              Let $p = \max\{ m, n \}$, then because $ST = TS$, we can apply the binomial theorem
+              \[
+                  {(S + T)}^{2p} = \sum^{2p}_{k=0}\binom{2p}{k}S^{k}T^{2p-k}
+              \]
+
+              Because $k + (2p - k) = 2p$ so at least one integer in the list $k, 2p - k$ is greater than or equal to $p$. Therefore ${(S + T)}^{2p} = 0$. Moreover, because $ST = TS$
+              \[
+                  {(ST)}^{p} = S^{p}T^{p} = 0.
+              \]
+
+              Hence $S + T$ and $ST$ are nilpotent.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter8:sectionA:exercise17
+\begin{exercise}\label{chapter8:sectionA:exercise17}
+    Suppose $T\in \lmap{V}$ is nilpotent and $m$ is a positive integer such that $T^{m} = 0$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Prove that $I - T$ is invertible and that ${(I - T)}^{-1} = I + T + \cdots + T^{m-1}$.
+        \item Explain how you would guess the formula above.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Assume $I - T$ is not invertible, then $0$ is an eigenvalue of $I - T$. Let $v$ be an eigenvector of $I - T$ corresponding to $0$, then $(I - T)v = 0$, which implies $Tv = v$. Therefore $1$ is an eigenvalue of $T$, this is a contradiction because $T$ is nilpotent. Hence $I - T$ is invertible.
+              \[
+                  \begin{split}
+                      (I - T)(I + T + \cdots + T^{m-1}) = (I - T) + (T - T^{2}) + \cdots + (T^{m-1} - T^{m}) = I - T^{m} = I, \\
+                      (I + T + \cdots + T^{m-1})(I - T) = (I + T + \cdots + T^{m-1}) - (T + T^{2} + \cdots + T^{m}) = I - T^{m} = I.
+                  \end{split}
+              \]
+
+              Thus ${(I - T)}^{-1} = I + T + \cdots + T^{m-1}$.
+        \item I could have guessed the formula if I had thought of the Taylor expansion of ${(1 - x)}^{-1}$
+              \[
+                  {(1 - x)}^{-1} = 1 + x + x^{2} + \cdots.
+              \]
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter8:sectionA:exercise18
+\begin{exercise}\label{chapter8:sectionA:exercise18}
+    Suppose $T\in\lmap{V}$ is nilpotent. Prove that $T^{1 + \dim\range{T}} = 0$.
+\end{exercise}
+
+\begin{quote}
+    If $\dim\range{T} < \dim V - 1$, then this exercise improves 8.16.
+\end{quote}
+
+\begin{proof}
+    Let $v$ be an arbitrary vector in $V$, then $Tv\in\range{T}$. $T$ is nilpotent, then so is $T\vert_{\range{T}}$. Moreover, $\range{T}$ is invariant under $T$, so $T\vert_{\range{T}}$ is an operator on $\range{T}$ and we have
+    \[
+        {(T\vert_{\range{T}})}^{\range{T}} = 0.
+    \]
+
+    Therefore
+    \[
+        T^{1 + \dim\range{T}}v = T^{\dim\range{T}}(Tv) = {(T\vert_{\range{T}})}^{\dim\range{T}}(Tv) = 0.
+    \]
+
+    Thus $T^{1 + \dim\range{T}} = 0$.
+\end{proof}
+\newpage
+
+% chapter8:sectionA:exercise19
+\begin{exercise}\label{chapter8:sectionA:exercise19}
+    Suppose $T\in\lmap{V}$ is not nilpotent. Show that
+    \[
+        V = \kernel{T^{\dim V - 1}} \oplus \range{T^{\dim V - 1}}.
+    \]
+\end{exercise}
+
+\begin{quote}
+    For operators that are not nilpotent, this exercise improves 8.4.
+\end{quote}
+
+\begin{proof}
+    Because $T$ is not nilpotent, $T^{\dim V}\ne 0$, equivalently, $\kernel{T^{\dim V}}\ne V$. Since
+    \[
+        \{0\} = \kernel{T^{0}}\subseteq \kernel{T}\subseteq \cdots \subseteq \kernel{T^{\dim V}} \subsetneq V
+    \]
+
+    so there exists $k < \dim V$ such that $\kernel{T^{k}} = \kernel{T^{k+1}}$. Therefore
+    \[
+        \dim \kernel{T^{k}} = \dim \kernel{T^{\dim V - 1}} = \dim \kernel{T^{\dim V}}.
+    \]
+
+    Let $v$ be a vector in $\kernel{T^{\dim V - 1}} \cap \range{T^{\dim V - 1}}$, then
+    \[
+        T^{\dim V - 1}v = 0
+    \]
+
+    and there exists a vector $u$ in $V$ such that $T^{\dim V - 1}u = v$. Therefore $T^{2\dim V - 2}u = T^{\dim V - 1}v = 0$, so
+    \[
+        u\in \kernel{T^{2\dim V - 2}} = \kernel{T^{\dim V - 1}}.
+    \]
+
+    Hence $v = T^{\dim V - 1}u = 0$, so $\kernel{T^{\dim V - 1}} \cap \range{T^{\dim V - 1}} = \{0\}$, which implies
+    \[
+        \kernel{T^{\dim V - 1}} + \range{T^{\dim V - 1}} = \kernel{T^{\dim V - 1}} \oplus \range{T^{\dim V - 1}}.
+    \]
+
+    $\kernel{T^{\dim V - 1}} \oplus \range{T^{\dim V - 1}}$ is a subspace of $V$, and by the fundamental theorem of linear maps, the dimension of $\kernel{T^{\dim V - 1}} \oplus \range{T^{\dim V - 1}}$ is $\dim V$. Thus
+    \[
+        V = \kernel{T^{\dim V - 1}} \oplus \range{T^{\dim V - 1}}.\qedhere
+    \]
+\end{proof}
+\newpage
+
+% chapter8:sectionA:exercise20
+\begin{exercise}\label{chapter8:sectionA:exercise20}
+    Suppose $V$ is an inner product space and $T\in\lmap{V}$ is normal and nilpotent. Prove that $T = 0$.
+\end{exercise}
+
+\begin{proof}
+    Because $T$ is nilpotent, there exists a positive integer $k$ such that $T^{k} = 0$, so ${(T^{*})}^{k} = 0$. $T$ is normal so $T$ commutes with $T^{*}$, therefore
+    \[
+        {(T^{*}T)}^{k} = {(T^{*})}^{k}T^{k} = 0.
+    \]
+
+    $T^{*}T$ is diagonalizable according to the real and complex spectral theorem. Moreover, $T^{*}T$ is nilpotent. By Exercise~\ref{chapter8:sectionA:exercise14}, $T^{*}T = 0$. By Exercise~\ref{chapter7:sectionA:exercise2}, we conclude that $T = 0$.
+\end{proof}
+\newpage
+
+% chapter8:sectionA:exercise21
+\begin{exercise}\label{chapter8:sectionA:exercise21}
+    Suppose $T\in\lmap{V}$ is such that $\kernel{T^{\dim V - 1}} \ne \kernel{T^{\dim V}}$. Prove that $T$ is nilpotent and that $\dim\kernel{T^{k}} = k$ for every $k$ with $0\leq k\leq \dim V$.
+\end{exercise}
+
+\begin{proof}
+    For every $k\geq 0$,
+    \[
+        \kernel{T^{k}}\subseteq \kernel{T^{k+1}}.
+    \]
+
+    Assume there is a nonnegative integer $k$ less than $\dim V - 1$ such that $\kernel{T^{k}} = \kernel{T^{k+1}}$, then for every positive integer $m > k$
+    \[
+        \kernel{T^{m}} = \kernel{T^{k}}
+    \]
+
+    so $\kernel{T^{\dim V - 1}} = \kernel{T^{\dim V}}$, which is a contradiction. Hence, together with the hypothesis, we obtain $\dim\kernel{T^{k}} < \dim\kernel{T^{k+1}}$ (so $\dim\kernel{T^{k}} + 1 \leq \dim\kernel{T^{k+1}}$) for every $0\leq k\leq \dim V-1$.
+
+    Therefore $\dim\kernel{T^{\dim V}}\geq \dim\kernel{T^{0}} + \dim V = \dim V$, so $\dim\kernel{T^{\dim V}} = \dim V$, which means $\kernel{T^{\dim V}} = V$, so $T^{\dim V} = 0$. Hence $T$ is nilpotent.
+
+    For every $k$ with $0\leq k\leq \dim V$,
+    \begin{align*}
+        \dim\kernel{T^{k}} & \geq \dim\kernel{T^{0}} + k = k,                                         \\
+        \dim\kernel{T^{k}} & \leq \dim\kernel{T^{\dim V}} - (\dim V - k) = \dim V - (\dim V - k) = k.
+    \end{align*}
+
+    Hence $\dim\kernel{T^{k}} = k$.
+\end{proof}
+\newpage
+
+% chapter8:sectionA:exercise22
+\begin{exercise}\label{chapter8:sectionA:exercise22}
+    Suppose $T \in \lmap{\mathbb{C}^{5}}$ is such that $\range{T^{4}} \ne \range T^{5}$. Prove that $T$ is nilpotent.
+\end{exercise}
+
+\begin{proof}
+    By Exercise~\ref{chapter8:sectionA:exercise21}, $T^{5} = 0$. Hence $T$ is nilpotent.
+\end{proof}
+\newpage
+
+% chapter8:sectionA:exercise23
+\begin{exercise}\label{chapter8:sectionA:exercise23}
+    Give an example of an operator $T$ on a finite-dimensional real vector space such that $0$ is the only eigenvalue of $T$ but $T$ is not nilpotent.
+\end{exercise}
+
+\begin{proof}
+    I come up with the following example by using companion matrix.
+
+    On $\mathbb{R}^{3}$, define $T(x, y, z) = (0, x - z, y)$. Then
+    \begin{align*}
+        T^{2}(x, y, z) & = T(0, x-z, y) = (0, -y, x-z),  \\
+        T^{3}(x, y, z) & = T(0, -y, x-z) = (0, z-x, -y).
+    \end{align*}
+
+    The minimal polynomial of $T$ is $z^{3} + z$, which has only one real root $0$, so $0$ is the only eigenvalue of $T$. However $T$ is not nilpotent because its minimal polynomial is $z^{3} + z$.
+\end{proof}
+\newpage
+
+% chapter8:sectionA:exercise24
+\begin{exercise}\label{chapter8:sectionA:exercise24}
+    For each item in Example 8.15, find a basis of the domain vector space such that the matrix of the nilpotent operator with respect to that basis has the upper-triangular form promised by 8.18(c).
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item The operator $T\in\lmap{\mathbb{F}^{4}}$ defined by
+              \[
+                  T(z_{1}, z_{2}, z_{3}, z_{4}) = (0, 0, z_{1}, z_{2}).
+              \]
+
+              The matrix of $T$ with respect to the basis $(0, 0, 1, 0), (0, 0, 0, 1)$, $(1, 0, 0, 0)$, $(0, 1, 0, 0)$ is
+              \[
+                  \begin{pmatrix}
+                      0 & 0 & 1 & 0 \\
+                      0 & 0 & 0 & 1 \\
+                      0 & 0 & 0 & 0 \\
+                      0 & 0 & 0 & 0
+                  \end{pmatrix}.
+              \]
+        \item The operator $T\in\lmap{\mathbb{F}^{3}}$ whose matrix with respect to the standard basis is
+              \[
+                  \begin{pmatrix}
+                      -3 & 9 & 0  \\
+                      -7 & 9 & 6  \\
+                      4  & 0 & -6
+                  \end{pmatrix}.
+              \]
+
+              The minimal polynomial of $T$ is $z^{3}$. The matrix of $T$ with respect to the basis
+              \[
+                  (3, 1, 2), (1/2, 1/2, 0), (3, 19/18, 2)
+              \]
+
+              is
+              \[
+                  \begin{pmatrix}
+                      0 & 1 & 0 \\
+                      0 & 0 & 1 \\
+                      0 & 0 & 0
+                  \end{pmatrix}.
+              \]
+        \item The operator of differentiation on $\mathscr{P}_{m}(\mathbb{R})$. The matrix of the differentiation operator with respect to the basis $1, z, \ldots, z^{m}$ is upper triangular. On the other hand, $D$ is nilpotent so the entries on the diagonal of this upper-triangular matrix are $0$. The matrix of $D$ with respect to the basis $1, z, \ldots, z^{m}$ is
+              \[
+                  \begin{pmatrix}
+                      0      & 1      & 0      & 0      & \cdots & 0      \\
+                      0      & 0      & 2      & 0      & \cdots & 0      \\
+                      0      & 0      & 0      & 3      & \cdots & 0      \\
+                      \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+                      0      & 0      & 0      & 0      & \cdots & m      \\
+                      0      & 0      & 0      & 0      & \cdots & 0
+                  \end{pmatrix}.
+              \]
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter8:sectionA:exercise25
+\begin{exercise}\label{chapter8:sectionA:exercise25}
+    Suppose that $V$ is an inner product space and $T \in \lmap{V}$ is nilpotent. Show that there is an orthonormal basis of $V$ with respect to which the matrix of $T$ has the upper-triangular form promised by 8.18(c).
+\end{exercise}
+
+\begin{proof}
+    $T$ is nilpotent, so there exists a least positive integer $k\leq \dim V$ such that $T^{k} = 0$. Therefore the minimal polynomial of $T$ is $z^{k}$. Because the minimal polynomial of $T$ is a product of polynomials of degree $1$, so there exists a basis $v_{1}, \ldots, v_{\dim V}$ of $V$ to which $T$ has an upper-triangular matrix $A$.
+
+    $A$ is upper triangular, so $Tv_{k}\in\operatorname{span}(v_{1}, \ldots, v_{k})$ for every $k\in\{1,\ldots,\dim V\}$. Apply the Gram-Schmidt's procedure to the basis $v_{1}, \ldots, v_{\dim V}$, we get an orthonormal basis $e_{1}, \ldots, e_{\dim V}$ of $V$ and this orthonormal basis satisfies $\operatorname{span}(v_{1}, \ldots, v_{k}) = \operatorname{span}(e_{1}, \ldots, e_{k})$ for every $k\in\{1,\ldots,\dim V\}$. Therefore $Te_{k}\in \operatorname{span}(e_{1}, \ldots, e_{k})$ for every $k\in\{1,\ldots,\dim V\}$, so the matrix of $T$ with respect to this orthonormal basis is upper triangular.
+
+    On the other hand, because the minimal polynomial of $T$ is $z^{k}$ so the entries on the diagonal on the upper-triangular matrix of $T$ with respect to $e_{1}, \ldots, e_{\dim V}$ are $0$.
+
+    Thus there is an orthonormal basis of $V$ to which $T$ has an upper-triangular matrix.
+\end{proof}
+\newpage
+
 \section{Generalized Eigenspace Decomposition}
+
+% chapter8:sectionB:exercise1
+\begin{exercise}\label{chapter8:sectionB:exercise1}
+    Define $T\in\lmap{\mathbb{C}^{2}}$ by $T(w, z) = (-z, w)$. Find the generalized eigenspaces corresponding to the distinct eigenvalues of $T$.
+\end{exercise}
+
+\begin{proof}
+    $T^{2}(w, z) = T(-z, w) = (-w, -z)$, so the minimal polynomial of $T$ is $z^{2} + 1$, hence the eigenvalues of $T$ are $\iota$ and $-\iota$.
+    \begin{align*}
+        {(T - \iota I)}^{2}(w, z) & = (T^{2} - 2\iota T - I)(w, z)     \\
+                                  & = (-2\iota T - 2I)(w, z)           \\
+                                  & = -2\iota(-z, w) -2(w, z)          \\
+                                  & = (2\iota z - 2w, -2\iota w - 2z), \\
+        {(T + \iota I)}^{2}(w, z) & = (T^{2} + 2\iota T - I)(w, z)     \\
+                                  & = (2\iota T - 2I)(w, z)            \\
+                                  & = 2\iota (-z, w) - 2(w, z)         \\
+                                  & = (-2\iota z - 2w, 2\iota w - 2z).
+    \end{align*}
+
+    Hence $G(\iota, T) = \operatorname{span}((1, -\iota))$, $G(-\iota, T) = \operatorname{span}((1, \iota))$.
+\end{proof}
+\newpage
+
+% chapter8:sectionB:exercise2
+\begin{exercise}\label{chapter8:sectionB:exercise2}
+    Suppose $T\in\lmap{V}$ is invertible. Prove that $G(\lambda, T) = G\left(\frac{1}{\lambda}, T^{-1}\right)$ for every $\lambda\in\mathbb{F}$ with $\lambda\ne 0$.
+\end{exercise}
+
+\begin{proof}
+    $T$ commutes with $T^{-1} - \frac{1}{\lambda}I$.
+    \begin{align*}
+        v\in G(\lambda, T) & \Longleftrightarrow {(T - \lambda I)}^{\dim V}v = 0                                                                                                        \\
+                           & \Longleftrightarrow {(\lambda I - T)}^{\dim V}v = 0                                                                                                        \\
+                           & \Longleftrightarrow {(\lambda T^{-1}T - T)}^{\dim V}v = 0                                                                                                  \\
+                           & \Longleftrightarrow {\left(T^{-1}T - \frac{1}{\lambda}T\right)}^{\dim V}v = 0                                                                              \\
+                           & \Longleftrightarrow T^{\dim V}{\left(T^{-1} - \frac{1}{\lambda}I\right)}^{\dim V}v = 0 & \text{(because $T$ commutes with $T^{-1} - \frac{1}{\lambda}I $)} \\
+                           & \Longleftrightarrow {\left(T^{-1} - \frac{1}{\lambda}I\right)}^{\dim V}v = 0           & \text{(because $T$ is invertible)}                                \\
+                           & \Longleftrightarrow v\in G\left(\frac{1}{\lambda}, T^{-1}\right).
+    \end{align*}
+
+    Thus $G(\lambda, T) = G\left(\frac{1}{\lambda}, T^{-1}\right)$ for every $\lambda\in\mathbb{F}$ with $\lambda\ne 0$.
+\end{proof}
+\newpage
+
+% chapter8:sectionB:exercise3
+\begin{exercise}\label{chapter8:sectionB:exercise3}
+    Suppose $T\in\lmap{V}$. Suppose $S\in\lmap{V}$ is invertible. Prove that $T$ and $S^{-1}TS$ have the same eigenvalues with the same multiplicities.
+\end{exercise}
+
+\begin{proof}
+    Let $p$, $q$ be the minimal polynomials of $T$ and $S^{-1}TS$, respectively. Then by Exercise~\ref{chapter5:sectionA:exercise40}
+    \[
+        p(S^{-1}TS) = S^{-1}p(T)S = 0\qquad q(T) = q(SS^{-1}TSS^{-1}) = Sq(S^{-1}TS)S^{-1} = 0.
+    \]
+
+    So $p$ is a polynomial multiple of $q$ and $q$ is a polynomial multiple of $p$. Therefore $p = q$. The two linear operators have the same minimal polynomial so they have the same eigenvalues.
+
+    Let $\lambda$ be an eigenvalue of $T$ and $S^{-1}TS$.
+    \begin{align*}
+        v\in \kernel{{(T - \lambda I)}^{\dim V}} & \Longleftrightarrow {(T - \lambda I)}^{\dim V}v = 0                                                              \\
+                                                 & \Longleftrightarrow {(SS^{-1}TSS^{-1} - \lambda SIS^{-1})}^{\dim V}v = 0                                         \\
+                                                 & \Longleftrightarrow {{(S(S^{-1}TS - \lambda I)S^{-1})}^{\dim V}}v = 0                                            \\
+                                                 & \Longleftrightarrow S{(S^{-1}TS - \lambda I)}^{\dim V}S^{-1}v = 0                                                \\
+                                                 & \Longleftrightarrow {(S^{-1}TS - \lambda I)}^{\dim V}S^{-1}v = 0            & \text{(because $S$ is invertible)} \\
+                                                 & \Longleftrightarrow S^{-1}v \in \kernel{{(S^{-1}TS - \lambda I)}^{\dim V}}.
+    \end{align*}
+
+    Therefore $\dim\kernel{{(T - \lambda I)}^{\dim V}} = \dim\kernel{{(S^{-1}TS - \lambda I)}^{\dim V}}$ because there is an isomorphism between the two subspaces. Hence the eigenvalue $\lambda$ of $T$ and $S^{-1}TS$ has the same multiplicity.
+
+    Thus $T$ and $S^{-1}TS$ have the same eigenvalues with the same multiplicities.
+\end{proof}
+\newpage
+
+% chapter8:sectionB:exercise4
+\begin{exercise}\label{chapter8:sectionB:exercise4}
+    Suppose $\dim V\geq 2$ and $T\in\lmap{V}$ is such that $\kernel{T^{\dim V - 2}}\ne \kernel{T^{\dim V - 1}}$. Prove that $T$ has at most two distinct eigenvalues.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter8:sectionB:exercise5
+\begin{exercise}\label{chapter8:sectionB:exercise5}
+    Suppose $T\in\lmap{V}$ and $3$ and $8$ are eigenvalues of $T$. Let $n = \dim V$. Prove that $V = {(\kernel{T^{n-2}})}\oplus {(\range{T^{n-2}})}$.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter8:sectionB:exercise6
+\begin{exercise}\label{chapter8:sectionB:exercise6}
+    Suppose $T \in \lmap{V}$ and $\lambda$ is an eigenvalue of $T$. Explain why the exponent of $z - \lambda$ in the factorization of the minimal polynomial of $T$ is the smallest positive integer $m$ such that ${(T - \lambda I)}^{m}\vert_{G( \lambda, T)} = 0$.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter8:sectionB:exercise7
+\begin{exercise}\label{chapter8:sectionB:exercise7}
+    Suppose $T \in \lmap{V}$ and $\lambda$ is an eigenvalue of $T$ with multiplicity $d$. Prove that $G(\lambda, T) = \kernel{{(T - \lambda I)}^{d}}$.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter8:sectionB:exercise8
+\begin{exercise}\label{chapter8:sectionB:exercise8}
+    Suppose $T\in\lmap{V}$ and $\lambda_{1}, \ldots, \lambda_{m}$ are the distinct eigenvalues of $T$. Prove that
+    \[
+        V = G(\lambda_{1}, T)\oplus \cdots \oplus G(\lambda_{m}, T)
+    \]
+
+    if and only if the minimal polynomial of $T$ equals ${(z - \lambda_{1})}^{k_{1}}\cdots {(z - \lambda_{m})}^{k_{m}}$ for some positive integers $k_{1}, \ldots, k_{m}$.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter8:sectionB:exercise9
+\begin{exercise}\label{chapter8:sectionB:exercise9}
+    Suppose $\mathbb{F} = \mathbb{C}$ and $T\in\lmap{V}$. Prove that there exist $D, N\in \lmap{V}$ such that $T = D + N$, the operator $D$ is diagonalizable, $N$ is nilpotent, and $DN = ND$.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter8:sectionB:exercise10
+\begin{exercise}\label{chapter8:sectionB:exercise10}
+    Suppose $V$ is a complex inner product space, $e_{1}, \ldots, e_{n}$ is an orthonormal basis of $T$, and $T \in \lmap{V}$. Let $\lambda_{1}, \ldots, \lambda_{n}$ be the eigenvalues of $T$, each included as many times as its multiplicity. Prove that
+    \[
+        \abs{\lambda_{1}}^{2} + \cdots + \abs{\lambda_{n}}^{2} \leq \norm{Te_{1}}^{2} + \cdots + \norm{Te_{n}}^{2}.
+    \]
+\end{exercise}
+
+\begin{quote}
+    See the comment after Exercise~\ref{chapter7:sectionA:exercise5}.
+\end{quote}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter8:sectionB:exercise11
+\begin{exercise}\label{chapter8:sectionB:exercise11}
+    Give an example of an operator on $\mathbb{C}^{4}$ whose characteristic polynomial both equal $z{(z - 7)}^{2}{(z - 8)}^{2}$.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter8:sectionB:exercise12
+\begin{exercise}\label{chapter8:sectionB:exercise12}
+    Give an example of an operator on $\mathbb{C}^{4}$ whose characteristic polynomial equals $(z - 1){(z - 5)}^{3}$ and whose minimal polynomial equals $(z - 1){(z - 5)}^{2}$.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter8:sectionB:exercise13
+\begin{exercise}\label{chapter8:sectionB:exercise13}
+    Give an example of an operator on $\mathbb{C}^{4}$ whose characteristic and minimal polynomials both equal $z{(z - 1)}^{2}(z - 3)$.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter8:sectionB:exercise14
+\begin{exercise}\label{chapter8:sectionB:exercise14}
+    Give an example of an operator on $\mathbb{C}^{4}$ whose characteristic and minimal polynomials both equal $z{(z - 1)}^{2}(z - 3)$ and whose minimal polynomial equals $z(z - 1)(z - 3)$.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter8:sectionB:exercise15
+\begin{exercise}\label{chapter8:sectionB:exercise15}
+    Let $T$ be the operator on $\mathbb{C}^{4}$ defined by $T(z_{1}, z_{2}, z_{3}, z_{4}) = (0, z_{1}, z_{2}, z_{3})$. Find the characteristic polynomial and the minimal polynomial of $T$.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter8:sectionB:exercise16
+\begin{exercise}\label{chapter8:sectionB:exercise16}
+    Let $T$ be the operator on $\mathbb{C}^{6}$ defined by
+    \[
+        T(z_{1}, z_{2}, z_{3}, z_{4}, z_{5}, z_{6}) = (0, z_{1}, z_{2}, 0, z_{4}, 0).
+    \]
+
+    Find the characteristic polynomial and the minimal polynomial of $T$.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter8:sectionB:exercise17
+\begin{exercise}\label{chapter8:sectionB:exercise17}
+    Suppose $\mathbb{F} = \mathbb{C}$ and $P\in\lmap{V}$ is such that $P^{2} = P$. Prove that the characteristic polynomial of $P$ is $z^{m}{(z - 1)}^{n}$, where $m = \dim\kernel{P}$ and $n = \dim\range{P}$.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter8:sectionB:exercise18
+\begin{exercise}\label{chapter8:sectionB:exercise18}
+    Suppose $T\in\lmap{V}$ and $\lambda$ is an eigenvalue of $T$. Explain why the following four numbers equal each other.
+    \begin{enumerate}[label={(\alph*)}]
+        \item The exponent of $z - \lambda$ in the factorization of the minimal polynomial of $T$.
+        \item The smallest positive integer $m$ such that ${(T - \lambda I)}^{m}\vert_{G(\lambda, T)} = 0$.
+        \item The smallest positive integer $m$ such that
+              \[
+                  \kernel{{(T - \lambda I)}^{m}} = \kernel{{(T - \lambda I)}^{m+1}}.
+              \]
+        \item The smallest positive integer $m$ such that
+              \[
+                  \range{{(T - \lambda I)}^{m}} = \range{{(T - \lambda I)}^{m+1}}.
+              \]
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter8:sectionB:exercise19
+\begin{exercise}\label{chapter8:sectionB:exercise19}
+    Suppose $\mathbb{F} = \mathbb{C}$ and $S \in \lmap{V}$ is a unitary operator. Prove that the constant term in the characteristic polynomial of $S$ has absolute value $1$.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter8:sectionB:exercise20
+\begin{exercise}\label{chapter8:sectionB:exercise20}
+    Suppose that $\mathbb{F} = \mathbb{C}$ and $V_{1}, \ldots, V_{m}$ are nonzero subspaces of $V$ such that
+    \[
+        V = V_{1}\oplus \cdots \oplus V_{m}.
+    \]
+
+    Suppose $T\in\lmap{V}$ and each $V_{k}$ is invariant under $T$. For each $k$, let $p_{k}$ denote the characteristic polynomial of $T\vert_{V_{k}}$. Prove that the characteristic polynomial of $T$ equals $p_{1}\cdots p_{m}$.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter8:sectionB:exercise21
+\begin{exercise}\label{chapter8:sectionB:exercise21}
+    Suppose $p, q\in\mathscr{P}(\mathbb{C})$ are monic polynomials with the same zeros and $q$ is a polynomial multiple of $p$. Prove that there exists $T\in\lmap{\mathbb{C}^{\deg q}}$ such that the characteristic polynomial of $T$ is $q$ and the minimal polynomial of $T$ is $p$.
+\end{exercise}
+
+\begin{quote}
+    This exercise implies that every monic polynomial is the characteristic polynomial of some operator.
+\end{quote}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter8:sectionB:exercise22
+\begin{exercise}\label{chapter8:sectionB:exercise22}
+    Suppose $A$ and $B$ are block diagonal matrices of the form
+    \[
+        A = \begin{pmatrix}
+            A_{1} &        & 0     \\
+                  & \ddots &       \\
+            0     &        & A_{m}
+        \end{pmatrix},
+        \qquad
+        B = \begin{pmatrix}
+            B_{1} &        & 0     \\
+                  & \ddots &       \\
+            0     &        & B_{m}
+        \end{pmatrix},
+    \]
+
+    where $A_{k}$ and $B_{k}$ are square matrices of the same size for each $k = 1, \ldots, m$. Show that $AB$ is a block diagonal matrix of the form
+    \[
+        AB = \begin{pmatrix}
+            A_{1}B_{1} &        & 0          \\
+                       & \ddots &            \\
+            0          &        & A_{m}B_{m}
+        \end{pmatrix},
+    \]
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
+
+% chapter8:sectionB:exercise23
+\begin{exercise}\label{chapter8:sectionB:exercise23}
+    Suppose $\mathbb{F} = \mathbb{R}$, $T\in\lmap{V}$, and $\lambda\in\mathbb{C}$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that $u + \iota v\in G(\lambda, T_{\mathbb{C}})$ if and only if $u - \iota v\in G(\conj{\lambda}, T_{\mathbb{C}})$.
+        \item Show that the multiplicity of $\lambda$ as an eigenvalue of $T_{\mathbb{C}}$ equals the multiplicity of $\lambda$ as an eigenvalue of $T_{\mathbb{C}}$.
+        \item Use (b) and the result about the sum of the multiplicities (8.25) to show that if $\dim V$ is an odd number, then $T_{\mathbb{C}}$ has a real eigenvalue.
+        \item Use (c) and the result about real eigenvalues of $T_{\mathbb{C}}$ (Exercise~\ref{chapter5:sectionA:exercise17}) to show that if $\dim V$ is an odd number, then $T$ has an eigenvalue (thus giving an alternative proof of 5.34).
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+\newpage
 
 \section{Consequences of Generalized Eigenspace Decomposition}
 
