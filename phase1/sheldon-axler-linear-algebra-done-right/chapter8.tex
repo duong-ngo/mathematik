@@ -735,6 +735,30 @@
 \end{exercise}
 
 \begin{proof}
+    Because
+    \[
+        \{0\} = \kernel{T^{0}}\subseteq \kernel{T}\subseteq \cdots \subseteq \kernel{T^{\dim V - 2}} \subseteq \kernel{T^{\dim V - 1}}
+    \]
+
+    and if $\kernel{T^{m}} = \kernel{T^{m+1}}$, then $\kernel{T^{m}} = \kernel{T^{m+k}}$ for every positive integer $k$, so we conclude that
+    \[
+        \dim\kernel{T^{\dim V - 1}}\geq \dim V - 1.
+    \]
+
+    Let's consider all cases.
+
+    If $\dim\kernel{T^{\dim V - 1}} = \dim V$, then $T^{\dim V - 1} = 0$, so the only eigenvalue of $T$ is $0$.
+
+    If $\dim\kernel{T^{\dim V - 1}} = \dim V - 1$ and $\dim\kernel{T^{\dim V}} = \dim V$, then $T^{\dim V} = 0$, so the only eigenvalue of $T$ is $0$.
+
+    Otherwise, $\dim\kernel{T^{\dim V - 1}} = \dim V - 1$ and $\dim\kernel{T^{\dim V}} = \dim V - 1$, then $T$ is not nilpotent. By Exercise~\ref{chapter8:sectionA:exercise19},
+    \[
+        V = \kernel{T^{\dim V -  1}}\oplus\range{T^{\dim V - 1}}.
+    \]
+
+    By the fundamental theorem of linear maps, $\dim\range{T^{\dim V - 1}} = 1$. Moreover, $\range{T^{\dim V - 1}}$ is invariant under $T$ and has dimension $1$ so $T\vert_{\range{T^{\dim V - 1}}}$ has an eigenvalue. $0$ is also an eigenvalue of $T$, because $\dim\kernel{T^{\dim V - 1}} = \dim V - 1 \geq 1$. So $T$ has at most two distinct eigenvalues.
+
+    In conclusion, $T$ has at most two distinct eigenvalues.
 \end{proof}
 \newpage
 
@@ -744,6 +768,9 @@
 \end{exercise}
 
 \begin{proof}
+    Assume $\kernel{T^{n-2}}\ne \kernel{T^{n-1}}$, then by Exercise~\ref{chapter8:sectionB:exercise4}, $T$ has at most two different eigenvalues, including $0$. This is a contradiction since $3$ and $8$ are eigenvalues of $T$. Hence the assumption is false and we conclude that $\kernel{T^{n-2}} = \kernel{T^{n-1}} = \kernel{T^{n}} = \cdots$.
+
+    Therefore $V = \kernel{T^{n}}\oplus\range{T^{n}} = (\kernel{T^{n-2}})\oplus(\range{T^{n-2}})$.
 \end{proof}
 \newpage
 
@@ -753,6 +780,33 @@
 \end{exercise}
 
 \begin{proof}
+    Because ${(T - \lambda I)}^{\dim V}\vert_{G(\lambda, T)} = 0$ so there exists a smallest positive integer $m$ such that ${(T - \lambda I)}^{m}\vert_{G(\lambda, T)} = 0$. Therefore the minimal polynomial of $T\vert_{G(\lambda, T)}$ is ${(z - \lambda)}^{m}$.
+
+    Due to the definition of $m$, and three theorems ($\kernel{T^{k}}\subseteq \kernel{T^{k+1}}$ for every nonnegative integer $k$; $\kernel{T^{k}} = \kernel{T^{k+1}}$ implies $\kernel{T^{k+m}} = \kernel{T^{k+m+1}}$ for every positive integer $m$; $\kernel{T^{\dim V}} = \kernel{T^{\dim V + 1}} = \cdots$), it follows that
+    \[
+        \kernel{{(T - \lambda I)}^{m}} = \kernel{{(T - \lambda I)}^{\dim V}}.
+    \]
+
+    Moreover,
+    \[
+        V = \kernel{{(T - \lambda I)}^{\dim V}}\oplus\range{{(T - \lambda I)}^{\dim V}}
+    \]
+
+    and $\kernel{{(T - \lambda I)}^{k}} = \kernel{{(T - \lambda I)}^{\dim V}}$ if and only if $\range{{(T - \lambda I)}^{k}} = \range{{(T - \lambda I)}^{\dim V}}$, so
+    \[
+        V = \kernel{{(T - \lambda I)}^{m}}\oplus\range{{(T - \lambda I)}^{m}}.
+    \]
+
+    Let $\mu_{T}$ be the minimal polynomial of $T$, then ${(z - \lambda)}^{m}$ divides $\mu_{T}$, because $\mu_{T}(v) = 0$ for every $v\in G(\lambda, T)$. Therefore $m\leq m_{\lambda}$, where $m_{\lambda}$ is the exponent of ${z - \lambda}$ in the factorization of $\mu_{T}$.
+
+    $\kernel{{(T - \lambda I)}^{m}}$ and $\range{{(T - \lambda I)}^{m}}$ are invariant subspaces under $T$. Let $q$ be the minimal polynomial of $T\vert_{\range{{(T - \lambda I)}^{m}}}$. For every $v\in V$, there exist unique vectors $u\in\kernel{{(T - \lambda I)}^{m}}$ and $w\in\range{{(T - \lambda I)}^{m}}$ such that $v = u + w$. Because
+    \[
+        {(T - \lambda I)}^{m}q(T)w = 0 = q(T){(T - \lambda I)}^{m}u = 0
+    \]
+
+    so ${(T - \lambda I)}^{m}q(T)v = 0$ for every $v\in V$. Hence ${(z - \lambda)}^{m}q(z)$ is a polynomial multiple of $\mu_{T}$, so the exponent of $z - \lambda$ in  the factorization of ${(z - \lambda)}^{m}q(z)$ is greater than or equal to that of the factorization of $\mu_{T}$. On the other hand, $z - \lambda$ does not divide $q(z)$ because $\lambda$ is not a generalized eigenvector of $T\vert_{\range{{(T - \lambda I)}^{m}}}$, due to the direct sum $V = \kernel{{(T - \lambda I)}^{m}}\oplus\range{{(T - \lambda I)}^{m}}$. Therefore the exponent of $z - \lambda$ in the factorization of ${(z - \lambda)}^{m}q(T)$ is $m$.
+
+    Thus $m = m_{\lambda}$.
 \end{proof}
 \newpage
 
@@ -762,6 +816,15 @@
 \end{exercise}
 
 \begin{proof}
+    Due to the definition of (algebraic) multiplicity, $d = \dim\kernel{{(T - \lambda I)}^{\dim V}}$. Because $d\leq\dim V$, then $\kernel{{(T - \lambda I)}^{d}}\subseteq G(\lambda, T) = \kernel{{(T - \lambda I)}^{\dim V}}$.
+
+    The operator ${(T - \lambda I)}\vert_{G(\lambda, T)}$ is nilpotent, so there exists a basis $v_{1}, \ldots, v_{d}$ of $G(\lambda, T)$ to which the matrix of ${(T - \lambda I)}\vert_{G(\lambda, T)}$ is upper triangular with entries on the diagonal are $0$.
+
+    Therefore $(T - \lambda I)v_{1} = 0$.
+
+    Assume ${(T - \lambda I)}^{k}v_{k} = 0$ for $1\leq k < d$, then $Tv_{k+1} \in \operatorname{span}(v_{1}, \ldots, v_{k})$ (because the matrix is upper triangular and the entry in the $(k+1)$th row and $(k+1)$th column is $0$). By the induction hypothesis, ${(T - \lambda I)}^{k+1}v_{k+1} = 0$. By the principle of mathematical induction, we conclude that ${(T - \lambda I)}^{k}v_{k} = 0$ for every $k\in\{1,\ldots,d\}$. Therefore ${(T - \lambda I)}^{d}v_{k} = 0$ for every $k\in\{1,\ldots,d\}$, so ${(T - \lambda I)}^{d}v = 0$ for every $v\in G(\lambda, T)$. Hence $G(\lambda, T)\subseteq \kernel{{(T - \lambda I)}^{d}}$.
+
+    Thus $G(\lambda, T) = \kernel{{(T - \lambda I)}^{d}}$.
 \end{proof}
 \newpage
 
@@ -776,6 +839,48 @@
 \end{exercise}
 
 \begin{proof}
+    $(\Rightarrow)$ $V = G(\lambda_{1}, T)\oplus \cdots \oplus G(\lambda_{m}, T)$.
+
+    Let $r_{n}$ be the smallest positive integer such that ${(T - \lambda_{n}I)}^{r_{n}}\vert_{G(\lambda_{n}, T)} = 0$. For every $v\in V$, there exist unique vectors $v_{1}, \ldots, v_{m}$ in $G(\lambda_{1}, T), \ldots, G(\lambda_{m}, T)$, respectively such that $v = v_{1} + \cdots + v_{m}$.
+    \[
+        {(T - \lambda_{1}I)}^{r_{1}}\cdots {(T - \lambda_{m}I)}^{r_{m}}v_{n} = 0
+    \]
+
+    so
+    \[
+        {(T - \lambda_{1}I)}^{r_{1}}\cdots {(T - \lambda_{m}I)}^{r_{m}}v = 0.
+    \]
+
+    Therefore ${(z - \lambda_{1})}^{r_{1}}\cdots {(z - \lambda_{m})}^{r_{m}}$ is a polynomial multiple of the minimal polynomial of $T$. Because $\lambda_{1}, \ldots, \lambda_{m}$ are the distinct eigenvalues of $T$, so $z - \lambda_{1}, \ldots, z - \lambda_{m}$ are divisors of the minimal polynomial of $T$.
+
+    Hence the minimal polynomial of $T$ equals ${(z - \lambda_{1})}^{k_{1}}\cdots {(z - \lambda_{m})}^{k_{m}}$ for some positive integers $k_{1}, \ldots, k_{m}$.
+    \bigskip
+
+    $(\Leftarrow)$ The minimal polynomial of $T$ equals ${(z - \lambda_{1})}^{k_{1}}\cdots {(z - \lambda_{m})}^{k_{m}}$ for some positive integers $k_{1}, \ldots, k_{m}$.
+
+    I give a proof using mathematical induction on $m$.
+
+    If $m = 1$, then ${(T - \lambda_{1})}^{k_{1}}v = 0$ for every $v\in V$, so $V = G(\lambda_{1}, T)$.
+
+    Assume the result is true for all $m < n$. By the proof of Exercise~\ref{chapter8:sectionB:exercise6}
+    \[
+        V = \kernel{{(T - \lambda_{n}I)}^{k_{n}}}\oplus\range{{(T - \lambda_{n}I)}^{k_{n}}}
+    \]
+
+    and $G(\lambda_{n}, T) = \kernel{{(T - \lambda_{n})}^{k_{n}}}$. The subspace $\range{{(T - \lambda_{n}I)}^{k_{n}}}$ is invariant under $T$ and the minimal polynomial of $T\vert_{\range{{(T - \lambda_{n}I)}^{k_{n}}}}$ is a polynomial multiple of ${(z - \lambda_{1})}^{k_{1}}\cdots {(z - \lambda_{n-1})}^{k_{n-1}}$. So by the induction hypothesis,
+    \[
+        \range{{(T - \lambda_{n}I)}^{k_{n}}} = G(\lambda_{1}, T)\oplus \cdots \oplus G(\lambda_{n-1}, T).
+    \]
+
+    Hence
+    \[
+        V = \range{{(T - \lambda_{n}I)}^{k_{n}}} \oplus \kernel{{(T - \lambda_{n}I)}^{k_{n}}} = G(\lambda_{1}, T)\oplus \cdots \oplus G(\lambda_{n-1}, T) \oplus G(\lambda_{n}, T).
+    \]
+
+    Thus, by the principle of mathematical induction,
+    \[
+        V = G(\lambda_{1}, T)\oplus \cdots \oplus G(\lambda_{m}, T).\qedhere
+    \]
 \end{proof}
 \newpage
 
@@ -785,12 +890,99 @@
 \end{exercise}
 
 \begin{proof}
+    Let $\lambda_{1}, \ldots, \lambda_{m}$ be the distinct eigenvalues of $T$.
+
+    Because $V$ is a complex vector space, then there exists a basis $v_{1}, \ldots, v_{\dim V}$ of $V$ to which the matrix of $T$ is the following block diagonal matrix
+    \[
+        \begin{pmatrix}
+            A_{1} &        & 0     \\
+                  & \ddots &       \\
+            0     &        & A_{m}
+        \end{pmatrix}
+    \]
+
+    where $A_{k}$ is the upper-triangular matrix of the form
+    \[
+        \begin{pmatrix}
+            \lambda_{k} &        & *           \\
+                        & \ddots &             \\
+            0           &        & \lambda_{k}
+        \end{pmatrix}.
+    \]
+
+    Let $D$ be the linear operator on $V$ whose matrix is the following block diagonal matrix
+    \[
+        \begin{pmatrix}
+            D_{1} &        & 0     \\
+                  & \ddots &       \\
+            0     &        & D_{m}
+        \end{pmatrix}
+    \]
+
+    where $D_{k}$ is the following diagonal matrix
+    \[
+        \begin{pmatrix}
+            \lambda_{k} &        & 0           \\
+                        & \ddots &             \\
+            0           &        & \lambda_{k}
+        \end{pmatrix}.
+    \]
+
+    Let $N$ be the linear operator on $V$ whose matrix is the following block diagonal matrix
+    \[
+        \begin{pmatrix}
+            A_{1} - D_{1} &        & 0             \\
+                          & \ddots &               \\
+            0             &        & A_{m} - D_{m}
+        \end{pmatrix}.
+    \]
+
+    $D$ is diagonalizable, $N$ is nilpotent, and because $D_{k}A_{k} = A_{k}D_{k}$, we obtain that
+    \begin{align*}
+        \begin{pmatrix}
+            D_{1} &        & 0     \\
+                  & \ddots &       \\
+            0     &        & D_{m}
+        \end{pmatrix}
+        \begin{pmatrix}
+            A_{1} - D_{1} &        & 0             \\
+                          & \ddots &               \\
+            0             &        & A_{m} - D_{m}
+        \end{pmatrix}
+         & =
+        \begin{pmatrix}
+            D_{1}(A_{1} - D_{1}) &        & 0                    \\
+                                 & \ddots &                      \\
+            0                    &        & D_{m}(A_{m} - D_{m})
+        \end{pmatrix} \\
+         & =
+        \begin{pmatrix}
+            (A_{1} - D_{1})D_{1} &        & 0                    \\
+                                 & \ddots &                      \\
+            0                    &        & (A_{m} - D_{m})D_{m}
+        \end{pmatrix} \\
+         & =
+        \begin{pmatrix}
+            A_{1} - D_{1} &        & 0             \\
+                          & \ddots &               \\
+            0             &        & A_{m} - D_{m}
+        \end{pmatrix}
+        \begin{pmatrix}
+            D_{1} &        & 0     \\
+                  & \ddots &       \\
+            0     &        & D_{m}
+        \end{pmatrix}.
+    \end{align*}
+
+    So $DN = ND$.
+
+    Hence there exist a diagonalizable operator $D$ and a nilpotent operator $N$ on $V$ such that $DN = ND$ and $T = D + N$.
 \end{proof}
 \newpage
 
 % chapter8:sectionB:exercise10
 \begin{exercise}\label{chapter8:sectionB:exercise10}
-    Suppose $V$ is a complex inner product space, $e_{1}, \ldots, e_{n}$ is an orthonormal basis of $T$, and $T \in \lmap{V}$. Let $\lambda_{1}, \ldots, \lambda_{n}$ be the eigenvalues of $T$, each included as many times as its multiplicity. Prove that
+    Suppose $V$ is a complex inner product space, $e_{1}, \ldots, e_{n}$ is an orthonormal basis of $V$, and $T \in \lmap{V}$. Let $\lambda_{1}, \ldots, \lambda_{n}$ be the eigenvalues of $T$, each included as many times as its multiplicity. Prove that
     \[
         \abs{\lambda_{1}}^{2} + \cdots + \abs{\lambda_{n}}^{2} \leq \norm{Te_{1}}^{2} + \cdots + \norm{Te_{n}}^{2}.
     \]
@@ -801,15 +993,30 @@
 \end{quote}
 
 \begin{proof}
+    According to Schur's theorem, there is an orthonormal basis $f_{1}, \ldots, f_{n}$ of $V$ to which $T$ has an upper-triangular matrix $A$. On the other hand, $\lambda_{k}$ appears $d_{k}$ times on the diagonal of $A$, where $d_{k}$ is the algebraic multiplicity of $\lambda_{k}$.
+    \begin{align*}
+        \abs{\lambda_{1}}^{2} + \cdots + \abs{\lambda_{n}}^{2} & = \abs{\innerprod{Tf_{1}, f_{1}}}^{2} + \cdots + \abs{\innerprod{Tf_{n}, f_{n}}}^{2} & (\lambda_{k} = A_{k,k} = \innerprod{Te_{k}, e_{k}})               \\
+                                                               & \leq \norm{Tf_{1}}^{2}\norm{f_{1}}^{2} + \cdots + \norm{Tf_{n}}^{2}\norm{f_{n}}^{2}  & \text{(Cauchy-Schwarz's inequality)}                              \\
+                                                               & = \norm{Tf_{1}}^{2} + \cdots + \norm{Tf_{n}}^{2}                                                                                                         \\
+                                                               & = \norm{Te_{1}}^{2} + \cdots + \norm{Te_{n}}^{2}.                                    & \text{(comment after Exercise~\ref{chapter7:sectionA:exercise5})}
+    \end{align*}
 \end{proof}
 \newpage
 
 % chapter8:sectionB:exercise11
 \begin{exercise}\label{chapter8:sectionB:exercise11}
-    Give an example of an operator on $\mathbb{C}^{4}$ whose characteristic polynomial both equal $z{(z - 7)}^{2}{(z - 8)}^{2}$.
+    Give an example of an operator on $\mathbb{C}^{4}$ whose characteristic polynomial equal ${(z - 7)}^{2}{(z - 8)}^{2}$.
 \end{exercise}
 
 \begin{proof}
+    Here is an example.
+
+    $T\in\lmap{\mathbb{C}^{4}}$ and
+    \[
+        T(z_{1}, z_{2}, z_{3}, z_{4}) = (7z_{1}, 7z_{2}, 8z_{3}, 8z_{4}).
+    \]
+
+    $T$ is diagonalizable, $E(7, T) = \operatorname{span}((1, 0, 0, 0), (0, 1, 0, 0))$, and $E(8, T) = \operatorname{span}((0, 0, 1, 0), (0, 0, 0, 1))$ so the characteristic polynomial of $T$ is ${(z-7)}^{2}{(z-8)}^{2}$.
 \end{proof}
 \newpage
 
@@ -819,6 +1026,24 @@
 \end{exercise}
 
 \begin{proof}
+    Here is an example.
+
+    $T\in\lmap{\mathbb{C}^{4}}$ and the matrix of $T$ with respect to the standard basis $e_{1}, e_{2}, e_{3}, e_{4}$ of $\mathbb{C}^{4}$ is
+    \[
+        \begin{pmatrix}
+            5 & 0 & 1 & 0 \\
+            0 & 5 & 0 & 0 \\
+            0 & 0 & 5 & 0 \\
+            0 & 0 & 0 & 1
+        \end{pmatrix}.
+    \]
+
+    The generalized eigenspaces of $T$ are
+    \[
+        G(5, T) = \kernel{{(T - 5I)}^{2}}\qquad G(1, T) = \kernel{{(T - I)}^{1}}
+    \]
+
+    where $\dim G(5, T) = 3$ and $\dim G(1, T) = 1$, so the minimal polynomial of $T$ is $(z-1){(z-5)}^{2}$ and the characteristic polynomial of $T$ is $(z-1){(z-5)}^{3}$.
 \end{proof}
 \newpage
 
@@ -828,6 +1053,26 @@
 \end{exercise}
 
 \begin{proof}
+    Here is an example.
+
+    $T\in\lmap{\mathbb{C}^{4}}$ and the matrix of $T$ with respect to the standard basis $e_{1}, e_{2}, e_{3}, e_{4}$ of $\mathbb{C}^{4}$ is
+    \[
+        \begin{pmatrix}
+            0 & 0 & 0 & 0 \\
+            0 & 1 & 1 & 0 \\
+            0 & 0 & 1 & 0 \\
+            0 & 0 & 0 & 3
+        \end{pmatrix}.
+    \]
+
+    The generalized eigenspaces of $T$ are
+    \begin{align*}
+        G(0, T) & = \kernel{(T - 0I)} = \operatorname{span}(e_{1}),              \\
+        G(1, T) & = \kernel{{(T - 1I)}^{2}} = \operatorname{span}(e_{2}, e_{3}), \\
+        G(3, T) & = \kernel{(T - 3I)} = \operatorname{span}(e_{4}).
+    \end{align*}
+
+    So the minimal polynomial and the characteristic polynomial of $T$ are equal to $z{(z-1)}^{2}{(z-3)}$.
 \end{proof}
 \newpage
 
@@ -837,6 +1082,26 @@
 \end{exercise}
 
 \begin{proof}
+    Here is an example.
+
+    $T\in\lmap{\mathbb{C}^{4}}$ and the matrix of $T$ with respect to the standard basis $e_{1}, e_{2}, e_{3}, e_{4}$ of $\mathbb{C}^{4}$ is
+    \[
+        \begin{pmatrix}
+            0 & 0 & 0 & 0 \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 1 & 0 \\
+            0 & 0 & 0 & 3
+        \end{pmatrix}.
+    \]
+
+    The generalized eigenspaces of $T$ are
+    \begin{align*}
+        G(0, T) & = E(0, T) = \kernel{(T - 0I)} = \operatorname{span}(e_{1}),        \\
+        G(1, T) & = E(1, T) = \kernel{(T - 1I)} = \operatorname{span}(e_{2}, e_{3}), \\
+        G(3, T) & = E(3, T) = \kernel{(T - 3I)} = \operatorname{span}(e_{4}).
+    \end{align*}
+
+    So the characteristic polynomial of $T$ is $z{(z-1)}^{2}(z-3)$ and the minimal polynomial of $T$ is $z(z-1)(z-3)$.
 \end{proof}
 \newpage
 
@@ -846,6 +1111,16 @@
 \end{exercise}
 
 \begin{proof}
+    \begin{align*}
+        T^{4}(z_{1}, z_{2}, z_{3}, z_{4}) & = T^{3}(0, z_{1}, z_{2}, z_{3}) \\
+                                          & = T^{2}(0, 0, z_{1}, z_{2})     \\
+                                          & = T(0, 0, 0, z_{1})             \\
+                                          & = (0, 0, 0, 0)
+    \end{align*}
+
+    so $T$ is nilpotent.
+
+    $G(0, T) = \mathbb{C}^{4}$, so the characteristic polynomial of $T$ is $z^{4}$. $4$ is the smallest positive integer $k$ such that $T^{k} = 0$ so $z^{4}$ is also the minimal polynomial of $T$.
 \end{proof}
 \newpage
 
@@ -860,6 +1135,15 @@
 \end{exercise}
 
 \begin{proof}
+    \begin{align*}
+        T^{3}(z_{1}, z_{2}, z_{3}, z_{4}, z_{5}, z_{6}) & = T^{2}(0, z_{1}, z_{2}, 0, z_{4}, 0) \\
+                                                        & = T(0, 0, z_{1}, 0, 0, 0)             \\
+                                                        & = (0, 0, 0, 0, 0, 0)
+    \end{align*}
+
+    so $T$ is nilpotent.
+
+    $G(0, T) = \mathbb{C}^{6}$, so the characteristic polynomial of $T$ is $z^{6}$. $3$ is the smallest positive integer $k$ such that $T^{k} = 0$ so $z^{3}$ is the minimal polynomial of $T$.
 \end{proof}
 \newpage
 
@@ -869,6 +1153,7 @@
 \end{exercise}
 
 \begin{proof}
+    $P^{2} = P$ so $V = \kernel{P}\oplus\range{P}$. Moreover, $\kernel{P} = E(0, P)$ and $\range{P} = E(1, P)$. Therefore, if $m = \dim\kernel{P}$ and $n = \dim\range{P}$, then the characteristic polynomial of $P$ is $z^{m}{(z-1)}^{n}$.
 \end{proof}
 \newpage
 
@@ -890,6 +1175,48 @@
 \end{exercise}
 
 \begin{proof}
+    Denote the positive integers in (a), (b), (c), (d) by $m_{a}, m_{b}, m_{c}, m_{d}$, respectively. These positive integers don't exceed $\dim V$.
+
+    Because
+    \begin{align*}
+        \{0\} & = \kernel{I} \subseteq \kernel{{(T - \lambda I)}} \subseteq \cdots \subseteq \kernel{{(T - \lambda I)}^{k}} \subseteq \kernel{{(T - \lambda I)}^{k+1}} \subseteq \cdots \\
+        V     & = \range{I} \supseteq \range{{(T - \lambda I)}} \supseteq \cdots \supseteq \range{{(T - \lambda I)}^{k}} \supseteq \range{{(T - \lambda I)}^{k+1}} \subseteq \cdots
+    \end{align*}
+
+    and by the fundamental theorem of linear maps
+    \begin{align*}
+        \dim V & = \dim\kernel{(T - \lambda I)} + \dim\range{(T - \lambda I)}             \\
+               & = \cdots                                                                 \\
+               & = \dim\kernel{{(T - \lambda I)}^{k}} + \dim\range{{(T - \lambda I)}^{k}} \\
+               & = \cdots
+    \end{align*}
+
+    and
+    \begin{align*}
+        \kernel{{(T - \lambda I)}^{k}} & = \kernel{{(T - \lambda I)}^{k+1}} \implies\kernel{{(T - \lambda I)}^{k}} = \kernel{{(T - \lambda I)}^{k+m}}\forall m\in\mathbb{Z}^{+}, \\
+        \range{{(T - \lambda I)}^{k}}  & = \range{{(T - \lambda I)}^{k+1}} \implies\range{{(T - \lambda I)}^{k}} = \range{{(T - \lambda I)}^{k+m}}\forall m\in\mathbb{Z}^{+}
+    \end{align*}
+
+    and
+    \begin{align*}
+        \kernel{{(T - \lambda I)}^{\dim V}} & = \kernel{{(T - \lambda I)}^{\dim V+1}} = \cdots \\
+        \range{{(T - \lambda I)}^{\dim V}}  & = \range{{(T - \lambda I)}^{\dim V+1}}  = \cdots
+    \end{align*}
+
+    so $m_{c} = m_{d}$.
+
+    According to the definition of $m_{b}$, we conclude that $m_{b}$ is the smallest positive integer $m$ such that
+    \[
+        \kernel{{(T - \lambda I)}^{m}} = \kernel{{(T - \lambda I)}^{\dim V}}
+    \]
+
+    so $m_{b}$ is also the smallest positive integer such that $\kernel{{(T - \lambda I)}^{m}} = \kernel{{(T - \lambda I)}^{m+1}}$.
+
+    Therefore $m_{b} = m_{c}$.
+
+    Finally, $m_{a} = m_{b}$ due to Exercise~\ref{chapter8:sectionB:exercise6}.
+
+    Thus $m_{a} = m_{b} = m_{c} = m_{d}$.
 \end{proof}
 \newpage
 
@@ -899,6 +1226,17 @@
 \end{exercise}
 
 \begin{proof}
+    $S$ is a unitary operator so $S$ is normal. According to the complex spectral theorem, $S$ is diagonalizable. Moreover, the eigenvalues of $S$ have absolute value $1$. Let $\lambda_{1}, \ldots, \lambda_{m}$ be the distinct eigenvalues of $S$ and $d_{k} = \dim E(\lambda_{k}, S)$. The characteristic polynomial of $S$ is
+    \[
+        {(z - \lambda_{1})}^{d_{1}}\cdots {(z - \lambda_{m})}^{d_{m}}.
+    \]
+
+    The constant term of this polynomial is
+    \[
+        {(-\lambda_{1})}^{d_{1}}\cdots {(-\lambda_{m})}^{d_{m}}
+    \]
+
+    which has absolute value $1$.
 \end{proof}
 \newpage
 
@@ -913,6 +1251,39 @@
 \end{exercise}
 
 \begin{proof}
+    Let $\lambda_{1}, \ldots, \lambda_{n}$ be the distinct eigenvalues of $T$. By the generalized eigenspace decomposition theorem
+    \[
+        V = \bigoplus^{m}_{k=1}\bigoplus^{n}_{j=1}G(\lambda_{j}, T\vert_{V_{k}})
+    \]
+
+    The exponent of $z - \lambda_{i}$ in the factorization of $p_{k}$ is
+    \[
+        \dim G(\lambda_{i}, T\vert_{V_{k}}).
+    \]
+
+    For every $v_{i}\in G(\lambda_{i}, T)$, there exist unique vectors $v_{j,k}\in G(\lambda_{j}, T\vert_{v_{k}})$ such that
+    \[
+        v_{i} = \sum^{m}_{k=1}\sum^{n}_{j=1}v_{j,k}.
+    \]
+
+    If $v_{i} = 0$ then all vectors $v_{j,k}$ are $0$. Otherwise, assume there exists $v_{j,k}\ne 0$ such that $j\ne i$, then there are generalized eigenvectors of $\lambda_{j}$, $\lambda_{i}$ which are linearly dependent, which is a contradiction. Hence $v_{j,k} = 0$ for every $j\ne i$, which implies
+    \[
+        v_{i} = \sum^{m}_{k=1}v_{i,k}.
+    \]
+
+    Therefore
+    \[
+        G(\lambda_{i}, T) = \bigoplus^{m}_{k=1}G(\lambda_{i}, T\vert_{V_{k}}).
+    \]
+
+    Denote the characteristic polynomial of $T$ by $p$. The exponent of $z - \lambda_{i}$ in the factorization of $p(z)$ is
+    \[
+        \dim G(\lambda_{i}, T) = \sum^{m}_{k=1}\dim G(\lambda_{i}, T\vert_{V_{k}})
+    \]
+
+    which is the sum of the exponents of $z - \lambda_{i}$ in the factorizations of $p_{1}, \ldots, p_{m}$.
+
+    Thus $p = p_{1}\cdots p_{m}$.
 \end{proof}
 \newpage
 
@@ -926,6 +1297,28 @@
 \end{quote}
 
 \begin{proof}
+    Let $\lambda_{1}, \ldots, \lambda_{m}$ be the distinct eigenvalues of $T$. Suppose that
+    \begin{align*}
+        p(z) & = {(z - \lambda_{1})}^{h_{1}}\cdots {(z - \lambda_{m})}^{h_{m}}, \\
+        q(z) & = {(z - \lambda_{1})}^{k_{1}}\cdots {(z - \lambda_{m})}^{k_{m}},
+    \end{align*}
+
+    where $h_{j}, k_{j}$ are positive integers for $j\in\{1,\ldots,m\}$. This assumption is possible due to the fundamental theorem of algebra.
+
+    Because $q$ is a polynomial multiple of $p$, it follows that $h_{j}\leq k_{j}$ for every $j\in\{1,\ldots,m\}$.
+
+    Let $A_{j}$ be an upper-triangular matrix with $k_{j}$ columns such that the entries on its diagonal are all $\lambda_{j}$ and $A_{j} - \lambda_{j}I$ is a nilpotent matrix whose index is $h_{j}$. Let $A$ be the following block diagonal matrix
+    \[
+        \begin{pmatrix}
+            A_{1} &        & 0     \\
+                  & \ddots &       \\
+            0     &        & A_{m}
+        \end{pmatrix}
+    \]
+
+    and $T$ be the operator on $\mathbb{C}^{\deg q}$ whose matrix with respect to the standard basis of $\mathbb{C}^{\deg q}$ is $A$. By Exercise~\ref{chapter8:sectionB:exercise6}, $p$ is the minimal polynomial of $T$. By the definition of characteristic polynomial, $q$ is the characteristic polynomial of $T$.
+
+    Thus there exists $T\in\lmap{\mathbb{C}^{\deg q}}$ such that the characteristic polynomial of $T$ is $q$ and the minimal polynomial of $T$ is $p$.
 \end{proof}
 \newpage
 
@@ -952,11 +1345,33 @@
             A_{1}B_{1} &        & 0          \\
                        & \ddots &            \\
             0          &        & A_{m}B_{m}
-        \end{pmatrix},
+        \end{pmatrix}.
     \]
 \end{exercise}
 
 \begin{proof}
+    Let $n_{i}$ be the number of columns of $A_{i}$ and $n_{0} = 0$.
+    \begin{align*}
+        {(AB)}_{j,k} = A_{j,\cdot}B_{\cdot,k}.
+    \end{align*}
+
+    If there exists $i\in\{0,1,\ldots,m-1\}$ such that
+    \[
+        n_{0} + \cdots + n_{i} + 1\leq j, k\leq n_{0} + \cdots + n_{i} + n_{i+1}
+    \]
+
+    then $A_{j,\cdot}B_{\cdot,k}$ is the multiplication of the row $j - (n_{0} + \cdots + n_{i})$ of $A_{i}$ and the column $k - (n_{0} + \cdots + n_{i})$ of $B_{i}$.
+
+    Otherwise, $A_{j,\cdot}B_{\cdot,k} = 0$.
+
+    Thus
+    \[
+        AB = \begin{pmatrix}
+            A_{1}B_{1} &        & 0          \\
+                       & \ddots &            \\
+            0          &        & A_{m}B_{m}
+        \end{pmatrix}.\qedhere
+    \]
 \end{proof}
 \newpage
 
@@ -965,17 +1380,38 @@
     Suppose $\mathbb{F} = \mathbb{R}$, $T\in\lmap{V}$, and $\lambda\in\mathbb{C}$.
     \begin{enumerate}[label={(\alph*)}]
         \item Show that $u + \iota v\in G(\lambda, T_{\mathbb{C}})$ if and only if $u - \iota v\in G(\conj{\lambda}, T_{\mathbb{C}})$.
-        \item Show that the multiplicity of $\lambda$ as an eigenvalue of $T_{\mathbb{C}}$ equals the multiplicity of $\lambda$ as an eigenvalue of $T_{\mathbb{C}}$.
+        \item Show that the multiplicity of $\lambda$ as an eigenvalue of $T_{\mathbb{C}}$ equals the multiplicity of $\conj{\lambda}$ as an eigenvalue of $T_{\mathbb{C}}$.
         \item Use (b) and the result about the sum of the multiplicities (8.25) to show that if $\dim V$ is an odd number, then $T_{\mathbb{C}}$ has a real eigenvalue.
         \item Use (c) and the result about real eigenvalues of $T_{\mathbb{C}}$ (Exercise~\ref{chapter5:sectionA:exercise17}) to show that if $\dim V$ is an odd number, then $T$ has an eigenvalue (thus giving an alternative proof of 5.34).
     \end{enumerate}
 \end{exercise}
 
 \begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item \begin{align*}
+                  u + \iota v\in G(\lambda, T_{\mathbb{C}}) & \Longleftrightarrow {(T - \lambda I)}^{\dim V}u + \iota {(T - \lambda I)}^{\dim V}v = 0               \\
+                                                            & \Longleftrightarrow {(T - \lambda I)}^{\dim V}u = {(T - \lambda I)}^{\dim V}v = 0                     \\
+                                                            & \Longleftrightarrow {(T - \conj{\lambda} I)}^{\dim V}u = {(T - \conj{\lambda} I)}^{\dim V}v = 0       \\
+                                                            & \Longleftrightarrow {(T - \conj{\lambda} I)}^{\dim V}u - \iota {(T - \conj{\lambda} I)}^{\dim V}v = 0 \\
+                                                            & \Longleftrightarrow u - \iota v\in G(\conj{\lambda}, T_{\mathbb{C}}).
+              \end{align*}
+        \item The linear map $F: G(\lambda, T_{\mathbb{C}})\to G(\conj{\lambda}, T_{\mathbb{C}})$ such that $F(u + \iota v) = u - \iota v$ is an isomorphism. Hence
+              \[
+                  \dim G(\lambda, T_{\mathbb{C}}) = \dim G(\conj{\lambda}, T_{\mathbb{C}}).
+              \]
+
+              Therefore the multiplicity of $\lambda$ as an eigenvalue of $T_{\mathbb{C}}$ and the multiplicity of $\conj{\lambda}$ as an eigenvalue of $T_{\mathbb{C}}$ are equal.
+        \item If $T_{\mathbb{C}}$ has no real eigenvalue, then all eigenvalues of $T_{\mathbb{C}}$ are complex but non-real numbers. By (b), it follows that the dimension of $V$ is an even number, because $\dim V$ equals to the sum of multiplicity of the distinct eigenvalues of $T_{\mathbb{C}}$. This is a contradiction because $\dim V$ is an odd number. Thus $T_{\mathbb{C}}$ has a real eigenvalue.
+        \item By (c), $T_{\mathbb{C}}$ has a real eigenvalue $\lambda$, so there exist vectors $u, v\in V$ which are not both zero such that
+              \[
+                  Tu + \iota Tv = T_{\mathbb{C}}(u + \iota v) = \lambda u + \iota \lambda v.
+              \]
+
+              Therefore $Tu = \lambda u$, $Tv = \lambda v$. Since $u, v$ are not both zero, we conclude that $\lambda$ is an eigenvalue of $T$. Thus $T$ has an eigenvalue.
+    \end{enumerate}
 \end{proof}
 \newpage
 
 \section{Consequences of Generalized Eigenspace Decomposition}
 
 \section{Trace: A Connection Between Matrices and Operators}
-

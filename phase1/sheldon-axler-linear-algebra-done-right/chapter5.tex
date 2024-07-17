@@ -1530,13 +1530,14 @@ In this exercise, $\mathbb{F}$ must have infinite elements.
 \begin{proof}
     Let $p$ be the minimal polynomial of $T$ and
     \[
-        p(z) = a_{0} + a_{1}z + \cdots + a_{n-1}z^{n-1} + z^{n}.
+        p(z) = a_{0} + a_{1}z + \cdots + a_{m-1}z^{m-1} + z^{m}.
     \]
 
-    Then $T^{n}v = -a_{0}v - a_{1}Tv - \cdots - a_{n-1}T^{n-1}v$. Hence
-    \[
-        Tv, T(Tv), \ldots, T(T^{n-1}v) \in \operatorname{span}(v, Tv, \ldots, T^{n-1}v).
-    \]
+    $m\leq\dim V$ due to the theorem of existence of minimal polynomial. For every $k\in\{0,1,\ldots,n-1\}$, let $r_{k}(z)$ be the remainder of the polynomial division of $p(z)$ be $z^{k}$.
+
+    If $0\leq k < m-1$, then $T(T^{k}v)\in\operatorname{span}(v, Tv, \ldots, T^{m-1}v)\subseteq\operatorname{span}(v, Tv, \ldots, T^{n-1}v)$.
+
+    If $k\geq m-1$, then $T(T^{k}v) = r_{k+1}(T)v\in\operatorname{span}(v, Tv, \ldots, T^{m-1})\subseteq\operatorname{span}(v, Tv, \ldots, T^{n-1}v)$.
 
     Therefore $\operatorname{span}(v, Tv, \ldots, T^{n-1}v)$ is invariant under $T$.
 \end{proof}
