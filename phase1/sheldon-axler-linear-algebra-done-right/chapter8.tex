@@ -1414,4 +1414,801 @@
 
 \section{Consequences of Generalized Eigenspace Decomposition}
 
+% chapter8:sectionC:exercise1
+\begin{exercise}\label{chapter8:sectionC:exercise1}
+    Suppose $T\in\lmap{\mathbb{C}^{3}}$ is the operator defined by $T(z_{1}, z_{2}, z_{3}) = (z_{2}, z_{3}, 0)$. Prove that $T$ does not have a square root.
+\end{exercise}
+
+\begin{proof}
+    \begin{align*}
+        T^{3}(z_{1}, z_{2}, z_{3}) & = T^{2}(z_{2}, z_{3}, 0) \\
+                                   & = T(z_{3}, 0, 0)         \\
+                                   & = (0, 0, 0)
+    \end{align*}
+
+    so $T$ is nilpotent and it has index $3$.
+
+    Assume $T$ has a square root $S$, then $T = S^{2}$. Because $T^{3} = 0$, $S^{6} = 0$, so $S$ is nilpotent, and $S^{3} = 0$. Moreover, $ST = S^{3} = 0, TS = S^{3} = 0$.
+    \begin{align*}
+        \kernel{S} & \supseteq \range{T},  \\
+        \range{S}  & \subseteq \kernel{T}.
+    \end{align*}
+
+    So $\dim\kernel{S} \geq \dim\range{T} = 2$ and $\dim\range{S} \leq \dim\kernel{T} = 1$.
+
+    There are two possible cases.
+    \begin{itemize}
+        \item $\dim\kernel{S} = 3$. Then $S = 0$, which implies $T = 0$, which is a contradiction.
+        \item $\dim\kernel{S} = 2$. Then $\kernel{S} = \range{T}$ and $\range{S} = \kernel{T}$.
+
+              $S(0, 1, 0) = S(0, 0, 1) = (0, 0, 0)$ because $(0, 1, 0), (0, 0, 1)\in \range{T} = \kernel{S}$.
+
+              $S^{2}(1, 0, 0) = T(1, 0, 0) = 0$.
+
+              Hence $S^{2} = 0$, which implies $T = 0$, and this is a contradiction.
+    \end{itemize}
+
+    Hence the assumption is false. Thus $T$ does not have a square root.
+\end{proof}
+\newpage
+
+% chapter8:sectionC:exercise2
+\begin{exercise}\label{chapter8:sectionC:exercise2}
+    Define $T\in\lmap{\mathbb{F}^{5}}$ by $T(x_{1}, x_{2}, x_{3}, x_{4}, x_{5}) = (2x_{2}, 3x_{3}, -x_{4}, 4x_{5}, 0)$.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that $T$ is nilpotent.
+        \item Find a square root of $I + T$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item \begin{align*}
+                  T^{5}(x_{1}, x_{2}, x_{3}, x_{4}, x_{5}) & = T^{4}(2x_{2}, 3x_{3}, -x_{4}, 4x_{5}, 0) \\
+                                                           & = T^{3}(6x_{3}, -3x_{4}, -4x_{5}, 0, 0)    \\
+                                                           & = T^{2}(-6x_{4}, -12x_{5}, 0, 0, 0)        \\
+                                                           & = T(-24x_{5}, 0, 0, 0, 0)                  \\
+                                                           & = (0, 0, 0, 0, 0).
+              \end{align*}
+
+              Hence $T$ is nilpotent.
+        \item The Taylor expansion of $\sqrt{1 + x}$ at $0$ is
+              \[
+                  1 + \frac{1}{2}x + \binom{1/2}{2}x^{2} + \binom{1/2}{3}x^{3} + \cdots.
+              \]
+
+              A square root of $I + T$ is
+              \[
+                  S = 1 + \frac{1}{2}T + \binom{1/2}{2}T^{2} + \binom{1/2}{3}T^{3} + \binom{1/2}{4}T^{4}.
+              \]
+
+              With the help of SymPy, I obtain
+              \begin{multline*}
+                  S(x_{1}, x_{2}, x_{3}, x_{4}, x_{5}) = \\
+                  \left(x_{1}, x_{1} + x_{2}, \frac{-3}{4}x_{1} + \frac{3}{2}x_{2} + x_{3}, \frac{-3}{8}x_{1} + \frac{3}{8}x_{2} + \frac{-1}{2}x_{3} + x_{4}, \frac{15}{16}x_{1} + \frac{-3}{4}x_{2} + \frac{1}{2}x_{3} + 2x_{4} + x_{5}\right).
+              \end{multline*}
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter8:sectionC:exercise3
+\begin{exercise}\label{chapter8:sectionC:exercise3}
+    Suppose $V$ is a complex vector space. Prove that every invertible operator on $V$ has a cube root.
+\end{exercise}
+
+\begin{proof}
+    First, I prove that $I + F$ has a $k$th root if $F$ is nilpotent.
+
+    The Taylor expansion of ${(1 + x)}^{1/k}$ at $x = 0$ is
+    \[
+        \sum^{\infty}_{n=0}\binom{1/k}{n}\frac{d^{n}}{dx^{n}}{(1 + x)}^{1/k}\vert_{x=0}.
+    \]
+
+    Let the index of the nilpotent operator $F$ be $m$, then
+    \[
+        R = I + \frac{1}{k}T + \binom{1/k}{2}T^{2} + \cdots + \binom{1/k}{m-1}T^{m-1}
+    \]
+
+    is a $k$th root of $F$.
+
+    Let $\lambda_{1}, \ldots, \lambda_{n}$ be the distinct eigenvalues of $T$. These eigenvalues are not equal to $0$ because $T$ is invertible.
+    \[
+        T\vert_{G(\lambda_{i}, T)} - \lambda_{i}I
+    \]
+
+    is nilpotent. By the previously proved result,
+    \[
+        I + \frac{1}{\lambda_{i}}(T\vert_{G(\lambda_{i}, T)} - \lambda_{i}I)
+    \]
+
+    has a $k$th root. So $T\vert_{G(\lambda_{i}, T)}$ has a $k$th root $R_{i}$ for every $i\in\{1,\ldots,n\}$. On the other hand,
+    \[
+        V = \bigoplus^{n}_{i=1}G(\lambda_{i}, T).
+    \]
+
+    Let $R\in\lmap{V}$ defined by
+    \[
+        Rv = \sum^{n}_{i=1}R_{i}v_{i}
+    \]
+
+    where $v = \sum^{n}_{i=1}v_{i}$ and $v_{i}\in G(\lambda_{i}, T)$, so $R$ is a $k$th root of $T$. Therefore $T$ has a $k$th root. Thus $T$ has a cube root.
+\end{proof}
+\newpage
+
+% chapter8:sectionC:exercise4
+\begin{exercise}\label{chapter8:sectionC:exercise4}
+    Suppose $V$ is a real vector space. Prove that the operator $-I$ on $V$ has a square root if and only if $\dim V$ is an even number.
+\end{exercise}
+
+\begin{quote}[Additional notes]
+    $\dim V > 0$.
+\end{quote}
+
+\begin{proof}
+    Suppose $-I$ has a square root $R$, then $R^{2} + I = 0$. So $x^{2} + 1$ is the minimal polynomial of $R$, since $V$ is a real vector space (the polynomial $x^{2} + 1$ is irreducible on $\mathbb{R}$). Therefore $R$ has no eigenvalue. If $\dim V$ is an odd number, then $R$ has an eigenvalue, according to Exercise~\ref{chapter8:sectionB:exercise23} (d), which is a contradiction. Hence $\dim V$ is an even number.
+
+    Suppose $\dim V$ is an even number. Let $\dim V = 2n$ and $v_{1}, \ldots, v_{2n}$ be a basis of $V$, let $T\in\lmap{V}$ defined by
+    \[
+        Tv_{k} = \begin{cases}
+            v_{k+1}  & \text{if $k$ is odd}  \\
+            -v_{k-1} & \text{if $k$ is even}
+        \end{cases}
+    \]
+
+    then $\operatorname{span}(v_{1}, v_{2}), \ldots, \operatorname{span}(v_{2n-1}, v_{2n})$ are invariant subspaces under $T$. Moreover,
+    \[
+        V = \operatorname{span}(v_{1}, v_{2})\oplus\cdots\oplus\operatorname{span}(v_{2n-1}, v_{2n})
+    \]
+
+    and
+    \[
+        {(T\vert_{\operatorname{span}(v_{2k-1}, v_{2k})})}^{2} = -I\vert_{\operatorname{span}(v_{2k-1}, v_{2k})}
+    \]
+
+    so $T$ is a square root of $-I$. Thus $-I$ has a square root.
+\end{proof}
+\newpage
+
+% chapter8:sectionC:exercise5
+\begin{exercise}\label{chapter8:sectionC:exercise5}
+    Suppose $T\in\lmap{\mathbb{C}^{2}}$ is the operator defined by $T(w, z) = (-w-z, 9w+5z)$. Find a Jordan basis for $T$.
+\end{exercise}
+
+\begin{proof}
+    The minimal polynomial of $T$ is ${(z - 2)}^{2}$.
+
+    The matrix of $T - 2I$ with respect to the basis $(1, 0), (-3, 9)$ is
+    \[
+        \begin{pmatrix}
+            0 & 1 \\
+            0 & 0
+        \end{pmatrix}
+    \]
+
+    so the matrix of $T$ with respect to the basis $(1, 0), (-3, 9)$ is
+    \[
+        \begin{pmatrix}
+            2 & 1 \\
+            0 & 2
+        \end{pmatrix}.
+    \]
+
+    Thus $(1, 0), (-3, 9)$ is a Jordan basis of $T$.
+\end{proof}
+\newpage
+
+% chapter8:sectionC:exercise6
+\begin{exercise}\label{chapter8:sectionC:exercise6}
+    Find a basis of $\mathscr{P}_{4}(\mathbb{R})$ that is a Jordan basis for the differentiation operator $D$ on $\mathscr{P}_{4}(\mathbb{R})$ defined by $Dp = p'$.
+\end{exercise}
+
+\begin{proof}
+    The matrix of $D$ with respect to the basis $1, x, x^{2}, x^{3}, x^{4}$ is
+    \[
+        \begin{pmatrix}
+            0 & 1 & 0 & 0 & 0 \\
+            0 & 0 & 2 & 0 & 0 \\
+            0 & 0 & 0 & 3 & 0 \\
+            0 & 0 & 0 & 0 & 4 \\
+            0 & 0 & 0 & 0 & 0
+        \end{pmatrix}
+    \]
+
+    so the matrix of $D$ with respect to the basis $1/0{!}, x/1{!}, x^{2}/2{!}, x^{3}/3{!}, x^{4}/4{!}$ is
+    \[
+        \begin{pmatrix}
+            0 & 1 & 0 & 0 & 0 \\
+            0 & 0 & 1 & 0 & 0 \\
+            0 & 0 & 0 & 1 & 0 \\
+            0 & 0 & 0 & 0 & 1 \\
+            0 & 0 & 0 & 0 & 0
+        \end{pmatrix}.
+    \]
+
+    Thus $1/0{!}, x/1{!}, x^{2}/2{!}, x^{3}/3{!}, x^{4}/4{!}$ is a Jordan basis of $D$.
+\end{proof}
+\newpage
+
+% chapter8:sectionC:exercise7
+\begin{exercise}\label{chapter8:sectionC:exercise7}
+    Suppose $T \in \lmap{V}$ is nilpotent and $v_{1}, \ldots, v_{n}$ is a Jordan basis for $T$. Prove that the minimal polynomial of $T$ is $z^{m + 1}$, where $m$ is the length of the longest consecutive string of $1$'s that appears on the line directly above the diagonal in the matrix of $T$ with respect to $v_{1}, \ldots, v_{n}$.
+\end{exercise}
+
+\begin{proof}
+    Let the matrix of $T$ with respect to $v_{1}, \ldots, v_{n}$ be $A$, then $A$ is a block diagonal matrix where all blocks are of the form
+    \[
+        \begin{pmatrix}
+            0      & 1      & \cdots & 0      \\
+            0      & 0      & \cdots & 0      \\
+            \vdots & \vdots &        & \vdots \\
+            0      & 0      & \cdots & 0
+        \end{pmatrix}.
+    \]
+
+    Let the $A_{1}, \ldots, A_{m}$ be the block of $A$, then by Exercise~\ref{chapter8:sectionB:exercise22}
+    \[
+        A^{k} = \begin{pmatrix}
+            {A_{1}}^{k} &        & 0           \\
+                        & \ddots &             \\
+            0           &        & {A_{m}}^{k}
+        \end{pmatrix}.
+    \]
+
+    The index of $A$ is also the largest among the indices of $A_{1}, \ldots, A_{m}$, which is also the length of the longest consecutive string of $1$'s plus $1$.
+\end{proof}
+\newpage
+
+% chapter8:sectionC:exercise8
+\begin{exercise}\label{chapter8:sectionC:exercise8}
+    Suppose $T\in\lmap{V}$ and $v_{1}, \ldots, v_{n}$ is a basis of $V$ that is a Jordan basis for $T$. Describe the matrix of $T^{2}$ with respect to this basis.
+\end{exercise}
+
+\begin{proof}
+    The square of a Jordan block is
+    \[
+        {\begin{pmatrix}
+                    \lambda & 1       & 0       & \cdots & 0       \\
+                    0       & \lambda & 1       & \cdots & 0       \\
+                    0       & 0       & \lambda & \cdots & 0       \\
+                    \vdots  & \vdots  & \vdots  &        & \vdots  \\
+                    0       & 0       & 0       & \cdots & \lambda
+                \end{pmatrix}}^{2}
+        = \begin{pmatrix}
+            \lambda^{2} & 2\lambda    & 1           & \cdots & 0           \\
+            0           & \lambda^{2} & 2\lambda    & \cdots & 0           \\
+            0           & 0           & \lambda^{2} & \cdots & 0           \\
+            \vdots      & \vdots      & \vdots      &        & \vdots      \\
+            0           & 0           & 0           & \cdots & \lambda^{2}
+        \end{pmatrix}.
+    \]
+
+    So the matrix of $T^{2}$ with respect to $v_{1}, \ldots, v_{n}$ is still a block diagonal matrix like the matrix of $T$ with respect to the same Jordan basis, and each block is of the form
+    \[
+        \begin{pmatrix}
+            \lambda^{2} & 2\lambda    & 1           & \cdots & 0           \\
+            0           & \lambda^{2} & 2\lambda    & \cdots & 0           \\
+            0           & 0           & \lambda^{2} & \cdots & 0           \\
+            \vdots      & \vdots      & \vdots      &        & \vdots      \\
+            0           & 0           & 0           & \cdots & \lambda^{2}
+        \end{pmatrix}.
+    \]
+\end{proof}
+\newpage
+
+% chapter8:sectionC:exercise9
+\begin{exercise}\label{chapter8:sectionC:exercise9}
+    Suppose $T \in \lmap{V}$ is nilpotent. Explain why there exist $v_{1}, \ldots, v_{n} \in V$ and nonnegative integers $m_{1}, \ldots, m_{n}$ such that (a) and (b) below both hold.
+    \begin{enumerate}[label={(\alph*)}]
+        \item $T^{m_{1}}v_{1}, \ldots, Tv_{1}, v_{1}; \ldots; T^{m_{n}}v_{n}, \ldots, Tv_{n}, v_{n}$ is a basis of $V$.
+        \item $T^{m_{1}+1}v_{1} = \cdots = T^{m_{n}+1}v_{n} = 0$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    Because $T$ is nilpotent, there exists a Jordan basis $u_{1}, \ldots, u_{\dim V}$ of $V$ to which $T$ has a block diagonal matrix $A$. Let's the matrices lying along the diagonal of $A$ be $A_{1}, \ldots, A_{n}$.
+
+    Let $c_{0} = 0$ and $c_{1}, \ldots, c_{n}$ be the number of columns of $A_{1}, \ldots, A_{n}$. The labels of the columns of $A_{k}$ are
+    \[
+        c_{0} + c_{1} + \cdots + c_{k-1} + 1, \ldots, c_{0} + c_{1} + \cdots + c_{k-1} + c_{k}.
+    \]
+
+    For each $k\in\{1,\ldots,n\}$, $A_{k}$ is the matrix of the restriction of $T$ to
+    \[
+        \operatorname{span}(u_{c_{0} + \cdots + c_{k-1}+1}, \ldots, u_{c_{0} + c_{1} + \cdots + c_{k}}).
+    \]
+
+    Denote this restriction by $T_{k}$. Because $T$ is nilpotent, then so is $T_{k}$. $A_{k}$ is a Jordan block, so
+    \begin{align*}
+        T(u_{c_{0} + c_{1} + \cdots + c_{k-1}})         & = 0                                       \\
+        T(u_{c_{0} + c_{1} + \cdots + c_{k-1} + 1})     & = u_{c_{0} + c_{1} + \cdots + c_{k-1}}    \\
+                                                        & \cdots                                    \\
+        T(u_{c_{0} + c_{1} + \cdots + c_{k-1} + c_{k}}) & = u_{c_{0} + c_{1} + \cdots + c_{k} - 1}.
+    \end{align*}
+
+    For each $k\in\{1,\ldots,n\}$, let $v_{k} = u_{c_{0} + c_{1} + \cdots + c_{k}}$ and $m_{k} = c_{k} - 1$, then
+    \begin{enumerate}[label={(\alph*)}]
+        \item $T^{m_{1}}v_{1}, \ldots, Tv_{1}, v_{1}; \ldots; T^{m_{n}}v_{n}, \ldots, Tv_{n}, v_{n}$ is a basis of $V$, because it is the same as the basis $u_{1}, \ldots, u_{\dim V}$.
+        \item For every $k\in\{1,\ldots,n\}$, $m_{k}$ is a nonnegative integer, since $c_{k}$ is a positive integer. Moreover
+              \[
+                  T^{m_{k}+1}v_{k} = T^{c_{k}}u_{c_{0} + c_{1} + \cdots + c_{k}} = 0
+              \]
+
+              because the restriction of $T$ to $\operatorname{span}(u_{c_{0} + \cdots + c_{k-1}+1}, \ldots, u_{c_{0} + c_{1} + \cdots + c_{k}})$ is nilpotent and has index $c_{k}$.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter8:sectionC:exercise10
+\begin{exercise}\label{chapter8:sectionC:exercise10}
+    Suppose $T \in \lmap{V}$ and $v_{1}, \ldots, v_{n}$ is a basis of $V$ that is a Jordan basis for $T$. Describe the matrix of $T$ with respect to the basis $v_{n}, \ldots, v_{1}$ obtained by reversing the order of the $v$'s.
+\end{exercise}
+
+\begin{proof}
+    Let $A_{1}, \ldots, A_{m}$ be the Jordan blocks of the matrix of $T$ with respect to the Jordan basis $v_{1}, \ldots, v_{n}$.
+
+    Then the matrix of $T$ with respect to the basis $v_{n}, \ldots, v_{1}$ is also a block diagonal matrix, however the blocks lying along the diagonal are ${A_{m}^{\top}}, \ldots, {A_{1}^{\top}}$ (the transposes of $A_{m}, \ldots, A_{1}$).
+\end{proof}
+\newpage
+
+% chapter8:sectionC:exercise11
+\begin{exercise}\label{chapter8:sectionC:exercise11}
+    Suppose $T \in \lmap{V}$. Explain why every vector in each Jordan basis for $T$ is a generalized eigenvector of $T$.
+\end{exercise}
+
+\begin{proof}
+    Let $A$ be the matrix of $T$ with respect to a Jordan basis $v_{1}, \ldots, v_{\dim V}$ for $T$, then $A$ is a block diagonal matrix where each block along the diagonal are of the form
+    \[
+        \begin{pmatrix}
+            \lambda & 1       & \cdots & 0       \\
+            0       & \lambda & \cdots & 0       \\
+            \vdots  & \vdots  &        & \vdots  \\
+            0       & 0       & \cdots & \lambda
+        \end{pmatrix}
+    \]
+
+    where $\lambda$ is an eigenvalue of $T$. Let the blocks of $A$ be $A_{1}, \ldots, A_{n}$. Let $c_{1}, \ldots, c_{n}$ be the numbers of columns of $A_{1}, \ldots, A_{n}$. For every $k\in\{1,\ldots,n\}$, $A_{j}$ is the matrix of the restriction of $T$ to
+    \[
+        \operatorname{span}(v_{c_{1} + \cdots + c_{k-1}+1}, \ldots, v_{c_{1} + \cdots + c_{k-1} + c_{k}}).
+    \]
+
+    Let $\lambda_{k}$ be the number on the diagonal entries of $A_{k}$, then $\lambda_{k}$ is an eigenvalue of $T$, because $\lambda_{k}$ lies on the diagonal of the upper-triangular matrix $A$.
+
+    Moreover, for every $k\in\{1,\ldots,n\}$, each vector in the list of the following $c_{k}$ vectors
+    \[
+        v_{c_{1} + \cdots + c_{k-1}+1}, \ldots, v_{c_{1} + \cdots + c_{k-1} + c_{k}}
+    \]
+
+    is a generalized eigenvector of $T$ corresponding to $\lambda_{k}$, because
+    \[
+        {(T - \lambda_{k}I)}^{c_{k}}u = 0
+    \]
+
+    for every vector $u$ in the list
+    \[
+        v_{c_{1} + \cdots + c_{k-1}+1}, \ldots, v_{c_{1} + \cdots + c_{k-1} + c_{k}}.
+    \]
+
+    Thus every vector in each Jordan basis for $T$ is a generalized eigenvector of $T$.
+\end{proof}
+\newpage
+
+% chapter8:sectionC:exercise12
+\begin{exercise}\label{chapter8:sectionC:exercise12}
+    Suppose $T \in \lmap{V}$ is diagonalizable. Show that $\mathcal{M}(T)$ is a diagonal matrix with respect to every Jordan basis for $T$.
+\end{exercise}
+
+\begin{proof}
+    Let $v_{1}, \ldots, v_{\dim V}$ be a Jordan basis for $T$ of the vector space $V$. According to Exercise~\ref{chapter8:sectionC:exercise11}, $v_{1}, \ldots, v_{\dim V}$ are generalized eigenvectors of $T$. By Exercise~\ref{chapter8:sectionA:exercise15}, because $T$ is diagonalizable, every generalized eigenvector of $T$ is an eigenvector of $T$. Therefore every vector in the Jordan basis $v_{1}, \ldots, v_{\dim V}$ for $T$ is an eigenvector of $T$. So the matrix of $T$ with respect to this Jordan basis is a diagonal matrix.
+
+    Because the Jordan basis which we are working with is arbitrary, so we conclude that $\mathcal{M}(T)$ is a diagonal matrix with respect to every Jordan basis for $T$.
+\end{proof}
+\newpage
+
+% chapter8:sectionC:exercise13
+\begin{exercise}\label{chapter8:sectionC:exercise13}
+    Suppose $T\in\lmap{V}$ is nilpotent. Prove that if $v_{1}, \ldots, v_{n}$ are vectors in $V$ and $m_{1}, \ldots, m_{n}$ are nonnegative integers such that
+    \[
+        T^{m_{1}}v_{1}, \ldots, Tv_{1}, v_{1}, \ldots, T^{m_{n}}v_{n}, \ldots, Tv_{n}, v_{n} \text{ is a basis of $V$}
+    \]
+
+    and
+    \[
+        T^{m_{1}+1}v_{1} = \cdots = T^{m_{n}+1}v_{n} = 0,
+    \]
+
+    then $T^{m_{1}}v_{1}, \ldots, T^{m_{n}}v_{n}$ is a basis of $\kernel{T}$.
+\end{exercise}
+
+\begin{quote}
+    This exercise shows that $n = \dim \kernel{T}$. Thus the positive integer $n$ that appears above depends only on $T$ and not on the specific Jordan basis chosen for $T$.
+\end{quote}
+
+\begin{proof}
+    Let $v$ be an arbitrary vector in $\kernel{T}$. $v$ is a linear combination of
+    \[
+        T^{m_{1}}v_{1}, \ldots, Tv_{1}, v_{1}, \ldots, T^{m_{n}}v_{n}, \ldots, Tv_{n}, v_{n}.
+    \]
+
+    So there exist scalars
+    \[
+        a_{1,m_{1}}, \ldots, a_{1,1}, a_{1,0}; \ldots; a_{n,m_{n}}, \ldots, a_{n,1}, a_{n,0}
+    \]
+
+    such that
+    \[
+        v = a_{1,m_{1}}T^{m_{1}}v_{1} + \cdots + a_{1,1}Tv_{1} + a_{1,0}v_{1} + \cdots + a_{n,m_{n}}T^{m_{n}}v_{n} + \cdots + a_{n,1}Tv_{n} + a_{n,0}v_{n}.
+    \]
+
+    Apply $T$ to both sides, we obtain
+    \[
+        0 = a_{1,m_{1}-1}T^{m_{1}}v_{1} + \cdots + a_{1,1}T^{2}v_{1} + a_{1,0}Tv_{1} + \cdots + a_{n,m_{n}-1}T^{m_{n}}v_{n} + \cdots + a_{n,1}T^{2}v_{n} + a_{n,0}Tv_{n}.
+    \]
+
+    Because the list $T^{m_{1}}v_{1}, \ldots, Tv_{1}, \ldots, T^{m_{n}}v_{n}, \ldots, Tv_{n}$ is linearly independent, it follows that
+    \[
+        a_{1,m_{1}-1} = \cdots = a_{1,1} = a_{1,0} = \cdots = a_{n,m_{n}-1} = \cdots = a_{n,1} = a_{n,0} = 0.
+    \]
+
+    Hence
+    \[
+        v = a_{1,m_{1}}T^{m_{1}}v_{1} + \cdots + a_{n,m_{n}}T^{m_{n}}v_{n}
+    \]
+
+    which means the list $T^{m_{1}}v_{1}, \ldots, T^{m_{n}}v_{n}$ spans $\kernel{T}$. Moreover, this list is linearly independent, so it is a basis of $\kernel{T}$.
+
+    Thus $T^{m_{1}}v_{1}, \ldots, T^{m_{n}}v_{n}$ is a basis of $\kernel{T}$.
+\end{proof}
+\newpage
+
+% chapter8:sectionC:exercise14
+\begin{exercise}\label{chapter8:sectionC:exercise14}
+    Suppose $\mathbb{F} = \mathbb{C}$ and $T \in \lmap{V}$. Prove that there does not exist a direct sum decomposition of $V$ into two nonzero subspaces invariant under $T$ if and only if the minimal polynomial of $T$ is of the form ${(z - \lambda)}^{\dim V}$ for some $\lambda\in\mathbb{C}$.
+\end{exercise}
+
+\begin{proof}
+    $(\Rightarrow)$ There does not exist a direct sum decomposition of $V$ into two nonzero subspaces invariant under $T$.
+
+    Let $\lambda_{1}, \ldots, \lambda_{m}$ be the distinct eigenvalues of $T$, then $V$ has a generalized eigendecomposition
+    \[
+        V = \bigoplus^{m}_{j=1}G(\lambda_{j}, T)
+    \]
+
+    and every $G(\lambda_{j}, T)$ is invariant under $T$. Therefore $m = 1$, so $V = G(\lambda_{1}, T)$. Let $v_{1}, \ldots, v_{\dim V}$ be Jordan basis for $T$, then the matrix of $T$ with respect to this basis is a block diagonal matrix. Let the blocks be $A_{1}, \ldots, A_{n}$, then each $A_{j}$ is of the form
+    \[
+        \begin{pmatrix}
+            \lambda_{1} & 1           & \cdots & 0           \\
+            0           & \lambda_{1} & \cdots & 0           \\
+            \vdots      & \vdots      &        & \vdots      \\
+            0           & 0           & \cdots & \lambda_{1}
+        \end{pmatrix}.
+    \]
+
+    Let $c_{1}, \ldots, c_{n}$ be the numbers of columns of $A_{1}, \ldots, A_{n}$ and let
+    \[
+        V_{j} = \operatorname{span}(v_{c_{1} + \cdots + c_{j-1}+1}, \ldots, v_{c_{1} + \cdots + c_{j-1} + c_{j}}).
+    \]
+
+    Then $V_{j}$ is invariant under $T$ and the matrix of $T\vert_{V_{j}}$ with respect to
+    \[
+        v_{c_{1} + \cdots + c_{j-1}+1}, \ldots, v_{c_{1} + \cdots + c_{j-1} + c_{j}}
+    \]
+
+    is $A_{j}$. Moreover,
+    \[
+        V = \bigoplus^{n}_{j=1}V_{j}
+    \]
+
+    so $n = 1$. Hence $A$ contains a single Jordan block, which means the minimal polynomial of $T$ is ${(z - \lambda_{1})}^{\dim V}$.
+
+    \bigskip
+    $(\Leftarrow)$ The minimal polynomial of $T$ is of the form ${(z - \lambda)}^{\dim V}$ for some $\lambda\in\mathbb{C}$.
+
+    Assume $V$ admits a direct sum decomposition $V = U\oplus W$ where $U, W$ are nonzero subspaces and are invariant under $T$.
+
+    The minimal polynomials of $T\vert_{U}, T\vert_{W}$ are polynomial divisors of ${(z - \lambda)}^{\dim V}$. Let the minimal polynomials of $T\vert_{U}, T\vert_{W}$ be ${(z - \lambda)}^{m}, {(z - \lambda)}^{n}$, respectively. Because the degree of the minimal polynomial of an operator on a finite-dimensional vector space does not exceed the dimension of the vector space, so $m\leq \dim U < \dim V$ and $n\leq \dim W < \dim V$.
+
+    Let $p = \max\{m, n\}$, then ${(T - \lambda I)}^{p} = 0$, which contradicts ${(z - \lambda)}^{\dim V}$ being the minimal polynomial of $T$ because $p < \dim V$. Hence the assumption is false.
+
+    Thus $V$ cannot be decomposed into a direct sum of two nonzero subspaces invariant under $T$.
+\end{proof}
+\newpage
+
 \section{Trace: A Connection Between Matrices and Operators}
+
+% chapter8:sectionD:exercise1
+\begin{exercise}\label{chapter8:sectionD:exercise1}
+    Suppose $V$ is an inner product space and $v, w\in V$. Define an operator $T\in\lmap{V}$ by $Tu = \innerprod{u, v}w$. Find a formula for $\operatorname{tr}T$.
+\end{exercise}
+
+\begin{proof}
+    Let $e_{1}, \ldots, e_{\dim V}$ be an orthonormal basis of $T$.
+    \begin{align*}
+        \operatorname{tr}T & = \sum^{\dim V}_{j=1}\innerprod{Te_{j}, e_{j}} = \sum^{\dim V}_{j=1}\innerprod{\innerprod{e_{j}, v}w, e_{j}} = \sum^{\dim V}_{j=1}\innerprod{e_{j}, v}\innerprod{w, e_{j}} \\
+                           & = \sum^{\dim V}_{j=1}\innerprod{w, e_{j}}\conj{\innerprod{v, e_{j}}}                                                                                                       \\
+                           & = \innerprod{w, v}.
+    \end{align*}
+
+    Hence $\operatorname{tr}T = \innerprod{w, v}$.
+\end{proof}
+\newpage
+
+% chapter8:sectionD:exercise2
+\begin{exercise}\label{chapter8:sectionD:exercise2}
+    Suppose $P\in\lmap{V}$ satisfies $P^{2} = P$. Prove that
+    \[
+        \operatorname{tr} P = \dim\range{P}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    $P^{2} = P$ so $V = \kernel{P}\oplus \range{P}$, where $\kernel{P} = E(0, P)$ and $\range{P} = E(1, P)$. Hence $P$ is diagonalizable and there exists a basis of $V$ to which the matrix of $P$ is a diagonal matrix. The number of $0$'s on the diagonal is $\dim\kernel{P}$ and the number of $1$'s on the diagonal is $\dim\range{P}$. By the definition of trace of an operator, we conclude $\operatorname{tr}T = \dim\range{T}$.
+\end{proof}
+\newpage
+
+% chapter8:sectionD:exercise3
+\begin{exercise}\label{chapter8:sectionD:exercise3}
+    Suppose $T\in\lmap{V}$ and $T^{5} = T$. Prove that the real and imaginary parts of $\operatorname{tr} T$ are both integers.
+\end{exercise}
+
+\begin{proof}
+    Because $T^{5} = T$, $z^{5} - z$ is a polynomial multiple of the minimal polynomial of $T$.
+    \[
+        z^{5} - z = z(z - 1)(z + 1)(z - \iota)(z + \iota)
+    \]
+
+    so the characteristic polynomial of $T$ is
+    \[
+        z^{s_{1}}{(z - 1)}^{s_{2}}{(z + 1)}^{s_{3}}{(z - \iota)}^{s_{4}}{(z + \iota)}^{s_{5}}
+    \]
+
+    where $s_{1}, s_{2}, s_{3}, s_{4}, s_{5}$ are \textbf{nonnegative} integers (these are assumed to be negative since we don't know the minimal polynomial of $T$).
+
+    $\operatorname{tr}T$ is the negative of the coefficient of $z^{s_{1} + s_{2} + s_{3} + s_{4} + s_{5} - 1}$ in the characteristic polynomial of $T$, so the real and imaginary parts of it are integers.
+\end{proof}
+\newpage
+
+% chapter8:sectionD:exercise4
+\begin{exercise}\label{chapter8:sectionD:exercise4}
+    Suppose $V$ is an inner product space and $T\in\lmap{V}$. Prove that
+    \[
+        \operatorname{tr}T^{*} = \conj{\operatorname{tr} T}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    Let $e_{1}, \ldots, e_{\dim V}$ be an orthonormal basis of $V$, then
+    \[
+        \operatorname{tr}T^{*} = \sum^{\dim V}_{j=1}\innerprod{T^{*}e_{j},e_{j}} = \sum^{\dim V}_{j=1}\conj{\innerprod{Te_{j}, e_{j}}} = \conj{\left(\sum^{\dim V}_{j=1}\innerprod{Te_{j}, e_{j}}\right)} = \conj{\operatorname{tr}T}.\qedhere
+    \]
+\end{proof}
+\newpage
+
+% chapter8:sectionD:exercise5
+\begin{exercise}\label{chapter8:sectionD:exercise5}
+    Suppose $V$ is an inner product space. Suppose $T\in\lmap{V}$ is a positive operator and $\operatorname{tr} T = 0$. Prove that $T = 0$.
+\end{exercise}
+
+\begin{proof}
+    $T$ is a positive operator so $T$ is self-adjoint. By the real and complex spectral theorems, there exists an orthonormal basis $e_{1}, \ldots, e_{\dim V}$ to which the matrix of $T$ is a diagonal matrix $A$. The trace of $T$ is the trace of $A$, which is equal to the sum of the eigenvalues of $T$ (each is included as many as its multiplicity). However, $T$ is a positive operator so all of its eigenvalues are nonnegative. Together with $\operatorname{tr}T = 0$, we conclude that $T = 0$.
+\end{proof}
+\newpage
+
+% chapter8:sectionD:exercise6
+\begin{exercise}\label{chapter8:sectionD:exercise6}
+    Suppose $V$ is an inner product space and $P, Q\in\lmap{V}$ are orthogonal projections. Prove that $\operatorname{tr}(PQ) \geq 0$.
+\end{exercise}
+
+\begin{proof}
+    Because $P, Q$ are orthogonal projections, then there exist subspaces $U, W$ of $V$ such that $P = P_{U}$ and $Q = P_{W}$. For every $v\in V$, $P_{U}P_{W}v\in U\cap W$, so ${(P_{U}P_{W})}^{2}v = P_{U}P_{W}v$. Hence ${(P_{U}P_{W})}^{2} = P_{U}P_{W}$, which means ${(PQ)}^{2} = PQ$. By Exercise~\ref{chapter8:sectionD:exercise2}, $\operatorname{tr}(PQ) = \dim\range{PQ}\geq 0$.
+\end{proof}
+\newpage
+
+% chapter8:sectionD:exercise7
+\begin{exercise}\label{chapter8:sectionD:exercise7}
+    Suppose $T\in\lmap{\mathbb{C}^{3}}$ is the operator whose matrix is
+    \[
+        \begin{pmatrix}
+            51 & -12 & -21 \\
+            60 & -40 & -28 \\
+            57 & -68 & 1
+        \end{pmatrix}.
+    \]
+
+    Someone tells you (accurately) that $-48$ and $24$ are eigenvalues of $T$. Without using a computer or writing anything down, find the third eigenvalue of $T$.
+\end{exercise}
+
+\begin{proof}
+    The third eigenvalue of $T$ is $51 - 40 + 1 - ((-48) + 24) = 36$.
+\end{proof}
+\newpage
+
+% chapter8:sectionD:exercise8
+\begin{exercise}\label{chapter8:sectionD:exercise8}
+    Prove or give a counterexample: If $S, T \in \lmap{V}$, then $\operatorname{tr}(ST) = (\operatorname{tr} S)(\operatorname{tr} T)$.
+\end{exercise}
+
+\begin{proof}
+    Here is a counterexample.
+
+    $V = \mathbb{C}^{2}$, $S, T\in\lmap{V}$ and $S(w, z) = T(w, z) = (z, w)$. The matrix of $S, T$ with respect to the standard basis of $\mathbb{C}^{2}$ is $\begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}$. Therefore
+    \[
+        \operatorname{tr}(ST) = \operatorname{tr}(I) = 2 \ne 0 = 0\cdot 0 = (\operatorname{tr} S)(\operatorname{tr} T).
+    \]
+\end{proof}
+\newpage
+
+% chapter8:sectionD:exercise9
+\begin{exercise}\label{chapter8:sectionD:exercise9}
+    Suppose $T\in\lmap{V}$ is such that $\operatorname{tr}(ST) = 0$ for all $S\in\lmap{V}$. Prove that $T = 0$.
+\end{exercise}
+
+\begin{proof}
+    Choose $S = T^{*}$, then $\operatorname{tr}(T^{*}T) = 0$. On the other hand, $T^{*}T$ is a positive operator, so according to Exercise~\ref{chapter8:sectionD:exercise5}, $T^{*}T = 0$. Thus $T = 0$.
+\end{proof}
+\newpage
+
+% chapter8:sectionD:exercise10
+\begin{exercise}\label{chapter8:sectionD:exercise10}
+    Prove that the trace is the only linear functional $\tau: \lmap{V}\to\mathbb{F}$ such that
+    \[
+        \tau(ST) = \tau(TS)
+    \]
+
+    for all $S, T\in\lmap{V}$ and $\tau(I) = \dim V$.
+\end{exercise}
+
+\begin{proof}
+    Let $v_{1}, \ldots, v_{n}$ be a basis of $V$. For each pair of $j,k\in\{1,\ldots,n\}$, define $P_{j,k}\in\lmap{V}$ by
+    \[
+        P_{j,k}(a_{1}v_{1} + \cdots + a_{n}v_{n}) = a_{k}v_{j}.
+    \]
+
+    Suppose $j\ne k$.
+    \begin{align*}
+        P_{j,j}P_{j,k}(a_{1}v_{1} + \cdots + a_{n}v_{n}) & = P_{j,j}(a_{k}v_{j}) = a_{k}v_{j} = P_{j,k}(a_{1}v_{1} + \cdots + a_{n}v_{n})  \\
+        P_{j,k}P_{j,j}(a_{1}v_{1} + \cdots + a_{n}v_{n}) & = P_{j,k}(a_{j}v_{j}) = 0                                                       \\
+        P_{k,k}P_{j,k}(a_{1}v_{1} + \cdots + a_{n}v_{n}) & = P_{k,k}(a_{k}v_{j}) = 0                                                       \\
+        P_{j,k}P_{k,k}(a_{1}v_{1} + \cdots + a_{n}v_{n}) & = P_{j,k}(a_{k}v_{k}) = a_{k}v_{j} = P_{j,k}(a_{1}v_{1} + \cdots + a_{n}v_{n}).
+    \end{align*}
+
+    Therefore $P_{j,j}P_{j,k} = P_{j,k}P_{k,k} = P_{j,k}$ and $P_{j,k}P_{j,j} = P_{k,k}P_{j,k} = 0$, so
+    \begin{align*}
+        \tau(P_{j,k}) = \tau(P_{j,j}P_{j,k}) = \tau(P_{j,k}P_{j,j}) = 0.
+    \end{align*}
+
+    Let $C_{j,k} = C_{k,j}\in\lmap{V}$ defined by
+    \[
+        C_{j,k}v_{i} = \begin{cases}
+            v_{k} & i = j            \\
+            v_{j} & i = k            \\
+            v_{i} & \text{otherwise}
+        \end{cases}
+    \]
+
+    then $C_{j,k}^{2} = I$, which means $C_{j,k}^{-1} = C_{j,k}$.
+    \begin{align*}
+        (C_{j,k}^{-1}P_{j,j}C_{j,k})(a_{1}v_{1} + \cdots + a_{n}v_{n}) & = (C_{j,k}^{-1}P_{j,j})(\cdots + a_{k}v_{j} + \cdots + a_{j}v_{k} + \cdots) \\
+                                                                       & = C_{j,k}^{-1}(a_{k}v_{j})                                                  \\
+                                                                       & = a_{k}v_{k}                                                                \\
+                                                                       & = P_{k,k}(a_{1}v_{1} + \cdots + a_{n}v_{n}).
+    \end{align*}
+
+    Hence
+    \begin{align*}
+        \tau(P_{k,k}) & = \tau(C_{j,k}^{-1}(P_{j,j}C_{j,k}))                                          \\
+                      & = \tau(P_{j,j}C_{j,k}C_{j,k}^{-1})   & \text{(because $\tau(ST) = \tau(TS)$)} \\
+                      & = \tau(P_{j,j})
+    \end{align*}
+
+    which means $\tau(P_{1,1}) = \cdots = \tau(P_{n,n})$. On the other hand,
+    \[
+        \tau(P_{1,1}) + \cdots + \tau(P_{n,n}) = \tau(I) = \dim V = n
+    \]
+
+    so $\tau(P_{1,1}) = \cdots = \tau(P_{n,n}) = 1$. Therefore
+    \[
+        \tau(P_{j,k}) = \begin{cases}
+            1 & \text{if $j = k$}  \\
+            0 & \text{if $j\ne k$}
+        \end{cases}.
+    \]
+
+    Finally, for every $T\in\lmap{V}$
+    \begin{align*}
+        \tau(T) & = \tau\left(\sum^{n}_{k=1}\sum^{n}_{j=1}{(\mathcal{M}(T))}_{j,k}P_{j,k} \right) \\
+                & = \sum^{n}_{k=1}\sum^{n}_{j=1}{(\mathcal{M}(T))}_{j,k}\tau(P_{j,k})             \\
+                & = \sum^{n}_{k=1}{(\mathcal{M}(T))}_{k,k}                                        \\
+                & = \operatorname{tr}(T).
+    \end{align*}
+
+    Hence $\tau = \operatorname{tr}$. Thus $\operatorname{tr}$ is the only linear functional on $V$ such that $\tau(ST) = \tau(TS)$ for all $S, T\in\lmap{V}$ and $\tau(I) = \dim V$.
+\end{proof}
+\newpage
+
+% chapter8:sectionD:exercise11
+\begin{exercise}\label{chapter8:sectionD:exercise11}
+    Suppose $V$ and $W$ are inner product spaces and $T\in\lmap{V, W}$. Prove that if $e_{1}, \ldots, e_{n}$ is an orthonormal basis of $V$ and $f_{1}, \ldots, f_{m}$ is an orthonormal basis of $W$, then
+    \[
+        \operatorname{tr}(T^{*}T) = \sum^{n}_{k=1}\sum^{m}_{j=1}\abs{\innerprod{Te_{k}, f_{j}}}^{2}.
+    \]
+\end{exercise}
+
+\begin{quote}
+    The numbers $\innerprod{Te_{k}, f_{j}}$ are the entries of the matrix of $T$ with respect to the orthonormal bases $e_{1}, \ldots, e_{n}$ and $f_{1}, \ldots, f_{m}$. These numbers depend on the bases, but $\operatorname{tr}(T^{*}T)$ does not depend on a choice of bases. Thus this exercise shows that the sum of the squares of the absolute values of the matrix entries does not depend on which orthonormal bases are used.
+\end{quote}
+
+\begin{proof}
+    Let $A$ be the matrix of $T$ with respect to the bases $e_{1}, \ldots, e_{n}$ and $f_{1}, \ldots, f_{m}$, then $A^{*}$ is the matrix of $T^{*}$ with respect to the bases $f_{1}, \ldots, f_{m}$ and $e_{1}, \ldots, e_{n}$.
+    \begin{align*}
+        \operatorname{tr}(T^{*}T) & = \operatorname{tr}(A^{*}A)                                        \\
+                                  & = \sum^{n}_{k=1}{(A^{*}A)}_{k,k}                                   \\
+                                  & = \sum^{n}_{k=1}\sum^{m}_{j=1}{(A^{*})}_{k,j}A_{j,k}               \\
+                                  & = \sum^{n}_{k=1}\sum^{m}_{j=1}\conj{A_{j,k}}A_{j,k}                \\
+                                  & = \sum^{n}_{k=1}\sum^{m}_{j=1}\abs{A_{j,k}}^{2}                    \\
+                                  & = \sum^{n}_{k=1}\sum^{m}_{j=1}\abs{\innerprod{Te_{k}, f_{j}}}^{2}.
+    \end{align*}
+\end{proof}
+\newpage
+
+% chapter8:sectionD:exercise12
+\begin{exercise}\label{chapter8:sectionD:exercise12}
+    Suppose $V$ and $W$ are finite-dimensional inner product spaces.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Prove that $\innerprod{S, T} = \operatorname{tr}(T^{*}S)$ defines an inner product on $\lmap{V, W}$.
+        \item Suppose $e_{1}, \ldots, e_{n}$ is an orthonormal basis of $V$ and $f_{1}, \ldots, f_{m}$ is an orthonormal basis of $W$. Show that the inner product on $\lmap{V, W}$ from (a) is the same as the standard inner product on $\mathbb{F}^{mn}$, where we identify each element of $\lmap{V, W}$ with its matrix (with respect to the bases just mentions) and then with an element of $\mathbb{F}^{mn}$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{quote}
+    Caution: The norm of a linear map $T\in\lmap{V, W}$ as defined by 7.86 is not the same as the norm that comes from the inner product in (a) above. Unless explicitly stated otherwise, always assume that $\norm{T}$ refers to the norm as defined by 7.86. The norm that comes from the inner product in (a) is called the \textbf{Frobenius norm} or the \textbf{Hilbert-Schmidt norm}.
+\end{quote}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item $\innerprod{S_{1} + S_{2}, T} = \operatorname{tr}(T^{*}(S_{1} + S_{2})) = \operatorname{tr}(T^{*}S_{1}) + \operatorname{tr}(T^{*}S_{2}) = \innerprod{S_{1}, T} + \innerprod{S_{2}, T}$. So the first slot is additive.
+
+              $\innerprod{\lambda S, T} = \operatorname{tr}(T^{*}(\lambda S)) = \operatorname{tr}(\lambda T^{*}S) = \lambda\operatorname{tr}(T^{*}S) = \lambda\innerprod{S, T}$. So the first slot is homogeneitive.
+
+              By Exercise~\ref{chapter8:sectionC:exercise11}, $\innerprod{T, T} = \operatorname{tr}(T^{*}T)\geq 0$. So $\innerprod{\cdot,\cdot}$ is positive.
+
+              $T^{*}T$ is a positive operator, so $\operatorname{tr}(T^{*}T) = 0$ implies $T^{*}T = 0$ (according to Exercise~\ref{chapter8:sectionD:exercise5}), and $T^{*}T = 0$ implies $T = 0$. So $\innerprod{\cdot,\cdot}$ is positive definite.
+
+              By Exercise~\ref{chapter8:sectionD:exercise4}
+              \[
+                  \innerprod{S, T} = \operatorname{tr}(T^{*}S) = \conj{\operatorname{tr}(S^{*}T)} = \conj{\innerprod{T, S}}.
+              \]
+
+              So $\innerprod{\cdot,\cdot}$ is conjugate symmetric.
+
+              Hence $\innerprod{\cdot,\cdot}$ is an inner product on $\lmap{V, W}$.
+        \item Let $S, T\in\lmap{V, W}$ and $A, B$ are the matrices of $S, T$ with respect to the orthonormal bases $e_{1}, \ldots, e_{n}$ of $V$ and $f_{1}, \ldots, f_{m}$ of $W$.
+              \begin{align*}
+                  \innerprod{S, T} & = \operatorname{tr}(T^{*}S) = \operatorname{tr}(B^{*}A)          \\
+                                   & = \sum^{n}_{k=1}{(B^{*}A)}_{k,k}                                 \\
+                                   & = \sum^{n}_{k=1}\sum^{m}_{j=1}{(B^{*})}_{k,j}A_{j,k}             \\
+                                   & = \sum^{n}_{k=1}\sum^{m}_{j=1}A_{j,k}\conj{B_{j,k}}              \\
+                                   & = \innerprod{A, B} = \innerprod{\mathcal{M}(S), \mathcal{M}(T)}.
+              \end{align*}
+
+              Hence the inner product on $\lmap{V, W}$ from (a) is the same as the standard inner product on $\mathbb{F}^{mn}$.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter8:sectionD:exercise13
+\begin{exercise}\label{chapter8:sectionD:exercise13}
+    Find $S, T\in\lmap{\mathscr{P}(\mathbb{F})}$ such that $ST - TS = I$.
+\end{exercise}
+
+\begin{proof}
+    Choose $S = D$ (the differentiation operator on $\mathscr{P}(\mathbb{F})$) and $T$ defined by $T(p(x)) = xp(x)$.
+    \begin{align*}
+        (ST - TS)(p(x)) & = D(xp(x)) - xp'(x)      \\
+                        & = p(x) + xp'(x) - xp'(x) \\
+                        & = p(x)                   \\
+                        & = I(p(x)).
+    \end{align*}
+
+    Thus $ST - TS = I$.
+\end{proof}
+\newpage

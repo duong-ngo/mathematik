@@ -567,7 +567,7 @@
 \newpage
 
 % chapter7:sectionA:exercise20
-\begin{exercise}
+\begin{exercise}\label{chapter7:sectionA:execise20}
     Suppose $P\in\lmap{V}$ is such that $P^{2} = P$. Prove that the following are equivalent.
     \begin{enumerate}[label={(\alph*)}]
         \item $P$ is self-adjoint.
@@ -595,10 +595,10 @@
 
     Suppose (c) is true. $V = U\oplus U^{\bot}$.
 
-    Let $v\in V$ and $u\in U$, then $v - u\in U^{\bot}$. For every $w\in V$
+    Let $v\in V$ and $u\in U$ such that $v - u\in U^{\bot}$. For every $w\in V$
     \begin{align*}
         \innerprod{Pv, w}     & = \innerprod{u, w} = \innerprod{u, P_{U}w} = \innerprod{P_{U}v, P_{U}w},  \\
-        \innerprod{P^{*}v, w} & = \innerprod{v, Pw} = \innerprod{v, P_{U}w} = \innerprod{P_{U}v, P_{U}w}.
+        \innerprod{P^{*}v, w} & = \innerprod{v, Pw} = \innerprod{v, P_{U}w} = \innerprod{v - (v - u), P_{U}w} = \innerprod{P_{U}v, P_{U}w}.
     \end{align*}
 
     Hence $\innerprod{Pv - P^{*}v, w} = 0$ for every $v, w\in V$. So $Pv = P^{*}v$ for every $v\in V$. Thus $P = P^{*}$, which means (a) is true.
@@ -1129,12 +1129,12 @@
 
     Hence $(\lambda - \lambda_{i})a_{i} = 0$ for every $i\in\{1,\ldots, n\}$. On the other hand, $a_{1}, \ldots, a_{n}$ are not all zero, so there exists $i\in \{1,\ldots, n\}$ such that $\lambda = \lambda_{i}$, so
     \[
-        v = \sum_{i \text{ such that } \lambda_{i} = \lambda}a_{i}e_{i}.
+        v = \sum_{i:\,\lambda_{i} = \lambda}a_{i}e_{i}.
     \]
 
     Due to the matrices of $T^{*}$ and $T$ with respect to $e_{1}, \ldots, e_{n}$, we conclude that
     \[
-        T^{*}v = \sum_{i \text{ such that } \lambda_{i} = \lambda}a_{i}\conj{\lambda}e_{i} = \conj{\lambda}v.
+        T^{*}v = \sum_{i:\,\lambda_{i} = \lambda}a_{i}\conj{\lambda}e_{i} = \conj{\lambda}v.
     \]
 
     Hence $v$ is also an eigenvector of $T^{*}$. Thus every eigenvector of $T$ is also an eigenvector of $T^{*}$.
@@ -3979,8 +3979,8 @@
 
 \begin{proof}
     \begin{align*}
-        \norm{\varphi_{u}} & = \max\left\{ \norm{\varphi_{u}(v)} : v\in V\text{ and }\norm{v} = 1 \right\}   \\
-                           & = \max\left\{ \norm{\innerprod{v, u}} : v\in V\text{ and }\norm{v} = 1 \right\} \\
+        \norm{\varphi_{u}} & = \max\left\{ \norm{\varphi_{u}(v)} : v\in V\quad\text{and}\quad\norm{v} = 1 \right\}   \\
+                           & = \max\left\{ \norm{\innerprod{v, u}} : v\in V\quad\text{and}\quad\norm{v} = 1 \right\} \\
                            & \leq \norm{u}.
     \end{align*}
 
