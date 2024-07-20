@@ -2,6 +2,353 @@
 
 \section{Bilinear Forms and Quadratic Forms}
 
+% chapter9:sectionA:exercise1
+\begin{exercise}\label{chapter9:sectionA:exercise1}
+    Prove that if $\beta$ is a bilinear form on $\mathbb{F}$, then there exists $c\in\mathbb{F}$ such that
+    \[
+        \beta(x, y) = cxy
+    \]
+
+    for all $x, y\in\mathbb{F}$.
+\end{exercise}
+
+\begin{proof}
+    For all $x, y\in\mathbb{F}$
+    \[
+        \beta(x, y) = \beta(x\cdot 1, y\cdot 1) = x\beta(1, y\cdot 1) = xy\beta(1,1).
+    \]
+
+    Let $c = \beta(1, 1)$, then $\beta(x, y) = cxy$ for every $x, y\in\mathbb{F}$.
+\end{proof}
+\newpage
+
+% chapter9:sectionA:exercise2
+\begin{exercise}\label{chapter9:sectionA:exercise2}
+    Let $n = \dim V$. Suppose $\beta$ is a bilinear form on $V$. Prove that there exist $\varphi_{1}, \ldots, \varphi_{n}, \tau_{1}, \ldots, \tau_{n}\in V'$ such that
+    \[
+        \beta(u, v) = \varphi_{1}(u)\cdot\tau_{1}(v) + \cdots + \varphi_{n}(u)\cdot\tau_{n}(v)
+    \]
+
+    for all $u, v\in V$.
+\end{exercise}
+
+\begin{quote}
+    This exercise shows that if $n = \dim V$, then every bilinear form on V is of
+    the form given by the last bullet point of Example 9.2.
+\end{quote}
+
+\begin{proof}
+    Let $e_{1}, \ldots, e_{n}$ be a basis of $V$. For every vector $v$ in $V$, there exist unique scalars $a_{1}, \ldots, a_{n}$ such that
+    \[
+        v = a_{1}e_{1} + \cdots + a_{n}e_{n}.
+    \]
+
+    For every $k\in\{1,\ldots,n\}$, the mappings
+    \begin{align*}
+        \tau_{k}    & : v \mapsto a_{k}           \\
+        \varphi_{k} & : v \mapsto \beta(v, e_{k})
+    \end{align*}
+
+    are linear functionals on $V$. From these, we have
+    \begin{align*}
+        \beta(u, v) & = \beta(u, \tau_{1}(v)e_{1} + \cdots + \tau_{n}(v)e_{n})                     \\
+                    & = \beta(u, e_{1})\cdot\tau_{1}(v) + \cdots + \beta(u, e_{n})\cdot\tau_{n}(v) \\
+                    & = \varphi_{1}(u)\cdot\tau_{1}(v) + \cdots + \varphi_{n}(u)\cdot\tau_{n}(v)
+    \end{align*}
+
+    for all $u, v\in V$.
+\end{proof}
+\newpage
+
+% chapter9:sectionA:exercise3
+\begin{exercise}\label{chapter9:sectionA:exercise3}
+    Suppose $\beta: V\times V\to\mathbb{F}$ is a bilinear form on $V$ and also is a linear functional on $V\times V$. Prove that $\beta = 0$.
+\end{exercise}
+
+\begin{proof}
+    For every $u, v\in V$
+    \begin{align*}
+        \beta(u, v) & = \beta(u + 0, v)                                                                   \\
+                    & = \beta(u, v) + \beta(0, v)               & \text{($\beta$ is a bilinear form)}     \\
+                    & = \beta(u, v + 0) + \beta(0, v)                                                     \\
+                    & = \beta(u, v) + \beta(u, 0) + \beta(0, v) & \text{($\beta$ is a bilinear form)}     \\
+                    & = \beta(u, v) + \beta(u, v)               & \text{($\beta$ is a linear functional)}
+    \end{align*}
+
+    so $\beta(u, v) = \beta(u, v) + (-\beta(u, v)) = 0$. Hence $\beta = 0$.
+\end{proof}
+\newpage
+
+% chapter9:sectionA:exercise4
+\begin{exercise}\label{chapter9:sectionA:exercise4}
+    Suppose $V$ is a real inner product space and $\beta$ is a bilinear form on $V$. Show that there exists a unique operator $T\in\lmap{V}$ such that
+    \[
+        \beta(u, v) = \innerprod{u, Tv}
+    \]
+
+    for all $u, v\in V$.
+\end{exercise}
+
+\begin{quote}
+    This exercise states that if $V$ is a real inner product space, then every bilinear form on $V$ is of the form given by the third bullet point in 9.2.
+\end{quote}
+
+\begin{proof}
+    $n = \dim V$. Let $e_{1}, \ldots, e_{n}$ be an orthonormal basis of $V$. For every $u, v\in V$
+    \begin{align*}
+        \beta(u, v) & = \beta(\innerprod{u,e_{1}}e_{1} + \cdots + \innerprod{u,e_{n}}e_{n}, v)            \\
+                    & = \innerprod{u,e_{1}}\beta(e_{1}, v) + \cdots + \innerprod{u,e_{n}}\beta(e_{n}, v).
+    \end{align*}
+
+    Let's define an operator $T$ on $V$ as follows:
+    \[
+        Tv = \beta(e_{1}, v)e_{1} + \cdots + \beta(e_{n}, v)e_{n}.
+    \]
+
+    Hence for every $u, v\in V$, $\beta(u, v) = \innerprod{u, Tv}$.
+
+    Assume operators $S, T\in\lmap{V}$ satisfy $\beta(u, v) = \innerprod{u, Sv} = \innerprod{u, Tv}$ for every $u, v\in V$. It follows that for every $v\in V$, for every $u\in V$, $\innerprod{u, Sv - Tv} = 0$, so $Sv = Tv$ for every $v\in V$. Therefore $S = T$.
+
+    Thus there exists a unique operator $T$ on $V$ such that $\beta(u, v) = \innerprod{u, Tv}$ for all $u, v\in V$.
+\end{proof}
+\newpage
+
+% chapter9:sectionA:exercise5
+\begin{exercise}\label{chapter9:sectionA:exercise5}
+    Suppose $\beta$ is a bilinear form on a real inner product space $V$ and $T$ is the unique operator on $V$ such that $\beta(u, v) = \innerprod{u, Tv}$ for all $u, v \in V$ (see Exercise~\ref{chapter9:sectionA:exercise4}). Show that $\beta$ is an inner product on $V$ if and only if $T$ is an invertible positive operator on $V$.
+\end{exercise}
+
+\begin{proof}
+    $\beta$ is a bilinear form on a real inner product space $V$. Therefore $\beta$ is also an inner product on $V$ if and only if $\beta$ is conjugate symmetric and positive definite.
+
+    $(\Rightarrow)$ $\beta$ is an inner product on $V$.
+
+    $\beta$ is conjugate symmetric, so $\beta$ is symmetric, since $\mathbb{F} = \mathbb{R}$. For every $u, v\in V$
+    \[
+        \innerprod{u, Tv} = \beta(u, v) = \beta(v, u) = \innerprod{v, Tu} = \innerprod{Tu, v} = \innerprod{u, T^{*}v}.
+    \]
+
+    So $Tv = T^{*}v$ for every $v\in V$, which implies $T$ is self-adjoint.
+
+    $\innerprod{Tv, v} = \innerprod{v, Tv} = \beta(v, v) > 0$ for every nonzero $v\in V$, and $\beta(0, 0) = 0$.
+
+    Hence $T$ is an invertible positive operator on $V$.
+
+    \bigskip
+    $(\Leftarrow)$ $T$ is an invertible positive operator on $V$.
+
+    So $T$ is self-adjoint. For every $u, v\in V$
+    \[
+        \beta(v, u) = \innerprod{v, Tu} = \conj{\innerprod{Tu, v}} = \conj{\innerprod{u, T^{*}v}} = \conj{\innerprod{u, Tv}} = \conj{\beta(u, v)}
+    \]
+
+    which means $\beta$ is conjugate symmetric.
+
+    For every $v\in V$
+    \[
+        \beta(v, v) = \innerprod{v, Tv} = \innerprod{Tv, v} \geq 0
+    \]
+
+    because $T$ is positive, so $\beta$ is positive. Moreover, $\beta(v, v) = 0$ if and only if $\innerprod{Tv, v} = 0$. $\innerprod{Tv, v} = 0$ if and only if $v = 0$ because $T$ is an invertible positive operator. Therefore $\beta$ is positive definite.
+
+    Hence $\beta$ is an inner product on $V$.
+
+    \bigskip
+    Thus $\beta$ is an inner product on $V$ if and only if $T$ is an invertible positive operator on $V$.
+\end{proof}
+\newpage
+
+% chapter9:sectionA:exercise6
+\begin{exercise}\label{chapter9:sectionA:exercise6}
+    Prove or give a counterexample: If $\rho$ is a symmetric bilinear form on $V$, then
+    \[
+        \{ v\in V : \rho(v, v) = 0 \}
+    \]
+
+    is a subspace of $V$.
+\end{exercise}
+
+\begin{proof}
+    Here is a counterexample.
+
+    $V = \mathbb{R}^{2}$ and
+    \[
+        \rho((x_{1}, x_{2}), (y_{1}, y_{2})) = x_{1}y_{1} - 2x_{1}y_{2} - 2x_{2}y_{1} + 3x_{2}y_{2}
+    \]
+
+    so $\rho$ is a symmetric bilinear form on $\mathbb{R}^{2}$. $(1, 1)$ and $(1, 3)$ are in $\{ v\in V : \rho(v, v) = 0 \}$.
+    \[
+        \rho((1, 1), (1, 1)) = \rho((3, 1), (3, 1)) = 0.
+    \]
+
+    However,
+    \[
+        \rho((4, 2), (4, 2)) = 4^{2} - 4\cdot 4\cdot 2 + 3\cdot 2^{2} = 3\ne 0
+    \]
+
+    so $(4, 2)$ is not in $\{ v\in V : \rho(v, v) = 0 \}$. So $\{ v\in V : \rho(v, v) = 0 \}$ is not closed under addition, which means it is not a subspace of $\mathbb{R}^{2}$.
+\end{proof}
+\newpage
+
+% chapter9:sectionA:exercise7
+\begin{exercise}\label{chapter9:sectionA:exercise7}
+    Explain why the proof of 9.13 (diagonalization of a symmetric bilinear form by an orthonormal basis on a real inner product space) fails if the hypothesis that $\mathbb{F} = \mathbb{R}$ is dropped.
+\end{exercise}
+
+\begin{proof}
+    I give a counterexample where $\mathbb{F} = \mathbb{C}$.
+
+    Let $\rho$ be a symmetric bilinear form on a complex inner product space $\mathbb{C}^{2}$ whose matrix (with respect to the standard basis of $\mathbb{C}^{2}$) is
+    \[
+        \begin{pmatrix}
+            1     & \iota \\
+            \iota & 0
+        \end{pmatrix}.
+    \]
+
+    Let $T$ be an operator on $\mathbb{C}^{2}$ whose matrix with respect to the standard basis of $\mathbb{C}^{2}$ is $\begin{pmatrix}1 & \iota \\ \iota & 0 \end{pmatrix}$. The matrix of $T^{*}$ with respect to the standard basis of $\mathbb{C}^{2}$ is
+    \[
+        \begin{pmatrix}
+            1      & -\iota \\
+            -\iota & 0
+        \end{pmatrix}.
+    \]
+
+    However, $T$ is not a normal operator, because
+    \[
+        \mathcal{M}(T)\mathcal{M}(T^{*}) =
+        \begin{pmatrix}
+            2 & -\iota \\
+            0 & 1
+        \end{pmatrix} \ne
+        \begin{pmatrix}
+            2 & \iota \\
+            0 & 1
+        \end{pmatrix} = \mathcal{M}(T^{*})\mathcal{M}(T).
+    \]
+
+    By the complex spectral theorem, there exists not exist an orthonormal basis of $\mathbb{C}^{2}$ to which $T$ has a diagonal matrix. Hence $\rho$ is not diagonalizable by an orthonormal basis.
+\end{proof}
+\newpage
+
+% chapter9:sectionA:exercise8
+\begin{exercise}\label{chapter9:sectionA:exercise8}
+    Find formulas for $\dim V_{\text{sym}}^{(2)}$ and $\dim V_{\text{alt}}^{(2)}$ in terms of $\dim V$.
+\end{exercise}
+
+\begin{proof}
+    Let $e_{1}, \ldots, e_{\dim V}$ be a basis of $V$.
+
+    $V^{(2)}$ is isomorphic to $\mathbb{F}^{\dim V,\dim V}$, where each bilinear form on $V$ corresponds to its matrix with respect to $e_{1}, \ldots, e_{\dim V}$.
+
+    A symmetric bilinear form corresponds to a symmetric matrix, and the vector space of symmetric matrices with $\dim V$ columns has dimension $(\dim V)\times(\dim V + 1)/2$. Therefore
+    \[
+        \dim V^{(2)}_{\text{sym}} = \frac{(\dim V) \times (\dim V + 1)}{2}.
+    \]
+
+    Moreover, $\dim V^{(2)} = {(\dim V)}^{2}$ and $V^{(2)} = V^{(2)}_{\text{sym}}\oplus V^{(2)}_{\text{alt}}$ so
+    \[
+        \dim V^{(2)}_{\text{alt}} = {(\dim V)}^{2} - \frac{(\dim V) \times (\dim V + 1)}{2} = \frac{(\dim V)\times (\dim V - 1)}{2}.
+    \]
+
+    Thus $\dim V^{(2)}_{\text{sym}} = (\dim V)\times(\dim V + 1)/2$ and $\dim V^{(2)}_{\text{alt}} = (\dim V)\times(\dim V - 1)/2$.
+\end{proof}
+\newpage
+
+% chapter9:sectionA:exercise9
+\begin{exercise}\label{chapter9:sectionA:exercise9}
+    Suppose that $n$ is a positive integer and $V = \{ p\in\mathscr{P}_{n}(\mathbb{R}): p(0) = p(1) \}$. Define $\alpha: V\times V\to\mathbb{R}$ by
+    \[
+        \alpha(p, q) = \int^{1}_{0}pq'.
+    \]
+
+    Show that $\alpha$ is an alternating bilinear form on $V$.
+\end{exercise}
+
+\begin{proof}
+    For every $p_{1}, p_{2}, q \in V$
+    \[
+        \alpha(p_{1} + p_{2}, q) = \int^{1}_{0}(p_{1} + p_{2})q' = \int^{1}_{0}p_{1}q' + \int^{1}_{0}p_{2}q' = \alpha(p_{1}, q) + \alpha(p_{2}, q).
+    \]
+
+    For every $p, q\in V$ and $\lambda\in\mathbb{R}$
+    \[
+        \alpha(\lambda p, q) = \int^{1}_{0}(\lambda p)q' = \lambda\int^{1}_{0}pq' = \lambda\alpha(p, q).
+    \]
+
+    For every $p, q_{1}, q_{2}\in V$
+    \[
+        \alpha(p, q_{1} + q_{2}) = \int^{1}_{0}p(q_{1} + q_{2})' = \int^{1}_{0}pq_{1}' + \int^{1}_{0}pq_{2}' = \alpha(p, q_{1}) + \alpha(p, q_{2}).
+    \]
+
+    For every $p, q\in V$ and $\lambda\in\mathbb{R}$
+    \[
+        \alpha(p, \lambda q) = \int^{1}_{0}p(\lambda q)' = \lambda\int^{1}_{0}pq' = \lambda\alpha(p, q).
+    \]
+
+    So $\alpha$ is a bilinear form on $V$.
+
+    For every $p\in V$
+    \[
+        \alpha(p, p) = \int^{1}_{0}pp' = \int^{p(1)}_{p(0)}pdp = \frac{{(p(1))}^{2} - {(p(0))}^{2}}{2} = 0.
+    \]
+
+    Hence $\alpha$ is an alternating bilinear form on $V$.
+\end{proof}
+\newpage
+
+% chapter9:sectionA:exercise10
+\begin{exercise}\label{chapter9:sectionA:exercise10}
+    Suppose that $n$ is a positive integer and
+    \[
+        V = \{ p\in\mathscr{P}_{n}(\mathbb{R}): p(0) = p(1) \land p'(0) = p'(1) \}.
+    \]
+
+    Define $\rho: V\times V\to\mathbb{R}$ by
+    \[
+        \rho(p, q) = \int^{1}_{0}pq''.
+    \]
+
+    Show that $\rho$ is a symmetric bilinear form on $V$.
+\end{exercise}
+
+\begin{proof}
+    For every $p_{1}, p_{2}, q \in V$
+    \[
+        \alpha(p_{1} + p_{2}, q) = \int^{1}_{0}(p_{1} + p_{2})q'' = \int^{1}_{0}p_{1}q'' + \int^{1}_{0}p_{2}q'' = \alpha(p_{1}, q) + \alpha(p_{2}, q).
+    \]
+
+    For every $p, q\in V$ and $\lambda\in\mathbb{R}$
+    \[
+        \alpha(\lambda p, q) = \int^{1}_{0}(\lambda p)q'' = \lambda\int^{1}_{0}pq'' = \lambda\alpha(p, q).
+    \]
+
+    For every $p, q_{1}, q_{2}\in V$
+    \[
+        \alpha(p, q_{1} + q_{2}) = \int^{1}_{0}p(q_{1} + q_{2})'' = \int^{1}_{0}pq_{1}'' + \int^{1}_{0}pq_{2}'' = \alpha(p, q_{1}) + \alpha(p, q_{2}).
+    \]
+
+    For every $p, q\in V$ and $\lambda\in\mathbb{R}$
+    \[
+        \alpha(p, \lambda q) = \int^{1}_{0}p(\lambda q)'' = \lambda\int^{1}_{0}pq'' = \lambda\alpha(p, q).
+    \]
+
+    So $\alpha$ is a bilinear form on $V$.
+
+    For every $p, q\in V$
+    \begin{align*}
+        \alpha(p, q) & = \int^{1}_{0}pq'' = \int^{1}_{0}p(x)q''(x)dx         \\
+                     & = \int^{x=1}_{x=0}p(x)dq'(x)                          \\
+                     & = p(x)q'(x)\Big{\vert}^{x=1}_{x=0} - \int^{1}_{0}q'p' \\
+                     & = -\int^{1}_{0}q'p'.
+    \end{align*}
+
+    Therefore $\alpha(q, p) = -\int^{1}_{0}p'q' = -\int^{1}_{0}q'p' = \alpha(p, q)$.
+
+    Hence $\alpha$ is a symmetric bilinear form on $V$.
+\end{proof}
+\newpage
+
 \section{Alternating Multilinear Forms}
 
 \section{Determinants}
