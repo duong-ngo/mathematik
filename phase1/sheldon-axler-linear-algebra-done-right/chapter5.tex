@@ -2752,8 +2752,24 @@ In this exercise, $\mathbb{F}$ must have infinite elements.
     \]
 \end{exercise}
 
+\begin{quote}[Additional notes]
+    It is very tempting to use a common eigenvector $v$ of $S, T$ and let $\alpha$ be the eigenvalue of $S$ corresponding to $S$, $\lambda$ be the eigenvalue of $T$ corresponding to $T$. However, this approach does not seem to work.
+\end{quote}
+
 \begin{proof}
-    Unsolved.
+    $n = \dim V$.
+
+    Because $S, T$ commute and they are operators on a finite-dimensional complex vector space, there exists a basis $v_{1}, \ldots, v_{n}$ of $V$ to which the matrices of $S, T$ are upper triangular.
+
+    Let $A = \mathcal{M}(S, (v_{1}, \ldots, v_{n})), B = \mathcal{M}(T, (v_{1}, \ldots, v_{n}))$ and choose $\alpha = A_{n,n}, \lambda = B_{n,n}$, then the last row of $A - \alpha I$ and that of $B - \lambda I$ contain only $0$'s. So
+    \[
+        \begin{split}
+            \range{(S - \alpha I)}\subseteq \operatorname{span}(v_{1}, \ldots, v_{n-1}), \\
+            \range{(T - \lambda I)}\subseteq \operatorname{span}(v_{1}, \ldots, v_{n-1}).
+        \end{split}
+    \]
+
+    Therefore $\range{(S - \alpha I)} + \range{(T - \lambda I)} \subseteq \operatorname{span}(v_{1}, \ldots, v_{n-1}) \subsetneq V$.
 \end{proof}
 \newpage
 
