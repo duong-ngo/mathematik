@@ -351,6 +351,209 @@
 
 \section{Alternating Multilinear Forms}
 
+% chapter9:sectionB:exercise1
+\begin{exercise}\label{chapter9:sectionB:exercise1}
+    Suppose $m$ is a positive integer. Show that $\dim V^{(m)} = {(\dim V)}^{m}$.
+\end{exercise}
+
+\begin{proof}
+    Let $e_{1}, \ldots, e_{\dim V}$ be a basis of $V$ and $\varphi_{1}, \ldots, \varphi_{\dim V}$ be its dual basis.
+
+    For each \textit{choices (duplication is allowed)}  of $m$ linear functionals from $\varphi_{1}, \ldots, \varphi_{\dim V}$, we define an $m$-linear form as follows, where $\varphi_{j_{1}}, \ldots, \varphi_{j_{m}}$ is the selected listed, $j_{1}, \ldots, j_{m}$ are from $1, \ldots, \dim V$
+    \[
+        \alpha_{j_{1},\ldots,j_{m}}: (v_{1}, \ldots, v_{m})\mapsto \varphi_{j_{1}}(v_{1})\cdots \varphi_{j_{m}}(v_{m})
+    \]
+
+    Assume that
+    \[
+        \sum x_{j_{1},\ldots,j_{m}}\alpha_{j_{1},\ldots,j_{m}} = 0
+    \]
+
+    for all $v_{1}, \ldots, v_{m}\in V$ and we use all previously defined $m$-linear forms $\alpha_{j_{1},\ldots,j_{m}}$. Plug $(v_{j_{1}}, \ldots, v_{j_{m}})\in \underbrace{V\times\cdots\times V}_{m}$ in, we obtain
+    \[
+        x_{j_{1},\ldots, j_{m}} = 0.
+    \]
+
+    Hence all $m$-linear forms $\alpha_{j_{1},\ldots,j_{m}}$ are linearly independent. Moreover, for every $m$-linear form $\alpha$ on $V$,
+    \begin{align*}
+        \alpha(v_{1}, \ldots, v_{m}) & = \alpha\left(\sum^{\dim V}_{j=1}\varphi_{j}(v_{1})e_{j}, \ldots, \sum^{\dim V}_{j=1}\varphi_{j}(v_{m})e_{j}\right)                                                     \\
+                                     & = \sum^{\dim V}_{j_{m}=1}\left(\cdots\left(\sum^{\dim V}_{j_{1}=1}\alpha(e_{j_{1}}, \ldots, e_{j_{m}})\varphi_{j_{1}}(v_{1})\cdots\varphi_{j_{m}}(v_{m})\right)\right)  \\
+                                     & = \sum^{\dim V}_{j_{m}=1}\left(\cdots\left(\sum^{\dim V}_{j_{1}=1}\alpha(e_{j_{1}}, \ldots, e_{j_{m}})\varphi_{j_{1},\ldots,j_{m}}(v_{1}, \ldots, v_{m})\right)\right).
+    \end{align*}
+
+    This means all $m$-linear forms $\alpha_{j_{1},\ldots,j_{m}}$ spans $V^{(m)}$. Therefore all $m$-linear forms $\alpha_{j_{1},\ldots,j_{m}}$ constitute a basis of $V^{(m)}$ and $\dim V^{(m)} = {(\dim V)}^{m}$.
+\end{proof}
+\newpage
+
+% chapter9:sectionB:exercise2
+\begin{exercise}\label{chapter9:sectionB:exercise2}
+    Suppose $n\geq 3$ and $\alpha: \mathbb{F}^{n}\times\mathbb{F}^{n}\times\mathbb{F}^{n} \to \mathbb{F}$ is defined by
+    \begin{gather*}
+        \alpha((x_{1}, \ldots, x_{n}), (y_{1}, \ldots, y_{n}), (z_{1}, \ldots, z_{n})) \\
+        = x_{1}y_{2}z_{3} - x_{2}y_{1}z_{3} - x_{3}y_{2}z_{1} - x_{1}y_{3}z_{2} + x_{3}y_{1}z_{2} + x_{2}y_{3}z_{1}.
+    \end{gather*}
+
+    Show that $\alpha$ is an alternating $3$-linear form on $\mathbb{F}^{n}$.
+\end{exercise}
+
+\begin{proof}
+    \begin{align*}
+        \alpha((x_{1}, \ldots, x_{n}), (y_{1}, \ldots, y_{n}), (z_{1}, \ldots, z_{n})) & = x_{1}(y_{2}z_{3} - y_{3}z_{2}) + x_{2}(y_{3}z_{1} - y_{1}z_{3}) + x_{3}(y_{1}z_{2} - y_{2}z_{1}) \\
+        \alpha((x_{1}, \ldots, x_{n}), (y_{1}, \ldots, y_{n}), (z_{1}, \ldots, z_{n})) & = y_{1}(z_{2}x_{3} - z_{3}x_{2}) + y_{2}(z_{3}x_{1} - z_{1}x_{3}) + y_{3}(z_{1}x_{2} - z_{2}x_{1}) \\
+        \alpha((x_{1}, \ldots, x_{n}), (y_{1}, \ldots, y_{n}), (z_{1}, \ldots, z_{n})) & = z_{1}(x_{2}y_{3} - x_{3}y_{2}) + z_{2}(x_{3}y_{1} - x_{1}y_{3}) + z_{3}(x_{1}y_{2} - x_{2}y_{1})
+    \end{align*}
+
+    so $\alpha$ is a $3$-linear form on $\mathbb{F}^{n}$ and $\alpha$ is alternating.
+\end{proof}
+\newpage
+
+% chapter9:sectionB:exercise3
+\begin{exercise}\label{chapter9:sectionB:exercise3}
+    Suppose $m$ is a positive integer and $\alpha$ is an $m$-linear form on $V$ such that $\alpha(v_{1}, \ldots, v_{m}) = 0$ whenever $v_{1}, \ldots, v_{m}$ is a list of vectors in $V$ with $v_{j} = v_{j+1}$ for some $j\in\{1,\ldots,m-1\}$. Prove that $\alpha$ is an alternating $m$-linear form on $V$.
+\end{exercise}
+
+\begin{proof}
+    We will show that for every positive integer $k$ less than $m$, $\alpha(v_{1}, \ldots, v_{m}) = 0$ if $v_{j} = v_{j+k}$ for every $j\in\{1,\ldots,m-k\}$.
+
+    The statement is true for $k = 1$ due to the hypothesis.
+
+    Assume the statement is true for all $k < \ell$ where $j + \ell < m$. Suppose that $v_{j} = v_{j + \ell}$.
+
+    Consider the expression $\alpha(\ldots, v_{j} + v_{j+k}, \ldots, v_{j+k} + v_{j}, \ldots)$ where $v_{j} + v_{j+k}$ is at the $j$th slot, and $v_{j+k} + v_{j}$ is at the ${(j+k)}$th slot, $k < \ell$.
+
+    We prove the anti-symmetric property first. By the induction hypothesis, for every
+    \[
+        (\ldots, w_{j} + w_{j+k}, \ldots, w_{j+k} + w_{j}, \ldots)\in \underbrace{V\times\cdots\times V}_{m}
+    \]
+
+    we have
+    \begin{align*}
+        0 = \alpha(\ldots, w_{j} + w_{j+k}, \ldots, w_{j+k} + w_{j}, \ldots) & = \alpha(\ldots, w_{j}, \ldots, w_{j+k}, \ldots) + \alpha(\ldots, w_{j+k}, \ldots, w_{j}, \ldots).
+    \end{align*}
+
+    So $\alpha(\ldots, w_{j}, \ldots, w_{j+k}, \ldots) = -\alpha(\ldots, w_{j+k}, \ldots, w_{j}, \ldots)$. Apply this result, we obtain that, if $(v_{1}, \ldots, v_{m})\in \underbrace{V\times\cdots\times V}_{m}$ such that $v_{j} = v_{j+\ell}$, then
+    \[
+        \alpha(\ldots, v_{j}, v_{j+1}, \ldots, v_{j+\ell}, \ldots) = -\alpha(\ldots, v_{j+1}, v_{j}, \ldots, v_{j+\ell}, \ldots).
+    \]
+
+    By the induction hypothesis, $\alpha(\ldots, v_{j+1}, v_{j}, \ldots, v_{j+\ell}, \ldots) = 0$ because $v_{j}$ is at the $(j+1)$th slot and $v_{j+\ell}$ is at the $(j+\ell)$th slot. Therefore $\alpha(\ldots, v_{j}, v_{j+1}, \ldots, v_{j+\ell}, \ldots) = 0$.
+
+    Due to the principle of mathematical induction, for every positive integer $k < m$, for every positive integer $j\in\{1,\ldots,m-k\}$, $\alpha(v_{1}, \ldots, v_{m}) = 0$ if $v_{j} = v_{j + k}$.
+
+    Thus $\alpha$ is an alternating $m$-linear form on $V$.
+\end{proof}
+\newpage
+
+% chapter9:sectionB:exercise4
+\begin{exercise}\label{chapter9:sectionB:exercise4}
+    Prove or give a counterexample: If $\alpha\in V^{(4)}_{\text{alt}}$, then
+    \[
+        \{ (v_{1}, v_{2}, v_{3}, v_{4})\in V^{4}: \alpha(v_{1}, v_{2}, v_{3}, v_{4}) = 0 \}
+    \]
+
+    is a subspace of $V^{4}$.
+\end{exercise}
+
+\begin{proof}
+    Here is a counterexample.
+
+    $V$ is a vector space with dimension $4$. Let $e_{1}, e_{2}, e_{3}, e_{4}$ be a basis of $V$, and $\alpha$ a nonzero alternating $4$-linear form on $V$. Because $\alpha$ is alternating,
+    \[
+        \alpha(e_{1}, e_{1}, e_{3}, 0) = \alpha(0, e_{2}, e_{2}, e_{4}) = 0.
+    \]
+
+    However $(e_{1}, e_{1} + e_{2}, e_{2} + e_{3}, e_{4}) = (e_{1}, e_{1}, e_{3}, 0) + (0, e_{2}, e_{2}, e_{4})$ and
+    \[
+        \alpha(e_{1}, e_{1} + e_{2}, e_{2} + e_{3}, e_{4})\ne 0
+    \]
+
+    because $e_{1}, e_{1} + e_{2}, e_{2} + e_{3}, e_{4}$. Therefore the set
+    \[
+        \{ (v_{1}, v_{2}, v_{3}, v_{4})\in V^{4}: \alpha(v_{1}, v_{2}, v_{3}, v_{4}) = 0 \}
+    \]
+
+    is not closed under addition, which implies it is not a subspace of $V^{4}$.
+\end{proof}
+\newpage
+
+% chapter9:sectionB:exercise5
+\begin{exercise}\label{chapter9:sectionB:exercise5}
+    Suppose $m$ is a positive integer and $\beta$ is an $m$-linear form on $V$. Define an $m$-linear form $\alpha$ on $V$ by
+    \[
+        \alpha(v_{1}, \ldots, v_{m}) = \sum_{(j_{1}, \ldots, j_{m})\in\operatorname{perm}m}(\operatorname{sign}(j_{1}, \ldots, j_{m}))\beta(v_{j_{1}}, \ldots, v_{j_{m}})
+    \]
+
+    for $v_{1}, \ldots, v_{m}\in V$. Explain why $\alpha\in V^{(m)}_{\text{alt}}$.
+\end{exercise}
+
+\begin{proof}
+    For each $(j_{1}, \ldots, j_{m})\in \operatorname{perm}m$, the map
+    \[
+        (v_{1}, \ldots, v_{m})\mapsto (\operatorname{sign}(j_{1}, \ldots, j_{m}))\beta(v_{j_{1}}, \ldots, v_{j_{m}})
+    \]
+
+    is an $m$-linear form on $V$. Therefore
+    \[
+        \alpha(v_{1}, \ldots, v_{m}) = \sum_{(j_{1}, \ldots, j_{m})\in\operatorname{perm}m}(\operatorname{sign}(j_{1}, \ldots, j_{m}))\beta(v_{j_{1}}, \ldots, v_{j_{m}})
+    \]
+
+    is an $m$-linear form on $V$.
+
+    If $v_{j} = v_{k}$ for some $j\ne k$ then for each permutation $(x_{1}, \ldots, x_{m})$ in $\operatorname{perm}m$, there exists a unique permutation $(y_{1}, \ldots, y_{m})$ in $\operatorname{perm}m$ where these two differ by a swap $j\leftrightarrow k$, hence one has $+1$ sign and the other has $-1$ sign. Moreover,
+    \[
+        \beta(v_{x_{1}}, \ldots, v_{x_{m}}) = \beta(v_{y_{1}}, \ldots, v_{y_{m}}).
+    \]
+
+    Therefore $\alpha(v_{1}, \ldots, v_{m}) = 0$ if $v_{j} = v_{k}$ for some $j\ne k$. Hence $\alpha$ is alternating.
+
+    Thus $\alpha\in V^{(m)}_{\text{alt}}$.
+\end{proof}
+\newpage
+
+% chapter9:sectionB:exercise6
+\begin{exercise}\label{chapter9:sectionB:exercise6}
+    Suppose $m$ is a positive integer and $\beta$ is an $m$-linear form on $V$. Define an $m$-linear form $\alpha$ on $V$ by
+    \[
+        \alpha(v_{1}, \ldots, v_{m}) = \sum_{(j_{1}, \ldots, j_{m})\in\operatorname{perm}m}\beta(v_{j_{1}}, \ldots, v_{j_{m}})
+    \]
+
+    for $v_{1}, \ldots, v_{m}\in V$. Explain why
+    \[
+        \alpha(v_{k_{1}}, \ldots, v_{k_{m}}) = \alpha(v_{1}, \ldots, v_{m})
+    \]
+
+    for all $v_{1}, \ldots, v_{m}\in V$ and all $(k_{1}, \ldots, k_{m})\in\operatorname{perm}m$.
+\end{exercise}
+
+\begin{proof}
+    For each $(k_{1}, \ldots, k_{m})\in\operatorname{perm}m$, $\alpha(v_{k_{1}}, \ldots, v_{k_{m}})$ is the sum of all $\beta(v_{i_{1}}, \ldots, v_{i_{m}})$ where each $(i_{1}, \ldots, i_{m})$ is a permutation of $(k_{1}, \ldots, k_{m})$. On the other hand, each $(i_{1}, \ldots, i_{m})$ is also a permutation of $(1, \ldots, m)$. Therefore $\alpha(v_{k_{1}}, \ldots, v_{k_{m}}) = \alpha(v_{1}, \ldots, v_{m})$ for all $v_{1}, \ldots, v_{m}\in V$ and all $(k_{1}, \ldots, k_{m})\in\operatorname{perm}m$.
+\end{proof}
+\newpage
+
+% chapter9:sectionB:exercise7
+\begin{exercise}\label{chapter9:sectionB:exercise7}
+    Give an example of a nonzero alternating $2$-linear form $\alpha$ on $\mathbb{R}^{3}$ and a linearly independent list $v_{1}, v_{2}$ in $\mathbb{R}^{3}$ such that $\alpha(v_{1}, v_{2}) = 0$.
+\end{exercise}
+
+\begin{quote}
+    This exercise shows that 9.39 can fail if the hypothesis that $n = \dim V$ is deleted.
+\end{quote}
+
+\begin{proof}
+    Here is an example.
+    \[
+        \alpha((x_{1}, x_{2}, x_{3}), (y_{1}, y_{2}, y_{3})) = x_{1}y_{2} - x_{2}y_{1}
+    \]
+
+    $\alpha\in {(\mathbb{R}^{3})}^{(2)}_{\text{alt}}$. However,
+    \[
+        \alpha((1, 0, 0), (1, 0, 1)) = 0
+    \]
+
+    although $(1, 0, 0), (1, 0, 1)$ is a linearly independent list.
+\end{proof}
+\newpage
+
 \section{Determinants}
 
 \section{Tensor Products}
