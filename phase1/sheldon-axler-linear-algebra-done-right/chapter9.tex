@@ -556,5 +556,729 @@
 
 \section{Determinants}
 
+% chapter9:sectionC:exercise1
+\begin{exercise}\label{chapter9:sectionC:exercise1}
+    Prove or give a counterexample: $S, T\in\lmap{V}\implies \det(S + T) = \det S + \det T$.
+\end{exercise}
+
+\begin{proof}
+    Here is a counterexample.
+
+    Let $V$ be a real finite-dimensional vector space of dimension greater than $1$, then
+    \[
+        \det(I + I) = 2^{\dim V} \ne 1 + 1 = \det I + \det I.
+    \]
+\end{proof}
+\newpage
+
+% chapter9:sectionC:exercise2
+\begin{exercise}\label{chapter9:sectionC:exercise2}
+    Suppose the first column of a square matrix $A$ consists of all zeros except possibly the first entry $A_{1,1}$. Let $B$ be the matrix obtained from $A$ by deleting the first row and the first column of $A$. Show that $\det A = A_{1,1} \det B$.
+\end{exercise}
+
+\begin{proof}
+    Let $n$ be the number of columns of $A$. By the Leibniz's determinant formula
+    \begin{align*}
+        \det A & = \sum_{(j_{1}, \ldots, j_{n})\in\operatorname{perm}n}(\operatorname{sign}(j_{1}, \ldots, j_{n}))A_{j_{1},1}\cdots A_{j_{n},n}
+    \end{align*}
+
+    If $j_{1}\ne 1$, then $A_{j_{1},1}\cdots A_{j_{n},n} = 0$ because $A_{i,1} = 0$ for all $i\ne 1$. Therefore
+    \begin{align*}
+        \det A & = A_{1,1}\sum_{(j_{2}, \ldots, j_{n})\in\operatorname{perm}(2,\ldots,n)}\operatorname{sign}(j_{2}, \ldots, j_{n})A_{j_{2},2}\cdots A_{j_{n},n} \\
+               & = A_{1,1}\sum_{(i_{1},\ldots, i_{n-1})\in\operatorname{perm}(n-1)}B_{i_{1},1}\cdots B_{i_{n-1},n-1}                                            \\
+               & = A_{1,1}\det B
+    \end{align*}
+
+    where $\operatorname{sign}(j_{2}, \ldots, j_{n}) = \operatorname{sign}(1, j_{2}, \ldots, j_{n})$ because $1 < j_{2}, \ldots, j_{n}$.
+
+    Thus $\det A = A_{1,1}\det B$.
+\end{proof}
+\newpage
+
+% chapter9:sectionC:exercise3
+\begin{exercise}\label{chapter9:sectionC:exercise3}
+    Suppose $T\in\lmap{V}$ is nilpotent. Prove that $\det(I + T) = 1$.
+\end{exercise}
+
+\begin{proof}
+    Because $T$ is nilpotent, then there exists a basis $e_{1}, \ldots, e_{\dim V}$ of $V$ to which $T$ has an upper-triangular matrix whose entries on the diagonal are $0$. Therefore the matrix of $I + T$ with respect to the basis $e_{1}, \ldots, e_{\dim V}$ of $V$ is an upper-triangular matrix whose entries on the diagonal are $1$. Thus $\det(I + T) = 1$.
+\end{proof}
+\newpage
+
+% chapter9:sectionC:exercise4
+\begin{exercise}\label{chapter9:sectionC:exercise4}
+    Suppose $S\in\lmap{V}$. Prove that $S$ is unitary if and only if $\abs{\det S} = \norm{S} = 1$.
+\end{exercise}
+
+\begin{proof}
+    Let $s_{1}\geq s_{2}\geq \cdots \geq s_{\dim V}$ be the singular values of $S$, then
+    \[
+        \abs{\det S} = s_{1}\cdots s_{\dim V}
+    \]
+
+    and
+    \[
+        \norm{S} = s_{1}.
+    \]
+
+    Therefore $\abs{\det S} = \norm{S} = 1$ if and only if all singular values of $S$ are equal to $1$. Moreover, all singular values of $S$ are equal to $1$ if and only if $S$ is unitary.
+
+    Thus $S$ is unitary if and only if $\abs{\det S} = \norm{S} = 1$.
+\end{proof}
+\newpage
+
+% chapter9:sectionC:exercise5
+\begin{exercise}\label{chapter9:sectionC:exercise5}
+    Suppose $A$ is a block upper-triangular matrix
+    \[
+        A = \begin{pmatrix}
+            A_{1} &        & *     \\
+                  & \ddots &       \\
+            0     &        & A_{m}
+        \end{pmatrix},
+    \]
+
+    where each $A_{k}$ along the diagonal is a square matrix. Prove that
+    \[
+        \det A = (\det A_{1})\cdots (\det A_{m}).
+    \]
+\end{exercise}
+
+\begin{proof}
+    Firstly, for brevity (I don't want to use lengthy indices), I will prove that if
+    \[
+        C = \begin{pmatrix}
+            A & * \\
+            0 & B
+        \end{pmatrix}
+    \]
+
+    then $\det C = (\det A)(\det B)$.
+
+    Let the numbers of columns of $A, B$ be $m, n$, respectively. Let $T$ be the operator on $V = \mathbb{F}^{m+n}$ whose matrix with respect to the standard basis of $V = \mathbb{F}^{m+n}$ is $C$.
+
+    Let $\alpha$ be a nonzero alternating $(m+n)$-linear form in $V^{(m)}_{\text{alt}}$.
+    \begin{align*}
+        (\det T)\alpha(e_{1}, \ldots, e_{m}, e_{m+1}, \ldots, e_{m+n}) & = \alpha(Te_{1}, \ldots, Te_{m}, Te_{m+1}, \ldots, Te_{m+n})
+    \end{align*}
+
+    Let $U = \operatorname{span}(e_{1}, \ldots, e_{n})$, then $U$ is invariant under $T$. Moreover, the matrix of $T\vert_{U}$ with respect to $e_{1}, \ldots, e_{n}$ is $A$. The following map
+    \[
+        (v_{1}, \ldots, v_{m})\mapsto \alpha(Tv_{1}, \ldots, Tv_{m}, Te_{m+1}, \ldots, Te_{m+n})
+    \]
+
+    is an alternating $m$-linear form on $U$. Therefore
+    \begin{align*}
+        \alpha(Te_{1}, \ldots, Te_{m}, Te_{m+1}, \ldots, Te_{m+n}) & = (\det T\vert_U)\alpha(e_{1}, \ldots, e_{m}, Te_{m+1}, \ldots, Te_{m+n}) \\
+                                                                   & = (\det A)\alpha(e_{1}, \ldots, e_{m}, Te_{m+1}, \ldots, Te_{m+n})
+    \end{align*}
+
+    Moreover, for each $j\in\{1,\ldots,n\}$
+    \begin{align*}
+        Te_{m+j} & = (C_{1,m+j}e_{1} + \cdots + C_{m, m+j}e_{m}) + (C_{m+1,j}e_{m+1} + \cdots + C_{m+n,j}e_{m+n}) \\
+                 & = (C_{1,m+j}e_{1} + \cdots + C_{m, m+j}e_{m}) + (B_{1,j}e_{m+1} + \cdots + B_{n,j}e_{m+n})
+    \end{align*}
+
+    and $\alpha$ is an alternating $(m+n)$-linear form on $V$, so we have
+    \[
+        \alpha(e_{1}, \ldots, e_{m}, Te_{m+1}, \ldots, Te_{m+n}) = \alpha(e_{1}, \ldots, e_{m}, \sum^{n}_{i=1}B_{i,1}e_{m+i}, \ldots, \sum^{n}_{i=1}B_{i,n}e_{m+i})
+    \]
+
+    Let $S$ be the operator on $W = \operatorname{span}(e_{m+1}, \ldots, e_{m+n})$ whose matrix with respect to the basis $e_{m+1}, \ldots, e_{m+n}$ is $B$, then
+    \[
+        \alpha(e_{1}, \ldots, e_{m}, \sum^{n}_{i=1}B_{i,1}e_{m+i}, \ldots, \sum^{n}_{i=1}B_{i,n}e_{m+i}) = \alpha(e_{1}, \ldots, e_{m}, Se_{m+1}, \ldots, Se_{m+n}).
+    \]
+
+    The following map
+    \[
+        (v_{1}, \ldots, v_{n})\mapsto \alpha(e_{1}, \ldots, e_{m}, Sv_{1}, \ldots, Sv_{n})
+    \]
+
+    is an alternating $n$-linear form on $W$, so
+    \begin{align*}
+        \alpha(e_{1}, \ldots, e_{m}, Se_{m+1}, \ldots, Se_{m+n}) & = (\det S)\alpha(e_{1}, \ldots, e_{m}, e_{m+1}, \ldots, e_{m+n})  \\
+                                                                 & = (\det B)\alpha(e_{1}, \ldots, e_{m}, e_{m+1}, \ldots, e_{m+n}).
+    \end{align*}
+
+    Combine every so far together, we obtain
+    \begin{align*}
+        (\det C)\alpha(e_{1}, \ldots, e_{m}, e_{m+1}, \ldots, e_{m+n}) & = \alpha(Te_{1}, \ldots, Te_{m}, Te_{m+1}, \ldots, Te_{m+n})              \\
+                                                                       & = (\det A)(\det B)\alpha(e_{1}, \ldots, e_{m}, e_{m+1}, \ldots, e_{m+n}).
+    \end{align*}
+
+    Hence $\det C = (\det A)(\det B)$.
+
+    \bigskip
+    Back to the original problem. I give a proof using mathematical induction on $m$.
+
+    The statement is true for $m = 1$.
+
+    Assume the statement is true for $m = n - 1$. Now suppose $A$ is a block upper-triangular matrix has $n$ blocks. Let $B$ be the block upper-triangular matrix obtained by removing the rows and columns of $A$ containing entries of $A_{n}$. By the previously proved result,
+    \[
+        \det A = (\det B)(\det A_{n}).
+    \]
+
+    According to the induction hypothesis, $\det B = (\det A_{1})\cdots (\det A_{n-1})$. Therefore $\det A = (\det A_{1})\cdots (\det A_{n})$.
+
+    By the principle of mathematical induction, we conclude that
+    \[
+        \det A = (\det A_{1})\cdots (\det A_{m}).\qedhere
+    \]
+\end{proof}
+\newpage
+
+% chapter9:sectionC:exercise6
+\begin{exercise}\label{chapter9:sectionC:exercise6}
+    Suppose $A = \begin{pmatrix}v_{1} & \cdots & v_{n}\end{pmatrix}$ is an $n$-by-$n$ matrix, with $v_{k}$ denoting $k$th column of $A$. Show that if $(m_{1}, \ldots, m_{n})\in \operatorname{perm}n$, then
+    \[
+        \det\begin{pmatrix}v_{m_{1}} & \cdots & v_{m_{n}}\end{pmatrix} = (\operatorname{sign}(m_{1}, \ldots, m_{n}))\det A.
+    \]
+\end{exercise}
+
+\begin{proof}
+    Because $(u_{1}, \ldots, u_{n})\mapsto \det\begin{pmatrix}u_{1} & \cdots & u_{n}\end{pmatrix}$ is an alternating $n$-linear form on $\mathbb{F}^{n}$, then
+    \begin{align*}
+        \det\begin{pmatrix}v_{m_{1}} & \cdots & v_{m_{n}}\end{pmatrix} & = (\operatorname{sign}(m_{1}, \ldots, m_{n}))\det\begin{pmatrix}v_{1} & \cdots & v_{n}\end{pmatrix} \\
+                                                                                                 & = (\operatorname{sign}(m_{1}, \ldots, m_{n}))\det A.\qedhere
+    \end{align*}
+\end{proof}
+\newpage
+
+% chapter9:sectionC:exercise7
+\begin{exercise}\label{chapter9:sectionC:exercise7}
+    Suppose $T\in\lmap{V}$ is invertible. Let $p$ denote the characteristic polynomial of $T$ and let $q$ denote the characteristic polynomial of $T^{-1}$. Prove that
+    \[
+        q(z) = \frac{1}{p(0)}z^{\dim V}p\left(\frac{1}{z}\right)
+    \]
+
+    for all nonzero $z\in\mathbb{F}$.
+\end{exercise}
+
+\begin{proof}
+    For all nonzero $z\in\mathbb{F}$,
+    \begin{align*}
+        q(z) & = \det(zI - T^{-1})                                                         & \text{(definition of characteristic polynomial)} \\
+             & = \det(T^{-1}zT - T^{-1})                                                                                                      \\
+             & = \det(T^{-1})\det(zT - I)                                                  & (\det(AB) = (\det A)(\det B))                    \\
+             & = \frac{1}{\det T}\det(zT - I)                                              & (1 = (\det T^{-1})(\det T))                      \\
+             & = \frac{1}{\det T}{(-z)}^{\dim V}\det\left(\frac{1}{z}I - T\right)          & (\det\lambda T = \lambda^{\dim V}\det T)         \\
+             & = \frac{{(-1)}^{\dim V}}{\det T}z^{\dim V}\det\left(\frac{1}{z}I - T\right)                                                    \\
+             & = \frac{1}{p(0)}z^{\dim V}p\left(\frac{1}{z}\right).
+    \end{align*}
+\end{proof}
+\newpage
+
+% chapter9:sectionC:exercise8
+\begin{exercise}\label{chapter9:sectionC:exercise8}
+    Suppose $T \in \lmap{V}$ is an operator with no eigenvalues (which implies that $\mathbb{F} = \mathbb{R}$). Prove that $\det T > 0$.
+\end{exercise}
+
+\begin{proof}
+    Let $p$ be the characteristic polynomial of $T$. Because $T$ has no eigenvalue, then $p$ has no root. Therefore $p(x)\ne 0$ for every $x\in\mathbb{R}$.
+
+    Assume there exist $a, b\in\mathbb{R}$ such that $p(a) < 0$ and $p(b) > 0$. Because of the intermediate value theorem and $p$ is continuous on $\mathbb{R}$, there exists $c\in\mathbb{R}$ and $a < c < b$ such that $p(c) = 0$. This is a contradiction because $p$ has no root. Therefore, either $p(x) > 0$ for every $x\in\mathbb{R}$ or $p(x) < 0$ for every $x\in\mathbb{R}$.
+
+    On the other hand $p$ is a monic polynomial with real coefficient, so
+    \[
+        \lim\limits_{x\to+\infty}\frac{p(x)}{x^{\dim V}} = 1
+    \]
+
+    which implies $\lim\limits_{x\to+\infty}p(x) = +\infty$. Hence there exists a real number $x_{0}$ such that $p(x_{0}) > 0$. Since either $p(x) > 0$ for every $x\in\mathbb{R}$ or $p(x) < 0$ for every $x\in\mathbb{R}$, we conclude that $p(x) > 0$ for all $x\in\mathbb{R}$.
+
+    $\dim V$ is an even number, because if $\dim V$ is an odd number, then $p$ has a root. Therefore the constant term of $p$ is ${(-1)}^{\dim V}\det T = \det T$. So $\det T = p(0) > 0$.
+\end{proof}
+\newpage
+
+% chapter9:sectionC:exercise9
+\begin{exercise}\label{chapter9:sectionC:exercise9}
+    Suppose that $V$ is a real vector space of even dimension, $T \in \lmap{V}$, and $\det T < 0$. Prove that $T$ has at least two distinct eigenvalues.
+\end{exercise}
+
+\begin{proof}
+    Let $p$ be the characteristic polynomial of $T$. Because $\dim V$ is an even number, the constant term of $p$ is ${(-1)}^{\dim V} = \det T$.
+
+    We have
+    \[
+        \lim\limits_{x\to{\color{red}{+\infty}}}\frac{p(x)}{x^{\dim V}} = \lim\limits_{x\to{\color{blue}{-\infty}}}\frac{p(x)}{x^{\dim V}} = 1.
+    \]
+
+    So $\lim\limits_{x\to{\color{red}{+\infty}}}p(x) = \lim\limits_{x\to{\color{blue}{-\infty}}}p(x) = +\infty$. Therefore, there are positive number $a$ and negative number $b$ such that $p(a) > 0$ and $p(b) > 0$.
+
+    Since $\det T < 0$ and $\det T = p(0)$, it follows that $p(0) < 0$. By the intermediate value theorem, there is a positive number $c_{1}$ less than $a$ such that $p(c_{1}) = 0$ and there is a negative number $c_{2}$ larger than $b$ such that $p(c_{2}) = 0$. Moreover, $c_{1}$ and $c_{2}$ are distinct and are also eigenvalues of $T$.
+
+    Thus $T$ has at least two distinct eigenvalues.
+\end{proof}
+\newpage
+
+% chapter9:sectionC:exercise10
+\begin{exercise}\label{chapter9:sectionC:exercise10}
+    Suppose $V$ is a real vector space of odd dimension and $T \in \lmap{V}$. Without using the minimal polynomial, prove that $T$ has an eigenvalue.
+\end{exercise}
+
+\begin{quote}
+    This result was previously proved without using determinants or the characteristic polynomial $-$ see 5.34.
+\end{quote}
+
+\begin{proof}
+    $V$ is a real vector space of odd dimension, so the characteristic polynomial of $T$ has real coefficients and odd degree. Therefore the characteristic polynomial of $T$ has a root, which implies $T$ has an eigenvalue.
+\end{proof}
+\newpage
+
+% chapter9:sectionC:exercise11
+\begin{exercise}\label{chapter9:sectionC:exercise11}
+    Prove or give a counterexample: If $\mathbb{F} = \mathbb{R}$, $T\in\lmap{V}$, and $\det T > 0$, then $T$ has a square root.
+\end{exercise}
+
+\begin{quote}
+    If $\mathbb{F} = \mathbb{C}$, $T\in\lmap{V}$, and $\det T\ne 0$, then $T$ has a square root (see 8.41).
+\end{quote}
+
+\begin{proof}
+    Here is a counterexample.
+
+    On $V = \mathbb{R}^{2}$, let $T(x, y) = (-x, x - y)$. The matrix of $T$ with respect to $(1, 0), (0, 1)$ is
+    \[
+        A = \begin{pmatrix}
+            -1 & 1  \\
+            0  & -1
+        \end{pmatrix}.
+    \]
+
+    $\det T = \det A = 1 > 0$. Assume $T$ has a square root $S\in\lmap{\mathbb{R}^{2}}$, let the matrix of $S$ with respect to $(1, 0), (0, 1)$ be $B$. Because $T = S^{2}$, so $B^{2} = A$, and we obtain the following system of equations
+    \[
+        \begin{cases}
+            B_{1,1}^{2} + B_{1,2}B_{2,1} = -1, \\
+            B_{2,2}^{2} + B_{1,2}B_{2,1} = -1, \\
+            B_{1,2}(B_{1,1} + B_{2,2}) = 1,    \\
+            B_{2,1}(B_{1,1} + B_{2,2}) = 0.
+        \end{cases}
+    \]
+
+    From the last two equations, we deduce that $B_{1,1} + B_{2,2}\ne 0$ and $B_{2,1} = 0$. Therefore $-1 = B_{1,1}^{2} + B_{1,2}B_{2,1} = B_{1,1}^{2}$, which is impossible because $B_{1,1}$ is a real number.
+
+    Hence the chosen operator $T$ does not have a square root.
+\end{proof}
+\newpage
+
+% chapter9:sectionC:exercise12
+\begin{exercise}\label{chapter9:sectionC:exercise12}
+    Suppose $S, T\in\lmap{V}$ and $S$ is invertible. Define $p: \mathbb{F}\to\mathbb{F}$ by
+    \[
+        p(z) = \det(zS - T).
+    \]
+
+    Prove that $p$ is a polynomial of degree $\dim V$ and that the coefficient of $z^{\dim V}$ in this polynomial is $\det S$.
+\end{exercise}
+
+\begin{proof}
+    \[
+        p(z) = \det(zS - T) = \det(zIS - TS^{-1}S) = \det(zI - TS^{-1})\det(S)
+    \]
+
+    so the coefficient of $z^{\dim V}$ in this polynomial is $\det S$.
+\end{proof}
+\newpage
+
+% chapter9:sectionC:exercise13
+\begin{exercise}\label{chapter9:sectionC:exercise13}
+    Suppose $\mathbb{F} = \mathbb{C}$, $T\in\lmap{V}$, and $n = \dim V > 2$. Let $\lambda_{1}, \ldots, \lambda_{n}$ denote the eigenvalues of $T$, with each eigenvalue included as many times as its multiplicity.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Find a formula for the coefficient of $z^{n-2}$ in the characteristic polynomial of $T$ in terms of $\lambda_{1}, \ldots, \lambda_{n}$.
+        \item Find a formula for the coefficient of $z$ in the characteristic polynomial of $T$ in terms of $\lambda_{1}, \ldots, \lambda_{n}$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    The characteristic polynomial of $T$ is $(z - \lambda_{1})\cdots (z - \lambda_{n})$.
+
+    \begin{enumerate}[label={(\alph*)}]
+        \item The coefficient of $z^{n-2}$ in the characteristic polynomial of $T$ is
+              \[
+                  \sum_{1\leq i < j\leq n}\lambda_{i}\lambda_{j}.
+              \]
+        \item The coefficient of $z$ in the characteristic polynomial of $T$ is
+              \[
+                  {(-1)}^{n-1}\sum^{n}_{i=1}\left(\prod^{n}_{\stackrel{j=1}{j\ne i}}\lambda_{j}\right).
+              \]
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter9:sectionC:exercise14
+\begin{exercise}\label{chapter9:sectionC:exercise14}
+    Suppose $V$ is an inner product space and $T$ is a positive operator on $V$. Prove that
+    \[
+        \det\sqrt{T} = \sqrt{\det T}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    $T$ is a positive operator so $T$ is self-adjoint and hence normal. By the real and complex spectral theorems, there exists an orthonormal basis $e_{1}, \ldots, e_{\dim V}$ of $V$ which consists of eigenvectors of $T$. Let the eigenvalue of $T$ corresponding to $e_{k}$ be $\lambda_{k}$, for every $k\in\{1,\ldots,\dim V\}$.
+
+    Because $T$ is a positive operator, all eigenvalues of $T$ are nonnegative, and $T$ has a unique positive square root $\sqrt{T}$. Moreover
+    \[
+        \sqrt{T}e_{k} = \sqrt{\lambda_{k}}e_{k}
+    \]
+
+    for every $k\in\{1,\ldots,\dim V\}$. Hence
+    \[
+        \det\sqrt{T} = \sqrt{\lambda_{1}}\cdots\sqrt{\lambda_{\dim V}} = \sqrt{\lambda_{1}\cdots\lambda_{\dim V}} = \sqrt{\det T}.
+    \]
+
+    Thus $\det\sqrt{T} = \sqrt{\det T}$.
+\end{proof}
+\newpage
+
+% chapter9:sectionC:exercise15
+\begin{exercise}\label{chapter9:sectionC:exercise15}
+    Suppose $V$ is an inner product space and $T\in\lmap{V}$. Use the polar decomposition to give a proof that
+    \[
+        \abs{\det T} = \sqrt{\det(T^{*}T)}
+    \]
+
+    that is different from the proof given earlier (see 9.60).
+\end{exercise}
+
+\begin{proof}
+    By the polar decomposition, there exists an unitary operator $S\in\lmap{V}$ such that $T = S\sqrt{T^{*}T}$. Since $\abs{\det S} = 1$, we have
+    \[
+        \abs{\det T} = \abs{\det S\sqrt{T^{*}T}} = \abs{(\det S)(\det\sqrt{T^{*}T})} = \abs{\det S}\abs{\det\sqrt{T^{*}T}} = \abs{\det\sqrt{T^{*}T}}.
+    \]
+
+    $T^{*}T$ is a positive operator on $V$. By Exercise~\ref{chapter9:sectionC:exercise14}, $\det\sqrt{T^{*}T} = \sqrt{\det(T^{*}T)}$, we obtain
+    \[
+        \abs{\det T} = \sqrt{\det(T^{*}T)}.
+    \]
+\end{proof}
+\newpage
+
+% chapter9:sectionC:exercise16
+\begin{exercise}\label{chapter9:sectionC:exercise16}
+    Suppose $T\in\lmap{V}$. Define $g: \mathbb{F}\to\mathbb{F}$ by $g(x) = \det(I + xT)$. Show that $g'(0) = \operatorname{tr}T$.
+\end{exercise}
+
+\begin{quote}
+    Look for a clean solution to this exercise, without using the explicit but complicated formula for the determinant of a matrix.
+\end{quote}
+
+\begin{proof}
+    $g$ is a polynomial function, so $g$ is differentiable.
+
+    Let $n = \dim V$ and $e_{1}, \ldots, e_{n}$ be a basis of $V$. Let $\alpha$ be an alternating multilinear form in $V^{(\dim V)}_{\text{alt}}$ such that $\alpha(e_{1}, \ldots, e_{n}) = 1$.
+    \begin{align*}
+        \det(I + xT) & = (\det(I + xT))\alpha(e_{1}, \ldots, e_{n})                                                                        \\
+                     & = \alpha(e_{1} + xTe_{1}, \ldots, e_{n} + xTe_{n})                                                                  \\
+                     & = \alpha(e_{1}, \ldots, e_{n}) + x\alpha_{1}(e_{1}, \ldots, e_{n}) + \cdots + x^{n}\alpha_{n}(e_{1}, \ldots, e_{n}) \\
+                     & = 1 + x\alpha_{1}(e_{1}, \ldots, e_{n}) + \cdots + x^{n}\alpha_{n}(e_{1}, \ldots, e_{n})
+    \end{align*}
+
+    where $\alpha_{k}(e_{1}, \ldots, e_{n})$ is defined as follows: $\operatorname{comb}(n, k)$ is the set of subsets of $k$ elements from $\{1,\ldots,n\}$
+    \[
+        \alpha_{k}(e_{1}, \ldots, e_{n}) = \sum_{(i_{1}, \ldots, i_{k})\in\operatorname{comb}(n,k)}\alpha(v_{1}, \ldots, v_{n})
+    \]
+
+    where $v_{j} = Te_{j}$ if $j\in\{ i_{1}, \ldots, i_{k} \}$, and otherwise, $v_{j} = e_{j}$.
+
+    Therefore
+    \begin{multline*}
+        \det(I + xT) - 1 \\
+        = x(\alpha(Te_{1}, \ldots, e_{n}) + \cdots + \alpha(e_{1}, \ldots, Te_{n})) + x^{2}\alpha_{2}(e_{1}, \ldots, e_{n}) + \cdots + x^{n}\alpha_{n}(e_{1}, \ldots, e_{n}).
+    \end{multline*}
+
+    Let $A$ be the matrix of $T$ with respect to $e_{1}, \ldots, e_{n}$, then
+    \[
+        Te_{j} = A_{1,j}e_{1} + \cdots + A_{n,j}e_{n}.
+    \]
+
+    Because $\alpha$ is an alternating multilinear form,
+    \begin{align*}
+        \alpha(Te_{1}, \ldots, e_{n}) + \cdots + \alpha(e_{1}, \ldots, Te_{n}) & = \alpha(A_{1,1}e_{1}, \ldots, e_{n}) + \cdots + \alpha(e_{1}, \ldots, A_{n,n}e_{n}) \\
+                                                                               & = (A_{1,1} + \cdots + A_{n,n})\alpha(e_{1}, \ldots, e_{n})                           \\
+                                                                               & = \operatorname{tr}T.
+    \end{align*}
+
+    Therefore
+    \[
+        \frac{\det(I + xT) - 1}{x} = \operatorname{tr}T + x\alpha_{2}(e_{1}, \ldots, e_{n}) + \cdots + x^{n-1}\alpha_{n}(e_{1}, \ldots,e_{n})
+    \]
+
+    so
+    \[
+        \lim\limits_{x\to 0}\frac{\det(I + xT) - 1}{x} = \operatorname{tr}T.
+    \]
+
+    Equivalently, $g'(0) = \operatorname{tr}T$.
+\end{proof}
+\newpage
+
+% chapter9:sectionC:exercise17
+\begin{exercise}\label{chapter9:sectionC:exercise17}
+    Suppose $a, b, c$ are positive numbers. Find the volume of the ellipsoid
+    \[
+        \left\{ (x,y,z)\in\mathbb{R}^{3}: \frac{x^{2}}{a^{2}} + \frac{y^{2}}{b^{2}} + \frac{z^{2}}{c^{2}} < 1 \right\}
+    \]
+
+    by finding a set $\Omega\subseteq\mathbb{R}^{3}$ whose volume you know and an operator $T$ on $\mathbb{R}^{3}$ such that $T(\Omega)$ equals the ellipsoid above.
+\end{exercise}
+
+\begin{proof}
+    Let $T$ be the operator on $\mathbb{R}^{3}$ defined by $T(x, y, z) = \left(\frac{x}{a}, \frac{y}{b}, \frac{z}{c}\right)$.
+
+    \[
+        (x, y, z)\in \left\{ (x,y,z)\in\mathbb{R}^{3}: \frac{x^{2}}{a^{2}} + \frac{y^{2}}{b^{2}} + \frac{z^{2}}{c^{2}} < 1 \right\}
+    \]
+
+    if and only if
+    \[
+        T(x, y, z) = \left(\frac{x}{a}, \frac{y}{b}, \frac{z}{c}\right)\in \Omega = \left\{ (x,y,z)\in\mathbb{R}^{3}: x^{2} + y^{2} + z^{2} < 1 \right\}.
+    \]
+
+    The volume of the ellipsoid (in fact, this is a sphere)
+    \[
+        \Omega = \left\{ (x,y,z)\in\mathbb{R}^{3}: x^{2} + y^{2} + z^{2} < 1 \right\}
+    \]
+
+    is $\frac{4}{3}\pi$. On the other hand
+    \[
+        \abs{T^{-1}(\Omega)} = \abs{\det T^{-1}}\abs{\Omega}
+    \]
+
+    and $\abs{\Omega} = \frac{4}{3}\pi$, $\det T^{-1} = abc$. Thus the volume of the given ellipsoid is $\frac{4}{3}\pi abc$.
+\end{proof}
+\newpage
+
+% chapter9:sectionC:exercise18
+\begin{exercise}\label{chapter9:sectionC:exercise18}
+    Suppose that $A$ is an invertible square matrix. Prove that Hadamard's inequality (9.66) is an equality if and only if each column of $A$ is orthogonal to the other columns.
+\end{exercise}
+
+\begin{proof}
+    I rewrite the proof of the Hadamard's inequality here.
+
+    Let $n$ be the number of columns of $A$. $v_{1}, \ldots, v_{n} \in \mathbb{F}^{n}$ are the columns of $A$.
+
+    If $A$ is not invertible, then $\abs{\det A} = 0 \leq \norm{v_{1}}\cdots \norm{v_{n}}$. Suppose $A$ is invertible. By the QR decomposition, there exists an unitary matrix $Q$ and an upper-triangular matrix $R$ whose entries on the diagonal are positive numbers such that $A = QR$.
+    \begin{align*}
+        \abs{\det A} & = \abs{\det Q}\abs{\det R}             \\
+                     & = \abs{\det R}                         \\
+                     & = \prod^{n}_{k=1}R_{k,k}               \\
+                     & \leq \prod^{n}_{k=1}\norm{R_{\cdot,k}} \\
+                     & = \prod^{n}_{k=1}\norm{QR_{\cdot,k}}   \\
+                     & = \prod^{n}_{k=1}\norm{v_{k}}.
+    \end{align*}
+
+    Assume that $\abs{\det A} = \prod^{n}_{k=1}\norm{v_{k}}$.
+
+    If $A$ is not invertible, then $\det A = 0$ and $\prod^{n}_{k=1}\norm{v_{k}} = 0$. $\prod^{n}_{k=1}\norm{v_{k}} = 0$ if and only if $v_{1} = \cdots = v_{n} = 0$, which implies $A = 0$. Therefore the columns of $A$ are pairwise orthogonal.
+
+    If $A$ is invertible, the proof implies
+    \[
+        \prod^{n}_{k=1}R_{k,k} = \prod^{n}_{k=1}\norm{R_{\cdot,k}}.
+    \]
+
+    This happens if and only if $R$ is a diagonal matrix. Since $R$ is a diagonal matrix, the $k$th column of $A$ is $Q_{\cdot,k}R_{k,k}$. Because the columns of $Q$ are pairwise orthogonal, then $Q_{\cdot,1}R_{1,1}, \ldots, Q_{\cdot,n}R_{n,n}$ are pairwise orthogonal. Thus the columns of $A$ are pairwise orthogonal.
+
+    \bigskip
+    Assume that the columns of $A$ are pairwise orthogonal.
+
+    If $A$ is not invertible, then the columns of $A$ are linearly dependent. Moreover, the columns of $A$ are pairwise orthogonal so there must be at least one column consisting of all $0$ (because otherwise, they are linearly independent). Therefore $\abs{\det A} = 0 = \prod^{n}_{k=1}\norm{v_{k}}$.
+
+    If $A$ is invertible, all columns of $A$ are nonzero vectors of $\mathbb{F}^{n}$, so
+    \[
+        A = \prod^{n}_{k=1}\norm{v_{k}}\begin{pmatrix}
+            A_{1,1}/\norm{v_{1}} & \cdots & A_{1,n}/\norm{v_{n}} \\
+            \vdots               &        & \vdots               \\
+            A_{n,1}/\norm{v_{1}} & \cdots & A_{n,n}/\norm{v_{n}}
+        \end{pmatrix}
+    \]
+
+    where the columns of
+    \[
+        \begin{pmatrix}
+            A_{1,1}/\norm{v_{1}} & \cdots & A_{1,n}/\norm{v_{n}} \\
+            \vdots               &        & \vdots               \\
+            A_{n,1}/\norm{v_{1}} & \cdots & A_{n,n}/\norm{v_{n}}
+        \end{pmatrix}
+    \]
+
+    constitute an orthonormal basis of $\mathbb{F}^{n}$, which means this matrix is unitary. Therefore $\abs{\det A} = \prod^{n}_{k=1}\norm{v_{k}}$.
+
+    Thus the Hadamard's inequality is an equality if and only if the columns of $A$ are pairwise orthogonal.
+\end{proof}
+\newpage
+
+% chapter9:sectionC:exercise19
+\begin{exercise}\label{chapter9:sectionC:exercise19}
+    Suppose $V$ is an inner product space, $e_{1}, \ldots, e_{n}$ is an orthonormal basis of $V$, and $T\in\lmap{V}$ is a positive operator.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Prove that $\det T\leq \prod^{n}_{k=1}\innerprod{Te_{k}, e_{k}}$.
+        \item Prove that if $T$ is invertible, then the inequality in (a) is an equality if and only if $e_{k}$ is an eigenvector of $T$ for each $k = 1,\ldots,n$.
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item Let $A$ be the matrix of $\sqrt{T}$ with respect to the basis $e_{1}, \ldots, e_{n}$ of $V$, then the $k$th column $v_{k}$ of $A$ is the coordinates of $\sqrt{T}e_{k}$ with respect to $e_{1}, \ldots, e_{n}$. By the Pythagorean theorem and the Parseval's identity (we use the standard inner products on $\mathbb{F}^{n}$ and the inner product on $V$),
+              \begin{align*}
+                  \norm{v_{k}}^{2} = \abs{A_{1,k}}^{2} + \cdots + \abs{A_{n,k}}^{2} = \abs{\innerprod{\sqrt{T}e_{k}, e_{1}}}^{2} + \cdots +\abs{\innerprod{\sqrt{T}e_{k}, e_{n}}}^{2} = \norm{\sqrt{T}e_{k}}^{2}.
+              \end{align*}
+
+              for every $k\in\{1,\ldots,n\}$.
+              \begin{align*}
+                  \det T & = {(\det \sqrt{T})}^{2}                                   & \text{(Exercise~\ref{chapter9:sectionC:exercise14})} \\
+                         & \leq \prod^{n}_{k=1}\norm{v_{k}}^{2}                      & \text{(Hadamard's inequality)}                       \\
+                         & = \prod^{n}_{k=1}\norm{v_{k}}^{2}                                                                                \\
+                         & = \prod^{n}_{k=1}\innerprod{\sqrt{T}e_{k}, \sqrt{T}e_{k}}                                                        \\
+                         & = \prod^{n}_{k=1}\innerprod{Te_{k}, e_{k}}                & \text{($T$ is a positive operator)}
+              \end{align*}
+
+              Thus $\det T\leq \prod^{n}_{k=1}\innerprod{Te_{k}, e_{k}}$.
+        \item According to part (a) and the equality condition of Hadamard's inequality (Exercise~\ref{chapter9:sectionC:exercise18}), when $T$ is invertible, the inequality in (a) is an equality if and only if the columns of $\mathcal{M}(\sqrt{T}, (e_{1}, \ldots, e_{n}))$ are pairwise orthogonal.
+
+
+              Suppose (a) is an equality and $T$ is invertible.
+
+              The columns of $\mathcal{M}(\sqrt{T}, (e_{1}, \ldots, e_{n}))$ are pairwise orthogonal if and only if $\innerprod{\sqrt{T}e_{k}, \sqrt{T}e_{j}} = 0$ for all $j\ne k$. Equivalently, $\innerprod{Te_{k}, e_{j}} = 0$ for all $j\ne k$, this means the matrix of $T$ with respect to $e_{1}, \ldots, e_{n}$ is a diagonal matrix. Therefore $e_{1}, \ldots, e_{n}$ are eigenvectors of $T$.
+
+              Suppose $e_{1}, \ldots, e_{n}$ are eigenvectors of $T$. Let $\lambda_{k}$ be the eigenvalue of $T$ corresponding to $e_{k}$ for every $k\in\{1,\ldots,n\}$, then
+              \[
+                  \det T = \prod^{n}_{k=1}\lambda_{k} = \prod^{n}_{k=1}\innerprod{Te_{k}, e_{k}}.
+              \]
+
+              Thus if $T$ is invertible, the inequality in (a) is an equality if and only if $e_{1}, \ldots, e_{n}$ are eigenvectors of $T$.
+    \end{enumerate}
+\end{proof}
+\newpage
+
+% chapter9:sectionC:exercise20
+\begin{exercise}\label{chapter9:sectionC:exercise20}
+    Suppose $A$ is an $n$-by-$n$ matrix, and suppose $c$ is such that $\abs{A_{j,k}}\leq c$ for all $j, k\in\{1,\ldots,n\}$. Prove that
+    \[
+        \abs{\det A}\leq c^{n}n^{n/2}.
+    \]
+\end{exercise}
+
+\begin{quote}
+    The formula for the determinant of a matrix (9.46) shows that $\abs{\det A}\leq c^{n}n{!}$. However, the estimate given by this exercise is much better. For example, if $c = 1$ and $n = 100$, then $c^{n}n! \approx 10^{158}$, but the estimate given by this exercise is the much smaller number $10^{100}$. If $n$ is an integer power of $2$, then the inequality above is sharp and cannot be improved.
+\end{quote}
+
+\begin{proof}
+    Let $v_{1}, \ldots, v_{n}\in\mathbb{F}^{n}$ be the columns of $A$. By the Hadamard's inequality
+    \[
+        \abs{\det A}\leq \prod^{n}_{k=1}\norm{v_{k}}.
+    \]
+
+    For every $k\in\{1,\ldots,n\}$
+    \[
+        \norm{v_{k}}^{2} = \abs{A_{1,k}}^{2} + \cdots + \abs{A_{n,k}}^{2} \leq nc^{2}.
+    \]
+
+    Therefore
+    \[
+        \abs{\det A}\leq {(c\sqrt{n})}^{n} = c^{n}n^{n/2}.
+    \]
+\end{proof}
+\newpage
+
+% chapter9:sectionC:exercise21
+\begin{exercise}\label{chapter9:sectionC:exercise21}
+    Suppose $n$ is a positive integer and $\delta: \mathbb{C}^{n,n}\to \mathbb{C}$ is a function such that
+    \[
+        \delta(AB) = \delta(A)\cdot\delta(B)
+    \]
+
+    for all $A, B\in\mathbb{C}^{n,n}$ and $\delta(A)$ equals the product of the diagonal entries of $A$ for each diagonal matrix $A\in\mathbb{C}^{n,n}$. Prove that
+    \[
+        \delta(A) = \det A
+    \]
+
+    for all $A\in\mathbb{C}^{n,n}$.
+\end{exercise}
+
+\begin{quote}
+    Recall that $\mathbb{C}^{n,n}$ denotes set of $n$-by-$n$ matrices with entries in $\mathbb{C}$. This exercise shows that the determinant is the unique function defined on square matrices that is multiplicative and has the desired behavior on diagonal matrices. This result is analogous to Exercise~\ref{chapter8:sectionD:exercise10}, which shows that the trace is uniquely determined by its algebraic properties.
+\end{quote}
+
+\begin{proof}
+    If $A$ is invertible, then $\delta(A)\delta(A^{-1}) = \delta(I) = 1\ne 0$, so $\delta(A)\ne 0$.
+
+    If $A$ is not invertible, then there exists $v_{1}\in\mathbb{C}^{n,1}$ and $v_{1}\ne 0$ such that $Av_{1} = 0$. Extend $v_{1}$ to a basis $v_{1}, \ldots, v_{n}$ of $\mathbb{C}^{n,1}$, let $B$ be a matrix whose $k$th column is $v_{k}$, then
+    \[
+        AB = \begin{pmatrix}
+            0      & *      & \cdots & *      \\
+            0      & *      & \cdots & *      \\
+            \vdots & \vdots &        & \vdots \\
+            0      & *      & \cdots & *
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            0      & *      & \cdots & *      \\
+            0      & *      & \cdots & *      \\
+            \vdots & \vdots &        & \vdots \\
+            0      & *      & \cdots & *
+        \end{pmatrix}
+        \begin{pmatrix}
+            0      & 0      & \cdots & 0      \\
+            0      & 1      & \cdots & 0      \\
+            \vdots & \vdots &        & \vdots \\
+            0      & 0      & \cdots & 1
+        \end{pmatrix}.
+    \]
+
+    Therefore $\delta(A)\delta(B) = \delta(AB) = 0$. Because $\delta(B)\ne 0$ (since $B$ is invertible), it follows that $\delta(A) = 0$. Hence $\delta(A) = 0$ if $A$ is not invertible.
+
+    By the Schur's decomposition theorem, for each $A\in\mathbb{C}^{n,n}$ there exists an unitary matrix $Q$ such that $Q^{*}AQ$ is an upper-triangular matrix.
+    \[
+        \delta(Q^{*}AQ) = \delta(Q^{*})\delta(A)\delta(Q) = \delta(Q^{*})\delta(Q)\delta(A) = \delta(Q^{*}Q)\delta(A) = \delta(I)\delta(A) = \delta(A).
+    \]
+
+    Suppose $A$ is not invertible, then $\delta(A) = 0 = \det A$.
+
+    Suppose $A$ is invertible, then all entries on the diagonal of $Q^{*}AQ$ are nonzero. Let $U = Q^{*}AQ$ and choose nonzero complex numbers $\lambda_{1}, \ldots, \lambda_{n}$ such that $U_{1,1}/\lambda_{1}, \ldots, U_{n,n}/\lambda_{n}$ are pairwise distinct, then
+    \[
+        \begin{pmatrix}
+            U_{1,1} & U_{1,2} & \cdots & U_{1,n} \\
+            0       & U_{2,2} & \cdots & U_{2,n} \\
+            \vdots  & \vdots  &        & \vdots  \\
+            0       & 0       & \cdots & U_{n,n}
+        \end{pmatrix} =
+        \begin{pmatrix}
+            U_{1,1}/\lambda_{1} & U_{1,2}/\lambda_{2} & \cdots & U_{1,n}/\lambda_{n} \\
+            0                   & U_{2,2}/\lambda_{2} & \cdots & U_{2,n}/\lambda_{n} \\
+            \vdots              & \vdots              &        & \vdots              \\
+            0                   & 0                   & \cdots & U_{n,n}/\lambda_{n}
+        \end{pmatrix}
+        \begin{pmatrix}
+            \lambda_{1} & 0           & \cdots & 0           \\
+            0           & \lambda_{2} & \cdots & 0           \\
+            \vdots      & \vdots      &        & \vdots      \\
+            0           & 0           & \cdots & \lambda_{n}
+        \end{pmatrix}.
+    \]
+
+    The upper-triangular matrix
+    \[
+        W = \begin{pmatrix}
+            U_{1,1}/\lambda_{1} & U_{1,2}/\lambda_{2} & \cdots & U_{1,n}/\lambda_{n} \\
+            0                   & U_{2,2}/\lambda_{2} & \cdots & U_{2,n}/\lambda_{n} \\
+            \vdots              & \vdots              &        & \vdots              \\
+            0                   & 0                   & \cdots & U_{n,n}/\lambda_{n}
+        \end{pmatrix}
+    \]
+
+    has distinct entries on the diagonal, so it has distinct $n$ eigenvalues (which are precisely the entries on the diagonal). Therefore it is diagonalizable, hence there exists an invertible matrix $C$ such that $C^{-1}WC$ is a diagonal matrix.
+    \[
+        \delta(C^{-1}WC) = \delta(C^{-1})\delta(W)\delta(C) = \delta(C^{-1})\delta(C)\delta(W) = \delta(C^{-1}C)\delta(W) = \delta(W).
+    \]
+
+    Hence $\delta(U) = \delta(W)\lambda_{1}\cdots\lambda_{n} = U_{1,1}\cdots U_{n,n}$. Moreover, $U_{1,1}, \ldots, U_{n,n}$ are also eigenvalues of $U$, each appears as many times as its multiplicity, so $\det U =  U_{1,1}\cdots U_{n,n}$. Therefore
+    \[
+        \delta(A) = \delta(Q^{*}AQ) = \delta(U) = U_{1,1}\cdots U_{n,n} = \det U = \det (Q^{*}AQ) = \det A.
+    \]
+
+    Thus for all $A\in\mathbb{C}^{n,n}$, $\delta(A) = \det A$.
+\end{proof}
+\newpage
+
 \section{Tensor Products}
 
