@@ -702,7 +702,7 @@
 \newpage
 
 % chapter3:sectionB:exercise23
-\begin{exercise}
+\begin{exercise}\label{chapter3:sectionB:exercise23}
     Suppose $U$ and $V$ are finite-dimensional vector spaces and $S \in \mathcal{L}(V, W)$ and $T \in \mathcal{L}(U, V)$. Prove that
     \[
         \dim\range{ST} \leq \min\{\dim\range{S}, \dim\range{T}\}.
@@ -741,7 +741,39 @@
 \end{exercise}
 
 \begin{proof}
-    Unsolved.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Because $ST = 0$, $\range{T}\subseteq \kernel{S}$. Therefore $\dim\range{T}\leq\dim\kernel{S}$. By the fundamental theorem of linear maps
+              \[
+                  \dim\range{S} = \dim V - \dim\kernel{S} \leq \dim V - \dim\range{T}.
+              \]
+
+              By Exercise~\ref{chapter3:sectionB:exercise23}
+              \[
+                  \dim\range{TS}\leq \min\{ \dim\range{T}, \dim\range{S} \}.
+              \]
+
+              Because $\dim\range{T}, \dim\range{S}$ are integers, then
+              \[
+                  \min\{ \dim\range{T}, \dim\range{S} \} \leq \left\lfloor\frac{\dim\range{T} + \dim\range{S}}{2}\right\rfloor \leq \left\lfloor\frac{\dim V}{2}\right\rfloor = \left\lfloor\frac{5}{2}\right\rfloor = 2.
+              \]
+
+              Thus $\dim\range{TS}\leq 2$.
+        \item Here is an example.
+              \[
+                  \begin{split}
+                      S(x_{1}, x_{2}, x_{3}, x_{4}, x_{5}) = (x_{3}, x_{4}, 0, 0, 0), \\
+                      T(x_{1}, x_{2}, x_{3}, x_{4}, x_{5}) = (x_{1}, x_{2}, 0, 0, 0).
+                  \end{split}
+              \]
+
+              Then
+              \begin{align*}
+                  (ST)(x_{1}, x_{2}, x_{3}, x_{4}, x_{5}) & = S(x_{1}, x_{2}, 0, 0, 0) = (0, 0, 0, 0, 0)         \\
+                  (TS)(x_{1}, x_{2}, x_{3}, x_{4}, x_{5}) & = T(x_{3}, x_{4}, 0, 0, 0) = (x_{3}, x_{4}, 0, 0, 0)
+              \end{align*}
+
+              so $ST = 0$ and $\dim\range{TS} = 2$.
+    \end{enumerate}
 \end{proof}
 \newpage
 

@@ -1282,3 +1282,536 @@
 
 \section{Tensor Products}
 
+% chapter9:sectionD:exercise1
+\begin{exercise}\label{chapter9:sectionD:exercise1}
+    Suppose $v\in V$ and $w\in W$. Prove that $v\otimes w = 0$ if and only if $v = 0$ or $w = 0$.
+\end{exercise}
+
+\begin{proof}
+    Suppose $v = 0$ or $w = 0$.
+
+    If $v = 0$ then for all $\varphi\in V'$, for all $\tau\in W'$,
+    \[
+        (v\otimes w)(\varphi, \tau) = \varphi(v)\tau(w) = 0\tau(w) = 0.
+    \]
+
+    Therefore $v\otimes w = 0$.
+
+    If $w = 0$ then for all $\varphi\in V'$, for all $\tau\in W'$,
+    \[
+        (v\otimes w)(\varphi, \tau) = \varphi(v)\tau(w) = \varphi(v)0 = 0.
+    \]
+
+    Therefore $v\otimes w = 0$.
+
+    \bigskip
+    Suppose $v\otimes w = 0$.
+
+    If $v\ne 0$, then there exists $\varphi\in V'$ such that $\varphi(v)\ne 0$. For all $\tau\in W'$,
+    \[
+        \varphi(v)\tau(w) = (v\otimes w)(\varphi, \tau) = 0
+    \]
+
+    because $v\otimes w = 0$. So $\varphi(v)\tau(w) = 0$. Since $\varphi(v) = 0$ then $\tau(w) = 0$ (for all $\tau\in W'$). Therefore $w = 0$.
+
+    Hence $v = 0$ or $w = 0$.
+\end{proof}
+\newpage
+
+% chapter9:sectionD:exercise2
+\begin{exercise}\label{chapter9:sectionD:exercise2}
+    Give an example of six distinct vectors $v_{1}, v_{2}, v_{3}, w_{1}, w_{2}, w_{3}$ in $\mathbb{R}^{3}$ such that
+    \[
+        v_{1}\otimes w_{1} + v_{2}\otimes w_{2} + v_{3}\otimes w_{3} = 0
+    \]
+
+    but none of $v_{1}\otimes w_{1}, v_{2}\otimes w_{2}, v_{3}\otimes w_{3}$ is a scalar multiple of another element of this list.
+\end{exercise}
+
+\begin{proof}
+    Let $e_{1} = (1, 0, 0), e_{2} = (0, 1, 0), e_{3} = (0, 0, 1)$.
+
+    I choose
+    \[
+        \begin{split}
+            v_{1} = (1, 0, 0)\qquad w_{1} = (1, 0, 0) \\
+            v_{2} = (0, 1, 0)\qquad w_{2} = (1, 0, 0) \\
+            v_{3} = (-1, -1, 0)\qquad w_{3} = (1, 0, 0)
+        \end{split}
+    \]
+
+    so
+    \begin{align*}
+        v_{1}\otimes w_{1} & = e_{1}\otimes e_{1}          \\
+        v_{2}\otimes w_{2} & = e_{2}\otimes e_{1}          \\
+        v_{3}\otimes w_{3} & = (-e_{1}-e_{2})\otimes e_{1}
+    \end{align*}
+
+    By Exercise~\ref{chapter9:sectionD:exercise1}
+    \begin{align*}
+        a_{1}(v_{1}\otimes w_{1}) + a_{2}(v_{2}\otimes w_{2}) = 0 & \Longleftrightarrow (a_{1}e_{1} + a_{2}e_{2})\otimes e_{1} = 0          \\
+                                                                  & \Longleftrightarrow a_{1}e_{1} + a_{2}e_{2} = 0                         \\
+                                                                  & \Longleftrightarrow a_{1} = a_{2} = 0,                                  \\
+        a_{2}(v_{2}\otimes w_{2}) + a_{3}(v_{3}\otimes w_{3}) = 0 & \Longleftrightarrow (a_{2}e_{2} + a_{3}(-e_{1}-e_{2}))\otimes e_{1} = 0 \\
+                                                                  & \Longleftrightarrow a_{2}e_{2} + a_{3}(-e_{1}-e_{2}) = 0                \\
+                                                                  & \Longleftrightarrow a_{2} = a_{3} = 0,                                  \\
+        a_{3}(v_{3}\otimes w_{3}) + a_{1}(v_{1}\otimes w_{1}) = 0 & \Longleftrightarrow (a_{3}(-e_{1}-e_{2}) + a_{1}e_{1})\otimes e_{1} = 0 \\
+                                                                  & \Longleftrightarrow a_{3}(-e_{1}-e_{2}) + a_{1}e_{1} = 0                \\
+                                                                  & \Longleftrightarrow a_{3} = a_{1} = 0,
+    \end{align*}
+
+    so $v_{1}\times w_{1}, v_{2}\otimes w_{2}, v_{3}\otimes w_{3}$ are pairwise linearly independent, which implies none of them is a scalar multiple of another. However,
+    \[
+        v_{1}\otimes w_{1} + v_{2}\otimes w_{2} + v_{3}\otimes w_{3} = (e_{1} + e_{2} - e_{1} - e_{2})\otimes e_{1} = 0\otimes e_{1} = 0.
+    \]
+\end{proof}
+\newpage
+
+% chapter9:sectionD:exercise3
+\begin{exercise}\label{chapter9:sectionD:exercise3}
+    Suppose that $v_{1}, \ldots, v_{m}$ is a linearly independent list in $V$. Suppose also that $w_{1}, \ldots, w_{m}$ is a list in $W$ such that
+    \[
+        v_{1}\otimes w_{1} + \cdots + v_{m}\otimes w_{m} = 0.
+    \]
+
+    Prove that $w_{1} = \cdots = w_{m} = 0$.
+\end{exercise}
+
+\begin{proof}
+    Let $\widehat{V} = \operatorname{span}(v_{1}, \ldots, v_{m})$ and $\varphi_{1}, \ldots, \varphi_{m}\in (\widehat{V})'$ be the dual basis of $v_{1}, \ldots, v_{m}$.
+
+    For every $k\in\{1,\ldots,m\}$, for all $\tau\in W'$,
+    \[
+        0 = (v_{1}\otimes w_{1} + \cdots + v_{m}\otimes w_{m})(\varphi_{k}, \tau) = \varphi_{k}(v_{k})\tau(w_{k}) = \tau(w_{k})
+    \]
+
+    so $w_{k} = 0$ for every $k\in\{1,\ldots,m\}$.
+\end{proof}
+\newpage
+
+% chapter9:sectionD:exercise4
+\begin{exercise}\label{chapter9:sectionD:exercise4}
+    Suppose $\dim V > 1$ and $\dim W > 1$. Prove that
+    \[
+        \{ v\otimes w: (v, w)\in V\times W \}
+    \]
+
+    is not a subspace of $V\otimes W$.
+\end{exercise}
+
+\begin{quote}
+    This exercise implies that if $\dim V > 1$ and $\dim W > 1$, then
+    \[
+        \{ v\otimes w: (v, w)\in V\times W \} \ne V\otimes W.
+    \]
+\end{quote}
+
+\begin{proof}
+    Denote the set $\{ v\otimes w: (v, w)\in V\times W \}$ by $X$.
+
+    Because $\dim V > 1$ and $\dim W > 1$, there exist $v_{1}, v_{2}\in V$ and $w_{1}, w_{2}\in W$ such that $v_{1}, v_{2}$ is a linearly independent list and $w_{1}, w_{2}$ is a linearly independent list.
+
+    Assume $v_{1}\otimes w_{1} + v_{2}\otimes w_{2}\in X$, then there exist $v\in V$ and $w\in W$ such that $v_{1}\otimes w_{1} + v_{2}\otimes w_{2} = v\otimes w$.
+
+    If $v$ is a linear combination of $v_{1}, v_{2}$ then there exist $\lambda_{1}, \lambda_{2}\in\mathbb{F}$ such that $v = \lambda_{1}v_{1} + \lambda_{2}v_{2}$.
+    \begin{align*}
+        0 & = v_{1}\otimes w_{1} + v_{2}\otimes w_{2} - (\lambda_{1}v_{1} + \lambda_{2}v_{2})\otimes w            \\
+          & = v_{1}\otimes w_{1} + v_{2}\otimes w_{2} - \lambda_{1}(v_{1}\otimes w) - \lambda_{2}(v_{2}\otimes w) \\
+          & = v_{1}\otimes w_{1} + v_{2}\otimes w_{2} - v_{1}\otimes (\lambda_{1}w) - v_{2}\otimes (\lambda_{2}w) \\
+          & = v_{1}\otimes (w_{1} - \lambda_{1}w) + v_{2}\otimes (w_{2} - \lambda_{2}w).
+    \end{align*}
+
+    By Exercise~\ref{chapter9:sectionD:exercise3}, $w_{1} - \lambda_{1}w = w_{2} - \lambda_{2}w = 0$ so $w_{1} = \lambda_{1}w$, $w_{2} = \lambda_{2}w$. $\lambda_{1}$ and $\lambda_{2}$ are not equal to $0$ because $w_{1}, w_{2}$ is a linearly independent list. Therefore $\lambda_{1}^{-1}w_{1} - \lambda_{2}^{-1}w_{2} = 0$, which implies $w_{1}, w_{2}$ is a linearly dependent list. So $v$ is not a linear combination of $v_{1}, v_{2}$.
+
+    Since $v$ is not a linear combination of $v_{1}, v_{2}$ and $v_{1}, v_{2}$ is a linearly independent list, then $v, v_{1}, v_{2}$ is a linearly independent list. By Exercise~\ref{chapter9:sectionD:exercise3} and $v_{1}\otimes w_{1} + v_{2}\otimes w_{2} - v\otimes w = 0$, we conclude that $w_{1} = w_{2} = w = 0$, which is a contradiction because $w_{1}, w_{2}$ is a linearly independent list.
+
+    Hence the initial assumption is false, so $X$ is not closed under addition. Thus $X$ is not a subspace of $V\otimes W$.
+\end{proof}
+\newpage
+
+% chapter9:sectionD:exercise5
+\begin{exercise}\label{chapter9:sectionD:exercise5}
+    Suppose $m$ and $n$ are positive integers. For $v\in\mathbb{F}^{m}$ and $w\in\mathbb{F}^{n}$, identify $v\otimes w$ with an $m$-by-$n$ matrix as in Example 9.76. With that identification, show that the set
+    \[
+        \{ v\otimes w: v\in\mathbb{F}^{m} \land w\in\mathbb{F}^{n} \}
+    \]
+
+    is the set of $m$-by-$n$ matrices (with entries in $\mathbb{F}$) that have rank at most one.
+\end{exercise}
+
+\begin{proof}
+    Let $e_{1}, \ldots, e_{m}$ be the standard basis of $\mathbb{F}^{m}$ and $f_{1}, \ldots, f_{n}$ be the standard basis of $\mathbb{F}^{n}$. There exist scalars $v_{1}, \ldots, v_{m}; w_{1}, \ldots, w_{n}$ such that
+    \begin{align*}
+        v & = v_{1}e_{1} + \cdots + v_{m}e_{m}, \\
+        w & = w_{1}f_{1} + \cdots + w_{n}e_{n}.
+    \end{align*}
+
+    $v\otimes w$ is identified with the $m$-by-$n$ matrix $A$ where $A_{j,k} = v_{j}w_{k}$.
+    \[
+        A = \begin{pmatrix}
+            v_{1}w_{1} & \cdots & v_{1}w_{n} \\
+            \vdots     &        & \vdots     \\
+            v_{m}w_{1} & \cdots & v_{m}w_{n}
+        \end{pmatrix} =
+        \begin{pmatrix}
+            v_{1} \\ \vdots \\ v_{m}
+        \end{pmatrix}
+        \begin{pmatrix}
+            w_{1} & \cdots & w_{n}
+        \end{pmatrix}.
+    \]
+
+    By Exercise~\ref{chapter3:sectionB:exercise23}, the definition of (column) rank of a matrix, and the fact the column rank and row rank of a matrix are equal, we have
+    \[
+        \operatorname{rank} A \leq \operatorname{rank}\begin{pmatrix}
+            v_{1} \\ \vdots \\ v_{m}
+        \end{pmatrix} \leq 1.
+    \]
+
+    Now suppose $B$ is an $m$-by-$n$ matrix of rank at most one.
+
+    If $\operatorname{rank} B = 0$, then $B = 0$, so $0\otimes 0$ is identified with $B$.
+
+    Otherwise, $\operatorname{rank} B = 1$, then there exists a nonzero column of $B$ such that other columns are multiple of this nonzero column. Suppose the $k$ column $B_{\cdot,k}$ of $B$ is nonzero and $B_{\cdot,i} = \lambda_{i}B_{\cdot,k}$ for every $i\in\{1,\ldots,n\}$ where $\lambda_{k} = 1$. Hence
+    \[
+        B = \begin{pmatrix}B_{1,k} \\ \vdots \\ B_{m,k}\end{pmatrix}\begin{pmatrix}\lambda_{1} & \cdots & \lambda_{n}\end{pmatrix}
+    \]
+
+    which means $B = (B_{1,k}, \ldots, B_{m,k})\otimes (\lambda_{1}, \ldots, \lambda_{n})$.
+
+    Thus the set $\{ v\otimes w: v\in\mathbb{F}^{m}\land w\in\mathbb{F}^{n} \}$ is (identified with) the set of $m$-by-$n$ matrices (with entries in $\mathbb{F}$) that have rank at most one.
+\end{proof}
+\newpage
+
+% chapter9:sectionD:exercise6
+\begin{exercise}\label{chapter9:sectionD:exercise6}
+    Suppose $m$ and $n$ are positive integers. Give a description, analogous to Exercise~\ref{chapter9:sectionD:exercise5}, of the set of $m$-by-$n$ matrices (with entries in $\mathbb{F}$) that have rank at most two.
+\end{exercise}
+
+\begin{proof}
+    Let $m, n$ be positive integers greater than $1$. For $v\in\mathbb{F}^{m}$ and $w\in\mathbb{F}^{n}$, identify $v\otimes w$ with the $m$-by-$n$ matrix
+    \[
+        \begin{pmatrix}
+            v_{1} \\ \vdots \\ v_{m}
+        \end{pmatrix}
+        \begin{pmatrix}
+            w_{1} & \cdots & w_{n}
+        \end{pmatrix}.
+    \]
+
+    The set $\{ v_{1}\otimes w_{1} + v_{2}\otimes w_{2}: v_{1}, v_{2}\in \mathbb{F}^{m}\land w_{1}, w_{2}\in \mathbb{F}^{n} \}$ is the set of matrices that have rank at most two.
+
+    Let $e_{1}, \ldots, e_{m}$ be the standard basis of $\mathbb{F}^{m}$ and $f_{1}, \ldots, f_{n}$ be the standard basis of $\mathbb{F}^{n}$.
+
+    Let $v_{1}, v_{2}$ be vectors in $\mathbb{F}^{m}$ and $w_{1}, w_{2}$ be vectors in $\mathbb{F}^{n}$ and
+    \begin{align*}
+        v_{1} & = v_{1}^{1}e_{1} + \cdots + v_{1}^{m}e_{m}  \\
+        v_{2} & = v_{2}^{1}e_{1} + \cdots + v_{2}^{m}e_{m}  \\
+        w_{1} & = w_{1}^{1}f_{1} + \cdots + w_{1}^{n}f_{n}  \\
+        w_{2} & = w_{2}^{1}f_{1} + \cdots + w_{2}^{n}f_{n}.
+    \end{align*}
+    \begin{multline*}
+        \operatorname{rank}\left(\begin{pmatrix}v_{1}^{1} \\ \vdots \\ v_{1}^{m}\end{pmatrix}\begin{pmatrix}w_{1}^{1} & \cdots & w_{1}^{n}\end{pmatrix} + \begin{pmatrix}v_{2}^{1} \\ \vdots \\ v_{2}^{m}\end{pmatrix}\begin{pmatrix}w_{2}^{1} & \cdots & w_{2}^{n}\end{pmatrix}\right) \\
+        \leq \operatorname{rank}\begin{pmatrix}v_{1}^{1} \\ \vdots \\ v_{1}^{m}\end{pmatrix}\begin{pmatrix}w_{1}^{1} & \cdots & w_{1}^{n}\end{pmatrix} + \operatorname{rank}\begin{pmatrix}v_{2}^{1} \\ \vdots \\ v_{2}^{m}\end{pmatrix}\begin{pmatrix}w_{2}^{1} & \cdots & w_{2}^{n}\end{pmatrix} \\
+        \leq 1 + 1 = 2.
+    \end{multline*}
+
+    Therefore the set $\{ v_{1}\otimes w_{1} + v_{2}\otimes w_{2}: v_{1}, v_{2}\in \mathbb{F}^{m}\land w_{1}, w_{2}\in \mathbb{F}^{n} \}$ is a subset of the set of matrices that have rank at most two.
+
+    Let $A$ be a set of rank at most two.
+
+    If $\operatorname{rank}A = 0$ then $A = 0$. Therefore $0\otimes 0$ is identified with $A$.
+
+    If $\operatorname{rank}A = 1$ then there exist $v\in\mathbb{F}^{m}$ and $w\in\mathbb{F}^{n}$ such that $v\otimes w + 0\otimes 0$ is identified with $A$ (due to Exercise~\ref{chapter9:sectionD:exercise5}).
+
+    If $\operatorname{rank}A = 2$, then there exist two columns $A_{\cdot,k_{1}}, A_{\cdot,k_{2}}$ of $A$ such that other columns of $A$ is a linear combination of these two. Assume $A_{\cdot,k} = \lambda_{k}^{1}A_{\cdot,k_{1}} + \lambda_{k}^{2}A_{\cdot,k_{2}}$ for every $k\in\{1,\ldots,n\}$, where $\lambda_{k_{1}}^{1} = 1, \lambda_{k_{1}}^{2} = 0$ and $\lambda_{k_{2}}^{1} = 0, \lambda_{k_{2}}^{2} = 1$. Hence
+    \[
+        A = \begin{pmatrix}A_{1,k_{1}} \\ \vdots \\ A_{m,k_{1}}\end{pmatrix}\begin{pmatrix}\lambda_{1}^{1} & \cdots \lambda_{n}^{1}\end{pmatrix} + \begin{pmatrix}A_{1,k_{2}} \\ \vdots \\ A_{m,k_{2}}\end{pmatrix}\begin{pmatrix}\lambda_{1}^{2} & \cdots \lambda_{n}^{2}\end{pmatrix}
+    \]
+
+    so
+    \[
+        (A_{1,k_{1}}, \ldots, A_{m,k_{1}})\otimes (\lambda_{1}^{1}, \ldots, \lambda_{n}^{1}) + (A_{1,k_{2}}, \ldots, A_{m,k_{2}})\otimes (\lambda_{1}^{2}, \ldots, \lambda_{n}^{2})
+    \]
+
+    is identified with $A$. Therefore the set of $m$-by-$n$ matrices with entries in $\mathbb{F}$ that have rank at most two is a subset of $\{ v_{1}\otimes w_{1} + v_{2}\otimes w_{2}: v_{1}, v_{2}\in \mathbb{F}^{m}\land w_{1}, w_{2}\in \mathbb{F}^{n} \}$.
+
+    Thus the set $\{ v_{1}\otimes w_{1} + v_{2}\otimes w_{2}: v_{1}, v_{2}\in\mathbb{F}^{m}\land w_{1}, w_{2}\in\mathbb{F}^{n} \}$ is the set of $m$-by-$n$ matrices with entries in $\mathbb{F}$ that have rank at most two.
+\end{proof}
+\newpage
+
+% chapter9:sectionD:exercise7
+\begin{exercise}\label{chapter9:sectionD:exercise7}
+    Suppose $\dim V > 2$ and $\dim W > 2$. Prove that
+    \[
+        \{ v_{1}\otimes w_{1} + v_{2}\otimes w_{2}: v_{1}, v_{2}\in V \land w_{1}, w_{2}\in W \}\ne V\otimes W.
+    \]
+\end{exercise}
+
+\begin{proof}
+    Denote $\{ v_{1}\otimes w_{1} + v_{2}\otimes w_{2}: v_{1}, v_{2}\in V \land w_{1}, w_{2}\in W \}$ by $X$.
+
+    Let $m = \dim V$ and $n = \dim W$.
+
+    Let $e_{1}, \ldots, e_{m}$ be a basis of $V$, $f_{1}, \ldots, f_{n}$ be a basis of $W$.
+
+    Define $f: V\otimes W\to \mathbb{F}^{m,n}$ as follows: $f(\beta)$ is the $m$-by-$n$ matrix $A$ where $A_{j,k} = \beta(e_{j}, f_{k})$. $f$ is an isomorphism from $V\otimes W$ onto $\mathbb{F}^{m,n}$.
+
+    Assume $X$ is a subspace of $V\otimes W$, then the range of $X$ under $f$ is a subspace of $\mathbb{F}^{m,n}$. The range of $X$ under $f$ is the set of matrices that have rank at most two, according to Exercise~\ref{chapter9:sectionD:exercise6}. On the other hand, because $m > 2$ and $n > 2$, there are matrices that have rank at most two but their sum has rank greater than two, for example
+    \[
+        \begin{pmatrix}
+            1      & 0      & \cdots & 0      \\
+            0      & 1      & \cdots & 0      \\
+            \vdots & \vdots &        & \vdots \\
+            0      & 0      & \cdots & 0
+        \end{pmatrix},
+        \begin{pmatrix}
+            0      & 0      & \cdots & 0      \\
+            0      & 0      & \cdots & 0      \\
+            \vdots & \vdots &        & \vdots \\
+            0      & 0      & \cdots & 1
+        \end{pmatrix}
+    \]
+
+    where the first matrix has rank two, where only the entries at 1st row, 1st column and 2nd row, 2nd column are nonzero; the second matrix has rank two, where only the entries at $m$th row, $n$th column is nonzero. The sum of these two matrices is a matrix of rank three. Therefore the range of $X$ under $f$ is not a subspace of $\mathbb{F}^{m,n}$, which is a contradiction.
+
+    Hence $X$ is not a subspace of $V\otimes W$. Thus $X\ne V\otimes W$.
+\end{proof}
+\newpage
+
+% chapter9:sectionD:exercise8
+\begin{exercise}\label{chapter9:sectionD:exercise8}
+    Suppose $v_{1}, \ldots, v_{m}\in V$ and $w_{1}, \ldots, w_{m}\in W$ are such that
+    \[
+        v_{1}\otimes w_{1} + \cdots + v_{m}\otimes w_{m} = 0.
+    \]
+
+    Suppose that $U$ is a vector space and $\Gamma: V\times W\to U$ is a bilinear map. Show that
+    \[
+        \Gamma(v_{1}, w_{1}) + \cdots + \Gamma(v_{m}, w_{m}) = 0.
+    \]
+\end{exercise}
+
+\begin{proof}
+    $\Gamma: V\times W\to U$ is a bilinear map so there exists a unique linear map $\widehat{\Gamma}: V\otimes W\to U$ such that
+    \[
+        \widehat{\Gamma}(v\otimes w) = \Gamma(v, w).
+    \]
+
+    Therefore
+    \begin{align*}
+        \Gamma(v_{1}, w_{1}) + \cdots + \Gamma(v_{m}, w_{m}) & = \widehat{\Gamma}(v_{1}\otimes w_{1}) + \cdots + \widehat{\Gamma}(v_{m}\otimes w_{m}) \\
+                                                             & = \widehat{\Gamma}(v_{1}\otimes w_{1} + \cdots + v_{m}\otimes w_{m})                   \\
+                                                             & = \widehat{\Gamma}(0)                                                                  \\
+                                                             & = 0.\qedhere
+    \end{align*}
+\end{proof}
+\newpage
+
+% chapter9:sectionD:exercise9
+\begin{exercise}\label{chapter9:sectionD:exercise9}
+    Suppose $S\in\lmap{V}$ and $T\in\lmap{W}$. Prove that there exists a unique operator on $V\otimes W$ that takes $v\otimes w$ to $Sv\otimes Tw$ for all $v\in V$ and $w\in W$.
+\end{exercise}
+
+\begin{quote}
+    In an abuse of notation, the operator on $V \otimes W$ given by this exercise is often called $S\otimes T$.
+\end{quote}
+
+\begin{proof}
+    Let $F$ be a map from $V\times W$ to $V\otimes W$ defined by
+    \[
+        F(v, w) = Sv\otimes Tw
+    \]
+
+    then $F$ is a bilinear map on $V\times W$. So there exists a unique linear map from $V\otimes W$ to $V\otimes W$ such that
+    \[
+        \widehat{F}(v\otimes w) = F(v, w).
+    \]
+
+    So $\widehat{F}(v\otimes w) = F(v, w) = Sv\otimes Tw$ for every $v\in V, w\in W$.
+
+    Assume that $\widehat{F}$ and $\widehat{G}$ are operators on $V\otimes W$ that takes $v\otimes w$ to $Sv\otimes Tw$ for all $v\in V$ and $w\in W$.
+
+    Let $e_{1}, \ldots, e_{m}$ be a basis of $V$ and $f_{1}, \ldots, f_{n}$ be a basis of $W$, then ${\{ e_{j}\otimes f_{k} \}}_{j=1,\ldots,m;k=1,\ldots,n}$ is a basis of $V\otimes W$. The image of this basis are the same under $\widehat{F}$ and $\widehat{G}$ because $\widehat{F}(e_{j}\otimes f_{k}) = Se_{j}\otimes Tf_{k} = \widehat{G}(e_{j}, f_{k})$. Therefore $\widehat{F} = \widehat{G}$.
+
+    Thus there exists a unique operator on $V\otimes W$ that takes $v\otimes w$ to $Sv\otimes Tw$ for all $v\in V$ and $w\in W$.
+\end{proof}
+\newpage
+
+% chapter9:sectionD:exercise10
+\begin{exercise}\label{chapter9:sectionD:exercise10}
+    Suppose $S\in\lmap{V}$ and $T\in\lmap{W}$. Prove that $S\otimes T$ is an invertible operator on $V\otimes W$ if and only if both $S$ and $T$ are invertible operators. Also, prove that if both $S$ and $T$ are invertible operators, then ${(S\otimes T)}^{-1} = S^{-1}\otimes T^{-1}$, where we are using the notation from the comment after Exercise~\ref{chapter9:sectionD:exercise9}.
+\end{exercise}
+
+\begin{quote}[Additional notes]
+    In this problem, we need $\dim V > 0$ and $\dim W > 0$.
+\end{quote}
+
+\begin{proof}
+    Let $e_{1}, \ldots, e_{m}$ be a basis of $V$, $f_{1}, \ldots, f_{n}$ be a basis of $W$, then ${\{e_{j}\otimes f_{k}\}}_{j=1,\ldots,m;k=1,\ldots,n}$ is a basis of $V\otimes W$.
+
+    $(\Rightarrow)$ $S\otimes T$ is an invertible operator on $V\otimes W$.
+
+    Suppose $Sv = 0$, then for every $w\in W$, $(S\otimes T)(v\otimes w) = Sv\otimes Tw = 0\otimes Tw = 0$. Because $S\otimes T$ is invertible, $v\otimes w = 0$ for every $w\in W$. By Exercise~\ref{chapter9:sectionD:exercise1}, $v = 0$. Hence $S$ is injective, which implies $S$ is invertible, because $V$ is a finite-dimensional vector space.
+
+    Analogously, $T$ is also invertible. Thus $S$ and $T$ are invertible operators.
+
+    \bigskip
+    $(\Leftarrow)$ $S$ and $T$ are invertible operators.
+    \begin{align*}
+        (S\otimes T)(S^{-1}\otimes T^{-1})\left(\sum^{n}_{k=1}\sum^{m}_{j=1}a_{j,k}e_{j}\otimes f_{k}\right) & = (S\otimes T)\left(\sum^{n}_{k=1}\sum^{m}_{j=1}a_{j,k}S^{-1}e_{j}\otimes T^{-1}f_{k}\right) \\
+                                                                                                             & = \sum^{n}_{k=1}\sum^{m}_{j=1}a_{j,k} (SS^{-1})e_{j}\otimes (TT^{-1})f_{k}                   \\
+                                                                                                             & = \sum^{n}_{k=1}\sum^{m}_{j=1}a_{j,k}e_{j}\otimes f_{k},                                     \\
+        (S^{-1}\otimes T^{-1})(S\otimes T)\left(\sum^{n}_{k=1}\sum^{m}_{j=1}a_{j,k}e_{j}\otimes f_{k}\right) & = (S^{-1}\otimes T^{-1})\left(\sum^{n}_{k=1}\sum^{m}_{j=1}a_{j,k}Se_{j}\otimes Tf_{k}\right) \\
+                                                                                                             & = \sum^{n}_{k=1}\sum^{m}_{j=1}a_{j,k}(S^{-1}S)e_{j}\otimes (T^{-1}T)f_{k}                    \\
+                                                                                                             & = \sum^{n}_{k=1}\sum^{m}_{j=1}a_{j,k}e_{j}\otimes f_{k}.
+    \end{align*}
+
+    So $(S\otimes T)(S^{-1}\otimes T^{-1}) = (S^{-1}\otimes T^{-1})(S\otimes T) = I$. Hence $S\otimes T$ is invertible and ${(S\otimes T)}^{-1} = S^{-1}\otimes T^{-1}$.
+\end{proof}
+\newpage
+
+% chapter9:sectionD:exercise11
+\begin{exercise}\label{chapter9:sectionD:exercise11}
+    Suppose $V$ and $W$ are inner product spaces. Prove that if $S\in\lmap{V}$ and $T\in\lmap{W}$, then ${(S\otimes T)}^{*} = S^{*}\otimes T^{*}$, where we are using the notation from the comment after Exercise~\ref{chapter9:sectionD:exercise11}.
+\end{exercise}
+
+\begin{proof}
+    Let $e_{1}, \ldots, e_{m}$ be a basis of $V$ and $f_{1}, \ldots, f_{n}$ be a basis of $W$, then
+    \[
+        {\{e_{j}\otimes f_{k}\}}_{j=1,\ldots,m; k=1,\ldots,n}
+    \]
+
+    is a basis of $V\otimes W$.
+
+    For every
+    \[
+        \sum^{n}_{k=1}\sum^{m}_{j=1}a_{j,k}(e_{j}\otimes f_{k})\quad\text{and}\quad\sum^{n}_{s=1}\sum^{m}_{r=1}b_{r,s}(e_{r}\otimes f_{s})
+    \]
+
+    in $V\otimes W$,
+    \begingroup
+    \allowdisplaybreaks{}
+    \begin{align*}
+          & \innerprod{\sum^{n}_{k=1}\sum^{m}_{j=1}a_{j,k}(e_{j}\otimes f_{k}), {(S\otimes T)}^{*}\left(\sum^{n}_{s=1}\sum^{m}_{r=1}b_{r,s}(e_{r}\otimes f_{s})\right)}    \\
+        = & \innerprod{(S\otimes T)\left(\sum^{n}_{k=1}\sum^{m}_{j=1}a_{j,k}(e_{j}\otimes f_{k})\right), \sum^{n}_{s=1}\sum^{m}_{r=1}b_{r,s}(e_{r}\otimes f_{s})}          \\
+        = & \innerprod{\sum^{n}_{k=1}\sum^{m}_{j=1}a_{j,k}(Se_{j}\otimes Tf_{k}), \sum^{n}_{s=1}\sum^{m}_{r=1}b_{r,s}(e_{r}\otimes f_{s})}                                 \\
+        = & \sum^{n}_{k=1}\sum^{m}_{j=1}\sum^{n}_{s=1}\sum^{m}_{r=1}a_{j,k}\conj{b_{r,s}}\innerprod{Se_{j}\otimes Tf_{k}, e_{r}\otimes f_{s}}                              \\
+        = & \sum^{n}_{k=1}\sum^{m}_{j=1}\sum^{n}_{s=1}\sum^{m}_{r=1}a_{j,k}\conj{b_{r,s}}\innerprod{Se_{j}, e_{r}}\innerprod{Tf_{k}, f_{s}}                                \\
+        = & \sum^{n}_{k=1}\sum^{m}_{j=1}\sum^{n}_{s=1}\sum^{m}_{r=1}a_{j,k}\conj{b_{r,s}}\innerprod{e_{j}, S^{*}e_{r}}\innerprod{f_{k}, T^{*}f_{s}}                        \\
+        = & \sum^{n}_{k=1}\sum^{m}_{j=1}\sum^{n}_{s=1}\sum^{m}_{r=1}\innerprod{a_{j,k}e_{j}, S^{*}e_{r}}\innerprod{f_{k}, b_{r,s}T^{*}f_{s}}                               \\
+        = & \sum^{n}_{k=1}\sum^{m}_{j=1}\sum^{n}_{s=1}\sum^{m}_{r=1}\innerprod{a_{j,k}e_{j}\otimes f_{k}, S^{*}e_{r}\otimes T^{*}f_{s}}                                    \\
+        = & \innerprod{\sum^{n}_{k=1}\sum^{m}_{j=1}a_{j,k}(e_{j}\otimes f_{k}), \sum^{n}_{s=1}\sum^{m}_{r=1}b_{r,s}(S^{*}e_{r}\otimes T^{*}f_{s})}                         \\
+        = & \innerprod{\sum^{n}_{k=1}\sum^{m}_{j=1}a_{j,k}(e_{j}\otimes f_{k}), (S^{*}\otimes T^{*})\left(\sum^{n}_{s=1}\sum^{m}_{r=1}b_{r,s}(e_{r}\otimes f_{s})\right)}.
+    \end{align*}
+    \endgroup
+
+    The last equality shows that ${(S\otimes T)}^{*} = S^{*}\otimes T^{*}$.
+\end{proof}
+\newpage
+
+% chapter9:sectionD:exercise12
+\begin{exercise}\label{chapter9:sectionD:exercise12}
+    Suppose that $V_{1}, \ldots, V_{m}$ are finite-dimensional inner product spaces. Prove that there is a unique inner product on $V_{1}\otimes \cdots\otimes V_{m}$ such that
+    \[
+        \innerprod{v_{1}\otimes \cdots\otimes v_{m}, u_{1}\otimes \cdots\otimes u_{m}} = \innerprod{v_{1}, u_{1}}\cdots\innerprod{v_{m}, u_{m}}
+    \]
+
+    for all $(v_{1}, \ldots, v_{m})$ and $(u_{1}, \ldots, u_{m})$ in $V_{1}\times\cdots\times V_{m}$.
+\end{exercise}
+
+\begin{quote}
+    Note that the equation above implies that
+    \[
+        \norm{v_{1}\otimes \cdots\otimes v_{m}} = \norm{v_{1}}\times\cdots\times\norm{v_{m}}
+    \]
+
+    for all $(v_{1}, \ldots, v_{m})\in V_{1}\times\cdots\times V_{m}$.
+\end{quote}
+
+\begin{proof}
+    Let
+    \begin{itemize}
+        \item $e_{1}^{1}, \ldots, e_{n_{1}}^{1}$ be an orthonormal basis of $V_{1}$,
+        \item \ldots
+        \item $e_{1}^{m}, \ldots, e_{n_{m}}^{m}$ be an orthonormal basis of $V_{m}$
+    \end{itemize}
+
+    then
+    \[
+        {\{ e_{j_{1}}^{1}\otimes \cdots \otimes e_{j_{m}}^{m} \}}_{j_{1}=1,\ldots,n_{1}; \ldots; j_{m}=1,\ldots,n_{m}}
+    \]
+
+    is a basis of $V_{1}\otimes\cdots \otimes V_{m}$. I define an inner product on $V_{1}\otimes \cdots \otimes V_{m}$ as follows:
+    \begin{multline*}
+        \innerprod{\sum^{n_{1}}_{j_{1}=1}\cdots\sum^{n_{m}}_{j_{m}=1}a_{j_{1},\ldots,j_{m}}e_{j_{1}}\otimes\cdots\otimes e_{j_{m}}, \sum^{n_{1}}_{j_{1}=1}\cdots\sum^{n_{m}}_{j_{m}=1}b_{j_{1},\ldots,j_{m}}e_{j_{1}}\otimes\cdots\otimes e_{j_{m}}} \\
+        = \sum^{n_{1}}_{j_{1}=1}\cdots\sum^{n_{m}}_{j_{m}=1}a_{j_{1},\ldots,j_{m}}\conj{b_{j_{1},\ldots,j_{m}}}.
+    \end{multline*}
+
+    Let
+    \begin{align*}
+        v_{k} & = v_{1}^{k}e_{1}^{k} + \cdots + v_{n_{k}}^{k}e_{n_{k}}^{k} \\
+        u_{k} & = u_{1}^{k}e_{1}^{k} + \cdots + u_{n_{k}}^{k}e_{n_{k}}^{k}
+    \end{align*}
+
+    for every $k\in\{1,\ldots,m\}$.
+    \begin{align*}
+          & \innerprod{v_{1}\otimes\cdots\otimes v_{m}, u_{1}\otimes\cdots\otimes u_{m}}                                                                                                                                                                                                         \\
+        = & \innerprod{\sum^{n_{1}}_{j_{1}=1}\cdots\sum^{n_{m}}_{j_{m}=1}v_{j_{1}}^{1}\cdots v_{j_{m}}^{m}e_{j_{1}}^{1}\otimes \cdots\otimes e_{j_{m}}^{m}, \sum^{n_{1}}_{j_{1}=1}\cdots\sum^{n_{m}}_{j_{m}=1}u_{j_{1}}^{1}\cdots u_{j_{m}}^{m}e_{j_{1}}^{1}\otimes \cdots\otimes e_{j_{m}}^{m}} \\
+        = & \sum^{n_{1}}_{j_{1}=1}\cdots\sum^{n_{m}}_{j_{m}=1}v_{j_{1}}^{1}\cdots v_{j_{m}}^{m}\conj{u_{j_{1}}^{1}\cdots u_{j_{m}}^{m}}                                                                                                                                                          \\
+        = & \sum^{n_{1}}_{j_{1}=1}\cdots\sum^{n_{m}}_{j_{m}=1}v_{j_{1}}^{1}\conj{u_{j_{1}}^{1}}\cdots v_{j_{m}}^{m}\conj{u_{j_{m}}^{m}}                                                                                                                                                          \\
+        = & \innerprod{v_{1}, u_{1}}\cdots\innerprod{v_{m}, u_{m}}.
+    \end{align*}
+
+    If an inner product on $V_{1}\otimes \cdots \otimes V_{m}$ satisfies
+    \[
+        \innerprod{v_{1}\otimes \cdots\otimes v_{m}, u_{1}\otimes \cdots\otimes u_{m}} = \innerprod{v_{1}, u_{1}}\cdots\innerprod{v_{m}, u_{m}}
+    \]
+
+    for all $(v_{1}, \ldots, v_{m})$ and $(u_{1}, \ldots, u_{m})$ in $V_{1}\times\cdots\times V_{m}$ then it is identical to the defined inner product, because every element of $V_{1}\otimes \cdots \otimes V_{m}$ is a linear combination of the basis
+    \[
+        {\{ e_{j_{1}}^{1}\otimes \cdots \otimes e_{j_{m}}^{m} \}}_{j_{1}=1,\ldots,n_{1}; \ldots; j_{m}=1,\ldots,n_{m}}.
+    \]
+
+    Thus there exists uniquely such an inner product on $V_{1}\otimes \cdots\otimes V_{m}$.
+\end{proof}
+\newpage
+
+% chapter9:sectionD:exercise13
+\begin{exercise}\label{chapter9:sectionD:exercise13}
+    Suppose that $V_{1}, \ldots, V_{m}$ are finite-dimensional inner product spaces and $V_{1}\otimes\cdots\otimes V_{m}$ is made into an inner product space using the inner product from Exercise~\ref{chapter9:sectionD:exercise12}. Suppose $e_{1}^{k}, \ldots, e_{n_{k}}^{k}$ is an orthonormal basis of $V_{k}$ for each $k = 1,\ldots,m$. Show that the list
+    \[
+        {\{ e_{j_{1}}^{1}\otimes \cdots\otimes e_{j_{m}}^{m} \}}_{j_{1}=1,\ldots,n_{1}; \ldots ; j_{m}=1,\ldots,n_{m}}
+    \]
+
+    is an orthonormal basis of $V_{1}\otimes\cdots\otimes V_{m}$.
+\end{exercise}
+
+\begin{proof}
+    Firstly,
+    \[
+        {\{ e_{j_{1}}^{1}\otimes \cdots\otimes e_{j_{m}}^{m} \}}_{j_{1}=1,\ldots,n_{1}; \ldots ; j_{m}=1,\ldots,n_{m}}
+    \]
+
+    is a basis of $V_{1}\otimes\cdots\otimes V_{m}$. Moreover
+    \begin{align*}
+        \innerprod{e_{j_{1}}^{1}\otimes\cdots\otimes e_{j_{m}}^{m}, e_{k_{1}}^{1}\otimes\cdots\otimes e_{k_{m}}^{m}} = \innerprod{e_{j_{1}}^{1}, e_{k_{1}}^{1}}\cdots\innerprod{e_{j_{m}}^{m}, e_{k_{m}}^{m}}
+    \end{align*}
+
+    so
+    \[
+        \innerprod{e_{j_{1}}^{1}\otimes\cdots\otimes e_{j_{m}}^{m}, e_{k_{1}}^{1}\otimes\cdots\otimes e_{k_{m}}^{m}} =
+        \begin{cases}
+            1 & \text{if $j_{1} = k_{1}, \ldots, j_{m} = k_{m}$} \\
+            0 & \text{otherwise}
+        \end{cases}.
+    \]
+
+    Thus the list
+    \[
+        {\{ e_{j_{1}}^{1}\otimes \cdots\otimes e_{j_{m}}^{m} \}}_{j_{1}=1,\ldots,n_{1}; \ldots ; j_{m}=1,\ldots,n_{m}}
+    \]
+
+    is an orthonormal basis of $V_{1}\otimes\cdots\otimes V_{m}$.
+\end{proof}
+\newpage
