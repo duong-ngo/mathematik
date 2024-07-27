@@ -835,3 +835,227 @@
 \newpage
 
 \section{Riemann Integral Is Not Good Enough}
+
+% chapter1:sectionB:exercise1
+\begin{exercise}\label{chapter1:sectionB:exercise1}
+    Define $f: \closedinterval{0, 1}\to \mathbb{R}$ as follows:
+    \[
+        f(a) = \begin{cases}
+            0           & \text{if $a$ is irrational},                                                                                                             \\
+            \frac{1}{n} & \parbox[t]{0.7\textwidth}{if $a$ is rational and $n$ is the smallest positive integer such that $a = \frac{m}{n}$ for some integer $m$.}
+        \end{cases}
+    \]
+
+    Show that $f$ is Riemann integrable and compute $\int^{1}_{0}f$.
+\end{exercise}
+
+\begin{proof}
+    $f$ is bounded, because $0\leq f(x)\leq 1$ for all $x\in\closedinterval{a, b}$.
+
+    Let $\varepsilon > 0$ and $N$ is a positive integer such that $\frac{1}{N} < \frac{\varepsilon}{2}$. Consider the following finite set
+    \[
+        A = \left\{ 0, 1, \frac{1}{2}, \frac{1}{3}, \frac{2}{3}, \ldots, \frac{1}{N}, \ldots, \frac{N-1}{N} \right\}.
+    \]
+
+    If $x\in\closedinterval{0,1}$ and $x\notin A$ then
+    \[
+        f(x) \leq \frac{1}{N+1} < \frac{\varepsilon}{2}.
+    \]
+
+    Choose a partition $P = \{ x_{0}, x_{1}, \ldots, x_{n} \}$ such that $n$ is larger than $m$ and $\norm{P} < \frac{\varepsilon}{4m}$ where $m$ is the number of elements of $A$. Because every closed interval (that contains more than 1 element) contains an irrational number, $L(f, P, \closedinterval{a, b}) = 0$.
+
+    For every $i\in\{ 1,\ldots, n \}$, let
+    \[
+        A_{i} = \closedinterval{x_{i-1}, x_{i}}\cap A.
+    \]
+
+    Consider the upper Riemann sum
+    \[
+        U(f, P, \closedinterval{a, b}) = \sum^{n}_{i=1}(x_{i} - x_{i-1})\sup\limits_{\closedinterval{x_{i-1},x_{i}}}f = \sum_{i: A_{i}\ne\varnothing}(x_{i} - x_{i-1})\sup\limits_{\closedinterval{x_{i-1},x_{i}}}f + \sum_{i: A_{i}=\varnothing}(x_{i} - x_{i-1})\sup\limits_{\closedinterval{x_{i-1},x_{i}}}f.
+    \]
+
+    The number of subintervals $\closedinterval{x_{i-1}, x_{i}}$ that contains an element of $A$ does not exceed $2m$ (because a closed interval has boundary and an element of $A$ can be at the boundary of one of these closed subintervals), so
+    \[
+        \sum_{i: A_{i}\ne\varnothing}(x_{i} - x_{i-1})\sup\limits_{\closedinterval{x_{i-1},x_{i}}}f \leq \sum_{i: A_{i}\ne\varnothing} 1\cdot \norm{P} \leq 2m\cdot 1\norm{P} < 2m \cdot \frac{\varepsilon}{4m} = \frac{\varepsilon}{2}.
+    \]
+
+    If $\closedinterval{x_{i-1}, x_{i}}\cap A = \varnothing$, then $\sup\limits_{\closedinterval{x_{i-1},x_{i}}}f\leq \frac{1}{N+1}$
+    \[
+        \sum_{i: A_{i}=\varnothing}(x_{i} - x_{i-1})\sup\limits_{\closedinterval{x_{i-1},x_{i}}}f \leq \sum_{i: A_{i}=\varnothing}(x_{i} - x_{i-1})\frac{1}{N+1} \leq (x_{n} - x_{0})\frac{1}{N+1} = \frac{1}{N+1} < \frac{\varepsilon}{2}.
+    \]
+
+    Therefore $U(f, P, \closedinterval{a, b}) - L(f, P, \closedinterval{a, b}) = U(f, P, \closedinterval{a, b}) < \varepsilon$. Hence $f$ is Riemann integrable. By the definition of Riemann integrablility,
+    \[
+        \int^{1}_{0}f = L(f, \closedinterval{a, b}) = \inf\limits_{P}L(f, P, \closedinterval{a, b}) = \inf\limits_{P}0 = 0.
+    \]
+\end{proof}
+\newpage
+
+% chapter1:sectionB:exercise2
+\begin{exercise}\label{chapter1:sectionB:exercise2}
+    Suppose $f: \closedinterval{a,b}\to\mathbb{R}$ is a bounded function. Prove that $f$ is Riemann integrable if and only if
+    \[
+        L(-f, \closedinterval{a,b}) = -L(f, \closedinterval{a,b}).
+    \]
+\end{exercise}
+
+\begin{proof}
+    For every partition $P$ on $\closedinterval{a, b}$
+    \[
+        L(-f, P, \closedinterval{a, b}) = -U(f, P, \closedinterval{a, b}).
+    \]
+
+    Therefore
+    \begin{align*}
+        L(-f, \closedinterval{a, b}) & = \sup\limits_{P}L(-f, P, \closedinterval{a, b})   \\
+                                     & = \sup\limits_{P}(-U(f, P, \closedinterval{a, b})) \\
+                                     & = -\inf\limits_{P}U(f, P, \closedinterval{a, b})   \\
+                                     & = -U(f, \closedinterval{a, b}).
+    \end{align*}
+
+    $f$ is Riemann integrable if and only if $U(f, \closedinterval{a, b}) = L(f, \closedinterval{a, b})$. $U(f, \closedinterval{a, b}) = L(f, \closedinterval{a, b})$ if and only if $L(-f, \closedinterval{a, b}) = -L(f, \closedinterval{a, b})$.
+
+    Thus $f$ is Riemann integrable if and only if $L(-f, \closedinterval{a, b}) = -L(f, \closedinterval{a, b})$.
+\end{proof}
+\newpage
+
+% chapter1:sectionB:exercise3
+\begin{exercise}\label{chapter1:sectionB:exercise3}
+    Suppose $f, g: \closedinterval{a,b}\to\mathbb{R}$ are bounded functions. Prove that
+    \[
+        L(f, \closedinterval{a,b}) + L(g, \closedinterval{a,b}) \leq L(f + g, \closedinterval{a,b})
+    \]
+
+    and
+    \[
+        U(f + g, \closedinterval{a,b}) \leq U(f, \closedinterval{a,b}) + U(g, \closedinterval{a, b}).
+    \]
+\end{exercise}
+
+\begin{proof}
+    Let $P_{1}, P_{2}$ be two partitions on $\closedinterval{a, b}$.
+    \begin{align*}
+        L(f, P_{1}, \closedinterval{a, b}) + L(g, P_{2}, \closedinterval{a, b}) & \leq L(f, P_{1}\cup P_{2}, \closedinterval{a, b}) + L(g, P_{1}\cup P_{2}, \closedinterval{a, b}), \\
+        U(f, P_{1}, \closedinterval{a, b}) + U(g, P_{2}, \closedinterval{a, b}) & \geq U(f, P_{1}\cup P_{2}, \closedinterval{a, b}) + U(g, P_{1}\cup P_{2}, \closedinterval{a, b}).
+    \end{align*}
+
+    We have
+    \[
+        \inf\limits_{\closedinterval{x_{i-1}, x_{i}}}f + \inf\limits_{\closedinterval{x_{i-1}, x_{i}}}g \leq \inf\limits_{\closedinterval{x_{i-1}, x_{i}}}(f + g).
+    \]
+
+    because $\inf\limits_{\closedinterval{x_{i-1}, x_{i}}}(f + g)$ is the greatest lower bound of $f(x) + g(x)$ for $x\in\closedinterval{x_{i-1}, x_{i}}$, meanwhile, $\inf\limits_{\closedinterval{x_{i-1}, x_{i}}}f + \inf\limits_{\closedinterval{x_{i-1}, x_{i}}}g$ is a lower bound.
+    \[
+        \sup\limits_{\closedinterval{x_{i-1}, x_{i}}}f + \sup\limits_{\closedinterval{x_{i-1}, x_{i}}}g \geq \sup\limits_{\closedinterval{x_{i-1}, x_{i}}}(f + g)
+    \]
+
+    because $\sup\limits_{\closedinterval{x_{i-1}, x_{i}}}(f + g)$ is the least upper bound of $f(x) + g(x)$ for $x\in\closedinterval{x_{i-1}, x_{i}}$, meanwhile, $\sup\limits_{\closedinterval{x_{i-1}, x_{i}}}f + \sup\limits_{\closedinterval{x_{i-1}, x_{i}}}g$ is an upper bound.
+
+    Apply these results to the subintervals of $P_{1}\cup P_{2}$
+    \begin{align*}
+        L(f, P_{1}\cup P_{2}, \closedinterval{a, b}) + L(g, P_{1}\cup P_{2}, \closedinterval{a, b}) & \leq L(f + g, P_{1}\cup P_{2}, \closedinterval{a, b}) \leq L(f + g, \closedinterval{a, b}), \\
+        U(f, P_{1}\cup P_{2}, \closedinterval{a, b}) + U(g, P_{1}\cup P_{2}, \closedinterval{a, b}) & \geq U(f + g, P_{1}\cup P_{2}, \closedinterval{a, b}) \geq U(f + g, \closedinterval{a, b}).
+    \end{align*}
+
+    $L(f + g, \closedinterval{a, b})$ is an upper bound of $L(f, P_{1}, \closedinterval{a, b}) + L(g, P_{2}, \closedinterval{a, b})$ as $P_{1}$ and $P_{2}$ change.
+
+    $L(f, \closedinterval{a, b}) + L(g, \closedinterval{a, b})$ is the least upper bound of $L(f, P_{1}, \closedinterval{a, b}) + L(g, P_{2}, \closedinterval{a, b})$ as $P_{1}$ and $P_{2}$ change.
+
+    $U(f + g, \closedinterval{a, b})$ is a lower bound of $U(f, P_{1}, \closedinterval{a, b}) + U(g, P_{2}, \closedinterval{a, b})$ as $P_{1}$ and $P_{2}$ change.
+
+    $U(f, \closedinterval{a,b}) + U(g, \closedinterval{a, b})$ is the greatest lower bound of $U(f, P_{1}, \closedinterval{a, b}) + U(g, P_{2}, \closedinterval{a, b})$ as $P_{1}$ and $P_{2}$ change.
+
+    Thus
+    \begin{align*}
+        L(f, \closedinterval{a,b}) + L(g, \closedinterval{a,b}) \leq L(f + g, \closedinterval{a,b}), \\
+        U(f + g, \closedinterval{a,b}) \leq U(f, \closedinterval{a,b}) + U(g, \closedinterval{a, b}).
+    \end{align*}
+\end{proof}
+\newpage
+
+% chapter1:sectionB:exercise4
+\begin{exercise}\label{chapter1:sectionB:exercise4}
+    Given an example of bounded functions $f, g: \closedinterval{0, 1}\to \mathbb{R}$ such that
+    \[
+        L(f, \closedinterval{0,1}) + L(g, \closedinterval{0,1}) < L(f + g, \closedinterval{0, 1})
+    \]
+
+    and
+    \[
+        U(f + g, \closedinterval{0,1}) < U(f, \closedinterval{0,1}) + U(g, \closedinterval{0, 1}).
+    \]
+\end{exercise}
+
+\begin{proof}
+    Let $f, g: \closedinterval{0, 1}\to\mathbb{R}$ be the following functions
+    \[
+        \begin{split}
+            f(x) = \begin{cases}
+                       1 & \text{if $x$ is rational}   \\
+                       0 & \text{if $x$ is irrational}
+                   \end{cases} \\
+            g(x) = \begin{cases}
+                       0 & \text{if $x$ is rational}   \\
+                       1 & \text{if $x$ is irrational}
+                   \end{cases}
+        \end{split}
+    \]
+
+    then $(f + g)(x) = 1$ for all $x\in\closedinterval{0, 1}$ so $f + g$ is Riemann integrable on $\closedinterval{0, 1}$ and
+    \[
+        U(f + g, \closedinterval{0, 1}) = L(f + g, \closedinterval{0, 1}) = 1.
+    \]
+
+    We have
+    \[
+        \begin{split}
+            L(f, \closedinterval{0, 1}) = L(g, \closedinterval{0, 1}) = 0 \qquad L(f + g, \closedinterval{0, 1}) = 1, \\
+            U(f, \closedinterval{0, 1}) = U(g, \closedinterval{0, 1}) = 1 \qquad U(f + g, \closedinterval{0, 1}) = 1.
+        \end{split}
+    \]
+
+    Therefore
+    \[
+        \begin{split}
+            L(f, \closedinterval{0, 1}) + L(g, \closedinterval{0, 1}) = 0 < 1 = L(f + g, \closedinterval{0, 1}), \\
+            U(f, \closedinterval{0, 1}) + U(g, \closedinterval{0, 1}) = 2 > 1 = U(f + g, \closedinterval{0, 1}).
+        \end{split}
+    \]
+\end{proof}
+\newpage
+
+% chapter1:sectionB:exercise5
+\begin{exercise}\label{chapter1:sectionB:exercise5}
+    Given an example of a sequence of continuous real-valued functions $f_{1}, f_{2}, \ldots$ on $\closedinterval{0, 1}$ and a continuous real-valued function $f$ on $\closedinterval{0, 1}$ such that
+    \[
+        f(x) = \lim\limits_{k\to\infty}f_{k}(x)
+    \]
+
+    for each $x\in\closedinterval{0,1}$ but
+    \[
+        \int^{1}_{0}f \ne \lim\limits_{k\to\infty}\int^{1}_{0}f_{k}.
+    \]
+\end{exercise}
+
+\begin{proof}
+    Consider the following sequence of conditions real-valued functions on $\closedinterval{0, 1}$
+    \[
+        f_{k}(x) = k^{2}x{(1 - x)}^{k}.
+    \]
+
+    Integrate by parts and use the fundamental theorem of calculus, we obtain
+    \[
+        \int^{1}_{0}f_{k} = \frac{k^{2}}{(k + 1)(k + 2)}
+    \]
+
+    On the other hand, for each $x\in\closedinterval{0, 1}$
+    \[
+        f(x) = \lim\limits_{k\to\infty}f_{k}(x) = 0
+    \]
+
+    so $f$ is continuous and $\int^{1}_{0}f = 0$.
+    \[
+        \int^{1}_{0}f = 0 \ne 1 = \lim\limits_{k\to\infty}\int^{1}_{0}f_{k}.
+    \]
+\end{proof}
+\newpage
