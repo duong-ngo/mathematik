@@ -1,4 +1,4 @@
-\documentclass[oneside]{book}
+\documentclass[12pt,oneside]{book}
 
 \usepackage[left=2cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
 \usepackage[unicode=true,hidelinks]{hyperref}
@@ -11,6 +11,7 @@
 \usepackage{mathrsfs}
 \usepackage{cases}
 \usepackage{pgf,tikz}
+\usepackage{pgfplots}
 \usetikzlibrary{shapes}
 \usetikzlibrary{shapes.arrows}
 \usetikzlibrary{arrows.meta}
@@ -39,7 +40,9 @@
 \usepackage{subcaption}
 \usepackage{booktabs}
 \usepackage[inline]{enumitem}
+\usepackage{setspace}
 
+\setstretch{1.4142}
 \setcounter{chapter}{0}
 \setcounter{section}{0}
 \counterwithout{section}{chapter}
@@ -70,7 +73,16 @@
 \newcommand{\abs}[1]{\left\vert{#1}\right\vert}
 \newcommand{\norm}[1]{\left\Vert{#1}\right\Vert}
 \newcommand{\anglebracket}[1]{\left\langle{#1}\right\rangle}
-\newcommand{\innerprod}[2]{\left\langle{#1}\vert{#2}\rangle}
+\newcommand{\floor}[1]{\left\lfloor{#1}\right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil{#1}\right\rceil}
+\newcommand{\openinterval}[1]{\left]{#1}\right[}
+\newcommand{\closedinterval}[1]{\left[{#1}\right]}
+\newcommand{\halfopenleft}[1]{\left]{#1}\right]}
+\newcommand{\halfopenright}[1]{\left[{#1}\right[}
+\newenvironment{section*}[1]{% \begin{section*}{section title}....\end{section*}
+  \section*{#1}
+  \renewcommand\thesection{\thechapter.S}
+  \setcounter{exercise}{0}}{}
 
 \title{James Munkres's Topology: Exercises}
 \author{Ngo Quang Duong}

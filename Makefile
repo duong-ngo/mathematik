@@ -115,8 +115,11 @@ analysis:
 ag:
 	@$(MAKE) phase1/ideals-varieties-and-algorithms/main.pdf
 
-algebra0:
+paolo:
 	@$(MAKE) phase2/aluffi-algebra-chapter-0/main.pdf
 
 functional-analysis:
 	@$(MAKE) phase2/kreyszig-functional-analysis/main.pdf
+
+spivak:
+	@$(MAKE) phase2/calculus-on-manifolds/main.pdf
