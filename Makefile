@@ -123,3 +123,6 @@ functional-analysis:
 
 spivak:
 	@$(MAKE) phase2/calculus-on-manifolds/main.pdf
+
+topological-manifolds:
+	@$(MAKE) phase2/lee-topological-manifolds/main.pdf

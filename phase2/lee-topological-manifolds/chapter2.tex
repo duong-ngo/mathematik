@@ -1,0 +1,636 @@
+\chapter{Topological Spaces}
+
+\section*{Topologies}\addcontentsline{toc}{section}{Topologies}
+
+\begin{exercise}{2.2}
+	Verify that each of the preceding examples is in fact a topology.
+
+	\begin{enumerate}[label={(\alph*)}]
+		\item Let $X$ be any set whatsoever, and let $\mathscr{T} = \mathscr{P}(X)$ (the power set of $X$), so every subset of $X$ is open. This is called the **discrete topology on $X$**, and $(X, \mathscr{T})$ is called a **discrete space**.
+		\item Let $Y$ be any set, and let $\mathscr{T} = \{Y, \varnothing \}$. This is called the **trivial topology on $Y$**.
+		\item Let $Z$ be the set $\{1,2,3\}$, and declare the open subsets to be $\{1\}, \{1,2\}, \{1,2,3\}$, and the empty set.
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item $\varnothing$ and $X$ are in $\mathscr{T}$ because they are subsets of $X$.
+
+		      Suppose $A, B$ are two arbitrary elements of $\mathscr{T}$, then $A\cap B$ is also in $\mathscr{T}$ because $A\cap B$ is a subset of $X$. Hence $\mathscr{T}$ satisfies the finite intersection property.
+
+		      Suppose ${(U_{\alpha})}_{\alpha\in A}$ is a family of elements of $\mathscr{T}$, then $\bigcup_{\alpha\in A}U_{\alpha}$ is a subset of $X$. Hence $\mathscr{T}$ satisfies the arbitrary union property.
+
+		      Thus $\mathscr{T}$ is a topology on $X$.
+		\item $\varnothing, Y$ are in $\mathscr{T}$ due to the definition.
+
+		      Suppose $A, B$ are two arbitrary elements of $\mathscr{T}$, then $A\cap B$ is either $\varnothing\cap Y$, $Y\cap \varnothing$, $\varnothing\cap\varnothing$, $Y\cap Y$. Hence $A\cap B\in\mathscr{T}$.
+
+		      Suppose ${(U_{\alpha})}_{\alpha\in A}$ is a family of subsets of $Y$, then either $U_{\alpha} = \varnothing$ for all $\alpha\in A$ or there is $\alpha\in A$ such that $U_{\alpha} = Y$. In the former case, $\bigcup_{\alpha\in A}U_{\alpha} = \varnothing$. In the latter case, $\bigcup_{\alpha\in A}U_{\alpha} = Y$. Hence $\bigcup_{\alpha\in A}U_{\alpha}$ is in $\mathscr{T}$.
+
+		      Thus $\mathscr{T}$ is a topology on $Y$.
+		\item $\varnothing, \{ 1,2,3 \}$ are open.
+
+		      Any of the following intersections are open:
+		      \begin{align*}
+			       & \varnothing \cap \varnothing \quad \varnothing \cap \{ 1 \} \quad \varnothing \cap \{ 1, 2 \} \quad \varnothing \cap \{ 1, 2, 3 \} \\
+			       & \{ 1 \} \cap \{ 1 \} \quad \{ 1 \} \cap \{ 1, 2 \} \quad \{ 1 \} \cap \{ 1, 2, 3 \}                                                \\
+			       & \{ 1, 2 \} \cap \{ 1, 2 \} \quad \{ 1, 2 \} \cap \{ 1, 2, 3 \}                                                                     \\
+			       & \{ 1, 2, 3 \} \cap \{ 1, 2, 3 \}
+		      \end{align*}
+
+		      Hence these sets satisfy the finite intersection property.
+
+		      Suppose ${(U_{\alpha})}_{\alpha\in A}$ is a family of subsets of $Z$. This family is simply ordered by inclusion. If this family is empty then its union is the empty set, which is open. Otherwise, because the number of elements of $U_{\alpha}$ is either 0, 1, 2, 3, then there exists a set $U_{\beta}$ with the most elements, so the union of the family is $U_{\beta}$, which is open. Hence $\varnothing, \{1\}, \{1,2\}, \{1,2,3\}$ satisfy the arbitrary union property.
+
+		      Thus $\{ \varnothing, \{1\}, \{1,2\}, \{1,2,3\} \}$ is a topology on $Z$.
+	\end{enumerate}
+\end{proof}
+
+\begin{exercise}{2.4}
+	\begin{enumerate}[label={(\alph*)}]
+		\item Suppose $M$ is a set and $d, d'$ are two different metrics on $M$. Prove that $d$ and $d'$ generate the same topology on $M$ if and only if the following is satisfied: for every $x\in M$ and every $r > 0$, there exists positive numbers $r_{1}$ and $r_{2}$ such that $B^{(d')}_{r_{1}}(x)\subseteq B^{(d)}_{r}(x)$ and $B^{(d)}_{r_{2}}(x)\subseteq B^{(d')}_{r}(x)$.
+		\item Let $(M, d)$ be a metric space, let $c$ be a positive real number, and define a new metric $d'$ on $M$ by $d'(x, y) = c\cdot d(x, y)$. Prove that $d$ and $d'$ generate the same topology on $M$.
+		\item Define a metric $d'$ on $\mathbb{R}^{n}$ by $d'(x, y) = \max\{ \left\vert{x_{1} - y_{1}}\right\vert, \ldots, \left\vert{x_{n} - y_{n}}\right\vert \}$. Show that the Euclidean metric and $d'$ generate the same topology on $\mathbb{R}^{n}$.
+		\item Let $X$ be any set, and let $d$ be the discrete metric on $X$. Show that $d$ generates the discrete topology.
+		\item Show that the discrete metric and the Euclidean metric generate the same topology on the set $\mathbb{Z}$ of integers.
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item Suppose $d$ and $d'$ generate the same topology $\mathscr{T}$ on $M$.
+
+		      Because open balls are open sets with respect to the corresponding metric topology, so for every $x\in M$ and every $r > 0$, $B^{(d)}_{r}(x)$ and $B^{(d')}_{r}(x)$ are open sets. Because $x\in B^{(d)}_{r}(x)$ and $x\in B^{(d')}_{r}(x)$ so there exists positive numbers $r_{1}$ and $r_{2}$ such that $B^{(d')}_{r_{1}}(x)\subseteq B^{(d)}_{r}(x)$ and $B^{(d)}_{r_{2}}(x)\subseteq B^{(d')}_{r}(x)$.
+
+		      Suppose for every $x\in M$ and every $r > 0$, there exists positive numbers $r_{1}$ and $r_{2}$ such that $B^{(d')}_{r_{1}}(x)\subseteq B^{(d)}_{r}(x)$ and $B^{(d)}_{r_{2}}(x)\subseteq B^{(d')}_{r}(x)$. Let $\mathscr{T}$ and $\mathscr{T}'$ be the topologies generated by $d$ and $d'$ on $M$, respectively.
+
+		      If $A\in\mathscr{T}$ then for every $x\in A$, there is $B^{(d)}_{r}(x)\subseteq A$. By the hypothesis, there exists a positive number $r_{1}$ such that $x\in B^{(d')}_{r_{1}}(x)\subseteq B^{(d)}_{r}(x)\subseteq A$. Therefore $A\in\mathscr{T}'$ by the definition of metric topology. Hence $\mathscr{T}\subseteq \mathscr{T}'$.
+
+		      If $A'\in\mathscr{T}'$ then for every $x\in A'$, there is $B^{(d')}_{r}(x)\subseteq A'$. By the hypothesis, there exists a positive number $r_{2}$ such that $x\in B^{(d)}_{r_{2}}(x)\subseteq B^{(d')}_{r}(x)\subseteq A'$. Therefore $A'\in \mathscr{T}$ by the definition of metric topology. Hence $\mathscr{T}'\subseteq \mathscr{T}$.
+
+		      Therefore $\mathscr{T} = \mathscr{T}'$, which means $d$ and $d'$ generate the same topology on $M$.
+		\item For every $x\in M$ and every $r > 0$, $B^{(d')}_{c\cdot r}(x) = B^{(d)}_{r}(x)$, $B^{(d)}_{r/c}(x) = B^{(d')}_{r}(x)$. By part (a), we conclude that $d$ and $d'$ generate the same topology on $M$.
+		\item For every $x, y\in \mathbb{R}^{n}$
+		      \[
+			      \begin{split}
+				      d'(x, y) & = \max\{ \left\vert{x_{1} - y_{1}}\right\vert, \ldots, \left\vert{x_{n} - y_{n}}\right\vert \} \leq \sqrt{{\left\vert{x_{1} - y_{1}}\right\vert}^{2} + \cdots + {\left\vert{x_{n} - y_{n}}\right\vert}^{2}} = d(x, y)                                     \\
+				      d'(x, y) & = \max\{ \left\vert{x_{1} - y_{1}}\right\vert, \ldots, \left\vert{x_{n} - y_{n}}\right\vert \} \geq \frac{1}{\sqrt{n}}\sqrt{{\left\vert{x_{1} - y_{1}}\right\vert}^{2} + \cdots + {\left\vert{x_{n} - y_{n}}\right\vert}^{2}} = \frac{1}{\sqrt{n}}d(x, y)
+			      \end{split}
+		      \]
+
+		      therefore, for every $x\in \mathbb{R}^{n}$ and $r > 0$
+		      \[
+			      B^{(d')}_{r}(x) \subseteq B^{(d)}_{r}(x) \qquad B^{(d)}_{r/\sqrt{n}}(x) \subseteq B^{(d')}_{r}(x)
+		      \]
+
+		      where $d$ denotes the Euclidean metric. By part (a), we conclude that the Euclidean metric and $d'$ generate the same topology on $\mathbb{R}^{n}$.
+		\item For every $x, y\in X$, the two balls $B_{1/2}(x)$ and $B_{1/2}(y)$ are disjoint. Let $A$ be a subset of $X$ then
+		      \[
+			      A = \bigcup_{x\in A}B_{1/2}(x)
+		      \]
+
+		      so $A$ is in the topology generated by the discrete metric. Moreover, every open set in the topology generated by the discrete metric is in the discrete topology. Thus the discrete metric on $X$ generates the discrete topology on $X$.
+		\item By part (d), the discrete metric generates the discrete topology on $\mathbb{Z}$.
+
+		      Let $A$ be a subset of $\mathbb{Z}$, then $A$ is open in the discrete topology on $\mathbb{Z}$. We have
+		      \[
+			      A = \bigcup_{x\in A}B^{(d)}_{1}(x)
+		      \]
+
+		      where $d$ denotes the Euclidean metric. So $A$ is in the topology generated by the Euclidean metric on $\mathbb{Z}$. On the other hand, every open set in the topology generated by the Euclidean metric on $\mathbb{Z}$ is a subset of $\mathbb{Z}$, hence it is in the discrete topology on $\mathbb{Z}$. Thus the discrete metric and the Euclidean metric generate the same topology on $\mathbb{Z}$.
+	\end{enumerate}
+\end{proof}
+
+\begin{exercise}{2.5}
+	Suppose $X$ is a topological space and $Y$ is an open subset of $X$. Show that the collection of all open subsets of $X$ that are contained in $Y$ is a topology on $Y$.
+\end{exercise}
+
+\begin{proof}
+	$\varnothing, Y$ are open subsets of $X$ that are contained in $Y$.
+
+	Suppose $A, B$ are open subsets of $X$ that are contained in $Y$, then $A\cap B$ is an open subset of $X$ and is contained in $Y$.
+
+	Suppose ${(U_{\alpha})}_{\alpha\in A}$ is a family of open subsets of $X$ that are contained in $Y$, then $\bigcup_{\alpha\in A}U_{\alpha}$ is an open subset of $X$ and $\bigcup_{\alpha\in A}U_{\alpha}\subseteq Y$.
+
+	Therefore the collection of all open subsets of $X$ that are contained in $Y$ is indeed a topology on $Y$.
+\end{proof}
+
+\begin{exercise}{2.6}
+	Let $X$ be a set, and suppose ${\{ \mathscr{T}_{\alpha} \}}$ is a collection of topologies on $X$. Show that the intersection $\mathscr{T} = \bigcap_{\alpha\in A}\mathscr{T}_{\alpha}$ is a topology on $X$.
+\end{exercise}
+
+\begin{proof}
+	$\varnothing, X\in \mathscr{T}_{\alpha}$ for every $\alpha\in A$ so $\varnothing, X\in \mathscr{T}$.
+
+	Suppose $U_{1}, \ldots, U_{n}$ are in $\mathscr{T}$, then they are in $\mathscr{T}_{\alpha}$ for all $\alpha\in A$. Therefore $\bigcap^{n}_{i=1}U_{i} \in \mathscr{T}_{\alpha}$, which implies $\bigcap^{n}_{i=1}U_{i}\in \mathscr{T}$.
+
+	Suppose ${(U_{i})}_{i\in I}$ is a family of elements of $\mathscr{T}$ then it is also a family of elements of $\mathscr{T}_{\alpha}$ for all $\alpha\in A$. Therefore $\bigcup_{i\in I}U_{i}\in \mathscr{T}_{\alpha}$ for all $\alpha\in A$, hence $\bigcup_{i\in I}U_{i} \in \mathscr{T}$.
+
+	Thus $\mathscr{T}$ is a topology on $X$.
+\end{proof}
+
+\subsection*{Closed Subsets}\addcontentsline{toc}{subsection}{Closed Subsets}
+
+\begin{exercise}{2.9}\label{exercise2.9}
+	Prove Proposition 2.8.
+
+	Let $X$ be a topological space and let $A\subseteq X$ be any subset.
+
+	\begin{enumerate}[label={(\alph*)}]
+		\item A point is in $\operatorname{Int} A$ if and only if it has a neighborhood contained in $A$.
+		\item A point is in $\operatorname{Ext} A$ if and only if it has a neighborhood contained in $X\setminus A$.
+		\item A point in $\partial A$ if and only if every neighborhood of it contains both a point of $A$ and a point of $X\setminus A$.
+		\item A point is in $\overline{A}$ if and only if every neighbordhood of it contains a point of $A$.
+		\item $\overline{A} = A\cup \partial A = \operatorname{Int} A\cup \partial A$.
+		\item $\operatorname{Int} A$ and $\operatorname{Ext}A$ are open in $X$, while $\overline{A}$ and $\partial A$ are closed in $X$.
+		\item The following are equivalent:
+		      \begin{itemize}
+			      \item $A$ is open in $X$.
+			      \item $A = \operatorname{Int} A$.
+			      \item $A$ contains none of its boundary points.
+			      \item Every point of $A$ has a neighborhood contained in $A$.
+		      \end{itemize}
+		\item The following are equivalent:
+		      \begin{itemize}
+			      \item $A$ is closed in $X$.
+			      \item $A = \overline{A}$.
+			      \item $A$ contains all of its boundary points.
+			      \item Every point of $X\setminus A$ has a neighborhood contained in $X\setminus A$.
+		      \end{itemize}
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item Suppose $x\in \operatorname{Int} A$. Because $\operatorname{Int} A$ is the union of all open sets contained in $A$, so there is a neighborhood of $x$ contained in $A$.
+
+		      Suppose $x$ has a neighborhood contained in $A$. Because the (open) neighborhood is contained in $A$ then it is also contained in $\operatorname{Int} A$, according to the defintion of interiors. Therefore $x\in \operatorname{Int} A$.
+		\item Suppose $x\in \operatorname{Ext} A$. Because $\operatorname{Ext} A = X\setminus \overline{A}$ so $\operatorname{Ext} A$ is an open subset of $X$. Since $\operatorname{Ext} A = X\setminus \overline{A}\subseteq X\setminus A$ (because $A\subseteq \overline{A}$), $\operatorname{Ext} A$ is a neighborhood of $x$ contained in $X\setminus A$.
+
+		      Suppose there is a neighborhood $N$ of $x$ contained in $X\setminus A$. Then $X\setminus N$ is a closed set containing $A$, which means $\overline{A}\subseteq X\setminus N$, because $\overline{A}$ is the smallest closed set containing $A$. Therefore $x\in N\subseteq X\setminus\overline{A} = \operatorname{Ext} A$.
+		\item Suppose $x\in \partial A$. Then $x\notin\operatorname{Int} A$ and $x\notin\operatorname{Ext} A$. By parts (a) and (b), every neighborhood of $x$ is not contained in $A$ (so contains a point in $X\setminus A$) and not contained in $X\setminus A$ (so contains a point in $A$). Therefore every neighborhood of $x$ contains a point of $A$ and a point of $X\setminus A$.
+
+		      Suppose every neighborhood of $x$ contains a point of $A$ and a point of $X\setminus A$. Then $x\notin \operatorname{Int} A$ and $x\notin \operatorname{Ext} A$. Because $X$ is the disjoint union of $\operatorname{Int}A, \partial A, \operatorname{Ext}A$, then $x\in\partial A$.
+		\item A point $x$ is in $\overline{A}$ if and only if it is not in $\operatorname{Ext} A$. By part (b), $x$ is not in $\operatorname{Ext} A$ if and only if every neighborhood of $x$ is not contained in $X\setminus A$. Therefore $x$ is not in $\operatorname{Ext} A$ if and only if every neighborhood of $x$ contains a point of $A$.
+
+		\item Suppose $x\in A\cup\partial A$. If $x\in A$ then every neighborhood of $x$ contains a point of $A$. If $x\in \partial A$ then every neighborhood of $x$ contains a point of $A$ (follows from part (c)). Therefore, according to part (d), $x\in\overline{A}$. Hence $A\cup\partial A\subseteq \overline{A}$.
+
+		      Suppose $x\in\overline{A}$. Then every neighborhood of $x$ contains a point of $A$. $x$ is either in $A$ or $X\setminus A$, if $x\in X\setminus A$ then every neighborhood of $x$ contains a point of $A$ (the previous sentence) and a point of $X\setminus A$ (for example, the point $x$). So by part (c), if $x\in X\setminus A$ then $x\in\partial A$. Hence $x\in A\cup\partial A$.
+
+		      Therefore $\overline{A} = A\cup\partial A$.
+
+		      By the definition of exteriors, and the result that $X$ is the disjoint union of $\operatorname{Int}A, \operatorname{Ext}A, \partial A$, we conclude that $\overline{A} = X\setminus \operatorname{Ext} A = \operatorname{Int} A\cup \partial A$.
+
+		\item $\operatorname{Int} A$ is the union of all open sets contained in $A$, so it is open in $X$.
+
+		      By parts (a) and (b), $\operatorname{Ext} A = \operatorname{Int} (X\setminus A)$, it follows from the previous sentence that $\operatorname{Ext} A$ is open in $X$.
+
+		      Because $\overline{A} = X\setminus\operatorname{Ext} A$ so $\overline{A}$ is closed in $X$.
+
+		      Because $\partial A = X\setminus (\operatorname{Int} A \cup \operatorname{Ext} A)$ so $\partial A$ is closed in $X$.
+
+		\item Suppose $A$ is open, then $A$ is the largest open set contained in $A$, so $A = \operatorname{Int} A$.
+
+		      Suppose $A = \operatorname{Int} A$. Then $A\cap \partial A = \operatorname{Int} A \cap \partial A = \varnothing$. Hence $A$ contains none of its boundary points.
+
+		      Suppose $A$ contains none of its boundary points. Let $x$ be a point of $A$ then $x$ is not a boundary point of $A$. By part (c), there exists a neighborhood of $x$ contained in $X\setminus A$ or a neighborhood of $x$ contained in $A$. The former case is impossible because $x\in A$, so the latter is the case. Because $x$ is an arbitrary point of $A$, we conclude that every point of $A$ has a neighborhood contained in $A$.
+
+		      Suppose every point $x$ of $A$ has a neighborhood $N_{x}$ contained in $A$. Then $A = \bigcup_{x\in A}N_{x}$, which implies that $A$ is open.
+
+		\item Suppose $A$ is closed, then $A$ is the smallest closed set containing $A$. Therefore $A = \overline{A}$.
+
+		      Suppose $A = \overline{A}$. By part (e), $A = \overline{A} = A\cup\partial A$. Therefore $A$ contains all of its boundary points.
+
+		      Suppose $A$ contains all of its boundary points. Let $x$ be a point of $X\setminus A$, then $x$ is not a boundary point of $A$. By part (c), there exists a neighborhood of $x$ contained in $A$ or a neighborhood of $x$ contained in $X\setminus A$. The former case is impossible because $x\in X\setminus A$, so the latter is the case. Because $x$ is an arbitrary point of $X\setminus A$, we conclude that every point of $X\setminus A$ has a neighborhood contained in $X\setminus A$.
+
+		      Suppose every point of $X\setminus A$ has a neighborhood contained in $X\setminus A$. By part (g), $X\setminus A$ is open. Therefore $A$ is closed.
+	\end{enumerate}
+\end{proof}
+
+\begin{exercise}{2.10}
+	Show that a subset of a topological space is closed if and only if it contains all of its limit points.
+\end{exercise}
+
+\begin{proof}
+	Let $(X, \mathscr{T})$ be a topological space and $A\subseteq X$.
+
+	Suppose $A$ is closed. By Exercise~\ref{exercise2.9} (h), $A = \overline{A}$. Assume $A$ has a limit point $x$ which is not in $A$, then $x$ is not in $\overline{A}$ (because $A = \overline{A}$). Therefore $x\in\operatorname{Ext} A = X\setminus\overline{A}$. By Exercise~\ref{exercise2.9} (b), there exists a neighborhood of $x$ contained in $X\setminus A$, this contradicts $x$ being a limit point of $A$ (every neighborhood of $x$ contains a point of $A$ other than $x$). Hence $A$ contains all of its limit points.
+
+	Suppose $A$ contains all of its limit points. Let $y\in X\setminus A$ then $y$ is not a limit point of $A$. So there exists a neighborhood of $y$ contained in $X\setminus A$. Hence every point of $X\setminus A$ has a neighborhood contained in $X\setminus A$. By Exercise~\ref{exercise2.9} (g), $X\setminus A$ is open, which implies $A$ is closed.
+
+	Thus $A$ is closed in $X$ if and only if it contains all of its limit points.
+\end{proof}
+
+\begin{exercise}{2.11}
+	Show that a subset $A \subseteq X$ is dense if and only if every nonempty open subset of $X$ contains a point of $A$.
+\end{exercise}
+
+\begin{proof}
+	First, we prove that the closure of a set contains all of its limit point. This follows from the definition of limit point, Exercise~\ref{exercise2.9} (b), and proof by contradiction.
+
+	Suppose $A$ is dense in $X$, then $\overline{A} = X$. Let $B$ be a nonempty open subset of $X$ and $x\in B$. If $x\in A$ then $B$ contains a point of $A$. If $x\notin A$ then $x$ is a limit point of $A$ (because $\overline{A} = X$), so $B$ contains a point of $A$, due to the definition of limit point. Hence every nonempty open subset of $X$ contains a point of $A$.
+
+	Suppose every nonempty open subset of $X$ contains a point of $A$. Let $x\in X$ then $x$ is either in $A$ or $X\setminus A$. If $x\in X\setminus A$ then $x$ is a limit point of $A$ (because every neighborhood (which is open) of $x$ contains a point of $A$ other than $x$). Hence $x\in \overline{A}$, which implies $X\subseteq \overline{A}$, since $x$ is arbitrary. Together with $\overline{A}\subseteq X$, we conclude that $\overline{A} = X$, which means $A$ is dense in $X$.
+
+	Thus $A\subseteq X$ is dense if and only if every nonempty open subset of $X$ contains a point of $A$.
+\end{proof}
+
+\section*{Convergence and Continuity}\addcontentsline{toc}{section}{Convergence and Continuity}
+
+\begin{exercise}{2.12}
+	Show that in a metric space, this topological definition of convergence is equivalent to the metric space definition.
+\end{exercise}
+
+\begin{proof}
+	Let $(X, d)$ be a metric space and ${(x_{i})}^{\infty}_{i=1}$ a sequence.
+
+	Suppose $x_{i}\to x$ (in metric space's sense). Let $U$ be a neighborhood $x$, then there exists $r > 0$ such that $x\in B^{(d)}_{r}(x)\subseteq U$. By the definition of convergence in metric space, there exists $n\in\mathbb{N}$ such that $i\geq N$ implies $d(x_{i}, x) < r$. So for every neighborhood $U$ of $x$, there exists $N$ such that $x_{i}\in U$ for all $i\geq N$. Hence $x_{i}\to x$ in topological space's sense.
+
+	Suppose $x_{i}\to x$ (in topological space's sense). For every $\varepsilon > 0$, $B^{(d)}_{\varepsilon}(x)$ is a neighborhood of $x$, so there exists $n\in\mathbb{N}$ such that $x_{i}\in B^{(d)}_{\varepsilon}(x)$ for all $i\geq N$. So for every $\varepsilon > 0$, there exists $n\in\mathbb{N}$ such that $d(x_{i}, x) < \varepsilon$ for all $i\geq N$. Hence $x_{i}\to x$ in metric space's sense.
+
+	Hence in a metric space, the definition of convergence in topological space and metric space are equivalent.
+\end{proof}
+
+\begin{exercise}{2.13}
+	Let $X$ be a discrete topological space. Show that the only convergent sequences in $X$ are the one that are \textbf{eventually constant}, that is, sequences $(x_{i})$ such that $x_{i} = x$ for all but finitely many $i$.
+\end{exercise}
+
+\begin{proof}
+	Suppose ${(x_{i})}$ is a convergent sequence in $X$. Let $x$ be the limit of ${(x_{i})}$. Because the singleton set $\{ x \}$ is open, therefore a neighborhood of $x$ so there exists $N\in\mathbb{N}$ such that $x_{i}\in \{ x \}$ for all $i\geq N$. Equivalently, there exists $N\in\mathbb{N}$ such that $x_{i} = x$ for all $i\geq N$. Hence ${(x_{i})}$ is eventually constant.
+
+	Suppose the sequence ${(x_{i})}$ in $X$ is eventually constant, then there exists $x\in X$ and $M\in\mathbb{N}$ such that $x_{i} = x$ for all $i\geq M$. So for every neighborhood $U$ of $x$, then $x_{i}\in \{ x \}\subseteq U$ for all $i\geq M$. Hence ${(x_{i})}$ converges to $x$.
+
+	Thus the only convergent sequences in a discrete topological space are the one that are eventually constant.
+\end{proof}
+
+\begin{exercise}{2.14}
+	Suppose $X$ is a topological space, $A$ is a subset of $X$, and ${(x_{i})}$ is a sequence of points in $A$ that converges to a point $x\in X$. Show that $x\in\overline{A}$.
+\end{exercise}
+
+\begin{proof}
+	Assume $x\notin \overline{A}$, then $x\in X\setminus\overline{A} = \operatorname{Ext} A$. By Exercise~\ref{exercise2.9} (b), there exists a neighborhood $U$ of $x$ which is contained in $X\setminus A$. However, because $x_{i}\to x$, there exists $N\in\mathbb{N}$ such that $x_{i}\in U$ for all $i\geq N$. The open set $U$ is contained in $X\setminus A$ and contains a point of $A$, this is a contradiction. Thus $x\in\overline{A}$.
+\end{proof}
+
+\begin{exercise}{2.16}
+	Prove Proposition 2.15: A map between topological spaces is continuous if and only if the preimage of every closed subset is closed.
+\end{exercise}
+
+\begin{proof}
+	Let $f$ be a map between two topological spaces $X$ and $Y$.
+
+	Suppose $f$ is continuous. Let $W$ be a closed subset of $Y$, then $Y\setminus W$ is open. Because preimage is well-behaved with set difference,
+	\[
+		f^{-1}(W) = f^{-1}(Y\setminus (Y\setminus W)) = f^{-1}(Y)\setminus f^{-1}(Y\setminus W) = X\setminus f^{-1}(Y\setminus W)
+	\]
+
+	$Y\setminus W$ is open in $Y$. Because $f$ is continuous, $f^{-1}(Y\setminus W)$ is open in $X$, therefore $f^{-1}(W) = X\setminus f^{-1}(Y\setminus W)$ is closed in $X$. Hence the preimage of every closed subset is closed.
+
+	Suppose the preimage of every closed subset is closed. Let $U$ be an open subset of $Y$.
+	\[
+		f^{-1}(U) = f^{-1}(Y\setminus (Y\setminus U)) = f^{-1}(Y)\setminus f^{-1}(Y\setminus U) = X\setminus f^{-1}(Y\setminus U)
+	\]
+
+	Because $U$ is open in $Y$, $Y\setminus U$ is closed in $Y$. Since the preimage under $f$ of every closed subset is closed, $f^{-1}(Y\setminus U)$ is closed in $X$. So $f^{-1}(U) = X\setminus f^{-1}(Y\setminus U)$ is open in $X$. Hence the preimage under $f$ of every open subset is open, which means $f$ is continuous.
+
+	Thus a map between topological spaces is continuous if and only if the preimage of every closed subset is closed.
+\end{proof}
+
+\begin{exercise}{2.18}
+	Prove Proposition 2.17
+
+	Let $X, Y$, and $Z$ be topological spaces.
+
+	\begin{enumerate}[label={(\alph*)}]
+		\item Every constant map $f: X\to Y$ is continuous.
+		\item The identity map $\operatorname{Id}_{X}: X\to X$ is continuous.
+		\item If $f: X\to Y$ is continuous, so is the restriction of $f$ to any open subset of $X$.
+		\item If $f: X\to Y$ and $g: Y\to Z$ are both continuous, then so is their composition $g\circ f: X\to Z$.
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item Suppose $f(x) = y$ for every $x\in X$. Let $A$ be an open subset of $Y$. If $y\in A$ then $f^{-1}(A) = X$, which is open. If $y\notin A$ then $f^{-1}(A) = \varnothing$, which is open. Hence the preimage under $f$ of every open subset of $Y$ is open, so $f$ is continuous.
+		\item Let $A$ be an open subset of $X$, then $\operatorname{Id}_{X}^{-1}(A) = A$, which is open. So the preimage under $\operatorname{Id}_{X}$ of every open subset of $X$ is an open subset of $X$, therefore $\operatorname{Id}_{X}$ is continuous.
+		\item Let $A$ be an open subset of $X$ and $B$ be an open subset of $Y$. We have $f\vert_{A}^{-1}(B) = A\cap f^{-1}(B)$. Because $f$ is continuous, $f^{-1}(B)$ is open. The intersection of finitely many open subsets is open, so $A\cap f^{-1}(B)$ is open. Therefore $f\vert_{A}^{-1}(B)$ is open. Hence the restriction of $f$ to any open subset of $X$ is continuous.
+		\item Let $U$ be an open subset of $Z$.
+		      \begin{align*}
+			      x\in {(g\circ f)}^{-1}(U) & \Longleftrightarrow g(f(x))\in U           \\
+			                                & \Longleftrightarrow f(x)\in g^{-1}(U)      \\
+			                                & \Longleftrightarrow x\in f^{-1}(g^{-1}(U))
+		      \end{align*}
+
+		      Therefore ${(g\circ f)}^{-1}(U) = f^{-1}(g^{-1}(U))$. Because $g$ is continuous, $g^{-1}(U)$ is open in $Y$. Because $f$ is continuous, $f^{-1}(g^{-1}(U))$ is open in $X$. Therefore ${(g\circ f)}^{-1}(U)$ is open in $X$. Because $U$ is an arbitrary open subset of $X$, we conclude that $g\circ f$ is continuous.
+	\end{enumerate}
+\end{proof}
+
+\begin{exercise}{2.20}
+	Show that ``homeomorphic'' is an equivalence relation on the class of all topological spaces.
+\end{exercise}
+
+\begin{proof}
+	For every topological space $X$, $\operatorname{Id}_{X}$ is continuous and $\operatorname{Id}_{X}^{-1} = \operatorname{Id}_{X}$ is continuous, so $X$ is homeomorphic to itself.
+
+	Suppose $X$ and $Y$ are homeomorphic, then there exists a bijective map $\varphi: X\to Y$ such that $\varphi$ and $\varphi^{-1}$ are continuous. Then $\varphi^{-1}: Y \to X$ satisfies $\varphi^{-1}$ and ${(\varphi^{-1})}^{-1} = \varphi$ are continuous. Therefore $Y$ and $X$ are homeomorphic.
+
+	Suppose $X$ and $Y$ homeomorphic, $Y$ and $Z$ are homeomorphic. Then there exist bijective maps $\varphi: X\to Y$ and $\psi: Y\to Z$ such that $\varphi, \varphi^{-1}$ are continuous, $\psi, \psi^{-1}$ are continuous. Because the composition of continuous maps is continuous and the composition of bijections is a bijection, it follows that $\psi\circ \varphi: X\to Z$ is bijective, $\psi\circ\varphi$ is continuous, ${(\psi\circ\varphi)}^{-1} = \varphi^{-1}\circ\psi^{-1}$ is continuous. Hence $X$ and $Z$ are homeomorphic.
+
+	Thus homeomorphic is an equivalence relation on the class of all topological spaces.
+\end{proof}
+
+\begin{exercise}{2.21}
+	Let $(X_{1}, \mathscr{T}_{1})$ and $(X_{2}, \mathscr{T}_{2})$ be topological spaces and let $f: X_{1}\to X_{2}$ be a bijective map. Show that $f$ is a homeomorphism if and only if $f(\mathscr{T}_{1}) = \mathscr{T}_{2}$ in the sense that $U\in\mathscr{T}_{1}$ if and only if $f(U)\in \mathscr{T}_{2}$.
+\end{exercise}
+
+\begin{proof}
+	$(\Rightarrow)$ Suppose $f$ is a homeomorphism.
+
+	If $U\in\mathscr{T}_{1}$, then $f(U)$ is open because it is the preimage of $U$ under $f^{-1}$, so $f(U)\in\mathscr{T}_{2}$. If $f(U)\in\mathscr{T}_{2}$, then $U$ is open because it is the preimage of $f(U)$ under $f$, so $U\in\mathscr{T}_{1}$. Hence $U\in\mathscr{T}_{1}$ if and only if $f(U)\in\mathscr{T}_{2}$.
+
+	If $W\in\mathscr{T}_{2}$, then $f^{-1}(W)\in\mathscr{T}_{1}$ (because $f$ is continuous).
+
+	Thus $f(\mathscr{T}_{1}) = \mathscr{T}_{2}$ and $U\in\mathscr{T}_{1}$ if and only if $f(U)\in \mathscr{T}_{2}$.
+
+	$(\Leftarrow)$ Suppose $f(\mathscr{T}_{1}) = \mathscr{T}_{2}$ and $U\in\mathscr{T}_{1}$ if and only if $f(U)\in \mathscr{T}_{2}$ for every $U\subseteq X_{1}$.
+
+	Because $f$ is bijective, $f^{-1}(f(A)) = A$. So $U\in\mathscr{T}_{2}$ if and only if $f^{-1}(U)\in\mathscr{T}_{1}$ for every $U\subseteq X_{2}$.
+
+	If $W\in\mathscr{T}_{2}$ then $f^{-1}(W)\in\mathscr{T}_{1}$. Therefore $f$ is continuous.
+
+	If $V\in\mathscr{T}_{1}$ then ${(f^{-1})}^{-1}(V) = f(V)\in \mathscr{T}_{2}$. Therefore $f^{-1}$ is continuous.
+
+	Hence $f$ is a homeomorphism.
+\end{proof}
+
+\begin{exercise}{2.22}\label{exercise2.22}
+	Suppose $f: X\to Y$ is a homeomorphism and $U\subseteq X$ is an open subset. Show that $f(U)$ is open in $Y$ and the restriction $f\vert_{U}$ is a homeomorphism from $U$ to $f(U)$.
+\end{exercise}
+
+\begin{proof}
+	Because $f$ is bijective, $f^{-1}(f(U)) = U$. $f$ is continuous and $U$ is open in $X$, so $f(U)$ is open in $Y$, according to the previous sentence.
+
+	$f$ is bijective, so $f\vert_{U}$, ${(f\vert_{U})}^{-1} = f^{-1}\vert_{f(U)}$ are also bijective. By **Exercise 2.18 (c)**, $f$ and $f^{-1}$ are continuous so the restriction of $f$ to $U$ is continuous, the restriction of $f^{-1}$ to $f(U)$ is continuous. Therefore $f\vert_{U}$ and $f^{-1}\vert_{f(U)} = {(f\vert_{U})}^{-1}$ are continuous. Hence $f\vert_{U}$ is a homeomorphism from $U$ to $f(U)$.
+\end{proof}
+
+\begin{exercise}{2.23}
+	Let $\mathscr{T}_{1}$ and $\mathscr{T}_{2}$ be topologies on the same set $X$. Show that the identity map of $X$ is continuous as a map from $(X, \mathscr{T}_{1})$ to $(X, \mathscr{T}_{2})$ if and only if $\mathscr{T}_{1}$ is finer than $\mathscr{T}_{2}$, and is a homeomorphism if and only if $\mathscr{T}_{1} = \mathscr{T}_{2}$.
+\end{exercise}
+
+\begin{proof}
+	Let $A$ be a subset of $X$, then $\operatorname{Id}_{X}^{-1}(A) = A$. The map $\operatorname{Id}_{X}$ is continuous if and only if $A\in\mathscr{T}_{2}$ implies $A\in\mathscr{T}_{1}$, which means $\mathscr{T}_{1}$ is finer than $\mathscr{T}_{2}$.
+
+	Because $\operatorname{Id}_{X}$ is bijective, then $\operatorname{Id}_{X}$ is a homomorphism if and only if $\operatorname{Id}_{X}$ and $\operatorname{Id}_{X}^{-1} = \operatorname{Id}_{X}$ are continuous. By the previous paragraph, $\operatorname{Id}_{X}$ is continuous if and only if $\mathscr{T}_{1}$ is finer than $\mathscr{T}_{2}$, and $\operatorname{Id}_{X}^{-1}$ is continuous if and only if $\mathscr{T}_{2}$ is finer than $\mathscr{T}_{1}$. Hence $\operatorname{Id}_{X}$ is a homemorphism if and only if $\mathscr{T}_{1} = \mathscr{T}_{2}$.
+\end{proof}
+
+\begin{exercise}{2.27}
+	$C = \{ (x, y, z) : \max\{ \left\vert{x}\right\vert, \left\vert{y}\right\vert, \left\vert{z}\right\vert \} = 1 \}$. Show that the map $\varphi: C\to \mathbb{S}^{2}$ is a homeomorphism by showing that its inverse can be written
+	\[
+		\varphi^{-1}(x, y, z) = \frac{(x, y, z)}{\max\{
+			\left\vert{x}\right\vert, \left\vert{y}\right\vert, \left\vert{z}\right\vert \}}.
+	\]
+\end{exercise}
+
+\begin{proof}
+	$\varphi: \mathbb{S}^{2}\to C$ and
+	\[
+		\varphi(x, y, z) = \frac{(x, y, z)}{\sqrt{x^{2} + y^{2} + z^{2}}}
+	\]
+
+	If $\varphi(x_{1}, y_{1}, z_{1}) = \varphi(x_{2}, y_{2}, z_{2})$ for some $(x_{1}, y_{1}, z_{1}), (x_{2}, y_{2}, z_{2})\in C$, then $(x_{1}, y_{1}, z_{1}) \sim (x_{2}, y_{2}, z_{2})$ because
+	\[
+		x_{1} = \frac{\sqrt{x_{1}^{2} + y_{1}^{2} + z_{1}^{2}}}{\sqrt{x_{2}^{2} + y_{2}^{2} + z_{2}^{2}}}x_{2}\qquad y_{1} = \frac{\sqrt{x_{1}^{2} + y_{1}^{2} + z_{1}^{2}}}{\sqrt{x_{2}^{2} + y_{2}^{2} + z_{2}^{2}}}y_{2} \qquad z_{1} = \frac{\sqrt{x_{1}^{2} + y_{1}^{2} + z_{1}^{2}}}{\sqrt{x_{2}^{2} + y_{2}^{2} + z_{2}^{2}}}z_{2}
+	\]
+
+	Without loss of generality, suppose $\max\{ \left\vert{x_{1}}\right\vert, \left\vert{y_{1}}\right\vert, \left\vert{z_{1}}\right\vert \} = \left\vert{x_{1}}\right\vert = 1$ then $\max\{ \left\vert{x_{2}}\right\vert, \left\vert{y_{2}}\right\vert, \left\vert{z_{2}}\right\vert \} = \left\vert{x_{2}}\right\vert$ and $\left\vert{x_{2}}\right\vert = 1$ as well by the definition of the cube $C$. Hence $\sqrt{x_{1}^{2} + y_{1}^{2} + z_{1}^{2}} = \sqrt{x_{2}^{2} + y_{2}^{2} + z_{2}^{2}}$, and it follows that $x_{1} = x_{2}, y_{1} = y_{2}, z_{1} = z_{2}$. So $\varphi$ is injective.
+
+	Let $(a, b, c)\in \mathbb{S}^{2}$ then $\varphi(x, y, z) = (a, b, c)$ where
+	\[
+		x = \frac{a}{\max\{ \left\vert{a}\right\vert, \left\vert{b}\right\vert, \left\vert{c}\right\vert \}}\qquad y = \frac{b}{\max\{ \left\vert{a}\right\vert, \left\vert{b}\right\vert, \left\vert{c}\right\vert \}}\qquad z = \frac{c}{\max\{ \left\vert{a}\right\vert, \left\vert{b}\right\vert, \left\vert{c}\right\vert \}}
+	\]
+
+	so $\varphi$ is surjective. Hence $\varphi$ is bijective.
+
+	$\varphi$ is continuous because the component functions of $\varphi$ are continuous. By the previous paragraph, we deduce the formula of $\varphi^{-1}: \mathbb{S}^{2}\to C$
+	\[
+		\varphi^{-1}(x, y, z) = \frac{(x, y, z)}{\max\{ \left\vert{x}\right\vert, \left\vert{y}\right\vert, \left\vert{z}\right\vert \}}
+	\]
+
+	and the component function of $\varphi^{-1}$ are continuous so $\varphi^{-1}$ is continuous.
+
+	Hence $\varphi$ is a homeomorphism.
+\end{proof}
+
+\begin{exercise}{2.28}
+	Let $X$ be the half-open interval $\halfopenright{0,1}\subseteq\mathbb{R}$, and let $\mathbb{S}^{1}$ be the unit circle in $\mathbb{C}$ (both with their Euclidean metric topologies, as usual). Define a map $a: X\to \mathbb{S}^{1}$ by $a(s) = e^{2{\pi}is} = \cos 2\pi s + i\sin 2\pi s$. Show that $a$ is continuous and bijective but not a homeomorphism.
+\end{exercise}
+
+\begin{proof}
+	$a$ is continuous because $s\mapsto \cos 2\pi s$ and $s\mapsto \sin 2\pi s$ are continuous.
+
+	$a(s_{1}) = a(s_{2})$ if and only if $\cos 2\pi s_{1} = \cos 2\pi s_{2}$ and $\sin 2\pi s_{1} = \sin 2\pi s_{2}$. $\cos 2\pi s_{1} = \cos 2\pi s_{2}$ and $\sin 2\pi s_{1} = \sin 2\pi s_{2}$ if and only if $s_{1} - s_{2}$ is an integer. Because $s_{1}, s_{2}\in \halfopenright{0,1}$, it follows that $s_{1} = s_{2}$, so $a$ is injective. Let $z = x + i y\in \mathbb{S}^{1}$ then there exists $\theta\in\halfopenright{0, 2\pi}$ such that $\cos\theta = x$ and $\sin\theta = y$. Hence $a$ is surjecitve. So $a$ is bijective.
+
+	$\halfopenright{0, 1}$ is not compact, but $\mathbb{S}^{1}$ is compact (due to the Heine-Borel theorem), so $a$ is not a homeomorphism.
+\end{proof}
+
+\begin{exercise}{2.29}\label{exercise2.29}
+	Suppose $f: X\to Y$ is a *bijective* continuous map. Show that the following are equivalent:
+
+	\begin{enumerate}[label={(\alph*)}]
+		\item $f$ is a homeomorphism.
+		\item $f$ is open.
+		\item $f$ is closed.
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	Suppose (a) is true. Because homeomorphisms preserves open subsets (**Exercise 2.21**), it follows that $f$ maps open subsets to open subsets. Hence (b) is true.
+
+	Suppose (b) is true. Let $A$ be a closed subset of $X$. Because $f$ is bijective, $f^{-1}(f(A)) = A$. $f$ is continuous so the preimage of a closed subset under $f$ is a closed subset. Therefore $f(A)$ is a closed subset, so $f$ is closed, and (c) is true.
+
+	Suppose (c) is true. Let $U$ be an open subset of $X$. Because $f$ is bijective, $f^{-1}(f(U)) = U$. $f$ is continuous so the preimage of an open subset under $f$ is an open subset. Therefore $f(U)$ is an open subset, which means ${(f^{-1})}^{-1}(U)$ is an open subset for every open subset $U\subseteq X$. So $f^{-1}$ is continuous, hence $f$ is a homeomorphism, and (a) is true.
+
+	We proved that $(a)\implies (b) \implies (c) \implies (a)$ so (a), (b), (c) are equivalent.
+\end{proof}
+
+\begin{exercise}{2.32}
+	Prove Proposition 2.31 (Properties of Local Homeomorphisms)
+	\begin{enumerate}[label={(\alph*)}]
+		\item Every homeomorphism is a local homeomorphism.
+		\item Every local homeomorphism is continuous and open.
+		\item Every bijective local homeomorphism is a homeomorphism.
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item Let $f: X\to Y$ be a homeomorphism and $x\in X$. Let $U$ be an open subset of $X$ containing $x$. By Exercise~\ref{exercise2.22}, $f\vert_{U}: U\to f(U)$ is a homeomorphism. Hence $f$ is a local homeomorphism.
+		\item Let $f: X\to Y$ be a local homeomorphism.
+
+		      By the definition of local homeomorphism, for every $x\in X$, there is a neighborhood $U$ of $x$ such that $f(U)$ is open in $Y$ and $f\vert_{U}: U\to f(U)$ is a homeomorphism. Therefore, for every $x\in X$, there is a neighborhood $U$ of $x$ to which the restriction of $f$ is continuous. By the Local Criterion for Continuity, $f$ is continuous.
+
+		      Let $A$ be an open subset of $X$. For every $x\in A$, there is a neighborhood $V_{x}$ of $x$ such that $f(V_{x})$ is open in $Y$ and $f\vert_{V_{x}}: V_{x}\to f(V_{x})$ is a homeomorphism. $A\cap V_{x}$ is open in $V_{x}$ (because $A\cap V_{x}$ and $V_{x}$ are open in $X$) so $f\vert_{V_{x}}(A\cap V_{x})$ is open in $f(V_{x})$ for every $x\in A$ (a homeomorphism is an open map). Moreover $A\subseteq \bigcup_{x\in A}V_{x}$ and every map is well-behaved with arbitrary union, so
+		      \[
+			      f(A) = f\left(A\cap \bigcup_{x\in A}V_{x}\right) = f\left(\bigcup_{x\in A}(A\cap V_{x})\right) = \bigcup_{x\in A} f(A\cap V_{x}) = \bigcup_{x\in A} f\vert_{V_{x}}(A\cap V_{x}).
+		      \]
+
+		      Hence $f(A)$ is an open subset of $X$, because it is the union of open subsets of $X$. Therefore $f$ is open. Thus $f$ is continuous and open.
+		\item Let $f: X\to Y$ be a bijective local homeomorphism.
+
+		      It follows from part (b) that $f$ is continuous and open. Moreover, $f$ is bijective so by Exercise~\ref{exercise2.29}, we conclude $f$ is a homeomorphism.
+	\end{enumerate}
+\end{proof}
+
+\section*{Hausdorff Spaces}\addcontentsline{toc}{section}{Hausdorff Spaces}
+
+\begin{exercise}{2.33}
+	Let $Y$ be a topological space with the trivial topology. Show that every sequence in $Y$ converges to every point of $Y$.
+\end{exercise}
+
+\begin{proof}
+	Let ${(y_{n})}^{\infty}_{n=1}$ is a sequence in $Y$ and $y\in Y$. In the trivial topological space, the only open subset containing $y$ is $Y$ and $Y$ contains every term of ${(y_{n})}^{\infty}_{n=1}$, therefore ${(y_{n})}^{\infty}_{n=1}$ converges to $y$. Because $y$ and ${(y_{n})}^{\infty}_{n=1}$ are arbitrary, we conclude that every sequence in the trivial topological space $Y$ converges to every point of $Y$.
+\end{proof}
+
+\begin{exercise}{2.35}
+	Suppose $X$ is a topological space, and for every $p\in X$ there exists a continuous function $f: X\to \mathbb{R}$ such that $f^{-1}(0) = \{ p \}$. Show that $X$ is Hausdorff.
+\end{exercise}
+
+\begin{proof}
+	Let $p_{1}, p_{2}$ be two distinct points of $X$. Then there is a continuous function $f: X\to\mathbb{R}$ such that $f^{-1}(0) = \{ p_{1} \}$. Because $p_{1}\ne p_{2}$ and $f^{-1}(0) = \{ p_{1} \}$, $f(p_{2})\ne 0$. Because $\mathbb{R}$ is Hausdorff, $0$ and $f(p_{2})$ are separated by open subsets. Let $B_{1}$ be an open subsets containing $0$ and $B_{2}$ be an open subset containing $f(p_{2})$ such that $B_{1}$ and $B_{2}$ are disjoint. Since $f$ is continuous, $f^{-1}(B_{1})$ and $f^{-1}(B_{2})$ are open subsets of $X$. Moreover, $f^{-1}(B_{1})$ and $f^{-1}(B_{2})$ are disjoint because $B_{1}$ and $B_{2}$ are disjoint. $p_{1}$ and $p_{2}$ are separated by the open subsets $B_{1}$ and $B_{2}$. Hence $X$ is Hausdorff.
+\end{proof}
+
+\begin{exercise}{2.38}
+	Show that the only Hausdorff topology on a finite set is the discrete topology.
+\end{exercise}
+
+\begin{proof}
+	The discrete topology is a Hausdorff topology.
+
+	Let $(X, \mathscr{T})$ be a topological space and $X$ is finite. Suppose $X$ is Hausdorff, then every finite subset of $X$ is closed. Let $A$ be a subset of $X$. Because $X$ is finite, $X\setminus A$ is finite, hence closed. Therefore $A$ is open. So $\mathscr{T}$ is the discrete topology.
+\end{proof}
+
+\section*{Bases and Countability}\addcontentsline{toc}{section}{Bases and Countability}
+
+\begin{exercise}{2.40}
+	Suppose $X$ is a topological space, and $\mathscr{B}$ is a basis for its topology. Show that a subset $U\subseteq X$ is open if and only if it satisfies the following condition
+
+	\begin{equation*}
+		\text{for each $p\in U$, there exists $B\in\mathscr{B}$ such that $p\in B\subseteq U$.}
+	\end{equation*}
+\end{exercise}
+
+\begin{proof}
+	$(\Rightarrow)$ $U\subseteq X$ is open.
+
+	Because $\mathscr{B}$ is a basis for the topology on $X$, there is a family of elements ${(B_{i})}_{i\in I}$ of $\mathscr{B}$ such that $U = \bigcup_{i\in I} B_{i}$. Therefore, for each $p\in U$, there exists $i\in I$ such that $p\in B_{i}\subseteq U$.
+
+	$(\Leftarrow)$ For each $p\in U$, there exists $B_{p}\in\mathscr{B}$ such that $p\in B\subseteq U$.
+
+	From the hypothesis, we deduce that $U = \bigcup_{p\in U}B_{p}$. Because $B_{p}$ is open in $X$ for every $p$, $U$ is open in $X$.
+\end{proof}
+
+\begin{exercise}{2.42}
+	Show that each of the following collections $\mathscr{B}_{i}$ is a basis for the Euclidean topology on $\mathbb{R}^{n}$.
+	\begin{enumerate}[label={(\alph*)}]
+		\item $\mathscr{B}_{1} = \{ C_{s}(x): x\in\mathbb{R}^{n} \text{ and } s > 0 \}$, where $C_{s}(x)$ is the **open cube of side length $s$ centered at $x$**:
+		      \[
+			      C_{s}(x) = \{ y = (y_{1}, \ldots, y_{n}) : \left\vert{x_{i} - y_{i}}\right\vert < s/2,\, i = 1,\ldots,n \}.
+		      \]
+		\item $\mathscr{B}_{2} = \{ B_{r}(x): \text{$r$ is rational and $x$ has rational coordinates} \}$.
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item Let's consider the open cube $C_{s}(x)$. Let $y\in C_{s}(x)$ and $r = \min\{ \left\vert{x_{i} - y_{i}}\right\vert : i=1,\ldots,n \}$. If $z\in B_{r}(y)$ then for $i=1,\ldots,n$
+		      \[
+			      \left\vert{z_{i} - y_{i}}\right\vert \leq \left\vert{x_{i} - y_{i}}\right\vert < s/2.
+		      \]
+
+		      So $y\in B_{r}(y)\subseteq C_{s}(x)$, which implies $C_{s}(x)$ is an open subset of $\mathbb{R}^{n}$. Hence every open cube is an open subset of $\mathbb{R}^{n}$.
+
+		      Let $A$ be an open subset of $\mathbb{R}^{n}$ with the Euclidean topology and $x\in A$.
+
+		      Because $A$ is open, there is $r > 0$ such that $B_{r}(x)\subseteq A$. Let's consider $C_{2r/\sqrt{n}}(x)$ and $y\in C_{2r/\sqrt{n}}(x)$, we have
+		      \[
+			      d(x, y) = \sqrt{\sum^{n}_{i=1}{\left\vert{x_{i} - y_{i}}\right\vert}^{2}} < \sqrt{\sum^{n}_{i=1}\frac{r^{2}}{n}} = r.
+		      \]
+
+		      Therefore $x\in C_{2r/\sqrt{n}}(x)\subseteq B_{r}(x)\subseteq A$, which implies, for every $x\in A$, there exists an open cube containing $x$ that is contained in $A$.
+
+		      For every $x\in A$, there exists $s_{x} > 0$ such that $x\in C_{s_{x}}(x)\subseteq A$, so $A = \bigcup_{x\in A}C_{s_{x}}(x)$.
+
+		      Thus, it follows from the definition of a basis for a topology that the collection $\mathscr{B}_{1}$ of open cubes is a basis for the Euclidean topology on $\mathbb{R}^{n}$.
+		\item Every set in $\mathscr{B}_{2}$ is open in $\mathbb{R}^{n}$.
+
+		      Let $A$ be an open subset of $\mathbb{R}^{n}$ with the Euclidean topology.
+
+		      Let $a\in A$. Because $A$ is open, there is $s > 0$ such that $a\in C_{s}(a)\subseteq A$. For every $i = 1,\ldots, n$, there are rational numbers $y_{i}, z_{i}$ such that $\left\vert{y_{i} - a_{i}}\right\vert < s/4\sqrt{n}$ and $\left\vert{z_{i} - a_{i}}\right\vert < s/4\sqrt{n}$ because every open ball in $\mathbb{R}$ contains a rational number. Let $x_{i} = (y_{i} + z_{i})/2$ then $x = (x_{1}, \ldots, x_{n})$ has rational coordinates and
+		      \begin{align*}
+			      \left\vert{x - a}\right\vert & = \frac{1}{2}\left\vert{(y - a) + (z - a)}\right\vert                                                                                                         \\
+			                                   & \leq \frac{1}{2}\left(\left\vert{y - a}\right\vert + \left\vert{z - a}\right\vert\right)                                                                      \\
+			                                   & = \frac{1}{2}\left( \sqrt{\sum^{n}_{i=1}{\left\vert{y_{i} - a_{i}}\right\vert}^{2}} + \sqrt{\sum^{n}_{i=1}{\left\vert{z_{i} - a_{i}}\right\vert}^{2}} \right) \\
+			                                   & < \frac{1}{2}\left( \frac{s}{4} + \frac{s}{4} \right) = \frac{s}{4}.
+		      \end{align*}
+
+		      Let $r$ be a rational number such that $\left\vert{x - a}\right\vert < r < s/4$. Let $w\in B_{r}(x)$, we have
+		      \[
+			      \left\vert{w_{i} - a_{i}}\right\vert \leq \left\vert{w - a}\right\vert \leq \left\vert{w - x}\right\vert + \left\vert{x - a}\right\vert < r + \frac{s}{4} < \frac{s}{2}
+		      \]
+
+		      for $i = 1,\ldots, n$. Therefore $a\in B_{r}(x)\subseteq C_{s}(a)\subseteq A$.
+
+		      Hence for every $a\in A$, there exists $B_{r_{a}}(x_{a})$ such that $r_{a}$ is a positive rational number, $x_{a}$ has rational coordinates, and $a\in B_{r_{a}}(x_{a})\subseteq A$. From this, we deduce that $A = \bigcup_{a\in A}B_{r_{a}}(x_{a})$.
+
+		      Thus the collection $\mathscr{B}_{2}$ of open balls with rational-coordinate center and rational radius is a basis for the Euclidean topology on $\mathbb{R}^{n}$.
+	\end{enumerate}
+\end{proof}
+
+\subsection*{Defining a Topology from a Basis}\addcontentsline{toc}{subsection}{Defining a Topology from a Basis}
+
+\begin{exercise}{2.45}
+	Complete the proof of Proposition 2.44 by showing that every basis satisfies (i) and (ii).
+\end{exercise}
+
+\begin{proof}
+	Suppose $\mathscr{B}$ is a basis for some topology on $X$.
+
+	By the definition of basis for a topology, $X$ is the union of some collection of sets in $\mathscr{B}$. Therefore $X$ is also the union of all sets in $\mathscr{B}$, which means $\bigcup_{B\in\mathscr{B}}B = X$. So (i) is satisfied.
+
+	If $B_{1}, B_{2}\in\mathscr{B}$ and $x\in B_{1}\cap B_{2}$, then $B_{1}, B_{2}, B_{1}\cap B_{2}$ are open subsets of $X$. $B_{1}\cap B_{2}$ is therefore the union of some collection of elements of $\mathscr{B}$, so there is $B_{3}\in \mathscr{B}$ such that $x\in B_{3}\subseteq B_{1}\cap B_{2}$. So (ii) is satisfied.
+
+	Hence every basis for a topology on $X$ satisfies (i) and (ii).
+\end{proof}
+
+\subsection*{Countability Properties}\addcontentsline{toc}{subsection}{Countability Properties}
+
+\begin{exercise}{2.51}
+	Prove part (b) of Theorem 2.50.
+
+	If $X$ is a second countable space, $X$ contains a countable dense subset (separable).
+\end{exercise}
+
+\begin{proof}
+	This proof uses the axiom of (countable) choice.
+
+	Let $\mathscr{B}$ be a countable basis of $X$ (its existence follows from $X$ being second countable). For each $B\in\mathscr{B}$, there is $b\in B$. Let $Y$ be the set of all the selected elements $b$ then $Y$ is a countable subset of $X$. Let $A$ be a nonempty open subset of $X$. Because $\mathscr{B}$ is a basis for $X$, there is $B\in\mathscr{B}$ such that $B\subseteq A$. Since $B$ contains an element of $Y$, it follows that $A$ contains an element of $Y$. Therefore every nonempty open subset of $X$ contains an element of $Y$, so $\overline{Y} = X$. Thus $X$ contains a countable dense subset.
+\end{proof}
+
+\section*{Manifolds}\addcontentsline{toc}{section}{Manifolds}
+
+\begin{exercise}{2.54}
+	Show that a topological space is a $0$-manifold if and only if it is a countable discrete space.
+\end{exercise}
+
+\begin{proof}
+	$(\Rightarrow)$ Suppose $M$ is a $0$-manifold.
+
+	For every point $x$ of $M$, there is a neighborhood $U$ of $x$ which is homeomorphic to $\mathbb{R}^{0}$ (where $\mathbb{R}^{0}$ has exactly one element). Therefore $U$ has exactly one element, which is $x$, so $\{ x \}$ is open, which implies $M$ is a discrete space.
+
+	Since $M$ is a manifold, $M$ is second countable, so $M$ has a countable basis $\mathscr{B}$. Since $\{ x \}$ is open for every $x\in M$, there is $B\in\mathscr{B}$ such that $x\in B\subseteq \{x\}$, which means $\{ x \} = B$. Hence $\mathscr{B}$ contains all one-element subsets of $M$. Let $\mathscr{B}'$ be the collection of all one-element subsets of $M$, then $\mathscr{B}'\subseteq\mathscr{B}$, so $\mathscr{B}'$ is countable (any subset of a countable set is countable), which implies $M$ is countable.
+
+	$(\Leftarrow)$ Suppose $M$ is a countable discrete space.
+
+	Because the topology on $M$ is discrete, every two distinct points of $M$ are separated by the one-element sets (which are open) containing themselves, so $M$ is Hausdorff. Because $M$ is a countable discrete space, the collection of one-element subsets of $M$ is a countable basis for $M$, so $M$ is second countable. Moreover, for every $x\in M$, $\{ x \}$ is open and $\{ x \}$ is homeomorphic to $\mathbb{R}^{0}$ (because $\mathbb{R}^{0}$ has exactly one element), so $M$ is locally Euclidean of dimension $0$. Thus $M$ is a $0$-manifold.
+\end{proof}
+
+\section*{Problems}\addcontentsline{toc}{section}{Problems}
