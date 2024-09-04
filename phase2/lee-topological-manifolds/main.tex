@@ -21,12 +21,13 @@
 \usepackage{subcaption}
 \usepackage{booktabs}
 \usepackage[inline]{enumitem}
+\usepackage{setspace}
 \usepackage{pgf,tikz}
 \usepackage{tikz-cd}
 \usetikzlibrary{matrix,arrows,decorations.pathmorphing,positioning}
 
 \setcounter{chapter}{0}
-
+\setstretch{1.4142}
 \theoremstyle{definition}
 \newtheorem{innercustomgeneric}{\customgenericname}
 \providecommand{\customgenericname}{}
@@ -35,7 +36,7 @@
   {%
    \renewcommand\customgenericname{#2}%
    \renewcommand\theinnercustomgeneric{##1}%
-   \innercustomgeneric
+   \innercustomgeneric%
   }
   {\endinnercustomgeneric}
 }
@@ -58,10 +59,11 @@
 \def\arraystretch{1.2}%
 \array{@{}l@{\quad}l@{}}%
 }
-\newcommand{\openinterval}[1]{\left({#1}\right)}
+\newcommand{\abs}[1]{\left\vert{#1}\right\vert}
+\newcommand{\openinterval}[1]{\left]{#1}\right[}
 \newcommand{\closedinterval}[1]{\left[{#1}\right]}
-\newcommand{\halfopenleft}[1]{\left({#1}\right]}
-\newcommand{\halfopenright}[1]{\left[{#1}\right)}
+\newcommand{\halfopenleft}[1]{\left]{#1}\right]}
+\newcommand{\halfopenright}[1]{\left[{#1}\right[}
 
 \title{John M.\@ Lee's ``Introduction to Topological Manifolds'': Notes and Exercises}
 \author{Ngo Quang Duong}
@@ -73,9 +75,9 @@
 
 \tableofcontents
 
-\input{chapter1.tex}
-\input{chapter2.tex}
+% \input{chapter1.tex}
+% \input{chapter2.tex}
 \input{chapter3.tex}
-\input{chapter4.tex}
+% \input{chapter4.tex}
 
 \end{document}
