@@ -1,3 +1,4 @@
+% chktex-file 8
 \chapter{Topological Spaces}
 
 \section*{Topologies}\addcontentsline{toc}{section}{Topologies}
@@ -6,8 +7,8 @@
 	Verify that each of the preceding examples is in fact a topology.
 
 	\begin{enumerate}[label={(\alph*)}]
-		\item Let $X$ be any set whatsoever, and let $\mathscr{T} = \mathscr{P}(X)$ (the power set of $X$), so every subset of $X$ is open. This is called the **discrete topology on $X$**, and $(X, \mathscr{T})$ is called a **discrete space**.
-		\item Let $Y$ be any set, and let $\mathscr{T} = \{Y, \varnothing \}$. This is called the **trivial topology on $Y$**.
+		\item Let $X$ be any set whatsoever, and let $\mathscr{T} = \mathscr{P}(X)$ (the power set of $X$), so every subset of $X$ is open. This is called the \textbf{discrete topology on $X$}, and $(X, \mathscr{T})$ is called a \textbf{discrete space}.
+		\item Let $Y$ be any set, and let $\mathscr{T} = \{Y, \varnothing \}$. This is called the \textbf{trivial topology on $Y$}.
 		\item Let $Z$ be the set $\{1,2,3\}$, and declare the open subsets to be $\{1\}, \{1,2\}, \{1,2,3\}$, and the empty set.
 	\end{enumerate}
 \end{exercise}
@@ -131,7 +132,7 @@
 
 \subsection*{Closed Subsets}\addcontentsline{toc}{subsection}{Closed Subsets}
 
-\begin{exercise}{2.9}\label{exercise2.9}
+\begin{exercise}{2.9}\label{exercise:2.9}
 	Prove Proposition 2.8.
 
 	Let $X$ be a topological space and let $A\subseteq X$ be any subset.
@@ -214,9 +215,9 @@
 \begin{proof}
 	Let $(X, \mathscr{T})$ be a topological space and $A\subseteq X$.
 
-	Suppose $A$ is closed. By Exercise~\ref{exercise2.9} (h), $A = \overline{A}$. Assume $A$ has a limit point $x$ which is not in $A$, then $x$ is not in $\overline{A}$ (because $A = \overline{A}$). Therefore $x\in\operatorname{Ext} A = X\setminus\overline{A}$. By Exercise~\ref{exercise2.9} (b), there exists a neighborhood of $x$ contained in $X\setminus A$, this contradicts $x$ being a limit point of $A$ (every neighborhood of $x$ contains a point of $A$ other than $x$). Hence $A$ contains all of its limit points.
+	Suppose $A$ is closed. By Exercise~\ref{exercise:2.9} (h), $A = \overline{A}$. Assume $A$ has a limit point $x$ which is not in $A$, then $x$ is not in $\overline{A}$ (because $A = \overline{A}$). Therefore $x\in\operatorname{Ext} A = X\setminus\overline{A}$. By Exercise~\ref{exercise:2.9} (b), there exists a neighborhood of $x$ contained in $X\setminus A$, this contradicts $x$ being a limit point of $A$ (every neighborhood of $x$ contains a point of $A$ other than $x$). Hence $A$ contains all of its limit points.
 
-	Suppose $A$ contains all of its limit points. Let $y\in X\setminus A$ then $y$ is not a limit point of $A$. So there exists a neighborhood of $y$ contained in $X\setminus A$. Hence every point of $X\setminus A$ has a neighborhood contained in $X\setminus A$. By Exercise~\ref{exercise2.9} (g), $X\setminus A$ is open, which implies $A$ is closed.
+	Suppose $A$ contains all of its limit points. Let $y\in X\setminus A$ then $y$ is not a limit point of $A$. So there exists a neighborhood of $y$ contained in $X\setminus A$. Hence every point of $X\setminus A$ has a neighborhood contained in $X\setminus A$. By Exercise~\ref{exercise:2.9} (g), $X\setminus A$ is open, which implies $A$ is closed.
 
 	Thus $A$ is closed in $X$ if and only if it contains all of its limit points.
 \end{proof}
@@ -226,7 +227,7 @@
 \end{exercise}
 
 \begin{proof}
-	First, we prove that the closure of a set contains all of its limit point. This follows from the definition of limit point, Exercise~\ref{exercise2.9} (b), and proof by contradiction.
+	First, we prove that the closure of a set contains all of its limit point. This follows from the definition of limit point, Exercise~\ref{exercise:2.9} (b), and proof by contradiction.
 
 	Suppose $A$ is dense in $X$, then $\overline{A} = X$. Let $B$ be a nonempty open subset of $X$ and $x\in B$. If $x\in A$ then $B$ contains a point of $A$. If $x\notin A$ then $x$ is a limit point of $A$ (because $\overline{A} = X$), so $B$ contains a point of $A$, due to the definition of limit point. Hence every nonempty open subset of $X$ contains a point of $A$.
 
@@ -263,12 +264,12 @@
 	Thus the only convergent sequences in a discrete topological space are the one that are eventually constant.
 \end{proof}
 
-\begin{exercise}{2.14}
+\begin{exercise}{2.14}\label{exercise:2.14}
 	Suppose $X$ is a topological space, $A$ is a subset of $X$, and ${(x_{i})}$ is a sequence of points in $A$ that converges to a point $x\in X$. Show that $x\in\overline{A}$.
 \end{exercise}
 
 \begin{proof}
-	Assume $x\notin \overline{A}$, then $x\in X\setminus\overline{A} = \operatorname{Ext} A$. By Exercise~\ref{exercise2.9} (b), there exists a neighborhood $U$ of $x$ which is contained in $X\setminus A$. However, because $x_{i}\to x$, there exists $N\in\mathbb{N}$ such that $x_{i}\in U$ for all $i\geq N$. The open set $U$ is contained in $X\setminus A$ and contains a point of $A$, this is a contradiction. Thus $x\in\overline{A}$.
+	Assume $x\notin \overline{A}$, then $x\in X\setminus\overline{A} = \operatorname{Ext} A$. By Exercise~\ref{exercise:2.9} (b), there exists a neighborhood $U$ of $x$ which is contained in $X\setminus A$. However, because $x_{i}\to x$, there exists $N\in\mathbb{N}$ such that $x_{i}\in U$ for all $i\geq N$. The open set $U$ is contained in $X\setminus A$ and contains a point of $A$, this is a contradiction. Thus $x\in\overline{A}$.
 \end{proof}
 
 \begin{exercise}{2.16}
@@ -295,7 +296,7 @@
 	Thus a map between topological spaces is continuous if and only if the preimage of every closed subset is closed.
 \end{proof}
 
-\begin{exercise}{2.18}
+\begin{exercise}{2.18}\label{exercise:2.18}
 	Prove Proposition 2.17
 
 	Let $X, Y$, and $Z$ be topological spaces.
@@ -338,7 +339,7 @@
 	Thus homeomorphic is an equivalence relation on the class of all topological spaces.
 \end{proof}
 
-\begin{exercise}{2.21}
+\begin{exercise}{2.21}\label{exercise:2.21}
 	Let $(X_{1}, \mathscr{T}_{1})$ and $(X_{2}, \mathscr{T}_{2})$ be topological spaces and let $f: X_{1}\to X_{2}$ be a bijective map. Show that $f$ is a homeomorphism if and only if $f(\mathscr{T}_{1}) = \mathscr{T}_{2}$ in the sense that $U\in\mathscr{T}_{1}$ if and only if $f(U)\in \mathscr{T}_{2}$.
 \end{exercise}
 
@@ -369,7 +370,7 @@
 \begin{proof}
 	Because $f$ is bijective, $f^{-1}(f(U)) = U$. $f$ is continuous and $U$ is open in $X$, so $f(U)$ is open in $Y$, according to the previous sentence.
 
-	$f$ is bijective, so $f\vert_{U}$, ${(f\vert_{U})}^{-1} = f^{-1}\vert_{f(U)}$ are also bijective. By **Exercise 2.18 (c)**, $f$ and $f^{-1}$ are continuous so the restriction of $f$ to $U$ is continuous, the restriction of $f^{-1}$ to $f(U)$ is continuous. Therefore $f\vert_{U}$ and $f^{-1}\vert_{f(U)} = {(f\vert_{U})}^{-1}$ are continuous. Hence $f\vert_{U}$ is a homeomorphism from $U$ to $f(U)$.
+	$f$ is bijective, so $f\vert_{U}$, ${(f\vert_{U})}^{-1} = f^{-1}\vert_{f(U)}$ are also bijective. By Exercise~\ref{exercise:2.18} (c), $f$ and $f^{-1}$ are continuous so the restriction of $f$ to $U$ is continuous, the restriction of $f^{-1}$ to $f(U)$ is continuous. Therefore $f\vert_{U}$ and $f^{-1}\vert_{f(U)} = {(f\vert_{U})}^{-1}$ are continuous. Hence $f\vert_{U}$ is a homeomorphism from $U$ to $f(U)$.
 \end{proof}
 
 \begin{exercise}{2.23}
@@ -443,7 +444,7 @@
 \end{exercise}
 
 \begin{proof}
-	Suppose (a) is true. Because homeomorphisms preserves open subsets (**Exercise 2.21**), it follows that $f$ maps open subsets to open subsets. Hence (b) is true.
+	Suppose (a) is true. Because homeomorphisms preserves open subsets (Exercise~\ref{exercise:2.21}), it follows that $f$ maps open subsets to open subsets. Hence (b) is true.
 
 	Suppose (b) is true. Let $A$ be a closed subset of $X$. Because $f$ is bijective, $f^{-1}(f(A)) = A$. $f$ is continuous so the preimage of a closed subset under $f$ is a closed subset. Therefore $f(A)$ is a closed subset, so $f$ is closed, and (c) is true.
 
@@ -531,7 +532,7 @@
 \begin{exercise}{2.42}
 	Show that each of the following collections $\mathscr{B}_{i}$ is a basis for the Euclidean topology on $\mathbb{R}^{n}$.
 	\begin{enumerate}[label={(\alph*)}]
-		\item $\mathscr{B}_{1} = \{ C_{s}(x): x\in\mathbb{R}^{n} \text{ and } s > 0 \}$, where $C_{s}(x)$ is the **open cube of side length $s$ centered at $x$**:
+		\item $\mathscr{B}_{1} = \{ C_{s}(x): x\in\mathbb{R}^{n} \text{ and } s > 0 \}$, where $C_{s}(x)$ is the \textbf{open cube of side length $s$ centered at $x$}:
 		      \[
 			      C_{s}(x) = \{ y = (y_{1}, \ldots, y_{n}) : \left\vert{x_{i} - y_{i}}\right\vert < s/2,\, i = 1,\ldots,n \}.
 		      \]
@@ -634,3 +635,878 @@
 \end{proof}
 
 \section*{Problems}\addcontentsline{toc}{section}{Problems}
+
+\begin{problem}{2-1}
+Let $X$ be an infinite set.
+\begin{enumerate}[label={(\alph*)}]
+	\item Show that
+	      \[
+		      \mathscr{T}_{1} = \{ U\subseteq X : U = \varnothing \text{ or } X\setminus U \text{ is finite} \}
+	      \]
+
+	      is a topology on $X$, called the \textbf{finite complement topology}.
+
+	\item Show that
+	      \[
+		      \mathscr{T}_{2} = \{ U\subseteq X : U = \varnothing \text{ or } X\setminus U \text{ is countable} \}
+	      \]
+
+	      is a topology on $X$, called the \textbf{countable complement topology}.
+
+	\item Let $p$ be an arbitrary point in $X$, and show that
+	      \[
+		      \mathscr{T}_{3} = \{ U\subseteq X : U = \varnothing \text{ or } p\in U \}
+	      \]
+
+	      is a topology on $X$, called the \textbf{particular point topology}.
+
+	\item Let $p$ be an arbitrary point in $X$, and show that
+	      \[
+		      \mathscr{T}_{4} = \{ U\subseteq X : U = X \text{ or } p\notin U \}
+	      \]
+
+	      is a topology on $X$, called the \textbf{excluded point topology}.
+
+	\item Determine whether
+
+	      \[
+		      \mathscr{T}_{5} = \{ U\subseteq X : U = X \text{ or } X\setminus U \text{ is infinite} \}
+	      \]
+
+	      is a topology on $X$.
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item $\varnothing\in\mathscr{T}_{1}$ by definition. $X\in\mathscr{T}_{1}$ because $X\setminus X = \varnothing$ is finite.
+
+		      Let ${(U_{i})}_{i\in I}$ be a collection of elements of $\mathscr{T}_{1}$. By De Morgan's law
+		      \[
+			      X\setminus \left(\bigcup_{i\in I} U_{i}\right) = \bigcap_{i\in I} X\setminus U_{i}.
+		      \]
+
+		      If $U_{i} = \varnothing$ for every $i\in I$ then $\bigcup_{i\in I} U_{i}\in\mathscr{T}_{1}$. If there is $j\in I$ such that $U_{j}\ne\varnothing$ then $\bigcap_{i\in I} X\setminus U_{i}$ is a subset of $X\setminus U_{j}$, hence finite. Therefore $\bigcup_{i\in I} U_{i}\in\mathscr{T}_{1}$. So $\mathscr{T}_{1}$ is closed under arbitrary union.
+
+		      Suppose $U_{1}, \ldots, U_{n}\in\mathscr{T}_{1}$, then
+		      \[
+			      X\setminus \left(\bigcap^{n}_{i=1}U_{i}\right) = \bigcup^{n}_{i=1}X\setminus U_{i}.
+		      \]
+
+		      If there is $i \in \{1,\ldots,n\}$ such that $U_{i} = \varnothing$ then $\bigcap^{n}_{i=1}U_{i} = \varnothing$, so $\bigcap^{n}_{i=1}U_{i}\in\mathscr{T}_{1}$.  If $U_{i}\ne\varnothing$ for all $i=1,\ldots,n$, then $\bigcup^{n}_{i=1}X\setminus U_{i}$ is finite, hence $\bigcap^{n}_{i=1}U_{i}\in\mathscr{T}_{1}$. So $\mathscr{T}_{1}$ is closed under finite intersection.
+
+		      Thus $\mathscr{T}_{1}$ is a topology on $X$.i
+		\item $\varnothing\in\mathscr{T}_{2}$ by definition. $X\in\mathscr{T}_{2}$ because $X\setminus X = \varnothing$ is countable.
+
+		      Suppose ${(U_{i})}_{i\in I}$ is a collection of elements of $\mathscr{T}_{2}$. By De Morgan's law
+		      \[
+			      X\setminus \left(\bigcup_{i\in I} U_{i}\right) = \bigcap_{i\in I} X\setminus U_{i}.
+		      \]
+
+		      If $U_{i} = \varnothing$ for every $i\in I$ then $\bigcup_{i\in I} U_{i}\in\mathscr{T}_{2}$. If there is $j\in I$ such that $U_{j}\ne\varnothing$ then $\bigcap_{i\in I} X\setminus U_{i}$ is a subset of $X\setminus U_{j}$, hence countable. Therefore $\bigcup_{i\in I} U_{i}\in\mathscr{T}_{2}$. So $\mathscr{T}_{2}$ is closed under arbitrary union.
+
+		      Suppose $U_{1}, \ldots, U_{n}\in\mathscr{T}_{2}$, then
+		      \[
+			      X\setminus \left(\bigcap^{n}_{i=1}U_{i}\right) = \bigcup^{n}_{i=1}X\setminus U_{i}.
+		      \]
+
+		      If there is $i \in \{1,\ldots,n\}$ such that $U_{i} = \varnothing$ then $\bigcap^{n}_{i=1}U_{i} = \varnothing$, so $\bigcap^{n}_{i=1}U_{i}\in\mathscr{T}_{2}$.  If $U_{i}\ne\varnothing$ for all $i=1,\ldots,n$, then $\bigcup^{n}_{i=1}X\setminus U_{i}$ is countable (finite unions of countable sets are countable), hence $\bigcap^{n}_{i=1}U_{i}\in\mathscr{T}_{2}$. So $\mathscr{T}_{2}$ is closed under finite intersection.
+
+		      Thus $\mathscr{T}_{2}$ is a topology on $X$.
+		\item $\varnothing\in\mathscr{T}_{3}$ by definition. $X$ contains the element $p$ so $X\in\mathscr{T}_{3}$.
+
+		      Let ${(U_{i})}_{i\in I}$ be a collection of elements of $\mathscr{T}_{3}$. If every set in this collection is the empty set, then their union is the empty set, which is in $\mathscr{T}_{3}$. Otherwise, their union contains the element $p$, because at least a set in the collection is nonempty and contains $p$. So $\mathscr{T}_{3}$ is closed under arbitrary union.
+
+		      Let $U_{1}, \ldots, U_{n}\in\mathscr{T}_{3}$. If there is at least a set in $U_{1}, \ldots, U_{n}$ is the empty set, then their intersection is the empty set, which is in $\mathscr{T}_{3}$. Otherwise, $p$ is in $U_{1}, \ldots, U_{n}$ so $p\in \bigcap^{n}_{i=1}U_{i}$. So $\mathscr{T}_{3}$ is closed under finite intersection.
+
+		      Thus $\mathscr{T}_{3}$ is a topology on $X$.
+		\item $\varnothing\in\mathscr{T}_{4}$ because $p\notin \varnothing$. $X\in\mathscr{T}_{4}$ by definition.
+
+		      Let ${(U_{i})}_{i\in I}$ be a collection of elements of $\mathscr{T}_{4}$. If there is $j\in I$ such that $U_{j} = X$, then their union is $X$, which is in $\mathscr{T}_{4}$. Otherwise, their union does not contain the element $p$, because none of the sets of the collection contains $p$. So $\mathscr{T}_{4}$ is closed under arbitrary union.
+
+		      Let $U_{1}, \ldots, U_{n}\in\mathscr{T}_{4}$. If $U_{i} = X$ for all $i = 1,\ldots, n$, then their intersection is $X$, which is in $\mathscr{T}_{4}$. Otherwise, $p$ is not in $U_{1}, \ldots, U_{n}$ so $p\notin \bigcap^{n}_{i=1}U_{i}$. So $\mathscr{T}_{4}$ is closed under finite intersection.
+
+		      Thus $\mathscr{T}_{4}$ is a topology on $X$.
+		\item No, $\mathscr{T}_{5}$ is not a topology on $X$.
+
+		      If $X$ is finite then $\mathscr{T}_{5}$ is not a topology on $X$ because $\varnothing\notin\mathscr{T}_{5}$.
+
+		      If $X$ is infinite, then $X$ has a countable subset $Y = \{ x_{n} : n\in\mathbb{N} \}$. Let $A = \{ x_{2n-1}: n\in\mathbb{N} \}$ and $B = \{ x_{2n} : n\in\mathbb{N} \text{ and } n\geq 2 \}\cup (X\setminus Y)$, then $A, B\in\mathscr{T}_{5}$. However, $A\cup B = X\setminus\{x_{2}\}\notin \mathscr{T}_{5}$.
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{2-2}
+Let $X = \{ 1, 2, 3 \}$. Give a list of topologies on $X$ such that every topology on $X$ is homeomorphic to exactly one on your list.
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={\arabic*.}]
+		\item $\{ \varnothing, X \}$
+		\item $\{ \varnothing, X, \{ 1 \} \} \approx \{ \varnothing, X, \{ 2 \} \} \approx \{ \varnothing, X, \{ 3 \} \}$
+		\item $\{ \varnothing, X, \{ 1, 2 \} \} \approx \{ \varnothing, X, \{ 2, 3 \} \} \approx \{ \varnothing, X, \{ 1, 3 \} \}$
+		\item $\{ \varnothing, X, \{ 1 \}, \{ 2, 3 \} \} \approx \{ \varnothing, X, \{ 2 \}, \{ 1, 3 \} \} \approx \{ \varnothing, X, \{ 3 \}, \{ 1, 2 \} \}$
+		\item $\{ \varnothing, X, \{ 1 \}, \{ 1, 2 \} \} \approx \{ \varnothing, X, \{ 1 \}, \{ 1, 3 \} \} \approx \{ \varnothing, X, \{ 2 \}, \{ 1, 2 \} \} \approx \{ \varnothing, X, \{ 2 \}, \{ 2, 3 \} \} \approx \{ \varnothing, X, \{ 3 \}, \{ 1, 3 \} \} \approx \{ \varnothing, X, \{ 3 \}, \{ 2, 3 \} \}$
+		\item $\{ \varnothing, X, \{ 1 \}, \{ 1, 2 \}, \{ 1, 3 \} \} \approx \{ \varnothing, X, \{ 2 \}, \{ 1, 2 \}, \{ 2, 3 \} \} \approx \{ \varnothing, X, \{ 3 \}, \{ 1, 3 \}, \{ 2, 3 \} \}$
+		\item $\{ \varnothing, X, \{ 1 \}, \{ 2 \}, \{ 1, 2 \} \} \approx \{ \varnothing, X, \{ 1 \}, \{ 3 \}, \{ 1, 3 \} \} \approx \{ \varnothing, X, \{ 2 \}, \{ 3 \}, \{ 2, 3 \} \}$
+		\item $\{ \varnothing, X, \{ 1 \}, \{ 2 \}, \{ 1, 2 \}, \{ 2, 3 \} \} \approx \{ \varnothing, X, \{ 1 \}, \{ 2 \}, \{ 1, 2 \}, \{ 1, 3 \} \} \approx \{ \varnothing, X, \{ 2 \}, \{ 3 \}, \{ 2, 3 \}, \{ 1, 2 \} \} \approx \{ \varnothing, X, \{ 2 \}, \{ 3 \}, \{ 2, 3 \}, \{ 1, 3 \} \} \approx \{ \varnothing, X, \{ 1 \}, \{ 3 \}, \{ 1, 3 \}, \{ 2, 3 \} \} \approx \{ \varnothing, X, \{ 1 \}, \{ 3 \}, \{ 1, 2 \}, \{ 1, 3 \} \}$
+		\item $\{ \varnothing, X, \{ 1 \}, \{ 2 \}, \{ 3 \}, \{ 1, 2 \}, \{ 2, 3 \}, \{ 1, 3 \} \}$
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{2-3}
+Let $X$ be a topological space and $B$ be a subset of $X$. Prove the following set equalities.
+\begin{enumerate}[label={(\alph*)}]
+	\item $\overline{X\setminus B} = X\setminus\operatorname{Int} B$.
+	\item $\operatorname{Int}(X\setminus B) = X\setminus \overline{B}$.
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	We will show that $\operatorname{Ext}A = \operatorname{Int}(X\setminus A)$ for every $A\subseteq X$.
+
+	Suppose $x\in \operatorname{Ext}A$. By Exercise~\ref{exercise:2.9} (b), there is an open neighborhood $U$ of $x$ contained in $X\setminus A$. By Exercise~\ref{exercise:2.9} (a), $x\in U\subseteq \operatorname{Int}(X\setminus A)$. So $\operatorname{Ext}A \subseteq \operatorname{Int}(X\setminus A)$.
+
+	Suppose $x\in \operatorname{Int}(X\setminus A)$. By Exercise~\ref{exercise:2.9} (a), there is an open neighborhood $U$ of $x$ contained in $X\setminus A$. By Exercise~\ref{exercise:2.9} (b), $x\in U\subseteq \operatorname{Ext}(A)$. So $\operatorname{Int}(X\setminus A) = \operatorname{Ext} A$.
+
+	Hence $\operatorname{Ext}A = \operatorname{Int}(X\setminus A)$.
+	\begin{enumerate}[label={(\alph*)}]
+		\item $\operatorname{Int}B = \operatorname{Ext}(X\setminus B) = X\setminus\overline{X\setminus B}$. Therefore $\overline{X\setminus B} = X\setminus\operatorname{Int}B$.
+		\item $\operatorname{Int}(X\setminus B) = \operatorname{Ext}B = X\setminus\overline{B}$.
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{2-4}
+Let $X$ be a topological space and let $\mathscr{A}$ be a collection of subsets of $X$. Prove
+the following containments.
+
+\begin{enumerate}[label={(\alph*)}]
+	\item $\displaystyle\overline{\bigcap_{A\in\mathscr{A}}A} \subseteq \bigcap_{A\in\mathscr{A}}\overline{A}$.
+	\item $\displaystyle\overline{\bigcup_{A\in\mathscr{A}}A} \supseteq \bigcup_{A\in\mathscr{A}}\overline{A}$.
+	\item $\displaystyle\operatorname{Int}\left(\bigcap_{A\in\mathscr{A}}A\right)\subseteq \bigcap_{A\in\mathscr{A}}\operatorname{Int}A$.
+	\item $\displaystyle\operatorname{Int}\left(\bigcup_{A\in\mathscr{A}}A\right)\supseteq \bigcup_{A\in\mathscr{A}}\operatorname{Int}A$.
+\end{enumerate}
+
+When $\mathscr{A}$ is a finite collection, show that equality holds in (b) and (c), but not necessarily in (a) or (d).
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item Suppose $x\in \overline{\bigcap_{A\in\mathscr{A}}A}$. By Exercise~\ref{exercise:2.9} (e), $x$ is in $\bigcap_{A\in\mathscr{A}}A$ or $x$ is a boundary point of $\bigcap_{A\in\mathscr{A}}A$. If $x$ is in $\bigcap_{A\in\mathscr{A}}A$ then $x\in \bigcap_{A\in\mathscr{A}}\overline{A}$. If $x$ is in the boundary of $\bigcap_{A\in\mathscr{A}}A$ then by Exercise~\ref{exercise:2.9} (c), every neighborhood of $x$ contains a point of $A$ for every $A\in\mathscr{A}$, so $x$ is in the boundary of $A$ for every $A\in\mathscr{A}$. Hence $x\in\overline{A}$ for every $A\in\mathscr{A}$, therefore $x\in \bigcap_{A\in\mathscr{A}}\overline{A}$.
+
+		      Thus $\overline{\bigcap_{A\in\mathscr{A}}A} \subseteq \bigcap_{A\in\mathscr{A}}\overline{A}$.
+		\item Suppose $x\in \bigcup_{A\in\mathscr{A}}\overline{A}$. Then there exists $A\in\mathscr{A}$ such that $x\in \overline{A}$. By Exercise~\ref{exercise:2.9} (e) $x$ is in $A$ or $x$ is a boundary point of $A$. If $x\in A$ then $x\in \bigcup_{A\in\mathscr{A}}A \subseteq \overline{\bigcup_{A\in\mathscr{A}}A}$. If $x$ is a boundary point of $A$ then by Exercise~\ref{exercise:2.9} (c) every neighborhood of $x$ contains a point of $A$, so every neighborhood of $x$ contains a point of $\bigcup_{A\in\mathscr{A}}A$. Therefore $x$ is not in the exterior of $\bigcup_{A\in\mathscr{A}}A$, which means $x\in \overline{\bigcup_{A\in\mathscr{A}}A}$.
+
+		      Thus $\overline{\bigcup_{A\in\mathscr{A}}A} \supseteq \bigcup_{A\in\mathscr{A}}\overline{A}$.
+		\item Suppose $x\in \operatorname{Int}\left(\bigcap_{A\in\mathscr{A}}A\right)$. By Exercise~\ref{exercise:2.9} (a), there is a neighborhood $U$ of $x$ contained in $\bigcap_{A\in\mathscr{A}}A$, so $x\in U\subseteq A$ for every $A\in\mathscr{A}$. So $x\in\operatorname{Int} A$ for every $A\in\mathscr{A}$, hence $x\in\bigcap_{A\in\mathscr{A}}\operatorname{Int} A$.
+
+		      Thus $\operatorname{Int}\left(\bigcap_{A\in\mathscr{A}}A\right)\subseteq \bigcap_{A\in\mathscr{A}}\operatorname{Int}A$.
+		\item Suppose $x\in \bigcup_{A\in\mathscr{A}}\operatorname{Int}A$. Then there exists $A\in\mathscr{A}$ such that $x\in \operatorname{Int}A$. By Exercise~\ref{exercise:2.9} (a), there is a neighborhood $U$ of $x$ that is contained in $A$. So $x\in U\subseteq \bigcup_{A\in\mathscr{A}}A$, hence $x\in \operatorname{Int}\left(\bigcup_{A\in\mathscr{A}}A\right)$.
+
+		      Thus $\operatorname{Int}\left(\bigcup_{A\in\mathscr{A}}A\right) \supseteq  \bigcup_{A\in\mathscr{A}}\operatorname{Int}A$.
+	\end{enumerate}
+	\hfill
+
+	If $\mathscr{A}$ is finite.
+	\begin{enumerate}[label={(\alph*)}]
+		\item  We give an example, in which the equality does not hold.
+
+		      In $\mathbb{R}$ with the Euclidean topology
+		      \[
+			      \overline{\openinterval{-1,0} \cap \openinterval{0,1}} = \overline{\varnothing} = \varnothing \subsetneq \{ 0 \} = \closedinterval{-1,0} \cap \closedinterval{0,1} = \overline{\openinterval{-1,0}}\cap\overline{\openinterval{0,1}}.
+		      \]
+
+		      So in (a), the equality does not necessarily hold when the collection $\mathscr{A}$ is finite.
+		\item Suppose $x\notin \bigcup_{A\in\mathscr{A}}\overline{A}$, then
+		      \[
+			      x\in X\setminus \left(\bigcup_{A\in\mathscr{A}}\overline{A}\right) = \bigcap_{A\in\mathscr{A}}X\setminus\overline{A} = \bigcap_{A\in\mathscr{A}}\operatorname{Ext}A.
+		      \]
+
+		      By Exercise~\ref{exercise:2.9} (b), for every $A\in\mathscr{A}$, there is a neighborhood $U_{A}$ of $x$ that is contained in $X\setminus A$. Because $\mathscr{A}$ is finite, $\bigcap_{A\in\mathscr{A}}U_{A}$ is open (finite intersection of open subsets is open) and is a neighborhood of $x$ that is contained in $\bigcap_{A\in\mathscr{A}}X\setminus A = X\setminus\bigcup_{A\in\mathscr{A}}A$. Therefore $x\in \operatorname{Ext}\left({\bigcup_{A\in\mathscr{A}}A}\right)$, hence $x\notin\overline{\bigcup_{A\in\mathscr{A}}A}$.
+
+		      Hence $X\setminus \bigcup_{A\in\mathscr{A}}\overline{A} \subseteq X\setminus \overline{\bigcup_{A\in\mathscr{A}}A}$, which means $\overline{\bigcup_{A\in\mathscr{A}}A}\subseteq \bigcup_{A\in\mathscr{A}}\overline{A}$. In combination with part (b), we conclude that
+		      \[
+			      \overline{\bigcup_{A\in\mathscr{A}}A} = \bigcup_{A\in\mathscr{A}}\overline{A} \tag{$\mathscr{A}$ is finite}
+		      \]
+		\item Suppose $x\in \bigcap_{A\in\mathscr{A}}\operatorname{Int}A$, then by Exercise~\ref{exercise:2.9} (a), for every $A\in\mathscr{A}$, there is a neighborhood $U_{A}$ of $x$ that is contained in $A$. Because $\mathscr{A}$ is finite, $\bigcap_{A\in\mathscr{A}}U_{A}$ is open and is a neighborhood of $x$ in $\bigcap_{A\in\mathscr{A}}A$. Therefore $x\in \operatorname{Int}\left(\bigcap_{A\in\mathscr{A}}A\right)$, so $\bigcap_{A\in\mathscr{A}}\operatorname{Int}A \subseteq \operatorname{Int}\left(\bigcap_{A\in\mathscr{A}}A\right)$. Together with part (c), we conclude that
+		      \[
+			      \operatorname{Int}\left(\bigcap_{A\in\mathscr{A}}A\right) = \bigcap_{A\in\mathscr{A}}\operatorname{Int}A \tag{$\mathscr{A}$ is finite}
+		      \]
+		\item We give an example, in which the equality does not hold.
+
+		      In $\mathbb{R}$ with the Euclidean topology
+		      \[
+			      \operatorname{Int}\left({\closedinterval{-1,0} \cap \closedinterval{0,1}}\right) = \operatorname{Int}{\left(\closedinterval{-1,1}\right)} = \openinterval{-1,1} \supsetneq \varnothing = \openinterval{-1,0} \cap \openinterval{0,1} = \operatorname{Int}{\left(\closedinterval{-1,0}\right)}\cap\operatorname{Int}{\left(\closedinterval{0,1}\right)}.
+		      \]
+
+		      So in (d), the equality does not necessarily hold when the collection $\mathscr{A}$ is finite.
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{2-5}
+For each of the following properties, give an example consisting of two subsets $X, Y \subseteq \mathbb{R}^{2}$, both considered as topological spaces with their Euclidean topologies, together with a map $f: X \to Y$ that has the indicated property.
+\begin{enumerate}[label={(\alph*)}]
+	\item $f$ is open but neither closed nor continuous.
+	\item $f$ is closed but neither open nor continuous.
+	\item $f$ is continuous but neither open nor closed.
+	\item $f$ is continuous and open but not closed.
+	\item $f$ is continuous and closed but not open.
+	\item $f$ is open and closed but not continuous.
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item
+		\item Let $X = Y = \mathbb{R}^{2}$
+		      \[
+			      f(x, y) = (\mathbf{1}_{\mathbb{Q}}(x), \mathbf{1}_{\mathbb{Q}}(y))
+		      \]
+
+		      where $\mathbf{1}_{\mathbb{Q}}: \mathbb{R} \to \mathbb{R}$ is the Dirichlet function, the indicator function of $\mathbb{Q}$.
+
+		      $f$ is closed because $f$ maps every set (including closed sets) to a finite set (which is closed in $\mathbb{R}^{2}$ with the Euclidean topology).
+
+		      $f$ is not open because $f$ maps every set (including open sets) to a finite set, which is a subset of $\{ (0, 0), (1, 0), (0, 1), (1, 1) \}$ and it is not open.
+
+		      $f$ is not continuous because the preimage of the open disk $B_{\sqrt{2}}((1, 1))$, which contains $(1, 1), (1, 0), (0, 1)$ but not $(0, 0)$, is $\mathbb{Q}\times\mathbb{R} \cup \mathbb{R}\times\mathbb{Q}$. However $\mathbb{Q}\times\mathbb{R} \cup \mathbb{R}\times\mathbb{Q}$ is not an open set in $\mathbb{R}^{2}$ because the neighborhood of every point contains an open cube, and every open cube contains a point of $(\mathbb{R}\setminus\mathbb{Q})\times (\mathbb{R}\setminus\mathbb{Q})$, which is not in $\mathbb{Q}\times\mathbb{R} \cup \mathbb{R}\times\mathbb{Q}$.
+		\item
+		\item
+		\item
+		\item
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{2-6}
+Prove Proposition 2.30 (characterization of continuity, openness, and closedness in terms of closures and interiors).
+
+Suppose $X$ and $Y$ are topological spaces, and $f: X\to Y$ is any map.
+\begin{enumerate}[label={(\alph*)}]
+	\item $f$ is continuous if and only if $f(\overline{A}) \subseteq \overline{f(A)}$ for all $A\subseteq X$.
+	\item $f$ is closed if and only if $f(\overline{A})\supseteq \overline{f(A)}$ for all $A\subseteq X$.
+	\item $f$ is continuous if and only if $f^{-1}(\operatorname{Int}B) \subseteq \operatorname{Int} f^{-1}(B)$ for all $B\subseteq Y$.
+	\item $f$ is open if and only if $f^{-1}(\operatorname{Int} B) \supseteq \operatorname{Int} f^{-1}(B)$ for all $B\subseteq Y$.
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item $(\Rightarrow)$ Suppose $f$ is continuous and $A\subseteq X$.
+
+		      Let $y\in f(\overline{A})$, then there is $x\in\overline{A}$ such that $f(x) = y$. Let $U$ be an arbitrary neighborhood of $y$, then $f^{-1}(U)$ is open (because $f$ is continuous) and therefore a neighborhood of $x$. Because $x\in\overline{A}$ then every neighborhood of $x$ contains a point of $A$, so $f^{-1}(U)$ contains a point of $A$. Hence $U$ contains a point of $f(A)$, which implies every neighborhood of $y$ contains a point of $f(A)$. It follows that $y\in \overline{f(A)}$. Since $y$ and $A$ are arbitrary, we conclude that $f(\overline{A})\subseteq \overline{f(A)}$ for all $A\subseteq X$.
+
+		      $(\Leftarrow)$ Suppose $f(\overline{A})\subseteq \overline{f(A)}$ for all $A\subseteq X$.
+
+		      Let $C$ be a closed subset of $Y$ and $D = f^{-1}(C)$. We have
+		      \[
+			      f(\overline{D})\subseteq \overline{f(D)} \subseteq \overline{C} = C.
+		      \]
+
+		      Therefore $\overline{D}\subseteq f^{-1}(C) = D$. Moreover, $D\subseteq \overline{D}$, so $D = \overline{D}$, which means $D$ is closed. Hence the preimage under $f$ of every closed set is closed, so $f$ is continuous.
+		\item $(\Rightarrow)$  Suppose $f$ is closed.
+
+		      Because $\overline{A}$ is closed, $f(\overline{A})$ is closed. For every $x\in A$, $f(x)\in f(A)\subseteq f(\overline{A})$, so $f(\overline{A})$ is a closed set that contains $f(A)$. On the other hand, $\overline{f(A)}$ is the smallest closed set containing $f(A)$. Therefore $f(\overline{A})\supseteq \overline{f(A)}$ for all $A\subseteq X$.
+
+		      $(\Leftarrow)$ Suppose $f(\overline{A})\supseteq \overline{f(A)}$ for all $A\subseteq X$.
+
+		      Let $C$ be a closed subset of $X$, then $f(C) = f(\overline{C}) \supseteq \overline{f(C)}$. On the other hand, $f(C)\subseteq \overline{f(C)}$, and it follows that $f(C) = \overline{f(C)}$, which means $f(C)$ is closed in $Y$. Hence $f$ is a closed map.
+		\item $(\Rightarrow)$ Suppose $f$ is continuous.
+
+		      Let $B\subseteq Y$, then $\operatorname{Int} B$ is an open subset of $Y$. Since $f$ is continuous, $f^{-1}(\operatorname{Int} B)$ is an open subset of $X$. Because $\operatorname{Int} B\subseteq B$, $f^{-1}(\operatorname{Int} B) \subseteq f^{-1}(B)$. On the other hand, $\operatorname{Int}f^{-1}(B)$ is the largest open set contained in $f^{-1}(B)$. Therefore $f^{-1}(\operatorname{Int}B) \subseteq \operatorname{Int}f^{-1}(B)$ for all $B\subseteq Y$.
+
+		      $(\Leftarrow)$ Suppose $f^{-1}(\operatorname{Int}B) \subseteq \operatorname{Int}f^{-1}(B)$ for all $B\subseteq Y$.
+
+		      Let $U$ be an open subset of $Y$, then
+		      \[
+			      f^{-1}(U) = f^{-1}(\operatorname{Int}U) \subseteq \operatorname{Int}f^{-1}(U).
+		      \]
+
+		      On the other hand, we always have $\operatorname{Int} f^{-1}(U)\subseteq f^{-1}(U)$. Therefore $\operatorname{Int} f^{-1}(U) = f^{-1}(U)$, which means $f^{-1}(U)$ is open, for all open subsets $U$ of $Y$. Hence $f$ is continuous.
+		\item $(\Rightarrow)$ Suppose $f$ is open.
+
+		      Let $B\subseteq Y$ and $x\in \operatorname{Int}f^{-1}(B)$. Because $\operatorname{Int}f^{-1}(B)$ is open in $X$, there is a neighborhood $U$ of $x$ which is contained in $\operatorname{Int}f^{-1}(B)$. Moreover, $\operatorname{Int}f^{-1}(B)\subseteq f^{-1}(B)$, so $U\subseteq f^{-1}(B)$, and it follows that $f(U)\subseteq B$. Because $f$ is open, $f(U)$ is open, so $f(U)$ is a subset of the largest open set contained in $B$, hence $f(U)\subseteq \operatorname{Int}B$. We have
+		      \[
+			      U\subseteq f^{-1}(f(B))\subseteq f^{-1}(\operatorname{Int}B)
+		      \]
+
+		      so $x\in f^{-1}(\operatorname{B})$. Hence $f^{-1}(\operatorname{Int}B)\supseteq \operatorname{Int}f^{-1}(B)$ for all $B\subseteq Y$.
+
+		      $(\Leftarrow)$ Suppose $f^{-1}(\operatorname{Int}B)\supseteq \operatorname{Int}f^{-1}(B)$ for all $B\subseteq Y$.
+
+		      Let $U$ be an open subset of $X$. We have $f^{-1}(f(U))\supseteq U$ and by the hypothesis, it follows that
+		      \[
+			      f^{-1}(\operatorname{Int}f(U)) \supseteq \operatorname{Int}f^{-1}(f(U)) \supseteq \operatorname{Int}U = U.
+		      \]
+
+		      Moreover, $f(f^{-1}(A))\supseteq A$ for all $A$. Apply $f$ to the above inclusion, we obtain
+		      \[
+			      \operatorname{Int}f(U)\supseteq f(f^{-1}(\operatorname{Int}f(U)))\supseteq f(U).
+		      \]
+
+		      On the other hand, $\operatorname{Int}f(U)\subseteq f(U)$. From the two inclusions, we conclude $\operatorname{Int}f(U) = f(U)$, which means $f(U)$ is open for all $U\subseteq X$. Hence $f$ is open.
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{2-7}
+Prove Proposition 2.39 (in a Hausdorff space, every neighborhood of a limit point contains infinitely many points of the set).
+
+Suppose $X$ is a Hausdorff space and $A\subseteq X$. If $p\in X$ is a limit point of $A$, then every neighborhood of $p$ contains infinitely many points of $A$.
+\end{problem}
+
+\begin{proof}
+	Because $p$ is a limit point of $A$, it follows from the definition of limit points that every neighborhood of $p$ contains a point of $A$. We define recursively a sequence ${(a_{n})}^{\infty}_{n=1}$ of points in $A$ as the following. Let $U$ be a neighborhood of $p$.
+
+	\begin{itemize}
+		\item Let $U_{1} = U$ and $a_{1}$ is a point of $U_{1}\cap A$ other than $p$.
+		\item For $n\geq 1$, because $X$ is Hausdorff, for every $1\leq i\leq n$, $p$ and $a_{i}$ are separated by open subsets of $X$. For every $1\leq i\leq n$, let $V_{i}$ be a neighborhood of $p$ not containing $a_{i}$. Let $U_{n+1} = U_{n}\cap\bigcap^{n}_{i=1}V_{i}$ then $U_{n+1}$ is a neighborhood of $p$ and $U_{n+1}$ doesn't contain $a_{i}$ for $1\leq i\leq n$. Because $p$ is a limit point of $A$, there is a point $a_{n+1}$ of $U_{n+1}\cap A$ other than $p$. Therefore $a_{n+1}\notin\{ a_{i}: 1\leq i\leq n \}$.
+	\end{itemize}
+
+	So we have contructed two things
+	\begin{itemize}
+		\item The sequence ${(a_{n})}^{\infty}_{n=1}$ of points in $A$ and the terms of this sequence are pairwise distinct.
+		\item The collection ${(U_{n})}_{n\in\mathbb{N}}$ of neighborhoods of $p$ where $U\supseteq U_{n}\supseteq U_{n+1}$ and $U_{n}\ni a_{n}$ for all $n\in\mathbb{N}$.
+	\end{itemize}
+
+	Hence the neighborhood $U$ of $p$ contains infinitely many points of $A$. Thus every neighborhood of $p$ contains infinitely many points of $A$.
+\end{proof}
+
+\begin{problem}{2-8}
+Let $X$ be a Hausdorff space, let $A\subseteq X$, and let $A'$ denote the set of limit points of $A$. Show that $A'$ is closed in $X$.
+\end{problem}
+
+\begin{proof}
+	Let $x\in X\setminus A'$ then $x$ is not a limit point of $A$, then either
+	\begin{itemize}
+		\item $x\notin A$ and $x$ is not a limit point of $A$.
+		\item $x\in A$ and $x$ is not a limit point of $A$.
+	\end{itemize}
+
+	In the former case, there is a neighborhood of $x$ that is contained in $X\setminus A$, so $x\in \operatorname{Ext}A = X\setminus\overline{A}\subseteq X\setminus A'$.
+
+	In the latter case, $\{ x \}$ is a neighborhood of $x$ and $x\in\{ x \}\subseteq X\setminus A'$.
+
+	In either cases, there is a neighborhood of $x$ contained in $X\setminus A'$. Hence $X\setminus A'$ is open in $X$, therefore $A'$ is closed in $X$.
+\end{proof}
+
+\begin{problem}{2-9}\label{problem:2-9}
+Suppose $D$ is a discrete space, $T$ is a space with the trivial topology, $H$ is a Hausdorff space, and $A$ is an arbitrary topological space.
+\begin{enumerate}[label={(\alph*)}]
+	\item Show that every map from $D$ to $A$ is continuous.
+	\item Show that every map from $A$ to $T$ is continuous.
+	\item Show that the only continuous maps from $T$ to $H$ are the constant map.
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item Let $f$ be a map from $D$ to $A$ and $U$ be an open subset of $A$. The preimage of $U$ under $f$ is a subset of $D$. Because $D$ is discrete, then every subset of $D$ is open, so is the preimage of $U$ under $f$. Hence $f$ is continuous. Thus every map from $D$ to $A$ is continuous.
+		\item Let $f$ be a map from $A$ to $T$ and $U$ be an open subset of $T$. Because $T$ is a space with trivial topology, $U$ is the empty set or the entire space $T$. If $U$ is the empty set then $f^{-1}(U)$ is the empty set, which is open. If $U$ is the entire space $T$ then $f^{-1}(U)$ is the entire space $A$, which is open. Hence $f$ is continuous. Thus every map from $A$ to $T$ is continuous.
+		\item Let $f$ be a continuous map from $T$ to $H$. Assume there are $x, y\in T$ such that $f(x)\ne f(y)$. Because $H$ is Hausdorff, there is a neighborhood $U_{x}$ of $x$ and a neighborhood $U_{y}$ of $y$ such that $U_{x}$ and $U_{y}$ are disjoint. Therefore $f^{-1}(U_{x})$ and $f^{-1}(U_{y})$ are disjoint. However, this is a contradiction because $f^{-1}(U_{x}) = f^{-1}(U_{y}) = T$ since $T$ is the trivial topological space. Hence $f$ must be a constant map. Thus the only continuous maps from $T$ to $H$ are the constant maps.
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{2-10}
+Suppose $f, g: X\to Y$ are continuous maps and $Y$ is Hausdorff. Show that the set $\{ x\in X : f(x) = g(x) \}$ is closed in $X$. Give a counterexample if $Y$ is not Hausdorff.
+\end{problem}
+
+\begin{proof}
+	Consider the complement of the given set.
+
+	Let $x\in X$ such that $f(x)\ne g(x)$. Because $Y$ is Hausdorff, $f(x)$ and $g(x)$ are separated by two disjoint open subsets $U, V$ of $f(x), g(x)$, respectively. Because $f, g$ are continuous, $f^{-1}(U)$ and $g^{-1}(V)$ are open subsets of $X$. Let $W = f^{-1}(U)\cap g^{-1}(V)$ then $W$ is a neighborhood of $x$. For every $a\in W$, $f(a)\ne g(a)$, because $f(a)\in U$ and $g(a)\in V$, which are disjoint subsets of $Y$. Hence $W$ is contained in the complement of the given set. Therefore the complement of the given set is open, so the given set is closed.
+
+	Here is a counterexample. $X = \{ 0, 1, 2 \}$ and $Y = \{ 0, 1 \}$. On $X$, we choose the trivial topology. On $Y$, we choose the trivial topology, so $Y$ is not Hausdorff. Let $f, g: X\to Y$ such that
+	\[
+		\begin{split}
+			f(0) = 0, f(1) = 1, f(2) = 1 \\
+			g(0) = 1, g(1) = 1, g(2) = 0
+		\end{split}
+	\]
+
+	Then $f, g$ are continuous, according to Problem~\ref{problem:2-9} (b), and the set $\{ x\in X : f(x) = g(x) \} = \{ 1 \}$ is not closed in $X$.
+\end{proof}
+
+\begin{problem}{2-11}
+Let $f: X\to Y$ be a continuous map between topological spaces, and let $\mathscr{B}$ be a basis for the topology of $X$. Let $f(\mathscr{B})$ denote the collection $\{ f(B) : B\in\mathscr{B} \}$ of subsets of $Y$. Show that $f(\mathscr{B})$ is a basis for the topology of $Y$ if and only if $f$ is surjective and open.
+\end{problem}
+
+\begin{proof}
+	$(\Rightarrow)$ Suppose $f(\mathscr{B})$ is a basis for the topology of $Y$.
+
+	Let $y\in Y$. Because $f(\mathscr{B})$ is a basis for the topology of $Y$, there is $B\in\mathscr{B}$ such that $y\in f(B)$. So there is $x\in B$ such that $f(x) = y$. Hence $f$ is surjective.
+
+	Let $U$ be an open subset of $X$. Because $\mathscr{B}$ is a basis for the topology of $X$, there is a collection of basis elements ${(B_{i})}_{i\in I}$ such that $U = \bigcup_{i\in I}B_{i}$. Since a map is well-behaved with arbitrary union, it follows that $f(U) = \bigcup_{i\in I}f(B_{i})$. Moreover, $f(B_{i})$  is open for every $i\in I$, so $\bigcup_{i\in I}f(B_{i})$ is open, hence $f(U)$ is open. Therefore $f$ is open.
+
+	Thus $f$ is surjective and open.
+
+	$(\Leftarrow)$ Suppose $f$ is surjective and open.
+
+	Because $f$ is open, $f(B)$ is open for every $B\in\mathscr{B}$.
+
+	Let $V$ be an open subset of $Y$. Because $f$ is continuous, $f^{-1}(V)$ is an open subset of $X$, so there is collection of basis elements ${(B_{i})}_{i\in I}$ such that $f^{-1}(V) = \bigcup_{i\in I}B_{i}$. We have
+	\[
+		V = f(f^{-1}(V)) = f\left(\bigcup_{i\in I}B_{i}\right) = \bigcup_{i\in I}f(B_{i})
+	\]
+
+	where $f(f^{-1}(V)) = V$ because $f$ is surjective. So $V$ is the union of elements of $f(\mathscr{B})$.
+
+	Thus $f(\mathscr{B})$ is a basis for the topology of $Y$.
+\end{proof}
+
+\begin{problem}{2-12}
+Suppose $X$ is a set, and $\mathscr{A} = \mathscr{P}(X)$ is any collection of subsets of $X$. Let $\mathscr{T}\subseteq \mathscr{P}(X)$ be the collection of subsets consisting of $X, \varnothing$, and all unions of finite intersections of elements of $\mathscr{A}$.
+\begin{enumerate}[label={(\alph*)}]
+	\item Show that $\mathscr{T}$ is a topology. (It is called the \textbf{topology generated by $\mathscr{A}$}, and $\mathscr{A}$ is called a \textbf{subbasis for $\mathscr{T}$}.)
+	\item Show that $\mathscr{T}$ is the coarsest topology for which all the sets in $\mathscr{A}$ are open.
+	\item Let $Y$ be any topological space. Show that a map $f: Y\to X$ is continuous if and only if $f^{-1}(U)$ is open in $Y$ for every $U\in\mathscr{A}$.
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item By definition, $\mathscr{T}$ contains $X, \varnothing$.
+
+		      Let ${(U_{i})}_{i\in I}$ be a collection of sets in $\mathscr{T}$. Because for every $i\in I$, $U_{i}$ is an union of finite intersections of elements of $\mathscr{A}$, so $\bigcup_{i\in I}U_{i}$ is also an union of finite intersections of elements of $\mathscr{A}$. Therefore $\mathscr{T}$ is closed under arbitrary union.
+
+		      Let $A, B\in\mathscr{T}$, then there exist ${(A_{i})}_{i\in I}$ such that $A = \bigcup_{i\in I}A_{i}$ where every $A_{i}$ is a finite intersection of elements of $\mathscr{A}$, and ${(B_{j})}_{j\in J}$ such that $B = \bigcup_{j\in J}B_{j}$ where every $B_{j}$ is a finite intersection of elements of $\mathscr{A}$.
+		      \[
+			      A\cap B = \left(\bigcup_{i\in I}A_{i}\right)\cap \left(\bigcup_{j\in J}B_{j}\right) = \bigcup_{i\in I}\left(A_{i}\cap \bigcup_{j\in J}B_{j}\right) = \bigcup_{i\in I}\bigcup_{j\in J}\left(A_{i}\cap B_{j}\right)
+		      \]
+
+		      where every $A_{i}\cap B_{j}$ is a finite intersection of elements of $\mathscr{A}$, so $A\cap B\subseteq \mathscr{T}$. Hence $\mathscr{T}$ is closed under finite intersection.
+
+		      Thus $\mathscr{T}$ is a topology.
+		\item Suppose $\mathscr{T}'$ is a topology on $X$ for which all the sets in $\mathscr{A}$ are open. By the definition of topology, every finite intersection of elements of $\mathscr{A}$ is in $\mathscr{T}'$, so every union of finite intersections of elements of $\mathscr{A}$ is in $\mathscr{T}'$. Therefore $\mathscr{T}\subseteq \mathscr{T}'$, which implies that $\mathscr{T}$ is the coarsest topology topology for which all the sets in $\mathscr{A}$ are open.
+		\item $(\Rightarrow)$ Suppose $f$ is continuous.
+
+		      Because every $U\in\mathscr{A}$ is open in $(X, \mathscr{T})$, it follows that $f^{-1}(U)$ is open in $Y$.
+
+		      $(\Leftarrow)$ Suppose $f^{-1}(U)$ is open in $Y$ for every $U\in\mathscr{A}$.
+
+		      Let $V$ open in $X$. If $V = X$ then $f^{-1}(X) = Y$, which is open in $Y$. If $V\ne X$, then there exists a collection ${(A_{i})}_{i\in I}$ where every $A_{i}$ is a finite intersection of elements of $\mathscr{A}$ such that $V = \bigcup_{i\in I}A_{i}$. We have
+		      \[
+			      f^{-1}(V) = f^{-1}\left(\bigcup_{i\in I}A_{i}\right) = \bigcup_{i\in I}f^{-1}(A_{i}).
+		      \]
+
+		      Because every $A_{i}$ is a finite intersection of elements of $\mathscr{A}$, there exists $A_{i,1}, \ldots, A_{i, n_{i}}\in\mathscr{A}$ such that $A_{i} = \bigcap^{n_{i}}_{k=1}A_{i,k}$, so
+		      \[
+			      f^{-1}(A_{i}) = f^{-1}\left(\bigcap^{n_{i}}_{k=1}A_{i,k}\right) = \bigcap^{n_{i}}_{k=1}f^{-1}(A_{i, k}).
+		      \]
+
+		      Because $A_{i,1}, \ldots, A_{i, n_{i}}\in\mathscr{A}$, it follows that $f^{-1}(A_{i,k})$ is open in $Y$ for $k = 1,\ldots, n_{i}$, and it follows that $f^{-1}(A_{i})$ is open in $Y$ for $i\in I$, therefore the union $\bigcup_{i\in I}f^{-1}(A_{i})$ is open in $Y$. Hence $f^{-1}(V)$ is open in $Y$ for every open subset $V$ of $X$.
+
+		      Thus $f$ is continuous.
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{2-13}
+Let $X$ be a totally ordered set. Given $X$ the \textbf{order topology}, which is the topology generated by the subbasis consisting of all sets of the following forms for $a\in X$:
+\[
+	\begin{split}
+		\openinterval{a, \infty} = \{ x\in X : x > a \}, \\
+		\openinterval{-\infty, a} = \{ x\in X: x < a \}
+	\end{split}
+\]
+\begin{enumerate}[label={(\alph*)}]
+	\item Show that each set of the form $\openinterval{a,b}$ is open in $X$ and each set of the form $\left[a, b\right]$ is closed (where $\openinterval{a,b}$ and $\left[a, b\right]$ are defined just as in $\mathbb{R}$).
+	\item Show that $X$ is Hausdorff.
+	\item For any pair of points $a, b\in X$ with $a < b$, show that $\overline{\openinterval{a,b}} \subseteq \left[a, b\right]$. Give an example to show that equality need not hold.
+	\item Show that the order topology on $\mathbb{R}$ is the same as the Euclidean topology.
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item If $a\geq b$, then $\openinterval{a,b}$ is empty, hence open in $X$. Otherwise, $a < b$, then
+		      \[
+			      \openinterval{a, b} = \openinterval{-\infty, b} \cap \openinterval{a, \infty}
+		      \]
+
+		      so $\openinterval{a, b}$ is open in $X$.
+
+		      If $a > b$, then $\closedinterval{a,b}$ is empty, hence closed in $X$. Otherwise, $a\leq b$, then
+		      \[
+			      X\setminus \closedinterval{a, b} = \openinterval{-\infty, a}\cup\openinterval{b,\infty}
+		      \]
+
+		      so $X\setminus \closedinterval{a,b}$ is open in $X$. Therefore $\closedinterval{a,b}$ is closed in $X$.
+		\item Let $a, b$ be distinct elements of $X$. $X$ is totally ordered, so either $a < b$ or $a > b$. Without loss of generality, suppose $a < b$.
+
+		      Either, there is an element $x\in X$ such that $a < x < b$, or there is no such element.
+
+		      If the former case holds, then $a$ and $b$ are separated by disjoint subsets $\openinterval{-\infty, x}$ and $\openinterval{x, \infty}$ of $X$.
+
+		      If the latter case holds, then $a$ and $b$ are separated by disjoint subsets $\openinterval{-\infty, b}$ and $\openinterval{a, \infty}$ of $X$.
+
+		      In either case, $a$ and $b$ are separated by disjoint open subsets of $X$. Thus $X$ is Hausdorff.
+		\item $\closedinterval{a,b}$ is a closed set that contains $\openinterval{a, b}$.
+
+		      On the other hand, $\overline{\openinterval{a,b}}$ is the smallest closed set that contains $\openinterval{a, b}$.
+
+		      Therefore $\overline{\openinterval{a,b}}\subseteq \closedinterval{a, b}$.
+
+		      We give an example, in which the equality does not hold. Let $X = \mathbb{N}$, then $\openinterval{1,2} = \varnothing$ and $\closedinterval{1,2} = \{ 1, 2 \}$, so $\overline{\openinterval{1,2}} = \varnothing \subsetneq \{ 1, 2 \} = \closedinterval{1,2}$. Hence the equality in the above inclusion need not hold.
+		\item Suppose $A$ is open in $\mathbb{R}$ with the Euclidean topology. The collection of open balls in $\mathbb{R}$ is a basis for $\mathbb{R}$ with the Euclidean topology. Let $x\in A$, then there is an open ball $B_{r}(a)$ in $\mathbb{R}$ such that $x\in B_{r}(a)\subseteq A$. So $x\in \openinterval{a-r,a+r}\subseteq A$. Hence $A$ is open in $\mathbb{R}$ with the order topology.
+
+		      Suppose $A$ is open in $\mathbb{R}$ with the Euclidean topology, then $A$ is an union of finite intersections of sets of the forms $\openinterval{a,\infty}$ and $\openinterval{-\infty,a}$.
+
+		      Let $x\in A$, then there is a set $B$ such that $x\in B\subseteq A$ and $B$ is a finite intersection of sets of the forms $\openinterval{a,\infty}$ and $\openinterval{-\infty,a}$.
+
+		      If $B$ is a finite intersection of sets of the forms $\openinterval{a,\infty}$ only, then $x\in B_{x - a}(x)\subseteq \openinterval{a,\infty} \subseteq B\subseteq A$.
+
+		      If $B$ is a finite intersection of sets of the forms $\openinterval{-\infty,a}$ only, then $x\in B_{a - x}(x)\subseteq \openinterval{-\infty,a}\subseteq B\subseteq A$.
+
+		      If $B$ is a finite intersection of sets of the forms $\openinterval{a,\infty}$ and $\openinterval{-\infty,a}$ (both types), then let $c$ be the largest of the left terminal points of the sets of 1st type and $d$ be the smallest of the right terminal points of the sets of 2nd type, then $B = \closedinterval{c, d}$. Let $r = \min\{ x - c, d - x \}$, then $x\in B_{r}(x)\subseteq B\subseteq A$.
+
+		      Hence $A$ is open in $\mathbb{R}$ with the Euclidean topology.
+
+		      Thus the order topology on $\mathbb{R}$ is the same as the Euclidean topology.
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{2-14}
+Prove Lemma 2.48 (the sequence lemma).
+
+Suppose $X$ is a first countable space, $A$ is any subset of $X$, and $x$ is any point of $X$.
+\begin{enumerate}[label={(\alph*)}]
+	\item $x\in \overline{A}$ if and only if $x$ is a limit of a sequence of points in $A$.
+	\item $x\in\operatorname{Int}A$ if and only if every sequence in $X$ converging to $x$ is eventually in $A$.
+	\item $A$ is closed in $X$ if and only if $A$ contains every limit of every convergent sequence of points in $A$.
+	\item $A$ is open in $X$ if and only if every sequence in $X$ converging to a point of $A$ is eventually in $A$.
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item $(\Rightarrow)$ Suppose $x\in \overline{A}$.
+
+		      Let ${(U_{n})}^{\infty}_{n=1}$ be a countable neighborhood basis of $x$. For every $n\in\mathbb{N}$, let $V_{n} = \bigcap^{n}_{k=1}U_{k}$, then $V_{n}\supseteq V_{n+1}$ for every $n\in\mathbb{N}$. Because $U_{n}\supseteq V_{n}$ and $V_{n}$ is a neighborhood of $x$ for every $n\in\mathbb{N}$, it follows that ${(V_{n})}^{\infty}_{n=1}$ is also a countable neighborhood basis of $x$, moreover, it is a nested countable neighborhood basis of $x$.
+
+		      Because $x\notin\operatorname{Ext}A = X\setminus\overline{A}$, every neighborhood of $x$ contains a point of $A$. In each $V_{n}$, there is $a_{n}$ such that $a_{n}\in A$. Let $U$ be an open set containing $x$. Because ${(V_{n})}^{\infty}_{n=1}$ is a nested countable neighborhood of $x$, there is $N\in\mathbb{N}$ such that $U\supseteq V_{i}$ for all $i\geq N$, which implies $U\ni a_{i}$ for all $i\geq N$. Therefore $x$ is a limit of the sequence ${(a_{n})}^{\infty}_{n=1}$ of points in $A$.
+
+		      $(\Leftarrow)$ Suppose $x$ is a limit of a sequence of points in $A$.
+
+		      Let ${(a_{n})}^{\infty}_{n=1}$ be a sequence of points in $A$ such that $x$ is a limit of this sequence. If $x\in A$ then $x\in\overline{A}$. If $x\notin A$ then every neighborhood of $x$ contains a point of $A$ (some term of the given sequence, because $x$ is a limit of ${(a_{n})}^{\infty}_{n=1}$), and a point of $X\setminus A$ (the point $x$ itself), so $x$ is a boundary point of $A$, which means $x\in\overline{A}$ because $\overline{A} = A\cup\partial A$. In either case, we conclude that $x\in \overline{A}$.
+
+		      Thus $x\in\overline{A}$ if and only if $x$ is a limit of a sequence of points in $A$.
+		\item $(\Rightarrow)$ Suppose $x\in\operatorname{Int} A$.
+
+		      Because $x\in\operatorname{Int} A$, there is a neighborhood $U$ of $x$ that is contained in $A$. Let ${(x_{n})}^{\infty}_{n=1}$ be a sequence in $X$ converging to $x$, so there is $N\in\mathbb{N}$ such that $x_{i}\in U$ for all $i\geq N$. Therefore $x_{i}\in U\subseteq A$ for all $i\geq N$, which means the sequence ${(x_{n})}^{\infty}_{n=1}$ is eventually in $A$.
+
+		      $(\Leftarrow)$ Suppose every sequence in $X$ converging to $x$ is eventually in $A$.
+
+		      The constant sequence of which every term is $x$ converges to $x$ so it is eventually in $A$, therefore $x\in A$.
+
+		      Because $X$ is first countable, there is a nested countable neighborhood basis ${(V_{n})}^{\infty}_{n=1}$ of $x$.
+
+		      Assume every neighborhood of $x$ is not contained in $A$, then for every $n\in\mathbb{N}$, there is $y_{n}\in V_{n}$ such that $y_{n}\notin A$. Let $U$ be a neighborhood of $x$, then there is $N\in\mathbb{N}$ such that $U\supseteq V_{N}$, so $U\supseteq V_{i}$ for all $i\geq N$, which implies $U\ni y_{i}$ for all $i\geq N$. Hence the sequence ${(y_{n})}^{\infty}_{n=1}$ converges to $x$ but the entire sequence is not contained in $A$, which is a contradiction.
+
+		      Therefore the assumption is false, so there is a neighborhood of $x$ contained in $A$, from which we conclude that $x\in\operatorname{Int}A$.
+
+		      Thus $x\in\operatorname{Int}A$ if and only if every sequence in $X$ converging to $x$ is eventually in $A$.
+		\item $(\Rightarrow)$ Suppose $A$ is closed.
+
+		      Let $x$ be a limit of a convergent sequence of points in $A$. By part (a), $x\in \overline{A}$. Because $A$ is closed, $A = \overline{A}$. Therefore $x\in A$, so $A$ contains every limit of every convergent sequence of points in $A$.
+
+		      $(\Leftarrow)$ Suppose $A$ contains every limit of every convergent sequence of points in $A$.
+
+		      Let $x\in\overline{A}$. By part (a), $x$ is a limit of a sequence of points in $A$. Due to the hypothesis, $x\in A$. Since $x$ is an arbitrary element of $\overline{A}$, and $x\in A$, we conclude that $\overline{A}\subseteq A$. On the other hand, we always have $A\subseteq \overline{A}$. Therefore $A = \overline{A}$, which means $A$ is closed.
+
+		      Thus $A$ is closed if and only if $A$ contains every limit of every convergent sequence of points in $A$.
+		\item $(\Rightarrow)$ Suppose $A$ is open.
+
+		      Let $x\in A$ and ${(x_{n})}^{\infty}_{n=1}$ is a sequence in $X$ converging to $x$. Because $A = \operatorname{Int} A$ (since $A$ is open), the sequence ${(x_{n})}^{\infty}_{n=1}$ is eventually in $A$, according to part (b). Hence every sequence converging to a point of $A$ is eventually in $A$.
+
+		      $(\Leftarrow)$ Suppose every sequence converging to a point of $A$ is eventually in $A$.
+
+		      Let $x\in A$. Because every sequence converging to a point of $A$ is eventually in $A$, so from part (b), we deduce that $x\in \operatorname{Int}A$. Because $x$ is an arbitrary element of $A$, it follows that $A\subseteq\operatorname{Int}A$. Moreover, we always have $\operatorname{Int}A\subseteq A$, so $A = \operatorname{Int}A$, which means $A$ is open.
+
+		      Thus $A$ is open if and only if every sequence in $X$ converging to a point of $A$ is eventually in $A$.
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{2-15}
+Let $X$ and $Y$ be topological spaces.
+\begin{enumerate}[label={(\alph*)}]
+	\item Suppose $f: X\to Y$ is continuous and $p_{n}\to p$ in $X$. Show that $f(p_{n})\to f(p)$ in $Y$.
+	\item Prove that if $X$ is first countable, the converse is true: if $f: X\to Y$ is a map such that $p_{n}\to p$ in $X$ implies $f(p_{n})\to f(p)$ in $Y$, then $f$ is continuous.
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item Let $U$ be an arbitrary neighborhood of $f(p)$ in $Y$. Because $f$ is continuous, $f^{-1}(U)$ is open. Moreover, $f^{-1}(U)$ contains $p$ so $f^{-1}(U)$ is a neighborhood of $p$. Since $p_{n}\to p$, there is $N\in\mathbb{N}$ such that $p_{i}\in f^{-1}(U)$ for all $i\geq N$. Therefore $f(p_{i})\in f(f^{-1}(U))\subseteq U$ for all $i\geq N$. By the definition of convergence, $f(p_{n})\to f(p)$ in $Y$.
+		\item Let $V$ be an open subset of $Y$.
+
+		      If $V\cap f(X) = \varnothing$ then $f^{-1}(V) = \varnothing$, which is an open subset of $X$.
+
+		      If $V\cap f(X) \ne \varnothing$ then $f^{-1}(V)$ is nonempty. Let $p$ be an arbitrary element of $f^{-1}(V)$ and ${(p_{n})}^{\infty}_{n=1}$ be a sequence in $X$ converging to $p$. By the hypothesis, $f(p_{n})\to f(p)$, so from the definition of convergence, there is $N\in\mathbb{N}$ such that $f(p_{i})\in V$ for all $i\geq N$. Therefore $p_{i}\in f^{-1}(V)$ for all $i\geq N$, which means the sequence ${(p_{n})}^{\infty}_{n=1}$ is eventually in $f^{-1}(V)$. From Exercise~\ref{exercise:2.14} (d), we conclude that $f^{-1}(V)$ is open in $X$.
+
+		      Thus $f$ is continuous.
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{2-16}
+Let $X$ be a second countable topological space. Show that every collection of disjoint open subsets of $X$ is countable.
+\end{problem}
+
+\begin{proof}
+	Let $\mathscr{A}$ be a collection of disjoint open subsets of $X$. Because $X$ is second countable, $X$ has a countable basis $\mathscr{B}$. We define a map $f: \mathscr{A}\to \{ \varnothing \}\cup\mathscr{B}$ as follows:
+	\begin{itemize}
+		\item If $A\in\mathscr{A}$ is the empty set, $f(A) = \varnothing$.
+		\item If $A\in\mathscr{A}$ is nonempty, there is $B\in\mathscr{B}$ such that $A\supseteq B$, let $f(A) = B$.
+	\end{itemize}
+
+	$f$ is injective, because $f(A_{i})$ and $f(A_{j})$ are disjoint for $A_{i}\ne A_{j}$. $\{ \varnothing \}\cup\mathscr{B}$ is countable, so $\mathscr{A}$ is also countable.
+
+	Thus every collection of disjoint open subsets of $X$ is countable.
+\end{proof}
+
+\begin{problem}{2-17}
+Let $\mathbb{Z}$ be the set of integers. Say that a subset $U\subseteq \mathbb{Z}$ is \textbf{symmetric} if it satisfies the following condition:
+\[
+	\text{for each $n\in\mathbb{Z}$, $n\in U$ if and only if $-n\in U$.}
+\]
+
+Define a topology on $\mathbb{Z}$ by declaring a subset to be open if and only if it is symmetric.
+\begin{enumerate}[label={(\alph*)}]
+	\item Show that this is a topology.
+	\item Show that it is second countable.
+	\item  Let $A$ be the subset $\{ -1, 0, 1, 2 \}\subseteq\mathbb{Z}$, and determine the interior, boundary, closure, and limit points of $A$.
+	\item Is $A$ open in $\mathbb{Z}$? Is it closed?
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	Let $\mathscr{T}$ be the collection of symmetric subsets of $\mathbb{Z}$.
+	\begin{enumerate}[label={(\alph*)}]
+		\item By definition, $\varnothing$ and $\mathbb{Z}$ are in $\mathscr{T}$.
+
+		      Let ${(U_{\alpha})}_{\alpha\in A}$ be a family of symmetric subsets of $\mathbb{Z}$. The following are equivalent
+		      \begin{itemize}
+			      \item $n\in\bigcup_{\alpha\in A}U_{\alpha}$
+			      \item $n\in U_{\alpha}$ for some $\alpha\in A$
+			      \item $-n\in U_{\alpha}$ for some $\alpha\in A$
+			      \item $-n\in\bigcup_{\alpha\in A}U_{\alpha}$.
+		      \end{itemize}
+
+		      Therefore $\bigcup_{\alpha\in A}U_{\alpha}$ is a symmetric subset of $\mathbb{Z}$, so $\mathscr{T}$ is closed under arbitrary unions.
+
+		      Let $U_{1}, \ldots, U_{n}$ be symmetric subsets of $\mathbb{Z}$. The following are equivalent
+		      \begin{itemize}
+			      \item $n\in \bigcap^{n}_{i=1}U_{i}$.
+			      \item $n\in U_{i}$ for every $i = 1,\ldots, n$.
+			      \item $-n\in U_{i}$ for every $i = 1,\ldots, n$.
+			      \item $-n\in \bigcap^{n}_{i=1}U_{i}$.
+		      \end{itemize}
+
+		      So $\bigcap^{n}_{i=1}U_{i}$ is a symmetric subset of $\mathbb{Z}$, which means $\mathscr{T}$ is closed under finite intersections.
+
+		      Thus $\mathscr{T}$ is a topology on $\mathbb{Z}$.
+		\item For every $n\in\mathbb{Z}_{\geq 0}$, we define $B_{n} = \{ \pm {n} \}$, then every $B_{n}$ is a symmetric subset of $\mathbb{Z}$. Moreover, $\mathbb{Z} = \bigcup_{n\in\mathbb{Z}_{\geq 0}}B_{n}$. For every $U\in\mathscr{T}$, $U$ is the union of $B_{n}$ for every nonnegative element $n$ of $U$. Hence $\mathscr{B} = {(B_{n})}_{n\in\mathbb{Z}_{\geq 0}}$ is a basis for $\mathscr{T}$. This basis is countable, so $\mathscr{T}$ is second countable.
+		\item $\operatorname{Int}\{ -1, 0, 1, 2 \} = \{ -1, 0, 1, 2 \}$ (the largest open set contained in $\{ -1, 0, 1, 2 \}$).
+
+		      $\partial\{ -1, 0, 1, 2 \} = \{ \pm 2 \}$, because $2$ and $-2$ are the only integers such that every neighborhood of them contains a point of $\{ -1, 0, 1, 2 \}$ and a point that isn't in $\{ -1, 0, 1, 2 \}$.
+
+		      $\overline{\{ -1, 0, 1, 2 \}} = \{ -2, -1, 0, 1, 2 \}$ (the smallest closed set containing $\{ -1, 0, 1, 2 \}$).
+
+		      The limit points of $\{ -1, 0, 1, 2 \}$ are $-2, 2, -1, 1$.
+		\item $A$ is not open in $\mathbb{Z}$ because $A$ is not equal to its interior. $A$ is not closed in $\mathbb{Z}$ because $A$ is not equal to its closure.
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{2-18}
+This problem refers to the topologis defined in Problem 2-1.
+\begin{enumerate}[label={(\alph*)}]
+	\item Show that $\mathbb{R}$ with the particular point topology is first countable and separable but not second countable or Lindelöf.
+	\item Show that $\mathbb{R}$ with the excluded point topology is first countable and Lindelöf but not second countable or separable.
+	\item Show that $\mathbb{R}$ with the finite complement topology is separable and Lindelöf but not first or second countable.
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item Let $p$ be a fixed point of $\mathbb{R}$. Consider the particular point topology on $\mathbb{R}$ where $p$ is the particular point.
+
+		      Let $x$ be a point of $\mathbb{R}$ then $\mathscr{B}_{x} = \{ \{ x, p \} \}$ is a neighborhood basis of $x$, because every neighborhood of $x$ contains $\{ x, p \}$. Because $\mathscr{B}_{x}$ is countable and $x$ is arbitrary, it follows that $\mathbb{R}$ with the particular point topology is first countable.
+
+		      Let $A$ be a countable subset of $\mathbb{R}$ containing $p$. Every nonempty open subset of $\mathbb{R}$ contains $p$, so every nonempty open subset of $\mathbb{R}$ intersects $A$. Therefore $A$ is a dense subset. Because $A$ is a countable dense subset of $\mathbb{R}$, we conclude that $\mathbb{R}$ with the particular point topology is separable.
+
+		      Let $\mathscr{B}$ be a basis for $\mathbb{R}$ with the particular point topology. For every $x\in\mathbb{R}$, $\{ x, p \}$ is an open subset of $\mathbb{R}$, so $\{ x, p \}$ is an union of elements of $\mathscr{B}$. Hence there is an element of $\mathscr{B}$ that contains $x$ and is contained in $\{
+			      x, p \}$, then $\{ x, p \}$ is the only set that satisfies those properties. It follows that $\{ x, p \}\in\mathscr{B}$ for every $x\in\mathbb{R}$. Therefore $\mathscr{B}$ is uncountable, because $\mathbb{R}$ is uncountable. We conclude that every basis for $\mathbb{R}$ with the particular point topology, so  $\mathbb{R}$ with the particular point topology is not second countable.
+
+		      The collection ${\{ \{ p, x \} \}}_{x\in\mathbb{R}}$ is an open cover of $X$. Let $\mathscr{A}$ be a countable subset of this collection. Because $\mathscr{A}$ is countable and meanwhile $\mathbb{R}$ is uncountable, there is $x\in\mathbb{R}$ such that $\{ p, x \}\notin \mathscr{A}$, which means $\mathscr{A}$ doesn't cover $\mathbb{R}$. Hence the open cover ${\{ \{ p, x \} \}}_{x\in\mathbb{R}}$ doesn't contain a countable subcover, so $\mathbb{R}$ with the particular point topology is not Lindelöf.
+		\item Let $p$ be a fixed point of $\mathbb{R}$. Consider the excluded point topology on $\mathbb{R}$ where $p$ is the excluded point.
+
+		      For every point $x\in\mathbb{R}$
+		      \begin{itemize}
+			      \item if $x$ is $p$, then $\{ \mathbb{R} \}$ is a neighborhood basis of $x$.
+			      \item if $x$ is not $p$, then $\{ \{ x \} \}$ is a neighborhood basis of $x$.
+		      \end{itemize}
+
+		      Therefore $\mathbb{R}$ with the excluded point topology is first countable.
+
+		      Let $\mathscr{A}$ be an open cover of $\mathbb{R}$ with the excluded point topology. If every element of $\mathscr{A}$ doesn't contain $p$ then $\mathscr{A}$ doesn't cover $\mathbb{R}$. Therefore there is an element of $\mathscr{A}$ that contains $p$. Moreover, the open only set containing $p$ in $\mathbb{R}$ with the excluded point topology is $\mathbb{R}$, so $\mathscr{A}$ contains a countable subcover. It follows that $\mathbb{R}$ with the excluded point topology is Lindelöf.
+
+		      Let $\mathscr{B}$ be a basis for $\mathbb{R}$ with the excluded point topology. For every $x\in\mathbb{R}$ other than $p$, the one-element set $\{ x \}$ is open. Because $\mathscr{B}$ is a basis so $\{ x \}$ contains a basis element, which implies $\{ x \}$ is an element of $\mathscr{B}$. Because $\mathbb{R}\setminus\{p\}$ is uncountable, it follows that $\mathscr{B}$ is uncountable, therefore $\mathbb{R}$ with the excluded topology is not second countable.
+
+		      Let $A$ be a countable subset of $\mathbb{R}$. Because $\mathbb{R}$ is uncountable, there is $b\in\mathbb{R}\setminus (A\cup\{p\})$. The one-element set $\{b\}$ is open in $\mathbb{R}$ and doesn't contain any point of $A$, so $A$ is not dense in $\mathbb{R}$. Hence every countable subset of $\mathbb{R}$ is not dense in $\mathbb{R}$ with the excluded point topology. From this, we conclude that $\mathbb{R}$ with the excluded point topology is not separable.
+		\item Let $A$ be a countably infinite subset of $\mathbb{R}$. Let $U$ be a nonempty open subset of $\mathbb{R}$. Assume $U$ doesn't contain any point of $A$, then $U\subseteq \mathbb{R}\setminus A$. It follows that $\mathbb{R}\setminus U \supseteq A$, which means $U$ is not open because its complement is not finite, and this is a contradiction. Therefore every nonempty open subset of $\mathbb{R}$ contains a point of $A$, which implies $A$ is a dense subset of $\mathbb{R}$. Moreover, $A$ is countable, so $\mathbb{R}$ with the finite complement topology is separable. (Here, we proved that every countably infinite subset of $\mathbb{R}$ is dense in $\mathbb{R}$ with the finite complement topology.)
+
+		      Let $\mathscr{A}$ be an arbitrary open cover of $\mathbb{R}$. Let $A_{0}\in\mathscr{A}$. If $A_{0} = \mathbb{R}$ then $\{A_{0}\}$ is a countable subcover of $\mathbb{R}$. If $A_{0}\subsetneq \mathbb{R}$ then $\mathbb{R}\setminus A_{0}$ is a finite subset of $\mathbb{R}$. Because $\mathscr{A}$ covers $\mathbb{R}$, for every $x\in \mathbb{R}\setminus A_{0}$, there is $A_{x}\in\mathscr{A}$ such that $x\in A_{x}$. Therefore $\{ A_{0} \} \cup \{ A_{x} : x\in \mathbb{R}\setminus A_{0} \}$ is a finite, therefore countable subcover of $\mathbb{R}$. Thus $\mathbb{R}$ with the finite complement topology is Lindelöf.
+
+		      Let $x\in\mathbb{R}$. Assume $\mathscr{B}_{x} = \{ B_{n} : n\in\mathbb{N} \}$ is a countable neighborhood basis of $x$. For every $n\in\mathbb{N}$, the set $\mathbb{R}\setminus B_{n}$ is finite. Let $A = \{ x \}\cup \bigcup_{n\in\mathbb{N}}\mathbb{R}\setminus B_{n}$. Because $\mathbb{R}\setminus B_{n}$ are finite, their union is countable, so $A$ is countable. $\mathbb{R}$ is uncountable so there is $y\in\mathbb{R}\setminus A$. The set $\mathbb{R}\setminus\{y\}$ is a neighborhood of $x$, but $B_{n}$ is not contained in $\mathbb{R}\setminus\{y\}$ for every $n\in\mathbb{N}$ (because $y\notin \mathbb{R}\setminus B_{n}$ for every $n\in\mathbb{N}$). Hence the assumption is false, so $\mathbb{R}$ with the finite complement topology is not first countable and not second countable (because second countability implies first countability). Moreover, none of points of $\mathbb{R}$ has a countable neighborhood basis.
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{2-19}
+Let $X$ be a topological space and let $\mathscr{U}$ be an open cover of $X$.
+\begin{enumerate}[label={(\alph*)}]
+	\item Suppose we are given a basis for each $U\in\mathscr{U}$ (when considered as a topological space in its own right). Show that the union of all those bases is a basis for $X$.
+	\item Show that if $\mathscr{U}$ is countable and each $U\in\mathscr{U}$ is second countable, then $X$ is second countable.
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	This problem involves subspace topology.
+	\begin{enumerate}[label={(\alph*)}]
+		\item Let $x\in X$. Because $\mathscr{U}$ is an open cover of $X$, there is $U\in\mathscr{U}$ such that $x\in U$. Hence there is an element of the basis for the topology on $U$ that contains $x$. So $X$ is the union of all elements of all the given bases.
+
+		      Let $A$ be an open subset of $X$. We have $A = \bigcup_{U\in\mathscr{U}}A\cap U$. For every $U\in\mathscr{U}$, $A\cap U$ is open in $X$ and also open in $U$ (subspace topology), so $A\cap U$ is the union of some basis elements of the given basis for $U$. Therefore $A$ is the union of some basis elements of the given bases for $U\in\mathscr{U}$ (if $A\cap U\ne\varnothing$).
+
+		      Thus the union of the given bases for all $U\in\mathscr{U}$ is a basis for $X$.
+		\item From part (a), the union of the given bases for all $U\in\mathscr{U}$ is a basis for $X$. Moreover, the countable union of countable sets is countable. So if $\mathscr{U}$ is countable and every $U\in\mathscr{U}$ is countable, it follows that $X$ has a countable basis, therefore second countable.
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{2-20}
+Show that second countability, separability, and the Lindelöf property are all equivalent for metric spaces.
+\end{problem}
+
+\begin{proof}
+	\begin{itemize}
+		\item \textbf{Second countability implies Separability and Lindelöf property.}
+
+		      Let $X$ be a second countable topological space and $\mathscr{B}$ is a countable basis for $X$.
+
+		      In every $B\in\mathscr{B}$ there is an element $b$. Let $A$ be the set containing all of these elements $b$, then $A$ is countable. Let $U$ be a nonempty open subset of $X$, then $U$ is the union of some elements of $\mathscr{B}$, which implies $U$ contains a point of $A$. Therefore $A$ is a countable dense subset of $X$, so $X$ is separable.
+
+		      Let $\mathcal{O}$ be an open cover of $X$. Let $\mathscr{B}'$ be a subset of $\mathscr{B}$ such that $B\in\mathscr{B}'$ if and only if $B$ is contained in some element of $\mathcal{O}$. Because $\mathscr{B}$ is countable, it follows that $\mathscr{B}'$ is countable. $\mathscr{B}'$ is nonempty because $\mathscr{B}$ is a basis for $X$. For every $B\in\mathscr{B}'$, choose $U_{B}\in\mathcal{O}$ such that $B\subseteq U_{B}$. Let $\mathcal{O}' = \{ U_{B} : B\in\mathscr{B}' \}$.
+
+		      If $x$ is an arbitrary element of $X$, then $x\in U$ for some $U\in\mathcal{O}$. By the basis criterion, there is $B\in\mathscr{B}$ such that $x\in B\subseteq U$. Therefore $x\in B\subseteq U_{B}$, so $\mathcal{O}'$ is a countable subcover from $\mathcal{O}$. Thus $X$ is Lindelöf.
+		\item \textbf{In metric spaces, Separability implies Second countability.}
+		      Let $M$ be a separable metric space with metric $d$. Because $M$ is separable, it has a countable dense subset $A$. We define $\mathscr{B}$ to be the set of open balls whose centers are points of $A$ and radii are positive rational numbers.
+		      \[
+			      \mathscr{B} = \{ B^{(d)}_{q}(x) : x\in A \text{ and } q\in \mathbb{Q} \text{ and } q > 0 \}
+		      \]
+
+		      then $\mathscr{B}$ is countable because $A$ and $\mathbb{Q}$ are countable.
+
+		      Let $U$ be a nonempty open subset of $M$ and $x\in U$. Because $U$ is an open subset of $M$, there is $r > 0$ such that $B^{(d)}_{r}(x)\subseteq U$.
+
+		      Since $B^{(d)}_{r/2}(x)$ is an open subset of $M$ and $A$ is dense in $M$, the open ball $B^{(d)}_{r/2}(x)$ contains a point $y$ of $A$. So $d(x, y) < \frac{r}{2}$, which means $d(x, y) < r - d(x, y)$.
+
+		      There is a rational number $q$ such that $d(x, y) < q < r - d(x, y)$. We will show that $x\in B^{(d)}_{q}(y) \subseteq B^{(d)}_{r}(x)$. Since $d(x, y) < q$, it follows that $x\in B^{(d)}_{q}(y)$. Let $z\in B^{(d)}_{q}(y)$, then
+		      \[
+			      d(x, z)\leq d(x, y) + d(y, z) < (r - q) + q = r
+		      \]
+
+		      which implies $B^{(d)}_{q}(y) \subseteq B^{(d)}_{r}(x)$. So for every $x\in U$, there exists $B^{(d)}_{q}(y)\in\mathscr{B}$ such that $x\in B^{(d)}_{q}(y)\subseteq U$. Because this holds for arbitrary point of $U$, we conclude that $U$ is an union of elements of $\mathscr{B}$. Therefore $\mathscr{B}$ is a countable basis for $M$, so $M$ is second countable.
+		\item \textbf{In metric spaces, Lindelöf property implies Second countability.}
+
+		      Let $M$ be a metric space with metric $d$ and $M$ is a Lindelöf space. For every $n\in\mathbb{N}$, we define $\mathcal{O}_{n} = {\{ B^{(d)}_{1/2^{n}}(x) : x\in M \}}$ then $\mathcal{O}_{n}$ is an open cover of $M$. Because $M$ is Lindelöf, $\mathcal{O}_{n}$ contains a countable subcover $\mathscr{B}_{n}$. Let $\mathscr{B} = \bigcup_{n\in\mathbb{N}}\mathscr{B}_{n}$ then $\mathscr{B}$ is a countable open cover of $M$.
+
+		      Let $U$ be a nonempty open subset of $M$ and $x\in U$. Because $U$ is open, there is $r > 0$ such that $x\in B^{(d)}_{r}(x) \subseteq U$. There is $n\in\mathbb{N}$ such that $1/2^{n} < r/2$. Because $\mathscr{B}_{n}$ covers $M$, there is $B^{(d)}_{1/2^{n}}(y)\in \mathscr{B}_{n}$ such that $x\in B^{(d)}_{1/2^{n}}(y)$. Let $z\in B^{(d)}_{1/2^{n}}(y)$, then
+		      \[
+			      d(x, z) \leq d(x, y) + d(y, z) < \frac{1}{2^{n}} + \frac{1}{2^{n}} < \frac{r}{2} + \frac{r}{2} = r
+		      \]
+
+		      which means $z\in B^{(d)}_{r}(x)$. Hence $x\in B^{(d)}_{1/2^{n}}(y)\subseteq B^{(d)}_{r}(x) \subseteq U$, so for every $x\in U$, there is an open ball $B$ in $\mathscr{B}$ such that $x\in B\subseteq U$. Therefore $\mathscr{B}$ is a countable basis for $M$, which implies $M$ is second countable.
+
+		      In conclusion, in metric spaces, second countability, separability, and Lindelöf property are equivalent.
+	\end{itemize}
+\end{proof}
+
+\begin{problem}{2-21}
+Show that every locally Euclidean space is first countable.
+\end{problem}
+
+\begin{proof}
+	Suppose $M$ is a topological space which is locally Euclidean of dimension $n$.
+
+	Let $x$ be an arbitrary point of $M$, then $x$ has a neighborhood $U_{x}$ that admits a homeomorphism $f: U_{x}\to \mathbb{R}^{n}$. $f$ is a homeomorphism and $\mathbb{R}^{n}$ is first countable, so $U_{x}$ is also first countable. Let $\mathscr{B}_{x}$ be a countable neighborhood basis of $x$ in $U_{x}$. Because $U_{x}$ is open in $M$ and every element of $\mathscr{B}_{x}$ is open in $U_{x}$, it follows that every element of $\mathscr{B}_{x}$ is open in $M$ (subspace topology).
+
+	Let $U$ be an arbitrary neighborhood of $x$, then $f\vert_{U\cap U_{x}}: U\cap U_{x}\to f(U\cap U_{x})$ is a homeomorphism. Because $U\cap U_{x}$ is a neighborhood of $x$ in $U_{x}$ then there is $B\in \mathscr{B}_{x}$ such that $x\in B\subseteq U\cap U_{x}\subseteq U$. Therefore $\mathscr{B}_{x}$ is also a countable neighborhood basis of $x$ in $M$. Since $x$ is an arbitrary point of $M$, we conclude that $M$ is first countable.
+\end{proof}
+
+\begin{problem}{2-22}
+For any fixed $a, b, c\in\mathbb{R}$, let $I_{a,b,c}$ be the subset of $\mathbb{R}^{2}$ defined by $I_{a,b,c} = \{ (c, y): a < y < b \}$. Let $\mathscr{B}$ be the collection of all nonempty subsets of $\mathbb{R}^{2}$ of the form $I_{a,b,c}$ for $a, b, c\in\mathbb{R}$.
+\begin{enumerate}[label={(\alph*)}]
+	\item Show that $\mathscr{B}$ is a basis for a topology on $\mathbb{R}^{2}$.
+	\item Let $X = \mathbb{R}^{2}$ as a set, but with the topology generated by $\mathscr{B}$. Determine which (if either) of the identity maps $X\to \mathbb{R}^{2}$, $\mathbb{R}^{2}\to X$ is continuous.
+	\item Show that $X$ is locally Euclidean (of what dimension?) and Hausdorff, but not second countable.
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item  For every $(x, y)\in \mathbb{R}^{2}$, $(x, y)\in I_{x-1,x+1,y}$. Therefore $\mathbb{R}^{2} = \bigcup_{a,b,c\in\mathbb{R}}I_{a,b,c}$.
+
+		      Suppose $I_{a_{1},b_{1},c_{1}}\cap I_{a_{2},b_{2},c_{2}}$ is nonempty. By the definition of $I_{a,b,c}$, we have $I_{a_{1},b_{1},c_{1}} = \{c_{1}\} \times \openinterval{a_{1},b_{1}}$ and $I_{a_{2},b_{2},c_{2}} = \{c_{2}\} \times \openinterval{a_{2},b_{2}}$. Because $I_{a_{1},b_{1},c_{1}}\cap I_{a_{2},b_{2},c_{2}}$ is nonempty, it follows that $c_{1} = c_{2} = c$ and $\openinterval{a_{1},b_{1}} \cap \openinterval{a_{2},b_{2}}\ne \varnothing$. Since $\openinterval{a_{1},b_{1}} \cap \openinterval{a_{2},b_{2}}$ is nonempty, it is also an open interval $\openinterval{a, b}$ where $a < b$. Hence $I_{a_{1},b_{1},c_{1}}\cap I_{a_{2},b_{2},c_{2}} = I_{a,b,c}$
+
+		      Therefore $\mathscr{B}$ is a basis for a topology on $\mathbb{R}^{2}$.
+		\item A basis for the Euclidean topology on $\mathbb{R}^{2}$ is the collection of open squares. Consider the open square (which is arbitrary) $\openinterval{x_{0} - s, x_{0} + s}\times \openinterval{y_{0} - s, y_{0} + s}$, we have
+		      \[
+			      \openinterval{x_{0} - s, x_{0} + s}\times \openinterval{y_{0} - s, y_{0} + s} = \bigcup_{c\in \openinterval{x_{0} - s, x_{0} + s}} I_{y_{0}-s, y_{0}+s, c}
+		      \]
+
+		      So every open square is an open set in $X$, because it is an union of $I_{a,b,c}$ sets. Hence every open set in $\mathbb{R}^{2}$ (with the Euclidean topology) is an open set in $X$. However, for every nonempty $I_{a,b,c}$, the set $I_{a,b,c}$ is not open in $\mathbb{R}^{2}$ (with the Euclidean topology) because it doesn't contain any open square.
+
+		      Therefore the identity map $X\to \mathbb{R}^{2}$ is continuous, but the identity map $\mathbb{R}^{2}\to X$ is not continuous.
+		\item Let $(x_{0}, y_{0})\in X$ and $\delta > 0$, we have $f: \{ x_{0} \}\times \openinterval{y_{0}-\delta, y_{0}+\delta} \to  \openinterval{y_{0}-\delta, y_{0}+\delta}$ where $f(x, y) = y$ is a homeomorphism. $\openinterval{y_{0}-\delta, y_{0}+\delta}$ is an open subset of $\mathbb{R}$. Hence every point of $X$ has a neighborhood which is homeomorphism to an open subset of $\mathbb{R}$, so $X$ is locally Euclidean of dimension one.
+
+		      Let $(x_{0}, y_{0})$ and $(x_{1}, y_{1})$ be two distinct points of $X$.
+
+		      If $x_{0}\ne x_{1}$, then $(x_{0}, y_{0})$ and $(x_{1}, y_{1})$ are separated by the neighborhoods $I_{y_{0}-1, y_{0}+1, x_{0}}$ and $I_{y_{1}-1, y_{1}+1, x_{1}}$.
+
+		      If $x_{0} = x_{1}$ then $y_{0}\ne y_{1}$. Let $d = (y_{1} - y_{0})/2$ then $(x_{0}, y_{0})$ and $(x_{1}, y_{1})$ are separated by the neighborhoods $I_{y_{0} - d, y_{0}+d, x_{0}}$ and $I_{y_{1}-d, y_{1}+d, x_{1}}$.
+
+		      Hence $X$ is Hausdorff because every pair of distinct points are separated by open neighborhoods.
+
+		      The collection $\mathcal{O} = \{ I_{a,b,c}: a, b, c\in\mathbb{R} \text{ and } a < b \}$ is an open cover of $X$. Let $\mathcal{O}'$ be an arbitrary subcover from $\mathcal{O}$. By the definition of $\mathcal{O}$, for every $c\in\mathbb{R}$, there are $a, b\in\mathbb{R}$ such that $a < b$ and $I_{a,b,c}\in\mathcal{O}'$. Because $\mathbb{R}$ is uncountable, it follows that $\mathcal{O}'$ is at least uncountable, hence not countable. Therefore $X$ is not Lindelöf, so $X$ is not second countable (Because in a topological space, second countability implies Lindelöf property.)
+
+		      Thus $X$ is locally Euclidean of dimension one, Hausdorff, but not second countable.
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{2-23}
+Show that every manifold has a basis of coordinate balls.
+\end{problem}
+
+\begin{proof}
+	Let $M$ be an $n$-manifold.
+
+	For every point $x$ of $M$, there is a neighborhood $U_{x}$ of $x$ that admits a homeomorphism $\varphi_{x}: U_{x}\to \mathbb{R}^{n}$. So for every $r > 0$, $\varphi_{x}^{-1}(B_{r}(\varphi_{x}(x)))$ is a coordinate ball. Let $\mathscr{B}$ be the collection of all those coordinate balls (as $x$ varies in $M$ and $r$ varies in $\mathbb{R}_{+}$).
+
+	Let $U$ be a nonempty open subset of $M$ and $x$ is an arbitrary point of $U$. The restriction map $\varphi_{x}\vert_{U\cap U_{x}}: U\cap U_{x}\to \varphi_{x}(U\cap U_{x})$ is a homeomorphism. Because $\varphi_{x}$ is a homeomorphism and $U\cap U_{x}$ is open, so $\varphi_{x}(U\cap U_{x})$ is open in $\mathbb{R}^{n}$. Moreover, $\varphi_{x}(x)$ is a point of $\varphi_{x}(U\cap U_{x})$ so there is $r > 0$ such that $\varphi_{x}(x)\in B_{r}(\varphi_{x}(x))\subseteq \varphi_{x}(U\cap U_{x})$. Therefore $x\in \varphi_{x}^{-1}(B_{r}(\varphi_{x}(x)))\subseteq U$. We have proved that every point of $U$ is contained in an element of $\mathscr{B}$, which is contained in $U$. This implies that $U$ is an union of elements of $\mathscr{B}$.
+
+	So $\mathscr{B}$, a collection of coordinate balls in $M$, is a basis for $M$. Since $M$ is an arbitrary manifold, we conclude that every manifold has a basis of coordinate balls.
+\end{proof}
+
+\begin{problem}{2-24}
+Suppose $X$ is locally Euclidean of dimension $n$, and $f: X\to Y$ is a surjective local homeomorphism. Show that $Y$ is also locally Euclidean of dimension $n$.
+\end{problem}
+
+\begin{proof}
+	Let $y\in Y$. Because $f$ is surjective, there is $x\in X$ such that $f(x) = y$. Since $f$ is a local homeomorphism, there is a neighborhood $U$ of $x$ such that $f(U)$ is open in $Y$ and $f\vert_{U}: U\to f(U)$ is a homeomorphism. On the other hand, $X$ is locally Euclidean of dimension $n$, there is a neighborhood $V$ of $x$ that admits a homeomorphism $\varphi: V\to \mathbb{R}^{n}$. Therefore $\varphi\vert_{U\cap V}: U\cap V\to \varphi(U\cap V)$ is also a homeomorphism, and $f\vert_{U\cap V}: U\cap V\to f(U\cap V)$ is a homeomorphism. Hence $\varphi(U\cap V)$ and $f(U\cap V)$ are homeomorphic, since they are homeomorphic to $U\cap V$. $\varphi(U\cap V)$ is an open subset of $\mathbb{R}^{n}$ and $f(U\cap V)$ is a neighborhood of $f(x) = y$, this means $y$ has a neighborhood which is homeomorphic to an open subset of $\mathbb{R}^{n}$. Moreover $y$ is arbitrary, hence $Y$ is locally Euclidean of dimension $n$.
+\end{proof}
+
+\begin{problem}{2-25}
+Prove Proposition 2.58 (the interior of a manifold with boundary is an open subset and a manifold), without using the theorem on invariance of the boundary.
+\end{problem}
+
+\begin{proof}
+	Let $M$ be an $n$-manifold with boundary.
+
+	I repeat some definitions: $\operatorname{Int} M$ is the set of interior points of $M$. An interior point of $M$ is a point which is in the domain of an interior chart.
+
+	Let $x\in \operatorname{Int} M$ then there is a neighborhood $U$ of $x$ which admits a homeomorphism $\varphi: U\to V$ where $V$ is an open subset of $\mathbb{R}^{n}$. For every point $y\in U$, there is a neighborhood $U_{y}$ such that $y\in U_{y}\subseteq U$, so $\varphi\vert_{U_{y}\cap U}: U_{y}\cap U\to \varphi(U_{y}\cap U)$ is also a homeomorphism. Because $\varphi$ is a homemorphism and $U, U_{y}$ are open, it follows that $\varphi(U_{y}\cap U)$ is open in $\mathbb{R}^{n}$. Therefore $y$ is an interior point of $M$, moreover, $y$ is an arbitrary point of $U$ so every point of $U$ is an interior point of $M$. Hence $U\subseteq \operatorname{Int} M$, which means every point $x$ of $\operatorname{Int}M$ has a neighborhood which is contained in $\operatorname{Int} M$. By Exercise~\ref{exercise:2.9} (g) it follows that $\operatorname{Int} M$ is an open subset of $M$. On the other hand, because every interior point of $M$ is in a neighborhood which is homeomorphic to an open subset of $\mathbb{R}^{n}$, it follows that $\operatorname{Int} M$ is an $n$-manifold.
+\end{proof}
