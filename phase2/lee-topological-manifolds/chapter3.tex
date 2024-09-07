@@ -103,7 +103,7 @@
 	\end{enumerate}
 \end{proof}
 
-\begin{exercise}{3.7}
+\begin{exercise}{3.7}\label{exercise:3.7}
 	Suppose $X$ is a topological space and $U\subseteq S\subseteq X$.
 	\begin{enumerate}[label={(\alph*)}]
 		\item Show that the closure of $U$ in $S$ is equal to $\overline{U}\cap S$.
@@ -1067,16 +1067,166 @@ No exercises.
 
 \section*{Problems}\addcontentsline{toc}{section}{Problems}
 
-% \begin{problem}{3-1}
-%     Suppose $M$ is an $n$-dimensional manifold with boundary. Show that $\partial M$ is an $(n-1)$-manifold (without boundary) when endowed with the subspace topology. You may use without proof the fact that $\operatorname{Int}M$ and $\partial M$ are disjoint.
+\begin{problem}{3-1}
+Suppose $M$ is an $n$-dimensional manifold with boundary. Show that $\partial M$ is an $(n-1)$-manifold (without boundary) when endowed with the subspace topology. You may use without proof the fact that $\operatorname{Int}M$ and $\partial M$ are disjoint.
+\end{problem}
+
+\begin{proof}
+    This proof assumes that $\operatorname{Int}M$ and $\partial M$ are disjoint.
+
+    Let $p$ be a point of $\partial M$ then $p$ is in the domain of a boundary chart $(U, \varphi)$ that takes $p$ to $\partial\mathbb{H}^{n}$. Due to the definition of boundary point of a manifold with boundary, $\varphi(p) \in \partial\mathbb{H}^{n}$. Let's use the subspace topology on $\partial\mathbb{H}^{n}$. $U$ is a neighborhood of $p$ in $M$, and $\varphi: U \to \varphi(U)$ is a homeomorphism, so $\varphi(U)$ is open in $\mathbb{H}^{n}$, which implies $\varphi(U) \cap \partial\mathbb{H}^{n}$ is open in $\partial\mathbb{H}^{n}$.
+
+    Let $V = \varphi^{-1}(\varphi(U) \cap \partial\mathbb{H}^{n})$ then $V$ is homeomorphic to $\varphi(U) \cap \partial\mathbb{H}^{n}$ and $V$ is also a neighborhood of $p$. On the other hand, $\partial\mathbb{H}^{n}$ is homeomorphic to $\mathbb{R}^{n-1}$, so $V$ is a neighborhood of $p$ which is homeomorphic to an open subset of $\mathbb{R}^{n-1}$. Therefore $\partial M$ is an $(n-1)$-manifold without boundary.
+\end{proof}
+
+\begin{problem}{3-2}
+Suppose $X$ is a topological space and $A\subseteq B\subseteq X$. Show that $A$ is dense in $X$ if and only if $A$ is dense in $B$ and $B$ is dense in $X$.
+\end{problem}
+
+\begin{proof}
+	$(\Rightarrow)$ Suppose $A$ is dense in $X$.
+
+	By Exercise~\ref{exercise:3.7}, the closure of $A$ in $B$ is the intersection of $B$ and the closure of $A$ in $X$, therefore $A$ is dense in $B$. Every nonempty open subset of $X$ intersects $A$ so every nonempty subset of $X$ also intersects $B$ (because $A\subseteq B$), so $B$ is dense in $X$.
+
+	$(\Leftarrow)$ Suppose $A$ is dense in $B$ and $B$ is dense in $X$.
+
+	Let $U$ be a nonempty open subset of $X$. Because $B$ is dense in $X$, $U$ intersects $B$. Let $V = U\cap B$ then $V$ is open in $B$ with the subspace topology. Because $A$ is dense in $B$, $V$ intersects $A$. Therefore $U$ intersects $A$, which means every nonempty open subset of $X$ intersects $A$. Thus $A$ is dense in $X$.
+\end{proof}
+
+\begin{problem}{3-3}
+Show by giving a counterexample that the conclusion of the gluing lemma (Lemma 3.23) need not hold if $\{ A_{i} \}$ is an infinite closed cover.
+\end{problem}
+
+\begin{proof}
+	Let $X = \{ 0 \} \cup \{ 1/n : n\in\mathbb{N} \}$ and the topology on $X$ is the subspace topology inherited from $\mathbb{R}$. Let $A_{0} = \{ 0 \}$ and $A_{n} = \{ 1/n \}$ for $n\in\mathbb{N}$ then they are closed subsets of $X$, because they are closed in $\mathbb{R}$ and
+	\[
+		\left\{ \frac{1}{n} \right\} = \left\{\frac{1}{n}\right\} \cap X,\qquad \{ 0 \} = \{ 0 \} \cap X.
+	\]
+
+	$\{ 0 \}$ is not open in $X$, because there is no open subset $U\subseteq\mathbb{R}$ such that $\{ 0 \} = U\cap X$ (since every neighborhood $U$ of $0$ in $\mathbb{R}$ always contains infinitely many $1/n$).
+
+	Let $f: X\to \mathbb{R}$ be the function such that $f(0) = 0$, $f(1/n) = 1$ for $n\in\mathbb{N}$, then $f$ is not continuous because the preimage under $f$ of any neighborhood of $0$ is $\{ 0 \}$, which is not open in $X$. However $f\vert_{A_{n}}: A_{n}\to \mathbb{R}$ is continuous for every $n\in \{ 0 \}\cup\mathbb{N}$.
+
+	So the gluing lemma doesn't necessarily hold if the closed cover is infinite.
+\end{proof}
+
+\begin{problem}{3-4}
+Show that every closed ball in $\mathbb{R}^{n}$ is an $n$-dimensional manifold with boundary, as is the complement of every open ball. Assuming the theorem on the invariance of the boundary, show that the manifold boundary of each is equal to its topological boundary as a subset of $\mathbb{R}^{n}$, namely a sphere. [Hint: for the unit ball in $\mathbb{R}^{n}$, consider the map $\pi\circ\sigma^{-1}: \mathbb{R}^{n}\to\mathbb{R}^{n}$, where $\sigma$ is the stereographic projection and $\pi$ is a projection from $\mathbb{R}^{n+1}$ to $\mathbb{R}^{n}$ that omits some coordinate other than the last.]
+\end{problem}
+
+\begin{proof}
+	We give a proof in the following steps.
+	\begin{enumerate}[label={\textbf{Step \arabic*.}},itemindent=1cm]
+		\item (Every inversion is a homeomorphism) For every point $a\in\mathbb{R}^{n}$, and $r\in\mathbb{R}$, define $I^{r}_{a}: \mathbb{R}^{n}\setminus\{ a \} \to \mathbb{R}^{n}\setminus\{ a \}$ by
+		      \[
+			      I^{r}_{a}(x) = \left(a_{1} + \frac{r(x_{1} - a_{1})}{\abs{x - a}^{2}}, \ldots, a_{n} + \frac{r(x_{n} - a_{n})}{\abs{x-a}^{2}}\right).
+		      \]
+
+		      Because every inversion maps a sphere not passing through the inversion center to a sphere not passing through the inversion center, maps an open ball to an open ball, and every inversion is involutive (its inverse is the inversion itself), it follows that every inversion is a homeomorphism.
+		\item $\mathbb{H}^{n}$ is homeomorphic to $U_{n} = \{ x\in\mathbb{R}^{n} : a_{1}x_{1} + \cdots + a_{n}x_{n} \geq 0 \}$ and $L_{n} = \{ x\in\mathbb{R}^{n} : a_{1}x_{1} + \cdots + a_{n}x_{n} \leq 0 \}$ where $a_{1}, \ldots, a_{n}\in\mathbb{R}$ and $a_{1}, \ldots, a_{n}$ are not simutaneously zero.
+
+		      Without loss of generality, assume that $\alpha_{n} = (a_{1}, \ldots, a_{n})\in\mathbb{R}^{n}$ is a unit vector of $\mathbb{R}^{n}$. Let $\alpha_{1}, \ldots, \alpha_{n}$ be an orthonormal basis of $\mathbb{R}^{n}$. Consider the linear map $\varphi: \mathbb{R}^{n}\to \mathbb{R}^{n}$ where $\varphi(e_{i}) = \alpha_{i}$ for every $i = 1,\ldots, n$ and $e_{1}, \ldots, e_{n}$ is the standard basis of $\mathbb{R}^{n}$. $\varphi$ is a linear isomorphism and unitary operator.
+
+		      Because $\varphi$ preserves norms and inner products, it follows that $\innerprod{\varphi(x), \varphi(e_{n})} = \innerprod{x, e_{n}}$ for every $x\in\mathbb{R}^{n}$. Therefore $\innerprod{x, e_{n}} = 0$ if and only if $\innerprod{\varphi(x), \varphi(e_{n})} = 0$. If $x, y$ satisfies $\innerprod{x, e_{n}} \cdot \innerprod{y, e_{n}} > 0$ (which means $x, y$ are on the same side of the hyperplane $x_{n} = 0$) then
+		      \[
+			      \innerprod{\varphi(x), \varphi(e_{n})}\cdot\innerprod{\varphi(y), \varphi(e_{n})} = \innerprod{x, e_{n}}\cdot\innerprod{y, e_{n}} > 0
+		      \]
+
+		      which implies that $\varphi(x), \varphi(y)$ are on the same side of the hyperplane $a_{1}x_{1} + \cdots + a_{n}x_{n} = 0$. Hence $\varphi\vert_{\mathbb{H}^{n}}$ is either onto $U_{n}$ or $L_{n}$.
+
+		      Linear operators on topological vector spaces are continuous, and the inverse of a linear isomorphism is linear, so a isomorphism linear operator is also a homeomorphism (bijective and bicontinuous). Hence $\varphi$ is a homeomorphism.
+
+		      $U_{n}$ and $L_{n}$ are homeomorphic because of the homeomorphism $f: x\mapsto -x$, and $\varphi$ is a homeomorphism, $\varphi(\mathbb{H}^{n})$ is either $U_{n}$ or $L_{n}$, we conclude that $\mathbb{H}^{n}, U_{n}, L_{n}$ are pairwise homeomorphic.
+		\item $\overline{\mathbb{B}}^{n}$ is an $n$-manifold with boundary.
+
+		      $\overline{\mathbb{B}}^{n}$ is Hausdorff and second-countable, because it is a subspace of $\mathbb{R}^{n}$.
+
+		      For every $a\in \mathbb{B}^{n}\subseteq\overline{\mathbb{B}}^{n}$, $\mathbb{B}^{n}$ is a neighborhood of $x$ in $\overline{\mathbb{B}}^{n}$, and $\mathbb{B}^{n}$ is an open subset of $\mathbb{R}^{n}$.
+
+		      Suppose $a\in \overline{\mathbb{B}}^{n}\setminus\mathbb{B}^{n} = \mathbb{S}^{n-1}$. The point $-a$ is the antipodal of $a$. Let $U_{n} = \{ x\in\mathbb{R}^{n}: a_{1}x_{1} + \cdots + a_{n}x_{n} \geq 0 \}$ and $B_{1}(a)$ be an open ball in $\mathbb{R}^{n}$ so by the definition of the subspace topology, $B_{1}(a)\cap \overline{\mathbb{B}}^{n}$ is open in $\overline{\mathbb{B}}^{n}$. Let $P$ be the hyperplane with equation $a_{1}x_{1} + \cdots + a_{n}x_{n} = 0$. For every $y\in B_{1}(a)\cap \overline{\mathbb{B}}^{n}$, we have
+		      \[
+			      \innerprod{y, a} = \frac{1}{2}(\abs{y}^{2} + \abs{a}^{2} - \abs{y - a}^{2}) = \frac{1}{2}(\abs{y}^{2} + 1 - \abs{y - a}^{2}) > \frac{1}{2}\abs{y}^{2}\geq 0.
+		      \]
+
+		      so two points $y, a$ are on the same side of the hyperplane $P$, from which it follows that $B_{1}(a)$ and $a$ are on the same side of the hyperplane $P$. Consider the inversion $I^{2}_{-a}$ maps $a$ to $0$. The inversion $I^{2}_{-a}$ maps $B_{1}(a)$ to another open ball, and maps $a$ to $0\in \partial U_{n}$. If $x\in B_{1}(a) \cap\overline{\mathbb{B}}^{n}$ then
+		      \[
+			      I^{2}_{-a}(x) = \left( -a_{1} + \frac{2(x_{1} + a_{1})}{\abs{x + a}^{2}}, \ldots, -a_{n} + \frac{2(x_{n} + a_{n})}{\abs{x + a}^{2}} \right) = (y_{1}, \ldots, y_{n}).
+		      \]
+
+		      We have
+		      \begingroup
+		      \allowdisplaybreaks{}
+		      \begin{align*}
+			      a_{1}y_{1} + \cdots + a_{n}y_{n} & = \sum^{n}_{i=1}\left(-a_{i}^{2} + \frac{2a_{i}(x_{i} + a_{i})}{\abs{x + a}^{2}}\right)                                                \\
+			                                       & = -1 + \sum^{n}_{i=1}\frac{2a_{i}(x_{i} + a_{i})}{\abs{x + a}^{2}}                                                                     \\
+			                                       & = -1 + \sum^{n}_{i=1}\frac{{(x_{i} + a_{i})}^{2} + a_{i}^{2} - x_{i}^{2}}{\abs{x + a}^{2}}                                             \\
+			                                       & = -1 + \frac{1}{\abs{x + a}^{2}}\left( \sum^{n}_{i=1}{(x_{i} + a_{i})}^{2} + \sum^{n}_{i=1}a_{i}^{2} - \sum^{n}_{i=1}x_{i}^{2} \right) \\
+			                                       & = -1 + \frac{\abs{x+a}^{2}}{\abs{x+a}^{2}} + \frac{1}{\abs{x+a}^{2}}(1 - \abs{x})                                                      \\
+			                                       & = \frac{1}{\abs{x+a}^{2}}(1 - \abs{x}) \geq 0.
+		      \end{align*}
+		      \endgroup
+
+		      So $I^{2}_{-a}(x)$ and $a$ are on the same side of the hyperplane $P$. The image of $B_{1}(a)\cap \overline{\mathbb{B}}^{n}$ under $I^{2}_{-a}$ is an open subset of $U_{n}$, and $I^{2}_{-a}(a) = 0$, which lies on the boundary of $U_{n}$. Moreover, $I^{2}_{-a}$ is a homeomorphism, so we conclude that every point $a\in\mathbb{S}^{-n-1}$ has a neighborhood in $\overline{\mathbb{B}}^{n}$ that is homeomorphic to an open subset of $U_{n}$. Together with step 1, we conclude that every open subset of $U_{n}$ is homeomorphic to an open subset of $\mathbb{H}^{n}$.
+
+		      Thus $\overline{\mathbb{B}}^{n}$ is an $n$-manifold with boundary.
+		\item The manifold boundary of $\overline{\mathbb{B}}^{n}$ is $\mathbb{S}^{n-1}$.
+
+		      According to Step 3, every point of $\mathbb{S}^{n-1}$ is a boundary point. Every point of $\mathbb{B}^{n}$ is an interior point. Because the interior and the boundary of a manifold with boundary are disjoint, it follows that the manifold boundary of $\overline{\mathbb{B}}^{n}$ is $\mathbb{S}^{n-1}$.
+		\item $\mathbb{R}^{n}\setminus \mathbb{B}^{n}$ is an $n$-manifold with boundary and the manifold boundary of $\mathbb{R}^{n}\setminus \mathbb{B}^{n}$ is $\mathbb{S}^{n-1}$.
+
+		      As a subspace of $\mathbb{R}^{n}$, $\mathbb{R}^{n}\setminus \mathbb{B}^{n}$ is Hausdorff and second countable.
+
+		      $\mathbb{R}^{n}\setminus\mathbb{B}^{n}$ is the disjoint union of $\mathbb{R}^{n}\setminus\overline{\mathbb{B}}^{n}$ and $\mathbb{S}^{n-1}$. $\mathbb{R}^{n}\setminus\overline{\mathbb{B}}^{n}$ is an $n$-manifold without boundary. Similar to Step 3, 4, we can show that $\mathbb{R}^{n}\setminus \mathbb{B}^{n}$ is an $n$-manifold with boundary and $\mathbb{S}^{n-1}$ is its manifold boundary.
+	\end{enumerate}
+
+	Finally, because every closed ball in $\mathbb{R}^{n}$ are homeomorphic, and $\overline{\mathbb{B}}^{n}$ is an $n$-manifold with boundary, we conclude that every closed ball and the complement of every open ball in $\mathbb{R}^{n}$ are $n$-manifolds with boundary.
+\end{proof}
+
+\begin{problem}{3-5}
+Show that a finite product of open maps is open; give a counterexample to show that a finite product of closed maps need not be closed.
+\end{problem}
+
+\begin{proof}
+	Let $f_{i}: X_{i}\to Y_{i}$ be open maps for every $i = 1,\ldots,n$. Let $U$ be an open subset of $X_{1}\times\cdots\times X_{n}$. Due to the definition of the product topology, $U$ is an union of product open sets. If $B_{i}\subseteq X_{i}$ is open for every $i = 1,\ldots,n$ then $f_{i}(B_{i})\subseteq Y_{i}$ is open for every $i = 1,\ldots,n$. Therefore $f_{1}\times\cdots\times f_{n}(B_{1}\times\cdots\times B_{n})$ is open, so $f_{1}\times\cdots\times f_{n}(U)$ is open (every map is well-behaved with arbitrary unions). Hence a finite product of open maps is open.
+
+	Let $X_{1} = \mathbb{R}, Y_{1} = \{ 0 \}, X_{2} = Y_{2} = \mathbb{R}$ where $Y_{1}$ has discrete topology. Define $f_{1}: X_{1}\to Y_{1}$ by $f(x) = 0$, $f_{2} = \operatorname{Id}_{\mathbb{R}}$, then $f_{1}, f_{2}$ are closed maps. Let $A = \{ (x, 1/x): x\in\mathbb{R}\setminus\{0\} \}\subseteq X_{1}\times X_{2}$ then $A$ is closed in $X_{1}\times X_{2}$. The image $f_{1}\times f_{2}(A) = \{ 0 \}\times (\mathbb{R}\setminus\{0\})$ is not closed because the closure of $\{ 0 \}\times (\mathbb{R}\setminus\{0\})$ contains $(0, 0)$ but $\{ 0 \}\times (\mathbb{R}\setminus\{0\})$ does not contain $(0, 0)$. Hence $f_{1}\times f_{2}$ is not closed. Thus a finite product of closed maps need not be closed.
+\end{proof}
+
+\begin{problem}{3-6}
+Let $X$ be a topological space. The \textbf{diagonal} of $X\times X$ is the subset $\Delta = \{ (x, x): x\in X \}\subseteq X\times X$. Show that $X$ is Hausdorff if and only if $\Delta$ is closed in $X\times X$.
+\end{problem}
+
+\begin{proof}
+	Let $(x_{1}, x_{2})\in (X\times X)\setminus\Delta$ then $x_{1}\ne x_{2}$.
+
+	$(\Rightarrow)$ Suppose $X$ is Hausdorff.
+
+	Because $X$ is Hausdorff, $x_{1}, x_{2}$ are separated by some neighborhoods $U_{1}, U_{2}$. $U_{1}$ and $U_{2}$ are disjoint so $U_{1}\times U_{2}\subseteq X\times X$ is open. So there is a neighborhood of $(x_{1}, x_{2})$ contained in $(X\times X)\setminus\Delta$. Therefore $(X\times X)\setminus\Delta$ is open, which means $\Delta$ is closed.
+
+	$(\Leftarrow)$ Suppose $\Delta$ is closed in $X\times X$.
+
+	$(X\times X)\setminus\Delta$ is open in $X\times X$, so there is a neighborhood $U$ of $(x_{1}, x_{2})$. The collection of product open sets is a basis for the product topology on $X\times X$, so there exist open subsets $B_{1}\subseteq X, B_{2}\subseteq X$ such that
+	\[
+		(x_{1}, x_{2})\in B_{1}\times B_{2}\subseteq U_{1}\times U_{2}\subseteq (X\times X)\setminus\Delta.
+	\]
+
+	Therefore $x_{1}, x_{2}$ are separated by neighborhoods $B_{1}, B_{2}$. Because $x_{1}, x_{2}$ is an arbitrary pair of distinct points of $X$, it follows that $X$ is Hausdorff.
+\end{proof}
+
+% \begin{problem}{3-7}
+% Show that the space $X$ of Problem 2-22 is homeomorphic to $\mathbb{R}_{d}\times\mathbb{R}$, where $\mathbb{R}_{d}$ is the set $\mathbb{R}$ with the discrete topology.
 % \end{problem}
 
-% \begin{problem}{3-2}
-%     Suppose $X$ is a topological space and $A\subseteq B\subseteq X$. Show that $A$ is dense in $X$ if and only if $A$ is dense in $B$ and $B$ is dense in $X$.
+% \begin{problem}{3-8}
+% Let $X$ denote the Cartesian product of countably infinitely many copies of $\mathbb{R}$ (which is just the set of all infinite sequences of real numbers), endowed with the box topology. Define a map $f: \mathbb{R}\to X$ by $f(x) = (x, x, x, \ldots)$. Show that $f$ is not continuous, even though each of its component functions is.
 % \end{problem}
 
-% \begin{problem}{3-3}
-%     Show by giving a counterexample that the conclusion of the gluing lemma (Lemma 3.23) need not hold if $\{ A_{i} \}$ is an infinite closed cover.
+% \begin{problem}{3-9}
+% Let $X$ be as in the preceding problem. Let $X^{+}\subseteq X$ be the subset consisting of sequences of strictly positive real numbers, and let $z$ denote the zero sequence, that is, the one whose terms are $z_{i} = 0$ for all $i$. Show that $z$ is in the closure of $X^{+}$, but there is no sequence of elements of $X^{+}$ converging to $z$. Then use the sequence lemma to conclude that $X$ is not first countable, and thus not metrizable.
+% \end{problem}
+
+% \begin{problem}{3-10}
+% Prove Theorem 3.41 (the characteristic property of disjoint union spaces).
 % \end{problem}
 
 % Suppose ${(X_{\alpha})}_{\alpha\in A}$ is an indexed family of topological spaces and $Y$ is any topological space. A map $f: \coprod_{\alpha\in A}X_{\alpha}\to Y$ is continuous if and only if its restriction to each $X_{\alpha}$ is continuous. The disjoint union topology is the unique topology on $\coprod_{\alpha\in A}X_{\alpha}$ with this property.
