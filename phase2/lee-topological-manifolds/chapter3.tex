@@ -1072,11 +1072,11 @@ Suppose $M$ is an $n$-dimensional manifold with boundary. Show that $\partial M$
 \end{problem}
 
 \begin{proof}
-    This proof assumes that $\operatorname{Int}M$ and $\partial M$ are disjoint.
+	This proof assumes that $\operatorname{Int}M$ and $\partial M$ are disjoint.
 
-    Let $p$ be a point of $\partial M$ then $p$ is in the domain of a boundary chart $(U, \varphi)$ that takes $p$ to $\partial\mathbb{H}^{n}$. Due to the definition of boundary point of a manifold with boundary, $\varphi(p) \in \partial\mathbb{H}^{n}$. Let's use the subspace topology on $\partial\mathbb{H}^{n}$. $U$ is a neighborhood of $p$ in $M$, and $\varphi: U \to \varphi(U)$ is a homeomorphism, so $\varphi(U)$ is open in $\mathbb{H}^{n}$, which implies $\varphi(U) \cap \partial\mathbb{H}^{n}$ is open in $\partial\mathbb{H}^{n}$.
+	Let $p$ be a point of $\partial M$ then $p$ is in the domain of a boundary chart $(U, \varphi)$ that takes $p$ to $\partial\mathbb{H}^{n}$. Due to the definition of boundary point of a manifold with boundary, $\varphi(p) \in \partial\mathbb{H}^{n}$. Let's use the subspace topology on $\partial\mathbb{H}^{n}$. $U$ is a neighborhood of $p$ in $M$, and $\varphi: U \to \varphi(U)$ is a homeomorphism, so $\varphi(U)$ is open in $\mathbb{H}^{n}$, which implies $\varphi(U) \cap \partial\mathbb{H}^{n}$ is open in $\partial\mathbb{H}^{n}$.
 
-    Let $V = \varphi^{-1}(\varphi(U) \cap \partial\mathbb{H}^{n})$ then $V$ is homeomorphic to $\varphi(U) \cap \partial\mathbb{H}^{n}$ and $V$ is also a neighborhood of $p$. On the other hand, $\partial\mathbb{H}^{n}$ is homeomorphic to $\mathbb{R}^{n-1}$, so $V$ is a neighborhood of $p$ which is homeomorphic to an open subset of $\mathbb{R}^{n-1}$. Therefore $\partial M$ is an $(n-1)$-manifold without boundary.
+	Let $V = \varphi^{-1}(\varphi(U) \cap \partial\mathbb{H}^{n})$ then $V$ is homeomorphic to $\varphi(U) \cap \partial\mathbb{H}^{n}$ and $V$ is also a neighborhood of $p$. On the other hand, $\partial\mathbb{H}^{n}$ is homeomorphic to $\mathbb{R}^{n-1}$, so $V$ is a neighborhood of $p$ which is homeomorphic to an open subset of $\mathbb{R}^{n-1}$. Therefore $\partial M$ is an $(n-1)$-manifold without boundary.
 \end{proof}
 
 \begin{problem}{3-2}
@@ -1213,20 +1213,101 @@ Let $X$ be a topological space. The \textbf{diagonal} of $X\times X$ is the subs
 	Therefore $x_{1}, x_{2}$ are separated by neighborhoods $B_{1}, B_{2}$. Because $x_{1}, x_{2}$ is an arbitrary pair of distinct points of $X$, it follows that $X$ is Hausdorff.
 \end{proof}
 
-% \begin{problem}{3-7}
-% Show that the space $X$ of Problem 2-22 is homeomorphic to $\mathbb{R}_{d}\times\mathbb{R}$, where $\mathbb{R}_{d}$ is the set $\mathbb{R}$ with the discrete topology.
+\begin{problem}{3-7}
+Show that the space $X$ of Problem 2-22 is homeomorphic to $\mathbb{R}_{d}\times\mathbb{R}$, where $\mathbb{R}_{d}$ is the set $\mathbb{R}$ with the discrete topology.
+\end{problem}
+
+\begin{proof}
+	Let $\varphi: \mathbb{R}_{d}\times\mathbb{R}\to X$ be the identity map.
+
+	The collection $\mathscr{B}$ of $I_{a,b,c}$ is a basis for the topology on $\mathbb{R}_{d}\times\mathbb{R}$ because $I_{a,b,c}$ is open in $\mathbb{R}_{d}\times\mathbb{R}$ and for every $x\in U$ where $U$ is open in $\mathbb{R}_{d}\times\mathbb{R}$, there is some $I_{a,b,c}$ such that $x\in I_{a,b,c} \subseteq U$. From Problem~\ref{problem:2-22}, it follows that $\mathscr{B}$ is a basis for the topology on $X$. Hence $X$ and $\mathbb{R}_{d}\times\mathbb{R}$ have the same topology. Therefore $\varphi$ is a continuous and open map. Together with $\varphi$ being a bijective, we conclude that $\varphi$ is a homeomorphism. Hence $X$ is homeomorphic to $\mathbb{R}_{d}\times\mathbb{R}$.
+\end{proof}
+
+\begin{problem}{3-8}
+Let $X$ denote the Cartesian product of countably infinitely many copies of $\mathbb{R}$ (which is just the set of all infinite sequences of real numbers), endowed with the box topology. Define a map $f: \mathbb{R}\to X$ by $f(x) = (x, x, x, \ldots)$. Show that $f$ is not continuous, even though each of its component functions is.
+\end{problem}
+
+\begin{proof}
+	For every $(x, x, x, \ldots) \in X$, the following set
+	\begin{align*}
+		\prod_{n\in\mathbb{N}}\openinterval{x - \frac{1}{n}, x + \frac{1}{n}} = \openinterval{x - 1, x + 1} \times \openinterval{x - \frac{1}{2}, x + \frac{1}{2}} \times \openinterval{x - \frac{1}{3}, x + \frac{1}{3}} \times \cdots
+	\end{align*}
+
+	is open in $X$ according to the definition of the box topology, and is a neighborhood of $(x, x, x, \ldots)$. However, the preimage of this set is the singleton set $\{ x \}$, which is not open in $\mathbb{R}$. Hence $f$ is not continuous.
+\end{proof}
+
+\begin{problem}{3-9}
+Let $X$ be as in the preceding problem. Let $X^{+}\subseteq X$ be the subset consisting of sequences of strictly positive real numbers, and let $z$ denote the zero sequence, that is, the one whose terms are $z_{i} = 0$ for all $i$. Show that $z$ is in the closure of $X^{+}$, but there is no sequence of elements of $X^{+}$ converging to $z$. Then use the sequence lemma to conclude that $X$ is not first countable, and thus not metrizable.
+\end{problem}
+
+\begin{proof}
+	Let $U$ be a neighborhood of $z$ in $X$. According to the definition of box topology, there are open intervals $\openinterval{a_{1}, b_{1}}, \openinterval{a_{2}, b_{2}}, \openinterval{a_{3}, b_{3}}, \ldots$ such that
+	\begin{align*}
+		z \in \prod_{n\in\mathbb{Z}_{> 0}}\openinterval{a_{n}, b_{n}} \subseteq U.
+	\end{align*}
+
+	Each set $\openinterval{a_{n}, b_{n}}$ contains a positive real number, so $\prod_{n\in\mathbb{Z}_{> 0}}\openinterval{a_{n}, b_{n}}$ intersects $X^{+}$. Hence $z$ is in the closure of $X^{+}$ in $X$.
+
+	Assume for the sake of contradiction that there is a sequence of elements of $X^{+}$ converging to $z$. Let ${(x_{i})}_{i\in\mathbb{N}}$ be a such a sequence, where $x_{i} = (x_{i,1}, x_{i,2}, x_{i,3}, \ldots)$. The following set
+	\begin{align*}
+		U = \prod_{n\in\mathbb{N}}\openinterval{-x_{n,n}, x_{n,n}} = \openinterval{-x_{1,1}, x_{1,1}}\times \openinterval{-x_{2,2}, x_{2,2}} \times \openinterval{-x_{3,3}, x_{3,3}}\times \cdots
+	\end{align*}
+
+	is a neighborhood of $z$ in $X$. Because $x_{i}$ converges to $z$, there is $N\in\mathbb{N}$ such that $x_{n}\in U$ for every $n\geq N$. Hence $x_{N} \in \openinterval{-x_{N}, x_{N}}$, which is a contradiction because $x_{N} \notin \openinterval{-x_{N}, x_{N}}$. Hence there is no sequence of elements of $X^{+}$ converging to $z$.
+
+	According to the sequence lemma, $X$ is not first countable (if $X$ is first countable, then there is a sequence of elements of $X^{+}$ converging to $z$, which is a point in the closure of $X^{+}$).
+\end{proof}
+
+\begin{problem}{3-10}
+Prove Theorem 3.41 (the characteristic property of disjoint union spaces).
+
+Suppose ${(X_{\alpha})}_{\alpha\in A}$ is an indexed family of topological spaces and $Y$ is any topological space. A map $f: \coprod_{\alpha\in A}X_{\alpha}\to Y$ is continuous if and only if its restriction to each $X_{\alpha}$ is continuous. The disjoint union topology is the unique topology on $\coprod_{\alpha\in A}X_{\alpha}$ with this property.
+\end{problem}
+
+\begin{proof}
+	We have $f\vert_{X_{\alpha}} = f\circ \iota_{\alpha}$
+
+	See Figure~\ref{fig:3-10}. Suppose $f$ is continuous. Because $\iota_{\alpha}: X_{\alpha} \to X_{\alpha}^{*}$ is continuous for every $\alpha\in A$, it follows that $f\vert_{X_{\alpha}}$ is continuous.
+
+	Conversely, suppose that $f\vert_{X_{\alpha}}$ is continuous for every $\alpha\in A$. Let $V$ be an open subset of $Y$ then $f^{-1}(V)$ is open because $f^{-1}(V) \cap X_{\alpha} = {(f\vert_{X_{\alpha}})}^{-1}(V)$ is open for every $\alpha\in A$. Therefore $f$ is continuous.
+	\begin{figure}[htp]
+		\renewcommand{\thefigure}{3-10}
+		\centering
+		\begin{tikzpicture}[every edge/.style = {draw, -latex, thick}]
+			\matrix (m) [matrix of math nodes, row sep=3em, column sep=3em]
+			{
+			\coprod_{\alpha\in A}X_{\alpha} & Y \\
+			X_{\alpha} \\
+			};
+			\path[->] (m-1-1) edge node[above] {$f$} (m-1-2);
+			\path[->] (m-2-1) edge node[left] {$\iota_{\alpha}$} (m-1-1);
+			\path[->] (m-2-1) edge node[below right] {$f\vert_{X_{\alpha}} = f\circ\iota_{\alpha}$} (m-1-2);
+		\end{tikzpicture}
+		\caption{}\label{fig:3-10}
+	\end{figure}
+
+	Assume that $\mathscr{T}$ is a topology on $\coprod_{\alpha\in A}X_{\alpha}$ that satisfies this property. Denote $\left(\coprod_{\alpha\in A}X_{\alpha}, \mathscr{T}\right)$ by $Y$. Consider the identity map $\operatorname{Id}: \coprod_{\alpha\in A}X_{\alpha}\to Y$. From the property, it follows that the restriction of $\operatorname{Id}$ to $X_{\alpha}$ is continuous for every $\alpha\in A$. Also from the property, it follows that $\operatorname{Id}^{-1}$ is continuous. Because $\operatorname{Id}$ is bicontinuous and bijective, we conclude that $\coprod_{\alpha\in A}X_{\alpha}$ and $Y$ are identical, which means the disjoint union topology is the unique topology on $\coprod_{\alpha\in A}X_{\alpha}$ with the given property.
+\end{proof}
+
+% \begin{problem}{3-11}
+% Proposition 3.62(d) showed that the restriction of a quotient map to a saturated open subset is a quotient map onto its image. Show that the ``saturated'' hypothesis is necessary, by giving an example of a quotient map $f: X \to Y$ and an open subset $U\subseteq X$ such that $f\vert_{U}: U\to Y$ is surjective but not a quotient map.
 % \end{problem}
 
-% \begin{problem}{3-8}
-% Let $X$ denote the Cartesian product of countably infinitely many copies of $\mathbb{R}$ (which is just the set of all infinite sequences of real numbers), endowed with the box topology. Define a map $f: \mathbb{R}\to X$ by $f(x) = (x, x, x, \ldots)$. Show that $f$ is not continuous, even though each of its component functions is.
+% \begin{problem}{3-12}
+% Suppose $X$ is a topological space and ${(X_{\alpha})}_{\alpha\in A}$ is an indexed family of topological spaces.
+% \begin{enumerate}[label={(\alph*)}]
+%     \item For any subset $S\subseteq X$, show that the subspace topology on $S$ is the coarsest topology for which $\iota_{S}: S\hookrightarrow{}X$ is continuous.
+%     \item Show that the product topology is the coarsest topology on $\prod_{\alpha\in A}X_{\alpha}$ for which every canonical projection $\pi_{\alpha}: \prod_{\alpha\in A}X_{\alpha} \to X_{\alpha}$ is continuous.
+%     \item Show that the disjoint union topology is the finest topology on $\coprod_{\alpha\in A}X_{\alpha}$ for which every canonical injection $\iota_{\alpha}: X_{\alpha} \to \prod_{\alpha\in A}X_{\alpha}$ is continuous.
+%     \item Show that if $q: X\to Y$ is any surjective map, the quotient topology on $Y$ is the finest topology for which $q$ is continuous.
+% \end{enumerate}
 % \end{problem}
 
-% \begin{problem}{3-9}
-% Let $X$ be as in the preceding problem. Let $X^{+}\subseteq X$ be the subset consisting of sequences of strictly positive real numbers, and let $z$ denote the zero sequence, that is, the one whose terms are $z_{i} = 0$ for all $i$. Show that $z$ is in the closure of $X^{+}$, but there is no sequence of elements of $X^{+}$ converging to $z$. Then use the sequence lemma to conclude that $X$ is not first countable, and thus not metrizable.
+% \begin{problem}{3-13}
+%     Suppose $X$ and $Y$ are topological spaces and $f: X \to Y$ is a continuous map. Prove the following:
+%     \begin{enumerate}[label={(\alph*)}]
+%         \item If $f$ admits a continuous left inverse, it is a topological embedding.
+%         \item If $f$ admits a continuous right inverse, it is a quotient map.
+%         \item Give examples of a topological embedding with no continuous left inverse, and a quotient map with no continuous right inverse.
+%     \end{enumerate}
 % \end{problem}
-
-% \begin{problem}{3-10}
-% Prove Theorem 3.41 (the characteristic property of disjoint union spaces).
-% \end{problem}
-
-% Suppose ${(X_{\alpha})}_{\alpha\in A}$ is an indexed family of topological spaces and $Y$ is any topological space. A map $f: \coprod_{\alpha\in A}X_{\alpha}\to Y$ is continuous if and only if its restriction to each $X_{\alpha}$ is continuous. The disjoint union topology is the unique topology on $\coprod_{\alpha\in A}X_{\alpha}$ with this property.
