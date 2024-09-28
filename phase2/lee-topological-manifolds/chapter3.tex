@@ -836,7 +836,7 @@
 	Let $V$ be a subset of $Y$ and $U = q^{-1}(V)$, it follows that $X\setminus U = X\setminus q^{-1}(V) = q^{-1}(Y)\setminus q^{-1}(V) = q^{-1}(Y\setminus V)$. If $U$ is closed, then $q(U) = q(q^{-1}(V)) = V$ is closed, because $q$ takes saturated closed subsets to closed subsets and $U$ is a saturated closed set. If $V$ is closed, then $Y\setminus V$ is open and so is $X\setminus U = q^{-1}(Y\setminus V)$, from which we obtain $U$ is closed. Since $q$ is surjective, $q^{-1}(Y\setminus V)$ is open if and only if $Y\setminus V$ is open, it follows that $q$ is a quotient map.
 \end{proof}
 
-\begin{exercise}{3.63}
+\begin{exercise}{3.63}\label{exercise:3.63}
 	Prove Proposition 3.62 (Properties of Quotient Maps).
 
 	\begin{enumerate}[label={(\alph*)}]
@@ -1289,25 +1289,87 @@ Suppose ${(X_{\alpha})}_{\alpha\in A}$ is an indexed family of topological space
 	Assume that $\mathscr{T}$ is a topology on $\coprod_{\alpha\in A}X_{\alpha}$ that satisfies this property. Denote $\left(\coprod_{\alpha\in A}X_{\alpha}, \mathscr{T}\right)$ by $Y$. Consider the identity map $\operatorname{Id}: \coprod_{\alpha\in A}X_{\alpha}\to Y$. From the property, it follows that the restriction of $\operatorname{Id}$ to $X_{\alpha}$ is continuous for every $\alpha\in A$. Also from the property, it follows that $\operatorname{Id}^{-1}$ is continuous. Because $\operatorname{Id}$ is bicontinuous and bijective, we conclude that $\coprod_{\alpha\in A}X_{\alpha}$ and $Y$ are identical, which means the disjoint union topology is the unique topology on $\coprod_{\alpha\in A}X_{\alpha}$ with the given property.
 \end{proof}
 
-% \begin{problem}{3-11}
-% Proposition 3.62(d) showed that the restriction of a quotient map to a saturated open subset is a quotient map onto its image. Show that the ``saturated'' hypothesis is necessary, by giving an example of a quotient map $f: X \to Y$ and an open subset $U\subseteq X$ such that $f\vert_{U}: U\to Y$ is surjective but not a quotient map.
+\begin{problem}{3-11}
+Proposition 3.62(d) (see Exercise~\ref{exercise:3.63}) showed that the restriction of a quotient map to a saturated open subset is a quotient map onto its image. Show that the ``saturated'' hypothesis is necessary, by giving an example of a quotient map $f: X \to Y$ and an open subset $U\subseteq X$ such that $f\vert_{U}: U\to Y$ is surjective but not a quotient map.
+\end{problem}
+
+\begin{proof}
+	The map $f: \closedinterval{0, 1} \to \mathbb{S}^{1}$ defined by $x\mapsto e^{2\pi\iota x}$ is a quotient map, according to the characteristic property of product topology and the continuity of the exponential function.
+
+	The set $U = \halfopenright{0, 1}$ is an open subset of $\closedinterval{0, 1}$ and $f\vert_{U}: U\to \mathbb{S}^{1}$ is bijective (and so surjective). We will show that $f\vert_{U}$ is not an open map. For every $0 < a < 1$, $\halfopenright{0, a}$ is an open subset of $U$ and $\halfopenright{0, 1}$.
+
+	$f\vert_{U}\left(\halfopenright{0, a}\right) = \left\{ e^{2\pi\iota s} \mid s\in\halfopenright{0, a} \right\}$. Let $A$ be the point with coordinate $e^{2\pi\iota a}$. The stereographic projection from $\mathbb{S}^{1}\setminus\{e^{2\pi\iota a}\}$ onto the straight line through the origin that is perpendicular to $OA$ is a homeomorphism. Therefore the topological space $\mathbb{S}^{1}\setminus \{ e^{2\pi\iota a} \}$ is homeomorphic to $\mathbb{R}$ with the Euclidean topology and $\left\{ e^{2\pi\iota s} \mid s\in\halfopenright{0, a} \right\}$ is homeomorphic to a half-open interval, which is not an open set in $\mathbb{R}$. Hence $f\vert_{U}(\halfopenright{0, a})$ is not open in $\mathbb{S}^{1}$ and $f\vert_{U}$ is not an open map.
+
+	$f\vert_{U}$ is bijective, continuous and not an open map, so it is not a quotient map.
+\end{proof}
+
+\begin{problem}{3-12}
+Suppose $X$ is a topological space and ${(X_{\alpha})}_{\alpha\in A}$ is an indexed family of topological spaces.
+\begin{enumerate}[label={(\alph*)}]
+	\item For any subset $S\subseteq X$, show that the subspace topology on $S$ is the coarsest topology for which $\iota_{S}: S\hookrightarrow{}X$ is continuous.
+	\item Show that the product topology is the coarsest topology on $\prod_{\alpha\in A}X_{\alpha}$ for which every canonical projection $\pi_{\alpha}: \prod_{\alpha\in A}X_{\alpha} \to X_{\alpha}$ is continuous.
+	\item Show that the disjoint union topology is the finest topology on $\coprod_{\alpha\in A}X_{\alpha}$ for which every canonical injection $\iota_{\alpha}: X_{\alpha} \to \coprod_{\alpha\in A}X_{\alpha}$ is continuous.
+	\item Show that if $q: X\to Y$ is any surjective map, the quotient topology on $Y$ is the finest topology for which $q$ is continuous.
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item Let $\mathscr{T}$ be a topology on $S$ for which $\iota_{S}: S\hookrightarrow{} X$ is continuous. For every open subset $U\subseteq X$, $\iota_{S}^{-1}(U) = U\cap S$. Because $\iota_{S}$ is continuous, $U\cap S$ is open in $S$. Therefore the subspace topology on $S$ is contained in $\mathscr{T}$. Hence the subspace topology on $S$ is the coarsest topology for which $\iota_{S}: S\hookrightarrow{} X$ is continuous.
+		\item Let $\mathscr{T}$ be a topology on $\prod_{\alpha\in A}X_{\alpha}$ for which every canonical projection $\pi_{\alpha}: \prod_{\alpha\in A}X_{\alpha} \to X_{\alpha}$ is continuous.
+
+		      Consider the product $\prod_{\alpha\in A}U_{\alpha}$ where $U_{\alpha} = X_{\alpha}$ for all but finitely many $\alpha\in A$ and $U_{\alpha}\subseteq X_{\alpha}$ is open. Denote by $C$ the subset of $A$ consisting of $\alpha$ which satisfy $U_{\alpha}\ne X_{\alpha}$. For every $\alpha\in A$, $\pi_{\alpha}^{-1}(U_{\alpha})$ is open because $\pi_{\alpha}$ is continuous. We have $\bigcap_{\alpha\in C}\pi_{\alpha}^{-1}(U_{\alpha}) = \prod_{\alpha\in A}U_{\alpha}$ so $\prod_{\alpha\in A}U_{\alpha}$ is an open set of $\mathscr{T}$. Therefore $\mathscr{T}$ contains every elements of the basis for the product topology on $\prod_{\alpha\in A}X_{\alpha}$, which implies that $\mathscr{T}$ contains the product topology on $\prod_{\alpha\in A}X_{\alpha}$.
+
+		      Thus the product topology is the coarsest topology on $\prod_{\alpha\in A}X_{\alpha}$ for which every canonical projection $\pi_{\alpha}$ is continuous.
+		\item Let $\mathscr{T}$ be a topology on $\coprod_{\alpha\in A}X_{\alpha}$ for which every canonical injection $\iota_{\alpha}: X_{\alpha}\to \coprod_{\alpha\in A}X_{\alpha}$ is continuous. Let $U$ be an open subset of $\coprod_{\alpha\in A}X_{\alpha}$ then for every $\alpha\in A$, $\iota_{\alpha}^{-1}(U) = U\cap X_{\alpha}$ is open in $X_{\alpha}$ because $\iota_{\alpha}$ is continuous. Therefore $U$ is an open set in the disjoint union topology on $\coprod_{\alpha\in A}X_{\alpha}$. Because $U$ is an arbitrary open set in $\mathscr{T}$, it follows that $\mathscr{T}$ is contained in the disjoint union topology on $\coprod_{\alpha\in A}X_{\alpha}$.
+
+		      Hence the disjoint union topology is the finest topology on $\coprod_{\alpha\in A}X_{\alpha}$ for which every canonical $\iota_{\alpha}: X_{\alpha}\to \coprod_{\alpha\in A}X_{\alpha}$ is continuous.
+		\item Let $\mathscr{T}$ be a topology on $Y$ for which $q$ is continuous.
+
+		      Let $U \in \mathscr{T}$. Because $q$ is continuous, $q^{-1}(U)$ is open in $X$. Since $q$ is surjective, we have $q(q^{-1}(U)) = U$. From the definition of quotient topology, it follows that $U$ is in the quotient topology on $Y$ induced by $q$. Therefore the quotient topology on $Y$ induced by $q$ is the finest topology on $Y$ such that $q$ is continuous.
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{3-13}
+Suppose $X$ and $Y$ are topological spaces and $f: X \to Y$ is a continuous map. Prove the following:
+\begin{enumerate}[label={(\alph*)}]
+	\item If $f$ admits a continuous left inverse, it is a topological embedding.
+	\item If $f$ admits a continuous right inverse, it is a quotient map.
+	\item Give examples of a topological embedding with no continuous left inverse, and a quotient map with no continuous right inverse.
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item Suppose $f$ admits a continuous left inverse $g: Y \to X$, then $g\circ f = \operatorname{Id}_{X}$. $g\circ f = \operatorname{Id}_{X}$ implies that $g$ is surjective and $f$ is injective. So $f$ is a continuous injection, $g$ is a continuous surjection.
+
+		      Let $U$ be an open subset of $X$. $g(f(U)) = (g\circ f)(U) = \operatorname{Id}_{X}(U) = U$, it follows that $f(U) \subseteq g^{-1}(U)$. Moreover, $f(U) \subseteq {(g\vert_{f(X)})}^{-1}(U)$. We will show that $f(U) = {(g\vert_{f(X)})}^{-1}(U)$.
+
+		      Let $y\in {(g\vert_{f(X)})}^{-1}(U)$ then $(g\vert_{f(X)})(y) \in U$. Because $y\in f(X)$ and $f$ is injective, there is a unique $x\in X$ such that $f(x) = y$. Therefore $(g\vert_{f(X)})(y) = (g\vert_{X})(f(x)) = x \in U$, so $y = f(x) \in f(U)$. Hence ${(g\vert_{f(X)})}^{-1}(U) \subseteq f(U)$, so $f(U) = {(g\vert_{f(X)})}^{-1}(U)$.
+
+		      $g$ is continuous so the restriction of $g$ to $f(X)$ is also continuous. Therefore ${(g\vert_{f(X)})}^{-1}(U)$ is open in $f(X)$, and $f(U)$ is open in $f(X)$.
+
+		      Because $f$ is continuous, injective, and it maps open subset of $X$ to open subset of $f(X)$, we conclude that $f$ is a topological embedding.
+		\item Suppose $f$ admits a continuous right inverse $g: Y\to X$, then $f\circ g = \operatorname{Id}_{Y}$. $f\circ g = \operatorname{Id}_{Y}$ implies that $f$ is surjective and $g$ is injective. Let $U$ be a subset of $Y$. We always have $f(f^{-1}(U)) = U$ because $f$ is surjective.
+
+		      If $U$ is open in $Y$, then $f^{-1}(U)$ is open in $X$, since $f$ is continuous.
+
+		      If $f^{-1}(U)$ is open in $X$ then $g^{-1}(f^{-1}(U))$ is open in $Y$ because $g$ is continuous. On the other hand
+		      \begin{align*}
+			      g^{-1}(f^{-1}(U)) = {(f \circ g)}^{-1}(U) = U
+		      \end{align*}
+
+		      so $U$ is open in $Y$. Hence $f$ is a quotient map.
+		\item Consider $f: \halfopenright{0, 1} \to \closedinterval{0, 1}$ defined by $f(x) = x$. $f$ is a topological embedding. Because $f$ is injective, $f$ has a left inverse $g: \closedinterval{0, 1} \to \halfopenright{0, 1}$. Then $0\leq g(1) < 1$. Let $b$ be a real number such that $g(1) < b < 1$ then $\openinterval{0, b}$ is open in $\halfopenright{0, 1}$ and $\closedinterval{0, 1}$. Therefore $g^{-1}\left(\openinterval{0, b}\right) = \openinterval{0, b} \cup \{ 1 \}$, which is not open in $\closedinterval{0, 1}$. Hence $f$ doesn't have a continuous left inverse.
+
+		      Consider the quotient map $q: \closedinterval{0, 1}\to \mathbb{S}^{1}$ defined by $q(s) = e^{2\pi\iota s}$. It is a quotient map because $\mathbb{S}^{1}$ is homeomorphic to $\closedinterval{0, 1}/\{ 0, 1 \}$. Let $f: \mathbb{S}^{1}\to \closedinterval{0, 1}$ be a right inverse of $q$. Let $0 < \varepsilon < 1$ then $\halfopenleft{\varepsilon, 1}$ is open in $\closedinterval{0, 1}$ and $f^{-1}(\halfopenleft{\varepsilon, 1}) = \{ e^{2\pi\iota s}: \varepsilon < s \leq 1 \}$, which is not open in $\mathbb{S}^{1}$. Hence $q$ doesn't have a continuous right inverse.
+	\end{enumerate}
+\end{proof}
+
+% \begin{problem}{3-14}
+% Show that real projective space $\mathbb{P}^{n}$ is an $n$-manifold.
 % \end{problem}
 
-% \begin{problem}{3-12}
-% Suppose $X$ is a topological space and ${(X_{\alpha})}_{\alpha\in A}$ is an indexed family of topological spaces.
-% \begin{enumerate}[label={(\alph*)}]
-%     \item For any subset $S\subseteq X$, show that the subspace topology on $S$ is the coarsest topology for which $\iota_{S}: S\hookrightarrow{}X$ is continuous.
-%     \item Show that the product topology is the coarsest topology on $\prod_{\alpha\in A}X_{\alpha}$ for which every canonical projection $\pi_{\alpha}: \prod_{\alpha\in A}X_{\alpha} \to X_{\alpha}$ is continuous.
-%     \item Show that the disjoint union topology is the finest topology on $\coprod_{\alpha\in A}X_{\alpha}$ for which every canonical injection $\iota_{\alpha}: X_{\alpha} \to \prod_{\alpha\in A}X_{\alpha}$ is continuous.
-%     \item Show that if $q: X\to Y$ is any surjective map, the quotient topology on $Y$ is the finest topology for which $q$ is continuous.
-% \end{enumerate}
-% \end{problem}
-
-% \begin{problem}{3-13}
-%     Suppose $X$ and $Y$ are topological spaces and $f: X \to Y$ is a continuous map. Prove the following:
-%     \begin{enumerate}[label={(\alph*)}]
-%         \item If $f$ admits a continuous left inverse, it is a topological embedding.
-%         \item If $f$ admits a continuous right inverse, it is a quotient map.
-%         \item Give examples of a topological embedding with no continuous left inverse, and a quotient map with no continuous right inverse.
-%     \end{enumerate}
+% \begin{problem}{3-15}
+% Let ${\mathbb{CP}}^{n}$ denote the set of all $1$-dimensional complex subspaces of $\mathbb{C}^{n+1}$, called \textbf{$n$-dimensional complex projective space}. Topologize ${\mathbb{CP}}^{n}$ as the quotient ${(\mathbb{C}^{n+1}\setminus \{0\})}/\mathbb{C}^{*}$, where $\mathbb{C}^{*}$ is the group of nonzero complex numbers acting by scalar multiplication. Show that $\mathbb{CP}^{n}$ is an $2n$-manifold.
 % \end{problem}
