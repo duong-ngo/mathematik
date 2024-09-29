@@ -112,10 +112,7 @@ topology:
 analysis:
 	@$(MAKE) phase1/vladimir-zorich-mathematical-analysis/main.pdf
 
-ag:
-	@$(MAKE) phase1/ideals-varieties-and-algorithms/main.pdf
-
-paolo:
+algebra:
 	@$(MAKE) phase2/aluffi-algebra-chapter-0/main.pdf
 
 functional-analysis:

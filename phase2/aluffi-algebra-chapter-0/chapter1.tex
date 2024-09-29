@@ -2,6 +2,74 @@
 
 \section{Naive set theory}
 
+\begin{exercise}{1.1}
+	Locate a discussion of Russell's paradox, and understand it.
+\end{exercise}
+
+\begin{proof}
+	I did it.
+\end{proof}
+
+\begin{exercise}{1.2}
+	Prove that if $\sim$ is an equivalence relation on a set $S$, then the corresponding family $\mathscr{P}_{\sim}$ defined in $\S{1.5}$ is indeed a partion of $S$: that is, its elements are nonempty, disjoint, and their union is $S$.
+\end{exercise}
+
+\begin{proof}
+	Every element of $\mathscr{P}_{\sim}$ is an equivalence class ${[x]}_{\sim}$ where $x\in S$, hence a nonempty subset of $S$.
+
+	If ${[x]}_{\sim}$ and ${[y]}_{\sim}$ are not disjoint, then there exists $z\in S$ such that $z \in {[x]}_{\sim}$ and $z \in {[y]}_{\sim}$. $s\in {[x]}_{\sim}$ iff $s \sim x$, $s\in {[y]}_{\sim}$ iff $s \sim y$. Together with $z \sim x$ and $z \sim y$, we obtain that $s\in {[x]}_{\sim}$ iff $s \sim z$, $s\in {[y]}_{\sim}$ iff $s \sim z$. Hence $s\in {[x]}_{\sim}$ iff $s\in {[y]}_{\sim}$, which means ${[x]}_{\sim} = {[y]}_{\sim}$. Hence distinct elements of $\mathscr{P}_{\sim}$ are disjoint sets.
+
+	For every $x\in S$, $x \in {[x]}_{\sim}$, so $S \subseteq \bigcup_{x\in S}{[x]}_{\sim} = \bigcup_{P\in \mathscr{P}_{\sim}}P$. Let $x\in \bigcup_{P\in \mathscr{P}_{\sim}}P$ then there is $P\in \mathscr{P}_{\sim}$ such that $x\in P$. Moreover, $P\subseteq S$ so $x\in S$, it follows that $\bigcup_{P\in \mathscr{P}_{\sim}}P \subseteq S$. Hence $S = \bigcup_{P\in \mathscr{P}_{\sim}}P$.
+
+	Thus $\mathscr{P}_{\sim}$ is a partition of $S$.
+\end{proof}
+
+\begin{exercise}{1.3}
+	Given a partition $\mathscr{P}$ on a set $S$, show how to define a relation $\sim$ on $S$ such that $\mathscr{P}$ is the corresponding partition.
+\end{exercise}
+
+\begin{proof}
+	Definition: Two elements $x, y$ of $S$ are called equivalent iff there exists $P\in \mathscr{P}$ such that $x\in P$ and $y\in P$.
+\end{proof}
+
+\begin{exercise}{1.4}
+	How many different equivalence relations may be defined on the set $\set{1, 2, 3}$?
+\end{exercise}
+
+\begin{proof}
+	Because an equivalence relation on a given set is uniquely determined by one of the set's partition, the number of equivalence relations may be defined on a set is equal to the number of possible partitions on the set. $\set{1, 2, 3}$ has 5 possible partition, namely $\set{\set{1}, \set{2}, \set{3}}$, $\set{\set{1}, \set{2, 3}}$, $\set{\set{2}, \set{1, 3}}$, $\set{\set{3}, \set{1, 2}}$, $\set{\set{1, 2, 3}}$. Hence there are totally 5 different equivalence relations can be defined on the set $\set{1, 2, 3}$.
+\end{proof}
+
+\begin{exercise}{1.5}
+	Give an example of a relation that is reflexive and symmetric but not transitive. What happens if you attempt to use this relation to define a partition on the set?
+\end{exercise}
+
+\begin{proof}
+	On $\mathbb{Z}$, we define the relation $R$ as follows: $xRy$ iff $x - y$ is divisible by $2$ or $3$. By this definition, $R$ is reflexive and symmetric. However, $1R3$ and $3R6$ but it is not the case that $1R6$ so $R$ is not transitive. If we define a partition on the set, there might be elements of the partition class which are not disjoint.
+\end{proof}
+
+\begin{exercise}{1.6}
+	Define a relation $\sim$ on the set $\mathbb{R}$ of real numbers by setting $a\sim b \Longleftarrow b - a\in\mathbb{Z}$. Prove that this is an equivalence relation, and find a `compelling' description for $\mathbb{R}/\sim$. Do the same for the relation $\approx$ on the plane $\mathbb{R}\times\mathbb{R}$ defined by declaring $\tuple{a_{1}, a_{2}} \approx \tuple{b_{1}, b_{2}} \Longleftrightarrow b_{1} - a_{1} \in \mathbb{Z}$ and $b_{2} - a_{2}\in\mathbb{Z}$.
+\end{exercise}
+
+\begin{proof}
+	For every $a\in \mathbb{R}$, $a - a = 0 \in \mathbb{Z}$ so $a\sim a$.
+
+	For every $a, b\in\mathbb{R}$, if $a\sim b$ then $a - b\in \mathbb{Z}$ and $b - a\in \mathbb{R}$, which implies that $b\sim a$.
+
+	For every $a, b, c\in\mathbb{R}$, if $a\sim b$ and $b\sim c$ then $a - c = (a - b) + (b - c) \in \mathbb{Z}$, so $a\sim c$.
+
+	Hence $\sim$ is an equivalence relation on $\mathbb{R}$. We can describe the quotient of $\mathbb{R}$ with respect to $\sim$ like this: $\mathbb{R}/_{\sim} = \set{{[x]}_{\sim} \mid 0\leq x < 1}$.
+
+	\bigskip
+	For every $\tuple{a_{1}, a_{2}} \in \mathbb{R}\times\mathbb{R}$, $a_{1} - a_{1} = 0\in \mathbb{Z}$ and $a_{2} - a_{2} = 0\in \mathbb{Z}$, so $\tuple{a_{1}, a_{2}} \approx \tuple{a_{1}, a_{2}}$.
+
+	For every $\tuple{a_{1}, a_{2}}, \tuple{b_{1}, b_{2}} \in \mathbb{R}\times\mathbb{R}$, if $\tuple{a_{1}, a_{2}} \approx \tuple{b_{1}, b_{2}}$ then $b_{1} - a_{1}\in \mathbb{Z}$ and $b_{2} - a_{2}\in \mathbb{Z}$. So $a_{1} - b_{1}\in \mathbb{Z}$ and $a_{2} - b_{2}\in \mathbb{Z}$, it follows that $\tuple{b_{1}, b_{2}} \approx \tuple{a_{1}, a_{2}}$.
+
+	For every $\tuple{a_{1}, a_{2}}, \tuple{b_{1}, b_{2}}, \tuple{c_{1}, c_{2}} \in \mathbb{R}\times\mathbb{R}$, if $\tuple{a_{1}, a_{2}} \approx \tuple{b_{1}, b_{2}}$ and $\tuple{b_{1}, b_{2}} \approx \tuple{c_{1}, c_{2}}$ then $a_{1} - b_{1} \in \mathbb{Z}$, $a_{2} - b_{2}\in \mathbb{Z}$, $b_{1} - c_{1}\in\mathbb{Z}$, $b_{2} - c_{2}\in \mathbb{Z}$. Therefore $a_{1} - c_{1} = (a_{1} - b_{1}) + (b_{1} - c_{1}) \in \mathbb{Z}$ and $a_{2} - c_{2} = (a_{2} - b_{2}) + (b_{2} - c_{2}) \in \mathbb{Z}$, which means $\tuple{a_{1}, a_{2}} \approx \tuple{c_{1}, c_{2}}$.
+
+	Hence $\approx$ is an equivalence relation on $\mathbb{R}\times\mathbb{R}$. We can describe the quotient of $\mathbb{R}\times\mathbb{R}$ with respect to $\approx$ as follows: $(\mathbb{R}\times\mathbb{R})/_{\approx} = \set{ {[(x, y)]}_{\approx} \mid 0 \leq x < 1, 0 \leq y < 1 }$.
+\end{proof}
 
 \section{Functions between sets}
 
