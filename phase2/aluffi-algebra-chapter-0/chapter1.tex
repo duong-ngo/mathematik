@@ -1,3 +1,4 @@
+% chktex-file 8
 \chapter{Preliminaries: Set theory and categories}
 
 \section{Naive set theory}
@@ -48,7 +49,7 @@
 	On $\mathbb{Z}$, we define the relation $R$ as follows: $xRy$ iff $x - y$ is divisible by $2$ or $3$. By this definition, $R$ is reflexive and symmetric. However, $1R3$ and $3R6$ but it is not the case that $1R6$ so $R$ is not transitive. If we define a partition on the set, there might be elements of the partition class which are not disjoint.
 \end{proof}
 
-\begin{exercise}{1.6}
+\begin{exercise}{1.6}\label{exercise:1-1.6}
 	Define a relation $\sim$ on the set $\mathbb{R}$ of real numbers by setting $a\sim b \Longleftarrow b - a\in\mathbb{Z}$. Prove that this is an equivalence relation, and find a `compelling' description for $\mathbb{R}/\sim$. Do the same for the relation $\approx$ on the plane $\mathbb{R}\times\mathbb{R}$ defined by declaring $\tuple{a_{1}, a_{2}} \approx \tuple{b_{1}, b_{2}} \Longleftrightarrow b_{1} - a_{1} \in \mathbb{Z}$ and $b_{2} - a_{2}\in\mathbb{Z}$.
 \end{exercise}
 
@@ -73,6 +74,185 @@
 
 \section{Functions between sets}
 
+\begin{exercise}{2.1}
+	How many different bijections are there between a set $S$ with $n$ elements and itself?
+\end{exercise}
+
+\begin{proof}
+	This proof implicitly uses the following result: the composition of two bijections is a bijection.
+
+	$S$ has $n$ elements, it means there is a bijection from $S$ onto $\set{1, \ldots, n}$. Each bijection from $S$ onto itself correspond one-to-one to substitution on $\set{1, \ldots, n}$. Because $\set{1, \ldots, n}$ has $\factorial{n}$ substitutions, it follows that there are $\factorial{n}$ bijections between $S$ and itself.
+\end{proof}
+
+\begin{exercise}{2.2}
+	Prove statement (2) in Proposition 2.1. You may assume that given a family of disjoint nonempty subsets of a set, there is a way to choose one element in each
+	member of the family.
+\end{exercise}
+
+\begin{proof}
+	Statement (2) in Proposition 2.1: $f: A\to B$ where $A\ne\emptyset$ has a right-inverse if and only if it is surjective.
+
+	$(\Longrightarrow)$ $f$ has a right-inverse. So there is $g: B\to A$ such that $f\circ g = \operatorname{id}_{B}$. Let $b$ be an arbitrary element of $B$, then $f(g(b)) = b$. Hence $f$ is surjective.
+
+	$(\Longleftarrow)$ [This part assumes the axiom of choice] $f$ is surjective. We define $g: B\to A$ as follows: For every $b\in B$, the fiber $f^{-1}(b)$ of $b$ is not empty (because $f$ is surjective), we choose an element from $f^{-1}(b)$ and define it to be $g(b)$. From this definition, it follows that $f\circ g = \operatorname{id}_{B}$, which means $f$ has a right-inverse.
+
+	Hence a map (which is not the empty map) has a right-inverse if and only if it is surjective.
+\end{proof}
+
+\begin{exercise}{2.3}
+	Prove that the inverse of a bijection is a bijection and that the composition of two bijections is a bijection.
+\end{exercise}
+
+\begin{proof}
+	Let $f: A\to B$ be a bijection. Because $f$ is both an injection and a surjection, it has a left-inverse $g_{1}$ and a right-inverse $g_{2}$. So
+	\begin{align*}
+		g_{1} = g_{1}\circ \operatorname{id}_{B} = g_{1}\circ (f\circ g_{2}) = (g_{1}\circ f)\circ g_{2} = \operatorname{id}_{A}\circ g_{2} = g_{2}.
+	\end{align*}
+
+	Hence $g_{1} = g_{2}$, this implies the existence and uniqueness of the inverse of the bijection $f$. Because $f^{-1}\circ f = \operatorname{id}_{A}$ and $f\circ f^{-1} = \operatorname{id}_{B}$, it follows that $f^{-1}$ is a bijection, because it has a left-inverse and a right-inverse.
+
+	\bigskip
+	Let $f: A\to B$ and $g: B\to C$ be two bijections. We have
+	\begin{align*}
+		(f^{-1}\circ g^{-1})\circ (g\circ f)  & = f^{-1}\circ ((g^{-1}\circ g)\circ f) = f^{-1}\circ (\operatorname{id}_{B}\circ f) = f^{-1}\circ f = \operatorname{id}_{A}, \\
+		(g\circ f) \circ (f^{-1}\circ g^{-1}) & = (g\circ (f\circ f^{-1}))\circ g^{-1} = (g\circ\operatorname{id}_{B})\circ g^{-1} = g\circ g^{-1} = \operatorname{id}_{C}.
+	\end{align*}
+
+	So $g\circ f$ has a left-inverse and a right-inverse, which implies $g\circ f$ is a bijection.
+\end{proof}
+
+\begin{exercise}{2.4}
+	Prove that `isomorphism' is an equivalence relation (on any set of sets).
+\end{exercise}
+
+\begin{proof}
+	Let $\mathscr{S}$ be a set of sets.
+
+	For every $A\in\mathscr{S}$, $\operatorname{id}_{A}: A\to A$ is a bijection, so $A$ is isomorphic to itself.
+
+	For every $A, B\in\mathscr{S}$, if $A$ is isomorphic to $B$, there is a bijection $f: A\to B$. The inverse of a bijection is a bijection, so $f^{-1}: B\to A$ is a bijection, which implies $B$ is isomorphic to $A$.
+
+	For every $A, B, C\in\mathscr{S}$, if $A$ is isomorphic to $B$ and $B$ is isomorphic to $C$, then there exist bijections $f: A\to B$ and $g: B\to C$. The composition of two bijections is a bijection, so $g\circ f: A\to C$ is a bijection, which means $A$ is isomorphic to $C$.
+
+	Hence isomorphism is an equivalence relation.
+\end{proof}
+
+\begin{exercise}{2.5}
+	Formulate a notion of \textit{epimorphism}, in the style of the notion of \textit{monomorphism} seen in $\S{2.6}$, and prove a result analogous to Proposition 2.3, for epimorphisms and surjections.
+\end{exercise}
+
+\begin{proof}
+	A function $f: A\to B$ is a epimorphism if
+	\begin{equation*}
+		\begin{gathered}
+			\text{for all sets $Z$ and all functions $\alpha', \alpha'': B\to Z$} \\
+			\alpha'\circ f = \alpha''\circ f \implies \alpha' = \alpha''.
+		\end{gathered}
+	\end{equation*}
+
+	A result analogous to Proposition 2.3 would be: A function is surjective if and only if it is an epimorphism.
+
+	$(\Longrightarrow)$ $f: A\to B$ is surjective, then $f$ has a right-inverse $g: B\to A$. For all sets $Z$ and all functions $\alpha', \alpha'': B\to Z$, if $\alpha'\circ f = \alpha''\circ f$ then
+	\begin{align*}
+		\alpha' & = \alpha'\circ \operatorname{id}_{B} = \alpha'\circ (f\circ g)                \\
+		        & = (\alpha'\circ f)\circ g = (\alpha''\circ f)\circ g                          \\
+		        & = \alpha'' \circ (f\circ g) = \alpha''\circ \operatorname{id}_{B} = \alpha''.
+	\end{align*}
+
+	So $f$ is an epimorphism.
+
+	$(\Longleftarrow)$ $f$ is an epimorphism.
+
+	Let $\alpha': B\to \set{0, 1}$ defined by $\alpha'(b) = 1$ for every $b\in B$. Let $\alpha'': B\to \set{0, 1}$ defined by $\alpha''(b) = 1$ if and only if the fiber of $f$ over $b$ is nonempty. From these definitions, $\alpha'\circ f = \alpha''\circ f$, and it follows that $\alpha' = \alpha''$. Therefore $\alpha''(b) = 1$ for every $b\in B$, so the fiber of $f$ over any element of $b$ is nonempty, which means $f$ is surjective.
+
+	Hence a function is surjective if and only if it is an epimorphism.
+\end{proof}
+
+\begin{exercise}{2.6}
+	With notation as in Example 2.4, explain how any function $f: A\to B$ determines a section of $\pi_{A}$.
+\end{exercise}
+
+\begin{proof}
+	Let $\Gamma_{f}$ be the graph of $f$, then $\Gamma_{f}\subseteq A\times B$. For every $a\in A$, $(a, f(a)) \in \Gamma_{f}$ and $\pi_{A}$ maps $(a, f(a))$ to $a$. Hence every function $f: A\to B$ determines a section of $\pi_{A}$.
+\end{proof}
+
+\begin{exercise}{2.7}
+	Let $f: A\to B$ be any function. Prove that the graph $\Gamma_{f}$ of $f$ is isomorphic to $A$.
+\end{exercise}
+
+\begin{proof}
+	Let's define $\varphi: A\to \Gamma_{f}$ by $\varphi(a) = (a, f(a))$. Let $\psi$ be the restriction of $\pi_{A}$ to $\Gamma_{f}$ then $\psi\circ\varphi = \operatorname{id}_{A}$ and $\varphi\circ\psi = \operatorname{id}_{\Gamma_{f}}$. Therefore $\varphi$ is a bijection, which implies that the graph $\Gamma_{f}$ of $f$ is isomorphic to $A$.
+\end{proof}
+
+\begin{exercise}{2.8}
+	Describe as explicitly as you can all terms in the canonical decomposition of the function $\mathbb{R}\to \mathbb{C}$ defined by $r\mapsto e^{2\pi ir}$. (This exercise matches one assigned previously. Which one?)
+\end{exercise}
+
+\begin{proof}
+	On $\mathbb{R}$, we define the relation $\sim$ as follows: $a\sim b$ if and only if $e^{2\pi ia} = e^{2\pi ib}$. Because $e^{2\pi ia} = e^{2\pi ib}$ if and only if $b - a\in\mathbb{Z}$, it follows that $a\sim b$ if and only if $b - a\in\mathbb{Z}$. This is identical to the relation defined in Exercise~\ref{exercise:1-1.6}.
+
+	The image of $f$ is the unit circle $\mathbb{S}^{1}$. So the canonical decomposition of $f$ is
+	\begin{figure}[htp]
+		\centering
+		\renewcommand{\thefigure}{1-2.8}
+		\centering
+		\begin{tikzpicture}[>=angle 90, every edge/.style={draw, thick}]
+			\matrix (m) [matrix of math nodes, row sep=3em, column sep=3em] {
+				\mathbb{R} & {\mathbb{R}/\mathbb{Z}} & {\mathbb{S}^{1}} & \mathbb{C} \\
+			};
+			\path[->>] (m-1-1) edge (m-1-2);
+			\path[right hook->] (m-1-3) edge (m-1-4);
+			\path[->] (m-1-2) edge node[above] {$\small\sim$} node[below] {$\overline{f}$} (m-1-3);
+			\path[->] (m-1-1) edge[bend left=30] node[above] {$f$} (m-1-4);
+		\end{tikzpicture}
+		\caption{}
+	\end{figure}
+\end{proof}
+
+\begin{exercise}{2.9}
+	Show that if $A'\cong A''$ and $B'\cong B''$, and further $A'\cap B' = \varnothing$ and $A''\cap B'' = \varnothing$, then $A'\cup B' \cong A''\cup B''$. Conclude that the operation $A\coprod B$ (as described in $\S{1.4}$) is well-defined \textit{up to isomorphism}.
+\end{exercise}
+
+\begin{proof}
+	Let $f$ be a bijection from $A'$ onto $A''$ and $g$ be a bijection from $B'$ onto $B''$. Let's define $h: A'\cup B' \to A''\cup B''$ and $k: A''\cup B''\to A'\cup B'$ as follows:
+	\begin{align*}
+		h(x) = \begin{cases}
+			       f(x) & \text{if $x\in A'$} \\
+			       g(x) & \text{if $x\in B'$}
+		       \end{cases}
+		\qquad
+		k(y) = \begin{cases}
+			       f^{-1}(y) & \text{if $y\in A''$} \\
+			       g^{-1}(y) & \text{if $y\in B''$}
+		       \end{cases}.
+	\end{align*}
+
+	From this definition, it follows that $k\circ h = \operatorname{id}_{A'\cup B'}$ and $h\circ k = \operatorname{id}_{A''\cup B''}$. Therefore $h, k$ are bijections, which implies $A'\cup B'$ and $A''\cup B''$ are isomorphic.
+
+	Since $A\coprod B$ is defined as the union of two disjoint copies of $A$ and $B$, the proved result implies that the definition of $A\coprod B$ is well-defined up to isomorphism.
+\end{proof}
+
+\begin{exercise}{2.10}
+	Show that if $A$ and $B$ are finite sets, then $\card{B^{A}} = {\card{B}}^{\card{A}}$.
+\end{exercise}
+
+\begin{proof}
+	A function is identified with its graph. Let's count how many graphs can be constructed: for every $a\in A$, any element of $B$ can be defined as the image of $a$, which means there are $\card{B}$ choices. Therefore, there are ${\card{B}}^{\card{A}}$ possible graphs. Hence $\card{B^{A}} = {\card{B}}^{\card{A}}$.
+\end{proof}
+
+\begin{exercise}{2.11}
+	In view of Exercise 2.10, it is not unreasonable to use $2^{A}$ to denote the set of functions from an arbitrary set $A$ to a set with 2 elements (say $\set{0, 1}$). Prove that there is a bijection between $2^{A}$ and the \textit{power set} of $A$.
+\end{exercise}
+
+\begin{proof}
+	Denote the power set of $A$ by $\mathscr{P}(A)$. Let's define $\varphi: 2^{A}\to \mathscr{P}(A)$ and $\psi: \mathscr{P}(A)\to 2^{A}$ as follows:
+	\begin{align*}
+		\varphi(f) & = \set{x \mid x\in A \text{ and } f(x) = 1},                      \\
+		\psi(S)    & = f \qquad\text{such that $f(x) = 1 \Longleftrightarrow x\in S$},
+	\end{align*}
+
+	where $f$ is a function from $A$ to $\set{0, 1}$ and $S$ is a subset of $A$. From this definition, $\psi\circ\varphi = \operatorname{id}_{2^{A}}$ and $\varphi\circ\psi = \operatorname{id}_{\mathscr{P}(A)}$. Therefore $\varphi$ is a bijection, so there is a bijection between $2^{A}$ and the power set of $A$.
+\end{proof}
 
 \section{Categories}
 

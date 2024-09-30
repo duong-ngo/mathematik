@@ -22,6 +22,10 @@
 \usepackage{booktabs}
 \usepackage[inline]{enumitem}
 
+\usepackage{pgf,tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing,positioning}
+
 \setcounter{chapter}{0}
 
 \pagestyle{fancy}
@@ -75,7 +79,9 @@
 \newcommand{\norm}[1]{\left\Vert{#1}\right\Vert}
 \newcommand{\anglebracket}[1]{\left\langle{#1}\right\rangle}
 \newcommand{\set}[1]{\left\{{#1}\right\}}
+\newcommand{\indexedset}[2]{{\left({#1}\right)}_{#2}}
 \newcommand{\tuple}[1]{\left({#1}\right)}
+\newcommand{\factorial}[1]{{#1}!}
 
 \title{Paolo Aluffi's Algebra: Chapter 0: Notes and Exercises}
 \author{Ngo Quang Duong}
