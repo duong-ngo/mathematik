@@ -232,7 +232,7 @@
 	Since $A\coprod B$ is defined as the union of two disjoint copies of $A$ and $B$, the proved result implies that the definition of $A\coprod B$ is well-defined up to isomorphism.
 \end{proof}
 
-\begin{exercise}{2.10}
+\begin{exercise}{2.10}\label{exercise:1-2.10}
 	Show that if $A$ and $B$ are finite sets, then $\card{B^{A}} = {\card{B}}^{\card{A}}$.
 \end{exercise}
 
@@ -256,6 +256,269 @@
 
 \section{Categories}
 
+\begin{exercise}{3.1}
+	Let $\mathsf{C}$ be a category. Consider a structure ${\mathsf{C}}^{op}$ with
+	\begin{itemize}
+		\item $\operatorname{Obj}({\mathsf{C}}^{op}) := \operatorname{Obj}(\mathsf{C})$;
+		\item for $A, B$ objects of ${\mathsf{C}}^{op}$ (hence objects of $\mathsf{C}$), $\operatorname{Hom}_{{\mathsf{C}}^{op}}(A, B) := \operatorname{Hom}_{\mathsf{C}}(B, A)$.
+	\end{itemize}
+
+	Show how to make this into a category.
+\end{exercise}
+
+\begin{proof}
+	We have to see whether this structure satisfies the morphism conditions.
+	\begin{itemize}
+		\item Every object $A$ in ${\mathsf{C}}^{op}$ is also an object in $\mathsf{C}$, so $1_{A} \in \operatorname{Hom}_{\mathsf{C}}(A, A) = \operatorname{Hom}_{{\mathsf{C}}^{op}}(A, A)$.
+		\item If $f\in \operatorname{Hom}_{{\mathsf{C}}^{op}}(A, B)$ and $g\in \operatorname{Hom}_{{\mathsf{C}}^{op}}(B, C)$ then $f\in \operatorname{Hom}_{\mathsf{C}}(B, A)$ and $g\in \operatorname{Hom}_{\mathsf{C}}(C, B)$. $\varphi_{{\mathsf{C}}^{op}}(f, g) = \varphi_{\mathsf{C}}(g, f) = fg\in \operatorname{Hom}_{\mathsf{C}}(C, A) = \operatorname{Hom}_{{\mathsf{C}}^{op}}(A, C)$. Note that $\varphi_{\mathsf{C}}: \operatorname{Hom}_{\mathsf{C}}(A, B)\times \operatorname{Hom}_{\mathsf{C}}(B, C)\to \operatorname{Hom}_{\mathsf{C}}(A, C)$ is the composition map.
+		\item If $f\in \operatorname{Hom}_{{\mathsf{C}}^{op}}(A, B)$, $g\in \operatorname{Hom}_{{\mathsf{C}}^{op}}(B, C)$, $h\in \operatorname{Hom}_{{\mathsf{C}}^{op}}(C, D)$ then
+		      \begin{align*}
+			      \varphi_{{\mathsf{C}}^{op}}(\varphi_{{\mathsf{C}}^{op}}(f, g), h) = \varphi_{{\mathsf{C}}^{op}}(\varphi_{\mathsf{C}}(g, f), h) = \varphi_{\mathsf{C}}(h, \varphi_{\mathsf{C}}(g, f)) \\
+			      \varphi_{{\mathsf{C}}^{op}}(f, \varphi_{{\mathsf{C}}^{op}}(g, h)) = \varphi_{{\mathsf{C}}^{op}}(f, \varphi_{\mathsf{C}}(h, g)) = \varphi_{\mathsf{C}}(\varphi_{\mathsf{C}}(h, g), f)
+		      \end{align*}
+
+		      and $\varphi_{\mathsf{C}}(h, \varphi_{\mathsf{C}}(g, f)) = \varphi_{\mathsf{C}}(\varphi_{\mathsf{C}}(h, g), f)$ so the composition operation is associative.
+		\item If $f\in \operatorname{Hom}_{{\mathsf{C}}^{op}}(A, B)$ then $\varphi_{{\mathsf{C}}^{op}}(1_{A}, f) = \varphi_{\mathsf{C}}(f, 1_{A}) = f$ and $\varphi_{{\mathsf{C}}^{op}}(f, 1_{B}) = \varphi_{\mathsf{C}}(1_{B}, f) = f$.
+	\end{itemize}
+
+	Hence ${\mathsf{C}}^{op}$ is a category.
+\end{proof}
+
+\begin{exercise}{3.2}
+	If $A$ is a finite set, how large is $\operatorname{End}_{\mathsf{Set}}(A)$?
+\end{exercise}
+
+\begin{proof}
+	Because $\operatorname{End}_{\mathsf{Set}}(A) = \operatorname{Hom}_{\mathsf{Set}}(A, A) = A^{A}$, the number of morphisms in $\operatorname{End}_{\mathsf{Set}}(A)$ is $\card{A^{A}} = {\card{A}}^{\card{A}}$ (according to Exercise~\ref{exercise:1-2.10}).
+\end{proof}
+
+\begin{exercise}{3.3}
+	Formulate precisely what it means to say that $1_{a}$ is an identity with respect to composition in Example 3.3, and prove this assertion.
+\end{exercise}
+
+\begin{proof}
+	If $(a, b)\in \operatorname{Hom}_{\mathsf{C}}(a, b)$ then
+	\begin{align*}
+		(a, b)1_{a} = (a, b)(a, a) = (a, b), \\
+		1_{b}(a, b) = (b, b)(a, b) = (a, b).
+	\end{align*}
+
+	So $1_{a}$ is an identity with respect to composition.
+\end{proof}
+
+\begin{exercise}{3.4}
+	Can we define a category in the style of Example 3.3 using the relation $<$ on the set $\mathbb{Z}$?
+\end{exercise}
+
+\begin{proof}[Answer]
+	No, because the relation $<$ on $\mathbb{Z}$ is not reflexive, so there will be no endomorphism.
+\end{proof}
+
+\begin{exercise}{3.5}
+	Explain in what sense Example 3.4 is an instance of the categories considered in Example 3.3.
+\end{exercise}
+
+\begin{proof}[Answer]
+	Example 3.4 is an instance of the categories in Example 3.3 because the relation $\subseteq$ on $\mathscr{P}(S)$ is reflexive ($A\subseteq A$ for every $A\in \mathscr{P}(S)$) and transitive ($A\subseteq B, B\subseteq C \implies A\subseteq C$).
+\end{proof}
+
+\begin{exercise}{3.6}
+	Define a category $\mathsf{V}$ by taking $\operatorname{Obj}(\mathsf{V}) = \mathbb{N}$ and letting $\operatorname{Hom}_{\mathsf{V}}(n, m) =$ the set of $m\times n$ matrices with real entries, for all $n, m\in\mathbb{N}$. Use product of matrices to define composition. Does this category `feel' familiar?
+\end{exercise}
+
+\begin{proof}
+	Let's check whether $\mathsf{V}$ is a category.
+	\begin{itemize}
+		\item If $n = 0$ and $m\in\mathbb{N}$, $\operatorname{Hom}_{\mathsf{V}}(n, m)$ is a singleton, it consists of the empty matrix. If $n\in\mathbb{N}^{*}$ and $m = 0$, $\operatorname{Hom}_{\mathsf{V}}(n, m) = \emptyset$. Otherwise, $\operatorname{Hom}_{\mathsf{V}}(n, m)$ consists of $n$-by-$m$ matrices with real entries.
+		\item For every $n\in\mathbb{N}$, there is an identity matrix $1_{n} = I_{n}$ (an $n$-by-$n$ matrix whose entries on the diagonal are $1$ and the other are $0$).
+		\item If $A\in \operatorname{Hom}_{\mathsf{V}}(n, m)$ and $B\in \operatorname{Hom}_{\mathsf{V}}(p, n)$, we define the composition by matrix multiplication, then $\varphi_{\mathsf{V}}(A, B) = AB \in \operatorname{Hom}_{\mathsf{V}}(p, m)$.
+		\item If $A\in \operatorname{Hom}_{\mathsf{V}}(n, m), B\in \operatorname{Hom}_{\mathsf{V}}(p, n)$, and $C\in \operatorname{Hom}_{\mathsf{V}}(q, p)$ then $(AB)C = A(BC) \in \operatorname{Hom}_{\mathsf{V}}(q, m)$ (because matrix multiplication is associative).
+		\item If $A\in \operatorname{Hom}_{\mathsf{V}}(n, m)$ then $AI_{m} = A = I_{n}A$.
+	\end{itemize}
+
+	So $\mathsf{V}$ is a category. This category feels a lot like Example 3.3.
+\end{proof}
+
+\begin{exercise}{3.7}
+	Define carefully objects and morphisms in Example 3.7, and draw the diagram corresponding to composition.
+\end{exercise}
+
+\begin{proof}
+	Let $\mathsf{C}$ be a category and $A$ is a fixed object in $\mathsf{C}$.
+
+	We define ${\mathsf{C}}^{A}$ is defined as follows:
+	\begin{itemize}
+		\item $\operatorname{Obj}({\mathsf{C}}^{A})$ is the class of morphisms in $\mathsf{C}$ whose source is $A$.
+		\item A morphism from $A\to Z_{1}$ to $A\to Z_{2}$ is the commutative diagram
+		      \begin{figure}[htp]
+			      \centering
+			      \begin{tikzcd}
+				      & A \arrow{ld}[above left]{f_{1}} \arrow{rd}{f_{2}} & \\
+				      Z_{1} \arrow{rr}[below]{\sigma} & & Z_{2}
+			      \end{tikzcd}
+		      \end{figure}
+		\item For every $f: A\to Z$, there is an identity
+		      \begin{figure}[htp]
+			      \centering
+			      \begin{tikzcd}
+				      A \arrow{d}{f} \\
+				      Z \arrow[loop below]{d}{1_{Z}}
+			      \end{tikzcd}
+		      \end{figure}
+		\item The composition law is defined by
+		      \begin{figure}[htp]
+			      \centering
+			      \begin{tikzcd}
+				      & A \arrow{ld}[above left]{f_{1}} \arrow{d}{f_{2}} \arrow{rd}[above right]{f_{3}} & \\
+				      Z_{1} \arrow{r}[below]{\sigma} & Z_{2} \arrow{r}[below]{\tau} & Z_{3}
+			      \end{tikzcd}
+			      \qquad
+			      \begin{tikzcd}
+				      & A \arrow{ld}[above left]{f_{1}} \arrow{rd}[above right]{f_{3}} & \\
+				      Z_{1} \arrow{rr}[below]{\tau\sigma} & & Z_{3}
+			      \end{tikzcd}
+		      \end{figure}
+		\item The composition operation (in $\mathsf{C}^{A}$) is associative because that on $\mathsf{C}$ is associative.
+		\item Finally the identity morphisms are identities with respect to composition because the following diagram commutes
+		      \begin{figure}[htp]
+			      \centering
+			      \begin{tikzcd}
+				      & A \arrow{ld}[above left]{f} \arrow{rd}[above right]{f} & \\
+				      Z \arrow{rr}[below]{1_{Z}} & & Z
+			      \end{tikzcd}
+		      \end{figure}
+	\end{itemize}
+\end{proof}
+
+\begin{exercise}{3.8}
+	A subcategory $\mathsf{C}'$ of a category $\mathsf{C}$ consists of a collection of objects of $\mathsf{C}$, with morphisms $\operatorname{Hom}_{\mathsf{C}'}(A, B) \subseteq \operatorname{Hom}_{\mathsf{C}}(A, B)$ for all objects $A, B$ in $\operatorname{Obj}(\mathsf{C}')$, such that identities and compositions in $\mathsf{C}$ make $\mathsf{C}'$ into a category. A subcategory $\mathsf{C}'$ is \textit{full} if $\operatorname{Hom}_{\mathsf{C}'}(A, B) = \operatorname{Hom}_{\mathsf{C}}(A, B)$ for all $A, B$ in $\operatorname{Obj}(\mathsf{C}')$. Construct a category of \textit{infinite sets} and explain how it may be viewed as a full subcategory of $\mathsf{Set}$.
+\end{exercise}
+
+\begin{proof}
+	Let's define $\mathsf{InfiniteSet}$.
+	\begin{itemize}
+		\item $\operatorname{Obj}(\mathsf{InfiniteSet})$ is the class of infinite sets.
+		\item For every pair of infinite sets $A, B$, define $\operatorname{Hom}_{\mathsf{InfiniteSet}}(A, B) = B^{A}$.
+		\item The law of composition on morphisms in $\operatorname{Obj}(\mathsf{InfiniteSet})$ is the same as that in $\operatorname{Obj}(\mathsf{Set})$.
+	\end{itemize}
+
+	$\mathsf{InfiniteSet}$ is a category because its morphisms satisfy the definition of morphisms of a category. It is a subcategory of $\mathsf{Set}$ because every object in $\mathsf{InfiniteSet}$ is also in $\mathsf{Set}$ and $\operatorname{Hom}_{\mathsf{InfiniteSet}}(A, B)\subseteq \operatorname{Hom}_{\mathsf{Set}}(A, B)$. It is a full subcategory because for every $A, B$ in $\operatorname{Obj}(\mathsf{InfiniteSet})$
+	\begin{align*}
+		\operatorname{Hom}_{\mathsf{InfiniteSet}}(A, B) = B^{A} = \operatorname{Hom}_{\mathsf{Set}}(A, B).
+	\end{align*}
+\end{proof}
+
+\begin{exercise}{3.9}
+	An alternative to the notion of multiset introduced in $\S{2.2}$ is obtained by considering sets endowed with equivalence relations; equivalent elements are taken to the multiple instances of elements `of the same kind'. Define a notion of morphism between such enhanced sets, obtaining a category $\mathsf{MSet}$ containing (a `copy' of) $\mathsf{Set}$ as a full subcategory. (There may be more than one reasonable way to do this! This is intentionally an open-ended exercise.) Which objects in $\mathsf{MSet}$ determine ordinary multisets as defined in $\S{2.2}$ and how? Spell out what a morphism of multisets would be from this point of view. (There are several natural notions of morphisms of multisets. Try to define morphisms in $\mathsf{MSet}$ so that the notion you obtain for ordinary multisets captures your intuitive understanding of these objects.)
+\end{exercise}
+
+\begin{proof}[Answer]
+	Let $\operatorname{Obj}(\mathsf{MSet})$ be the class of multisets (functions from ordinary sets to $\mathbb{N}^{*}$).
+
+	For every two objects $m_{A}: A\to \mathbb{N}^{*}, m_{B}: B\to \mathbb{N}^{*}$ in $\mathsf{MSet}$, $\operatorname{Hom}_{\mathsf{MSet}}(m_{A}, m_{B}) = \operatorname{Hom}_{\mathsf{Set}}(A, B)$. The law of composition is the same as that of set-functions.
+\end{proof}
+
+\begin{exercise}{3.10}
+	Since the objects of a category $\mathsf{C}$ are not (necessarily) sets, it is not clear how to make sense of a notation of `subobject' in general. In some situation it \textit{does} make sense to talk about subobjects, and the subobjects of any given object $A$ in $\mathsf{C}$ are in one-to-one correspondence with the morphisms $A\to \Omega$ for a fixed, special object $\Omega$ of $\mathsf{C}$, called a \textit{subobject classifier}. Show that $\mathsf{Set}$ has a subobject classifier.
+\end{exercise}
+
+\begin{proof}
+	In the category $\mathsf{Set}$, $\Omega = \set{\emptyset, \set{\emptyset}}$ is a fixed object of $\mathsf{Set}$.
+
+	Let $A$ be an object in $\mathsf{Set}$. Every subset $S$ of $A$ corresponds one-to-one with a morphism $\omega: A\to \Omega$ defined by
+	\begin{align*}
+		\omega(x) = \begin{cases}
+			            \emptyset       & \text{if $x\notin A$}, \\
+			            \set{\emptyset} & \text{if $x\in A$}.
+		            \end{cases}
+	\end{align*}
+
+	Hence the category $\mathsf{Set}$ has a subobject classifier.
+\end{proof}
+
+\begin{exercise}{3.11}
+	Draw the relevant diagrams and define composition and identities for the category ${\mathsf{C}}^{A, B}$ mentioned in Example 3.9. Do the same for the category ${\mathsf{C}}^{\alpha,\beta}$ mentioned in Example 3.10.
+\end{exercise}
+
+\begin{proof}
+	For the category ${\mathsf{C}}^{A, B}$, the objects are
+	\begin{figure}[htp]
+		\centering
+		\begin{tikzcd}
+			& A \arrow{ld}[above left]{f} \\
+			Z & \\
+			& B \arrow{lu}[below left]{g}
+		\end{tikzcd}
+	\end{figure}
+
+	the morphisms
+	\begin{figure}[htp]
+		\centering
+		\begin{tikzcd}
+			& A \arrow{ld}[above left]{f_{1}} \\
+			Z_{2}  & \\
+			& B \arrow{lu}[below left]{g_{1}}
+		\end{tikzcd}
+		$\longrightarrow$
+		\begin{tikzcd}
+			& A \arrow{ld}[above left]{f_{2}} \\
+			Z_{2}  & \\
+			& B \arrow{lu}[below left]{g_{2}}
+		\end{tikzcd}
+	\end{figure}
+
+	are the commutative diagrams
+	\begin{figure}[htp]
+		\centering
+		\begin{tikzcd}
+			& & A \arrow[bend right=30]{lld}[above left]{f_{1}} \arrow{ld}{f_{2}} \\
+			Z_{1} \arrow{r}{\sigma} & Z_{2} & \\
+			& & B \arrow[bend left=30]{llu}[below left]{g_{1}} \arrow{ul}{g_{2}}
+		\end{tikzcd}
+	\end{figure}
+
+	for every $\sigma\in \operatorname{Hom}_{\mathsf{C}}(Z_{1}, Z_{2})$ such that $f_{2} = \sigma f_{1}$ and $g_{2} = \sigma g_{1}$.
+
+	\newpage
+
+	For the category ${\mathsf{C}}^{\alpha,\beta}$, the objects are commutative diagrams
+	\begin{figure}[htp]
+		\centering
+		\begin{tikzcd}
+			& A \arrow{rd}[above right]{f} & \\
+			C \arrow{ru}[above left]{\alpha} \arrow{rd}[below left]{\beta} & & Z \\
+			& B \arrow{ru}[below right]{g} &
+		\end{tikzcd}
+	\end{figure}
+
+	The morphisms
+	\begin{figure}[htp]
+		\centering
+		\begin{tikzcd}
+			& A \arrow{rd}[above right]{f_{1}} & \\
+			C \arrow{ru}[above left]{\alpha} \arrow{rd}[below left]{\beta} & & Z_{1} \\
+			& B \arrow{ru}[below right]{g_{1}} &
+		\end{tikzcd}
+		$\longrightarrow$
+		\begin{tikzcd}
+			& A \arrow{rd}[above right]{f_{2}} & \\
+			C \arrow{ru}[above left]{\alpha} \arrow{rd}[below left]{\beta} & & Z_{2} \\
+			& B \arrow{ru}[below right]{g_{2}} &
+		\end{tikzcd}
+	\end{figure}
+
+	are the commutative diagrams
+	\begin{figure}[htp]
+		\centering
+		\begin{tikzcd}
+			& A \arrow{rd}[above right]{f_{1}} \arrow[bend left=30]{rrd}[above right]{f_{2}} & \\
+			C \arrow{ru}[above left]{\alpha} \arrow{rd}[below left]{\beta} & & Z_{1} \arrow{r}[above]{\sigma} & Z_{2} \\
+			& B \arrow{ru}[below right]{g_{1}} \arrow[bend right=30]{rru}[below right]{g_{2}} &
+		\end{tikzcd}
+	\end{figure}
+
+	for every $\sigma\in \operatorname{Hom}_{\mathsf{C}}(Z_{1}, Z_{2})$ such that $f_{2} = \sigma f_{1}$ and $g_{2} = \sigma g_{1}$.
+\end{proof}
 
 \section{Morphisms}
 
