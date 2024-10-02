@@ -408,14 +408,14 @@
 	\end{align*}
 \end{proof}
 
-\begin{exercise}{3.9}
+\begin{exercise}{3.9}\label{exercise:1-3.9}
 	An alternative to the notion of multiset introduced in $\S{2.2}$ is obtained by considering sets endowed with equivalence relations; equivalent elements are taken to the multiple instances of elements `of the same kind'. Define a notion of morphism between such enhanced sets, obtaining a category $\mathsf{MSet}$ containing (a `copy' of) $\mathsf{Set}$ as a full subcategory. (There may be more than one reasonable way to do this! This is intentionally an open-ended exercise.) Which objects in $\mathsf{MSet}$ determine ordinary multisets as defined in $\S{2.2}$ and how? Spell out what a morphism of multisets would be from this point of view. (There are several natural notions of morphisms of multisets. Try to define morphisms in $\mathsf{MSet}$ so that the notion you obtain for ordinary multisets captures your intuitive understanding of these objects.)
 \end{exercise}
 
 \begin{proof}[Answer]
-	Let $\operatorname{Obj}(\mathsf{MSet})$ be the class of multisets (functions from ordinary sets to $\mathbb{N}^{*}$).
+	Let $\operatorname{Obj}(\mathsf{MSet})$ be the class of multisets (ordinary sets with an equivalence relation).
 
-	For every two objects $m_{A}: A\to \mathbb{N}^{*}, m_{B}: B\to \mathbb{N}^{*}$ in $\mathsf{MSet}$, $\operatorname{Hom}_{\mathsf{MSet}}(m_{A}, m_{B}) = \operatorname{Hom}_{\mathsf{Set}}(A, B)$. The law of composition is the same as that of set-functions.
+	For every two objects $(A, \sim_{A}), (B, \sim_{B})$ in $\mathsf{MSet}$, $\operatorname{Hom}_{\mathsf{MSet}}((A, \sim_{A}), (B, \sim_{B}))$ to be $\operatorname{Hom}_{\mathsf{Set}}(\mathscr{P}_{\sim_{A}}, \mathscr{P}_{\sim_{B}})$ where $\mathscr{P}_{\sim_{A}}$, $\mathscr{P}_{\sim_{B}}$ are the sets of equivalence classes of $\sim_{A}$, $\sim_{B}$, respectively. The law of composition is the same as that of set-functions.
 \end{proof}
 
 \begin{exercise}{3.10}
@@ -522,6 +522,100 @@
 
 \section{Morphisms}
 
+\begin{exercise}{4.1}
+	Composition is defined for two morphisms. If more than two morphisms are given, e.g.,
+	\begin{tikzcd}
+		A \arrow{r}{f} & B \arrow{r}{g} & C \arrow{r}{h} & D \arrow{r}{i} & E,
+	\end{tikzcd}
+
+	then on may compose them in several ways, for example:
+	\begin{align*}
+		(ih)(gf),\quad (i(hg))f,\quad i((hg)f),\quad etc.
+	\end{align*}
+
+	so that at every step one is only composing two morphisms. Prove that the result of any such nested composition is independent of the placement of the parentheses.
+\end{exercise}
+
+\begin{proof}
+	We will show that for every nested composition of $f_{n}, \ldots, f_{1}$, the final result is
+	\begin{align*}
+		((\cdots ((f_{n}f_{n-1})f_{n-2})\cdots)f_{1}).
+	\end{align*}
+
+	The result holds for three morphisms because of associativity.
+
+	Assume the result holds for $n - 1$ composable morphisms, where $n\geq 4$. Let $f_{n}, \ldots, f_{1}$ be composable morphisms (the target of $f_{i-1}$ is the source of $f_{i}$). Consider a nested composition (roughly speaking, a placement of the parentheses). At each step, we compose exactly two morphism, and after that, the number of pairs of parentheses decrease by one. So there are exactly $n - 1$ steps.
+
+	Perform $n - 1$ steps and observe $f_{1}$. Either $f_{1}$ takes part in one step (the last one) of multiple steps. If the former is the case, then the result follows from the inductive hypothesis. Otherwise, the latter is the case then there exists $1 < k < n$ such that the nested composition is
+	\begin{align*}
+		((f_{n}\cdots f_{k+1})(f_{k}\cdots f_{1})).
+	\end{align*}
+
+	By the inductive hypothesis
+	\begin{align*}
+		(f_{n}\cdots f_{k+1}) & = ((\cdots ((f_{n}f_{n-1})f_{n-2})\cdots)f_{k+1}), \\
+		(f_{k}\cdots f_{1})   & = ((\cdots ((f_{k}f_{k-1})f_{k-2})\cdots)f_{1}).
+	\end{align*}
+
+	By associativity, we compose $f_{k+1}$ and $(\cdots ((f_{k}f_{k-1})f_{k-2})\cdots)$ and use the inductive hypothesis to obtain $((\cdots ((f_{k+1}f_{k})f_{k-1})\cdots)f_{1})$. Repeat the process until $f_{n}$, we obtain the desired placement of the parentheses: $((\cdots ((f_{n}f_{n-1})f_{n-2})\cdots)f_{1})$.
+\end{proof}
+
+\begin{exercise}{4.2}
+	In Example 3.3 we have seen how to construct a category from a set endowed with a relation, provided this latter is reflexive and transitive. For what types of relations is the corresponding category a groupoid?
+\end{exercise}
+
+\begin{proof}[Answer]
+	If the relation is an equivalence relation, the corresponding category is a groupoid.
+\end{proof}
+
+\begin{exercise}{4.3}
+	Let $A, B$ be objects of a category $\mathsf{C}$, and let $f\in \operatorname{Hom}_{\mathsf{C}}(A, B)$ be a morphism.
+	\begin{itemize}
+		\item Prove that if $f$ has a right-inverse, then $f$ is an epimorphism.
+		\item Show that the converse does not hold, by giving an explicit example of a category and an epimorphism without a right-inverse.
+	\end{itemize}
+\end{exercise}
+
+\begin{proof}
+	\begin{itemize}
+		\item If $f$ has a right-inverse, then there exists $g\in \operatorname{Hom}_{\mathsf{C}}(B, A)$ such that $fg = 1_{B}$. For every $\beta', \beta'' \in \operatorname{Hom}_{\mathsf{C}}(B, Z)$, if $\beta'\circ f = \beta''\circ f$ then
+		      \begin{align*}
+			      \beta' & = \beta'\circ 1_{B} = \beta'\circ (f\circ g) = (\beta'\circ f)\circ g              \\
+			             & = (\beta''\circ f)\circ g = \beta''\circ (f\circ g) = \beta''\circ 1_{B} = \beta''
+		      \end{align*}
+
+		      so $f$ is an epimorphism.
+		\item (Take any partially ordered set would work) Let $S$ be an infinite set and $\hat{S}$ a category whose objects are elements of $\mathscr{P}(S)$, and $\operatorname{Hom}_{\hat{S}}(A, B) = \set{(A, B)}$ if $A\subseteq B$, and $\emptyset$ otherwise. From this definition, every morphism is an epimorphism. If $A\subsetneq B$, $(A, B)$ doesn't have a right-inverse.
+	\end{itemize}
+\end{proof}
+
+\begin{exercise}{4.4}
+	Prove that the composition of two monomorphisms is a monomorphism. Deduce that one can define a subcategory ${\mathsf{C}}_{mono}$ of a category $\mathsf{C}$ by taking the same objects as in $\mathsf{C}$ and defining $\operatorname{Hom}_{{\mathsf{C}}_{mono}}(A, B)$ to be the subset of $\operatorname{Hom}_{\mathsf{C}}(A, B)$ consisting of monomorphisms, for all objects $A, B$. Do the same for epimorphisms. Can you define a subcategory $\mathsf{C}_{nonmono}$ by restricting to morphisms that are \textit{not} monomorphisms?
+\end{exercise}
+
+\begin{proof}
+	Let $f: A\to B$ and $g: B\to C$ be two monomorphisms. For every $\alpha', \alpha'' \in \operatorname{Hom}_{\mathsf{C}}(Z, A)$, if $(gf)\alpha' = (gf)\alpha''$ then it follows that $f\alpha' = f\alpha''$ (because $g$ is a monomorphism), which implies $\alpha' = \alpha''$ (because $f$ is a monomorphism). Hence $gf$ is a monomorphism.
+
+	We can define a subcategory $\mathsf{C}_{mono}$ because the previous result implies that if we compose two monomorphisms, we get a monomorphism.
+
+	Let $f: A\to B$ and $g: B\to C$ be two epimorphisms. For every $\beta', \beta'' \in \operatorname{Hom}_{\mathsf{C}}(C, Z)$, if $\beta'(gf) = \beta''(gf)$ then $(\beta'g)f = (\beta''g)f$. Because $f$ is an epimorphism, $\beta'g = \beta''g$. Because $g$ is an epimorphism, $\beta' = \beta''$. Hence $gf$ is an epimorphism.
+
+	Similarly, we can define a subcategory $\mathsf{C}_{epi}$ (where $\operatorname{Hom}_{{\mathsf{C}}_{epi}}(A, B)$ is the subset of $\operatorname{Hom}_{\mathsf{C}}(A, B)$ consisting of epimorphisms) because if we compose two epimorphisms, we get an epimorphism.
+
+	We can't define a subcategory $\mathsf{C}_{nonmono}$ because every identity is a monomorphism. However, the composition of two non-monomorphisms is a monomorphism, which is showed as follows:
+
+	If $f: A\to B$ and $g: B\to C$ are not monomorphisms. Then there exist distinct morphisms $\alpha', \alpha''$ which are composable with $f$ such that $f\alpha' = f\alpha''$. Therefore $(gf)\alpha' = g(f\alpha') = g(f\alpha'') = (gf)\alpha''$ but $\alpha' \ne \alpha''$, which means $gf$ is not a monomorphism. However,
+\end{proof}
+
+\begin{exercise}{4.5}
+	Give a concrete description of monomorphisms and epimorphisms in the category $\mathsf{MSet}$ you constructed in Exercise~\ref{exercise:1-3.9}.
+\end{exercise}
+
+\begin{proof}
+	The objects of $\mathsf{MSet}$ are $(A, \sim_{A})$ where $A$ is an object of $\mathsf{Set}$ and $\sim_{A}$ is an equivalence relation on $A$. $\operatorname{Hom}_{\mathsf{MSet}}((A, \sim_{A}), (B, \sim_{B}))$ is defined to be the set of functions from the set of equivalence classes of $\sim_{A}$ to the set of equivalence classes of $\sim_{B}$.
+
+	Monomorphisms in $\mathsf{MSet}$ are monomorphisms in $\mathsf{Set}$, and epimorphisms in $\mathsf{MSet}$ are epimorphisms in $\mathsf{Set}$.
+\end{proof}
 
 \section{Universal properties}
 
