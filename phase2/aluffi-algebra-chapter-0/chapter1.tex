@@ -1,9 +1,9 @@
-% chktex-file 8
+% chktex-file 1, 8
 \chapter{Preliminaries: Set theory and categories}
 
 \section{Naive set theory}
 
-\begin{exercise}{1.1}
+\begin{exercise}{I.1.1}
 	Locate a discussion of Russell's paradox, and understand it.
 \end{exercise}
 
@@ -11,7 +11,7 @@
 	I did it.
 \end{proof}
 
-\begin{exercise}{1.2}
+\begin{exercise}{I.1.2}
 	Prove that if $\sim$ is an equivalence relation on a set $S$, then the corresponding family $\mathscr{P}_{\sim}$ defined in $\S{1.5}$ is indeed a partion of $S$: that is, its elements are nonempty, disjoint, and their union is $S$.
 \end{exercise}
 
@@ -25,7 +25,7 @@
 	Thus $\mathscr{P}_{\sim}$ is a partition of $S$.
 \end{proof}
 
-\begin{exercise}{1.3}
+\begin{exercise}{I.1.3}
 	Given a partition $\mathscr{P}$ on a set $S$, show how to define a relation $\sim$ on $S$ such that $\mathscr{P}$ is the corresponding partition.
 \end{exercise}
 
@@ -33,7 +33,7 @@
 	Definition: Two elements $x, y$ of $S$ are called equivalent iff there exists $P\in \mathscr{P}$ such that $x\in P$ and $y\in P$.
 \end{proof}
 
-\begin{exercise}{1.4}
+\begin{exercise}{I.1.4}
 	How many different equivalence relations may be defined on the set $\set{1, 2, 3}$?
 \end{exercise}
 
@@ -41,7 +41,7 @@
 	Because an equivalence relation on a given set is uniquely determined by one of the set's partition, the number of equivalence relations may be defined on a set is equal to the number of possible partitions on the set. $\set{1, 2, 3}$ has 5 possible partition, namely $\set{\set{1}, \set{2}, \set{3}}$, $\set{\set{1}, \set{2, 3}}$, $\set{\set{2}, \set{1, 3}}$, $\set{\set{3}, \set{1, 2}}$, $\set{\set{1, 2, 3}}$. Hence there are totally 5 different equivalence relations can be defined on the set $\set{1, 2, 3}$.
 \end{proof}
 
-\begin{exercise}{1.5}
+\begin{exercise}{I.1.5}
 	Give an example of a relation that is reflexive and symmetric but not transitive. What happens if you attempt to use this relation to define a partition on the set?
 \end{exercise}
 
@@ -49,7 +49,7 @@
 	On $\mathbb{Z}$, we define the relation $R$ as follows: $xRy$ iff $x - y$ is divisible by $2$ or $3$. By this definition, $R$ is reflexive and symmetric. However, $1R3$ and $3R6$ but it is not the case that $1R6$ so $R$ is not transitive. If we define a partition on the set, there might be elements of the partition class which are not disjoint.
 \end{proof}
 
-\begin{exercise}{1.6}\label{exercise:1-1.6}
+\begin{exercise}{I.1.6}\label{exercise:I.1.6}
 	Define a relation $\sim$ on the set $\mathbb{R}$ of real numbers by setting $a\sim b \Longleftarrow b - a\in\mathbb{Z}$. Prove that this is an equivalence relation, and find a `compelling' description for $\mathbb{R}/\sim$. Do the same for the relation $\approx$ on the plane $\mathbb{R}\times\mathbb{R}$ defined by declaring $\tuple{a_{1}, a_{2}} \approx \tuple{b_{1}, b_{2}} \Longleftrightarrow b_{1} - a_{1} \in \mathbb{Z}$ and $b_{2} - a_{2}\in\mathbb{Z}$.
 \end{exercise}
 
@@ -74,7 +74,7 @@
 
 \section{Functions between sets}
 
-\begin{exercise}{2.1}
+\begin{exercise}{I.2.1}
 	How many different bijections are there between a set $S$ with $n$ elements and itself?
 \end{exercise}
 
@@ -84,7 +84,7 @@
 	$S$ has $n$ elements, it means there is a bijection from $S$ onto $\set{1, \ldots, n}$. Each bijection from $S$ onto itself correspond one-to-one to substitution on $\set{1, \ldots, n}$. Because $\set{1, \ldots, n}$ has $\factorial{n}$ substitutions, it follows that there are $\factorial{n}$ bijections between $S$ and itself.
 \end{proof}
 
-\begin{exercise}{2.2}
+\begin{exercise}{I.2.2}
 	Prove statement (2) in Proposition 2.1. You may assume that given a family of disjoint nonempty subsets of a set, there is a way to choose one element in each
 	member of the family.
 \end{exercise}
@@ -99,7 +99,7 @@
 	Hence a map (which is not the empty map) has a right-inverse if and only if it is surjective.
 \end{proof}
 
-\begin{exercise}{2.3}
+\begin{exercise}{I.2.3}
 	Prove that the inverse of a bijection is a bijection and that the composition of two bijections is a bijection.
 \end{exercise}
 
@@ -121,7 +121,7 @@
 	So $g\circ f$ has a left-inverse and a right-inverse, which implies $g\circ f$ is a bijection.
 \end{proof}
 
-\begin{exercise}{2.4}
+\begin{exercise}{I.2.4}
 	Prove that `isomorphism' is an equivalence relation (on any set of sets).
 \end{exercise}
 
@@ -137,7 +137,7 @@
 	Hence isomorphism is an equivalence relation.
 \end{proof}
 
-\begin{exercise}{2.5}
+\begin{exercise}{I.2.5}
 	Formulate a notion of \textit{epimorphism}, in the style of the notion of \textit{monomorphism} seen in $\S{2.6}$, and prove a result analogous to Proposition 2.3, for epimorphisms and surjections.
 \end{exercise}
 
@@ -168,7 +168,7 @@
 	Hence a function is surjective if and only if it is an epimorphism.
 \end{proof}
 
-\begin{exercise}{2.6}
+\begin{exercise}{I.2.6}
 	With notation as in Example 2.4, explain how any function $f: A\to B$ determines a section of $\pi_{A}$.
 \end{exercise}
 
@@ -176,7 +176,7 @@
 	Let $\Gamma_{f}$ be the graph of $f$, then $\Gamma_{f}\subseteq A\times B$. For every $a\in A$, $(a, f(a)) \in \Gamma_{f}$ and $\pi_{A}$ maps $(a, f(a))$ to $a$. Hence every function $f: A\to B$ determines a section of $\pi_{A}$.
 \end{proof}
 
-\begin{exercise}{2.7}
+\begin{exercise}{I.2.7}
 	Let $f: A\to B$ be any function. Prove that the graph $\Gamma_{f}$ of $f$ is isomorphic to $A$.
 \end{exercise}
 
@@ -184,17 +184,17 @@
 	Let's define $\varphi: A\to \Gamma_{f}$ by $\varphi(a) = (a, f(a))$. Let $\psi$ be the restriction of $\pi_{A}$ to $\Gamma_{f}$ then $\psi\circ\varphi = \operatorname{id}_{A}$ and $\varphi\circ\psi = \operatorname{id}_{\Gamma_{f}}$. Therefore $\varphi$ is a bijection, which implies that the graph $\Gamma_{f}$ of $f$ is isomorphic to $A$.
 \end{proof}
 
-\begin{exercise}{2.8}
+\begin{exercise}{I.2.8}
 	Describe as explicitly as you can all terms in the canonical decomposition of the function $\mathbb{R}\to \mathbb{C}$ defined by $r\mapsto e^{2\pi ir}$. (This exercise matches one assigned previously. Which one?)
 \end{exercise}
 
 \begin{proof}
-	On $\mathbb{R}$, we define the relation $\sim$ as follows: $a\sim b$ if and only if $e^{2\pi ia} = e^{2\pi ib}$. Because $e^{2\pi ia} = e^{2\pi ib}$ if and only if $b - a\in\mathbb{Z}$, it follows that $a\sim b$ if and only if $b - a\in\mathbb{Z}$. This is identical to the relation defined in Exercise~\ref{exercise:1-1.6}.
+	On $\mathbb{R}$, we define the relation $\sim$ as follows: $a\sim b$ if and only if $e^{2\pi ia} = e^{2\pi ib}$. Because $e^{2\pi ia} = e^{2\pi ib}$ if and only if $b - a\in\mathbb{Z}$, it follows that $a\sim b$ if and only if $b - a\in\mathbb{Z}$. This is identical to the relation defined in Exercise~\ref{exercise:I.1.6}.
 
 	The image of $f$ is the unit circle $\mathbb{S}^{1}$. So the canonical decomposition of $f$ is
 	\begin{figure}[htp]
 		\centering
-		\renewcommand{\thefigure}{1-2.8}
+		\renewcommand{\thefigure}{I.2.8}
 		\centering
 		\begin{tikzpicture}[>=angle 90, every edge/.style={draw, thick}]
 			\matrix (m) [matrix of math nodes, row sep=3em, column sep=3em] {
@@ -209,7 +209,7 @@
 	\end{figure}
 \end{proof}
 
-\begin{exercise}{2.9}
+\begin{exercise}{I.2.9}\label{exercise:I.2.9}
 	Show that if $A'\cong A''$ and $B'\cong B''$, and further $A'\cap B' = \varnothing$ and $A''\cap B'' = \varnothing$, then $A'\cup B' \cong A''\cup B''$. Conclude that the operation $A\coprod B$ (as described in $\S{1.4}$) is well-defined \textit{up to isomorphism}.
 \end{exercise}
 
@@ -232,7 +232,7 @@
 	Since $A\coprod B$ is defined as the union of two disjoint copies of $A$ and $B$, the proved result implies that the definition of $A\coprod B$ is well-defined up to isomorphism.
 \end{proof}
 
-\begin{exercise}{2.10}\label{exercise:1-2.10}
+\begin{exercise}{I.2.10}\label{exercise:I.2.10}
 	Show that if $A$ and $B$ are finite sets, then $\card{B^{A}} = {\card{B}}^{\card{A}}$.
 \end{exercise}
 
@@ -240,7 +240,7 @@
 	A function is identified with its graph. Let's count how many graphs can be constructed: for every $a\in A$, any element of $B$ can be defined as the image of $a$, which means there are $\card{B}$ choices. Therefore, there are ${\card{B}}^{\card{A}}$ possible graphs. Hence $\card{B^{A}} = {\card{B}}^{\card{A}}$.
 \end{proof}
 
-\begin{exercise}{2.11}
+\begin{exercise}{I.2.11}
 	In view of Exercise 2.10, it is not unreasonable to use $2^{A}$ to denote the set of functions from an arbitrary set $A$ to a set with 2 elements (say $\set{0, 1}$). Prove that there is a bijection between $2^{A}$ and the \textit{power set} of $A$.
 \end{exercise}
 
@@ -256,7 +256,7 @@
 
 \section{Categories}
 
-\begin{exercise}{3.1}
+\begin{exercise}{I.3.1}
 	Let $\mathsf{C}$ be a category. Consider a structure ${\mathsf{C}}^{op}$ with
 	\begin{itemize}
 		\item $\operatorname{Obj}({\mathsf{C}}^{op}) := \operatorname{Obj}(\mathsf{C})$;
@@ -284,15 +284,15 @@
 	Hence ${\mathsf{C}}^{op}$ is a category.
 \end{proof}
 
-\begin{exercise}{3.2}
+\begin{exercise}{I.3.2}
 	If $A$ is a finite set, how large is $\operatorname{End}_{\mathsf{Set}}(A)$?
 \end{exercise}
 
 \begin{proof}
-	Because $\operatorname{End}_{\mathsf{Set}}(A) = \operatorname{Hom}_{\mathsf{Set}}(A, A) = A^{A}$, the number of morphisms in $\operatorname{End}_{\mathsf{Set}}(A)$ is $\card{A^{A}} = {\card{A}}^{\card{A}}$ (according to Exercise~\ref{exercise:1-2.10}).
+	Because $\operatorname{End}_{\mathsf{Set}}(A) = \operatorname{Hom}_{\mathsf{Set}}(A, A) = A^{A}$, the number of morphisms in $\operatorname{End}_{\mathsf{Set}}(A)$ is $\card{A^{A}} = {\card{A}}^{\card{A}}$ (according to Exercise~\ref{exercise:I.2.10}).
 \end{proof}
 
-\begin{exercise}{3.3}
+\begin{exercise}{I.3.3}
 	Formulate precisely what it means to say that $1_{a}$ is an identity with respect to composition in Example 3.3, and prove this assertion.
 \end{exercise}
 
@@ -306,7 +306,7 @@
 	So $1_{a}$ is an identity with respect to composition.
 \end{proof}
 
-\begin{exercise}{3.4}
+\begin{exercise}{I.3.4}
 	Can we define a category in the style of Example 3.3 using the relation $<$ on the set $\mathbb{Z}$?
 \end{exercise}
 
@@ -314,7 +314,7 @@
 	No, because the relation $<$ on $\mathbb{Z}$ is not reflexive, so there will be no endomorphism.
 \end{proof}
 
-\begin{exercise}{3.5}
+\begin{exercise}{I.3.5}
 	Explain in what sense Example 3.4 is an instance of the categories considered in Example 3.3.
 \end{exercise}
 
@@ -322,7 +322,7 @@
 	Example 3.4 is an instance of the categories in Example 3.3 because the relation $\subseteq$ on $\mathscr{P}(S)$ is reflexive ($A\subseteq A$ for every $A\in \mathscr{P}(S)$) and transitive ($A\subseteq B, B\subseteq C \implies A\subseteq C$).
 \end{proof}
 
-\begin{exercise}{3.6}
+\begin{exercise}{I.3.6}
 	Define a category $\mathsf{V}$ by taking $\operatorname{Obj}(\mathsf{V}) = \mathbb{N}$ and letting $\operatorname{Hom}_{\mathsf{V}}(n, m) =$ the set of $m\times n$ matrices with real entries, for all $n, m\in\mathbb{N}$. Use product of matrices to define composition. Does this category `feel' familiar?
 \end{exercise}
 
@@ -339,7 +339,7 @@
 	So $\mathsf{V}$ is a category. This category feels a lot like Example 3.3.
 \end{proof}
 
-\begin{exercise}{3.7}
+\begin{exercise}{I.3.7}
 	Define carefully objects and morphisms in Example 3.7, and draw the diagram corresponding to composition.
 \end{exercise}
 
@@ -390,7 +390,7 @@
 	\end{itemize}
 \end{proof}
 
-\begin{exercise}{3.8}
+\begin{exercise}{I.3.8}
 	A subcategory $\mathsf{C}'$ of a category $\mathsf{C}$ consists of a collection of objects of $\mathsf{C}$, with morphisms $\operatorname{Hom}_{\mathsf{C}'}(A, B) \subseteq \operatorname{Hom}_{\mathsf{C}}(A, B)$ for all objects $A, B$ in $\operatorname{Obj}(\mathsf{C}')$, such that identities and compositions in $\mathsf{C}$ make $\mathsf{C}'$ into a category. A subcategory $\mathsf{C}'$ is \textit{full} if $\operatorname{Hom}_{\mathsf{C}'}(A, B) = \operatorname{Hom}_{\mathsf{C}}(A, B)$ for all $A, B$ in $\operatorname{Obj}(\mathsf{C}')$. Construct a category of \textit{infinite sets} and explain how it may be viewed as a full subcategory of $\mathsf{Set}$.
 \end{exercise}
 
@@ -408,17 +408,17 @@
 	\end{align*}
 \end{proof}
 
-\begin{exercise}{3.9}\label{exercise:1-3.9}
+\begin{exercise}{I.3.9}\label{exercise:I.3.9}
 	An alternative to the notion of multiset introduced in $\S{2.2}$ is obtained by considering sets endowed with equivalence relations; equivalent elements are taken to the multiple instances of elements `of the same kind'. Define a notion of morphism between such enhanced sets, obtaining a category $\mathsf{MSet}$ containing (a `copy' of) $\mathsf{Set}$ as a full subcategory. (There may be more than one reasonable way to do this! This is intentionally an open-ended exercise.) Which objects in $\mathsf{MSet}$ determine ordinary multisets as defined in $\S{2.2}$ and how? Spell out what a morphism of multisets would be from this point of view. (There are several natural notions of morphisms of multisets. Try to define morphisms in $\mathsf{MSet}$ so that the notion you obtain for ordinary multisets captures your intuitive understanding of these objects.)
 \end{exercise}
 
 \begin{proof}[Answer]
 	Let $\operatorname{Obj}(\mathsf{MSet})$ be the class of multisets (ordinary sets with an equivalence relation).
 
-	For every two objects $(A, \sim_{A}), (B, \sim_{B})$ in $\mathsf{MSet}$, $\operatorname{Hom}_{\mathsf{MSet}}((A, \sim_{A}), (B, \sim_{B}))$ to be $\operatorname{Hom}_{\mathsf{Set}}(\mathscr{P}_{\sim_{A}}, \mathscr{P}_{\sim_{B}})$ where $\mathscr{P}_{\sim_{A}}$, $\mathscr{P}_{\sim_{B}}$ are the sets of equivalence classes of $\sim_{A}$, $\sim_{B}$, respectively. The law of composition is the same as that of set-functions.
+	For every two objects $(A, \sim_{A}), (B, \sim_{B})$ in $\mathsf{MSet}$, let's define $\operatorname{Hom}_{\mathsf{MSet}}((A, \sim_{A}), (B, \sim_{B}))$ to be $\operatorname{Hom}_{\mathsf{Set}}(A/_{\sim_{A}}, B/_{\sim_{B}})$. The law of composition is the same as that of set-functions.
 \end{proof}
 
-\begin{exercise}{3.10}
+\begin{exercise}{I.3.10}
 	Since the objects of a category $\mathsf{C}$ are not (necessarily) sets, it is not clear how to make sense of a notation of `subobject' in general. In some situation it \textit{does} make sense to talk about subobjects, and the subobjects of any given object $A$ in $\mathsf{C}$ are in one-to-one correspondence with the morphisms $A\to \Omega$ for a fixed, special object $\Omega$ of $\mathsf{C}$, called a \textit{subobject classifier}. Show that $\mathsf{Set}$ has a subobject classifier.
 \end{exercise}
 
@@ -436,7 +436,7 @@
 	Hence the category $\mathsf{Set}$ has a subobject classifier.
 \end{proof}
 
-\begin{exercise}{3.11}
+\begin{exercise}{I.3.11}
 	Draw the relevant diagrams and define composition and identities for the category ${\mathsf{C}}^{A, B}$ mentioned in Example 3.9. Do the same for the category ${\mathsf{C}}^{\alpha,\beta}$ mentioned in Example 3.10.
 \end{exercise}
 
@@ -522,7 +522,7 @@
 
 \section{Morphisms}
 
-\begin{exercise}{4.1}
+\begin{exercise}{I.4.1}
 	Composition is defined for two morphisms. If more than two morphisms are given, e.g.,
 	\begin{tikzcd}
 		A \arrow{r}{f} & B \arrow{r}{g} & C \arrow{r}{h} & D \arrow{r}{i} & E,
@@ -560,7 +560,7 @@
 	By associativity, we compose $f_{k+1}$ and $(\cdots ((f_{k}f_{k-1})f_{k-2})\cdots)$ and use the inductive hypothesis to obtain $((\cdots ((f_{k+1}f_{k})f_{k-1})\cdots)f_{1})$. Repeat the process until $f_{n}$, we obtain the desired placement of the parentheses: $((\cdots ((f_{n}f_{n-1})f_{n-2})\cdots)f_{1})$.
 \end{proof}
 
-\begin{exercise}{4.2}
+\begin{exercise}{I.4.2}
 	In Example 3.3 we have seen how to construct a category from a set endowed with a relation, provided this latter is reflexive and transitive. For what types of relations is the corresponding category a groupoid?
 \end{exercise}
 
@@ -568,7 +568,7 @@
 	If the relation is an equivalence relation, the corresponding category is a groupoid.
 \end{proof}
 
-\begin{exercise}{4.3}
+\begin{exercise}{I.4.3}
 	Let $A, B$ be objects of a category $\mathsf{C}$, and let $f\in \operatorname{Hom}_{\mathsf{C}}(A, B)$ be a morphism.
 	\begin{itemize}
 		\item Prove that if $f$ has a right-inverse, then $f$ is an epimorphism.
@@ -589,7 +589,7 @@
 	\end{itemize}
 \end{proof}
 
-\begin{exercise}{4.4}
+\begin{exercise}{I.4.4}
 	Prove that the composition of two monomorphisms is a monomorphism. Deduce that one can define a subcategory ${\mathsf{C}}_{mono}$ of a category $\mathsf{C}$ by taking the same objects as in $\mathsf{C}$ and defining $\operatorname{Hom}_{{\mathsf{C}}_{mono}}(A, B)$ to be the subset of $\operatorname{Hom}_{\mathsf{C}}(A, B)$ consisting of monomorphisms, for all objects $A, B$. Do the same for epimorphisms. Can you define a subcategory $\mathsf{C}_{nonmono}$ by restricting to morphisms that are \textit{not} monomorphisms?
 \end{exercise}
 
@@ -607,15 +607,190 @@
 	If $f: A\to B$ and $g: B\to C$ are not monomorphisms. Then there exist distinct morphisms $\alpha', \alpha''$ which are composable with $f$ such that $f\alpha' = f\alpha''$. Therefore $(gf)\alpha' = g(f\alpha') = g(f\alpha'') = (gf)\alpha''$ but $\alpha' \ne \alpha''$, which means $gf$ is not a monomorphism. However,
 \end{proof}
 
-\begin{exercise}{4.5}
-	Give a concrete description of monomorphisms and epimorphisms in the category $\mathsf{MSet}$ you constructed in Exercise~\ref{exercise:1-3.9}.
+\begin{exercise}{I.4.5}
+	Give a concrete description of monomorphisms and epimorphisms in the category $\mathsf{MSet}$ you constructed in Exercise~\ref{exercise:I.3.9}.
 \end{exercise}
 
 \begin{proof}
 	The objects of $\mathsf{MSet}$ are $(A, \sim_{A})$ where $A$ is an object of $\mathsf{Set}$ and $\sim_{A}$ is an equivalence relation on $A$. $\operatorname{Hom}_{\mathsf{MSet}}((A, \sim_{A}), (B, \sim_{B}))$ is defined to be the set of functions from the set of equivalence classes of $\sim_{A}$ to the set of equivalence classes of $\sim_{B}$.
 
-	Monomorphisms in $\mathsf{MSet}$ are monomorphisms in $\mathsf{Set}$, and epimorphisms in $\mathsf{MSet}$ are epimorphisms in $\mathsf{Set}$.
+	Let $f: (A, \sim_{A})\to (B, \sim_{B})$ be a morphism then $f$ is a \textit{set-function} from $A/_{\sim_{A}}$ to $B/_{\sim_{B}}$.
+
+	If $f$ is a monomorphism then $f$ is left-cancellative so it is a monomorphism in the category $\mathsf{Set}$. So monomorphisms in $\mathsf{MSet}$ are precisely monomorphisms in $\mathsf{Set}$.
+
+	If $f$ is an epimorphism then $f$ is right-cancellative so it is an epimorphism in the category $\mathsf{Set}$. So epimorphisms in $\mathsf{MSet}$ are precisely epimorphisms in $\mathsf{Set}$.
 \end{proof}
 
 \section{Universal properties}
 
+\begin{exercise}{I.5.1}
+	Prove that a final object in a category $\mathsf{C}$ is initial in the opposite category ${\mathsf{C}}^{op}$.
+\end{exercise}
+
+\begin{proof}
+	Let $A$ be a final object in the category $\mathsf{C}$. For every $Z\in \operatorname{Obj}(\mathsf{C})$, $\operatorname{Hom}_{\mathsf{C}}(Z, A)$ is singleton. On the other hand, according to the definition of ${\mathsf{C}}^{op}$, for every $Z\in\operatorname{Obj}({\mathsf{C}}^{op})$,
+	\begin{align*}
+		\operatorname{Hom}_{{\mathsf{C}}^{op}}(A, Z) = \operatorname{Hom}_{\mathsf{C}}(Z, A)
+	\end{align*}
+
+	so $\operatorname{Hom}_{{\mathsf{C}}^{op}}(A, Z)$ is a singleton. Therefore $A$ is an initial object in the category $\mathsf{C}$.
+\end{proof}
+
+\begin{exercise}{I.5.2}
+	Prove that $\emptyset$ is the \textit{unique} initial object in $\mathsf{Set}$.
+\end{exercise}
+
+\begin{proof}
+	For every $S\in \operatorname{Obj}(\mathsf{Set})$, $\operatorname{Hom}_{\mathsf{Set}}(\emptyset, S)$ is a singleton, because there is only one function whose source is $\emptyset$ and target is $S$, which is the empty function. Therefore $\emptyset$ is an initial object in $\mathsf{Set}$.
+
+	If $A$ is an initial object in $\mathsf{Set}$ then $A$ and $\emptyset$ are isomorphic, which means there is a bijection between $A$ and $\emptyset$, which implies that $A$ is the empty set. Hence $\emptyset$ is the unique initial object in $\mathsf{Set}$.
+\end{proof}
+
+\begin{exercise}{I.5.3}
+	Prove that the final objects are unique up to isomorphism.
+\end{exercise}
+
+\begin{proof}
+	Consider a category $\mathsf{C}$ that has final objects. Let $F, F'$ be final objects in $\mathsf{C}$. According to the definition of final object, there is a unique morphism $g: F' \to F$ and a unique morphism $h: F \to F'$. So $hg$ is a morphism from $F'$ to $F'$, $gh$ is a morphism from $F$ to $F$. On the other hand, because $F, F'$ are final objects in $\mathsf{C}$, the unique morphism from $F$ to $F$ is $1_{F}$, the unique morphism from $F'$ to $F'$ is $1_{F'}$. Therefore $hg = 1_{F'}$ and $gh = 1_{F}$, which means $g$ is an isomorphism, and $F, F'$ are isomorphic. Thus the final objects in a category are unique up to isomorphism.
+\end{proof}
+
+\begin{exercise}{I.5.4}
+	What are initial and final objects in the category of `pointed sets' (Example 3.8)? Are they unique?
+\end{exercise}
+
+\begin{proof}
+	The initial objects and final objects in the category of `pointed sets' are pointed-singleton sets. They are not unique, because there are infinitely many singleton sets.
+\end{proof}
+
+\begin{exercise}{I.5.5}
+	What are the final objects in the category considered in $\S{5.3}$?
+\end{exercise}
+
+\begin{proof}
+	In the category $\mathsf{Set}^{A}$ (whose objects are morphisms from a fixed object $A$ to objects in $\mathsf{Set}$), the initial object is $(\pi, A/_{\sim})$. The final objects in this category are $(f, \set{*})$ where $\set{*}$ is a singleton, and $f$ is a set-function from $A$ to $\set{*}$.
+\end{proof}
+
+\begin{exercise}{I.5.6}
+	Consider the category corresponding to endowing (as in Example 3.3) the set $\mathbb{Z}^{+}$ of positive integers with the \textit{divisibility} relation. Thus there is exactly one morphism $d\to m$ in this category if and only if $d$ divides $m$ without remainder; there is no morphism between $d$ and $m$ otherwise. Show that this category has products and coproducts. What are their `conventional' names?
+\end{exercise}
+
+\begin{proof}
+	For every $a, b \in \mathbb{Z}^{+}$, if $x$ divides $a$ and $x$ divides $b$ then $x$ divides the greatest common divisor of $a$ and $b$, so there is exactly one morphism $x\to \gcd(a, b)$. The product of $a$ and $b$ is the greatest common divisor of $a$ and $b$.
+
+	For every $a, b \in \mathbb{Z}^{+}$, if $a$ divides $x$ and $b$ divides $x$ then the least common multiple of $a$ and $b$ divides $x$, so there is exactly one morphism $\operatorname{lcm}(a, b)\to x$. The coproduct of $a$ and $b$ is the least common multiple of $a$ and $b$.
+\end{proof}
+
+\begin{exercise}{I.5.7}
+	Redo Exercise~\ref{exercise:I.2.9}, this time using Proposition 5.6.
+\end{exercise}
+
+\begin{proof}
+	Because the disjoint union is a coproduct in $\mathsf{Set}$, it is unique up to isomorphism.
+\end{proof}
+
+\begin{exercise}{I.5.8}
+	Show that in every category $\mathsf{C}$ the products $A\times B$ and $B\times A$ are isomorphic, if they exist.
+\end{exercise}
+
+\begin{proof}
+	According to the definition of product, for every $Z \in \operatorname{Obj}(\mathsf{C})$, if there are morphisms $Z \to A$ and $Z \to B$, there is a unique morphism $Z \to A\times B$ and a unique morphism $Z \to B\times A$ that makes the following diagrams commute
+	\FloatBarrier
+	\begin{figure}[htp]
+		\centering
+		\begin{tikzcd}
+			& & A \\
+			Z \arrow{r}{\sigma} \arrow[bend left=30]{rru}[above left]{f_{A}} \arrow[bend right=30]{rrd}[below left]{f_{B}} & A\times B \arrow{ru}{\pi_{A}} \arrow{rd}{\pi_{B}} \\
+			& & B
+		\end{tikzcd}
+		\qquad
+		\begin{tikzcd}
+			& & A \\
+			Z \arrow{r}{\tau} \arrow[bend left=30]{rru}[above left]{f_{A}} \arrow[bend right=30]{rrd}[below left]{f_{B}} & B\times A \arrow{ru}{\pi_{A}} \arrow{rd}{\pi_{B}} \\
+			& & B
+		\end{tikzcd}
+	\end{figure}
+	\FloatBarrier
+
+	So $A\times B$ and $B\times A$ are products of $A$ and $B$, therefore they are isomorphic (because product of two objects (if exists) is unique up to isomorphism).
+\end{proof}
+
+\begin{exercise}{I.5.9}
+	Let $\mathsf{C}$ be a category with products. Find a reasonable candidate for the universal property that the product $A\times B\times C$ of \textit{three} objects of $\mathsf{C}$ ought to satisfy, and prove that both $(A\times B)\times C$ and $A\times (B\times C)$ satisfy this universal property. Deduce that $(A\times B)\times C$ and $A\times (B\times C)$ are necessarily isomorphic.
+\end{exercise}
+
+\begin{proof}
+	A definition: A product $A\times B\times C$ is an object in $\mathsf{C}$ with three morphisms $\pi_{A}: A\times B\times C\to A$, $\pi_{B}: A\times B\times C\to B$, $\pi_{C}: A\times B\times C\to C$ such that $A\times B\times C$ is a final object in $\mathsf{C}$ with morphisms $\pi_{A}, \pi_{B}, \pi_{C}$ to $A, B, C$.
+
+	For every object $Z$ in $\mathsf{C}$ with morphisms $f_{A}, f_{B}, f_{C}$ to $A, B, C$,
+	\begin{itemize}
+		\item there is a unique morphism $f_{A}\times f_{B}: Z\to A\times B$ such that $f_{A} = \pi_{A} \circ (f_{A}\times f_{B})$ and $f_{B} = \pi_{B} \circ (f_{A}\times f_{B})$
+		\item there is a unique morphism $(f_{A}\times f_{B})\times f_{C}: Z \to (A\times B)\times C$ such that $f_{A}\times f_{B} = \pi_{A\times B}\circ ((f_{A}\times f_{B})\times f_{C})$ and $f_{C} = \pi_{C}\circ ((f_{A}\times f_{B})\times f_{C})$
+		\item hence $f_{A} = \pi_{A}\circ (\pi_{A\times B}\circ (f_{A}\times f_{B})\times f_{C})$, $f_{B} = \pi_{B}\circ (\pi_{A\times B}\circ (f_{A}\times f_{B})\times f_{C})$, and $f_{C} = \pi_{C}\circ ((f_{A}\times f_{B})\times f_{C})$
+	\end{itemize}
+
+	so $(A\times B)\times C$ is a final object with morphisms to $A, B, C$. Analogously, $A\times (B\times C)$ is a final object with morphisms to $A, B, C$. Thus $(A\times B)\times C$ and $A\times (B\times C)$ are isomorphic.
+\end{proof}
+
+\begin{exercise}{I.5.10}
+	Push the envelop a little further still, and define products and coproducts for \textit{families} (i.e., indexed sets) of objects of a category.
+
+	Do these exist in $\mathsf{Set}$?
+
+	It is common to denote the product $\underbrace{A\times \cdots \times A}_{\text{$n$ times}}$ by $A^{n}$.
+\end{exercise}
+
+\begin{proof}
+	Let ${(X_{\alpha})}_{\alpha\in A}$ be a family of objects in a category $\mathsf{C}$.
+
+	The product of ${(X_{\alpha})}_{\alpha\in A}$ is a final object which has morphisms to every $X_{\alpha}$ in the family.
+
+	The coproduct of ${(X_{\alpha})}_{\alpha\in A}$ is an initial object which has morphism from every $X_{\alpha}$ in the family.
+
+	They do exist in $\mathsf{Set}$, if we assume the axiom of choice.
+\end{proof}
+
+\begin{exercise}{I.5.11}
+	Let $A$, respectively $B$, be a set, endowed with an equivalence relation $\sim_{A}$, respectively $\sim_{B}$. Define a relation $\sim$ on $A\times B$ by setting
+	\begin{align*}
+		\tuple{a_{1}, b_{1}} \sim \tuple{a_{2}, b_{2}} \Longleftrightarrow a_{1} \sim_{A} a_{2} \text{ and } b_{1} \sim_{B} b_{2}.
+	\end{align*}
+
+	(This is immediately seen to be an equivalence relation.)
+	\begin{itemize}
+		\item Use the universal property for quotients ($\S{5.3}$) to establish that there are functions ${(A\times B)}/_{\sim} \to A/_{\sim_{A}}$, $(A\times B)/_{\sim} \to B/_{\sim_{B}}$.
+		\item Prove that ${(A \times B)/_{\sim}}$, with these two functions, satisfies the universal property for the product of $A/_{\sim_{A}}$ and $B/_{\sim_{B}}$.
+		\item Conclude (without further work) that $(A\times B)/_{\sim} \cong (A/_{\sim_{A}})\times (B/_{\sim_{B}})$.
+	\end{itemize}
+\end{exercise}
+
+\begin{proof}
+	\begin{itemize}
+		\item By the universal property for quotients: For the function $A\to (A\times B)/_{\sim}$, there is a unique function ${(A\times B)}/_{\sim} \to A/_{\sim_{A}}$ such that the composition of $A\to (A\times B)/\sim$ and ${(A\times B)}/_{\sim} \to A/_{\sim_{A}}$ is $A\to A/_{\sim_{A}}$, up to isomorphism; For the function $B\to {(A\times B)}/_{\sim}$, there is a unique function ${(A\times B)}/_{\sim} \to B/_{\sim_{B}}$ such that the composition of $B\to (A\times B)/_{\sim}$ and ${(A\times B)}/_{\sim} \to B/_{\sim_{B}}$ is $B\to B/_{\sim_{B}}$, up to isomorphism.
+		\item For every $Z$ with morphisms $g_{A}: Z\to A/_{\sim_{A}}$ and $g_{B}: Z\to B/_{\sim_{B}}$ we define $\sigma: Z\to {(A\times B)/_{\sim}}$ by $\sigma(z) = {[\tuple{a, b}]}_{\sim}$ where $a\in g_{A}(z)$ and $b\in g_{B}(z)$. $\sigma$ is well-defined due to the definition of the equivalence relation $\sim$. Moreover,
+		      \begin{align*}
+			      g_{A} & = ((A\times B)/_{\sim}\to A/_{\sim_{A}})\circ \sigma, \\
+			      g_{B} & = ((A\times B)/_{\sim}\to B/_{\sim_{B}})\circ \sigma.
+		      \end{align*}
+
+		      Hence $(A\times B)/_{\sim}$ with the two functions satisfies the universal property for the product of $A/_{\sim_{A}}$ and $B/_{\sim_{B}}$.
+		\item From the universal property of product, we conclude that ${(A\times B)}_{\sim} \cong (A/_{\sim_{A}})\times (B/_{\sim_{B}})$.
+	\end{itemize}
+\end{proof}
+
+\begin{exercise}{I.5.12}
+	Define the notions of \textit{fibered products} and \textit{fibered coproducts}, as terminal objects of the categories ${\mathsf{C}}_{\alpha,\beta}$, ${\mathsf{C}}^{\alpha,\beta}$ considered in Example 3.10, by stating carefully the corresponding universal properties.
+
+	As it happens, $\mathsf{Set}$ has both fibered products and coproducts. Define these objects `concretely', in terms of naive set theory.
+\end{exercise}
+
+\begin{proof}
+	Fibered products $A{\times_{C}}B$ of $A \stackrel{\alpha}{\rightarrow} C$ and $B\stackrel{\beta}{\rightarrow} C$ are final objects of the categories ${\mathsf{C}}_{\alpha,\beta}$. The corresponding universal property: for every $Z$ with morphisms $f: Z\to A$ and $g: Z\to B$ such that $\alpha\circ f = \beta\circ g$, there exists a unique morphism $\sigma: Z\to A{\times_{C}}B$ such that $f = \alpha\circ\sigma$ and $g = \beta\circ\sigma$.
+
+	Fibered coproducts $A{\coprod_{C}}B$ of $C \stackrel{\alpha}{\rightarrow} A$ and $C \stackrel{\beta}{\rightarrow} B$ are initial objects of the categories ${\mathsf{C}}^{\alpha,\beta}$. The corresponding universal property: for every $Z$ with morphisms $f: A\to Z$ and $g: B\to Z$ such that $f\circ\alpha = g\circ\beta$, there exists a unique morphism $\sigma: Z\to A{\times_{C}}B$ such that $f = \sigma\circ\alpha$ and $g = \sigma\circ\beta$.
+
+	In terms of naive set theory,
+	\begin{itemize}
+		\item $A{\times_{C}}B = \set{\tuple{a, b} \in A\times B \mid \alpha(a) = \beta(b)}$.
+		\item $A\coprod_{C}B = (A\coprod B)/_{\sim}$ where $a\sim b$ for $a\in A, b\in B$ if and only if there is $x\in C$ such that $\alpha(x) = a$ and $\beta(x) = b$.
+	\end{itemize}
+\end{proof}

@@ -394,6 +394,7 @@ Silent
     \tikz \draw \node \path \shade \foreach \equiv
     \leftrightarrow \rightarrow \leftarrow \longrightarrow \longleftarrow
     \Leftrightarrow \Rightarrow \Leftarrow \Longrightarrow \Longleftarrow
+    \FloatBarrier
 }[
 # Here you can put regular expressions to match Silent macros.  It was
 # designed for  the case where you  have many custom macros  sharing a
@@ -556,7 +557,7 @@ TextCmd
 VerbEnvir
 {
     verbatim comment listing verbatimtab rawhtml errexam picture texdraw
-    filecontents pgfpicture tikzpicture minted lstlisting IPA asy asydef
+    filecontents pgfpicture tikzpicture minted lstlisting IPA asy asydef tikzcd
 }
 
 #####################################################################
