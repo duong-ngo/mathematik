@@ -34,19 +34,19 @@
 \begin{proof}
 	$(\Rightarrow)$ Suppose $B$ is closed in $S$.
 
-	Then $S\setminus B$ is open in $S$, so there is an open subset $U$ of $X$ such that $S\setminus B = S\cap U$.
+	Then $S\smallsetminus B$ is open in $S$, so there is an open subset $U$ of $X$ such that $S\smallsetminus B = S\cap U$.
 	\[
-		B = S\setminus (S\setminus B) = S\setminus (S\cap U) = (S\cap X)\setminus (S\cap U) = S\cap (X\setminus U)
+		B = S\smallsetminus (S\smallsetminus B) = S\smallsetminus (S\cap U) = (S\cap X)\smallsetminus (S\cap U) = S\cap (X\smallsetminus U)
 	\]
 
-	so $B$ is the intersection of $S$ and the closed subset $S\setminus U$ of $X$.
+	so $B$ is the intersection of $S$ and the closed subset $S\smallsetminus U$ of $X$.
 
 	$(\Leftarrow)$ Suppose $B$ is equal to the intersection of $S$ with some closed subset $A$ of $X$.
 	\[
-		S\setminus B = S\setminus (S\cap A) = (S\cap X) \setminus (S\cap A) = S\cap (X\setminus A).
+		S\smallsetminus B = S\smallsetminus (S\cap A) = (S\cap X) \smallsetminus (S\cap A) = S\cap (X\smallsetminus A).
 	\]
 
-	Because $A$ is closed in $X$, $X\setminus A$ is open in $X$. Therefore $S\setminus B$ is open in $S$, it follows that $B$ is closed in $S$.
+	Because $A$ is closed in $X$, $X\smallsetminus A$ is open in $X$. Therefore $S\smallsetminus B$ is open in $S$, it follows that $B$ is closed in $S$.
 \end{proof}
 
 \begin{exercise}{3.3}
@@ -193,7 +193,7 @@
 
 	Let $A$ be a nonempty open subset of $\mathbb{Q}$, then $\varphi(A) = A$. But $A$ is not open in $\mathbb{R}$, because every neighborhood of every point of $A$ contains an irrational number. Therefore $\varphi$ is not open.
 
-	Let $B$ be a nonempty closed subset of $\mathbb{Q}$, then $\varphi(B) = B$. $\mathbb{R}\setminus B$ is not open in $\mathbb{R}$ because every neighborhood of every point of $B$ contains a rational number, so $B$ is not closed. Therefore $\varphi$ is not closed.
+	Let $B$ be a nonempty closed subset of $\mathbb{Q}$, then $\varphi(B) = B$. $\mathbb{R}\smallsetminus B$ is not open in $\mathbb{R}$ because every neighborhood of every point of $B$ contains a rational number, so $B$ is not closed. Therefore $\varphi$ is not closed.
 
 	Thus $\varphi$ is a topological embedding that is neither an open map nor a closed map.
 \end{proof}
@@ -707,9 +707,9 @@
 
 \begin{proof}
 	\begin{enumerate}[label={(\alph*)}]
-		\item Let $G$ be a subset of $\coprod_{\alpha\in A}X_{\alpha}$, then its complement $\left(\coprod_{\alpha\in A}X_{\alpha}\right)\setminus G$ is $\coprod_{\alpha\in A}X_{\alpha}$. For every $\alpha\in A$, $X_{\alpha}\cap \left(\left(\coprod_{\alpha\in A}X_{\alpha}\right)\setminus G\right) = X_{\alpha}\setminus (X_{\alpha}\cap G)$.
+		\item Let $G$ be a subset of $\coprod_{\alpha\in A}X_{\alpha}$, then its complement $\left(\coprod_{\alpha\in A}X_{\alpha}\right)\smallsetminus G$ is $\coprod_{\alpha\in A}X_{\alpha}$. For every $\alpha\in A$, $X_{\alpha}\cap \left(\left(\coprod_{\alpha\in A}X_{\alpha}\right)\smallsetminus G\right) = X_{\alpha}\smallsetminus (X_{\alpha}\cap G)$.
 
-		      $G$ is closed if and only if its complement is open. The complement of $G$ is open if and only if $X_{\alpha}\setminus (X_{\alpha}\cap G)$ is open in $X_{\alpha}$ for each $\alpha\in A$. Equivalently, the complement of $G$ is open if and only if $X_{\alpha}\cap G$ is closed in $X_{\alpha}$ for each $\alpha\in A$.
+		      $G$ is closed if and only if its complement is open. The complement of $G$ is open if and only if $X_{\alpha}\smallsetminus (X_{\alpha}\cap G)$ is open in $X_{\alpha}$ for each $\alpha\in A$. Equivalently, the complement of $G$ is open if and only if $X_{\alpha}\cap G$ is closed in $X_{\alpha}$ for each $\alpha\in A$.
 
 		      Thus $G\subseteq \coprod_{\alpha\in A}X_{\alpha}$ is closed if and only if its intersection with $X_{\alpha}$ is closed in $X_{\alpha}$ for each $\alpha\in A$.
 		\item The image set of $\iota_{\alpha}$ is $\iota_{\alpha}(X_{\alpha}) = X_{\alpha}^{*} = X_{\alpha}$. So as a map from $X_{\alpha}$ to its image set, $\iota_{\alpha}$ is bijective. Let $V$ be an open subset of $\coprod_{\alpha\in A}X_{\alpha}$, then $\iota_{\alpha}^{-1}(V) = V\cap X_{\alpha}$, which is open in $X_{\alpha}$ (due to the definition of disjoint union topology), so $\iota_{\alpha}$ is continuous. Moreover, for every $U\subseteq X_{\alpha}$, $\iota_{\alpha}(U)\cap X_{\alpha}^{*} = \iota_{\alpha}(U)$ (which is open/closed in $X_{\alpha}$ if $U$ is open/closed in $X_{\alpha}$), and $\iota_{\alpha}(U)\cap X^{*}_{i} = \varnothing$ if $i\ne \alpha$ (which is open and closed in $X_{i}$). For each $\alpha\in A$, $X_{\alpha}$ is both open and closed in $\coprod_{\alpha\in A}X_{\alpha}$. So if $U$ is open/closed in $X_{\alpha}$, $\iota_{\alpha}(U)$ is open/closed in $\coprod_{\alpha\in A}X_{\alpha}$. Thus $\iota_{\alpha}: X_{\alpha}\to \coprod_{\alpha\in A}X_{\alpha}$ is a topological embedding, an open and closed map.
@@ -774,9 +774,9 @@
 \begin{proof}
 	Let ${(X_{\alpha})}_{\alpha\in A}$ be an indexed family of Hausdorff spaces. For each $\alpha\in A$, let $x_{\alpha}$ be a point of $X_{\alpha}$. Use these points as base points, we obtain the wedge sum $\bigvee_{\alpha\in A}X_{\alpha} = \left(\coprod_{\alpha\in A}X_{\alpha}\right)/\{ x_{\alpha} : \alpha\in A \}$. Let $q: \coprod_{\alpha\in A}X_{\alpha}\to \bigvee_{\alpha\in A}X_{\alpha}$ be the corresponding quotient map. Let $y, z$ be two distinct points of the wedge sum. Exactly one case of the following holds
 	\begin{itemize}
-		\item There is $X_{\alpha}$ such that $y = q(y'), z = q(z')\in q(X_{\alpha}\setminus\{ x_{\alpha} \})$. Because $X_{\alpha}$ is Hausdorff, there are disjoint neighborhoods $V_{y}, V_{z}$ of $y', z'$ in $X_{\alpha}$. $V_{y}\cap (X_{\alpha}\setminus\{ x_{\alpha} \}) = V_{y}\setminus\{ x_{\alpha} \}$ is also a neighborhood of $y'$, $V_{z}\setminus\{ x_{\alpha} \}$ is a neighborhood of $z'$. Hence $y, z$ are separated by neighborhoods $V_{y}\setminus\{ x_{\alpha} \}$ and $V_{z}\setminus\{ x_{\alpha} \}$ in the wedge sum.
-		\item There are $i, j\in A$ where $i\ne j$ such that $y\in q(X_{i}\setminus\{ x_{i} \}), z\in q(X_{j}\setminus\{ y_{i} \})$. Then $y, z$ are separated by neighborhoods $X_{i}\setminus\{ x_{i} \}$ and $X_{j}\setminus\{ x_{j} \}$ in the wedge sum.
-		\item $y = q(y')\in q(X_{\alpha}\setminus\{x_{\alpha}\})$ and $z = q(z')\in q({\{ x_{\alpha} \}}_{\alpha\in A})$. Because $X_{\alpha}$ is Hausdorff, $y', z'$ are separated by open sets $V_{y}, V_{z}$. Then $y, z$ are separated by $V_{y}$ and $V_{z}\amalg \coprod_{i\in A, i\ne\alpha}X_{i}$ (where $V_{z}\subseteq X_{\alpha}$) in the wedge sum.
+		\item There is $X_{\alpha}$ such that $y = q(y'), z = q(z')\in q(X_{\alpha}\smallsetminus\{ x_{\alpha} \})$. Because $X_{\alpha}$ is Hausdorff, there are disjoint neighborhoods $V_{y}, V_{z}$ of $y', z'$ in $X_{\alpha}$. $V_{y}\cap (X_{\alpha}\smallsetminus\{ x_{\alpha} \}) = V_{y}\smallsetminus\{ x_{\alpha} \}$ is also a neighborhood of $y'$, $V_{z}\smallsetminus\{ x_{\alpha} \}$ is a neighborhood of $z'$. Hence $y, z$ are separated by neighborhoods $V_{y}\smallsetminus\{ x_{\alpha} \}$ and $V_{z}\smallsetminus\{ x_{\alpha} \}$ in the wedge sum.
+		\item There are $i, j\in A$ where $i\ne j$ such that $y\in q(X_{i}\smallsetminus\{ x_{i} \}), z\in q(X_{j}\smallsetminus\{ y_{i} \})$. Then $y, z$ are separated by neighborhoods $X_{i}\smallsetminus\{ x_{i} \}$ and $X_{j}\smallsetminus\{ x_{j} \}$ in the wedge sum.
+		\item $y = q(y')\in q(X_{\alpha}\smallsetminus\{x_{\alpha}\})$ and $z = q(z')\in q({\{ x_{\alpha} \}}_{\alpha\in A})$. Because $X_{\alpha}$ is Hausdorff, $y', z'$ are separated by open sets $V_{y}, V_{z}$. Then $y, z$ are separated by $V_{y}$ and $V_{z}\amalg \coprod_{i\in A, i\ne\alpha}X_{i}$ (where $V_{z}\subseteq X_{\alpha}$) in the wedge sum.
 	\end{itemize}
 
 	Thus the wedge sum of Hausdorff spaces is Hausdorff.
@@ -795,7 +795,7 @@
 \end{exercise}
 
 \begin{proof}
-	Suppose (a) is true, then there is a subset $V\subseteq Y$ such that $U = q^{-1}(V)$. Without loss of generality, we can assume that $V\subseteq q(X)$ (because adding points in $Y\setminus q(X)$ to $V$ doesn't change $q^{-1}(V)$). We always have $U\subseteq q^{-1}(q(U))$, so $q^{-1}(V)\subseteq q^{-1}(q(U))$, which implies $V\subseteq q(U)$. From $U = q^{-1}(V)$, it follows that $q(U) = q(q^{-1}(V))\subseteq V$. Hence $q(U) = V$, which means $U = q^{-1}(q(U))$. So (b) is true.
+	Suppose (a) is true, then there is a subset $V\subseteq Y$ such that $U = q^{-1}(V)$. Without loss of generality, we can assume that $V\subseteq q(X)$ (because adding points in $Y\smallsetminus q(X)$ to $V$ doesn't change $q^{-1}(V)$). We always have $U\subseteq q^{-1}(q(U))$, so $q^{-1}(V)\subseteq q^{-1}(q(U))$, which implies $V\subseteq q(U)$. From $U = q^{-1}(V)$, it follows that $q(U) = q(q^{-1}(V))\subseteq V$. Hence $q(U) = V$, which means $U = q^{-1}(q(U))$. So (b) is true.
 
 	Suppose (b) is true. Let $x\in U$ then $q(x)\in q(U)$. So $x\in q^{-1}(\{ q(x) \})\subseteq q^{-1}(q(U)) = U$, which implies every point of $U$ is contained in a fiber of $q$, which is again contained in $U$. Therefore $U$ is a union of fibers of $q$, so (c) is true.
 
@@ -822,10 +822,10 @@
 
 	Let $U$ be a saturated subset of $X$. By Exercise~\ref{exercise:3.59}, $U = q^{-1}(q(U))$, moreover, preimages are well-behaved with set differences, so
 	\[
-		X\setminus U = X\setminus q^{-1}(q(U)) = q^{-1}(Y)\setminus q^{-1}(q(U)) = q^{-1}(Y\setminus q(U)).
+		X\smallsetminus U = X\smallsetminus q^{-1}(q(U)) = q^{-1}(Y)\smallsetminus q^{-1}(q(U)) = q^{-1}(Y\smallsetminus q(U)).
 	\]
 
-	Because $q$ is a quotient map, $U$ is open if and only if $q(U)$ is open. Also because of this, $X\setminus U$ is open if and only if $Y\setminus q(U)$ is open, which means $U$ is closed if and only if $q(U)$ is closed. Hence $q$ takes saturated open subsets to open subsets, saturated closed subsets to closed subsets.
+	Because $q$ is a quotient map, $U$ is open if and only if $q(U)$ is open. Also because of this, $X\smallsetminus U$ is open if and only if $Y\smallsetminus q(U)$ is open, which means $U$ is closed if and only if $q(U)$ is closed. Hence $q$ takes saturated open subsets to open subsets, saturated closed subsets to closed subsets.
 
 	$(\Leftarrow)$ Suppose $q$ takes saturated open subsets to open subsets.
 
@@ -833,7 +833,7 @@
 
 	$(\Leftarrow)$ Suppose $q$ takes saturated closed subsets to closed subsets.
 
-	Let $V$ be a subset of $Y$ and $U = q^{-1}(V)$, it follows that $X\setminus U = X\setminus q^{-1}(V) = q^{-1}(Y)\setminus q^{-1}(V) = q^{-1}(Y\setminus V)$. If $U$ is closed, then $q(U) = q(q^{-1}(V)) = V$ is closed, because $q$ takes saturated closed subsets to closed subsets and $U$ is a saturated closed set. If $V$ is closed, then $Y\setminus V$ is open and so is $X\setminus U = q^{-1}(Y\setminus V)$, from which we obtain $U$ is closed. Since $q$ is surjective, $q^{-1}(Y\setminus V)$ is open if and only if $Y\setminus V$ is open, it follows that $q$ is a quotient map.
+	Let $V$ be a subset of $Y$ and $U = q^{-1}(V)$, it follows that $X\smallsetminus U = X\smallsetminus q^{-1}(V) = q^{-1}(Y)\smallsetminus q^{-1}(V) = q^{-1}(Y\smallsetminus V)$. If $U$ is closed, then $q(U) = q(q^{-1}(V)) = V$ is closed, because $q$ takes saturated closed subsets to closed subsets and $U$ is a saturated closed set. If $V$ is closed, then $Y\smallsetminus V$ is open and so is $X\smallsetminus U = q^{-1}(Y\smallsetminus V)$, from which we obtain $U$ is closed. Since $q$ is surjective, $q^{-1}(Y\smallsetminus V)$ is open if and only if $Y\smallsetminus V$ is open, it follows that $q$ is a quotient map.
 \end{proof}
 
 \begin{exercise}{3.63}\label{exercise:3.63}
@@ -860,7 +860,7 @@
 		\item Let $q: X\to Y$ be an injective quotient map.
 
 		      Because a quotient map is surjective, it follows that $q$ is bijective. $q$ is continuous, which directly follows from the definition of quotient map. Because $q$ is bijective, $q^{-1}(q(U)) = U$ for every subset $U\subseteq X$, on the other hand $q$ is a quotient map, so $q(U)$ is open if and only if $U$ is open, which means $q$ is an open map. $q$ is bijective, continuous, and open, so $q$ is a homeomorphism.
-		\item Because preimages are well-behaved with set differences, $X\setminus q^{-1}(K) = q^{-1}(Y)\setminus q^{-1}(K) = q^{-1}(Y\setminus K)$. Because $q$ is a quotient map, $Y\setminus K$ is open if and only if $q^{-1}(Y\setminus K) = X\setminus q^{-1}(K)$ is open. Therefore $q^{-1}(K)$ is closed if and only if $K$ is closed.
+		\item Because preimages are well-behaved with set differences, $X\smallsetminus q^{-1}(K) = q^{-1}(Y)\smallsetminus q^{-1}(K) = q^{-1}(Y\smallsetminus K)$. Because $q$ is a quotient map, $Y\smallsetminus K$ is open if and only if $q^{-1}(Y\smallsetminus K) = X\smallsetminus q^{-1}(K)$ is open. Therefore $q^{-1}(K)$ is closed if and only if $K$ is closed.
 		\item The following proof implicitly uses subspace topologies.
 
 		      Suppose $U\subseteq X$ is a saturated open subset, then $U = q^{-1}(q(U))$. The restriction $q\vert_{U}$ is still surjective and continuous. By Exercise~\ref{exercise:3.61}, $q(U)$ is open in $Y$. Let $W$ be a subset of $q(U)$.
@@ -871,7 +871,7 @@
 
 		      Suppose $U\subseteq X$ is a saturated closed subset. By Exercise~\ref{exercise:3.61}, $q(U)$ is closed in $Y$. Let $W$ be a subset of $q(U)$.
 
-		      ${(q\vert_{U})}^{-1}(q(U)\setminus W) = U\setminus {(q\vert_{U})}^{-1}(W)$, so analogously $W$ is closed in $q(U)$ if and only if ${(q\vert_{U})}^{-1}(W) = q^{-1}(W)$ is closed in $U$.
+		      ${(q\vert_{U})}^{-1}(q(U)\smallsetminus W) = U\smallsetminus {(q\vert_{U})}^{-1}(W)$, so analogously $W$ is closed in $q(U)$ if and only if ${(q\vert_{U})}^{-1}(W) = q^{-1}(W)$ is closed in $U$.
 
 		      Hence $q\vert_{U}: U\to q(U)$ is a quotient map.
 		\item Let $(y, \alpha)$ be a point of $\coprod_{\alpha\in A}Y_{\alpha}$, then there is $x\in X_{\alpha}$ such that $q_{\alpha}(x) = y$. Therefore $q((x, \alpha)) = (y, \alpha)$, which implies that $q$ is surjective.
@@ -953,7 +953,7 @@ No exercises.
 		      On the other hand, $i^{-1}(\openinterval{a, b}) = \openinterval{-b, -a}$, which is open in $\mathbb{R}$.
 
 		      Let $U$ be an open subset of $\mathbb{R}$ then $U$ is an union of open intervals, so $m^{-1}(U)$ is open in $\mathbb{R}\times\mathbb{R}$, and $i^{-1}(U)$ is open in $\mathbb{R}$. Therefore $m, i$ are continuous, and it follows that the real line with the additive group structure and Euclidean topology is a topological group.
-		\item the set $\mathbb{R}^{*} = \mathbb{R}\setminus\{0\}$ of nonzero real numbers under multiplication, with the Euclidean topology
+		\item the set $\mathbb{R}^{*} = \mathbb{R}\smallsetminus\{0\}$ of nonzero real numbers under multiplication, with the Euclidean topology
 
 		      First, we prove that $\cdot: \mathbb{R}\times\mathbb{R}\to\mathbb{R}$ is continuous. Let $(x_{0}, y_{0})\in\mathbb{R}\times\mathbb{R}$. For every $\varepsilon > 0$, let $\delta = -\frac{\abs{x_{0}}+\abs{y_{0}}}{2} + \sqrt{\varepsilon + {\left(\frac{\abs{x_{0}}+\abs{y_{0}}}{2}\right)}^{2}}$ then for every $(x, y)$ such that $\sqrt{{(x - x_{0})}^{2} + {(y - y_{0})}^{2}} < \delta$,
 		      \begin{align*}
@@ -974,7 +974,7 @@ No exercises.
 		      \]
 
 		      Hence $i: \mathbb{R}^{*}\to \mathbb{R}^{*}$ is continuous. Thus $\mathbb{R}^{*}$ under multiplication with the Euclidean topology is a topological group.
-		\item the set $\mathbb{C}^{*} = \mathbb{C}\setminus\{0\}$ of nonzero complex numbers under complex multiplication, with the Euclidean topology
+		\item the set $\mathbb{C}^{*} = \mathbb{C}\smallsetminus\{0\}$ of nonzero complex numbers under complex multiplication, with the Euclidean topology
 
 		      We will prove that $\cdot: \mathbb{C}\times\mathbb{C}\to\mathbb{C}$ is continuous.
 
@@ -1002,7 +1002,7 @@ No exercises.
 
 		      $\cdot: \mathbb{R}^{n^{2}}\times \mathbb{R}^{n^{2}}\to \mathbb{R}^{n^{2}}$ is a continuous map (because each entries of the product matrix is a polynomial of entries of the component matrices), so the restriction $m: \operatorname{GL}(n, \mathbb{R})\times\operatorname{GL}(n, \mathbb{R})\to \operatorname{GL}(n, \mathbb{R})$ is continuous.
 
-		      $\det: \mathbb{R}^{n^{2}}\to \mathbb{R}$ defined by $\det A = \sum_{\sigma\in S_{n}}\operatorname{sign}(\sigma)A_{\sigma(1),1}\cdots A_{\sigma(n),n}$ is continuous, because $\det$ is the pointwise sum of continuous real-valued functions, namely, $A\mapsto \operatorname{sign}(\sigma)A_{\sigma(1),1}\cdots A_{\sigma(n),n}$, which are pointwise products of continuous real-valued functions. $\mathbb{R}\setminus\{0\}$ is open, so $\operatorname{GL}(n, \mathbb{R}) = \det^{-1}(\mathbb{R}\setminus\{0\})$ is open in $\mathbb{R}^{n^{2}}$. Consequently, the adjugate map $\operatorname{adj}: \mathbb{R}^{n^{2}}\to \mathbb{R}^{n^{2}}$ is also continuous (because entries of an adjugate matrix is defined by determinants).
+		      $\det: \mathbb{R}^{n^{2}}\to \mathbb{R}$ defined by $\det A = \sum_{\sigma\in S_{n}}\operatorname{sign}(\sigma)A_{\sigma(1),1}\cdots A_{\sigma(n),n}$ is continuous, because $\det$ is the pointwise sum of continuous real-valued functions, namely, $A\mapsto \operatorname{sign}(\sigma)A_{\sigma(1),1}\cdots A_{\sigma(n),n}$, which are pointwise products of continuous real-valued functions. $\mathbb{R}\smallsetminus\{0\}$ is open, so $\operatorname{GL}(n, \mathbb{R}) = \det^{-1}(\mathbb{R}\smallsetminus\{0\})$ is open in $\mathbb{R}^{n^{2}}$. Consequently, the adjugate map $\operatorname{adj}: \mathbb{R}^{n^{2}}\to \mathbb{R}^{n^{2}}$ is also continuous (because entries of an adjugate matrix is defined by determinants).
 
 		      Let $A\in \operatorname{GL}(n, \mathbb{R})$, then $i(A) = A^{-1} = \frac{1}{\det A}\operatorname{adj}A$. $A\mapsto \det A\mapsto 1/\det A$ is continuous, because $A$ is invertible and $\det$ is continuous, $\operatorname{adj}: \mathbb{R}^{n^{2}}\to \mathbb{R}^{n^{2}}$ is also continuous, so $i: \operatorname{GL}(n, \mathbb{R})\to \operatorname{GL}(n, \mathbb{R})$ is continuous.
 
@@ -1117,7 +1117,7 @@ Show that every closed ball in $\mathbb{R}^{n}$ is an $n$-dimensional manifold w
 \begin{proof}
 	We give a proof in the following steps.
 	\begin{enumerate}[label={\textbf{Step \arabic*.}},itemindent=1cm]
-		\item (Every inversion is a homeomorphism) For every point $a\in\mathbb{R}^{n}$, and $r\in\mathbb{R}$, define $I^{r}_{a}: \mathbb{R}^{n}\setminus\{ a \} \to \mathbb{R}^{n}\setminus\{ a \}$ by
+		\item (Every inversion is a homeomorphism) For every point $a\in\mathbb{R}^{n}$, and $r\in\mathbb{R}$, define $I^{r}_{a}: \mathbb{R}^{n}\smallsetminus\{ a \} \to \mathbb{R}^{n}\smallsetminus\{ a \}$ by
 		      \[
 			      I^{r}_{a}(x) = \left(a_{1} + \frac{r(x_{1} - a_{1})}{\abs{x - a}^{2}}, \ldots, a_{n} + \frac{r(x_{n} - a_{n})}{\abs{x-a}^{2}}\right).
 		      \]
@@ -1143,7 +1143,7 @@ Show that every closed ball in $\mathbb{R}^{n}$ is an $n$-dimensional manifold w
 
 		      For every $a\in \mathbb{B}^{n}\subseteq\overline{\mathbb{B}}^{n}$, $\mathbb{B}^{n}$ is a neighborhood of $x$ in $\overline{\mathbb{B}}^{n}$, and $\mathbb{B}^{n}$ is an open subset of $\mathbb{R}^{n}$.
 
-		      Suppose $a\in \overline{\mathbb{B}}^{n}\setminus\mathbb{B}^{n} = \mathbb{S}^{n-1}$. The point $-a$ is the antipodal of $a$. Let $U_{n} = \{ x\in\mathbb{R}^{n}: a_{1}x_{1} + \cdots + a_{n}x_{n} \geq 0 \}$ and $B_{1}(a)$ be an open ball in $\mathbb{R}^{n}$ so by the definition of the subspace topology, $B_{1}(a)\cap \overline{\mathbb{B}}^{n}$ is open in $\overline{\mathbb{B}}^{n}$. Let $P$ be the hyperplane with equation $a_{1}x_{1} + \cdots + a_{n}x_{n} = 0$. For every $y\in B_{1}(a)\cap \overline{\mathbb{B}}^{n}$, we have
+		      Suppose $a\in \overline{\mathbb{B}}^{n}\smallsetminus\mathbb{B}^{n} = \mathbb{S}^{n-1}$. The point $-a$ is the antipodal of $a$. Let $U_{n} = \{ x\in\mathbb{R}^{n}: a_{1}x_{1} + \cdots + a_{n}x_{n} \geq 0 \}$ and $B_{1}(a)$ be an open ball in $\mathbb{R}^{n}$ so by the definition of the subspace topology, $B_{1}(a)\cap \overline{\mathbb{B}}^{n}$ is open in $\overline{\mathbb{B}}^{n}$. Let $P$ be the hyperplane with equation $a_{1}x_{1} + \cdots + a_{n}x_{n} = 0$. For every $y\in B_{1}(a)\cap \overline{\mathbb{B}}^{n}$, we have
 		      \[
 			      \innerprod{y, a} = \frac{1}{2}(\abs{y}^{2} + \abs{a}^{2} - \abs{y - a}^{2}) = \frac{1}{2}(\abs{y}^{2} + 1 - \abs{y - a}^{2}) > \frac{1}{2}\abs{y}^{2}\geq 0.
 		      \]
@@ -1172,11 +1172,11 @@ Show that every closed ball in $\mathbb{R}^{n}$ is an $n$-dimensional manifold w
 		\item The manifold boundary of $\overline{\mathbb{B}}^{n}$ is $\mathbb{S}^{n-1}$.
 
 		      According to Step 3, every point of $\mathbb{S}^{n-1}$ is a boundary point. Every point of $\mathbb{B}^{n}$ is an interior point. Because the interior and the boundary of a manifold with boundary are disjoint, it follows that the manifold boundary of $\overline{\mathbb{B}}^{n}$ is $\mathbb{S}^{n-1}$.
-		\item $\mathbb{R}^{n}\setminus \mathbb{B}^{n}$ is an $n$-manifold with boundary and the manifold boundary of $\mathbb{R}^{n}\setminus \mathbb{B}^{n}$ is $\mathbb{S}^{n-1}$.
+		\item $\mathbb{R}^{n}\smallsetminus \mathbb{B}^{n}$ is an $n$-manifold with boundary and the manifold boundary of $\mathbb{R}^{n}\smallsetminus \mathbb{B}^{n}$ is $\mathbb{S}^{n-1}$.
 
-		      As a subspace of $\mathbb{R}^{n}$, $\mathbb{R}^{n}\setminus \mathbb{B}^{n}$ is Hausdorff and second countable.
+		      As a subspace of $\mathbb{R}^{n}$, $\mathbb{R}^{n}\smallsetminus \mathbb{B}^{n}$ is Hausdorff and second countable.
 
-		      $\mathbb{R}^{n}\setminus\mathbb{B}^{n}$ is the disjoint union of $\mathbb{R}^{n}\setminus\overline{\mathbb{B}}^{n}$ and $\mathbb{S}^{n-1}$. $\mathbb{R}^{n}\setminus\overline{\mathbb{B}}^{n}$ is an $n$-manifold without boundary. Similar to Step 3, 4, we can show that $\mathbb{R}^{n}\setminus \mathbb{B}^{n}$ is an $n$-manifold with boundary and $\mathbb{S}^{n-1}$ is its manifold boundary.
+		      $\mathbb{R}^{n}\smallsetminus\mathbb{B}^{n}$ is the disjoint union of $\mathbb{R}^{n}\smallsetminus\overline{\mathbb{B}}^{n}$ and $\mathbb{S}^{n-1}$. $\mathbb{R}^{n}\smallsetminus\overline{\mathbb{B}}^{n}$ is an $n$-manifold without boundary. Similar to Step 3, 4, we can show that $\mathbb{R}^{n}\smallsetminus \mathbb{B}^{n}$ is an $n$-manifold with boundary and $\mathbb{S}^{n-1}$ is its manifold boundary.
 	\end{enumerate}
 
 	Finally, because every closed ball in $\mathbb{R}^{n}$ are homeomorphic, and $\overline{\mathbb{B}}^{n}$ is an $n$-manifold with boundary, we conclude that every closed ball and the complement of every open ball in $\mathbb{R}^{n}$ are $n$-manifolds with boundary.
@@ -1189,7 +1189,7 @@ Show that a finite product of open maps is open; give a counterexample to show t
 \begin{proof}
 	Let $f_{i}: X_{i}\to Y_{i}$ be open maps for every $i = 1,\ldots,n$. Let $U$ be an open subset of $X_{1}\times\cdots\times X_{n}$. Due to the definition of the product topology, $U$ is an union of product open sets. If $B_{i}\subseteq X_{i}$ is open for every $i = 1,\ldots,n$ then $f_{i}(B_{i})\subseteq Y_{i}$ is open for every $i = 1,\ldots,n$. Therefore $f_{1}\times\cdots\times f_{n}(B_{1}\times\cdots\times B_{n})$ is open, so $f_{1}\times\cdots\times f_{n}(U)$ is open (every map is well-behaved with arbitrary unions). Hence a finite product of open maps is open.
 
-	Let $X_{1} = \mathbb{R}, Y_{1} = \{ 0 \}, X_{2} = Y_{2} = \mathbb{R}$ where $Y_{1}$ has discrete topology. Define $f_{1}: X_{1}\to Y_{1}$ by $f(x) = 0$, $f_{2} = \operatorname{Id}_{\mathbb{R}}$, then $f_{1}, f_{2}$ are closed maps. Let $A = \{ (x, 1/x): x\in\mathbb{R}\setminus\{0\} \}\subseteq X_{1}\times X_{2}$ then $A$ is closed in $X_{1}\times X_{2}$. The image $f_{1}\times f_{2}(A) = \{ 0 \}\times (\mathbb{R}\setminus\{0\})$ is not closed because the closure of $\{ 0 \}\times (\mathbb{R}\setminus\{0\})$ contains $(0, 0)$ but $\{ 0 \}\times (\mathbb{R}\setminus\{0\})$ does not contain $(0, 0)$. Hence $f_{1}\times f_{2}$ is not closed. Thus a finite product of closed maps need not be closed.
+	Let $X_{1} = \mathbb{R}, Y_{1} = \{ 0 \}, X_{2} = Y_{2} = \mathbb{R}$ where $Y_{1}$ has discrete topology. Define $f_{1}: X_{1}\to Y_{1}$ by $f(x) = 0$, $f_{2} = \operatorname{Id}_{\mathbb{R}}$, then $f_{1}, f_{2}$ are closed maps. Let $A = \{ (x, 1/x): x\in\mathbb{R}\smallsetminus\{0\} \}\subseteq X_{1}\times X_{2}$ then $A$ is closed in $X_{1}\times X_{2}$. The image $f_{1}\times f_{2}(A) = \{ 0 \}\times (\mathbb{R}\smallsetminus\{0\})$ is not closed because the closure of $\{ 0 \}\times (\mathbb{R}\smallsetminus\{0\})$ contains $(0, 0)$ but $\{ 0 \}\times (\mathbb{R}\smallsetminus\{0\})$ does not contain $(0, 0)$. Hence $f_{1}\times f_{2}$ is not closed. Thus a finite product of closed maps need not be closed.
 \end{proof}
 
 \begin{problem}{3-6}
@@ -1197,17 +1197,17 @@ Let $X$ be a topological space. The \textbf{diagonal} of $X\times X$ is the subs
 \end{problem}
 
 \begin{proof}
-	Let $(x_{1}, x_{2})\in (X\times X)\setminus\Delta$ then $x_{1}\ne x_{2}$.
+	Let $(x_{1}, x_{2})\in (X\times X)\smallsetminus\Delta$ then $x_{1}\ne x_{2}$.
 
 	$(\Rightarrow)$ Suppose $X$ is Hausdorff.
 
-	Because $X$ is Hausdorff, $x_{1}, x_{2}$ are separated by some neighborhoods $U_{1}, U_{2}$. $U_{1}$ and $U_{2}$ are disjoint so $U_{1}\times U_{2}\subseteq X\times X$ is open. So there is a neighborhood of $(x_{1}, x_{2})$ contained in $(X\times X)\setminus\Delta$. Therefore $(X\times X)\setminus\Delta$ is open, which means $\Delta$ is closed.
+	Because $X$ is Hausdorff, $x_{1}, x_{2}$ are separated by some neighborhoods $U_{1}, U_{2}$. $U_{1}$ and $U_{2}$ are disjoint so $U_{1}\times U_{2}\subseteq X\times X$ is open. So there is a neighborhood of $(x_{1}, x_{2})$ contained in $(X\times X)\smallsetminus\Delta$. Therefore $(X\times X)\smallsetminus\Delta$ is open, which means $\Delta$ is closed.
 
 	$(\Leftarrow)$ Suppose $\Delta$ is closed in $X\times X$.
 
-	$(X\times X)\setminus\Delta$ is open in $X\times X$, so there is a neighborhood $U$ of $(x_{1}, x_{2})$. The collection of product open sets is a basis for the product topology on $X\times X$, so there exist open subsets $B_{1}\subseteq X, B_{2}\subseteq X$ such that
+	$(X\times X)\smallsetminus\Delta$ is open in $X\times X$, so there is a neighborhood $U$ of $(x_{1}, x_{2})$. The collection of product open sets is a basis for the product topology on $X\times X$, so there exist open subsets $B_{1}\subseteq X, B_{2}\subseteq X$ such that
 	\[
-		(x_{1}, x_{2})\in B_{1}\times B_{2}\subseteq U_{1}\times U_{2}\subseteq (X\times X)\setminus\Delta.
+		(x_{1}, x_{2})\in B_{1}\times B_{2}\subseteq U_{1}\times U_{2}\subseteq (X\times X)\smallsetminus\Delta.
 	\]
 
 	Therefore $x_{1}, x_{2}$ are separated by neighborhoods $B_{1}, B_{2}$. Because $x_{1}, x_{2}$ is an arbitrary pair of distinct points of $X$, it follows that $X$ is Hausdorff.
@@ -1298,7 +1298,7 @@ Proposition 3.62(d) (see Exercise~\ref{exercise:3.63}) showed that the restricti
 
 	The set $U = \halfopenright{0, 1}$ is an open subset of $\closedinterval{0, 1}$ and $f\vert_{U}: U\to \mathbb{S}^{1}$ is bijective (and so surjective). We will show that $f\vert_{U}$ is not an open map. For every $0 < a < 1$, $\halfopenright{0, a}$ is an open subset of $U$ and $\halfopenright{0, 1}$.
 
-	$f\vert_{U}\left(\halfopenright{0, a}\right) = \left\{ e^{2\pi\iota s} \mid s\in\halfopenright{0, a} \right\}$. Let $A$ be the point with coordinate $e^{2\pi\iota a}$. The stereographic projection from $\mathbb{S}^{1}\setminus\{e^{2\pi\iota a}\}$ onto the straight line through the origin that is perpendicular to $OA$ is a homeomorphism. Therefore the topological space $\mathbb{S}^{1}\setminus \{ e^{2\pi\iota a} \}$ is homeomorphic to $\mathbb{R}$ with the Euclidean topology and $\left\{ e^{2\pi\iota s} \mid s\in\halfopenright{0, a} \right\}$ is homeomorphic to a half-open interval, which is not an open set in $\mathbb{R}$. Hence $f\vert_{U}(\halfopenright{0, a})$ is not open in $\mathbb{S}^{1}$ and $f\vert_{U}$ is not an open map.
+	$f\vert_{U}\left(\halfopenright{0, a}\right) = \left\{ e^{2\pi\iota s} \mid s\in\halfopenright{0, a} \right\}$. Let $A$ be the point with coordinate $e^{2\pi\iota a}$. The stereographic projection from $\mathbb{S}^{1}\smallsetminus\{e^{2\pi\iota a}\}$ onto the straight line through the origin that is perpendicular to $OA$ is a homeomorphism. Therefore the topological space $\mathbb{S}^{1}\smallsetminus \{ e^{2\pi\iota a} \}$ is homeomorphic to $\mathbb{R}$ with the Euclidean topology and $\left\{ e^{2\pi\iota s} \mid s\in\halfopenright{0, a} \right\}$ is homeomorphic to a half-open interval, which is not an open set in $\mathbb{R}$. Hence $f\vert_{U}(\halfopenright{0, a})$ is not open in $\mathbb{S}^{1}$ and $f\vert_{U}$ is not an open map.
 
 	$f\vert_{U}$ is bijective, continuous and not an open map, so it is not a quotient map.
 \end{proof}
@@ -1366,10 +1366,117 @@ Suppose $X$ and $Y$ are topological spaces and $f: X \to Y$ is a continuous map.
 	\end{enumerate}
 \end{proof}
 
-% \begin{problem}{3-14}
-% Show that real projective space $\mathbb{P}^{n}$ is an $n$-manifold.
-% \end{problem}
+\begin{problem}{3-14}\label{problem:3-14}
+Show that real projective space $\mathbb{RP}^{n}$ is an $n$-manifold.
+\end{problem}
 
-% \begin{problem}{3-15}
-% Let ${\mathbb{CP}}^{n}$ denote the set of all $1$-dimensional complex subspaces of $\mathbb{C}^{n+1}$, called \textbf{$n$-dimensional complex projective space}. Topologize ${\mathbb{CP}}^{n}$ as the quotient ${(\mathbb{C}^{n+1}\setminus \{0\})}/\mathbb{C}^{*}$, where $\mathbb{C}^{*}$ is the group of nonzero complex numbers acting by scalar multiplication. Show that $\mathbb{CP}^{n}$ is an $2n$-manifold.
-% \end{problem}
+\begin{proof}
+	Let $\sim$ be the equivalence relation on $\mathbb{R}^{n+1}\smallsetminus\{0\}$ where $a\sim b$ if and only if there is a nonzero real number $\lambda$ such that $a = \lambda b$. Consider the quotient map $q: \mathbb{R}^{n+1}\smallsetminus\{0\} \to \mathbb{RP}^{n}$ defined by $q(x) = \operatorname{span}(x)$.
+
+	If $A$ is open in $\mathbb{R}^{n+1}\smallsetminus\set{0}$ then $\bigcup_{\lambda\in\mathbb{R}\smallsetminus\set{0}}\lambda A$ is a saturated open set with respect to $q$, where $\lambda A = \set{ \lambda a : a\in A }$. Therefore $q^{-1}(q(A))$ is open, which means $q(A)$ is open. Hence $q$ is an open quotient map.
+
+	\textbf{Locally Euclidean property.}
+
+	For each $i\in \{ 1, \ldots, n+1 \}$, let $V_{i}$ be the subset of $\mathbb{R}^{n+1}$ where $x_{i} \ne 0$. $q(V_{1}), \ldots, q(V_{n+1})$ cover $\mathbb{RP}^{n}$. The complement of $V_{i}$ in $\mathbb{R}^{n+1}$, which is the hyperspace $x_{i} = 0$, is closed, so $V_{i}$ is open in $\mathbb{R}^{n+1}$, hence open in $\mathbb{R}^{n+1}\smallsetminus\{0\}$ (using subspace topology). Moreover, $V_{i}$ is saturated with respect to $q$ (Exercise~\ref{exercise:3.59}). Because a quotient map maps open saturated open sets to open sets, $q(V_{i})$ is open in $\mathbb{RP}^{n}$ for every $i\in \{ 1, \ldots, n+1 \}$.
+
+	Let $U_{i} = q(V_{i})$ and define $\varphi_{i}: U_{i} \to \mathbb{R}^{n}$ by
+	\begin{align*}
+		\varphi_{i}({[x]}_{\sim}) = \left(\frac{x_{1}}{x_{i}}, \ldots, \frac{x_{i-1}}{x_{i}}, \frac{x_{i+1}}{x_{i}}, \ldots, \frac{x_{n+1}}{x_{i}}\right).
+	\end{align*}
+
+	This map is well-defined because of $a, b \in [x]\in U_{i}$ then $a = (a_{i}/b_{i})b$.
+
+	$\varphi_{i}$ is injective and surjective (because the image of $\varphi_{i}$ is the entire $\mathbb{R}^{n}$). Now we prove that $\varphi_{i}$ is continuous and open. Let $q_{i}: V_{i} \to \mathbb{R}^{n}$ defined by $q_{i}(x) = \left(\frac{x_{1}}{x_{i}}, \ldots, \frac{x_{i-1}}{x_{i}}, \frac{x_{i+1}}{x_{i}}, \ldots, \frac{x_{n+1}}{x_{i}}\right)$, then $q_{i} = \varphi_{i}\circ (q\vert_{V_{i}})$.
+
+	$q$ is a quotient map, so $q\vert_{V_{i}}: V_{i} \to q(V_{i}) = U_{i}$ is also a quotient map. $q_{i}$ is continuous so from the characteristic property of quotient map, it follows that $\varphi_{i}$ is continuous.
+
+	Let $U$ be an open subset of $U_{i} \subseteq \mathbb{RP}^{n}$ then $U = (q\vert_{V_{i}})({(q\vert_{V_{i}})}^{-1}(U))$ because $q\vert_{V_{i}}$ is surjective. It follows that $\varphi_{i}(U) = q_{i}({(q\vert_{V_{i}})}^{-1}(U))$. Because $q\vert_{V_{i}}$ is continuous, $V = {(q\vert_{V_{i}})}^{-1}(U)$ is an open subset of $V_{i}$, so it is also an open subset of $\mathbb{R}^{n+1}\smallsetminus\{ 0 \}$.
+
+	Let $y$ be a point of $q_{i}({(q\vert_{V_{i}})}^{-1}(U)) = q_{i}(V) \subseteq \mathbb{R}^{n}$. There is $x\in V$ such that $q_{i}(x) = y$. Because $V$ is open, there is an open cube $\openinterval{a_{1}, b_{1}}\times\cdots\times\openinterval{a_{n+1}, b_{n+1}} \subseteq \mathbb{R}^{n+1}\smallsetminus\{0\}$ such that
+	\begin{align*}
+		x \in \openinterval{a_{1}, b_{1}}\times\cdots\times\openinterval{a_{n+1}, b_{n+1}} \subseteq V
+	\end{align*}
+
+	where each interval $\openinterval{a_{j}, b_{j}}$ doesn't contain $0$ (these product open sets comprise a basis for the subspace topology on $\mathbb{R}^{n+1}\smallsetminus\{0\}$). If $a_{i}, b_{i} > 0$ then
+	\begin{multline*}
+		y = q_{i}(x) \in q_{i}(\openinterval{a_{1}, b_{1}}\times\cdots\times\openinterval{a_{n+1}, b_{n+1}}) \\
+		= \bigcup_{a_{i} < c_{i} < b_{i}}\left(\openinterval{\frac{a_{1}}{c_{i}}, \frac{b_{1}}{c_{i}}} \times \cdots \times \openinterval{\frac{a_{i-1}}{c_{i}}, \frac{b_{i-1}}{c_{i}}} \times \openinterval{\frac{a_{i+1}}{c_{i}}, \frac{b_{i+1}}{c_{i}}} \times \cdots \times \openinterval{\frac{a_{n+1}}{c_{i}}, \frac{b_{n+1}}{c_{i}}}\right)
+	\end{multline*}
+
+	which is a neighborhood of $y$ contained in $q_{i}(V)$. Hence $q_{i}(V)$ is open in $\mathbb{R}^{n}$, so $\varphi_{i}(U)$ is open for every open subset $U\subseteq U_{i}$, which means $\varphi_{i}$ is open. If $a_{i}, b_{i} < 0$, the reasoning remains the same, except for the ends of open intervals are swapped.
+
+	Therefore $\varphi_{i}$ is a homeomorphism from $U_{i}$ onto $\mathbb{R}^{n}$, so the $n$-dimensional real projective space $\mathbb{RP}^{n}$ is locally Euclidean of dimension $n$.
+
+	\textbf{Hausdorffness} (As for me, this is the hardest part.)
+
+	We will use Proposition 3.57.
+
+	Let $X = \mathbb{R}^{n+1}\smallsetminus\set{0}$ and $Y = \mathbb{RP}^{n}$, then $q: X\to Y$ is an open quotient map. According to Proposition 3.57, it suffices to prove that $\mathscr{R} = \set{ (x_{1}, x_{2}) : q(x_{1}) = q(x_{2}) }$ is closed in $X\times X$.
+
+	$q(x_{1}) = q(x_{2})$ if and only if $x_{1}, x_{2}$ are linearly dependent. So $(x_{1}, x_{2}) \in (X\times X)\smallsetminus\mathscr{R}$ if and only if $x_{1}, x_{2}$ are linearly independent.
+
+	Extend the list $x_{1}, x_{2}$ to a basis $x_{1}, x_{2}, \ldots, x_{n+1}$ for $\mathbb{R}^{n+1}$, the restriction $\det(x_{1}, \ldots, x_{n+1}) \ne 0$. Because $\det$ is continuous, $\det: X\times X\times\set{x_{3}}\times\cdots\times\set{x_{n+1}} \to \mathbb{R}$ is continuous, so there is an open subset $W$ of $X\times X$ such that $\det(x_{1}', x_{2}', x_{3}, \ldots, x_{n+1}) \ne 0$ for every $(x_{1}', x_{2}') \in W$. Hence every pair of vectors in $W$ is linearly independent, which implies that $W \subseteq (X\times X)\smallsetminus\mathscr{R}$, so $(X\times X)\smallsetminus\mathscr{R}$ is open. Therefore $\mathscr{R}$ is closed in $X\times X$.
+
+	From Proposition 3.57, it follows that $\mathbb{RP}^{n}$ is Hausdorff.
+
+	\textbf{Second countability.}
+
+	$U_{i}$ is homeomorphic to $\mathbb{R}^{n}$ and $\mathbb{R}^{n}$ is second countable then so is $U_{i}$ so $U_{1}, \ldots, U_{n+1}$ are all second countable. $U_{1}, \ldots, U_{n+1}$ cover $\mathbb{RP}^{n}$. From Problem~\ref{problem:2-19} it follows that $\mathbb{RP}^{n}$ is second countable.
+
+	Thus $\mathbb{RP}^{n}$ is an $n$-manifold.
+\end{proof}
+
+\begin{problem}{3-15}\label{problem:3-15}
+Let ${\mathbb{CP}}^{n}$ denote the set of all $1$-dimensional complex subspaces of $\mathbb{C}^{n+1}$, called \textbf{$n$-dimensional complex projective space}. Topologize ${\mathbb{CP}}^{n}$ as the quotient ${(\mathbb{C}^{n+1}\smallsetminus \{0\})}/\mathbb{C}^{*}$, where $\mathbb{C}^{*}$ is the group of nonzero complex numbers acting by scalar multiplication. Show that $\mathbb{CP}^{n}$ is an $2n$-manifold.
+\end{problem}
+
+\begin{proof}
+	Let $\sim$ be the equivalence relation on $\mathbb{C}^{n+1}\smallsetminus\{0\}$ where $a\sim b$ if and only if there is a nonzero complex number $\lambda$ such that $a = \lambda b$. Consider the quotient map $q: \mathbb{C}^{n+1}\smallsetminus\{0\} \to \mathbb{CP}^{n}$ defined by $q(x) = \operatorname{span}(x)$.
+
+	If $A$ is open in $\mathbb{C}^{n+1}\smallsetminus\set{0}$ then $\bigcup_{\lambda\in\mathbb{C}^{*}}\lambda A$ is a saturated open set with respect to $q$, where $\lambda A = \set{ \lambda a : a\in A }$. Therefore $q^{-1}(q(A))$ is open, which means $q(A)$ is open. Hence $q$ is an open quotient map.
+
+	\textbf{Locally Euclidean property}
+
+	For every $i\in \{ 1, \ldots, n+1 \}$, let $V_{i} = \set{ z \in \mathbb{C}^{n+1}\smallsetminus\set{0} \mid z_{i} \ne 0 }$ then $V_{i}$ is a saturated set with respect to $q$. The complement of $V_{i}$ in $\mathbb{C}^{n+1}$ is closed in $\mathbb{C}^{n+1}$, so $V_{i}$ is open in $\mathbb{C}^{n+1}$ and hence open in $\mathbb{C}^{n+1}\smallsetminus\set{0}$ (with subspace topology). Because $V_{i}$ is an open saturated set of $\mathbb{C}^{n+1}\smallsetminus\set{0}$, the set $q(V_{i})$ is open in $\mathbb{CP}^{n}$.
+
+	Define $U_{i} = q(V_{i})$ and $\varphi_{i}: U_{i} \to \mathbb{C}^{n}$ by
+	\begin{align*}
+		\varphi_{i}({[z]}_{\sim}) = \left(\frac{z_{1}}{z_{i}}, \ldots, \frac{z_{i-1}}{z_{i}}, \frac{z_{i+1}}{z_{i}}, \ldots, \frac{z_{n+1}}{z_{i}}\right).
+	\end{align*}
+
+	$\varphi_{i}$ is bijective. $q$ is a quotient map, so $q\vert_{V_{i}}: V_{i} \to q(V_{i}) = U_{i}$ is also a quotient map. Define $q_{i}: V_{i}\to \mathbb{C}^{n}$ by $q_{i}(z) = \left( \frac{z_{1}}{z_{i}}, \ldots, \frac{z_{i-1}}{z_{i}}, \frac{z_{i+1}}{z_{i}}, \ldots, \frac{z_{n+1}}{z_{i}} \right)$, then $q_{i} = \varphi_{i} \circ (q\vert_{V_{i}})$.
+
+	$q_{i}$ is continuous because of the characteristic property of product topology, and hence $\varphi_{i}$ is continuous because of the characteristic property of quotient topology.
+
+	Let $U$ be an open subset of $U_{i} \subseteq \mathbb{CP}^{n}$ then $U = (q\vert_{V_{i}})({(q\vert_{V_{i}})}^{-1}(U))$ because $q\vert_{V_{i}}$ is surjective (it is a quotient map). Due to the definition of $q_{i}$, $\varphi_{i}(U) = q_{i}({(q\vert_{V_{i}})}^{-1}(U))$. Because $q\vert_{V_{i}}$ is continuous and $U$ is open in $U_{i}$ (the codomain of $q\vert_{V_{i}}$), the preimage $V = {(q\vert_{V_{i}})}^{-1}(U)$ is open in $V_{i}$.
+
+	Suppose $w$ is a point of $q_{i}(V)$ then there is $z\in V$ such that $q_{i}(z) = w$. Since $V$ is open in $V_{i}$ (hence also open in $\mathbb{C}^{n+1}\smallsetminus\set{0}$), there exist open disks $D_{1}, \ldots, D_{n+1}$ in $\mathbb{C}$ such that
+	\begin{align*}
+		z \in (D_{1}\smallsetminus\set{0}) \times \cdots \times (D_{n+1}\smallsetminus\set{0}) \subseteq V \subseteq \mathbb{C}^{n+1}\smallsetminus\set{0}
+	\end{align*}
+
+	Then
+	\begin{multline*}
+		w = q_{i}(z) \in q_{i}\left((D_{1}\smallsetminus\set{0}) \times \cdots \times (D_{n+1}\smallsetminus\set{0})\right) \\
+		\bigcup_{c_{i} \in D_{i}}\left( (D_{1}' \smallsetminus \set{0}) \times \cdots \times (D_{i-1}' \smallsetminus \set{0}) \times (D_{i+1}' \smallsetminus \set{0}) \times \cdots \times (D_{n+1}' \smallsetminus \set{0}) \right)
+	\end{multline*}
+
+	where each $D_{j}'\smallsetminus\set{0}$ is the image of $D_{j}\smallsetminus\set{0}$ under the map $m_{j}: \mathbb{C}^{*}\to \mathbb{C}^{*}$ defined by $m_{j}(z) = c_{i}^{-1}z$. The sets $D'_{j}$ are also open disks in $\mathbb{C}$ so $D_{j}'\smallsetminus\set{0}$ are open in $\mathbb{C}$. Hence the set
+	\begin{align*}
+		\bigcup_{c_{i} \in D_{i}}\left( (D_{1}' \smallsetminus \set{0}) \times \cdots \times (D_{i-1}' \smallsetminus \set{0}) \times (D_{i+1}' \smallsetminus \set{0}) \times \cdots \times (D_{n+1}' \smallsetminus \set{0}) \right)
+	\end{align*}
+
+	is a neighborhood of $w$ contained in $q_{i}(V)$. Therefore $q_{i}(V)$ is open, so $\varphi_{i}(U)$ is open for every open subset $U$ of $U_{i}$, which implies that $\varphi_{i}$ is an open map.
+
+	Hence $\varphi_{i}$ is a homeomorphism from $U_{i}$ to $\mathbb{C}^{n}$. $U_{1}, \ldots, U_{n+1}$ cover $\mathbb{C}^{n+1}\smallsetminus\set{0}$ and they are open in $\mathbb{C}^{n+1}\smallsetminus\set{0}$ so every point of $\mathbb{CP}^{n}$ has a neighborhood homeomorphic to $\mathbb{C}^{n}$. On the other hand $\mathbb{C}^{n}$ is homeomorphic to $\mathbb{R}^{2n}$, so $\mathbb{CP}^{n}$ is locally Euclidean of dimension $2n$.
+
+	\textbf{Hausdorffness}
+
+	This part is similar to that of Problem~\ref{problem:3-14}.
+
+	\textbf{Second countability}
+
+	This part is similar to that of Problem~\ref{problem:3-14}.
+
+	Thus $\mathbb{CP}^{n}$ is a $2n$-manifold.
+\end{proof}
