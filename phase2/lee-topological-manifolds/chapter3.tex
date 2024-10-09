@@ -1591,14 +1591,65 @@ Define a basis $\mathscr{B}$ for a topology on $X$ consisting of all open rectan
 	\end{enumerate}
 \end{proof}
 
-% \begin{problem}{3-18}
-% Let $A\subseteq \mathbb{R}$ be the set of integers, and let $X$ be the quotient space $\mathbb{R}/A$ obtained by collapsing $A$ to a point as in Example 3.52. (We are not using the notation $\mathbb{R}/\mathbb{Z}$ for this space because that has a different meaning, described in Example 3.92.)
-% \begin{enumerate}[label={(\alph*)}]
-% 	\item Show that $X$ is homeomorphic to a wedge sum of countably infinitely many circles. [Hint: express both spaces as quotients of a disjoint union
-% 			      of intervals.]
-% 	\item Show that the equivalence class $A$ does not have a countable neighborhood in $X$, so $X$ is not first or second countable.
-% \end{enumerate}
-% \end{problem}
+\begin{problem}{3-18}
+Let $A\subseteq \mathbb{R}$ be the set of integers, and let $X$ be the quotient space $\mathbb{R}/A$ obtained by collapsing $A$ to a point as in Example 3.52. (We are not using the notation $\mathbb{R}/\mathbb{Z}$ for this space because that has a different meaning, described in Example 3.92.)
+\begin{enumerate}[label={(\alph*)}]
+	\item Show that $X$ is homeomorphic to a wedge sum of countably infinitely many circles. [Hint: express both spaces as quotients of a disjoint union
+			      of intervals.]
+	\item Show that the equivalence class $A$ does not have a countable neighborhood in $X$, so $X$ is not first or second countable.
+\end{enumerate}
+\end{problem}
 
-% \begin{proof}
-% \end{proof}
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item Consider the countable infinite set of ``circles'' $\set{\mathbb{S}^{1}\times\set{n} : n\in \mathbb{Z}}$. A wedge sum of these pointed circles is
+		      \begin{align*}
+			      \bigvee_{n\in \mathbb{Z}}\mathbb{S}^{1} & = \left(\coprod_{n\in \mathbb{Z}} \mathbb{S}^{1}\times \set{n}\right) / \set{(1, n) : n\in \mathbb{Z}}
+		      \end{align*}
+
+		      We will show that the map $q: \mathbb{R} \to \bigvee_{n\in \mathbb{Z}}\mathbb{S}^{1}$ defined by setting
+		      \begin{align*}
+			      q(x) = \begin{cases}
+				             (e^{2\pi\iota x}, n)                      & \text{if $x \in \openinterval{n, n+1}$ for some integer $n$} \\
+				             (1, 0) = (1, \pm 1) = (1, \pm 2) = \cdots & \text{if $x \in \mathbb{Z}$}
+			             \end{cases}
+		      \end{align*}
+
+		      is a quotient map.
+
+		      Let $U$ be a subset of $\bigvee_{n\in \mathbb{Z}}\mathbb{S}^{1}$. Firstly, $q$ is surjective, so $q(q^{-1}(U)) = U$. Remind that $r_{n}: \closedinterval{n, n+1}\to \mathbb{S}^{1}$ defined by $r_{n}(x) = e^{2\pi\iota x}$ is a quotient map.
+		      \begin{equation*}
+			      q^{-1}(U) = \bigcup_{n\in\mathbb{Z}}r_{n}^{-1}(U \cap (\mathbb{S}^{1}\times\set{n})).
+		      \end{equation*}
+
+		      If $U$ is open then $q^{-1}(U)$ is open $U \cap (\mathbb{S}^{1}\times\set{n})$ because $r_{n}$ is a quotient map for every $n\in\mathbb{Z}$.
+
+		      Conversely, if $q^{-1}(U)$ is open then it is an union of open intervals. Let $(z, n)$ be a point in $U$. If $z\ne 1$ then there is $s_{n} \in \openinterval{n, n+1}$ such that $q(s_{n}) = (z, n)$, and there is $\varepsilon_{n} > 0$ such that
+		      \begin{equation*}
+			      \openinterval{s_{n} - \varepsilon_{n}, s_{n} + \varepsilon_{n}} \subseteq q^{-1}(U).
+		      \end{equation*}
+
+		      Otherwise, $z = 1$ then for every $n\in\mathbb{Z}$, both $n$ and $n+1$ are in $r_{n}^{-1}(U \cap (\mathbb{S}^{1}\times\set{n}))$ so there is $\varepsilon_{n} > 0$ such that
+		      \begin{equation*}
+			      \halfopenright{n, n + \varepsilon_{n}} \cup \halfopenleft{n+1 - \varepsilon_{n}, n+1} \subseteq r_{n}^{-1}(U \cap (\mathbb{S}^{1}\times\set{n})) \subseteq q^{-1}(U).
+		      \end{equation*}
+
+		      In both cases, $(z, n)$ has a neighborhood contained in $\bigvee_{n\in\mathbb{Z}}\mathbb{S}^{1}$, so $U$ is open.
+
+		      Hence $q$ is a quotient map by definition. On the other hand, the quotient map $p: \mathbb{R} \to \mathbb{R}/A$ and $q$ have the same identification, so $\mathbb{R}/A$ and $\bigvee_{n\in \mathbb{Z}}\mathbb{S}^{1}$ are homeomorphic, according to the uniqueness of quotient spaces.
+
+		      Thus $\mathbb{R}/A$ is homeomorphic to a wedge sum of countably infinitely many circles.
+		\item Let ${(U_{n})}_{n\in\mathbb{Z}}$ be a family of countably many neighborhoods of the equivalence class $A$. Denote the quotient map $\mathbb{R}\to \mathbb{R}/A$ by $q$.
+
+		      For every $n\in\mathbb{Z}$
+		      \begin{itemize}
+			      \item the preimage $q^{-1}(U_{n}) \subseteq \mathbb{R}$ is an open set containing $A$,
+			      \item there is $\varepsilon_{n} \in \openinterval{0, \frac{1}{2}}$ such that $n \in \openinterval{n - \varepsilon_{n}, n + \varepsilon_{n}} \subseteq q^{-1}(U_{n})$,
+			      \item there is $\delta_{n} \in \openinterval{0, \frac{1}{2}}$ such that $\delta_{n} < \varepsilon_{n}$.
+		      \end{itemize}
+
+		      Define a saturated open set $V = \bigcup_{n\in\mathbb{Z}} \openinterval{n - \delta_{n}, n + \delta_{n}} \subseteq \mathbb{R}$. $q(V)$ then is open in $\mathbb{R}/A$. However, $V$ doesn't contain any open interval $\openinterval{n - \varepsilon_{n}, n + \varepsilon_{n}}$ so together with the equivalence relation defined on $\mathbb{R}$, we deduce that $q(V)$ doesn't contain any $U_{n}$.
+
+		      Hence the equivalence class $A$ doesn't have a countable neighborhood basis, so $\mathbb{R}/A$ is not first or second countable.
+	\end{enumerate}
+\end{proof}
