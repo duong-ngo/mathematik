@@ -139,8 +139,8 @@
 
 	\begin{enumerate}[label={(\alph*)}]
 		\item A point is in $\operatorname{Int} A$ if and only if it has a neighborhood contained in $A$.
-		\item A point is in $\operatorname{Ext} A$ if and only if it has a neighborhood contained in $X\setminus A$.
-		\item A point in $\partial A$ if and only if every neighborhood of it contains both a point of $A$ and a point of $X\setminus A$.
+		\item A point is in $\operatorname{Ext} A$ if and only if it has a neighborhood contained in $X\smallsetminus A$.
+		\item A point in $\partial A$ if and only if every neighborhood of it contains both a point of $A$ and a point of $X\smallsetminus A$.
 		\item A point is in $\overline{A}$ if and only if every neighbordhood of it contains a point of $A$.
 		\item $\overline{A} = A\cup \partial A = \operatorname{Int} A\cup \partial A$.
 		\item $\operatorname{Int} A$ and $\operatorname{Ext}A$ are open in $X$, while $\overline{A}$ and $\partial A$ are closed in $X$.
@@ -156,7 +156,7 @@
 			      \item $A$ is closed in $X$.
 			      \item $A = \overline{A}$.
 			      \item $A$ contains all of its boundary points.
-			      \item Every point of $X\setminus A$ has a neighborhood contained in $X\setminus A$.
+			      \item Every point of $X\smallsetminus A$ has a neighborhood contained in $X\smallsetminus A$.
 		      \end{itemize}
 	\end{enumerate}
 \end{exercise}
@@ -166,35 +166,35 @@
 		\item Suppose $x\in \operatorname{Int} A$. Because $\operatorname{Int} A$ is the union of all open sets contained in $A$, so there is a neighborhood of $x$ contained in $A$.
 
 		      Suppose $x$ has a neighborhood contained in $A$. Because the (open) neighborhood is contained in $A$ then it is also contained in $\operatorname{Int} A$, according to the defintion of interiors. Therefore $x\in \operatorname{Int} A$.
-		\item Suppose $x\in \operatorname{Ext} A$. Because $\operatorname{Ext} A = X\setminus \overline{A}$ so $\operatorname{Ext} A$ is an open subset of $X$. Since $\operatorname{Ext} A = X\setminus \overline{A}\subseteq X\setminus A$ (because $A\subseteq \overline{A}$), $\operatorname{Ext} A$ is a neighborhood of $x$ contained in $X\setminus A$.
+		\item Suppose $x\in \operatorname{Ext} A$. Because $\operatorname{Ext} A = X\smallsetminus \overline{A}$ so $\operatorname{Ext} A$ is an open subset of $X$. Since $\operatorname{Ext} A = X\smallsetminus \overline{A}\subseteq X\smallsetminus A$ (because $A\subseteq \overline{A}$), $\operatorname{Ext} A$ is a neighborhood of $x$ contained in $X\smallsetminus A$.
 
-		      Suppose there is a neighborhood $N$ of $x$ contained in $X\setminus A$. Then $X\setminus N$ is a closed set containing $A$, which means $\overline{A}\subseteq X\setminus N$, because $\overline{A}$ is the smallest closed set containing $A$. Therefore $x\in N\subseteq X\setminus\overline{A} = \operatorname{Ext} A$.
-		\item Suppose $x\in \partial A$. Then $x\notin\operatorname{Int} A$ and $x\notin\operatorname{Ext} A$. By parts (a) and (b), every neighborhood of $x$ is not contained in $A$ (so contains a point in $X\setminus A$) and not contained in $X\setminus A$ (so contains a point in $A$). Therefore every neighborhood of $x$ contains a point of $A$ and a point of $X\setminus A$.
+		      Suppose there is a neighborhood $N$ of $x$ contained in $X\smallsetminus A$. Then $X\smallsetminus N$ is a closed set containing $A$, which means $\overline{A}\subseteq X\smallsetminus N$, because $\overline{A}$ is the smallest closed set containing $A$. Therefore $x\in N\subseteq X\smallsetminus\overline{A} = \operatorname{Ext} A$.
+		\item Suppose $x\in \partial A$. Then $x\notin\operatorname{Int} A$ and $x\notin\operatorname{Ext} A$. By parts (a) and (b), every neighborhood of $x$ is not contained in $A$ (so contains a point in $X\smallsetminus A$) and not contained in $X\smallsetminus A$ (so contains a point in $A$). Therefore every neighborhood of $x$ contains a point of $A$ and a point of $X\smallsetminus A$.
 
-		      Suppose every neighborhood of $x$ contains a point of $A$ and a point of $X\setminus A$. Then $x\notin \operatorname{Int} A$ and $x\notin \operatorname{Ext} A$. Because $X$ is the disjoint union of $\operatorname{Int}A, \partial A, \operatorname{Ext}A$, then $x\in\partial A$.
-		\item A point $x$ is in $\overline{A}$ if and only if it is not in $\operatorname{Ext} A$. By part (b), $x$ is not in $\operatorname{Ext} A$ if and only if every neighborhood of $x$ is not contained in $X\setminus A$. Therefore $x$ is not in $\operatorname{Ext} A$ if and only if every neighborhood of $x$ contains a point of $A$.
+		      Suppose every neighborhood of $x$ contains a point of $A$ and a point of $X\smallsetminus A$. Then $x\notin \operatorname{Int} A$ and $x\notin \operatorname{Ext} A$. Because $X$ is the disjoint union of $\operatorname{Int}A, \partial A, \operatorname{Ext}A$, then $x\in\partial A$.
+		\item A point $x$ is in $\overline{A}$ if and only if it is not in $\operatorname{Ext} A$. By part (b), $x$ is not in $\operatorname{Ext} A$ if and only if every neighborhood of $x$ is not contained in $X\smallsetminus A$. Therefore $x$ is not in $\operatorname{Ext} A$ if and only if every neighborhood of $x$ contains a point of $A$.
 
 		\item Suppose $x\in A\cup\partial A$. If $x\in A$ then every neighborhood of $x$ contains a point of $A$. If $x\in \partial A$ then every neighborhood of $x$ contains a point of $A$ (follows from part (c)). Therefore, according to part (d), $x\in\overline{A}$. Hence $A\cup\partial A\subseteq \overline{A}$.
 
-		      Suppose $x\in\overline{A}$. Then every neighborhood of $x$ contains a point of $A$. $x$ is either in $A$ or $X\setminus A$, if $x\in X\setminus A$ then every neighborhood of $x$ contains a point of $A$ (the previous sentence) and a point of $X\setminus A$ (for example, the point $x$). So by part (c), if $x\in X\setminus A$ then $x\in\partial A$. Hence $x\in A\cup\partial A$.
+		      Suppose $x\in\overline{A}$. Then every neighborhood of $x$ contains a point of $A$. $x$ is either in $A$ or $X\smallsetminus A$, if $x\in X\smallsetminus A$ then every neighborhood of $x$ contains a point of $A$ (the previous sentence) and a point of $X\smallsetminus A$ (for example, the point $x$). So by part (c), if $x\in X\smallsetminus A$ then $x\in\partial A$. Hence $x\in A\cup\partial A$.
 
 		      Therefore $\overline{A} = A\cup\partial A$.
 
-		      By the definition of exteriors, and the result that $X$ is the disjoint union of $\operatorname{Int}A, \operatorname{Ext}A, \partial A$, we conclude that $\overline{A} = X\setminus \operatorname{Ext} A = \operatorname{Int} A\cup \partial A$.
+		      By the definition of exteriors, and the result that $X$ is the disjoint union of $\operatorname{Int}A, \operatorname{Ext}A, \partial A$, we conclude that $\overline{A} = X\smallsetminus \operatorname{Ext} A = \operatorname{Int} A\cup \partial A$.
 
 		\item $\operatorname{Int} A$ is the union of all open sets contained in $A$, so it is open in $X$.
 
-		      By parts (a) and (b), $\operatorname{Ext} A = \operatorname{Int} (X\setminus A)$, it follows from the previous sentence that $\operatorname{Ext} A$ is open in $X$.
+		      By parts (a) and (b), $\operatorname{Ext} A = \operatorname{Int} (X\smallsetminus A)$, it follows from the previous sentence that $\operatorname{Ext} A$ is open in $X$.
 
-		      Because $\overline{A} = X\setminus\operatorname{Ext} A$ so $\overline{A}$ is closed in $X$.
+		      Because $\overline{A} = X\smallsetminus\operatorname{Ext} A$ so $\overline{A}$ is closed in $X$.
 
-		      Because $\partial A = X\setminus (\operatorname{Int} A \cup \operatorname{Ext} A)$ so $\partial A$ is closed in $X$.
+		      Because $\partial A = X\smallsetminus (\operatorname{Int} A \cup \operatorname{Ext} A)$ so $\partial A$ is closed in $X$.
 
 		\item Suppose $A$ is open, then $A$ is the largest open set contained in $A$, so $A = \operatorname{Int} A$.
 
 		      Suppose $A = \operatorname{Int} A$. Then $A\cap \partial A = \operatorname{Int} A \cap \partial A = \varnothing$. Hence $A$ contains none of its boundary points.
 
-		      Suppose $A$ contains none of its boundary points. Let $x$ be a point of $A$ then $x$ is not a boundary point of $A$. By part (c), there exists a neighborhood of $x$ contained in $X\setminus A$ or a neighborhood of $x$ contained in $A$. The former case is impossible because $x\in A$, so the latter is the case. Because $x$ is an arbitrary point of $A$, we conclude that every point of $A$ has a neighborhood contained in $A$.
+		      Suppose $A$ contains none of its boundary points. Let $x$ be a point of $A$ then $x$ is not a boundary point of $A$. By part (c), there exists a neighborhood of $x$ contained in $X\smallsetminus A$ or a neighborhood of $x$ contained in $A$. The former case is impossible because $x\in A$, so the latter is the case. Because $x$ is an arbitrary point of $A$, we conclude that every point of $A$ has a neighborhood contained in $A$.
 
 		      Suppose every point $x$ of $A$ has a neighborhood $N_{x}$ contained in $A$. Then $A = \bigcup_{x\in A}N_{x}$, which implies that $A$ is open.
 
@@ -202,9 +202,9 @@
 
 		      Suppose $A = \overline{A}$. By part (e), $A = \overline{A} = A\cup\partial A$. Therefore $A$ contains all of its boundary points.
 
-		      Suppose $A$ contains all of its boundary points. Let $x$ be a point of $X\setminus A$, then $x$ is not a boundary point of $A$. By part (c), there exists a neighborhood of $x$ contained in $A$ or a neighborhood of $x$ contained in $X\setminus A$. The former case is impossible because $x\in X\setminus A$, so the latter is the case. Because $x$ is an arbitrary point of $X\setminus A$, we conclude that every point of $X\setminus A$ has a neighborhood contained in $X\setminus A$.
+		      Suppose $A$ contains all of its boundary points. Let $x$ be a point of $X\smallsetminus A$, then $x$ is not a boundary point of $A$. By part (c), there exists a neighborhood of $x$ contained in $A$ or a neighborhood of $x$ contained in $X\smallsetminus A$. The former case is impossible because $x\in X\smallsetminus A$, so the latter is the case. Because $x$ is an arbitrary point of $X\smallsetminus A$, we conclude that every point of $X\smallsetminus A$ has a neighborhood contained in $X\smallsetminus A$.
 
-		      Suppose every point of $X\setminus A$ has a neighborhood contained in $X\setminus A$. By part (g), $X\setminus A$ is open. Therefore $A$ is closed.
+		      Suppose every point of $X\smallsetminus A$ has a neighborhood contained in $X\smallsetminus A$. By part (g), $X\smallsetminus A$ is open. Therefore $A$ is closed.
 	\end{enumerate}
 \end{proof}
 
@@ -215,9 +215,9 @@
 \begin{proof}
 	Let $(X, \mathscr{T})$ be a topological space and $A\subseteq X$.
 
-	Suppose $A$ is closed. By Exercise~\ref{exercise:2.9} (h), $A = \overline{A}$. Assume $A$ has a limit point $x$ which is not in $A$, then $x$ is not in $\overline{A}$ (because $A = \overline{A}$). Therefore $x\in\operatorname{Ext} A = X\setminus\overline{A}$. By Exercise~\ref{exercise:2.9} (b), there exists a neighborhood of $x$ contained in $X\setminus A$, this contradicts $x$ being a limit point of $A$ (every neighborhood of $x$ contains a point of $A$ other than $x$). Hence $A$ contains all of its limit points.
+	Suppose $A$ is closed. By Exercise~\ref{exercise:2.9} (h), $A = \overline{A}$. Assume $A$ has a limit point $x$ which is not in $A$, then $x$ is not in $\overline{A}$ (because $A = \overline{A}$). Therefore $x\in\operatorname{Ext} A = X\smallsetminus\overline{A}$. By Exercise~\ref{exercise:2.9} (b), there exists a neighborhood of $x$ contained in $X\smallsetminus A$, this contradicts $x$ being a limit point of $A$ (every neighborhood of $x$ contains a point of $A$ other than $x$). Hence $A$ contains all of its limit points.
 
-	Suppose $A$ contains all of its limit points. Let $y\in X\setminus A$ then $y$ is not a limit point of $A$. So there exists a neighborhood of $y$ contained in $X\setminus A$. Hence every point of $X\setminus A$ has a neighborhood contained in $X\setminus A$. By Exercise~\ref{exercise:2.9} (g), $X\setminus A$ is open, which implies $A$ is closed.
+	Suppose $A$ contains all of its limit points. Let $y\in X\smallsetminus A$ then $y$ is not a limit point of $A$. So there exists a neighborhood of $y$ contained in $X\smallsetminus A$. Hence every point of $X\smallsetminus A$ has a neighborhood contained in $X\smallsetminus A$. By Exercise~\ref{exercise:2.9} (g), $X\smallsetminus A$ is open, which implies $A$ is closed.
 
 	Thus $A$ is closed in $X$ if and only if it contains all of its limit points.
 \end{proof}
@@ -231,7 +231,7 @@
 
 	Suppose $A$ is dense in $X$, then $\overline{A} = X$. Let $B$ be a nonempty open subset of $X$ and $x\in B$. If $x\in A$ then $B$ contains a point of $A$. If $x\notin A$ then $x$ is a limit point of $A$ (because $\overline{A} = X$), so $B$ contains a point of $A$, due to the definition of limit point. Hence every nonempty open subset of $X$ contains a point of $A$.
 
-	Suppose every nonempty open subset of $X$ contains a point of $A$. Let $x\in X$ then $x$ is either in $A$ or $X\setminus A$. If $x\in X\setminus A$ then $x$ is a limit point of $A$ (because every neighborhood (which is open) of $x$ contains a point of $A$ other than $x$). Hence $x\in \overline{A}$, which implies $X\subseteq \overline{A}$, since $x$ is arbitrary. Together with $\overline{A}\subseteq X$, we conclude that $\overline{A} = X$, which means $A$ is dense in $X$.
+	Suppose every nonempty open subset of $X$ contains a point of $A$. Let $x\in X$ then $x$ is either in $A$ or $X\smallsetminus A$. If $x\in X\smallsetminus A$ then $x$ is a limit point of $A$ (because every neighborhood (which is open) of $x$ contains a point of $A$ other than $x$). Hence $x\in \overline{A}$, which implies $X\subseteq \overline{A}$, since $x$ is arbitrary. Together with $\overline{A}\subseteq X$, we conclude that $\overline{A} = X$, which means $A$ is dense in $X$.
 
 	Thus $A\subseteq X$ is dense if and only if every nonempty open subset of $X$ contains a point of $A$.
 \end{proof}
@@ -269,7 +269,7 @@
 \end{exercise}
 
 \begin{proof}
-	Assume $x\notin \overline{A}$, then $x\in X\setminus\overline{A} = \operatorname{Ext} A$. By Exercise~\ref{exercise:2.9} (b), there exists a neighborhood $U$ of $x$ which is contained in $X\setminus A$. However, because $x_{i}\to x$, there exists $N\in\mathbb{N}$ such that $x_{i}\in U$ for all $i\geq N$. The open set $U$ is contained in $X\setminus A$ and contains a point of $A$, this is a contradiction. Thus $x\in\overline{A}$.
+	Assume $x\notin \overline{A}$, then $x\in X\smallsetminus\overline{A} = \operatorname{Ext} A$. By Exercise~\ref{exercise:2.9} (b), there exists a neighborhood $U$ of $x$ which is contained in $X\smallsetminus A$. However, because $x_{i}\to x$, there exists $N\in\mathbb{N}$ such that $x_{i}\in U$ for all $i\geq N$. The open set $U$ is contained in $X\smallsetminus A$ and contains a point of $A$, this is a contradiction. Thus $x\in\overline{A}$.
 \end{proof}
 
 \begin{exercise}{2.16}
@@ -279,19 +279,19 @@
 \begin{proof}
 	Let $f$ be a map between two topological spaces $X$ and $Y$.
 
-	Suppose $f$ is continuous. Let $W$ be a closed subset of $Y$, then $Y\setminus W$ is open. Because preimage is well-behaved with set difference,
+	Suppose $f$ is continuous. Let $W$ be a closed subset of $Y$, then $Y\smallsetminus W$ is open. Because preimage is well-behaved with set difference,
 	\[
-		f^{-1}(W) = f^{-1}(Y\setminus (Y\setminus W)) = f^{-1}(Y)\setminus f^{-1}(Y\setminus W) = X\setminus f^{-1}(Y\setminus W)
+		f^{-1}(W) = f^{-1}(Y\smallsetminus (Y\smallsetminus W)) = f^{-1}(Y)\smallsetminus f^{-1}(Y\smallsetminus W) = X\smallsetminus f^{-1}(Y\smallsetminus W)
 	\]
 
-	$Y\setminus W$ is open in $Y$. Because $f$ is continuous, $f^{-1}(Y\setminus W)$ is open in $X$, therefore $f^{-1}(W) = X\setminus f^{-1}(Y\setminus W)$ is closed in $X$. Hence the preimage of every closed subset is closed.
+	$Y\smallsetminus W$ is open in $Y$. Because $f$ is continuous, $f^{-1}(Y\smallsetminus W)$ is open in $X$, therefore $f^{-1}(W) = X\smallsetminus f^{-1}(Y\smallsetminus W)$ is closed in $X$. Hence the preimage of every closed subset is closed.
 
 	Suppose the preimage of every closed subset is closed. Let $U$ be an open subset of $Y$.
 	\[
-		f^{-1}(U) = f^{-1}(Y\setminus (Y\setminus U)) = f^{-1}(Y)\setminus f^{-1}(Y\setminus U) = X\setminus f^{-1}(Y\setminus U)
+		f^{-1}(U) = f^{-1}(Y\smallsetminus (Y\smallsetminus U)) = f^{-1}(Y)\smallsetminus f^{-1}(Y\smallsetminus U) = X\smallsetminus f^{-1}(Y\smallsetminus U)
 	\]
 
-	Because $U$ is open in $Y$, $Y\setminus U$ is closed in $Y$. Since the preimage under $f$ of every closed subset is closed, $f^{-1}(Y\setminus U)$ is closed in $X$. So $f^{-1}(U) = X\setminus f^{-1}(Y\setminus U)$ is open in $X$. Hence the preimage under $f$ of every open subset is open, which means $f$ is continuous.
+	Because $U$ is open in $Y$, $Y\smallsetminus U$ is closed in $Y$. Since the preimage under $f$ of every closed subset is closed, $f^{-1}(Y\smallsetminus U)$ is closed in $X$. So $f^{-1}(U) = X\smallsetminus f^{-1}(Y\smallsetminus U)$ is open in $X$. Hence the preimage under $f$ of every open subset is open, which means $f$ is continuous.
 
 	Thus a map between topological spaces is continuous if and only if the preimage of every closed subset is closed.
 \end{proof}
@@ -506,7 +506,7 @@
 \begin{proof}
 	The discrete topology is a Hausdorff topology.
 
-	Let $(X, \mathscr{T})$ be a topological space and $X$ is finite. Suppose $X$ is Hausdorff, then every finite subset of $X$ is closed. Let $A$ be a subset of $X$. Because $X$ is finite, $X\setminus A$ is finite, hence closed. Therefore $A$ is open. So $\mathscr{T}$ is the discrete topology.
+	Let $(X, \mathscr{T})$ be a topological space and $X$ is finite. Suppose $X$ is Hausdorff, then every finite subset of $X$ is closed. Let $A$ be a subset of $X$. Because $X$ is finite, $X\smallsetminus A$ is finite, hence closed. Therefore $A$ is open. So $\mathscr{T}$ is the discrete topology.
 \end{proof}
 
 \section*{Bases and Countability}\addcontentsline{toc}{section}{Bases and Countability}
@@ -641,14 +641,14 @@ Let $X$ be an infinite set.
 \begin{enumerate}[label={(\alph*)}]
 	\item Show that
 	      \[
-		      \mathscr{T}_{1} = \{ U\subseteq X : U = \varnothing \text{ or } X\setminus U \text{ is finite} \}
+		      \mathscr{T}_{1} = \{ U\subseteq X : U = \varnothing \text{ or } X\smallsetminus U \text{ is finite} \}
 	      \]
 
 	      is a topology on $X$, called the \textbf{finite complement topology}.
 
 	\item Show that
 	      \[
-		      \mathscr{T}_{2} = \{ U\subseteq X : U = \varnothing \text{ or } X\setminus U \text{ is countable} \}
+		      \mathscr{T}_{2} = \{ U\subseteq X : U = \varnothing \text{ or } X\smallsetminus U \text{ is countable} \}
 	      \]
 
 	      is a topology on $X$, called the \textbf{countable complement topology}.
@@ -670,7 +670,7 @@ Let $X$ be an infinite set.
 	\item Determine whether
 
 	      \[
-		      \mathscr{T}_{5} = \{ U\subseteq X : U = X \text{ or } X\setminus U \text{ is infinite} \}
+		      \mathscr{T}_{5} = \{ U\subseteq X : U = X \text{ or } X\smallsetminus U \text{ is infinite} \}
 	      \]
 
 	      is a topology on $X$.
@@ -679,38 +679,38 @@ Let $X$ be an infinite set.
 
 \begin{proof}
 	\begin{enumerate}[label={(\alph*)}]
-		\item $\varnothing\in\mathscr{T}_{1}$ by definition. $X\in\mathscr{T}_{1}$ because $X\setminus X = \varnothing$ is finite.
+		\item $\varnothing\in\mathscr{T}_{1}$ by definition. $X\in\mathscr{T}_{1}$ because $X\smallsetminus X = \varnothing$ is finite.
 
 		      Let ${(U_{i})}_{i\in I}$ be a collection of elements of $\mathscr{T}_{1}$. By De Morgan's law
 		      \[
-			      X\setminus \left(\bigcup_{i\in I} U_{i}\right) = \bigcap_{i\in I} X\setminus U_{i}.
+			      X\smallsetminus \left(\bigcup_{i\in I} U_{i}\right) = \bigcap_{i\in I} X\smallsetminus U_{i}.
 		      \]
 
-		      If $U_{i} = \varnothing$ for every $i\in I$ then $\bigcup_{i\in I} U_{i}\in\mathscr{T}_{1}$. If there is $j\in I$ such that $U_{j}\ne\varnothing$ then $\bigcap_{i\in I} X\setminus U_{i}$ is a subset of $X\setminus U_{j}$, hence finite. Therefore $\bigcup_{i\in I} U_{i}\in\mathscr{T}_{1}$. So $\mathscr{T}_{1}$ is closed under arbitrary union.
+		      If $U_{i} = \varnothing$ for every $i\in I$ then $\bigcup_{i\in I} U_{i}\in\mathscr{T}_{1}$. If there is $j\in I$ such that $U_{j}\ne\varnothing$ then $\bigcap_{i\in I} X\smallsetminus U_{i}$ is a subset of $X\smallsetminus U_{j}$, hence finite. Therefore $\bigcup_{i\in I} U_{i}\in\mathscr{T}_{1}$. So $\mathscr{T}_{1}$ is closed under arbitrary union.
 
 		      Suppose $U_{1}, \ldots, U_{n}\in\mathscr{T}_{1}$, then
 		      \[
-			      X\setminus \left(\bigcap^{n}_{i=1}U_{i}\right) = \bigcup^{n}_{i=1}X\setminus U_{i}.
+			      X\smallsetminus \left(\bigcap^{n}_{i=1}U_{i}\right) = \bigcup^{n}_{i=1}X\smallsetminus U_{i}.
 		      \]
 
-		      If there is $i \in \{1,\ldots,n\}$ such that $U_{i} = \varnothing$ then $\bigcap^{n}_{i=1}U_{i} = \varnothing$, so $\bigcap^{n}_{i=1}U_{i}\in\mathscr{T}_{1}$.  If $U_{i}\ne\varnothing$ for all $i=1,\ldots,n$, then $\bigcup^{n}_{i=1}X\setminus U_{i}$ is finite, hence $\bigcap^{n}_{i=1}U_{i}\in\mathscr{T}_{1}$. So $\mathscr{T}_{1}$ is closed under finite intersection.
+		      If there is $i \in \{1,\ldots,n\}$ such that $U_{i} = \varnothing$ then $\bigcap^{n}_{i=1}U_{i} = \varnothing$, so $\bigcap^{n}_{i=1}U_{i}\in\mathscr{T}_{1}$.  If $U_{i}\ne\varnothing$ for all $i=1,\ldots,n$, then $\bigcup^{n}_{i=1}X\smallsetminus U_{i}$ is finite, hence $\bigcap^{n}_{i=1}U_{i}\in\mathscr{T}_{1}$. So $\mathscr{T}_{1}$ is closed under finite intersection.
 
 		      Thus $\mathscr{T}_{1}$ is a topology on $X$.i
-		\item $\varnothing\in\mathscr{T}_{2}$ by definition. $X\in\mathscr{T}_{2}$ because $X\setminus X = \varnothing$ is countable.
+		\item $\varnothing\in\mathscr{T}_{2}$ by definition. $X\in\mathscr{T}_{2}$ because $X\smallsetminus X = \varnothing$ is countable.
 
 		      Suppose ${(U_{i})}_{i\in I}$ is a collection of elements of $\mathscr{T}_{2}$. By De Morgan's law
 		      \[
-			      X\setminus \left(\bigcup_{i\in I} U_{i}\right) = \bigcap_{i\in I} X\setminus U_{i}.
+			      X\smallsetminus \left(\bigcup_{i\in I} U_{i}\right) = \bigcap_{i\in I} X\smallsetminus U_{i}.
 		      \]
 
-		      If $U_{i} = \varnothing$ for every $i\in I$ then $\bigcup_{i\in I} U_{i}\in\mathscr{T}_{2}$. If there is $j\in I$ such that $U_{j}\ne\varnothing$ then $\bigcap_{i\in I} X\setminus U_{i}$ is a subset of $X\setminus U_{j}$, hence countable. Therefore $\bigcup_{i\in I} U_{i}\in\mathscr{T}_{2}$. So $\mathscr{T}_{2}$ is closed under arbitrary union.
+		      If $U_{i} = \varnothing$ for every $i\in I$ then $\bigcup_{i\in I} U_{i}\in\mathscr{T}_{2}$. If there is $j\in I$ such that $U_{j}\ne\varnothing$ then $\bigcap_{i\in I} X\smallsetminus U_{i}$ is a subset of $X\smallsetminus U_{j}$, hence countable. Therefore $\bigcup_{i\in I} U_{i}\in\mathscr{T}_{2}$. So $\mathscr{T}_{2}$ is closed under arbitrary union.
 
 		      Suppose $U_{1}, \ldots, U_{n}\in\mathscr{T}_{2}$, then
 		      \[
-			      X\setminus \left(\bigcap^{n}_{i=1}U_{i}\right) = \bigcup^{n}_{i=1}X\setminus U_{i}.
+			      X\smallsetminus \left(\bigcap^{n}_{i=1}U_{i}\right) = \bigcup^{n}_{i=1}X\smallsetminus U_{i}.
 		      \]
 
-		      If there is $i \in \{1,\ldots,n\}$ such that $U_{i} = \varnothing$ then $\bigcap^{n}_{i=1}U_{i} = \varnothing$, so $\bigcap^{n}_{i=1}U_{i}\in\mathscr{T}_{2}$.  If $U_{i}\ne\varnothing$ for all $i=1,\ldots,n$, then $\bigcup^{n}_{i=1}X\setminus U_{i}$ is countable (finite unions of countable sets are countable), hence $\bigcap^{n}_{i=1}U_{i}\in\mathscr{T}_{2}$. So $\mathscr{T}_{2}$ is closed under finite intersection.
+		      If there is $i \in \{1,\ldots,n\}$ such that $U_{i} = \varnothing$ then $\bigcap^{n}_{i=1}U_{i} = \varnothing$, so $\bigcap^{n}_{i=1}U_{i}\in\mathscr{T}_{2}$.  If $U_{i}\ne\varnothing$ for all $i=1,\ldots,n$, then $\bigcup^{n}_{i=1}X\smallsetminus U_{i}$ is countable (finite unions of countable sets are countable), hence $\bigcap^{n}_{i=1}U_{i}\in\mathscr{T}_{2}$. So $\mathscr{T}_{2}$ is closed under finite intersection.
 
 		      Thus $\mathscr{T}_{2}$ is a topology on $X$.
 		\item $\varnothing\in\mathscr{T}_{3}$ by definition. $X$ contains the element $p$ so $X\in\mathscr{T}_{3}$.
@@ -731,7 +731,7 @@ Let $X$ be an infinite set.
 
 		      If $X$ is finite then $\mathscr{T}_{5}$ is not a topology on $X$ because $\varnothing\notin\mathscr{T}_{5}$.
 
-		      If $X$ is infinite, then $X$ has a countable subset $Y = \{ x_{n} : n\in\mathbb{N} \}$. Let $A = \{ x_{2n-1}: n\in\mathbb{N} \}$ and $B = \{ x_{2n} : n\in\mathbb{N} \text{ and } n\geq 2 \}\cup (X\setminus Y)$, then $A, B\in\mathscr{T}_{5}$. However, $A\cup B = X\setminus\{x_{2}\}\notin \mathscr{T}_{5}$.
+		      If $X$ is infinite, then $X$ has a countable subset $Y = \{ x_{n} : n\in\mathbb{N} \}$. Let $A = \{ x_{2n-1}: n\in\mathbb{N} \}$ and $B = \{ x_{2n} : n\in\mathbb{N} \text{ and } n\geq 2 \}\cup (X\smallsetminus Y)$, then $A, B\in\mathscr{T}_{5}$. However, $A\cup B = X\smallsetminus\{x_{2}\}\notin \mathscr{T}_{5}$.
 	\end{enumerate}
 \end{proof}
 
@@ -756,22 +756,22 @@ Let $X = \{ 1, 2, 3 \}$. Give a list of topologies on $X$ such that every topolo
 \begin{problem}{2-3}
 Let $X$ be a topological space and $B$ be a subset of $X$. Prove the following set equalities.
 \begin{enumerate}[label={(\alph*)}]
-	\item $\overline{X\setminus B} = X\setminus\operatorname{Int} B$.
-	\item $\operatorname{Int}(X\setminus B) = X\setminus \overline{B}$.
+	\item $\overline{X\smallsetminus B} = X\smallsetminus\operatorname{Int} B$.
+	\item $\operatorname{Int}(X\smallsetminus B) = X\smallsetminus \overline{B}$.
 \end{enumerate}
 \end{problem}
 
 \begin{proof}
-	We will show that $\operatorname{Ext}A = \operatorname{Int}(X\setminus A)$ for every $A\subseteq X$.
+	We will show that $\operatorname{Ext}A = \operatorname{Int}(X\smallsetminus A)$ for every $A\subseteq X$.
 
-	Suppose $x\in \operatorname{Ext}A$. By Exercise~\ref{exercise:2.9} (b), there is an open neighborhood $U$ of $x$ contained in $X\setminus A$. By Exercise~\ref{exercise:2.9} (a), $x\in U\subseteq \operatorname{Int}(X\setminus A)$. So $\operatorname{Ext}A \subseteq \operatorname{Int}(X\setminus A)$.
+	Suppose $x\in \operatorname{Ext}A$. By Exercise~\ref{exercise:2.9} (b), there is an open neighborhood $U$ of $x$ contained in $X\smallsetminus A$. By Exercise~\ref{exercise:2.9} (a), $x\in U\subseteq \operatorname{Int}(X\smallsetminus A)$. So $\operatorname{Ext}A \subseteq \operatorname{Int}(X\smallsetminus A)$.
 
-	Suppose $x\in \operatorname{Int}(X\setminus A)$. By Exercise~\ref{exercise:2.9} (a), there is an open neighborhood $U$ of $x$ contained in $X\setminus A$. By Exercise~\ref{exercise:2.9} (b), $x\in U\subseteq \operatorname{Ext}(A)$. So $\operatorname{Int}(X\setminus A) = \operatorname{Ext} A$.
+	Suppose $x\in \operatorname{Int}(X\smallsetminus A)$. By Exercise~\ref{exercise:2.9} (a), there is an open neighborhood $U$ of $x$ contained in $X\smallsetminus A$. By Exercise~\ref{exercise:2.9} (b), $x\in U\subseteq \operatorname{Ext}(A)$. So $\operatorname{Int}(X\smallsetminus A) = \operatorname{Ext} A$.
 
-	Hence $\operatorname{Ext}A = \operatorname{Int}(X\setminus A)$.
+	Hence $\operatorname{Ext}A = \operatorname{Int}(X\smallsetminus A)$.
 	\begin{enumerate}[label={(\alph*)}]
-		\item $\operatorname{Int}B = \operatorname{Ext}(X\setminus B) = X\setminus\overline{X\setminus B}$. Therefore $\overline{X\setminus B} = X\setminus\operatorname{Int}B$.
-		\item $\operatorname{Int}(X\setminus B) = \operatorname{Ext}B = X\setminus\overline{B}$.
+		\item $\operatorname{Int}B = \operatorname{Ext}(X\smallsetminus B) = X\smallsetminus\overline{X\smallsetminus B}$. Therefore $\overline{X\smallsetminus B} = X\smallsetminus\operatorname{Int}B$.
+		\item $\operatorname{Int}(X\smallsetminus B) = \operatorname{Ext}B = X\smallsetminus\overline{B}$.
 	\end{enumerate}
 \end{proof}
 
@@ -818,12 +818,12 @@ When $\mathscr{A}$ is a finite collection, show that equality holds in (b) and (
 		      So in (a), the equality does not necessarily hold when the collection $\mathscr{A}$ is finite.
 		\item Suppose $x\notin \bigcup_{A\in\mathscr{A}}\overline{A}$, then
 		      \[
-			      x\in X\setminus \left(\bigcup_{A\in\mathscr{A}}\overline{A}\right) = \bigcap_{A\in\mathscr{A}}X\setminus\overline{A} = \bigcap_{A\in\mathscr{A}}\operatorname{Ext}A.
+			      x\in X\smallsetminus \left(\bigcup_{A\in\mathscr{A}}\overline{A}\right) = \bigcap_{A\in\mathscr{A}}X\smallsetminus\overline{A} = \bigcap_{A\in\mathscr{A}}\operatorname{Ext}A.
 		      \]
 
-		      By Exercise~\ref{exercise:2.9} (b), for every $A\in\mathscr{A}$, there is a neighborhood $U_{A}$ of $x$ that is contained in $X\setminus A$. Because $\mathscr{A}$ is finite, $\bigcap_{A\in\mathscr{A}}U_{A}$ is open (finite intersection of open subsets is open) and is a neighborhood of $x$ that is contained in $\bigcap_{A\in\mathscr{A}}X\setminus A = X\setminus\bigcup_{A\in\mathscr{A}}A$. Therefore $x\in \operatorname{Ext}\left({\bigcup_{A\in\mathscr{A}}A}\right)$, hence $x\notin\overline{\bigcup_{A\in\mathscr{A}}A}$.
+		      By Exercise~\ref{exercise:2.9} (b), for every $A\in\mathscr{A}$, there is a neighborhood $U_{A}$ of $x$ that is contained in $X\smallsetminus A$. Because $\mathscr{A}$ is finite, $\bigcap_{A\in\mathscr{A}}U_{A}$ is open (finite intersection of open subsets is open) and is a neighborhood of $x$ that is contained in $\bigcap_{A\in\mathscr{A}}X\smallsetminus A = X\smallsetminus\bigcup_{A\in\mathscr{A}}A$. Therefore $x\in \operatorname{Ext}\left({\bigcup_{A\in\mathscr{A}}A}\right)$, hence $x\notin\overline{\bigcup_{A\in\mathscr{A}}A}$.
 
-		      Hence $X\setminus \bigcup_{A\in\mathscr{A}}\overline{A} \subseteq X\setminus \overline{\bigcup_{A\in\mathscr{A}}A}$, which means $\overline{\bigcup_{A\in\mathscr{A}}A}\subseteq \bigcup_{A\in\mathscr{A}}\overline{A}$. In combination with part (b), we conclude that
+		      Hence $X\smallsetminus \bigcup_{A\in\mathscr{A}}\overline{A} \subseteq X\smallsetminus \overline{\bigcup_{A\in\mathscr{A}}A}$, which means $\overline{\bigcup_{A\in\mathscr{A}}A}\subseteq \bigcup_{A\in\mathscr{A}}\overline{A}$. In combination with part (b), we conclude that
 		      \[
 			      \overline{\bigcup_{A\in\mathscr{A}}A} = \bigcup_{A\in\mathscr{A}}\overline{A} \tag{$\mathscr{A}$ is finite}
 		      \]
@@ -868,7 +868,7 @@ For each of the following properties, give an example consisting of two subsets 
 
 		      $f$ is not open because $f$ maps every set (including open sets) to a finite set, which is a subset of $\{ (0, 0), (1, 0), (0, 1), (1, 1) \}$ and it is not open.
 
-		      $f$ is not continuous because the preimage of the open disk $B_{\sqrt{2}}((1, 1))$, which contains $(1, 1), (1, 0), (0, 1)$ but not $(0, 0)$, is $\mathbb{Q}\times\mathbb{R} \cup \mathbb{R}\times\mathbb{Q}$. However $\mathbb{Q}\times\mathbb{R} \cup \mathbb{R}\times\mathbb{Q}$ is not an open set in $\mathbb{R}^{2}$ because the neighborhood of every point contains an open cube, and every open cube contains a point of $(\mathbb{R}\setminus\mathbb{Q})\times (\mathbb{R}\setminus\mathbb{Q})$, which is not in $\mathbb{Q}\times\mathbb{R} \cup \mathbb{R}\times\mathbb{Q}$.
+		      $f$ is not continuous because the preimage of the open disk $B_{\sqrt{2}}((1, 1))$, which contains $(1, 1), (1, 0), (0, 1)$ but not $(0, 0)$, is $\mathbb{Q}\times\mathbb{R} \cup \mathbb{R}\times\mathbb{Q}$. However $\mathbb{Q}\times\mathbb{R} \cup \mathbb{R}\times\mathbb{Q}$ is not an open set in $\mathbb{R}^{2}$ because the neighborhood of every point contains an open cube, and every open cube contains a point of $(\mathbb{R}\smallsetminus\mathbb{Q})\times (\mathbb{R}\smallsetminus\mathbb{Q})$, which is not in $\mathbb{Q}\times\mathbb{R} \cup \mathbb{R}\times\mathbb{Q}$.
 		\item
 		\item
 		\item
@@ -974,17 +974,17 @@ Let $X$ be a Hausdorff space, let $A\subseteq X$, and let $A'$ denote the set of
 \end{problem}
 
 \begin{proof}
-	Let $x\in X\setminus A'$ then $x$ is not a limit point of $A$, then either
+	Let $x\in X\smallsetminus A'$ then $x$ is not a limit point of $A$, then either
 	\begin{itemize}
 		\item $x\notin A$ and $x$ is not a limit point of $A$.
 		\item $x\in A$ and $x$ is not a limit point of $A$.
 	\end{itemize}
 
-	In the former case, there is a neighborhood of $x$ that is contained in $X\setminus A$, so $x\in \operatorname{Ext}A = X\setminus\overline{A}\subseteq X\setminus A'$.
+	In the former case, there is a neighborhood of $x$ that is contained in $X\smallsetminus A$, so $x\in \operatorname{Ext}A = X\smallsetminus\overline{A}\subseteq X\smallsetminus A'$.
 
-	In the latter case, $\{ x \}$ is a neighborhood of $x$ and $x\in\{ x \}\subseteq X\setminus A'$.
+	In the latter case, $\{ x \}$ is a neighborhood of $x$ and $x\in\{ x \}\subseteq X\smallsetminus A'$.
 
-	In either cases, there is a neighborhood of $x$ contained in $X\setminus A'$. Hence $X\setminus A'$ is open in $X$, therefore $A'$ is closed in $X$.
+	In either cases, there is a neighborhood of $x$ contained in $X\smallsetminus A'$. Hence $X\smallsetminus A'$ is open in $X$, therefore $A'$ is closed in $X$.
 \end{proof}
 
 \begin{problem}{2-9}\label{problem:2-9}
@@ -1124,10 +1124,10 @@ Let $X$ be a totally ordered set. Given $X$ the \textbf{order topology}, which i
 
 		      If $a > b$, then $\closedinterval{a,b}$ is empty, hence closed in $X$. Otherwise, $a\leq b$, then
 		      \[
-			      X\setminus \closedinterval{a, b} = \openinterval{-\infty, a}\cup\openinterval{b,\infty}
+			      X\smallsetminus \closedinterval{a, b} = \openinterval{-\infty, a}\cup\openinterval{b,\infty}
 		      \]
 
-		      so $X\setminus \closedinterval{a,b}$ is open in $X$. Therefore $\closedinterval{a,b}$ is closed in $X$.
+		      so $X\smallsetminus \closedinterval{a,b}$ is open in $X$. Therefore $\closedinterval{a,b}$ is closed in $X$.
 		\item Let $a, b$ be distinct elements of $X$. $X$ is totally ordered, so either $a < b$ or $a > b$. Without loss of generality, suppose $a < b$.
 
 		      Either, there is an element $x\in X$ such that $a < x < b$, or there is no such element.
@@ -1180,11 +1180,11 @@ Suppose $X$ is a first countable space, $A$ is any subset of $X$, and $x$ is any
 
 		      Let ${(U_{n})}^{\infty}_{n=1}$ be a countable neighborhood basis of $x$. For every $n\in\mathbb{N}$, let $V_{n} = \bigcap^{n}_{k=1}U_{k}$, then $V_{n}\supseteq V_{n+1}$ for every $n\in\mathbb{N}$. Because $U_{n}\supseteq V_{n}$ and $V_{n}$ is a neighborhood of $x$ for every $n\in\mathbb{N}$, it follows that ${(V_{n})}^{\infty}_{n=1}$ is also a countable neighborhood basis of $x$, moreover, it is a nested countable neighborhood basis of $x$.
 
-		      Because $x\notin\operatorname{Ext}A = X\setminus\overline{A}$, every neighborhood of $x$ contains a point of $A$. In each $V_{n}$, there is $a_{n}$ such that $a_{n}\in A$. Let $U$ be an open set containing $x$. Because ${(V_{n})}^{\infty}_{n=1}$ is a nested countable neighborhood of $x$, there is $N\in\mathbb{N}$ such that $U\supseteq V_{i}$ for all $i\geq N$, which implies $U\ni a_{i}$ for all $i\geq N$. Therefore $x$ is a limit of the sequence ${(a_{n})}^{\infty}_{n=1}$ of points in $A$.
+		      Because $x\notin\operatorname{Ext}A = X\smallsetminus\overline{A}$, every neighborhood of $x$ contains a point of $A$. In each $V_{n}$, there is $a_{n}$ such that $a_{n}\in A$. Let $U$ be an open set containing $x$. Because ${(V_{n})}^{\infty}_{n=1}$ is a nested countable neighborhood of $x$, there is $N\in\mathbb{N}$ such that $U\supseteq V_{i}$ for all $i\geq N$, which implies $U\ni a_{i}$ for all $i\geq N$. Therefore $x$ is a limit of the sequence ${(a_{n})}^{\infty}_{n=1}$ of points in $A$.
 
 		      $(\Leftarrow)$ Suppose $x$ is a limit of a sequence of points in $A$.
 
-		      Let ${(a_{n})}^{\infty}_{n=1}$ be a sequence of points in $A$ such that $x$ is a limit of this sequence. If $x\in A$ then $x\in\overline{A}$. If $x\notin A$ then every neighborhood of $x$ contains a point of $A$ (some term of the given sequence, because $x$ is a limit of ${(a_{n})}^{\infty}_{n=1}$), and a point of $X\setminus A$ (the point $x$ itself), so $x$ is a boundary point of $A$, which means $x\in\overline{A}$ because $\overline{A} = A\cup\partial A$. In either case, we conclude that $x\in \overline{A}$.
+		      Let ${(a_{n})}^{\infty}_{n=1}$ be a sequence of points in $A$ such that $x$ is a limit of this sequence. If $x\in A$ then $x\in\overline{A}$. If $x\notin A$ then every neighborhood of $x$ contains a point of $A$ (some term of the given sequence, because $x$ is a limit of ${(a_{n})}^{\infty}_{n=1}$), and a point of $X\smallsetminus A$ (the point $x$ itself), so $x$ is a boundary point of $A$, which means $x\in\overline{A}$ because $\overline{A} = A\cup\partial A$. In either case, we conclude that $x\in \overline{A}$.
 
 		      Thus $x\in\overline{A}$ if and only if $x$ is a limit of a sequence of points in $A$.
 		\item $(\Rightarrow)$ Suppose $x\in\operatorname{Int} A$.
@@ -1346,14 +1346,14 @@ This problem refers to the topologis defined in Problem 2-1.
 
 		      Let $\mathscr{A}$ be an open cover of $\mathbb{R}$ with the excluded point topology. If every element of $\mathscr{A}$ doesn't contain $p$ then $\mathscr{A}$ doesn't cover $\mathbb{R}$. Therefore there is an element of $\mathscr{A}$ that contains $p$. Moreover, the open only set containing $p$ in $\mathbb{R}$ with the excluded point topology is $\mathbb{R}$, so $\mathscr{A}$ contains a countable subcover. It follows that $\mathbb{R}$ with the excluded point topology is Lindelöf.
 
-		      Let $\mathscr{B}$ be a basis for $\mathbb{R}$ with the excluded point topology. For every $x\in\mathbb{R}$ other than $p$, the one-element set $\{ x \}$ is open. Because $\mathscr{B}$ is a basis so $\{ x \}$ contains a basis element, which implies $\{ x \}$ is an element of $\mathscr{B}$. Because $\mathbb{R}\setminus\{p\}$ is uncountable, it follows that $\mathscr{B}$ is uncountable, therefore $\mathbb{R}$ with the excluded topology is not second countable.
+		      Let $\mathscr{B}$ be a basis for $\mathbb{R}$ with the excluded point topology. For every $x\in\mathbb{R}$ other than $p$, the one-element set $\{ x \}$ is open. Because $\mathscr{B}$ is a basis so $\{ x \}$ contains a basis element, which implies $\{ x \}$ is an element of $\mathscr{B}$. Because $\mathbb{R}\smallsetminus\{p\}$ is uncountable, it follows that $\mathscr{B}$ is uncountable, therefore $\mathbb{R}$ with the excluded topology is not second countable.
 
-		      Let $A$ be a countable subset of $\mathbb{R}$. Because $\mathbb{R}$ is uncountable, there is $b\in\mathbb{R}\setminus (A\cup\{p\})$. The one-element set $\{b\}$ is open in $\mathbb{R}$ and doesn't contain any point of $A$, so $A$ is not dense in $\mathbb{R}$. Hence every countable subset of $\mathbb{R}$ is not dense in $\mathbb{R}$ with the excluded point topology. From this, we conclude that $\mathbb{R}$ with the excluded point topology is not separable.
-		\item Let $A$ be a countably infinite subset of $\mathbb{R}$. Let $U$ be a nonempty open subset of $\mathbb{R}$. Assume $U$ doesn't contain any point of $A$, then $U\subseteq \mathbb{R}\setminus A$. It follows that $\mathbb{R}\setminus U \supseteq A$, which means $U$ is not open because its complement is not finite, and this is a contradiction. Therefore every nonempty open subset of $\mathbb{R}$ contains a point of $A$, which implies $A$ is a dense subset of $\mathbb{R}$. Moreover, $A$ is countable, so $\mathbb{R}$ with the finite complement topology is separable. (Here, we proved that every countably infinite subset of $\mathbb{R}$ is dense in $\mathbb{R}$ with the finite complement topology.)
+		      Let $A$ be a countable subset of $\mathbb{R}$. Because $\mathbb{R}$ is uncountable, there is $b\in\mathbb{R}\smallsetminus (A\cup\{p\})$. The one-element set $\{b\}$ is open in $\mathbb{R}$ and doesn't contain any point of $A$, so $A$ is not dense in $\mathbb{R}$. Hence every countable subset of $\mathbb{R}$ is not dense in $\mathbb{R}$ with the excluded point topology. From this, we conclude that $\mathbb{R}$ with the excluded point topology is not separable.
+		\item Let $A$ be a countably infinite subset of $\mathbb{R}$. Let $U$ be a nonempty open subset of $\mathbb{R}$. Assume $U$ doesn't contain any point of $A$, then $U\subseteq \mathbb{R}\smallsetminus A$. It follows that $\mathbb{R}\smallsetminus U \supseteq A$, which means $U$ is not open because its complement is not finite, and this is a contradiction. Therefore every nonempty open subset of $\mathbb{R}$ contains a point of $A$, which implies $A$ is a dense subset of $\mathbb{R}$. Moreover, $A$ is countable, so $\mathbb{R}$ with the finite complement topology is separable. (Here, we proved that every countably infinite subset of $\mathbb{R}$ is dense in $\mathbb{R}$ with the finite complement topology.)
 
-		      Let $\mathscr{A}$ be an arbitrary open cover of $\mathbb{R}$. Let $A_{0}\in\mathscr{A}$. If $A_{0} = \mathbb{R}$ then $\{A_{0}\}$ is a countable subcover of $\mathbb{R}$. If $A_{0}\subsetneq \mathbb{R}$ then $\mathbb{R}\setminus A_{0}$ is a finite subset of $\mathbb{R}$. Because $\mathscr{A}$ covers $\mathbb{R}$, for every $x\in \mathbb{R}\setminus A_{0}$, there is $A_{x}\in\mathscr{A}$ such that $x\in A_{x}$. Therefore $\{ A_{0} \} \cup \{ A_{x} : x\in \mathbb{R}\setminus A_{0} \}$ is a finite, therefore countable subcover of $\mathbb{R}$. Thus $\mathbb{R}$ with the finite complement topology is Lindelöf.
+		      Let $\mathscr{A}$ be an arbitrary open cover of $\mathbb{R}$. Let $A_{0}\in\mathscr{A}$. If $A_{0} = \mathbb{R}$ then $\{A_{0}\}$ is a countable subcover of $\mathbb{R}$. If $A_{0}\subsetneq \mathbb{R}$ then $\mathbb{R}\smallsetminus A_{0}$ is a finite subset of $\mathbb{R}$. Because $\mathscr{A}$ covers $\mathbb{R}$, for every $x\in \mathbb{R}\smallsetminus A_{0}$, there is $A_{x}\in\mathscr{A}$ such that $x\in A_{x}$. Therefore $\{ A_{0} \} \cup \{ A_{x} : x\in \mathbb{R}\smallsetminus A_{0} \}$ is a finite, therefore countable subcover of $\mathbb{R}$. Thus $\mathbb{R}$ with the finite complement topology is Lindelöf.
 
-		      Let $x\in\mathbb{R}$. Assume $\mathscr{B}_{x} = \{ B_{n} : n\in\mathbb{N} \}$ is a countable neighborhood basis of $x$. For every $n\in\mathbb{N}$, the set $\mathbb{R}\setminus B_{n}$ is finite. Let $A = \{ x \}\cup \bigcup_{n\in\mathbb{N}}\mathbb{R}\setminus B_{n}$. Because $\mathbb{R}\setminus B_{n}$ are finite, their union is countable, so $A$ is countable. $\mathbb{R}$ is uncountable so there is $y\in\mathbb{R}\setminus A$. The set $\mathbb{R}\setminus\{y\}$ is a neighborhood of $x$, but $B_{n}$ is not contained in $\mathbb{R}\setminus\{y\}$ for every $n\in\mathbb{N}$ (because $y\notin \mathbb{R}\setminus B_{n}$ for every $n\in\mathbb{N}$). Hence the assumption is false, so $\mathbb{R}$ with the finite complement topology is not first countable and not second countable (because second countability implies first countability). Moreover, none of points of $\mathbb{R}$ has a countable neighborhood basis.
+		      Let $x\in\mathbb{R}$. Assume $\mathscr{B}_{x} = \{ B_{n} : n\in\mathbb{N} \}$ is a countable neighborhood basis of $x$. For every $n\in\mathbb{N}$, the set $\mathbb{R}\smallsetminus B_{n}$ is finite. Let $A = \{ x \}\cup \bigcup_{n\in\mathbb{N}}(\mathbb{R}\smallsetminus B_{n})$. Because $\mathbb{R}\smallsetminus B_{n}$ are finite, their union (made up of countably many sets) is countable, so $A$ is countable. $\mathbb{R}$ is uncountable so there is $y\in\mathbb{R}\smallsetminus A$. The set $\mathbb{R}\smallsetminus\{y\}$ is a neighborhood of $x$, but $B_{n}$ is not contained in $\mathbb{R}\smallsetminus\{y\}$ for every $n\in\mathbb{N}$ (because $y\notin \mathbb{R}\smallsetminus B_{n}$ for every $n\in\mathbb{N}$). Hence the assumption is false, so $\mathbb{R}$ with the finite complement topology is not first countable and not second countable (because second countability implies first countability). Moreover, none of points of $\mathbb{R}$ has a countable neighborhood basis.
 	\end{enumerate}
 \end{proof}
 
