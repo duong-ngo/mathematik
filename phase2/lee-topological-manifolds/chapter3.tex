@@ -771,15 +771,47 @@
 	Show that every wedge sum of Hausdorff spaces is Hausdorff.
 \end{exercise}
 
+The following proof makes use of saturated sets and their properties, which are introduced in the next section.
+
 \begin{proof}
-	Let ${(X_{\alpha})}_{\alpha\in A}$ be an indexed family of Hausdorff spaces. For each $\alpha\in A$, let $x_{\alpha}$ be a point of $X_{\alpha}$. Use these points as base points, we obtain the wedge sum $\bigvee_{\alpha\in A}X_{\alpha} = \left(\coprod_{\alpha\in A}X_{\alpha}\right)/\{ x_{\alpha} : \alpha\in A \}$. Let $q: \coprod_{\alpha\in A}X_{\alpha}\to \bigvee_{\alpha\in A}X_{\alpha}$ be the corresponding quotient map. Let $y, z$ be two distinct points of the wedge sum. Exactly one case of the following holds
+	Let ${(X_{\alpha})}_{\alpha\in A}$ be an indexed family of Hausdorff spaces. For each $\alpha\in A$, let $x_{\alpha}$ be a point of $X_{\alpha}$. Use these points as base points, we obtain the wedge sum $\bigvee_{\alpha\in A}X_{\alpha} = \left(\coprod_{\alpha\in A}X_{\alpha}\right)/B$ where $B = \set{ x_{\alpha} : \alpha\in A }$. From the definition of wedge sum of topological spaces, every point of $B$ are identified, and the other points remain distinct from each other and from points of $B$.
+
+	Let $q: \coprod_{\alpha\in A}X_{\alpha}\to \bigvee_{\alpha\in A}X_{\alpha}$ be the corresponding quotient map. Let $q(y), q(z)$ be two distinct points of the wedge sum. Exactly one of the three following cases holds
+
+	\textbf{Case 1.} There exists $X_{\alpha}$ such that $y, z \in X_{\alpha}\smallsetminus\set{x_{\alpha}}$.
+
+	From the equivalence relation on $\coprod_{\alpha\in A}X_{\alpha}$, two points $q(y), q(z)$ are distinct points of the wedge sum. Because $X_{\alpha}$ is Hausdorff
 	\begin{itemize}
-		\item There is $X_{\alpha}$ such that $y = q(y'), z = q(z')\in q(X_{\alpha}\smallsetminus\{ x_{\alpha} \})$. Because $X_{\alpha}$ is Hausdorff, there are disjoint neighborhoods $V_{y}, V_{z}$ of $y', z'$ in $X_{\alpha}$. $V_{y}\cap (X_{\alpha}\smallsetminus\{ x_{\alpha} \}) = V_{y}\smallsetminus\{ x_{\alpha} \}$ is also a neighborhood of $y'$, $V_{z}\smallsetminus\{ x_{\alpha} \}$ is a neighborhood of $z'$. Hence $y, z$ are separated by neighborhoods $V_{y}\smallsetminus\{ x_{\alpha} \}$ and $V_{z}\smallsetminus\{ x_{\alpha} \}$ in the wedge sum.
-		\item There are $i, j\in A$ where $i\ne j$ such that $y\in q(X_{i}\smallsetminus\{ x_{i} \}), z\in q(X_{j}\smallsetminus\{ y_{i} \})$. Then $y, z$ are separated by neighborhoods $X_{i}\smallsetminus\{ x_{i} \}$ and $X_{j}\smallsetminus\{ x_{j} \}$ in the wedge sum.
-		\item $y = q(y')\in q(X_{\alpha}\smallsetminus\{x_{\alpha}\})$ and $z = q(z')\in q({\{ x_{\alpha} \}}_{\alpha\in A})$. Because $X_{\alpha}$ is Hausdorff, $y', z'$ are separated by open sets $V_{y}, V_{z}$. Then $y, z$ are separated by $V_{y}$ and $V_{z}\amalg \coprod_{i\in A, i\ne\alpha}X_{i}$ (where $V_{z}\subseteq X_{\alpha}$) in the wedge sum.
+		\item $y$ and $z$ are separated by some disjoint neighborhoods $U_{y}, U_{z}$, respectively
+		\item $y$ has a neighborhood $V_{y}$ in $X_{\alpha}$ which doesn't contain $x_{\alpha}$; $z$ has a neighborhood $V_{z}$ in $X_{\alpha}$ which doesn't contain $x_{\alpha}$
 	\end{itemize}
 
-	Thus the wedge sum of Hausdorff spaces is Hausdorff.
+	so $U_{y}\cap V_{y}$ and $U_{z}\cap V_{z}$ are disjoint neighborhoods of $y, z$ not containing $x_{\alpha}$. Moreover, $U_{y}\cap V_{y}$ and $U_{z}\cap V_{z}$ are saturated sets with respect to $q$ (because their points are pairwise inequivalent), hence $q(U_{y}\cap V_{y})$ and $q(U_{z}\cap V_{z})$ are disjoint neighborhoods of $q(y), q(z)$.
+
+	\textbf{Case 2.} There are distinct $X_{\alpha}$ and $X_{\beta}$ such that $y\in X_{\alpha}$ and $z\in X_{\beta}$.
+
+	From this assumption, it follows that $y, z\notin B$ (which can be explained using proof by contradiction). Because $X_{\alpha}$ is Hausdorff, $y$ has a neighborhood $V_{y}$ in $X_{\alpha}$ which doesn't contain $x_{\alpha}$. Similarly, $z$ has a neighborhood $V_{z}$ in $X_{\beta}$ which doesn't contain $x_{\beta}$. $V_{y}$ and $V_{z}$ are disjoint saturated neighborhoods of $y$ and $z$, and every pair of points from both neighborhoods is inequivalent, so $q(V_{y})$ and $q(V_{z})$ are disjoint neighborhoods of $q(y), q(z)$.
+
+	\textbf{Case 3.} There is $X_{\gamma}$ such that $y\in X_{\gamma}\smallsetminus\set{x_{\gamma}}$ and $z\in B$.
+
+	Because $X_{\gamma}$ is Hausdorff, $y, z$ are separated by disjoint neighborhoods $U_{y}, U_{z} \subseteq X_{\gamma}$.
+
+	The disjoint union $\coprod_{\alpha\in A} V_{\alpha}$ where
+	\begin{equation*}
+		V_{\alpha} = \begin{cases}
+			U_{z}      & \text{if $\alpha = \gamma$}   \\
+			X_{\alpha} & \text{if $\alpha \ne \gamma$}
+		\end{cases}
+	\end{equation*}
+
+	is a saturated open subset of $\coprod_{\alpha\in A}X_{\alpha}$ with respect to $q$ and it is disjoint from $U_{y}$. On the other hand $q(U_{y})$ is a neighborhood of $y$ because $U_{y}$ is a saturated open set of $X_{\gamma}$. No point of $U_{y}$ is identified with points of $\coprod_{\alpha\in A} V_{\alpha}$ and vice versa, so $q(y)$ and $q(z)$ are separated by disjoint neighborhoods
+	\begin{equation*}
+		q(U_{y}) \quad\text{and}\quad q\left(\coprod_{\alpha\in A} V_{\alpha}\right)
+	\end{equation*}
+
+	respectively.
+
+	Hence, in either cases, $q(y)$ and $q(z)$ are separated by disjoint neighborhoods. Thus every wedge sum of Hausdorff spaces is Hausdorff.
 \end{proof}
 
 \subsection*{Recognizing Quotient Maps Between Known Spaces}\addcontentsline{toc}{subsection}{Recognizing Quotient Maps Between Known Spaces}
