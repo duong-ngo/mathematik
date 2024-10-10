@@ -1612,15 +1612,17 @@ Define a basis $\mathscr{B}$ for a topology on $X$ consisting of all open rectan
 		      Then $U_{1}\cap (X\smallsetminus A)$ and $U_{2} \cap (X\smallsetminus A)$ are also disjoint neighborhoods of $(x_{1}, y_{1})$ and $(x_{2}, y_{2})$. Since they are contained in $X\smallsetminus A$, it follows that $(U_{1}\cap (X\smallsetminus A)) \times (U_{2}\cap (X\smallsetminus A))$ is a neighborhood of $\left((x_{1}, y_{1}), (x_{2}, y_{2})\right)$ contained in $(X\times X)\smallsetminus\sim$.
 
 		      From the two cases, it follows that $(X\times X)\smallsetminus\sim$ is open, hence $\sim$ is closed in $X\times X$.
-		\item Let $q: X\to X/A$ be the quotient map that induces the quotient topology.
+		\item Let $q: X \to X/A$ be the quotient map that induces the quotient topology.
 
-		      Consider two points ${[(0, 0)]}_{\sim}$ and ${[(1,0)]}_{\sim}$. Any neighborhood of ${[(1,0)]}_{\sim}$ must contains a set $D_{\varepsilon}$ for some $\varepsilon \in \openinterval{0, 1}$.
+		      We will show that two points (equivalence classes) $q((0, 0))$ and $q((1, 0))$ cannot be separated by disjoint neighborhoods.
 
-		      Let $V$ be a neighborhood of ${[(0, 0)]}_{\sim}$ in $X/A$, then the preimage $q^{-1}(V)$ is an open set containing $A$. However, $A$ is closed and not open (its boundary is $\set{\frac{1}{2}}\times\openinterval{0,1}$) so $q^{-1}(V)$ intersects $X\smallsetminus A$, hence $q^{-1}(V) \cap (X\smallsetminus A)$ is a nonempty open subset of $X$.
+		      Any neighborhood $U$ of $q((1, 0))$ must contain a set $D_{\varepsilon_{0}}$ for some $\varepsilon_{0} \in \openinterval{0,1}$.
 
-		      So every point $(\frac{1}{2}, \delta)$ of $\set{\frac{1}{2}} \times \openinterval{0, 1} \subseteq q^{-1}(V)$ has a neighborhood $N_{\delta}$ contained in $q^{-1}(V)$. Because of part (b) and $(\frac{1}{2}, \delta)$ is not in any sets of type $C_{\varepsilon}$ and $D_{\varepsilon}$, it follows that there is an open rectangle $R_{\delta}\in \mathscr{B}$ such that $(\frac{1}{2}, \delta) \in R_{\delta} \subseteq N_{\delta}$. The union $\bigcup_{\delta\in \openinterval{0,1}} R_{\delta}$ is not disjoint from $D_{\varepsilon}$ (because the union contains points with $x$-ordinates greater than $\frac{1}{2}$ with $y$-coordinates in $\openinterval{0,1}$).
+		      Let $V$ be a neighborhood of $q((0, 0))$ in $X/A$ then the preimage $q^{-1}(V)$ is a neighborhood containing $A$, since $q^{-1}((0, 0)) = A$. For every $\delta \in \openinterval{0,1}$, $\left(\frac{1}{2}, \delta\right) \in A \subseteq q^{-1}(V)$, so $\left(\frac{1}{2}, \delta\right)$ has a neighborhood $N_{\delta}$ contained in $q^{-1}(V)$.
 
-		      Hence any neighborhoods of ${[(0, 0)]}_{\sim}$ and ${[(1,0)]}_{\sim}$ are not disjoint. Thus $X/A$ is not Hausdorff.
+		      According to part (b), the basis for the topology on $X$ consists of open rectangles (whose vertices are within $\openinterval{0,1}\times\openinterval{0,1}$) and sets of type $C_{\varepsilon}, D_{\varepsilon}$. Because (for every $\delta \in \openinterval{0,1}$) the point $\left(\frac{1}{2}, \delta\right)$ doesn't lie in any set of type $C_{\varepsilon}$ or $D_{\varepsilon}$, there is an open rectangle $R_{\delta}$ such that $\left(\frac{1}{2}, \delta\right) \in R_{\delta} \subseteq N_{\delta} \subseteq q^{-1}(V)$. Consider a $\delta \in \openinterval{0, 1}$ such that $\delta < \varepsilon_{0}$, we have an open rectangle $R_{\delta}$ containing points with $x$-ordinate greater than $\frac{1}{2}$ and $y$-ordinate less than $\varepsilon_{0}$. This implies that $V$ is not disjoint from $D_{\varepsilon_{0}}$, hence $U$ and $V$ are not disjoint.
+
+		      Hence any neighborhoods of $q((0, 0))$ and $q((1, 0))$ are not disjoint. Thus $X/A$ is not Hausdorff.
 	\end{enumerate}
 \end{proof}
 
