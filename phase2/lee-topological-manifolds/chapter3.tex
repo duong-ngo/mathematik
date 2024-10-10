@@ -1,3 +1,4 @@
+% chktex-file 1
 % chktex-file 8
 \chapter{New Spaces from Old}
 
@@ -1685,3 +1686,74 @@ Let $A\subseteq \mathbb{R}$ be the set of integers, and let $X$ be the quotient 
 		      Hence the equivalence class $A$ doesn't have a countable neighborhood basis, so $\mathbb{R}/A$ is not first or second countable.
 	\end{enumerate}
 \end{proof}
+
+\begin{problem}{3-19}
+Let $G$ be a topological group and let $H\subseteq G$ be a subgroup. Show that its closure $\overline{H}$ is also a subgroup.
+\end{problem}
+
+\begin{proof}
+	In this proof, we denote by $m$ the map $m: G\times G\to G$ given by $m(g, g') = gg'$ and by $i$ the map $i: G\to G$ given by $i(g) = g^{-1}$.
+
+	$H$ is a subgroup of $G$ so $H$ contains the identity element $e_{G}$ of $G$. $H \subseteq \overline{H}$ so $e_{G} \in \overline{H}$. For every $x \in \overline{H}$, $x = x\cdot e_{G}$, so $\overline{H} \subseteq m(\overline{H}\times\overline{H})$.
+
+	Let $x \in m(\overline{H}\times \overline{H})$ and $U$ be a neighborhood of $x$. There is $(g_{1}, g_{2}) \in \overline{H}\times\overline{H}$ such that $m(g_{1}, g_{2}) = x$, so $(g_{1}, g_{2}) \in m^{-1}(U)$. Since $m$ is continuous, $m^{-1}(U)$ is open and therefore a neighborhood of $(g_{1}, g_{2})$. The collection of product open sets is a basis for the product topology on $G\times G$ so there is a product open set $B_{1}\times B_{2}$ such that $(g_{1}, g_{2}) \in B_{1}\times B_{2} \subseteq m^{-1}(U)$. Because $g_{1}, g_{2} \in \overline{H}$, from Exercise~\ref{exercise:2.9} (d), it follows that $B_{1}$ contains an element of $H$ and $B_{2}$ also contains an element of $H$. So $m^{-1}(U)$ contains an element of $H\times H$, which implies $U$ contains an element of $H$. Hence every neighborhood of $x \in m(\overline{H}\times \overline{H})$ contains an element of $H$. From Exercise~\ref{exercise:2.9} (d), we conclude that $x \in \overline{H}$, so $m(\overline{H}\times \overline{H}) \subseteq \overline{H}$.
+
+	Hence $m(\overline{H}\times\overline{H}) = \overline{H}$, which means $\overline{H}$ is closed under group multiplication.
+
+	\bigskip
+
+	$i$ is continuous. It is also bijective because the inverse of $i$ is itself, so the inverse of $i$ is continuous, therefore $i$ is a homeomorphism, hence an open and closed map. $i(H) = H$ because $H$ is a subgroup of $G$. $i(\overline{H})$ is a closed set containing $H$. Because $\overline{H}$ is the smallest closed set containing $H$, we get $\overline{H} \subseteq i(\overline{H})$.
+
+	Let $x \in i(\overline{H})$ and $U$ be a neighborhood of $x$ in $G$. There is $h\in \overline{H}$ such that $i(h) = x$. Because $i$ is continuous, $i^{-1}(U)$ is open, hence a neighborhood of $h$. Since $h\in \overline{H}$, every neighborhood of $h$ contains an element of $H$. Therefore $U = i(i^{-1}(U))$ contains an element of $i(H) = H$. Hence every neighborhood of $x$ contains an element of $H$, from which we deduce that $x \in \overline{H}$. Hence $i(\overline{H}) \subseteq \overline{H}$.
+
+	So $i(\overline{H}) = \overline{H}$, which implies that $\overline{H}$ is closed under the inverse map $i$.
+
+	Thus the closure $\overline{H}$ of the subgroup $H$ of group $G$ is also a subgroup of $G$.
+\end{proof}
+
+\begin{problem}{3-20}
+Suppose $G$ is a group that is also a topological space. Show that $G$ is a topological group if and only if the map $G\times G\to G$ given by $(x, y) \mapsto xy^{-1}$ is continuous.
+\end{problem}
+
+\begin{proof}
+	In this proof, we denote by $m$ the map $m: G\times G\to G$ given by $m(g, g') = gg'$ and by $i$ the map $i: G\to G$ given by $i(g) = g^{-1}$.
+
+	Denote by $f$ the map $G\times G\to G$ given by $(x, y) \mapsto xy^{-1}$. The map $f$ is decomposed into
+	\begin{center}
+		\begin{tikzcd}
+			G\times G \arrow{r}[below]{j} \arrow[bend left=30]{rr}{f} & G\times G \arrow{r}[below]{m} & G
+		\end{tikzcd}
+	\end{center}
+
+	where $j(x, y) = (x, y^{-1})$, in other words, $j = \operatorname{Id}_{G} \times i$.
+
+	$(\Longrightarrow)$ Suppose $G$ is a topological group.
+
+	$m$ and $i$ are continuous maps. Because $f = m\circ j$ and $j, m$ are continuous, it follows that $f$ is continuous.
+
+	$(\Longleftarrow)$ Suppose $f$ is continuous.
+
+	$i$ is decomposed into
+	\begin{center}
+		\begin{tikzcd}
+			G \arrow{r}[below]{k} \arrow[bend left=30]{rr}{i} & G\times G \arrow{r}[below]{f} & G
+		\end{tikzcd}
+	\end{center}
+
+	where $k(g) = (e_{G}, g)$. Since $k$ and $f$ are continuous, $i$ is also continuous. On the other hand, $m = f \circ j$, which is a composition of two continuous maps, so $m$ is continuous. Hence $G$ is a topological group by definition.
+\end{proof}
+
+% \begin{problem}{3-21}
+% Let $G$ be a topological group and $\Gamma \subseteq G$ be a subgroup.
+% \begin{enumerate}[label={(\alph*)}]
+% 	\item For each $g\in G$, show that there is a homeomorphism $\theta_{g}: G/\Gamma \to G/\Gamma$ such that the following diagram commutes
+% 	      \begin{figure}[htp]
+% 		      \centering
+% 		      \begin{tikzcd}
+% 			      G \arrow{r}{L_{g}} \arrow{d} & G \arrow{d} \\
+% 			      G/\Gamma \arrow{r}[below]{\theta_{g}} & G/\Gamma
+% 		      \end{tikzcd}
+% 	      \end{figure}
+% 	\item Show that every coset space is topologically homogeneous.
+% \end{enumerate}
+% \end{problem}
