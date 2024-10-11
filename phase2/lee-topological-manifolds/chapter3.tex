@@ -1683,6 +1683,8 @@ Let $A\subseteq \mathbb{R}$ be the set of integers, and let $X$ be the quotient 
 			      \item there is $\delta_{n} \in \openinterval{0, \frac{1}{2}}$ such that $\delta_{n} < \varepsilon_{n}$.
 		      \end{itemize}
 
+		      ($\openinterval{0, \frac{1}{2}}$ is used to make sure the open intervals $\openinterval{n - \varepsilon_{n}, n + \varepsilon_{n}}$ are pairwise disjoint, $\openinterval{n - \delta_{n}, n + \delta_{n}}$ are pairwise disjoint.)
+
 		      Define a saturated open set $V = \bigcup_{n\in\mathbb{Z}} \openinterval{n - \delta_{n}, n + \delta_{n}} \subseteq \mathbb{R}$. $q(V)$ then is open in $\mathbb{R}/A$. However, $V$ doesn't contain any open interval $\openinterval{n - \varepsilon_{n}, n + \varepsilon_{n}}$ so together with the equivalence relation defined on $\mathbb{R}$, we deduce that $q(V)$ doesn't contain any $U_{n}$.
 
 		      Hence the equivalence class $A$ doesn't have a countable neighborhood basis, so $\mathbb{R}/A$ is not first or second countable.
@@ -1745,17 +1747,68 @@ Suppose $G$ is a group that is also a topological space. Show that $G$ is a topo
 	where $k(g) = (e_{G}, g)$. Since $k$ and $f$ are continuous, $i$ is also continuous. On the other hand, $m = f \circ j$, which is a composition of two continuous maps, so $m$ is continuous. Hence $G$ is a topological group by definition.
 \end{proof}
 
-% \begin{problem}{3-21}
-% Let $G$ be a topological group and $\Gamma \subseteq G$ be a subgroup.
+\begin{problem}{3-21}
+Let $G$ be a topological group and $\Gamma \subseteq G$ be a subgroup.
+\begin{enumerate}[label={(\alph*)}]
+	\item For each $g\in G$, show that there is a homeomorphism $\theta_{g}: G/\Gamma \to G/\Gamma$ such that the following diagram commutes
+	      \begin{figure}[htp]
+		      \centering
+		      \begin{tikzcd}
+			      G \arrow{r}{L_{g}} \arrow{d} & G \arrow{d} \\
+			      G/\Gamma \arrow{r}[below]{\theta_{g}} & G/\Gamma
+		      \end{tikzcd}
+	      \end{figure}
+	\item Show that every coset space is topologically homogeneous.
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item Denote by $q$ the quotient map $G\to G/\Gamma$.
+
+		      $G/\Gamma$ consists of equivalence classes where $x$ is equivalent to $y$ if and only if $xy^{-1} \in \Gamma$. Denote the equivalence relation by $\sim$, and define $\theta_{g}: G/\Gamma \to G/\Gamma$ by $\theta_{g}([g']) = [gg']$ (it is well-defined!)
+
+		      Because $\theta_{g}\circ \theta_{g^{-1}} = \theta_{g^{-1}}\circ \theta_{g} = \operatorname{Id}_{G/\Gamma}$, it follows that $\theta_{g}$ is bijective. Let $U$ be an open subset of $G/\Gamma$, then
+		      \begin{align*}
+			      \theta_{g}^{-1}(U) & = \set{ [x] : [x] \in G/\Gamma, \theta_{g}([x]) \in U } \\
+			                         & = \set{ [x] : [x] \in G/\Gamma, [gx] \in U }
+		      \end{align*}
+
+		      On the other hand
+		      \begin{align*}
+			      q^{-1}(\theta_{g}^{-1}(U)) & = \bigcup_{[gx] \in U} [gx] \\
+			      q^{-1}(U)                  & = \bigcup_{[x] \in U} [x]
+		      \end{align*}
+
+		      it follows that the left translation $L_{g}$ maps $\bigcup_{[x] \in U} [x]$ onto $\bigcup_{[gx] \in U} [gx]$ bijectively. Because $L_{g}$ is a homeomorphism and $q^{-1}(U)$ is open, we deduce that $q^{-1}(\theta_{g}^{-1}(U))$ is open, so $\theta_{g}^{-1}(U)$ is open. Hence $\theta_{g}$ is continuous. Analogously, $\theta_{g}^{-1} = \theta_{g^{-1}}$ is continuous, so $\theta_{g}$ is a homeomorphism.
+
+		      Last but not least, for every $x\in G$
+		      \begin{equation*}
+			      (q\circ L_{g})(x) = q(gx) = [gx] = \theta_{g}([x]) = \theta_{g}(q(x)) = (\theta_{g}\circ q)(x)
+		      \end{equation*}
+
+		      so $q\circ L_{g} = \theta_{g}\circ q$, which implies that the diagram commutes.
+		\item Consider the coset space $G/\Gamma$. Let $[x], [y] \in G/\Gamma$. There exists $g\in G$ such that $L_{g}(x) = y$. According to part (a), $\theta_{g}([x]) = [y]$ and $\theta_{g}$ is a homeomorphism on $G/\Gamma$, so $G/\Gamma$ is topologically homogeneous, by definition. Thus every coset space is topologically homogeneous.
+	\end{enumerate}
+\end{proof}
+
+% \begin{problem}{3-22}
+% Let $G$ be a group acting by homeomorphisms on a topological space $X$, and let $\mathcal{O} \subseteq X\times X$ be the subset defined by
+% \begin{equation*}
+% 	\mathcal{O} = \set{ (x_{1}, x_{2}) : x_{1} = g\boldsymbol{\cdot} x_{2} \text{ for some $g\in G$} }.
+% \end{equation*}
+
+% It is called the \textbf{orbit relation} because $(x_{1}, x_{2}) \in \mathcal{O}$ if and only if $x_{1}$ and $x_{2}$ are in the same orbit.
 % \begin{enumerate}[label={(\alph*)}]
-% 	\item For each $g\in G$, show that there is a homeomorphism $\theta_{g}: G/\Gamma \to G/\Gamma$ such that the following diagram commutes
-% 	      \begin{figure}[htp]
-% 		      \centering
-% 		      \begin{tikzcd}
-% 			      G \arrow{r}{L_{g}} \arrow{d} & G \arrow{d} \\
-% 			      G/\Gamma \arrow{r}[below]{\theta_{g}} & G/\Gamma
-% 		      \end{tikzcd}
-% 	      \end{figure}
-% 	\item Show that every coset space is topologically homogeneous.
+% 	\item Show that the quotient map $X \to X/G$ is an open map.
+% 	\item Conclude that $X/G$ is Hausdorff if and only if $\mathcal{O}$ is closed in $X\times X$.
 % \end{enumerate}
+% \end{problem}
+
+% \begin{problem}{3-23}
+% Suppose $\Gamma$ is a normal subgroup of the topological group $G$. Show that the quotient group $G/\Gamma$ is a topological group with the quotient topology. [Hint: it might be helpful to use Problems 3-5 and 3-22.]
+% \end{problem}
+
+% \begin{problem}{3-24}
+% Consider the action of $\operatorname{O}(n)$ on $\mathbb{R}^{n}$ by matrix multiplication as in Example 3.88(b). Prove that the quotient space is homeomorphic to $\halfopenright{0, \infty}$. [Hint: consider the function $f: \mathbb{R}^{n} \to \halfopenright{0, \infty}$ given by $f(x) = \abs{x}$.]
 % \end{problem}
