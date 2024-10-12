@@ -1215,7 +1215,7 @@ Show that every closed ball in $\mathbb{R}^{n}$ is an $n$-dimensional manifold w
 	Finally, because every closed ball in $\mathbb{R}^{n}$ are homeomorphic, and $\overline{\mathbb{B}}^{n}$ is an $n$-manifold with boundary, we conclude that every closed ball and the complement of every open ball in $\mathbb{R}^{n}$ are $n$-manifolds with boundary.
 \end{proof}
 
-\begin{problem}{3-5}
+\begin{problem}{3-5}\label{problem:3-5}
 Show that a finite product of open maps is open; give a counterexample to show that a finite product of closed maps need not be closed.
 \end{problem}
 
@@ -1590,12 +1590,12 @@ Define a basis $\mathscr{B}$ for a topology on $X$ consisting of all open rectan
 
 		      Case 4. $0 < x_{1}, y_{1}, x_{2}, y_{2} < 1$.
 
-		      $\openinterval{0, 1}\times \openinterval{0, 1}$ is a subset of $X$ and the subspace topology inherited $X$ is the same to that inherited from the Euclidean topology on $\mathbb{R}\times\mathbb{R}$ (roughly because they admit open rectangles as bases). $\mathbb{R}\times\mathbb{R}$ is Hausdorff, then so is $\openinterval{0, 1}\times \openinterval{0, 1}$. Hence $(x_{1}, y_{1})$ and $(x_{2}, y_{2})$ are separated open neighborhoods.
+		      $\openinterval{0, 1}\times \openinterval{0, 1}$ is a subset of $X$ and the subspace topology inherited from $X$ is the same to that inherited from the Euclidean topology on $\mathbb{R}\times\mathbb{R}$ (roughly because they admit open rectangles as bases). $\mathbb{R}\times\mathbb{R}$ is Hausdorff, then so is $\openinterval{0, 1}\times \openinterval{0, 1}$. Hence $(x_{1}, y_{1})$ and $(x_{2}, y_{2})$ are separated open neighborhoods.
 
 		      Thus the topology in part (a) is Hausdorff.
 		\item The complement of $A$ is
 		      \begin{align*}
-			      \set{(1, 0)} \cup \left( \openinterval{\frac{1}{2}, 1} \times \openinterval{0, 1} \right) & = \set{(1, 0)} \cup \bigcup_{\varepsilon\in\openinterval{0,1}} \openinterval{\frac{1}{2}, 1} \times \openinterval{0, \varepsilon}                           \\
+			      \set{(1, 0)} \cup \left( \openinterval{\frac{1}{2}, 1} \times \openinterval{0, 1} \right) & = \set{(1, 0)} \cup \bigcup_{\varepsilon\in\openinterval{0,1}} \left(\openinterval{\frac{1}{2}, 1} \times \openinterval{0, \varepsilon}\right)              \\
 			                                                                                                & = \bigcup_{\varepsilon\in\openinterval{0,1}} \left(\set{(1, 0)} \cup \left(\openinterval{\frac{1}{2}, 1} \times \openinterval{0, \varepsilon}\right)\right) \\
 			                                                                                                & = \bigcup_{\varepsilon\in\openinterval{0,1}} D_{\varepsilon}
 		      \end{align*}
@@ -1605,7 +1605,7 @@ Define a basis $\mathscr{B}$ for a topology on $X$ consisting of all open rectan
 
 		      Case 1. $(x_{1}, y_{1}) \in A$, $(x_{2}, y_{2}) \notin A$.
 
-		      $X\smallsetminus A$ is open, according to part (c). $U_{2}\cap (X\smallsetminus A)$ is then a neighborhood of $(x_{2}, y_{2})$. From these, it follows that $U_{1} \times (U_{2}\cap (X\smallsetminus A))$ is disjoint from $\sim$. Moreover, $U_{1} \times (U_{2}\cap (X\smallsetminus A))$ is a neighborhood contains in $(X\times X)\smallsetminus\sim$ of $\left((x_{1}, y_{1}), (x_{2}, y_{2})\right)$.
+		      $X\smallsetminus A$ is open, according to part (c). $U_{2}\cap (X\smallsetminus A)$ is then a neighborhood of $(x_{2}, y_{2})$. From these, it follows that $U_{1} \times (U_{2}\cap (X\smallsetminus A))$ is disjoint from $\sim$. Moreover, $U_{1} \times (U_{2}\cap (X\smallsetminus A))$ is a neighborhood contained in $(X\times X)\smallsetminus\sim$ of $\left((x_{1}, y_{1}), (x_{2}, y_{2})\right)$.
 
 		      Case 2. Two points doesn't lie in $A$.
 
@@ -1696,7 +1696,7 @@ Let $G$ be a topological group and let $H\subseteq G$ be a subgroup. Show that i
 \end{problem}
 
 \begin{proof}
-	In this proof, we denote by $m$ the map $m: G\times G\to G$ given by $m(g, g') = gg'$ and by $i$ the map $i: G\to G$ given by $i(g) = g^{-1}$.
+	In this proof, we denote by $m$ the map $m: G\times G\to G$ given by $m(g, g') = gg'$ and by $i$ the map $i: G\to G$ given by $i(g) = g^{-1}$. We will show that $m(\overline{H}\times\overline{H}) = \overline{H}$ and $i(\overline{H}) = \overline{H}$.
 
 	$H$ is a subgroup of $G$ so $H$ contains the identity element $e_{G}$ of $G$. $H \subseteq \overline{H}$ so $e_{G} \in \overline{H}$. For every $x \in \overline{H}$, $x = x\cdot e_{G}$, so $\overline{H} \subseteq m(\overline{H}\times\overline{H})$.
 
@@ -1792,22 +1792,88 @@ Let $G$ be a topological group and $\Gamma \subseteq G$ be a subgroup.
 	\end{enumerate}
 \end{proof}
 
-% \begin{problem}{3-22}
-% Let $G$ be a group acting by homeomorphisms on a topological space $X$, and let $\mathcal{O} \subseteq X\times X$ be the subset defined by
-% \begin{equation*}
-% 	\mathcal{O} = \set{ (x_{1}, x_{2}) : x_{1} = g\boldsymbol{\cdot} x_{2} \text{ for some $g\in G$} }.
-% \end{equation*}
+\begin{problem}{3-22}\label{problem:3-22}
+Let $G$ be a group acting by homeomorphisms on a topological space $X$, and let $\mathcal{O} \subseteq X\times X$ be the subset defined by
+\begin{equation*}
+	\mathcal{O} = \set{ (x_{1}, x_{2}) : x_{1} = g\boldsymbol{\cdot} x_{2} \text{ for some $g\in G$} }.
+\end{equation*}
 
-% It is called the \textbf{orbit relation} because $(x_{1}, x_{2}) \in \mathcal{O}$ if and only if $x_{1}$ and $x_{2}$ are in the same orbit.
-% \begin{enumerate}[label={(\alph*)}]
-% 	\item Show that the quotient map $X \to X/G$ is an open map.
-% 	\item Conclude that $X/G$ is Hausdorff if and only if $\mathcal{O}$ is closed in $X\times X$.
-% \end{enumerate}
-% \end{problem}
+It is called the \textbf{orbit relation} because $(x_{1}, x_{2}) \in \mathcal{O}$ if and only if $x_{1}$ and $x_{2}$ are in the same orbit.
+\begin{enumerate}[label={(\alph*)}]
+	\item Show that the quotient map $X \to X/G$ is an open map.
+	\item Conclude that $X/G$ is Hausdorff if and only if $\mathcal{O}$ is closed in $X\times X$.
+\end{enumerate}
+\end{problem}
 
-% \begin{problem}{3-23}
-% Suppose $\Gamma$ is a normal subgroup of the topological group $G$. Show that the quotient group $G/\Gamma$ is a topological group with the quotient topology. [Hint: it might be helpful to use Problems 3-5 and 3-22.]
-% \end{problem}
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item Denote by $q$ the quotient map $X \to X/G$. Let $U$ be an open subset of $X$ then $q^{-1}(q(U))$ is the saturation of $U$ in $X$ with respect to $q$. On the other hand, from the definition of orbit relation, the saturation of $U$ is
+		      \begin{align*}
+			      q^{-1}(q(U)) = \bigcup_{x\in U} \set{ g\boldsymbol{\cdot}x : g \in G } = \bigcup_{g\in G} \set{ g\boldsymbol{\cdot} x : x\in U }
+		      \end{align*}
+
+		      Because $G$ acts by homeomorphisms on $X$, then the set $\set{ g\boldsymbol{\cdot} x : x\in U }$ is open for every $g\in G$ (because $x\mapsto g\boldsymbol{\cdot} x$ is a homeomorphism according to the definition of action by homeomorphisms). $q^{-1}(q(U))$ is therefore an union of open sets of $X$, so it is open. Moreover, since $q$ is a quotient map, $q(U)$ is open. Hence $q$ is an open map.
+		\item $\mathcal{O}$ is an equivalence relation and $X/G$ is the corresponding quotient. From Proposition 3.57, and the quotient map $X\to X/G$ is open, it follows that $X/G$ is Hausdorff if and only if $\mathcal{O}$ is closed in $X\times X$.
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{3-23}
+Suppose $\Gamma$ is a normal subgroup of the topological group $G$. Show that the quotient group $G/\Gamma$ is a topological group with the quotient topology. [Hint: it might be helpful to use Problems 3-5 and 3-22.]
+\end{problem}
+
+\begin{proof}
+	The group multiplication of $G$ is given by $m_{G}: G\times G\to G$ and that of $G/\Gamma$ is given by $m_{G/\Gamma}: (G/\Gamma)\times (G/\Gamma) \to G/\Gamma$. $i_{G}: G\to G$ is the inverse operation on $G$ and $i_{G/\Gamma}: G/\Gamma \to G/\Gamma$ is the inverse operation on $G/\Gamma$.
+
+	Because $q$ is continuous, the product map $q\times q: G\times G \to (G/\Gamma)\times (G/\Gamma)$ is also continuous. According to Problem~\ref{problem:3-22}, the quotient map $q: G \to G/\Gamma$ is open. By Problem~\ref{problem:3-5}, $q\times q$ is open. $q\times q$ is continuous, open, and surjective, so it is a quotient map.
+
+	The following diagrams commute (see Figure~\ref{fig:3-22}).
+	\begin{figure}[htp]
+		\centering
+		\renewcommand{\thefigure}{3-22}
+		\begin{tikzpicture}[every edge/.style = {draw, -latex, thick}]
+			\matrix (m) [matrix of math nodes, row sep=3em, column sep=3em]
+			{
+				G\times G                   & G        \\
+				(G/\Gamma)\times (G/\Gamma) & G/\Gamma \\
+			};
+
+			\path[->] (m-1-1) edge node[above] {$m_{G}$} (m-1-2);
+			\path[->] (m-2-1) edge node[below] {$m_{G/\Gamma}$} (m-2-2);
+			\path[->] (m-1-1) edge node[left] {$q\times q$} (m-2-1);
+			\path[->] (m-1-2) edge node[right] {$q$} (m-2-2);
+		\end{tikzpicture}
+		\qquad
+		\begin{tikzpicture}[every edge/.style = {draw, -latex, thick}]
+			\matrix (m) [matrix of math nodes, row sep=3em, column sep=3em]
+			{
+				G        & G        \\
+				G/\Gamma & G/\Gamma \\
+			};
+
+			\path[->] (m-1-1) edge node[above] {$i_{G}$} (m-1-2);
+			\path[->] (m-2-1) edge node[below] {$i_{G/\Gamma}$} (m-2-2);
+			\path[->] (m-1-1) edge node[left] {$q$} (m-2-1);
+			\path[->] (m-1-2) edge node[right] {$q$} (m-2-2);
+		\end{tikzpicture}
+		\caption{}\label{fig:3-22}
+	\end{figure}
+
+	Let $U$ be an open set of $G/\Gamma$, then $q^{-1}(U)$ is open in $G$. The following set is open in $G\times G$
+	\begin{align*}
+		{(q \times q)}^{-1}(m_{G/\Gamma}^{-1}(U)) & = {(m_{G/\Gamma} \circ (q\times q))}^{-1}(U) \\
+		                                          & = {(q\circ m_{G})}^{-1}(U)                   \\
+		                                          & = m_{G}^{-1}(q^{-1}(U))
+	\end{align*}
+
+	because $q$ and $m_{G}$ are continuous. Since $q\times q$ is a quotient map, it follows that $m_{G/\Gamma}^{-1}(U)$ is open in $(G/\Gamma)\times (G/\Gamma)$. Hence $m_{G/\Gamma}$ is continuous. On the other hand
+	\begin{align*}
+		q^{-1}(i_{G/\Gamma}^{-1}(U)) = {(i_{G/\Gamma}\circ q)}^{-1}(U) = {(q\circ i_{G})}^{-1}(U)
+	\end{align*}
+
+	is open because $q$ and $i_{G}$ are continuous, so $q^{-1}(i_{G/\Gamma}^{-1}(U))$ is open. By the definition of quotient map, we conclude that $i_{G/\Gamma}$ is continuous.
+
+	Thus the quotient group $G/\Gamma$ with the quotient topology induced by $G\to G/\Gamma$ is a topological group.
+\end{proof}
 
 % \begin{problem}{3-24}
 % Consider the action of $\operatorname{O}(n)$ on $\mathbb{R}^{n}$ by matrix multiplication as in Example 3.88(b). Prove that the quotient space is homeomorphic to $\halfopenright{0, \infty}$. [Hint: consider the function $f: \mathbb{R}^{n} \to \halfopenright{0, \infty}$ given by $f(x) = \abs{x}$.]
