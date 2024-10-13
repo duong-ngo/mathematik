@@ -1875,6 +1875,31 @@ Suppose $\Gamma$ is a normal subgroup of the topological group $G$. Show that th
 	Thus the quotient group $G/\Gamma$ with the quotient topology induced by $G\to G/\Gamma$ is a topological group.
 \end{proof}
 
-% \begin{problem}{3-24}
-% Consider the action of $\operatorname{O}(n)$ on $\mathbb{R}^{n}$ by matrix multiplication as in Example 3.88(b). Prove that the quotient space is homeomorphic to $\halfopenright{0, \infty}$. [Hint: consider the function $f: \mathbb{R}^{n} \to \halfopenright{0, \infty}$ given by $f(x) = \abs{x}$.]
-% \end{problem}
+\begin{problem}{3-24}
+Consider the action of $\operatorname{O}(n)$ on $\mathbb{R}^{n}$ by matrix multiplication as in Example 3.88(b). Prove that the quotient space is homeomorphic to $\halfopenright{0, \infty}$. [Hint: consider the function $f: \mathbb{R}^{n} \to \halfopenright{0, \infty}$ given by $f(x) = \abs{x}$.]
+\end{problem}
+
+\begin{proof}
+	Firstly, we prove that $f$ is a quotient map. A basis for the topology on $\halfopenright{0, \infty}$ (inherited from $\mathbb{R}$ with the Euclidean topology) is the collection of intervals $\halfopenright{0, c}$ and $\openinterval{a, b}$ where $a, b, c$ are positive real numbers and $a < b$. Let $U$ be a subset of $\halfopenright{0, \infty}$.
+
+	Suppose $U$ is open. To prove that $f^{-1}(U)$ is open, it suffices to solve two cases $U = \halfopenright{0, c}$ and $U = \openinterval{a, b}$ because these types of sets constitute a basis for the topology on $\halfopenright{0, \infty}$ and the preimage of an union is the union of preimages. For every positive real numbers $a, b, c$ such that $a < b$
+	\begin{align*}
+		f^{-1}(\halfopenright{0, c}) & = B^{n}_{c}(0)                                                                                           \\
+		f^{-1}(\openinterval{a, b})  & = \mathbb{R}^{n} \smallsetminus \left( \set{x : \abs{x} \leq a } \cup \set{ x : \abs{x} \geq b } \right)
+	\end{align*}
+
+	are open subsets of $\mathbb{R}^{n}$, so $f^{-1}(U)$ is open.
+
+	Conversely, suppose $f^{-1}(U)$ is open. If $c\in U$ and $c = 0$ then $0 \in f^{-1}(U)$ so there is an open ball $B^{n}_{r}(0) \subseteq f^{-1}(U)$ and it follows that $\halfopenright{0, r} \subseteq U$. If $c\in U$ and $c \ne 0$, let $x_{0} \in f^{-1}(\set{c})$ then there is $r > 0$ such that $x_{0} \in B^{n}_{r}(x_{0}) \subseteq f^{-1}(U)$. We can even assume that $r < c$ because the open ball with smaller radius is contained in the open ball with larger radius given that the two open balls have the same center. The points $x_{0} \pm x_{0}\frac{r}{c}$ are in $B^{n}_{r}(x_{0})$, and $f\left(x_{0} \pm x_{0}\frac{r}{c}\right) = c \pm r$, so $c \in \openinterval{c - r, c + r} \subseteq U$. Hence every point of $U$ has a neighborhood contained in $U$, which means $U$ is open in $\halfopenright{0, \infty}$.
+
+	Therefore $U$ is open if and only if $f^{-1}(U)$ is open. Moreover, $f$ is surjective, so $f$ is a quotient map.
+
+	Consider the quotient map $q: \mathbb{R}^{n} \to \mathbb{R}^{n}/\operatorname{O}(n)$. $q(x) = q(y)$ if and only if there is $A \in \operatorname{O}(n)$ such that $y = Ax$. Suppose there is $A \in \operatorname{O}(n)$ such that $y = Ax$. Because $A$ is an orthogonal matrix, $AA^{\bot} = A^{\bot}A = I$ and
+	\begin{equation*}
+		\abs{y}^{2} = y^{\bot}y = {(Ax)}^{\bot}(Ax) = x^{\bot}(A^{\bot}A)x = x^{\bot}x = \abs{x}^{2}
+	\end{equation*}
+
+	so $\abs{y} = \abs{x}$. Conversely, suppose that $\abs{y} = \abs{x}$. Let $e_{1} = x/\abs{x}$ and $f_{1} = y/\abs{y}$, $e_{1}, \ldots, e_{n}$ and $f_{1}, \ldots, f_{n}$ be orthonormal bases for $\mathbb{R}^{n}$. Let $A$ be the matrix of an unitary operator on $\mathbb{R}^{n}$ that maps $e_{i}$ to $f_{i}$ for every $i \in \set{1, \ldots, n}$, then $y = Ax$. Hence there is $A \in \operatorname{O}(n)$ such that $y = Ax$ if and only if $\abs{x} = \abs{y}$, in other words, $q(x) = q(y)$ if and only if $f(x) = f(y)$.
+
+	From the uniqueness of quotient spaces, we conclude that the orbit space $\mathbb{R}^{n}/\operatorname{O}(n)$ and $\halfopenright{0, \infty}$ are homeomorphic.
+\end{proof}
