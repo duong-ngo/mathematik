@@ -1,3 +1,4 @@
+% chktex-file 8
 \chapter{Connectedness and Compactness}
 
 \section*{Connectedness}\addcontentsline{toc}{section}{Connectedness}
@@ -59,7 +60,7 @@
 
 \subsection*{Path Connectedness}\addcontentsline{toc}{subsection}{Path Connectedness}
 
-\begin{exercise}{4.14}
+\begin{exercise}{4.14}\label{exercise:4.14}
 	Prove Proposition 4.13 (Properties of Path-Connected Spaces).
 	\begin{enumerate}[label={(\alph*)}]
 		\item Every continuous image of a path-connected space is path-connected.
@@ -103,11 +104,63 @@
 	\end{enumerate}
 \end{exercise}
 
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item Let $U, V$ be non-disjoint path components of $X$. From Exercise~\ref{exercise:4.14} (b), $U\cup V$ is path-connected. Due to the maximality of path components, $U = V = U\cup V$, from which we deduce that non-disjoint path components are identical. Hence distinct path components are disjoint.
+
+		      Let $x$ be a point of $X$. The singleton $\set{x}$ is a path component containing $x$. Let ${(B_{\alpha})}_{\alpha\in A}$ be the family of all path-connected sets containing $x$, then $\bigcup_{\alpha\in A}B_{\alpha}$ is path-connected (according to Exercise~\ref{exercise:4.14} (b)). Moreover $\bigcup_{\alpha\in A}B_{\alpha}$ is a maximal path-connected set so it is a path component containing $x$. Therefore every element of $X$ is in a path component.
+
+		      Thus the path components of $X$ form a partition of $X$.
+		\item Let $P$ be a path component of $X$. Because the components of $X$ form a partition of $X$, $P$ has a common point with some component $C$ of $X$. Since a path-connected set is also connected, $P$ is a connected set. Because the union of connected sets with a point in common is connected, $P\cup C$ is connected. From the maximality of $C$, we deduce that $P\cup C = C$, which means $P\subseteq C$. Moreover, distinct components are disjoint, so $P$ is contained in the component $C$ only. Hence every path component is contained in a single component.
+
+		      Let $C$ be a component of $X$. Every point $p$ of $C$ is in some path component of $X$, so the path component containing $p$ is contained in $C$. On the other hand, distinct path components are disjoint. Hence $C$ is a disjoint union of path components.
+		\item Let $A$ be a nonempty path-connected subset of $X$.
+
+		      Let $x$ be an element of $A$. According to part (a), $x$ is a point of a path component $P$. According to Exercise~\ref{exercise:4.14} (b), $A\cup P$ is path-connected. Because $P$ is a maximal path-connected set, it follows that $A\cup P = P$, which means $A\subseteq P$.
+
+		      If $A$ is contained in two path components, then the two path components are not disjoint (because $A$ is nonempty) and it follows that the two path components are identical (according to part (a)).
+
+		      Therefore any nonempty path-connected subset of $X$ is contained in a single path component of $X$.
+	\end{enumerate}
+\end{proof}
+
 \begin{exercise}{4.24}
 	Prove Proposition 4.23.
 
 	Every manifold (with or without boundary) is locally connected and locally path-connected.
 \end{exercise}
+
+\begin{proof}
+	Let $M$ be an $n$-manifold (with or without boundary).
+
+	\textbf{Case 1. $M$ is an $n$-manifold without boundary.}
+
+	According to Problem~\ref{problem:2-23}, every manifold has a basis of coordinate balls. On the other hand, every coordinate ball is homeomorphic to an open ball of $\mathbb{R}^{n}$ and every open ball of $\mathbb{R}^{n}$ is path-connected because every open ball of $\mathbb{R}^{n}$ is homeomorphic to $\mathbb{R}^{n}$ (which is path-connected). Therefore every coordinate ball is path-connected (and hence connected). Hence $M$ is locally path-connected and locally connected.
+
+	\textbf{Case 2. $M$ is an $n$-manifold with boundary.}
+
+	Firstly, we construct a basis for $M$. Let $U$ be a nonempty open subset of $M$ and $x\in U$, then $x$ is in the domain of an interior chart or that of a boundary chart.
+
+	If $x$ is in the domain of an interior chart $(V, \varphi_{x})$, then $\varphi_{x}(V)$ is an open subset of $\mathbb{R}^{n}$. $U\cap V$ is homeomorphic to $\varphi_{x}(U\cap V)$ and $\varphi_{x}(U\cap V)$ is an open subset of $\mathbb{R}^{n}$. Because $\varphi_{x}(U\cap V)$ is open and $\varphi_{x}(x)$ is a point of this set, there is an open ball $B_{r}(\varphi_{x}(x)) \subseteq \varphi_{x}(U\cap V)$. Therefore $\varphi_{x}^{-1}(B_{r}(\varphi_{x}(x)))$ and $B_{r}(\varphi_{x}(x))$ are homeomorphic. So $x$ is in the domain of the following interior chart
+	\begin{equation*}
+		(\varphi_{x}^{-1}(B_{r}(\varphi_{x}(x))), \varphi_{x}\vert_{\varphi_{x}^{-1}(B_{r}(\varphi_{x}(x)))})
+	\end{equation*}
+
+	where the domain is contained in $U$ and is homeomorphic to an open ball in $\mathbb{R}^{n}$.
+
+	If $x$ is in the domain of a boundary chart $(V, \varphi_{x})$, then $\varphi_{x}(x) \in \partial\mathbb{H}^{n}$ and $\varphi_{x}(V)$ is an open subset of $\mathbb{H}^{n}$. $U\cap V$ is homeomorphic to $\varphi_{x}(U\cap V)$ and $\varphi_{x}(U\cap V)$ is an open subset of $\mathbb{H}^{n}$. Because $\varphi_{x}(U\cap V)$ is open and $\varphi_{x}(x)$ is a point of this set, there is an open ball $B_{r}(\varphi_{x}(x))$ in $\mathbb{R}^{n}$ such that $B_{r}(\varphi_{x}(x)) \cap \mathbb{H}^{n} \subseteq \varphi_{x}(U\cap V)$ (here we make use of the subspace topology on $\mathbb{H}^{n}$ and the basis for $\mathbb{R}^{n}$ containing open balls). Therefore $\varphi_{x}^{-1}(B_{r}(\varphi_{x}(x)) \cap \mathbb{H}^{n})$ and $B_{r}(\varphi_{x}(x)) \cap \mathbb{H}^{n}$ are homeomorphic, and $x$ is in the domain of the following boundary chart
+	\begin{equation*}
+		(\varphi_{x}^{-1}(B_{r}(\varphi_{x}(x)) \cap \mathbb{H}^{n}), \varphi_{x}\vert_{\varphi_{x}^{-1}(B_{r}(\varphi_{x}(x)) \cap \mathbb{H}^{n})})
+	\end{equation*}
+
+	where the domain is contained in $U$ and is homeomorphic to a half of an open ball in $\mathbb{H}^{n}$ (it is halved by taking intersection of $\mathbb{H}^{n}$ and an open ball in $\mathbb{R}^{n}$ with center on $\partial \mathbb{H}^{n}$).
+
+	Hence the collection of open sets of $M$ which are domains of some interior chart (and homeomorphic to some open ball in $\mathbb{R}^{n}$) or some boundary chart  (and homeomorphic to half of some open ball in $\mathbb{H}^{n}$) constitutes a basis for the $n$-manifold with boundary $M$.
+
+	On the other hand, a half of an open ball is path-connected (because it is a convex set), so $M$ has a basis of path-connected (hence connected) open sets. Therefore $M$ is locally path-connected and locally connected.
+
+	From the two cases, we conclude that every manifold (without or with boundary) is locally connected and locally path-connected.
+\end{proof}
 
 \section*{Compactness}\addcontentsline{toc}{section}{Compactness}
 
@@ -168,3 +221,75 @@
 \section*{Proper Maps}\addcontentsline{toc}{section}{Proper Maps}
 
 \section*{Problems}
+
+\begin{problem}{4-1}
+Show that for $n > 1$, $\mathbb{R}^{n}$ is not homeomorphic to any open subset of $\mathbb{R}$.
+\end{problem}
+
+\begin{proof}
+	Let $n$ be a positive integer greater than $1$. Assume that $\mathbb{R}^{n}$ is homeomorphic to an open subset $U\subseteq \mathbb{R}$, then $U$ is nonempty and there is a homeomorphism $\varphi: \mathbb{R}^{n} \to U$. Let $p$ be a point of $U$. Since $U\subseteq \mathbb{R}$ is open, $U$ is an union of disjoint open intervals, and $x$ lies in one of those open intervals, denote such open interval by $\openinterval{a, b}$, then $\openinterval{a, b}\smallsetminus\set{p}$ is disconnected. Therefore $U\smallsetminus\set{p}$ is disconnected. Because $\varphi$ is a homeomorphism, $\varphi^{-1}(U\smallsetminus\set{p}) = \mathbb{R}^{n} \smallsetminus \set{\varphi^{-1}(p)}$.
+
+	We will show that $\mathbb{R}^{n}\smallsetminus\set{0}$ is path-connected. Let $x, y$ be two points of $\mathbb{R}^{n}\smallsetminus\set{0}$. Because $n > 1$, there exists a nonzero vector $v\in \mathbb{R}^{n}$ such that $x, y$ are not multiples of $v$. Let $v_{x} = \frac{\abs{x}}{\abs{v}}v$ and $v_{y} = \frac{\abs{y}}{\abs{v}}v$. We will construct
+	\begin{itemize}
+		\item a path in $\mathbb{R}^{n}\smallsetminus\set{0}$ from $x$ to $v_{x}$
+
+		      Note that $\abs{x} = \abs{v_{x}}$. $x = (x_{1}, \ldots, x_{n})$ and $v_{x} = (v_{x,1}, \ldots, v_{x,n})$.
+
+		      There exist $\varphi_{x,1}, \ldots, \varphi_{x,n-1} \in \mathbb{R}$ such that
+		      \begin{align*}
+			      x_{1}   & = \abs{x}\cos(\varphi_{x,1})                                                 \\
+			      x_{2}   & = \abs{x}\sin(\varphi_{x,1})\cos(\varphi_{x,2})                              \\
+			      \cdots  &                                                                              \\
+			      x_{n-1} & = \abs{x}\sin(\varphi_{x,1})\cdots\sin(\varphi_{x,n-2})\cos(\varphi_{x,n-1}) \\
+			      x_{n}   & = \abs{x}\sin(\varphi_{x,1})\cdots\sin(\varphi_{x,n-2})\sin(\varphi_{x,n-1})
+		      \end{align*}
+
+		      Also there exist $\varphi_{v_{x},1}, \ldots, \varphi_{v_{x},n-1} \in \mathbb{R}$ such that
+		      \begin{align*}
+			      v_{x,1}   & = \abs{x}\cos(\varphi_{v_{x},1})                                                         \\
+			      v_{x,2}   & = \abs{x}\sin(\varphi_{v_{x},1})\cos(\varphi_{v_{x},2})                                  \\
+			      \cdots    &                                                                                          \\
+			      v_{x,n-1} & = \abs{x}\sin(\varphi_{v_{x},1})\cdots\sin(\varphi_{v_{x},n-2})\cos(\varphi_{v_{x},n-1}) \\
+			      v_{x,n}   & = \abs{x}\sin(\varphi_{v_{x},1})\cdots\sin(\varphi_{v_{x},n-2})\sin(\varphi_{v_{x},n-1})
+		      \end{align*}
+
+		      The maps $f_{i}: \closedinterval{0, 1} \to \mathbb{R}$ given by
+		      \begin{equation*}
+			      f_{i}(t) = \abs{x}\sin((1-t)\varphi_{x,1} + t\varphi_{v_{x},1})\cdots \sin((1-t)\varphi_{x,i-1} + t\varphi_{v_{x},i-1})\cos((1-t)\varphi_{x,i} + t\varphi_{v_{x},i})
+		      \end{equation*}
+
+		      if $i < n$ and
+		      \begin{equation*}
+			      f_{n}(t) = \abs{x}\sin((1-t)\varphi_{x,1} + t\varphi_{v_{x},1})\cdots \sin((1-t)\varphi_{x,n-1} + t\varphi_{v_{x},n-1})
+		      \end{equation*}
+
+		      are continuous. So ${(f_{1}(t))}^{2} + \cdots + {(f_{n}(t))}^{2} = \abs{x}^{2} \ne 0$ for every $t\in \closedinterval{0,1}$. Hence the map $f_{x}: \closedinterval{0, 1} \to \mathbb{R}^{n}\smallsetminus\set{0}$ given by
+		      \begin{equation*}
+			      f_{x}(t) = (f_{1}(t), \ldots, f_{n}(t))
+		      \end{equation*}
+
+		      is continuous, due to the characteristic property of product topology. Hence $f$ is a path in $\mathbb{R}^{n}\smallsetminus\set{0}$ from $x$ to $v_{x}$.
+		\item a path in $\mathbb{R}^{n}\smallsetminus\set{0}$ from $v_{x}$ to $v_{y}$
+
+		      The map $f: \closedinterval{0, 1} \to \mathbb{R}^{n}\smallsetminus\set{0}$ given by
+		      \begin{equation*}
+			      f(t) = (1 - t)v_{x} + tv_{y}
+		      \end{equation*}
+
+		      is continuous (this map is well-defined because the line segment connecting $v_{x}$ and $v_{y}$ lies entirely in $\mathbb{R}^{n}\smallsetminus\set{0}$) so there is a path in $\mathbb{R}^{n}$ from $v_{x}$ to $v_{y}$.
+		\item a path in $\mathbb{R}^{n}\smallsetminus\set{0}$ from $v_{y}$ to $y$
+
+		      Similar to the first contruction, we can construct a path $f_{y}$ in $\mathbb{R}^{n}\smallsetminus\set{0}$ from $v_{y}$ to $y$.
+	\end{itemize}
+
+	From these constructions, we deduce that there are continuous maps $g_{x}: \closedinterval{0, \frac{1}{3}} \to \mathbb{R}^{n}\smallsetminus\set{0}$ such that $g_{x}(0) = x$ and $g_{x}(1/3) = v_{x}$, $g: \closedinterval{\frac{1}{3}, \frac{2}{3}} \to \mathbb{R}^{n}\smallsetminus\set{0}$ such that $g(1/3) = v_{x}$ and $g(2/3) = v_{y}$, $g_{y}: \closedinterval{\frac{2}{3}, 1} \to \mathbb{R}^{n}\smallsetminus\set{0}$ such that $g_{y}(2/3) = v_{y}$ and $g_{y}(1) = y$. By the gluing lemma, there is a unique continuous map $f: \closedinterval{0, 1} \to \mathbb{R}^{n}\setminus \set{0}$ such that $f\vert_{\closedinterval{0, \frac{1}{3}}} = g_{x}$, $f\vert_{\closedinterval{\frac{1}{3}, \frac{2}{3}}} = g$, $f\vert_{\closedinterval{\frac{2}{3}, 1}} = g_{y}$. Hence there is a path in $\mathbb{R}^{n}\smallsetminus\set{0}$ from $x$ to $y$.
+
+	Back to the set $\mathbb{R}^{n}\smallsetminus\set{\varphi^{-1}(p)}$. For every $c, d \in \mathbb{R}^{n}\smallsetminus\set{\varphi^{-1}(p)}$, there is a path in $\mathbb{R}^{n}\smallsetminus\set{0}$ from $c - \varphi^{-1}(p)$ to $d - \varphi^{-1}(p)$, so there is a path in $\mathbb{R}^{n}\smallsetminus\set{\varphi^{-1}(p)}$ from $c$ to $d$. Therefore $\mathbb{R}^{n}\smallsetminus\set{\varphi^{-1}(p)}$ is path-connected. Since $\varphi$ is a homeomorphism
+	\begin{equation*}
+		U\smallsetminus\set{p} = \varphi(\varphi^{-1}(U\smallsetminus\set{p})) = \varphi(\mathbb{R}^{n}\smallsetminus\set{\varphi^{-1}(p)})
+	\end{equation*}
+
+	is also path-connected, which is a contradiction because $U\smallsetminus\set{p}$ is disconnected.
+
+	Thus for $n > 1$, $\mathbb{R}^{n}$ is not homeomorphic to any open subset $U\subseteq \mathbb{R}$.
+\end{proof}
