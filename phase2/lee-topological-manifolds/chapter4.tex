@@ -172,17 +172,44 @@
 	If $X$ is any topological space, a subset $A\subseteq X$ is compact (in the subspace topology) if and only if every cover of $A$ by open subsets of $X$ has a finite subcover.
 \end{exercise}
 
+\begin{proof}
+	Suppose $A\subseteq X$ is compact with the subspace topology. Let ${(U_{i})}_{i\in I}$ be a cover of $A$ by open subsets of $X$, then ${(U_{i}\cap A)}_{i\in I}$ is a cover of $A$ by open subsets of $A$. Because $A$ is compact with the subspace topology, ${(U_{i}\cap A)}_{i\in I}$ contains a finite subcover of $A$ by open subsets of $A$, which implies ${(U_{i})}_{i\in I}$ contains a finite subcover of $A$ by open subsets of $X$.
+
+	Conversely, suppose that every cover of $A$ by open subsets of $X$ has a finite subcover. Let ${(V_{i})}_{i\in I}$ be a cover of $A$ by open subsets of $A$. From the definition of subspace topology, for each $i\in I$, there is an open subset $U_{i}\subseteq X$ such that $V_{i} = U_{i}\cap A$. Therefore ${(U_{i})}_{i\in I}$ is a cover of $A$ by open subsets of $X$, so ${(U_{i})}_{i\in I}$ contains a finite subcover of $A$ by open subsets of $X$, which implies that ${(V_{i})}_{i\in I}$ contains a finite subcover of $A$ by open subsets of $A$. Hence $A\subseteq X$ is compact with the subspace topology.
+\end{proof}
+
 \begin{exercise}{4.29}
 	In any topological space $X$, show that every union of finitely many compact subsets of $X$ is compact.
 \end{exercise}
+
+\begin{proof}
+	It suffices to prove that the union of two compact subsets of $X$ is compact. Let $A, B$ be compact subsets of $X$ and $\mathcal{O}$ be an open cover of $A\cup B$ by open subsets of $X$. Since $A$ is compact, there exist finitely many open subsets $A_{1}, \ldots, A_{m}$ from $\mathcal{O}$ that covers $A$ and finitely many open subsets $B_{1}, \ldots, B_{n}$ from $\mathcal{O}$ that covers $B$. Hence $\mathcal{O}$ has a finite subcover, which consists of $A_{1}, \ldots, A_{m}, B_{1}, \ldots, B_{n}$. Therefore $A\cup B$ is compact.
+
+	The union of zero compact subsets of $X$ is compact (because it is the empty set). Assume that the union of $n - 1$ compact subsets of $X$ is compact. Let $A_{1}, \ldots, A_{n}$ be $n$ compact subsets of $X$. By the inductive hypothesis, $\bigcup^{n-1}_{i=1}A_{i}$ is a compact subset of $X$. From the previous paragraph, we deduce that $\bigcup^{n}_{i=1}A_{i}$ is a compact subset of $X$. By the principle of mathematical induction, we conclude that every union of finitely many compact subsets of $X$ is compact.
+\end{proof}
 
 \begin{exercise}{4.37}
 	Suppose $M$ is a compact manifold with boundary. Show that the double of $M$ is compact.
 \end{exercise}
 
+\begin{proof}
+	Let $h$ be the identity map $\partial M\to \partial M$. From the definition of the double of a manifold with boundary, $D(M) = M\cup_{h} M = {(M\sqcup M)}/_{\sim}$ (where $(a, 0) \sim (h(a), 1)$ for $a\in \partial H$). Because $M\sqcup M \approx (M\times\set{0}) \cup (M\times\set{1})$ is the union of two compact manifolds (which are homeomorphic to the compact manifold $M$), it follows that $M\sqcup M$ is compact.
+
+	Let $q: M\sqcup M \to (M\sqcup M)/_{\sim} = D(M)$ be the quotient map. Because every quotient of a compact space is compact, it follows that $D(M)$ is compact.
+\end{proof}
+
 \begin{exercise}{4.38}
-	Let $X$ be a compact space, and suppose $\{ F_{n} \}$ is a countable collection of nonempty closed subsets of $X$ that are \textbf{nested}, which means that $F_{n}\supseteq F_{n+1}$ for each $n$. Show that $\bigcap_{n}F_{n}$ is nonempty.
+	Let $X$ be a compact space, and suppose $\set{F_{n}}$ is a countable collection of nonempty closed subsets of $X$ that are \textbf{nested}, which means that $F_{n}\supseteq F_{n+1}$ for each $n$. Show that $\bigcap_{n}F_{n}$ is nonempty.
 \end{exercise}
+
+\begin{proof}
+	Each $F_{n}$ is a closed subset $X$, so $X\smallsetminus F_{n}$ is open. Assume for the sake of contradiction that $\bigcap_{n}F_{n}$ is empty then
+	\begin{equation*}
+		X = X\smallsetminus \left(\bigcap_{n}F_{n}\right) = \bigcup_{n}(X\smallsetminus F_{n})
+	\end{equation*}
+
+	so $\set{X\smallsetminus F_{n}}_{n}$ is an open cover of $X$. Because of the compactness of $X$, $\set{X\smallsetminus F_{n}}_{n}$ contains a finite subcover, say $X\smallsetminus F_{k_{1}}, \ldots, X\smallsetminus F_{k_{m}}$, and we can relabel these sets such that $k_{1} < \cdots < k_{m}$. Since $F_{k_{1}} \supseteq \cdots \supseteq F_{k_{m}}$, we have $X\smallsetminus F_{k_{1}} \subseteq \cdots \subseteq X\smallsetminus F_{k_{m}}$ hence $X = \bigcup^{m}_{i=1}(X\smallsetminus F_{k_{i}}) = X \smallsetminus F_{k_{m}}$, which is a contradiction since $X$ is a proper superset of $X\smallsetminus F_{k_{m}}$, because $F_{k_{m}}$ is a nonempty subset of $X$. Hence $\bigcap_{n}F_{n}$ is nonempty.
+\end{proof}
 
 \subsection*{Sequential and Limit Point Compactness}\addcontentsline{toc}{subsection}{Sequential and Limit Point Compactness}
 
@@ -222,7 +249,7 @@
 
 \section*{Problems}
 
-\begin{problem}{4-1}
+\begin{problem}{4-1}\label{problem:4-1}
 Show that for $n > 1$, $\mathbb{R}^{n}$ is not homeomorphic to any open subset of $\mathbb{R}$.
 \end{problem}
 
@@ -292,4 +319,28 @@ Show that for $n > 1$, $\mathbb{R}^{n}$ is not homeomorphic to any open subset o
 	is also path-connected, which is a contradiction because $U\smallsetminus\set{p}$ is disconnected.
 
 	Thus for $n > 1$, $\mathbb{R}^{n}$ is not homeomorphic to any open subset $U\subseteq \mathbb{R}$.
+\end{proof}
+
+\begin{problem}{4-2}
+\textsc{Invariance of Dimension, 1-Dimensional Case:} Prove that a nonempty topological space cannot be both a 1-manifold and an $n$-manifold for some $n > 1$.
+\end{problem}
+
+\begin{proof}
+	Let $M$ be a nonempty $n$-manifold where $n > 1$. Assume that $M$ is also a 1-manifold. Let $x$ be a point of $M$. Because $M$ is an $n$-manifold and a 1-manifold, $x$ has a neighborhood $U$ which admits a homeomorphism $\varphi: U\to \mathbb{R}^{n}$ and a neighborhood $V$ which admits a homeomorphism $\psi: V\to \mathbb{R}$. $U\cap V$ is nonempty because it contains $x$ and it is open. The restrictions $\varphi\vert_{U\cap V}: U\cap V \to \varphi(U\cap V)$ and $\psi\vert_{U\cap V}: U\cap V \to \psi(U\cap V)$ are also a homemorphisms. Since $\varphi(U\cap V)$ is open (because a homemorphism is an open map), there is an open $n$-ball $B^{n}_{r}(\varphi(x)) \subseteq \varphi(U\cap V)$. Denote by $W$ the preimage $\varphi^{-1}(B^{n}_{r}(\varphi(x)))$ then $W\subseteq U\cap V$. The restrictions $\varphi\vert_{W}: W \to \varphi(W) = B^{n}_{r}(\varphi(x))$ and $\psi\vert_{W}: W \to \psi(W)$ are also homeomophism, so the open $n$-ball $B^{n}_{r}(\varphi(x))$ and $\psi(W)$ are homeomorphic. On the other hand, every open $n$-ball is homeomorphic to $\mathbb{R}^{n}$ and $\mathbb{R}^{n}$ is not homeomorphic to $\psi(W)$ (which is an open subset of $\mathbb{R}$) according to Problem~\ref{problem:4-1}, hence the contradiction. Thus a nonempty topological space cannot be both a 1-manifold and an $n$-manifold for some $n > 1$.
+\end{proof}
+
+\begin{problem}{4-3}
+\textsc{Invariance of the Boundary, 1-Dimensional Case:} Suppose $M$ is a 1-dimensional manifold with boundary. Show that a point of $M$ cannot be both a boundary point and an interior point.
+\end{problem}
+
+\begin{proof}
+	Firstly, we prove that $\mathbb{R}$ and $\mathbb{H}$ are not homeomorphic. Assume that there is a homeomorphism $f: \mathbb{H} \to \mathbb{R}$. $\mathbb{H}\smallsetminus\set{0}$ is path-connected, however, $\mathbb{R}\smallsetminus\set{f(0)}$ is not path-connected, which is a contradiction because a homeomorphism preserves path-connectedness. Hence $\mathbb{R}$ and $\mathbb{H}$ are not homeomorphic.
+
+	Assume that $M$ has a point $x$ which is both a boundary point and an interior point. Because $x$ is a boundary point, $x$ is in the domain of a boundary chart $(U, \varphi)$ where $\varphi(x) \in \partial\mathbb{H}$ (which implies $\varphi(x) = 0$). Because $x$ is an interior point, $x$ is in the domain of an interior chart $(V, \psi)$. $U\cap V$ is a neighborhood of $x$ and the restrictions $\varphi\vert_{U\cap V}: U\cap V \to \varphi(U\cap V)$, $\psi\vert_{U\cap V}: U\cap V \to \psi(U\cap V)$. Since $\varphi(U\cap V)$ is open and $\varphi(x) = 0$, there exists $r > 0$ such that $\halfopenright{0, r} \subseteq \varphi(U\cap V)$.
+
+	Denote $W = \varphi^{-1}(\halfopenright{0, r})$ then $W \subseteq U\cap V$. It follows that $\halfopenright{0, r}$ and $W$ are homeomorphic, $W$ and $\psi(W)$ are homeomorphic. On the other hand, $W$ is open (because $\halfopenright{0, a} \subseteq \mathbb{H}$ is open) and $\varphi$ is continuous, so $\psi(W) \subseteq \mathbb{R}$ is open (because $\psi$ is a homeomorphism, hence an open map), so $\halfopenright{0, r} \subseteq \mathbb{H}$ is homeomorphic to an open subset $A\subseteq \mathbb{R}$.
+
+	Since $\halfopenright{0, r}$ is connected, $A$ is also connected. $A$ is a connected and open subset of $\mathbb{R}$ so $A$ is an open interval. $\halfopenright{0, r}$ is homeomorphic to $\mathbb{H}$, an open interval is homeomorphic to $\mathbb{R}$, hence $\mathbb{R}$ and $\mathbb{H}$ are homeomorphic, which is a contradiction.
+
+	Thus a point of a 1-dimensional manifold with boundary cannot be both a boundary point and an interior point.
 \end{proof}
