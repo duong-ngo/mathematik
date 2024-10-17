@@ -223,6 +223,14 @@
 	Theorem 4.48. Every compact metric space is complete.
 \end{exercise}
 
+\begin{proof}
+	\textbf{Proof for Theorem 4.46.} Let ${(x_{i})}_{i\in\mathbb{N}}$ be a bounded sequence in $\mathbb{R}^{n}$, then there exists $a > 0$ such that $x_{i} \in {\closedinterval{-a, a}}^{n}$ for every $i\in\mathbb{N}$. If the sequence ${(x_{i})}_{i\in\mathbb{N}}$ takes on finitely many values then it has a subsequence that is eventually constant. Otherwise, suppose ${(x_{i})}_{i\in\mathbb{N}}$ takes on infinitely many values. ${\closedinterval{-a, a}}^{n}$ is closed and bounded in $\mathbb{R}^{n}$ so it is compact, due to Heine-Borel's theorem. The space ${\closedinterval{-a, a}}^{n}$ with subspace topology inherited from $\mathbb{R}^{n}$ is second countable (implies first countable) and Hausdorff so from Lemma 4.42 (compactness implies limit point compactness) and Lemma 4.43 (In first countable Hausdorff spaces, limit point compactness implies sequential compactness), it follows that ${(x_{i})}_{i\in\mathbb{N}}$ has a convergent subsequence.
+
+	\textbf{Proof for Theorem 4.47.} Let $M$ be subset of $\mathbb{R}^{n}$, then $M$ is a metric space with the Euclidean metric restricted to $M$. If $M$ is complete, let $x\in \mathbb{R}^{n}$ be a limit point of $M$. For every $i\in\mathbb{N}$, $B_{1/2^{i}}(x)$ contains a point $a_{i}$ in $M$, then the sequence ${(a_{i})}_{i\in\mathbb{N}}$ is a Cauchy sequence. Since $M$ is complete, the sequence converges to a point of $M$. Because $a_{i}$ converges to $x$, it follows that $x\in M$, hence $M$ contains all of its limit points, which means $M$ is closed. Conversely, if $M$ is closed, let ${(x_{i})}_{i\in\mathbb{N}}$ be a Cauchy sequence of points in $M$. In a metric space, a Cauchy sequence is a bounded sequence. By Theorem 4.46, ${(x_{i})}_{i\in\mathbb{N}}$ has a convergent subsequence. A Cauchy sequence having a convergent subsequence is convergent, hence ${(x_{i})}_{i\in\mathbb{N}}$ is convergent, so $M$ is complete.
+
+	\textbf{Proof for Theorem 4.48.} Let $M$ be a compact metric space and ${(x_{i})}_{i\in\mathbb{N}}$ be a Cauchy sequence of points in $M$. $M$ is a metric space so it is first countable and Hausdorff. By Lemma 4.42, $M$ is limit point compact. By Lemma 4.43, $M$ is sequentially compact. Hence ${(x_{i})}_{i\in\mathbb{N}}$ has a convergent subsequence. A Cauchy sequence having a convergent subsequence is convergent, hence ${(x_{i})}_{i\in\mathbb{N}}$ is convergent, so $M$ is complete.
+\end{proof}
+
 \subsection*{The Closed Map Lemma}\addcontentsline{toc}{subsection}{The Closed Map Lemma}
 
 \begin{exercise}{4.58}
