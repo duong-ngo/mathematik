@@ -228,7 +228,7 @@
 
 	\textbf{Proof for Theorem 4.47.} Let $M$ be subset of $\mathbb{R}^{n}$, then $M$ is a metric space with the Euclidean metric restricted to $M$. If $M$ is complete, let $x\in \mathbb{R}^{n}$ be a limit point of $M$. For every $i\in\mathbb{N}$, $B_{1/2^{i}}(x)$ contains a point $a_{i}$ in $M$, then the sequence ${(a_{i})}_{i\in\mathbb{N}}$ is a Cauchy sequence. Since $M$ is complete, the sequence converges to a point of $M$. Because $a_{i}$ converges to $x$, it follows that $x\in M$, hence $M$ contains all of its limit points, which means $M$ is closed. Conversely, if $M$ is closed, let ${(x_{i})}_{i\in\mathbb{N}}$ be a Cauchy sequence of points in $M$. In a metric space, a Cauchy sequence is a bounded sequence. By Theorem 4.46, ${(x_{i})}_{i\in\mathbb{N}}$ has a convergent subsequence. A Cauchy sequence having a convergent subsequence is convergent, hence ${(x_{i})}_{i\in\mathbb{N}}$ is convergent, so $M$ is complete.
 
-	\textbf{Proof for Theorem 4.48.} Let $M$ be a compact metric space and ${(x_{i})}_{i\in\mathbb{N}}$ be a Cauchy sequence of points in $M$. $M$ is a metric space so it is first countable and Hausdorff. By Lemma 4.42, $M$ is limit point compact. By Lemma 4.43, $M$ is sequentially compact. Hence ${(x_{i})}_{i\in\mathbb{N}}$ has a convergent subsequence. A Cauchy sequence having a convergent subsequence is convergent, hence ${(x_{i})}_{i\in\mathbb{N}}$ is convergent, so $M$ is complete.
+	\textbf{Proof for Theorem 4.48.} Let $M$ be a compact metric space and ${(x_{i})}_{i\in\mathbb{N}}$ be a Cauchy sequence of points in $M$. $M$ is a metric space so it is first countable and Hausdorff. By Lemma 4.42, $M$ is limit point compact. By Lemma 4.43 (In first countable Hausdorff spaces, limit point compactness implies sequential compactness), $M$ is sequentially compact. Hence ${(x_{i})}_{i\in\mathbb{N}}$ has a convergent subsequence. A Cauchy sequence having a convergent subsequence is convergent, hence ${(x_{i})}_{i\in\mathbb{N}}$ is convergent, so $M$ is complete.
 \end{proof}
 
 \subsection*{The Closed Map Lemma}\addcontentsline{toc}{subsection}{The Closed Map Lemma}
@@ -329,7 +329,7 @@ Show that for $n > 1$, $\mathbb{R}^{n}$ is not homeomorphic to any open subset o
 	Thus for $n > 1$, $\mathbb{R}^{n}$ is not homeomorphic to any open subset $U\subseteq \mathbb{R}$.
 \end{proof}
 
-\begin{problem}{4-2}
+\begin{problem}{4-2}\label{problem:4-2}
 \textsc{Invariance of Dimension, 1-Dimensional Case:} Prove that a nonempty topological space cannot be both a 1-manifold and an $n$-manifold for some $n > 1$.
 \end{problem}
 
@@ -352,3 +352,98 @@ Show that for $n > 1$, $\mathbb{R}^{n}$ is not homeomorphic to any open subset o
 
 	Thus a point of a 1-dimensional manifold with boundary cannot be both a boundary point and an interior point.
 \end{proof}
+
+\begin{problem}{4-4}
+Show that the following topological spaces are not manifolds
+\begin{enumerate}[label={(\alph*)}]
+	\item the union of the $x$-axis and the $y$-axis in $\mathbb{R}^{2}$
+	\item the conical surface $C\subseteq \mathbb{R}^{3}$ defined by
+	      \begin{equation*}
+		      C = \set{(x,y,z) : z^{2} = x^{2} + y^{2}}
+	      \end{equation*}
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item Assume that $M = (\mathbb{R}\times\set{0}) \cup (\set{0}\times\mathbb{R}) \subseteq \mathbb{R}^{2}$ is an $n$-manifold for some positive integer $n$.
+
+		      Let $x$ be a nonzero real number. From the definition of manifold, $x$ has a neighborhood $U$ which is homeomorphic to an open subset of $\mathbb{R}^{n}$. On the other hand, a basis for the topology on $M$ is obtained by taking the intersection of $M$ and open balls in $\mathbb{R}^{2}$, so there is an open ball $B_{r}(\tuple{x,0})$ such that $\tuple{x,0} \in B_{r}(\tuple{x,0}) \cap M \subseteq U$. Let $\varepsilon$ be a positive number such that $\varepsilon < \min\set{r, \abs{x}}$ then
+		      \begin{equation*}
+			      \tuple{x, 0} \in \openinterval{x - \varepsilon, x + \varepsilon} \times \set{0} \subseteq B_{r}(\tuple{x,0}) \cap M \subseteq U.
+		      \end{equation*}
+
+		      $\openinterval{x - \varepsilon, x + \varepsilon} \times \set{0}$ is a neighborhood of $(x, 0)$ in $M$ and it is homeomorphic to an open subset of $\mathbb{R}$ and an open subset of $\mathbb{R}^{n}$. From Problem~\ref{problem:4-2}, we deduce that $n = 1$.
+
+		      Because $M$ is a 1-manifold, $\tuple{0,0}$ has a neighborhood $V$ which admits a homeomorphism $\varphi: V \to \mathbb{R}$. There is an open ball $B_{r}(\tuple{0,0})$ in $\mathbb{R}^{2}$ such that
+		      \begin{equation*}
+			      \tuple{0, 0} \in B_{r}(\tuple{0, 0}) \cap M \subseteq M.
+		      \end{equation*}
+
+		      Denote $B_{r}(\tuple{0, 0}) \cap M$ by $W$ then the restriction $\varphi\vert_{W}: W \to \varphi(W)$ is also a homeomorphism. $W$ is path-connected because it is the union of path-connected sets with a point in common (the origin)
+		      \begin{equation*}
+			      W = (\openinterval{-r, r} \times\set{0}) \cup (\set{0} \times \openinterval{-r, r}).
+		      \end{equation*}
+
+		      so $\varphi(W) \subseteq \mathbb{R}$ is path-connected, hence it is an interval. $W\smallsetminus\set{0}$ has four path components, namely
+		      \begin{equation*}
+			      \openinterval{0, r}\times\set{0};\quad \openinterval{-r, 0}\times\set{0};\quad \set{0}\times\openinterval{0, r};\quad \set{0}\times\openinterval{-r, 0}
+		      \end{equation*}
+
+		      but $\varphi(W\smallsetminus\set{0}) \subseteq \mathbb{R}$ has two path components (because it is an open interval minus a point), which is a contradiction.
+
+		      Thus $M$ is not a manifold.
+		\item Assume that $C$ is an $n$-manifold for some positive integer $n$.
+
+		      Every point on $C$ other than $(0, 0, 0)$ is of the form $(r\cos\theta, r\sin\theta, r)$ for some $r\ne 0$. Consider a point $(r\cos\theta, r\sin\theta, r)$ where $r > 0$. The set $H = \set{ \tuple{x, y, z} \in \mathbb{R}^{3} : z > 0 }$ is open in $\mathbb{R}^{3}$, so $H \cap C$ is open in $C$ (using the subspace topology). In fact, $H\cap C$ is the set of points on $C$ with positive $z$-ordinate. The map $f: H\cap C \to \mathbb{R}^{2}$ given by $f(x, y, z) = (x, y)$ is a homeomorphism, so $(r\cos\theta, r\sin\theta, r)$ has a neighborhood that is homeomorphic to $\mathbb{R}^{2}$. From Problem~\ref{problem:4-2} we deduce that $n > 1$.
+
+		      $\tuple{0, 0, 0}$ has a neighborhood $U \subseteq C$ which is homeomorphic to $\mathbb{R}^{n}$ with the coordinate map $\varphi$. There exists $r > 0$ such that
+		      \begin{equation*}
+			      \tuple{0,0,0} \in B_{r}(\tuple{0,0,0}) \cap C \subseteq U \cap C
+		      \end{equation*}
+
+		      because the set of open balls is a basis for the Euclidean topology on $\mathbb{R}^{3}$ (and taking the intersection with a subset of $\mathbb{R}^{3}$, we obtain a basis for the subspace topology).
+
+		      Denote $B_{r}(\tuple{0,0,0}) \cap C$ by $V$. $V$ is connected. $V\smallsetminus\set{\tuple{0,0,0}}$ is disconnected since it has two components, namely
+		      \begin{equation*}
+			      \begin{split}
+				      \set{\tuple{(x, y, z)} \in \mathbb{R}^{3} : 0 < z < r} \cap C \\
+				      \set{\tuple{(x, y, z)} \in \mathbb{R}^{3} : -r < z < 0} \cap C
+			      \end{split}
+		      \end{equation*}
+
+		      and $\varphi(V \smallsetminus \set{\tuple{0,0,0}})$ is therefore disconnected. However, because $\varphi(V)$ is connected, $\varphi(V \smallsetminus \set{\tuple{0,0,0}}) = \varphi(V) \smallsetminus\set{\varphi(\tuple{0,0,0})}$. A connected open subset in $\mathbb{R}^{n}$ (where $n > 1$) minus a point is still connected, hence a contradiction.
+
+		      Thus $C$ is not a manifold.
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{4-5}
+Let $M = \mathbb{S}^{1}\times\mathbb{R}$, and let $A = \mathbb{S}^{1} \times \set{0}$. Show that the space $M/A$ obtained by collapsing $A$ to a point is homeomorphic to the space $C$ of Problem 4-4 (b), and thus is Hausdorff and second countable but not locally Euclidean.
+\end{problem}
+
+\begin{proof}
+	Consider the map $f: \mathbb{S}^{1}\times\mathbb{R} \to C$ given by
+	\begin{equation*}
+		f(e^{\iota\theta}, r) = (r\cos\theta, r\sin\theta, r)
+	\end{equation*}
+
+	is a quotient map. Meanwhile, the quotient map $q: M\to M/A$ and $f$ have the same identification, hence $M/A$ and $C$ are homeomorphism, according to the uniqueness of quotient space. Thus $C$ is Hausdorff, second countable but not locally Euclidean.
+\end{proof}
+
+% \begin{problem}{4-6}
+% Like Problem~\ref{problem:2-22}, this problem constructs a space that is locally Euclidean and Hausdorff but not second countable. Unlike that example, however, this one is connected.
+% \begin{enumerate}[label={(\alph*)}]
+% 	\item Recall that a totally ordered set is said to be well ordered if every nonempty subset has a smallest element. Show that the well-ordering theorem implies that there exists an uncountable well-ordered set $Y$ such that for every $y_{0}\in Y$, there are only countably many $y\in Y$ such that $y < y_{0}$.
+% 	\item Now let $\mathscr{R} = Y \times \halfopenright{0,1}$, with the \textbf{dictionary order}: this means that $(y_{1}, s_{1}) < (y_{2}, s_{2})$ if either $y_{1} < y_{2}$, or $y_{1} = y_{2}$ and $s_{1} < s_{2}$. With the order topology, $\mathscr{R}$ is called the \textbf{long ray}. The \textbf{long line} $\mathscr{L}$ is the wedge sum $\mathscr{R}\vee \mathscr{R}$ obtained by identifying both copies of $(y_{0}, 0)$ with each other, where $y_{0}$ is the smallest element in $Y$. Show that $\mathscr{L}$ is locally Euclidean, Hausdorff, and first countable, but not second countable.
+% 	\item Show that $\mathscr{L}$ is path-connected.
+% \end{enumerate}
+% \end{problem}
+
+% \begin{problem}{4-7}
+% Let $q: X\to Y$ be an open quotient map. Show that if $X$ is locally connected, locally path-connected, or locally compact, then $Y$ has the same property.
+% \end{problem}
+
+% \begin{problem}{4-8}
+% Show that a locally connected topological space is homeomorphic to the disjoint union of its components.
+% \end{problem}
