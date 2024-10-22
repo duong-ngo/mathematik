@@ -141,25 +141,15 @@
 
 	Firstly, we construct a basis for $M$. Let $U$ be a nonempty open subset of $M$ and $x\in U$, then $x$ is in the domain of an interior chart or that of a boundary chart.
 
-	If $x$ is in the domain of an interior chart $(V, \varphi_{x})$, then $\varphi_{x}(V)$ is an open subset of $\mathbb{R}^{n}$. $U\cap V$ is homeomorphic to $\varphi_{x}(U\cap V)$ and $\varphi_{x}(U\cap V)$ is an open subset of $\mathbb{R}^{n}$. Because $\varphi_{x}(U\cap V)$ is open and $\varphi_{x}(x)$ is a point of this set, there is an open ball $B_{r}(\varphi_{x}(x)) \subseteq \varphi_{x}(U\cap V)$. Therefore $\varphi_{x}^{-1}(B_{r}(\varphi_{x}(x)))$ and $B_{r}(\varphi_{x}(x))$ are homeomorphic. So $x$ is in the domain of the following interior chart
-	\begin{equation*}
-		(\varphi_{x}^{-1}(B_{r}(\varphi_{x}(x))), \varphi_{x}\vert_{\varphi_{x}^{-1}(B_{r}(\varphi_{x}(x)))})
-	\end{equation*}
+	If $x$ is in the domain of an interior chart $(V, \varphi_{x})$, then $\varphi_{x}(V)$ is an open subset of $\mathbb{R}^{n}$. $U\cap V$ is homeomorphic to $\varphi_{x}(U\cap V)$ and $\varphi_{x}(U\cap V)$ is an open subset of $\mathbb{R}^{n}$. Because $\varphi_{x}(U\cap V)$ is open and $\varphi_{x}(x)$ is a point of this set, there is an open ball $B_{r}(\varphi_{x}(x)) \subseteq \varphi_{x}(U\cap V)$. Therefore $\varphi_{x}^{-1}(B_{r}(\varphi_{x}(x)))$ and $B_{r}(\varphi_{x}(x))$ are homeomorphic. So $x$ is in the domain of the following interior chart $(\varphi_{x}^{-1}(B_{r}(\varphi_{x}(x))), \varphi_{x}\vert_{\varphi_{x}^{-1}(B_{r}(\varphi_{x}(x)))})$ where the domain is contained in $U$ and homeomorphic to an open ball in $\mathbb{R}^{n}$.
 
-	where the domain is contained in $U$ and is homeomorphic to an open ball in $\mathbb{R}^{n}$.
+	If $x$ is in the domain of a boundary chart $(V, \varphi_{x})$, then $\varphi_{x}(x) \in \partial\mathbb{H}^{n}$ and $\varphi_{x}(V)$ is an open subset of $\mathbb{H}^{n}$. $U\cap V$ is homeomorphic to $\varphi_{x}(U\cap V)$ and $\varphi_{x}(U\cap V)$ is an open subset of $\mathbb{H}^{n}$. Because $\varphi_{x}(U\cap V)$ is open and $\varphi_{x}(x)$ is a point of this set, there is an open ball $B_{r}(\varphi_{x}(x))$ in $\mathbb{R}^{n}$ such that $B_{r}(\varphi_{x}(x)) \cap \mathbb{H}^{n} \subseteq \varphi_{x}(U\cap V)$ (here we make use of the subspace topology on $\mathbb{H}^{n}$ and the basis for $\mathbb{R}^{n}$ containing open balls). Therefore $W = B_{r}(\varphi_{x}(x)) \cap \mathbb{H}^{n}$ and $\varphi_{x}^{-1}(W)$ are homeomorphic, and $x$ is in the domain of the following boundary chart $(\varphi_{x}^{-1}(W), \varphi_{x}\vert_{W})$ where the domain is contained in $U$ and is homeomorphic to an open half-ball in $\mathbb{H}^{n}$ (it is halved by taking intersection of $\mathbb{H}^{n}$ and an open ball in $\mathbb{R}^{n}$ with center on $\partial \mathbb{H}^{n}$).
 
-	If $x$ is in the domain of a boundary chart $(V, \varphi_{x})$, then $\varphi_{x}(x) \in \partial\mathbb{H}^{n}$ and $\varphi_{x}(V)$ is an open subset of $\mathbb{H}^{n}$. $U\cap V$ is homeomorphic to $\varphi_{x}(U\cap V)$ and $\varphi_{x}(U\cap V)$ is an open subset of $\mathbb{H}^{n}$. Because $\varphi_{x}(U\cap V)$ is open and $\varphi_{x}(x)$ is a point of this set, there is an open ball $B_{r}(\varphi_{x}(x))$ in $\mathbb{R}^{n}$ such that $B_{r}(\varphi_{x}(x)) \cap \mathbb{H}^{n} \subseteq \varphi_{x}(U\cap V)$ (here we make use of the subspace topology on $\mathbb{H}^{n}$ and the basis for $\mathbb{R}^{n}$ containing open balls). Therefore $\varphi_{x}^{-1}(B_{r}(\varphi_{x}(x)) \cap \mathbb{H}^{n})$ and $B_{r}(\varphi_{x}(x)) \cap \mathbb{H}^{n}$ are homeomorphic, and $x$ is in the domain of the following boundary chart
-	\begin{equation*}
-		(\varphi_{x}^{-1}(B_{r}(\varphi_{x}(x)) \cap \mathbb{H}^{n}), \varphi_{x}\vert_{\varphi_{x}^{-1}(B_{r}(\varphi_{x}(x)) \cap \mathbb{H}^{n})})
-	\end{equation*}
+	Hence the collection of open sets of $M$ which are domains of some interior chart (and homeomorphic to some open ball in $\mathbb{R}^{n}$) or some boundary chart  (and homeomorphic to some open half-ball in $\mathbb{H}^{n}$) constitutes a basis for the $n$-manifold with boundary $M$.
 
-	where the domain is contained in $U$ and is homeomorphic to a half of an open ball in $\mathbb{H}^{n}$ (it is halved by taking intersection of $\mathbb{H}^{n}$ and an open ball in $\mathbb{R}^{n}$ with center on $\partial \mathbb{H}^{n}$).
+	On the other hand, an open ball or an open half-ball is path-connected (because it is a convex set), so $M$ has a basis of path-connected (hence connected) open sets. Therefore $M$ is locally path-connected and locally connected.
 
-	Hence the collection of open sets of $M$ which are domains of some interior chart (and homeomorphic to some open ball in $\mathbb{R}^{n}$) or some boundary chart  (and homeomorphic to half of some open ball in $\mathbb{H}^{n}$) constitutes a basis for the $n$-manifold with boundary $M$.
-
-	On the other hand, a half of an open ball is path-connected (because it is a convex set), so $M$ has a basis of path-connected (hence connected) open sets. Therefore $M$ is locally path-connected and locally connected.
-
-	From the two cases, we conclude that every manifold (without or with boundary) is locally connected and locally path-connected.
+	From the two cases, we conclude that every manifold (without or with boundary) is locally path-connected and locally connected.
 \end{proof}
 
 \section*{Compactness}\addcontentsline{toc}{section}{Compactness}
@@ -248,13 +238,52 @@
 	Thus $\mathbb{S}^{n}\smallsetminus \set{N}$ is a coordinate ball in $\mathbb{S}^{n}$ whose closure is equal to all of $\mathbb{S}^{n}$.
 \end{proof}
 
-\begin{exercise}{4.61}
+\begin{exercise}{4.61}\label{exercise:4.61}
 	Complete the proof of Proposition 4.60 by showing that $\mathscr{B}$ is a basis.
 \end{exercise}
+
+\begin{proof}
+	Proposition 4.60. Every manifold has a countable basis of regular coordinate balls.
+
+	Let $M$ be an $n$-manifold. Every point of $M$ has an Euclidean neighborhood (or coordinate domain), and these Euclidean neighborhoods cover $M$. Since $M$ is second countable, every open cover of $X$ has a countable subcover (This is Theorem 2.50). Let $\set{U_{i}}_{i\in\mathbb{N}}$ be a countable collection of such neighborhoods, and for each $U_{i}$, there is a homeomorphism $\varphi_{i}$ from $U_{i}$ onto an open subset $\hat{U}_{i} \subseteq \mathbb{R}^{n}$. For each $x \in \hat{U}_{i}$ there is a positive number $r(x)$ such that $B_{r(x)}(x) \subseteq \hat{U}_{i}$.
+
+	For every $\hat{U}_{i}$, consider the open balls $B_{r}(x)$ where $B_{r}(x) \subseteq \hat{U}_{i}$, all coordinates of $x\in \hat{U}_{i}$ are rational, $r$ is a positive rational number strictly less than $r(x)$. From Lemma 4.59, $\varphi_{i}^{-1}(B_{r}(x))$ is a regular coordinate ball. Let $\mathscr{B}_{i}$ be the collection of those $\varphi_{i}^{-1}(B_{r}(x))$ then $\mathscr{B}_{i}$ is countable. Therefore $\mathscr{B} = \bigcup_{i\in\mathbb{N}}\mathscr{B}_{i}$ is countable.
+
+	Every element of $\mathscr{B}$ is an open subset of $M$. Let $U$ be a nonempty open subset of $M$, then
+	\begin{equation*}
+		U = \bigcup_{i\in\mathbb{N}}(U\cap U_{i}).
+	\end{equation*}
+
+	Remind that the collection of open balls with rational radii and rational coordinates only is a basis for the Euclidean topology on $\mathbb{R}^{n}$. If $a\in U\cap U_{i}$ then the point $\varphi_{i}(a) \in \varphi_{i}(U_{i}\cap U)$ is contained in some $B_{r}(x)$ where $x$ has rational coordinates only and $0 < r < r(x)$ is rational. So $a\in \varphi_{i}^{-1}(B_{r}(x))$, which is an element of $\mathscr{B}$. Hence every point of $U$ admits an element of $\mathscr{B}$ as its neighborhood and this neighborhood is contained in $U$. Therefore $\mathscr{B}$ is a countable basis for $M$.
+
+	Thus every manifold has a countable basis of regular coordinate balls.
+\end{proof}
 
 \begin{exercise}{4.62}
 	Prove that every manifold with boundary has a countable basis consisting of regular coordinate balls and half-balls.
 \end{exercise}
+
+\begin{proof}
+	First, we prove a result similar to Lemma 4.59 as follows: Let $M$ be an $n$-manifold with boundary. $B'\subseteq M$ is the (coordinate half-ball) domain of any boundary chart and $\varphi: B' \to B_{r'}(x)\cap \mathbb{H}^{n}$ where $x \in \partial\mathbb{H}^{n}$ is a homeomorphism, then $\varphi^{-1}(B_{r}(x) \cap \mathbb{H}^{n})$ is a regular coordinate half-ball whenever $0 < r < r'$.
+
+	For every $0 < r < r'$, $B_{r}(x) \cap \mathbb{H}^{n}$ is an open subset of $B_{r'}(x) \cap \mathbb{H}^{n}$, so $B = \varphi^{-1}(B_{r}(x) \cap \mathbb{H}^{n})$ is a coordinate half-ball. Regard $\varphi^{-1}$ as a map from $\bar{B}_{r}(0) \cap \mathbb{H}^{n}$ to $M$, then $\varphi^{-1}$ is a continuous and closed map (because $\bar{B}_{r}(x) \cap \mathbb{H}^{n}$ is compact due to Heine-Borel's theorem, and $M$ is Hausdorff). By Problem~\ref{problem:2-6}, $\varphi^{-1}(\bar{B}_{r}(x) \cap \mathbb{H}^{n}) = \overline{B}$, hence $\varphi(\overline{B}) = \bar{B}_{r}(x) \cap \mathbb{H}^{n}$. Hence $\varphi^{-1}(B_{r}(x) \cap \mathbb{H}^{n})$ is a regular coordinate half-ball whenever $0 < r < r'$.
+
+	An equivalence statement to the result we have just proved is given by replacing the point $x$ in $\partial\mathbb{H}^{n}$ by $0$, and this fits the definition of regular coordinate half-ball in the book. However, for convenience, we will use the definition given at the begining of this proof.
+
+	Back to the proof for the main result. Let $M$ be an $n$-manifold with boundary. Every point of $M$ has an Euclidean neighborhood, so $M$ is covered by those Euclidean neighborhoods. Since $M$ is second countable then the open cover made of those Euclidean neighborhoods has a countable subcover. Let $\set{U_{i}}_{i\in\mathbb{N}}$ be an open cover of $M$ made of Euclidean neighborhoods, then for each $U_{i}$, there is a homeomorphism $\varphi_{i}$ from $U_{i}$ to an open subset $\hat{U}_{i}$ of $\mathbb{R}^{n}$ or $\mathbb{H}^{n}$. For each $x\in \hat{U}_{i}$, there is a positive number $r(x)$ such that
+	\begin{equation*}
+		\begin{cases}
+			\text{if $x$ is in $\partial\mathbb{H}^{n}$ then $B_{r(x)} \cap \mathbb{H}^{n} \subseteq \hat{U}_{i}$,} \\
+			\text{if $x$ is not in $\partial\mathbb{H}^{n}$ then $B_{r(x)} \subseteq \hat{U}_{i}$.}
+		\end{cases}
+	\end{equation*}
+
+	For every $\hat{U}_{i}$, consider the following open sets: $B_{r}(x) \subseteq \hat{U}_{i}$ where $x \notin \partial\mathbb{H}^{n}$ (whose coordinates are all rational) and $r$ is a positive rational number strictly less than $r(x)$; $B_{r}(x) \cap \mathbb{H}^{n} \subseteq \hat{U}_{i}$ where $x \in \partial\mathbb{H}^{n}$ (whose coordinates are all rational) and $r$ is a positive rational number strictly less than $r(x)$. In the former case, $B = \varphi_{i}^{-1}(B_{r}(x))$ is a regular coordinate ball, due to Lemma 4.59; in the latter, $B = \varphi_{i}^{-1}(B_{r}(x) \cap \mathbb{H}^{n})$ is a regular coordinate half-ball, according to the first part of this proof. Denote by $\mathscr{B}_{i}$ the collection of those regular coordinate balls and regular coordinate half-balls, and $\mathscr{B} = \bigcup_{i\in\mathbb{N}}\mathscr{B}_{i}$.
+
+	Since regular coordinate balls and regular coordinate half-balls are open subsets of $M$, every element of $\mathscr{B}$ is an open subset of $M$. Let $U$ be an open subset of $M$ then $U = \bigcup_{i\in\mathbb{N}}(U\cap U_{i})$. Remind that the collection of open ball $B_{r}(x)$ (where all coordinates of $x$ are rational, $r$ is a positive rational number) and open half-ball $B_{r}(x) \cap \mathbb{H}^{n}$ (where all coordinates of $x$ are rational, $x \in \partial\mathbb{H}^{n}$, $r$ is a positive rational number) is a basis for the subspace topology on $\mathbb{H}^{n}$. If $a \in U\cap U_{i}$ then the point $\varphi_{i}(a) \in \varphi_{i}(U\cap U_{i})$ is either in $\partial\mathbb{H}^{n}$ or $\operatorname{Int}\mathbb{H}^{n}$. In either case, there is an element of $\mathscr{B}_{i}$ containing $\varphi_{i}(a)$ and contained in $\varphi_{i}(U\cap U_{i})$. Therefore $\mathscr{B}$ is a countable basis for $M$.
+
+	Thus every manifold with boundary has a countable basis of regular coordinate balls and half-balls.
+\end{proof}
 
 \section*{Local Compactness}\addcontentsline{toc}{section}{Local Compactness}
 
