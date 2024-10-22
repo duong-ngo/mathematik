@@ -287,6 +287,33 @@
 
 \section*{Local Compactness}\addcontentsline{toc}{section}{Local Compactness}
 
+\begin{exercise}{4.67}
+	Show that any finite product of locally compact spaces is locally compact.
+\end{exercise}
+
+\begin{proof}
+	Let $X, Y$ be locally compact spaces and $\tuple{x, y}$ be a point of $X\times Y$. Because $X, Y$ are locally compact, there exist $U_{x}, K_{x} \subseteq X$ and $U_{y}, K_{y} \subseteq Y$ such that $U_{x}, U_{y}$ are open, $K_{x}, K_{y}$ are compact, and $x\in U_{x} \subseteq K_{x}, y\in U_{y} \subseteq K_{y}$. So $\tuple{x, y} \in U_{x}\times U_{y} \subseteq K_{x} \times K_{y}$, where $U_{x}\times U_{y}$ is a product open set and $K_{x}\times K_{y}$ is compact because the product of finitely many compact spaces is compact. Hence $X\times Y$ is locally compact.
+
+	It follows from mathematical induction that any finite product of locally compact spaces is locally compact.
+\end{proof}
+
+\begin{exercise}{4.70}
+	Prove Proposition 4.69: In a Baire space, every meager subset has dense complement.
+\end{exercise}
+
+\begin{quote}
+	A subset $F$ of a topological space $X$ is said to be \textbf{nowhere dense} if $\overline{F}$ has a dense complement, and $F$ is said to be \textbf{meager} if it can be expressed as a union of countably many nowhere dense subsets.
+\end{quote}
+
+\begin{proof}
+	Let $X$ be a Baire space and $A\subseteq X$ is a meager subset. The meager set $A$ can be expressed as a union of countable many nowhere dense subsets $\set{U_{i}}_{i\in\mathbb{N}}$. $\overline{X\smallsetminus \overline{U_{i}}} = X$ for every $i\in\mathbb{N}$. By De Morgan's law and $U_{i}\subseteq \overline{U_{i}}$, we obtain
+	\begin{equation*}
+		X\smallsetminus A = X\smallsetminus \left(\bigcup_{i\in\mathbb{N}}U_{i}\right) = \bigcap_{i\in\mathbb{N}}(X\smallsetminus U_{i}) \supseteq \bigcap_{i\in\mathbb{N}}(X\smallsetminus \overline{U_{i}})
+	\end{equation*}
+
+	Because $X$ is a Baire space and $X\smallsetminus \overline{U_{i}}$ is a dense open subset for every $i\in\mathbb{N}$, the intersection $\bigcap_{i\in\mathbb{N}} (X\smallsetminus \overline{U_{i}})$ is dense, from which we deduce that $X\smallsetminus A$ (which is a superset of the intersection) is dense. Thus every meager subset has a dense complement.
+\end{proof}
+
 \section*{Paracompactness}\addcontentsline{toc}{section}{Paracompactness}
 
 \subsection*{Normal Spaces}\addcontentsline{toc}{subsection}{Normal Spaces}
