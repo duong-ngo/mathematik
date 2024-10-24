@@ -287,6 +287,18 @@
 
 \section*{Local Compactness}\addcontentsline{toc}{section}{Local Compactness}
 
+\begin{lemma}{4.65}
+	Let $X$ be a locally compact Hausdorff space. If $x\in X$ and $U$ is any neighborhood of $x$, there exists a precompact neighborhood $V$ of $x$ such that $\overline{V} \subseteq U$.
+\end{lemma}
+
+\begin{proof}
+	Since $X$ is a locally compact Hausdorff space, $x$ has a precompact neighborhood $W$. $\overline{W}$ is compact and $\overline{W}\smallsetminus U = \overline{W} \cap (X\smallsetminus U)$ is a closed subset of $\overline{W}$, so $\overline{W}\smallsetminus U$ is compact.
+
+	In a Hausdorff space, disjoint compact subsets have disjoint neighborhoods, so there exist disjoint open subsets $Y, Y'\subseteq X$ such that $\set{x} \subseteq Y$ and $\overline{W}\smallsetminus U \subseteq Y'$. Define $V = W\cap Y$ then $V \subseteq W$, which implies $\overline{V} \subseteq \overline{W}$. Therefore $\overline{V}$ is compact (because it is a closed subset of the compact set $\overline{W}$). We will show that $\overline{V}\subseteq U$.
+
+	$Y, Y'$ are disjoint and $Y, Y'\subseteq X$ so $Y\cup Y' \subseteq X$. Hence $V = W\cap Y \subseteq Y \subseteq X\smallsetminus Y'$, it follows that $\overline{V} \subseteq \overline{Y} \subseteq \overline{X\smallsetminus Y'} = X\smallsetminus Y'$. Hence $\overline{V} \subseteq \overline{W} \cap (X\smallsetminus Y') = \overline{W} \smallsetminus Y' \subseteq U$, so $V$ is a precompact neighborhood of $x$ such that $\overline{V} \subseteq U$.
+\end{proof}
+
 \begin{exercise}{4.67}
 	Show that any finite product of locally compact spaces is locally compact.
 \end{exercise}
@@ -306,7 +318,7 @@
 \end{quote}
 
 \begin{proof}
-	Let $X$ be a Baire space and $A\subseteq X$ is a meager subset. The meager set $A$ can be expressed as a union of countable many nowhere dense subsets $\set{U_{i}}_{i\in\mathbb{N}}$. $\overline{X\smallsetminus \overline{U_{i}}} = X$ for every $i\in\mathbb{N}$. By De Morgan's law and $U_{i}\subseteq \overline{U_{i}}$, we obtain
+	Let $X$ be a Baire space and $A\subseteq X$ is a meager subset. The meager set $A$ can be expressed as a union of countable many nowhere dense subsets $\set{U_{i}}_{i\in\mathbb{N}}$. Because $U_{i}$ is nowhere dense, $X\smallsetminus\overline{U_{i}}$ is dense for every $i\in\mathbb{N}$. By De Morgan's law and $U_{i}\subseteq \overline{U_{i}}$ for every $i\in \mathbb{N}$, we obtain
 	\begin{equation*}
 		X\smallsetminus A = X\smallsetminus \left(\bigcup_{i\in\mathbb{N}}U_{i}\right) = \bigcap_{i\in\mathbb{N}}(X\smallsetminus U_{i}) \supseteq \bigcap_{i\in\mathbb{N}}(X\smallsetminus \overline{U_{i}})
 	\end{equation*}
@@ -314,11 +326,45 @@
 	Because $X$ is a Baire space and $X\smallsetminus \overline{U_{i}}$ is a dense open subset for every $i\in\mathbb{N}$, the intersection $\bigcap_{i\in\mathbb{N}} (X\smallsetminus \overline{U_{i}})$ is dense, from which we deduce that $X\smallsetminus A$ (which is a superset of the intersection) is dense. Thus every meager subset has a dense complement.
 \end{proof}
 
+\begin{example}{4.71}
+	The solution set of any polynomial equation in two variables is nowhere dense in $\mathbb{R}^{2}$.
+
+	There are points in the plane that satisfy no rational polynomial equation.
+\end{example}
+
+\begin{proof}
+	Let $f \in \mathbb{R}[x, y]$ be a nonzero polynomial in two variables. $\set{0}$ is closed in $\mathbb{R}$ and the solution set of $p$ is $f^{-1}(0)$, which is closed because $f$ is continuous. Assume that the interior (which is an open set) of $f^{-1}(0)$ is nonempty, then there is an open disk of $\mathbb{R}^{2}$ on which $f$ vanishes. This implies that $f$ is the zero polynomial, which is a contradiction. Hence the interior of $f^{-1}(0)$ is empty, so it is nowhere dense.
+
+	There are countably many polynomials with rational coefficients, and the union of their solution sets (they are nowhere dense) is a meager subset of $\mathbb{R}^{2}$, so the complement of this meager subset is dense in $\mathbb{R}^{2}$, which implies the existence of points satisfying no rational polynomial equation.
+\end{proof}
+
 \section*{Paracompactness}\addcontentsline{toc}{section}{Paracompactness}
+
+\begin{exercise}{4.73}
+	Suppose $\mathscr{A}$ is an \textit{open} cover of $X$ such that each element of $\mathscr{A}$ intersects only finitely many others. Show that $\mathscr{A}$ is locally finite. Give a counterexample to show that this need not be true when the elements of $\mathscr{A}$ are not open.
+\end{exercise}
+
+\begin{proof}
+	Because $\mathscr{A}$ is an open cover of $X$, for every element of $x$, there exists $A\in\mathscr{A}$ such that $x\in A$. Moreover, $A$ is a neighborhood of $x$ and $A$ intersects at most finitely many other elements of $\mathscr{A}$. Therefore $\mathscr{A}$ is locally finite.
+
+	Here is a counterexample: Consider the $(n+1)$-space $\mathbb{R}^{n+1}$ where $n > 1$. Define $\mathscr{A}$ to be the set of 1-dimensional subspaces of $\mathbb{R}^{n+1}$ then each element of $\mathscr{A}$ is not open and $\mathscr{A}$ covers $\mathbb{R}^{n+1}$. However, every neighborhood of the origin intersects every element of $\mathscr{A}$ and $\mathscr{A}$ has infinite elements.
+\end{proof}
 
 \subsection*{Normal Spaces}\addcontentsline{toc}{subsection}{Normal Spaces}
 
+\begin{exercise}{4.78}
+	Show that every compact Hausdorff space is normal.
+\end{exercise}
+
+\begin{exercise}{4.79}
+	Show that every closed subspace of a normal space is normal.
+\end{exercise}
+
 \subsection*{Partition of Unity}\addcontentsline{toc}{subsection}{Partition of Unity}
+
+\begin{exercise}{4.87}
+	Show that every compact manifold with boundary is homeomorphic to a subset of some Euclidean space. [Hint: use the double.]
+\end{exercise}
 
 \section*{Proper Maps}\addcontentsline{toc}{section}{Proper Maps}
 
@@ -489,28 +535,116 @@ Show that the following topological spaces are not manifolds
 Let $M = \mathbb{S}^{1}\times\mathbb{R}$, and let $A = \mathbb{S}^{1} \times \set{0}$. Show that the space $M/A$ obtained by collapsing $A$ to a point is homeomorphic to the space $C$ of Problem 4-4 (b), and thus is Hausdorff and second countable but not locally Euclidean.
 \end{problem}
 
-\begin{proof}
-	Consider the map $f: \mathbb{S}^{1}\times\mathbb{R} \to C$ given by
+\begin{proof}[Unrigorous Proof]
+	The map $f: \mathbb{S}^{1}\times\mathbb{R} \to C$ given by
 	\begin{equation*}
 		f(e^{\iota\theta}, r) = (r\cos\theta, r\sin\theta, r)
 	\end{equation*}
 
-	is a quotient map. Meanwhile, the quotient map $q: M\to M/A$ and $f$ have the same identification, hence $M/A$ and $C$ are homeomorphism, according to the uniqueness of quotient space. Thus $C$ is Hausdorff, second countable but not locally Euclidean.
+	is a quotient map (I don't have a rigorous proof for this yet). Moreover, the quotient map $q: M\to M/A$ and $f$ have the same identification, hence $M/A$ and $C$ are homeomorphism, according to the uniqueness of quotient space. Thus $C$ is Hausdorff, second countable but not locally Euclidean.
 \end{proof}
 
-% \begin{problem}{4-6}
-% Like Problem~\ref{problem:2-22}, this problem constructs a space that is locally Euclidean and Hausdorff but not second countable. Unlike that example, however, this one is connected.
+\begin{problem}{4-6}
+Like Problem~\ref{problem:2-22}, this problem constructs a space that is locally Euclidean and Hausdorff but not second countable. Unlike that example, however, this one is connected.
+\begin{enumerate}[label={(\alph*)}]
+	\item Recall that a totally ordered set is said to be well ordered if every nonempty subset has a smallest element. Show that the well-ordering theorem implies that there exists an uncountable well-ordered set $Y$ such that for every $y_{0}\in Y$, there are only countably many $y\in Y$ such that $y < y_{0}$.
+	\item Now let $\mathscr{R} = Y \times \halfopenright{0,1}$, with the \textbf{dictionary order}: this means that $(y_{1}, s_{1}) < (y_{2}, s_{2})$ if either $y_{1} < y_{2}$, or $y_{1} = y_{2}$ and $s_{1} < s_{2}$. With the order topology, $\mathscr{R}$ is called the \textbf{long ray}. The \textbf{long line} $\mathscr{L}$ is the wedge sum $\mathscr{R}\vee \mathscr{R}$ obtained by identifying both copies of $(y_{0}, 0)$ with each other, where $y_{0}$ is the smallest element in $Y$. Show that $\mathscr{L}$ is locally Euclidean, Hausdorff, and first countable, but not second countable.
+	\item Show that $\mathscr{L}$ is path-connected.
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	Unsolved.
+	\begin{enumerate}[label={(\alph*)}]
+		\item This assumes the well-ordering theorem.
+
+		      Let $X$ be an uncountable well-ordered set. If for every element of $X$, there is only countably many elements strictly less than it, then we are done. If this is not the case, the subset $X_{0}\subseteq X$ of elements $x$ such that there are uncountably many elements strictly less than $x$, is nonempty. Due to the well-ordering theorem, $X_{0}$ has a smallest element $x_{0}$. Let $Y$ be the subset of $X$ containing element strictly less than $x_{0}$ then $Y$ is uncountable and has the desired property (otherwise, it contradicts the minimality of $x_{0}$).
+		\item
+		\item
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{4-7}
+Let $q: X\to Y$ be an open quotient map. Show that if $X$ is locally connected, locally path-connected, or locally compact, then $Y$ has the same property.
+\end{problem}
+
+\begin{proof}
+	A continuous map maps connected sets to connected sets, path-connected sets to path-connected sets, and compact sets to compact sets.
+
+	\textbf{$X$ is locally connected.}
+
+	Because $X$ is locally connected, $X$ has a basis $\mathscr{B}$ consisting of connected open subsets of $X$. Let $V$ be an open subset of $Y$, then $q^{-1}(V)$ is open because $q$ is continuous. $q^{-1}(V)$ can be written as a union of elements of $\mathscr{B}$, so $V = q(q^{-1}(V))$ can be written as a union of elements of $\set{ q(B) : B\in\mathscr{B} }$, and every $q(B)$ is a connected open subset of $Y$ (because $q$ is an open quotient map), hence $\set{ q(B) : B\in\mathscr{B} }$ is a basis for $Y$, which means $Y$ is locally connected.
+
+	\textbf{$X$ is locally path-connected.}
+
+	Because $X$ is locally connected, $X$ has a basis $\mathscr{B}$ consisting of path-connected open subsets of $X$. Let $V$ be an open subset of $Y$, then $q^{-1}(V)$ is open because $q$ is continuous. $q^{-1}(V)$ can be written as a union of elements of $\mathscr{B}$, so $V = q(q^{-1}(V))$ can be written as a union of elements of $\set{ q(B) : B\in\mathscr{B} }$, and every $q(B)$ is a path-connected open subset of $Y$ (because $q$ is an open quotient map), hence $\set{ q(B) : B\in\mathscr{B} }$ is a basis for $Y$, which means $Y$ is locally path-connected.
+
+	\textbf{$X$ is locally compact.}
+
+	Let $y$ be an element of $Y$ then there exists $x\in X$ such that $q(x) = y$. Since $X$ is locally compact, there is an open subset $U$ and a compact subset $K$ of $X$ such that $x \in U \subseteq K$. Because $q$ is continuous, $q(K)$ is a compact subset of $Y$. Because $q$ is an open map, $q(U)$ is an open subset of $Y$. Therefore $y = q(x) \in q(U) \subseteq q(K)$. Together with the arbitrariness of $y$, we conclude that $Y$ is locally compact.
+\end{proof}
+
+\begin{problem}{4-8}\label{problem:4-8}
+Show that a locally connected topological space is homeomorphic to the disjoint union of its components.
+\end{problem}
+
+\begin{proof}
+	Let $X$ be a locally connected topological space and $\mathscr{C}$ be the collection of its components. Denote by $Y$ the space $\coprod_{C\in\mathscr{C}}C$ with the disjoint union topology.
+
+	Consider the map $f: X\to Y$ where $f(x)$ is defined to be $\iota_{C}(x)$ where $C$ is the component containing $x$. $f$ is well-defined because the components of a topological space give a partition of the given space. $f$ is bijective by definition.
+
+	Let $U$ be an open subset of $X$, then $U = \bigcup_{C\in\mathscr{C}}(U\cap C)$ and $\iota_{C}(U\cap C)$ is open in $C$. Therefore $f(U)$ is open in $Y$. Hence $f$ is an open map.
+
+	Let $V$ be an open subset of $Y$, then $V\cap C \subseteq C$ is open for every $C\in\mathscr{C}$. The preimage of $V$ is
+	\begin{equation*}
+		f^{-1}(V) = f^{-1}\left( \coprod_{C\in\mathscr{C}} (V\cap C) \right) = \bigcup_{C\in\mathscr{C}}\iota_{C}^{-1}(V\cap C).
+	\end{equation*}
+
+	$\iota_{C}^{-1}(V\cap C)$ is open in $C$ for every $C\in\mathscr{C}$. On the other hand, \textbf{$X$ is locally connected so every component of $X$ is open}, so $C$ is an open subset of $X$ for every $C\in\mathscr{C}$. From Exercise~\ref{exercise:3.6} (Proposition 3.5), it follows that $\iota_{C}^{-1}(V\cap C)$ is open in $X$. Hence $f^{-1}(V)$ is open in $X$. Therefore $f$ is continuous.
+
+	Thus $f$ is a homeomorphism, which implies that $X$ is homeomorphic to the disjoint union of its components.
+\end{proof}
+
+\begin{problem}{4-9}
+Show that every $n$-manifold is homeomorphic to a disjoint union of countably many connected $n$-manifolds, and every $n$-manifold with boundary is homeomorphic to a disjoint union of countably many connected $n$-manifolds with (possibly empty) boundaries.
+\end{problem}
+
+\begin{proof}
+	Every manifold (with or without boundary) is locally path-connected (hence locally connected).
+
+	Suppose $M$ is an $n$-manifold (with or without boundary). From Problem~\ref{problem:4-8}, $M$ is locally connected, so $M$ is homeomorphic to the disjoint union of its components. Because $M$ is locally connected, every component of $M$ is open. Assume for the sake of contradiction that $M$ has uncountably many components. $M$ is second countable so it has a countable basis $\mathscr{B}$. Each component $C$ of $M$ is open and nonempty so it contains an element $B_{C}$ of $\mathscr{B}$. Since the components of $M$ are disjoint and uncountably many, it follows that $\mathscr{B}$ is uncountably infinite, which is a contradiction. Hence $M$ has countably many components.
+
+	Let $C$ be a component of $M$ and $x$ be an element of $C$.
+
+	\textbf{$M$ is an $n$-manifold without boundary.}
+
+	Because $M$ is an $n$-manifold, $x$ is contained in some coordinate ball $B$. Moreover, every coordinate ball of an $n$-manifold is connected (because it is homeomorphic to an open ball of $\mathbb{R}^{n}$) so $B$ is contained in a single component of $M$. Since $x\in B, x\in C$, then $B \subseteq C$, so $C$ is locally Euclidean of dimension $n$. On the other hand, $C\subseteq M$ is second countable and Hausdorff (with the subspace topology) so $C$ is a connected $n$-manifold. Therefore $M$ is homeomorphic to a disjoint union of countably many connected $n$-manifolds.
+
+	\textbf{$M$ is an $n$-manifold with boundary.}
+
+	Because $M$ is an $n$-manifold with boundary, $x$ is contained in some regular coordinate ball or half-ball $B$. Every regular coordinate ball (or half-ball) of an $n$-manifold is connected, so $B$ is connected and is contained in a single component. Since $x\in B, x\in C$, then $B\subseteq C$, so $C$ is locally Euclidean of dimension $n$. On the other hand, $C\subseteq M$ is second countable and Hausdorff (with the subspace topology) so $C$ is a connected $n$-manifold. Therefore $M$ is homeomorphic to a disjoint union of countably many connected $n$-manifolds with (possibly empty) boundaries.
+\end{proof}
+
+% \begin{problem}{4-10}
+% Let $S$ be the square $I\times I$ with the order topology generated by the dictionary order.
 % \begin{enumerate}[label={(\alph*)}]
-% 	\item Recall that a totally ordered set is said to be well ordered if every nonempty subset has a smallest element. Show that the well-ordering theorem implies that there exists an uncountable well-ordered set $Y$ such that for every $y_{0}\in Y$, there are only countably many $y\in Y$ such that $y < y_{0}$.
-% 	\item Now let $\mathscr{R} = Y \times \halfopenright{0,1}$, with the \textbf{dictionary order}: this means that $(y_{1}, s_{1}) < (y_{2}, s_{2})$ if either $y_{1} < y_{2}$, or $y_{1} = y_{2}$ and $s_{1} < s_{2}$. With the order topology, $\mathscr{R}$ is called the \textbf{long ray}. The \textbf{long line} $\mathscr{L}$ is the wedge sum $\mathscr{R}\vee \mathscr{R}$ obtained by identifying both copies of $(y_{0}, 0)$ with each other, where $y_{0}$ is the smallest element in $Y$. Show that $\mathscr{L}$ is locally Euclidean, Hausdorff, and first countable, but not second countable.
-% 	\item Show that $\mathscr{L}$ is path-connected.
+% 	\item Show that $S$ has the least upper bound property.
+% 	\item Show that $S$ is connected.
+% 	\item Show that $S$ is locally connected, but not locally path-connected.
 % \end{enumerate}
 % \end{problem}
 
-% \begin{problem}{4-7}
-% Let $q: X\to Y$ be an open quotient map. Show that if $X$ is locally connected, locally path-connected, or locally compact, then $Y$ has the same property.
-% \end{problem}
+% \begin{proof}
+% 	Denote by $\pi_{1}, \pi_{2}$ the canonical maps from $I\times I$ to $I$ given by $\pi_{1}(x, y) = x$ and $\pi_{2}(x, y) = y$. $I$ has the least upper bound property.
+% 	\begin{enumerate}[label={(\alph*)}]
+% 		\item Let $A$ be a nonempty subset of $S$. $\pi_{1}(A)$ is a nonempty subset of $I$ so it has a least upper bound $x_{0}$.
 
-% \begin{problem}{4-8}
-% Show that a locally connected topological space is homeomorphic to the disjoint union of its components.
-% \end{problem}
+% 		      If $x_{0} \notin \pi_{1}(A)$ then $\tuple{x_{0}, 0}$ is an upper bound of $A$. If $\tuple{x, y} < \tuple{x_{0}, 0}$ then $x < x_{0}$ so there is $x' \in \pi_{1}(A)$ such that $x < x' < x_{0}$, which means any element of $S$ less than $\tuple{x_{0}, 0}$ is not an upper bound of $A$. So $\tuple{x_{0}, 0}$ is the least upper bound of $A$.
+
+% 		      If $x_{0} \in \pi_{1}(A)$, define $B = \set{ \tuple{x, y} \in A : x = x_{0} }$ then $B$ is nonempty. $\pi_{2}(B)$ is a nonempty subset of $I$ so it has a least upper bound $y_{0}$. If $\tuple{x, y} < \tuple{x_{0}, y_{0}}$ then either $x = x_{0}$ and $y < y_{0}$ or $x < x_{0}$. In case $x = x_{0}$ and $y < y_{0}$, there is $y' \in \pi_{2}(B)$ such that $y < y'$, so $\tuple{x, y} < \tuple{x_{0}, y'} \leq \tuple{x_{0}, y_{0}}$. In case $x < x_{0}$, for every $y' \in \pi_{2}(B)$, $\tuple{x, y} < \tuple{x_{0}, y'} \leq \tuple{x_{0}, y_{0}}$. In either case, $\tuple{x, y}$ is not an upper bound. So $\tuple{x_{0}, y_{0}}$ is the least upper bound of $A$.
+
+% 		      Hence $S$ has the least upper bound property.
+% 		\item
+% 		\item
+% 	\end{enumerate}
+% \end{proof}

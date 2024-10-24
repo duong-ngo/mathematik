@@ -33,7 +33,7 @@
 \end{exercise}
 
 \begin{proof}
-	$(\Rightarrow)$ Suppose $B$ is closed in $S$.
+	$(\Longrightarrow)$ Suppose $B$ is closed in $S$.
 
 	Then $S\smallsetminus B$ is open in $S$, so there is an open subset $U$ of $X$ such that $S\smallsetminus B = S\cap U$.
 	\[
@@ -42,7 +42,7 @@
 
 	so $B$ is the intersection of $S$ and the closed subset $S\smallsetminus U$ of $X$.
 
-	$(\Leftarrow)$ Suppose $B$ is equal to the intersection of $S$ with some closed subset $A$ of $X$.
+	$(\Longleftarrow)$ Suppose $B$ is equal to the intersection of $S$ with some closed subset $A$ of $X$.
 	\[
 		S\smallsetminus B = S\smallsetminus (S\cap A) = (S\cap X) \smallsetminus (S\cap A) = S\cap (X\smallsetminus A).
 	\]
@@ -79,7 +79,7 @@
 	Thus $\mathscr{T}_{S} = \mathscr{T}_{d_{S}}$, which means the subspace topology on $S$ is the same as the metric topology with the metric obtained by restricting the metric of $M$ to $S$.
 \end{proof}
 
-\begin{exercise}{3.6}
+\begin{exercise}{3.6}\label{exercise:3.6}
 	Prove Proposition 3.5.
 
 	Suppose $S$ is a subspace of the topological space $X$.
@@ -647,11 +647,11 @@
 \end{exercise}
 
 \begin{proof}
-	$(\Rightarrow)$ Suppose $f$ is continuous.
+	$(\Longrightarrow)$ Suppose $f$ is continuous.
 
 	Let $U_{\alpha}$ be an open set in $X_{\alpha}$. We have ${(\pi_{\alpha}\circ f)}^{-1}(U_{\alpha}) = f^{-1}(\pi_{\alpha}^{-1}(U_{\alpha}))$. On the other hand, $\pi_{\alpha}^{-1}(U_{\alpha}) = \prod_{i\in A}Y_{i}$ where $Y_{i} = X_{i}$ if $i\ne\alpha$ and $Y_{i} = U_{i}$ if $i = \alpha$. By the definition of infinite product topology, $\prod_{i\in A}Y_{i}$ is open. Because $f$ is continuous, $f^{-1}(\pi_{\alpha}^{-1}(U_{\alpha})) = f^{-1}\left(\prod_{i\in A}Y_{i}\right)$ is open. Therefore $f_{\alpha} = \pi_{\alpha}\circ f$ is continuous for every $\alpha\in A$.
 
-	$(\Leftarrow)$ Suppose $f_{\alpha} = \pi_{\alpha}\circ f$ is continuous for every $\alpha\in A$.
+	$(\Longleftarrow)$ Suppose $f_{\alpha} = \pi_{\alpha}\circ f$ is continuous for every $\alpha\in A$.
 
 	Let $U$ be an open set of $\prod_{\alpha\in A}X_{\alpha}$. By the definition of infinite product topology, $U$ is an union of product open sets. We need to show that $f^{-1}(U)$ is open in $Y$. However, since the preimage of an arbitrary union is the union of the preimage, so it suffices to prove for the case $U$ is a product set. Let $U = \prod_{\alpha\in A}U_{\alpha}$ where $U_{\alpha} = X_{\alpha}$ for all but finitely many $\alpha\in A$. Let $A'$ be the set of elements $\alpha\in A$ such that $U_{\alpha}\ne X_{\alpha}$, then $A'$ is finite.
 	\begin{align*}
@@ -725,11 +725,11 @@
 \end{exercise}
 
 \begin{proof}
-	$(\Rightarrow)$ Suppose $A$ is countable.
+	$(\Longrightarrow)$ Suppose $A$ is countable.
 
 	According to Exercise~\ref{exercise:3.43} (c) and (e), $\coprod_{\alpha\in A}X_{\alpha}$ is Hausdorff and second countable. Let $x$ be a point of $\coprod_{\alpha\in A}X_{\alpha}$ then there is $\alpha\in A$ such that $x\in X_{\alpha}$. Because $X_{\alpha}$ is an $n$-manifolds, there is a neighborhood of $x$ in $X_{\alpha}$ which is homeomorphic to $\mathbb{R}^{n}$. Because the canonical injection $\iota_{\alpha}: X_{\alpha}\to \coprod_{\alpha\in A}X_{\alpha}$ is a topological embedding, an open map, there is a neighborhood of $x$ in $\coprod_{\alpha\in A}X_{\alpha}$ which is homeomorphic to $\mathbb{R}^{n}$. Thus $\coprod_{\alpha\in A}X_{\alpha}$ is an $n$-manifold.
 
-	$(\Leftarrow)$ Suppose $A$ is not countable.
+	$(\Longleftarrow)$ Suppose $A$ is not countable.
 
 	Let $\mathscr{B}$ be a basis for the disjoint union topology on $\coprod_{\alpha\in A}X_{\alpha}$. For each $\alpha\in A$, there is $B_{\alpha}\in\mathscr{B}$ such that $B_{\alpha}\subseteq X_{\alpha}$. Because $A$ is not countable, ${\{ B_{\alpha}: \alpha\in A \}}$ is not countable. Moreover, ${\{ B_{\alpha}: \alpha\in A \}}\subseteq \mathscr{B}$, so the basis $\mathscr{B}$ is not countable, which implies that $\coprod_{\alpha\in A}X_{\alpha}$ is not second countable. Hence $\coprod_{\alpha\in A}X_{\alpha}$ is not an $n$-manifold.
 
@@ -851,7 +851,7 @@ The following proof makes use of saturated sets and their properties, which are 
 \end{exercise}
 
 \begin{proof}
-	$(\Rightarrow)$ Suppose $q$ is a quotient map.
+	$(\Longrightarrow)$ Suppose $q$ is a quotient map.
 
 	Let $U$ be a saturated subset of $X$. By Exercise~\ref{exercise:3.59}, $U = q^{-1}(q(U))$, moreover, preimages are well-behaved with set differences, so
 	\[
@@ -860,11 +860,11 @@ The following proof makes use of saturated sets and their properties, which are 
 
 	Because $q$ is a quotient map, $U$ is open if and only if $q(U)$ is open. Also because of this, $X\smallsetminus U$ is open if and only if $Y\smallsetminus q(U)$ is open, which means $U$ is closed if and only if $q(U)$ is closed. Hence $q$ takes saturated open subsets to open subsets, saturated closed subsets to closed subsets.
 
-	$(\Leftarrow)$ Suppose $q$ takes saturated open subsets to open subsets.
+	$(\Longleftarrow)$ Suppose $q$ takes saturated open subsets to open subsets.
 
 	Let $V$ be a subset of $Y$ and $U = q^{-1}(V)$. If $U$ is open then $q(U) = q(q^{-1}(V)) = V$ (because $q$ is surjective) is open, because $q$ takes saturated open subsets to open subsets and $U$ is a saturated open subset of $X$. Conversely, if $V$ is open, then $U = q^{-1}(V)$ is open, because $q$ is continuous. Therefore $q$ is surjective, and $q^{-1}(V)$ is open if and only if $V$ is open, so $q$ is a quotient map.
 
-	$(\Leftarrow)$ Suppose $q$ takes saturated closed subsets to closed subsets.
+	$(\Longleftarrow)$ Suppose $q$ takes saturated closed subsets to closed subsets.
 
 	Let $V$ be a subset of $Y$ and $U = q^{-1}(V)$, it follows that $X\smallsetminus U = X\smallsetminus q^{-1}(V) = q^{-1}(Y)\smallsetminus q^{-1}(V) = q^{-1}(Y\smallsetminus V)$. If $U$ is closed, then $q(U) = q(q^{-1}(V)) = V$ is closed, because $q$ takes saturated closed subsets to closed subsets and $U$ is a saturated closed set. If $V$ is closed, then $Y\smallsetminus V$ is open and so is $X\smallsetminus U = q^{-1}(Y\smallsetminus V)$, from which we obtain $U$ is closed. Since $q$ is surjective, $q^{-1}(Y\smallsetminus V)$ is open if and only if $Y\smallsetminus V$ is open, it follows that $q$ is a quotient map.
 \end{proof}
@@ -1117,11 +1117,11 @@ Suppose $X$ is a topological space and $A\subseteq B\subseteq X$. Show that $A$ 
 \end{problem}
 
 \begin{proof}
-	$(\Rightarrow)$ Suppose $A$ is dense in $X$.
+	$(\Longrightarrow)$ Suppose $A$ is dense in $X$.
 
 	By Exercise~\ref{exercise:3.7}, the closure of $A$ in $B$ is the intersection of $B$ and the closure of $A$ in $X$, therefore $A$ is dense in $B$. Every nonempty open subset of $X$ intersects $A$ so every nonempty subset of $X$ also intersects $B$ (because $A\subseteq B$), so $B$ is dense in $X$.
 
-	$(\Leftarrow)$ Suppose $A$ is dense in $B$ and $B$ is dense in $X$.
+	$(\Longleftarrow)$ Suppose $A$ is dense in $B$ and $B$ is dense in $X$.
 
 	Let $U$ be a nonempty open subset of $X$. Because $B$ is dense in $X$, $U$ intersects $B$. Let $V = U\cap B$ then $V$ is open in $B$ with the subspace topology. Because $A$ is dense in $B$, $V$ intersects $A$. Therefore $U$ intersects $A$, which means every nonempty open subset of $X$ intersects $A$. Thus $A$ is dense in $X$.
 \end{proof}
@@ -1232,11 +1232,11 @@ Let $X$ be a topological space. The \textbf{diagonal} of $X\times X$ is the subs
 \begin{proof}
 	Let $(x_{1}, x_{2})\in (X\times X)\smallsetminus\Delta$ then $x_{1}\ne x_{2}$.
 
-	$(\Rightarrow)$ Suppose $X$ is Hausdorff.
+	$(\Longrightarrow)$ Suppose $X$ is Hausdorff.
 
 	Because $X$ is Hausdorff, $x_{1}, x_{2}$ are separated by some neighborhoods $U_{1}, U_{2}$. $U_{1}$ and $U_{2}$ are disjoint so $U_{1}\times U_{2}\subseteq X\times X$ is open. So there is a neighborhood of $(x_{1}, x_{2})$ contained in $(X\times X)\smallsetminus\Delta$. Therefore $(X\times X)\smallsetminus\Delta$ is open, which means $\Delta$ is closed.
 
-	$(\Leftarrow)$ Suppose $\Delta$ is closed in $X\times X$.
+	$(\Longleftarrow)$ Suppose $\Delta$ is closed in $X\times X$.
 
 	$(X\times X)\smallsetminus\Delta$ is open in $X\times X$, so there is a neighborhood $U$ of $(x_{1}, x_{2})$. The collection of product open sets is a basis for the product topology on $X\times X$, so there exist open subsets $B_{1}\subseteq X, B_{2}\subseteq X$ such that
 	\[
