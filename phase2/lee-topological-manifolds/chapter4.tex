@@ -566,8 +566,91 @@ Like Problem~\ref{problem:2-22}, this problem constructs a space that is locally
 	\end{enumerate}
 \end{proof}
 
-\begin{problem}{4-7}
-Let $q: X\to Y$ be an open quotient map. Show that if $X$ is locally connected, locally path-connected, or locally compact, then $Y$ has the same property.
+\begin{note}[Characterizations of Local Connectedness]\label{note:characterizations-of-local-connectedness}
+	Let $X$ be a topological space. The following statements are equivalent
+	\begin{enumerate}[label={(\alph*)}]
+		\item $X$ is locally connected.
+		\item Every open subset of $X$ is locally connected.
+		\item All components of every open subset of $X$ are open in $X$.
+		\item For every $x\in X$, every neighborhood of $x$ contains a connected open set containing $x$.
+		\item Every point of $X$ has a connected neighborhood basis (local basis).
+	\end{enumerate}
+\end{note}
+
+\begin{proof}
+	$(a)\implies (b)$ $X$ is locally connected then $X$ has a basis $\mathscr{B}$ of connected open sets. Let $U$ be an open subset of $X$ and $\mathscr{B}_{U} = \set{ B\in \mathscr{B} : B\subseteq U }$. If $x\in U$ and $V$ is a neighborhood of $x$ in $U$, then $V$ is also open in $X$, so there is $B\in\mathscr{B}$ such that $x\in B\subseteq V\subseteq U$, which implies $B\in\mathscr{B}_{U}$. Hence $\mathscr{B}_{U}$ is a basis for the subspace topology on $U$, which consists of connected open subsets of $U$. Therefore every open subset of $X$ is locally connected.
+
+	$(b)\implies (a)$ $X$ is an open subset of $X$ so $X$ is locally connected.
+
+	$(a)\implies (c)$ Let $U$ be an open subset of $X$, then $U$ is locally connected ($(a) \implies (b)$). Because $U$ is locally connected, every component of $U$ is open in $U$. Therefore every component of $U$ is open in $X$.
+
+	$(c)\implies (a)$ Let $x$ be a point of $X$. For every neighborhood $U$ of $x$, all components of $U$ are open in $X$, let $C_{U,x}$ be the component of $U$ containing $x$. Therefore the collection of $C_{U,x}$ is a connected neighborhood basis of $X$, so $X$ is locally connected.
+
+	$(a)\implies (d)$ Let $x$ be a point of $X$ and $U$ be a neighborhood of $x$. Since $X$ has a basis $\mathscr{B}$ consisting of connected open sets, there exists $B\in\mathscr{B}$ such that $x \in B\subseteq U$. Hence every neighborhood of $x$ contains a connected open set containing $x$.
+
+	$(d)\implies (c)$ Let $U$ be an open subset of $X$ and $C$ be a component of $U$. Let $x$ be a point of $C$ then there is a connected open set $V$ such that $x\in V\subseteq U$. Since $x\in V, x\in C$ and $V, C$ are connected subsets of $U$, $V\cup C$ is a connected subset of $U$. From the maximality of $C$, it follows that $V\subseteq C$, which means there is a neighborhood of $x$ contained in $C$. This is true for every $x\in C$ so $C$ is open in $U$, hence open in $X$ (because $U\subseteq X$ is open). Hence all components of every open subset of $X$ are open in $X$.
+
+	$(a)\implies (e)$ Let $\mathscr{B}$ be a basis of $X$ consisting connected open sets. Let $x$ be a point of $X$ and $\mathscr{B}_{x} = \set{ B\in\mathscr{B}: x\in B }$. For every neighborhood $U$ of $x$, there exists $B\in\mathscr{B}$ such that $x\in B\subseteq U$, which implies $B\in \mathscr{B}_{x}$. Hence $\mathscr{B}_{x}$ is a connected neighborhood basis of $x$.
+
+	$(e)\implies (a)$ Since every point of $X$ has a connected neighborhood basis, the union of these neighborhood bases gives a basis for the topology on $X$, which contains connected open sets.
+\end{proof}
+
+\begin{note}[Characterizations of Local Path-Connectedness]\label{note:characterizations-of-local-path-connectedness}
+	Let $X$ be a topological space. The following statements are equivalent
+	\begin{enumerate}[label={(\alph*)}]
+		\item $X$ is locally path-connected.
+		\item Every open subset of $X$ is locally path-connected.
+		\item All path components of every open subset of $X$ are open in $X$.
+		\item For every $x\in X$, every neighborhood of $x$ contains a path-connected open set containing $x$.
+		\item Every point of $X$ has a path-connected neighborhood basis (local basis).
+	\end{enumerate}
+\end{note}
+
+\begin{proof}
+	$(a)\implies (b)$ $X$ is locally path-connected then $X$ has a basis $\mathscr{B}$ of path-connected open sets. Let $U$ be an open subset of $X$ and $\mathscr{B}_{U} = \set{ B\in \mathscr{B} : B\subseteq U }$. If $x\in U$ and $V$ is a neighborhood of $x$ in $U$, then $V$ is also open in $X$, so there is $B\in\mathscr{B}$ such that $x\in B\subseteq V\subseteq U$, which implies $B\in\mathscr{B}_{U}$. Hence $\mathscr{B}_{U}$ is a basis for the subspace topology on $U$, which consists of path-connected open subsets of $U$. Therefore every open subset of $X$ is locally path-connected.
+
+	$(b)\implies (a)$ $X$ is an open subset of $X$ so $X$ is locally connected.
+
+	$(a)\implies (c)$ $X$ is locally path-connected so there is a basis $\mathscr{B}$ for the topology on $X$ consisting of path-connected open sets. Let $U$ be an open subset of $X$ and $C$ be a path component of $U$. For every $x\in C$, there exists $B\in\mathscr{B}$ such that $x\in B \subseteq U$. Since $C$ and $B$ have the point $x$ in common and they are path-connected, $C\cup B$ is a path-connected subset of $U$. Because of the maximality of $C$, $C\cup B = C$, so $B\subseteq C$. Hence every point of $C$ has a path-connected neighborhood contained in $C$, so $C$ is open in $X$. Therefore all path components of every open subset of $X$ are open in $X$.
+
+	$(c)\implies (a)$ Let $x$ be a point of $X$. For every neighborhood $U$ of $x$, all path components of $U$ are open in $X$, let $P_{U,x}$ be the path component of $U$ containing $x$. The collection of $P_{U,x}$ ($x$ varies on $X$, every neighborhood $U$ of $x$) is then a basis for $X$, which consists of path-connected open sets of $X$. Hence $X$ is locally path-connected.
+
+	$(a)\implies (d)$ Let $x$ be a point of $X$ and $U$ be a neighborhood of $x$. Since $X$ has a basis $\mathscr{B}$ consisting of path-connected open sets, there exists $B\in\mathscr{B}$ such that $x \in B\subseteq U$. Hence every neighborhood of $x$ contains a path-connected open set containing $x$.
+
+	$(d)\implies (c)$ Let $U$ be an open subset of $X$ and $P$ be a path component of $U$. Let $x$ be a point of $P$, then there is a path-connected open set $V$ such that $x\in V\subseteq U$. Since $x\in V, x\in P$ and $V, P$ are connected subsets of $U$, $V\cup P$ is a connected subset of $U$. From the maximality of $P$, it follows that $V\subseteq P$, which means there is a neighborhood of $x$ contained in $P$. This is true for every $x\in P$ so $P$ is open in $U$, hence open in $X$ (because $U\subseteq X$ is open). Hence all path components of every open subset of $X$ are open in $X$.
+
+	$(a)\implies (e)$ Let $\mathscr{B}$ be a basis of $X$ consisting connected open sets. Let $x$ be a point of $X$ and $\mathscr{B}_{x} = \set{ B\in\mathscr{B}: x\in B }$. For every neighborhood $U$ of $x$, there exists $B\in\mathscr{B}$ such that $x\in B\subseteq U$, which implies $B\in \mathscr{B}_{x}$. Hence $\mathscr{B}_{x}$ is a path-connected neighborhood basis of $x$.
+
+	$(e)\implies (a)$ Since every point of $X$ has a path-connected neighborhood basis, the union of these neighborhood bases gives a basis for the topology on $X$, which contains path-connected open sets.
+\end{proof}
+
+\begin{note}[Product of Local Connected and Local Path-Connected Spaces]
+	\begin{enumerate}[label={(\alph*)}]
+		\item The product of finitely many local connected spaces is locally connected.
+		\item The product of finitely many local path-connected spaces is locally path-connected.
+	\end{enumerate}
+\end{note}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item Suppose $X, Y$ are locally connected spaces.
+
+		      Let $\mathscr{B}_{X}$ be a basis for the topology on $X$ consisting of connected open sets of $X$, $\mathscr{B}_{Y}$ be a basis for the topology on $Y$ consisting of connected open sets of $Y$.
+
+		      For every $U\in \mathscr{B}_{X}, V\in \mathscr{B}_{Y}$, $U\times V$ is connected (because the product of two connected spaces is connected). Hence $\mathscr{B} = \set{ U\times V : U\in \mathscr{B}_{X}, V\in \mathscr{B}_{Y} }$ is a basis for the product topology on $X\times Y$ consisting of connected product open sets. Therefore $X\times Y$ is locally connected.
+
+		      By mathematical induction, we conclude that the product of finitely many connected spaces is locally connected.
+		\item The proof for local path-connectedness is similar.
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{4-7}\label{problem:4-7}
+Let $q: X\to Y$ be a quotient map. Show that
+\begin{itemize}
+	\item if $X$ is locally connected then $Y$ is locally connected,
+	\item if $X$ is locally path-connected then $Y$ is locally path-connected,
+	\item if $q$ is open and $X$ is locally compact, then $Y$ is locally compact.
+\end{itemize}
 \end{problem}
 
 \begin{proof}
@@ -575,13 +658,21 @@ Let $q: X\to Y$ be an open quotient map. Show that if $X$ is locally connected, 
 
 	\textbf{$X$ is locally connected.}
 
-	Because $X$ is locally connected, $X$ has a basis $\mathscr{B}$ consisting of connected open subsets of $X$. Let $V$ be an open subset of $Y$, then $q^{-1}(V)$ is open because $q$ is continuous. $q^{-1}(V)$ can be written as a union of elements of $\mathscr{B}$, so $V = q(q^{-1}(V))$ can be written as a union of elements of $\set{ q(B) : B\in\mathscr{B} }$, and every $q(B)$ is a connected open subset of $Y$ (because $q$ is an open quotient map), hence $\set{ q(B) : B\in\mathscr{B} }$ is a basis for $Y$, which means $Y$ is locally connected.
+	Let $V$ be an open subset of $Y$, $y$ be a point of $V$, and $C_{y}$ be the component of $V$ containing $y$. We will show that $C_{y}$ is open in $Y$.
+
+	Let $x$ be a point of $q^{-1}(C_{y})$. $q(x) \in C_{y} \subseteq V$ so $x \in q^{-1}(V)$, which is open because $q$ is continuous. Because $X$ is locally connected, $x$ has a connected neighborhood $U_{x}$ such that $x\in U_{x} \subseteq q^{-1}(V)$. Since continuous maps map connected sets to connected sets, $q(U_{x})$ is connected. Connected sets $q(U_{x})$ and $C_{y}$ have the point $q(x)$ is common so $q(U_{x}) \cup C_{y}$ is connected. On the other hand, $q(U_{x})$ and $C_{y}$ are subsets of $V$, and $C_{y}$ is a maximal connected set of $V$, so $q(U_{x}) \cup C_{y} = C_{y}$. Therefore $q(U_{x}) \subseteq C_{y}$, so $U_{x} \subseteq q^{-1}(q(U_{x})) \subseteq q^{-1}(C_{y})$, which means $U_{x}$ is a neighborhood of $x$ contained in $q^{-1}(C_{y})$.
+
+	Because of the arbitrariness of $x$, we deduce that $q^{-1}(C_{y})$ is open. According to the definition of quotient map, $C_{y}$ is open, hence all components of every open subset of $Y$ is open in $Y$. From Note~\ref{note:characterizations-of-local-connectedness} (c), we conclude that $Y$ is locally connected.
 
 	\textbf{$X$ is locally path-connected.}
 
-	Because $X$ is locally connected, $X$ has a basis $\mathscr{B}$ consisting of path-connected open subsets of $X$. Let $V$ be an open subset of $Y$, then $q^{-1}(V)$ is open because $q$ is continuous. $q^{-1}(V)$ can be written as a union of elements of $\mathscr{B}$, so $V = q(q^{-1}(V))$ can be written as a union of elements of $\set{ q(B) : B\in\mathscr{B} }$, and every $q(B)$ is a path-connected open subset of $Y$ (because $q$ is an open quotient map), hence $\set{ q(B) : B\in\mathscr{B} }$ is a basis for $Y$, which means $Y$ is locally path-connected.
+	Let $V$ be an open subset of $Y$, $y$ be a point of $V$, and $P_{y}$ be the path component of $V$ containing $y$. We will show that $P_{y}$ is open in $Y$ and use the characterization in Note~\ref{note:characterizations-of-local-path-connectedness} (c).
 
-	\textbf{$X$ is locally compact.}
+	Let $x$ be a point of $q^{-1}(P_{y})$. $q(x) \in P_{y} \subseteq V$ so $x \in q^{-1}(V)$. The preimage $q^{-1}(V)$ is open because $q$ is continuous. Since $X$ is locally path-connected and $q^{-1}(V)$ is a neighborhood of $x$, there is a path-connected open set $U_{x}$ such that $x \in U_{x} \subseteq q^{-1}(V)$. Continuous maps map path-connected sets to path-connected sets so $q(U_{x})$ is path-connected. $q(U_{x})$ and $P_{y}$ are path-connected and have the point $q(x)$ in common so $q(U_{x}) \cup P_{y}$ is path-connected. Because of the maximality of $P_{y}$ (it is a path component), $q(U_{x}) \subseteq P_{y}$. Therefore $x \in U_{x} \subseteq q^{-1}(q(U_{x})) \subseteq q^{-1}(P_{y})$, which means $U_{x}$ is a neighborhood of $x$ contained in $q^{-1}(P_{y})$.
+
+	Together with the arbitrariness of $x$, we deduce that $q^{-1}(P_{y})$ is open, so $P_{y}$ is open, since $q$ is a quotient map. Hence all path components of every open subset of $Y$ is open in $Y$, this implies $Y$ is locally path-connected.
+
+	\textbf{$q$ is open and $X$ is locally compact.}
 
 	Let $y$ be an element of $Y$ then there exists $x\in X$ such that $q(x) = y$. Since $X$ is locally compact, there is an open subset $U$ and a compact subset $K$ of $X$ such that $x \in U \subseteq K$. Because $q$ is continuous, $q(K)$ is a compact subset of $Y$. Because $q$ is an open map, $q(U)$ is an open subset of $Y$. Therefore $y = q(x) \in q(U) \subseteq q(K)$. Together with the arbitrariness of $y$, we conclude that $Y$ is locally compact.
 \end{proof}
@@ -701,7 +792,11 @@ Let $X$ be a topological space, and let $CX$ be the cone on $X$ (see Example 3.5
 		      Let $q(\tuple{x, a})$ and $q(\tuple{y, b})$ be two arbitrary points of $CX$. According to the previous paragraph, there is a path from $q(\tuple{x, a})$ to $q(\tuple{x, 0}) = q(\tuple{y, 0})$ and a path from $q(\tuple{y, 0})$ to $q(\tuple{y, b})$, so there is a path from $q(\tuple{x, a})$ and $q(\tuple{y, b})$.
 
 		      Hence $CX$ is path-connected.
-		\item
+		\item Suppose $X$ is locally {(path-)}connected then $X\times I$ is locally {(path-)}connected, since $I$ is locally {(path-)}connected and the product of two local {(path-)}connected spaces is locally {(path-)}connected. From Problem~\ref{problem:4-7}, we conclude that $CX = (X\times I)/(X\times\set{0})$ is locally {(path-)}connected.
+
+		      Conversely, suppose $CX$ is locally {(path-)}connected. Let $x\in X$ and $U$ be a neighborhood of $x$. The product set $U\times\halfopenleft{0, 1}$ is open in $X\times I$ and saturated (any two points of $U\times\halfopenleft{0, 1}$ are not identified by $q$, since it doesn't intersect $X\times\set{0}$), so $q(U\times \halfopenleft{0,1})$ is open in $CX$. Because $CX$ is locally {(path-)}connected, there is a {(path-)}connected open set $V_{x}$ such that $q(\tuple{x, 1}) \in V_{x} \subseteq q(U\times \halfopenleft{0,1})$. Therefore $\tuple{x, 1} \in q^{-1}(V_{x}) \subseteq q^{-1}(q(U\times \halfopenleft{0, 1})) = U\times\halfopenleft{0,1}$. The set $q^{-1}(V_{x})$ is saturated (by definition) and open in $X\times I$ (since $q$ is continuous).
+
+		      Since the restriction of a quotient map to a saturated open set is still a quotient map, it follows that $q\vert_{q^{-1}(V_{x})}: q^{-1}(V_{x}) \to V_{x}$ is a quotient map. On the other hand, any two points of $q^{-1}(V_{x})$ are not identified by $q$ (since its superset $U\times\halfopenleft{0,1}$ has this property) so $q\vert_{q^{-1}(V_{x})}$ is injective. Every injective quotient map is a homeomorphism, so $q\vert_{q^{-1}(V_{x})}$ is a homeomorphism. Because of this homeomorphism $V_{x}$ being {(path-)}connected implies $q^{-1}(V_{x})$ being {(path-)}connected. The canonical projection $\pi_{1}: X\times I \to X$ is open and continuous, so $\pi_{1}(q^{-1}(V_{x}))$ is a {(path-)}connected open subset of $X$. Hence $x \in \pi_{1}(q^{-1}(V_{x})) \subseteq \pi_{1}(U\times\halfopenleft{0,1}) = U$, from which we conclude that $X$ is locally {(path-)}connected.
 	\end{enumerate}
 \end{proof}
 
