@@ -344,7 +344,7 @@
 \end{exercise}
 
 \begin{proof}
-	$(\Rightarrow)$ Suppose $f$ is a homeomorphism.
+	$(\Longrightarrow)$ Suppose $f$ is a homeomorphism.
 
 	If $U\in\mathscr{T}_{1}$, then $f(U)$ is open because it is the preimage of $U$ under $f^{-1}$, so $f(U)\in\mathscr{T}_{2}$. If $f(U)\in\mathscr{T}_{2}$, then $U$ is open because it is the preimage of $f(U)$ under $f$, so $U\in\mathscr{T}_{1}$. Hence $U\in\mathscr{T}_{1}$ if and only if $f(U)\in\mathscr{T}_{2}$.
 
@@ -352,7 +352,7 @@
 
 	Thus $f(\mathscr{T}_{1}) = \mathscr{T}_{2}$ and $U\in\mathscr{T}_{1}$ if and only if $f(U)\in \mathscr{T}_{2}$.
 
-	$(\Leftarrow)$ Suppose $f(\mathscr{T}_{1}) = \mathscr{T}_{2}$ and $U\in\mathscr{T}_{1}$ if and only if $f(U)\in \mathscr{T}_{2}$ for every $U\subseteq X_{1}$.
+	$(\Longleftarrow)$ Suppose $f(\mathscr{T}_{1}) = \mathscr{T}_{2}$ and $U\in\mathscr{T}_{1}$ if and only if $f(U)\in \mathscr{T}_{2}$ for every $U\subseteq X_{1}$.
 
 	Because $f$ is bijective, $f^{-1}(f(A)) = A$. So $U\in\mathscr{T}_{2}$ if and only if $f^{-1}(U)\in\mathscr{T}_{1}$ for every $U\subseteq X_{2}$.
 
@@ -363,7 +363,7 @@
 	Hence $f$ is a homeomorphism.
 \end{proof}
 
-\begin{exercise}{2.22}\label{exercise2.22}
+\begin{exercise}{2.22}\label{exercise:2.22}
 	Suppose $f: X\to Y$ is a homeomorphism and $U\subseteq X$ is an open subset. Show that $f(U)$ is open in $Y$ and the restriction $f\vert_{U}$ is a homeomorphism from $U$ to $f(U)$.
 \end{exercise}
 
@@ -433,7 +433,7 @@
 	$\halfopenright{0, 1}$ is not compact, but $\mathbb{S}^{1}$ is compact (due to the Heine-Borel theorem), so $a$ is not a homeomorphism.
 \end{proof}
 
-\begin{exercise}{2.29}\label{exercise2.29}
+\begin{exercise}{2.29}\label{exercise.2.29}
 	Suppose $f: X\to Y$ is a *bijective* continuous map. Show that the following are equivalent:
 
 	\begin{enumerate}[label={(\alph*)}]
@@ -464,7 +464,7 @@
 
 \begin{proof}
 	\begin{enumerate}[label={(\alph*)}]
-		\item Let $f: X\to Y$ be a homeomorphism and $x\in X$. Let $U$ be an open subset of $X$ containing $x$. By Exercise~\ref{exercise2.22}, $f\vert_{U}: U\to f(U)$ is a homeomorphism. Hence $f$ is a local homeomorphism.
+		\item Let $f: X\to Y$ be a homeomorphism and $x\in X$. Let $U$ be an open subset of $X$ containing $x$. By Exercise~\ref{exercise:2.22}, $f\vert_{U}: U\to f(U)$ is a homeomorphism. Hence $f$ is a local homeomorphism.
 		\item Let $f: X\to Y$ be a local homeomorphism.
 
 		      By the definition of local homeomorphism, for every $x\in X$, there is a neighborhood $U$ of $x$ such that $f(U)$ is open in $Y$ and $f\vert_{U}: U\to f(U)$ is a homeomorphism. Therefore, for every $x\in X$, there is a neighborhood $U$ of $x$ to which the restriction of $f$ is continuous. By the Local Criterion for Continuity, $f$ is continuous.
@@ -477,7 +477,7 @@
 		      Hence $f(A)$ is an open subset of $X$, because it is the union of open subsets of $X$. Therefore $f$ is open. Thus $f$ is continuous and open.
 		\item Let $f: X\to Y$ be a bijective local homeomorphism.
 
-		      It follows from part (b) that $f$ is continuous and open. Moreover, $f$ is bijective so by Exercise~\ref{exercise2.29}, we conclude $f$ is a homeomorphism.
+		      It follows from part (b) that $f$ is continuous and open. Moreover, $f$ is bijective so by Exercise~\ref{exercise.2.29}, we conclude $f$ is a homeomorphism.
 	\end{enumerate}
 \end{proof}
 
@@ -520,11 +520,11 @@
 \end{exercise}
 
 \begin{proof}
-	$(\Rightarrow)$ $U\subseteq X$ is open.
+	$(\Longrightarrow)$ $U\subseteq X$ is open.
 
 	Because $\mathscr{B}$ is a basis for the topology on $X$, there is a family of elements ${(B_{i})}_{i\in I}$ of $\mathscr{B}$ such that $U = \bigcup_{i\in I} B_{i}$. Therefore, for each $p\in U$, there exists $i\in I$ such that $p\in B_{i}\subseteq U$.
 
-	$(\Leftarrow)$ For each $p\in U$, there exists $B_{p}\in\mathscr{B}$ such that $p\in B\subseteq U$.
+	$(\Longleftarrow)$ For each $p\in U$, there exists $B_{p}\in\mathscr{B}$ such that $p\in B\subseteq U$.
 
 	From the hypothesis, we deduce that $U = \bigcup_{p\in U}B_{p}$. Because $B_{p}$ is open in $X$ for every $p$, $U$ is open in $X$.
 \end{proof}
@@ -623,13 +623,13 @@
 \end{exercise}
 
 \begin{proof}
-	$(\Rightarrow)$ Suppose $M$ is a $0$-manifold.
+	$(\Longrightarrow)$ Suppose $M$ is a $0$-manifold.
 
 	For every point $x$ of $M$, there is a neighborhood $U$ of $x$ which is homeomorphic to $\mathbb{R}^{0}$ (where $\mathbb{R}^{0}$ has exactly one element). Therefore $U$ has exactly one element, which is $x$, so $\{ x \}$ is open, which implies $M$ is a discrete space.
 
 	Since $M$ is a manifold, $M$ is second countable, so $M$ has a countable basis $\mathscr{B}$. Since $\{ x \}$ is open for every $x\in M$, there is $B\in\mathscr{B}$ such that $x\in B\subseteq \{x\}$, which means $\{ x \} = B$. Hence $\mathscr{B}$ contains all one-element subsets of $M$. Let $\mathscr{B}'$ be the collection of all one-element subsets of $M$, then $\mathscr{B}'\subseteq\mathscr{B}$, so $\mathscr{B}'$ is countable (any subset of a countable set is countable), which implies $M$ is countable.
 
-	$(\Leftarrow)$ Suppose $M$ is a countable discrete space.
+	$(\Longleftarrow)$ Suppose $M$ is a countable discrete space.
 
 	Because the topology on $M$ is discrete, every two distinct points of $M$ are separated by the one-element sets (which are open) containing themselves, so $M$ is Hausdorff. Because $M$ is a countable discrete space, the collection of one-element subsets of $M$ is a countable basis for $M$, so $M$ is second countable. Moreover, for every $x\in M$, $\{ x \}$ is open and $\{ x \}$ is homeomorphic to $\mathbb{R}^{0}$ (because $\mathbb{R}^{0}$ has exactly one element), so $M$ is locally Euclidean of dimension $0$. Thus $M$ is a $0$-manifold.
 \end{proof}
@@ -890,11 +890,11 @@ Suppose $X$ and $Y$ are topological spaces, and $f: X\to Y$ is any map.
 
 \begin{proof}
 	\begin{enumerate}[label={(\alph*)}]
-		\item $(\Rightarrow)$ Suppose $f$ is continuous and $A\subseteq X$.
+		\item $(\Longrightarrow)$ Suppose $f$ is continuous and $A\subseteq X$.
 
 		      Let $y\in f(\overline{A})$, then there is $x\in\overline{A}$ such that $f(x) = y$. Let $U$ be an arbitrary neighborhood of $y$, then $f^{-1}(U)$ is open (because $f$ is continuous) and therefore a neighborhood of $x$. Because $x\in\overline{A}$ then every neighborhood of $x$ contains a point of $A$, so $f^{-1}(U)$ contains a point of $A$. Hence $U$ contains a point of $f(A)$, which implies every neighborhood of $y$ contains a point of $f(A)$. It follows that $y\in \overline{f(A)}$. Since $y$ and $A$ are arbitrary, we conclude that $f(\overline{A})\subseteq \overline{f(A)}$ for all $A\subseteq X$.
 
-		      $(\Leftarrow)$ Suppose $f(\overline{A})\subseteq \overline{f(A)}$ for all $A\subseteq X$.
+		      $(\Longleftarrow)$ Suppose $f(\overline{A})\subseteq \overline{f(A)}$ for all $A\subseteq X$.
 
 		      Let $C$ be a closed subset of $Y$ and $D = f^{-1}(C)$. We have
 		      \[
@@ -902,18 +902,18 @@ Suppose $X$ and $Y$ are topological spaces, and $f: X\to Y$ is any map.
 		      \]
 
 		      Therefore $\overline{D}\subseteq f^{-1}(C) = D$. Moreover, $D\subseteq \overline{D}$, so $D = \overline{D}$, which means $D$ is closed. Hence the preimage under $f$ of every closed set is closed, so $f$ is continuous.
-		\item $(\Rightarrow)$  Suppose $f$ is closed.
+		\item $(\Longrightarrow)$  Suppose $f$ is closed.
 
 		      Because $\overline{A}$ is closed, $f(\overline{A})$ is closed. For every $x\in A$, $f(x)\in f(A)\subseteq f(\overline{A})$, so $f(\overline{A})$ is a closed set that contains $f(A)$. On the other hand, $\overline{f(A)}$ is the smallest closed set containing $f(A)$. Therefore $f(\overline{A})\supseteq \overline{f(A)}$ for all $A\subseteq X$.
 
-		      $(\Leftarrow)$ Suppose $f(\overline{A})\supseteq \overline{f(A)}$ for all $A\subseteq X$.
+		      $(\Longleftarrow)$ Suppose $f(\overline{A})\supseteq \overline{f(A)}$ for all $A\subseteq X$.
 
 		      Let $C$ be a closed subset of $X$, then $f(C) = f(\overline{C}) \supseteq \overline{f(C)}$. On the other hand, $f(C)\subseteq \overline{f(C)}$, and it follows that $f(C) = \overline{f(C)}$, which means $f(C)$ is closed in $Y$. Hence $f$ is a closed map.
-		\item $(\Rightarrow)$ Suppose $f$ is continuous.
+		\item $(\Longrightarrow)$ Suppose $f$ is continuous.
 
 		      Let $B\subseteq Y$, then $\operatorname{Int} B$ is an open subset of $Y$. Since $f$ is continuous, $f^{-1}(\operatorname{Int} B)$ is an open subset of $X$. Because $\operatorname{Int} B\subseteq B$, $f^{-1}(\operatorname{Int} B) \subseteq f^{-1}(B)$. On the other hand, $\operatorname{Int}f^{-1}(B)$ is the largest open set contained in $f^{-1}(B)$. Therefore $f^{-1}(\operatorname{Int}B) \subseteq \operatorname{Int}f^{-1}(B)$ for all $B\subseteq Y$.
 
-		      $(\Leftarrow)$ Suppose $f^{-1}(\operatorname{Int}B) \subseteq \operatorname{Int}f^{-1}(B)$ for all $B\subseteq Y$.
+		      $(\Longleftarrow)$ Suppose $f^{-1}(\operatorname{Int}B) \subseteq \operatorname{Int}f^{-1}(B)$ for all $B\subseteq Y$.
 
 		      Let $U$ be an open subset of $Y$, then
 		      \[
@@ -921,7 +921,7 @@ Suppose $X$ and $Y$ are topological spaces, and $f: X\to Y$ is any map.
 		      \]
 
 		      On the other hand, we always have $\operatorname{Int} f^{-1}(U)\subseteq f^{-1}(U)$. Therefore $\operatorname{Int} f^{-1}(U) = f^{-1}(U)$, which means $f^{-1}(U)$ is open, for all open subsets $U$ of $Y$. Hence $f$ is continuous.
-		\item $(\Rightarrow)$ Suppose $f$ is open.
+		\item $(\Longrightarrow)$ Suppose $f$ is open.
 
 		      Let $B\subseteq Y$ and $x\in \operatorname{Int}f^{-1}(B)$. Because $\operatorname{Int}f^{-1}(B)$ is open in $X$, there is a neighborhood $U$ of $x$ which is contained in $\operatorname{Int}f^{-1}(B)$. Moreover, $\operatorname{Int}f^{-1}(B)\subseteq f^{-1}(B)$, so $U\subseteq f^{-1}(B)$, and it follows that $f(U)\subseteq B$. Because $f$ is open, $f(U)$ is open, so $f(U)$ is a subset of the largest open set contained in $B$, hence $f(U)\subseteq \operatorname{Int}B$. We have
 		      \[
@@ -930,7 +930,7 @@ Suppose $X$ and $Y$ are topological spaces, and $f: X\to Y$ is any map.
 
 		      so $x\in f^{-1}(\operatorname{B})$. Hence $f^{-1}(\operatorname{Int}B)\supseteq \operatorname{Int}f^{-1}(B)$ for all $B\subseteq Y$.
 
-		      $(\Leftarrow)$ Suppose $f^{-1}(\operatorname{Int}B)\supseteq \operatorname{Int}f^{-1}(B)$ for all $B\subseteq Y$.
+		      $(\Longleftarrow)$ Suppose $f^{-1}(\operatorname{Int}B)\supseteq \operatorname{Int}f^{-1}(B)$ for all $B\subseteq Y$.
 
 		      Let $U$ be an open subset of $X$. We have $f^{-1}(f(U))\supseteq U$ and by the hypothesis, it follows that
 		      \[
@@ -1029,7 +1029,7 @@ Let $f: X\to Y$ be a continuous map between topological spaces, and let $\mathsc
 \end{problem}
 
 \begin{proof}
-	$(\Rightarrow)$ Suppose $f(\mathscr{B})$ is a basis for the topology of $Y$.
+	$(\Longrightarrow)$ Suppose $f(\mathscr{B})$ is a basis for the topology of $Y$.
 
 	Let $y\in Y$. Because $f(\mathscr{B})$ is a basis for the topology of $Y$, there is $B\in\mathscr{B}$ such that $y\in f(B)$. So there is $x\in B$ such that $f(x) = y$. Hence $f$ is surjective.
 
@@ -1037,7 +1037,7 @@ Let $f: X\to Y$ be a continuous map between topological spaces, and let $\mathsc
 
 	Thus $f$ is surjective and open.
 
-	$(\Leftarrow)$ Suppose $f$ is surjective and open.
+	$(\Longleftarrow)$ Suppose $f$ is surjective and open.
 
 	Because $f$ is open, $f(B)$ is open for every $B\in\mathscr{B}$.
 
@@ -1075,11 +1075,11 @@ Suppose $X$ is a set, and $\mathscr{A} = \mathscr{P}(X)$ is any collection of su
 
 		      Thus $\mathscr{T}$ is a topology.
 		\item Suppose $\mathscr{T}'$ is a topology on $X$ for which all the sets in $\mathscr{A}$ are open. By the definition of topology, every finite intersection of elements of $\mathscr{A}$ is in $\mathscr{T}'$, so every union of finite intersections of elements of $\mathscr{A}$ is in $\mathscr{T}'$. Therefore $\mathscr{T}\subseteq \mathscr{T}'$, which implies that $\mathscr{T}$ is the coarsest topology topology for which all the sets in $\mathscr{A}$ are open.
-		\item $(\Rightarrow)$ Suppose $f$ is continuous.
+		\item $(\Longrightarrow)$ Suppose $f$ is continuous.
 
 		      Because every $U\in\mathscr{A}$ is open in $(X, \mathscr{T})$, it follows that $f^{-1}(U)$ is open in $Y$.
 
-		      $(\Leftarrow)$ Suppose $f^{-1}(U)$ is open in $Y$ for every $U\in\mathscr{A}$.
+		      $(\Longleftarrow)$ Suppose $f^{-1}(U)$ is open in $Y$ for every $U\in\mathscr{A}$.
 
 		      Let $V$ open in $X$. If $V = X$ then $f^{-1}(X) = Y$, which is open in $Y$. If $V\ne X$, then there exists a collection ${(A_{i})}_{i\in I}$ where every $A_{i}$ is a finite intersection of elements of $\mathscr{A}$ such that $V = \bigcup_{i\in I}A_{i}$. We have
 		      \[
@@ -1162,7 +1162,7 @@ Let $X$ be a totally ordered set. Given $X$ the \textbf{order topology}, which i
 	\end{enumerate}
 \end{proof}
 
-\begin{problem}{2-14}
+\begin{problem}{2-14}\label{problem:2-14}
 Prove Lemma 2.48 (the sequence lemma).
 
 Suppose $X$ is a first countable space, $A$ is any subset of $X$, and $x$ is any point of $X$.
@@ -1176,22 +1176,22 @@ Suppose $X$ is a first countable space, $A$ is any subset of $X$, and $x$ is any
 
 \begin{proof}
 	\begin{enumerate}[label={(\alph*)}]
-		\item $(\Rightarrow)$ Suppose $x\in \overline{A}$.
+		\item $(\Longrightarrow)$ Suppose $x\in \overline{A}$.
 
 		      Let ${(U_{n})}^{\infty}_{n=1}$ be a countable neighborhood basis of $x$. For every $n\in\mathbb{N}$, let $V_{n} = \bigcap^{n}_{k=1}U_{k}$, then $V_{n}\supseteq V_{n+1}$ for every $n\in\mathbb{N}$. Because $U_{n}\supseteq V_{n}$ and $V_{n}$ is a neighborhood of $x$ for every $n\in\mathbb{N}$, it follows that ${(V_{n})}^{\infty}_{n=1}$ is also a countable neighborhood basis of $x$, moreover, it is a nested countable neighborhood basis of $x$.
 
 		      Because $x\notin\operatorname{Ext}A = X\smallsetminus\overline{A}$, every neighborhood of $x$ contains a point of $A$. In each $V_{n}$, there is $a_{n}$ such that $a_{n}\in A$. Let $U$ be an open set containing $x$. Because ${(V_{n})}^{\infty}_{n=1}$ is a nested countable neighborhood of $x$, there is $N\in\mathbb{N}$ such that $U\supseteq V_{i}$ for all $i\geq N$, which implies $U\ni a_{i}$ for all $i\geq N$. Therefore $x$ is a limit of the sequence ${(a_{n})}^{\infty}_{n=1}$ of points in $A$.
 
-		      $(\Leftarrow)$ Suppose $x$ is a limit of a sequence of points in $A$.
+		      $(\Longleftarrow)$ Suppose $x$ is a limit of a sequence of points in $A$.
 
 		      Let ${(a_{n})}^{\infty}_{n=1}$ be a sequence of points in $A$ such that $x$ is a limit of this sequence. If $x\in A$ then $x\in\overline{A}$. If $x\notin A$ then every neighborhood of $x$ contains a point of $A$ (some term of the given sequence, because $x$ is a limit of ${(a_{n})}^{\infty}_{n=1}$), and a point of $X\smallsetminus A$ (the point $x$ itself), so $x$ is a boundary point of $A$, which means $x\in\overline{A}$ because $\overline{A} = A\cup\partial A$. In either case, we conclude that $x\in \overline{A}$.
 
 		      Thus $x\in\overline{A}$ if and only if $x$ is a limit of a sequence of points in $A$.
-		\item $(\Rightarrow)$ Suppose $x\in\operatorname{Int} A$.
+		\item $(\Longrightarrow)$ Suppose $x\in\operatorname{Int} A$.
 
 		      Because $x\in\operatorname{Int} A$, there is a neighborhood $U$ of $x$ that is contained in $A$. Let ${(x_{n})}^{\infty}_{n=1}$ be a sequence in $X$ converging to $x$, so there is $N\in\mathbb{N}$ such that $x_{i}\in U$ for all $i\geq N$. Therefore $x_{i}\in U\subseteq A$ for all $i\geq N$, which means the sequence ${(x_{n})}^{\infty}_{n=1}$ is eventually in $A$.
 
-		      $(\Leftarrow)$ Suppose every sequence in $X$ converging to $x$ is eventually in $A$.
+		      $(\Longleftarrow)$ Suppose every sequence in $X$ converging to $x$ is eventually in $A$.
 
 		      The constant sequence of which every term is $x$ converges to $x$ so it is eventually in $A$, therefore $x\in A$.
 
@@ -1202,20 +1202,20 @@ Suppose $X$ is a first countable space, $A$ is any subset of $X$, and $x$ is any
 		      Therefore the assumption is false, so there is a neighborhood of $x$ contained in $A$, from which we conclude that $x\in\operatorname{Int}A$.
 
 		      Thus $x\in\operatorname{Int}A$ if and only if every sequence in $X$ converging to $x$ is eventually in $A$.
-		\item $(\Rightarrow)$ Suppose $A$ is closed.
+		\item $(\Longrightarrow)$ Suppose $A$ is closed.
 
 		      Let $x$ be a limit of a convergent sequence of points in $A$. By part (a), $x\in \overline{A}$. Because $A$ is closed, $A = \overline{A}$. Therefore $x\in A$, so $A$ contains every limit of every convergent sequence of points in $A$.
 
-		      $(\Leftarrow)$ Suppose $A$ contains every limit of every convergent sequence of points in $A$.
+		      $(\Longleftarrow)$ Suppose $A$ contains every limit of every convergent sequence of points in $A$.
 
 		      Let $x\in\overline{A}$. By part (a), $x$ is a limit of a sequence of points in $A$. Due to the hypothesis, $x\in A$. Since $x$ is an arbitrary element of $\overline{A}$, and $x\in A$, we conclude that $\overline{A}\subseteq A$. On the other hand, we always have $A\subseteq \overline{A}$. Therefore $A = \overline{A}$, which means $A$ is closed.
 
 		      Thus $A$ is closed if and only if $A$ contains every limit of every convergent sequence of points in $A$.
-		\item $(\Rightarrow)$ Suppose $A$ is open.
+		\item $(\Longrightarrow)$ Suppose $A$ is open.
 
 		      Let $x\in A$ and ${(x_{n})}^{\infty}_{n=1}$ is a sequence in $X$ converging to $x$. Because $A = \operatorname{Int} A$ (since $A$ is open), the sequence ${(x_{n})}^{\infty}_{n=1}$ is eventually in $A$, according to part (b). Hence every sequence converging to a point of $A$ is eventually in $A$.
 
-		      $(\Leftarrow)$ Suppose every sequence converging to a point of $A$ is eventually in $A$.
+		      $(\Longleftarrow)$ Suppose every sequence converging to a point of $A$ is eventually in $A$.
 
 		      Let $x\in A$. Because every sequence converging to a point of $A$ is eventually in $A$, so from part (b), we deduce that $x\in \operatorname{Int}A$. Because $x$ is an arbitrary element of $A$, it follows that $A\subseteq\operatorname{Int}A$. Moreover, we always have $\operatorname{Int}A\subseteq A$, so $A = \operatorname{Int}A$, which means $A$ is open.
 
