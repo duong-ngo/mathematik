@@ -245,19 +245,22 @@
 	Complete the proof of Proposition 4.60 by showing that $\mathscr{B}$ is a basis.
 \end{exercise}
 
-\begin{proof}
+\begin{quotation}
 	Proposition 4.60. Every manifold has a countable basis of regular coordinate balls.
 
-	Let $M$ be an $n$-manifold. Every point of $M$ has an Euclidean neighborhood (or coordinate domain), and these Euclidean neighborhoods cover $M$. Since $M$ is second countable, every open cover of $X$ has a countable subcover (This is Theorem 2.50). Let $\set{U_{i}}_{i\in\mathbb{N}}$ be a countable collection of such neighborhoods, and for each $U_{i}$, there is a homeomorphism $\varphi_{i}$ from $U_{i}$ onto an open subset $\hat{U}_{i} \subseteq \mathbb{R}^{n}$. For each $x \in \hat{U}_{i}$ there is a positive number $r(x)$ such that $B_{r(x)}(x) \subseteq \hat{U}_{i}$.
+	The author gave an incorrect proof/idea to this proposition. He suggested a correction on his website.
+\end{quotation}
 
-	For every $\hat{U}_{i}$, consider the open balls $B_{r}(x)$ where $B_{r}(x) \subseteq \hat{U}_{i}$, all coordinates of $x\in \hat{U}_{i}$ are rational, $r$ is a positive rational number strictly less than $r(x)$. From Lemma 4.59, $\varphi_{i}^{-1}(B_{r}(x))$ is a regular coordinate ball. Let $\mathscr{B}_{i}$ be the collection of those $\varphi_{i}^{-1}(B_{r}(x))$ then $\mathscr{B}_{i}$ is countable. Therefore $\mathscr{B} = \bigcup_{i\in\mathbb{N}}\mathscr{B}_{i}$ is countable.
+\begin{proof}
+	Let $M$ be an $n$-manifold.
 
-	Every element of $\mathscr{B}$ is an open subset of $M$. Let $U$ be a nonempty open subset of $M$, then
-	\begin{equation*}
-		U = \bigcup_{i\in\mathbb{N}}(U\cap U_{i}).
-	\end{equation*}
+	Every point of $M$ has an Euclidean neighborhood (or coordinate domain), and these Euclidean neighborhoods cover $M$. Since $M$ is second countable, every open cover of $X$ has a countable subcover (This is Theorem 2.50). Let $\set{U_{i}}_{i\in\mathbb{N}}$ be such a countable subcover. Each $U_{i}$ is a coordinate domain, so there is a homeomorphism $\varphi_{i}$ from $U_{i}$ onto an open subset $\widehat{U}_{i} \subseteq \mathbb{R}^{n}$.
 
-	Remind that the collection of open balls with rational radii and rational coordinates only is a basis for the Euclidean topology on $\mathbb{R}^{n}$. If $a\in U\cap U_{i}$ then the point $\varphi_{i}(a) \in \varphi_{i}(U_{i}\cap U)$ is contained in some $B_{r}(x)$ where $x$ has rational coordinates only and $0 < r < r(x)$ is rational. So $a\in \varphi_{i}^{-1}(B_{r}(x))$, which is an element of $\mathscr{B}$. Hence every point of $U$ admits an element of $\mathscr{B}$ as its neighborhood and this neighborhood is contained in $U$. Therefore $\mathscr{B}$ is a countable basis for $M$.
+	Let $\mathscr{B}$ be the collection of all open subsets of $M$ of the form $\varphi_{i}^{-1}(B_{r}(x))$, where $x\in \widehat{U}_{i}$ is a point with rational coordinates only and $r$ is any positive rational number such that there exists a real number $r'$ where $B_{r}(x) \subseteq B_{r'}(x) \subseteq \widehat{U}_{i}$ (such open balls exist because of the density of $\mathbb{Q}^{n}$ in $\mathbb{R}^{n}$ and $\widehat{U}_{i} \subseteq \mathbb{R}^{n}$ is open.)
+
+	By Lemma 4.59 and the way we define the elements of $\mathscr{B}$, every element of $\mathscr{B}$ is a regular coordinate ball. On the other hand, with these choices of coordinates and radii, $\mathscr{B}$ is countable. Now we need to prove $\mathscr{B}$ is a basis for $M$.
+
+	Let $U$ be an open subset of $M$, then $U = \bigcup_{i\in\mathbb{N}}(U\cap U_{i})$. $U\cap U_{i} \subseteq M$ and $\varphi_{i}(U\cap U_{i}) \subseteq \mathbb{R}^{n}$ are homeomorphic (by the homeomorphism $\varphi_{i}$). $\mathbb{R}^{n}$ admits the collection of open balls with rational coordinates and rational radii as a basis, so for every $x\in \varphi_{i}(U\cap U_{i})$, there exists $B_{r'}(x)$ where $y\in \mathbb{Q}^{n}$ and $r' \in \mathbb{Q}$ such that $B_{r'}(y) \subseteq \varphi_{i}(U\cap U_{i})$. $\operatorname{dist}(y, x) < r'$, there is a positive rational number $r$ such that $\operatorname{dist}(y, x) < r < r'$ then $x \in B_{r}(y) \subseteq B_{r'}(y) \subseteq \varphi_{i}(U\cap U_{i})$, this implies $\varphi_{i}^{-1}(B_{r}(y))$ is an element of $\mathscr{B}$. Hence $\mathscr{B}$ is a basis for $M$.
 
 	Thus every manifold has a countable basis of regular coordinate balls.
 \end{proof}
@@ -267,25 +270,45 @@
 \end{exercise}
 
 \begin{proof}
-	First, we prove a result similar to Lemma 4.59 as follows: Let $M$ be an $n$-manifold with boundary. $B'\subseteq M$ is the (coordinate half-ball) domain of any boundary chart and $\varphi: B' \to B_{r'}(x)\cap \mathbb{H}^{n}$ where $x \in \partial\mathbb{H}^{n}$ is a homeomorphism, then $\varphi^{-1}(B_{r}(x) \cap \mathbb{H}^{n})$ is a regular coordinate half-ball whenever $0 < r < r'$.
+	This proof uses the invariance of boundary.
 
-	For every $0 < r < r'$, $B_{r}(x) \cap \mathbb{H}^{n}$ is an open subset of $B_{r'}(x) \cap \mathbb{H}^{n}$, so $B = \varphi^{-1}(B_{r}(x) \cap \mathbb{H}^{n})$ is a coordinate half-ball. Regard $\varphi^{-1}$ as a map from $\bar{B}_{r}(0) \cap \mathbb{H}^{n}$ to $M$, then $\varphi^{-1}$ is a continuous and closed map (because $\bar{B}_{r}(x) \cap \mathbb{H}^{n}$ is compact due to Heine-Borel's theorem, and $M$ is Hausdorff). By Problem~\ref{problem:2-6}, $\varphi^{-1}(\bar{B}_{r}(x) \cap \mathbb{H}^{n}) = \overline{B}$, hence $\varphi(\overline{B}) = \bar{B}_{r}(x) \cap \mathbb{H}^{n}$. Hence $\varphi^{-1}(B_{r}(x) \cap \mathbb{H}^{n})$ is a regular coordinate half-ball whenever $0 < r < r'$.
+	In this proof we denote by $B_{r}(x)$ an entire open ball in $\mathbb{R}^{n}$.
 
-	An equivalence statement to the result we have just proved is given by replacing the point $x$ in $\partial\mathbb{H}^{n}$ by $0$, and this fits the definition of regular coordinate half-ball in the book. However, for convenience, we will use the definition given at the begining of this proof.
+	First, we prove a result similar to Lemma 4.59 as follows
 
-	Back to the proof for the main result. Let $M$ be an $n$-manifold with boundary. Every point of $M$ has an Euclidean neighborhood, so $M$ is covered by those Euclidean neighborhoods. Since $M$ is second countable then the open cover made of those Euclidean neighborhoods has a countable subcover. Let $\set{U_{i}}_{i\in\mathbb{N}}$ be an open cover of $M$ made of Euclidean neighborhoods, then for each $U_{i}$, there is a homeomorphism $\varphi_{i}$ from $U_{i}$ to an open subset $\hat{U}_{i}$ of $\mathbb{R}^{n}$ or $\mathbb{H}^{n}$. For each $x\in \hat{U}_{i}$, there is a positive number $r(x)$ such that
-	\begin{equation*}
-		\begin{cases}
-			\text{if $x$ is in $\partial\mathbb{H}^{n}$ then $B_{r(x)} \cap \mathbb{H}^{n} \subseteq \hat{U}_{i}$,} \\
-			\text{if $x$ is not in $\partial\mathbb{H}^{n}$ then $B_{r(x)} \subseteq \hat{U}_{i}$.}
-		\end{cases}
-	\end{equation*}
+	\textbf{Similar to Lemma 4.59.} Let $M$ be an $n$-manifold with boundary. $B'\subseteq M$ is a (coordinate half-ball) domain of any boundary chart and $\varphi: B' \to B_{r'}(x)\cap \mathbb{H}^{n}$ is a homeomorphism where $x \in \partial\mathbb{H}^{n}$, then $\varphi^{-1}(B_{r}(x) \cap \mathbb{H}^{n})$ is a regular coordinate half-ball whenever $0 < r < r'$.
 
-	For every $\hat{U}_{i}$, consider the following open sets: $B_{r}(x) \subseteq \hat{U}_{i}$ where $x \notin \partial\mathbb{H}^{n}$ (whose coordinates are all rational) and $r$ is a positive rational number strictly less than $r(x)$; $B_{r}(x) \cap \mathbb{H}^{n} \subseteq \hat{U}_{i}$ where $x \in \partial\mathbb{H}^{n}$ (whose coordinates are all rational) and $r$ is a positive rational number strictly less than $r(x)$. In the former case, $B = \varphi_{i}^{-1}(B_{r}(x))$ is a regular coordinate ball, due to Lemma 4.59; in the latter, $B = \varphi_{i}^{-1}(B_{r}(x) \cap \mathbb{H}^{n})$ is a regular coordinate half-ball, according to the first part of this proof. Denote by $\mathscr{B}_{i}$ the collection of those regular coordinate balls and regular coordinate half-balls, and $\mathscr{B} = \bigcup_{i\in\mathbb{N}}\mathscr{B}_{i}$.
+	\textit{Proof for the above result.} For every $0 < r < r'$, $B_{r}(x) \cap \mathbb{H}^{n}$ is an open subset of $B_{r'}(x) \cap \mathbb{H}^{n}$, so $B = \varphi^{-1}(B_{r}(x) \cap \mathbb{H}^{n})$ is a coordinate half-ball. Regard $\varphi^{-1}$ as a map from $\bar{B}_{r}(0) \cap \mathbb{H}^{n}$ to $M$, then $\varphi^{-1}$ is a continuous and closed map (because $\bar{B}_{r}(x) \cap \mathbb{H}^{n}$ is compact due to Heine-Borel's theorem, and $M$ is Hausdorff). By Problem~\ref{problem:2-6}, $\varphi^{-1}(\bar{B}_{r}(x) \cap \mathbb{H}^{n}) = \overline{B}$, hence $\varphi(\overline{B}) = \bar{B}_{r}(x) \cap \mathbb{H}^{n}$. Hence $\varphi^{-1}(B_{r}(x) \cap \mathbb{H}^{n})$ is a regular coordinate half-ball whenever $0 < r < r'$. $\hfill\square$
 
-	Since regular coordinate balls and regular coordinate half-balls are open subsets of $M$, every element of $\mathscr{B}$ is an open subset of $M$. Let $U$ be an open subset of $M$ then $U = \bigcup_{i\in\mathbb{N}}(U\cap U_{i})$. Remind that the collection of open ball $B_{r}(x)$ (where all coordinates of $x$ are rational, $r$ is a positive rational number) and open half-ball $B_{r}(x) \cap \mathbb{H}^{n}$ (where all coordinates of $x$ are rational, $x \in \partial\mathbb{H}^{n}$, $r$ is a positive rational number) is a basis for the subspace topology on $\mathbb{H}^{n}$. If $a \in U\cap U_{i}$ then the point $\varphi_{i}(a) \in \varphi_{i}(U\cap U_{i})$ is either in $\partial\mathbb{H}^{n}$ or $\operatorname{Int}\mathbb{H}^{n}$. In either case, there is an element of $\mathscr{B}_{i}$ containing $\varphi_{i}(a)$ and contained in $\varphi_{i}(U\cap U_{i})$. Therefore $\mathscr{B}$ is a countable basis for $M$.
+	\textbf{A basis for $\mathbb{H}^{n}$.} The collection of the following open sets
+	\begin{itemize}[itemsep=0pt]
+		\item $B_{r}(x)$ where $x$ is a point of $\operatorname{Int}\mathbb{H}^{n}$ with rational coordinates, $r$ is rational, and $B_{r}(x) \subseteq \operatorname{Int}\mathbb{H}^{n}$
+		\item $B_{r}(x) \cap \mathbb{H}^{n}$ where $x$ is a point of $\partial\mathbb{H}^{n}$ with rational coordinates, $r$ is rational
+	\end{itemize}
 
-	Thus every manifold with boundary has a countable basis of regular coordinate balls and half-balls.
+	is a countable basis for the subspace topology on $\mathbb{H}^{n} \subseteq \mathbb{R}^{n}$.
+
+		[An equivalence statement to the result we have just proved is given by replacing the point $x$ in $\partial\mathbb{H}^{n}$ by $0$, and this fits the definition of regular coordinate half-ball in the book. However, for convenience, we will use the definition given at the beginning of this proof.]
+
+	Back to the proof for the main result.
+
+	Let $M$ be an $n$-manifold with boundary. Every point of $M$ has an Euclidean neighborhood, so $M$ is covered by those Euclidean neighborhoods. Since $M$ is second countable then the open cover made of those Euclidean neighborhoods has a countable subcover. Let $\set{U_{i}}_{i\in\mathbb{N}}$ be an open cover of $M$ made of Euclidean neighborhoods, then for each $U_{i}$, there is a homeomorphism $\varphi_{i}$ from $U_{i}$ to an open subset $\widehat{U}_{i}$ of $\mathbb{R}^{n}$ or $\mathbb{H}^{n}$.
+
+	For every $\widehat{U}_{i}$, consider the following open sets
+	\begin{itemize}
+		\item (Type 1) $B_{r}(x) \subseteq \widehat{U}_{i}$ where $x$ is a point of $\operatorname{Int}\mathbb{H}^{n}$ with rational coordinates, and $r$ is a positive rational number such that there are $r' > 0$ where $B_{r}(x) \subseteq B_{r'}(x) \subseteq \operatorname{Int}\mathbb{H}^{n}$.
+		\item (Type 2) $B_{r}(x) \subseteq \widehat{U}_{i}$ where $x$ is a point of $\partial\mathbb{H}^{n}$ with rational coordinates, and $r$ is a positive rational number such that there are $r' > 0$ where $B_{r}(x) \cap \mathbb{H}^{n} \subseteq B_{r'}(x) \cap \mathbb{H}^{n} \subseteq \mathbb{H}^{n}$.
+	\end{itemize}
+
+	The open sets of type 1 are regular coordinate balls, ones of type 2 are regular coordinate half-balls. The collection of all these regular coordinate balls and half-balls (where $i$ varies in $\mathbb{N}$) is countable.
+
+	Let $U$ be an open subset of $M$, then $U = \bigcup_{i\in\mathbb{N}}(U\cap U_{i})$. $U\cap U_{i}$ is homeomorphic to $\varphi_{i}(U\cap U_{i})$. If $x \in \varphi_{i}(U\cap U_{i})$ then $x$ is either an interior point or a boundary point.
+
+	If $x$ is an interior point, then there exists $B_{r'}(y)$ where $y\in\mathbb{Q}^{n}$ and $r'\in\mathbb{Q}$ such that $x \in B_{r'}(y) \subseteq \varphi_{i}(U\cap U_{i})$. Since $\operatorname{dist}(y, x) < r'$, there is a rational number $r$ such that $\operatorname{dist}(y, x) < r < r'$. Therefore $x \in B_{r}(y) \subseteq B_{r'}(y) \subseteq \varphi_{i}(U\cap U_{i})$, which means $x$ is contained in an open set of type 1 in $\mathscr{B}$.
+
+	If $x$ is a boundary point, then there exists $B_{r'}(y)$ where $y\in\mathbb{Q}^{n}$ and $r'\in\mathbb{Q}$ such that $x \in B_{r'}(y) \cap \mathbb{H}^{n} \subseteq \varphi_{i}(U\cap U_{i})$. Since $\operatorname{dist}(y, x) < r'$, there is a rational number $r$ such that $\operatorname{dist}(y, x) < r < r'$. Therefore $x \in B_{r}(y) \cap \mathbb{H}^{n} \subseteq B_{r'}(y) \cap \mathbb{H}^{n} \subseteq \varphi_{i}(U\cap U_{i})$, which means $x$ is contained in an open set of type 2 in $\mathscr{B}$.
+
+	Hence $\mathscr{B}$ is a basis for $M$. Thus every manifold with boundary has a countable basis of regular coordinate balls and half-balls.
 \end{proof}
 
 \section*{Local Compactness}\addcontentsline{toc}{section}{Local Compactness}
@@ -1070,4 +1093,11 @@ A topological space is said to be \textbf{$\boldsymbol{\sigma}$-compact} if it c
 	Let $K \in \mathscr{K}$. For every $p\in K$, there is a neighborhood $B_{p}$ of $p$ which is homeomorphic to an open ball of $\mathbb{R}^{n}$. The collection of $B_{p}$ covers $K$. Since $K$ is compact, there exists $p_{1}, \ldots, p_{m}\in K$ such that $B_{p_{1}}, \ldots, B_{p_{m_{K}}}$ cover $K$. The collection of $B_{p_{1}}, \ldots, B_{p_{m_{K}}}$ of all $K \in \mathscr{K}$ is then a countable open cover of $M$. Denote this countable open cover by $\mathscr{B}$. Since every element of the open cover $\mathscr{B}$ is homeomorphic to an open ball of $\mathbb{R}^{n}$ (which is second countable), every element of $\mathscr{B}$ as a subspace of $M$ is second countable. According to Problem~\ref{problem:2-19}, $M$ is second countable. Therefore $M$ is an $n$-manifold by definition (local Euclidean of dimension $n$, Hausdorff, and second countable).
 
 	Thus $M$ is a topological manifold if and only if it is $\sigma$-compact.
+\end{proof}
+
+\begin{problem}{4-17}
+Suppose $M$ is a manifold of dimension $n\geq 1$, and $B\subseteq M$ is a regular coordinate ball. Show that $M\smallsetminus B$ is an $n$-manifold with boundary, whose boundary is homeomorphic to $\mathbb{S}^{n-1}$. (You may use the theorem on invariance of the boundary.)
+\end{problem}
+
+\begin{proof}
 \end{proof}
