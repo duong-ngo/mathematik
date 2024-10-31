@@ -1101,3 +1101,56 @@ Suppose $M$ is a manifold of dimension $n\geq 1$, and $B\subseteq M$ is a regula
 
 \begin{proof}
 \end{proof}
+
+\begin{problem}{4-21}
+Let $V$ be a finite-dimensional real vector space. A \textbf{norm} on $V$ is a real-valued function on $V$, written $x\mapsto \abs{x}$, satisfying the following properties:
+\begin{itemize}
+	\item \textsc{Positivity}: $\abs{x} \geq 0$, and $\abs{x} = 0$ if and only if $x = 0$.
+	\item \textsc{Homogeneity}: $\abs{cx} = \abs{c}\abs{x}$ for all $c\in \mathbb{R}$ and $x\in V$.
+	\item \textsc{Triangle inequality}: $\abs{x + y} \leq \abs{x} + \abs{y}$.
+\end{itemize}
+
+A norm determines a metric by $d(x, y) = \abs{x - y}$. Show that all norms determine the same topology on $V$. [Hint: first consider the case $V = \mathbb{R}^{n}$, and consider the restriction of the norm to the unit sphere.]
+\end{problem}
+
+\begin{proof}
+	Consider $V = \mathbb{R}^{n}$.
+
+	\textbf{Firstly, we prove that every norm is a pointwise continuous function.}
+
+	For every $x\in V$, $\varepsilon > 0$, let $\delta(\varepsilon) = \varepsilon$, then whenever $y\in V$ satisfies $\abs{x - y} < \delta(\varepsilon)$, we have $\abs{\abs{x} - \abs{y}} \leq \abs{x - y} < \delta(\varepsilon) = \varepsilon$. Hence $x\mapsto \abs{x}$ is a pointwise continuous function.
+
+	\textbf{Secondly, we prove that every norm is equivalent to the Euclidean norm.}
+
+	Denote the Euclidean norm by $\abs{\cdot}_{2}$ and an arbitrary norm by $\abs{\cdot}$. Since $x\mapsto \abs{x}$ is continuous, then image of the unit sphere $\mathbb{S}^{n-1}$ (which is compact) under the norm is compact. By the extremum value theorem, the norms of vector on the unit sphere can attain maximum and minimum. Moreover, due to the positivity of norm, $\abs{\frac{x}{\abs{x}_{2}}}$ is nonzero for every nonzero $x$ in $V$. Hence there exist positive number $c_{1}, c_{2}$ such that $c_{1} \leq \abs{\frac{x}{\abs{x}_{2}}} \leq c_{2}$ for all $x \in \mathbb{R}^{n}\smallsetminus \set{0}$. Equivalently, $c_{1}\abs{x}_{2} \leq \abs{x} \leq c_{2}\abs{x}_{2}$ for all $x \in \mathbb{R}^{n}$ (The case $x = 0$ is obvious.) This means every norm on $\mathbb{R}^{n}$ are equivalent.
+
+	\textbf{Lastly, we prove that all norms on a finite-dimensional real vector space are equivalent.}
+
+	Let $V$ be an $n$-dimensional real vector space then $V$ is isomorphic to $\mathbb{R}^{n}$ (because all finite-dimensional vector spaces of the same dimension and on the same field are isomorphic). Let $f: V \to \mathbb{R}^{n}$ be an isomorphism. $f$ is linear and $f^{-1}$ is linear. Using $f$, we construct a one-to-one correspondence between norms on $V$ and norms on $\mathbb{R}^{n}$, this is a routine procedure.
+
+	Denote by $\abs{\cdot}_{V}$ a norm on $V$, then we define a real-value function $\abs{\cdot}: \mathbb{R}^{n} \to \mathbb{R}$ as follows: $\abs{x} = \abs{f^{-1}(x)}_{V}$. We will check whether this is a norm.
+	\begin{itemize}
+		\item $\abs{x} = \abs{f^{-1}(x)}_{V} \geq 0$ for all $x\in \mathbb{R}^{n}$. $\abs{x} = 0$ if and only if $\abs{f^{-1}(x)}_{V} = 0$, $\abs{f^{-1}(x)}_{V} = 0$ if and only if $f^{-1}(x) = 0$, $f^{-1}(x) = 0$ if and only if $x = 0$.
+		\item For every $c\in \mathbb{R}, x\in\mathbb{R}^{n}$, $\abs{cx} = \abs{f^{-1}(cx)}_{V} = \abs{cf^{-1}(x)}_{V} = \abs{c}\abs{f^{-1}(x)}_{V} = \abs{c}\abs{x}$.
+		\item For every $x, y\in \mathbb{R}^{n}$
+		      \begin{equation*}
+			      \abs{x + y} = \abs{f^{-1}(x + y)}_{V} = \abs{f^{-1}(x) + f^{-1}(y)}_{V} \leq \abs{f^{-1}(x)}_{V} + \abs{f^{-1}(y)}_{V} = \abs{x} + \abs{y}
+		      \end{equation*}
+	\end{itemize}
+
+	so $\abs{\cdot}$ is indeed a norm on $\mathbb{R}^{n}$.
+
+	Conversely, if $\abs{\cdot}$ is a norm on $\mathbb{R}^{n}$, $\abs{\cdot}_{V}: V\to \mathbb{R}$ given by $\abs{v}_{V} = \abs{f(v)}$ is a norm. Proof for this is similar.
+	\begin{itemize}
+		\item $\abs{v}_{V} = \abs{f(v)} \geq 0$ for all $v\in V$. $\abs{v}_{V} = 0$ if and only if $\abs{f(v)} = 0$, $\abs{f(v)} = 0$ if and only if $f(v) = 0$, $f(v) = 0$ if and only if $v = 0$.
+		\item For every $c\in \mathbb{R}, v\in V$, $\abs{cv}_{V} = \abs{f(cv)} = \abs{cf(v)} = \abs{c}\abs{f(v)} = \abs{c}\abs{v}_{V}$.
+		\item For every $v, w\in V$
+		      \begin{equation*}
+			      \abs{v + w}_{V} = \abs{f(v + w)} = \abs{f(v) + f(w)} \leq \abs{f(v)} + \abs{f(w)} = \abs{v}_{V} + \abs{w}_{V}.
+		      \end{equation*}
+	\end{itemize}
+
+	Hence there is a one-to-one correspondence between norms on $V$ and norms on $\mathbb{R}^{n}$. Moreover, every norm on $\mathbb{R}^{n}$ is equivalent to the Euclidean norm, so all norms on $V$ are equivalent.
+
+	Because all norms on $V$ are equivalent, they determine the same topology (see Exercise~\ref{exercise:2.4}).
+\end{proof}
