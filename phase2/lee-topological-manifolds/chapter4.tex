@@ -382,9 +382,23 @@
 	Show that every compact Hausdorff space is normal.
 \end{exercise}
 
+\begin{proof}
+	Suppose $X$ is a compact Hausdorff space.
+
+	Let $A, B$ be two disjoint closed subsets of $X$. Closed subsets of a compact space is compact, so $A, B$ are compact subsets of $X$. In a Hausdorff space, two disjoint compact sets are separated by open sets. Therefore $A, B$ are separated by some open subsets $U, V\subseteq X$. By definition, $X$ is normal.
+\end{proof}
+
 \begin{exercise}{4.79}
 	Show that every closed subspace of a normal space is normal.
 \end{exercise}
+
+\begin{proof}
+	Suppose $X$ is a normal space and $S$ is a closed subspace of $X$.
+
+	$X$ is Hausdorff so its subspaces are Hausdorff. Therefore $S$ is Hausdorff. Let $A, B$ be disjoint closed subsets of $S$. Because $A, B$ are closed in $S$ (with the subspace topology) and $S$ is closed in $X$, it follows that $A, B$ are closed in $X$. $X$ is normal, so there are disjoint open sets $U, V\subseteq X$ such that $A\subseteq U$ and $B\subseteq V$. Furthermore, $S\cap U$ and $S\cap V$ are open subsets of $S$, $A$ and $B$ are separated by open subsets $S\cap U$ and $S\cap V$ of $S$. Hence $S$ is normal.
+
+	Thus every closed subspace of a normal space is normal.
+\end{proof}
 
 \subsection*{Partition of Unity}\addcontentsline{toc}{subsection}{Partition of Unity}
 
