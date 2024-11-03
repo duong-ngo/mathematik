@@ -400,6 +400,20 @@
 	Thus every closed subspace of a normal space is normal.
 \end{proof}
 
+\begin{lemma}{4.80}
+	Let $X$ be a Hausdorff space. Then $X$ is normal if and only if it satisfies the following condition: whenever $A$ is a closed subset of $X$ and $U$ is a neighborhood of $A$, there exists a neighborhood $V$ of $A$ such that $\overline{V} \subseteq U$.
+\end{lemma}
+
+\begin{proof}
+	$(\Longrightarrow)$ $X$ is normal.
+
+	Let $A$ be a closed subset of $X$, $U$ be a neighborhood of $A$, and $B = X\smallsetminus U$. $A, B$ are disjoint closed subsets of $X$ so there are disjoint open subsets $V, W$ such that $A \subseteq V, B \subseteq W$. On the other hand $V \subseteq X\smallsetminus W$. $\overline{V}$ is the smallest closed set containing $V$, $X\smallsetminus W$ is a closed set containing $V$, so $\overline{V} \subseteq X\smallsetminus W \subseteq X\smallsetminus B = U$. Hence there is a neighborhood $V$ of $A$ such that $\overline{V} \subseteq U$.
+
+	$(\Longleftarrow)$ Whenever $A$ is a closed subset of $X$ and $U$ is a neighborhood of $A$, there exists a neighborhood $V$ of $A$ such that $\overline{V} \subseteq U$.
+
+	Let $A, B$ be disjoint closed subsets of $X$. $X\smallsetminus B$ is a neighborhood of $A$, so there is a neighborhood $V\supseteq A$ such that $\overline{V} \subseteq X\smallsetminus B$, then $X\smallsetminus \overline{V} \supseteq B$. Hence $A, B$ have disjoint neighborhoods $V$ and $X\smallsetminus \overline{V}$. Therefore $X$ is normal.
+\end{proof}
+
 \subsection*{Partition of Unity}\addcontentsline{toc}{subsection}{Partition of Unity}
 
 \begin{exercise}{4.87}
