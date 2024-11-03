@@ -106,11 +106,14 @@ mira:
 multilinear-algebra:
 	@$(MAKE) phase1/werner-greub-multilinear-algebra/main.pdf
 
-topology:
+general-topology:
 	@$(MAKE) phase1/james-munkres-topology/main.pdf
 
-analysis:
+real-analysis:
 	@$(MAKE) phase1/vladimir-zorich-mathematical-analysis/main.pdf
+
+complex-analysis:
+	@$(MAKE) phase2/ahlfors-complex-analysis/main.pdf
 
 algebra:
 	@$(MAKE) phase2/aluffi-algebra-chapter-0/main.pdf
@@ -123,3 +126,7 @@ spivak:
 
 topological-manifolds:
 	@$(MAKE) phase2/lee-topological-manifolds/main.pdf
+
+differential-geometry:
+	@$(MAKE) phase2/tapp-differential-geometry/main.pdf
+
