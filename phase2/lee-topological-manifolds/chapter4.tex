@@ -414,6 +414,35 @@
 	Let $A, B$ be disjoint closed subsets of $X$. $X\smallsetminus B$ is a neighborhood of $A$, so there is a neighborhood $V\supseteq A$ such that $\overline{V} \subseteq X\smallsetminus B$, then $X\smallsetminus \overline{V} \supseteq B$. Hence $A, B$ have disjoint neighborhoods $V$ and $X\smallsetminus \overline{V}$. Therefore $X$ is normal.
 \end{proof}
 
+\begin{theorem}{4.81}
+	Every paracompact Hausdorff space is normal.
+\end{theorem}
+
+\begin{proof}
+	Suppose $X$ is a paracompact Hausdorff space.
+
+	\textbf{Prove that $X$ is regular.}
+
+	Let $A$ be a closed subset of $X$ and $q\in X\smallsetminus A$, then $\set{q}$ is closed in $X$ (because every finite subset of a Hausdorff space is closed).
+
+	For each $p\in A$, there are disjoint open subsets $U_{p}\ni p$ and $V_{p}\ni q$, because of the Hausdorffness of $X$. The collection $\set{U_{p}}_{p\in A} \cup \set{X\smallsetminus A}$ is an open cover of $X$. By paracompactness, this collection has a locally finite open refinement $\mathcal{W}$. Each open sets in $\mathcal{W}$ is contained either in $U_{p}$ for some $p\in A$, or in $X\smallsetminus A$. Let $\mathcal{U}$ be the collection of sets in $\mathcal{W}$ that are contained in some $U_{p}$, then $\mathcal{U}$ is also locally finite and it is an open cover of $A$.
+
+	Let $\mathbb{U} = \bigcup_{U\in\mathcal{U}} U_{p}$ and $\mathbb{V} = X\smallsetminus \overline{\mathbb{U}}$. By Lemma 4.75, $\overline{\mathbb{U}} = \bigcup_{U\in \mathcal{U}} \overline{U}$, because $\mathcal{U}$ is locally finite. For every $U \in \mathcal{U}$, there is $V_{p}\ni q$ that is disjoint from $U$, so $q\notin \overline{U}$. Therefore $q\notin \overline{\mathbb{U}}$, which means $q\in \mathbb{V}$. The open sets $\mathbb{U}$ and $\mathbb{V}$ separate $A$ and $\set{q}$. Hence $X$ is regular.
+
+	\textbf{Prove that $X$ is normal.}
+
+	Let $A, B$ be disjoint closed subsets of $X$.
+
+	For each $p\in A$, there are disjoint open subsets $U_{p}\ni p$ and $V_{p}\supseteq B$, because of the regularity of $X$. The collection $\set{U_{p}}_{p\in A} \cup \set{X\smallsetminus A}$ is an open cover of $X$. Because $X$ is paracompact, this collection has locally finite open refinement $\mathcal{W}$. Each open sets in $\mathcal{W}$ is contained either in $U_{p}$ for some $p\in A$, or in $X\smallsetminus A$. Let $\mathcal{U}$ be the collection of sets in $\mathcal{W}$ that are contained in some $U_{p}$, then $\mathcal{U}$ is also locally finite and it is an open cover of $A$.
+
+	Let $\mathbb{U} = \bigcup_{U\in\mathcal{U}} U$ and $\mathbb{V} = X\smallsetminus \overline{\mathbb{U}}$. By Lemma 4.75, $\overline{\mathbb{U}} = \bigcup_{U\in \mathcal{U}} \overline{U}$, because $\mathcal{U}$ is locally finite. For every $U \in \mathcal{U}$, there is $V_{p}\supseteq B$ that is disjoint from $U$, so $B \subseteq X\smallsetminus \overline{U}$ (the exterior of $U$), it follows that
+	\begin{equation*}
+		B \subseteq \bigcap_{U\in\mathcal{U}} X\smallsetminus \overline{U} = X\smallsetminus \left(\bigcup_{U\in\mathcal{U}}\overline{U}\right) = X\smallsetminus \overline{\mathbb{U}} = \mathbb{V}.
+	\end{equation*}
+
+	Hence $A, B$ are separated by open sets $\mathbb{U}$ and $\mathbb{V}$. Therefore $X$ is normal.
+\end{proof}
+
 \subsection*{Partition of Unity}\addcontentsline{toc}{subsection}{Partition of Unity}
 
 \begin{exercise}{4.87}
