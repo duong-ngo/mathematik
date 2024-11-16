@@ -400,7 +400,7 @@
 	Thus every closed subspace of a normal space is normal.
 \end{proof}
 
-\begin{lemma}{4.80}
+\begin{lemma}{4.80}\label{lemma:4.80}
 	Let $X$ be a Hausdorff space. Then $X$ is normal if and only if it satisfies the following condition: whenever $A$ is a closed subset of $X$ and $U$ is a neighborhood of $A$, there exists a neighborhood $V$ of $A$ such that $\overline{V} \subseteq U$.
 \end{lemma}
 
@@ -441,6 +441,79 @@
 	\end{equation*}
 
 	Hence $A, B$ are separated by open sets $\mathbb{U}$ and $\mathbb{V}$. Therefore $X$ is normal.
+\end{proof}
+
+\begin{theorem}{4.82}[Urysohn's Lemma]
+	Suppose $X$ is a normal topological space. If $A, B \subseteq X$ are disjoint closed subsets, then there exists a continuous function $f: X \to \closedinterval{0, 1}$ such that $f\vert_{A} \equiv 0$ and $f\vert_{B} \equiv 1$.
+\end{theorem}
+
+\begin{proof}
+	The following proof is a full version of the proof in the book.
+
+	\textbf{Step 1.} Construct a family of open subsets $\set{ U_{r} \mid r \in \mathbb{Q} }$ such that
+	\begin{enumerate}[label={(\roman*)},itemsep=0pt,topsep=0pt]
+		\item $U_{r} = \varnothing$ when $r < 0$, and $U_{r} = X$ when $r > 1$.
+		\item $U_{0} \supseteq A$.
+		\item $U_{1} = X\smallsetminus B$.
+		\item If $p < q$, then $\overline{U_{p}} \subseteq U_{q}$.
+	\end{enumerate}
+
+	Define $U_{1} = X\smallsetminus B$ and $U_{r}$ that satisfy (i).
+
+	Because $X$ is normal, $A\subseteq X$ is closed and $A\subseteq U_{1}$, then there is a neighborhood $U_{0}$ of $A$ such that $\overline{U_{0}} \subseteq U_{1}$ (Lemma~\ref{lemma:4.80}).
+
+	Let ${(r_{i})}_{i\in\mathbb{Z}_{>0}}$ be an injective sequence of rational numbers in the open interval $\openinterval{0, 1}$.
+
+	Suppose that for $i = 1, \ldots, n$, we have chosen open subsets $U_{r_{i}}$ such that $\overline{U_{0}} \subseteq U_{r_{i}}$, $\overline{U_{r_{i}}} \subseteq U_{1}$, and $r_{i} < r_{j}$ implies $\overline{U_{r_{i}}} \subseteq U_{r_{j}}$. Consider the next rational number $r_{n+1}$ in the sequence. Let $p$ be the largest number in the set $\set{0, r_{1}, \ldots, r_{n}, 1}$ that is smaller than $r_{n+1}$ and $q$ the smallest number in the same set that is larger than $r_{n+1}$. By the inductive hypothesis, $\overline{U_{p}} \subseteq U_{q}$. From the normality of $X$ (Lemma~\ref{lemma:4.80}), we see that there is an open subset $U_{r_{n+1}} \subseteq X$ such that $\overline{U_{p}} \subseteq U_{r_{n+1}}$ and $\overline{U_{r_{n+1}}} \subseteq U_{q}$. By mathematical induction, we successfully construct open subsets $U_{r}$ that satisfy (i), (ii), (iii), (iv).
+
+	\textbf{Step 2.} Define a function $f: X \to \closedinterval{0,1}$ such that $f\vert_{A}\equiv 0$ and $f\vert_{B}\equiv 1$.
+
+	Let $f: X\to \mathbb{R}$ given by $f(x) = \inf\set{ r\in \mathbb{Q} : x\in U_{r} }$. By the definition of $U_{r}$, it follows that $f$ is well-defined and $f(x) \in \closedinterval{0, 1}$. Due to (i) and the definition of infimum, $f\vert_{B} \equiv 1$. Due to (ii), $f\vert_{A}\equiv 0$.
+
+	It remains to prove that $f$ is continuous.
+
+	\textbf{Step 3.} $f$ is continuous.
+
+	The sets of the form $\openinterval{a, \infty}$ and $\openinterval{-\infty, a}$ form a subbasis for the Euclidean topology on $\mathbb{R}$ (which coincides with the order topology), so it suffices to show that the preimage under $f$ of these kinds of sets are open.
+
+	We prove the following results:
+	\begin{enumerate}[label={(\alph*)}]
+		\item $f(x) < a \Longleftrightarrow \text{$x\in U_{r}$ for some rational $r < a$,}$
+
+		      If $f(x) < a$ then due to the definition of infimum, $\halfopenright{f(x), a}$ intersects $\set{ r\in\mathbb{Q} : x\in U_{r} }$ at a point other than $f(x)$, so there is a rational $r$ such that $r < a$ and $x\in U_{r}$. Conversely, if $x\in U_{r}$ for some $r < a$ then $f(x) \leq r < a$, which implies $f(x) < a$.
+		\item $f(x) \leq a \Longleftrightarrow \text{$x\in \overline{U_{r}}$ for all rational $r > a$.}$
+
+		      If $f(x) \leq a$ then for every rational number $r > a$, there exists a rational number $s$ such that $x\in U_{s} \subseteq U_{r} \subseteq \overline{U_{r}}$ (here we apply (a) for $f(x) < r$).
+
+		      Conversely, suppose $x\in \overline{U_{r}}$ for all rational $r > a$. For every rational $s > a$, there is a rational number $r$ such that $s > r > a$. From (iv), $x\in \overline{U_{r}} \subseteq U_{s}$, which implies that $f(x) \leq s$. Hence for every rational $s > a$, $f(x) \leq a$.
+	\end{enumerate}
+
+	From (a), we obtain
+	\[
+		f^{-1}(\openinterval{-\infty, a}) = \bigcup_{\underset{r < a}{r\in\mathbb{Q}}}U_{r}
+	\]
+
+	From (b), we obtain
+	\begin{align*}
+		f^{-1}(\openinterval{a, \infty}) & = f^{-1}(\mathbb{R}\smallsetminus \halfopenleft{-\infty, a})                                                                               \\
+		                                 & = f^{-1}(\mathbb{R}) \smallsetminus f^{-1}(\halfopenleft{-\infty, a})            & \text{(this is a property of preimage, see Appendix A)} \\
+		                                 & = X \smallsetminus \bigcup_{\underset{r \geq a}{r\in\mathbb{Q}}}\overline{U_{r}}
+	\end{align*}
+
+	So the preimages under $f$ of the sets of the form $\openinterval{-\infty, a}$ and $\openinterval{a, \infty}$ are open subsets of $X$. Hence $f$ is continuous.
+\end{proof}
+
+\begin{corollary}{4.83}[Existence of Bump Functions]
+	Let $X$ be a normal space. If $A$ is a closed subset of $X$ and $U$ is a neighborhood of $A$, there exists a bump function for $A$ supported in $U$.
+\end{corollary}
+
+\begin{proof}
+	By Lemma~\ref{lemma:4.80}, there is a neighborhood $V$ of $A$ such that $\overline{V} \subseteq U$. By Urysohn's lemma, there exists a function $f: X \to \closedinterval{0, 1}$ such that $f\vert_{A}\equiv 1$ and $f\vert_{X\smallsetminus V}\equiv 0$. Therefore $f$ doesn't vanish on $\overline{V}$, which means
+	\[
+		\operatorname{supp}(f) \subseteq \overline{V} \subseteq U
+	\]
+
+	because $\operatorname{supp}(f)$ is the smallest closed set containing $f^{-1}(\set{0})$. Hence $f$ is a bump function for $A$ supported in $U$.
 \end{proof}
 
 \subsection*{Partition of Unity}\addcontentsline{toc}{subsection}{Partition of Unity}
@@ -1159,6 +1232,26 @@ Suppose $M$ is a manifold of dimension $n\geq 1$, and $B\subseteq M$ is a regula
 \begin{proof}
 \end{proof}
 
+\begin{problem}{4-20}
+Consider the topology on the set of intergers described in Problem~\ref{problem:2-17}. Show that $\mathbb{Z}$ with this topology is limit point compact but not compact.
+\end{problem}
+
+\begin{proof}
+	Let $A$ be an infinite subset of $\mathbb{Z}$. The two following cases are exhaustive
+	\begin{enumerate}[label={\textbf{Case \arabic*.}},itemindent=1cm]
+		\item $A = \mathbb{Z}$
+
+		      Every nonzero element $x$ of $A$ is a limit point of $A$, because every neighborhood of $x$ contains $x$ and $-x$, hence every neighborhood of $x$ intersects $A\smallsetminus\set{x}$.
+		\item $A \ne \mathbb{Z}$
+
+		      Because $A \ne \mathbb{Z}$, there exists $x\in A$ such that $-x \notin A$ and $x\ne 0$. Every neighborhood of $-x$ contains $x$ and $-x$, so every neighborhood of $-x$ intersects $A\smallsetminus\set{-x}$.
+	\end{enumerate}
+
+	Therefore $A$ contains a limit point of $X$. Because $A$ is an arbitrary infinite subset of $\mathbb{Z}$, we conclude that $\mathbb{Z}$ is limit point compact.
+
+	$\set{ \set{\pm n} \mid n\in\mathbb{Z}_{\geq 0} }$ is an open cover of $\mathbb{Z}$ which is infinite and the elements of this open cover are pairwise disjoint, so it doesn't have a finite subcover. Therefore $\mathbb{Z}$ is not compact.
+\end{proof}
+
 \begin{problem}{4-21}
 Let $V$ be a finite-dimensional real vector space. A \textbf{norm} on $V$ is a real-valued function on $V$, written $x\mapsto \abs{x}$, satisfying the following properties:
 \begin{itemize}
@@ -1171,19 +1264,17 @@ A norm determines a metric by $d(x, y) = \abs{x - y}$. Show that all norms deter
 \end{problem}
 
 \begin{proof}
-	Consider $V = \mathbb{R}^{n}$.
-
 	\textbf{Firstly, we prove that every norm is a pointwise continuous function.}
 
 	For every $x\in V$, $\varepsilon > 0$, let $\delta(\varepsilon) = \varepsilon$, then whenever $y\in V$ satisfies $\abs{x - y} < \delta(\varepsilon)$, we have $\abs{\abs{x} - \abs{y}} \leq \abs{x - y} < \delta(\varepsilon) = \varepsilon$. Hence $x\mapsto \abs{x}$ is a pointwise continuous function.
 
-	\textbf{Secondly, we prove that every norm is equivalent to the Euclidean norm.}
+	\textbf{Secondly, we prove that every norm on $\mathbb{R}^{n}$ is equivalent to the Euclidean norm.}
 
-	Denote the Euclidean norm by $\abs{\cdot}_{2}$ and an arbitrary norm by $\abs{\cdot}$. Since $x\mapsto \abs{x}$ is continuous, then image of the unit sphere $\mathbb{S}^{n-1}$ (which is compact) under the norm is compact. By the extremum value theorem, the norms of vector on the unit sphere can attain maximum and minimum. Moreover, due to the positivity of norm, $\abs{\frac{x}{\abs{x}_{2}}}$ is nonzero for every nonzero $x$ in $V$. Hence there exist positive number $c_{1}, c_{2}$ such that $c_{1} \leq \abs{\frac{x}{\abs{x}_{2}}} \leq c_{2}$ for all $x \in \mathbb{R}^{n}\smallsetminus \set{0}$. Equivalently, $c_{1}\abs{x}_{2} \leq \abs{x} \leq c_{2}\abs{x}_{2}$ for all $x \in \mathbb{R}^{n}$ (The case $x = 0$ is obvious.) This means every norm on $\mathbb{R}^{n}$ are equivalent.
+	Consider $V = \mathbb{R}^{n}$. Denote the Euclidean norm by $\abs{\cdot}_{2}$ and an arbitrary norm by $\abs{\cdot}$. Since $x\mapsto \abs{x}$ is continuous, then image of the unit sphere $\mathbb{S}^{n-1}$ (which is compact) under the norm is compact. By the extremum value theorem, the norms of vector on the unit sphere can attain maximum and minimum. Moreover, due to the positivity of norm, $\abs{\frac{x}{\abs{x}_{2}}}$ is nonzero for every nonzero $x$ in $V$. Hence there exist positive number $c_{1}, c_{2}$ such that $c_{1} \leq \abs{\frac{x}{\abs{x}_{2}}} \leq c_{2}$ for all $x \in \mathbb{R}^{n}\smallsetminus \set{0}$. Equivalently, $c_{1}\abs{x}_{2} \leq \abs{x} \leq c_{2}\abs{x}_{2}$ for all $x \in \mathbb{R}^{n}$ (The case $x = 0$ is obvious.) This means all norms on $\mathbb{R}^{n}$ are equivalent.
 
 	\textbf{Lastly, we prove that all norms on a finite-dimensional real vector space are equivalent.}
 
-	Let $V$ be an $n$-dimensional real vector space then $V$ is isomorphic to $\mathbb{R}^{n}$ (because all finite-dimensional vector spaces of the same dimension and on the same field are isomorphic). Let $f: V \to \mathbb{R}^{n}$ be an isomorphism. $f$ is linear and $f^{-1}$ is linear. Using $f$, we construct a one-to-one correspondence between norms on $V$ and norms on $\mathbb{R}^{n}$, this is a routine procedure.
+	Let $V$ be an $n$-dimensional real vector space then $V$ is isomorphic to $\mathbb{R}^{n}$ (because all finite-dimensional vector spaces of the same dimension and on the same field are isomorphic). Let $f: V \to \mathbb{R}^{n}$ be an isomorphism, then $f$ and $f^{-1}$ are linear. Using $f$, we construct an one-to-one correspondence between norms on $V$ and norms on $\mathbb{R}^{n}$ as follows.
 
 	Denote by $\abs{\cdot}_{V}$ a norm on $V$, then we define a real-value function $\abs{\cdot}: \mathbb{R}^{n} \to \mathbb{R}$ as follows: $\abs{x} = \abs{f^{-1}(x)}_{V}$. We will check whether this is a norm.
 	\begin{itemize}
@@ -1207,7 +1298,7 @@ A norm determines a metric by $d(x, y) = \abs{x - y}$. Show that all norms deter
 		      \end{equation*}
 	\end{itemize}
 
-	Hence there is a one-to-one correspondence between norms on $V$ and norms on $\mathbb{R}^{n}$. Moreover, every norm on $\mathbb{R}^{n}$ is equivalent to the Euclidean norm, so all norms on $V$ are equivalent.
+	Hence there is a one-to-one correspondence between norms on $V$ and norms on $\mathbb{R}^{n}$. Moreover, every norm on $\mathbb{R}^{n}$ is equivalent to the Euclidean norm, so all norms on $V$ are equivalent as they are equivalent to the corresponding norm of the Euclidean norm.
 
 	Because all norms on $V$ are equivalent, they determine the same topology (see Exercise~\ref{exercise:2.4}).
 \end{proof}
