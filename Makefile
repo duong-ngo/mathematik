@@ -130,3 +130,8 @@ topological-manifolds:
 differential-geometry:
 	@$(MAKE) phase2/tapp-differential-geometry/main.pdf
 
+greub-linear:
+	@$(MAKE) phase2/greub-linear/main.pdf
+
+greub-multilinear:
+	@$(MAKE) phase2/greub-multilinear/main.pdf
