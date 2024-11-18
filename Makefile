@@ -135,3 +135,6 @@ greub-linear:
 
 greub-multilinear:
 	@$(MAKE) phase2/greub-multilinear/main.pdf
+
+ode:
+	@$(MAKE) phase2/hirsch-smale-de-ds-la/main.pdf
