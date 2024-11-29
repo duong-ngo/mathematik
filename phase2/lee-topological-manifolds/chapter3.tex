@@ -960,6 +960,49 @@ The following proof makes use of saturated sets and their properties, which are 
 
 No exercises.
 
+\begin{prop}{3.77}\label{prop:3.77}
+	Let $X \cup_{f} Y$ be an adjunction space, and let $q: X \amalg Y \to X \cup_{f} Y$ be the associated quotient map.
+	\begin{enumerate}[label={(\alph*)}]
+		\item The restriction of $q$ to $X$ is a topological embedding, whose image set $q(X)$ is a closed subspace of $X \cup_{f} Y$.
+		\item The restriction of $q$ to $Y\smallsetminus A$ is a topological embedding, whose image set $q(Y\smallsetminus A)$ is an open subspace of $X \cup_{f} Y$.
+		\item As a set, $X \cup_{f} Y$ is the disjoint union of $q(X)$ and $q(Y\smallsetminus A)$.
+	\end{enumerate}
+\end{prop}
+
+\begin{note}
+	In other documents, an adjunction space is defined for any subset $A$ of $Y$, not just closed subsets. However, in this Proposition, the hypothesis ``$A\subseteq Y$ is closed'' is important, as shown in the following proof.
+\end{note}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item First, we show that $q\vert_{X}$ is a closed map.
+
+		      Let $B$ be a closed subset of $X$. We will prove that $q^{-1}(q(B))$ is closed in $X \amalg Y$ by showing that the intersection of this set with $X$ (and $Y$) is closed in $X$ (and $Y$). From the definition of $q$, $q^{-1}(q(B)) \cap X = B$, which is closed in $X$. $q^{-1}(q(B)) \cap Y = f^{-1}(B)$, which is closed in $A$ because $f: A\to X$ is continuous. Because $A$ is closed in $Y$, it follows that $f^{-1}(B)$ is closed in $Y$. Hence $q^{-1}(q(B)) \cap Y$ is closed in $Y$. Since the intersections of $q^{-1}(q(B)) \cap X$ and $q^{-1}(q(B)) \cap Y$ are closed in $X$ and $Y$, correspondingly, we conclude that $q^{-1}(q(B))$ is closed in $X \amalg Y$. Therefore $q(B)$ is closed (according to the definition of a quotient map), which means $q\vert_{X}$ is a closed map. Hence $q(X)$ is a closed subspace of $X \cup_{f} Y$.
+
+		      Because $q\vert_{X}$ is injective, continuous and closed, it is also a topological embedding.
+		\item $Y\smallsetminus A$ is a saturated open subset of $X \amalg Y$, so $q\vert_{Y\smallsetminus A}: Y\smallsetminus A \to q(Y\smallsetminus A)$ is a quotient map (Exercise~\ref{exercise:3.63}). $q\vert_{Y\smallsetminus A}$ is also a bijection so it is a homeomorphism. Hence the restriction of $q$ to $Y\smallsetminus A$ is a topological embedding.
+
+		      $Y\smallsetminus A$ is a saturated open subset under $q$ so its image $q(Y\smallsetminus A)$ is open in $X \cup_{f} Y$.
+		\item $X = (X\smallsetminus f(A)) \cup f(A)$, $Y = (Y\smallsetminus A) \cup A$, $q(f(A)) = q(A)$. Therefore
+		      \begin{align*}
+			      X \cup_{f} Y & = q(X\amalg Y)                                                             & \text{(as $q$ is surjective)} \\
+			                   & = q(X\smallsetminus f(A)) \cup q(f(A)) \cup q(Y\smallsetminus A) \cup q(A)                                 \\
+			                   & = q(X\smallsetminus f(A)) \cup q(f(A)) \cup q(Y\smallsetminus A)           & \text{(as $q(f(A)) = q(A)$)}  \\
+			                   & = q(X) \cup q(Y\smallsetminus A)
+		      \end{align*}
+
+		      On the other hand, the sets $q(X)$ and $q(Y\smallsetminus A)$ are disjoint (as the elements of $Y\smallsetminus A$ are not identified by $q$ to any element), we conclude that $X \cup_{f} Y$ is the union of disjoint sets $q(X)$ and $q(Y\smallsetminus A)$.
+	\end{enumerate}
+\end{proof}
+
+\begin{prop}{3.81}
+	Every $n$-manifold with boundary is homeomorphic to a closed subset of an $n$-manifold without boundary.
+\end{prop}
+
+\begin{proof}
+	Let $M$ be an $n$-manifold with boundary. Denote by $h: \partial M \to \partial M$ the identity map and $q: M\amalg M \to M \cup_{h} M$ the associated quotient map. By Theorem 3.79, $D(M) = M \cup_{h} M$ is an $n$-manifold without boundary. By the proof of Proposition~\ref{prop:3.77}, $q\vert_{M}$ is continuous, closed, injective, hence $M$ is homeomorphic to $q(M)$, which is a closed subset of $D(M)$ (which is an $n$-manifold without boundary).
+\end{proof}
+
 \section*{Topological Groups and Group Actions}\addcontentsline{toc}{section}{Topological Groups and Group Actions}
 
 \begin{exercise}{3.83}
