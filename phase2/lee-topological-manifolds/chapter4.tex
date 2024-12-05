@@ -371,9 +371,9 @@
 \end{exercise}
 
 \begin{proof}
-	Because $\mathscr{A}$ is an open cover of $X$, for every element of $x$, there exists $A\in\mathscr{A}$ such that $x\in A$. Moreover, $A$ is a neighborhood of $x$ and $A$ intersects at most finitely many other elements of $\mathscr{A}$. Therefore $\mathscr{A}$ is locally finite.
+	Because $\mathscr{A}$ is an open cover of $X$, for every element of $x$, there exists $A\in\mathscr{A}$ such that $x\in A$. Moreover, $A$ is a neighborhood of $x$ and this neighborhood intersects at most finitely many elements of $\mathscr{A}$ (including $A$). Therefore $\mathscr{A}$ is locally finite.
 
-	Here is a counterexample: Consider the $(n+1)$-space $\mathbb{R}^{n+1}$ where $n > 1$. Define $\mathscr{A}$ to be the set of 1-dimensional subspaces of $\mathbb{R}^{n+1}$ then each element of $\mathscr{A}$ is not open and $\mathscr{A}$ covers $\mathbb{R}^{n+1}$. However, every neighborhood of the origin intersects every element of $\mathscr{A}$ and $\mathscr{A}$ has infinite elements.
+	Here is a counterexample: Consider the Euclidean space $\mathbb{R}^{n}$ where $n > 1$. Define $\mathscr{A}$ to be the following collection consisting of $\set{0}$ and $\set{ \lambda v : \lambda > 0 }$ for each $v\in \mathbb{R}^{n}$ such that $\abs{v} = 1$. $\mathscr{A}$ is a cover of $X$ where every element of $\mathscr{A}$ is not open. However $\mathscr{A}$ is not locally finite, because any neighborhood of $0$ intersects infinitely many (all) elements of $\mathscr{A}$.
 \end{proof}
 
 \subsection*{Normal Spaces}\addcontentsline{toc}{subsection}{Normal Spaces}
@@ -385,7 +385,7 @@
 \begin{proof}
 	Suppose $X$ is a compact Hausdorff space.
 
-	Let $A, B$ be two disjoint closed subsets of $X$. Closed subsets of a compact space is compact, so $A, B$ are compact subsets of $X$. In a Hausdorff space, two disjoint compact sets are separated by open sets. Therefore $A, B$ are separated by some open subsets $U, V\subseteq X$. By definition, $X$ is normal.
+	Let $A, B$ be two disjoint closed subsets of $X$. Closed subsets of a compact space are compact, so $A, B$ are compact subsets of $X$. In a Hausdorff space, two disjoint compact sets have disjoint neighborhoods. Hence there exist disjoint open subsets $U, V\subseteq X$ such that $A\subseteq U$ and $B\subseteq V$. By definition, $X$ is normal.
 \end{proof}
 
 \begin{exercise}{4.79}
@@ -425,11 +425,11 @@
 
 	Let $A$ be a closed subset of $X$ and $q\in X\smallsetminus A$, then $\set{q}$ is closed in $X$ (because every finite subset of a Hausdorff space is closed).
 
-	For each $p\in A$, there are disjoint open subsets $U_{p}\ni p$ and $V_{p}\ni q$, because of the Hausdorffness of $X$. The collection $\set{U_{p}}_{p\in A} \cup \set{X\smallsetminus A}$ is an open cover of $X$. By paracompactness, this collection has a locally finite open refinement $\mathcal{W}$. Each open sets in $\mathcal{W}$ is contained either in $U_{p}$ for some $p\in A$, or in $X\smallsetminus A$. Let $\mathcal{U}$ be the collection of sets in $\mathcal{W}$ that are contained in some $U_{p}$, then $\mathcal{U}$ is also locally finite and it is an open cover of $A$.
+	For each $p\in A$, there are disjoint open subsets $U_{p}\ni p$ and $V_{p}\ni q$, because of the Hausdorff property of $X$. The collection $\set{U_{p}}_{p\in A} \cup \set{X\smallsetminus A}$ is an open cover of $X$. By paracompactness, this collection has a locally finite open refinement $\mathcal{W}$. Each open sets in $\mathcal{W}$ is contained either in $U_{p}$ for some $p\in A$, or in $X\smallsetminus A$. Let $\mathcal{U}$ be the collection of sets in $\mathcal{W}$ that are contained in some $U_{p}$, then $\mathcal{U}$ is also locally finite and it is an open cover of $A$.
 
-	Let $\mathbb{U} = \bigcup_{U\in\mathcal{U}} U_{p}$ and $\mathbb{V} = X\smallsetminus \overline{\mathbb{U}}$. By Lemma 4.75, $\overline{\mathbb{U}} = \bigcup_{U\in \mathcal{U}} \overline{U}$, because $\mathcal{U}$ is locally finite. For every $U \in \mathcal{U}$, there is $V_{p}\ni q$ that is disjoint from $U$, so $q\notin \overline{U}$. Therefore $q\notin \overline{\mathbb{U}}$, which means $q\in \mathbb{V}$. The open sets $\mathbb{U}$ and $\mathbb{V}$ separate $A$ and $\set{q}$. Hence $X$ is regular.
+	Let $\mathbb{U} = \bigcup_{U\in\mathcal{U}} U_{p}$ and $\mathbb{V} = X\smallsetminus \overline{\mathbb{U}}$. By Lemma 4.75, $\overline{\mathbb{U}} = \bigcup_{U\in \mathcal{U}} \overline{U}$, because $\mathcal{U}$ is locally finite. For every $U \in \mathcal{U}$, there is $V_{p}\ni q$ that is disjoint from $U$, so $q\notin \overline{U}$ for every $U\in \mathcal{U}$. Therefore $q\notin \overline{\mathbb{U}}$, which means $q\in \mathbb{V}$. The open sets $\mathbb{U}$ and $\mathbb{V}$ are disjoint neighborhoods of $A$ and $\set{q}$. Hence $X$ is regular.
 
-	\textbf{Prove that $X$ is normal.}
+	\textbf{Prove that $X$ is normal.} (The proof is the same as for regularity.)
 
 	Let $A, B$ be disjoint closed subsets of $X$.
 
@@ -440,7 +440,7 @@
 		B \subseteq \bigcap_{U\in\mathcal{U}} X\smallsetminus \overline{U} = X\smallsetminus \left(\bigcup_{U\in\mathcal{U}}\overline{U}\right) = X\smallsetminus \overline{\mathbb{U}} = \mathbb{V}.
 	\end{equation*}
 
-	Hence $A, B$ are separated by open sets $\mathbb{U}$ and $\mathbb{V}$. Therefore $X$ is normal.
+	Hence $\mathbb{U}$ and $\mathbb{V}$ are disjoint neighborhoods of $A$ and $B$. Therefore $X$ is normal.
 \end{proof}
 
 \begin{theorem}{4.82}[Urysohn's Lemma]
@@ -507,20 +507,103 @@
 	Let $X$ be a normal space. If $A$ is a closed subset of $X$ and $U$ is a neighborhood of $A$, there exists a bump function for $A$ supported in $U$.
 \end{corollary}
 
-\begin{proof}
-	By Lemma~\ref{lemma:4.80}, there is a neighborhood $V$ of $A$ such that $\overline{V} \subseteq U$. By Urysohn's lemma, there exists a function $f: X \to \closedinterval{0, 1}$ such that $f\vert_{A}\equiv 1$ and $f\vert_{X\smallsetminus V}\equiv 0$. Therefore $f$ doesn't vanish on $\overline{V}$, which means
-	\[
-		\operatorname{supp}(f) \subseteq \overline{V} \subseteq U
-	\]
+\begin{quote}
+	Given a continuous function $f: X \to \mathbb{R}$. The support of $f$, denoted by $\operatorname{supp} f$, is the closure of the set $\set{ x\in X : f(x) \ne 0 } = f^{-1}(\mathbb{R}\smallsetminus\set{0})$.
 
-	because $\operatorname{supp}(f)$ is the smallest closed set containing $f^{-1}(\set{0})$. Hence $f$ is a bump function for $A$ supported in $U$.
+	If $A$ is a closed subset of $X$ and $U$ is a neighborhood of $A$, a continuous function $f: X\to \closedinterval{0, 1}$ such that $f\vert_{A} \equiv 1$ and $\operatorname{supp} f \subseteq U$ is called a bump function for $A$ supported in $U$. In this definition, $A \subseteq \operatorname{supp} f \subseteq U$.
+\end{quote}
+
+\begin{proof}
+	By Lemma~\ref{lemma:4.80}, there is a neighborhood $V$ of $A$ such that $\overline{V} \subseteq U$. So $A$ and $X\smallsetminus V$ are disjoint closed subsets of the normal space $X$. By Urysohn's lemma, there exists a continuous function $f: X \to \closedinterval{0, 1}$ such that $f\vert_{A}\equiv 1$ and $f\vert_{X\smallsetminus V}\equiv 0$.
+
+	Because $f\vert_{X\smallsetminus V} \equiv 0$, it follows that $X\smallsetminus V \subseteq f^{-1}(\set{0})$, so
+	\begin{align*}
+		f^{-1}(\mathbb{R}\smallsetminus\set{0}) & = f^{-1}(\mathbb{R}) \smallsetminus f^{-1}(\set{0}) \\
+		                                        & = X \smallsetminus f^{-1}(\set{0})                  \\
+		                                        & \subseteq X\smallsetminus (X\smallsetminus V) = V
+	\end{align*}
+
+	Therefore $\operatorname{supp} f = \overline{f^{-1}(\mathbb{R}\smallsetminus\set{0})} \subseteq \overline{V} \subseteq U$. Thus $f$ is a bump function for $A$ supported in $U$.
 \end{proof}
 
 \subsection*{Partition of Unity}\addcontentsline{toc}{subsection}{Partition of Unity}
 
+If $\mathscr{U} = {(U_{\alpha})}_{\alpha\in A}$ is an indexed open cover of $X$, a partition of unity subordinate to $\mathscr{U}$ is a family of continuous functions $\psi_{\alpha}: X\to \mathbb{R}$, indexed by the same set $A$, with the following properties:
+\begin{enumerate}[label={(\roman*)},itemsep=0pt]
+	\item $0 \leq \psi_{\alpha}(p) \leq 1$ for all $\alpha\in A$ and all $p\in X$.
+	\item $\operatorname{supp} \psi_{\alpha} \subseteq U_{\alpha}$.
+	\item The family of supports ${(\operatorname{supp}\psi_{\alpha})}_{\alpha\in A}$ is locally finite.
+	\item $\sum_{\alpha\in A}\psi_{\alpha}(p) = 1$ for all $p\in X$.
+\end{enumerate}
+
+Because the family of supports ${(\operatorname{supp} \psi_{\alpha})}_{\alpha\in A}$ is locally finite, then every point $p$ of $X$ has a neighborhood $V_{p}$ that intersects $\operatorname{supp} \psi_{\alpha}$ for finitely many $\alpha\in A$. Therefore $\psi_{\alpha}(p)$ is nonzero only for finitely many $\alpha\in A$ (not necessarily every $\alpha\in A$ such that $V_{p}$ intersects $\operatorname{supp} \psi_{\alpha}$). Hence the sum in (iv) contains only finitely many nonzero terms in a neighborhood of each point $p\in X$, thus there is no problem with convergence.
+
+\begin{lemma}{4.84}
+	Suppose $X$ is a paracompact Hausdorff space. If $\mathscr{U} = {(U_{\alpha})}_{\alpha\in A}$ is an indexed open cover of $X$, then $\mathscr{U}$ admits a locally finite open refinement $\mathcal{V} = {(V_{\alpha})}_{\alpha\in A}$ indexed by the same set, such that $\overline{V_{\alpha}} \subseteq U_{\alpha}$ for each $\alpha$.
+\end{lemma}
+
+\begin{proof}
+	This proof assumes the axiom of choice.
+
+	$X$ is a paracompact Hausdorff space so $X$ is a normal space (Theorem 4.81). By Lemma 4.80, for each $x\in X$, there is a neighborhood $Y_{x}$ of $x$ such that $\overline{Y_{x}} \subseteq U_{\alpha}$ for some $\alpha\in A$ (each singleton set $\set{x}$ is closed because $X$ is Hausdorff). Because $X$ is paracompact, the open cover $\set{ Y_{x} : x\in X }$ has a locally finite open refinement $\mathcal{Z} = {(Z_{\beta})}_{\beta\in B}$. For each $\beta\in B$, there is some $x\in X$ such that $Z_{\beta} \subseteq Y_{x}$, and then there is some $\alpha\in A$ such that $\overline{Z_{\beta}} \subseteq \overline{Y_{x}} \subseteq U_{\alpha}$.
+
+	Define a map $f: B\to A$ by choosing an $\alpha\in A$ for each $\beta\in B$ such that $\overline{Z_{\beta}} \subseteq U_{\alpha}$ and set $f(\beta) = \alpha$ (this is where we use the axiom of choice). For each $\alpha\in A$, define $V_{\alpha} \subseteq X$ by $V_{\alpha} = \bigcup_{\beta : f(\beta) = \alpha} Z_{\beta}$. Because $\mathcal{Z}$ is locally finite, $\set{ Z_{\beta} : f(\beta) = \alpha }$ is also locally finite. By Lemma 4.75, $\overline{V_{\alpha}} = \bigcup_{\beta: f(\beta) = \alpha}\overline{Z_{\beta}} \subseteq U_{\alpha}$.
+
+	Hence ${(V_{\alpha})}_{\alpha\in A}$ is a locally finite open refinement of ${(U_{\alpha})}_{\alpha\in A}$ such that $\overline{V_{\alpha}} \subseteq U_{\alpha}$.
+\end{proof}
+
+\begin{theorem}{4.85}
+	Let $X$ be a paracompact Hausdorff space. If $\mathscr{U}$ is any indexed open cover of $X$, then there is a partition of unity subordinate of $\mathscr{U}$.
+\end{theorem}
+
+\begin{proof}
+	Let $\mathscr{U} = {(U_{\alpha})}_{\alpha\in A}$. Applying Lemma 4.84 twice, we obtain locally finite open covers ${(V_{\alpha})}_{\alpha\in A}$ and ${(W_{\alpha})}_{\alpha\in A}$ such that $\overline{W_{\alpha}} \subseteq V_{\alpha}$ and $\overline{V_{\alpha}} \subseteq U_{\alpha}$.
+
+		[We apply Lemma 4.84 twice in order to make use of local finiteness.]
+
+	By Corollary 4.83, there is a bump function $f_{\alpha}: X \to \closedinterval{0, 1}$ for $\overline{W_{\alpha}}$ supported in $V_{\alpha}$. Define $f: X \to \mathbb{R}$ by $f = \sum_{\alpha\in A}f_{\alpha}$. Since $\operatorname{supp} f_{\alpha} \subseteq V_{\alpha}$ and ${(V_{\alpha})}_{\alpha\in A}$ is locally finite, the family ${(\operatorname{supp} f_{\alpha})}_{\alpha\in A}$ is locally finite.
+
+	${(W_{\alpha})}_{\alpha\in A}$ is locally finite so the sum $\sum_{\alpha\in A}f_{\alpha}(p)$ has only finite nonzero terms in some neighborhood of $p$. Therefore $f$ is continuous due to the local criterion for continuity and the sum of finite continuous functions is continuous.
+
+	$\set{W_{\alpha}}$ cover $X$, so for each $p\in X$, there is $\alpha\in A$ such that $p\in W_{\alpha}$ and thus $f_{\alpha}(p) = 1$, so $f$ is positive everywhere. Therefore we can define $\psi_{\alpha}(p) = f_{\alpha}(p) / f(p)$. $\psi_{\alpha}$ is then continuous, the family ${(\operatorname{supp} \psi_{\alpha})}_{\alpha\in A}$ is locally finite, $0 \leq \psi_{\alpha}(p) \leq 1$, $\sum_{\alpha}\psi_{\alpha} \equiv 1$, $\operatorname{supp} \psi_{\alpha} \subseteq V_{\alpha} \subseteq U_{\alpha}$.
+
+	Thus ${(\psi_{\alpha})}_{\alpha\in A}$ is a partition of unity subordinate of $\mathscr{U}$.
+\end{proof}
+
+\begin{theorem}{4.86}\label{theorem:4.86}
+	Every compact manifold is homeomorphic to a subset of some Euclidean space.
+\end{theorem}
+
+\begin{proof}
+	Let $M$ be a compact $n$-manifold without boundary. Because $M$ is a manifold, each point of $M$ has a neighborhood that is homeomorphic to $\mathbb{R}^{n}$. Since $M$ is compact, $M$ is covered by finitely many of those neighborhoods. Hence there is a cover of $M$ consisting of open subsets $U_{1}, \ldots, U_{k}$, each of which is homeomorphic to $\mathbb{R}^{n}$. For each $i$, let $\varphi_{i}: U_{i} \to \mathbb{R}^{n}$ be a homeomorphism. Let $\psi_{1}, \ldots, \psi_{k}$ be a partition of unity subordinate to this open cover. Define functions $F_{i}: M \to \mathbb{R}^{n}$ by
+	\begin{align*}
+		F_{i}(x) = \begin{cases}
+			           \psi_{i}(x)\varphi_{i}(x) & x\in U_{i}                                        \\
+			           0                         & x\in M \smallsetminus \operatorname{supp}\psi_{i}
+		           \end{cases}
+	\end{align*}
+
+	For $x\in U_{i} \cap (M \smallsetminus \operatorname{supp}\psi_{i})$, $\psi_{i}(x) = 0$ so $F_{i}(x) = 0$. Hence each $F_{i}$ is continuous by the gluing lemma.
+
+	Define $F: M \to \mathbb{R}^{nk + k}$ by
+	\begin{align*}
+		F(x) = (F_{1}(x), \ldots, F_{k}(x), \psi_{1}(x), \ldots, \psi_{k}(x))
+	\end{align*}
+
+	$F$ is continuous as each component is continuous.
+
+	Suppose $F(x) = F(y)$ for some points $x, y\in M$. Because $\sum^{k}_{i=1}\psi_{i}(x) \equiv 1$, there is $i$ such that $\psi_{i}(x) > 0$ and therefore $x\in U_{i}$. $F(x) = F(y)$ so $y \in U_{i}$. Therefore $\varphi_{i}(x) = \varphi_{i}(y)$, which implies $x = y$ because $\varphi_{i}$ is a homeomorphism. Therefore $F$ is injective.
+
+	$F$ is a continuous map from a compact space to a Hausdorff space so $F$ is a closed map (the closed map lemma). Additionally $F$ is injective, so $F$ is a topological embedding. Thus $M$ is homeomorphic to a subset of some Euclidean space.
+\end{proof}
+
 \begin{exercise}{4.87}
 	Show that every compact manifold with boundary is homeomorphic to a subset of some Euclidean space. [Hint: use the double.]
 \end{exercise}
+
+\begin{proof}
+	Let $M$ be a compact $n$-manifold with boundary, then $D(M)$ is a compact $n$-manifold without boundary. By Theorem~\ref{theorem:4.86}, $D(M)$ is homeomorphic to a subset of some Euclidean space. By Theorem 3.79, there is a topological embedding from $M$ into $D(M)$. Hence $M$ is homeomorphic to a subset of some Euclidean space.
+\end{proof}
 
 \section*{Proper Maps}\addcontentsline{toc}{section}{Proper Maps}
 
