@@ -683,6 +683,85 @@ Because the family of supports ${(\operatorname{supp} \psi_{\alpha})}_{\alpha\in
 
 \section*{Proper Maps}\addcontentsline{toc}{section}{Proper Maps}
 
+\begin{lemma}{4.91}\label{lemma:4.91}
+	Suppose $X$ is a first countable Hausdorff space. A sequence in $X$ diverges to infinity if and only if it has no convergent subsequence.
+\end{lemma}
+
+\begin{quote}
+	A sequence ${(x_{i})}$ in a topological space $X$ is said to \textbf{diverge to infinity} if for every compact subset $K\subseteq X$ there are at most finitely many values of $i$ for which $x_{i} \in K$.
+\end{quote}
+
+\begin{proof}
+	$(\Longrightarrow)$ Assume that ${(x_{i})}$ is a sequence in $X$ that diverges to infinity.
+
+	If ${(x_{i})}$ has a convergent subsequence ${(x_{i_{j}})}$ that converges to $x$ then $K = \set{ x_{i_{j}} : j\in\mathbb{N} } \cup \set{x}$ is compact by Proposition 4.31. This contradicts the definition of divergence to infinity. Hence ${(x_{i})}$ has no convergent subsequence.
+
+	$(\Longleftarrow)$ Assume that ${(x_{i})}$ has no convergent sequence.
+
+	Suppose on the contrary that there is a compact subset $K$ of $X$ such that there are infinitely many values of $i$ for which $x_{i} \in K$, then there is a subsequence ${(x_{i_{j}})}$ such that $x_{i_{j}}\in K$ for all $j$. Compactness implies limit point compactness, and in first countable Hausdorff spaces, limit point compactness implies sequential compactness. Therefore the subsequence ${(x_{i_{j}})}$ has a convergent subsequence, which means ${(x_{i})}$ has a convergent subsequence, which is a contradiction. Hence ${(x_{i})}$ diverges to infinity.
+\end{proof}
+
+\begin{prop}{4.92}
+	Suppose $X$ and $Y$ are topological spaces and $F: X\to Y$ is a proper map. Then $F$ takes every sequence diverging to infinity in $X$ to a sequence diverging to infinity in $Y$.
+\end{prop}
+
+\begin{quote}
+	If $X$ and $Y$ are topological spaces, a map $F: X\to Y$ is said to be \textbf{proper} if the preimage of each compact subset of $Y$ is compact.
+\end{quote}
+
+\begin{proof}
+	Let ${(x_{i})}$ be a sequence in $X$ diverging to infinity. Define the sequence ${(y_{i})}$ by $y_{i} = F(x_{i})$ for every $i\in\mathbb{N}$. For every compact subset $K\subseteq Y$, $F^{-1}(K)$ is compact and there are at most finitely many values of $i$ for which $x_{i} \in F^{-1}(K)$. Therefore there are at most finitely many values of $i$ for which $y_{i} \in K$ (proved by contradiction). Hence ${(y_{i})}$ diverges to infinity. Thus a proper map takes every sequence diverging to infinity to a sequence diverging to infinity.
+\end{proof}
+
+\begin{prop}{4.93}[Sufficient Conditions for Properness] Suppose $X$ and $Y$ are topological spaces, and $F: X\to Y$ is a continuous map.
+	\begin{enumerate}[label={(\alph*)}]
+		\item If $X$ is compact and $Y$ is Hausdorff, then $F$ is proper.
+		\item If $X$ is a second countable Hausdorff space, $Y$ is a Hausdorff space and $F$ takes sequences diverging to infinity in $X$ to sequences diverging to infinity in $Y$, then $F$ is proper.
+		\item If $F$ is a closed map with compact fibers, then $F$ is proper.
+		\item If $F$ is a topological embedding with closed image, then $F$ is proper.
+		\item If $Y$ is Hausdorff and $F$ has a continuous left inverse, then $F$ is proper.
+		\item If $F$ is proper and $A \subseteq X$ is any subset that is saturated with respect to $F$, then $F\vert_{A}: A \to F(A)$ is proper.
+	\end{enumerate}
+\end{prop}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item Let $K$ be a compact subspace of $Y$. Because $Y$ is Hausdorff, $K$ is closed. The preimage of any closed subset under a continuous map is also closed, so $F^{-1}(K) \subseteq X$ is closed. $X$ is compact, any closed subset of a compact space is compact, so $F^{-1}(K)$ is compact. Therefore $F$ is proper.
+		\item Let $K$ be a compact subspace of $Y$. Suppose on the contrary that there is a sequence ${(x_{i})}$ in $F^{-1}(K)$ that is not subconvergent. By Lemma~\ref{lemma:4.91}, ${(x_{i})}$ diverges to infinity, so the sequence ${(F(x_{i}))}$ in $Y$ diverges to infinity. This is a contradiction because $F(x_{i})$ lies in the compact set $K$ for all $i\in\mathbb{N}$.
+
+		      Hence every sequence in $F^{-1}(K)$ is subconvergent, which means $F^{-1}(K)$ is sequentially compact. $F^{-1}(K)$ is a subspace of $X$ and $X$ is second countable, then so is $F^{-1}(K)$. In a second countable space, sequential compactness implies compactness, so $F^{-1}(K)$ is compact. Thus $F$ is proper.
+		\item Let $K$ be a compact subspace of $Y$. Let $\mathscr{U}$ be an open cover of $F^{-1}(K)$ in $X$. For every $y\in K$, $F^{-1}(y)$ is compact, hence is covered by finitely many open sets from $\mathscr{U}$, denote them by $U_{1}, \ldots, U_{k}$. The set $A_{y} = X\smallsetminus \bigcup^{k}_{i=1}U_{i}$ is closed in $X$ and disjoint from $F^{-1}(y)$, so $V_{y} = Y\smallsetminus F(A_{y})$ is open in $Y$ and contains $y$. Therefore
+		      \begin{align*}
+			      F^{-1}(V_{y}) & = F^{-1}(Y\smallsetminus F(A_{y}))                         \\
+			                    & = X \smallsetminus F^{-1}(F(A_{y}))                        \\
+			                    & \subseteq X \smallsetminus A_{y} = \bigcup^{k}_{i=1}U_{i}.
+		      \end{align*}
+
+		      $K$ is compact so it is covered by finitely many of the sets $V_{y}$, so $F^{-1}(K)$ is covered by finitely many of the sets $F^{-1}(V_{y})$. Each $F^{-1}(V_{y})$ is covered by finitely many sets from $\mathscr{U}$, so $F^{-1}(K)$ is covered by finitely many sets from $\mathscr{U}$, which means $F^{-1}(K)$ is compact.
+		\item $F$ is a topological embedding with closed image then $F$ is a closed map. Because $F$ is injective, every fiber of $F$ is finite (either empty or singleton), hence compact. It follows from (c) that $F$ is proper.
+		\item Let $G$ be a continuous left inverse of $F$, then $G\circ F = \operatorname{Id}_{X}$. Let $K$ be a compact subset of $Y$ then $G(K)$ is compact. For every $x\in F^{-1}(K)$, $x = G(F(x)) \in G(K)$, so $F^{-1}(K) \subseteq G(K)$. $K\subseteq Y$ is compact and $Y$ is Hausdorff so $K$ is closed, hence $F^{-1}(K)$ is closed due to the continuity of $F$. Because $F^{-1}(K)$ is a closed subset of the compact set $G(K)$, it is compact.
+		\item Let $K$ be a compact subset of $F(A)$ then $K$ is also a compact subset of $Y$. ${(F\vert_{A})}^{-1}(K) = F^{-1}(K)$ because $A$ is saturated. $F^{-1}(K) \subseteq A \subseteq X$ is compact in $X$ so $F^{-1}(K)$ is compact in $A$. Hence $F$ is proper.
+	\end{enumerate}
+\end{proof}
+
+\begin{lemma}{4.94}
+	First countable spaces and locally compact spaces are compactly generated.
+\end{lemma}
+
+\begin{quote}
+	A topological space $X$ is said to be \textbf{compactly generated} if it has the following property: if $A$ is any subset of $X$ whose intersection with each compact subset $K\subseteq X$ is closed in $K$, then $A$ is closed in $X$. We can replace ``closed'' with ``open'' to obtain an equivalent definition.
+\end{quote}
+
+\begin{proof}
+	Let $X$ be a topological space that satisfies either of these two properties and $A$ is a subset of $X$ whose intersection with each compact subset $K\subseteq X$ is closed in $K$. Let $x \in \overline{A}$, we will show that $x\in A$.
+
+	Assume $X$ is first countable. By the sequence lemma (Problem~\ref{problem:2-14}), there is a sequence ${(a_{i})}$ of points in $A$ converging to $x$. The set $K = \set{ a_{i} : i\in\mathbb{N} } \cup \set{x}$ is compact by Proposition 4.31, so $A\cap K$ is closed in $K$ by the hypothesis. $x$ is the limit of ${(a_{i})}$ so it is the limit of a subsequence of ${(a_{i})}$ in $A\cap K$. Because $A\cap K$ is closed, it contains $x$, so $x\in A$.
+
+	Assume $X$ is locally compact. Let $K$ be a compact subset of $X$ containing a neighborhood $U$ of $x$. If $V$ is any neighborhood of $x$, then $x\in \overline{A}$ implies that $V\cap U$ contains a point of $A$ because $V\cap U$ is a neighborhood of $x$. $V\cap U \subseteq K$ and $V\cap U$ intersects $A$ so $V\cap U$ contains a point of $A\cap K$, which means $V$ contains a point of $A\cap K$. Therefore $x$ is in the closure of $A\cap K$ in $K$. Because $A\cap K$ is closed in $K$, it follows that $x \in A\cap K \subseteq A$.
+
+	So $x\in A$ for any $x\in \overline{A}$, which means $A$ is closed. Thus $X$ is compactly generated.
+\end{proof}
+
 \section*{Problems}
 
 \begin{problem}{4-1}\label{problem:4-1}
