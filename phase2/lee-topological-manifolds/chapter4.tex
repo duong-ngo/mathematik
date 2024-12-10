@@ -545,9 +545,13 @@ Because the family of supports ${(\operatorname{supp} \psi_{\alpha})}_{\alpha\in
 \begin{proof}
 	This proof assumes the axiom of choice.
 
-	$X$ is a paracompact Hausdorff space so $X$ is a normal space (Theorem 4.81). By Lemma 4.80, for each $x\in X$, there is a neighborhood $Y_{x}$ of $x$ such that $\overline{Y_{x}} \subseteq U_{\alpha}$ for some $\alpha\in A$ (each singleton set $\set{x}$ is closed because $X$ is Hausdorff). Because $X$ is paracompact, the open cover $\set{ Y_{x} : x\in X }$ has a locally finite open refinement $\mathcal{Z} = {(Z_{\beta})}_{\beta\in B}$. For each $\beta\in B$, there is some $x\in X$ such that $Z_{\beta} \subseteq Y_{x}$, and then there is some $\alpha\in A$ such that $\overline{Z_{\beta}} \subseteq \overline{Y_{x}} \subseteq U_{\alpha}$.
+	$X$ is a paracompact Hausdorff space so $X$ is a normal space (Theorem 4.81). For each $x\in X$, there is $\alpha\in A$ such that $x\in U_{\alpha}$ since $\mathscr{U}$ covers $X$. By Lemma 4.80, there is a neighborhood $Y_{x}$ of $x$ such that $\overline{Y_{x}} \subseteq U_{\alpha}$ (each singleton set $\set{x}$ is closed because $X$ is Hausdorff and we apply Lemma 4.84 to the singleton set $\set{x}$). Because $X$ is paracompact, the open cover $\set{ Y_{x} : x\in X }$ of $X$ has a locally finite open refinement $\mathcal{Z} = {(Z_{\beta})}_{\beta\in B}$.
 
-	Define a map $f: B\to A$ by choosing an $\alpha\in A$ for each $\beta\in B$ such that $\overline{Z_{\beta}} \subseteq U_{\alpha}$ and set $f(\beta) = \alpha$ (this is where we use the axiom of choice). For each $\alpha\in A$, define $V_{\alpha} \subseteq X$ by $V_{\alpha} = \bigcup_{\beta : f(\beta) = \alpha} Z_{\beta}$. Because $\mathcal{Z}$ is locally finite, $\set{ Z_{\beta} : f(\beta) = \alpha }$ is also locally finite. By Lemma 4.75, $\overline{V_{\alpha}} = \bigcup_{\beta: f(\beta) = \alpha}\overline{Z_{\beta}} \subseteq U_{\alpha}$.
+	For each $\beta\in B$, there is some $x\in X$ such that $Z_{\beta} \subseteq Y_{x}$, and then there is some $\alpha\in A$ such that $\overline{Z_{\beta}} \subseteq \overline{Y_{x}} \subseteq U_{\alpha}$. Define a map $f: B\to A$ by choosing such index $\alpha\in A$ for each $\beta\in B$, and let $f(\beta) = \alpha$ (this is where we use the axiom of choice).
+
+	For each $\alpha\in A$, define $V_{\alpha} \subseteq X$ by $V_{\alpha} = \bigcup_{\beta : f(\beta) = \alpha} Z_{\beta}$. Because $\mathcal{Z}$ is locally finite, $\set{ Z_{\beta} : f(\beta) = \alpha }$ is also locally finite. By Lemma 4.75, $\overline{V_{\alpha}} = \bigcup_{\beta: f(\beta) = \alpha}\overline{Z_{\beta}}$. Because $\overline{Z_{\beta}} \subseteq U_{\alpha}$ whenever $f(\beta) = \alpha$, it follows that $\overline{V_{\alpha}} \subseteq U_{\alpha}$.
+
+	For each $x\in X$, there is $Z_{\beta}$ such that $x\in Z_{\beta}$ because ${(Z_{\beta})}_{\beta\in B}$ covers $X$. Moreover, $\overline{Z_{\beta}} \subseteq U_{f(\beta)}$, so $x \in V_{f(\beta)}$. Hence ${(V_{\alpha})}_{\alpha\in A}$ is an open cover of $X$.
 
 	Hence ${(V_{\alpha})}_{\alpha\in A}$ is a locally finite open refinement of ${(U_{\alpha})}_{\alpha\in A}$ such that $\overline{V_{\alpha}} \subseteq U_{\alpha}$.
 \end{proof}
