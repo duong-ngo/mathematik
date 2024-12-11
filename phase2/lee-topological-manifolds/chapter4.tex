@@ -1467,11 +1467,127 @@ A topological space is said to be \textbf{$\boldsymbol{\sigma}$-compact} if it c
 	Thus $M$ is a topological manifold if and only if it is $\sigma$-compact.
 \end{proof}
 
-\begin{problem}{4-17}
+\begin{problem}{4-17}\label{problem:4-17}
 Suppose $M$ is a manifold of dimension $n\geq 1$, and $B\subseteq M$ is a regular coordinate ball. Show that $M\smallsetminus B$ is an $n$-manifold with boundary, whose boundary is homeomorphic to $\mathbb{S}^{n-1}$. (You may use the theorem on invariance of the boundary.)
 \end{problem}
 
 \begin{proof}
+	$M$ is a manifold so $M\smallsetminus B$ is also Hausdorff and second-countable. It remains to prove that $M\smallsetminus B$ is locally Euclidean of dimension $n$.
+
+	Since $B$ is a regular coordinate ball, $\overline{B}$ has a neighborhood $B'$ that admits a homeomorphism $\varphi: B' \to B_{r'}(x) \subseteq \mathbb{R}^{n}$ that $\varphi$ takes $B$ to $B_{r}(x)$ and $\overline{B}$ to $\overline{B}_{r}(x)$. Consider a point $p$ in $M\smallsetminus B$.
+
+	If $p \in M\smallsetminus \overline{B}$ then it has a neighborhood that is homeomorphic to $\mathbb{R}^{n}$, as $M\smallsetminus \overline{B}$ is open in $M$.
+
+	Otherwise, $p \notin M\smallsetminus \overline{B}$, so $p \in (M\smallsetminus B) \smallsetminus (M\smallsetminus \overline{B}) = \overline{B} \smallsetminus B$ (this is true since $B \subseteq \overline{B} \subseteq M$). Because $\varphi$ is a homeomorphism hence it is bijective, so
+	\begin{align*}
+		\varphi(\overline{B}\smallsetminus B) = \varphi(\overline{B}) \smallsetminus \varphi(B) = \overline{B}_{r}(x)\smallsetminus B_{r}(x) = S_{r}(x)
+	\end{align*}
+
+	where $S_{r}(x) := \set{ y \in \mathbb{R}^{n} : \abs{x - y} = r }$ and $S_{r}(x)$ is homeomorphic to $\mathbb{S}^{n-1}$.
+
+	Here comes the technical part: \textit{Show that $p$ has a neighborhood $U$ in $M\smallsetminus B$ such that there exists a homeomorphism $\psi$ from $U$ onto an open set of $\mathbb{H}^{n}$ and $\psi$ takes $p$ to $\partial\mathbb{H}^{n}$.}
+	\begin{figure}[htp]
+		\centering
+		\begin{tikzpicture}
+			\tikzmath{\r = 2.5; \R = 4.9; \rotate = 60;}
+
+			\coordinate [label=45:$x$] (O) at (0, 0);
+			\coordinate [label=-60:$P$] (P) at (0, \r);
+			\coordinate [label=-45:$N$] (N) at (0, -\r);
+			\filldraw (O) circle[radius=1pt];
+			\filldraw (P) circle[radius=1pt];
+			\filldraw (N) circle[radius=1pt];
+			\draw [dashed] (P) -- (N);
+			\draw [dashed] (O) circle (\r);
+			\draw [dashed] (O) circle (\R);
+			\coordinate (A) at ({\r*cos(\rotate)}, {\r*sin(\rotate)});
+			\coordinate (B) at ({-\r*cos(\rotate)}, {\r*sin(\rotate)});
+
+			\draw [dashed] (P) let \p1 = ($ (P) - (A) $) in
+			circle ({veclen(\x1, \y1)});
+
+			\draw (-\R, 0) -- (\R, 0);
+			\fill [thin, pattern=grid] (A)
+			let \p1 = ($ (P) - (A) $) in
+			arc[radius={veclen(\x1, \y1)}, start angle={-(90 - \rotate)/2}, end angle={(450 - \rotate)/2}]
+			arc[radius={\r}, start angle={\rotate + 2 * (90 - \rotate)}, end angle={\rotate}] -- cycle;
+			\draw [thick, dotted] (A)
+			let \p1 = ($ (P) - (A) $) in
+			arc[radius={veclen(\x1, \y1)}, start angle={-(90 - \rotate)/2}, end angle={(450 - \rotate)/2}];
+			\draw [thick] (A) arc [radius={\r}, start angle={\rotate}, end angle={\rotate + 2 * (90 - \rotate)}];
+
+			\coordinate (A1) at ({\r*(1 - sin(\rotate))/cos(\rotate)}, 0);
+			\coordinate (B1) at ({-\r*(1 - sin(\rotate))/cos(\rotate)}, 0);
+			\coordinate (P1) at (0, {\r * (1 - sin(\rotate))/(1 + sin(\rotate))});
+			\draw [dashed] (A1)
+			let \p1 = ($ (P1) - (A1) $) in
+			arc[radius={veclen(\x1, \y1)}, start angle={(\rotate - 90)/2}, end angle={180 + (90 - \rotate)/2}];
+			\fill [thin, pattern=grid] (A1)
+			let \p1 = ($ (P1) - (A1) $) in
+			arc[radius={veclen(\x1, \y1)}, start angle={(\rotate - 90)/2}, end angle={(\rotate - 90)/2 - 180 + 90 - \rotate}] -- cycle;
+
+			\draw [very thick, dotted] (A1)
+			let \p1 = ($ (P1) - (A1) $) in
+			arc[radius={veclen(\x1, \y1)}, start angle={(\rotate - 90)/2}, end angle={(\rotate - 90)/2 - 180 + 90 - \rotate}];
+
+			\draw [dotted] ({\r*sqrt(2)}, {-\r}) arc[radius={\r*sqrt(2)}, start angle=0, end angle=180];
+
+			\draw [dotted] (N) -- (A1) -- (A);
+			\draw [dotted] (N) -- (B1) -- (B);
+		\end{tikzpicture}
+		\caption{$B_{r}(x), B_{r'}(x)$ (concentric open balls), $P = \varphi(p)$, $B_{\varepsilon}(P)$ and its image under the inversion $\mathbf{I}^{2r^{2}}_{N}$.}\label{fig:4-17}
+	\end{figure}
+
+	\begin{quotation}
+		See Figure~\ref{fig:4-17}. Denote $P = \varphi(p)$, $N$ is the antipode of $P$ on the $(n-1)$-sphere $S_{r}(x)$. There exists $\varepsilon > 0$ such that $\overline{B}_{\varepsilon}(M) \subseteq B_{r'}(x)$, we can even assume that $\varepsilon' < r$.
+
+		It suffices to construct a homeomorphism from a neighborhood of $P$ in $B_{r'}(x)\smallsetminus B_{r}(x)$ to an open subset of $\mathbb{H}^{n}$ and this homeomorphism takes $P$ to $\partial\mathbb{H}^{n}$.
+
+		Consider the inversion $\mathbf{I}^{2r^{2}}_{N}: \mathbb{R}^{n} \smallsetminus \set{N} \to \mathbb{R}^{n} \smallsetminus \set{N}$. This inversion is bijective and continuous, it maps
+		\begin{itemize}
+			\item $P$ to $x$,
+			\item $S_{r}(x)\smallsetminus \set{N}$ to the hyperspace containing $x$ and orthogonal to $\overrightarrow{NP}$,
+			\item $B_{\varepsilon}(P)$ to an open ball containing $x$,
+			\item $\overline{B}_{\varepsilon}(P)$ to a closed ball containing $x$.
+		\end{itemize}
+
+		Denote by $f: \overline{B}_{\varepsilon}(P) \to \mathbf{I}^{2r^{2}}_{N}(\overline{B}_{\varepsilon}(M))$ the restriction of $\mathbf{I}^{2r^{2}}_{N}$ to $\overline{B}_{\varepsilon}(P)$. $\overline{B}_{\varepsilon}(P)$ is compact according to Heine-Borel's theorem and $f(\overline{B}_{\varepsilon}(P))$ is Hausdorff (because it is a subspace of $\mathbb{R}^{n}$), and $f$ is continuous so $f$ is a closed map due to the closed map lemma. $f$ is also bijective, hence $f$ is a homeomorphism.
+
+		The set $U = B_{\varepsilon}(P) \cap (B_{r'}(x)\smallsetminus B_{r}(x))$ is a neighborhood of $P$ in $M\smallsetminus B$. The map $\rho: U \to \psi(U) = f(U)$ defined as the restriction of $f$ to $U$ is a homeomorphism, in which $\psi(U)$ is an open set of the half-space whose boundary is $\mathbf{I}^{2r^{2}}_{N}(S_{r}(x))$ and $\psi$ takes $P$ to $\mathbf{I}^{2r^{2}}_{N}(S_{r}(x))$. This half-space is homeomorphic to $\mathbb{H}^{n}$ as all $n$-dimensional half-spaces are homeomorphic. Hence there is a homemorphism $\psi$ from $U$ onto an open set of $\mathbb{H}^{n}$ such that $\psi(P) \in \partial\mathbb{H}^{n}$.
+	\end{quotation}
+
+	Hence $M\smallsetminus B$ is an $n$-manifold with boundary. Phew!
+
+	$M\smallsetminus B$ is a manifold with boundary, every point of $\overline{B}\smallsetminus B$ is a boundary point of $M\smallsetminus B$, every point of $M\smallsetminus \overline{B}$ is an interior point of $M\smallsetminus B$. $M\smallsetminus\overline{B}$ and $\overline{B}\smallsetminus B$ constitute a partition of $M\smallsetminus B$. Due to the invariance of the boundary, $M\smallsetminus \overline{B}$ is the interior of $M\smallsetminus B$ and $\overline{B}\smallsetminus B$ is the boundary of $M\smallsetminus B$.
+
+	Thus $M\smallsetminus B$ is an $n$-manifold with boundary, whose boundary is homeomorphic to $\mathbb{S}^{n-1}$.
+\end{proof}
+
+\begin{problem}{4-18}
+Let $M_{1}$ and $M_{2}$ be $n$-manifolds. For $i = 1, 2$, let $B_{i} \subseteq M_{i}$ be regular coordinate balls, and let $M_{i}' = M_{i} \smallsetminus B_{i}$. Choose a homeomorphism $f: \partial M_{2}' \to \partial M_{1}'$ (such a homeomorphism exists by Problem~\ref{problem:4-17}). Let $M_{1}\# M_{2}$ (called a \textbf{connected sum of $M_{1}$ and $M_{2}$}) be the adjunction space $M_{1}' \cup_{f} M_{2}'$.
+\begin{enumerate}[label={(\alph*)}]
+	\item Show that $M_{1} \# M_{2}$ is an $n$-manifold (without boundary).
+	\item Show that if $M_{1}$ and $M_{2}$ are connected and $n > 1$, then $M_{1} \# M_{2}$ is connected.
+	\item Show that if $M_{1}$ and $M_{2}$ are compact, then $M_{1}\# M_{2}$ is compact.
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item $M_{1}'$ and $M_{2}'$ are $n$-manifolds with boundary and their boundaries are homeomorphic to $\mathbb{S}^{n-1}$. According to Theorem 3.79, $M_{1} \# M_{2}$ is an $n$-manifold without boundary.
+		\item We will prove that $M_{1}\smallsetminus B_{1}$ and $M_{2}\smallsetminus B_{2}$ are path-connected. However, it suffices to prove that $M_{1}\smallsetminus B_{1}$ is path-connected.
+
+		      In a manifold, connectedness and path-connectedness are equivalent. Let $p, q$ be two points of $M_{1}\smallsetminus B_{1}$. Because $M_{1}$ is path-connected, there exists a path function $h: \closedinterval{0, 1} \to M_{1}$ such that $h(0) = p$ and $h(1) = q$. If $h(\closedinterval{0, 1})$ is contained entirely in $M_{1}\smallsetminus B_{1}$ then there is a path connecting $p$ and $q$ in $M_{1}\smallsetminus B_{1}$.
+
+		      Otherwise, $f(\closedinterval{0, 1})$ intersects $B_{1}$, consider the set $K = h^{-1}(\overline{B_{1}})$. Because $h$ is continuous, $K$ is closed. Moreover, $K$ is contained in the compact set $\closedinterval{0, 1}$ so $K$ is also compact, hence $K$ has a minimum $t_{1}$ and a maximum $t_{2}$. By the definition of $t_{1}, t_{2}$, it follows that $h(\closedinterval{0, t_{1}})$ and $h(\closedinterval{t_{2}, 1})$ are contained entirely in $M_{1}\smallsetminus B_{1}$.
+
+		      We will show that $h(t_{1})$ and $h(t_{2})$ lie on $\overline{B_{1}}\smallsetminus B_{1}$. Let $U$ be an arbitrary neighborhood of $f(t_{1})$ then $h^{-1}(U)$ is a neighborhood of $t_{1}$ in $\closedinterval{0, 1}$. $h^{-1}(U)$ contains numbers less than $t_{1}$ whose images are not in $K$, according to the minimality of $t_{1}$, so $U$ intersects $M\smallsetminus \overline{B_{1}}$. Of course $U$ intersects $\overline{B_{1}}$ as $t_{1} \in U \cap \overline{B_{1}}$. Hence $t_{1}$ lies on the boundary of $\overline{B_{1}}$, which is $\overline{B_{1}}\smallsetminus B_{1}$. Analogously, $t_{2}$ lies on the boundary of $\overline{B_{1}}$.
+
+		      Because the boundary of $\overline{B_{1}}$ is homeomorphic to $\mathbb{S}^{n-1}$ and it is path-connected as $n > 1$, there is a continuous function $g: \closedinterval{t_{1}, t_{2}} \to \mathbb{S}^{n-1}$. By the gluing lemma, there is a continuous function $\gamma: \closedinterval{0, 1} \to M_{1}\smallsetminus B_{1}$ such that $\gamma(0) = p$, $\gamma(1) = q$, $\gamma\vert_{\closedinterval{t_{1}, t_{2}}} \equiv g$. Hence there is a path connecting $p, q\in M_{1}\smallsetminus B_{1}$, so $M_{1}\smallsetminus B_{1}$ is path-connected. Similarly, $M_{2}\smallsetminus B_{2}$ is path-connected.
+
+		      According to Theorem 3.79, there exist embeddings $\varphi_{1}: M_{1}' \to M_{1}' \cup_{f} M_{2}'$ and $\varphi_{2}: M_{2}' \to M_{1}' \cup_{f} M_{2}'$ such that $\varphi_{1}(M_{1}') \cup \varphi_{2}(M_{2}') = M_{1}' \cup_{f} M_{2}'$ and $\varphi_{1}(M_{1}') \cap \varphi_{2}(M_{2}') = \varphi_{1}(\partial M'_{1}) = \varphi_{2}(\partial M'_{2})$. Because $\varphi_{1}(M_{1}')$, $\varphi_{2}(M_{2}')$ are path-connected and intersecting, it follows that the union of them is path-connected. So $M_{1}' \cup_{f} M_{2}'$ is path-connected, hence connected. Thus $M_{1} \# M_{2}$ is connected.
+		\item $M_{1}\smallsetminus B_{1}$ is a closed subset of the compact space $M_{1}$ so $M_{1}\smallsetminus B_{1}$ is compact. Similarly, $M_{2}\smallsetminus B_{2}$ is compact, so $M_{1}', M_{2}'$ are compact. $M_{1}' \amalg M_{2}'$ is compact (the union of finitely many compact spaces is compact) so $M_{1}' \cup_{f} M_{2}' = (M_{1}' \amalg M_{2}')/\sim$ is compact (quotient space of a compact space is compact). Hence $M_{1}\# M_{2}$ is compact.
+	\end{enumerate}
 \end{proof}
 
 \begin{problem}{4-20}
