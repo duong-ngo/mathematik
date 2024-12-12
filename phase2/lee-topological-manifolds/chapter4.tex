@@ -952,12 +952,37 @@ Like Problem~\ref{problem:2-22}, this problem constructs a space that is locally
 \end{problem}
 
 \begin{proof}
-	Unsolved.
 	\begin{enumerate}[label={(\alph*)}]
 		\item This assumes the well-ordering theorem.
 
 		      Let $X$ be an uncountable well-ordered set. If for every element of $X$, there is only countably many elements strictly less than it, then we are done. If this is not the case, the subset $X_{0}\subseteq X$ of elements $x$ such that there are uncountably many elements strictly less than $x$, is nonempty. Due to the well-ordering theorem, $X_{0}$ has a smallest element $x_{0}$. Let $Y$ be the subset of $X$ containing element strictly less than $x_{0}$ then $Y$ is uncountable and has the desired property (otherwise, it contradicts the minimality of $x_{0}$).
-		\item
+		\item Denote $\mathscr{R}_{+} = Y \times \halfopenright{0, 1}$ and $\mathscr{R}_{-} = Y \times \halfopenleft{-1, 0}$. $\mathscr{R}_{+}$ and $\mathscr{R}_{-}$ are homeomorphic due to the homeomorphism $f: Y \times \halfopenright{0, 1} \to Y \times \halfopenleft{-1, 0}$ given by $f(\tuple{x, t}) = \tuple{x, -t}$. Moreover $\mathscr{R} \vee \mathscr{R}$ and $\mathscr{R}_{+} \vee \mathscr{R}_{-}$ are homeomorphic, in which the basepoint for the latter wedge sum is $\tuple{y_{0}, 0}$. Note that this is the only common point of $\mathscr{R}_{+}$ and $\mathscr{R}_{-}$.
+
+		      \textbf{$\mathscr{R}_{+} \vee \mathscr{R}_{-}$ is locally Euclidean of dimension one.}
+
+		      Consider an arbitrary point $\tuple{x, t}$ of $\mathscr{R}_{+} \vee \mathscr{R}_{-}$. The following cases are exhaustive
+		      \begin{enumerate}[label={\textbf{Case \arabic*.}},itemindent=1cm]
+			      \item $0 < t < 1$
+
+			            There exists $\varepsilon > 0$ such that $\openinterval{t - \varepsilon, t + \varepsilon} \subseteq \halfopenright{0, 1}$. The open intervals $\openinterval{\tuple{x, t - \varepsilon}, \tuple{x, t + \varepsilon}}$ and $\openinterval{t - \varepsilon, t + \varepsilon}$ are homeomorphic due to the homeomorphism $\varphi: \openinterval{t - \varepsilon, t + \varepsilon} \to \openinterval{\tuple{x, t - \varepsilon}, \tuple{x, t + \varepsilon}}$ given by $\varphi(s) = \tuple{x, s}$.
+			      \item $-1 < t < 0$ (similar to the previous case)
+
+			            There exists $\varepsilon > 0$ such that $\openinterval{t - \varepsilon, t + \varepsilon} \subseteq \halfopenleft{-1, 0}$. The open intervals $\openinterval{\tuple{x, t - \varepsilon}, \tuple{x, t + \varepsilon}}$ and $\openinterval{t - \varepsilon, t + \varepsilon}$ are homeomorphic due to the homeomorphism $\varphi: \openinterval{t - \varepsilon, t + \varepsilon} \to \openinterval{\tuple{x, t - \varepsilon}, \tuple{x, t + \varepsilon}}$ given by $\varphi(s) = \tuple{x, s}$.
+			      \item $t = 0$ and $x > y_{0}$
+				  \item $t = 0$ and $x = y_{0}$
+
+				        For every $0 < \varepsilon < 1$, $\halfopenleft{\tuple{y_{0}, -\varepsilon}, \tuple{y_{0}, 0}} \vee \halfopenright{\tuple{y_{0}, 0}, \tuple{y_{0}, \varepsilon}}$ is a neighborhood of $\tuple{y_{0}, 0}$ that is homeomorphic to the open interval $\openinterval{-\varepsilon, \varepsilon} \subseteq \mathbb{R}$.
+		      \end{enumerate}
+
+			  Hence $\mathscr{R}_{+} \vee \mathscr{R}_{-}$ is locally Euclidean of dimension one.
+
+		      \textbf{$\mathscr{R}_{+} \vee \mathscr{R}_{-}$ is Hausdorff.}
+
+			  Consider two distinct points $\tuple{x_{1}, t_{1}}$ and $\tuple{x_{2}, t_{2}}$ of $\mathscr{R}_{+} \vee \mathscr{R}_{-}$
+
+		      \textbf{$\mathscr{R}_{+} \vee \mathscr{R}_{-}$ is first countable.}
+
+		      \textbf{$\mathscr{R}_{+} \vee \mathscr{R}_{-}$ is not second countable.}
 		\item
 	\end{enumerate}
 \end{proof}
@@ -1563,7 +1588,7 @@ Suppose $M$ is a manifold of dimension $n\geq 1$, and $B\subseteq M$ is a regula
 	Thus $M\smallsetminus B$ is an $n$-manifold with boundary, whose boundary is homeomorphic to $\mathbb{S}^{n-1}$.
 \end{proof}
 
-\begin{problem}{4-18}
+\begin{problem}{4-18}\label{problem:4-18}
 Let $M_{1}$ and $M_{2}$ be $n$-manifolds. For $i = 1, 2$, let $B_{i} \subseteq M_{i}$ be regular coordinate balls, and let $M_{i}' = M_{i} \smallsetminus B_{i}$. Choose a homeomorphism $f: \partial M_{2}' \to \partial M_{1}'$ (such a homeomorphism exists by Problem~\ref{problem:4-17}). Let $M_{1}\# M_{2}$ (called a \textbf{connected sum of $M_{1}$ and $M_{2}$}) be the adjunction space $M_{1}' \cup_{f} M_{2}'$.
 \begin{enumerate}[label={(\alph*)}]
 	\item Show that $M_{1} \# M_{2}$ is an $n$-manifold (without boundary).
@@ -1585,27 +1610,27 @@ Let $M_{1}$ and $M_{2}$ be $n$-manifolds. For $i = 1, 2$, let $B_{i} \subseteq M
 
 		      Because the boundary of $\overline{B_{1}}$ is homeomorphic to $\mathbb{S}^{n-1}$ and it is path-connected as $n > 1$, there is a continuous function $g: \closedinterval{t_{1}, t_{2}} \to \mathbb{S}^{n-1}$. By the gluing lemma, there is a continuous function $\gamma: \closedinterval{0, 1} \to M_{1}\smallsetminus B_{1}$ such that $\gamma(0) = p$, $\gamma(1) = q$, $\gamma\vert_{\closedinterval{t_{1}, t_{2}}} \equiv g$. Hence there is a path connecting $p, q\in M_{1}\smallsetminus B_{1}$, so $M_{1}\smallsetminus B_{1}$ is path-connected. Similarly, $M_{2}\smallsetminus B_{2}$ is path-connected.
 
-		      According to Theorem 3.79, there exist embeddings $\varphi_{1}: M_{1}' \to M_{1}' \cup_{f} M_{2}'$ and $\varphi_{2}: M_{2}' \to M_{1}' \cup_{f} M_{2}'$ such that $\varphi_{1}(M_{1}') \cup \varphi_{2}(M_{2}') = M_{1}' \cup_{f} M_{2}'$ and $\varphi_{1}(M_{1}') \cap \varphi_{2}(M_{2}') = \varphi_{1}(\partial M'_{1}) = \varphi_{2}(\partial M'_{2})$. Because $\varphi_{1}(M_{1}')$, $\varphi_{2}(M_{2}')$ are path-connected and intersecting, it follows that the union of them is path-connected. So $M_{1}' \cup_{f} M_{2}'$ is path-connected, hence connected. Thus $M_{1} \# M_{2}$ is connected.
+		      According to Theorem 3.79, there exist embeddings $\varphi_{1}: M_{1}' \to M_{1}' \cup_{f} M_{2}'$ and $\varphi_{2}: M_{2}' \to M_{1}' \cup_{f} M_{2}'$ such that $\varphi_{1}(M_{1}') \cup \varphi_{2}(M_{2}') = M_{1}' \cup_{f} M_{2}'$ and $\varphi_{1}(M_{1}') \cap \varphi_{2}(M_{2}') = \varphi_{1}(\partial M'_{1}) = \varphi_{2}(\partial M'_{2})$. Because $\varphi_{1}(M_{1}')$, $\varphi_{2}(M_{2}')$ are path-connected and intersecting, it follows that their union is path-connected. So $M_{1}' \cup_{f} M_{2}'$ is path-connected, hence connected. Thus $M_{1} \# M_{2}$ is connected.
 		\item $M_{1}\smallsetminus B_{1}$ is a closed subset of the compact space $M_{1}$ so $M_{1}\smallsetminus B_{1}$ is compact. Similarly, $M_{2}\smallsetminus B_{2}$ is compact, so $M_{1}', M_{2}'$ are compact. $M_{1}' \amalg M_{2}'$ is compact (the union of finitely many compact spaces is compact) so $M_{1}' \cup_{f} M_{2}' = (M_{1}' \amalg M_{2}')/\sim$ is compact (quotient space of a compact space is compact). Hence $M_{1}\# M_{2}$ is compact.
 	\end{enumerate}
 \end{proof}
+
+\begin{problem}{4-19}
+Let $M_{1} \# M_{2}$ be a connected sum of $n$-manifolds $M_{1}$ and $M_{2}$. Show that there are open subsets $U_{1}, U_{2} \subseteq M_{1} \# M_{2}$ and points $p_{i} \in M_{i}$ such that $U_{i} \approx M_{i}\smallsetminus \set{p_{i}}$, $U_{1} \cap U_{2} \approx \mathbb{R}^{n}\smallsetminus \set{0}$, and $U_{1} \cup U_{2} = M_{1} \# M_{2}$.
+\end{problem}
 
 \begin{problem}{4-20}
 Consider the topology on the set of intergers described in Problem~\ref{problem:2-17}. Show that $\mathbb{Z}$ with this topology is limit point compact but not compact.
 \end{problem}
 
 \begin{proof}
-	Let $A$ be an infinite subset of $\mathbb{Z}$. The two following cases are exhaustive
-	\begin{enumerate}[label={\textbf{Case \arabic*.}},itemindent=1cm]
-		\item $A = \mathbb{Z}$
+	Let $A$ be an infinite subset of $\mathbb{Z}$.
 
-		      Every nonzero element $x$ of $A$ is a limit point of $A$, because every neighborhood of $x$ contains $x$ and $-x$, hence every neighborhood of $x$ intersects $A\smallsetminus\set{x}$.
-		\item $A \ne \mathbb{Z}$
+	If $A = \mathbb{Z}$. Every nonzero element $x$ of $A$ is a limit point of $A$, because every neighborhood of $x$ contains $x$ and $-x$, hence every neighborhood of $x$ intersects $A\smallsetminus\set{x}$.
 
-		      Because $A \ne \mathbb{Z}$, there exists $x\in A$ such that $-x \notin A$ and $x\ne 0$. Every neighborhood of $-x$ contains $x$ and $-x$, so every neighborhood of $-x$ intersects $A\smallsetminus\set{-x}$.
-	\end{enumerate}
+	Otherwise, $A \ne \mathbb{Z}$. Let $x\in A$ such that $x\ne 0$ (such an element $x$ exists because $A$ is an infinite subset of $\mathbb{Z}$), then $-x$ is a limit point of $\mathbb{Z}$ as every neighborhood of $-x$ intersects $A\smallsetminus\set{-x}$ (it contains $x$).
 
-	Therefore $A$ contains a limit point of $X$. Because $A$ is an arbitrary infinite subset of $\mathbb{Z}$, we conclude that $\mathbb{Z}$ is limit point compact.
+	Therefore $A$ contains a limit point of $\mathbb{Z}$. Because $A$ is an arbitrary infinite subset of $\mathbb{Z}$, we conclude that $\mathbb{Z}$ is limit point compact.
 
 	$\set{ \set{\pm n} \mid n\in\mathbb{Z}_{\geq 0} }$ is an open cover of $\mathbb{Z}$ which is infinite and the elements of this open cover are pairwise disjoint, so it doesn't have a finite subcover. Therefore $\mathbb{Z}$ is not compact.
 \end{proof}
@@ -1660,3 +1685,41 @@ A norm determines a metric by $d(x, y) = \abs{x - y}$. Show that all norms deter
 
 	Because all norms on $V$ are equivalent, they determine the same topology (see Exercise~\ref{exercise:2.4}).
 \end{proof}
+
+\begin{problem}{4-22}
+Let $X = (\mathbb{R} \times \mathbb{Z})/_{\sim}$, where $\sim$ is the equivalence relation generated by $\tuple{x, n} \sim \tuple{x, m}$ for all $n, m \in \mathbb{Z}$ and all $x \ne 0$. Show that $X$ is locally compact but does not have a basis of precompact open subsets. [The space $X$ is called the \textbf{line with infinitely many origins}.]
+\end{problem}
+
+\begin{proof}
+	Let $q: \mathbb{R}\times \mathbb{Z} \to (\mathbb{R}\times \mathbb{Z})/_{\sim} = X$ be the associated quotient map that induces the quotient topology on $X$.
+\end{proof}
+
+\begin{problem}{4-23}
+Let $X$ be a locally compact Hausdorff space. The \textbf{one-point compactification of $X$} is the topological space $X^{*}$ defined as follows. Let $\infty$ be some object not in $X$ and let $X^{*} = X \amalg \set{\infty}$ with the following topology:
+\begin{align*}
+	\mathscr{T} = \set{\text{open subsets of $X$}} \cup \set{ U \subseteq X^{*} : X^{*} \smallsetminus U \text{ is a compact subset of $X$} }.
+\end{align*}
+\begin{enumerate}[label={(\alph*)}]
+	\item Show that $\mathscr{T}$ is a topology.
+	\item Show that $X^{*}$ is a compact Hausdorff space.
+	\item Show that a sequence of points in $X$ diverges to infinity if and only if it converges to $\infty$ in $X^{*}$.
+	\item Show that $X$ is open in $X^{*}$ and has the subspace topology.
+	\item Show that $X$ is dense in $X^{*}$ if and only if $X$ is noncompact.
+\end{enumerate}
+\end{problem}
+
+\begin{problem}{4-24}
+Show that a topological space is a locally compact Hausdorff space if and only if it is homeomorphic to an open subset of a compact Hausdorff space.
+\end{problem}
+
+\begin{problem}{4-25}
+Let $\sigma: \mathbb{S}^{n}\smallsetminus\set{N} \to \mathbb{R}^{n}$ be the stereographic projection, as defined in Example 3.21. Show that $\sigma$ extends to a homeomorphism of $\mathbb{S}^{n}$ with the one-point compactification of $\mathbb{R}^{n}$.
+\end{problem}
+
+\begin{problem}{4-26}
+Let $M$ be a compact manifold of positive dimension, and let $p\in M$. Show that $M$ is homeomorphic to the one-point compactification of $M\smallsetminus \set{p}$.
+\end{problem}
+
+\begin{problem}{4-27}
+Suppose $X$ and $Y$ are locally compact Hausdorff spaces, and $X^{*}$ and $Y^{*}$ are their one-point compactifications. Show that a continuous map $f: X\to Y$ is proper if and only if it extends to a continuous map $f^{*}: X^{*} \to Y^{*}$ taking $\infty \in X^{*}$ to $\infty \in Y^{*}$.
+\end{problem}
