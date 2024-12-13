@@ -313,7 +313,7 @@
 
 \section*{Local Compactness}\addcontentsline{toc}{section}{Local Compactness}
 
-\begin{lemma}{4.65}
+\begin{lemma}{4.65}\label{lemma:4.65}
 	Let $X$ be a locally compact Hausdorff space. If $x\in X$ and $U$ is any neighborhood of $x$, there exists a precompact neighborhood $V$ of $x$ such that $\overline{V} \subseteq U$.
 \end{lemma}
 
@@ -1934,6 +1934,43 @@ Suppose $X$ and $Y$ are locally compact Hausdorff spaces, and $X^{*}$ and $Y^{*}
 Suppose $M$ is a noncompact manifold of dimension $n\geq 1$. Show that its one-point compactification is an $n$-manifold if and only if there exists a precompact open subset $U \subseteq M$ such that $M\smallsetminus U$ is homeomorphic to $\mathbb{R}^{n} \smallsetminus \mathbb{B}^{n}$. Given an example of a noncompact manifold whose one-point compactification is not a manifold. [Hint: you may find the inversion map $\mathscr{I}: \mathbb{R}^{n} \smallsetminus \mathbb{B}^{n} \to \overline{\mathbb{B}}^{n}$ defined by $\mathscr{I}(x) = x/\abs{x}^{2}$ useful.]
 \end{problem}
 
+\begin{proof}
+	Denote by $M^{*}$ the one-point compactification of $M$. We will prove that $M^{*}$ is second countable.
+
+	Because $M$ is a manifold, $M$ has a countable basis ${(U_{i})}_{i\in\mathbb{N}}$ consisting of regular coordinate balls. $M$ is paracompact and Hausdorff so there is an indexed family ${(V_{i})}_{i\in\mathbb{N}}$ which is a locally finite open refinement of ${(U_{i})}_{i\in\mathbb{N}}$ such that $\overline{V_{i}} \subseteq U_{i}$ for each $i$ (Lemma~\ref{lemma:4.65}). Because $\overline{V_{i}} \subseteq U_{i} \subseteq \overline{U_{i}}$ and $\overline{U_{i}}$ is compact ($U_{i}$ is a regular coordinate ball) for each $i$, then $V_{i}$ is a precompact open set for each $i$. Therefore ${(V_{i})}_{i\in\mathbb{N}}$ is a countable basis of $M$ consisting of precompact open sets and this basis (as an indexed family) is locally finite.
+\end{proof}
+
 \begin{problem}{4-29}
 Let $X$ be a complete metric space or a locally compact Hausdorff space. Show that every nonempty countable closed subset of $X$ contains at least one isolated point. [Hint: use the Baire category theorem.]
 \end{problem}
+
+\begin{problem}{4-30}
+Prove the following generalization of the gluing lemma: suppose $X$ is a topological space and ${(X_{\alpha})}_{\alpha\in A}$ is a locally finite closed cover of $X$. If for each $\alpha\in A$ we are given a continuous map $f_{\alpha}: X_{\alpha} \to Y$ such that $f_{\alpha}\vert_{X_{\alpha}\cap X_{\beta}} = f_{\beta}\vert_{X_{\alpha}\cap X_{\beta}}$ for all $\alpha$ and $\beta$, then there exists a unique continuous map $f: X\to Y$ whose restriction to each $X_{\alpha}$ is $f_{\alpha}$.
+\end{problem}
+
+\begin{proof}
+	There exists a map $f: X\to Y$ such that $f\vert_{X_{\alpha}} = f_{\alpha}$ for each $\alpha\in A$. It remains to prove that $f$ is continuous and $f$ is unique.
+
+	\textbf{Prove that $f$ is continuous.}
+
+	Let $C$ be a closed subset of $Y$. $f_{\alpha}^{-1}(C)$ is closed  because $f_{\alpha}$ is continuous for every $\alpha\in A$. $f^{-1}(C) \cap X_{\alpha} = f_{\alpha}^{-1}(C)$ for every $\alpha\in A$, so
+	\begin{align*}
+		f^{-1}(C) & = f^{-1}(C) \cap \bigcup_{\alpha\in A}X_{\alpha}   \\
+		          & = \bigcup_{\alpha\in A} (f^{-1}(C)\cap X_{\alpha}) \\
+		          & = \bigcup_{\alpha\in A} f_{\alpha}^{-1}(C).
+	\end{align*}
+
+	Because ${(X_{\alpha})}_{\alpha\in A}$ is locally finite, then ${(f_{\alpha}^{-1}(C))}_{\alpha\in A}$ is also locally finite since $f_{\alpha}^{-1}(C) \subseteq X_{\alpha}$ for each $\alpha\in A$.
+	\begin{align*}
+		\overline{\bigcup_{\alpha\in A} f_{\alpha}^{-1}(C)} & = \bigcup_{\alpha\in A} \overline{f_{\alpha}^{-1}(C)} & \text{(Lemma 4.75)}                                            \\
+		                                                    & = \bigcup_{\alpha\in A} f_{\alpha}^{-1}(C)            & \text{($f_{\alpha}^{-1}(C)$ is closed for each $\alpha\in A$)}
+	\end{align*}
+
+	so $\bigcup_{\alpha\in A} f_{\alpha}^{-1}(C)$ is closed in $X$, which implies $f^{-1}(C)$ is closed in $X$. Hence $f$ is continuous.
+
+	\textbf{Prove that $f$ is unique.}
+
+	Assume that $g$ is a continuous map from $X$ to $Y$ such that $g\vert_{X_{\alpha}} = f_{\alpha}$ for each $\alpha\in A$. For each $x\in X$, there is $\alpha\in A$ such that $x\in X_{\alpha}$, so $g(x) = f_{\alpha}(x) = f(x)$. Hence $g \equiv f$.
+
+	Thus there exists a unique continuous map $f: X\to Y$ whose restriction to each $X_{\alpha}$ is $f_{\alpha}$.
+\end{proof}
