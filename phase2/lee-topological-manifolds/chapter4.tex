@@ -969,16 +969,16 @@ Like Problem~\ref{problem:2-22}, this problem constructs a space that is locally
 
 			            There exists $\varepsilon > 0$ such that $\openinterval{t - \varepsilon, t + \varepsilon} \subseteq \halfopenleft{-1, 0}$. The open intervals $\openinterval{\tuple{x, t - \varepsilon}, \tuple{x, t + \varepsilon}}$ and $\openinterval{t - \varepsilon, t + \varepsilon}$ are homeomorphic due to the homeomorphism $\varphi: \openinterval{t - \varepsilon, t + \varepsilon} \to \openinterval{\tuple{x, t - \varepsilon}, \tuple{x, t + \varepsilon}}$ given by $\varphi(s) = \tuple{x, s}$.
 			      \item $t = 0$ and $x > y_{0}$
-				  \item $t = 0$ and $x = y_{0}$
+			      \item $t = 0$ and $x = y_{0}$
 
-				        For every $0 < \varepsilon < 1$, $\halfopenleft{\tuple{y_{0}, -\varepsilon}, \tuple{y_{0}, 0}} \vee \halfopenright{\tuple{y_{0}, 0}, \tuple{y_{0}, \varepsilon}}$ is a neighborhood of $\tuple{y_{0}, 0}$ that is homeomorphic to the open interval $\openinterval{-\varepsilon, \varepsilon} \subseteq \mathbb{R}$.
+			            For every $0 < \varepsilon < 1$, $\halfopenleft{\tuple{y_{0}, -\varepsilon}, \tuple{y_{0}, 0}} \vee \halfopenright{\tuple{y_{0}, 0}, \tuple{y_{0}, \varepsilon}}$ is a neighborhood of $\tuple{y_{0}, 0}$ that is homeomorphic to the open interval $\openinterval{-\varepsilon, \varepsilon} \subseteq \mathbb{R}$.
 		      \end{enumerate}
 
-			  Hence $\mathscr{R}_{+} \vee \mathscr{R}_{-}$ is locally Euclidean of dimension one.
+		      Hence $\mathscr{R}_{+} \vee \mathscr{R}_{-}$ is locally Euclidean of dimension one.
 
 		      \textbf{$\mathscr{R}_{+} \vee \mathscr{R}_{-}$ is Hausdorff.}
 
-			  Consider two distinct points $\tuple{x_{1}, t_{1}}$ and $\tuple{x_{2}, t_{2}}$ of $\mathscr{R}_{+} \vee \mathscr{R}_{-}$
+		      Consider two distinct points $\tuple{x_{1}, t_{1}}$ and $\tuple{x_{2}, t_{2}}$ of $\mathscr{R}_{+} \vee \mathscr{R}_{-}$
 
 		      \textbf{$\mathscr{R}_{+} \vee \mathscr{R}_{-}$ is first countable.}
 
@@ -1619,6 +1619,13 @@ Let $M_{1}$ and $M_{2}$ be $n$-manifolds. For $i = 1, 2$, let $B_{i} \subseteq M
 Let $M_{1} \# M_{2}$ be a connected sum of $n$-manifolds $M_{1}$ and $M_{2}$. Show that there are open subsets $U_{1}, U_{2} \subseteq M_{1} \# M_{2}$ and points $p_{i} \in M_{i}$ such that $U_{i} \approx M_{i}\smallsetminus \set{p_{i}}$, $U_{1} \cap U_{2} \approx \mathbb{R}^{n}\smallsetminus \set{0}$, and $U_{1} \cup U_{2} = M_{1} \# M_{2}$.
 \end{problem}
 
+\begin{quotation}
+	Remind that $M_{1} \# M_{2} = M_{1}' \cup_{f} M_{2}'$ where $M_{1}' = M_{1}\smallsetminus B_{1}$, $M_{2}' = M_{2}\smallsetminus B_{2}$; $B_{1} \subseteq M_{1}$, $B_{1} \subseteq M_{2}$ are regular coordinate balls; $f: \partial M'_{2} \to \partial M'_{1}$ is a homeomorphism.
+\end{quotation}
+
+\begin{proof}
+\end{proof}
+
 \begin{problem}{4-20}
 Consider the topology on the set of intergers described in Problem~\ref{problem:2-17}. Show that $\mathbb{Z}$ with this topology is limit point compact but not compact.
 \end{problem}
@@ -1691,7 +1698,41 @@ Let $X = (\mathbb{R} \times \mathbb{Z})/_{\sim}$, where $\sim$ is the equivalenc
 \end{problem}
 
 \begin{proof}
-	Let $q: \mathbb{R}\times \mathbb{Z} \to (\mathbb{R}\times \mathbb{Z})/_{\sim} = X$ be the associated quotient map that induces the quotient topology on $X$.
+	Let $q: \mathbb{R}\times \mathbb{Z} \to (\mathbb{R}\times \mathbb{Z})/_{\sim}$ be the associated quotient map that induces the quotient topology on $X$. Consider a point $q(\tuple{x, n})$ in $X$. The following cases are exhaustive
+	\begin{enumerate}[label={\textbf{Case \arabic*.}}, itemindent=1cm]
+		\item $x > 0$
+
+		      There exists $a, b, a_{0}, b_{0} > 0$ such that $a_{0} < a < b < b_{0}$ and $x \in \openinterval{a, b} \subseteq \openinterval{a_{0}, b_{0}}$.
+
+		      The sets $\openinterval{a_{0}, b_{0}} \times \mathbb{Z}$ and $\openinterval{a, b} \times \mathbb{Z}$ are saturated open sets under $q$, so there images are open in $X$. On the other hand, $q(\openinterval{a_{0}, b_{0}} \times \mathbb{Z})$ is homeomorphic to the open interval $\openinterval{a_{0}, b_{0}}$ by the homeomorphism that maps $q(\set{s} \times \mathbb{Z})$ to $s$ for every $s\in \openinterval{a_{0}, b_{0}}$. Therefore $q(\closedinterval{a, b} \times \mathbb{Z}) \approx \closedinterval{a, b}$ (hence compact) is the closure of $q(\openinterval{a, b}\times\mathbb{Z})$.
+		\item $x < 0$ (this case is similar to the previous one)
+		\item $x = 0$
+
+		      Let $\varepsilon > 0$. The following set
+		      \begin{align*}
+			      q^{-1}(q(\openinterval{-\varepsilon, \varepsilon} \times \set{n})) & = (\openinterval{-\varepsilon, 0} \times \mathbb{Z}) \cup (\set{0} \times \set{n}) \cup (\openinterval{0, \varepsilon} \times \mathbb{Z})                                                                                \\
+			                                                                         & = (\openinterval{-\varepsilon, 0} \times \set{n}) \cup (\set{0} \times \set{n}) \cup (\openinterval{0, \varepsilon} \times \set{n})                                                                                      \\
+			                                                                         & \phantom{=} \cup (\openinterval{-\varepsilon, 0} \times (\mathbb{Z}\smallsetminus\set{n})) \cup (\openinterval{0, \varepsilon} \times (\mathbb{Z}\smallsetminus\set{n}))                                                 \\
+			                                                                         & = (\openinterval{-\varepsilon, \varepsilon} \times \set{n}) \cup (\openinterval{-\varepsilon, 0} \times (\mathbb{Z}\smallsetminus\set{n})) \cup (\openinterval{0, \varepsilon} \times (\mathbb{Z}\smallsetminus\set{n}))
+		      \end{align*}
+
+		      is open in $\mathbb{R}\times\mathbb{Z}$, so $q(\openinterval{-\varepsilon, \varepsilon} \times \set{n})$ is open in $X$. Hence $q(\openinterval{-\varepsilon, \varepsilon} \times \set{n})$ is a neighborhood of $q(\tuple{0, n})$.
+
+		      For every $r > 0$, $\closedinterval{-r, r} \times \set{n}$ is a compact subset of $\mathbb{R}\times\mathbb{Z}$, so its image under the quotient map $q$ is compact. Therefore $q(\closedinterval{-r, r} \times \set{n})$ is compact. We can choose $r$ such that $r > \varepsilon$, then $q(\closedinterval{-r, r} \times \set{n})$ is a compact set containing $q(\tuple{0, n})$ and neighborhood $q(\openinterval{-\varepsilon, \varepsilon} \times \set{n})$ of $q(\tuple{0, n})$.
+	\end{enumerate}
+
+	Hence $X$ is locally compact, as every point of $X$ has a neighborhood contained in a compact subset of $X$.
+
+	To prove that $X$ doesn't have a basis of precompact open sets, we will show that every neighborhood of $q(\tuple{0, n})$ is not precompact. Suppose on the contrary that $q(\tuple{0, n})$ has a precompact neighborhood $V$, then there exists $\varepsilon > 0$ such that $q(\openinterval{-\varepsilon, \varepsilon} \times \set{n}) \subseteq V$, where $q(\openinterval{-\varepsilon, \varepsilon} \times \set{n})$ is another neighborhood of $q(\tuple{0, n})$, as shown above.
+
+	The closure of $q(\openinterval{-\varepsilon, \varepsilon} \times \set{n})$ is closed and contained in $\overline{V}$ hence it is compact. On the other hand, the closure of $q(\openinterval{-\varepsilon, \varepsilon} \times \set{n})$ is
+	\begin{align*}
+		q(\closedinterval{-\varepsilon, \varepsilon} \times \set{n}) \cup \bigcup_{k\in\mathbb{Z}} \tuple{0, k}
+	\end{align*}
+
+	which is not compact, since the open cover ${\left(\openinterval{-2\varepsilon, 2\varepsilon}\times\set{k}\right)}_{k\in\mathbb{Z}}$ of the closure of $q(\openinterval{-\varepsilon, \varepsilon} \times \set{n})$ doesn't have a finite subcover, because when we remove an open set $\openinterval{-2\varepsilon, 2\varepsilon} \times \set{k}$ from the open cover, the point $\tuple{0, k}$ will be no longer covered. So we established a contradiction.
+
+	Therefore $q(\tuple{0,n})$ has no precompact neighborhood, hence $X$ doesn't have a basis of precompact open sets.
 \end{proof}
 
 \begin{problem}{4-23}
@@ -1707,6 +1748,78 @@ Let $X$ be a locally compact Hausdorff space. The \textbf{one-point compactifica
 	\item Show that $X$ is dense in $X^{*}$ if and only if $X$ is noncompact.
 \end{enumerate}
 \end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item $\emptyset \in \mathscr{T}$ by definition as $\empty$ is an open subset of $X$. $X^{*} \in \mathscr{T}$ by definition as $X^{*}\smallsetminus X^{*} = \emptyset$ is a compact subset of $X$.
+
+		      Let's consider the collection ${(U_{\alpha})}_{\alpha\in A}$ in which $U_{\alpha}\in \mathscr{T}$ for all $\alpha\in A$. Define
+		      \begin{align*}
+			      I & = \set{ \alpha \in A : \text{$U_{\alpha}$ is an open subset of $X$} }                       \\
+			      J & = \set{ \alpha \in A : \text{$X^{*}\smallsetminus U_{\alpha}$ is a compact subset of $X$} }
+		      \end{align*}
+
+		      then $\bigcup_{\alpha\in I}U_{\alpha}$ is an open subset of $X$.
+
+		      If $J = \emptyset$ then $\bigcup_{\alpha\in A}U_{\alpha} = \bigcup_{\alpha\in I}U_{\alpha} \in \mathscr{T}$. Otherwise, $J\ne \emptyset$ then $X^{*}\smallsetminus U_{\alpha}$ is a compact subset of $X$ for all $\alpha\in J$, hence $X^{*}\smallsetminus U_{\alpha}$ is closed since $X$ is Hausdorff. Moreover
+		      \begin{align*}
+			      X^{*}\smallsetminus \bigcup_{\alpha\in A}U_{\alpha} & = \bigcap_{\alpha\in A}(X^{*}\smallsetminus U_{\alpha})                                                                                                                                                   \\
+			                                                          & = \underbrace{\bigcap_{\alpha\in I}(X^{*} \smallsetminus U_{\alpha})}_{\text{closed subset of $X$}} \cap \underbrace{\bigcap_{\alpha\in J}(X^{*}\smallsetminus U_{\alpha})}_{\text{closed subset of $X$}}
+		      \end{align*}
+
+		      is a closed subset of $X$ and a subset of some compact set $X^{*}\smallsetminus U_{\alpha}$ in which $\alpha\in J$, hence $X^{*}\smallsetminus \bigcup_{\alpha\in A}U_{\alpha}$ is a compact subset of $X$, so $\bigcup_{\alpha\in A}U_{\alpha} \in \mathscr{T}$.
+
+		      Let $U, V \in \mathscr{T}$. If $U, V$ are open subsets of $X$ then so is $U\cap V$. If $X^{*}\smallsetminus U$ and $X^{*}\smallsetminus V$ are compact subsets of $X$ then so is $X^{*}\smallsetminus (U\cap V) = (X^{*}\smallsetminus U) \cup (X^{*}\smallsetminus V)$ because the union of finitely many compact sets is compact.
+
+		      If $U$ is an open subset of $X$ and $V$ is not an open subset of $X$ then $X^{*}\smallsetminus V$ is a compact subset of $X$ and $V$ contains $\infty$. $X$ is Hausdorff and $X^{*}\smallsetminus V$ is a compact subset of $X$ so $X^{*}\smallsetminus V$ is a closed subset of $X$. Because $X^{*}\smallsetminus V = X\smallsetminus (V\smallsetminus \set{\infty})$, $V\smallsetminus \set{\infty}$ is an open subset of $X$. Therefore $U\cap V = U \cap (V\smallsetminus \set{\infty})$ is an open subset of $X$.
+
+		      In any cases, $U\cap V \in \mathscr{T}$.
+
+		      Thus $\mathscr{T}$ is a topology on $X^{*}$.
+		\item Firstly, we show that $X^{*}$ is Hausdorff.
+
+		      If $x, y \in X$ then $x, y$ have disjoint neighborhoods in $X$ because $X$ is Hausdorff.
+
+		      If $x\in X$ and $y = \infty$ then there exists a compact subset $K\subseteq X$ and an open subset $U\subseteq X$ such that $x\in U\subseteq K$, since $X$ is locally compact. Let $V = X^{*}\smallsetminus K$ then $V$ is a neighborhood of $y$ and $U, V$ are disjoint. Therefore $X^{*}$ is Hausdorff.
+
+		      Secondly, we show that $X^{*}$ is compact.
+
+		      Let ${(U_{\alpha})}_{\alpha\in A}$ be an arbitrary open cover of $X^{*}$. Define
+		      \begin{align*}
+			      I & = \set{ \alpha \in A : \text{$U_{\alpha}$ is an open subset of $X$} },                       \\
+			      J & = \set{ \alpha \in A : \text{$X^{*}\smallsetminus U_{\alpha}$ is a compact subset of $X$} }.
+		      \end{align*}
+
+		      Because ${(U_{\alpha})}_{\alpha\in A}$ covers $X^{*}$, the set $J$ is not empty (otherwise, $\infty$ is not covered). Let $\beta$ be an element of $J$, then $X^{*}\smallsetminus U_{\beta}$ is compact. ${(U_{\alpha})}_{\alpha\in A}$ covers the compact set $X^{*}\smallsetminus U_{\beta}$ so ${(U_{\alpha})}_{\alpha\in A}$ has a finite subcover that covers $X^{*}\smallsetminus U_{\beta}$. This finite subcover, together with $U_{\beta}$, covers the entire $X^{*}$. Therefore $X^{*}$ is compact.
+
+		      Thus $X^{*}$ is a compact Hausdorff space.
+		\item Let ${(x_{i})}$ be a sequence of points in $X$.
+
+		      $(\Longrightarrow)$ ${(x_{i})}$ diverges to infinity.
+
+		      By the definition of divergence to infinity, for every compact subset $K\subseteq X$, there are at most finitely many $i\in\mathbb{N}$ such that $x_{i} \in K$. Let $N$ be a positive integer that is larger than any of those $i$ that $x_{i} \in K$. Therefore $X^{*}\smallsetminus K$ contains $x_{i}$ for every $i \geq N$. On the other hand, $X^{*}\smallsetminus K$ is a neighborhood of $\infty$. Therefore, as a sequence in $X^{*}$, $x_{i}$ converges to $\infty$.
+
+		      $(\Longleftarrow)$ As a sequence in $X^{*}$, $x_{i}$ converges to $\infty$.
+
+		      Let $K$ be a compact subset of $X$, then $X^{*}\smallsetminus K$ is a neighborhood of $\infty$ in $X^{*}$. By the definition of convergence, there exists a positive integer $N$ such that $X^{*}\smallsetminus K$ contains $x_{i}$ whenever $i\geq N$. Therefore there are at most finitely many $i\in \mathbb{N}$ such that $x_{i} \in K$. Since $K$ is an arbitrary compact subset of $X$, it follows that ${(x_{i})}$ diverges to infinity, as a sequence in $X$.
+		\item $X$ is an open subset of $X$ so $X\in\mathscr{T}$, which implies $X$ is open in $X^{*}$.
+
+		      Let $U$ be an open subset of $X^{*}$ then by the definition of $\mathscr{T}$, then
+		      \begin{itemize}
+			      \item either $U$ is an open subset of $X$
+
+			            $U\cap X = U$ is an open subset of $X$.
+			      \item or $U$ is not an open subset of $X$
+
+			            $U$ contains $\infty$ and $X^{*}\smallsetminus U$ is a compact subset of $X$, so $X^{*}\smallsetminus U$ is closed in $X$ since $X$ is Hausdorff. Moreover, $X^{*}\smallsetminus U = X\smallsetminus (U\smallsetminus \set{\infty})$, so $U\smallsetminus \set{\infty}$ is open in $X$, which means $U \cap X = U\smallsetminus \set{\infty}$ is open in $X$.
+		      \end{itemize}
+
+		      Therefore $X$ has the subspace topology inherited from $X^{*}$.
+		\item If $X$ is dense in $X^{*}$ then $\overline{X} = X^{*}$, therefore $X$ is not closed, because $X \subsetneq \overline{X}$. Any compact subset of a Hausdorff space is closed, so $X$ is noncompact.
+
+		      Conversely, if $X$ is noncompact then $\overline{X} = X^{*}$ since any neighborhood of $\infty$ intersects $X$ (so $\infty$ is a limit point of $X$). Therefore $X$ is dense in $X^{*}$.
+	\end{enumerate}
+\end{proof}
 
 \begin{problem}{4-24}
 Show that a topological space is a locally compact Hausdorff space if and only if it is homeomorphic to an open subset of a compact Hausdorff space.
