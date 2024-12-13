@@ -1735,7 +1735,7 @@ Let $X = (\mathbb{R} \times \mathbb{Z})/_{\sim}$, where $\sim$ is the equivalenc
 	Therefore $q(\tuple{0,n})$ has no precompact neighborhood, hence $X$ doesn't have a basis of precompact open sets.
 \end{proof}
 
-\begin{problem}{4-23}
+\begin{problem}{4-23}\label{problem:4-23}
 Let $X$ be a locally compact Hausdorff space. The \textbf{one-point compactification of $X$} is the topological space $X^{*}$ defined as follows. Let $\infty$ be some object not in $X$ and let $X^{*} = X \amalg \set{\infty}$ with the following topology:
 \begin{align*}
 	\mathscr{T} = \set{\text{open subsets of $X$}} \cup \set{ U \subseteq X^{*} : X^{*} \smallsetminus U \text{ is a compact subset of $X$} }.
@@ -1821,18 +1821,119 @@ Let $X$ be a locally compact Hausdorff space. The \textbf{one-point compactifica
 	\end{enumerate}
 \end{proof}
 
-\begin{problem}{4-24}
+\begin{problem}{4-24}\label{problem:4-24}
 Show that a topological space is a locally compact Hausdorff space if and only if it is homeomorphic to an open subset of a compact Hausdorff space.
 \end{problem}
 
-\begin{problem}{4-25}
+\begin{proof}
+	Let $X$ be a topological space.
+
+	$(\Longrightarrow)$ $X$ is locally compact Hausdorff.
+
+	According to Problem~\ref{problem:4-23}, $X$ has an one-point compactification $X^{*}$ which is compact Hausdorff. $X$ is an open subset of $X^{*}$ and the topology on $X$ coincides with the subspace topology inherited from $X^{*}$. Therefore $X$ is homeomorphic to an open subset of a compact Hausdorff space.
+
+	$(\Longleftarrow)$ $X$ is homeomorphic to an open subset of a compact Hausdorff space.
+
+	Let $Y$ be a compact Hausdorff space such that there is an open subset $U$ of $Y$ such that $X$ is homeomorphic to it. Because $U$ is Hausdorff (subspace of a Hausdorff space is Hausdorff) so $X$ is Hausdorff. Compactness implies local compactness, so $Y$ is locally compact. $U$ is an open subset of a locally compact Hausdorff space so $U$ is a locally compact Hausdorff space (Proposition 4.66), hence $X$ is a locally compact Hausdorff space, as $X$ is homeomorphic to $U$.
+
+	Thus $X$ is locally compact Hausdorff if and only if it is homeomorphic to an open subset of a compact Hausdorff space.
+\end{proof}
+
+\begin{note}
+	One-point compactification of a local Hausdorff space is unique up to a homeomorphism.
+\end{note}
+
+\begin{problem}{4-25}\label{problem:4-25}
 Let $\sigma: \mathbb{S}^{n}\smallsetminus\set{N} \to \mathbb{R}^{n}$ be the stereographic projection, as defined in Example 3.21. Show that $\sigma$ extends to a homeomorphism of $\mathbb{S}^{n}$ with the one-point compactification of $\mathbb{R}^{n}$.
 \end{problem}
 
-\begin{problem}{4-26}
+\begin{quotation}
+	$N = \tuple{0, \ldots, 0, 1} \in \mathbb{R}^{n+1}$. The stereographic production $\sigma: \mathbb{S}^{n}\smallsetminus\set{N} \to \mathbb{R}^{n}$ maps a point $x \in \mathbb{S}^{n}\smallsetminus\set{N}$ to a point $U$ such that $U = (u, 0)\in \mathbb{R}^{n+1}$, $x$ and $N$ are collinear. The formula of $\sigma$ is
+	\begin{align*}
+		\sigma(x_{1}, \ldots, x_{n+1}) = \frac{1}{1 - x_{n+1}}\tuple{x_{1}, \ldots, x_{n}}
+	\end{align*}
+\end{quotation}
+
+\begin{proof}
+	Denote by ${(\mathbb{R}^{n})}^{*}$ be the one-point compactification of $\mathbb{R}^{n}$. Define $f: \mathbb{S}^{n} \to {(\mathbb{R}^{n})}^{*}$ by
+	\begin{align*}
+		f\vert_{\mathbb{S}^{n}\smallsetminus\set{N}} & \equiv \sigma \\
+		f(N)                                         & = \infty
+	\end{align*}
+
+	$f$ is bijective by definition and because $\sigma$ is bijective. According to the closed map lemma, $f$ is closed. Let $U$ be an open subset of ${(\mathbb{R}^{n})}^{*}$ then either $U$ is an open subset of $\mathbb{R}^{n}$ or not.
+
+	If $U$ is an open subset of $\mathbb{R}^{n}$ then $f^{-1}(U) = \sigma^{-1}(U)$ is an open subset of $\mathbb{S}^{n}\smallsetminus\set{N}$, hence an open subset of $\mathbb{S}^{n}$.
+
+	If $U$ is not an open subset of $\mathbb{R}^{n}$ then ${(\mathbb{R}^{n})}^{*}\smallsetminus U$ is a compact subset of $\mathbb{R}^{n}$.
+	\begin{align*}
+		f^{-1}(U) & = f^{-1}({(\mathbb{R}^{n})}^{*} \smallsetminus ({(\mathbb{R}^{n})}^{*} \smallsetminus U))      \\
+		          & = f^{-1}({(\mathbb{R}^{n})}^{*}) \smallsetminus f^{-1}({(\mathbb{R}^{n})}^{*}\smallsetminus U) \\
+		          & = \mathbb{S}^{n} \smallsetminus f^{-1}({(\mathbb{R}^{n})}^{*}\smallsetminus U)
+	\end{align*}
+
+	Because $f$ is bijective and $f$ is closed, it follows that $f^{-1}$ is continuous. By the main theorem on compactness, $f^{-1}({(\mathbb{R}^{n})}^{*}\smallsetminus U)$ is compact. $f^{-1}({(\mathbb{R}^{n})}^{*}\smallsetminus U)$ is a compact subset of the Hausdorff space $\mathbb{S}^{n}$ so it is closed. Therefore $\mathbb{S}^{n} \smallsetminus f^{-1}({(\mathbb{R}^{n})}^{*}\smallsetminus U)$ is open in $\mathbb{S}^{n}$, which means $f^{-1}(U)$ is open in $\mathbb{S}^{n}$. Therefore $f$ is continuous.
+
+	$f$ is bijective, closed, and continuous so $f$ is a homeomorphism. Thus $\sigma$ extends to $f$, a homeomorphism of $\mathbb{S}^{n}$ with the one-point compactification of $\mathbb{R}^{n}$.
+\end{proof}
+
+\begin{problem}{4-26}\label{problem:4-26}
 Let $M$ be a compact manifold of positive dimension, and let $p\in M$. Show that $M$ is homeomorphic to the one-point compactification of $M\smallsetminus \set{p}$.
 \end{problem}
 
+\begin{proof}
+	$M$ is Hausdorff (because $M$ is a manifold) so $\set{p}$ is a closed subset of $M$ and $M\smallsetminus \set{p}$ is an open subset of $M$. According to Problem~\ref{problem:4-24}, $M\smallsetminus \set{p}$ is a locally compact Hausdorff space so it has an one-point compactification.
+
+	Denote by ${(M\smallsetminus \set{p})}^{*}$ the one-point compactification of $M\smallsetminus \set{p}$. The map $f: M \to {(M\smallsetminus \set{p})}^{*}$ given by $f\vert_{M\smallsetminus \set{p}} \equiv \operatorname{Id}_{M\smallsetminus \set{p}}$ and $f(p) = \infty$. By definition, $f$ is bijective, so $f$ has an inverse. According to the closed map lemma, $f$ is closed. Therefore $f^{-1}$ is continuous.
+
+	Let $U$ be an open subset of ${(M\smallsetminus \set{p})}^{*}$. If $U$ is an open subset of $M\smallsetminus \set{p}$ then $f^{-1}(U) = U$. Otherwise, $U$ is not an open subset of $M\smallsetminus \set{p}$, then ${(M\smallsetminus \set{p})}^{*} \smallsetminus U$ is a compact subset of $M\smallsetminus \set{p}$. Due to the main theorem on compactness, $f^{-1}({(M\smallsetminus \set{p})}^{*} \smallsetminus U)$ is compact. $M$ is Hausdorff, so the compact subset $f^{-1}({(M\smallsetminus \set{p})}^{*} \smallsetminus U) \subseteq M$ is closed. Hence the set
+	\begin{align*}
+		f^{-1}(U) & = f^{-1}({(M\smallsetminus\set{p})}^{*} \smallsetminus ({(M\smallsetminus\set{p})}^{*} \smallsetminus U))       \\
+		          & = f^{-1}({(M\smallsetminus\set{p})}^{*}) \smallsetminus f^{-1}({(M\smallsetminus\set{p})}^{*} \smallsetminus U) \\
+		          & = M \smallsetminus f^{-1}({(M\smallsetminus\set{p})}^{*} \smallsetminus U)
+	\end{align*}
+
+	is open in $M$. So $f$ is bijective, closed, continuous, which means $f$ is a homeomorphism.
+
+	Thus $M$ is homeomorphic to the one-point compactification of $M\smallsetminus \set{p}$.
+\end{proof}
+
 \begin{problem}{4-27}
 Suppose $X$ and $Y$ are locally compact Hausdorff spaces, and $X^{*}$ and $Y^{*}$ are their one-point compactifications. Show that a continuous map $f: X\to Y$ is proper if and only if it extends to a continuous map $f^{*}: X^{*} \to Y^{*}$ taking $\infty \in X^{*}$ to $\infty \in Y^{*}$.
+\end{problem}
+
+\begin{proof}
+	We will prove that the continuous map $f$ is proper if and only if $f^{*}$ is continuous.
+
+	$(\Longrightarrow)$ $f$ is proper.
+
+	Let $U$ be an open subset of $Y^{*}$. If $U \subseteq Y$ then ${(f^{*})}^{-1}(U) = f^{-1}(U)$, which is open in $X$ and then $X^{*}$ ($X$ is an open subset of $X^{*}$). Otherwise, $U \subsetneq Y$ then $Y^{*}\smallsetminus U$ is a compact subset of $Y$ (see the definition of the topology on $Y^{*}$ in Problem~\ref{problem:4-23}). Because $f$ is proper, $f^{-1}(Y^{*}\smallsetminus U)$ is a compact subset of $X$ and hence compact subset of $X^{*}$. $X^{*}$ is Hausdorff, so $f^{-1}(Y^{*}\smallsetminus U)$ is closed in $X^{*}$, hence the set
+	\begin{align*}
+		{(f^{*})}^{-1}(U) & = {(f^{*})}^{-1}(Y^{*} \smallsetminus (Y^{*}\smallsetminus U))               \\
+		                  & = {(f^{*})}^{-1}(Y^{*}) \smallsetminus {(f^{*})}^{-1}(Y^{*}\smallsetminus U) \\
+		                  & = X^{*} \smallsetminus f^{-1}(Y^{*}\smallsetminus U).
+	\end{align*}
+
+	is open in $X^{*}$. Therefore ${(f^{*})}^{-1}(U)$ is open in $X^{*}$ whenever $U$ is open in $Y^{*}$, which means $f^{*}$ is continuous.
+
+	$(\Longleftarrow)$ $f^{*}$ is continuous.
+
+	Let $K$ be a compact subset of $Y$. $K\subseteq Y$ and $f^{*}(\infty_{X}) = \infty_{Y}$ so ${(f^{*})}^{-1}(K) = f^{-1}(K)$.
+
+	According to the definition of the topology on $Y^{*}$, $Y^{*}\smallsetminus K$ is an open subset of $Y^{*}$. Therefore ${(f^{*})}^{-1}(Y^{*}\smallsetminus K)$ is open in $X^{*}$. On the other hand
+	\begin{align*}
+		{(f^{*})}^{-1}(Y^{*}\smallsetminus K) = {(f^{*})}^{-1}(Y^{*}) \smallsetminus {(f^{*})}^{-1}(K) = X^{*} \smallsetminus {(f^{*})}^{-1}(K)
+	\end{align*}
+
+	According to the definition of the topology on $X^{*}$, ${(f^{*})}^{-1}(K) = X^{*} \smallsetminus (X^{*} \smallsetminus {(f^{*})}^{-1}(K))$ is a compact subset of $X$.
+
+	Hence $f^{-1}(K)$ is a compact subset of $X$ whenever $K$ is a compact subset of $Y$, so $f$ is proper.
+\end{proof}
+
+\begin{problem}{4-28}
+Suppose $M$ is a noncompact manifold of dimension $n\geq 1$. Show that its one-point compactification is an $n$-manifold if and only if there exists a precompact open subset $U \subseteq M$ such that $M\smallsetminus U$ is homeomorphic to $\mathbb{R}^{n} \smallsetminus \mathbb{B}^{n}$. Given an example of a noncompact manifold whose one-point compactification is not a manifold. [Hint: you may find the inversion map $\mathscr{I}: \mathbb{R}^{n} \smallsetminus \mathbb{B}^{n} \to \overline{\mathbb{B}}^{n}$ defined by $\mathscr{I}(x) = x/\abs{x}^{2}$ useful.]
+\end{problem}
+
+\begin{problem}{4-29}
+Let $X$ be a complete metric space or a locally compact Hausdorff space. Show that every nonempty countable closed subset of $X$ contains at least one isolated point. [Hint: use the Baire category theorem.]
 \end{problem}

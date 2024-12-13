@@ -109,6 +109,9 @@ multilinear-algebra:
 general-topology:
 	@$(MAKE) phase1/james-munkres-topology/main.pdf
 
+henle-topology:
+	@$(MAKE) phase1/henle-combinatorial-topology/main.pdf
+
 real-analysis:
 	@$(MAKE) phase1/vladimir-zorich-mathematical-analysis/main.pdf
 
