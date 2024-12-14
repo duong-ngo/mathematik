@@ -127,7 +127,7 @@
 	\end{enumerate}
 \end{proof}
 
-\begin{exercise}{4.24}
+\begin{exercise}{4.24}\label{exercise:4.24}
 	Prove Proposition 4.23.
 
 	Every manifold (with or without boundary) is locally connected and locally path-connected.
@@ -556,7 +556,7 @@ Because the family of supports ${(\operatorname{supp} \psi_{\alpha})}_{\alpha\in
 	Hence ${(V_{\alpha})}_{\alpha\in A}$ is a locally finite open refinement of ${(U_{\alpha})}_{\alpha\in A}$ such that $\overline{V_{\alpha}} \subseteq U_{\alpha}$.
 \end{proof}
 
-\begin{theorem}{4.85}
+\begin{theorem}{4.85}\label{theorem:4.85}
 	Let $X$ be a paracompact Hausdorff space. If $\mathscr{U}$ is any indexed open cover of $X$, then there is a partition of unity subordinate of $\mathscr{U}$.
 \end{theorem}
 
@@ -614,7 +614,7 @@ Because the family of supports ${(\operatorname{supp} \psi_{\alpha})}_{\alpha\in
 \end{theorem}
 
 \begin{proof}
-	Consider the special case in which $M = \mathbb{R}^{n}$ and $B\subseteq \mathbb{R}^{n}$ is a closed subset. If $B\ne \emptyset$, we define $f: \mathbb{R}^{n} \to \halfopenright{0, \infty}$ by
+	Consider the special case in which $M = \mathbb{R}^{n}$ and $B\subseteq \mathbb{R}^{n}$ is a closed subset. If $B\ne \varnothing$, we define $f: \mathbb{R}^{n} \to \halfopenright{0, \infty}$ by
 	\begin{align*}
 		f(x) = \inf\set{ \abs{x - y} : y\in B }.
 	\end{align*}
@@ -638,7 +638,7 @@ Because the family of supports ${(\operatorname{supp} \psi_{\alpha})}_{\alpha\in
 
 	If $x\in B$ then $f(x) = 0$ by definition. Assume that $f(x) = 0$. Suppose on the contrary that $x\notin B$. $M$ is a metric space (the Euclidean space $\mathbb{R}^{n}$) and $M\smallsetminus B$ is open so there exists $r > 0$ such that $B_{r}(x) \subseteq M\smallsetminus B$, which means $B_{r}(x)$ is disjoint from $B$. On the other hand, due to the definition of infimum, there exists $y\in B$ such that $\abs{x - y} < 0 + r = r$, which means $y \in B_{r}(x)$, which is a contradiction. Hence $x\in B$. Therefore the zero set of $f$ is exactly $B$.
 
-	If $B = \emptyset$, we define $f(x) \equiv 1$, this function satisfies the desired properties.
+	If $B = \varnothing$, we define $f(x) \equiv 1$, this function satisfies the desired properties.
 
 	Now let $M$ be an arbitrary $n$-manifold. Let $\mathscr{U} = {(U_{\alpha})}_{\alpha\in A}$ be an open cover of $M$ by open subsets homeomorphic to $\mathbb{R}^{n}$, and let ${(\psi_{\alpha})}_{\alpha\in A}$ be a partition of unity subordinate to $\mathscr{U}$. From the particular case (in which $M = \mathbb{R}^{n}$), there are continuous functions $f_{\alpha}: U_{\alpha} \to \halfopenright{0, \infty}$ such that $f_{\alpha}^{-1}(0) = B \cap U_{\alpha}$. Define $f: M\to \mathbb{R}$ by
 	\begin{align*}
@@ -1119,7 +1119,7 @@ Show that a locally connected topological space is homeomorphic to the disjoint 
 	Thus $f$ is a homeomorphism, which implies that $X$ is homeomorphic to the disjoint union of its components.
 \end{proof}
 
-\begin{problem}{4-9}
+\begin{problem}{4-9}\label{problem:4-9}
 Show that every $n$-manifold is homeomorphic to a disjoint union of countably many connected $n$-manifolds, and every $n$-manifold with boundary is homeomorphic to a disjoint union of countably many connected $n$-manifolds with (possibly empty) boundaries.
 \end{problem}
 
@@ -1751,7 +1751,7 @@ Let $X$ be a locally compact Hausdorff space. The \textbf{one-point compactifica
 
 \begin{proof}
 	\begin{enumerate}[label={(\alph*)}]
-		\item $\emptyset \in \mathscr{T}$ by definition as $\empty$ is an open subset of $X$. $X^{*} \in \mathscr{T}$ by definition as $X^{*}\smallsetminus X^{*} = \emptyset$ is a compact subset of $X$.
+		\item $\varnothing \in \mathscr{T}$ by definition as $\empty$ is an open subset of $X$. $X^{*} \in \mathscr{T}$ by definition as $X^{*}\smallsetminus X^{*} = \varnothing$ is a compact subset of $X$.
 
 		      Let's consider the collection ${(U_{\alpha})}_{\alpha\in A}$ in which $U_{\alpha}\in \mathscr{T}$ for all $\alpha\in A$. Define
 		      \begin{align*}
@@ -1761,7 +1761,7 @@ Let $X$ be a locally compact Hausdorff space. The \textbf{one-point compactifica
 
 		      then $\bigcup_{\alpha\in I}U_{\alpha}$ is an open subset of $X$.
 
-		      If $J = \emptyset$ then $\bigcup_{\alpha\in A}U_{\alpha} = \bigcup_{\alpha\in I}U_{\alpha} \in \mathscr{T}$. Otherwise, $J\ne \emptyset$ then $X^{*}\smallsetminus U_{\alpha}$ is a compact subset of $X$ for all $\alpha\in J$, hence $X^{*}\smallsetminus U_{\alpha}$ is closed since $X$ is Hausdorff. Moreover
+		      If $J = \varnothing$ then $\bigcup_{\alpha\in A}U_{\alpha} = \bigcup_{\alpha\in I}U_{\alpha} \in \mathscr{T}$. Otherwise, $J\ne \varnothing$ then $X^{*}\smallsetminus U_{\alpha}$ is a compact subset of $X$ for all $\alpha\in J$, hence $X^{*}\smallsetminus U_{\alpha}$ is closed since $X$ is Hausdorff. Moreover
 		      \begin{align*}
 			      X^{*}\smallsetminus \bigcup_{\alpha\in A}U_{\alpha} & = \bigcap_{\alpha\in A}(X^{*}\smallsetminus U_{\alpha})                                                                                                                                                   \\
 			                                                          & = \underbrace{\bigcap_{\alpha\in I}(X^{*} \smallsetminus U_{\alpha})}_{\text{closed subset of $X$}} \cap \underbrace{\bigcap_{\alpha\in J}(X^{*}\smallsetminus U_{\alpha})}_{\text{closed subset of $X$}}
@@ -1840,7 +1840,7 @@ Show that a topological space is a locally compact Hausdorff space if and only i
 \end{proof}
 
 \begin{note}
-	One-point compactification of a local Hausdorff space is unique up to a homeomorphism.
+	One-point compactification of a locally compact Hausdorff space is unique up to a homeomorphism.
 \end{note}
 
 \begin{problem}{4-25}\label{problem:4-25}
@@ -1944,6 +1944,18 @@ Suppose $M$ is a noncompact manifold of dimension $n\geq 1$. Show that its one-p
 Let $X$ be a complete metric space or a locally compact Hausdorff space. Show that every nonempty countable closed subset of $X$ contains at least one isolated point. [Hint: use the Baire category theorem.]
 \end{problem}
 
+\begin{proof}
+	Let $A$ be a nonempty countable closed subset of $X$.
+
+	If $X$ is a complete metric space then so is $A$ with the subspace topology. If is locally compact Hausdorff then so is $A$ with the subspace topology, according to Proposition 4.66. So $A$ is a complete metric space or a locally compact Hausdorff space.
+
+	If $A$ is singleton then the only point of $A$ is isolated. Assume that $A$ has more than one element.
+
+	Suppose on the contrary that $A$ has no isolated point, then every point of $A$ is a limit point. For every $x\in A$, $A\smallsetminus \set{x}$ is an open dense subset of $A$. According to the Baire category theorem, $\bigcap_{x\in A}(A\smallsetminus \set{x})$ is dense in $A$. However, $\bigcap_{x\in A}(A\smallsetminus \set{x}) = \varnothing$, which is a contradiction. Hence $A$ has at least one isolated point.
+
+	Thus $A$ has at least one isolated point.
+\end{proof}
+
 \begin{problem}{4-30}
 Prove the following generalization of the gluing lemma: suppose $X$ is a topological space and ${(X_{\alpha})}_{\alpha\in A}$ is a locally finite closed cover of $X$. If for each $\alpha\in A$ we are given a continuous map $f_{\alpha}: X_{\alpha} \to Y$ such that $f_{\alpha}\vert_{X_{\alpha}\cap X_{\beta}} = f_{\beta}\vert_{X_{\alpha}\cap X_{\beta}}$ for all $\alpha$ and $\beta$, then there exists a unique continuous map $f: X\to Y$ whose restriction to each $X_{\alpha}$ is $f_{\alpha}$.
 \end{problem}
@@ -1974,3 +1986,44 @@ Prove the following generalization of the gluing lemma: suppose $X$ is a topolog
 
 	Thus there exists a unique continuous map $f: X\to Y$ whose restriction to each $X_{\alpha}$ is $f_{\alpha}$.
 \end{proof}
+
+\begin{problem}{4-31}
+Suppose $X$ is Hausdorff, locally Euclidean of dimension $n$, and paracompact. Show that $X$ is an $n$-manifold if and only if it has countably many components, as follows.
+\begin{enumerate}[label={(\alph*)},itemsep=0pt]
+	\item Show that it suffices to assume $X$ is connected.
+	\item Show that $X$ has a locally finite cover $\mathscr{U}$ by precompact open sets that are $n$-manifolds.
+	\item Choose an arbitrary nonempty $U_{0} \in \mathscr{U}$, and say a set $U' \in \mathscr{U}$ is \textbf{finitely connected to $U_{0}$} if there is a finite sequence $U_{0}, U_{1}, \ldots, U_{k}$ of sets in $\mathscr{U}$ such that $U_{k} = U'$ and $U_{i} \cap U_{i-1} \ne \varnothing$ for $i = 1, \ldots, k$. Show that every nonempty element of $\mathscr{U}$ is finitely connected to $U_{0}$, and conclude that $\mathscr{U}$ is countable.
+\end{enumerate}
+\end{problem}
+
+\begin{problem}{4-32}\label{problem:4-32}
+Prove that every closed subspace of a paracompact space is paracompact.
+\end{problem}
+
+\begin{proof}
+	Suppose $X$ is a paracompact space and $K$ is a closed subset of $X$.
+
+	Let $\set{ U_{\alpha}: \alpha\in A }$ be an open cover of $K$ in the subspace $K$. For each $\alpha\in A$, there is an open subset $V_{\alpha}\subseteq X$ such that $U_{\alpha} = V_{\alpha}\cap K$. The collection $\set{ V_{\alpha} : \alpha\in K } \cup \set{ X\smallsetminus K }$ is an open cover of the paracompact space $X$. Therefore this open cover has a locally finite open refinement $\mathcal{O}$. In the open cover $\mathcal{O}$, let $\mathscr{U} = \set{ U \in \mathcal{O} : \text{$U \subseteq V_{\alpha}$ for some $\alpha\in A$} }$ then $\mathscr{U}$ is a locally finite open cover of $K$. Moreover, for each $U\in \mathscr{U}$, $U \subseteq V_{\alpha}$ for some $\alpha\in A$ and $U\subseteq K$ so $U \subseteq U_{\alpha} = V_{\alpha}\cap K$. Therefore $\mathscr{U}$ is a locally finite open refinement of the open cover $\set{ U_{\alpha}: \alpha\in A }$ of $K$. Hence $K$, as a closed subspace of $X$, is paracompact.
+\end{proof}
+
+\begin{problem}{4-33}\label{problem:4-33}
+Suppose $X$ is a topological space with the property that for every open cover of $X$, there exists a partition of unity subordinate to it. Prove that $X$ is paracompact.
+\end{problem}
+
+\begin{proof}
+	Let ${(U_{\alpha})}_{\alpha\in A}$ is an indexed open cover of $X$. Due to the hypothesis, ${(U_{\alpha})}_{\alpha\in A}$ has a partition of unity subordinate to it, which is a family of continuous functions $\psi_{\alpha}: X\to \mathbb{R}$ indexed by $A$ with the properties:
+	\begin{enumerate}[label={(\arabic*)},itemsep=0pt]
+		\item $0 \leq \psi_{\alpha}(p) \leq 1$ for all $\alpha\in A$ and all $p\in X$.
+		\item $\operatorname{supp} \psi_{\alpha} \subseteq U_{\alpha}$ for all $\alpha\in A$.
+		\item The indexed family ${(\operatorname{supp} \psi_{\alpha})}_{\alpha\in A}$ is locally finite.
+		\item $\sum_{\alpha\in A}\psi_{A}(p) = 1$ for all $p\in X$.
+	\end{enumerate}
+
+	By the definition of support, $\operatorname{supp} \psi_{\alpha} = \overline{\psi_{\alpha}^{-1}(\mathbb{R}\smallsetminus \set{0})}$. Because the indexed family ${(\operatorname{supp} \psi_{\alpha})}_{\alpha\in A}$ is locally finite (property (iii)), the indexed family ${(\psi_{\alpha}^{-1}(\mathbb{R}\smallsetminus \set{0}))}_{\alpha\in A}$ is also locally finite. Let $p$ be a point of $X$. According to properties (i) and (iv), there exists $\beta\in A$ such that $\psi_{\beta}(p) > 0$, which means $p \in \psi_{\beta}^{-1}(\mathbb{R}\smallsetminus \set{0})$. $\psi_{\alpha}^{-1}(\mathbb{R}\smallsetminus \set{0})$ is open for every $\alpha\in A$ due to the continuity of $\psi_{\alpha}$. Hence the indexed family ${(\psi_{\alpha}^{-1}(\mathbb{R}\smallsetminus \set{0}))}_{\alpha\in A}$ is an open cover of $X$. Moreover $\psi_{\alpha}^{-1}(\mathbb{R}\smallsetminus \set{0}) \subseteq \operatorname{supp}\psi_{\alpha} \subseteq U_{\alpha}$ for all $\alpha\in A$ (property (ii)).
+
+	Thus the indexed family ${(\psi_{\alpha}^{-1}(\mathbb{R}\smallsetminus \set{0}))}_{\alpha\in A}$ is a locally finite open refinement of the indexed open cover ${(U_{\alpha})}_{\alpha\in A}$. Therefore $X$ is paracompact.
+\end{proof}
+
+\begin{quotation}
+	A direct corollary of Problem~\ref{problem:4-33} and Theorem~\ref{theorem:4.85} is that a Hausdorff space is paracompact if and only if every open cover admits a subordinate partition of unity.
+\end{quotation}
