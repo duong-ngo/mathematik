@@ -662,7 +662,7 @@ Because the family of supports ${(\operatorname{supp} \psi_{\alpha})}_{\alpha\in
 	Using Theorem~\ref{theorem:4.88}, there exist functions $u, v: M \to \halfopenright{0, \infty}$ such that $u^{-1}(0) = A$ and $v^{-1}(0) = B$. Define $f(x) = \frac{v(x)}{u(x) + v(x)}$ then $f$ is continuous, $f(x) \in \closedinterval{0, 1}$, $f^{-1}(1) = A$ and $f^{-1}(0) = B$.
 \end{proof}
 
-\begin{theorem}{4.90}
+\begin{theorem}{4.90}\label{theorem:4.90}
 	Every manifold admits a positive exhaustion function.
 \end{theorem}
 
@@ -2027,3 +2027,17 @@ Suppose $X$ is a topological space with the property that for every open cover o
 \begin{quotation}
 	A direct corollary of Problem~\ref{problem:4-33} and Theorem~\ref{theorem:4.85} is that a Hausdorff space is paracompact if and only if every open cover admits a subordinate partition of unity.
 \end{quotation}
+
+\begin{problem}{4-34}
+Suppose $M$ is an $n$-manifold that admits an injective continuous map into $\mathbb{R}^{k}$ for some $k$. Show that $M$ admits a proper embedding into $\mathbb{R}^{k+1}$. [Hint: use an exhaustion function.]
+\end{problem}
+
+\begin{proof}
+	Let $f: M\to \mathbb{R}^{k}$ be an injective continuous map. According to Theorem~\ref{theorem:4.90}, $M$ admits a positive exhaustion function $g: M \to \mathbb{R}$. Every exhaustion function is a proper map by definition so $g$ is a proper map.
+
+	Define $\varphi: M \to \mathbb{R}^{k+1}$ by $\varphi(x) = (f(x), g(x))$. $\varphi$ is continuous because the product map $f\times g = \varphi$ is continuous. If $\varphi(x) = \varphi(x')$ then $f(x) = f(x')$, which implies $x = x'$ since $f$ is injective. Therefore $\varphi$ is injective. We will show that $\varphi$ is a closed map using Theorem 4.95.
+
+	Let $K$ be a compact subset of $\mathbb{R}^{k+1}$ then $K$ is closed (compact subsets of a Hausdorff space are closed). $\varphi^{-1}(K)$ is closed because $K$ is closed and $\varphi$ is continuous. Let $\pi_{k+1}: \mathbb{R}^{k+1} \to \mathbb{R}$ be the $(k+1)$-th canonical projection. $\pi_{k+1}$ is continuous so $\pi_{k+1}(K)$ is compact. Note that $g^{-1}(\pi_{k+1}(K))$ is a compact subset of $M$ because $g$ is a proper map and $\varphi^{-1}(K)$ is a closed subset of $g^{-1}(\pi_{k+1}(K))$ so $\varphi^{-1}(K)$ is compact. Therefore $\varphi$ is a proper map.
+
+	According to Theorem 4.95 (every proper continuous map from a topological space to a compactly generated Hausdorff space is a closed map), $\varphi$ is a closed map ($\mathbb{R}^{k+1}$ is a compactly generated Hausdorff space due to Lemma 4.94). Therefore $\varphi$ is a topological embedding. Moreover, $\pi_{k+1}(\varphi(x)) > 0$ so $\varphi$ is a proper embedding.
+\end{proof}
