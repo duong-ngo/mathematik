@@ -616,7 +616,7 @@ Because the family of supports ${(\operatorname{supp} \psi_{\alpha})}_{\alpha\in
 \begin{proof}
 	Consider the special case in which $M = \mathbb{R}^{n}$ and $B\subseteq \mathbb{R}^{n}$ is a closed subset. If $B\ne \varnothing$, we define $f: \mathbb{R}^{n} \to \halfopenright{0, \infty}$ by
 	\begin{align*}
-		f(x) = \inf\set{ \abs{x - y} : y\in B }.
+		f(x) = \inf\set{\abs{x - y}: y\in B}.
 	\end{align*}
 
 	We will show that $f$ is well-defined, continuous and the zero set of $f$ is exactly $B$.
@@ -933,13 +933,29 @@ Show that the following topological spaces are not manifolds
 Let $M = \mathbb{S}^{1}\times\mathbb{R}$, and let $A = \mathbb{S}^{1} \times \set{0}$. Show that the space $M/A$ obtained by collapsing $A$ to a point is homeomorphic to the space $C$ of Problem 4-4 (b), and thus is Hausdorff and second countable but not locally Euclidean.
 \end{problem}
 
-\begin{proof}[Unrigorous Proof]
+\begin{proof}
 	The map $f: \mathbb{S}^{1}\times\mathbb{R} \to C$ given by
 	\begin{equation*}
-		f(e^{\iota\theta}, r) = (r\cos\theta, r\sin\theta, r)
+		f(\cos(2\pi t), \sin(2\pi t), r) = (r\cos(2\pi t), r\sin(2\pi t), r)
 	\end{equation*}
 
-	is a quotient map (I don't have a rigorous proof for this yet). Moreover, the quotient map $q: M\to M/A$ and $f$ have the same identification, hence $M/A$ and $C$ are homeomorphism, according to the uniqueness of quotient space. Thus $C$ is Hausdorff, second countable but not locally Euclidean.
+	is continuous and surjective. We will show that $f$ is a proper map. Let $K$ be a compact subset of $C$ then $K$ is a bounded and closed subset of $\mathbb{R}^{3}$ (Heine-Borel theorem). So there exists $R > 0$ such that ${[-R, R]}^{3} \supseteq K$.
+
+	If $K$ doesn't contain the cone point then $f^{-1}(K) = \set{\tuple{x/z, y/z, z} : \tuple{x, y, z} \in K}$. If $\tuple{a,b,c} \in f^{-1}(K)$ then $a^{2} + b^{2} + c^{2} = {(x/z)}^{2} + {(y/z)}^{2} + z^{2} = 1 + z^{2} \leq 1 + R^{2}$, which means $f^{-1}(K)$ is bounded.
+
+	If $K$ contains the cone point then $f^{-1}(K) = \set{\tuple{x/z, y/z,z} : \tuple{x, y, z}\in K \land z\ne 0} \cup (\mathbb{S}^{1} \times \set{0})$. If $\tuple{a, b, c} \in K$ then either
+	\begin{itemize}
+		\item $\tuple{a, b, c}\in \set{\tuple{x/z, y/z, z} : \tuple{x,y,z}\in K \land z\ne 0}$
+
+		      In this case, $a^{2} + b^{2} + c^{2} = {(x/z)}^{2} + {(y/z)}^{2} + z^{2} = 1 + z^{2} \leq 1 + R^{2}$.
+		\item or $\tuple{a, b, c}\in \mathbb{S}^{1}\times\set{0}$
+
+		      In this case, $a^{2} + b^{2} + c^{2} = 1 \leq 1 + R^{2}$.
+	\end{itemize}
+
+	So in either case, $f^{-1}(K)$ is bounded. On the other hand, $f^{-1}(K)$ is closed because $K$ is closed and $f$ is continuous. Therefore $f^{-1}(K)$ is a closed and bounded subset of $\mathbb{R}^{3}$, which means $f^{-1}(K)$ is compact (Heine-Borel theorem). Hence every compact subset of $C$ has a compact preimage under $f$ so $f$ is a proper map. According to Theorem 4.95, $f$ is a closed map ($f$ is a proper continuous map, and $C$ is a compactly generated Hausdorff space.) Therefore $f$ is a quotient map.
+
+	Moreover, the quotient map $q: M\to M/A$ and $f$ have the same identification, hence $M/A$ and $C$ are homeomorphism, according to the uniqueness of quotient space. Thus $C$ is Hausdorff, second countable but not locally Euclidean.
 \end{proof}
 
 \begin{problem}{4-6}
@@ -1244,8 +1260,8 @@ Let $T$ be the topologist's sine curve (Example 4.17).
 \begin{proof}
 	We write down the definition of the topologist's sine curve.
 	\begin{align*}
-		T_{0} & = \set{\tuple{x,y} : x = 0 \text{ and } y \in \closedinterval{-1,1}};           \\
-		T_{+} & = \set{\tuple{x,y} : x \in \halfopenleft{0, 2/\pi} \text{ and } y = \sin(1/x)}; \\
+		T_{0} & = \set{\tuple{x,y} : x = 0 \quad\text{and}\quad y \in \closedinterval{-1,1}};           \\
+		T_{+} & = \set{\tuple{x,y} : x \in \halfopenleft{0, 2/\pi} \quad\text{and}\quad y = \sin(1/x)}; \\
 		T     & = T_{0} \cup T_{+}.
 	\end{align*}
 	\begin{enumerate}[label={(\alph*)}]
@@ -1291,7 +1307,7 @@ Let $T$ be the topologist's sine curve (Example 4.17).
 
 		      The square $S_{r} = \openinterval{-r, r}\times\openinterval{-r, r}$ where $0 < r < 1$ is open in $\mathbb{R}^{2}$ and it contains $\tuple{0, 0}$. So $S_{r}\cap T$ is a neighborhood of $\tuple{0,0}$ in $T$. Let $C$ be the component of $S_{r}\cap T$ which contains $\tuple{0,0}$, then $C$ is open in $T$. On the other hand, every nonempty subset of $T_{0}$ is not open, so $C$ is not a subset of $T_{0}$ and $C$ intersects $T_{+}$. Let $\tuple{c, f(c)}$ be a point of $C\cap T_{+}$. If there is a point $\tuple{d, f(d)}$ in $T_{+}$ which is not in $C$ and $0 < d < c$ then $C$ is disconnected by the following two open sets
 		      \begin{align*}
-			       & C\cap (T_{0} \cup \set{ \tuple{x, f(x)} : x < d }), \\
+			       & C\cap (T_{0} \cup \set{\tuple{x, f(x)} : x < d }), \\
 			       & C\cap \set{\tuple{x, f(x) : x > d }}.
 		      \end{align*}
 
@@ -1371,7 +1387,7 @@ This chapter introduced four connectedness properties: connectedness, path conne
 
 			            This is open in $V$ (with the subspace topology) because
 			            \begin{equation*}
-				            T_{0} \cup \set{ \tuple{x,0} : x < d } \cup \set{ \tuple{x, \sin(1/x)} : x < d } = T' \cap (\openinterval{-\infty, d} \times\mathbb{R})
+				            T_{0} \cup \set{\tuple{x,0} : x < d} \cup \set{\tuple{x, \sin(1/x)} : x < d} = T' \cap (\openinterval{-\infty, d} \times\mathbb{R})
 			            \end{equation*}
 
 			            which is open in $T'$.
@@ -1379,7 +1395,7 @@ This chapter introduced four connectedness properties: connectedness, path conne
 
 			            This is open in $V$ (with the subspace topology) because
 			            \begin{equation*}
-				            \set{\tuple{x,0} : x > d} \cup \set{ \tuple{x, \sin(1/x)} : x > d } = T' \cap (\openinterval{d, \infty} \times\mathbb{R})
+				            \set{\tuple{x,0} : x > d} \cup \set{\tuple{x, \sin(1/x)} : x > d} = T' \cap (\openinterval{d, \infty} \times\mathbb{R})
 			            \end{equation*}
 
 			            which is open in $T'$.
@@ -1602,7 +1618,7 @@ Let $M_{1}$ and $M_{2}$ be $n$-manifolds. For $i = 1, 2$, let $B_{i} \subseteq M
 		\item $M_{1}'$ and $M_{2}'$ are $n$-manifolds with boundary and their boundaries are homeomorphic to $\mathbb{S}^{n-1}$. According to Theorem 3.79, $M_{1} \# M_{2}$ is an $n$-manifold without boundary.
 		\item We will prove that $M_{1}\smallsetminus B_{1}$ and $M_{2}\smallsetminus B_{2}$ are path-connected. However, it suffices to prove that $M_{1}\smallsetminus B_{1}$ is path-connected.
 
-		      In a manifold, connectedness and path-connectedness are equivalent. Let $p, q$ be two points of $M_{1}\smallsetminus B_{1}$. Because $M_{1}$ is path-connected, there exists a path function $h: \closedinterval{0, 1} \to M_{1}$ such that $h(0) = p$ and $h(1) = q$. If $h(\closedinterval{0, 1})$ is contained entirely in $M_{1}\smallsetminus B_{1}$ then there is a path connecting $p$ and $q$ in $M_{1}\smallsetminus B_{1}$.
+		      In a manifold (without or with boundary), connectedness and path-connectedness are equivalent. Let $p, q$ be two points of $M_{1}\smallsetminus B_{1}$. Because $M_{1}$ is path-connected, there exists a path function $h: \closedinterval{0, 1} \to M_{1}$ such that $h(0) = p$ and $h(1) = q$. If $h(\closedinterval{0, 1})$ is contained entirely in $M_{1}\smallsetminus B_{1}$ then there is a path connecting $p$ and $q$ in $M_{1}\smallsetminus B_{1}$.
 
 		      Otherwise, $f(\closedinterval{0, 1})$ intersects $B_{1}$, consider the set $K = h^{-1}(\overline{B_{1}})$. Because $h$ is continuous, $K$ is closed. Moreover, $K$ is contained in the compact set $\closedinterval{0, 1}$ so $K$ is also compact, hence $K$ has a minimum $t_{1}$ and a maximum $t_{2}$. By the definition of $t_{1}, t_{2}$, it follows that $h(\closedinterval{0, t_{1}})$ and $h(\closedinterval{t_{2}, 1})$ are contained entirely in $M_{1}\smallsetminus B_{1}$.
 
@@ -1622,6 +1638,8 @@ Let $M_{1} \# M_{2}$ be a connected sum of $n$-manifolds $M_{1}$ and $M_{2}$. Sh
 \begin{quotation}
 	Remind that $M_{1} \# M_{2} = M_{1}' \cup_{f} M_{2}'$ where $M_{1}' = M_{1}\smallsetminus B_{1}$, $M_{2}' = M_{2}\smallsetminus B_{2}$; $B_{1} \subseteq M_{1}$, $B_{1} \subseteq M_{2}$ are regular coordinate balls; $f: \partial M'_{2} \to \partial M'_{1}$ is a homeomorphism.
 \end{quotation}
+
+% Unsolved
 
 \begin{proof}
 \end{proof}
@@ -1738,7 +1756,7 @@ Let $X = (\mathbb{R} \times \mathbb{Z})/_{\sim}$, where $\sim$ is the equivalenc
 \begin{problem}{4-23}\label{problem:4-23}
 Let $X$ be a locally compact Hausdorff space. The \textbf{one-point compactification of $X$} is the topological space $X^{*}$ defined as follows. Let $\infty$ be some object not in $X$ and let $X^{*} = X \amalg \set{\infty}$ with the following topology:
 \begin{align*}
-	\mathscr{T} = \set{\text{open subsets of $X$}} \cup \set{ U \subseteq X^{*} : X^{*} \smallsetminus U \text{ is a compact subset of $X$} }.
+	\mathscr{T} = \set{\text{open subsets of $X$}} \cup \set{U \subseteq X^{*} : X^{*} \smallsetminus U \,\text{is a compact subset of $X$}}.
 \end{align*}
 \begin{enumerate}[label={(\alph*)}]
 	\item Show that $\mathscr{T}$ is a topology.
@@ -1755,8 +1773,8 @@ Let $X$ be a locally compact Hausdorff space. The \textbf{one-point compactifica
 
 		      Let's consider the collection ${(U_{\alpha})}_{\alpha\in A}$ in which $U_{\alpha}\in \mathscr{T}$ for all $\alpha\in A$. Define
 		      \begin{align*}
-			      I & = \set{ \alpha \in A : \text{$U_{\alpha}$ is an open subset of $X$} }                       \\
-			      J & = \set{ \alpha \in A : \text{$X^{*}\smallsetminus U_{\alpha}$ is a compact subset of $X$} }
+			      I & = \set{\alpha \in A : \text{$U_{\alpha}$ is an open subset of $X$}}                       \\
+			      J & = \set{\alpha \in A : \text{$X^{*}\smallsetminus U_{\alpha}$ is a compact subset of $X$}}
 		      \end{align*}
 
 		      then $\bigcup_{\alpha\in I}U_{\alpha}$ is an open subset of $X$.
@@ -1786,8 +1804,8 @@ Let $X$ be a locally compact Hausdorff space. The \textbf{one-point compactifica
 
 		      Let ${(U_{\alpha})}_{\alpha\in A}$ be an arbitrary open cover of $X^{*}$. Define
 		      \begin{align*}
-			      I & = \set{ \alpha \in A : \text{$U_{\alpha}$ is an open subset of $X$} },                       \\
-			      J & = \set{ \alpha \in A : \text{$X^{*}\smallsetminus U_{\alpha}$ is a compact subset of $X$} }.
+			      I & = \set{\alpha \in A : \text{$U_{\alpha}$ is an open subset of $X$}},                       \\
+			      J & = \set{\alpha \in A : \text{$X^{*}\smallsetminus U_{\alpha}$ is a compact subset of $X$}}.
 		      \end{align*}
 
 		      Because ${(U_{\alpha})}_{\alpha\in A}$ covers $X^{*}$, the set $J$ is not empty (otherwise, $\infty$ is not covered). Let $\beta$ be an element of $J$, then $X^{*}\smallsetminus U_{\beta}$ is compact. ${(U_{\alpha})}_{\alpha\in A}$ covers the compact set $X^{*}\smallsetminus U_{\beta}$ so ${(U_{\alpha})}_{\alpha\in A}$ has a finite subcover that covers $X^{*}\smallsetminus U_{\beta}$. This finite subcover, together with $U_{\beta}$, covers the entire $X^{*}$. Therefore $X^{*}$ is compact.
@@ -1934,10 +1952,18 @@ Suppose $X$ and $Y$ are locally compact Hausdorff spaces, and $X^{*}$ and $Y^{*}
 Suppose $M$ is a noncompact manifold of dimension $n\geq 1$. Show that its one-point compactification is an $n$-manifold if and only if there exists a precompact open subset $U \subseteq M$ such that $M\smallsetminus U$ is homeomorphic to $\mathbb{R}^{n} \smallsetminus \mathbb{B}^{n}$. Given an example of a noncompact manifold whose one-point compactification is not a manifold. [Hint: you may find the inversion map $\mathscr{I}: \mathbb{R}^{n} \smallsetminus \mathbb{B}^{n} \to \overline{\mathbb{B}}^{n}$ defined by $\mathscr{I}(x) = x/\abs{x}^{2}$ useful.]
 \end{problem}
 
+% Unsolved
+
 \begin{proof}
-	Denote by $M^{*}$ the one-point compactification of $M$. We will prove that $M^{*}$ is second countable.
+	Denote by $M^{*}$ the one-point compactification of $M$.
 
 	Because $M$ is a manifold, $M$ has a countable basis ${(U_{i})}_{i\in\mathbb{N}}$ consisting of regular coordinate balls. $M$ is paracompact and Hausdorff so there is an indexed family ${(V_{i})}_{i\in\mathbb{N}}$ which is a locally finite open refinement of ${(U_{i})}_{i\in\mathbb{N}}$ such that $\overline{V_{i}} \subseteq U_{i}$ for each $i$ (Lemma~\ref{lemma:4.65}). Because $\overline{V_{i}} \subseteq U_{i} \subseteq \overline{U_{i}}$ and $\overline{U_{i}}$ is compact ($U_{i}$ is a regular coordinate ball) for each $i$, then $V_{i}$ is a precompact open set for each $i$. Therefore ${(V_{i})}_{i\in\mathbb{N}}$ is a countable basis of $M$ consisting of precompact open sets and this basis (as an indexed family) is locally finite.
+
+	$(\Longrightarrow)$ $M^{*}$ is an $n$-manifold.
+
+	$(\Longleftarrow)$ There exists a precompact open subset $U\subseteq M$ such that $M\smallsetminus U$ is homeomorphic to $\mathbb{R}^{n}\smallsetminus\mathbb{B}^{n}$.
+
+	\textbf{Counterexample.} $M = \set{1/n : n\in\mathbb{N}}$ is a noncompact 0-manifold (the open cover consisting of the singletons $\set{1/n}$ doesn't have any finite subcover). Define $M^{*} = M \cup \set{0}$ then $M^{*}$ is compact. $M^{*}$ is not an $n$-manifold for any $n \geq 1$ because every neighborhood of any point of $M^{*}$ is not homeomorphic to any open subset of $\mathbb{R}^{n}$ for any fixed $n\geq 1$. Moreover, every neighborhood of 0 in $M^{*}$ is not homeomorphic to any open subset of $\mathbb{R}^{0} = \set{0}$ (because every neighborhood of 0 in $M^{*}$ contains countably infinite points of $M^{*}$). Hence $M^{*}$ is not a 0-manifold, so $M^{*}$ is not a manifold.
 \end{proof}
 
 \begin{problem}{4-29}
@@ -1947,7 +1973,11 @@ Let $X$ be a complete metric space or a locally compact Hausdorff space. Show th
 \begin{proof}
 	Let $A$ be a nonempty countable closed subset of $X$.
 
-	If $X$ is a complete metric space then so is $A$ with the subspace topology. If is locally compact Hausdorff then so is $A$ with the subspace topology, according to Proposition 4.66. So $A$ is a complete metric space or a locally compact Hausdorff space.
+	If $X$ is a complete metric space, then $A$ is also a metric space with the subspace topology according to Exercise~\ref{exercise:3.3}. Let ${(p_{i})}$ be a Cauchy sequence in $A$ then ${(p_{i})}$ is a Cauchy sequence in $X$ so it converges in $X$. Because $A$ is closed and $X$ is first countable, then $A$ contains the limit of ${(p_{i})}$ according to the sequence lemma, which means ${(p_{i})}$ converges in $A$, so $A$ is complete. Therefore $A$ is a complete metric space.
+
+	If $X$ is locally compact Hausdorff then so is $A$ with the subspace topology, according to Proposition 4.66 (any open or closed subset of a locally compact Hausdorff space is a locally compact Hausdorff space with respect to the subspace topology).
+
+	Therefore $A$ is a complete metric space or a locally compact Hausdorff space, which means $A$ is a Baire space, according to Baire category theorem.
 
 	If $A$ is singleton then the only point of $A$ is isolated. Assume that $A$ has more than one element.
 
