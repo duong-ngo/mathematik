@@ -127,8 +127,11 @@ functional-analysis:
 spivak:
 	@$(MAKE) phase2/calculus-on-manifolds/main.pdf
 
-topological-manifolds:
+lee-topological-manifolds:
 	@$(MAKE) phase2/lee-topological-manifolds/main.pdf
+
+lee-smooth-manifolds:
+	@$(MAKE) phase2/lee-smooth-manifolds/main.pdf
 
 differential-geometry:
 	@$(MAKE) phase2/tapp-differential-geometry/main.pdf
