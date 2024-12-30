@@ -1492,7 +1492,7 @@ Suppose $G$ is a topological group.
 	\end{enumerate}
 \end{proof}
 
-\begin{problem}{4-16}
+\begin{problem}{4-16}\label{problem:4-16}
 A topological space is said to be \textbf{$\boldsymbol{\sigma}$-compact} if it can be expressed as a union of countably many compact subspaces. Show that a locally Euclidean Hausdorff space is a topological manifold if and only if it is $\sigma$-compact.
 \end{problem}
 
@@ -1955,7 +1955,7 @@ Suppose $M$ is a noncompact manifold of dimension $n\geq 1$. Show that its one-p
 % Unsolved
 
 \begin{proof}
-	Denote by $M^{*}$ the one-point compactification of $M$, where $M^{*} = M \cup \set{\infty}$.
+	Denote by $M^{*}$ the one-point compactification of $M$, where $M^{*} = M \cup \set{\infty}$. $M$ is locally compact Hausdorff so $M^{*}$ is compact Hausdorff, according to Problem~\ref{problem:4-23}.
 
 	Because $M$ is a manifold, $M$ has a countable basis ${(U_{i})}_{i\in\mathbb{N}}$ consisting of regular coordinate balls. $M$ is paracompact and Hausdorff so there is an indexed family ${(V_{i})}_{i\in\mathbb{N}}$ which is a locally finite open refinement of ${(U_{i})}_{i\in\mathbb{N}}$ such that $\overline{V_{i}} \subseteq U_{i}$ for each $i$ (Lemma~\ref{lemma:4.65}). Because $\overline{V_{i}} \subseteq U_{i} \subseteq \overline{U_{i}}$ and $\overline{U_{i}}$ is compact ($U_{i}$ is a regular coordinate ball) for each $i$, then $V_{i}$ is a precompact open set for each $i$. Therefore ${(V_{i})}_{i\in\mathbb{N}}$ is a countable basis of $M$ consisting of precompact open sets and this basis (as an indexed family) is locally finite.
 
@@ -2017,18 +2017,98 @@ Prove the following generalization of the gluing lemma: suppose $X$ is a topolog
 	Thus there exists a unique continuous map $f: X\to Y$ whose restriction to each $X_{\alpha}$ is $f_{\alpha}$.
 \end{proof}
 
+\begin{note}[Locally finite cover by precompact open sets]\label{note:star-finite-locally-finite-cover-by-precompact-open-sets}
+	Let $\mathcal{U}$ be a locally finite cover by precompact open sets of $X$. Then every $U\in\mathcal{U}$ intersects finitely many elements of $\mathcal{U}$.
+\end{note}
+
+\begin{proof}
+	$\mathcal{U}$ is locally finite so by Lemma 4.74, $\overline{\mathcal{U}} = \set{ \overline{U} : U\in\mathcal{U} }$ is also locally finite.
+
+	Let $U$ be a nonempty element of $\mathcal{U}$. For each $x\in \overline{U}$, there is a neighborhood $V_{x}$ of $x$ that intersects only finitely many elements of $\mathcal{U}$. The collection of these neighborhoods $V_{x}$ is an open cover of $\overline{U}$. $\overline{U}$ is compact so this collection has a finite subcover $\mathcal{W}$ that covers $\overline{U}$ (hence covers $U$). The set $\bigcup_{V_{x}\in\mathcal{W}} V_{x}$ intersects finitely many elements of $\mathcal{U}$ as $\mathcal{W}$ is finite and each $V_{x}\in\mathcal{W}$ intersects finitely many elements of $\mathcal{U}$. Moreover, $U \subseteq \bigcup_{V_{x}\in\mathcal{W}} V_{x}$ so $U$ intersects only finitely many elements of $\mathcal{U}$.
+\end{proof}
+
+\begin{note}\label{note:connected-chain}
+	Suppose $\mathcal{U}$ is an open cover of a connected space $X$. For every $U_{0}, U' \in \mathcal{U}$, there is a finite sequence $U_{0}, U_{1}, \ldots, U_{k}$ in $\mathcal{U}$ such that $U_{k} = U'$ and $U_{i-1}\cap U_{i} \ne \emptyset$ for $i = 1, \ldots, k$.
+\end{note}
+
+\begin{proof}
+	We define the relation $\sim$ on $X$ as follows:
+	\begin{quotation}
+		$x\sim y$ if and only if there exists a finite sequence $U_{0}, U_{1}, \ldots, U_{k}$ of sets in $\mathcal{U}$ such that $U_{i} \cap U_{i-1} \ne \varnothing$ for $i = 1, \ldots, k$ and $x\in U_{0}, y\in U_{k}$.
+	\end{quotation}
+
+	From this definition, we can prove that $\sim$ is an equivalence relation on $X$.
+
+	Let $x$ be a point of $X$. Consider the equivalence class ${[x]}_{\sim}$ of $x$.
+
+	Let $a$ be a point of ${[x]}_{\sim}$ then there is a finite sequence $U_{0}, U_{1}, \ldots, U_{k}$ of sets in $\mathcal{U}$ such that $U_{i} \cap U_{i-1} \ne \varnothing$ for $i = 1, \ldots, k$ and $x\in U_{0}, a\in U_{k}$. Any point of $U_{k}$ is equivalent to $x$ by the definition of $\sim$ so $U_{k}$ is a neighborhood of $a$ contained in ${[x]}_{\sim}$. Therefore ${[x]}_{\sim}$ is open.
+
+	Let $y$ be a point in the closure of ${[x]}_{\sim}$ then either
+	\begin{itemize}
+		\item $y$ is in ${[x]}_{\sim}$
+		\item or $y$ is not in ${[x]}_{\sim}$ then $y$ is a boundary point of ${[x]}_{\sim}$. There is an element $U$ of $\mathcal{U}$ containing $y$ (since $\mathcal{U}$ covers $X$). This element $U$ is a neighborhood of $y$ and $y$ is the boundary point of ${[x]}_{\sim}$ so it intersects ${[x]}_{\sim}$. Let $z$ be a point in this intersection then $x\sim z$ and $z\sim y$, which means $x\sim y$. Hence $y$ is in ${[x]}_{\sim}$.
+	\end{itemize}
+
+	Hence ${[x]}_{\sim}$ is equal to its closure, which means ${[x]}_{\sim}$ is closed.
+
+	${[x]}_{\sim}$ is a nonempty clopen subset of the connected space $X$ so ${[x]}_{\sim} = X$. Thus the result follows.
+\end{proof}
+
+\begin{note}\label{note:locally-finite-cover-by-precompact-open-sets-in-connected-spaces}
+	Locally finite cover by precompact open sets in a connected space is countable.
+\end{note}
+
+\begin{proof}
+	Let $\mathcal{U}$ be a locally finite cover of (nonempty) precompact open sets of a connected space $X$.
+
+	Choose $U_{0}$ in $\mathcal{U}$. Define $\mathcal{V}_{0} = \set{ U_{0} }$ and $\mathcal{V}_{n}$ recursively as follows:
+	\begin{align*}
+		\mathcal{V}_{n+1} := \set{ U\in\mathcal{U}: \text{there exists $V \in \mathcal{V}_{n}$ such that $V$ intersects $U$} }
+	\end{align*}
+
+	for every $n\geq 0$.
+
+	$\mathcal{V}_{0}$ is finite since it is a singleton. Assume that $\mathcal{V}_{n}$ is finite, then from Note~\ref{note:star-finite-locally-finite-cover-by-precompact-open-sets} and the definition of $\mathcal{V}_{n+1}$, it follows that $\mathcal{V}_{n+1}$ is finite. Hence $\mathcal{V}_{n}$ is finite for every nonnegative integer $n$.
+
+	Therefore $\mathcal{V} = \bigcup^{\infty}_{i=0}\mathcal{V}_{i}$ is countable. $\mathcal{V} \subseteq \mathcal{U}$ according to the definition of $\mathcal{V}_{n}$. Let $U\in \mathcal{U}$. According to Note~\ref{note:connected-chain}, there is a finite sequence $U_{0}, \ldots, U_{k}$ such that $U_{i-1}\cap U_{i}\ne \emptyset$ for $i = 1, \ldots, k$ and $U_{k} = U$ (the set $U_{0}$ is the same as what we have chosen initially). Therefore $U_{1} \in \mathcal{V}_{1}, U_{2} \in \mathcal{V}_{2}, \ldots, U_{k} \in \mathcal{V}_{k}$, which implies that $U\in \mathcal{V}$. Hence $\mathcal{U} \subseteq \mathcal{U}$. Thus $\mathcal{U}$ is countable as $\mathcal{U} = \mathcal{V}$.
+\end{proof}
+
 \begin{problem}{4-31}
 Suppose $X$ is Hausdorff, locally Euclidean of dimension $n$, and paracompact. Show that $X$ is an $n$-manifold if and only if it has countably many components, as follows.
 \begin{enumerate}[label={(\alph*)},itemsep=0pt]
 	\item Show that it suffices to assume $X$ is connected.
 	\item Show that $X$ has a locally finite cover $\mathscr{U}$ by precompact open sets that are $n$-manifolds.
-	\item Choose an arbitrary nonempty $U_{0} \in \mathscr{U}$, and say a set $U' \in \mathscr{U}$ is \textbf{finitely connected to $U_{0}$} if there is a finite sequence $U_{0}, U_{1}, \ldots, U_{k}$ of sets in $\mathscr{U}$ such that $U_{k} = U'$ and $U_{i} \cap U_{i-1} \ne \varnothing$ for $i = 1, \ldots, k$. Show that every nonempty element of $\mathscr{U}$ is finitely connected to $U_{0}$, and conclude that $\mathscr{U}$ is countable.
+	\item ($X$ is connected) Choose an arbitrary nonempty $U_{0} \in \mathscr{U}$, and say a set $U' \in \mathscr{U}$ is \textbf{finitely connected to $U_{0}$} if there is a finite sequence $U_{0}, U_{1}, \ldots, U_{k}$ of sets in $\mathscr{U}$ such that $U_{k} = U'$ and $U_{i} \cap U_{i-1} \ne \varnothing$ for $i = 1, \ldots, k$. Show that every nonempty element of $\mathscr{U}$ is finitely connected to $U_{0}$, and conclude that $\mathscr{U}$ is countable.
 \end{enumerate}
 \end{problem}
 
-% Unsolved
-
 \begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item $X$ is locally Euclidean of dimension $n$ so $X$ is locally path-connected (hence locally connected).
+
+		      Assume that the statement holds for connected manifolds.
+
+		      If $X$ is an $n$-manifold then it has countably many components, according to Problem~\ref{problem:4-9}. Conversely, if $X$ has countably many components, then each component is Hausdorff, locally Euclidean of dimension $n$. Every component of $X$ is a closed subset of $X$, $X$ is paracompact so every closed subset of it is also paracompact, so each component of $X$ is paracompact (Problem~\ref{problem:4-32}). Therefore each component of $X$ is Hausdorff, locally Euclidean of dimension $n$, and paracompact, which implies $X$ is an $n$-manifold due to the assumption.
+
+		      Hence it suffices to assume $X$ is connected.
+		\item $X$ is locally Euclidean of dimension $n$ so $X$ has a cover $\mathscr{B}$ consisting of open sets that are homeomorphic to $\mathbb{B}^{n}$ where $\mathbb{B}^{n}$ is the open $n$-ball.
+
+		      For each $U\in \mathscr{B}$, there is a homeomorphism $\varphi_{U}: U \to \mathbb{B}^{n}$ and the collection of preimages $\set{ \varphi_{U}^{-1}(B_{r}(0)) : 0 < r < 1 }$ is an open cover of $U$ and consists of precompact open sets, since $\overline{\varphi_{U}^{-1}(B_{r}(0))} = \varphi_{U}^{-1}(\bar{B}_{r}(0))$ is compact for every $0 < r < 1$.
+
+		      Hence $X$ has an open cover of precompact open sets
+		      \begin{align*}
+			      \mathscr{C} = \set{ \varphi_{U}^{-1}(B_{r}(0)) : 0 < r < 1, U\in \mathscr{B} }
+		      \end{align*}
+
+		      and each of these sets is an $n$-manifold because $\varphi_{U}^{-1}(B_{r}(0))$ is homeomorphic to $B_{r}(0)$.
+
+		      $X$ is paracompact so $\mathscr{C}$ has a locally finite open refinement $\mathscr{U}$. Each $U\in\mathscr{U}$ is an open subset of some $A\in \mathscr{C}$. $A$ is an $n$-manifold and precompact so $U$ is an $n$-manifold and precompact. Hence $\mathscr{U}$ is a locally finite cover of $X$ by precompact open sets that are $n$-manifolds.
+		\item From the construction in part (ii), $\mathscr{U}$ is a locally finite cover of $X$ by precompact open sets that are connected $n$-manifolds. Let $U_{0}, U'$ be nonempty elements of $\mathscr{U}$.
+
+		      Every nonempty element of $\mathscr{U}$ is finitely connected to $U_{0}$ according to Note~\ref{note:connected-chain}. According to Note~\ref{note:locally-finite-cover-by-precompact-open-sets-in-connected-spaces}, $\mathscr{U}$ is countable.
+	\end{enumerate}
+
+	$\mathscr{U}$ is countable and consists of precompact open sets so $X$ is covered by countably many compact sets ($\overline{U}$'s where $U \in \mathscr{U}$), which means $X$ is $\sigma$-compact. From Problem~\ref{problem:4-16}, we conclude that $X$ is second-countable, hence an $n$-manifold.
 \end{proof}
 
 \begin{problem}{4-32}\label{problem:4-32}
@@ -2038,7 +2118,7 @@ Prove that every closed subspace of a paracompact space is paracompact.
 \begin{proof}
 	Suppose $X$ is a paracompact space and $K$ is a closed subset of $X$.
 
-	Let $\set{ U_{\alpha}: \alpha\in A }$ be an open cover of $K$ in the subspace $K$. For each $\alpha\in A$, there is an open subset $V_{\alpha}\subseteq X$ such that $U_{\alpha} = V_{\alpha}\cap K$. The collection $\set{ V_{\alpha} : \alpha\in K } \cup \set{ X\smallsetminus K }$ is an open cover of the paracompact space $X$. Therefore this open cover has a locally finite open refinement $\mathcal{O}$. In the open cover $\mathcal{O}$, let $\mathscr{U} = \set{ U \in \mathcal{O} : \text{$U \subseteq V_{\alpha}$ for some $\alpha\in A$} }$ then $\mathscr{U}$ is a locally finite open cover of $K$. Moreover, for each $U\in \mathscr{U}$, $U \subseteq V_{\alpha}$ for some $\alpha\in A$ and $U\subseteq K$ so $U \subseteq U_{\alpha} = V_{\alpha}\cap K$. Therefore $\mathscr{U}$ is a locally finite open refinement of the open cover $\set{ U_{\alpha}: \alpha\in A }$ of $K$. Hence $K$, as a closed subspace of $X$, is paracompact.
+	Let $\set{ U_{\alpha}: \alpha\in A }$ be an open cover of $K$ in the subspace $K$. For each $\alpha\in A$, there is an open subset $V_{\alpha}\subseteq X$ such that $U_{\alpha} = V_{\alpha}\cap K$ (due to the definition of subspace topology). The collection $\set{ V_{\alpha} : \alpha\in K } \cup \set{ X\smallsetminus K }$ is an open cover of the paracompact space $X$. Therefore this open cover has a locally finite open refinement $\mathcal{O}$. In the open cover $\mathcal{O}$, let $\mathscr{U} = \set{ U \in \mathcal{O} : \text{$U \subseteq V_{\alpha}$ for some $\alpha\in A$} }$ then $\mathscr{U}$ is a locally finite open cover of $K$. Moreover, for each $U\in \mathscr{U}$, $U \subseteq V_{\alpha}$ for some $\alpha\in A$ and $U\subseteq K$ so $U \subseteq U_{\alpha} = V_{\alpha}\cap K$. Therefore $\mathscr{U}$ is a locally finite open refinement of the open cover $\set{ U_{\alpha}: \alpha\in A }$ of $K$. Hence $K$, as a closed subspace of $X$, is paracompact.
 \end{proof}
 
 \begin{problem}{4-33}\label{problem:4-33}
