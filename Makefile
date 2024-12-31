@@ -106,8 +106,11 @@ mira:
 multilinear-algebra:
 	@$(MAKE) phase1/werner-greub-multilinear-algebra/main.pdf
 
-general-topology:
+munkres-topology:
 	@$(MAKE) phase1/james-munkres-topology/main.pdf
+
+dugundji-topology:
+	@$(MAKE) phase1/james-dugundji-topology/main.pdf
 
 henle-topology:
 	@$(MAKE) phase1/henle-combinatorial-topology/main.pdf
@@ -133,7 +136,7 @@ lee-topological-manifolds:
 lee-smooth-manifolds:
 	@$(MAKE) phase2/lee-smooth-manifolds/main.pdf
 
-differential-geometry:
+tapp-differential-geometry:
 	@$(MAKE) phase2/tapp-differential-geometry/main.pdf
 
 greub-linear:
