@@ -118,6 +118,9 @@ henle-topology:
 real-analysis:
 	@$(MAKE) phase1/vladimir-zorich-mathematical-analysis/main.pdf
 
+tapp-differential-geometry:
+	@$(MAKE) phase1/tapp-differential-geometry/main.pdf
+
 complex-analysis:
 	@$(MAKE) phase2/ahlfors-complex-analysis/main.pdf
 
@@ -135,9 +138,6 @@ lee-topological-manifolds:
 
 lee-smooth-manifolds:
 	@$(MAKE) phase2/lee-smooth-manifolds/main.pdf
-
-tapp-differential-geometry:
-	@$(MAKE) phase2/tapp-differential-geometry/main.pdf
 
 greub-linear:
 	@$(MAKE) phase2/greub-linear/main.pdf
