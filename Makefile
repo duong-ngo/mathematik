@@ -112,9 +112,6 @@ munkres-topology:
 dugundji-topology:
 	@$(MAKE) phase1/james-dugundji-topology/main.pdf
 
-henle-topology:
-	@$(MAKE) phase1/henle-combinatorial-topology/main.pdf
-
 real-analysis:
 	@$(MAKE) phase1/vladimir-zorich-mathematical-analysis/main.pdf
 
@@ -145,5 +142,5 @@ greub-linear:
 greub-multilinear:
 	@$(MAKE) phase2/greub-multilinear/main.pdf
 
-ode:
+hirsch-smale-ode:
 	@$(MAKE) phase2/hirsch-smale-de-ds-la/main.pdf
