@@ -1,0 +1,191 @@
+% chktex-file 8
+\chapter{Cell Complexes}
+
+\section{Cell Complexes and CW Complexes}
+
+\begin{prop}{5.1}
+	If $D\subseteq \mathbb{R}^{n}$ is a compact convex subset with nonempty interior, then $D$ is a closed $n$-cell and its interior is an open $n$-cell. In fact, given any point $p \in \operatorname{Int}D$, there exists a homeomorphism $F: \overline{B}^{n} \to D$ that sends 0 to $p$, $\mathbb{B}^{n}$ to $\operatorname{Int}D$, and $\mathbb{S}^{n-1}$ to $\partial D$.
+\end{prop}
+
+\begin{proof}
+	The proposition is true by definition when $n = 0$, so assume that $n > 0$.
+
+	Let $p$ be an interior point of $D$. Since the translation $x\mapsto x - p$ is a homeomorphism of $\mathbb{R}^{n}$ with itself, we can assume $p = 0 \in \operatorname{Int} D$. $p \in \operatorname{Int} D$ so there is $\varepsilon > 0$ such that $B_{\varepsilon}(0) \subseteq \operatorname{Int} D \subseteq D$. The dilation $x\mapsto x/\varepsilon$ is a homeomorphism of $\mathbb{R}^{n}$ with itself, so we can assume $\mathbb{B}^{n} = B_{1}(0) \subseteq D$.
+
+	We will show that each closed ray starting at the origin intersects the boundary $\partial D$ in exactly one point.
+
+	Let $R$ be a closed ray starting at the origin. Because $D$ is compact, its intersection with $R$ is compact. From the extremum value theorem, there is a point $x_{0} \in R\cap D$ that maximizes the distance to the origin. Any point other than $x_{0}$ on the line segment connecting $0$ and $x_{0}$ is of the form $\lambda x_{0}$ for some $0\leq \lambda < 1$. Consider the open ball $B_{1-\lambda}(\lambda x_{0})$ and an arbitrary point $z$ in it. The homothety with center $x_{0}$ and factor $1 - \lambda$ maps $z$ to $y = \dfrac{z - \lambda x_{0}}{1 - \lambda}$. $z \in B_{1 - \lambda}(\lambda x_{0})$ so $\abs{z - \lambda x_{0}} < \abs{1 - \lambda}$, which means $\abs{y} < 1$, so $y \in B_{1}(0) \subseteq D$. Because $y, x_{0} \in D$ and $D$ is convex, $z = (1 - \lambda)y + \lambda x_{0}$ is also in $D$. Therefore $B_{1 - \lambda}(\lambda x_{0}) \subseteq D$, which means $\lambda x_{0}$ is an interior point of $D$.
+
+	We define a map $f: \partial D \to \mathbb{S}^{n-1}$ by $f(x) = x/\abs{x}$. $f$ is a restriction of a continuous map so $f$ is continuous. $\partial D$ is compact and $\mathbb{S}^{n-1}$ is Hausdorff so $f$ is a closed map, according to the closed map lemma. $f$ is bijective due to the previous paragraph. Therefore $f$ is a homeomorphism.
+
+	Define $F: \bar{\mathbb{B}}^{n} \to D$ by
+	\begin{align*}
+		F(x) = \begin{cases}
+			       \abs{x} f^{-1}\left(\frac{x}{\abs{x}}\right), & x\ne 0; \\
+			       0                                             & x = 0.
+		       \end{cases}
+	\end{align*}
+
+	$F$ is continuous on $\bar{\mathbb{B}}^{n}\smallsetminus\set{0}$ because $f^{-1}$ and $x\mapsto \abs{x}$ are continuous. $\partial D$ is compact in $\mathbb{R}^{n}$ so it is bounded, so there exists $R > 0$ such that $d(a, b) < R$ for any $a, b \in \partial D$. For every $x \ne 0$
+	\begin{align*}
+		\abs{F(x) - 0} = \abs{x}\abs{f^{-1}\left(\frac{x}{\abs{x}}\right)} = \abs{x}\abs{f^{-1}\left(\frac{x}{\abs{x}}\right) - f^{-1}(0)} < R\abs{x}
+	\end{align*}
+
+	so for every $\varepsilon > 0$, $\abs{F(x) - 0} < \varepsilon$ whenever $\abs{x - 0} < \dfrac{\varepsilon}{R}$. Hence $F$ is continuous at $0$. Therefore $F$ is continuous. $F$ is closed due to the closed map lemma.
+
+	If $F(x) = F(0)$ then $x = 0$ due to the definition. If $F(x) = F(y)$ in which $x, y\ne 0$ then $\abs{x}f^{-1}(x/\abs{x}) = \abs{y}f^{-1}(y/\abs{y})$. $x, y$ must be on the same closed ray from the origin because $F$ maps distinct closed rays to distinct closed rays. Therefore $x/\abs{x} = y/\abs{y}$ and $\abs{x} = \abs{y}$, which implies $x = y$. Hence $f$ is injective. $F$ is surjective because every $y\in D$ lies on a closed ray from the origin. So $F$ is bijective.
+
+	Therefore $F$ is a homeomorphism.
+\end{proof}
+
+\subsection{Cell Decompositions}
+
+A \textbf{cell decomposition of $X$} is a partition $\mathscr{E}$ of $X$ into subspaces that are open cells of various dimensions, such that
+\begin{itemize}
+	\item for each cell $e \in \mathscr{E}$ of dimension $n\geq 1$, there exists a continuous map $\Phi$ from some closed $n$-cell $D$ into $X$ (called a \textbf{characteristic map for $e$}) that restricts to a homeomorphism from $\operatorname{Int} D$ onto $e$ and maps $\partial D$ into the union of all cells of $\mathscr{E}$ of dimensions strictly less than $n$.
+\end{itemize}
+
+A \textbf{cell complex} is a Hausdorff space $X$ together with a specific cell decomposition of $X$.
+
+Each cell $e \in \mathscr{E}$ needs not to be open in $X$.
+
+\subsection{CW Complexes}
+
+Suppose $X$ is a topological space, and $\mathscr{B}$ is any family of subspaces of $X$ whose union is $X$. The topology of $X$ is \textbf{coherent with $\mathscr{B}$} means a subset $U \subseteq X$ is open in $X$ if and only if its intersection with each $B\in\mathscr{B}$ is open in $B$. This definition is equivalent to that $U$ is closed in $X$ if and only if $U\cap B$ is closed in $B$ for each $B \in \mathscr{B}$.
+
+A space is compactly generated if and only if its topology is coherent with the collection of all of its compact subspaces.
+
+\begin{exercise}{5.3}
+	Prove Proposition 5.2.
+
+	Suppose $X$ is a topological space whose topology is coherent with a family $\mathscr{B}$ of subspaces.
+	\begin{enumerate}[label={(\alph*)}]
+		\item If $Y$ is another topological space, then a map $f: X\to Y$ is continuous if and only if $f\vert_{B}$ is continuous for every $B\in \mathscr{B}$.
+		\item The map $\coprod_{B\in\mathscr{B}}B \to X$ induced by inclusion of each set $B\xhookrightarrow{} X$ is a quotient map.
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item If $f: X\to Y$ is continuous then the restriction map $f\vert_{B}$ is continuous for every $B \in \mathscr{B}$.
+
+		      Suppose $f\vert_{B}$ is continuous for every $B \in \mathscr{B}$. Let $V$ be an open subset of $Y$. For every $B \in \mathscr{B}$, ${(f\vert_{B})}^{-1}(V) = {(f\vert_{B})}^{-1}(V \cap f(B))$ is open in $B$ because $f\vert_{B}$ is continuous. Moreover, $f^{-1}(V) \cap B = {(f\vert_{B})}^{-1}(V)$ so $f^{-1}(V) \cap B$ is open in $B$ for every $B \in \mathscr{B}$. $X$ is coherent with $\mathscr{B}$ so $f^{-1}(V)$ is open in $X$. Hence $f$ is continuous.
+		\item Denote the given map by $q$. $q$ is surjective because for every $x\in X$, there exists $B \in \mathscr{B}$ such that $x \in B$. Let $U$ be a subset of $X$ then
+		      \begin{align*}
+			      q^{-1}(U) = \coprod_{B\in\mathscr{B}} (U\cap B).
+		      \end{align*}
+
+		      If $U$ is open in $X$ then $U\cap B$ is open in $B$ for every $B\in\mathscr{B}$, so $q^{-1}(U)$ is open in $\coprod_{B\in\mathscr{B}}B$. Conversely, if $q^{-1}(U)$ is open in $\coprod_{B\in\mathscr{B}}B$ then $U\cap B$ is open in $B$ for every $B\in\mathscr{B}$, which implies $U$ is open in $X$, according to the definition of coheherent topology.
+
+		      Hence $U$ is open in $X$ if and only if $q^{-1}(U)$ is open in $\coprod_{B\in\mathscr{B}}B$. Together with $q$ being surjective, we conclude that $q$ is a quotient map.
+	\end{enumerate}
+\end{proof}
+
+A \textbf{CW complex} is cell complex $(X, \mathscr{E})$ such that
+\begin{itemize}
+	\item [(C)] The closure of each cell is contained in a union of finitely many cells. This property is called \textbf{closure finiteness}.
+	\item [(W)] The topology of $X$ is coherent with the family of closed subspaces $\set{ \overline{e} : e \in \mathscr{E} }$. This property is called \textbf{weak topology}.
+\end{itemize}
+
+Locally finite complexes (and thus all finite ones), (C) and (W) are automatic.
+
+\begin{prop}{5.4}
+	Let $X$ be a Hausdorff space, and let $\mathscr{E}$ be a cell decomposition of $X$. If $\mathscr{E}$ is locally finite, then it is a CW decomposition.
+\end{prop}
+
+\begin{quotation}
+	We don't really use the Hausdorff property. We need the Hausdorff property only to follow the definition of cell complexes in the book.
+\end{quotation}
+
+\begin{proof}
+	Suppose that $(X, \mathscr{E})$ is a cell complex and $\mathscr{E}$ is locally finite.
+
+	For each $e\in \mathscr{E}$, every point of $\overline{e}$ has a neighborhood that intersects only finitely many cells in $\mathscr{E}$. $\overline{e}$ is compact so it is covered by finitely many such neighborhoods. Therefore $\overline{e}$ is contained in a union of finitely many cells.
+
+	Let $A \subseteq X$ be a subset whose intersection with $\overline{e}$ is closed in $\overline{e}$ for each $e\in \mathscr{E}$. Let $x \in X\smallsetminus A$. $\set{ \overline{e} : e\in\mathscr{E} }$ is locally finite according to Lemma 4.74, so there exists a neighborhood $W$ of $x$ that intersects the closure of only finitely many cells, say $\overline{e}_{1}, \ldots, \overline{e}_{m}$. $A \cap \overline{e}_{i}$ is closed in $\overline{e}_{i}$ and thus in $X$ (Exercise~\ref{exercise:3.6}), then
+	\begin{align*}
+		W\smallsetminus A = W \smallsetminus \bigcup^{m}_{i=1}(A\cap \overline{e}_{i})
+	\end{align*}
+
+	is a neighborhood of $x$ contained in $X\smallsetminus A$. Because $x$ is an arbitrary point of $X\smallsetminus A$, it follows that $X\smallsetminus A$ is open in $X$, so $A$ is closed in $X$. Therefore the topology of $X$ is coherent with $\set{ \overline{e} : e \in \mathscr{E} }$.
+
+	Thus $\mathscr{E}$ is a CW decomposition.
+\end{proof}
+
+Suppose $X$ is a CW complex. If there is an integer $n$ such that all the cells of $X$ have dimension at most $n$, then we say $X$ is \textbf{finite-dimensional}; otherwise, it is \textbf{infinite-dimensional}. If it is finite-dimensional, the \textbf{dimension of $X$} is the largest $n$ such that $X$ contains at least one $n$-cell. (The fact that this is well-defined depends on the theorem of invariance of dimension.) However, a finite complex is always finite-dimensional.
+
+\section{Topological Properties of CW Complexes}
+
+\subsection{Inductive Construction of CW Complexes}
+
+\subsection{CW Complexes as Manifolds}
+
+\section{Classification of 1-Dimensional Manifolds}
+
+\section{Simplicial Complexes}
+
+\subsection{Simplicial Maps}
+
+\subsection{Abstract Simplicial Complexes}
+
+\section*{Problems}\addcontentsline{toc}{section}{Problems}
+
+\begin{problem}{5-1}\label{problem:5-1}
+Suppose $D$ and $D'$ are closed cells (not necessarily of the same dimension).
+\begin{enumerate}[label={(\alph*)}]
+	\item Show that every continuous map $f: \partial D \to \partial D'$ extends to a continuous map $F: D \to D'$, with $F(\operatorname{Int} D) \subseteq \operatorname{Int} D'$.
+	\item Given points $p \in \operatorname{Int} D$ and $p' \in \operatorname{Int} D'$, show that $F$ can be chosen to take $p$ to $p'$.
+	\item Show that if $f$ is a homeomorphism, then $F$ can also be chosen to be a homeomorphism.
+\end{enumerate}
+\end{problem}
+
+\begin{problem}{5-2}\label{problem:5-2}
+\end{problem}
+
+\begin{problem}{5-3}\label{problem:5-3}
+\end{problem}
+
+\begin{problem}{5-4}\label{problem:5-4}
+\end{problem}
+
+\begin{problem}{5-5}\label{problem:5-5}
+\end{problem}
+
+\begin{problem}{5-6}\label{problem:5-6}
+\end{problem}
+
+\begin{problem}{5-7}\label{problem:5-7}
+\end{problem}
+
+\begin{problem}{5-8}\label{problem:5-8}
+\end{problem}
+
+\begin{problem}{5-9}\label{problem:5-9}
+\end{problem}
+
+\begin{problem}{5-10}\label{problem:5-10}
+\end{problem}
+
+\begin{problem}{5-11}\label{problem:5-11}
+\end{problem}
+
+\begin{problem}{5-12}\label{problem:5-12}
+\end{problem}
+
+\begin{problem}{5-13}\label{problem:5-13}
+\end{problem}
+
+\begin{problem}{5-14}\label{problem:5-14}
+\end{problem}
+
+\begin{problem}{5-15}\label{problem:5-15}
+\end{problem}
+
+\begin{problem}{5-16}\label{problem:5-16}
+\end{problem}
+
+\begin{problem}{5-17}\label{problem:5-17}
+\end{problem}
+
+\begin{problem}{5-18}\label{problem:5-18}
+\end{problem}
