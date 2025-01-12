@@ -3,8 +3,8 @@
 
 \section{Cell Complexes and CW Complexes}
 
-\begin{prop}{5.1}
-	If $D\subseteq \mathbb{R}^{n}$ is a compact convex subset with nonempty interior, then $D$ is a closed $n$-cell and its interior is an open $n$-cell. In fact, given any point $p \in \operatorname{Int}D$, there exists a homeomorphism $F: \overline{B}^{n} \to D$ that sends 0 to $p$, $\mathbb{B}^{n}$ to $\operatorname{Int}D$, and $\mathbb{S}^{n-1}$ to $\partial D$.
+\begin{prop}{5.1}\label{prop:5.1}
+	If $D\subseteq \mathbb{R}^{n}$ is a compact convex subset with nonempty interior, then $D$ is a closed $n$-cell and its interior is an open $n$-cell. In fact, given any point $p \in \operatorname{Int}D$, there exists a homeomorphism $F: \overline{\mathbb{B}}^{n} \to D$ that sends 0 to $p$, $\mathbb{B}^{n}$ to $\operatorname{Int}D$, and $\mathbb{S}^{n-1}$ to $\partial D$.
 \end{prop}
 
 \begin{proof}
@@ -18,7 +18,7 @@
 
 	We define a map $f: \partial D \to \mathbb{S}^{n-1}$ by $f(x) = x/\abs{x}$. $f$ is a restriction of a continuous map so $f$ is continuous. $\partial D$ is compact and $\mathbb{S}^{n-1}$ is Hausdorff so $f$ is a closed map, according to the closed map lemma. $f$ is bijective due to the previous paragraph. Therefore $f$ is a homeomorphism.
 
-	Define $F: \bar{\mathbb{B}}^{n} \to D$ by
+	Define $F: \overline{\mathbb{B}}^{n} \to D$ by
 	\begin{align*}
 		F(x) = \begin{cases}
 			       \abs{x} f^{-1}\left(\frac{x}{\abs{x}}\right), & x\ne 0; \\
@@ -26,7 +26,7 @@
 		       \end{cases}
 	\end{align*}
 
-	$F$ is continuous on $\bar{\mathbb{B}}^{n}\smallsetminus\set{0}$ because $f^{-1}$ and $x\mapsto \abs{x}$ are continuous. $\partial D$ is compact in $\mathbb{R}^{n}$ so it is bounded, so there exists $R > 0$ such that $d(a, b) < R$ for any $a, b \in \partial D$. For every $x \ne 0$
+	$F$ is continuous on $\overline{\mathbb{B}}^{n}\smallsetminus\set{0}$ because $f^{-1}$ and $x\mapsto \abs{x}$ are continuous. $\partial D$ is compact in $\mathbb{R}^{n}$ so it is bounded, so there exists $R > 0$ such that $d(a, b) < R$ for any $a, b \in \partial D$. For every $x \ne 0$
 	\begin{align*}
 		\abs{F(x) - 0} = \abs{x}\abs{f^{-1}\left(\frac{x}{\abs{x}}\right)} = \abs{x}\abs{f^{-1}\left(\frac{x}{\abs{x}}\right) - f^{-1}(0)} < R\abs{x}
 	\end{align*}
@@ -139,6 +139,26 @@ Suppose $D$ and $D'$ are closed cells (not necessarily of the same dimension).
 \end{enumerate}
 \end{problem}
 
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item We prove a particular case first: $D = \overline{\mathbb{B}}^{n}$ and $D' = \overline{\mathbb{B}}^{m}$. A map $g: D\to D'$ is defined by $g(0) = 0$, and for every $x \in D$ other than 0
+		      \begin{align*}
+			      g(x) = \abs{x}\cdot f\left(\frac{x}{\abs{x}}\right).
+		      \end{align*}
+
+		      $g$ is continuous, $g\vert_{\partial \overline{\mathbb{B}}^{n}} = f$ and $g(\mathbb{B}^{n}) \subseteq \mathbb{B}^{m}$ because $\abs{g(x)} < 1$ for every $x \in \mathbb{B}^{n}$. We will use this construction to prove the general case.
+
+		      Now assume that $D$ is a closed $m$-cell and $D'$ is a closed $n$-cell. According to Proposition~\ref{prop:5.1}, there are homeomorphisms $\varphi: \overline{\mathbb{B}}^{n} \to D$ and $\varphi': \overline{\mathbb{B}}^{m} \to D'$ such that $\varphi$ maps $\mathbb{B}^{n}$ to $\operatorname{Int} D$, $\varphi'$ maps $\mathbb{B}^{m}$ to $\operatorname{Int} D'$.
+
+		      ${(\varphi')}^{-1}\circ f\circ \varphi$ is a continuous map from $\partial \overline{\mathbb{B}}^{n}$ to $\partial \overline{\mathbb{B}}^{m}$, so it extends to a continuous map $g: \overline{\mathbb{B}}^{n} \to \overline{\mathbb{B}}^{m}$ such that $g(\mathbb{B}^{n}) \subseteq \mathbb{B}^{m}$. Define $F = {(\varphi')}\circ g\circ \varphi^{-1}$ then $F: D \to D'$ is continuous, $F\vert_{\partial D} = f$ and
+		      \begin{align*}
+			      F(\operatorname{Int} D) = (\varphi'\circ g\circ \varphi^{-1})(\operatorname{Int} D) = {(\varphi' \circ g)}(\mathbb{B}^{n}) = \varphi'(g(\mathbb{B}^{n})) \subseteq \varphi'(\mathbb{B}^{m}) = \operatorname{Int} D'
+		      \end{align*}
+		\item This follows from part (a) and Proposition~\ref{prop:5.1}.
+		\item If $f$ is a homeomorphism, we choose $g$ as given in part (a) then $g, F$ are homeomorphisms.
+	\end{enumerate}
+\end{proof}
+
 \begin{problem}{5-2}\label{problem:5-2}
 \end{problem}
 
@@ -152,7 +172,33 @@ Suppose $D$ and $D'$ are closed cells (not necessarily of the same dimension).
 \end{problem}
 
 \begin{problem}{5-6}\label{problem:5-6}
+Suppose $X$ is a topological space. Show that the topology of $X$ is coherent with each of the following collections of subspaces of $X$:
+\begin{enumerate}[label={(\alph*)}]
+	\item Any open cover of $X$.
+	\item Any locally finite closed cover of $X$.
+\end{enumerate}
 \end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item Let $\mathscr{U}$ be an open cover of $X$ and $V$ a subset of $X$.
+
+		      If $V$ is open in $X$ then $V\cap U$ is open in $U$ for each $U\in\mathscr{U}$. Otherwise, if $V\cap U$ is open in $U$ for each $U\in\mathscr{U}$ then $V\cap U$ is open in $X$ for each $U\in\mathscr{U}$ (Exercise~\ref{exercise:3.6}), so $V = \bigcup_{U\in\mathscr{U}}(V\cap U)$ is open in $X$.
+
+		      Hence the topology of $X$ is coherent with any open cover of $X$.
+		\item Let $\mathscr{U}$ be a locally finite closed cover of $X$ and $V$ a subset of $X$.
+
+		      If $V$ is closed in $X$ then $V\cap U$ is closed in $U$ for each $U\in\mathscr{U}$. Conversely, suppose that $V\cap U$ is closed in $U$ for each $U\in\mathscr{U}$. $\mathscr{U}$ is locally finite so the collection $\set{ V\cap U : U\in\mathscr{U} }$ is also locally finite.
+		      \begin{align*}
+			      V & = \bigcup_{U\in\mathscr{U}} (V\cap U)                                                                                                        \\
+			        & = \bigcup_{U\in\mathscr{U}} \overline{V\cap U}   & \text{($V\cap U$ is closed in $U$, thus closed in $X$)}                                   \\
+			        & = \overline{\bigcup_{U\in\mathscr{U}} (V\cap U)} & \text{(Lemma 4.76 for the locally finite collection $\set{ V\cap U : U\in\mathscr{U} }$)} \\
+			        & = \overline{V}.
+		      \end{align*}
+
+		      So $V$ is closed in $X$. Hence the topology of $X$ is coherent with any locally finite closed cover of $X$.
+	\end{enumerate}
+\end{proof}
 
 \begin{problem}{5-7}\label{problem:5-7}
 \end{problem}
