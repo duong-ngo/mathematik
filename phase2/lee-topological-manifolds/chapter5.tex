@@ -130,6 +130,21 @@ Suppose $X$ is a CW complex. If there is an integer $n$ such that all the cells 
 
 \section*{Problems}\addcontentsline{toc}{section}{Problems}
 
+\begin{note}\label{note:closed-cell-homeomorphism}
+	Suppose $D$ is a closed $n$-cell ($n\geq 1$) and $p\in \operatorname{Int} D$ then there is a homeomorphism $\varphi: D \to \overline{\mathbb{B}}^{n}$ such that $\varphi(\operatorname{Int} D) = \mathbb{B}^{n}$, $\varphi(\partial D) = \partial \overline{\mathbb{B}}^{n}$, and $\varphi(p) = 0$.
+\end{note}
+
+\begin{proof}
+	Suppose $D$ is a closed $n$-cell. From the definition of closed $n$-cell, there exists a homeomorphism $\psi: D \to \overline{\mathbb{B}}^{n}$. Therefore
+	\begin{align*}
+		\psi(\operatorname{Int} D) & = \operatorname{Int} \overline{\mathbb{B}}^{n} = \mathbb{B}^{n}, \\
+		\psi(\partial D)           & = \partial \overline{\mathbb{B}}^{n},                            \\
+		\psi(p)                    & \in \mathbb{B}^{n}.
+	\end{align*}
+
+	Since $\overline{\mathbb{B}}^{n}$ is a convex closed subset of $\mathbb{R}^{n}$ with nonempty interior, there is a homeomorphism $f: \overline{\mathbb{B}}^{n} \to \overline{\mathbb{B}}^{n}$ such that $f(\psi(p)) = 0$, according to Proposition~\ref{prop:5.1}. Define $\varphi = f\circ \psi$, we obtain a homeomorphism $\varphi: D \to \overline{\mathbb{B}}^{n}$ such that $\varphi(p) = f(\psi(p)) = 0$, $\varphi(\operatorname{Int} D) = \mathbb{B}^{n}$, $\varphi(\partial D) = \partial \overline{\mathbb{B}}^{n}$.
+\end{proof}
+
 \begin{problem}{5-1}\label{problem:5-1}
 Suppose $D$ and $D'$ are closed cells (not necessarily of the same dimension).
 \begin{enumerate}[label={(\alph*)}]
@@ -148,27 +163,104 @@ Suppose $D$ and $D'$ are closed cells (not necessarily of the same dimension).
 
 		      $g$ is continuous, $g\vert_{\partial \overline{\mathbb{B}}^{n}} = f$ and $g(\mathbb{B}^{n}) \subseteq \mathbb{B}^{m}$ because $\abs{g(x)} < 1$ for every $x \in \mathbb{B}^{n}$. We will use this construction to prove the general case.
 
-		      Now assume that $D$ is a closed $m$-cell and $D'$ is a closed $n$-cell. According to Proposition~\ref{prop:5.1}, there are homeomorphisms $\varphi: \overline{\mathbb{B}}^{n} \to D$ and $\varphi': \overline{\mathbb{B}}^{m} \to D'$ such that $\varphi$ maps $\mathbb{B}^{n}$ to $\operatorname{Int} D$, $\varphi'$ maps $\mathbb{B}^{m}$ to $\operatorname{Int} D'$.
+		      Now assume that $D$ is a closed $m$-cell and $D'$ is a closed $n$-cell. Due to the definition of closed cell and the theorem of the invariance of the boundary, there are homeomorphisms $\varphi: \overline{\mathbb{B}}^{n} \to D$ and $\varphi': \overline{\mathbb{B}}^{m} \to D'$ such that $\varphi$ maps $\mathbb{B}^{n}$ to $\operatorname{Int} D$, $\varphi'$ maps $\mathbb{B}^{m}$ to $\operatorname{Int} D'$.
 
 		      ${(\varphi')}^{-1}\circ f\circ \varphi$ is a continuous map from $\partial \overline{\mathbb{B}}^{n}$ to $\partial \overline{\mathbb{B}}^{m}$, so it extends to a continuous map $g: \overline{\mathbb{B}}^{n} \to \overline{\mathbb{B}}^{m}$ such that $g(\mathbb{B}^{n}) \subseteq \mathbb{B}^{m}$. Define $F = {(\varphi')}\circ g\circ \varphi^{-1}$ then $F: D \to D'$ is continuous, $F\vert_{\partial D} = f$ and
 		      \begin{align*}
-			      F(\operatorname{Int} D) = (\varphi'\circ g\circ \varphi^{-1})(\operatorname{Int} D) = {(\varphi' \circ g)}(\mathbb{B}^{n}) = \varphi'(g(\mathbb{B}^{n})) \subseteq \varphi'(\mathbb{B}^{m}) = \operatorname{Int} D'
+			      F(\operatorname{Int} D) = (\varphi'\circ g\circ \varphi^{-1})(\operatorname{Int} D) = {(\varphi' \circ g)}(\mathbb{B}^{n}) = \varphi'(g(\mathbb{B}^{n})) \subseteq \varphi'(\mathbb{B}^{m}) = \operatorname{Int} D'.
 		      \end{align*}
-		\item This follows from part (a) and Proposition~\ref{prop:5.1}.
+		\item This follows from part (a) and Note~\ref{note:closed-cell-homeomorphism}.
 		\item If $f$ is a homeomorphism, we choose $g$ as given in part (a) then $g, F$ are homeomorphisms.
 	\end{enumerate}
 \end{proof}
 
 \begin{problem}{5-2}\label{problem:5-2}
+Suppose $D$ is a closed $n$-cell, $n\geq 1$.
+\begin{enumerate}[label={(\alph*)}]
+	\item Given any point $p\in \operatorname{Int} D$, show that there is a continuous function $F: D \to \closedinterval{0, 1}$ such that $F^{-1}(1) = \partial D$ and $F^{-1}(0) = \set{p}$.
+	\item Given a continuous function $f: \partial D \to \closedinterval{0, 1}$, show that $f$ extends to a continuous function $F: D \to \closedinterval{0, 1}$ that is strictly positive in $\operatorname{Int} D$.
+\end{enumerate}
 \end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item From Note~\ref{note:closed-cell-homeomorphism}, there is a homeomorphism $\varphi: D \to \overline{\mathbb{B}}^{n}$ such that $\varphi(p) = 0$, $\varphi(\operatorname{Int}D) = \mathbb{B}^{n}$, $\varphi(\partial D) = \partial\overline{\mathbb{B}}^{n}$. Define $f: \overline{\mathbb{B}}^{n} \to \closedinterval{0, 1}$ by $f(x) = \abs{x}$ then $f$ is continuous. Define $F: D \to \closedinterval{0, 1}$ by $F = f\circ \varphi$ then $F$ is continuous and
+		      \begin{align*}
+			      F^{-1}(1) & = {(f\circ \varphi)}^{-1}(1) = \varphi^{-1}(f^{-1}(1)) = \varphi^{-1}(\partial\overline{\mathbb{B}}^{n}) = \partial D, \\
+			      F^{-1}(0) & = {(f\circ \varphi)}^{-1}(0) = \varphi^{-1}(f^{-1}(0)) = \varphi^{-1}(\set{0}) = \set{p}.
+		      \end{align*}
+		\item Consider this particular case: $D = \overline{\mathbb{B}}^{n}$. Define $F: \overline{\mathbb{B}}^{n} \to \closedinterval{0, 1}$ as follows:
+		      \begin{align*}
+			      F(x) = \begin{cases}
+				             \abs{x}f\left(\frac{x}{\abs{x}}\right) + (1 - \abs{x}) & x \ne 0 \\
+				             1                                                      & x = 0
+			             \end{cases}
+		      \end{align*}
+
+		      $F$ is continuous on $\overline{\mathbb{B}}^{n}\smallsetminus\set{0}$. Let $\varepsilon > 0$, so for every $x$ such that $0 < \abs{x} < \frac{\varepsilon}{2}$
+		      \begin{align*}
+			      \abs{F(x) - F(0)} = \abs{\abs{x} f\left(\frac{x}{\abs{x}}\right) - \abs{x}} = \abs{x} \abs{f\left(\frac{x}{\abs{x}}\right) - 1} \leq 2\abs{x} < \varepsilon
+		      \end{align*}
+
+		      which implies $F$ is continuous at 0. Hence $F$ is continuous. Moreover, for every $x \in \partial \overline{\mathbb{B}}^{n}$, $F(x) = f\left(\frac{x}{\abs{x}}\right) = f(x)$ and $F(x) > 0$ for every $x \in \operatorname{Int} D = \mathbb{B}^{n}$.
+
+		      Consider the general case: $D$ is a closed $n$-cell. By Note~\ref{note:closed-cell-homeomorphism}, there is a homeomorphism $\varphi: D \to \overline{\mathbb{B}}^{n}$ such that $\varphi(p) = 0$, $\varphi(\operatorname{Int} D) = \mathbb{B}^{n}$ and $\varphi(\partial D) = \partial\overline{\mathbb{B}}^{n}$. From the particular case above, $f\circ (\varphi^{-1}\vert_{\partial\overline{\mathbb{B}}^{n}})$ extends to a continuous map $\psi: \overline{\mathbb{B}}^{n} \to \closedinterval{0, 1}$ that is strictly positive in $\mathbb{B}^{n}$. Define $F: D \to \closedinterval{0, 1}$ by $F = \psi \circ \varphi$. If $x \in \partial D$
+		      \begin{align*}
+			      F(x) & = \psi(\varphi(x)) = (f\circ (\varphi^{-1}\vert_{\partial\overline{\mathbb{B}}^{n}}) \circ \varphi)(x) \\
+			           & = (f \circ (\varphi^{-1}\vert_{\partial\overline{\mathbb{B}}^{n}}) \circ \varphi\vert_{\partial D})(x) \\
+			           & = f(x).
+		      \end{align*}
+
+		      Moreover, from the particular case, $\psi^{-1}(0) \subseteq \partial\overline{\mathbb{B}}^{n}$, so
+		      \begin{align*}
+			      F^{-1}(0) = {(\psi \circ \varphi)}^{-1}(0) = \varphi^{-1}(\psi^{-1}(0)) \subseteq \varphi^{-1}(\partial\overline{\mathbb{B}}^{n}) = \partial D
+		      \end{align*}
+
+		      which means $F(x) > 0$ if $x \in \operatorname{Int} D$. Thus $f$ extends to the continuous map $F: D \to \closedinterval{0, 1}$ that is strictly positive in $\operatorname{Int} D$.
+	\end{enumerate}
+\end{proof}
 
 \begin{problem}{5-3}\label{problem:5-3}
+Recall that a topological space $X$ is said to be topologically homogeneous
+if for every pair of points in $X$ there is a homeomorphism of $X$ taking one
+point to the other. This problem shows that every connected manifold is
+topologically homogeneous.
+\begin{enumerate}[label={(\alph*)}]
+	\item Given any two points $p, q \in \mathbb{B}^{n}$, show that there is a homeomorphism $\varphi: \overline{\mathbb{B}}^{n} \to \overline{\mathbb{B}}^{n}$ such that $\varphi(p) = q$ and $\varphi\vert_{\partial\mathbb{B}^{n}} = \operatorname{Id}_{\partial\mathbb{B}^{n}}$.
+	\item For any topological manifold $X$, show that every point of $X$ has a neighborhood $U$ with the property that for any $p, q \in U$, there is a homeomorphism from $X$ to itself taking $p$ to $q$.
+	\item Show that every connected topological manifold is topologically homogeneous.
+\end{enumerate}
 \end{problem}
 
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item $\overline{\mathbb{B}}^{n}$ is a closed convex subset of $\mathbb{R}^{n}$ with nonempty interior so from the proof of Proposition~\ref{prop:5.1}, there exist homeomorphisms $f, g: \overline{\mathbb{B}}^{n} \to \overline{\mathbb{B}}^{n}$ such that $f(p) = 0, g(q) = 0$ and
+		      \begin{align*}
+			      f(\mathbb{B}^{n}) = g(\mathbb{B}^{n}) = \mathbb{B}^{n} \\
+			      f\vert_{\partial\mathbb{B}^{n}} = g\vert_{\partial\mathbb{B}^{n}} = \operatorname{Id}_{\partial\mathbb{B}^{n}}
+		      \end{align*}
+
+		      therefore $\varphi = g^{-1}\circ f: \overline{\mathbb{B}}^{n} \to \overline{\mathbb{B}}^{n}$ is a homeomorphism of $\overline{\mathbb{B}}^{n}$ such that $\varphi\vert_{\partial\overline{\mathbb{B}}^{n}} = \operatorname{Id}_{\partial\overline{\mathbb{B}}^{n}}$ and $\varphi(p) = g^{-1}(f(p)) = g^{-1}(0) = q$.
+		\item Consider a point of $X$ and a regular coordinate ball $U$ containing it. Let $f: \overline{U} \to \overline{\mathbb{B}}^{n}$ be a homeomorphism (its existence is ensured by the definition of regular coordinate ball). From part (a), it follows that there is a homeomorphism $\varphi: \overline{\mathbb{B}}^{n} \to \overline{\mathbb{B}}^{n}$ such that $\varphi(f(p)) = f(q)$ and $\varphi\vert_{\partial\mathbb{B}^{n}} = \operatorname{Id}_{\partial\mathbb{B}^{n}}$. Define $g: \overline{U} \to \overline{U}$ by $g = f^{-1} \circ \varphi \circ f$ then $g$ is a topological embedding and
+		      \begin{align*}
+			      g(p) = f^{-1}(\varphi(f(p))) = f^{-1}(f(q)) = q.
+		      \end{align*}
+
+		      $h: X\smallsetminus U \to X\smallsetminus U$ defined by $h(x) = x$ is also a topological embedding. Moreover, $g, h$ agree on $\overline{U} \cap (X \smallsetminus U) = \partial \overline{U}$ so there is a continuous map $F: X \to X$ such that $F\vert_{\overline{U}} = g$ and $F\vert_{X\smallsetminus U} = h$ according to the gluing lemma. $F$ is bijective because $g$ and $h$ are bijective. Also by the gluing lemma, there is a continuous map $G: X\to X$ such that $G\vert_{\overline{U}} = g^{-1}$ and $G\vert_{X\smallsetminus U} = h^{-1}$. Moreover, $F \circ G = G \circ F = \operatorname{Id}_{X}$ so $F$ is a homeomorphism. So $F: X\to X$ is a homeomorphism such that $F(p) = g(p) = q$.
+
+		      Hence every point of $X$ has a neighborhood $U$ such that for any $p, q \in U$, there is a homeomorphism from $X$ to itself taking $p$ to $q$.
+		\item Suppose $X$ is a connected topological manifold. Define a relation $\sim$ on $X$ as follows: $x \sim y$ if and only if there is a homeomorphism from $X$ to itself taking $x$ to $y$. $\sim$ is an equivalence relation.
+
+		      Let $U$ be a regular coordinate ball of $X$ then part (b) implies that any two points $x, y\in U$, $x \sim y$. Therefore $U$ is contained in the equivalence class ${[x]}_{\sim}$, so ${[x]}_{\sim}$ is open in $X$. All equivalence classes constitute a partition by open subsets of $X$. Since $X$ is connected, it follows that there is exactly one equivalence class. Hence $X$ is topologically homogeneous.
+	\end{enumerate}
+\end{proof}
+
 \begin{problem}{5-4}\label{problem:5-4}
+Generalize the argument of Problem~\ref{problem:5-3} to show that if $M$ is a connected topological manifold and $\tuple{p_{1}, \ldots, p_{k}}$ and $\tuple{q_{1}, \ldots, q_{k}}$ are two ordered $k$-tuples of distinct points in $M$, then there is a homeomorphism $F: M \to M$ such that $F(p_{i}) = q_{i}$ for $i = 1, \ldots, k$.
 \end{problem}
 
 \begin{problem}{5-5}\label{problem:5-5}
+Suppose $X$ is a topological space and $\set{X_{\alpha}}$ is a family of subspaces whose union is $X$. Show that the topology of $X$ is coherent with the subspaces $\set{X_{\alpha}}$ if and only if it is the finest topology on $X$ for which all of the inclusion maps $X_{\alpha} \hookrightarrow{} X$ are continuous.
 \end{problem}
 
 \begin{problem}{5-6}\label{problem:5-6}
