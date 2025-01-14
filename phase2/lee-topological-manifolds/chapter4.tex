@@ -1631,6 +1631,22 @@ Let $M_{1}$ and $M_{2}$ be $n$-manifolds. For $i = 1, 2$, let $B_{i} \subseteq M
 	\end{enumerate}
 \end{proof}
 
+\begin{note}
+	If $M$ is a connected $n$-manifold, $n > 1$, and $A$ is a finite subset of $M$ then $M\smallsetminus A$ is a connected $n$-manifold.
+\end{note}
+
+\begin{proof}
+	$M\smallsetminus A$ is an open subset of $M$ so $M\smallsetminus A$ is an $n$-manifold.
+
+	$M\smallsetminus A$ is path-connected if $A = \emptyset$.
+
+	If $A$ is a singleton, let $A = \set{x}$. Let $p, q \in M\smallsetminus A$. There exists a regular coordinate ball $B$ containing $x$ but not $p, q$. According to the proof of Problem~\ref{problem:4-18} (b), $M\smallsetminus B$ is path-connected, so there is a path in $M\smallsetminus B \subseteq M\smallsetminus A$ connecting $p$ and $q$. Therefore $M\smallsetminus A$ is path-connected.
+
+	Assume the statement is true when $\abs{A} = k$ for $k \geq 1$. Suppose $\abs{A} = k + 1$, let $x$ be an element of $A$ then $M \smallsetminus (A\smallsetminus \set{x})$ is path-connected according to the inductive hypothesis. From the case of singleton subset, it follows that $M\smallsetminus A$ is path-connected.
+
+	By the principle of mathematical induction, $M\smallsetminus A$ is a connected $n$-manifold.
+\end{proof}
+
 \begin{problem}{4-19}
 Let $M_{1} \# M_{2}$ be a connected sum of $n$-manifolds $M_{1}$ and $M_{2}$. Show that there are open subsets $U_{1}, U_{2} \subseteq M_{1} \# M_{2}$ and points $p_{i} \in M_{i}$ such that $U_{i} \approx M_{i}\smallsetminus \set{p_{i}}$, $U_{1} \cap U_{2} \approx \mathbb{R}^{n}\smallsetminus \set{0}$, and $U_{1} \cup U_{2} = M_{1} \# M_{2}$.
 \end{problem}

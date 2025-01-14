@@ -259,6 +259,22 @@ topologically homogeneous.
 Generalize the argument of Problem~\ref{problem:5-3} to show that if $M$ is a connected topological manifold and $\tuple{p_{1}, \ldots, p_{k}}$ and $\tuple{q_{1}, \ldots, q_{k}}$ are two ordered $k$-tuples of distinct points in $M$, then there is a homeomorphism $F: M \to M$ such that $F(p_{i}) = q_{i}$ for $i = 1, \ldots, k$.
 \end{problem}
 
+\begin{quote}
+	A connected 0-manifold consists of a single point, so the statement is vacuously true for connected 0-manifolds.
+
+	In general, the statement is not true when $M$ is a connected 1-manifold. Consider $\mathbb{R}$, which is a connected 1-manifold. Assume $p_{1}, p_{2}, p_{3}\in \mathbb{R}$ such that $p_{1} < p_{2} < p_{3}$. Suppose the statement is true for connected 1-manifolds then there is a homeomorphism $f: \mathbb{R} \to \mathbb{R}$ such that $f(p_{1}) = p_{1}, f(p_{2}) = p_{3}, f(p_{3}) = p_{2}$. From the intermediate value theorem, there is $p \in \openinterval{p_{1}, p_{2}}$ such that $f(p) = p_{2}$. This is a contradiction because $f(p) = f(p_{3}) = p_{2}$, $p < p_{3}$ and $f$ is bijective.
+\end{quote}
+
+\begin{proof}
+	Suppose $M$ is an $n$-manifold, and $n > 1$.
+
+	Let $p, q\in M$ and $A$ a finite subset of $M$ not containing $p, q$. We will show that there exists a self-homeomorphism on $M$ that takes $p$ to $q$ and fixes every point of $A$.
+
+	Define $\sim$ on $M\smallsetminus A$ as follows: $x \sim y$ if and only if there exists a self-homeomorphism on $M$ such that takes $x$ to $y$ and fixes every point of $A$. $\sim$ is an equivalence relation. Consider an equivalence class and a point $x$ in it. There exists a regular coordinate ball $B$ containing $x$ and not intersecting $A$ (because $M\smallsetminus A$ is open in $M$). The proof of Problem~\ref{problem:5-3} shows that there is a self-homeomorphism on $M$ that takes $x$ to any point in $B$ and fixes every point of $M\smallsetminus B$. Therefore $x \in B \subseteq {[x]}_{\sim}$, which means ${[x]}_{\sim}$ is an open set. Because $M\smallsetminus A$ is connected (see the note after Problem~\ref{problem:4-18}) and $M\smallsetminus A$ has a partition of equivalence classes induced by $\sim$, it follows that $M\smallsetminus A$ has exactly one equivalence class. Hence there is a self-homeomorphism on $M$ that takes $p$ to $q$ and fixes every point of $A$.
+
+	The statement is true for $k = 1$. Assume that it is true for $k = m \geq 1$. Consider two $(m+1)$-tuples $\tuple{p_{1}, \ldots, p_{m+1}}$ and $\tuple{q_{1}, \ldots, q_{m+1}}$ in which $p_{1}, \ldots, p_{m+1}$ are pairwise distinct and $q_{1}, \ldots, q_{m+1}$ are pairwise distinct. By the inductive hypothesis, there is a homeomorphism $\varphi: M\to M$ that takes $p_{i}$ to $q_{i}$ for $i = 1, \ldots, m$. Because $\varphi$ is bijective, $\varphi(p_{m+1}) \notin A = \set{ q_{1}, \ldots, q_{m} }$. From the above statement, there is a homeomorphism $\psi: M\to M$ that takes $\varphi(p_{m+1})$ to $q_{m+1}$ and fixes every point of $A$. Hence $\psi\circ\varphi$ is a self-homeomorphism on $M$ that takes $p_{i}$ to $q_{i}$ for $i = 1, \ldots, m+1$. Therefore the statement is true due to the principle of mathematical induction.
+\end{proof}
+
 \begin{problem}{5-5}\label{problem:5-5}
 Suppose $X$ is a topological space and $\set{X_{\alpha}}$ is a family of subspaces whose union is $X$. Show that the topology of $X$ is coherent with the subspaces $\set{X_{\alpha}}$ if and only if it is the finest topology on $X$ for which all of the inclusion maps $X_{\alpha} \hookrightarrow{} X$ are continuous.
 \end{problem}
