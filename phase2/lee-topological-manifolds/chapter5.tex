@@ -256,7 +256,7 @@ topologically homogeneous.
 \end{proof}
 
 \begin{problem}{5-4}\label{problem:5-4}
-Generalize the argument of Problem~\ref{problem:5-3} to show that if $M$ is a connected topological manifold and $\tuple{p_{1}, \ldots, p_{k}}$ and $\tuple{q_{1}, \ldots, q_{k}}$ are two ordered $k$-tuples of distinct points in $M$, then there is a homeomorphism $F: M \to M$ such that $F(p_{i}) = q_{i}$ for $i = 1, \ldots, k$.
+Generalize the argument of Problem~\ref{problem:5-3} to show that if $M$ is a connected topological manifold, $\dim M > 1$ and $\tuple{p_{1}, \ldots, p_{k}}$ and $\tuple{q_{1}, \ldots, q_{k}}$ are two ordered $k$-tuples of distinct points in $M$, then there is a homeomorphism $F: M \to M$ such that $F(p_{i}) = q_{i}$ for $i = 1, \ldots, k$.
 \end{problem}
 
 \begin{quote}
@@ -266,18 +266,28 @@ Generalize the argument of Problem~\ref{problem:5-3} to show that if $M$ is a co
 \end{quote}
 
 \begin{proof}
-	Suppose $M$ is an $n$-manifold, and $n > 1$.
-
 	Let $p, q\in M$ and $A$ a finite subset of $M$ not containing $p, q$. We will show that there exists a self-homeomorphism on $M$ that takes $p$ to $q$ and fixes every point of $A$.
 
 	Define $\sim$ on $M\smallsetminus A$ as follows: $x \sim y$ if and only if there exists a self-homeomorphism on $M$ such that takes $x$ to $y$ and fixes every point of $A$. $\sim$ is an equivalence relation. Consider an equivalence class and a point $x$ in it. There exists a regular coordinate ball $B$ containing $x$ and not intersecting $A$ (because $M\smallsetminus A$ is open in $M$). The proof of Problem~\ref{problem:5-3} shows that there is a self-homeomorphism on $M$ that takes $x$ to any point in $B$ and fixes every point of $M\smallsetminus B$. Therefore $x \in B \subseteq {[x]}_{\sim}$, which means ${[x]}_{\sim}$ is an open set. Because $M\smallsetminus A$ is connected (see the note after Problem~\ref{problem:4-18}) and $M\smallsetminus A$ has a partition of equivalence classes induced by $\sim$, it follows that $M\smallsetminus A$ has exactly one equivalence class. Hence there is a self-homeomorphism on $M$ that takes $p$ to $q$ and fixes every point of $A$.
 
 	The statement is true for $k = 1$. Assume that it is true for $k = m \geq 1$. Consider two $(m+1)$-tuples $\tuple{p_{1}, \ldots, p_{m+1}}$ and $\tuple{q_{1}, \ldots, q_{m+1}}$ in which $p_{1}, \ldots, p_{m+1}$ are pairwise distinct and $q_{1}, \ldots, q_{m+1}$ are pairwise distinct. By the inductive hypothesis, there is a homeomorphism $\varphi: M\to M$ that takes $p_{i}$ to $q_{i}$ for $i = 1, \ldots, m$. Because $\varphi$ is bijective, $\varphi(p_{m+1}) \notin A = \set{ q_{1}, \ldots, q_{m} }$. From the above statement, there is a homeomorphism $\psi: M\to M$ that takes $\varphi(p_{m+1})$ to $q_{m+1}$ and fixes every point of $A$. Hence $\psi\circ\varphi$ is a self-homeomorphism on $M$ that takes $p_{i}$ to $q_{i}$ for $i = 1, \ldots, m+1$. Therefore the statement is true due to the principle of mathematical induction.
+
+	Hence there exists a self-homeomorphism $F$ on $M$ such that $F(p_{i}) = q_{i}$ for each $i = 1, \ldots, k$, in which $\tuple{p_{1}, \ldots, p_{k}}$ and $\tuple{q_{1}, \ldots, q_{k}}$ are $k$-tuples of pairwise distinct points.
 \end{proof}
 
 \begin{problem}{5-5}\label{problem:5-5}
 Suppose $X$ is a topological space and $\set{X_{\alpha}}$ is a family of subspaces whose union is $X$. Show that the topology of $X$ is coherent with the subspaces $\set{X_{\alpha}}$ if and only if it is the finest topology on $X$ for which all of the inclusion maps $X_{\alpha} \hookrightarrow{} X$ are continuous.
 \end{problem}
+
+\begin{proof}
+	$(\Longrightarrow)$ The topology of $X$ is coherent with the subspaces $\set{X_{\alpha}}$.
+
+	Let $\mathscr{T}$ be the original topology of $X$ and $\mathscr{T}'$ be a topology of $X$ for which all of the inclusion maps $X_{\alpha} \hookrightarrow{} X$ are continuous. Suppose $U \in \mathscr{T}'$. $\iota_{\alpha}: X_{\alpha} \hookrightarrow{} (X, \mathscr{T}')$ is continuous for each $\alpha$, so $\iota_{\alpha}^{-1}(U) = U \cap X_{\alpha}$ is open in $X_{\alpha}$ for each $\alpha$. Therefore $U \in \mathscr{T}$, due to the definition of coherent topology. Hence $\mathscr{T}' \subseteq \mathscr{T}$.
+
+	$(\Longleftarrow)$ The topology of $X$ is the finest topology on $X$ for which all of the inclusion maps $X_{\alpha} \hookrightarrow{} X$ are continuous.
+
+	Denote the topology of $X$ by $\mathscr{T}$. Suppose on the contrary that there is a subset $U$ of $X$ such that $U\cap X_{\alpha}$ is open in $X_{\alpha}$ for each $\alpha$ and $U$ is not open in $X$. Let $\mathscr{T}'$ be a topology on $X$ that contains $\mathscr{T}$ and $U$ then $\mathscr{T} \subsetneq \mathscr{T}'$ and all of the inclusion maps $X_{\alpha} \hookrightarrow{} (X, \mathscr{T}')$ are continuous, which is a contradiction because $\mathscr{T}$ is the finest topology for which all of the inclusion maps $X_{\alpha} \hookrightarrow{} X$ are continuous.
+\end{proof}
 
 \begin{problem}{5-6}\label{problem:5-6}
 Suppose $X$ is a topological space. Show that the topology of $X$ is coherent with each of the following collections of subspaces of $X$:
