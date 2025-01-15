@@ -55,7 +55,7 @@ Suppose $X$ is a topological space, and $\mathscr{B}$ is any family of subspaces
 
 A space is compactly generated if and only if its topology is coherent with the collection of all of its compact subspaces.
 
-\begin{exercise}{5.3}
+\begin{exercise}{5.3}\label{exercise:5.3}
 	Prove Proposition 5.2.
 
 	Suppose $X$ is a topological space whose topology is coherent with a family $\mathscr{B}$ of subspaces.
@@ -87,6 +87,23 @@ A \textbf{CW complex} is cell complex $(X, \mathscr{E})$ such that
 	\item [(W)] The topology of $X$ is coherent with the family of closed subspaces $\set{ \overline{e} : e \in \mathscr{E} }$. This property is called \textbf{weak topology}.
 \end{itemize}
 
+\begin{note}\label{note:characteristic-map-as-a-quotient-map}
+	Let $e$ be an open cell of a cell complex $(X, \mathscr{E})$ and $\Phi: D \to X$ be a characteristic map of $e$. Then $\Phi: D \to \overline{e}$ is a quotient map and closed, and $\Phi^{-1}(\overline{e}\smallsetminus e) = \partial D$.
+\end{note}
+
+\begin{proof}
+	From the definition of closed cell and open cell, we deduce that $D = \overline{\operatorname{Int} D}$.
+	\begin{align*}
+		\Phi(D) & = \Phi(\overline{\operatorname{Int} D})                                                                                   \\
+		        & \subseteq \overline{\Phi(\operatorname{Int} D)} & \text{(Problem~\ref{problem:2-6} or Proposition 2.30)}                  \\
+		        & = \overline{e}                                  & \text{($\Phi\vert_{\operatorname{Int} D}$ is a homeomorphism onto $e$)}
+	\end{align*}
+
+	$D$ is compact and $\Phi$ is continuous so $\Phi(D)$ is a compact subset of $X$. Moreover, $X$ is Hausdorff (according to the definition of cell complexes) so $\Phi(D)$ is a closed subset of $X$. $\Phi(D)$ is closed in $X$, $e\subseteq \Phi(D) \subseteq \overline{e}$, and $\overline{e}$ is the smallest closed set containing $e$, so $\Phi(D) = \overline{e}$. Therefore $\Phi: D \to \overline{e}$ is a surjective continuous map. By the closed map lemma, $\Phi: D \to \overline{e}$ is a closed map. Hence $\Phi: D \to \overline{e}$ is a quotient map and closed.
+
+	Finally $\Phi^{-1}(\overline{e}\smallsetminus e) = \Phi^{-1}(\overline{e}) \smallsetminus \Phi^{-1}(e) = D \smallsetminus \operatorname{Int} D = \partial D$.
+\end{proof}
+
 Locally finite complexes (and thus all finite ones), (C) and (W) are automatic.
 
 \begin{prop}{5.4}
@@ -100,19 +117,28 @@ Locally finite complexes (and thus all finite ones), (C) and (W) are automatic.
 \begin{proof}
 	Suppose that $(X, \mathscr{E})$ is a cell complex and $\mathscr{E}$ is locally finite.
 
-	For each $e\in \mathscr{E}$, every point of $\overline{e}$ has a neighborhood that intersects only finitely many cells in $\mathscr{E}$. $\overline{e}$ is compact so it is covered by finitely many such neighborhoods. Therefore $\overline{e}$ is contained in a union of finitely many cells.
+	For each $e\in \mathscr{E}$, every point of $\overline{e}$ has a neighborhood that intersects only finitely many cells in $\mathscr{E}$. $\overline{e}$ is compact (see Note~\ref{note:characteristic-map-as-a-surjectiion}) so it is covered by finitely many such neighborhoods. Therefore $\overline{e}$ is contained in a union of finitely many cells.
 
-	Let $A \subseteq X$ be a subset whose intersection with $\overline{e}$ is closed in $\overline{e}$ for each $e\in \mathscr{E}$. Let $x \in X\smallsetminus A$. $\set{ \overline{e} : e\in\mathscr{E} }$ is locally finite according to Lemma 4.74, so there exists a neighborhood $W$ of $x$ that intersects the closure of only finitely many cells, say $\overline{e}_{1}, \ldots, \overline{e}_{m}$. $A \cap \overline{e}_{i}$ is closed in $\overline{e}_{i}$ and thus in $X$ (Exercise~\ref{exercise:3.6}), then
-	\begin{align*}
-		W\smallsetminus A = W \smallsetminus \bigcup^{m}_{i=1}(A\cap \overline{e}_{i})
-	\end{align*}
-
-	is a neighborhood of $x$ contained in $X\smallsetminus A$. Because $x$ is an arbitrary point of $X\smallsetminus A$, it follows that $X\smallsetminus A$ is open in $X$, so $A$ is closed in $X$. Therefore the topology of $X$ is coherent with $\set{ \overline{e} : e \in \mathscr{E} }$.
+	Let $A \subseteq X$ be a subset whose intersection with $\overline{e}$ is closed in $\overline{e}$ for each $e\in \mathscr{E}$. Let $x$ be a point of $X\smallsetminus A$. The collection $\set{ \overline{e} : e\in\mathscr{E} }$ is locally finite according to Lemma 4.74, so there exists a neighborhood $W$ of $x$ that intersects the closure of only finitely many cells, say $\overline{e}_{1}, \ldots, \overline{e}_{m}$. $A \cap \overline{e}_{i}$ is closed in $\overline{e}_{i}$ and thus in $X$ (Exercise~\ref{exercise:3.6}), then $W\smallsetminus A = W \smallsetminus \bigcup^{m}_{i=1}(A\cap \overline{e}_{i})$ is a neighborhood of $x$ contained in $X\smallsetminus A$. Because $x$ is an arbitrary point of $X\smallsetminus A$, it follows that $X\smallsetminus A$ is open in $X$, so $A$ is closed in $X$. Therefore the topology of $X$ is coherent with $\set{ \overline{e} : e \in \mathscr{E} }$.
 
 	Thus $\mathscr{E}$ is a CW decomposition.
 \end{proof}
 
-Suppose $X$ is a CW complex. If there is an integer $n$ such that all the cells of $X$ have dimension at most $n$, then we say $X$ is \textbf{finite-dimensional}; otherwise, it is \textbf{infinite-dimensional}. If it is finite-dimensional, the \textbf{dimension of $X$} is the largest $n$ such that $X$ contains at least one $n$-cell. (The fact that this is well-defined depends on the theorem of invariance of dimension.) However, a finite complex is always finite-dimensional.
+Suppose $X$ is a CW complex. If there is an integer $n$ such that all the cells of $X$ have dimension at most $n$, then we say $X$ is \textbf{finite-dimensional}; otherwise, it is \textbf{infinite-dimensional}. If it is finite-dimensional, the \textbf{dimension of $X$} is the largest $n$ such that $X$ contains at least one $n$-cell. (The fact that this is well-defined depends on the theorem of invariance of dimension.) Of course, a finite complex is always finite-dimensional.
+
+\begin{prop}{5.5}
+	Suppose $X$ is an $n$-dimensional CW complex. Then every $n$-cell of $X$ is an open subset of $X$.
+\end{prop}
+
+\begin{proof}
+	Suppose $e_{0}$ is an $n$-cell of $X$. Let $\Phi_{0}: D_{0} \to X$ be a characteristic map for $e_{0}$. Consider $\Phi_{0}$ as a quotient map from $D_{0}$ onto $\overline{e_{0}}$ (see Note~\ref{note:characteristic-map-as-a-quotient-map}). Since $\Phi_{0}^{-1}(e_{0}) = \operatorname{Int} D_{0}$ is open in $D_{0}$, it follows that $e_{0}$ is open in $\overline{e_{0}}$ (the definition of quotient topology).
+
+	If $e$ is a cell other than $e_{0}$ (of dimension $k$, then $k \leq n$) of $X$ and $\Phi: D \to X$ is a characteristic map for $e$, then $e_{0} \cap e = \emptyset$, so $e_{0} \cap \overline{e} \subseteq \overline{e} \smallsetminus e$.
+
+	$\overline{e}\smallsetminus e$ is contained in the union of all cells of $\mathscr{E}$ of dimensions less than $n$ because $\Phi^{-1}(\overline{e}\smallsetminus e) = \partial D$ and $\Phi$ maps $\partial D$ into the union of all cells of dimensions strictly less than $k$ (hence less than $n$). On the other hand, $e_{0}$ has dimension $n$, it follows that $e_{0} \cap (\overline{e}\smallsetminus e) = \emptyset$. Moreover, $e_{0} \cap e = \emptyset$, so $e_{0} \cap \overline{e} = \emptyset$.
+
+	Hence the intersection of $e_{0}$ with the closure of any different cell $e$ is open in $\overline{e}$ and the intersection of $e_{0}$ with $\overline{e_{0}}$ is open in $\overline{e_{0}}$. Therefore $e_{0}$ is open in $X$ as the topology of $X$ is coherent with $\set{ \overline{e}: e \in \mathscr{E} }$.
+\end{proof}
 
 \section{Topological Properties of CW Complexes}
 
@@ -319,18 +345,36 @@ Suppose $X$ is a topological space. Show that the topology of $X$ is coherent wi
 \end{proof}
 
 \begin{problem}{5-7}\label{problem:5-7}
+Here is another generalization of the gluing lemma. (Cf.\@ also Problem~\ref{problem:4-30}.) Suppose $X$ is a topology whose topology is coherent with a collection $\set{X_{\alpha}}_{\alpha\in A}$ (this collection covers $X$) of subspaces of $X$, and for each $\alpha\in A$ we are given a continuous map $f_{\alpha}: X_{\alpha} \to Y$ such that $f_{\alpha}\vert_{X_{\alpha} \cap X_{\beta}} = f_{\beta}\vert_{X_{\alpha} \cap X_{\beta}}$ for all $\alpha$ and $\beta$. Show that there exists a unique continuous map $f: X \to Y$ whose restriction to each $X_{\alpha}$ is $f_{\alpha}$.
 \end{problem}
 
+\begin{quote}
+	The result follows immediately from Exercise~\ref{exercise:5.3}.
+\end{quote}
+
+\begin{proof}
+	By elementary set theory, there is a unique map $f: X \to Y$ such that $f\vert_{X_{\alpha}} = f_{\alpha}$. It remains to show that $f$ is continuous.
+
+	Let $U$ be an open subset of $Y$ then for each $\alpha\in A$, the set $f^{-1}(U) \cap X_{\alpha} = f_{\alpha}^{-1}(U)$ is an open subset of $X_{\alpha}$. Because the topology of $X$ is coherent with $\set{X_{\alpha}}_{\alpha\in A}$, $f^{-1}(U)$ is an open subset of $X$. So $f$ is continuous.
+
+	Thus there exists a unique continuous map $f: X\to Y$ such that $f\vert_{X_{\alpha}} = f_{\alpha}$ for each $\alpha\in A$.
+\end{proof}
+
 \begin{problem}{5-8}\label{problem:5-8}
+Prove Proposition 5.7 (the topology of a CW complex is coherent with its
+collection of skeleta).
 \end{problem}
 
 \begin{problem}{5-9}\label{problem:5-9}
+Show that every CW complex is locally path-connected.
 \end{problem}
 
 \begin{problem}{5-10}\label{problem:5-10}
+Show that every CW complex is compactly generated.
 \end{problem}
 
 \begin{problem}{5-11}\label{problem:5-11}
+Prove Proposition 5.16 (a CW complex is locally compact if and only if it is locally finite).
 \end{problem}
 
 \begin{problem}{5-12}\label{problem:5-12}
