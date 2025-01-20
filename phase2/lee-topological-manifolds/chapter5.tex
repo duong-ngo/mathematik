@@ -117,7 +117,7 @@ Locally finite complexes (and thus all finite ones), (C) and (W) are automatic.
 \begin{proof}
 	Suppose that $(X, \mathscr{E})$ is a cell complex and $\mathscr{E}$ is locally finite.
 
-	For each $e\in \mathscr{E}$, every point of $\overline{e}$ has a neighborhood that intersects only finitely many cells in $\mathscr{E}$. $\overline{e}$ is compact (see Note~\ref{note:characteristic-map-as-a-surjectiion}) so it is covered by finitely many such neighborhoods. Therefore $\overline{e}$ is contained in a union of finitely many cells.
+	For each $e\in \mathscr{E}$, every point of $\overline{e}$ has a neighborhood that intersects only finitely many cells in $\mathscr{E}$. $\overline{e}$ is compact (see Note~\ref{note:characteristic-map-as-a-quotient-map}) so it is covered by finitely many such neighborhoods. Therefore $\overline{e}$ is contained in a union of finitely many cells.
 
 	Let $A \subseteq X$ be a subset whose intersection with $\overline{e}$ is closed in $\overline{e}$ for each $e\in \mathscr{E}$. Let $x$ be a point of $X\smallsetminus A$. The collection $\set{ \overline{e} : e\in\mathscr{E} }$ is locally finite according to Lemma 4.74, so there exists a neighborhood $W$ of $x$ that intersects the closure of only finitely many cells, say $\overline{e}_{1}, \ldots, \overline{e}_{m}$. $A \cap \overline{e}_{i}$ is closed in $\overline{e}_{i}$ and thus in $X$ (Exercise~\ref{exercise:3.6}), then $W\smallsetminus A = W \smallsetminus \bigcup^{m}_{i=1}(A\cap \overline{e}_{i})$ is a neighborhood of $x$ contained in $X\smallsetminus A$. Because $x$ is an arbitrary point of $X\smallsetminus A$, it follows that $X\smallsetminus A$ is open in $X$, so $A$ is closed in $X$. Therefore the topology of $X$ is coherent with $\set{ \overline{e} : e \in \mathscr{E} }$.
 
@@ -138,6 +138,16 @@ Suppose $X$ is a CW complex. If there is an integer $n$ such that all the cells 
 	$\overline{e}\smallsetminus e$ is contained in the union of all cells of $\mathscr{E}$ of dimensions less than $n$ because $\Phi^{-1}(\overline{e}\smallsetminus e) = \partial D$ and $\Phi$ maps $\partial D$ into the union of all cells of dimensions strictly less than $k$ (hence less than $n$). On the other hand, $e_{0}$ has dimension $n$, it follows that $e_{0} \cap (\overline{e}\smallsetminus e) = \emptyset$. Moreover, $e_{0} \cap e = \emptyset$, so $e_{0} \cap \overline{e} = \emptyset$.
 
 	Hence the intersection of $e_{0}$ with the closure of any different cell $e$ is open in $\overline{e}$ and the intersection of $e_{0}$ with $\overline{e_{0}}$ is open in $\overline{e_{0}}$. Therefore $e_{0}$ is open in $X$ as the topology of $X$ is coherent with $\set{ \overline{e}: e \in \mathscr{E} }$.
+\end{proof}
+
+\begin{note}\label{note:n-skeleton}
+	The $n$-skeleton $X_{n}$ of a CW complex $X$ is a subcomplex of $X$ of dimension not exceeding $n$.
+\end{note}
+
+\begin{proof}
+	$X_{n}$ is the union of all cells of dimensions not exceeding $n$.
+
+	Let $e$ be a cell of $X$ such that $e\subseteq X_{n}$ and $\Phi: D \to X$ be a characteristic map for $e$ then $\Phi(\operatorname{Int} D) = e$ and $\Phi(D) = \overline{e}$. From the definition of cell complexes, $\Phi$ maps $\partial D$ into the union of cells of dimensions strictly less than $n$ (these cells are contained in $X_{n}$), it follows that $\overline{e}$ is contained in $X_{n}$. Therefore $X_{n}$ is a subcomplex of $X$. Moreover, $X_{n}$ is of dimension $\leq n$ due to the definition of the dimension of a finite-dimensional CW complex.
 \end{proof}
 
 \section{Topological Properties of CW Complexes}
@@ -364,6 +374,19 @@ Here is another generalization of the gluing lemma. (Cf.\@ also Problem~\ref{pro
 Prove Proposition 5.7 (the topology of a CW complex is coherent with its
 collection of skeleta).
 \end{problem}
+
+\begin{proof}
+	Let $(X, \mathscr{E})$ be a CW complex and $S \subseteq X$. For each integer $n$, denote by $X_{n}$ the $n$-skeleton of $(X, \mathscr{E})$. $\set{ X_{n} : n\geq 0 }$ is a cover of $X$. $X_{n}$ is a subcomplex of $X$. From Theorem 5.6, $X_{n}$ is closed in $X$ for each $n$.
+
+	Assume that $S \cap X_{n}$ is closed in $X_{n}$ for each integer $n$. Let $e$ be an arbitrary cell of $X$ then there exists a nonnegative integer $n$ such that $e \subseteq X_{n}$. Since $X_{n}$ is a subcomplex of $X$, it follows that $\overline{e} \subseteq X_{n}$, moreover, $\overline{e}$ is closed in $X_{n}$.
+	\begin{align*}
+		S \cap \overline{e} \subseteq \overline{e} \subseteq X_{n}
+	\end{align*}
+
+	In summary, $S\cap X_{n}$ is closed in $X_{n}$, $\overline{e}$ is closed in $X_{n}$, so $S\cap \overline{e} = (S\cap \overline{e}) \cap X_{n}$ is closed in $X_{n}$. From the definition of subspace topology, $S \cap \overline{e}$ is closed in $\overline{e}$. This ($S\cap \overline{e}$ is closed in $\overline{e}$) is true for any cell $e$ of $X$ so $S$ is closed in $X$, due to the (W) property of CW complexes.
+
+	Thus the topology of a CW complex is coherent with its skeleta.
+\end{proof}
 
 \begin{problem}{5-9}\label{problem:5-9}
 Show that every CW complex is locally path-connected.
