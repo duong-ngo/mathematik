@@ -119,7 +119,7 @@ tapp-differential-geometry:
 	@$(MAKE) phase1/tapp-differential-geometry/main.pdf
 
 complex-analysis:
-	@$(MAKE) phase2/ahlfors-complex-analysis/main.pdf
+	@$(MAKE) phase1/ahlfors-complex-analysis/main.pdf
 
 algebra:
 	@$(MAKE) phase2/aluffi-algebra-chapter-0/main.pdf
