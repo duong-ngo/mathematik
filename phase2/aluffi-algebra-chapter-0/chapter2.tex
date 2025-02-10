@@ -1,10 +1,385 @@
+% chktex-file 44
 \chapter{Groups, first encounter}
 
 \section{Definition of group}
 
+\begin{exercise}{II.1.1}
+	Write a careful proof that every group is the group of isomorphisms of a groupoid. In particular, every group is the group of automorphisms of some object in some category.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.1.2}
+	Consider the `sets of numbers' listed in $\S{1.1}$, and decide which are made into groups by conventional operations such as $+$ and $\cdot$. Even if the answer is negative (for example, $(\mathbb{R}, \cdot)$ is not a group), see if variations on the definition of theses sets lead to groups (for example, $(\mathbb{R}^{*}, \cdot)$ is a group).
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.1.3}
+	Prove that ${(gh)}^{-1} = h^{-1}g^{-1}$ for all elements $g, h$ of a group $G$.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.1.4}
+	Suppose that $g^{2} = e$ for all elements $g$ of a group $G$; prove that $G$ is commutative.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.1.5}
+	The `multiplication table' of a group is an array compiling the results of all multiplication $g\bullet h$:
+	\begin{equation*}
+		\begin{array}{c||c||c|c|c}
+			\bullet & e      & \cdots & h         & \cdots \\
+			\hline
+			\hline
+			e       & e      & \cdots & h         & \cdots \\
+			\hline
+			\cdots  & \cdots & \cdots & \cdots    & \cdots \\
+			\hline
+			g       & g      & \cdots & g\bullet h & \cdots \\
+			\hline
+			\cdots  & \cdots & \cdots & \cdots    & \cdots \\
+		\end{array}
+	\end{equation*}
+
+	(where $e$ is the identity element of the group) Prove that every row and every column of the multiplication table of a group contains all elements of the group exactly once.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.1.6}
+	Prove that there is only \textit{one} possible multiplication table for $G$ if $G$ has exactly 1, 2, or 3 elements. Analyze the possible multiplication tables for groups with exactly 4 elements, and show that there are \textit{two} distinct tables, up to reordering the elements of $G$. Use these tables to prove that all groups with $\leq 4$ elements are commutative.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.1.7}
+	Prove Corollary 1.11.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.1.8}
+	Let $G$ be a finite group, with exactly one element $f$ of order 2. Prove that $\prod_{g\in G}g = f$.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.1.9}
+	Let $G$ be a finite group of order $n$, and let $m$ be the number of elements $g\in G$ of order exactly 2. Prove that $n - m$ is odd. Deduce that if $n$ is even, then $G$ necessarily contains elements of order 2.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.1.10}
+	Suppose the order of $g$ is odd. What can you say about the order of $g^{2}$?
+\end{exercise}
+
+\begin{proof}
+    Denote the identity element of the group containing $g$ by $e$. Let $n$ be the order of $g$ and $m$ be the order of $g^{2}$. Because $g^{n} = e$, ${(g^{2})}^{n} = {(g^{n})}^{2} = e$. $m$ is the order of $g^{2}$, so $n$ is a multiple of $m$. On the other hand, ${(g^{2})}^{m} = e$ so $g^{2m} = e$, which implies $2m$ is a multiple of $n$. Therefore $m \leq n \leq 2m$. Since $n$ is a multiple of $m$ and $n$ is odd, it follows that $n = m$. Hence the order of $g^{2}$ is equal to the order of $g$, when the order of $g$ is odd.
+\end{proof}
+
+\begin{exercise}{II.1.11}
+	Prove that for all $g, h$ in a group $G$, $\ord{gh} = \ord{hg}$.
+\end{exercise}
+
+\begin{proof}
+    Let $e$ be the identity element of $G$. We prove the following statement: For every $n\in \mathbb{Z}$, ${(gh)}^{n} = e$ if and only if ${(hg)}^{n} = e$.
+
+    $(\Longrightarrow)$ ${(gh)}^{n} = e$. By mathematical induction, one can show that ${(hg)}^{n} = h{(gh)}^{n-1}g$.
+    \begin{align*}
+        {(hg)}^{n} & = h{(gh)}^{n-1}g \\
+                   & = h{(gh)}^{-1}g & \text{(because ${(gh)}^{n} = e$)} \\
+                   & = h(h^{-1}g^{-1})g \\
+                   & = {(hh^{-1})}{(g^{-1}g)} \\
+                   & = ee = e.
+    \end{align*}
+
+    $(\Longleftarrow)$ ${(hg)}^{n} = e$.
+    \begin{align*}
+        {(gh)}^{n} & = g{(hg)}^{n-1}h \\
+                   & = g{(hg)}^{-1}h & \text{(because ${(hg)}^{n} = e$)} \\
+                   & = g{(g^{-1}h^{-1})}h \\
+                   & = {(g^{-1}g)}{(hh^{-1})} \\
+                   & = ee = e.
+    \end{align*}
+
+    Let $n = \ord{gh}$ and $m = \ord{hg}$, $n, m$ are positive integers according to the definition of order of a group element. According to the above statement, ${(gh)}^{m} = {(gh)}^{n} = e$, so $m$ is a multiple of $n$. ${(hg)}^{n} = {(hg)}^{m} = e$ so $n$ is a multiple of $m$. Therefore $m = n$, which means $\ord{gh} = \ord{hg}$.
+\end{proof}
+
+\begin{exercise}{II.1.12}
+	In the group of invertible $2\times 2$ matrices, Consider
+	\begin{align*}
+		g = \begin{pmatrix}
+			    0 & -1 \\
+			    1 & 0
+		    \end{pmatrix}, \quad
+		h = \begin{pmatrix}
+			    0  & 1  \\
+			    -1 & -1
+		    \end{pmatrix}.
+	\end{align*}
+
+	Verify that $\ord{g} = 4$, $\ord{h} = 3$, and $\ord{gh} = \infty$.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.1.13}\label{exercise:II.1.13}
+	Give an example showing that $\ord{gh}$ is not necessarily equal to $\lcm(\ord{g}, \ord{h})$, even if $g$ and $h$ commute.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.1.14}
+	As a counterpoint to Exercise~\ref{exercise:II.1.13}, prove that if $g$ and $h$ commute \textit{and} $\gcd(\ord{g}, \ord{h}) = 1$, then $\ord{gh} = \ord{g}\ord{h}$.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.1.15}
+	Let $G$ e a commutative group, and let $g\in G$ be an element of maximal \textit{finite order}, that is, such that if $h\in G$ has finite order, then $\ord{h}\leq \ord{g}$. Prove that if $h$ has finite order in $G$, then $\ord{h}$ \textit{divides} $\ord{g}$.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
 \section{Examples of groups}
 
+\begin{exercise}{II.2.1}
+	One can associate an $n\times n$ matrix $M_{\sigma}$ with a permutation $\sigma \in S_{n}$ by letting the entry at $\tuple{i, (i)\sigma}$ be 1 and letting all other entries be 0. For example, the matrix corresponding to the permutation
+	\begin{align*}
+		\sigma = \begin{pmatrix}
+			         1 & 2 & 3 \\
+			         3 & 1 & 2
+		         \end{pmatrix} \in S_{3}
+	\end{align*}
+
+    would be
+    \begin{align*}
+        M_{\sigma} = \begin{pmatrix}
+            0 & 0 & 1 \\
+            1 & 0 & 0 \\
+            0 & 1 & 0
+        \end{pmatrix}.
+    \end{align*}
+
+    Prove that, with this notation,
+    \begin{align*}
+        M_{\sigma\tau} = M_{\sigma}M_{\tau}
+    \end{align*}
+
+    for all $\sigma, \tau\in S_{n}$, where the product on the right is the ordinary product of matrices.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.2.2}
+    Prove that if $d\leq n$, then $S_{n}$ contains elements of order $d$.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.2.3}
+    For every positive integer $n$ find an element of order $n$ in $S_{\mathbb{N}}$.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.2.4}
+    Define a homomorphism $D_{8}\to S_{4}$ by labeling vertices of a square, as we did for a triangle in $\S{2.2}$. List the 8 permutations in the image of this homomorphism.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.2.5}
+    Describe generators and relations for all dihedral groups $D_{2n}$.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.2.6}
+    For every positive integer $n$ construct a group containing two elements $g, h$ such that $\ord{g} = 2$, $\ord{h} = 2$, and $\ord{gh} = n$.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.2.7}
+    Find all elements of $D_{2n}$ that commute with every other element.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.2.8}
+    Find the orders of the groups of symmetries of the five `platonic solids'.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.2.9}
+    Verify carefully that `congruence mod $n$' is an equivalence relation.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.2.10}
+    Prove that $\mathbb{Z}/n\mathbb{Z}$ consists of precisely $n$ elements.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.2.11}
+    Prove that the square of every odd integer is congruent to 1 modulo 8.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.2.12}
+    Prove that there are no integers $a, b, c$ such that $a^{2} + b^{2} = 3c^{2}$.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.2.13}
+    Prove that if $\gcd(m, n) = 1$, then there exist integers $a$ and $b$ such that
+    \begin{align*}
+        am + bn = 1.
+    \end{align*}
+
+    Conversely, prove that if $am + bn = 1$ for some integers $a$ and $b$, then $\gcd(m, n) = 1$.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.2.14}
+    State and prove an analog of Lemma 2.2, showing that the multiplication on $\mathbb{Z}/n\mathbb{Z}$ is a well-defined operation.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.2.15}
+    Let $n > 0$ be an odd integer.
+    \begin{itemize}
+        \item Prove that if $\gcd(m, n) = 1$, then $\gcd(2m + n, 2n) = 1$.
+        \item Prove that if $\gcd(r, 2n) = 1$, then $\gcd\left(\frac{r - n}{2}, n\right) = 1$.
+        \item Conclude that the function ${[m]}_{n}\to {[2m+n]}_{2n}$ is a bijection between ${(\mathbb{Z}/n\mathbb{Z})}^{*}$ and ${(\mathbb{Z}/2n\mathbb{Z})}^{*}$.
+    \end{itemize}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.2.16}
+    Find the last digit of $1238237^{18238456}$. (Work in $\mathbb{Z}/10\mathbb{Z}$).
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.2.17}
+    Show that if $m\equiv m' \mod{n}$, then $\gcd(m, n) = 1$ if and only if $\gcd(m', n) = 1$.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.2.18}
+    For $d\leq n$, define an injective function $\mathbb{Z}/d\mathbb{Z}\to S_{n}$ preserving the operation, that is, such that the sum of equivalence classes in $\mathbb{Z}/n\mathbb{Z}$ corresponds to the product of the corresponding permutations.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.2.19}
+    Both ${(\mathbb{Z}/5\mathbb{Z})}^{*}$ and ${(\mathbb{Z}/12\mathbb{Z})}^{*}$ consist of 4 elements. Write their multiplication tables, and prove that no re-ordering of the elements will make them match.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
 \section{The category $\mathsf{Grp}$}
+
+\begin{exercise}{II.3.1}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.3.2}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.3.3}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.3.4}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.3.5}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.3.6}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.3.7}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.3.8}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{II.3.9}
+\end{exercise}
+
+\begin{proof}
+\end{proof}
 
 \section{Group homomorphisms}
 
