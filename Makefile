@@ -98,49 +98,49 @@ updatecls: cleanaux
 	@latexindent $(LATEXINDENT_OPTIONS) $<
 
 linear-algebra:
-	@$(MAKE) phase1/sheldon-axler-linear-algebra-done-right/main.pdf
+	@$(MAKE) sheldon-axler-linear-algebra-done-right/main.pdf
 
 mira:
-	@$(MAKE) phase2/mira/main.pdf
+	@$(MAKE) mira/main.pdf
 
 multilinear-algebra:
-	@$(MAKE) phase1/werner-greub-multilinear-algebra/main.pdf
+	@$(MAKE) werner-greub-multilinear-algebra/main.pdf
 
 munkres-topology:
-	@$(MAKE) phase1/james-munkres-topology/main.pdf
+	@$(MAKE) james-munkres-topology/main.pdf
 
 dugundji-topology:
-	@$(MAKE) phase1/james-dugundji-topology/main.pdf
+	@$(MAKE) james-dugundji-topology/main.pdf
 
 real-analysis:
-	@$(MAKE) phase1/vladimir-zorich-mathematical-analysis/main.pdf
+	@$(MAKE) vladimir-zorich-mathematical-analysis/main.pdf
 
 tapp-differential-geometry:
-	@$(MAKE) phase1/tapp-differential-geometry/main.pdf
+	@$(MAKE) tapp-differential-geometry/main.pdf
 
 complex-analysis:
-	@$(MAKE) phase1/ahlfors-complex-analysis/main.pdf
+	@$(MAKE) ahlfors-complex-analysis/main.pdf
 
 algebra:
-	@$(MAKE) phase2/aluffi-algebra-chapter-0/main.pdf
+	@$(MAKE) aluffi-algebra-chapter-0/main.pdf
 
 functional-analysis:
-	@$(MAKE) phase2/kreyszig-functional-analysis/main.pdf
+	@$(MAKE) kreyszig-functional-analysis/main.pdf
 
 spivak:
-	@$(MAKE) phase2/calculus-on-manifolds/main.pdf
+	@$(MAKE) calculus-on-manifolds/main.pdf
 
 lee-topological-manifolds:
-	@$(MAKE) phase2/lee-topological-manifolds/main.pdf
+	@$(MAKE) lee-topological-manifolds/main.pdf
 
 lee-smooth-manifolds:
-	@$(MAKE) phase2/lee-smooth-manifolds/main.pdf
+	@$(MAKE) lee-smooth-manifolds/main.pdf
 
 greub-linear:
-	@$(MAKE) phase2/greub-linear/main.pdf
+	@$(MAKE) greub-linear/main.pdf
 
 greub-multilinear:
-	@$(MAKE) phase2/greub-multilinear/main.pdf
+	@$(MAKE) greub-multilinear/main.pdf
 
 hirsch-smale-ode:
-	@$(MAKE) phase2/hirsch-smale-de-ds-la/main.pdf
+	@$(MAKE) hirsch-smale-de-ds-la/main.pdf
