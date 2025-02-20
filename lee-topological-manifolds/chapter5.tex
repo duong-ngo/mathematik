@@ -1,7 +1,7 @@
 % chktex-file 8
 \chapter{Cell Complexes}
 
-\section{Cell Complexes and CW Complexes}
+\section{Cell Complexes and CW Complexes}\addcontentsline{toc}{section}{Cell Complexes and CW Complexes}
 
 \begin{prop}{5.1}\label{prop:5.1}
 	If \( D\subseteq \mathbb{R}^{n} \) is a compact convex subset with nonempty interior, then \( D \) is a closed \( n \)-cell and its interior is an open \( n \)-cell. In fact, given any point \( p \in \operatorname{Int}D \), there exists a homeomorphism \( F: \overline{\mathbb{B}}^{n} \to D \) that sends 0 to \( p \), \( \mathbb{B}^{n} \) to \( \operatorname{Int}D \), and \( \mathbb{S}^{n-1} \) to \( \partial D \).
@@ -10,13 +10,13 @@
 \begin{proof}
 	The proposition is true by definition when \( n = 0 \), so assume that \( n > 0 \).
 
-	Let \( p \) be an interior point of \( D \). Since the translation \( x\mapsto x - p \) is a homeomorphism of \( \mathbb{R}^{n} \) with itself, we can assume \( p = 0 \in \operatorname{Int} D \). \( p \in \operatorname{Int} D \) so there is \( \varepsilon > 0 \) such that \( B_{\varepsilon}(0) \subseteq \operatorname{Int} D \subseteq D \). The dilation \( x\mapsto x/\varepsilon \) is a homeomorphism of \( \mathbb{R}^{n} \) with itself, so we can assume \( \mathbb{B}^{n} = B_{1}(0) \subseteq D \).
+	Let \( p \) be an interior point of \( D \). Since the translation \( x\mapsto x - p \) is a homeomorphism of \( \mathbb{R}^{n} \) with itself, we can assume \( p = 0 \in \operatorname{Int} D \). The point \( p \) is in \( \operatorname{Int} D \) so there is \( \varepsilon > 0 \) such that \( B_{\varepsilon}(0) \subseteq \operatorname{Int} D \subseteq D \). The dilation \( x\mapsto x/\varepsilon \) is a homeomorphism of \( \mathbb{R}^{n} \) with itself, so we can assume \( \mathbb{B}^{n} = B_{1}(0) \subseteq D \).
 
 	We will show that each closed ray starting at the origin intersects the boundary \( \partial D \) in exactly one point.
 
-	Let \( R \) be a closed ray starting at the origin. Because \( D \) is compact, its intersection with \( R \) is compact. From the extremum value theorem, there is a point \( x_{0} \in R\cap D \) that maximizes the distance to the origin. Any point other than \( x_{0} \) on the line segment connecting \( 0 \) and \( x_{0} \) is of the form \( \lambda x_{0} \) for some \( 0\leq \lambda < 1 \). Consider the open ball \( B_{1-\lambda}(\lambda x_{0}) \) and an arbitrary point \( z \) in it. The homothety with center \( x_{0} \) and factor \( 1 - \lambda \) maps \( z \) to \( y = \dfrac{z - \lambda x_{0}}{1 - \lambda} \). \( z \in B_{1 - \lambda}(\lambda x_{0}) \) so \( \abs{z - \lambda x_{0}} < \abs{1 - \lambda} \), which means \( \abs{y} < 1 \), so \( y \in B_{1}(0) \subseteq D \). Because \( y, x_{0} \in D \) and \( D \) is convex, \( z = (1 - \lambda)y + \lambda x_{0} \) is also in \( D \). Therefore \( B_{1 - \lambda}(\lambda x_{0}) \subseteq D \), which means \( \lambda x_{0} \) is an interior point of \( D \), hence \( R \) intersects \( \partial D \) at the single point \( x_{0} \) (here we implicitly use the invariance of boundary).
+	Let \( R \) be a closed ray starting at the origin. Because \( D \) is compact, its intersection with \( R \) is compact. From the extremum value theorem, there is a point \( x_{0} \in R\cap D \) that maximizes the distance to the origin. Any point other than \( x_{0} \) on the line segment connecting \( 0 \) and \( x_{0} \) is of the form \( \lambda x_{0} \) for some \( 0\leq \lambda < 1 \). Consider the open ball \( B_{1-\lambda}(\lambda x_{0}) \) and an arbitrary point \( z \) in it. The homothety with center \( x_{0} \) and factor \( 1 - \lambda \) maps \( z \) to \( y = \dfrac{z - \lambda x_{0}}{1 - \lambda} \). Moreover \( z \in B_{1 - \lambda}(\lambda x_{0}) \) so \( \abs{z - \lambda x_{0}} < \abs{1 - \lambda} \), which means \( \abs{y} < 1 \), so \( y \in B_{1}(0) \subseteq D \). Because \( y, x_{0} \in D \) and \( D \) is convex, \( z = (1 - \lambda)y + \lambda x_{0} \) is also in \( D \). Therefore \( B_{1 - \lambda}(\lambda x_{0}) \subseteq D \), which means \( \lambda x_{0} \) is an interior point of \( D \), hence \( R \) intersects \( \partial D \) at the single point \( x_{0} \) (here we implicitly use the invariance of boundary).
 
-	We define a map \( f: \partial D \to \mathbb{S}^{n-1} \) by \( f(x) = x/\abs{x} \). \( f \) is a restriction of a continuous map so \( f \) is continuous. \( \partial D \) is compact and \( \mathbb{S}^{n-1} \) is Hausdorff so \( f \) is a closed map, according to the closed map lemma. \( f \) is bijective due to the previous paragraph. Therefore \( f \) is a homeomorphism.
+	We define a map \( f: \partial D \to \mathbb{S}^{n-1} \) by \( f(x) = x/\abs{x} \). The map \( f \) is a restriction of a continuous map so \( f \) is continuous, \( \partial D \) is compact and \( \mathbb{S}^{n-1} \) is Hausdorff so \( f \) is a closed map, according to the closed map lemma. Also, \( f \) is bijective due to the previous paragraph. Therefore \( f \) is a homeomorphism.
 
 	Define \( F: \overline{\mathbb{B}}^{n} \to D \) by
 	\begin{align*}
@@ -26,7 +26,7 @@
 		       \end{cases}
 	\end{align*}
 
-	\( F \) is continuous on \( \overline{\mathbb{B}}^{n}\smallsetminus\set{0} \) because \( f^{-1} \) and \( x\mapsto \abs{x} \) are continuous. \( \partial D \) is compact in \( \mathbb{R}^{n} \) so it is bounded, so there exists \( R > 0 \) such that \( \abs{a} < R \) for any \( a \in \partial D \). For every \( x \ne 0 \)
+	\( F \) is continuous on \( \overline{\mathbb{B}}^{n}\smallsetminus\set{0} \) because \( f^{-1} \) and \( x\mapsto \abs{x} \) are continuous. On the other hand, \( \partial D \) is compact in \( \mathbb{R}^{n} \) so it is bounded, so there exists \( R > 0 \) such that \( \abs{a} < R \) for any \( a \in \partial D \). For every \( x \ne 0 \)
 	\begin{align*}
 		\abs{F(x) - F(0)} = \abs{F(x)} = \abs{x}\abs{f^{-1}\left(\frac{x}{\abs{x}}\right)} = \abs{x}\abs{f^{-1}\left(\frac{x}{\abs{x}}\right)} < R\abs{x}
 	\end{align*}
@@ -38,15 +38,15 @@
 	Therefore \( F \) is a homeomorphism from \( \overline{\mathbb{B}}^{n} \) to \( D \) that sends \( 0 \) to \( p \), \( \mathbb{B}^{n} \) to \( \operatorname{Int} D \), and \( \mathbb{S}^{n-1} \) to \( \partial D \).
 \end{proof}
 
-\subsection{Cell Decompositions}
+\subsection*{Cell Decompositions}\addcontentsline{toc}{subsection}{Cell Decompositions}
 
-A \textbf{cell decomposition of \( X \)} is a partition \( \mathscr{E} \) of \( X \) into subspaces that are open cells of various dimensions, such that for each cell \( e \in \mathscr{E} \) of dimension \( n\geq 1 \), there exists a continuous map \( \Phi \) from some closed \( n \)-cell \( D \) into \( X \) (called a \textbf{characteristic map for \( e \)}) that restricts to a homeomorphism from \( \operatorname{Int} D \) onto \( e \) and maps \( \partial D \) into the union of all cells of \( \mathscr{E} \) of dimensions strictly less than \( n \).
+A \textbf{cell decomposition of \( X \)} is a partition \( \mathscr{E} \) of \( X \) into subspaces that are open cells of various dimensions, such that for each cell \( e \in \mathscr{E} \) of dimension \( n\geq 1 \), there exists a continuous map \( \Phi \) from some closed \( n \)-cell \( D \) into \( X \) (called a \textbf{characteristic map for \( e \)}) that restricts to a homeomorphism from \( \operatorname{Int} D \) onto \( e \) and maps \( \partial D \) into (no, it doesn't mean injective) the union of all cells of \( \mathscr{E} \) of dimensions strictly less than \( n \).
 
 A \textbf{cell complex} is a Hausdorff space \( X \) together with a specific cell decomposition of \( X \).
 
 Each cell \( e \in \mathscr{E} \) needs not to be open in \( X \).
 
-\subsection{CW Complexes}
+\subsection*{CW Complexes}\addcontentsline{toc}{subsection}{CW Complexes}
 
 Suppose \( X \) is a topological space, and \( \mathscr{B} \) is any family of subspaces of \( X \) whose union is \( X \). The topology of \( X \) is \textbf{coherent with \( \mathscr{B} \)} means a subset \( U \subseteq X \) is open in \( X \) if and only if its intersection with each \( B\in\mathscr{B} \) is open in \( B \). This definition is equivalent to that \( U \) is closed in \( X \) if and only if \( U\cap B \) is closed in \( B \) for each \( B \in \mathscr{B} \).
 
@@ -91,8 +91,8 @@ A \textbf{CW complex} is cell complex \( (X, \mathscr{E}) \) such that
 \begin{proof}
 	From the definition of closed cell and open cell, we deduce that \( D = \overline{\operatorname{Int} D} \).
 	\begin{align*}
-		\Phi(D) & = \Phi(\overline{\operatorname{Int} D})                                                                                   \\
-		        & \subseteq \overline{\Phi(\operatorname{Int} D)} & \text{(Problem~\ref{problem:2-6} or Proposition 2.30)}                  \\
+		\Phi(D) & = \Phi(\overline{\operatorname{Int} D})                                                                                               \\
+		        & \subseteq \overline{\Phi(\operatorname{Int} D)} & \text{(Problem~\ref{problem:2-6} or Proposition 2.30)}                              \\
 		        & = \overline{e}                                  & \text{(\(  \Phi\vert_{\operatorname{Int} D}  \) is a homeomorphism onto \(  e  \))}
 	\end{align*}
 
@@ -113,13 +113,13 @@ Locally finite complexes (and thus all finite ones), (C) and (W) are automatic.
 	For each \( e\in \mathscr{E} \), every point of \( \overline{e} \) has a neighborhood that intersects only finitely many cells in \( \mathscr{E} \). The closure \( \overline{e} \) is compact (see Note~\ref{note:characteristic-map-as-a-quotient-map}) so it is covered by finitely many such neighborhoods. Therefore \( \overline{e} \) is contained in a union of finitely many cells, which means \( X \) is closure finite.
 
 	Let \( A \subseteq X \) be a subset whose intersection with \( \overline{e} \) is closed in \( \overline{e} \) for each \( e\in \mathscr{E} \). Let \( x \) be a point of \( X\smallsetminus A \). The collection \( \mathscr{E} \) is locally finite then so is \( \set{ \overline{e} : e\in\mathscr{E} } \), according to Lemma 4.74, so there exists a neighborhood \( W \) of \( x \) that intersects the closure of only finitely many cells, say \( \overline{e}_{1}, \ldots, \overline{e}_{m} \). \( A \cap \overline{e}_{i} \) is closed in \( \overline{e}_{i} \) and thus in \( X \) (Exercise~\ref{exercise:3.6}), then
-    \begin{align*}
-        W\smallsetminus A & = (W\smallsetminus A) \cup \emptyset \\
-                          & = (W\smallsetminus A) \cup \left(W \smallsetminus \bigcup^{m}_{i=1}\overline{e}_{i} \right) \\
-                          & = W \smallsetminus \left(A \cap \bigcup^{m}_{i=1}\overline{e}_{i}\right) & \text{(De Morgan's law)} \\
-                          & = W \smallsetminus \bigcup^{m}_{i=1}(A\cap \overline{e}_{i})
-    \end{align*}
-    is a neighborhood of \( x \) contained in \( X\smallsetminus A \). Because \( x \) is an arbitrary point of \( X\smallsetminus A \), it follows that \( X\smallsetminus A \) is open in \( X \), so \( A \) is closed in \( X \). Therefore the topology of \( X \) is coherent with \( \set{ \overline{e} : e \in \mathscr{E} } \).
+	\begin{align*}
+		W\smallsetminus A & = (W\smallsetminus A) \cup \emptyset                                                                                   \\
+		                  & = (W\smallsetminus A) \cup \left(W \smallsetminus \bigcup^{m}_{i=1}\overline{e}_{i} \right)                            \\
+		                  & = W \smallsetminus \left(A \cap \bigcup^{m}_{i=1}\overline{e}_{i}\right)                    & \text{(De Morgan's law)} \\
+		                  & = W \smallsetminus \bigcup^{m}_{i=1}(A\cap \overline{e}_{i})
+	\end{align*}
+	is a neighborhood of \( x \) contained in \( X\smallsetminus A \). Because \( x \) is an arbitrary point of \( X\smallsetminus A \), it follows that \( X\smallsetminus A \) is open in \( X \), so \( A \) is closed in \( X \). Therefore the topology of \( X \) is coherent with \( \set{ \overline{e} : e \in \mathscr{E} } \).
 
 	Thus \( \mathscr{E} \) is a CW decomposition.
 \end{proof}
@@ -139,7 +139,7 @@ Suppose \( X \) is a CW complex. If there is an integer \( n \) such that all th
 
 	Hence the intersection of \( e_{0} \) with the closure of any different cell \( e \) is open in \( \overline{e} \) and the intersection of \( e_{0} \) with \( \overline{e_{0}} \) is open in \( \overline{e_{0}} \). Therefore \( e_{0} \) is open in \( X \) as the topology of \( X \) is coherent with \( \set{ \overline{e}: e \in \mathscr{E} } \).
 
-    Thus every \( n \)-cell of an \( n \)-dimensional CW complex is open.
+	Thus every \( n \)-cell of an \( n \)-dimensional CW complex is open.
 \end{proof}
 
 A \textbf{subcomplex} of a cell complex \( X \) is a subspace \( Y \subseteq X \) that is a union of cells of \( X \), such that if \( Y \) contains a cell, it also contains its closure. It follows directly from this definition that the union and the intersection of any collection of subcomplexes are subcomplexes.
@@ -154,19 +154,166 @@ A \textbf{subcomplex} of a cell complex \( X \) is a subspace \( Y \subseteq X \
 	Let \( e \) be a cell of \( X \) such that \( e\subseteq X_{n} \) and \( \Phi: D \to X \) be a characteristic map for \( e \) then \( \Phi(\operatorname{Int} D) = e \) and \( \Phi(D) = \overline{e} \). From the definition of cell complexes, \( \Phi \) maps \( \partial D \) into the union of cells of dimensions strictly less than \( n \) (these cells are contained in \( X_{n} \)), it follows that \( \overline{e} \) is contained in \( X_{n} \). Therefore \( X_{n} \) is a subcomplex of \( X \). Moreover, \( X_{n} \) is of dimension \( \leq n \) due to the definition of the dimension of a finite-dimensional CW complex.
 \end{proof}
 
-\section{Topological Properties of CW Complexes}
+\begin{theorem}{5.6}
+	Suppose \( X \) is a CW complex and \( Y \) is a subcomplex of \( X \). Then \( Y \) is closed in \( X \), and with the subspace topology and the cell decomposition that it inherits from \( X \), it is a CW complex.
+\end{theorem}
 
-\subsection{Inductive Construction of CW Complexes}
+\begin{proof}
+	Let \( \mathscr{E} \) be the cell decomposition of \( X \) and \( e \) an \( n \)-cell of \( \mathscr{E} \) such that \( e \subseteq Y \).
 
-\subsection{CW Complexes as Manifolds}
+	\textbf{\( Y \) is a cell complex.}
 
-\section{Classification of 1-Dimensional Manifolds}
+	\( X \) is Hausdorff then so is any of its subspace, which implies \( Y \) is Hausdorff.
 
-\section{Simplicial Complexes}
+	Let \( \Phi: D \to X \) be a characteristic map for \( e \) (as a cell of \( X \)). The restriction \( \Phi\vert_{\operatorname{Int}D} \) is a homeomorphism from \( \operatorname{Int}D \) onto \( e \), and \( \Phi \) maps \( \partial D \) to the union of cells of dimension less than \( n \). If \( e_{0} \) is a cell of dimension less than \( n \) and intersects \( \Phi(\partial D) = \overline{e}\smallsetminus e \) then \( e_{0} \) intersects \( \overline{e} \). Because \( Y \) is a subcomplex of \( X \), the closure \( \overline{e} \) is contained in \( Y \) and its cell decomposition is inherited from that of \( X \), so \( e_{0} \) is a cell of \( Y \). Therefore, as a cell of \( Y \), \( \overline{e}\smallsetminus e \) is covered by the union of cells of dimension less than \( n \). So \( Y \) is a cell complex.
 
-\subsection{Simplicial Maps}
+	\textbf{\( Y \) is closure finite.}
 
-\subsection{Abstract Simplicial Complexes}
+	As a cell of the CW complex \( X \), the closure of \( e \) is contained in a union of finitely many cells. These cells intersect \( \overline{e} \), which is contained in \( Y \), so they are also contained in \( Y \). Hence \( Y \) is closure finite.
+
+	\textbf{\( Y \) has weak topology and \( Y \) is closed in \( X \).}
+
+	Let \( A \subseteq Y \) be a set such that \( A\cap \overline{e} \) is closed in \( \overline{e} \) for every cell \( e \) in \( Y \). Let \( e \) be a cell of \( X \) that is not contained in \( Y \). From the definition of cell complexes, \( \overline{e}\smallsetminus e \) is contained in the union of finitely many cells of \( X \); let the cells of these, which are contained in \( Y \), be \( e_{1}, \ldots, e_{k} \). Then \( \bigcup^{k}_{i=1}\overline{e}_{i} \subseteq Y \) and
+	\[
+		A \cap \overline{e} = A \cap \left(\bigcup^{k}_{i=1}\overline{e}_{i}\right) \cap \overline{e} = \bigcup^{k}_{i=1}(A\cap \overline{e}_{i}) \cap \overline{e}
+	\]
+
+	is closed in \( \overline{e} \). Therefore \( A \) is closed in \( X \), hence in \( Y \), which means \( Y \) has weak topology. Particularly, \( Y \) is closed in \( X \).
+\end{proof}
+
+\section*{Topological Properties of CW Complexes}\addcontentsline{toc}{section}{Topological Properties of CW Complexes}
+
+\begin{lemma}{5.12}\label{lemma:5.12}
+	In any CW complex, the closure of each cell is contained in a finite subcomplex.
+\end{lemma}
+
+\begin{proof}
+	Let \( X \) be a CW complex and \( e \) be an \( n \)-cell of \( X \), we will prove by mathematical induction on \( n \).
+
+	If \( n = 0 \) then \( \overline{e} = e \) so \( e \) is contained in a finite subcomplex. Assume the statement is true for every cell of dimension less than \( n \). From the condition (C), \( \overline{e} \smallsetminus e \) is contained in the union of finitely many cells of dimension less than \( n \), each of which is contained in a finite subcomplex by the inductive hypothesis. The union of these finite subcomplexes together with \( e \) is a finite subcomplex containing \( \overline{e} \).
+
+	Thus \( \overline{e} \) is contained in a finite subcomplex.
+\end{proof}
+
+\begin{lemma}{5.13}\label{lemma:5.13}
+	Let \( X \) be a CW complex. A subset of \( X \) is closed and discrete if and only if its intersection with each cell is finite.
+\end{lemma}
+
+\begin{proof}
+	Let \( S \) be a subset of \( X \). If the intersection of \( S \) with each cell is finite then \( S \) is closed and discrete.
+
+	Conversely, if the intersection of \( S \) with each cell is finite. According to Lemma~\ref{lemma:5.12}, the closure of each cell is contained in a finite subcomplex. From the hypothesis that \( S \cap \overline{e} \) is finite for each \( e \), it follows that \( S \cap \overline{e} \) is closed in \( \overline{e} \) for each \( e \). From the condition (W), \( S \) is closed in \( X \). The argument remains valid to any subset of \( S \) so any subset of \( S \) is closed, which implies the subspace topology on \( S \) is discrete.
+\end{proof}
+
+\begin{theorem}{5.14}
+	Let \( X \) be a CW complex. A subset \( X \) is compact if and only if it is closed in \( X \) and contained in a finite subcomplex.
+\end{theorem}
+
+\begin{proof}
+	Every finite subcomplex of a CW complex is compact because it is the union of finitely many sets of the form \( \overline{e} \), which are compact. If a subset of \( X \) is closed in \( X \) and contained in a finite subcomplex then it is also compact.
+
+	Suppose that \( K \subseteq X \) is compact then \( K \) is closed because \( X \) is Hausdorff by definition. Assume for the sake of contradiction that \( K \) intersects infinitely many cells. For each cell \( e \) that intersects \( K \), we choose a point \( p \in e\cap K \). The set of these points \( p \) is an infinite closed discrete subset of \( K \) (according to Lemma~\ref{lemma:5.13}), which is impossible because it is not compact. Therefore \( K \) intersects finitely many cells, so it is contained in a finite subcomplex, according to Lemma~\ref{lemma:5.12}.
+\end{proof}
+
+\subsection*{Inductive Construction of CW Complexes}\addcontentsline{toc}{subsection}{Inductive Construction of CW Complexes}
+
+\begin{exercise}{5.19}
+	Suppose \( X \) is an \( n \)-dimensional CW complex with \( n \geq 1 \), and \( e \) is any \( n \)-cell of \( X \). Show that \( X \smallsetminus e \) is a subcomplex, and \( X \) is homeomorphic to an adjunction space obtained from \( X \smallsetminus e \) by attaching a single \( n \)-cell.
+\end{exercise}
+
+\begin{proof}
+	Let \( e_{0} \) be a cell in \( X\smallsetminus e_{0} \) and \( \Phi_{0}: D \to X \) be a characteristic map for \( e_{0} \). From Note~\ref{note:characteristic-map-as-a-quotient-map}, \( \overline{e_{0}}\smallsetminus e_{0} = \Phi_{0}(\partial D) \) and the definition of cell complexes, \( \Phi_{0}(\partial D) \) is contained in the union of cells of dimension less than the dimension of \( e_{0} \) (hence less than \( n \)). Therefore \( \overline{e_{0}}\smallsetminus e_{0} \) is contained in \( X \smallsetminus e \), so \( \overline{e_{0}} \) is contained in \( X \smallsetminus e \). Hence \( X \smallsetminus e \) is a subcomplex.
+
+	Let \( D^{n} \) be a closed \( n \)-cell and \( \Phi: D^{n} \to X \) be a characteristic map for \( e \). We define a quotient map
+	\[
+		q: (X\smallsetminus e) \amalg D^{n} \to ((X\smallsetminus e) \amalg D^{n})/(a \sim \varphi(a)) = (X\smallsetminus e) \cup_{\varphi} D^{n}
+	\]
+
+	in which the map \( \varphi: \partial D^{n} \to X\smallsetminus e \) is the restriction of \( \Phi \) to \( \partial D^{n} \). On the other hand, consider the map
+	\[
+		f: (X\smallsetminus e) \amalg D^{n} \to X
+	\]
+
+	in which \( f\vert_{X\smallsetminus e} \) is the inclusion map and \( f\vert_{D^{n}} = \Phi \). The maps \( q \) and \( f \) are continuous and have the same identification on the disjoint union \( (X\smallsetminus e) \amalg D^{n} \). We will show that \( f \) is a quotient map.
+
+	Suppose \( A \subseteq (X\smallsetminus e) \amalg D^{n} \) is a saturated closed subset and \( B = f(A) \), so \( A = f^{-1}(B) \). Because \( A \) is closed, \( A \cap (X\smallsetminus e) \) is closed in \( X\smallsetminus e \) and \( A \cap D^{n} \) is closed in \( D^{n} \).
+	\begin{itemize}[leftmargin=*]
+		\item \( A \cap (X\smallsetminus e) \) is closed in \( X\smallsetminus e \). Moreover
+		      \begingroup
+		      \allowdisplaybreaks
+		      \begin{align*}
+			      A \cap (X\smallsetminus e) & = f^{-1}(B) \cap (X\smallsetminus e)                               \\
+			                                 & = f^{-1}(B \cap f(X\smallsetminus e))                              \\
+			                                 & = {(f\vert_{X\smallsetminus e})}^{-1}(B \cap f(X\smallsetminus e)) \\
+			                                 & = B \cap (X\smallsetminus e)
+		      \end{align*}
+		      \endgroup
+
+		      in which the last equality holds because \( f\vert_{X\smallsetminus e} \) is an inclusion map. So \( B\cap (X\smallsetminus e) \) is closed in \( X \smallsetminus e \), which means the intersection of \( B \) and the closure of any cell in \( X\smallsetminus e \) is closed in that cell.
+		\item \( A \cap D^{n} \) is closed in \( D^{n} \) so \( \Phi(A\cap D^{n}) \) is closed in \( \overline{e} \) since \( \Phi \) is a closed map due to Note~\ref{note:characteristic-map-as-a-quotient-map}.
+		      \begingroup
+		      \allowdisplaybreaks
+		      \begin{align*}
+			      A\cap D^{n} & = f^{-1}(B) \cap D^{n}                         \\
+			                  & = f^{-1}(B \cap f(D^{n}))                      \\
+			                  & = f^{-1}(B \cap \Phi(D^{n}))                   \\
+			                  & = f^{-1}(B \cap \overline{e})                  \\
+			                  & = {(f\vert_{D^{n}})}^{-1}(B \cap \overline{e}) \\
+			                  & = \Phi^{-1}(B\cap \overline{e})
+		      \end{align*}
+		      \endgroup
+
+		      Since \( \Phi: D^{n} \to \overline{e} \) is surjective, \( \Phi(A \cap D^{n}) = \Phi(\Phi^{-1}(B \cap \overline{e})) = B \cap \overline{e} \). Hence \( B\cap \overline{e} \) is closed in \( \overline{e} \).
+	\end{itemize}
+
+	Thus \( B \) is closed in \( X \) due to the weak topology condition, which means \( f \) is a quotient map. Two quotient maps \( q \) and \( f \) have the same identification on \( (X\smallsetminus e) \amalg D^{n} \) so \( X \) is homeomorphic to the adjunction space \( (X\smallsetminus e) \cup_{\varphi} D^{n} \) of \( X \smallsetminus e \) and a closed \( n \)-cell.
+\end{proof}
+
+% TODO: rewrite the proofs of Theorem 5.20 and 5.22
+
+\subsection*{CW Complexes as Manifolds}\addcontentsline{toc}{subsection}{CW Complexes as Manifolds}
+
+% TODO: rewrite the proof of Theorem 5.24
+
+\section*{Classification of 1-Dimensional Manifolds}\addcontentsline{toc}{section}{Classification of 1-Dimensional Manifolds}
+
+% TODO: rewrite the proof of Theorem 5.25 and 5.27
+
+\section*{Simplicial Complexes}\addcontentsline{toc}{section}{Simplicial Complexes}
+
+\begin{exercise}{5.31}
+	Prove Proposition 5.30.
+
+	Every simplex is the convex hull of its vertices.
+\end{exercise}
+
+\begin{proof}
+	Let \( \set{ v_{0}, \ldots, v_{n} } \) be vertices of an Euclidean \( n \)-simplex. The simplex \( [v_{0}, \ldots, v_{n}] \) is convex and contains all of its vertices.
+
+	Suppose that \( S \) is a convex set containing \( \set{ v_{0}, \ldots, v_{n} } \). Then every point of the form \( \sum^{n}_{i=0} t_{i}v_{i} \) in which \( 0 \le t_{i} \le 1 \) and \( \sum^{n}_{i=0} t_{i} = 1 \) is contained in \( S \) since \( S \) is convex. Equivalently, \( [v_{0}, \ldots, v_{n}] \subseteq S \). Hence \( [v_{0}, \ldots, v_{n}] \) is the convex hull of its vertices.
+\end{proof}
+
+\begin{exercise}{5.34}
+	Prove Proposition 5.33.
+
+	If \( K \) is an Euclidean simplicial complex, then the collection consisting of the interiors of the simplices of \( K \) is a regular CW decomposition of \( \left\vert K \right\vert \).
+\end{exercise}
+
+\begin{proof}
+	For each nonnegative integer \( n \), denote by \( T_{n} \) the collection of \( n \)-simplices in \( K \) and define
+	\begin{itemize}[leftmargin=*,itemsep=0pt]
+		\item \( K_{0} = T_{0} \),
+		\item for each \( n > 0 \), we construct \( K_{n} \) as follows: for each \( n \)-simplex \( \sigma \), use the inclusion map \( \varphi: \partial \sigma \xhookrightarrow{} K_{n-1} \) as the adjunction map and attach \( \sigma \) to \( K_{n-1} \) using \( \varphi \)
+	\end{itemize}
+
+	then \( K = \bigcup_{n} K_{n} \). From Theorem 5.20, this construction produces a CW complex. Hence every Euclidean simplicial complex is a CW complex.
+
+	Let the collection of simplices of \( K \) be \( \Sigma \) then the collection \( \set{ \operatorname{Int}(\sigma): \sigma \in \Sigma } \) is a partition for \( \left\vert K \right\vert \). Consider the inclusion map \( \varphi: \sigma \to \left\vert K \right\vert \) for each \( \sigma \in \Sigma \) then \( \varphi \) maps the boundary of \( \sigma \) into the union of the proper faces of \( \sigma \). Therefore \( \varphi \) is a characteristic map for the cell \( \sigma \) (each \( n \)-simplex is a closed \( n \)-cell), so each cell of \( K \) is a regular cell. Hence the collection of the interiors of the simplices of \( K \) is a regular CW decomposition of \( \left\vert K \right\vert \).
+\end{proof}
+
+\subsection*{Simplicial Maps}\addcontentsline{toc}{subsection}{Simplicial Maps}
+
+\subsection*{Abstract Simplicial Complexes}\addcontentsline{toc}{subsection}{Abstract Simplicial Complexes}
 
 \section*{Problems}\addcontentsline{toc}{section}{Problems}
 
@@ -289,7 +436,7 @@ topologically homogeneous.
 		      \( h: X\smallsetminus U \to X\smallsetminus U \) defined by \( h(x) = x \) is also a topological embedding. Moreover, \( g, h \) agree on \( \overline{U} \cap (X \smallsetminus U) = \partial \overline{U} \) so there is a continuous map \( F: X \to X \) such that \( F\vert_{\overline{U}} = g \) and \( F\vert_{X\smallsetminus U} = h \) according to the gluing lemma. \( F \) is bijective because \( g \) and \( h \) are bijective. Also by the gluing lemma, there is a continuous map \( G: X\to X \) such that \( G\vert_{\overline{U}} = g^{-1} \) and \( G\vert_{X\smallsetminus U} = h^{-1} \). Moreover, \( F \circ G = G \circ F = \operatorname{Id}_{X} \) so \( F \) is a homeomorphism. So \( F: X\to X \) is a homeomorphism such that \( F(p) = g(p) = q \).
 
 		      Hence every point of \( X \) has a neighborhood \( U \) such that for any \( p, q \in U \), there is a homeomorphism from \( X \) to itself taking \( p \) to \( q \).
-		\item Suppose \( X \) is a connected topological manifold. Define a relation \( \sim \) on \( X \) as follows: \( x \sim y \) if and only if there is a homeomorphism from \( X \) to itself taking \( x \) to \( y \). \( \sim \) is an equivalence relation.
+		\item Suppose \( X \) is a connected topological manifold. Define a relation \( \sim \) on \( X \) as follows: \( x \sim y \) if and only if there is a homeomorphism from \( X \) to itself taking \( x \) to \( y \). So \( \sim \) is an equivalence relation.
 
 		      Let \( U \) be a regular coordinate ball of \( X \) then part (b) implies that any two points \( x, y\in U \), \( x \sim y \). Therefore \( U \) is contained in the equivalence class \( {[x]}_{\sim} \), so \( {[x]}_{\sim} \) is open in \( X \). All equivalence classes constitute a partition by open subsets of \( X \). Since \( X \) is connected, it follows that there is exactly one equivalence class. Hence \( X \) is topologically homogeneous.
 	\end{enumerate}
@@ -308,7 +455,7 @@ Generalize the argument of Problem~\ref{problem:5-3} to show that if \( M \) is 
 \begin{proof}
 	Let \( p, q\in M \) and \( A \) a finite subset of \( M \) not containing \( p, q \). We will show that there exists a self-homeomorphism on \( M \) that takes \( p \) to \( q \) and fixes every point of \( A \).
 
-	Define \( \sim \) on \( M\smallsetminus A \) as follows: \( x \sim y \) if and only if there exists a self-homeomorphism on \( M \) such that takes \( x \) to \( y \) and fixes every point of \( A \). \( \sim \) is an equivalence relation. Consider an equivalence class and a point \( x \) in it. There exists a regular coordinate ball \( B \) containing \( x \) and not intersecting \( A \) (because \( M\smallsetminus A \) is open in \( M \)). The proof of Problem~\ref{problem:5-3} shows that there is a self-homeomorphism on \( M \) that takes \( x \) to any point in \( B \) and fixes every point of \( M\smallsetminus B \). Therefore \( x \in B \subseteq {[x]}_{\sim} \), which means \( {[x]}_{\sim} \) is an open set. Because \( M\smallsetminus A \) is connected (see the note after Problem~\ref{problem:4-18}) and \( M\smallsetminus A \) has a partition of equivalence classes induced by \( \sim \), it follows that \( M\smallsetminus A \) has exactly one equivalence class. Hence there is a self-homeomorphism on \( M \) that takes \( p \) to \( q \) and fixes every point of \( A \).
+	Define \( \sim \) on \( M\smallsetminus A \) as follows: \( x \sim y \) if and only if there exists a self-homeomorphism on \( M \) such that takes \( x \) to \( y \) and fixes every point of \( A \). So \( \sim \) is an equivalence relation. Consider an equivalence class and a point \( x \) in it. There exists a regular coordinate ball \( B \) containing \( x \) and not intersecting \( A \) (because \( M\smallsetminus A \) is open in \( M \)). The proof of Problem~\ref{problem:5-3} shows that there is a self-homeomorphism on \( M \) that takes \( x \) to any point in \( B \) and fixes every point of \( M\smallsetminus B \). Therefore \( x \in B \subseteq {[x]}_{\sim} \), which means \( {[x]}_{\sim} \) is an open set. Because \( M\smallsetminus A \) is connected (see the note after Problem~\ref{problem:4-18}) and \( M\smallsetminus A \) has a partition of equivalence classes induced by \( \sim \), it follows that \( M\smallsetminus A \) has exactly one equivalence class. Hence there is a self-homeomorphism on \( M \) that takes \( p \) to \( q \) and fixes every point of \( A \).
 
 	The statement is true for \( k = 1 \). Assume that it is true for \( k = m \geq 1 \). Consider two \( (m+1) \)-tuples \( \tuple{p_{1}, \ldots, p_{m+1}} \) and \( \tuple{q_{1}, \ldots, q_{m+1}} \) in which \( p_{1}, \ldots, p_{m+1} \) are pairwise distinct and \( q_{1}, \ldots, q_{m+1} \) are pairwise distinct. By the inductive hypothesis, there is a homeomorphism \( \varphi: M\to M \) that takes \( p_{i} \) to \( q_{i} \) for \( i = 1, \ldots, m \). Because \( \varphi \) is bijective, \( \varphi(p_{m+1}) \notin A = \set{ q_{1}, \ldots, q_{m} } \). From the above statement, there is a homeomorphism \( \psi: M\to M \) that takes \( \varphi(p_{m+1}) \) to \( q_{m+1} \) and fixes every point of \( A \). Hence \( \psi\circ\varphi \) is a self-homeomorphism on \( M \) that takes \( p_{i} \) to \( q_{i} \) for \( i = 1, \ldots, m+1 \). Therefore the statement is true due to the principle of mathematical induction.
 
@@ -322,7 +469,7 @@ Suppose \( X \) is a topological space and \( \set{X_{\alpha}} \) is a family of
 \begin{proof}
 	\( (\Longrightarrow) \) The topology of \( X \) is coherent with the subspaces \( \set{X_{\alpha}} \).
 
-	Let \( \mathscr{T} \) be the original topology of \( X \) and \( \mathscr{T}' \) be a topology of \( X \) for which all of the inclusion maps \( X_{\alpha} \hookrightarrow{} X \) are continuous. Suppose \( U \in \mathscr{T}' \). \( \iota_{\alpha}: X_{\alpha} \hookrightarrow{} (X, \mathscr{T}') \) is continuous for each \( \alpha \), so \( \iota_{\alpha}^{-1}(U) = U \cap X_{\alpha} \) is open in \( X_{\alpha} \) for each \( \alpha \). Therefore \( U \in \mathscr{T} \), due to the definition of coherent topology. Hence \( \mathscr{T}' \subseteq \mathscr{T} \).
+	Let \( \mathscr{T} \) be the original topology of \( X \) and \( \mathscr{T}' \) be a topology of \( X \) for which all of the inclusion maps \( X_{\alpha} \hookrightarrow{} X \) are continuous. Suppose \( U \in \mathscr{T}' \). The map \( \iota_{\alpha}: X_{\alpha} \hookrightarrow{} (X, \mathscr{T}') \) is continuous for each \( \alpha \), so \( \iota_{\alpha}^{-1}(U) = U \cap X_{\alpha} \) is open in \( X_{\alpha} \) for each \( \alpha \). Therefore \( U \in \mathscr{T} \), due to the definition of coherent topology. Hence \( \mathscr{T}' \subseteq \mathscr{T} \).
 
 	\( (\Longleftarrow) \) The topology of \( X \) is the finest topology on \( X \) for which all of the inclusion maps \( X_{\alpha} \hookrightarrow{} X \) are continuous.
 
@@ -346,10 +493,10 @@ Suppose \( X \) is a topological space. Show that the topology of \( X \) is coh
 		      Hence the topology of \( X \) is coherent with any open cover of \( X \).
 		\item Let \( \mathscr{U} \) be a locally finite closed cover of \( X \) and \( V \) a subset of \( X \).
 
-		      If \( V \) is closed in \( X \) then \( V\cap U \) is closed in \( U \) for each \( U\in\mathscr{U} \). Conversely, suppose that \( V\cap U \) is closed in \( U \) for each \( U\in\mathscr{U} \). \( \mathscr{U} \) is locally finite so the collection \( \set{ V\cap U : U\in\mathscr{U} } \) is also locally finite.
+		      If \( V \) is closed in \( X \) then \( V\cap U \) is closed in \( U \) for each \( U\in\mathscr{U} \). Conversely, suppose that \( V\cap U \) is closed in \( U \) for each \( U\in\mathscr{U} \). The cover \( \mathscr{U} \) is locally finite so the collection \( \set{ V\cap U : U\in\mathscr{U} } \) is also locally finite.
 		      \begin{align*}
-			      V & = \bigcup_{U\in\mathscr{U}} (V\cap U)                                                                                                        \\
-			        & = \bigcup_{U\in\mathscr{U}} \overline{V\cap U}   & \text{(\(  V\cap U  \) is closed in \(  U  \), thus closed in \(  X  \))}                                   \\
+			      V & = \bigcup_{U\in\mathscr{U}} (V\cap U)                                                                                                              \\
+			        & = \bigcup_{U\in\mathscr{U}} \overline{V\cap U}   & \text{(\(  V\cap U  \) is closed in \(  U  \), thus closed in \(  X  \))}                       \\
 			        & = \overline{\bigcup_{U\in\mathscr{U}} (V\cap U)} & \text{(Lemma 4.76 for the locally finite collection \(  \set{ V\cap U : U\in\mathscr{U} }  \))} \\
 			        & = \overline{V}.
 		      \end{align*}
@@ -380,7 +527,7 @@ collection of skeleta).
 \end{problem}
 
 \begin{proof}
-	Let \( (X, \mathscr{E}) \) be a CW complex and \( S \subseteq X \). For each integer \( n \), denote by \( X_{n} \) the \( n \)-skeleton of \( (X, \mathscr{E}) \). \( \set{ X_{n} : n\geq 0 } \) is a cover of \( X \). \( X_{n} \) is a subcomplex of \( X \). From Theorem 5.6, \( X_{n} \) is closed in \( X \) for each \( n \).
+	Let \( (X, \mathscr{E}) \) be a CW complex and \( S \subseteq X \). For each integer \( n \), denote by \( X_{n} \) the \( n \)-skeleton of \( (X, \mathscr{E}) \). The collection \( \set{ X_{n} : n\geq 0 } \) is a cover of \( X \). \( X_{n} \) is a subcomplex of \( X \). From Theorem 5.6, \( X_{n} \) is closed in \( X \) for each \( n \).
 
 	Assume that \( S \cap X_{n} \) is closed in \( X_{n} \) for each integer \( n \). Let \( e \) be an arbitrary cell of \( X \) then there exists a nonnegative integer \( n \) such that \( e \subseteq X_{n} \). Since \( X_{n} \) is a subcomplex of \( X \), it follows that \( \overline{e} \subseteq X_{n} \), moreover, \( \overline{e} \) is closed in \( X_{n} \).
 	\begin{align*}
@@ -396,27 +543,78 @@ collection of skeleta).
 Show that every CW complex is locally path-connected.
 \end{problem}
 
+\begin{proof}
+	Let \( X \) be a CW complex. For each cell \( e_{\alpha} \) of \( X \), let \( \Phi_{\alpha}: D_{\alpha} \to X \) be a characteristic map for \( e \). We show that the map \( \Phi: \coprod_{\alpha} D_{\alpha} \to X \) whose restriction to each \( D_{\alpha} \) is \( \Phi_{\alpha} \) is a quotient map.
+
+	\( \Phi \) is the composition of \( \phi: \coprod_{\alpha} D_{\alpha} \to \coprod_{\alpha}\overline{e_{\alpha}} \) (whose restriction to \( D_{\alpha} \) is \( \Phi_{\alpha} \)) and \( \psi: \coprod_{\alpha}\overline{e_{\alpha}} \to X \) (whose restriction to \( \overline{\alpha} \) is the inclusion). The map \( \phi \) is a quotient map according to Exercise~\ref{exercise:3.63} and \( \psi \) is a quotient map according to Exercise~\ref{exercise:5.3}. The composition of two quotient maps is a quotient map so \( \Phi \) is a quotient map.
+
+	The disjoint union \( \coprod_{\alpha} D_{\alpha} \) is locally path-connected, so \( X \) is locally path-connected, according to Problem~\ref{problem:4-7} (The image of a local path-connected space under a quotient map is also locally path-connected.)
+\end{proof}
+
 \begin{problem}{5-10}\label{problem:5-10}
 Show that every CW complex is compactly generated.
 \end{problem}
+
+\begin{proof}
+	Let \( X \) be a CW complex and \( \mathscr{U} \) be the collection of compact subspaces of \( X \). Since \( X \) is Hausdorff, \( U \subseteq X \) is closed for each \( U \in \mathscr{U} \).
+
+	Let \( S \) be a subset of \( X \). Suppose the intersection of \( S \) with each \( U \in \mathscr{U} \) is closed in \( U \). The closure of each cell of \( X \) is compact, so the intersection of \( S \) to \( \overline{e} \) is closed in \( \overline{e} \) for each cell \( e \) of \( X \). Conversely, if \( S \) is closed in \( X \) then \( S\cap U \) is closed in \( U \) for each \( U \in \mathscr{U} \).
+
+	Hence \( X \) is compactly generated.
+\end{proof}
 
 \begin{problem}{5-11}\label{problem:5-11}
 Prove Proposition 5.16 (a CW complex is locally compact if and only if it is locally finite).
 \end{problem}
 
+\begin{proof}
+	Let \( X \) be a CW complex then \( X \) is Hausdorff.
+
+	If \( X \) is locally compact then every point \( p \) of \( X \) has a precompact neighborhood \( U \). The collection of cells of \( X \) is an open cover for \( \overline{U} \). Because \( \overline{U} \) is compact, there are finitely many cells of \( X \) that intersect \( \overline{U} \), hence there are finitely many cells of \( X \) that intersect \( U \). So \( p \) has a neighborhood that intersects finitely many cells of \( X \), which implies that \( X \) is locally finite.
+
+	Conversely, if \( X \) is locally finite then every point \( p \) of \( X \) has a neighborhood \( U \) that intersects finitely many cells of \( X \), say, \( e_{1}, \ldots, e_{m} \), so
+	\[
+		\overline{U} \subseteq \overline{\left(\bigcup^{m}_{i=1} e_{i}\right)} = \bigcup^{m}_{i=1} \overline{e_{i}}.
+	\]
+
+	\( \bigcup^{m}_{i=1} \overline{e_{i}} \) is compact and \( \overline{U} \) is its closed subset so \( \overline{U} \) is compact. Hence \( U \) is a precompact neighborhood of \( p \). So \( X \) is locally compact.
+\end{proof}
+
 \begin{problem}{5-12}\label{problem:5-12}
+Let \( \mathbb{P}^{n} \) be \( n \)-dimensional projective space (see Example 3.51). The usual inclusion \( \mathbb{R}^{k+1} \subseteq \mathbb{R}^{n+1} \) for \( k < n \) allows us to consider \( \mathbb{P}^{k} \) as a subspace of \( \mathbb{P}^{n} \). Show that \( \mathbb{P}^{n} \) has a CW decomposition with one cell in each dimension \( 0, \dots, n \), such that the \( k \)-skeleton is \( \mathbb{P}^{k} \) for \(0 \le k \le n\). [Hint: assuming the result for \(\mathbb{P}^{n-1}\), define a map \( F : \mathbb{\bar{B}}^n \rightarrow \mathbb{R}^{n+1} \smallsetminus \{0\} \) by
+		\[
+			F(x_{1}, \ldots, x_{n}) = \left(x_{1}, \dots, x_{n}, \sqrt{1 - \abs{x_{1}}^{2} - \cdots - \abs{x_{n}}^{2}} \right).
+		\]
+
+		Show that the composition \( q \circ F : \mathbb{\bar{\mathbb{B}}}^{n} \rightarrow \mathbb{P}^{n} \) serves as a characteristic map for an \( n \)-cell.]
 \end{problem}
+
+\begin{proof}
+\end{proof}
 
 \begin{problem}{5-13}\label{problem:5-13}
+Let \( \mathbb{CP}^{n} \) be \( n \)-dimensional complex projective space, defined in Problem~\ref{problem:3-15}. By mimicking the construction of Problem~\ref{problem:5-12}, show that \( \mathbb{CP}^{n} \) has a CW decomposition with one cell in each even dimension \( 0, 2, \dots, 2n \), such that the \( 2k \)-skeleton is \( \mathbb{CP}^{k} \) for \( 0 \le k \le n \).
 \end{problem}
 
+\begin{proof}
+\end{proof}
+
 \begin{problem}{5-14}\label{problem:5-14}
+Show that every nonempty compact convex subset \( D \subseteq \mathbb{R}^{n} \) is a closed cell of some dimension. [Hint: consider an affine subspace of minimal dimension containing \( D \) and a simplex of maximal dimension contained in \( D \).]
 \end{problem}
 
 \begin{problem}{5-15}\label{problem:5-15}
+Define an abstract simplicial complex \( \mathcal{K} \) to be the following collection of abstract 2-simplices together with all of their faces:
+\begin{multline*}
+	\{ \{a, b, e\}, \{b, e, f\}, \{b, c, f\}, \{c, f, g\}, \{a, c, g\}, \{a, e, g\}, \\
+	\{e, f, h\}, \{f, h, j\}, \{f, g, j\}, \{g, j, k\}, \{e, g, k\}, \{e, h, k\}, \\
+	\{a, h, j\}, \{a, b, j\}, \{b, j, k\}, \{b, c, k\}, \{c, h, k\}, \{a, c, h\} \}.
+\end{multline*}
+Show that the geometric realization of \( \mathcal{K} \) is homeomorphic to the torus. [Hint: look at Fig. 5.11.]
 \end{problem}
 
 \begin{problem}{5-16}\label{problem:5-16}
+Show that an abstract simplicial complex is the vertex scheme of a Euclidean simplicial complex if and only if it is finite-dimensional, locally finite, and countable. [Hint: if the complex has dimension \(n\), let the vertices be the points \( v_k = (k, k^2, k^3, \dots, k^{2n+1}) \in \mathbb{R}^{2n+1} \). Use the fundamental theorem of algebra to show that no \( 2n+2 \) vertices lie in a proper affine subspace, so any set of \( 2n+2 \) or fewer vertices is affinely independent. If two simplexes \( \sigma, t \) with vertices in this set intersect, let \( \sigma_{0}, t_{0} \) be the smallest face of each containing the intersection, and verify that their union is affinely independent and consists of all the vertices in \( \sigma \cup t \).]
 \end{problem}
 
 \begin{problem}{5-17}\label{problem:5-17}
