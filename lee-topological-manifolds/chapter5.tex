@@ -590,6 +590,33 @@ Let \( \mathbb{P}^{n} \) be \( n \)-dimensional projective space (see Example 3.
 \end{problem}
 
 \begin{proof}
+	For \( n = 0 \), \( \mathbb{P}^{0} \) consists of a single point. Therefore it admits a CW decomposition consisting of a single cell in dimension 0, and the 0-skeleton is \( \mathbb{P}^{0} \).
+
+	Assume the result holds for \( \mathbb{P}^{n-1} \). Consider the map \( F: \overline{\mathbb{B}}^{n} \to \mathbb{R}^{n+1} \smallsetminus \left\{0\right\} \) defined by
+	\[
+		F(x_{1}, \ldots, x_{n}) = \left(x_{1}, \dots, x_{n}, \sqrt{1 - \abs{x_{1}}^{2} - \cdots - \abs{x_{n}}^{2}} \right)
+	\]
+
+	and the quotient map \( q: \mathbb{R}^{n+1}\smallsetminus\left\{0\right\} \to \mathbb{P}^{n} \) that induces \( \mathbb{P}^{n} \). The composition \( q\circ F: \overline{\mathbb{B}}^{n} \to \mathbb{P}^{n} \) is continuous.
+
+	The restriction \( (q\circ F)\vert_{\mathbb{B}^{n}} \) maps
+	\[
+		(x_{1}, \ldots, x_{n}) \mapsto \left(x_{1}, \dots, x_{n}, \sqrt{1 - \abs{x_{1}}^{2} - \cdots - \abs{x_{n}}^{2}} \right)
+	\]
+
+	in which \( \abs{x_{1}}^{2} + \cdots + \abs{x_{n}}^{2} < 1 \). The inverse of this restriction is \( g: (q\circ F)(\mathbb{B}^{n}) \to \mathbb{B}^{n} \) defined by
+	\[
+		g(x_{1}, \ldots, x_{n}, x_{n+1}) = (x_{1}, \ldots, x_{n})
+	\]
+
+	and is continuous. Hence \( (q\circ F)\vert_{\mathbb{B}^{n}} \) is a homeomorphism onto its image.
+
+	On the other hand, the restriction \( (q\circ F)\vert_{\partial\overline{\mathbb{B}}^{n}} \) maps
+	\[
+		(x_{1}, \ldots, x_{n}) \mapsto q(x_{1}, \ldots, x_{n}, 0)
+	\]
+
+	so \( (q\circ F)\vert_{\partial\overline{\mathbb{B}}^{n}} \) maps \( \partial\overline{\mathbb{B}}^{n} \) into \( \mathbb{P}^{n-1} \). From the inductive hypothesis, \( \mathbb{P}^{n-1} \) admits a CW decomposition consisting of one cell in each dimension \( 0, \ldots, n-1 \) and its \( k \)-skeleton is \( \mathbb{P}^{k} \) for \( 0 \leq k \leq n-1 \), so \( q\circ F \) is a characteristic map for \( \mathbb{B}^{n} \). Therefore \( \mathbb{P}^{n} \) admits a CW decomposition consisting of one cell in each dimension \( 0, \ldots, n \) and its \( k \)-skeleton is \( \mathbb{P}^{k} \) for \( 0 \leq k \leq n \).
 \end{proof}
 
 \begin{problem}{5-13}\label{problem:5-13}
@@ -597,6 +624,33 @@ Let \( \mathbb{CP}^{n} \) be \( n \)-dimensional complex projective space, defin
 \end{problem}
 
 \begin{proof}
+	For \( n = 0 \), \( \mathbb{CP}^{0} \) consists of a single point. Therefore it admits a CW decomposition consisting of a single cell in dimension 0, and the 0-skeleton is \( \mathbb{CP}^{0} \).
+
+	Assume the result holds for \( \mathbb{CP}^{n-1} \). Consider the map \( F: \overline{\mathbb{B}}^{2n} \to \mathbb{C}^{n+1} \smallsetminus \left\{0\right\} \) defined by
+	\[
+		F(x_{1}, \ldots, x_{2n}) = \left(x_{1} + \iota x_{2}, \dots, x_{2n-1} + \iota x_{2n}, \sqrt{1 - \abs{x_{1}}^{2} - \cdots - \abs{x_{2n}}^{2}} \right)
+	\]
+
+	and the quotient map \( q: \mathbb{C}^{n+1}\smallsetminus\left\{0\right\} \to \mathbb{CP}^{n} \) that induces \( \mathbb{P}^{n} \). The composition \( q\circ F: \overline{\mathbb{B}}^{2n} \to \mathbb{CP}^{n} \) is continuous.
+
+	The restriction \( (q\circ F)\vert_{\mathbb{B}^{2n}} \) maps
+	\[
+		(x_{1}, \ldots, x_{2n}) \mapsto \left(x_{1} + \iota x_{2}, \dots, x_{2n-1} + \iota x_{2n}, \sqrt{1 - \abs{x_{1}}^{2} - \cdots - \abs{x_{2n}}^{2}} \right)
+	\]
+
+	in which \( \abs{x_{1}}^{2} + \cdots + \abs{x_{2n}}^{2} < 1 \). The inverse of this restriction is \( g: (q\circ F)(\mathbb{B}^{n}) \to \mathbb{B}^{n} \) defined by
+	\[
+		g(x_{1}, \ldots, x_{2n}, x_{2n+1}) = (x_{1}, \ldots, x_{2n})
+	\]
+
+	and is continuous. Hence \( (q\circ F)\vert_{\mathbb{B}^{2n}} \) is a homeomorphism onto its image.
+
+	On the other hand, the restriction \( (q\circ F)\vert_{\partial\overline{\mathbb{B}}^{2n}} \) maps
+	\[
+		(x_{1}, \ldots, x_{2n}) \mapsto q(x_{1} + \iota x_{2}, \ldots, x_{2n-1} + \iota x_{2n}, 0)
+	\]
+
+	so \( (q\circ F)\vert_{\partial\overline{\mathbb{B}}^{2n}} \) maps \( \partial\overline{\mathbb{B}}^{2n} \) into \( \mathbb{CP}^{n-1} \). From the inductive hypothesis, \( \mathbb{CP}^{n-1} \) admits a CW decomposition consisting of one cell in each even dimension \( 0, 2, \ldots, 2n-2 \) and its \( 2k \)-skeleton is \( \mathbb{CP}^{k} \) for \( 0 \leq k \leq n-1 \), so \( q\circ F \) is a characteristic map for \( \mathbb{B}^{2n} \). Therefore \( \mathbb{CP}^{n} \) admits a CW decomposition consisting of one cell in each even dimension \( 0, 2, \ldots, 2n \) and its \( 2k \)-skeleton is \( \mathbb{CP}^{k} \) for \( 0 \leq k \leq n \).
 \end{proof}
 
 \begin{problem}{5-14}\label{problem:5-14}
