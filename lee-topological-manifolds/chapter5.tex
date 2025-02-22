@@ -12,9 +12,9 @@
 
 	Let \( p \) be an interior point of \( D \). Since the translation \( x\mapsto x - p \) is a homeomorphism of \( \mathbb{R}^{n} \) with itself, we can assume \( p = 0 \in \operatorname{Int} D \). The point \( p \) is in \( \operatorname{Int} D \) so there is \( \varepsilon > 0 \) such that \( B_{\varepsilon}(0) \subseteq \operatorname{Int} D \subseteq D \). The dilation \( x\mapsto x/\varepsilon \) is a homeomorphism of \( \mathbb{R}^{n} \) with itself, so we can assume \( \mathbb{B}^{n} = B_{1}(0) \subseteq D \).
 
-	We will show that each closed ray starting at the origin intersects the boundary \( \partial D \) in exactly one point.
+	We will show that each closed ray starting at the origin intersects the boundary \( \partial D \) in exactly one point. Let \( R \) be a closed ray starting at the origin. Because \( D \) is compact, its intersection with \( R \) is compact. From the extremum value theorem, there is a point \( x_{0} \in R\cap D \) that maximizes the distance to the origin. Suppose on the contrary that \( x_{0} \in \operatorname{Int} D \) then there exists an open ball \( B_{r}(x_{0}) \subseteq \operatorname{Int} D \) (we can choose a sufficiently small \( r \) such that the open ball doesn't contain the origin). The closed ray \( R \) intersects \( B_{r}(x_{0}) \) at two points and one of these points has distance to the origin equals to \( \abs{x_{0}} + r > \abs{x_{0}} \), which is a contradiction. Hence \( x_{0} \notin \operatorname{Int} D \), which implies \( x_{0} \in \partial D \).
 
-	Let \( R \) be a closed ray starting at the origin. Because \( D \) is compact, its intersection with \( R \) is compact. From the extremum value theorem, there is a point \( x_{0} \in R\cap D \) that maximizes the distance to the origin. Any point other than \( x_{0} \) on the line segment connecting \( 0 \) and \( x_{0} \) is of the form \( \lambda x_{0} \) for some \( 0\leq \lambda < 1 \). Consider the open ball \( B_{1-\lambda}(\lambda x_{0}) \) and an arbitrary point \( z \) in it. The homothety with center \( x_{0} \) and factor \( 1 - \lambda \) maps \( z \) to \( y = \dfrac{z - \lambda x_{0}}{1 - \lambda} \). Moreover \( z \in B_{1 - \lambda}(\lambda x_{0}) \) so \( \abs{z - \lambda x_{0}} < \abs{1 - \lambda} \), which means \( \abs{y} < 1 \), so \( y \in B_{1}(0) \subseteq D \). Because \( y, x_{0} \in D \) and \( D \) is convex, \( z = (1 - \lambda)y + \lambda x_{0} \) is also in \( D \). Therefore \( B_{1 - \lambda}(\lambda x_{0}) \subseteq D \), which means \( \lambda x_{0} \) is an interior point of \( D \), hence \( R \) intersects \( \partial D \) at the single point \( x_{0} \) (here we implicitly use the invariance of boundary).
+	Any point other than \( x_{0} \) on the line segment connecting \( 0 \) and \( x_{0} \) is of the form \( \lambda x_{0} \) for some \( 0\leq \lambda < 1 \). Consider the open ball \( B_{1-\lambda}(\lambda x_{0}) \) and an arbitrary point \( z \) in it. The homothety with center \( x_{0} \) and factor \( 1 - \lambda \) maps \( z \) to \( y = \dfrac{z - \lambda x_{0}}{1 - \lambda} \). Moreover \( z \in B_{1 - \lambda}(\lambda x_{0}) \) so \( \abs{z - \lambda x_{0}} < \abs{1 - \lambda} \), which means \( \abs{y} < 1 \), so \( y \in B_{1}(0) \subseteq D \). Because \( y, x_{0} \in D \) and \( D \) is convex, \( z = (1 - \lambda)y + \lambda x_{0} \) is also in \( D \). Therefore \( B_{1 - \lambda}(\lambda x_{0}) \subseteq D \), which means \( \lambda x_{0} \) is an interior point of \( D \), hence \( R \) intersects \( \partial D \) at the single point \( x_{0} \) (here we implicitly use the invariance of boundary).
 
 	We define a map \( f: \partial D \to \mathbb{S}^{n-1} \) by \( f(x) = x/\abs{x} \). The map \( f \) is a restriction of a continuous map so \( f \) is continuous, \( \partial D \) is compact and \( \mathbb{S}^{n-1} \) is Hausdorff so \( f \) is a closed map, according to the closed map lemma. Also, \( f \) is bijective due to the previous paragraph. Therefore \( f \) is a homeomorphism.
 
@@ -312,6 +312,20 @@ A \textbf{subcomplex} of a cell complex \( X \) is a subspace \( Y \subseteq X \
 \end{proof}
 
 \subsection*{Simplicial Maps}\addcontentsline{toc}{subsection}{Simplicial Maps}
+
+\begin{exercise}{5.40}[Simplicial maps are determined by vertex maps]
+	Prove Theorem 5.39.
+
+	Let \( K \) and \( L \) be simplicial complexes. Suppose \( f_{0} \) is any map with the property that whenever \( \left\{ v_{0}, \ldots, v_{k} \right\} \) are the vertices of a simplex of \( K \), \( \left\{ f_{0}(v_{0}), \ldots, f_{0}(v_{k}) \right\} \) are the vertices of a simplex of \( L \) (possibly with repetitions). Then there is a unique simplicial map \( f: \left\vert K \right\vert \to \left\vert L \right\vert \) whose vertex map is \( f_{0} \). It is a simplicial isomorphism if and only if \( f_{0} \) is a bijection satisfying the following additional condition:  \( \left\{ v_{0}, \ldots, v_{k} \right\} \) are the vertices of a simplex of \( K \) if and only if \( \left\{ f_{0}(v_{0}), \ldots, f_{0}(v_{k}) \right\} \) are the vertices of a simplex of \( L \).
+\end{exercise}
+
+\begin{proof}
+	Suppose \( f_{0} \) is any map with the property that whenever \( \left\{ v_{0}, \ldots, v_{k} \right\} \) are the vertices of a simplex of \( K \), \( \left\{ f_{0}(v_{0}), \ldots, f_{0}(v_{k}) \right\} \) are the vertices of a simplex of \( L \) (possibly with repetitions). We define the map \( f: \left\vert K \right\vert \to \left\vert L \right\vert \) as follows: for each \( \Delta = [v_{0}, \ldots, v_{k}] \in K \) and every \( v \in \Delta \), let \( f(v) = \sum^{k}_{i=0} t_{i} f_{0}(v_{i}) \) in which \( (t_{0}, \ldots, t_{k}) \) is the barycentric coordinates of \( v \) with respect to \( \Delta \). The map \( f \) is well-defined. From this definition, it follows that \( f \) is a simplicial map from \( \left\vert K \right\vert \) to \( \left\vert L \right\vert \) whose vertex map is \( f_{0} \). Assume that \( g \) is a simplicial map from \( \left\vert K \right\vert \) to \( \left\vert L \right\vert \) whose vertex map is \( f_{0} \) then for each simplex \( \Delta = [v_{0}, \ldots, v_{k}] \in K \), \( g(v_{i}) = f_{0}(v_{i}) = f(v_{i}) \) so \( f\vert_{\Delta} \equiv g\vert_{\Delta} \) for each simplex \( \Delta \) according to Proposition 5.38. It follows from that \( f \equiv g \), which implies the uniqueness of \( f \).
+
+	If \( f: \left\vert K \right\vert \to \left\vert L \right\vert \) is a simplicial isomorphism then \( f_{0} \) is a bijection such that \( \left\{ v_{0}, \ldots, v_{k} \right\} \) are the vertices of a simplex of \( K \) if and only if \( \left\{ f_{0}(v_{0}), \ldots, f_{0}(v_{k}) \right\} \) are the vertices of a simplex of \( L \).
+
+	Conversely, if \( f_{0} \) is a bijection such that \( \left\{ v_{0}, \ldots, v_{k} \right\} \) are the vertices of a simplex of \( K \) if and only if \( \left\{ f_{0}(v_{0}), \ldots, f_{0}(v_{k}) \right\} \) are the vertices of a simplex of \( L \) then \( f_{0}^{-1} \) is a bijection such that \( \left\{ v_{0}, \ldots, v_{k} \right\} \) are the vertices of a simplex of \( K \) if and only if \( \left\{ f_{0}(v_{0}), \ldots, f_{0}(v_{k}) \right\} \) are the vertices of a simplex of \( L \). There exists a unique simplicial map \( h: \left\vert L \right\vert \to \left\vert K \right\vert \) whose vertex map is \( f_{0}^{-1} \) and \( h \) is the inverse of \( f \), which means \( f \) is a homeomorphism, hence a simplicial isomorphism.
+\end{proof}
 
 \subsection*{Abstract Simplicial Complexes}\addcontentsline{toc}{subsection}{Abstract Simplicial Complexes}
 
@@ -656,6 +670,18 @@ Let \( \mathbb{CP}^{n} \) be \( n \)-dimensional complex projective space, defin
 \begin{problem}{5-14}\label{problem:5-14}
 Show that every nonempty compact convex subset \( D \subseteq \mathbb{R}^{n} \) is a closed cell of some dimension. [Hint: consider an affine subspace of minimal dimension containing \( D \) and a simplex of maximal dimension contained in \( D \).]
 \end{problem}
+
+\begin{proof}
+	Let \( A \) be an affine subspace of minimal dimension containing \( D \) and \( \Delta = [v_{0}, \ldots, v_{k}] \) a \( k \)-simplex of maximal dimension contained in \( D \).
+
+	\( A \) contains every affine combination of elements of \( D \) and \( A \) has minimal dimension so \( A \) is the affine hull of \( D \), which is the set of all affine combinations of elements of \( D \).
+
+	For any \( v \in D \), \( \left\{ v, v_{0}, \ldots, v_{k} \right\} \) is not affinely independent due to the definition of \( \Delta \), so \( v \) is an affine combination of \( \left\{ v_{0}, \ldots, v_{k} \right\} \).
+
+	So every element of \( D \) is an affine combination of \( \left\{ v_{0}, \ldots, v_{k} \right\} \), which implies that every element of \( A \) is an affine combination of \( \left\{ v_{0}, \ldots, v_{k} \right\} \). Therefore \( \dim A = k \).
+
+	The \( k \)-dimensional affine space \( A \) is homeomorphic to \( \mathbb{R}^{k} \) by some homeomorphism \( \varphi \), so \( \varphi(D) \) is a nonempty compact convex subset of \( \mathbb{R}^{k} \) that contains a \( k \)-simplex, which is a closed \( k \)-cell. According to Proposition~\ref{prop:5.1}, \( \varphi(D) \) is a closed \( k \)-cell, then so is \( D \).
+\end{proof}
 
 \begin{problem}{5-15}\label{problem:5-15}
 Define an abstract simplicial complex \( \mathcal{K} \) to be the following collection of abstract 2-simplices together with all of their faces:
