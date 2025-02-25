@@ -728,7 +728,82 @@ Show that an abstract simplicial complex is the vertex scheme of an Euclidean si
 \end{proof}
 
 \begin{problem}{5-17}\label{problem:5-17}
+Suppose \( \sigma = [v_{0}, \ldots, v_{k}] \) is a simplex in \( \mathbb{R}^{n} \) and \( w \in \mathbb{R}^{n} \). If \( \left\{ w, v_{0}, \ldots, v_{k} \right\} \) is an affinely independent set, we say that \( w \) is affinely independent of \( \sigma \).
+
+In this case, the simplex \( [w, v_{0}, \ldots, v_{k}] \) is denoted by \( w \ast \sigma \) and is called the \textbf{cone on \( \mathbf{\sigma} \)}. More generally, suppose \( K \) is a finite Euclidean simplicial complex and \( w \) is a point in \( \mathbb{R}^{n} \) such that each ray starting at \( w \) intersects \( \left\vert K \right\vert \) in at most one point. Define the \textbf{cone on \( \mathbf{K} \)} to be the following collection of simplices in \( \mathbb{R}^{n} \):
+\[
+	w \ast K = K \cup \left\{ [w] \right\} \cup \left\{ w \ast \sigma : \sigma \in K \right\}.
+\]
+
+Show that \( w\ast K \) is an Euclidean simplicial complex whose polyhedron is homeomorphic to the cone on \( \left\vert K \right\vert \).
 \end{problem}
 
+\begin{proof}
+	The cone on \( \left\vert K \right\vert \) is \( C\left\vert K \right\vert = (\left\vert K \right\vert \times I)/(\left\vert K \right\vert \times\left\{0\right\}) \) and \( q: \left\vert K \right\vert \to C\left\vert K \right\vert \) be the quotient map that induces that cone.
+
+	Define a map \( f: K \to w\ast K \) by
+	\[
+		f(x) = (1 - t)\cdot w + t\cdot x
+	\]
+
+	then \( f \) is continuous. The continuous maps \( f \) and \( q \) make the same identification on \( \left\vert K \right\vert \) (because each ray starting at \( w \) intersects \( \left\vert K \right\vert \) in at most one point) so \( w\ast K \) is homeomorphic to the cone on \( \left\vert K \right\vert \).
+\end{proof}
+
 \begin{problem}{5-18}\label{problem:5-18}
+Let \(X\) be a regular CW complex.
+\begin{enumerate}[label={(\alph*)}]
+	\item Let \( \mathcal{E} \) be the set of (open) cells of \( X \), and let \( \mathcal{K} \) be the collection of all nonempty finite subsets \( \{e_{0}, \dots, e_{k}\} \subseteq \mathcal{E} \) with the property that the dimensions of \( e_{0}, \dots, e_{k} \) are all distinct, and (after reordering if necessary) \( e_{i-1} \subseteq \partial e_{i} \) for each \( i = 1, \dots, k \). Show that \( \mathcal{K} \) is an abstract simplicial complex.
+	\item Suppose \( K \) is a Euclidean simplicial complex whose vertex scheme is isomorphic to \( \mathcal{K} \). Show that \( X \) is homeomorphic to \( \left\vert K \right\vert \) via a homeomorphism that sends the closure of each cell of \( X \) onto the polyhedron of a subcomplex of \( K \). [Hint: begin by choosing a point \( v_{e} \) in each cell \( e \in \mathcal{E} \). Using the results of Problems~\ref{problem:5-1} and~\ref{problem:5-17}, define a homeomorphism \( F : X \to \left\vert K \right\vert \) inductively, one skeleton at a time, in such a way that it sends each point \( v_{e}\) to the vertex of \( \left\vert K \right\vert\) corresponding to \( e \).]
+	\item Show that every finite-dimensional, locally finite, countable, and regular CW complex is triangulable.
+\end{enumerate}
 \end{problem}
+
+\begin{note}
+	If a cell complex \( X \) is locally finite then each open cell intersects the closures of only finitely many cells.
+
+	Let \( e \) be an open cell of \( X \). For each point \( p \) in \( \overline{e} \) there exists a neighborhood \( U_{p} \) intersecting the closures of only finitely many cells because \( X \) is locally finite. The collection \( {\left\{ U_{p} \right\}}_{p \in \overline{e}} \) is an open cover for the compact set \( \overline{e} \) so it has a finite subcover. Therefore \( \overline{e} \) (hence \( e \)) intersects the closures of only finitely many cells.
+\end{note}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item Let \( s \) be an element of \( \mathcal{K} \) then \( s \) is of the form \( \{ e_{0}, \ldots, e_{k} \} \) where \( e_{0}, \ldots, e_{k} \) are cells of different dimensions in \( \mathcal{E} \) such that \( \dim e_{0} < \cdots < \dim e_{k} \) and \( e_{i-1} \subseteq \partial e_{i} \) for each \( i = 1, \ldots, k \). Let \( \{ e_{j_{0}}, \ldots, e_{j_{m}} \} \) be a nonempty subset of \( s \) where \( \dim e_{j_{0}} < \cdots < \dim e_{j_{m}} \) then the dimensions of \( e_{j_{0}}, \ldots, e_{j_{m}} \) are all distinct.
+
+		      \( e_{i-1} \subseteq \partial e_{i} \) for each \( i = 1, \ldots, k \) so \( e_{i-1} \subseteq \overline{e_{i}} \) for each \( i = 1, \ldots, k \). If \( i, j \in \{ 0, 1, \ldots, k \} \) such that \( i < j \) then \( e_{i} \subseteq \overline{e_{j}} \). On the other hand, \( e_{i} \) is disjoint from \( e_{j} \) and \( e_{j} \) is a regular cell so \( e_{i} \subseteq \overline{e_{j}}\smallsetminus e_{j} = \partial e_{j} \). Hence \( \{ e_{j_{0}}, \ldots, e_{j_{m}} \} \in \mathcal{K} \), which means \( \mathcal{K} \) is an abstract simplicial complex.
+		\item For each \( e \in \mathcal{E} \), choose a point \( v_{e} \in e \). Denote by \( X_{n} \) the \( n \)-skeleton of \( X \) for each nonnegative integer \( n \).
+
+		      Define the map \( F_{0}: X_{0} \to \left\vert K \right\vert \) such that \( F_{0}(e) \) is the vertex of \( \left\vert K \right\vert \) corresponding to \( e \) for each 0-cell \( e \) in \( \mathcal{E} \). The map \( F_{0} \) sends \( \overline{e} \) to the vertex of \( \left\vert K \right\vert \) corresponding to \( e \), which is a subcomplex of \( K \), for each 0-cell \( e \) in \( \mathcal{E} \). By this definition, \( F_{0} \) is an embedding.
+
+		      Assume that \( F_{n-1}: X_{n-1} \to \left\vert K \right\vert \) is an embedding such that \( F_{n-1}(e) \) is the vertex of \( \left\vert K \right\vert \) corresponding to \( e \) for each cell \( e \) of dimension \( \leq n-1 \) in \( \mathcal{E} \), and \( F_{n-1}(\overline{e}) \) is a subcomplex of \( K \).
+
+		      Consider an open \( n \)-cell \( e \) in \( \mathcal{E} \). Because \( \partial e \subseteq X_{n-1} \) then \( F_{n-1}\vert_{\partial e} \) is a homeomorphism onto its image. According to Problem~\ref{problem:5-1}, \( F_{n-1}\vert_{\partial e} \) extends to an embedding from \( \overline{e} \) into \( \left\vert K \right\vert \). The procedure in this paragraph applies to any \( n \)-cell in \( \mathcal{E} \), so there exists an embedding \( F_{n}: X_{n} \to \left\vert K \right\vert \).
+
+		      The cone \( v_{e} \ast \partial e \) is homeomorphic to \( \overline{e} \). From Problem~\ref{problem:5-17}, there exists a homeomorphism from \( v_{e} \ast \partial e \) to the corresponding cone in \( K \). Moreover, we can choose \( F_{n} \) such that \( F_{n} \) agrees with this homeomorphism on the closure \( \overline{e} \) of each \( n \)-cell \( e \) in \( \mathcal{E} \). Therefore \( F_{n}(\overline{e}) \) is a subcomplex of \( K \).
+
+		      Define \( F: X \to \left\vert K \right\vert \) by \( F\vert_{X_{n}} = F_{n} \) for each nonnegative integer \( n \) then \( F \) sends the closure of each cell in \( \mathcal{E} \) onto a subcomplex of \( K \). Moreover, \( F \) is a surjective embedding so \( F \) is a homeomorphism.
+		\item Let \( X \) be a finite-dimensional, locally finite, countable, regular CW complex. Define \( \mathcal{K} \) as part (a).
+
+		      \( X \) is finite-dimensional then so is \( \mathcal{K} \) because each set in \( \mathcal{K} \) has at most \( 1 + \dim X \) elements.
+
+		      \( X \) is countable so \( \mathcal{E} \) is countable, so \( \mathcal{K} \) has countably many vertices. Because \( \mathcal{K} \) consists of finite subsets of the set of its vertices, \( \mathcal{K} \) is countable.
+
+		      Let \( e \) be an open cell in \( \mathcal{E} \). We will show that there are finitely many abstract simplices in \( \mathcal{K} \) containing \( e \). An abstract simplex \( \left\{ e_{0}, \ldots, e_{k} \right\} \) in \( \mathcal{K} \) containing \( e \) could be such that
+		      \begin{itemize}[leftmargin=*]
+			      \item (Type 0) \( e \) is the single element of the abstract simplex. There is only one of such abstract simplices.
+			      \item (Type 1) \( e \) is the cell of the least dimension in the abstract simplex. Then \( e \subseteq \partial e_{1} \).
+
+			            The open cell \( e \) intersects the closure of only finitely many cells, it follows that \( e \) is contained in the boundaries of only finitely many cells of higher-dimensions. Apply recursively this process to the cells of higher-dimensions and it will eventually terminate as \( X \) is finite-dimensional. Hence there are finitely many abstract simplices of this type.
+			      \item (Type 2) \( e \) is the cell of the largest dimension in the abstract simplex.
+
+			            The boundary of \( e \) is contained in the union of finitely many cells of lower dimensions (closure finiteness of CW complexes). Continue this process to the lower-dimensional cells and it will eventually terminate as \( X \) is finite-dimensional. So there are finitely many abstract simplices of this type.
+			      \item (Type 3) \( e \) is not the cell of the least or largest dimension in the abstract simplex.
+
+			            Because every abstract simplex of this type is the union of an abstract simplex of type 1 and another of type 2 so type 3 also has finitely many simplices.
+		      \end{itemize}
+
+		      Therefore every open cell \( e \) is contained in only finitely many abstract simplices in \( \mathcal{K} \), which means \( \mathcal{K} \) is locally finite.
+
+		      Hence \( \mathcal{K} \) is finite-dimensional, locally finite, and countable.
+
+		      From Problem~\ref{problem:5-16}, \( \mathcal{K} \) is the vertex scheme of some Euclidean simplicial complex \( K \). From part (b), \( X \) and \( \left\vert K \right\vert \) are homeomorphic, therefore \( X \) is triangulable as it is homeomorphic to the polyhedron of a simplicial complex.
+	\end{enumerate}
+\end{proof}
