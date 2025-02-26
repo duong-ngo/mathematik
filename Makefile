@@ -100,11 +100,16 @@ updatecls: cleanaux
 linear-algebra:
 	@$(MAKE) sheldon-axler-linear-algebra-done-right/main.pdf
 
+.PHONY: mira greub-linear greub-multilinear munkres-topology dugundji-topology mathematical-analysis tapp-differential-geometry complex-analysis algebra functional-analysis lee-topological-manifolds lee-smooth-manifolds hirsch-smale-ode tu-manifolds
+
 mira:
 	@$(MAKE) mira/main.pdf
 
-multilinear-algebra:
-	@$(MAKE) werner-greub-multilinear-algebra/main.pdf
+greub-linear:
+	@$(MAKE) greub-linear-algebra/main.pdf
+
+greub-multilinear:
+	@$(MAKE) greub-multilinear-algebra/main.pdf
 
 munkres-topology:
 	@$(MAKE) james-munkres-topology/main.pdf
@@ -112,7 +117,7 @@ munkres-topology:
 dugundji-topology:
 	@$(MAKE) james-dugundji-topology/main.pdf
 
-real-analysis:
+mathematical-analysis:
 	@$(MAKE) vladimir-zorich-mathematical-analysis/main.pdf
 
 tapp-differential-geometry:
@@ -127,20 +132,14 @@ algebra:
 functional-analysis:
 	@$(MAKE) kreyszig-functional-analysis/main.pdf
 
-spivak:
-	@$(MAKE) calculus-on-manifolds/main.pdf
-
 lee-topological-manifolds:
 	@$(MAKE) lee-topological-manifolds/main.pdf
 
 lee-smooth-manifolds:
 	@$(MAKE) lee-smooth-manifolds/main.pdf
 
-greub-linear:
-	@$(MAKE) greub-linear/main.pdf
-
-greub-multilinear:
-	@$(MAKE) greub-multilinear/main.pdf
-
 hirsch-smale-ode:
 	@$(MAKE) hirsch-smale-de-ds-la/main.pdf
+
+tu-manifolds:
+	@$(MAKE) tu-manifolds/main.pdf
