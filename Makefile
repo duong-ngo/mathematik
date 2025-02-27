@@ -71,22 +71,22 @@ updatecls: cleanaux
 %.format: %.tex
 	@latexindent $(LATEXINDENT_OPTIONS) $<
 
-%.pdf: %.tex updatecls
+%.pdf: %.tex
 	@latexmk $(LATEXMK_OPTIONS) -pdf -pvc -outdir=$(shell dirname $<) $(shell basename $<)
 
-%.dvi: %.tex updatecls
+%.dvi: %.tex
 	@latexmk $(LATEXMK_OPTIONS) -dvi -pvc -outdir=$(shell dirname $<) $(shell basename $<)
 
-%.ps: %.tex updatecls
+%.ps: %.tex
 	@latexmk $(LATEXMK_OPTIONS) -ps -pvc -outdir=$(shell dirname $<) $(shell basename $<)
 
-%.pdf.o: %.tex updatecls
+%.pdf.o: %.tex
 	@latexmk $(LATEXMK_OPTIONS) -pdf -outdir=$(shell dirname $<) $(shell basename $<)
 
-%.dvi.o: %.tex updatecls
+%.dvi.o: %.tex
 	@latexmk $(LATEXMK_OPTIONS) -dvi -outdir=$(shell dirname $<) $(shell basename $<)
 
-%.ps.o: %.tex updatecls
+%.ps.o: %.tex
 	@latexmk $(LATEXMK_OPTIONS) -ps -outdir=$(shell dirname $<) $(shell basename $<)
 
 # lint specific TeX file
