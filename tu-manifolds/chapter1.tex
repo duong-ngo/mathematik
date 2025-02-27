@@ -97,17 +97,138 @@ is a diffeomorphism.
 	which is invertible. According to the inverse function theorem, \( f \) has a \( C^{\infty} \) inverse. Therefore \( f \) is a diffeomorphism.
 \end{proof}
 
-\begin{problem}{1.5}
+\begin{problem}{1.5}[A diffeomorphism of an open ball with \( \mathbb{R}^{n} \)]
+Let \( \mathbf{0} = (0, 0) \) be the origin and \( B(\mathbf{0}, 1) \) the open unit disk in \( \mathbb{R}^{2} \). To find a diffeomorphism between \( B(\mathbf{0}, 1) \) and \( \mathbb{R}^{2} \), we identify \( \mathbb{R}^{2} \) with the \( xy \)-plane in \( \mathbb{R}^{3} \) and introduce the lower open hemisphere
+\[
+	S: x^{2} + y^{2} + {(z - 1)}^{2} = 1, \quad z < 1,
+\]
+
+in \( \mathbb{R}^{3} \) as an intermediate space. First note that the map
+\[
+	f: B(\mathbf{0}, 1) \to S, \qquad (a, b) \mapsto (a, b, 1 - \sqrt{1 - a^{2} - b^{2}})
+\]
+
+is a bijection.
+\begin{enumerate}[label={(\alph*)}]
+	\item The \textit{stereographic projection} \( g: S \to \mathbb{R}^{2} \) from \( (0, 0, 1) \) is the map that sends a point \( (a, b, c) \in S \) to the intersection of the line through \( (0, 0, 1) \) and \( (a, b, c) \) with the \( xy \)-plane. Show that it is given by
+	      \[
+		      (a, b, c) \mapsto (u, v) = \left(\frac{a}{1-c}, \frac{b}{1-c}\right), \quad c = 1 - \sqrt{1 - a^{2} - b^{2}}
+	      \]
+
+	      with inverse
+	      \[
+		      (u, v) \mapsto \left(\frac{u}{\sqrt{1 + u^{2} + v^{2}}}, \frac{v}{\sqrt{1 + u^{2} + v^{2}}}, 1 - \frac{1}{\sqrt{1 + u^{2} + v^{2}}}\right).
+	      \]
+	\item Composing the two maps \( f \) and \( g \) gives the map
+	      \[
+		      h = g\circ f: B(\mathbf{0}, 1) \to \mathbb{R}^{2},\qquad h(a, b) = \left(\frac{a}{\sqrt{1 - a^{2} - b^{2}}}, \frac{b}{\sqrt{1 - a^{2} - b^{2}}}\right).
+	      \]
+
+	      Find a formula for \( h^{-1}(u, v) = {(f^{-1} \circ g^{-1})}(u, v) \) and conclude that \( h \) is a diffeomorphism of the open disk \( B(\mathbf{0}, 1) \) with \( \mathbb{R}^{2} \).
+	\item Generalize part (b) to \( \mathbb{R}^{n} \).
+\end{enumerate}
 \end{problem}
 
-\begin{problem}{1.6}
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)},leftmargin=*]
+		\item The intersection of the line through \( (0, 0, 1) \) and \( a, b, c \) with the \( xy \)-plane is of the form \( (1 - t)(0, 0, 1) + t(a, b, c) = (ta, tb, 1 - t + tc) \). Since \( (ta, tb, 1 - t + tc) \) lies on the \( xy \)-plane, \( 1 - t + tc = 0 \), which means \( t = \frac{1}{1 - c} \). Therefore \( g(a, b, c) = \left(\frac{a}{1 - c}, \frac{b}{1 - c}\right) \).
+
+		      Let \( (u, v, 0) \) be a point on the \( xy \)-plane of \( \mathbb{R}^{3} \). The intersection of \( S \) and the line through \( (0, 0, 1) \) and \( (u, v, 0) \) is of the form \( (1 - t)(0, 0, 1) + t(u, v, 0) = (tu, tv, 1 - t) \) in which \( 0 < t < 1 \). Since \( (tu, tv, 1 - t) \) lies on \( S \), it follows that \( t^{2}u^{2} + t^{2}v^{2} + {(-t)}^{2} = 1 \), which means \( t = \frac{1}{\sqrt{1 + u^{2} + v^{2}}} \). Hence the map \( (u, v) \mapsto \left(\frac{u}{\sqrt{1 + u^{2} + v^{2}}}, \frac{v}{\sqrt{1 + u^{2} + v^{2}}}, 1 - \frac{1}{\sqrt{1 + u^{2} + v^{2}}}\right) \) is the inverse of \( g \).
+		\item \( h = g\circ f \) and \( f, g \) are \( C^{\infty} \) bijections then so is \( h \). Moreover
+		      \begin{align*}
+			      h^{-1}(a, b) & = {(g\circ f)}^{-1}(a, b) = (f^{-1} \circ g^{-1}) (a, b)                                                                              \\
+			                   & = f^{-1}\left( \frac{a}{\sqrt{1 + a^{2} + b^{2}}}, \frac{b}{\sqrt{1 + a^{2} + b^{2}}}, 1 - \frac{1}{\sqrt{1 + a^{2} + b^{2}}} \right) \\
+			                   & = \left( \frac{a}{\sqrt{1 + a^{2} + b^{2}}}, \frac{b}{\sqrt{1 + a^{2} + b^{2}}} \right)
+		      \end{align*}
+
+		      is a \( C^{\infty} \) map. Therefore \( h \) is a diffeomorphism of the open disk \( B(\mathbf{0}, 1) \) with \( \mathbb{R}^{2} \).
+		\item In \( \mathbb{R}^{2} \), consider the open ball \( B(\mathbf{0}, 1) \). Let \( S \) be the hemisphere \( x_{1}^{2} + \cdots + x_{n}^{2} + {(x_{n+1} - 1)}^{2} = 1 \) in \( \mathbb{R}^{n+1} \) in which \( x_{n+1} < 1 \). Define the maps \( f \) and \( g \) as follows:
+		      \begin{align*}
+			      f: B(\mathbf{0}, 1) \to S, & \qquad (x_{1}, \ldots, x_{n}) \mapsto \left(x_{1}, \ldots, x_{n}, 1 - \sqrt{1 - x_{1}^{2} - \cdots - x_{n}^{2}}\right)                                                                    \\
+			      g: S \to \mathbb{R}^{n},   & \qquad (x_{1}, \ldots, x_{n}, x_{n+1}) \mapsto \left(\frac{x_{1}}{1 - \sqrt{1 + x_{1}^{2} + \cdots + x_{n}^{2}}}, \ldots , \frac{x_{n}}{1 - \sqrt{x_{1}^{2} + \cdots + x_{n}^{2}}}\right)
+		      \end{align*}
+
+		      The maps \( f, g \) are diffeomorphisms hence so is their composition \( g\circ f: B(\mathbf{0}, 1) \to \mathbb{R}^{n} \). Thus the open \(n\)-ball \( B(\mathbf{0}, 1) \) and \( \mathbb{R}^{n} \)
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{1.6}[Taylor's theorem with remainder to order 2]
+Prove that if \( f : \mathbb{R}^{2} \to \mathbb{R} \) is \( C^{\infty} \), then there exist \( C^{\infty} \) functions \( g_{11}, g_{12}, g_{22} \) on \( \mathbb{R}^{2} \) such that
+\begin{multline*}
+	f(x,y) = f(0,0) + \frac{\partial f}{\partial x} (0,0)x + \frac{\partial f}{\partial y} (0,0)y \\
+	+ x^{2} g_{11}(x,y) + xy g_{12}(x,y) + y^{2} g_{22}(x,y).
+\end{multline*}
 \end{problem}
 
-\begin{problem}{1.7}
+\begin{proof}
+	From Taylor's theorem with remainer to order 1,
+	\[
+		f(x, y) = f(0, 0) + xg_{1}(x, y) + yg_{2}(x, y)
+	\]
+
+	for some \( C^{\infty} \) functions \( g_{1}, g_{2}: \mathbb{R}^{2} \to \mathbb{R} \) such that \( g_{1}(0, 0) = \frac{\partial f}{\partial x}(0, 0) \) and \( g_{2}(0, 0) = \frac{\partial f}{\partial y}(0, 0) \). Apply Taylor's theorem for \( g_{1}, g_{2} \)
+	\[
+		\begin{split}
+			g_{1}(x, y) = g_{1}(0, 0) + xh_{11}(x, y) + yh_{12}(x, y) \\
+			g_{2}(x, y) = g_{2}(0, 0) + xh_{21}(x, y) + yh_{22}(x, y)
+		\end{split}
+	\]
+
+	for some \( C^{\infty} \) functions \( h_{11}, h_{12}, h_{21}, h_{22} \). Therefore
+	\begin{align*}
+		f(x, y) & = f(0, 0) + xg_{1}(x, y) + yg_{2}(x, y)                                                                                                                            \\
+		        & = f(0, 0) + g_{1}(0, 0)x + x^{2}h_{11}(x, y) + xyh_{12}(x, y) + g_{2}(0, 0)y + xyh_{21}(x, y) + y^{2}h_{22}(x, y)                                                  \\
+		        & = f(0, 0) + \frac{\partial f}{\partial x}(0, 0)x + \frac{\partial f}{\partial y}(0, 0)y + x^{2}h_{11}(x, y) + xy(h_{12}(x, y) + h_{21}(x, y)) + y^{2}h_{22}(x, y).
+	\end{align*}
+
+	Let \( g_{11}(x, y) = h_{11}(x, y), g_{12}(x, y) = h_{12}(x, y) + h_{21}(x, y), g_{22}(x, y) = h_{22}(y, y) \) then \( g_{11}, g_{12}, g_{22} \) are \( C^{\infty} \) and
+	\[
+		f(x, y) = f(0, 0) + \frac{\partial f}{\partial x}(0, 0)x + \frac{\partial f}{\partial y}(0, 0)y + x^{2}g_{11}(x, y) + xyg_{12}(x, y) + y^{2}g_{22}(x, y). \qedhere
+	\]
+\end{proof}
+
+\begin{problem}{1.7}[A function with a removable singularity]
+Let \( f : \mathbb{R}^{2} \to \mathbb{R} \) be a \( C^{\infty} \) function with \( f(0,0) = \dfrac{\partial f}{\partial x} (0,0) = \dfrac{\partial f}{\partial y} (0,0) = 0 \). Define
+
+\[
+	g(t,u) =
+	\begin{cases}
+		\dfrac{f(t, tu)}{t}, & \text{for } t \neq 0, \\
+		0,                   & \text{for } t = 0.
+	\end{cases}
+\]
+
+Prove that \( g(t,u) \) is \( C^{\infty} \) for \( (t,u) \in \mathbb{R}^{2} \).\@\textit{(Hint: Apply Problem 1.6.)}
 \end{problem}
 
-\begin{problem}{1.8}
+\begin{proof}
+	Apply Problem 1.6 to \( f \), then there exist \( C^{\infty} \) maps \( g_{11}, g_{12}, g_{22}: \mathbb{R}^{2} \to \mathbb{R} \) such that
+	\[
+		f(x, y) = f(0, 0) + \frac{\partial f}{\partial x}(0, 0)x + \frac{\partial f}{\partial y}(0, 0)y + x^{2}g_{11}(x, y) + xyg_{12}(x, y) + y^{2}g_{22}(x, y).
+	\]
+
+	Since \( f(0, 0) = \dfrac{\partial f}{\partial x} (0,0) = \dfrac{\partial f}{\partial y} (0,0) = 0 \), it follows that
+	\[
+		f(x, y) = x^{2}g_{11}(x, y) + xyg_{12}(x, y) + y^{2}g_{22}(x, y)
+	\]
+
+	and
+	\[
+		\frac{f(t, tu)}{t} = \frac{t^{2}g_{11}(t, tu) + t^{2}ug_{12}(t, tu) + t^{2}u^{2}g_{22}(t, tu)}{t} = tg_{11}(t, tu) + tug_{12}(t, tu) + tu^{2}g_{22}(t, tu).
+	\]
+
+	The map \( (t, u) \mapsto tg_{11}(t, tu) + tug_{12}(t, tu) + tu^{2}g_{22}(t, tu) \) is \( C^{\infty} \) vanishes on \( \left\{ 0 \right\} \times \mathbb{R} \) so \( tg_{11}(t, tu) + tug_{12}(t, tu) + tu^{2}g_{22}(t, tu) = g(t, u) \) for \( (t, u) \in \mathbb{R}^{2} \). Hence \( g \) is \( C^{\infty} \).
+\end{proof}
+
+\begin{problem}{1.8}[Bijective \( C^{\infty} \) maps]
+Define \( f : \mathbb{R} \to \mathbb{R} \) by \( f(x) = x^{3} \). Show that \( f \) is a bijective \( C^{\infty} \) map, but that \( f^{-1} \) is not \( C^{\infty} \). (This example shows that a bijective \( C^{\infty} \) map need not have a \( C^{\infty} \) inverse. In complex analysis, the situation is quite different: a bijective holomorphic map \( f : \mathbb{C} \to \mathbb{C} \) necessarily has a holomorphic inverse.)
 \end{problem}
+
+\begin{proof}
+	\( f \) is continuous, \( \dfrac{df}{dx} = 3x^{2}, \dfrac{d^{2}f}{dxdx} = 6x, \dfrac{d^{3}f}{dxdxdx} = 6, \dfrac{d^{n}f}{dx\cdots dx} = 0 \) for \( n > 3 \). Therefore \( f \) is \( C^{\infty} \).
+
+	\( f \) is bijective as its inverse is \( f^{-1} = g: \mathbb{R} \to \mathbb{R}, x \mapsto x^{1/3} \). However, \( f^{-1} \) is \( C^{0} \) but not \( C^{1} \) at \( x = 0 \). Therefore \( f^{-1} \) is not \( C^{\infty} \).
+\end{proof}
 
 \section{Tangent Vectors in \( \mathbb{R}^{n} \) as Derivations}
 
