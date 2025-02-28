@@ -232,6 +232,117 @@ Define \( f : \mathbb{R} \to \mathbb{R} \) by \( f(x) = x^{3} \). Show that \( f
 
 \section{Tangent Vectors in \( \mathbb{R}^{n} \) as Derivations}
 
+\begin{problem}{2.1}[Vector fields]
+Let \( X \) be the vector field \( x \partial/\partial x + y\partial/\partial y \) and \( f(x, y, z) \) the function \( x^{2} + y^{2} + z^{2} \) on \( \mathbb{R}^{3} \). Compute \( Xf \).
+\end{problem}
+
+\begin{proof}
+	\( Xf = x\dfrac{\partial f}{\partial x} + y\dfrac{\partial f}{\partial y} = x\cdot 2x + y\cdot 2y = 2(x^{2} + y^{2}) \).
+\end{proof}
+
+\begin{problem}{2.2}[Algebra structure on \( C^{\infty}_{p} \)]
+Define carefully addition, multiplication, and scalar multiplication in \( C^{\infty}_{p} \). Prove that addition in \( C^{\infty}_{p} \) is commutative.
+\end{problem}
+
+\begin{proof}
+	Let \( [(f, U)], [(g, V)] \in C^{\infty}_{p} \).
+
+	For every \( \lambda \in \mathbb{R} \), \( (f, U) \in [(f, U)] \) and \( (g, V) \in [(g, V)] \), we define the maps \( h, k, \lambda f \) by
+	\begin{align*}
+		h: U \cap V \to \mathbb{R},         & \qquad h(x) = f(x) + g(x),                      \\
+		k: U \cap V \to \mathbb{R},         & \qquad k(x) = f(x)g(x),                         \\
+		(\lambda\cdot f): U \to \mathbb{R}, & \qquad (\lambda\cdot f)(x) = \lambda \cdot f(x)
+	\end{align*}
+
+	We define \( [(f, U)] + [(g, V)] \) to be the germ of \( h \) at \( p \), \(  [(f, U)]\cdot [(g, V)] \) to be the germ of \( k \) at \( p \), and \( \lambda\cdot [(f, U)] \) to be the germ of \( \lambda\cdot f \) at \( p \). It remains to show that this definition doesn't depend on the representatives.
+
+	Consider \( (f_{0}, U_{0}) \in [(f, U)], (g_{0}, V_{0}) \in [(g, V)] \). The maps \( h_{0}, k_{0}, \lambda\cdot f_{0} \) are defined similarly as \( h, k, \lambda\cdot f \). There exists a neighborhood \( \mathbb{U} \) of \( p \) contained in \( U_{0} \cap U \), on which \( f, f_{0} \) agree, and a neighborhood \( \mathbb{V} \) of \( p \) contained in \( V_{0} \cap V \), on which \( g, g_{0} \) agree. Therefore, on the neighborhood \( \mathbb{U} \cap \mathbb{V} \subseteq (U \cap V) \cap (U_{0} \cap V_{0}) \) of \( p \), the maps \( h, h_{0} \) agree and \( k, k_{0} \) agree. Moreover, \( \lambda\cdot f \) and \( \lambda\cdot f_{0} \) agree on \( \mathbb{U} \). Hence \( [(f, U)] + [(g, V)] \), \( [(f, U)] \cdot [(g, V)] \) and \( \lambda\cdot[(f, U)] \) are well-defined.
+
+	Let's verify the properties of an algebra
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\left([(f, U)] \cdot [g, V]\right) \cdot [h, W] & = [(f \cdot g, U \cap V)]\cdot [h, W]                                         \\
+		                                                & = [((f \cdot g)\cdot h, (U \cap V) \cap W)]                                   \\
+		                                                & = [(f \cdot (g \cdot h), U \cap (V \cap W))]                                  \\
+		                                                & = [(f, U)]\cdot \left([(g, V)]\cdot [(h, W)]\right),                          \\
+		([(f, U)] + [(g, V)])\cdot [(h, W)]             & = [(f + g, U\cap V)]\cdot [(h, W)]                                            \\
+		                                                & = [((f + g)\cdot h, (U\cap V) \cap W)]                                        \\
+		                                                & = [(f\cdot h + g\cdot h, (U\cap W) \cap (V\cap W))]                           \\
+		                                                & = [(f\cdot h, U\cap W)] + [(g\cdot h, V\cap W)]                               \\
+		                                                & = [(f, U)]\cdot [(h, W)] + [(g, V)]\cdot [(h, W)],                            \\
+		[(f, U)]\cdot ([(g, V)] + [(h, W)])             & = [(f, U)]\cdot [(g + h, V\cap W)]                                            \\
+		                                                & = [(f\cdot (g + h), U\cap (V\cap W))]                                         \\
+		                                                & = [(f\cdot g + f\cdot h), (U\cap V) \cap (U\cap W)]                           \\
+		                                                & = [(f\cdot g, U\cap V)] + [(f\cdot h), U\cap W]                               \\
+		                                                & = [(f, U)]\cdot [(g, V)] + [(f, U)]\cdot [(h, W)],                            \\
+		\lambda([(f, U)]\cdot [(g, V)])                 & = \lambda\cdot[((f\cdot g), U\cap V)]                                         \\
+		                                                & = [(\lambda(f\cdot g), U\cap V)]                                              \\
+		                                                & = [((\lambda\cdot f)\cdot g, U\cap V)] = [(\lambda\cdot f, U)]\cdot [(g, V)]  \\
+		                                                & = [(f\cdot (\lambda\cdot g), U\cap V)] = [(f, U)]\cdot [(\lambda\cdot g, V)].
+	\end{align*}
+	\endgroup
+
+	Hence \( C^{\infty}_{p} \) is an algebra over the real field. The addition is commutative because for any \( [(f, U)], [(g, V)] \in C^{\infty}_{p} \), one has
+	\[
+		[(f, U)] + [(g, V)] = [(f + g, U\cap V)] = [(g + f, V\cap U)] = [(g, V)] + [(f, U)].\qedhere
+	\]
+\end{proof}
+
+\begin{problem}{2.3}[Vector space structure on derivations at a point]
+Let \( D \) and \( D' \) be derivations at \( p \) in \( \mathbb{R}^{n} \), and \( c\in \mathbb{R} \). Prove that
+\begin{enumerate}[label={(\alph*)},leftmargin=*,itemsep=0pt]
+	\item the sum \( D + D' \) is a derivation at \( p \).
+	\item the scalar multiple \( cD \) is a derivation at \( p \).
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\( D, D' \) are linear maps from \( C^{\infty}_{p} \) to \( \mathbb{R} \) then so are \( D + D' \) and \( cD \).
+
+	For any \( f, g \in C^{\infty}_{p} \), one has
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		(D + D')(fg) & = D(fg) + D'(fg)                                  \\
+		             & = (D(f)g(p) + D(g)f(p)) + (D'(f)g(p) + D'(g)f(p)) \\
+		             & = (D(f) + D'(f))g(p) + (D(g) + D'(g))f(p)         \\
+		             & = (D + D')(f)g(p) + (D + D')(g)f(p),              \\
+		(cD)(fg)     & = c\cdot D(fg)                                    \\
+		             & = c\cdot (D(f)g(p) + D(g)f(p))                    \\
+		             & = (c\cdot D)(f)g(p) + (c\cdot D)(g)f(p),
+	\end{align*}
+	\endgroup
+
+	which means \( D + D' \) and \( cD \) satisfy the Leibniz rule. Hence \( D + D' \) and \( cD \) are derivations at \( p \).
+\end{proof}
+
+\begin{problem}{2.4}[Product of derivations]
+Let \( A \) be an algebra over a field \( K \). If \( D_{1} \) and \( D_{2} \) are derivations of \( A \), show that \( D_{1} \circ D_{2} \) is not necessarily a derivation (it is if \( D_{1} \) or \( D_{2} = 0 \)), but \( D_{1} \circ D_{2} - D_{2} \circ D_{1} \) is always a derivation of \( A \).
+\end{problem}
+
+\begin{proof}
+	Consider the algebra \( C^{\infty}_{p}(\mathbb{R}^{2}) \) over the real field, let \( D_{1} = \partial/\partial x \)  and \( D_{2} = \partial/\partial y \).
+	\begin{align*}
+		\left(\frac{\partial}{\partial x}\circ \frac{\partial}{\partial y}\right)(xy)                                                                                         & = \frac{\partial}{\partial x} x = 1, \\
+		p^{1}\left(\frac{\partial}{\partial x}\circ \frac{\partial}{\partial y}\right)(x) + p^{2}\left(\frac{\partial}{\partial x}\circ \frac{\partial}{\partial y}\right)(y) & = 0
+	\end{align*}
+
+	which means \( D_{1} \circ D_{2} \) doesn't satisfy Leibniz rule, hence not a derivation. So \( D_{1} \circ D_{2} \) is not necessarily a derivation on \( A \).
+
+	On the other hand, \( D = D_{1}\circ D_{2} - D_{2}\circ D_{1} \) is a linear map and
+	\begin{align*}
+		D(ab) & = D_{1}(D_{2}(ab)) - D_{2}(D_{1}(ab))                                                               \\
+		      & = D_{1}((D_{2}a)b + aD_{2}b) - D_{2}((D_{1}a)b - aD_{1}b)                                           \\
+		      & = ((D_{1}\circ D_{2})a)b + (D_{2}a)(D_{1}b) + (D_{1}a)(D_{2}b) + a((D_{1}\circ D_{2})b)             \\
+		      & \phantom{=} - ((D_{2}\circ D_{1})a)b - (D_{1}a)(D_{2}b) - (D_{2}a)(D_{1}b) - a((D_{2}\circ D_{1})b) \\
+		      & = ((D_{1}\circ D_{2} - D_{2}\circ D_{1})a)b - a((D_{1}\circ D_{2} - D_{2}\circ D_{1})b)             \\
+		      & = (Da)b - aDb
+	\end{align*}
+
+	for all \( a, b \in A \) so \( D_{1}\circ D_{2} - D_{2}\circ D_{1} \) is a derivation of \( A \).
+\end{proof}
+
 \section{The Exterior Algebra of Multicovectors}
 
 \section{Differential Forms on \( \mathbb{R}^{n} \)}
