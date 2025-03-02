@@ -345,4 +345,430 @@ Let \( A \) be an algebra over a field \( K \). If \( D_{1} \) and \( D_{2} \) a
 
 \section{The Exterior Algebra of Multicovectors}
 
+\begin{exercise}{3.6}[Inversions]
+	Find the inversions in the permutation \( \tau = \begin{pmatrix}1 & 2 & 3 & 4 & 5\end{pmatrix} \) of Example 3.5.
+\end{exercise}
+
+\begin{proof}
+	Let's rewrite \( \tau \) using the two-line notations
+	\[
+		\tau = \begin{bmatrix}
+			1 & 2 & 3 & 4 & 5 \\
+			2 & 3 & 4 & 5 & 1
+		\end{bmatrix}.
+	\]
+
+	The inversions end with \( 1 \) are \( (2,1), (3,1), (4,1), (5,1) \).
+
+	There is no inversion end with \( 2, 3, 4, 5 \). Hence \( \tau \) has precisely 4 inversions.
+\end{proof}
+
+\begin{exercise}{3.13}[Symmetrizing operator]
+	Show that the \( k \)-linear function \( Sf \) is symmetric.
+\end{exercise}
+
+\begin{proof}
+	For each \( \sigma \in S_{k} \)
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		(Sf)(v_{\sigma(1)}, \ldots, v_{\sigma(k)}) & = \sum_{\tau \in S_{k}} f(v_{\tau(\sigma(1))}, \ldots, v_{\tau(\sigma(k))}) \\
+		                                           & = \sum_{\tau \in S_{k}} f(v_{(\tau\sigma)(1)}, \ldots, v_{(\tau\sigma)(k)}) \\
+		                                           & = \sum_{\tau \in S_{k}} f(v_{\tau(1)}, \ldots, v_{\tau(k)})                 \\
+		                                           & = (Sf)(v_{1}, \ldots, v_{k})
+	\end{align*}
+	\endgroup
+
+	in which line 3 follows from \( \sigma \mapsto \tau\sigma \) is a bijection from \( S_{k} \) onto \( S_{k} \). Hence \( Sf \) is symmetric.
+\end{proof}
+
+\begin{exercise}{3.16}[Alternating operator]
+	If \( f \) is a 3-linear function on a vector space \( V \) and \( v_{1}, \ldots, v_{3} \in V \), what is \( (Af)(v_{1}, v_{2}, v_{3}) \)?
+\end{exercise}
+
+\begin{proof}
+	\( (Af)(v_{1}, v_{2}, v_{3}) = f(v_{1}, v_{2}, v_{3}) + f(v_{2}, v_{3}, v_{1}) + f(v_{3}, v_{1}, v_{2}) - f(v_{1}, v_{3}, v_{2}) - f(v_{3}, v_{2}, v_{1}) - f(v_{2}, v_{1}, v_{3}). \)
+\end{proof}
+
+\begin{exercise}{3.17}[Associativity of the tensor product]
+	Check that the tensor product of multilinear functions is associative: if \( f, g \), and \( h \) are multilinear functions on \( V \), then
+	\[
+		(f \otimes g)\otimes h = f\otimes (g\times h).
+	\]
+\end{exercise}
+
+\begin{proof}
+	Let \( f, g, h \) be a \( k_{f}, k_{g}, k_{h} \)-tensors on \( V \).
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		 & \phantom{=} ((f \otimes g) \otimes h)(x_{1}, \ldots, x_{k_{f}}, y_{1}, \ldots, y_{k_{g}}, z_{1}, \ldots, z_{k_{h}}) \\
+		 & = (f \otimes g)(x_{1}, \ldots, x_{k_{f}}, y_{1}, \ldots, y_{k_{g}}) h(z_{1}, \ldots, z_{k_{h}})                     \\
+		 & = (f(x_{1}, \ldots, x_{k_{f}}) g(y_{1}, \ldots, y_{k_{g}}))  h(z_{1}, \ldots, z_{k_{h}})                            \\
+		 & = f(x_{1}, \ldots, x_{k_{f}}) (g(y_{1}, \ldots, y_{k_{g}}) h(z_{1}, \ldots, z_{k_{h}}))                             \\
+		 & = f(x_{1}, \ldots, x_{k_{f}}) (g \otimes h)(y_{1}, \ldots, y_{k_{g}}, z_{1}, \ldots, z_{k_{h}})                     \\
+		 & = (f \otimes (g \otimes h))(x_{1}, \ldots, x_{k_{f}}, y_{1}, \ldots, y_{k_{g}}, z_{1}, \ldots, z_{k_{h}})
+	\end{align*}
+	\endgroup
+
+	for all \( x_{1}, \ldots, x_{k_{f}}, y_{1}, \ldots, y_{k_{g}}, z_{1}, \ldots, z_{k_{h}} \in V \). Therefore \( (f\otimes g)\otimes h = f\otimes (g\otimes h) \).
+\end{proof}
+
+\begin{exercise}{3.20}[Wedge product of two \( 2 \)-covectors]
+	For \( f, g \in A_{2}(V) \), write out the definition of \( f \wedge g \) using \( (2, 2) \)-shuffles.
+\end{exercise}
+
+\begin{proof}
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		(f \wedge g)(v_{1}, v_{2}, v_{3}, v_{4}) & = f(v_{1}, v_{2})g(v_{3}, v_{4}) - f(v_{1}, v_{3})g(v_{2}, v_{4}) + f(v_{1}, v_{4})g(v_{2}, v_{3})  \\
+		                                         & + f(v_{2}, v_{3})g(v_{1}, v_{4}) - f(v_{2}, v_{4})g(v_{1}, v_{3}) - f(v_{1}, v_{4})g(v_{2}, v_{3}).
+	\end{align*}
+	\endgroup
+\end{proof}
+
+\begin{exercise}{3.22}[Sign of a permutation]
+	Show that \( \operatorname{sgn}(\tau) = {(-1)}^{k\ell} \)
+\end{exercise}
+
+\begin{proof}
+	\[
+		\tau = \begin{bmatrix}
+			1     & \cdots & \ell     & \ell + 1 & \cdots & \ell + k \\
+			k + 1 & \cdots & k + \ell & 1        & \cdots & k
+		\end{bmatrix}.
+	\]
+
+	\( (\sigma(i), \sigma(j)) \) is an inversion if and only if \( i \in \left\{ 1, \ldots, \ell \right\} \) and \( j \in \left\{ \ell + 1, \ldots, \ell + k \right\} \). So \( \sigma \) has \( k\ell \) inversions, which implies that \( \operatorname{sgn}(\tau) = {(-1)}^{k\ell} \).
+\end{proof}
+
+\begin{problem}{3.1}[Tensor product of covectors]
+Let \( e_{1}, \ldots, e_{n} \) be a basis for a vector space \( V \) and let \( \alpha^{1}, \ldots, \alpha^{n} \) be its dual basis in \( V^{\vee} \). Suppose \( [g_{ij}] \in \mathbb{R}^{n \times n} \) is an \( n \times n \) matrix. Define a bilinear function \( f \colon V \times V \to \mathbb{R} \) by
+
+\[
+	f(v, w) = \sum_{1 \leq i, j \leq n} g_{ij} v^{i} w^{j}
+\]
+
+for \( v = \sum v^{i} e_{i} \) and \( w = \sum w^{j} e_{j} \) in \( V \). Describe \( f \) in terms of the tensor products of \( \alpha^{i} \) and \( \alpha^{j} \), \( 1 \leq i, j \leq n \).
+\end{problem}
+
+\begin{proof}
+	\[
+		f(v, w) = \sum_{1\leq i, j\leq n} g_{ij}v^{i}w^{j} = \sum_{1\leq i, j\leq n} g_{ij} \alpha^{i}(v)\alpha^{j}(w) = \sum_{1\leq i, j\leq n} g_{ij} (\alpha^{i}\otimes \alpha^{j})(v, w).
+	\]
+
+	Hence \( f = \sum_{1\leq i, j \leq n} g_{ij} (\alpha^{i} \otimes \alpha^{j}) \).
+\end{proof}
+
+\begin{problem}{3.2}[Hyperplanes]
+\begin{enumerate}[label={(\alph*)},itemsep=0pt]
+	\item Let \( V \) be a vector space of dimension \( n \) and \( f \colon V \to \mathbb{R} \) a nonzero linear functional. Show that \( \dim \ker f = n - 1 \). A linear subspace of \( V \) of dimension \( n - 1 \) is called a \textit{hyperplane} in \( V \).
+	\item Show that a nonzero linear functional on a vector space \( V \) is determined up to a multiplicative constant by its kernel, a hyperplane in \( V \). In other words, if \( f \) and \( g \colon V \to \mathbb{R} \) are nonzero linear functionals and \( \ker f = \ker g \), then \( g = c f \) for some constant \( c \in \mathbb{R} \).
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item Since \( f \) is a nonzero linear functional, \( \operatorname{range}(f) = \mathbb{R} \). From rank-nullity theorem, \( \dim \ker(f) = \dim V - \dim \operatorname{range}(f) = n - 1 \).
+		\item Since \( \ker f = \ker g \) and \( \dim \ker f = n - 1 \), there exists a basis \( e_{1}, \ldots, e_{n-1} \) for \( \ker f \) (and \( \ker g \)). Because \( \dim V = n \), there exists a vector \( e_{n} \in V \) such that \( e_{1}, \ldots, e_{n} \) is a basis for \( V \).
+
+		      \( e_{n} \) is not in \( \ker f \) and \( \ker g \) so \( f(e_{n}), g(e_{n}) \ne 0 \). Hence there exists \( c \in \mathbb{R} \) such that \( g(e_{n}) = cf(e_{n}) \). Consider \( v = \sum v^{j}e_{j} \), one has
+		      \[
+			      g(v) = g\left(\sum v^{j}e_{j}\right) = \sum v^{j}g(e_{j}) = v^{n}g(e_{n}) = cv^{n}f(e_{n}) = c\sum v^{j}f(e_{j})
+		      \]
+
+		      so \( g = cf \).\qedhere
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{3.3}[A basis for \( k \)-tensors]
+Let \( V \) be a vector space of dimension \( n \) with basis \( e_{1}, \ldots, e_{n} \). Let \( \alpha^{1}, \ldots, \alpha^{n} \) be the dual basis for \( V^{\vee} \). Show that a basis for the space \( L_{k}(V) \) of \( k \)-linear functions on \( V \) is \( \left\{ \alpha^{i_{1}} \otimes \cdots \otimes \alpha^{i_{k}} \right\} \) for all multi-indices \( (i_{1}, \ldots, i_{k}) \) (not just the strictly ascending multi-indices as for \( A_{k}(L) \)). In particular, this shows that \( \dim L_{k}(V) = n^{k} \). (This problem generalizes Problem 3.1.)
+\end{problem}
+
+\begin{proof}
+	First, we show that \( \left\{ \alpha^{i_{1}} \otimes \cdots \otimes \alpha^{i_{k}} \right\} \) is linearly independent. Assume that
+	\[
+		\sum_{1\leq i_{1}, \ldots, i_{k} \leq n} c_{i_{1},\ldots, i_{k}}(\alpha^{i_{1}} \otimes \cdots \otimes \alpha^{i_{k}}) = 0.
+	\]
+
+	Apply the two functions to \( (e_{i_{1}}, \ldots, e_{i_{k}}) \), we obtain that \( c_{i_{1}, \ldots, i_{k}} = 0 \). Hence \( \left\{ \alpha^{i_{1}} \otimes \cdots \otimes \alpha^{i_{k}} \right\} \) is linearly independent.
+
+	Now we show that  \( \left\{ \alpha^{i_{1}} \otimes \cdots \otimes \alpha^{i_{k}} \right\} \) span \( L_{k}(V) \). Let \( \alpha \in L_{k}(V) \) then
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\alpha(v_{1}, \ldots, v_{k}) & = \alpha\left(\sum v_{1}^{i_{1}}e_{i_{1}}, \ldots, \sum v_{k}^{i_{k}} e_{i_{k}}\right)                                                                       \\
+		                             & = \sum_{1\leq i_{1}, \ldots, i_{k} \leq n} v_{1}^{i_{1}}\cdots v_{k}^{i_{k}} \alpha(e_{i_{1}}, \ldots, e_{i_{k}})                                            \\
+		                             & = \sum_{1\leq i_{1}, \ldots, i_{k} \leq n} \alpha(e_{i_{1}}, \ldots, e_{i_{k}}) \alpha^{i_{1}}(v_{1})\cdots \alpha^{i_{k}}(v_{k})                            \\
+		                             & = \sum_{1\leq i_{1}, \ldots, i_{k} \leq n} \alpha(e_{i_{1}}, \ldots, e_{i_{k}}) (\alpha^{i_{1}} \otimes \cdots \otimes \alpha^{i_{k}})(v_{1}, \ldots, v_{k})
+	\end{align*}
+	\endgroup
+
+	so
+	\[
+		\alpha = \sum_{1\leq i_{1}, \ldots, i_{k} \leq n} \alpha(e_{i_{1}}, \ldots, e_{i_{k}}) (\alpha^{i_{1}} \otimes \cdots \otimes \alpha^{i_{k}})
+	\]
+
+	which means \( \left\{ \alpha^{i_{1}} \otimes \cdots \otimes \alpha^{i_{k}} \right\} \) span \( L_{k}(V) \).
+\end{proof}
+
+\begin{problem}{3.4}[A characterization of alternating \( k \)-tensors]
+Let \( f \) be a \( k \)-tensor on a vector space \( V \). Prove that \( f \) is alternating if and only if \( f \) changes sign whenever two successive arguments are interchanged:
+
+\[
+	f(\ldots, v_{i+1}, v_{i}, \ldots) = -f(\ldots, v_{i}, v_{i+1}, \ldots)
+\]
+
+for \( i = 1, \ldots, k-1 \).
+\end{problem}
+
+\begin{proof}
+	If \( f \) is alternating then
+	\[
+		f(\ldots, v_{i+1}, v_{i}, \ldots) = \operatorname{sgn}((i,i+1)) f(\ldots, v_{i}, v_{i+1}, \ldots) = -f(\ldots, v_{i}, v_{i+1}, \ldots)
+	\]
+
+	for \( i = 1, \ldots, k-1 \).
+
+	Conversely, assume \( f(\ldots, v_{i+1}, v_{i}, \ldots) = -f(\ldots, v_{i}, v_{i+1}, \ldots) \) for \( i = 1, \ldots, k-1 \). Consider \( \sigma \in S_{k} \)
+	\[
+		\sigma = \begin{bmatrix}
+			1         & \cdots & k         \\
+			\sigma(1) & \cdots & \sigma(k)
+		\end{bmatrix}
+	\]
+
+	we will rearrange \( \sigma(1), \ldots, \sigma(k) \) to \( 1, \ldots, k \) by swapping adjacent elements as the following inductive procedure:
+	\begin{itemize}
+		\item Denote \( p_{1} = \sigma^{-1}(1) \). If \( p_{1} = 1 \), go to the next step. Otherwise, swap \( \sigma(p_{1}) \) and \( \sigma(p_{1} - 1) \) (this is the transposition \( \tau_{1} = (\sigma(p_{1}), \sigma(p_{1} - 1)) \)). Repeat this procedure recursively with \( \tau_{1} \circ \sigma \) until 1 is the 1st in the list. At the end of this process, we obtain the permutation \( \tau_{m_{1}}\circ \cdots \circ \tau_{1}\circ \sigma \) that fixes 1 (\( m_{1}\) can be 0)
+		\item Assume that we obtained a permutation \( \sigma \) that fixes \( 1, \ldots, i < k \). Let \( p_{i+1} = \sigma^{-1}(i + 1) \) and apply the previous step to \( \sigma(i+1), \ldots, \sigma(k) \).
+	\end{itemize}
+
+	The procedure will end up with \( 1, \ldots, k \). Let \( \tau_{m} \circ \cdots \circ \tau_{1} \circ \sigma = \operatorname{Id} \) be the result obtained from the procedure, then \( \operatorname{sgn}(\sigma) = {(-1)}^{m} \) and
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		f(v_{\sigma(1)}, \ldots, v_{\sigma(k)}) & = {(-1)}^{1} f(v_{(\tau_{1}\sigma)(1)}, \ldots, v_{(\tau_{1}\sigma)(k)})                             \\
+		                                        & = {(-1)}^{2} f(v_{(\tau_{2}\tau_{1}\sigma)(1)}, \ldots, v_{(\tau_{2}\tau_{1}\sigma)(k)})             \\
+		                                        & \cdots                                                                                               \\
+		                                        & = {(-1)}^{m} f(v_{(\tau_{m}\cdots\tau_{1}\sigma)(1)}, \ldots, v_{(\tau_{m}\cdots\tau_{1}\sigma)(k)}) \\
+		                                        & = {(-1)}^{m} f(v_{1}, \ldots, v_{k})                                                                 \\
+		                                        & = \operatorname{sgn}(\sigma) f(v_{1}, \ldots, v_{k})
+	\end{align*}
+	\endgroup
+
+	which means \( f \) is alternating.
+\end{proof}
+
+\begin{problem}{3.5}[Another characterization of alternating \( k \)-tensors]
+Let \( f \) be a \( k \)-tensor on a vector space \( V \). Prove that \( f \) is alternating if and only if \( f(v_{1}, \ldots, v_{k}) = 0 \) whenever two of the vectors \( v_{1}, \ldots, v_{k} \) are equal.
+\end{problem}
+
+\begin{proof}
+	If \( f \) is alternating then when \( v_{i} = v_{j} \) (where \( i < j \))
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		f(\ldots, v_{i}, \ldots, v_{j}, \ldots) & = f(\ldots, v_{j}, \ldots, v_{i}, \ldots)                            \\
+		                                        & = \operatorname{sgn}((i, j)) f(\ldots, v_{i}, \ldots, v_{j}, \ldots) \\
+		                                        & = -f(\ldots, v_{i}, \ldots, v_{j}, \ldots)
+	\end{align*}
+	\endgroup
+
+	so \( 2f(\cdots, v_{i}, \ldots, v_{j}, \ldots) = 0 \), which means \( f(\cdots, v_{i}, \ldots, v_{j}, \ldots) = 0 \).
+
+	Conversely, assume \( f(v_{1}, \ldots, v_{k}) = 0 \) whenever two of the vectors \( v_{1}, \ldots, v_{k} \) are equal. For \( 1 \leq i < j \leq n \)
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		0 & = f(\ldots, v_{i} + v_{j}, \ldots, v_{i} + v_{j}, \ldots)                                                                                                               \\
+		  & = f(\ldots, v_{i}, \ldots, v_{i}, \ldots) + f(\ldots, v_{i}, \ldots, v_{j}, \ldots) + f(\ldots, v_{j}, \ldots, v_{i}, \ldots) + f(\ldots, v_{j}, \ldots, v_{j}, \ldots) \\
+		  & = f(\ldots, v_{i}, \ldots, v_{j}, \ldots) + f(\ldots, v_{j}, \ldots, v_{i}, \ldots)
+	\end{align*}
+	\endgroup
+
+	which implies \( f(\ldots, v_{j}, \ldots, v_{i}, \ldots) = -f(\ldots, v_{i}, \ldots, v_{j}, \ldots) \). Let \( \sigma \in S_{k} \) then \( \sigma \) is the product of some transpositions \( \tau_{1}, \ldots, \tau_{m} \). So
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		f(v_{\sigma(1)}, \ldots, v_{\sigma(k)}) & = f(v_{(\tau_{m}\cdots\tau_{1})(1)}, \ldots, v_{(\tau_{m}\cdots\tau_{1})(k)})            \\
+		                                        & = \operatorname{sgn}(\tau_{m})\cdots\operatorname{sgn}(\tau_{1}) f(v_{1}, \ldots, v_{k}) \\
+		                                        & = \operatorname{sgn}(\sigma) f(v_{1}, \ldots, v_{k})
+	\end{align*}
+	\endgroup
+
+	which means \( f \) is alternating.
+\end{proof}
+
+\begin{problem}{3.6}[Wedge product and scalars]
+Let \( V \) be a vector space. For \( a, b \in \mathbb{R} \), \( f \in A_{k}(V) \), and \( g \in A_{\ell}(V) \), show that \( a f \wedge b g = (a b) \, f \wedge g \).
+\end{problem}
+
+\begin{proof}
+	According to the definition of wedge product
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		(af \wedge bg)(v_{1}, \ldots, v_{k + \ell}) & = \frac{1}{k!\ell!}\sum_{\sigma \in S_{k + \ell}} \operatorname{sgn}(\sigma) (af)(v_{\sigma(1)}, \ldots, v_{\sigma(k)}) (bg)(v_{\sigma(k + 1)}, \ldots, v_{\sigma(k + \ell)}) \\
+		                                            & = \frac{ab}{k!\ell!}\sum_{\sigma \in S_{k + \ell}} \operatorname{sgn}(\sigma) f(v_{\sigma(1)}, \ldots, v_{\sigma(k)}) g(v_{\sigma(k + 1)}, \ldots, v_{\sigma(k + \ell)})      \\
+		                                            & = (ab) (f\wedge g)(v_{1}, \ldots, v_{k + \ell}).
+	\end{align*}
+	\endgroup
+
+	Therefore \( af \wedge bg = (ab) f\wedge g \).
+\end{proof}
+
+\begin{problem}{3.7}[Transformation rule for a wedge product of covectors]
+Suppose two sets of covectors on a vector space \( V \), \( \beta^{1}, \ldots, \beta^{k} \) and \( \gamma^{1}, \ldots, \gamma^{k} \), are related by
+
+\[
+	\beta^{i} = \sum_{j=1}^{k} a_{j}^{i} \gamma^{j}, \quad i = 1, \ldots, k,
+\]
+
+for a \( k \times k \) matrix \( A = [a_{j}^{i}] \). Show that
+
+\[
+	\beta^{1} \wedge \cdots \wedge \beta^{k} = (\det A) \, \gamma^{1} \wedge \cdots \wedge \gamma^{k}.
+\]
+\end{problem}
+
+\begin{proof}
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		(\beta^{1} \wedge \cdots \wedge \beta^{k})(v_{1}, \ldots, v_{k})   & = \det [\beta^{i}(v_{j})], \\
+		(\gamma^{1} \wedge \cdots \wedge \gamma^{k})(v_{1}, \ldots, v_{k}) & = \det[\gamma^{i}(v_{j})].
+	\end{align*}
+	\endgroup
+
+	On the other hand, by the rule of matrix multiplication
+	\[
+		[\beta^{i}(v_{j})] = [a^{i}_{j}][\gamma^{i}(v_{j})]
+	\]
+
+	so \( \det[\beta^{i}(v_{j})] = \det[a^{i}_{j}] \times \det[\gamma^{i}(v_{j})] \) from which we conclude that
+	\[
+		\beta^{1} \wedge \cdots \wedge \beta^{k} = (\det A) \gamma^{1} \wedge \cdots \wedge \beta^{k}.\qedhere
+	\]
+\end{proof}
+
+\begin{problem}{3.8}[Transformation rule for \( k \)-covectors]
+Let \( f \) be a \( k \)-covector on a vector space \( V \). Suppose two sets of vectors \( u_{1}, \ldots, u_{k} \) and \( v_{1}, \ldots, v_{k} \) in \( V \) are related by
+
+\[
+	u_{j} = \sum_{i=1}^{k} a_{j}^{i} v_{i}, \quad j = 1, \ldots, k,
+\]
+
+for a \( k \times k \) matrix \( A = [a_{j}^{i}] \). Show that
+
+\[
+	f(u_{1}, \ldots, u_{k}) = (\det A) f(v_{1}, \ldots, v_{k}).
+\]
+\end{problem}
+
+\begin{proof}
+	Because \( f \) is multilinear and alternating
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		f(u_{1}, \ldots, u_{k}) & = \sum_{\sigma \in S_{k}} a^{\sigma(1)}_{1}\cdots a^{\sigma(k)}_{k} f(v_{\sigma(1)}, \ldots, v_{\sigma(k)})           \\
+		                        & = \sum_{\sigma \in S_{k}} \operatorname{sgn}(\sigma)a^{\sigma(1)}_{1}\cdots a^{\sigma(k)}_{k} f(v_{1}, \ldots, v_{k}) \\
+		                        & = \det(A^{\top}) f(v_{1}, \ldots, v_{k})                                                                              \\
+		                        & = \det(A) f(v_{1}, \ldots, v_{k}). \qedhere
+	\end{align*}
+	\endgroup
+\end{proof}
+
+\begin{problem}{3.9}[Vanishing of a covector of top degree]\label{problem:3.9}
+Let \( V \) be a vector space of dimension \( n \). Prove that if an \( n \)-covector \( \omega \) vanishes on a basis \( e_{1}, \ldots, e_{n} \) for \( V \), then \( \omega \) is the zero \( n \)-covector on \( V \).
+\end{problem}
+
+\begin{proof}
+	Let \( v_{1}, \ldots, v_{n} \in V \) and \( v_{i} = \sum^{n}_{j_{i}=1} v_{i}^{j_{i}} e_{j_{i}} \).
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\omega(v_{1}, \ldots, v_{n}) & = \omega\left(\sum^{n}_{j_{1}=1} v_{1}^{j_{1}} e_{j_{1}}, \ldots, \sum^{n}_{j_{n}=1} v_{n}^{j_{n}} e_{j_{n}}\right)                                                                              \\
+		                             & = \sum_{1\leq i_{1}, \ldots, i_{n} \leq n} v_{1}^{j_{1}}\cdots v_{n}^{j_{n}}\omega(e_{j_{1}}, \ldots, e_{j_{n}})          & \text{(\(\omega\) is multilinear)}                                   \\
+		                             & = \sum_{\sigma\in S_{n}} v_{1}^{\sigma(1)}\cdots v_{n}^{\sigma(n)} \omega(e_{\sigma(1)}, \ldots, e_{\sigma(n)})           & \text{(\(\omega\) is alternating)}                                   \\
+		                             & = \sum_{\sigma\in S_{n}} v_{1}^{\sigma(1)}\cdots v_{n}^{\sigma(n)}\operatorname{sgn}(\sigma) \omega(e_{1}, \ldots, e_{n}) & \text{(\(\omega\) is alternating)}                                   \\
+		                             & = (\det[v_{i}^{j}])\omega(e_{1}, \ldots, e_{n})                                                                                                                                                  \\
+		                             & = 0.                                                                                                                      & \text{(\(\omega\) vanishes on the basis \( e_{1}, \ldots, e_{n} \))}
+	\end{align*}
+	\endgroup
+
+	Hence \( \omega \) is the zero \( n \)-covector on \( V \).
+\end{proof}
+
+\begin{problem}{3.10}[Linear independence of covectors]\label{problem:3.10}
+Let \( \alpha^{1}, \ldots, \alpha^{k} \) be 1-covectors on a vector space \( V \). Show that \( \alpha^{1} \land \cdots \land \alpha^{k} \neq 0 \) if and only if \( \alpha^{1}, \ldots, \alpha^{k} \) are linearly independent in the dual space \( V^{\vee} \).
+\end{problem}
+
+\begin{proof}
+	\( (\Longrightarrow) \) \( \alpha^{1} \land \cdots \land \alpha^{k} \neq 0 \).
+
+	Assume that \( c_{1}\alpha^{1} + \cdots + c_{k}\alpha^{k} = 0 \) then
+	\[
+		\alpha^{1} \wedge \cdots \wedge (c_{1}\alpha^{1} + \cdots + c_{k}\alpha^{k}) \wedge \cdots \wedge \alpha^{n} = 0
+	\]
+
+	in which \( c_{1}\alpha^{1} + \cdots + c_{k}\alpha^{k} \) is at the \( j \)th position. Therefore \( c_{j} (\alpha^{1} \wedge \cdots \wedge \alpha^{k}) = 0 \). Because \( \alpha^{1} \wedge \cdots \wedge \alpha^{k} \ne 0 \), there exist \( v_{1}, \ldots, v_{k} \in V \) such that \( (\alpha^{1} \wedge \cdots \wedge \alpha^{k})(v_{1}, \ldots, v_{k}) \ne 0 \). Moreover, \( c_{j}(\alpha^{1} \wedge \cdots \wedge \alpha^{k})(v_{1}, \ldots, v_{k}) = 0 \) so \( c_{j} = 0 \). Hence \( \alpha^{1}, \ldots, \alpha^{k} \) are linearly independent in the dual space \( V^{\vee} \).
+
+	\( (\Longleftarrow) \) \( \alpha^{1}, \ldots, \alpha^{k} \) are linearly independent in the dual space \( V^{\vee} \).
+
+	Let \( n = \dim V \), \( \alpha^{1}, \ldots, \alpha^{k}, \ldots, \alpha^{n} \) be a basis for \( V^{\vee} \) and \( v_{1}, \ldots, v_{n} \) a basis for \( V \). According to Problem~\ref{problem:3.9}, \( \det{[\alpha^{i}(v_{j})]}_{n\times n} \ne 0 \), so by Cramer's theorem, the following system of linear equations
+	\[
+		\begin{cases}
+			\alpha^{1}(x^{1}v_{1} + \cdots + x^{n}v_{n}) = 1 \\
+			\alpha^{2}(x^{1}v_{1} + \cdots + x^{n}v_{n}) = 0 \\
+			\cdots                                           \\
+			\alpha^{n}(x^{1}v_{1} + \cdots + x^{n}v_{n}) = 0
+		\end{cases}
+	\]
+
+	has a unique solution, which means there exists \( e_{1} \in V \) such that \( \alpha^{i}(e_{1}) = \delta^{i}_{1} \). Similarly, there exist \( e_{1}, \ldots, e_{n} \in V \) such that \( \alpha^{i}(e_{j}) = \delta^{i}_{j} \), which means \( \alpha^{1}, \ldots, \alpha^{n} \) is the dual basis of \( e_{1}, \ldots, e_{n} \).
+
+	Hence \( (\alpha^{1} \wedge \cdots \wedge \alpha^{k})(e_{1}, \ldots, e_{k}) = \det{[\alpha^{i}(e_{j})]}_{k\times n} = 1 \) as \( [\alpha^{i}(e_{j})] \) is the identity matrix of \( k \) columns, so \( \alpha^{1} \wedge \cdots \wedge \alpha^{k} \ne 0 \).
+\end{proof}
+
+\begin{problem}{3.11}[Exterior multiplication]
+Let \( \alpha \) be a nonzero 1-covector and \( \gamma \) a \( k \)-covector on a finite-dimensional vector space \( V \). Show that \( \alpha \land \gamma = 0 \) if and only if \( \gamma = \alpha \land \beta \) for some \( (k-1) \)-covector \( \beta \) on \( V \).
+\end{problem}
+
+\begin{proof}
+	If \( \gamma = \alpha \wedge \beta \) for some \( (k - 1) \)-covector \( \beta \) on \( V \) then
+	\[
+		\alpha \wedge \gamma = \alpha \wedge (\alpha \wedge \beta) = (\alpha \wedge \alpha) \wedge \beta = 0 \wedge \beta = 0.
+	\]
+
+	Conversely, suppose that \( \alpha \wedge \gamma = 0 \). Let \( \alpha^{1} = \alpha \) and \( \alpha^{1}, \ldots, \alpha^{n} \) a basis for \( V^{\vee} \). From the proof of Problem~\ref{problem:3.10}, there exists a basis \( e_{1}, \ldots, e_{n} \) for \( V \) whose dual basis is \( \alpha^{1}, \ldots, \alpha^{n} \). A basis for \( A_{k}(V) \) is
+	\[
+		\alpha^{i_{1}} \wedge \cdots \wedge \alpha^{i_{k}}
+	\]
+
+	in which \( 1 \leq i_{1} < \cdots < i_{k} \leq n \). The \( k \)-covector \( \gamma \) admits the linear combination
+	\[
+		\gamma = \sum_{1 \leq i_{1} < \cdots < i_{k} \leq n} c_{i_{1},\ldots,i_{k}} \alpha^{i_{1}} \wedge \cdots \wedge \alpha^{i_{k}}.
+	\]
+
+	Hence
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		0 & = \alpha \wedge \gamma                                                                                                                    \\
+		  & = \alpha^{1} \wedge \sum_{1 \leq i_{1} < \cdots < i_{k} \leq n} c_{i_{1},\ldots,i_{k}} \alpha^{i_{1}} \wedge \cdots \wedge \alpha^{i_{k}} \\
+		  & = \sum_{1 \leq i_{1} < \cdots < i_{k} \leq n} c_{i_{1},\ldots,i_{k}} \alpha^{1}\wedge \alpha^{i_{1}} \wedge \cdots \wedge \alpha^{i_{k}}  \\
+		  & = \sum_{1 < i_{1} < \cdots < i_{k} \leq n} c_{i_{1},\ldots,i_{k}} \alpha^{1}\wedge \alpha^{i_{1}} \wedge \cdots \wedge \alpha^{i_{k}}.
+	\end{align*}
+	\endgroup
+
+	Since \( (\alpha^{1}\wedge \alpha^{i_{1}} \wedge \cdots \wedge \alpha^{i_{k}}) \) are linearly independent for \( 1 < i_{1} < \cdots < i_{k} \), it follows that \( c_{i_{1},\ldots,i_{k}} = 0 \) whenever \( 1 < i_{1} < \cdots < i_{k} \). Thus
+	\[
+		\gamma = \sum_{1 = i_{1} < \cdots < i_{k} \leq n} c_{i_{1},\ldots,i_{k}} \alpha^{i_{1}} \wedge \cdots \wedge \alpha^{i_{k}} = \alpha \wedge \left(\sum_{1 < i_{2} < \cdots < i_{k} \leq n} c_{i_{1},\ldots,i_{k}} \alpha^{i_{2}} \wedge \cdots \wedge \alpha^{i_{k}}\right).
+	\]
+
+	Let \( \beta = \sum_{1 < i_{2} < \cdots < i_{k} \leq n} c_{i_{1},\ldots,i_{k}} \alpha^{i_{2}} \wedge \cdots \wedge \alpha^{i_{k}} \) then \( \beta \) is a \( (k-1) \)-covector on \( V \) such that \( \gamma = \alpha \wedge \beta \).
+\end{proof}
+
 \section{Differential Forms on \( \mathbb{R}^{n} \)}
