@@ -1,0 +1,644 @@
+\chapter{Manifolds}
+
+\section{Manifolds}
+
+\begin{problem}{5.1}[The real line with two origins]
+Let \( A \) and \( B \) be two points not on the real line \( \mathbb{R} \). Consider the set \( S = (\mathbb{R} \smallsetminus \left\{0\right\}) \cup \left\{A, B\right\} \).
+
+For any two positive real numbers \( c, d \), define
+\[
+	I_{A}(-c, d) = \openinterval{-c, 0} \cup \left\{A\right\} \cup \openinterval{0, d}
+\]
+
+and similarly for \( I_{B}(-c, d) \), with \( B \) instead of \( A \). Define a topology on \( S \) as follows: On \( \mathbb{R} \smallsetminus \left\{0\right\} \), use the subspace topology inherited from \( \mathbb{R} \), with open intervals as a basis. A basis of neighborhoods at \( A \) is the set \( \left\{ I_{A}(-c, d) \mid c, d > 0 \right\} \); similarly, a basis of neighborhoods at \( B \) is \( \left\{ I_{B}(-c, d) \mid c, d > 0 \right\} \).
+
+\begin{enumerate}[label={(\alph*)}]
+	\item Prove that the map \( h: I_{A}(-c,d) \to \openinterval{-c, d} \) defined by
+	      \begin{align*}
+		      h(x) = x & \qquad \text{for \( x \in \openinterval{-c, 0} \cup \openinterval{0, d} \)}, \\
+		      h(A) = 0
+	      \end{align*}
+
+	      is a homeomorphism.
+	\item Show that \( S \) is locally Euclidean and second countable, but not Hausdorff.
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item By definition, \( h \) is a bijection.
+
+		      Let \( V \) be an open subset of \( \openinterval{-c, d} \) then \( V \) is open in \( \mathbb{R} \) as \( \openinterval{-c, d} \) is open in \( \mathbb{R} \). Hence \( V = \bigcup_{\alpha} V_{\alpha} \) in which each \( V_{\alpha} \) is an open interval. If \( V_{\alpha} \) doesn't contain \( 0 \) then either \( V_{\alpha} \subseteq \openinterval{-c, 0} \) or \( V_{\alpha} \subseteq \openinterval{0, d} \) so \( h^{-1}(V_{\alpha}) = V_{\alpha} \) which is open in \( I_{A}(-c, d) \). If \( V_{\alpha} \) contains \( 0 \) then \( V_{\alpha} \) is of the form \( \openinterval{-c_{\alpha}, d_{\alpha}} \) in which \( 0 < c_{\alpha} \leq c \) and \( 0 < d_{\alpha} \leq d \), then \( h^{-1}(V_{\alpha}) = I_{A}(-c_{\alpha}, d_{\alpha}) \), which is open in \( I_{A}(-c, d) \). Hence \( h^{-1}(V) = h^{-1}\left(\bigcup_{\alpha} V_{\alpha}\right) = \bigcup_{\alpha} h^{-1}(V_{\alpha}) \) is open in \( I_{A}(-c, d) \), so \( h \) is continuous.
+
+		      Let \( U \) be an open subset of \( I_{A}(-c, d) \). If \( U \) doesn't contain \( A \) then \( U \) is an open subset of \( \openinterval{-c, 0} \cup \openinterval{0, d} \) so \( h(U) = U \), which is open in \( \openinterval{-c, d} \). Otherwise \( U \) contains \( A \) then \( U \) contains a maximal set of the form \( I_{A}(-c_{U}, y_{U}) \). If \( U \smallsetminus I_{A}(-c_{U}, y_{U}) \ne \varnothing \) then each point \( p \) in \( U \smallsetminus I_{A}(-c_{U}, y_{U}) \) is contained in some open set \( U_{p} \) that is disjoint from \( I_{A}(-c_{U}, y_{U}) \) (otherwise, it will contradict maximality of \( I_{A}(-c_{U}, y_{U}) \)). Since \( U_{p} \) is an open subset of \( \openinterval{-c, 0} \cup \openinterval{d, 0} \), it follows that \( U_{p} \) is a union of open intervals. Therefore \( h(U_{p}) \) is open in \( \openinterval{-c, d} \). Moreover, \( h(I_{A}(-c_{U}, d_{U})) = \openinterval{-c_{U}, d_{U}} \) is open in \( \openinterval{-c, d} \), hence \( h \) is open.
+
+		      Thus \( h \) is a homeomorphism as it is a bicontinuous bijection.
+		\item At the point \( A \) (or \(B\)), any neighborhood of the form \( I_{A}(-c, d) \) (or \( I_{B}(-c, d) \)) is homeomorphic to \( \openinterval{-c, d} \) according to part (a).
+
+		      At a point \( p \in \mathbb{R} \smallsetminus \left\{0\right\} \), the neighborhood \( \openinterval{\min\{ p/2; 2p \}, \max\{ p/2; 2p \}} \) is homeomorphic to \( \openinterval{\min\{ p/2; 2p \}, \max\{ p/2; 2p \}} \).
+
+		      Therefore \( S \) is locally Euclidean of dimension \(1\).
+
+		      Let \( \mathscr{B} \) be the collection consisting of \( I_{A}(-c, d) \) for positive rational numbers \( c, d \) and the intersections of \( \mathbb{R} \smallsetminus \left\{0\right\} \) with open intervals \( \openinterval{x, y} \) such that \( x, y \) are rational numbers. Each set in \( \mathscr{B} \) is an open subset of \( S \). Let \( U \) be an open set of \( S \) and \( p \in U \).
+
+		      If \( p = A \) then there exists some \( I_{A}(-c, d) \subseteq U \). There exists positive rational numbers \( q_{c} < c, q_{d} < d \) so \( p \in I_{A}(-q_{c}, q_{d}) \subseteq I_{A}(-c, d) \subseteq U \).
+
+		      If \( p \ne A \) then either \( p < 0 \) or \( p > 0 \). When \( p < 0 \), \( U \cap \openinterval{-\infty, 0} \) is a neighborhood of \( p \) and it is open in \( \mathbb{R}\smallsetminus\left\{0\right\} \) so there exist positive rational numbers \( q_{1}, q_{2} \) such that \( p \in \openinterval{-q_{1}, -q_{2}} \subseteq U \cap \openinterval{-\infty, 0} \subseteq U \). Similarly, when \( p > 0 \), there exist positive rational numbers \( q_{1}, q_{2} \) such that \( p \in \openinterval{q_{1}, q_{2}} \subseteq U \).
+
+		      Thus \( \mathscr{B} \) is a basis for the topology on \( S \). Because \( \mathscr{B} \) is countable, it follows that \( S \) is second countable.
+
+		      Let \( U_{A} \) be a neighborhood of \( A \) and \( U_{B} \) a neighborhood of \( B \). Because \( \left\{ I_{A}(-c, d) \mid c, d \right\} \) is a neighborhood basis at \( A \) and \( \left\{ I_{B}(-c, d) \mid c, d \right\} \) is a neighborhood basis at \( B \) so there exist \( c_{A}, d_{A}, c_{B}, d_{B} > 0 \) such that \( I_{A}(-c_{A}, d_{A}) \subseteq U_{A} \) and \( I_{B}(-c_{B}, d_{B}) \subseteq U_{B} \). Since \( I_{A}(-c_{A}, d_{A}) \) and \( I_{B}(-c_{B}, d_{B}) \) are not disjoint, it follows that \( U_{A}, U_{B} \) are not disjoint. Therefore \( S \) is not Hausdorff.
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{5.2}[A sphere with a hair]
+A fundamental theorem of topology, the theorem on invariance of dimension, states that if two nonempty open sets \( U \subseteq \mathbb{R}^{n} \) and \( V \subseteq \mathbb{R}^{m} \) are homeomorphic, then \( n = m \). Use the idea of Example 5.4 as well as the theorem on invariance of dimension to prove that the sphere with a hair in \( \mathbb{R}^{3} \) (see Figure 5.10 in the book) is not locally Euclidean at \( q \). Hence it cannot be a topological manifold.
+\end{problem}
+
+\begin{proof}
+	Assume for the sake of contrary that the sphere with a hair in \( \mathbb{R}^{3} \) is locally Euclidean at \( q \) (the common point of the sphere and the hair) of dimension \( n \).
+
+	Each point other than \( q \) on the sphere has a neighborhood that is homeomorphic to \( \mathbb{R}^{2} \). On the other hand, each point other than \( q \) on the hair other than \( q \) has a neighborhood that is homeomorphic to \( \mathbb{R}^{1} \). From the theorem on invariance of dimension, it follows that \( n = 1 \) and \( n = 2 \), which is a contradiction.
+\end{proof}
+
+\begin{problem}{5.3}[Charts on a sphere]
+Let \( S^{2} \) be the unit sphere
+\[
+	x^{2} + y^{2} + z^{2} = 1
+\]
+
+in \( \mathbb{R}^{3} \). Define in \( S^{2} \) the six charts corresponding to the six hemispheres --- the front, rear, right, left, upper, and lower hemispheres:
+\begin{align*}
+	U_{1} = \left\{ (x, y, z) \in S^{2} \mid x > 0 \right\}, \qquad \phi_{1}(x, y, z) = (y, z), \\
+	U_{2} = \left\{ (x, y, z) \in S^{2} \mid x < 0 \right\}, \qquad \phi_{2}(x, y, z) = (y, z), \\
+	U_{3} = \left\{ (x, y, z) \in S^{2} \mid y > 0 \right\}, \qquad \phi_{3}(x, y, z) = (x, z), \\
+	U_{4} = \left\{ (x, y, z) \in S^{2} \mid y < 0 \right\}, \qquad \phi_{4}(x, y, z) = (x, z), \\
+	U_{5} = \left\{ (x, y, z) \in S^{2} \mid z > 0 \right\}, \qquad \phi_{5}(x, y, z) = (x, y), \\
+	U_{6} = \left\{ (x, y, z) \in S^{2} \mid z < 0 \right\}, \qquad \phi_{6}(x, y, z) = (x, y).
+\end{align*}
+
+Describe the domain \( \phi_{4}(U_{14}) \) of \( \phi_{1} \circ \phi_{4}^{-1} \) and show that \( \phi_{1} \circ \phi_{4}^{-1} \) is \( C^{\infty} \) on \( \phi_{4}(U_{14}) \). Do the same for \( \phi_{6} \circ \phi_{1}^{-1} \).
+\end{problem}
+
+\begin{proof}
+	\( U_{14} = \left\{ (x, y, z) \in S^{2} \mid x > 0, y < 0 \right\} \) so \( \phi_{4}(U_{14}) = \left\{ (x, z) \mid x > 0, x^{2} + z^{2} < 1 \right\} \). For every \( (x, z) \in \phi_{4}(U_{14}) \)
+	\[
+		(\phi_{1}\circ \phi_{4}^{-1})(x, z) = \phi_{1}(x, -\sqrt{1 - x^{2} - z^{2}}, z) = (-\sqrt{1 - x^{2} - z^{2}}, z)
+	\]
+
+	which shows that \( \phi_{1} \circ \phi_{4}^{-1} \) is \( C^{\infty} \) on \( \phi_{4}(U_{14}) \).
+
+	\( U_{16} = \left\{ (x, y, z) \in S^{2} \mid x > 0, z < 0 \right\} \) so \( \phi_{6}(U_{16}) = \left\{ (x, y) \mid x > 0, x^{2} + y^{2} < 1 \right\} \). For each \( (x, y) \in \phi_{6}(U_{16}) \)
+	\[
+		(\phi_{1}\circ \phi_{6}^{-1})(x, y) = \phi_{1}(x, y, -\sqrt{1 - x^{2} - y^{2}}) = (y, -\sqrt{1 - x^{2} - y^{2}})
+	\]
+
+	which shows that \( \phi_{1}\circ \phi_{6}^{-1} \) is \( C^{\infty} \) on \( \phi_{6}(U_{16}) \).
+\end{proof}
+
+\begin{problem}{5.4}[Existence of a coordinate neighborhood]
+Let \( \left\{ (U_{\alpha}, \phi_{\alpha}) \right\} \) be the maximal atlas on a manifold \( M \). For any open set \( U \) in \( M \) and a point \( p \in U \), prove the existence of a coordinate open set \( U_{\alpha} \) such that \( p \in U_{\alpha} \subset U \).
+\end{problem}
+
+\begin{proof}
+	Since \( \bigcup_{\alpha} U_{\alpha} = M \), there exists \( \alpha \) such that \( p \in U_{\alpha} \). Therefore \( (U \cap U_{\alpha}, \phi_{\alpha}\vert_{U \cap U_{\alpha}}) \) is a chart about \( p \). Consider an arbitrary chart \( (U_{\beta}, \phi_{\beta}) \) in the given maximal atlas on \( M \). By the definition of a smooth manifold, \( \phi_{\beta} \circ \phi_{\alpha}^{-1} \) is \( C^{\infty} \) on \( \phi_{\alpha}(U_{\alpha} \cap U_{\beta}) \) and \( \phi_{\alpha} \circ \phi_{\beta}^{-1} \) is \( C^{\infty} \) on \( \phi_{\beta}(U_{\alpha}\cap U_{\beta}) \). Therefore, as restrictions of \( C^{\infty} \) functions, \( \phi_{\beta} \circ {(\phi_{\alpha}\vert_{U\cap U_{\alpha}})}^{-1} \) is \( C^{\infty} \) on \( \phi_{a}(U \cap U_{\alpha} \cap U_{\beta}) \) and \( {(\phi_{\alpha}\vert_{U\cap U_{\alpha} \cap U_{\beta}})} \circ \phi_{\beta}^{-1} \) is \( C^{\infty} \) on \( \phi_{\beta}(U \cap U_{\alpha} \cap U_{\beta}) \). Due to the arbitrariness of \( \beta \), we conclude that the chart \( (U \cap U_{\alpha}, \phi_{\alpha}\vert_{U\cap U_{\alpha}}) \) is compatible with the given atlas. Because the given atlas is maximal, then the chart \( (U \cap U_{\alpha}, \phi_{\alpha}\vert_{U \cap U_{\alpha}}) \) is contained in the atlas as it is compatible with the atlas.
+
+	Thus there exists a coordinate neighborhood \( U_{i} \) such that \( p \in U_{i} \subseteq U \).
+\end{proof}
+
+\begin{problem}{5.5}[An atlas for a product manifold]\label{problem:5.5}
+Prove Proposition 5.18.
+
+If \( \left\{ (U_{\alpha}, \phi_{\alpha}) \right\} \) and \( \left\{ (V_{i}, \psi_{i}) \right\} \) are \( C^{\infty} \) atlases for the manifolds \( M \) and \( N \) of dimensions \( m \) and \( n \), respectively, then the collection
+\[
+	\left\{ (U_{\alpha} \times V_{i}, \phi_{\alpha} \times \psi_{i}: U_{\alpha} \times V_{i} \to \mathbb{R}^{m} \times \mathbb{R}^{n}) \right\}
+\]
+
+of charts is a \( C^{\infty} \) atlas on \( M\times N \). Therefore, \( M\times N \) is a \( C^{\infty} \) manifold of dimension \( m + n \).
+\end{problem}
+
+\begin{proof}
+	\( \phi_{\alpha} \) is a homeomorphism from \( U_{\alpha} \) onto an open subset of \( \mathbb{R}^{m} \) and \( \psi_{i} \) is a homeomorphism from \( V_{i} \) onto an open subset of \( \mathbb{R}^{n} \) so \( \phi_{\alpha} \times \psi_{i} \) is a homeomorphism onto \( \phi_{\alpha}(U_{\alpha}) \times \psi_{i}(V_{i}) \). Moreover, \( \phi_{\alpha}(U_{\alpha}) \times \psi_{i}(V_{i}) \) is a product open set of \( \mathbb{R}^{m} \times \mathbb{R}^{n} \) hence open in \( \mathbb{R}^{m} \times \mathbb{R}^{n} \simeq \mathbb{R}^{m + n} \). Therefore \( (U_{\alpha} \times V_{i}, \phi_{\alpha} \times \psi_{i}: U_{\alpha} \times V_{i} \to \mathbb{R}^{m} \times \mathbb{R}^{n}) \) is a chart.
+
+	Consider two charts \( (U_{\alpha} \times V_{i}, \phi_{\alpha} \times \psi_{i}: U_{\alpha} \times V_{i} \to \mathbb{R}^{m} \times \mathbb{R}^{n})  \) and \( (U_{\beta} \times V_{j}, \phi_{\beta} \times \psi_{j}: U_{\beta} \times V_{j} \to \mathbb{R}^{m} \times \mathbb{R}^{n}) \). Let \( (p_{1}, q_{1}) \in (\phi_{\alpha} \times \psi_{i})(U_{\alpha\beta} \times V_{ij}) \subseteq \mathbb{R}^{m} \times \mathbb{R}^{n} \) and \( (p_{2}, q_{2}) \in (\phi_{\beta} \times \psi_{j})(U_{\alpha\beta} \times V_{ij}) \) then
+	\[
+		\begin{split}
+			{(\phi_{\beta} \times \psi_{j})} \circ {(\phi_{\alpha} \times \psi_{i})}^{-1}(p_{1}, q_{1}) = ((\phi_{\beta} \circ \phi_{\alpha}^{-1})(p_{1}), (\psi_{j} \circ \psi_{i}^{-1})(q_{1})), \\
+			{(\phi_{\alpha} \times \psi_{i})} \circ {(\phi_{\beta} \times \psi_{j})}^{-1}(p_{2}, q_{2}) = ((\phi_{\alpha} \circ \phi_{\beta}^{-1})(p_{2}), (\psi_{i} \circ \psi_{j}^{-1})(q_{2})).
+		\end{split}
+	\]
+
+	Since \( \phi_{\beta} \circ \phi_{\alpha}^{-1} \) and \( \phi_{\alpha} \circ \phi_{\beta}^{-1} \) are \( C^{\infty} \) on \( U_{\alpha\beta} \), \( \psi_{j} \circ \psi_{i}^{-1} \) and \( \psi_{i} \circ \psi_{j}^{-1} \) are \( C^{\infty} \) on \( V_{ij} \), then \( {(\phi_{\beta} \times \psi_{j})} \circ {(\phi_{\alpha} \times \psi_{i})}^{-1} \) and \( {(\phi_{\alpha} \times \psi_{i})} \circ {(\phi_{\beta} \times \psi_{j})}^{-1} \) are \( C^{\infty} \) on \( U_{\alpha\beta} \times V_{ij} \). Therefore the charts in the given collection are pairwise \( C^{\infty} \)-compatible hence an atlas on \( M\times N \). Thus, \( M\times N \) is a \( C^{\infty} \) manifold of dimension \( m + n \).
+\end{proof}
+
+\section{Smooth Maps on a Manifold}
+
+\begin{exercise}{6.14}[Smoothness of a map to a circle]
+	Prove that the map \( F: \mathbb{R} \to S^{1}, F(t) = (\cos t, \sin t) \) is \( C^{\infty} \).
+\end{exercise}
+
+\begin{proof}
+	The component functions of \( F \) are \( \cos \) and \( \sin \), which are \( C^{\infty} \). According to Proposition 6.13, \( F \) is \( C^{\infty} \).
+\end{proof}
+
+\begin{exercise}{6.18}[Smoothness of a map to a Cartesian product]\label{exercise:6.18}
+	Let \( M_{1}, M_{2} \), and \( N \) be manifolds of dimensions \( m_{1}, m_{2}, \) and \( n \) respectively. Prove that a map \( (f_{1}, f_{2}): N \to M_{1} \times M_{2} \) is \( C^{\infty} \) if and only if \( f_{i}: N \to M_{i}, i = 1, 2, \) are both \( C^{\infty} \).
+\end{exercise}
+
+\begin{proof}
+	Firstly, we show that \( \pi_{1}: M_{1} \times M_{2} \to M_{1} \) and \( \pi_{2}: M_{1} \times M_{2} \to M_{2} \) given by \( \pi_{1}(p_{1}, p_{2}) = p_{1} \) and \( \pi_{2}(p_{1}, p_{2}) = p_{2} \) are \( C^{\infty} \).
+
+	Let \( \left\{ (U_{\alpha}, \phi_{\alpha}: U_{\alpha} \to \mathbb{R}^{m_{1}}) \right\} \) and \( \left\{ (V_{\beta}, \psi_{\beta}: V_{\beta} \to \mathbb{R}^{m_{2}}) \right\} \) be atlases for \( M_{1} \) and \( M_{2} \), respectively. The collection \( \left\{ U_{\alpha} \times V_{\beta}, \phi_{\alpha} \times \psi_{\beta}: U_{\alpha} \times V_{\beta} \to \mathbb{R}^{m_{1} + m_{2}} \right\} \) is an atlas for \( M_{1} \times M_{2} \).
+
+	Each composition
+	\[
+		(\phi_{\alpha} \circ \pi_{1}\circ {(\phi_{\alpha} \times \psi_{\beta})}^{-1})(a^{1}, \ldots, a^{m_{1}}, b^{1}, \ldots, b^{m_{2}}) = (a^{1}, \ldots, a^{m_{1}})
+	\]
+
+	is a \( C^{\infty} \) function from \( (\phi_{\alpha} \times \psi_{\beta})(U_{\alpha} \times V_{\beta}) \) to \( \phi_{\alpha}(U_{\alpha}) \). Thus \( \pi_{1} \) is \( C^{\infty} \). Analogously, \( \pi_{2} \) is \( C^{\infty} \).
+
+	If \( (f_{1}, f_{2}) \) is \( C^{\infty} \) then \( f_{1} = \pi_{1} \circ (f_{1}, f_{2}) \) and \( f_{2} = \pi_{2} \circ (f_{1}, f_{2}) \) are \( C^{\infty} \).
+
+	Otherwise, suppose that \( f_{1} \) and \( f_{2} \) are \( C^{\infty} \). Let \( (W, \tau) \) be an arbitrary chart on \( N \). Because \( f_{1}, f_{2} \) are  \( C^{\infty} \) maps, it follows that \( \phi_{\alpha} \circ f_{1}\circ \tau^{-1} \) is \( C^{\infty} \) on \( \tau(W \cap f_{1}^{-1}(U_{\alpha})) \) and \( \psi_{\beta} \circ f_{2} \circ \tau^{-1} \) is \( C^{\infty} \) on \( \tau(W \cap f_{2}^{-1}(V_{\beta})) \).
+
+	Each composition
+	\[
+		((\phi_{\alpha} \times \psi_{\beta}) \circ (f_{1}, f_{2}) \circ \tau^{-1})(a^{1}, \ldots, a^{n}) = ((\phi_{\alpha} \circ f_{1} \circ \tau^{-1})(a^{1}, \ldots, a^{n}), (\psi_{\beta} \circ f_{2} \circ \tau^{-1})(a^{1}, \ldots, a^{n}))
+	\]
+
+	is then a \( C^{\infty} \) function from \( \tau(W \cap {(f_{1}, f_{2})}^{-1}(U_{\alpha} \times V_{\beta})) \subseteq \mathbb{R}^{n} \) to \( \mathbb{R}^{m_{1} + m_{2}} \). Hence the map \( (f_{1}, f_{2}) \) is \( C^{\infty} \).
+\end{proof}
+
+\begin{problem}{6.1}[Differentiable Structures on \(\mathbb{R}\)]
+Let \(\mathbb{R}\) be the real line with the differentiable structure given by the maximal atlas of the chart \((\mathbb{R}, \phi = \operatorname{id} \colon \mathbb{R} \to \mathbb{R})\), and let \(\mathbb{R}'\) be the real line with the differentiable structure given by the maximal atlas of the chart \((\mathbb{R}, \psi \colon \mathbb{R} \to \mathbb{R})\), where \(\psi(x) = x^{1/3}\).
+
+\begin{enumerate}[label={(\alph*)},leftmargin=*]
+	\item Show that these two differentiable structures are distinct.
+	\item Show that there is a diffeomorphism between \(\mathbb{R}\) and \(\mathbb{R}'\).\@ (\textit{Hint}: The identity map \(\mathbb{R} \to \mathbb{R}\) is not the desired diffeomorphism; in fact, this map is not smooth.)
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)},leftmargin=*]
+		\item The composition \( \psi \circ \phi^{-1}: \mathbb{R} \to \mathbb{R}, (\psi \circ \phi^{-1})(x) = \psi(x) = x^{1/3} \) is not \( C^{\infty} \) at \( x = 0 \). Therefore the charts \( (\mathbb{R}, \phi) \) and \( (\mathbb{R}, \psi) \) are not \( C^{\infty} \)-compatible, hence the two differentiable structures are distinct.
+		\item Consider the map \( f: \mathbb{R} \to \mathbb{R}' \) given by \( f(x) = x^{3} \). The map \( f \) is \( C^{\infty} \) because the composition \( \phi \circ f \circ \psi^{-1} = \phi \) is \( C^{\infty} \). It is also bijective as it admits \( x \mapsto x^{1/3} \) as an inverse. This map is also \( C^{\infty} \) because \( \psi \circ f^{-1} \circ \phi = \phi \) is \( C^{\infty} \).
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{6.2}[The Smoothness of an Inclusion Map]
+Let \(M\) and \(N\) be manifolds and let \(q_{0}\) be a point in \(N\). Prove that the inclusion map \(i_{q_{0}}: M \to M \times N\), \(i_{q_{0}}(p) = (p, q_{0})\), is \(C^\infty\).
+\end{problem}
+
+\begin{proof}
+	Denote the dimensions of \( M, N \) be \( m, n \), respectively.
+
+	The identity map \( \operatorname{id}: M \to M \) is \( C^{\infty} \). Consider the constant map \( f: M \to N \) given by \( f(p) = q_{0} \). For every chart \( (U, \phi) \) on \( M \) and \( (V, \psi) \) on \( N \) such that \( U \cap f^{-1}(V) \ne \varnothing \), the function
+	\[
+		\psi \circ f \circ \phi^{-1}: \phi(U \cap f^{-1}(V)) \to \mathbb{R}^{n}
+	\]
+
+	is \( C^{\infty} \) because it is a constant function, as
+	\[
+		(\psi \circ f \circ \phi^{-1})(\phi(x)) = (\psi \circ f)(x) = \psi(q_{0})
+	\]
+
+	for every \( x \in U \cap f^{-1}(V) \). According to Exercise~\ref{exercise:6.18}, \( i_{q_{0}} \) is \( C^{\infty} \).
+\end{proof}
+
+\begin{problem}{6.3}[Group of Automorphisms of a Vector Space]
+Let \(V\) be a finite-dimensional vector space over \(\mathbb{R}\), and \(\mathrm{GL}(V)\) the group of all linear automorphisms of \(V\). Relative to an ordered basis \(e = (e_{1}, \ldots, e_{n})\) for \(V\), a linear automorphism \(L \in \mathrm{GL}(V)\) is represented by a matrix \([a_{j}^{i}]\) defined by
+\[
+	L(e_{j}) = \sum_{i} a_{j}^{i} e_{i}.
+\]
+
+The map
+\[
+	\phi_{e} : \mathrm{GL}(V) \to \mathrm{GL}(n, \mathbb{R}), \quad L \mapsto [a_{j}^{i}],
+\]
+
+is a bijection with an open subset of \(\mathbb{R}^{n \times n}\) that makes \(\mathrm{GL}(V)\) into a \(C^{\infty}\) manifold, which we denote temporarily by \({\mathrm{GL}(V)}_{e}\). If \({\mathrm{GL}(V)}_{u}\) is the manifold structure induced from another ordered basis \(u = (u_{1}, \ldots, u_{n})\) for \(V\), show that \({\mathrm{GL}(V)}_{e}\) is the same as \({\mathrm{GL}(V)}_{u}\).
+\end{problem}
+
+\begin{proof}
+	Let \( C = \mathcal{M}(I_{n}, e, u) \) be the change-of-basis matrix in which \( I_{n} \) is the \( n\times n \) identity matrix.
+
+	Consider the map \( \phi_{e} \circ \phi_{u}^{-1}: \mathrm{GL}(n, \mathbb{R}) \to \mathrm{GL}(n, \mathbb{R}) \). For each \( A \in \mathrm{GL}(n, \mathbb{R}) \)
+	\[
+		(\phi_{e} \circ \phi_{u}^{-1})(A) = C^{-1}AC
+	\]
+
+	so \( \phi_{e} \circ \phi_{u}^{-1} \) is a \( C^{\infty} \) function. Similarly, the function \( \phi_{u} \circ \phi_{e}^{-1} \) is also \( C^{\infty} \). Therefore the two charts \( ({\mathrm{GL}(V)}_{e}, \phi_{e}) \) and \( ({\mathrm{GL}(V)}_{u}, \phi_{u}) \) are \( C^{\infty} \)-compatible, which implies that the two charts belong to the same differentiable structure (maximal atlas). Hence \( {\mathrm{GL}(V)}_{e} \) and \( {\mathrm{GL}(V)}_{u} \) are the same smooth manifold.
+\end{proof}
+
+\begin{problem}{6.4}[Local Coordinate Systems]
+Find all points in \(\mathbb{R}^{3}\) in a neighborhood of which the functions \(x\), \(x^{2} + y^{2} + z^{2} - 1\), \(z\) can serve as a local coordinate system.
+\end{problem}
+
+\begin{proof}
+	Let \( p = (p^{1}, p^{2}, p^{3}) \) be a point in \( \mathbb{R}^{3} \), the Jacobian determinant
+	\[
+		\det\begin{bmatrix}
+			\dfrac{\partial x}{\partial x}(p)                           & \dfrac{\partial x}{\partial y}(p)                           & \dfrac{\partial x}{\partial z}(p)                           \\
+			\dfrac{\partial (x^{2} + y^{2} + z^{2} - 1)}{\partial x}(p) & \dfrac{\partial (x^{2} + y^{2} + z^{2} - 1)}{\partial y}(p) & \dfrac{\partial (x^{2} + y^{2} + z^{2} - 1)}{\partial z}(p) \\
+			\dfrac{\partial z}{\partial x}(p)                           & \dfrac{\partial z}{\partial y}(p)                           & \dfrac{\partial z}{\partial z}(p)
+		\end{bmatrix} = 2p^{2}
+	\]
+
+	is nonzero if and only if \( p^{2} \ne 0 \). Hence \( \mathbb{R}^{3} \smallsetminus \left\{ (x, y, z) \in \mathbb{R}^{3} \mid y \ne 0 \right\} \) consists of points in a neighborhood such that \( x, x^{2} + y^{2} + z^{2} - 1, z \) can serve as a local coordinate system.
+\end{proof}
+
+\section{Quotients}
+
+\begin{exercise}{7.11}[Real projective space as a quotient of a sphere]\label{exercise:7.11}
+	For \( x = (x^{1}, \ldots, x^{n}) \in \mathbb{R}^{n} \), let \( \left\Vert x \right\Vert = \sqrt{\sum_{i}{(x^{i})}^{2}} \) be the modulus of \( x \). Prove that the map \( f: \mathbb{R}^{n+1}\smallsetminus \left\{0\right\} \to S^{n} \) given by
+	\[
+		f(x) = \dfrac{x}{\left\Vert x \right\Vert}
+	\]
+
+	induces a homeomorphism  \( \bar{f}: \mathbb{R}P^{n} \to S^{n}/\!\sim \).
+\end{exercise}
+
+\begin{proof}
+	Let \( \pi_{1}: \mathbb{R}^{n+1}\smallsetminus \left\{0\right\} \to \mathbb{R}P^{n} \) and \( \pi_{2}: S^{n} \to S^{n}/\!\sim \) be the quotient maps in this exercise.
+
+	We define \( \bar{f}: \mathbb{R}P^{n} \to S^{n}/\!\sim \) by
+	\[
+		\bar{f}([x]) = [f(x)].
+	\]
+
+	This map is well-defined, since if \( x \sim y \) then \( f(x) = \dfrac{x}{\left\Vert x\right\Vert} \sim \dfrac{y}{\left\Vert y\right\Vert} = f(y) \). Let me remind the second \( \sim \): \( x \sim y \Longleftrightarrow x = \pm y \). From this definition we obtain the following commutative diagram
+	\[
+		\begin{tikzcd}
+			\mathbb{R}^{n+1}\smallsetminus \left\{0\right\} \arrow{r}{f} \arrow{d}{\pi_{1}} & S^{n} \arrow{d}{\pi_{2}} \\
+			\mathbb{R}P^{n} \arrow{r}{\bar{f}}                                & S^{n}/\!\sim
+		\end{tikzcd}
+	\]
+
+	Since \( \pi_{2} \circ f = \bar{f} \circ \pi_{1} \) is continuous and \( \pi_{1} \) is continous, it follows that \( \bar{f} \) is continuous (see Proposition 7.1).
+
+	Consider the maps \( g: S^{n} \to \mathbb{R}^{n+1}\smallsetminus\left\{0\right\} \) and \( \bar{g}: S^{n}/\!\sim \to \mathbb{R}P^{n} \) defined by \( g(x) = x \) and \( \bar{g}([x]) = [x] \) then \( \bar{g} \) is an inverse of \( \bar{f} \). Moreover, the following diagram commutes
+	\[
+		\begin{tikzcd}
+			S^{n} \arrow{r}{g} \arrow{d}{\pi_{2}} & \mathbb{R}^{n+1}\smallsetminus\left\{0\right\} \arrow{d}{\pi_{1}} \\
+			S^{n}/\!\sim \arrow{r}{\bar{g}}         & \mathbb{R}P^{n}
+		\end{tikzcd}
+	\]
+
+	Because \( \pi_{1} \circ g \) is continuous and \( \pi_{1} \circ g = \bar{g} \circ \pi_{2} \) then \( \bar{g} \circ \pi_{2} \) is continuous. From Proposition 7.1, it follows that \( \bar{g} \) is continuous.
+
+	Thus \( \bar{f} \) is a homeomorphism from \( \mathbb{R}P^{n} \) onto \( S^{n}/\!\sim \) as it is a continuous bijection that has a continuous inverse.
+\end{proof}
+
+\begin{problem}{7.1}[Image of the inverse image of a map]
+Let \( f: X \to Y \) be a map of sets, and let \( B \subseteq Y \). Prove that \( f(f^{-1}(B)) = B \cap f(X) \). Therefore, if \( f \) is surjective, then \( f(f^{-1}(B)) = B \).
+\end{problem}
+
+\begin{proof}
+	Assume that \( y \in f(f^{-1}(B)) \) then there exists \( x \in f^{-1}(B) \) such that \( f(x) = y \). Hence \( f(x) \in f(X) \) and \( f(x) \in B \), which means \( y = f(x) \in B \cap f(X) \), so \( f(f^{-1}(B)) \subseteq B \cap f(X) \).
+
+	If \( y \in B \cap f(X) \) then \( f^{-1}(\left\{ y \right\}) \subseteq f^{-1}(B)\). Let \( x \) be an element of \( f^{-1}(\left\{ y \right\}) \) then \( f(x) \in f(f^{-1}(B)) \). Hence \( B \cap f(X) \subseteq f(f^{-1}(B)) \).
+
+	Thus \( f(f^{-1}(B)) = B \cap f(X) \).
+\end{proof}
+
+\begin{problem}{7.2}[Real projective plane]
+Let \( H^{2} \) be the closed upper hemisphere in the unit sphere \( S^{2} \), and let \( i: H^{2} \to S^{2} \) be the inclusion map. In the notation of Example 7.13, prove that the induced map \( f: H^{2}/\!\sim \to S^{2}/\!\sim \) is a homeomorphism.
+\end{problem}
+
+\begin{proof}
+	Let \( \pi_{1}: H^{2} \to H^{2}/\!\sim \) and \( \pi_{2}: S^{2} \to S^{2}/\!\sim \) be the induced quotient maps.
+
+	For every \( U \subseteq S^{2}/\!\sim \)
+	\[
+		{(\pi_{2} \circ i)}^{-1}(U) = i^{-1}(\pi_{2}^{-1}(U)) = \pi_{2}^{-1}(U) \cap H^{2}.
+	\]
+
+	So \( U \) is open in \( S^{2}/\!\sim \) if and only if \(  {(\pi_{2} \circ i)}^{-1}(U) \) is open in \( H^{2} \). Therefore \( \pi_{2} \circ i \) is a quotient map. On the other hand, \( \pi_{1} \) is constant on each equivalence class of \( \pi_{2}\circ i \) so it induces a map \( f \) that commutes the following diagram.
+	\[
+		\begin{tikzcd}
+			H^{2} \arrow{r}{i} \arrow{d}{\pi_{1}} & S^{2} \arrow{d}{\pi_{2}} \\
+			H^{2}/\!\sim \arrow{r}{f} & S^{2}/\!\sim
+		\end{tikzcd}
+	\]
+
+	From Proposition 7.1, it follows that \( f \) is continuous.
+
+	We define two maps \( j: S^{2} \to H^{2} \) and \( g: S^{2}/\!\sim \to H^{2}/\!\sim \) as follows
+	\begin{itemize}
+		\item \( j \) identifies each point on the open upper hemisphere to its antipodal on the open lower hemisphere and \( j \) leaves points on the equator unchanged.
+		\item \( g \) maps \( [x] \in S^{2}/\!\sim \) to \( [x] \in H^{2}/\!\sim \).
+	\end{itemize}
+
+	The following diagram commutes
+	\[
+		\begin{tikzcd}
+			S^{2} \arrow{r}{j} \arrow{d}{\pi_{2}} & H^{2} \arrow{d}{\pi_{1}} \\
+			S^{2}/\!\sim \arrow{r}{g}         & H^{2}/\!\sim
+		\end{tikzcd}
+	\]
+
+	\( j \) and \( \pi_{1} \) are quotient maps. The composition of two quotient maps is a quotient map so \( g \circ \pi_{2} = \pi_{1} \circ j \) is a quotient map. From Proposition 7.1, it follows that \( g \) is continuous.
+
+	On the other hand, \( g \) is an inverse of \( f \), so \( f \) is a homeomorphism.
+\end{proof}
+
+\begin{problem}{7.3}[Closedness of the diagonal of a Hausdorff space]
+Deduce Theorem 7.7 from Corollary 7.8.
+
+Theorem 7.7. Suppose \( \sim \) is an open equivalence relation on a topological space \( S \). Then the quotient space \( S/\!\sim \) is Hausdorff if and only if the graph \( R \) of \( \sim \) is closed in \( S\times S \).
+
+Corollary 7.8. A topological space \( S \) is Hausdorff if and only if the diagonal \( \Delta \) in \( S\times S \) is closed.
+\end{problem}
+
+\begin{proof}
+	Let \( \pi: S \to S/\!\sim \) be the induced quotient map.
+
+	First, assume that \( S/\!\sim \) is Hausdorff. Let \( (x, y) \in (S\times S)\smallsetminus R \) then \( \pi(x) \ne \pi(y) \). Due to Hausdorffness of \( S/\!\sim \), there exist neighborhoods \( U \ni \pi(x) \) and \( V \ni \pi(x) \) that are disjoint. According to the continuity of \( \pi \), the preimages \( \pi^{-1}(U) \) and \( \pi^{-1}(V) \) are open and disjoint. Moreover, \( \pi^{-1}(U) \) and \( \pi^{-1}(V) \) are neighborhoods of \( x \) and \( y \), respectively. None of the elements of \( \pi^{-1}(U) \) is equivalent to any element of \( \pi^{-1}(V) \) and vice versa. Hence \( \pi^{-1}(U) \times \pi^{-1}(V) \) is a neighborhood of \( (x, y) \) and is contained in \( (S \times S)\smallsetminus R \), which means \( (S\times S)\smallsetminus R \) is open. Hence \( R \) is closed in \( S\times S \).
+
+	Now assume that \( R \) is closed in \( S\times S \) then \( (S\times S)\smallsetminus R \) is open in \( S\times S \). Let \( [x] \) and \( [y] \) be two distinct elements of \( S/\!\sim \) then \( (x, y) \in (S\times S)\smallsetminus R \). So \( (x, y) \) is contained in a product open set \( U\times V \) contained in \( (S\times S)\smallsetminus R \). From the definition of \( R \), it follows that \( \pi(U) \) and \( \pi(V) \) are disjoint. Because \( \pi \) is an open map, \( \pi(U) \) and \( \pi(V) \) are open. Hence \( \pi(U) \) and \( \pi(V) \) are disjoint neighborhoods of \( [x] \) and \( [y] \). Thus \( S/\!\sim \) is Hausdorff.
+\end{proof}
+
+\begin{problem}{7.4}[Quotient of a sphere with antipodal points identified]
+Let \( S^{n} \) be the unit sphere centered at the origin in \( \mathbb{R}^{n+1} \). Define an equivalence relation \( \sim \) on \( S^{n} \) by identifying antipodal points:
+\[
+	x \sim y \Longleftrightarrow x = \pm y,\quad x, y\in S^{n}.
+\]
+
+\begin{enumerate}[label={(\alph*)},leftmargin=*]
+	\item Show that \( \sim \) is an open equivalence relation.
+	\item Apply Theorem 7.7 and Corollary 7.8 to prove that the quotient space \( S^{n}/\!\sim \) is Hausdorff, without making use of the homeomorphism \( \mathbb{R}P^{n} \simeq S^{n}/\!\sim \).
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)},leftmargin=*]
+		\item Let \( \pi: S^{n} \to S^{n}/\!\sim \) be the induced quotient map and \( U \) is an open subset of \( S^{n} \). The map \( a: S^{n} \to S^{n} \) given by \( a(x) = -x \) is a homeomorphism so \( a(U) \) is an open subset of \( S^{n} \). Therefore
+		      \[
+			      \pi^{-1}(\pi(U)) = \bigcup_{x\in U} \left\{ x, -x \right\} = \left(\bigcup_{x\in U} \left\{ x \right\}\right) \cup \left( \bigcup_{x\in U} \left\{ -x \right\} \right) = U \cup a(U)
+		      \]
+
+		      is an open subset of \( S^{n} \), so \( \pi(U) \) is open. Hence \( \pi \) is open, which means \( \sim \) is an open equivalence relation.
+		\item The graph \( R \) of \( \sim \) in \( S^{n} \times S^{n} \) is
+		      \[
+			      \left\{ (x, y) \in S^{n}\times S^{n} \mid x = \pm y \right\} = \left\{ (x, y) \in S^{n}\times S^{n} \mid x = y \right\} \cup \left\{ (x, y) \in S^{n}\times S^{n} \mid x = -y \right\}.
+		      \]
+
+		      Since \( S^{n} \) is Hausdorff (as a subspace of the Hausdorff space \( \mathbb{R}^{n+1} \)) then \( \left\{ (x, y) \in S^{n}\times S^{n} \mid x = y \right\} \) is closed in \( S^{n} \times S^{n} \). The map \( f: S^{n} \times S^{n} \to S^{n} \times S^{n} \) given by \( f(x, y) = (x, -y) \) is a homeomorphism so \( \left\{ (x, y) \in S^{n}\times S^{n} \mid x = -y \right\} \) is closed in \( S^{n} \times S^{n} \). Therefore \( R \) is closed in \( S^{n} \times S^{n} \) as it is the union of two closed sets.
+
+		      From Theorem 7.7, it follows that \( S^{n}/\!\sim \) is Hausdorff.
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{7.5}[Orbit space of a continuous group action]\label{problem:7.5}
+Suppose a right action of a topological group \(G\) on a topological space \(S\) is continuous; this simply means that the map \( S\times G \to S \) describing the action is continuous. Define two points \( x,y \) of \(S\) to be equivalent if they are in the same orbit; i.e., there is an element \( g\in G \) such that \( y = xg \). Let \( S/G \) be the quotient space; it is called the \textit{orbit space} of the action. Prove that the projection map \( \pi: S \to S/G \) is an open map.
+\end{problem}
+
+\begin{proof}
+	The projection map \( \pi: S \to S/G \) is a quotient map.
+
+	Denote the right action of \( G \) on \( S \) by \( r \). Let \( U \) be an open subset of \( S \). Denote by \( \pi_{S} \) the canonical projection \( S\times G \to S \).
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\pi^{-1}(\pi(U)) & = \bigcup_{x\in U} \pi^{-1}(\pi(x))                                     \\
+		                 & = \bigcup_{x\in U} \left\{ y \in S \mid \exists g\in G, x = yg \right\} \\
+		                 & = \bigcup_{x\in U} \pi_{S}(r^{-1}(x))                                   \\
+		                 & = \pi_{S}\left(\bigcup_{x\in U} r^{-1}(x)\right)                        \\
+		                 & = \pi_{S}(r^{-1}(U)).
+	\end{align*}
+	\endgroup
+
+	The canonical projection \( \pi_{S} \) is an open map and \( r^{-1}(U) \) is an open subset of \( S\times G \) so \( \pi_{S}(r^{-1}(U)) \) is an open subset of \( S \). Therefore \( \pi^{-1}(\pi(U)) \) for every open subset \( U \) of \( S \). From the definition of quotient map, it follows that \( \pi(U) \) is an open subset of \( S/G \). Thus \( \pi \) is an open quotient map.
+\end{proof}
+
+\begin{problem}{7.6}[Quotient of \( \mathbb{R} \) by \( 2\pi\mathbb{Z} \)]\label{problem:7.6}
+Let the additive group \( 2\pi\mathbb{Z} \) act on \( \mathbb{R} \) on the right by \( x\cdot 2\pi n = x + 2\pi n \), where \( n \) is an integer. Show that the orbit space \( \mathbb{R}/2\pi\mathbb{Z} \) is a smooth manifold.
+\end{problem}
+
+\begin{proof}
+	Denote the equivalence relation and the quotient map induced by the right group action by \( \sim \) and \( f \), as in Problem~\ref{problem:7.5}.
+
+	According to Problem~\ref{problem:7.5} and theorems in Section 7.5, \( \sim \) and \( f \) are open and the orbit space \( \mathbb{R}/2\pi\mathbb{Z} \) is Hausdorff and second countable. It remains to construct an atlas.
+
+	For each integer \(n\) we define \( V_{n} = f(\openinterval{n\pi - \pi, n\pi + \pi}) \) and \( \psi_{n}: V_{n} \to \openinterval{n\pi - \pi, n\pi + \pi} \) given by the restriction of \( f \) to \( \openinterval{n\pi - \pi, n\pi + \pi} \). The restriction of \( f \) to \( \openinterval{n\pi - \pi, n\pi + \pi} \) is one-to-one. Moreover, \( f \) is open and continuous. Hence \( \psi_{n} \) is a homeomorphism. Therefore \( \mathbb{R}/2\pi\mathbb{Z} \) is locally Euclidean of dimension \(1\).
+
+	\( f(\halfopenright{0, 2\pi}) = \mathbb{R}/2\pi\mathbb{Z} \) so \( V_{0}, V_{1} \) constitutes an open cover for \( \mathbb{R}/2\pi\mathbb{Z} \).
+
+	For every \( t \in \psi_{0}(V_{0} \cap V_{1}) \), \( t \ne 0 \) and
+	\[
+		(\psi_{1} \circ \psi_{0}^{-1})(t) = \begin{cases}
+			t        & \text{if } t\in \openinterval{0, \pi},  \\
+			t + 2\pi & \text{if } t\in \openinterval{-\pi, 0}.
+		\end{cases}
+	\]
+
+	For every \( s \in \psi_{1}(V_{0} \cap V_{1}) \)
+	\[
+		(\psi_{0} \circ \psi_{1}^{-1})(s) = \begin{cases}
+			s        & \text{if } s\in \openinterval{0, \pi},    \\
+			s - 2\pi & \text{if } s\in \openinterval{\pi, 2\pi}.
+		\end{cases}
+	\]
+
+	The function \( \psi_{1}\circ \psi_{0}^{-1} \) is defined on disjoint open intervals and it is \( C^{\infty} \) on each open interval, so is \( \psi_{0} \circ \psi_{1}^{-1} \). Hence the transition functions are \( C^{\infty} \), which means the charts \( (V_{0}, \psi_{0}) \) and \( (V_{1}, \psi_{1}) \) are \( C^{\infty} \)-compatible, which means the two charts constitute an atlas for \( \mathbb{R}/2\pi\mathbb{Z} \).
+
+	Thus \( \mathbb{R}/2\pi\mathbb{Z} \) is a smooth manifold of dimension \(1\).
+\end{proof}
+
+\begin{problem}{7.7}[The circle as a quotient space]
+\begin{enumerate}[label={(\alph*)},leftmargin=*]
+	\item Let \( {\left\{ (U_{\alpha}, \phi_{\alpha}) \right\}}^{2}_{\alpha=1} \) be the atlas of the circle \( S^{1} \) in Example 5.7, and let \( \bar{\phi}_{\alpha} \) be the map \( \phi_{\alpha} \) followed by the projection \( \mathbb{R} \to \mathbb{R}/2\pi\mathbb{Z} \). On \( U_{1} \cap U_{2} = A \amalg B \), since \( \phi_{1} \) and \( \phi_{2} \) differ by an integer multiple of \( 2\pi \), \( \bar{\phi}_{1} = \bar{\phi}_{2} \). Therefore \( \bar{\phi}_{1} \) and \( \bar{\phi}_{2} \) piece together to give a well-defined map \( \bar{\phi}: S^{1} \to \mathbb{R}/2\pi\mathbb{Z} \). Prove that \( \bar{\phi} \) is \( C^{\infty} \).
+	\item The complex exponential \( \mathbb{R} \to S^{1} \), \( t \mapsto e^{it} \), is constant on each orbit of the action of \( 2\pi\mathbb{Z} \) on \( \mathbb{R} \). Therefore, there is an induced map \( F: \mathbb{R}/2\pi\mathbb{Z} \to S^{1} \), \( F([t]) = e^{it} \). Prove that \( F \) is \( C^{\infty} \).
+	\item Prove that \( F: \mathbb{R}/2\pi\mathbb{Z} \to S^{1} \) is a diffeomorphism.
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	Firstly, I rewrite here the definitions of \( \phi_{1}, \phi_{2}, A, B \).
+	\[
+		\begin{split}
+			U_{1} = \left\{ e^{it} \in \mathbb{C} \mid -\pi < t < \pi \right\}, \\
+			U_{2} = \left\{ e^{it} \in \mathbb{C} \mid 0 < t < 2\pi \right\},
+		\end{split}
+	\]
+
+	and
+	\[
+		\begin{split}
+			\phi_{1}: U_{1} \to \mathbb{R}, \quad \phi_{1}(e^{it}) = t, \quad -\pi < t < \pi, \\
+			\phi_{2}: U_{2} \to \mathbb{R}, \quad \phi_{2}(e^{it}) = t, \quad 0 < t < 2\pi.
+		\end{split}
+	\]
+
+	\( A, B \) are the connected components of \( U_{1} \cap U_{2} \)
+	\[
+		\begin{split}
+			A = \left\{ e^{it} \mid -\pi < t < 0 \right\}, \\
+			B = \left\{ e^{it} \mid 0 < t < \pi \right\}.
+		\end{split}
+	\]
+
+	Denote the projection \( \mathbb{R} \to \mathbb{R}/2\pi\mathbb{Z} \) by \( f \).
+
+	\begin{enumerate}[label={(\alph*)},leftmargin=*]
+		\item \( \bar{\phi} \) is continuous due to the local criterion for continuity. We reuse the atlas in Problem~\ref{problem:7.6}.
+
+		      For every \( t \in \phi_{1}(U_{1} \cap \bar{\phi}^{-1}(V_{0})) \), \( (\psi_{0} \circ \bar{\phi} \circ \phi_{1}^{-1})(t) = t \) so \( \psi_{0} \circ \bar{\phi} \circ \phi_{1}^{-1} \) is a \( C^{\infty} \) function.
+
+		      For every \( t \in \phi_{1}(U_{1} \cap \bar{\phi}^{-1}(V_{1})) \), \( (\psi_{1} \circ \bar{\phi} \circ \phi_{1}^{-1})(t) = t + 2\pi \) so \( \psi_{1} \circ \bar{\phi} \circ \phi_{1}^{-1} \) is a \( C^{\infty} \) function.
+
+		      For every \( t \in \phi_{2}(U_{2} \cap \bar{\phi}^{-1}(V_{0})) \), \( (\psi_{0} \circ \bar{\phi} \circ \phi_{2}^{-1})(t) = t - 2\pi \) so \( \psi_{0} \circ \bar{\phi} \circ \phi_{2}^{-1} \) is a \( C^{\infty} \) function.
+
+		      For every \( t \in \phi_{2}(U_{2} \cap \bar{\phi}^{-1}(V_{1})) \), \( (\psi_{1} \circ \bar{\phi} \circ \phi_{2}^{-1})(t) = t \) so \( \psi_{1} \circ \bar{\phi} \circ \phi_{2}^{-1} \) is a \( C^{\infty} \) function.
+
+		      Hence \( \bar{\phi}: S^{1} \to \mathbb{R}/2\pi\mathbb{Z} \) is a \( C^{\infty} \) map between smooth manifolds.
+		\item \( F \) is continuous due to Proposition 7.1.
+
+		      For every \( t \in \psi_{0}(V_{0} \cap F^{-1}(U_{1})) \), \( (\phi_{1} \circ F \circ \psi_{0}^{-1})(t) = t \) so \( \phi_{1} \circ F \circ \psi_{0}^{-1} \) is a \( C^{\infty} \) function.
+
+		      For every \( t \in \psi_{0}(V_{0} \cap F^{-1}(U_{2})) \), \( (\phi_{2} \circ F \circ \psi_{0}^{-1})(t) = t + 2\pi \) so \( \phi_{2} \circ F \circ \psi_{0}^{-1} \) is a \( C^{\infty} \) function.
+
+		      For every \( t \in \psi_{1}(V_{1} \cap F^{-1}(U_{1})) \), \( (\phi_{1} \circ F \circ \psi_{1}^{-1})(t) = t - 2\pi \) so \( \phi_{1} \circ F \circ \psi_{1}^{-1} \) is a \( C^{\infty} \) function.
+
+		      For every \( t \in \psi_{1}(V_{1} \cap F^{-1}(U_{2})) \), \( (\phi_{2} \circ F \circ \psi_{1}^{-1})(t) = t \) so \( \phi_{2} \circ F \circ \psi_{1}^{-1} \) is a \( C^{\infty} \) function.
+
+		      Hence \( F: \mathbb{R}/2\pi\mathbb{Z} \to S^{1} \) is a \( C^{\infty} \) map between smooth manifolds.
+		\item Because \( (\bar{\phi} \circ F)([t]) = \bar{\phi}(e^{it}) = [t] \) and \( (F\circ \bar{\phi})(e^{it}) = F([t]) = e^{it} \), \( F \) is the inverse of \( \bar{\phi} \). Together with parts (a) and (b), we deduce that \( F \) is a diffeomorphism.
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{7.8}[The Grassmannian \(G(k, n)\)]
+The Grassmannian \( G(k, n) \) is the set of all \(k\)-planes through the origin in \( \mathbb{R}^{n} \). Such a \(k\)-plane is a linear subspace of dimension \(k\) of \( \mathbb{R}^{n} \) and has a basis consisting of \(k\) linearly independent vectors \( a_{1}, \ldots, a_{k} \) in \( \mathbb{R}^{n} \). It is therefore completely specified by an \( n\times k \) matrix \(A = [a_{1} \cdots a_{k}]\) of rank \(k\), where the \textit{rank} of a matrix \(A\), denoted by \(\operatorname{rk}A\), is defined to be the number of linearly independent columns of \(A\). This matrix is called a \textit{matrix representative} of the \(k\)-plane.
+
+Two bases \( a_{1}, \ldots, a_{k} \) and \( b_{1}, \ldots, b_{k} \) determine the same \(k\)-plane if there is a change-of-basis matrix \(g = [g_{ij}] \in \mathrm{GL}(k, \mathbb{R})\) such that
+\[
+	b_{j} = \sum_{i} a_{i}g_{ij},\quad 1 \leq i, j\leq k.
+\]
+
+In matrix notation, \( B = Ag \).
+
+Let \(F(k, n)\) be the set of all \(n\times k\) matrices of rank \(k\), topologized as a subspace of \( \mathbb{R}^{n\times k} \), and \(\sim\) the equivalence relation
+\[
+	A \sim B \text{  iff  } \text{there is a matrix } g \in \mathrm{GL}(k, \mathbb{R}) \text{ such that } B = Ag.
+\]
+
+In the notation of Problem B.3, \( F(k, n) \) is the set \( D_{\max} \) in \( \mathbb{R}^{n+k} \) and is therefore an open subset. There is a bijection between \( G(k, n) \) and the quotient space \( F(k,n)/\!\sim \). We give the Grassmannian \(G(k, n)\) the quotient topology on \( F(k,n)/\!\sim \).
+\begin{enumerate}[label={(\alph*)},leftmargin=*]
+	\item Show that \( \sim \) is an open equivalence relation.
+	\item Prove that the Grassmannian \( G(k, n) \) is second countable.
+	\item Let \( S = F(k,n) \). Prove that the graph \( R \) in \( S\times S \) of the equivalence relation \( \sim \) is closed.
+	\item Prove that the Grassmannian \( G(k, n) \) is Hausdorff.
+\end{enumerate}
+
+Next we want to find a \( C^{\infty} \) atlas on the Grassmanian \( G(k, n) \). For simplicity, we specialize to \( G(2, 4) \). For any \( 4\times 2 \) matrix \(A\), let \( A_{i,j} \) be the \(2\times 2\) submatrix consisting of its \(i\)-th row and \(j\)-th row. Define
+\[
+	V_{ij} = \left\{ A \in F(2, 4) \mid A_{ij} \text{ is nonsingular} \right\}.
+\]
+
+Because the complement of \(V_{ij}\) in \(F(2,4)\) is defined by the vanishing of \( \det A_{ij} \), we conclude that \( V_{ij} \) is an open subset of \( F(2, 4) \).
+
+\begin{enumerate}[label={(\alph*)}, resume]
+	\item Prove that if \( A \in V_{ij} \), then \( Ag \in V_{ij} \) for any nonsingular matrix \( g \in \mathrm{GL}(2, \mathbb{R}) \).
+\end{enumerate}
+
+Define \( U_{ij} = V_{ij}/\!\sim \). Since \( \sim \) is an open equivalence relation, \( U_{ij} = V_{ij}/\!\sim \) is an open subset of \( G(2, 4) \).
+
+For \( A \in V_{12} \),
+\[
+	A \sim AA_{12}^{-1} = \begin{bmatrix}
+		1 & 0 \\
+		0 & 1 \\
+		* & * \\
+		* & *
+	\end{bmatrix} = \begin{bmatrix}
+		I \\
+		A_{34}A_{12}^{-1}
+	\end{bmatrix}
+\]
+
+This shows that the matrix representatives of a \(2\)-plane in \( U_{12} \) have a canonical form \(B\) in which \( B_{12} \) is the identity matrix.
+\begin{enumerate}[label={(\alph*)}, resume]
+	\item Show that the map \( \tilde{\phi}_{12}: V_{12} \to \mathbb{R}^{2\times 2} \),
+	      \[
+		      \tilde{\phi}_{12}(A) = A_{34}A_{12}^{-1},
+	      \]
+
+	      induces a homeomorphism \( \phi_{12}: U_{12} \to \mathbb{R}^{2\times 2} \).
+	\item Define similarly homeomorphisms \( \phi_{ij}: U_{ij} \to \mathbb{R}^{2\times 2} \). Compute \( \phi_{12} \circ \phi_{23}^{-1} \), and show that it is \( C^{\infty} \).
+	\item Show that \( \left\{ U_{ij} \mid 1 \leq i, j\leq 4 \right\} \) is an open cover of \( G(2, 4) \) and that \( G(2, 4) \) is a smooth manifold.
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)},leftmargin=*]
+		\item \( F(k,n)/\!\sim \) is the orbit space of the right action of \( \mathrm{GL}(k, \mathbb{R}) \) on \( F(k, n) \). From Problem~\ref{problem:7.5}, the projection \( F(k,n) \to F(k,n)/\!\sim \) is an open map. Therefore \( \sim \) is an open equivalence relation.
+		\item \( F(k, n) \) is second countable and \( \sim \) is an open equivalence relation so it follows from Corollary 7.10 that \( F(k, n)/\!\sim \) is second countable and so is \( G(k, n) \).
+		\item Let \( (A, B) \in S \times S \). Denote \( A = [a_{1} \cdots a_{k}] \) and \( B = [b_{1} \cdots b_{k}] \). Two matrices \( A \) and \( B \) are equivalent if and only if every column of \( B \) is a linear combination of the columns of \( A \) (and vice versa). So \( A \sim B \) if and only if \( \operatorname{rk}[a_{1} \cdots a_{k}\, b_{1} \cdots b_{k}] \leq k \). Moreover, \( \operatorname{rk}[a_{1} \cdots a_{k}\, b_{1} \cdots b_{k}] \leq k \) if and only if all \( (k+1)\times (k+1) \) minors of \( [A\, B] \) are zero. Consider the maps that each takes some \( n\times (2k) \) matrix to a \( (k + 1)\times (k+1) \) minor. These maps are continuous so \( R \) is an intersection of finitely many closed subsets of \( S\times S \). Thus \( R \) is closed in \( S\times S \).
+		\item From Theorem 7.7, it follows that \( F(k,n)/\!\sim \) is Hausdorff. Hence \( G(k, n) \) is Hausdorff as the topology on it is defined to be that of \( F(k, n)/\!\sim \).
+		\item Let \( B = Ag \) in which \( A \in V_{ij} \) and \( g \in \mathrm{GL}(2, \mathbb{R}) \). Therefore \( A = Bg^{-1} \) so if \( \operatorname{rk}B < 2 \) then so does \(A\) as every column of \(A\) is a linear combination of the columns of \(B\). Hence \( B \) is nonsingular, which means \( B \in V_{ij} \).
+		\item If \( A, B \in V_{12} \) and \( A \sim B \) then there exists \( g \in \mathrm{GL}(2, \mathbb{R}) \) such that \( B = Ag \).
+		      \[
+			      \tilde{\phi}_{12}(B) = B_{34}B_{12}^{-1} = (A_{34}g){(A_{12}g)}^{-1} = (A_{34}g)(g^{-1}A_{12}^{-1}) = A_{34}A_{12}^{-1} = \tilde{\phi}_{12}(A).
+		      \]
+
+		      Hence \( \tilde{\phi}_{12} \) is constant on each equivalence class of \( \sim \) so it induces a continuous map \( \phi_{12}([A]) = A_{34}A_{12}^{-1} \). Moreover, if \( \tilde{\phi}_{12}(A) = \tilde{\phi}_{12}(B) \) then \( A_{34}A_{12}^{-1} = B_{34}B_{12}^{-1} \) and
+		      \[ A \sim \begin{bmatrix}I \\ A_{34}A_{12}^{-1} \end{bmatrix} \sim \begin{bmatrix}I \\ B_{34}B_{12}^{-1} \end{bmatrix} \sim B \]
+
+		      which means \( A \sim B \). Hence \( \tilde{\phi}_{12}(A) = \tilde{\phi}_{12}(B) \) if and only if \( A \sim B \). Therefore the induced map is bijective.
+
+		      Its inverse is
+		      \[
+			      \phi_{12}^{-1}(X) = \left[\begin{bmatrix}
+					      1       & 0       \\
+					      0       & 1       \\
+					      X_{1,1} & X_{1,2} \\
+					      X_{2,1} & X_{2,2}
+				      \end{bmatrix}\right]
+		      \]
+
+		      which is continuous. Thus the induced map is a homeomorphism.
+		\item For each \( X \in \phi_{23}(U_{23} \cap U_{12}) \)
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      (\phi_{12} \circ \phi_{23}^{-1})\left( \begin{bmatrix} X_{1,1} & X_{1,2} \\ X_{2,1} & X_{2,2} \end{bmatrix} \right) & = \phi_{12}\left(\left[\begin{bmatrix}
+					                                                                                                                                                   X_{1,1} & X_{1,2} \\
+					                                                                                                                                                   1       & 0       \\
+					                                                                                                                                                   0       & 1       \\
+					                                                                                                                                                   X_{2,1} & X_{2,2}
+				                                                                                                                                                   \end{bmatrix}\right]\right) = \begin{bmatrix}
+				                                                                                                                                                                                 0       & 1       \\
+				                                                                                                                                                                                 X_{2,1} & X_{2,2}
+			                                                                                                                                                                                 \end{bmatrix} {\begin{bmatrix}
+				                                                                                                                                                                                                X_{1,1} & X_{1,2} \\
+				                                                                                                                                                                                                1       & 0
+			                                                                                                                                                                                                \end{bmatrix}}^{-1}
+		      \end{align*}
+		      \endgroup
+
+		      so \( \phi_{12} \circ \phi_{23}^{-1}: \phi_{23}(U_{23} \cap U_{12}) \to \phi_{12}(U_{23} \cap U_{12}) \) is a \( C^{\infty} \) function, according to Cramer's rule.
+		\item Let
+		      \[
+			      A = \begin{bmatrix}
+                      a_{1,1} & a_{1,2} \\
+                      a_{2,1} & a_{2,2} \\
+                      a_{3,1} & a_{3,2} \\
+                      a_{4,1} & a_{4,2}
+                  \end{bmatrix}
+		      \]
+
+		      be an element of \( G(2, 4) \). Because \( A \) has maximal rank, it has a \( 2\times 2 \) minor that doesn't vanish. Hence \( A \) belongs to at least one of \( U_{ij} \), which means \( \left\{ U_{ij} \mid 1\leq i, j\leq 4 \right\} \) covers \( G(2, 4) \). Moreover, we showed that each \( U_{ij} \) is open, so  \( \left\{ U_{ij} \mid 1\leq i, j\leq 4 \right\} \) is an open cover for \( G(2, 4) \).
+
+              Similar to the previous part, one can show that each transition function \( \phi_{ij} \circ \phi_{k\ell}^{-1}: \phi_{k\ell}(U_{k\ell} \cap U_{ij}) \to \phi_{ij}(U_{k\ell}\cap U_{ij}) \) is \( C^{\infty} \), hence the charts \( \left\{ (U_{ij}, \phi_{ij}) \mid 1\leq i, j\leq 4 \right\} \) are pairwsie \( C^{\infty} \)-compatible.
+
+              Hence the Grassmannian \( G(2, 4) \) is a smooth manifold of dimension \( 2\times 2 \).
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{7.9}[Compactness of real projective space]
+Show that the real projective space \( \mathbb{R}P^{n} \) is compact.
+\end{problem}
+
+\begin{proof}
+	According to Exercise~\ref{exercise:7.11}, \( \mathbb{R}P^{n} \) and \( S^{n}/\!\sim \) are homeomorphic. On the other hand, \( S^{n} \) is compact (according to Heine-Borel theorem) and the quotient map \( \pi: S^{n} \to S^{n}/\!\sim \) is continuous so \( S^{n}/\!\sim \) is also compact. Therefore \( \mathbb{R}P^{n} \) is compact.
+\end{proof}
