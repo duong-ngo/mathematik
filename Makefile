@@ -100,7 +100,7 @@ updatecls: cleanaux
 linear-algebra:
 	@$(MAKE) sheldon-axler-linear-algebra-done-right/main.pdf
 
-.PHONY: mira greub-linear greub-multilinear munkres-topology dugundji-topology mathematical-analysis tapp-differential-geometry complex-analysis algebra functional-analysis lee-topological-manifolds lee-smooth-manifolds hirsch-smale-ode tu-manifolds
+.PHONY: mira greub-linear greub-multilinear munkres-topology dugundji-topology mathematical-analysis complex-analysis algebra lee-topological-manifolds lee-smooth-manifolds hirsch-smale-ode tu-manifolds
 
 mira:
 	@$(MAKE) mira/main.pdf
@@ -117,17 +117,11 @@ dugundji-topology:
 mathematical-analysis:
 	@$(MAKE) vladimir-zorich-mathematical-analysis/main.pdf
 
-tapp-differential-geometry:
-	@$(MAKE) tapp-differential-geometry/main.pdf
-
 complex-analysis:
 	@$(MAKE) ahlfors-complex-analysis/main.pdf
 
 algebra:
 	@$(MAKE) aluffi-algebra-chapter-0/main.pdf
-
-functional-analysis:
-	@$(MAKE) kreyszig-functional-analysis/main.pdf
 
 lee-topological-manifolds:
 	@$(MAKE) lee-topological-manifolds/main.pdf
@@ -140,3 +134,6 @@ hirsch-smale-ode:
 
 tu-manifolds:
 	@$(MAKE) tu-manifolds/main.pdf
+
+probability-and-statistics:
+	@$(MAKE) a-modern-introduction-to-probability-and-statistics/main.pdf
