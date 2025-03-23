@@ -111,9 +111,6 @@ greub-linear:
 greub-multilinear:
 	@$(MAKE) greub-multilinear-algebra/main.pdf
 
-munkres-topology:
-	@$(MAKE) james-munkres-topology/main.pdf
-
 dugundji-topology:
 	@$(MAKE) james-dugundji-topology/main.pdf
 
