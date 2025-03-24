@@ -2,6 +2,73 @@
 
 \section{The Tangent Space}
 
+\begin{exercise}{8.3}[The differential of a map]
+	Check that \( F_{\ast}(X_{p}) \) is a derivation at \( F(p) \) and that \( F_{\ast}: T_{p}N \to T_{F(p)}M \) is a linear map.
+\end{exercise}
+
+\begin{proof}
+	From the definition of \( F_{\ast} \), for every \( f, g \in C^{\infty}_{F(p)}M \)
+	\[
+		(F_{\ast}(X_{p}))(fg) = X_{p}((fg) \circ F) = X_{p}((f \circ F) \cdot (g \circ F)).
+	\]
+
+	Since \( X_{p} \in T_{p}M \) is a derivation
+	\[
+		X_{p}((f \circ F) \cdot (g \circ F)) = X_{p}(f \circ F) (g\circ F)(p) + (f\circ F)(p) X_{p}(g\circ F).
+	\]
+
+	From the definition of \( F_{\ast} \)
+	\[
+		X_{p}(f \circ F) (g\circ F)(p) + (f\circ F)(p) X_{p}(g\circ F) = (F_{\ast}(X_{p}))(f) g(F(p)) + f(F(p)) (F_{\ast}(X_{p}))(g).
+	\]
+
+	Hence \( F_{\ast}(X_{p}) \) is a derivation at \( F(p) \).
+
+	Now we show that \( F_{\ast} \) is a linear map.
+
+	For every pair of tangent vectors \( X_{p}, Y_{p} \in T_{p}M \) and for every \( f \in C^{\infty}_{F(p)}(M) \)
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		(F_{\ast}(X_{p} + Y_{p}))(f) & = (X_{p} + Y_{p})(f \circ F)                  \\
+		                             & = X_{p}(f\circ F) + Y_{p}(f\circ F)           \\
+		                             & = (F_{\ast}(X_{p}))(f) + (F_{\ast}(Y_{p}))(f)
+	\end{align*}
+	\endgroup
+
+	so \( F_{\ast}(X_{p} + Y_{p}) = F_{\ast}(X_{p}) + F_{\ast}(Y_{p}) \).
+
+	For every tangent vector \( X_{p} \in T_{p}M \), every real number \( \lambda \) and for every \( f \in C^{\infty}_{F(p)}(M) \)
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		(F_{\ast}(\lambda X_{p}))(f) & = (\lambda X_{p})(f \circ F)         \\
+		                             & = \lambda \cdot X_{p}(f \circ F)     \\
+		                             & = \lambda \cdot (F_{\ast}(X_{p}))(f)
+	\end{align*}
+	\endgroup
+
+	so \( F_{\ast}(\lambda X_{p}) = \lambda F_{\ast}(X_{p}) \). Hence \( F_{\ast} \) is a linear map.
+\end{proof}
+
+\begin{exercise}{8.14}[Velocity vector versus the calculus derivative]
+	Let \( c: \openinterval{a, b} \to \mathbb{R} \) be a curve with target space \( \mathbb{R} \). Verify that \( c'(t) = \dot{c}(t) d/dx\vert_{c(t)} \).
+\end{exercise}
+
+\begin{proof}
+	\( c'(t) \) is a vector at \( c(t) \in \mathbb{R} \). Since \( d/dx\vert_{c(t)} \) is a basis for the tangent space at \( c(t) \in \mathbb{R} \), there exists \( a\in \mathbb{R} \) such that
+	\[
+		c'(t) = a\left.\dfrac{d}{dx}\right\vert_{c(t)}.
+	\]
+
+	From the definition of \( c'(t) \)
+	\[
+		a = c'(t)x = c_{\ast}\left(\left.\dfrac{d}{dt}\right\vert_{c(t)}\right)x = \left.\dfrac{d}{dt}\right\vert_{c(t)} x\circ c = \left.\dfrac{d}{dt}\right\vert_{c(t)} c = \dot{c}(t).
+	\]
+
+	Therefore \( c'(t) = \dot{c}(t) \left.\dfrac{d}{dt}\right\vert_{c(t)} \).
+\end{proof}
+
 \section{Submanifolds}
 
 \section{Categories and Functors}
