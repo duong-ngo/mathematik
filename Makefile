@@ -100,10 +100,10 @@ updatecls: cleanaux
 linear-algebra:
 	@$(MAKE) sheldon-axler-linear-algebra-done-right/main.pdf
 
-.PHONY: mira greub-linear greub-multilinear munkres-topology dugundji-topology mathematical-analysis complex-analysis algebra lee-topological-manifolds lee-smooth-manifolds hirsch-smale-ode tu-manifolds
+.PHONY: mira greub-linear greub-multilinear dugundji-topology mathematical-analysis complex-analysis algebra lee-topological-manifolds lee-smooth-manifolds hirsch-smale-ode tu-manifolds
 
-mira:
-	@$(MAKE) mira/main.pdf
+real-and-functional:
+	@$(MAKE) real-and-functional-analysis/main.pdf
 
 greub-linear:
 	@$(MAKE) greub-linear-algebra/main.pdf

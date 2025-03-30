@@ -1,1 +1,293 @@
 \chapter{Elementary set theory}
+
+\section{Sets}
+
+\begin{problem}{I.1.1}
+Prove: \( \left\{ a \right\} = \left\{ b, c \right\} \) if and only if \( a = b = c \).
+\end{problem}
+
+\begin{proof}
+	\( (\Longrightarrow) \) \( a = b = c \).
+
+	Then \( b, c \in \left\{ a \right\} \) and \( a \in \left\{ b, c \right\} \), which means \( \left\{ a \right\} \subset \left\{ b, c \right\} \) and \( \left\{ a \right\} \supset \left\{ b, c \right\} \). Therefore \( \left\{ a \right\} = \left\{ b, c \right\} \).
+
+	\( (\Longleftarrow) \) \( \left\{ a \right\} = \left\{ b, c \right\} \).
+
+	It follows that \( b, c \in \left\{ a \right\} \). Since \( a \) is the only element of \( \left\{ a \right\} \), we deduce that \( b = a \) and \( c = a \).
+\end{proof}
+
+\begin{problem}{I.1.2}
+If \( a, b, c, d \) are any objects, show that \( \left\{ \left\{ a \right\}, \left\{ a, b \right\} \right\} = \left\{ \left\{ c \right\}, \left\{ c, d \right\} \right\} \) if and only if both \( a = c \) and \( b = d \).
+\end{problem}
+
+\begin{proof}
+	\( (\Longrightarrow) \) \( a = c \) and \( b = d \).
+
+	Since \( a = c \) and \( b = d \)
+	\[
+		\begin{split}
+			\left\{ a \right\} = \left\{ c \right\} \in \left\{ \left\{ c \right\}, \left\{ c, d \right\} \right\},       \\
+			\left\{ a, b \right\} = \left\{ c, d \right\} \in \left\{ \left\{ c \right\}, \left\{ c, d \right\} \right\}, \\
+			\left\{ c \right\} = \left\{ a \right\} \in \left\{ \left\{ a \right\}, \left\{ a, b \right\} \right\},       \\
+			\left\{ c, d \right\} = \left\{ a, b \right\} \in \left\{ \left\{ a \right\}, \left\{ a, b \right\} \right\}.
+		\end{split}
+	\]
+
+	Hence
+	\[
+		\begin{split}
+			\left\{ \left\{ a \right\}, \left\{ a, b \right\} \right\} \subset \left\{ \left\{ c \right\}, \left\{ c, d \right\} \right\}, \\
+			\left\{ \left\{ a \right\}, \left\{ a, b \right\} \right\} \supset \left\{ \left\{ c \right\}, \left\{ c, d \right\} \right\}
+		\end{split}
+	\]
+
+	which means \( \left\{ \left\{ a \right\}, \left\{ a, b \right\} \right\} = \left\{ \left\{ c \right\}, \left\{ c, d \right\} \right\} \).
+
+	\( (\Longleftarrow) \) \( \left\{ \left\{ a \right\}, \left\{ a, b \right\} \right\} = \left\{ \left\{ c \right\}, \left\{ c, d \right\} \right\} \).
+
+	The following cases are exhaustive.
+	\begin{enumerate}[label={\textbf{Case \arabic*.}},leftmargin=*]
+		\item \( a = b \).
+
+		      Then \( \left\{ \left\{ a \right\}, \left\{ a, b \right\} \right\} = \left\{ \left\{ a \right\} \right\} \). Since \( \left\{ \left\{ a \right\}, \left\{ a, b \right\} \right\} = \left\{ \left\{ c \right\}, \left\{ c, d \right\} \right\} \) it follows that \( \left\{ a \right\} = \left\{ c \right\} = \left\{ c, d \right\} \). Therefore \( a = c = d \), which means \( a = c \) and \( b = d \).
+		\item \( a \ne b \).
+
+		      Then \( \left\{ a \right\} \ne \left\{ a, b \right\} \). Since \( \left\{ \left\{ a \right\}, \left\{ a, b \right\} \right\} = \left\{ \left\{ c \right\}, \left\{ c, d \right\} \right\} \) it follows that \( \left\{ a \right\} \in \left\{ \left\{ c \right\}, \left\{ c, d \right\} \right\} \) and \( \left\{a, b\right\} \in \left\{ \left\{ c \right\}, \left\{ c, d \right\} \right\} \).
+
+		      So \( \left\{ a \right\} = \left\{ c \right\} \) or \( \left\{ a \right\} = \left\{ c, d \right\} \); \( \left\{ a, b \right\} = \left\{ c \right\} \) or \( \left\{ a, b \right\} = \left\{ c, d \right\} \). However, \( \left\{ a, b \right\} = \left\{ c \right\} \) is not possible due to \( a \ne b \).
+
+		      If \( \left\{ a \right\} = \left\{ c, d \right\} \) then \( a = c = d \), so \( \left\{ \left\{ a \right\}, \left\{ a, b \right\} \right\} = \left\{ \left\{ c \right\}, \left\{ c, d \right\} \right\} = \left\{ \left\{ c \right\} \right\} \), from which we deduce that \( \left\{ a \right\} = \left\{ c \right\} = \left\{ a, b \right\} \), which means \( a = b = c \) hence impossible.
+
+		      Hence \( \left\{ a \right\} = \left\{ c \right\} \) and \( \left\{ a, b \right\} = \left\{ c, d \right\} \). From the first equality, we deduce that \( a = c \). Moreover, \( b \ne c \) and \( b \in \left\{ c, d \right\} \) so \( b = d \). Therefore \( a = c \) and \( b = d \).
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{I.1.3}
+Show that \( A \subset \left\{ A \right\} \) if and only if \( A = \varnothing \).
+\end{problem}
+
+\begin{proof}
+	If \( A = \varnothing \) then \( A = \varnothing \subset \left\{ A \right\} \) since the empty set is a subset of any set.
+
+	Conversely, assume that \( A \subset \left\{ A \right\} \). Suppose on the contrary that \( A \ne \varnothing \). Every element of \( A \) is an element of \( \{ A \} \) so every element of \( A \) is \( A \), which means \( A = \left\{ A \right\} \). Therefore \( A \in A \), which is a contradiction because no set is an element of itself. Thus \( A = \varnothing \).
+\end{proof}
+
+\begin{problem}{I.1.4}
+Though the relation ``\(\subset\)'' is transitive, give an example to show that ``\(\in\)'' is not transitive.
+\end{problem}
+
+\begin{proof}
+	\( \left\{ \varnothing \right\} \in \left\{ \left\{ \varnothing \right\} \right\} \) and \( \left\{ \left\{ \varnothing \right\} \right\} \in \left\{ \left\{ \left\{ \varnothing \right\} \right\} \right\} \) but \( \left\{ \varnothing \right\} \notin \left\{ \left\{ \left\{ \varnothing \right\} \right\} \right\} \). Therefore ``\(\in\)'' is not transitive in general.
+\end{proof}
+
+\begin{problem}{I.1.5}
+Let \( A = \left\{ a_{1}, \ldots, a_{n} \right\} \). Show that \( A \) has \( 2^{n} \) subsets.
+\end{problem}
+
+\begin{proof}
+	If \( n = 0 \) then \( A \) has \( 1 = 2^{0} \) subsets.
+
+	Assume that if \( n = k \), \( A \) has \( 2^{k} \) subsets. Consider a set \( A \) of \( n + 1 \) elements and \( a_{0} \in A \). From the inductive hypothesis, there are \( 2^{k} \) subsets of \( A \) not containing \( a_{0} \). Moreover, there are \( 2^{k} \) subsets of \( A \) containing \( a_{0} \). Therefore \( A \) has \( 2^{k+1} \) subsets.
+
+	Thus a set of \( n \) elements has \( 2^{n} \) subsets.
+\end{proof}
+
+\section{Boolean Algebra}
+
+\begin{problem}{I.2.1}
+Let \( A_{q} = \left\{ n \in \mathbb{N} \mid n \text{ is divisible by } q \right\} \). What is \( A_{q} \cup A_{r}, A_{q} \cap A_{r} \)?
+\end{problem}
+
+\begin{proof}
+	\( A_{q} \cup A_{r} \) is the set of natural numbers that are divisible by \( q \) or \( r \).
+
+	\( A_{q} \cap A_{r} \) is the set of natural numbers that are divisible by \( q \) and \( r \).
+\end{proof}
+
+\begin{problem}{I.2.2}
+Let \( A, B \) be subsets of \( E \). Show:
+\begin{enumerate}[label={(\alph*)},leftmargin=*]
+	\item \( A \cap B = \varnothing \iff A \subset \mathscr{C}_{E}B \iff B \subset \mathscr{C}_{E}A \).
+	\item \( A \cup B = E \iff \mathscr{C}_{E}B \subset A \iff \mathscr{C}_{E}A \subset B \).
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)},leftmargin=*]
+		\item If \( A \cap B = \varnothing \). For every \( a\in A \), \( a \notin B \) so for every \( a\in A \), \( a \in \mathscr{C}_{E}B \). Hence \( A \subset \mathscr{C}_{E}B \).
+
+		      If \( A \subset \mathscr{C}_{E}B \) then \( \mathscr{C}_{E}A \supset \mathscr{C}_{E}(\mathscr{C}_{E}B) = B \).
+
+		      If \( B \subset \mathscr{C}_{E}A \) then \( A = \mathscr{C}_{E}(\mathscr{C}_{E}A) \subset \mathscr{C}_{E}B \). Hence for every \( a\in A \), \( a \notin B \) and for every \( b \in B \), \( b \notin A \), which mean \( A\cap B = \varnothing \).
+		\item From part (a) and De Morgan's laws
+		      \[
+			      A \cup B = E \iff \mathscr{C}_{E}A \cap \mathscr{C}_{E}B = \varnothing \iff \mathscr{C}_{E}A \subset B \iff \mathscr{C}_{E}B \subset A.
+		      \]
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{I.2.3}
+For any two sets \( A, B \), show:
+\begin{enumerate}[label={(\alph*)},leftmargin=*]
+	\item \( A = (A\cap B) \cup (A - B) \) is a representation of \( A \) as a disjoint union.
+	\item \( A \cup B = A \cup (B - A) \) is a representation of \( A \cup B \) as a disjoint union.
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)},leftmargin=*]
+		\item \( A \) is a superset of \( A\cap B \) and \( A - B \).
+
+		      Every element of \( A \) is either in \( B \) or not in \( B \), so every element of \( A \) is either in \( A\cap B \) or \( A - B \). Hence \( A = (A \cap B) \cup (A - B) \) and \( A \cap B, A - B \) are disjoint.
+		\item \( A \cup B = A \cup (B - A) \) is a representation of \( A \cup B \) as a disjoint union.
+
+		      Every element of \( A\cup B \) is either in \( A \) or not in \( B \), so every element of \( A\cup B \) is either in \( A \) or \( B - A \). Hence \( A \cup B = A \cup (B - A) \) and \( A, B - A \) are disjoint.
+	\end{enumerate}
+\end{proof}
+
+Verify the following formulas:
+
+\begin{problem}{I.2.4}
+\( (A - C) - (B - C) = (A - B) - C \).
+\end{problem}
+
+\begin{proof}
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		x \in (A - C) - (B - C) & \iff x \in A - C \land x \notin B - C                                                          \\
+		                        & \iff x \in A \land x \notin C \land \neg (x \in B \land x \notin C)                            \\
+		                        & \iff x \in A \land x \notin C \land (x \notin B \lor x \in C)                                  \\
+		                        & \iff (x \in A \land x \notin C \land x \notin B) \lor (x \in A \land x \notin C \land x \in C) \\
+		                        & \iff x \in (A - B) - C \lor x \in \varnothing                                                  \\
+		                        & \iff x \in (A - B) - C.
+	\end{align*}
+	\endgroup
+\end{proof}
+
+\begin{problem}{I.2.5}
+\( (A - C) \cup (B - C) = (A \cup B) - C \).
+\end{problem}
+
+\begin{proof}
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		x \in (A - C) \cup (B - C) & \iff x \in A - C \lor x \in B - C                               \\
+		                           & \iff (x \in A \land x \notin C) \lor (x \in B \land x \notin C) \\
+		                           & \iff (x \in A \lor x \in B) \land x \notin C                    \\
+		                           & \iff x \in A \cup B \land x \notin C                            \\
+		                           & \iff x \in (A \cup B) - C.
+	\end{align*}
+	\endgroup
+\end{proof}
+
+\begin{problem}{I.2.6}
+\( (A - C) \cap (B - C) = (A \cap B) - C \).
+\end{problem}
+
+\begin{proof}
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		x \in (A - C) \cap (B - C) & \iff x \in A - C \land x \in B - C                               \\
+		                           & \iff (x \in A \land x \notin C) \land (x \in B \land x \notin C) \\
+		                           & \iff (x \in A \land x \in B) \land x \notin C                    \\
+		                           & \iff x \in A\cap B \land x \notin C                              \\
+		                           & \iff x \in (A \cap B) - C.
+	\end{align*}
+	\endgroup
+\end{proof}
+
+\begin{problem}{I.2.7}
+\( (A - B) - (A - C) = A \cap (C - B) \).
+\end{problem}
+
+\begin{proof}
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		x \in (A - B) - (A - C) & \iff x \in A - B \land x \notin A - C                                         \\
+		                        & \iff (x \in A \land x \notin B) \land (x \notin A \lor x \in C)               \\
+		                        & \iff x \notin B \land x \in A \land (x \notin A \lor x \in C)                 \\
+		                        & \iff x \notin B \land ((x \in A \land x\notin A) \lor (x\in A \land x \in C)) \\
+		                        & \iff x \notin B \land (F \lor (x \in A \land x \in C))                        \\
+		                        & \iff x \notin B \land x \in A \land x \notin C                                \\
+		                        & \iff x \in A \land x \in C \land x \notin B                                   \\
+		                        & \iff x \in A \cap (C - B).
+	\end{align*}
+	\endgroup
+\end{proof}
+
+\begin{problem}{I.2.8}
+\( (A - B) \cup (A - C) = A - (B \cap C) \).
+\end{problem}
+
+\begin{proof}
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		x \in (A - B) \cup (A - C) & \iff x \in A - B \lor x \in A - C                               \\
+		                           & \iff (x \in A \land x \notin B) \lor (x \in A \land x \notin C) \\
+		                           & \iff x \in A \land (x \notin B \lor x \notin C)                 \\
+		                           & \iff x \in A \land x \notin B \cap C                            \\
+		                           & \iff x \in A - (B \cap C).
+	\end{align*}
+	\endgroup
+\end{proof}
+
+\begin{problem}{I.2.9}
+\( (A - B) \cap (A - C) = A - (B \cup C) \).
+\end{problem}
+
+\begin{proof}
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		x \in (A - B) \cap (A - C) & \iff x \in A - B \land x \in A - C                               \\
+		                           & \iff (x \in A \land x \notin B) \land (x \in A \land x \notin C) \\
+		                           & \iff x \in A \land (x \notin B \land x \notin C)                 \\
+		                           & \iff x \in A \land x \notin B \cup C                             \\
+		                           & \iff x \in A - (B \cup C).
+	\end{align*}
+	\endgroup
+\end{proof}
+
+\begin{problem}{I.2.10}
+\( A_{1} \cup \cdots \cup A_{n} = (A_{1} - A_{2}) \cup \cdots \cup (A_{n-1} - A_{n}) \cup (A_{n} - A_{1}) \cup \left( \bigcap^{n}_{i=1}A_{i} \right) \).
+\end{problem}
+
+\begin{proof}
+	If \( x \in (A_{1} - A_{2}) \cup \cdots \cup (A_{n-1} - A_{n}) \cup (A_{n} - A_{1}) \cup \left( \bigcap^{n}_{i=1}A_{i} \right) \) then \( x \in A_{1} - A_{2} \) or \ldots or \( x \in A_{n-1} - A_{n} \) or \( x \in A_{n} - A_{1} \) or \( x \in \bigcap^{n}_{i=1}A_{i} \), from which it follows that \( x \in \bigcup^{n}_{i=1} A_{i} \).
+
+	Conversely, suppose that \( x \in \bigcup^{n}_{i=1}A_{i} \). If \( x \in (A_{1} - A_{2}) \cup \cdots \cup (A_{n-1} - A_{n}) \cup (A_{n} - A_{1}) \) then \( x \in (A_{1} - A_{2}) \cup \cdots \cup (A_{n-1} - A_{n}) \cup (A_{n} - A_{1}) \cup \left( \bigcap^{n}_{i=1}A_{i} \right) \).
+
+	Otherwise, \( x \notin A_{1} - A_{2}, \ldots, x\notin A_{n-1} - A_{n}, x \notin A_{n} - A_{1} \). Since \( x \in \bigcup^{n}_{i=1}A_{i} \) then \( x \in A_{i} \) for some \( i \). If \( i = n \) then \( x \in A_{n} \land x \notin A_{n} - A_{1} \) means \( x \in A_{1} \). Consequently, \( x \in A_{2} \) (because \( x \in A_{1} \land x \notin A_{1} - A_{2} \)), \( x \in A_{3} \), \ldots, \( x \in A_{n-1} \) so \( x \in \bigcap^{n}_{i=1}A_{i} \). Otherwise, \( i < n \) then \( x\in A_{i+1}, \ldots, x\in A_{n} \). Once again, it implies that \( x \in \bigcap^{n}_{i=1} A_{i} \).
+
+	Hence in either cases, \( x \in (A_{1} - A_{2}) \cup \cdots \cup (A_{n-1} - A_{n}) \cup (A_{n} - A_{1}) \cup \left( \bigcap^{n}_{i=1}A_{i} \right) \).
+
+	Thus
+	\[
+		A_{1} \cup \cdots \cup A_{n} = (A_{1} - A_{2}) \cup \cdots \cup (A_{n-1} - A_{n}) \cup (A_{n} - A_{1}) \cup \left( \bigcap^{n}_{i=1}A_{i} \right).\qedhere
+	\]
+\end{proof}
+
+\begin{problem}{I.2.11}
+Prove that the system of equations \( A\cup X = A\cup B, A \cap X = \varnothing \) has at most one solution for \(X\).
+\end{problem}
+
+\begin{proof}
+	If \( X = B - A \) then \( A\cup X = A\cup B, A \cap X = \varnothing \).
+
+	Conversely, \( X = (A \cup X) - A \) because \( A\cap X = \varnothing \). Therefore \( X = (A \cup B) - A = B - A \).
+
+	Hence \( A\cup X = A\cup B, A \cap X = \varnothing \) if and only if \( X = B - A \).
+\end{proof}
+
+\begin{problem}{I.2.12}
+The set \( (A - B) \cup (B - A) \) is called the symmetric difference, or discrepancy, of \( A \) and \( B \). Give a geometric interpretation of this set.
+\end{problem}
+
+\begin{proof}
+	\( (A - B) \cup (B - A) = (A \cup B) - (A \cap B) \).
+\end{proof}
