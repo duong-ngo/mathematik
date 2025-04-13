@@ -1,3 +1,4 @@
+% chktex-file 18
 \chapter{Elementary set theory}
 
 \section{Sets}
@@ -290,4 +291,688 @@ The set \( (A - B) \cup (B - A) \) is called the symmetric difference, or discre
 
 \begin{proof}
 	\( (A - B) \cup (B - A) = (A \cup B) - (A \cap B) \).
+\end{proof}
+
+\section{Cartesian Products}
+
+\begin{problem}{I.3.1}
+Prove: If \( A, B \) are nonempty sets and \( (A\times B) \cup (B\times A) = C\times C \), then \( A = B = C \).
+\end{problem}
+
+\begin{proof}
+	If any of the sets \( A, B, C \) is empty then the others are also empty.
+
+	Suppose that \( A, B, C \) are nonempty and \( (A\times B) \cup (B\times A) = C\times C \).
+
+	Let \( a \) be an element of \( A \) and \( b \) be an element of \( B \). Because
+	\[
+		\begin{split}
+			(a, b) \in A \times B \subset (A \times B) \cup (B \times A) = C \times C, \\
+			(b, a) \in B \times A \subset (A \times B) \cup (B \times A) = C \times C.
+		\end{split}
+	\]
+
+	From the definition of Cartesian products, it follows that \( a, b \in C \), so \( A, B \subset C \). Let \( c \) be an element of \( C \) then
+	\[
+		(c, c) \in C\times C \subset (A\times B) \cup (B\times A).
+	\]
+
+	So \( (c, c) \in A\times B \) or \( (c, c) \in B\times A \). In either cases, we deduce that \( c \in A, c\in B \). Hence \( C \subset A, C \subset B \).
+
+	Thus \( A = B = C \).
+\end{proof}
+
+\begin{problem}{I.3.2}
+Let \( A, B \subset X \) and \( C, D \subset Y \). Prove:
+\begin{enumerate}[label={(\alph*)},leftmargin=*]
+	\item \( (A\times C) \cap (B\times D) = (A \cap B) \times (C \cap D) \).
+	\item \( (A\times C) \cup (B\times D) \subset (A \cup B) \times (C \times D) \); show that, in general, equality does not hold, by verifying
+	      \[
+		      (A \cup B) \times (C \cup D) = (A \times C) \cup (B \times D) \cup (A \times D) \cup (B \times C).
+	      \]
+	\item \( \mathscr{C}_{X\times Y}(B\times D) = \mathscr{C}_{X}B \times Y \cup X \times \mathscr{C}_{Y}D \).
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)},leftmargin=*]
+		\item \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      (x, y) \in (A \times C) \cap (B \times D) & \iff (x, y) \in A \times C \land (x, y) \in B \times D \\
+			                                                & \iff x \in A \land y \in C \land x \in B \land y \in D \\
+			                                                & \iff x \in A \cap B \land y \in C \cap D               \\
+			                                                & \iff (x, y) \in (A \cap B) \times (C \cap D)
+		      \end{align*}
+		      \endgroup
+
+		      Hence \( (A \times C) \cap (B \times D) = (A \cap B) \times (C \cap D) \).
+		\item \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			       & \phantom{\iff} (x, y) \in (A \cup B) \times (C \cup D)                                                              \\
+			       & \iff x \in A \cup B \land y \in C \cup D                                                                            \\
+			       & \iff (x \in A \lor x \in B) \land (y \in C \lor y \in D)                                                            \\
+			       & \iff (x \in A \land y \in C) \lor (x \in B \land y \in C) \lor (x \in A \land y \in D) \lor (x \in B \land y \in D) \\
+			       & \iff (x, y) \in A\times C \lor (x, y) \in B\times C \lor (x, y) \in A \times D \lor (x, y) \in B \times D           \\
+			       & \iff (x, y) \in (A \times C) \cup (B \times D) \cup (A \times D) \cup (B \times C).
+		      \end{align*}
+		      \endgroup
+
+		      Hence \( (A \cup B) \times (C \cup D) = (A \times C) \cup (B \times D) \cup (A \times D) \cup (B \times C) \).
+		\item \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      (x, y) \in \mathscr{C}_{X\times Y}(B\times D) & \iff (x, y) \in X\times Y \land (x, y) \notin B\times D                                     \\
+			                                                    & \iff (x \in X \land y \in Y) \land (x \notin B \lor y \notin D)                             \\
+			                                                    & \iff (x \in X \land y \in Y \land x \notin B) \lor (x \in X \land y \in Y \land y \notin D) \\
+			                                                    & \iff (x, y) \in \mathscr{C}_{X}B \times Y \lor (x, y) \in X \times \mathscr{C}_{Y}D         \\
+			                                                    & \iff (x, y) \in \mathscr{C}_{X}B \times Y \cup X \times \mathscr{C}_{Y}D.
+		      \end{align*}
+		      \endgroup
+
+		      Hence \( \mathscr{C}_{X\times Y}(B\times D) = \mathscr{C}_{X}B \times Y \cup X \times \mathscr{C}_{Y}D \).
+	\end{enumerate}
+\end{proof}
+
+\section{Families of Sets}
+
+\begin{problem}{I.4.1}
+Show that \( \displaystyle\bigcap^{\infty}_{1} \openinterval{-1/n, 1 + 1/n} = \bigcap^{\infty}_{1} \closedinterval{-1/n, 1 + 1/n} = [0, 1] \).
+\end{problem}
+
+\begin{proof}
+	For every \( x \in [0, 1] \), one has
+	\[
+		\frac{-1}{n} < x < 1 + \frac{1}{n}
+	\]
+
+	for every \( n \in \mathbb{Z}^{+} \) so
+	\[
+		x \in \openinterval{\frac{-1}{n}, 1 + \frac{1}{n}} \subset \closedinterval{\frac{-1}{n}, 1 + \frac{1}{n}}
+	\]
+
+	for every \( n \in \mathbb{Z}^{+} \). Hence
+	\[
+		[0, 1] \subset \bigcap^{\infty}_{1} \openinterval{-1/n, 1 + 1/n} \subset \bigcap^{\infty}_{1} \closedinterval{-1/n, 1 + 1/n}.
+	\]
+
+	Now let \( x \) be an element of \( \displaystyle\bigcap^{\infty}_{1} \closedinterval{-1/n, 1 + 1/n} \) then
+	\[
+		\frac{-1}{n} \leq x \leq 1 + \frac{1}{n}\, \forall n \in \mathbb{Z}^{+}
+	\]
+
+	from which we deduce that
+	\[
+		0 = \sup\left\{ \frac{-1}{n} \mid n \in \mathbb{Z}^{+} \right\} \leq x \leq \inf\left\{ 1 + \frac{1}{n} \mid n \in \mathbb{Z}^{+} \right\} = 1
+	\]
+
+	which means \( x \in [0, 1] \).
+
+	Hence \( [0, 1] = \displaystyle\bigcap^{\infty}_{1} \openinterval{-1/n, 1 + 1/n} = \bigcap^{\infty}_{1} \closedinterval{-1/n, 1 + 1/n} \).
+\end{proof}
+
+\begin{problem}{I.4.2}
+Let \( \left\{ A_{n} \mid n \in \mathbb{N} \right\} \) be a family of sets. Let \( S_{k} = \displaystyle\bigcup^{k}_{0} A_{i}, k = 0, 1, \ldots \). Show \( \displaystyle\bigcup^{\infty}_{0} A_{n} = A_{0} \cup (A_{1} - S_{0}) \cup \cdots \cup (A_{n} - S_{n-1}) \cup \cdots \) and that this is a pairwise disjoint union.
+\end{problem}
+
+\begin{proof}
+	\textbf{Two unions are equal.}
+
+	Suppose that \( a \in \bigcup^{\infty}_{0} A_{n} \). Because \( \mathbb{N} \) is well-ordered, there exists a least natural number \( k \) such that \( a \in A_{k} \). If \( k = 0 \) then \( a \in A_{0} \subset A_{0} \cup \bigcup^{\infty}_{1}(A_{n} - S_{n-1}) \). Otherwise, \( k > 0 \) then \( a \in A_{k} - S_{k-1} \) as \( a \) is not an element of \( A_{i} \) for \( i \in \left\{ 0, \ldots, k - 1 \right\} \), due to the definition of \( k \). Hence \( a \in A_{k} - S_{k-1} \subset A_{0} \cup \displaystyle\bigcup^{\infty}_{1}(A_{n} - S_{n-1}) \). Therefore
+	\[
+		\bigcup^{\infty}_{0} A_{n} \subset A_{0} \cup \bigcup^{\infty}_{1}(A_{n} - S_{n-1}).
+	\]
+
+	Conversely, suppose that \( a \in A_{0} \cup \displaystyle\bigcup^{\infty}_{1}(A_{n} - S_{n-1}) \). If \( a \in A_{0} \) then \( a \in A_{0} \subset \displaystyle\bigcup^{\infty}_{0} A_{n} \). Otherwise, \( a \notin A_{0} \) then there exists \( k \in \mathbb{Z}^{+} \) such that \( a \in A_{k} - S_{k-1} \), which implies that \( a \in A_{k} - S_{k-1} \subset A_{k} \subset \displaystyle\bigcup^{\infty}_{0} A_{n} \). Therefore
+	\[
+		A_{0} \cup \bigcup^{\infty}_{1}(A_{n} - S_{n-1}) \subset \bigcup^{\infty}_{0} A_{n}.
+	\]
+
+	Hence \( \displaystyle\bigcup^{\infty}_{0} A_{n} = A_{0} \cup \bigcup^{\infty}_{1}(A_{n} - S_{n-1}) \).
+
+	\textbf{The union on the right-hand side is a pairwise disjoint union.}
+
+	First, we show that \( A_{0} \) and \( A_{n+1} - S_{n} \) are disjoint for every \( n \in \mathbb{N} \). Suppose on the contrary that there exists \( x \in A_{0} \cap (A_{n+1} - S_{n}) \) then \( x \in A_{0} \) and \( x \notin S_{n} \). From the definition of \( S_{n} \), it follows that \( x \notin A_{0} \), which is a contradiction. Hence \( A_{0} \) and \( A_{n+1} - S_{n} \) are disjoint for every \( n \in \mathbb{N} \).
+
+	Next, we show that \( A_{n+1} - S_{n} \) and \( A_{m+1} - S_{m} \) are disjoint for every distinct pair of natural numbers \( m \) and \( n \). Without loss of generality, suppose that \( n < m \). Suppose on the contrary that there exists \( x \in (A_{n+1} - S_{n}) \cap (A_{m+1} - S_{m}) \) then \( x \in A_{n+1} \) and \( x \notin S_{m} \). Since \( S_{m} = \displaystyle\bigcup^{m}_{0}A_{i} \) and \( m > n \), it follows that \( x \notin A_{n+1} \), which is a contradiction. Hence \( A_{n+1} - S_{n} \) and \( A_{m+1} - S_{m} \) are disjoint for every distinct pair of natural numbers \( m \) and \( n \).
+
+	Thus \( A_{0} \cup \displaystyle\bigcup^{\infty}_{1}(A_{n} - S_{n-1}) \) is a union of disjoint sets.
+\end{proof}
+
+\begin{problem}{I.4.3}
+Let \( \left\{ A_{n} \mid n \in \mathbb{N} \right\} \) be a family of subsets of a set \( \Gamma \). Define
+\[
+	\begin{split}
+		\limsup A_{n} = \bigcap^{\infty}_{n=0} \left(\bigcup^{\infty}_{k=0} A_{n+k}\right), \\
+		\liminf A_{n} = \bigcup^{\infty}_{n=0} \left(\bigcap^{\infty}_{k=0} A_{n+k}\right).
+	\end{split}
+\]
+
+Prove:
+\begin{enumerate}[label={(\alph*)}]
+	\item \( \limsup A_{n} = \left\{ x \in \Gamma \mid x \text{ belongs to infinitely many } A_{i} \right\} \).
+	\item \( \liminf A_{n} = \left\{ x \in \Gamma \mid x \text{ belongs to all but at most finitely many } A_{i} \right\} \).
+	\item \( \displaystyle \bigcap^{\infty}_{1} A_{i} \subset \liminf A_{n} \subset \limsup A_{n} \subset \bigcup^{\infty}_{1} A_{i} \)
+	\item \( \liminf \mathscr{C}A_{n} = \mathscr{C}[\limsup A_{n}] \), complement being with respect to any set containing all \( A_{i} \).
+	\item \( \liminf A_{n} \cup \liminf B_{n} \subset \liminf (A_{n} \cup B_{n}) \), and equality holds if \( \cup \) is everywhere replaced by \( \cap \).
+	\item \( \limsup (A_{n}\cap B_{n}) \subset \limsup A_{n} \cap \limsup B_{n} \), and equality holds if \( \cap \) is everywhere replaced by \( \cup \).
+	\item If \( {\color{red}A_{0} \subset\,} A_{1} \subset A_{2} \subset \cdots \) or \( {\color{red}A_{0} \supset\,} A_{1} \supset A_{2} \supset \cdots \), then \( \limsup A_{n} = \liminf A_{n} \).
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}, leftmargin=*]
+		\item From the definition, we deduce that \( \limsup A_{n} \subset \Gamma \).
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      x \in \limsup A_{n} & \iff x \in \bigcap^{\infty}_{n=0} \left(\bigcup^{\infty}_{k=0} A_{n+k}\right) \\
+			                          & \iff \forall n \in \mathbb{N},\,x \in \bigcup^{\infty}_{k=0} A_{n+k}          \\
+			                          & \iff \forall n \in \mathbb{N},\, \exists k \in \mathbb{N},\, x \in A_{n+k}.
+		      \end{align*}
+		      \endgroup
+
+		      Suppose that \( x \in \limsup A_{n} \). We define recursively a sequence \( {(s_{n})}_{n\in\mathbb{N}} \) in \( \mathbb{N} \) as follows:
+		      \begin{itemize}
+			      \item $s_{0}$ is the least natural number \( k \) such that \( x \in A_{0 + k} \).
+			      \item for \( n > 0 \), \( s_{n} \) is the least natural number \( k \) such that \( x \in A_{n+k} \) and \( s_{n} > s_{n-1} \).
+		      \end{itemize}
+
+		      Hence \( x \in \displaystyle\bigcap^{\infty}_{0} A_{s_{n}} \). Since \( {(s_{n})}_{n\in\mathbb{N}} \) is a strictly increasing sequence it follows that \( x \) belongs to infinitely many \( A_{i} \).
+
+		      Suppose that \( x \in \Gamma \) and \( x \) belongs to infinitely many \( A_{i} \). Let \( S \subset \mathbb{N} \) be the set of natural numbers \( i \) such that \( x \in A_{i} \). Define recursively the sequence \( {(s_{n})}_{n\in\mathbb{N}} \) as follows:
+		      \begin{itemize}
+			      \item \( s_{0} \) is the least natural number of \( S \).
+			      \item for \( n > 0 \), \( s_{n} \) is the least natural number of \( S \) that is larger than \( s_{n-1} \).
+		      \end{itemize}
+
+		      Because \( x \in A_{s_{n}} \) and \( s_{n} \geq n \) for each \( n \in \mathbb{N} \), it follows that \( x \in \displaystyle\bigcup^{\infty}_{k=0}A_{n+k} \) for each \( n \in \mathbb{N} \), which implies that \( x \in \limsup A_{n} \).
+
+		      Hence \( \limsup A_{n} = \left\{ x \in \Gamma \mid x \text{ belongs to infinitely many } A_{i} \right\} \).
+		\item From the definition, we deduce that \( \liminf A_{n} \subset \Gamma \).
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      x \in \liminf A_{n} & \iff x \in \bigcup^{\infty}_{n=0}\left(\bigcap^{\infty}_{k=0} A_{n+k}\right) \\
+			                          & \iff \exists n \in \mathbb{N},\, x \in \bigcap^{\infty}_{k=0} A_{n+k}        \\
+			                          & \iff \exists n \in \mathbb{N},\, \forall k \in \mathbb{N},\, x \in A_{n+k}.
+		      \end{align*}
+		      \endgroup
+
+		      Suppose that \( x \in \liminf A_{n} \) then there exists \( n \in \mathbb{N} \) such that for every \( k \in \mathbb{N} \), one has \( x \in A_{n + k} \). Therefore \( x \in A_{n + k} \) for every \( k \in \mathbb{N} \). The element \( x \) might not belong to \( A_{0}, \ldots, A_{n-1} \) so we conclude that \( x \) belong to all but atmost finitely many \( A_{i} \).
+
+		      Suppose \( x \) belongs to all but atmost finitely many \( A_{i} \) then either \( x \) belongs to all \( A_{i} \) or \( x \) belongs to all but finitely many \( A_{i} \). For the first case, \( x \in \displaystyle\bigcap^{\infty}_{k=0}A_{0+k} \subset \liminf A_{n} \). For the other case, let \( m \) be largest natural number such that \( x \notin A_{m} \). Hence \( x \in A_{m+1+k} \) for every \( k \in \mathbb{N} \), which means \( x \in \displaystyle\bigcap^{\infty}_{k=0} A_{m+1+k} \subset \liminf A_{n} \). In either cases, \( x \in \liminf A_{n} \).
+
+		      Hence \( \liminf A_{n} = \left\{ x \in \Gamma \mid x \text{ belongs to all but atmost finitely many } A_{i} \right\} \).
+		\item From the definition of limit superior and limit inferior
+		      \[
+			      \begin{split}
+				      \bigcap^{\infty}_{1} A_{i} = \bigcap^{\infty}_{k=0} A_{1+k} \subset \bigcup^{\infty}_{n=0}\left(\bigcap^{\infty}_{k=0} A_{n+k}\right) = \liminf A_{n}, \\
+				      \limsup A_{n} = \bigcap^{\infty}_{n=0}\left(\bigcup^{\infty}_{k=0} A_{n+k}\right) \subset \bigcup^{\infty}_{k=0} A_{1+k} = \bigcup^{\infty}_{1} A_{i}.
+			      \end{split}
+		      \]
+
+		      If \( x \in \liminf A_{n} \) then \( x \) belongs to all but atmost finitely many \( A_{i} \), which implies that \( x \) belongs to infinitely many \( A_{i} \) so \( x \in \limsup A_{n} \). Therefore \( \liminf A_{n} \subset \limsup A_{n} \).
+		\item From the definition of limit superior, limit inferior and the laws of De Morgan:
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      \liminf \mathscr{C}A_{n} & = \bigcup^{\infty}_{0}\left(\bigcap^{\infty}_{k=0} \mathscr{C}A_{n+k}\right)                \\
+			                               & = \bigcup^{\infty}_{n=0}\left(\mathscr{C}\bigcup^{\infty}_{k=0}A_{n+k}\right)               \\
+			                               & = \mathscr{C}\left(\bigcap^{\infty}_{n=0}\left(\bigcup^{\infty}_{k=0} A_{n+k}\right)\right) \\
+			                               & = \mathscr{C}[\limsup A_{n}]
+		      \end{align*}
+		      \endgroup
+		\item Suppose \( x \in \liminf A_{n} \cup \liminf B_{n} \) then \( x \in \liminf A_{n} \) or \( x \in \liminf B_{n} \). If \( x \in \liminf A_{n} \) (or \( x \in \liminf B_{n} \)) then \( x \) belongs to all but at most finitely many \( A_{i} \) (or \( B_{i} \)) hence \( x \) belongs to all but at most finitely many \( A_{i} \cup B_{i} \). Therefore \( x \in \liminf (A_{n} \cup B_{n}) \). Hence \( \liminf A_{n} \cup \liminf B_{n} \subset \liminf A_{n} \cup B_{n} \).
+
+		      The following propositions are equivalent:
+		      \begin{itemize}[leftmargin=*]
+			      \item \( x \in \liminf A_{n} \cap \liminf B_{n} \).
+			      \item \( x \) belongs to all but at most finitely many \( A_{i} \) and \( x \) belongs to all but at most finitely many \( B_{i} \).
+			      \item \( x \) belongs to all but at most finitely many \( A_{i} \cap B_{i} \).
+			      \item \( x \in \liminf (A_{n} \cap B_{n}) \).
+		      \end{itemize}
+
+		      Hence \( \liminf A_{n} \cap \liminf B_{n} = \liminf (A_{n} \cap B_{n}) \).
+		\item Suppose \( x \in \limsup (A_{n} \cap B_{n}) \) then \( x \) belongs to infinitely many \( A_{i} \cap B_{i} \). Therefore \( x \) belongs to infinitely many \( A_{i} \) as well as infinitely many \( B_{i} \), which means \( x \in \limsup A_{n} \cap \limsup B_{n} \). Hence \( \limsup (A_{n} \cap B_{n}) \subset \limsup A_{n} \cap \limsup B_{n} \).
+
+		      The following propositions are equivalent:
+		      \begin{itemize}[leftmargin=*]
+			      \item \( x \in \limsup A_{n} \cup \limsup B_{n} \).
+			      \item \( x \) belongs to infinitely many \( A_{i} \) or \( x \) belongs to infinitely many \( B_{i} \).
+			      \item \( x \) belongs to infinitely many \( A_{i} \cup B_{i} \).
+			      \item \( x \in \limsup (A_{n} \cup B_{n}) \).
+		      \end{itemize}
+
+		      Hence \( \limsup (A_{n} \cup B_{n}) = \limsup A_{n} \cup \limsup B_{n} \).
+
+		      In fact, we can prove the inclusion and the equation in this part using the result of parts (d) and (e).
+		\item If \( A_{0} \subset A_{1} \subset A_{2} \subset \cdots \) then
+		      \[
+			      \bigcup^{\infty}_{0} A_{n} \subset \bigcup^{\infty}_{1} A_{n} \subset \bigcup^{\infty}_{2} A_{n} \subset \cdots
+		      \]
+
+		      and
+		      \[
+			      \bigcap^{\infty}_{k=0} A_{n+k} = A_{n}.
+		      \]
+
+		      Therefore
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      \liminf A_{n} & = \bigcup^{\infty}_{n=0}\left(\bigcap^{\infty}_{k=0} A_{n+k}\right) \\
+			                    & = \bigcup^{\infty}_{0} A_{n}                                        \\
+			                    & = \bigcap^{\infty}_{n=0}\left(\bigcup^{\infty}_{k=0} A_{n+k}\right) \\
+			                    & = \limsup A_{n}.
+		      \end{align*}
+		      \endgroup
+
+		      If \( A_{0} \supset A_{1} \supset A_{2} \supset \cdots \) then
+		      \[
+			      \bigcap^{\infty}_{0} A_{n} \supset \bigcap^{\infty}_{1} A_{n} \supset \bigcap^{\infty}_{2} A_{n} \supset \cdots
+		      \]
+
+		      and
+		      \[
+			      \bigcup^{\infty}_{k=0} A_{n+k} = A_{n}.
+		      \]
+
+		      Therefore
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      \limsup A_{n} & = \bigcap^{\infty}_{n=0}\left(\bigcup^{\infty}_{k=0} A_{n+k}\right) \\
+			                    & = \bigcap^{\infty}_{0} A_{n}                                        \\
+			                    & = \bigcup^{\infty}_{n=0}\left(\bigcap^{\infty}_{k=0} A_{n+k}\right) \\
+			                    & = \liminf A_{n}.
+		      \end{align*}
+		      \endgroup
+
+		      Hence in either of these two cases (increasing sequences of sets and decreasing sequences of sets), one has \( \limsup A_{n} = \liminf A_{n} \).
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{I.4.4}
+Let \( \left\{ A_{\alpha} \mid \alpha \in \mathscr{A} \right\} \) be a family of sets in \( \Gamma \). Prove: \( \displaystyle\bigcup_{\alpha} A_{\alpha} = \varnothing \) if and only if either each \( A_{\alpha} = \varnothing \) or \( \mathscr{A} = \varnothing \).
+\end{problem}
+
+\begin{proof}
+	If \( \mathscr{A} = \varnothing \) then \( \bigcup_{\alpha} A_{\alpha} = \varnothing \) by definition. If \( \mathscr{A} \ne \varnothing \) and each \( A_{\alpha} = \varnothing \) then \( \bigcup_{\alpha} A_{\alpha} = \left\{ x \mid \exists \alpha\in\mathscr{A},\, x\in A_{\alpha} \right\} = \varnothing \) as there exists no \( \alpha \) such that \( A_{\alpha} \) is nonempty.
+
+	Conversely, suppose that \( \bigcup_{\alpha} A_{\alpha} = \varnothing \). The set \( \mathscr{A} \) is either empty or nonempty. If the latter is the case then \( A_{\alpha} \subset \bigcup_{\alpha} A_{\alpha} \) for each \( \alpha\in\mathscr{A} \), from which we deduce that \( A_{\alpha} = \varnothing \) as \( \bigcup_{\alpha} A_{\alpha} = \varnothing \).
+
+	Thus \( \displaystyle\bigcup_{\alpha} A_{\alpha} = \varnothing \) if and only if either each \( A_{\alpha} = \varnothing \) or \( \mathscr{A} = \varnothing \).
+\end{proof}
+
+\section{Power set}
+
+\begin{problem}{I.5.1}
+Prove: \( A \subset B \implies \mathscr{P}(A) \subset \mathscr{P}(B) \).
+\end{problem}
+
+\begin{proof}
+	Suppose that \( A \subset B \). For every subset \( S \subset A \), one has \( S \subset B \) because inclusion is transitive. Hence \( \mathscr{P}(A) \subset \mathscr{P}(B) \).
+\end{proof}
+
+\begin{problem}{I.5.2}
+Prove: \( \bigcap \left\{ A \mid A \in \mathscr{P}(E) \right\} = \varnothing \).
+\end{problem}
+
+\begin{proof}
+	Because \( \varnothing \in \mathscr{P}(E) \), it follows that \( \bigcap\left\{ A \mid A \in \mathscr{P}(E) \right\} = \varnothing \).
+\end{proof}
+
+\section{Functions, or Maps}
+
+\begin{problem}{I.6.1}
+Let \( A \subset X, {\color{red}B \subset Y} \) and \( f: X \to Y \). Let \( i: A \to X \) be the map \( a \mapsto a \). Show:
+\begin{enumerate}[label={(\alph*)}]
+	\item \( f\vert_{A} = f \circ i \).
+	\item \( {(f\vert_{A})}^{-1}(B) = A \cap f^{-1}(B) \).
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)},leftmargin=*]
+		\item For every \( a \in A \), \( (f\vert_{A})(a) = f(a) = (f\circ i)(a) \). Hence \( f\vert_{A} = f \circ i \) as they agree on their domain \( A \).
+		\item \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      x \in {(f\vert_{A})}^{-1}(B) & \iff x \in A \land {(f\vert_{A})}(x) \in B \\
+			                                   & \iff x \in A \land f(x) \in B              \\
+			                                   & \iff x \in A \land x \in f^{-1}(B)         \\
+			                                   & \iff x \in A \cap f^{-1}(B).
+		      \end{align*}
+		      \endgroup
+
+		      Hence \( {(f\vert_{A})}^{-1}(B) = A \cap f^{-1}(B) \).
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{I.6.2}
+Show \( f(A\cap B) = f(A) \cap f(B) \) for all \( A, B \subset X \) if and only if \( f \) is injective.
+\end{problem}
+
+\begin{proof}
+	Suppose \( f \) is injective. One always has \( f(A \cap B) \subset f(A) \cap f(B) \). Let \( y \in f(A) \cap f(B) \) then there exists \( x_{1} \in A \) and \( x_{2} \in B \) such that \( y = f(x_{1}) = f(x_{2}) \). Because \( f \) is injective, \( x_{1} = x_{2} \in A \cap B \), so \( y = f(x_{1}) = f(x_{2}) \in f(A \cap B) \). Therefore \( f(A) \cap f(B) \subset f(A \cap B) \), so \( f(A \cap B) = f(A) \cap f(B) \) for all \( A, B \subset X \).
+
+	Suppose \( f(A\cap B) = f(A) \cap f(B) \) for all \( A, B \subset X \). Let \( x_{1}, x_{2} \in X \). If \( x_{1} \ne x_{2} \) then \( \varnothing = f(\varnothing) = f(\left\{ x_{1} \right\} \cap \left\{ x_{2} \right\}) = f(\left\{ x_{1} \right\}) \cap f(\left\{ x_{2} \right\}) \), which implies that \( f(x_{1}) \ne f(x_{2}) \). Hence \( f \) is injective.
+\end{proof}
+
+\begin{problem}{I.6.3}
+Let \( f: X \to Y \). Show:
+\begin{enumerate}[label={(\alph*)}]
+	\item \( A \subset B \implies f(A) \subset f(B) \).
+	\item \( f^{-1}(\mathscr{C}D) = \mathscr{C}f^{-1}(D) \).
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)},leftmargin=*]
+		\item Suppose \( A \subset B \). If \( y \in f(A) \) then there exists \( x \in A \) such that \( y = f(x) \). Since \( x \in A \subset B \), \( f(x) \in f(B) \), so \( y \in f(B) \). Hence \( f(A) \subset f(B) \).
+		\item \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      x \in f^{-1}(\mathscr{C}D) & \iff f(x) \in \mathscr{C}D       \\
+			                                 & \iff f(x) \notin D               \\
+			                                 & \iff x \notin f^{-1}(D)          \\
+			                                 & \iff x \in \mathscr{C}f^{-1}(D).
+		      \end{align*}
+		      \endgroup
+
+		      Therefore \( f^{-1}(\mathscr{C}D) = \mathscr{C}f^{-1}(D) \).
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{I.6.4}
+Let \( f: X \to Y \). Prove:
+\begin{enumerate}[label={(\alph*)}]
+	\item \( f \) is injective \( \iff \) \( \forall y\in Y: f^{-1}(y) = \varnothing \) or a single point \( \iff \) \( \forall A: f(\mathscr{C}A) \subset \mathscr{C}f(A) \).
+	\item \( f \) is surjective \( \iff \) \( \forall y\in Y: f^{-1}(y) \ne \varnothing \) \( \iff \) \( \forall A: f(\mathscr{C}A) \supset \mathscr{C}f(A) \).
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}, leftmargin=*]
+		\item If \( f \) is injective then for every \( y \in Y \), \( f^{-1}(y) \) cannot have more than two elements hence \( f^{-1}(y) \) is either empty or singleton. Conversely if \( f^{-1}(y) \) is either empty or singleton for every \( y \in Y \) then \( f(x_{1}) = f(x_{2}) \) implies \( x_{1} = x_{2} \), which means \( f \) is injective.
+
+		      Suppose that \( f \) is injective and let \( y \) be an element of \( f(\mathscr{C}A) \). There exists \( x \in \mathscr{C}A \) such that \( y = f(x) \). Since \( f \) is injective, one has \( f(x) \notin f(A) \), or equivalently, \( f(x) \in \mathscr{C}f(A) \). Hence \( f(\mathscr{A}) \subset \mathscr{C}f(A) \) for every subset \( A\subset X \).
+
+		      Suppose that \( \forall A: f(\mathscr{C}A) \subset \mathscr{C}f(A) \). Let \( x_{1}, x_{2} \) be two distinct elements of \( X \). From the assumption, \( f(X\smallsetminus \left\{ x_{1} \right\}) \subset \mathscr{C}f(\left\{ x_{1} \right\}) \). Therefore \( f(x_{2}) \in \mathscr{C}f(\left\{ x_{1} \right\}) \), which implies that \( f(x_{1}) \ne f(x_{2}) \). Hence \( f \) is injective.
+		\item \( f \) is surjective if and only if for every \( y \in Y \), \( f^{-1}(y) \) is nonempty, by the definition of surjective map.
+
+		      Suppose that \( f \) is surjective and \( y \) an element of \( \mathscr{C}f(A) \) then \( y \notin f(A) \). Therefore \( f^{-1}(y) \) is disjoint from \( A \), which means \( f^{-1}(y) \subset \mathscr{C}(A) \). Hence \( y \in f(\mathscr{C}A) \) for every \( y \in \mathscr{C}f(A) \), which means \( \mathscr{C}f(A) \subset f(\mathscr{C}A) \) for every subset \( A \subset X \).
+
+		      Suppose that \( \forall A: f(\mathscr{C}A) \supset \mathscr{C}f(A) \) then \( \mathscr{C}f(X) \subset f(\mathscr{C}X) = f(\varnothing) = \varnothing \), which means \( \mathscr{C}f(X) = \varnothing \). Hence \( f(X) = \mathscr{C}\varnothing = Y \), this implies that \( f \) is surjective.
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{I.6.5}
+Let \(\{A_{a} \mid a \in \mathscr{A}\}\), \(\{B_{\beta} \mid \beta \in \mathscr{B}\}\) be two coverings (partitions) of \(X\). Show that \(\{A_{a} \cap B_{\beta} \mid (a, \beta) \in \mathscr{A} \times \mathscr{B}\}\) is also a covering (partition) of \(X\).
+\end{problem}
+
+\begin{proof}
+	Let \( x \) be an element of \( X \). Since \( \{ A_{\alpha} \mid a \in \mathscr{A} \} \) and \(\{B_{\beta} \mid \beta \in \mathscr{B}\}\) are two coverings of \( X \), there exist \( \alpha \in \mathscr{A} \) and \( \beta \in \mathscr{B} \) such that \( x \in A_{\alpha}, x \in B_{\beta} \). Therefore \( x \in A_{\alpha} \cap B_{\beta} \), which means \(\{A_{a} \cap B_{\beta} \mid (a, \beta) \in \mathscr{A} \times \mathscr{B}\}\) is a covering of \(X\).
+
+	If \(\{A_{a} \mid a \in \mathscr{A}\}\), \(\{B_{\beta} \mid \beta \in \mathscr{B}\}\) are two partitions of \(X\) then \(\{A_{a} \cap B_{\beta} \mid (a, \beta) \in \mathscr{A} \times \mathscr{B}\}\) is a covering of \(X\). For \( \alpha_{1} \ne \alpha_{2} \) in \( \mathscr{A} \) and \( \beta_{1} \ne \beta_{2} \) in \( \mathscr{B} \)
+	\[
+		(A_{\alpha_{1}} \cap B_{\beta_{1}}) \cap (A_{\alpha_{2}} \cap B_{\beta_{2}}) = (A_{\alpha_{1}} \cap A_{\alpha_{2}}) \cap (B_{\beta_{1}} \cap B_{\beta_{2}}) = \varnothing \cap \varnothing = \varnothing.
+	\]
+
+	Hence \(\{A_{a} \cap B_{\beta} \mid (a, \beta) \in \mathscr{A} \times \mathscr{B}\}\) is a partition of \(X\).
+\end{proof}
+
+\begin{problem}{I.6.6}
+Let \(\{A_{\alpha} \mid \alpha \in \mathscr{A}\}\), \(\{B_{\beta} \mid \beta \in \mathscr{B}\}\) be coverings (partitions) of sets \(X\) and \(Y\), respectively. Show \(\{A_{\alpha} \times B_{\beta} \mid (\alpha, \beta) \in \mathscr{A} \times \mathscr{B}\}\) is a covering (partition) of \(X \times Y\).
+\end{problem}
+
+\begin{proof}
+	Let \( (x, y) \) be an element of \( X\times Y \). Since \( \{ A_{\alpha} \mid a \in \mathscr{A} \} \) and \(\{B_{\beta} \mid \beta \in \mathscr{B}\}\) are coverings of \( X \) and \( Y \), there exist \( \alpha \in \mathscr{A} \) and \( \beta \in \mathscr{B} \) such that \( x \in A_{\alpha}, y \in B_{\beta} \). Hence \( (x, y) \in A_{\alpha} \times B_{\beta} \). Thus \(\{A_{\alpha} \times B_{\beta} \mid (\alpha, \beta) \in \mathscr{A} \times \mathscr{B}\}\) is a covering of \(X \times Y\).
+
+	If \( \{ A_{\alpha} \mid a \in \mathscr{A} \} \) and \(\{B_{\beta} \mid \beta \in \mathscr{B}\}\) are partitions of \( X \) and \( Y \) then \(\{A_{\alpha} \times B_{\beta} \mid (\alpha, \beta) \in \mathscr{A} \times \mathscr{B}\}\) is a covering of \(X \times Y\). For \( \alpha_{1} \ne \alpha_{2} \) in \( \mathscr{A} \) and \( \beta_{1} \ne \beta_{2} \) in \( \mathscr{B} \)
+	\[
+		(A_{\alpha_{1}} \times B_{\beta_{1}}) \cap (A_{\alpha_{2}} \times B_{\beta_{2}}) = (A_{\alpha_{1}} \cap A_{\alpha_{2}}) \times (B_{\beta_{1}} \cap B_{\beta_{2}}) = \varnothing \times \varnothing = \varnothing.
+	\]
+
+	Hence \(\{A_{\alpha} \times B_{\beta} \mid (\alpha, \beta) \in \mathscr{A} \times \mathscr{B}\}\) is a partition of \(X \times Y\).
+\end{proof}
+
+\begin{problem}{I.6.7}
+Let \(f : X \to Y\) and \(g : Y \to X\) be any two maps. Show that \(X\) and \(Y\) can each be expressed as \textit{disjoint} unions: \(X = X_{1} \cup X_{2}\), \(Y = Y_{1} \cup Y_{2}\), such that \(f(X_{1}) = Y_{1}\) and \(g(Y_{2}) = X_{2}\).
+\end{problem}
+
+\begin{proof}
+	For each \( E \subset X \), let \( Q(E) = X - g[Y - f(E)] \). Define \( X_{1} = \bigcap \left\{ Q(E) \mid Q(E) \subset E \right\} \), \( X_{2} = X - X_{1} \), and \( Y_{1} = f(X_{1}), Y_{2} = Y - Y_{1} \). It remains to prove that \( g(Y_{2}) = X_{2} \).
+
+	We will show that \( A \subset B \subset X \) implies \( Q(A) \subset Q(B) \). Assume that \( A \subset B \) then
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		A \subset B & \implies f(A) \subset f(B)                   \\
+		            & \iff Y - f(A) \supset Y - f(B)               \\
+		            & \implies g[Y - f(A)] \supset g[Y - f(B)]     \\
+		            & \iff X - g[Y - f(A)] \subset X - g[Y - f(B)] \\
+		            & \iff Q(A) \subset Q(B).
+	\end{align*}
+	\endgroup
+
+	Next, we show that \( Q(X_{1}) = X_{1} \). Define \( \mathcal{F} = \left\{ E \subset X \mid Q(E) \subset E \right\} \).
+
+	Since \( X_{1} = \bigcap \left\{ Q(E) \mid Q(E) \subset E \right\} \) then \( X_{1} \subset E \) for every \( E \in \mathcal{F} \). Therefore \( Q(X_{1}) \subset Q(E) \) for every \( E \in \mathcal{F} \), which means \( Q(X_{1}) \subset \bigcap\left\{ Q(E) \mid Q(E) \subset E \right\} = X_{1} \).
+
+	Because \( Q(X_{1}) \subset X_{1} \), it follows that \( Q(Q(X_{1})) \subset Q(X_{1}) \), then \( Q(X_{1}) \in \mathcal{F} \). Therefore \( X_{1} \subset Q(X_{1}) \) by definition.
+
+	Hence \( X_{1} = Q(X_{1}) \).
+
+	Finally
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		g(Y_{2}) & = g(Y - Y_{1}) = g[Y - f(X_{1})]    \\
+		         & = X - (X - g[Y - f(X_{1})])         \\
+		         & = X - Q(X_{1}) = X - X_{1} = X_{2}.
+	\end{align*}
+	\endgroup
+
+	Hence \( X = X_{1} \amalg X_{2}, Y = Y_{1} \amalg Y_{2} \) and \( f(X_{1}) = Y_{1}, g(Y_{2}) = X_{2} \).
+\end{proof}
+
+\section{Binary relations; Equivalence relations}
+
+\begin{problem}{I.7.1}
+For relations \( R, S \) in \( A \), define \( R \circ S \) by \( a R \circ S b \iff \exists c: (a R c) \land (c S b) \). Show that \( R \circ (S \circ T) = (R \circ S) \circ T \). If each of \( R, S \) are equivalence relations, is \( R \circ S \) an equivalence relation?
+\end{problem}
+
+\begin{proof}
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		a (R \circ (S \circ T)) b & \iff \exists c: (aRc) \land (c (S\circ T) b)               \\
+		                          & \iff \exists c: (aRc) \land (\exists d: (cSd) \land (dTb)) \\
+		                          & \iff \exists c, d: (aRc) \land (cSd) \land (dTb)           \\
+		                          & \iff \exists d: (\exists c: (aRc) \land (cSd)) \land dTb   \\
+		                          & \iff \exists d: (a (R\circ S) d) \land dTb                 \\
+		                          & \iff a ((R\circ S) \circ T) b.
+	\end{align*}
+	\endgroup
+
+	Hence \( R \circ (S \circ T) = (R \circ S) \circ T \).
+
+	If \( R, S \) are equivalence relations, then \( R\circ S \) is not necessarily an equivalence relation. For example: On \( X = \left\{ a, b, c \right\} \), \( R \) induces the partition \( \left\{ \left\{ a, b \right\}, \left\{ c \right\} \right\} \) and \( S \) induces the partition \( \left\{ \left\{ a \right\}, \left\{ b, c \right\} \right\} \). In this example, \( a(R\circ S)c \) and \( \neg (c (R\circ S) a) \), which means \( R \circ S \) is not symmetric, hence not an equivalence relation.
+\end{proof}
+
+\begin{problem}{I.7.2}
+For any given \( R \), define \( R^{-1} \) by \( a R^{-1} b \iff b R a \). Show that a reflexive \( R \) is an equivalence relation if and only if \( R \circ R = R \) and \( R = R^{-1} \).
+\end{problem}
+
+\begin{proof}
+	Suppose that \( R \) is reflexive and an equivalence relation. On the one hand, \( a(R\circ R)b \iff \exists c: (aRc) \land (cRb) \implies aRb \) and \( aRb \implies aRa \land aRb \implies a(R\circ R)b \). Therefore \( a(R\circ R)b \iff aRb \), which means \( R\circ R = R \). On the other hand, since \( R \) is an equivalence relation, \( aRb \iff bRa \iff aR^{-1}b \), so \( R = R^{-1} \).
+
+	Suppose that \( R \) is reflexive and \( R \circ R = R, R = R^{-1} \). If \( aRb \) then \( aR^{-1}b \), which is equivalent to \( bRa \), so \( R \) is symmetric. If \( aRb \) and \( bRc \) then \( a(R\circ R)c \). From \( R \circ R = R \), it follows that \( a R c \), so \( R \) is transitive. Hence \( R \) is an equivalence relation.
+\end{proof}
+
+\begin{problem}{I.7.3}
+If \( R \) is any reflexive and transitive relation, show that \( R \cap R^{-1} \) is an equivalence relation.
+\end{problem}
+
+\begin{proof}
+	Let \( S = R \cap R^{-1} \).
+
+	\( R \) is reflexive and transitive then so is \( R^{-1} \). Therefore \( S \) is reflexive and transitive.
+
+	If \( a S b \) then \( a R b \) and \( a R^{-1} b \). It follows that \( b R^{-1} a \) and \( b R a \), so \( b S a \). Hence \( S \) is symmetric.
+\end{proof}
+
+\begin{problem}{I.7.4}
+For relations \( R, S \) in \( A, B \), respectively, define \( R\times S \) in \( A\times B \) by
+\[
+	(a, b) R\times S (c, d) \iff (a R c) \land (b S d).
+\]
+
+If \( R, S \) are equivalence relations, show that \( R \times S \) is an equivalence relation.
+\end{problem}
+
+\begin{proof}
+	For every \( (a, b) \in A\times B \), one has \( (a R a) \land (b S b) \) so \( (a, b) R\times S (a, b) \). Therefore \( R\times S \) is reflexive.
+
+	On the other hand
+	\[
+		(a, b)R\times S (c, d) \iff (aRc) \land (bSd) \iff (cRa) \land (dSb) \iff (c, d) R\times S (a, b)
+	\]
+
+	so \( R\times S \) is symmetric.
+
+	If \( (a, b) R\times S (c, d) \) and \( (c, d) R\times S (e, f) \) then \( a R c, b S d, c R e, d S f \), so \( a R e, b S f \), which means \( (a, b) R\times S (e, f) \). Hence \( R\times S \) is transitive.
+
+	Thus \( R\times S \) is an equivalence relation.
+\end{proof}
+
+\begin{problem}{I.7.5}\label{problem:I.7.5}
+Let \( f: A \to B \). Show that \( a R b \iff f(a) = f(b) \) is an equivalence relation on \( A \) and that there is an \( f_{*}: A/R \to B \) such that the diagram
+\[\begin{tikzcd}
+		A && {A/R} \\
+		\\
+		B
+		\arrow["p", from=1-1, to=1-3]
+		\arrow["f"', from=1-1, to=3-1]
+		\arrow["{f_{\ast}}", from=1-3, to=3-1]
+	\end{tikzcd}\]
+
+commutes.
+\end{problem}
+
+\begin{proof}
+	Since \( f(a) = f(a) \), then \( aRa \), which means \( R \) is reflexive.
+
+	\( aRb \iff f(a) = f(b) \iff f(b) = f(a) \iff bRa \), so \( R \) is symmetric.
+
+	\( (aRb) \land (bRc) \iff f(a) = f(b) \land f(b) = f(c) \implies f(a) = f(c) \iff aRc \), so \( R \) is transitive.
+
+	Hence \( R \) is an equivalence relation.
+
+	We define \( f_{\ast}: A/R \to B \) by \( f_{\ast}(Ra) = f(a) \). This definition doesn't depend on the representatives of the equivalence classes. From this definition, it follows that \( f_{\ast} \circ p = f \), which means the given diagram commutes.
+\end{proof}
+
+\begin{problem}{I.7.6}
+Let \( S, R \) be two equivalence relations in \( A \), with \( S \subset R \). Let \( 1_{\ast} : A/S \to A/R \) be the map induced by the relation-preserving map \( 1_{A} \). Define \( (Sa) R/S (Sb) \) if \( 1_{\ast}(Sa) = 1_{\ast}(Sb) \). Show that \( R/S \) is an equivalence relation and that there is a bijection of \( (A/S)/(R/S) \) onto \( A/R \).
+\end{problem}
+
+\begin{proof}
+	From Problem~\ref{problem:I.7.5}, it follows that \( R/S \) is an equivalence relation on \( A/S \).
+
+	Let \( p \) be the canonical projection map \( A/S \to (A/S)/(R/S) \). From the definitions of \(p, R/S\)
+	\[
+		p(Sa) = p(Sb) \iff (Sa) R/S (Sb) \iff 1_{\ast}(Sa) = 1_{\ast}(Sb)
+	\]
+
+	so it follows from Problem~\ref{problem:I.7.5} that there is a map \( f: (A/S)/(R/S) \to A/R \) that commutes the following diagram:
+	\[
+		\begin{tikzcd}
+			A &&& A \\
+			\\
+			{A/S} &&& {A/R} \\
+			\\
+			{(A/S)/(R/S)}
+			\arrow["{1_{A}}", from=1-1, to=1-4]
+			\arrow["{p_{S}}"', from=1-1, to=3-1]
+			\arrow["{p_{R}}", from=1-4, to=3-4]
+			\arrow["{1_{\ast}}", from=3-1, to=3-4]
+			\arrow["p"', from=3-1, to=5-1]
+			\arrow["f", from=5-1, to=3-4]
+		\end{tikzcd}
+	\]
+
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		f(p(Sa)) = f(p(Sb)) & \iff (p \circ f)(Sa) = (p\circ f)(Sb) \\
+		                    & \iff 1_{\ast}(Sa) = 1_{\ast}(Sb)      \\
+		                    & \iff (Sa) R/S (Sb)                    \\
+		                    & \iff p(Sa) = p(Sb)
+	\end{align*}
+	\endgroup
+
+	which implies that \( f \) is injective.
+
+	Let \( Ra \) be an element of \( A/R \) then \( 1_{\ast}(Sa) = Ra \) so \( f(p(Sa)) = 1_{\ast}(Sa) = Ra \), which means \( f \) is surjective.
+
+	Hence \( f \) is a bijection from \( (A/S)/(R/S) \) onto \( A/R \).
+\end{proof}
+
+\section{Axiomatics}
+
+\section{General Cartesian Products}
+
+\begin{problem}{I.9.1}
+Prove the extended version of 9.5 (1):
+\[
+	\bigcap_{\rho}\left(\prod_{\alpha} A_{\alpha, \rho}\right) = \prod_{\alpha} \left(\bigcap_{\rho}A_{\alpha, \rho}\right).
+\]
+\end{problem}
+
+\begin{proof}
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		c \in \bigcap_{\rho}\left(\prod_{\alpha} A_{\alpha, \rho}\right) & \iff \forall \rho: c \in \prod_{\alpha} A_{\alpha, \rho}                \\
+		                                                                 & \iff \forall \rho, \forall \alpha: c(\alpha) \in A_{\alpha, \rho}       \\
+		                                                                 & \iff \forall \alpha, \forall \rho: c(\alpha) \in A_{\alpha, \rho}       \\
+		                                                                 & \iff \forall \alpha: c(\alpha) \in \bigcap_{\rho}A_{\alpha, \rho}       \\
+		                                                                 & \iff c \in \prod_{\alpha} \left(\bigcap_{\rho} A_{\alpha, \rho}\right).
+	\end{align*}
+	\endgroup
+
+	Hence
+	\[
+		\bigcap_{\rho}\left(\prod_{\alpha} A_{\alpha, \rho}\right) = \prod_{\alpha} \left(\bigcap_{\rho}A_{\alpha, \rho}\right).\qedhere
+	\]
+\end{proof}
+
+\begin{problem}{I.9.2}
+Prove \( \prod_{\alpha} A_{\alpha} - \prod_{\alpha} B_{\alpha} = \bigcup_{\alpha} Q_{\alpha} \), where in each \( Q_{\beta} \), each factor \( \alpha\ne \beta \) is \( A_{\alpha} \) and the \( \beta \)th factor is \( A_{\beta} - B_{\beta} \).
+\end{problem}
+
+\begin{proof}
+	Suppose that \( c \in \prod_{\alpha} A_{\alpha} - \prod_{\alpha} B_{\alpha} \) then \( c \in \prod_{\alpha} A_{\alpha} \) and \( c \notin \prod_{\alpha} B_{\alpha} \). So \( \forall \alpha: c(\alpha) \in A_{\alpha} \) and \( \exists \beta: c(\beta) \notin B_{\beta} \). Therefore \( c \in Q_{\beta} \) where the \( \alpha \ne \beta \)th factor is \( A_{\alpha} \) and the \( \beta \)th factor is \( A_{\beta} - B_{\beta} \), which implies that \( c \in \bigcup_{\alpha} Q_{\alpha} \). So \( \prod_{\alpha} A_{\alpha} - \prod_{\alpha} B_{\alpha} \subset \bigcup_{\alpha} Q_{\alpha} \).
+
+	Conversely, if \( c \in \bigcup_{\alpha} Q_{\alpha} \) then there exists \( \beta \) such that \( c \in Q_{\beta} \). So \( c(\alpha) \in A_{\alpha} \) for every \( \alpha \ne \beta \) and \( c(\beta) \in A_{\beta} - B_{\beta} \), which means \( c \in \prod_{\alpha} A_{\alpha} - \prod_{\alpha} B_{\alpha} \).
+
+	Hence \( \prod_{\alpha} A_{\alpha} - \prod_{\alpha} B_{\alpha} = \bigcup_{\alpha} Q_{\alpha} \).
+\end{proof}
+
+\begin{problem}{I.9.3}
+Let \( \left\{ A_{\alpha} \mid \alpha \in \mathscr{A} \right\} \) be a family of nonempty sets, and let \( \mathscr{A} = \bigcup\left\{ \mathscr{A}_{\beta} \mid \beta \in \mathscr{B} \right\} \) be a partition of \( \mathscr{A} \). Construct a bijective map of \( \prod\left\{ A_{\alpha} \mid \alpha \in \mathscr{A} \right\} \) onto
+\[
+	\prod_{\beta} \left\{ \prod\left\{ A_{\alpha} \mid \alpha \in \mathscr{A}_{\beta} \right\} \right\}.
+\]
+\end{problem}
+
+\begin{proof}
+	We define a map \( f: \prod\left\{ A_{\alpha} \mid \alpha \in \mathscr{A} \right\} \to \prod_{\beta} \left\{ \prod\left\{ A_{\alpha} \mid \alpha \in \mathscr{A}_{\beta} \right\} \right\} \) as follows: for each \( c \in \prod\left\{ A_{\alpha} \mid \alpha \in \mathscr{A} \right\} \), \( f(c) = \mathfrak{c} \) is a map from \( \mathscr{B} \) to \( \bigcup_{\beta} \prod\left\{ A_{\alpha} \mid \alpha \in \mathscr{A}_{\beta} \right\} \) such that \( \mathfrak{c}(\beta)(\alpha) = c(\alpha) \) for each \( \beta \in \mathscr{B} \) and \( \alpha \in \mathscr{A}_{\beta} \).
+
+	We define \( g: \prod_{\beta} \left\{ \prod \left\{ A_{\alpha} \mid \alpha \in \mathscr{A}_{\beta} \right\} \right\} \to \prod\left\{ A_{\alpha} \mid \alpha \in \mathscr{A} \right\} \) as follows: \( g(\mathfrak{c}) = c \) such that \( c(\alpha) = \mathfrak{c}(\beta)(\alpha) \) for each \( \alpha \in \mathscr{A} \) in which \( \beta \) is such that \( \alpha \in \mathscr{A}_{\beta} \) (such \( \beta \) is unique for \( \left\{ \mathscr{A}_{\beta} \mid \beta \in \mathscr{B} \right\} \) is a partition of \( \mathscr{A} \)).
+
+	\( f \) and \( g \) are inverses of each other so they are bijective maps.
 \end{proof}
