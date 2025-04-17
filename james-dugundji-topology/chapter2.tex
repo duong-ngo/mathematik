@@ -1,1 +1,243 @@
 \chapter{Ordinals and Cardinals}
+
+\section{Orderings}
+
+\begin{problem}{II.1.1}
+Let \( \Delta \) be the diagonal in \( A\times A \). Show that \( R \subset A\times A \) is a preorder if and only if \( \Delta \subset R \) and \( R \circ R = R \).
+\end{problem}
+
+\begin{proof}
+	Suppose that \( R \) is a preorder. For every \( x \in A \), one has \( (x, x) \in \Delta \) and \( (x, x) \in R \), so \( \Delta \subset R \). Moreover
+	\begin{itemize}
+		\item If \( x(R \circ R) y \) then there exists \( z \in A \)  such that \( xRz \) and \( zRy \). From the transitivity of \( R \), we deduce that \( xRy \).
+		\item If \( xRy \) then \( xRx \) (reflexivity of \(R\)) and \( xRy \), which implies that \( x(R\circ R) y \).
+	\end{itemize}
+
+	So \( R \circ R = R \).
+
+	Conversely, suppose that \( \Delta \subset R \) and \( R \circ R = R \). The condition \( \Delta \subset R \) precisely means \( R \) is reflexive. The condition \( R \circ R = R \) implies that \( R \) is transitive. Therefore \( R \) is a preorder.
+\end{proof}
+
+\begin{problem}{II.1.2}
+In \( \mathbb{Z}^{+} \), define \( m \prec n \) if \( n \) divides \( m \). Show that this is a partial ordering, that every chain has an upper bound, and determine the set of maximal elements.
+\end{problem}
+
+\begin{proof}
+	For every \( n \in \mathbb{Z}^{+} \), \( n \) divides \( n \) so \( n \prec n \), which means \( \prec \) is reflexive. If \( a \prec b \) and \( b \prec c \) then there exist \( p, q \in \mathbb{Z}^{+} \) such that \( a = pb, b = qc \) so \( a = (pq)c \), which implies \( a \prec c \). Hence \( \prec \) is transitive. Moreover, if \( a \prec b \) and \( b \prec a \), there exist \( p, q \in \mathbb{Z}^{+} \) such that \( a = pb, b = qa \), so \( pq = 1 \), which means \( p = q = 1 \), so \( a = b \), which implies the antisymmetric of \( \prec \). Thus \( \prec \) is a partial ordering.
+
+	Suppose \( A \) is a chain of \( \mathbb{Z}^{+} \). For every \( a \in A \), \( 1 \) divides \( a \) so \( 1 \) is an upper bound of \( A \). Therefore every chain of \( (\mathbb{Z}^{+}, \prec) \) has an upper bound.
+
+	Because \( \mathbb{Z}^{+} \) with the usual order relation \( \le \) is well-ordering then \( A \) has a first element \( a_{0} \). Since \( (A, \prec) \) is a chain, then \( \forall a \in A: a \prec a_{0} \lor a_{0} \prec a \). If \( a_{0} \prec a \) for some \( a \in A \) then there exists \( p \in \mathbb{Z}^{+} \) such that \( a_{0} = pa \). On the one hand, \( a_{0} = pa \) implies \( a_{0} \ge a \). On the other hand, \( a_{0} \leq a \). Therefore \( a = a_{0} \). Thus \( a_{0} \) is also a maximal element of the chain \( A \) in \( (\mathbb{Z}^{+}, \prec) \), which means the maximal element of \( (A, \prec) \) is the first element of \( (A, \le) \).
+\end{proof}
+
+\begin{problem}{II.1.3}
+Let \( \mathscr{F} \) be the set of all real-valued functions of a real variable. Show that by defining \( f \prec g \) to mean ``\( \forall x: f(x) \leq g(x) \),\@'' \( (\mathscr{F}, \prec) \) is a partial ordered set. If \( f \prec^{\prime} g \) denotes
+\[
+	(f = g) \text{ or } \left(\lim\limits_{x\to\infty} \dfrac{f(x)}{g(x)} = 0\right),
+\]
+
+is \( (\mathscr{F}, \prec^{\prime}) \) partially ordered?
+\end{problem}
+
+\begin{proof}
+	For every \( f \in \mathscr{F} \), \( f \prec f \) since \( \forall x: f(x) \le f(x) \), so \( \prec \) is reflexive.
+
+	If \( f \prec g \) and \( g \prec h \) then \( \forall x: f(x) \le g(x) \land g(x) \le h(x) \), from which we deduce that \( \forall x: f(x) \le h(x) \). Hence \( f \prec h \), so \( \prec \) is transitive.
+
+	If \( f \prec g \) and \( g \prec f \) then \( \forall x: f(x) \le g(x) \land g(x) \le f(x) \), from which one has \( \forall x: f(x) = g(x) \), which precisely means \( f = g \). So \( \prec \) is antisymmetric.
+
+	Hence \( (\mathscr{F}, \prec) \) is a partial ordered set.
+
+	\bigskip
+
+	For every \( f \in \mathscr{F} \), \( f = f \) so \( f \prec^{\prime} f \).
+
+	If \( f \prec^{\prime} g \) and \( g \prec^{\prime} h \) then the following cases are exhaustive:
+	\begin{itemize}
+		\item \( f = g \) and \( g = h \). Then \( f = h \), which implies \( f \prec^{\prime} h \).
+		\item \( \lim\limits_{x\to\infty} \dfrac{f(x)}{g(x)} = 0 \) and \( g = h \). Then \( \lim\limits_{x\to\infty} \dfrac{f(x)}{h(x)} = 0 \), which implies \( f \prec^{\prime} h \).
+		\item \( f = g \) and \( \lim\limits_{x\to\infty} \dfrac{g(x)}{h(x)} = 0 \). Then \( \lim\limits_{x\to\infty } \dfrac{f(x)}{h(x)} = 0 \), which implies \( f \prec^{\prime} h \).
+		\item \( \lim\limits_{x\to\infty} \dfrac{f(x)}{g(x)} = 0 \) and \( \lim\limits_{x\to\infty} \dfrac{g(x)}{h(x)} = 0 \). Then \( \lim\limits_{x\to\infty} \dfrac{f(x)}{h(x)} = \left(\lim\limits_{x\to\infty} \dfrac{f(x)}{g(x)}\right)\cdot \left(\lim\limits_{x\to\infty} \dfrac{g(x)}{h(x)}\right) = 0 \cdot 0 = 0 \), which implies \( f \prec^{\prime} h \).
+	\end{itemize}
+
+	Suppose that there exists \( f, g \in \mathscr{F} \) such that \( f \prec^{\prime} g \) and \( g \prec^{\prime} f \) but \( f \ne g \). From the definition of \( \prec^{\prime} \), it follows that \( \lim\limits_{x\to\infty} \dfrac{f(x)}{g(x)} = \lim\limits_{x\to\infty} \dfrac{g(x)}{f(x)} = 0 \) and
+	\[
+		0 = \left(\lim\limits_{x\to\infty} \dfrac{f(x)}{g(x)}\right)\cdot \left(\lim\limits_{x\to\infty} \dfrac{g(x)}{f(x)}\right) = \lim\limits_{x\to\infty} \dfrac{f(x)g(x)}{g(x)f(x)} = 1
+	\]
+
+	which is a contradiction. Hence \( \prec^{\prime} \) is antisymmetric.
+
+	Thus \( (\mathscr{F}, \prec^{\prime}) \) is also partially ordered.
+\end{proof}
+
+\begin{problem}{II.1.4}
+A partially ordered set is a lattice if each pair of its elements has a least upper bound and a greatest lower bound. Is \((\mathscr{F}, \prec)\) in Problem 3 a lattice? Is \((\mathscr{P}(X), \subset)\) a lattice? In \((\mathscr{P}(A \times A), \subset)\), is the set of all transitive relations a lattice? Determine also if the set of all partial orders, preorders, and well-orders are each lattices.
+\end{problem}
+
+\begin{proof}
+	For any two functions \( f, g \in \mathscr{F} \), we define \( f \lor g, f \land g \in \mathscr{F} \) as follows:
+	\[
+		(f \lor g)(x) = \max\left\{ f(x), g(x) \right\},\qquad (f \land g)(x) = \min\left\{ f(x), g(x) \right\}.
+	\]
+
+	Then \( f \lor g \) and \( f \land g \) are evidently upper bound and lower bound of \( \left\{ f, g \right\} \). Let \( h \) be a function in \( \mathscr{F} \). If \( h \) is an upper bound of \( \left\{ f, g \right\} \) then \( \forall x: h(x) \ge f(x) \land h(x) \ge g(x) \), which implies \( \forall x: h(x) \ge (f \lor g)(x) \), equivalently, \( (f \lor g) \prec h \). If \( h \) is a lower bound of \( \left\{ f, g \right\} \) then \( \forall x: h(x) \le f(x) \land h(x) \le g(x) \), which means \( \forall x: h(x) \le (f \land g)(x) \), so \( h \prec (f \land g) \). Hence \( f\lor g \) is a least upper bound of \( \left\{ f, g \right\} \) and \( f\land g \) is a greatest lower bound of \( \left\{ f, g \right\} \). Thus \( (\mathscr{F}, \prec) \) is a lattice.
+
+	\( (\mathscr{P}(X), \subset) \) is also a lattice. A least upper bound of \( \left\{ A, B \right\} \) is \( A \cup B \) and a greatest lower bound of \( \left\{ A, B \right\} \) is \( A \cap B \).
+
+	In \( (\mathscr{P}(A\times A), \subset) \), the set of all transitive relations is a lattice. A greatest lower bound of \( \left\{ R, S \right\} \) is \( R \cap S \) and a least upper bound of \( \left\{ R, S \right\} \) is the intersection of all transitive relations containing \( R \) and \( S \)  (there is at least one transitive relation containing \( R \) and \( S \) and it is \( A\times A \)).
+
+	In \( (\mathscr{P}(A\times A), \subset) \), the set of all reflexive relations is a lattice. A greatest lower bound of \( \left\{ R, S \right\} \) is \( R \cap S \) and a least upper bound of \( \left\{ R, S \right\} \) is the intersection of all reflexive relations containing \( R \) and \( S \).
+
+	In \( (\mathscr{P}(A\times A), \subset) \), the set of all antisymmetric relations is a lattice. A greatest lower bound of \( \left\{ R, S \right\} \) is \( R \cap S \) and a least upper bound of \( \left\{ R, S \right\} \) is the intersection of all antisymmetric relations containing \( R \) and \( S \).
+
+	Therefore in \( (\mathscr{P}(A\times A), \subset) \), the set of all partial preorders, orders are each lattices.
+
+	However, in \( (\mathscr{P}(A\times A), \subset) \), the set of all well-orders is not necessarily a lattice. For example, consider \( A = \left\{ 1, 2 \right\} \) and
+	\[
+		\begin{split}
+			R = \left\{ (1, 1), (2, 2), (1, 2) \right\}, \\
+			S = \left\{ (1, 1), (2, 2), (2, 1) \right\},
+		\end{split}
+	\]
+
+	are well-orders. However, \( \left\{ R, S \right\} \) doesn't have a lower bound (which is a well-order) hence it doesn't have a greatest lower bound.
+\end{proof}
+
+\begin{problem}{II.1.5}\label{problem:II.1.5}
+Let \(A\) be the set of all infinite sequences of real numbers. Order \(A\) lexicographically; that is, \((a_{1}, a_{2}, \cdots) \prec (b_{1}, b_{2}, \cdots)\) if either \(a_{i} = b_{i}\) for all \(i\), or \(a_{n} < b_{n}\) at the first place \(n\) where they differ. Show that this is a total ordering in \(A\). Is the conventional ordering of the rationals the same as the lexicographic ordering of their decimal expansions?
+\end{problem}
+
+\begin{proof}
+	For every sequence \( (a_{1}, a_{2}, \cdots) \), one has \( (a_{1}, a_{2}, \cdots) \prec (a_{1}, a_{2}, \cdots) \) by definition so \( \prec \) is reflexive.
+
+	Suppose \( (a_{1}, a_{2}, \cdots) \prec (b_{1}, b_{2}, \cdots) \) and \( (b_{1}, b_{2}, \cdots) \prec (c_{1}, c_{2}, \cdots) \). The following cases are exhaustive.
+	\begin{itemize}
+		\item \( a_{i} = b_{i} \) for all \( i \) and \( b_{i} = c_{i} \) for all \( i \). Then \( a_{i} = c_{i} \) for all \( i \).
+		\item \( a_{i} = b_{i} \) for all \( i \) and there exists a positive integer \( n \) such that \( b_{n} < c_{n} \) and \( b_{i} = c_{i} \) for all \( i < n \). Then \( a_{n} < c_{n} \) and \( a_{i} = c_{i} \) for all \( i < n \).
+		\item There exists a positive integer \( n \) such that \( a_{n} < b_{n} \) and \( a_{i} = b_{i} \) for all \( i < n \) and \( b_{i} = c_{i} \) for all \( i \). Then \( a_{n} < c_{n} \) and \( a_{i} = c_{i} \) for all \( i < n \).
+		\item There exists a positive integer \( n \) such that \( a_{n} < b_{n} \) and \( a_{i} = b_{i} \) for all \( i < n \) and there exists a positive integer \( m \) such that \( b_{m} < c_{m} \) and \( b_{i} = c_{i} \) for all \( i < m \). If \( n > m \) then \( a_{m} = b_{m} < c_{m} \) and \( a_{i} = b_{i} \) for all \( i < m \). If \( n \le m \) then \( a_{n} < b_{n} = c_{n} \) and \( a_{i} = c_{i} \) for all \( i < n \).
+	\end{itemize}
+
+	In either cases, one has \( (a_{1}, a_{2}, \cdots) \prec (c_{1}, c_{2}, \cdots) \), so \( \prec \) is transitive.
+
+	Suppose \( (a_{1}, a_{2}, \cdots) \prec (b_{1}, b_{2}, \cdots) \) and \( (b_{1}, b_{2}, \cdots) \prec (a_{1}, a_{2}, \cdots) \). Assume for the sake of contrary that there exists a positive integer \( n \) such that \( a_{n} \ne b_{n} \). By the well-ordering property of the positive integers, we can assume without loss of generality that \( n \) is the smallest positive integer such that \( a_{n} \ne b_{n} \). Therefore \( a_{i} = b_{i} \) for all \( i < n \). However, either \( a_{n} < b_{n} \) or \( b_{n} < a_{n} \) so either \( (a_{1}, a_{2}, \cdots) \prec (b_{1}, b_{2}, \cdots) \) or \( (b_{1}, b_{2}, \cdots) \prec (a_{1}, a_{2}, \cdots) \), which is a contradiction. Hence \( a_{i} = b_{i} \) for all \( i \), which implies that \( \prec \) is antisymmetric.
+
+	Therefore \( \prec \) is a partial order.
+
+	Consider two sequences \( (a_{1}, a_{2}, \cdots) \) and \( (b_{1}, b_{2}, \cdots) \). Either \( a_{i} = b_{i} \) for all \( i \) or there exists a positive integer \( i \) such that \( a_{i} \ne b_{i} \). If the former is the case then \( (a_{1}, a_{2}, \cdots) \prec (b_{1}, b_{2}, \cdots) \). If the latter is the case then we use the least positive integer \( n \) such that \( a_{n} \ne b_{n} \). Since \( a_{i} = b_{i} \) for all \( i < n \) and either \( a_{n} < b_{n} \) or \( b_{n} < a_{n} \), we deduce that either \( (a_{1}, a_{2}, \cdots) \prec (b_{1}, b_{2}, \cdots) \) or \( (b_{1}, b_{2}, \cdots) \prec (a_{1}, a_{2}, \cdots) \). Hence \( (a_{1}, a_{2}, \cdots) \prec (b_{1}, b_{2}, \cdots) \) or \( (b_{1}, b_{2}, \cdots) \prec (a_{1}, a_{2}, \cdots) \), which means \( \prec \) is a total order.
+
+	Thus \( A \) is a total ordered set.
+
+	\bigskip
+
+	The conventional ordering of the rationals is \textbf{not} the same as the lexicographic ordering of their decimal expansions because
+	\[
+		1.0999\ldots = 1.0\overline{9} = 1.1
+	\]
+
+	but \( 1.0\overline{9} \prec 1.1 \) and \( 1.0\overline{9} \ne 1.1 \) (with respect to the lexicographic ordering).
+\end{proof}
+
+\begin{problem}{II.1.6}
+Let \(X\) be a totally ordered set. A pair of subsets \(A, B\) satisfying
+\begin{enumerate}[label={(\alph*)}]
+	\item \(A \cup B = X\),
+	\item \(A \cap B = \varnothing\), and
+	\item \((a \in A) \land (b \in B) \implies a \prec b\)
+\end{enumerate}
+
+is called a cut in \(X\). If \(A, B\), and \(A^{\prime}, B^{\prime}\) are cuts, show that \((A \subset A^{\prime}) \lor (A^{\prime} \subset A)\).
+\end{problem}
+
+\begin{proof}
+	Firstly, we show that if \(A, B\) is a cut and \( a \in A \) then \( c \prec a \land c \ne a \implies c \in A \). Assume that \( c \prec a, c \ne a \) and \( c \notin A \) then \( c \prec a, c \ne a \) and \( c \in B \). From the definition of cuts, it follows that \( a \prec c \). From the antisymmetry of \( \prec \), it follows that \( a = c \), which is a contradiction.
+
+	Given two cuts \(A, B\) and \(A^{\prime}, B^{\prime}\), either \( A \subset A^{\prime} \) or \( A \not\subset A^{\prime} \). If \( A \not\subset A^{\prime} \) then there exists \( x \in A \) such that \( x \notin A^{\prime} \). Since \( x \notin A^{\prime} \), we deduce that \( x \in B^{\prime} \). Therefore \( x \) follows every element of \( A^{\prime} \), which means \( A^{\prime} \subset A \). Thus \((A \subset A^{\prime}) \lor (A^{\prime} \subset A)\).
+\end{proof}
+
+\begin{problem}{II.1.7}
+Let \(R \subset A \times A\) be a well-order. Show that unless \(A\) is a finite set, \(R^{-1}\) is not a well-order.
+\end{problem}
+
+\begin{proof}
+	Assume that \( A \) is infinite. We define a map \( f: \mathbb{N} \to A \) as follows: \( f(0) \) is the first element of \( A \) (with respect to the well-order \( R \)) and \( f(n) \) is the first element of \( A  - \left\{ f(i) \mid i < n \right\} \) (with respect to the well-order \( R \)). The map \( f \) is an injection, hence \( f(\mathbb{N}) \) is an infinite subset of \( A \). For every element \( f(n) \in f(\mathbb{N}) \), the element \( f(n + 1) \) strictly follows \( f(n) \), so \( f(\mathbb{N}) \) has no maximal element, which precisely means \( f(\mathbb{N}) \) doesn't have a first element with respect to the order \( R^{-1} \). Therefore \( R^{-1} \) is not a well-order.
+\end{proof}
+
+\begin{problem}{II.1.8}
+Show that if \(A\) is a finite set, each total ordering is a well-ordering.
+\end{problem}
+
+\begin{proof}
+	Every singleton subset of \(A\) has a first element.
+
+	Assume that every subset of \(n\) elements of \(A\) has a first element where \(n\) is a positive integer. Consider a subset \( B \subset A \) having \( n + 1 \) elements. Let \( b \) be an element of \( B \) then \( B - \left\{ b \right\} \) has \( n \) elements. By the inductive hypothesis, \( B - \left\{ b \right\} \) has a first element \( b_{0} \). Since \(A\) is totally ordered, \( b \) precedes \( b_{0} \) or \( b_{0} \) precedes \( b \). Therefore \( b \) or \( b_{0} \) is a first element of \( B \).
+
+	By the principle of mathematical induction and the finiteness of \(A\), we conclude that every nonempty subset of \(A\) has a first element with respect to any given total ordering, hence each total ordering on a finite set is a well-ordering.
+\end{proof}
+
+\begin{problem}{II.1.9}\label{problem:II.1.9}
+Let \(A, B\) be well-ordered. Show that lexicographic ordering in \(A \times B\) is also a well-ordering.
+\end{problem}
+
+\begin{proof}
+	Denote the well-orders on \(A, B\) by \( \prec_{A}, \prec_{B} \), respectively, and the lexicographic ordering in \(A\times B\) by \(\prec\).
+
+	For all \( (a, b) \in A \times B \), \( (a, b) \prec (a, b) \), so \( \prec \) is reflexive.
+
+	If \( (a_{1}, b_{1}), (a_{2}, b_{2}), (a_{3}, b_{3}) \in A\times B \) such that \( (a_{1}, b_{1}) \prec (a_{2}, b_{2}) \) and \( (a_{2}, b_{2}) \prec (a_{3}, b_{3}) \) then \( a_{1} \prec_{A} a_{2} \) and \( a_{2} \prec a_{3} \). If \( a_{1} \ne a_{3} \) then \( (a_{1}, b_{1}) \prec (a_{3}, b_{3}) \). If \( a_{1} = a_{3} \) then \( a_{1} \prec_{A} a_{2} \) and \( a_{2} \prec_{A} a_{1} \), from which we deduce that \( a_{1} = a_{2} \) and \( a_{2} = a_{3} \). Therefore \( b_{1} \prec_{B} b_{2} \) and \( b_{2} \prec_{B} b_{3} \), which implies \( b_{1} \prec_{B} b_{3} \), so \( (a_{1}, b_{1}) \prec (a_{3}, b_{3}) \). Hence \( \prec \) is transitive.
+
+	If \( (a_{1}, b_{1}), (a_{2}, b_{2}) \in A\times B \) such that \( (a_{1}, b_{1}) \prec (a_{2}, b_{2}) \) and \( (a_{2}, b_{2}) \prec (a_{1}, b_{1}) \) then \( a_{1} \prec_{A} a_{2} \) and \( a_{2} \prec_{A} a_{1} \) so \( a_{1} = a_{2} \). From the definition of lexicographic orderings, it follows that \( b_{1} \prec_{B} b_{2} \) and \( b_{2} \prec_{B} b_{1} \), so \( b_{1} = b_{2} \). Therefore \( (a_{1}, b_{1}) = (a_{2}, b_{2}) \), hence \( \prec \) is antisymmetric.
+
+	Hence \( \prec \) is a partial order on \( A\times B \).
+
+	Let \( C \) be a nonempty subset of \( A\times B \). Denote by \( \pi_{A} \) the canonical projection \( A\times B \to A \). The image \( \pi_{A}(C) \subset A \) is nonempty so it has a first element, namely, \( a_{0} \). Consider the subset \( D = \left\{ b \in B \mid (a_{0}, b) \in C \right\} \), \( D \) is nonempty because \( \pi_{A}(C) \) is nonempty. Since \( B \) is well-ordered, \( D \) has a first element, namely, \( b_{0} \). By the definition of lexicographic orderings, \( (a_{0}, b_{0}) \) is a first element in \( C \). Hence the lexicographic ordering in \( A\times B \) is a well-ordering.
+\end{proof}
+
+\begin{problem}{II.1.10}\label{problem:II.1.10}
+Let \(A\) be well-ordered. Show that there does not exist any sequence \(\{a_{n} \mid n \in \mathbb{N}\}\) with \((a_{n+1} \prec a_{n}) \land (a_{n+1} \neq a_{n})\) for each \(n\).
+\end{problem}
+
+
+\begin{proof}
+	Assume that there exists such a sequence \( {(a_{n})}_{n\in\mathbb{N}} \). Because \( A \) is well-ordered, the set \( \left\{ a_{n} \mid n \in \mathbb{N} \right\} \) has a minimal element, so there is some \( n \in \mathbb{N} \) such that \( a_{n} \) is equal to the minimal element of \( \left\{ a_{n} \mid n \in \mathbb{N} \right\} \). Therefore \( a_{n} \prec a_{n+1} \), which contradicts the definition of the sequence \( {(a_{n})}_{n\in\mathbb{N}} \). Hence there does not exist such a sequence.
+\end{proof}
+
+\begin{problem}{II.1.11}
+Let \(\{A_{\alpha} \mid \alpha \in \mathscr{A}\}\) be a family of well-ordered sets {\color{red} (all but finitely many \( A_{\alpha} \) are non-singletons)}, and assume that \(\mathscr{A}\) is also well-ordered. Order \(\prod_{\alpha} A_\alpha\) lexicographically (as in Problem~\ref{problem:II.1.5}, this means: if \(\beta\) is the first element in \(\{\alpha \in \mathscr{A} \mid p_{\alpha}(x) \neq p_{\alpha}(y)\}\), then \(x \prec y\) if and only if \(p_{\beta}(x) \prec p_{\beta}(y)\)). Using Problem~\ref{problem:II.1.10}, show that this is a well-ordering in \(\prod_{\alpha} A_{\alpha}\) if and only if \(\mathscr{A}\) is a finite set.
+\end{problem}
+
+\begin{proof}
+	This proof implicitly assumes the axiom of choice.
+
+	Using the result of Problem~\ref{problem:II.1.9} and mathematical induction, one can show that if \( \mathscr{A} \) is a finite set then the given relation is a well-ordering in \( \prod_{\alpha} A_{\alpha} \).
+
+	Conversely, suppose that the given relation is a well-ordering in \( \prod_{\alpha} A_{\alpha} \). Suppose on the contrary that \( \mathscr{A} \) is infinite. Let \( \mathscr{B} = \left\{ \alpha \in \mathscr{A} \mid A_{\alpha} \text{ is not a singleton } \right\} \). The map \( f: \prod_{\alpha\in \mathscr{A}} A_{\alpha} \to \prod_{\alpha\in \mathscr{B}} A_{\alpha} \) defined by \( f(c)(\alpha) = c(\alpha) \) for every \( c \in \prod_{\alpha\in\mathscr{A}} A_{\alpha} \) and \( \alpha \in \mathscr{B} \) is a relation-preserving bijection. Therefore it suffices to assume without loss of generality that every \( A_{\alpha} \) is non-singleton.
+
+	In each \( A_{\alpha} \), let \( a_{\alpha} \) be the minimal element of \( A_{\alpha} \) and \( b_{\alpha} \) the successor of \( a_{\alpha} \). We use the sequence \( {(\alpha_{n})}_{n\in\mathbb{N}} \) in which \( \alpha_{0} \) is the minimal element of \( \mathscr{A} \) and \( \alpha_{n+1} \) is the minimal element of \( \mathscr{A} - \left\{ \alpha \in \mathscr{A} \mid \alpha_{n} \prec \alpha \land \alpha \ne \alpha_{n} \right\} \). Let's define a sequence \( {(f_{n})}_{n\in\mathbb{N}} \) in \( \prod_{\alpha} A_{\alpha} \) as follows:
+	\[
+		f_{n}(\alpha) = \begin{cases}
+			a_{\alpha} & \alpha \ne \alpha_{n} \\
+			b_{\alpha} & \alpha = \alpha_{n}
+		\end{cases}
+	\]
+
+	then \( {(f_{n})}_{n\in\mathbb{N}} \) is a decreasing sequence, which contradicts the result in Problem~\ref{problem:II.1.10}.
+
+	Thus the given ordering is a well-ordering in \(\prod_{\alpha} A_{\alpha}\) if and only if \(\mathscr{A}\) is a finite set.
+\end{proof}
+
+\section{Zorn's Lemma; Zermelo's Theorem}
+
+\section{Ordinals}
+
+\section{Comparability of Ordinals}
+
+\section{Transfinite induction and Construction}
+
+\section{Ordinal numbers}
+
+\section{Cardinals}
+
+\section{Cardinal Arithmetic}
+
+\section{The ordinal number omega}
