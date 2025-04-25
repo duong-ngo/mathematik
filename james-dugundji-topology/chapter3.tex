@@ -2,6 +2,150 @@
 
 \section{Topological spaces}
 
+\begin{problem}{III.1.1}
+\begin{enumerate}[label={(\alph*)},leftmargin=*]
+	\item Let \( X \) be an infinite set. Show that \( \mathscr{A}_{0} = \left\{ \varnothing \right\} \cup \left\{ A \mid \mathscr{C}A \text{ is finite} \right\} \) is a topology.
+	\item Let \( \aleph(X) \ge \aleph_{0} \). Show that \( \mathscr{A}_{1} = \left\{ \varnothing \right\} \cup \left\{ A \mid \aleph(\mathscr{C}A) < \aleph(X) \right\} \) is a topology.
+\end{enumerate}
+\end{problem}
+
+\( \mathscr{A}_{0} \) is called the cofinite topology on \( X \).
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)},leftmargin=*]
+		\item \( \varnothing \in \mathscr{A}_{0} \) and \( \mathscr{C}X = \varnothing \) is finite so \( \mathscr{A}_{0} \) contains \( \varnothing \) and \( X \).
+
+		      Assume that \( {(A_{\alpha})}_{\alpha\in\mathscr{A}} \) is a family of elements of \( \mathscr{A}_{0} \). According to the De Morgan's laws
+		      \begin{align*}
+			      \mathscr{C}\left( \bigcup_{\alpha\in\mathscr{A}} A_{\alpha} \right) = \bigcap_{\alpha\in\mathscr{A}} \mathscr{C}A_{\alpha}
+		      \end{align*}
+
+		      If there exists \( \alpha \in \mathscr{A} \) such that \( \mathscr{C}A_{\alpha} \) is finite, then \( \bigcap_{\alpha\in\mathscr{A}} \mathscr{C}A_{\alpha} \) is finite for being a subset of \( \mathscr{C}A_{\alpha} \). Otherwise, \( \bigcap_{\alpha\in\mathscr{A}} \mathscr{C}A_{\alpha} = \bigcap_{\alpha\in\mathscr{A}} X = X \). In either case, it is true that \( \bigcup_{\alpha\in\mathscr{A}} A_{\alpha} \in \mathscr{A}_{0} \).
+
+		      Moreover, if \( \mathscr{A} \) is finite then
+		      \begin{align*}
+			      \mathscr{C}\left( \bigcap_{\alpha\in\mathscr{A}} A_{\alpha} \right) = \bigcup_{\alpha\in\mathscr{A}} \mathscr{C}A_{\alpha}
+		      \end{align*}
+
+		      If there exists \( \alpha \in \mathscr{A} \) such that \( A_{\alpha} = \varnothing \) then \( \bigcap_{\alpha\in\mathscr{A}} A_{\alpha} = \varnothing \in \mathscr{A}_{0} \). Otherwise, \( \mathscr{A} \) is finite and each \( \mathscr{C}A_{\alpha} \) is finite, so their union is also finite, which implies that \( \bigcup_{\alpha\in}\mathscr{C}A_{\alpha} \) is finite. In either case, it is true that \( \bigcap_{\alpha\in\mathscr{A}} A_{\alpha} \in \mathscr{A}_{0} \) for any finite \( \mathscr{A} \).
+
+		      Thus \( \mathscr{A}_{0} \) is a topology.
+		\item \( \varnothing \in \mathscr{A}_{1} \) and \( \mathscr{C}X = \varnothing \) so \( \mathscr{A}_{1} \) contains \( \varnothing \) and \( X \).
+
+		      Assume that \( {(A_{\alpha})}_{\alpha\in\mathscr{A}} \) is a family of elements of \( \mathscr{A}_{1} \). According to the De Morgan's laws
+		      \begin{align*}
+			      \mathscr{C}\left( \bigcup_{\alpha\in\mathscr{A}} A_{\alpha} \right) = \bigcap_{\alpha\in\mathscr{A}} \mathscr{C}A_{\alpha}
+		      \end{align*}
+
+		      If there exists \( \alpha \in \mathscr{A} \) such that \( \aleph(\mathscr{C}A_{\alpha}) < \aleph(X) \), then \( \aleph\left(\bigcap_{\alpha\in\mathscr{A}} \mathscr{C}A_{\alpha}\right) \le \aleph(\mathscr{C}A_{\alpha}) < \aleph(X) \). Otherwise, \( \bigcap_{\alpha\in\mathscr{A}} \mathscr{C}A_{\alpha} = \bigcap_{\alpha\in\mathscr{A}} X = X \). In either case, it is true that \( \bigcup_{\alpha\in\mathscr{A}} A_{\alpha} \in \mathscr{A}_{1} \).
+
+		      Moreover, if \( \mathscr{A} \) is finite then
+		      \begin{align*}
+			      \mathscr{C}\left( \bigcap_{\alpha\in\mathscr{A}} A_{\alpha} \right) = \bigcup_{\alpha\in\mathscr{A}} \mathscr{C}A_{\alpha}
+		      \end{align*}
+
+		      If there exists \( \alpha \in \mathscr{A} \) such that \( A_{\alpha} = \varnothing \) then \( \bigcap_{\alpha\in\mathscr{A}} A_{\alpha} = \varnothing \in \mathscr{A}_{1} \). Otherwise, \( \mathscr{A} \) is finite and \( \aleph(\mathscr{C}A_{\alpha}) < \aleph(X) \) for each \( \alpha \).
+
+		      We show that if \( X \) is infinite, \( A, B \subset X \) and \( \aleph(A) < \aleph(X), \aleph(B) < \aleph(X) \) then \( \aleph(A \cup B) < \aleph(X) \). If \( A, B \) are both finite then \( \aleph(A \cup B) < \aleph_{0} < \aleph(X) \). Otherwise, \( \aleph(A \cup B) = \max\left\{\aleph(A); \aleph(B)\right\} < \aleph(X) \).
+
+		      Using mathematical induction, one can show that \( \aleph\left( \bigcup_{\alpha\in\mathscr{A}} \mathscr{C}A_{\alpha}\right) < \aleph(X) \).
+
+		      In either case, it is true that \( \bigcap_{\alpha\in\mathscr{A}} A_{\alpha} \in \mathscr{A}_{1} \) for any finite \( \mathscr{A} \).
+
+		      Thus \( \mathscr{A}_{1} \) is a topology.
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{III.1.2}
+How many distinct topologies can a set of three elements have? What is their partial ordering?
+\end{problem}
+
+\begin{proof}
+	There are exactly 29 possible topologies on \( X = \left\{ a, b, c \right\} \).
+	\begin{enumerate}
+		\item \( \left\{ \varnothing, \left\{ a, b, c \right\} \right\} \)
+		\item \( \left\{ \varnothing, \left\{ a \right\}, \left\{ a, b, c \right\} \right\} \)
+		\item \( \left\{ \varnothing, \left\{ b \right\}, \left\{ a, b, c \right\} \right\} \)
+		\item \( \left\{ \varnothing, \left\{ c \right\}, \left\{ a, b, c \right\} \right\} \)
+		\item \( \left\{ \varnothing, \left\{ a, b \right\}, \left\{ a, b, c \right\} \right\} \)
+		\item \( \left\{ \varnothing, \left\{ b, c \right\}, \left\{ a, b, c \right\} \right\} \)
+		\item \( \left\{ \varnothing, \left\{ a, c \right\}, \left\{ a, b, c \right\} \right\} \)
+		\item \( \left\{ \varnothing, \left\{ a \right\}, \left\{ a, b \right\}, \left\{ a, b, c \right\} \right\} \)
+		\item \( \left\{ \varnothing, \left\{ b \right\}, \left\{ a, b \right\}, \left\{ a, b, c \right\} \right\} \)
+		\item \( \left\{ \varnothing, \left\{ c \right\}, \left\{ a, b \right\}, \left\{ a, b, c \right\} \right\} \)
+		\item \( \left\{ \varnothing, \left\{ a \right\}, \left\{ b \right\} \left\{ a, b \right\}, \left\{ a, b, c \right\} \right\} \)
+		\item \( \left\{ \varnothing, \left\{ a \right\}, \left\{ b, c \right\}, \left\{ a, b, c \right\} \right\} \)
+		\item \( \left\{ \varnothing, \left\{ b \right\}, \left\{ b, c \right\}, \left\{ a, b, c \right\} \right\} \)
+		\item \( \left\{ \varnothing, \left\{ c \right\}, \left\{ b, c \right\}, \left\{ a, b, c \right\} \right\} \)
+		\item \( \left\{ \varnothing, \left\{ b \right\}, \left\{ c \right\} \left\{ b, c \right\}, \left\{ a, b, c \right\} \right\} \)
+		\item \( \left\{ \varnothing, \left\{ a \right\}, \left\{ a, c \right\}, \left\{ a, b, c \right\} \right\} \)
+		\item \( \left\{ \varnothing, \left\{ b \right\}, \left\{ a, c \right\}, \left\{ a, b, c \right\} \right\} \)
+		\item \( \left\{ \varnothing, \left\{ c \right\}, \left\{ a, c \right\}, \left\{ a, b, c \right\} \right\} \)
+		\item \( \left\{ \varnothing, \left\{ a \right\}, \left\{ c \right\}, \left\{ a, c \right\}, \left\{ a, b, c \right\} \right\} \)
+		\item \( \left\{ \varnothing, \left\{ b \right\}, \left\{ a, b \right\}, \left\{ b, c \right\}, \left\{ a, b, c \right\} \right\} \)
+		\item \( \left\{ \varnothing, \left\{ a \right\}, \left\{ b \right\}, \left\{ a, b \right\}, \left\{ b, c \right\}, \left\{ a, b, c \right\} \right\} \)
+		\item \( \left\{ \varnothing, \left\{ b \right\}, \left\{ c \right\}, \left\{ a, b \right\}, \left\{ b, c \right\}, \left\{ a, b, c \right\} \right\} \)
+		\item \( \left\{ \varnothing, \left\{ c \right\}, \left\{ b, c \right\}, \left\{ a, c \right\}, \left\{ a, b, c \right\} \right\} \)
+		\item \( \left\{ \varnothing, \left\{ a \right\}, \left\{ c \right\}, \left\{ b, c \right\}, \left\{ a, c \right\}, \left\{ a, b, c \right\} \right\} \)
+		\item \( \left\{ \varnothing, \left\{ b \right\}, \left\{ c \right\}, \left\{ b, c \right\}, \left\{ a, c \right\}, \left\{ a, b, c \right\} \right\} \)
+		\item \( \left\{ \varnothing, \left\{ a \right\}, \left\{ a, b \right\}, \left\{ a, c \right\}, \left\{ a, b, c \right\} \right\} \)
+		\item \( \left\{ \varnothing, \left\{ a \right\}, \left\{ b \right\}, \left\{ a, b \right\}, \left\{ a, c \right\}, \left\{ a, b, c \right\} \right\} \)
+		\item \( \left\{ \varnothing, \left\{ a \right\}, \left\{ c \right\}, \left\{ a, b \right\}, \left\{ a, c \right\}, \left\{ a, b, c \right\} \right\} \)
+		\item \( \left\{ \varnothing, \left\{ a \right\}, \left\{ b \right\}, \left\{ c \right\}, \left\{ a, b \right\}, \left\{ b, c \right\}, \left\{ a, c \right\}, \left\{ a, b, c \right\} \right\} \)
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{III.1.3}
+Let \( \mathscr{T}_{X}, \mathscr{T}_{Y} \) be topologies in \( X, Y \), respectively. Is
+\[ \mathscr{T} = \left\{ A\times B \mid A \in \mathscr{T}_{X}, B \in \mathscr{T}_{Y} \right\} \]
+
+a topology in \( X\times Y \)?
+\end{problem}
+
+\begin{proof}
+	In general, it is not a topology in \( X\times Y \). Here is a counterexample.
+
+	\( X = Y = \left\{ 0, 1 \right\} \) and \( \mathscr{T}_{X} = \mathscr{T}_{Y} = \left\{ \varnothing, \left\{ 0 \right\}, \left\{ 1 \right\}, \left\{ 0, 1 \right\} \right\} \). Let \( A_{1} = B_{1} = \left\{ 0 \right\} \) and \( A_{2} = B_{2} = \left\{ 1 \right\} \) then \( A_{1} \times B_{1}, A_{2} \times B_{2} \in \mathscr{T} \) and \( A_{1} \times B_{1} \cup A_{2} \times B_{2} = \left\{ (0, 0), (1, 1) \right\} \), which is not a Cartesian product of any two sets as it contains \( (0, 0), (1, 1) \) but not \( (0, 1), (1, 0) \).
+\end{proof}
+
+\begin{problem}{III.1.4}\label{problem:III.1.4}
+Let \( X \) be a partially ordered set. Define \( U \subset X \) to be open if it satisfies the condition: \( (x \in U) \land (y \prec x) \implies y \in U \). Show that \( \left\{ U \mid U \text{ is open} \right\} \) is a topology.
+\end{problem}
+
+This is in fact an Alexandrov topology, in which the intersection of arbitrarily many open sets is open.
+
+\begin{proof}
+	Let \( \mathscr{T} = \left\{ U \mid U \text{ is open} \right\} \) then \( \varnothing, X \in \mathscr{T} \) (the first one is vacuously true).
+
+	Assume that \( {(U_{\alpha})}_{\alpha\in\mathscr{A}} \) is a family of open sets and denote \( U = \bigcup_{\alpha\in\mathscr{A}} U_{\alpha}, V = \bigcap_{\alpha\in\mathscr{A}} \).
+
+	If \( x \in U \) and \( y \prec x \) then there exists \( \alpha \in \mathscr{A} \) such that \( x \in U_{\alpha} \). From the definition of open sets, we deduce that \( y \in U_{\alpha} \subset U \). Therefore \( U \) is open.
+
+	If \( x \in V \) and \( y \prec x \) then from the definition of open sets, we deduce that \( y \in U_{\alpha} \subset U \) for every \( \alpha\in\mathscr{A} \). Therefore \( V \) is open.
+
+	Thus \( \left\{ U \mid U \text{ is open} \right\} \) is a topology.
+\end{proof}
+
+\begin{problem}{III.1.5}
+In \( \mathbb{Z}^{+} \), define \( U \subset \mathbb{Z}^{+} \) to be open if it satisfies the condition: \( n \in U \implies \) every divisor of \( n \) belongs to \( U \). Show that this is a topology in \( \mathbb{Z}^{+} \) and that it is not the discrete topology.
+\end{problem}
+
+\begin{proof}
+	This is a particular case of the result in Problem~\ref{problem:III.1.4} as ``is a divisor of'' is a partial ordering on \( \mathbb{Z}^{+} \).
+
+	This is not the discrete topology as it doesn't contain the subset of the form \( \left\{ n \right\} \) where \( n > 1 \).
+\end{proof}
+
+\begin{problem}{III.1.6}
+Prove: \( \mathscr{T} \) is the discrete topology in \( X \) if and only if every point is an open set.
+\end{problem}
+
+\begin{proof}
+	If \( \mathscr{T} \) is the discrete topology in \( X \) then every point is an open set by the definition of discrete topology.
+
+	Conversely, if every point is an open set then every subset \( A \) of \( X \) is a union of open set, since \( A = \bigcup_{x\in A} \left\{x\right\} \), so \( A \in \mathscr{T} \) for every subset \( A \) of \( X \). Therefore \( \mathscr{T} \) is the discrete topology in \( X \).
+\end{proof}
+
 \section{Basis for a given topology}
 
 \section{Topologizing of sets}
