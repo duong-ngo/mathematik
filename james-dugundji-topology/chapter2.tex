@@ -228,6 +228,84 @@ Let \(\{A_{\alpha} \mid \alpha \in \mathscr{A}\}\) be a family of well-ordered s
 
 \section{Zorn's Lemma; Zermelo's Theorem}
 
+\begin{problem}{II.2.1}
+Prove the following extension of Zorn's lemma: If \( X \) is preordered and if each chain in \(X\) has an upper bound, then for each given \( x_{0} \in X \) there exists a maximal \( m \) with \( x_{0} \prec m \).
+\end{problem}
+
+\begin{proof}
+	Define \( A = \left\{ x \in X \mid x_{0} \prec x \right\} \).
+
+	\( A \) is nonempty as it contains \( x_{0} \) and \( A \) is partially ordered by \( \prec \). Every chain in \( A \) is a chain in \( X \) hence it has an upper bound in \( X \). From the definition of \( A \) and the transitivity of \( \prec \), this upper bound is also in \( A \), so every chain in \( A \) has an upper bound in \( A \).
+
+	By Zorn's lemma, \( A \) has a maximal element \( m \). Because of the definition of \( A \), \( \neg (m \prec x) \) for every \( x \in X - A \). Hence \( m \) is a maximal element of \( X \) with \( x_{0} \prec m \).
+\end{proof}
+
+\begin{problem}{II.2.2}
+Prove the following equivalent to the axiom of choice.
+\begin{enumerate}[label={(\alph*)},leftmargin=*]
+	\item If \(X\) is a preordered set, and if each well-ordered subset has an upper bound, then \(X\) has at least one maximal element. [Hint: One way to prove this is to require that a \( \varphi \)-tower be well-ordered by inclusion, rather than merely totally ordered, and then modify the proofs in 2.1, 2.3 accordingly.]
+	\item If \( F: X \to \mathscr{P}(Y) \) is any mapping such that \( F(x) \ne \varnothing \) for each \( x \in X \), then there exists an \( f: X \to Y \) such that \( f(x) \in F(x) \) for each \( x \in X \).
+	\item If \( X \) is a partially ordered set, then each chain in \(X\) is contained in a maximal chain.
+	\item If \( \mathscr{P}(X) \) is partially ordered by inclusion, then each subset \( P \subset \mathscr{P}(X) \) of finite character contains a maximal element. [\( P \subset \mathscr{P}(X) \) is of finite character if \( A \in P \iff \text{(every finite subset of \(A\) belongs to \(P\))} \)]
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	Assume the axiom of choice, then the Zorn's lemma holds.
+
+	\begin{enumerate}[label={(\alph*)}]
+		\item Let \( \mathcal{W} \) be the set of well-ordered subsets of \( X \). From the hypothesis, each element of \( \mathcal{W} \) has an upper bound in \( X \). Define a relation \( \le \) on \( \mathcal{W} \) in which \( W_{1} \le W_{2} \) if and only if \( W_{1} \) is an initial interval (segment) of \( W_{2} \) then \( \le \) is a partial ordering on \( \mathcal{W} \). Assume that \( \mathscr{C} \) is a chain in \( \mathcal{W} \) then \( \bigcup_{C \in \mathscr{C}} C \) is also a well-ordered subset of \( X \) and moreover an upper bound of the chain \( \mathscr{C} \). From the Zorn's lemma, it follows that \( \mathcal{W} \) has a maximal element \( W \). The set \( W \) has an upper bound \( w \). If \( w \) is not a maximal element of \( X \) then there exists \( x \in X \) such that \( w \ne x \land  w \prec x \) then \( W < W \cup \left\{ x \right\} \in \mathcal{W} \), which contradicts the maximality of \( W \). Hence \( X \) has a maximal element.
+		\item From the axiom of choice, there exists a set \( S \) such that \( S \cap F(x) \) has exactly one element for each \( x \in X \). Define \( f: X \to Y \) such that \( f(x) \) is the only element of \( S \cap F(x) \), then \( f(x) \in F(x) \) for each \( x \in X \).
+		\item Let \( Y \) be the set of all chains of \( X \) then \( Y \) is partially ordered by inclusion. Consider a chain \( {(Z_{\alpha})}_{\alpha\in\mathscr{A}} \) in \( Y \), we will show that \( \bigcup_{\alpha\in\mathscr{A}} Z_{\alpha} \) is a chain in \( X \). Let \( x, y \) be any two elements of \( \bigcup_{\alpha\in\mathscr{A}} Z_{\alpha} \) then there exist \( i, j \in \mathscr{A} \) such that \( x \in Z_{i}, y \in Z_{j} \). Since \( {(Z_{\alpha})}_{\alpha\in\mathscr{A}} \) is a chain in \( Y \) then \( Z_{i} \subset Z_{j} \) or \( Z_{j} \subset Z_{i} \). Hence \( x \) and \( y \) are comparable, so \( \bigcup_{\alpha\in\mathscr{A}} Z_{\alpha} \) is a chain in \( X \). Moreover, \( \bigcup_{\alpha\in\mathscr{A}} Z_{\alpha} \) is an upper bound of \( {(Z_{\alpha})}_{\alpha\in\mathscr{A}} \) so every chain in \( Y \) has an upper bound. Apply Zorn's lemma to \( Y \), we obtain that it has a maximal element, which precisely means each chain in \( X \) is contained in a maximal chain.
+		\item \( P \) is a partially ordered set by inclusion. Let \( \mathcal{A} \) be a chain in \( P \). Consider the set \( \bigcup_{A\in\mathcal{A}} A \subset X \) and an arbitrary finite subset \( F \) of it. Since \( \mathcal{A} \) is a chain, there exists an element \( B \) of \( \mathcal{A} \) contaning \( F \) (one can prove this using mathematical induction on the number of elements of \( F \)). Therefore \( B \in P \), which means any finite subset of \( \bigcup_{A\in\mathcal{A}} A \) is an element of \( P \). Hence \( \bigcup_{A\in\mathcal{A}} A \in P \) and \( \bigcup_{A\in\mathcal{A}} A \) is an upper bound of the chain \( \mathcal{A} \). From the Zorn's lemma, it follows that \( P \) has a maximal element.
+	\end{enumerate}
+
+	Conversely,
+	\begin{enumerate}[label={(\alph*)}]
+		\item Let \( X \) be a partially ordered set and each of its chain has an upper bound.
+
+		      Let \( \mathcal{W} \) be the set of well-ordered subsets of \( X \) and we define a relation \( \prec \) on \( \mathcal{W} \) in which \( A \prec B \) if and only if \( A \) is an initial interval (segment) of \( B \). Then \( \prec \) is a preordering on \( \mathcal{W} \). Let \( \mathscr{A} \) be a well-ordered subset of \( \mathcal{W} \) then \( \bigcup_{A\in \mathscr{A}} A \) is a well-ordered subset of \(X\) and an upper bound of \( \mathscr{A} \) by \( \prec \). Hence \( \mathcal{W} \) has a maximal element \( W \subset X \). Let \( w \) be an upper bound of \( W \) and suppose on the contrary that \( w \) is not a maximal element of \( X \) then there exists \( x \in X \) such that \( x \ne w \) and \( w \prec x \). Hence \( W \subsetneq W \cup \left\{ x \right\} \in \mathcal{W} \) which contradicts the maximality of \( W \). Therefore \( X \) has a maximal element, which implies the Zorn's lemma.
+		\item Let \( {(A_{\alpha})}_{\alpha\in\mathscr{A}} \) be a family of nonempty sets (it is a map \( F: \mathscr{A} \to \mathscr{P}\left(\bigcup_{\alpha\in\mathscr{A}} A_{\alpha}\right) \)). From (b), there exists a map \( f: \mathscr{A} \to \bigcup_{\alpha\in\mathscr{A}} A_{\alpha} \) such that \( f(\alpha) \in F(\alpha) = A_{\alpha} \) for every \( \alpha \in \mathscr{A} \). Hence the axiom of choice holds.
+		\item Let \( X \) be a partially ordered set and each of its chain has an upper bound.
+
+		      Let \( A \) be a chain in \( X \). From (c), \( A \) is contained in a maximal chain \( C \subset X \). From the hypothesis, \( C \) has an upper bound \( x \). Suppose on the contrary that \( x \) is not a maximal element of \( X \) then there exists \( y \in X \) such that \( x \ne y \) and \( x \leq y \). So \( C \subsetneq C \cup \left\{ y \right\} \subset X \) and \( C \cup \left\{ y \right\} \) is a chain which is a proper superset of \( C \), and this contradicts the maximality of \( C \). Hence \( x \) is a maximal element of \( X \), so the Zorn's lemma holds.
+		\item Let \( X \) be a partially ordered set and each of its chain has an upper bound.
+
+		      Let \( Y \subset \mathscr{P}(X) \) be the set of all chains in \( X \). If \( A \in Y \) then \( A \) is a chain in \( X \), so every finite subset of \( A \) is a chain of \( X \) hence contained in \( Y \). Therefore \( Y \) is of finite character, which implies \( Y \) has a maximal element. So \( X \) has a maximal chain. From Hausdorff maximal principle (c) we conclude that the Zorn's lemma holds.
+	\end{enumerate}
+
+	Hence the axiom of choice and the four given statements are equivalent.
+\end{proof}
+
+\begin{problem}{II.2.3}
+Let \( \mathscr{P}(X) \) be partially ordered by inclusion, and let \( \mathscr{A} \subset \mathscr{P}(X) \) be a maximal chain. In \( X \), define \( x \prec y \) if either \( x = y \) or \( \exists A \in \mathscr{A}: (x \in A) \land (y \notin A) \). Show that this is a total order in \( X \). If, in addition, for each \( \mathscr{L} \subset \mathscr{A} \), it is true that
+\[
+	\bigcap \left\{ A \mid A \in \mathscr{L} \right\} \in \mathscr{A},
+\]
+
+show that \( \prec \) is a well-order.
+\end{problem}
+
+\begin{proof}
+\end{proof}
+
+\begin{problem}{II.2.4}
+Let \(X\) be a partially ordered by \( R \subset X \times X \). Show that there exists a total order \( R^{\prime} \supset R \).
+\end{problem}
+
+\begin{proof}
+\end{proof}
+
+\begin{problem}{II.2.5}
+Let \( A \) be partially ordered. A set \( B \subset A \) is called cofinal in \(A\) if
+\[
+	\forall a\in A\; \exists b\in B: a \prec b.
+\]
+
+Prove that every totally ordered set has a cofinal well-ordered subset.
+\end{problem}
+
+
 \section{Ordinals}
 
 \section{Comparability of Ordinals}
