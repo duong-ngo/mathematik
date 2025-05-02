@@ -148,6 +148,209 @@ Prove: \( \mathscr{T} \) is the discrete topology in \( X \) if and only if ever
 
 \section{Basis for a given topology}
 
+\begin{problem}{III.3.1}
+Use 3.2 to verify the final statement of section 1, examples 4 and 5.
+\end{problem}
+
+\begin{proof}
+	The family of open intervals in \( E^{1} \) is a basis for the Euclidean topology in \( E^{1} \).
+
+	The family of open balls in \( E^{n} \) is a basis for the Euclidean topology in \( E^{n} \).
+
+	We prove the latter as it is more general. Let \( \mathscr{B} \) be the collection of open balls in \( E^{n} \) and \( B(x_{1}; r_{1}), B(x_{2}; r_{2}) \in \mathscr{B} \). If \( x \in B_{1}(x_{1}; r_{1}) \cap B_{2}(x_{2}; r_{2}) \), then \( x \in B(x; r) \subset B_{1}(x_{1}; r_{1}) \cap B_{2}(x_{2}; r_{2}) \), in which \( r = \min\left\{ r_{1} - \left\vert x - x_{1} \right\vert, r_{2} - \left\vert x - x_{2} \right\vert \right\} \). Hence \( \mathscr{B} \) is a basis for some topology in \( E^{n} \). Denote this topology by \( \mathscr{T}(\mathscr{B}) \).
+
+	According to Theorem 3.2, \( \mathscr{T}(\mathscr{B}) \) is unique and is the smallest topology containing \( \mathscr{B} \). Hence the Euclidean topology \( \mathscr{T} \) in \( E^{n} \) contains \( \mathscr{T}(\mathscr{B}) \). Moreover, if \( G \in \mathscr{T} \) then for each \( x \in G \), there exists \( r(x) > 0 \) such that \( x \in B(x; r(x)) \subset G \), from which we deduce that \( G = \bigcup_{x\in G} B(x; r(x)) \in \mathscr{T}(\mathscr{B}) \). Hence \( \mathscr{T} = \mathscr{T}(\mathscr{B}) \).
+\end{proof}
+
+\begin{problem}{III.3.2}
+If, in the plane, all straight lines are taken as subbasis, what is the topology?
+\end{problem}
+
+\begin{proof}
+	Since all straight lines are taken as subbasis, then the intersections of non-parallel straight lines are open, which means any point is open. Therefore the topology is the discrete topology.
+\end{proof}
+
+\begin{problem}{III.3.3}
+Describe the open sets if all straight lines in the plane parallel to the \(x\)-axis are used for subbasis.
+\end{problem}
+
+\begin{proof}
+	Each open set is a union of straight lines parallel to the \(x\)-axis.
+\end{proof}
+
+\begin{problem}{III.3.4}
+Let \(X\) be the set of all \( (n\times n) \) matrices of real numbers. For each \( a = {(a_{ij})} \) and \( r > 0 \), let \( U_{r}(a) = \left\{ (b_{ij}) \mid \forall i, j: \left\vert a_{ij} - b_{ij} \right\vert < r \right\} \). Show that these sets are the basis for a topology in \( X \).
+\end{problem}
+
+\begin{proof}
+	Assume that \( a \in U_{r_{1}}(a^{1}) \cap U_{r_{2}}(a^{2}) \) then \( a \in U_{r}(a) \subset U_{r_{1}}(a^{1}) \cap U_{r_{2}}(a^{2}) \) in which
+	\[
+		r = \min\limits_{i, j}\left\{ r_{1} - \left\vert a_{ij} - a^{1}_{ij} \right\vert, r_{2} - \left\vert a_{ij} - a^{2}_{ij} \right\vert \right\}
+	\]
+
+	so these sets are the basis for a topology in \(X\), according to Theorem 3.2.
+\end{proof}
+
+\begin{problem}{III.3.5}
+Let \(C\) be the set of all continuous real-valued functions on \( [0, 1] \). For each \( f\in C \), each finite set \( x_{1}, \ldots, x_{n} \in [0, 1] \), and \( \varepsilon > 0 \), let \( U_{(x_{1}, \ldots, x_{n}, \varepsilon)}(f) = \left\{ g \mid \left\vert g(x_{i}) - f(x_{i}) \right\vert < \varepsilon, i = 1, \ldots, n \right\} \). Show (a) that these neighborhoods form a basis for some topology \( \mathscr{L} \); (b) that \( \mathscr{L} \subsetneq \mathscr{U} \); and (c) that \( \mathscr{L} \) and \( \mathscr{M} \) are not related in the partial ordering of topologies in \( C \).
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item Assume that \( h \in U_{(x_{1}, \ldots, x_{n}, \varepsilon)}(f) \cap U_{(y_{1}, \ldots, y_{m}, \delta)}(g) \). We define
+		      \begin{multline*}
+			      r = \min\Bigl\{ \varepsilon - \left\vert h(x_{1}) - f(x_{1}) \right\vert, \ldots, \varepsilon - \left\vert h(x_{n}) - f(x_{n}) \right\vert, \\
+			      \delta - \left\vert h(y_{1}) - g(y_{1}) \right\vert, \ldots, \delta - \left\vert h(y_{m}) - g(y_{m}) \right\vert \Bigr\}
+		      \end{multline*}
+
+		      then \( h \in U_{(x_{1}, \ldots, x_{n}, y_{1}, \ldots, y_{m}, r)}(h) \subset U_{(x_{1}, \ldots, x_{n}, \varepsilon)}(f) \cap U_{(y_{1}, \ldots, y_{m}, \delta)}(g) \).
+
+		      Hence the given neighborhoods form a basis for some topology \( \mathscr{L} \).
+		\item Let \( U_{(x_{1}, \ldots, x_{n}, \varepsilon)}(f) \) be a basic open set of \( \mathscr{L} \) and \( g \in U_{(x_{1}, \ldots, x_{n}, \varepsilon)}(f) \) then let
+		      \[
+			      \delta = \min\limits_{i}\left\{ \varepsilon - \left\vert f(x_{i}) - g(x_{i}) \right\vert \right\}
+		      \]
+
+		      then \( g \in U(g, \delta) \subset U_{(x_{1}, \ldots, x_{n}, \varepsilon)}(f) \). Hence \( \mathscr{L} \subset \mathscr{U} \).
+
+		      Choose \( f \equiv 0 \) and consider \( U(f, 1) \). Let \( g \) be an element of \( U(f, 1) \) then \( \sup\limits_{x}\left\vert f(x) - g(x) \right\vert < 1 \). Consider \( x_{1}, \ldots, x_{n} \in [0, 1] \) and \( \varepsilon > 0 \). There exists a continuous function \( h \in U_{(x_{1}, \ldots, x_{n}, \varepsilon)}(g) \) such that \( h(x_{i}) = g(x_{i}) \) for \( i = 1, \ldots, n \) and \( h(x) = 1 \) for some \( x \in [0, 1] \) other than \( x_{1}, \ldots, x_{n} \) (for example, a piecewise linear function). Hence \( h \in U_{(x_{1}, \ldots, x_{n}, \varepsilon)}(f) \) but \( h \notin U(f, 1) \), which means \( U_{(x_{1}, \ldots, x_{n}, \varepsilon)}(g) \not\subset U(f, 1) \) for every \( g \in U(f, 1) \), every finite subset \( \left\{ x_{1}, \ldots, x_{n} \right\} \subset [0, 1] \), every \( \varepsilon > 0 \). This implies that \( U(f, 1) \) doesn't contains any basic open set of \( \mathscr{L} \), which means \( \mathscr{U} \ne \mathscr{L} \).
+
+		      Thus \( \mathscr{L} \) is strictly coarser (smaller) than \( \mathscr{U} \).
+		\item Choose \( f \equiv 0 \).
+
+		      Let \( g \in M(f, 1) \) and \( \left\{ x_{1}, \ldots, x_{n} \right\} \subset [0, 1], \varepsilon > 0 \). Without loss of generality, when \( n > 1 \), one can assume \( 0 \le x_{1} < x_{2} < \cdots < x_{n} \le 1 \). There exists a continuous function \( h \in C \) such that \( h(x_{i}) = g(x_{i}) \) for \( i = 1, \ldots, n \) and \( \int_{x_{1}}^{x_{2}}\left\vert h \right\vert = \int_{x_{1}}^{x_{2}}\left\vert h - f \right\vert = 1 \). When \( n = 1 \), we can choose \( h \in C \) such that \( h(x_{1}) = g(x_{1}) \) and \( \int_{x_{1}}^{1}\left\vert h \right\vert = 1 \) (if \( x_{1} \ne 1 \)) or \( \int_{0}^{x_{1}}\left\vert h \right\vert = 1 \) (if \( x_{1} = 1 \)). In either cases, \( h \in U_{(x_{1}, \ldots, x_{n}, \varepsilon)}(g) \) but \( h \notin M(f, 1) \).
+
+		      Hence \( M(f, 1) \) doesn't contain any basic open set in \( \mathscr{L} \).
+
+		      Let \( g \in U_{(x_{0}, 1)}(f) \) in which \( 0 < x_{0} < 1 \) and \( \varepsilon > 0 \). We define a function \( k \in C \). We can pick a real number \( \delta \) such that \( 0 < \delta < \min\left\{ \dfrac{\varepsilon}{1 + \left\vert 1 - g(x_{0}) \right\vert}, x_{0}, 1 - x_{0} \right\} \). Define \( k \in C \) as a piecewise linear function
+		      \[
+			      k(x) = \begin{cases}
+				      0                                                      & 0 \le x < x_{0} - \delta       \\
+				      \frac{1 - g(x_{0})}{\delta}(x - x_{0}) + 1 - g(x_{0})  & x_{0} - \delta \le x \le x_{0} \\
+				      -\frac{1 - g(x_{0})}{\delta}(x - x_{0}) + 1 - g(x_{0}) & x_{0} \le x \le x_{0} + \delta \\
+				      0                                                      & x_{0} + \delta < x \le 1
+			      \end{cases}
+		      \]
+
+		      then \( \int_{0}^{1}\left\vert k \right\vert = \delta\left\vert 1 - g(x_{0}) \right\vert < \dfrac{\varepsilon}{1 + \left\vert 1 - g(x_{0})\right\vert} \cdot \left\vert 1 - g(x_{0}) \right\vert < \varepsilon \) so if we define \( h = g + k \) then \( h \in M(g, \varepsilon) \). However, \( h(x_{0}) - f(x_{0}) = h(x_{0}) = k(x_{0}) + g(x_{0}) = (1 - g(x_{0})) + g(x_{0}) = 1 \), which means \( h \notin U_{(x_{0}, 1)}(f) \).
+
+		      So \( U_{(x_{0}, 1)}(f) \) doesn't contain any basic open set in \( \mathscr{M} \).
+
+		      Thus \( \mathscr{L} \) and \( \mathscr{M} \) are not related in the partial ordering of topologies in \( C \).
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{III.3.6}\label{problem:III.3.6}
+Let \( X \) be a partially ordered set {\color{red}with at least two distinct and comparable elements}. Let \( U_{L}(x) = \{y \mid y \prec x\} \) and \( U_{R}(x) = \{y \mid x \prec y\} \). Show:
+\begin{enumerate}[label={(\alph*)}]
+	\item The families \(\{U_{L}(x)\}\), \(\{U_{R}(x)\}\) form bases for topologies \(\mathscr{T}_{L}\), \(\mathscr{T}_{R}\) in \(X\).
+	\item \( G \in \mathscr{T}_{L} \) if and only if it satisfies the condition \( x \in G \implies U_{L}(x) \subset G \).
+	\item In \(\mathscr{T}_{L}\), the arbitrary intersection of open sets is an open set.
+	\item The discrete topology is the only one larger than \(\mathscr{T}_{L}\) and larger than \(\mathscr{T}_{R}\).
+	\item \(\mathscr{T}_{L}\) and \(\mathscr{T}_{R}\) are not related in the partial ordering of the topologies on \(X\).
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item If \( U_{L}(x) \) and \( U_{L}(y) \) are not disjoint then there exists \( z \in U_{L}(x) \cap U_{L}(y) \). Because \( \prec \) is transitive, we deduce that \( U_{L}(z) \subset U_{L}(x) \) and \( U_{L}(z) \subset U_{L}(y) \), which implies \( U_{L}(z) \subset U_{L}(x) \cap U_{L}(y) \). Therefore \( \left\{ U_{L}(x) \right\} \) forms a basis for a topology \( \mathscr{T}_{L} \) in \( X \).
+
+		      If \( U_{R}(x) \) and \( U_{R}(y) \) are not disjoint then there exists \( z \in U_{R}(x) \cap U_{R}(y) \). Because \( \prec \) is transitive, we deduce that \( U_{R}(z) \subset U_{R}(x) \) and \( U_{R}(z) \subset U_{R}(y) \), which implies \( U_{R}(z) \subset U_{R}(x) \cap U_{R}(y) \). Therefore \( \left\{ U_{R}(x) \right\} \) forms a basis for a topology \( \mathscr{T}_{R} \) in \( X \).
+		\item If \( G \in \mathscr{T}_{L} \) then \( G \) is a union of sets of the form \( U_{L}(y) \). In other words, \( G = \bigcup_{y \in I} U_{L}(y) \). If \( x \in G \) then there exists \( y \in I \) such that \( x \in U_{L}(y) \) so \( U_{L}(x) \subset U_{L}(y) \subset G \).
+
+		      Conversely, assume that \( x \in G \implies U_{L}(x) \subset G \) then \( G = \bigcup_{x\in G} U_{L}(x) \), which means \( G \in \mathscr{T}_{L} \) since \( \left\{ U_{L}(x) \right\} \) is a basis for \( \mathscr{T}_{L} \).
+		\item Firstly, we show that the intersection of arbitrary many basic open sets in \( \mathscr{T}_{L} \) is a basic open set in \( \mathscr{T}_{L} \). Let \( S \) be a subset of \( X \) and \( U = \bigcap_{x\in S} U_{L}(x) \). If \( U \) is empty then it is open. Otherwise, for each \( y \in U \), \( U_{L}(y) \subset U_{L}(x) \) for every \( x \in S \) so for each \( y \in U \), \( U_{L}(y) \subset U \). Hence \( U \in \mathscr{T}_{L} \).
+		\item Assume that \( \mathscr{T} \) is a topology on \( X \) containing both \( \mathscr{T}_{L} \) and \( \mathscr{T}_{R} \). Let \( x \) be an arbitrary element of \( X \) then \( \left\{ x \right\} = U_{L}(x) \cap U_{R}(x) \) (due to antisymmetry), which means \( \left\{ x \right\} \in \mathscr{T} \) for every \( x \in X \). Therefore \( \mathscr{T} \) is the discrete topology on \( X \). Conversely, the discrete topology on \( X \) contains both \( \mathscr{T}_{L} \) and \( \mathscr{T}_{R} \). Thus the discrete topology is the only one larger than both \( \mathscr{T}_{L} \) and \( \mathscr{L}_{R} \).
+		\item Let \( a, b \) be two distinct and comparable elements of \( X \). Without loss of generality, assume that \( a \prec b \). Moreover, \( U_{L}(a) \notin \mathscr{T}_{R} \) and \( U_{R}(b) \notin \mathscr{T}_{L} \) (according to part (b)). Thus \(\mathscr{T}_{L}\) and \(\mathscr{T}_{R}\) are not related in the partial ordering of the topologies on \(X\).
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{III.3.7}
+In \(\mathbb{Z}\), let \(p\) be a fixed prime. For each integer \(a > 0\), define \(U_{a}(n) = \{n + \lambda p^{a} \mid \lambda \in \mathbb{Z}\}\). Show that \(\{U_{a}(n)\}\) is a basis for some topology.
+\end{problem}
+
+\begin{proof}
+	Assume that \( U_{a}(n) \cap U_{b}(m) \) is nonempty. Let \( x \in U_{a}(n) \cap U_{b}(m) \) then \( \lambda = \dfrac{x - n}{p^{a}} \) and \( \mu = \dfrac{x - m}{p^{b}} \) are integers. Without loss of generality, assume that \( a \le b \).
+
+	\[ 0 = x - x = (n + \lambda p^{a}) - (m + \mu p^{b}) = (n - m) + (\lambda + \mu p^{b - a}) p^{a} \]
+
+	so
+	\[ m = n + (\lambda + \mu p^{b-a})p^{a} \in U_{a}(n) \]
+
+	from which and \( a \le b \), we deduce that \( U_{b}(m) \subset U_{a}(n) \).
+
+	Therefore \( U_{a}(n) \cap U_{b}(m) = U_{b}(m) \). Hence \( \left\{ U_{a}(n) \right\} \) is a basis for some topology.
+\end{proof}
+
+\begin{problem}{III.3.8}
+Let \(\{\mathscr{T}_\alpha \mid \alpha \in \mathscr{A}\}\) be any family of topologies on \(X\). Define \(\bigvee_\alpha \mathscr{T}_\alpha\) to be the topology having \(\bigcup_\alpha \mathscr{T}_\alpha\) as subbasis.
+\begin{enumerate}[label={(\alph*)}]
+	\item Prove: \( \bigvee_{\alpha} \mathscr{T}_{\alpha} \) is the smallest of the topologies on \(X\) larger than every \( \mathscr{T}_{\alpha} \).
+	\item Show that with the operations \( \mathscr{T}_{1} \vee \mathscr{T}_{2} \) and \( \mathscr{T}_{1} \cap \mathscr{T}_{2} \) that the topologies on \( X \) form a complete lattice.
+	\item Is \( \mathscr{T}_{1} \cap (\mathscr{T}_{2} \vee \mathscr{T}_{3}) = (\mathscr{T}_{1} \cap \mathscr{T}_{2}) \vee (\mathscr{T}_{1} \cap \mathscr{T}_{3}) \) always true?
+	\item What is \( \mathscr{T}_{L} \vee \mathscr{T}_{R} \) in Problem~\ref{problem:III.3.6}?
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item \(\bigvee_\alpha \mathscr{T}_\alpha\) is the topology having \(\bigcup_\alpha \mathscr{T}_\alpha\) as subbasis so it is the smallest topology containing \(\bigcup_\alpha \mathscr{T}_\alpha\).
+
+		      Assume that \( \mathscr{T} \) is a topology larger than every \( \mathscr{T}_{\alpha} \) then every finite intersection of open sets in \( \bigcup_{\alpha}\mathscr{T}_{\alpha} \) is in \( \mathscr{T} \) hence every union of finite intersections of open sets in \( \bigcup_{\alpha} U_{\alpha} \) is in \( \mathscr{T} \). Therefore \( \bigvee_\alpha \mathscr{T}_\alpha \subset \mathscr{T} \).
+
+		      Thus \( \bigvee_\alpha \mathscr{T}_\alpha \) is the smallest of the topologies on \(X\) larger than every \( \mathscr{T}_{\alpha} \).
+		\item Let \( T \) be a collection of topologies on \( X \).
+
+		      \( \bigcap_{\mathscr{T} \in T} \mathscr{T} \) is the largest of the topologies on \( X \) smaller than every \( \mathscr{T} \in T \).
+
+		      \( \bigvee_{\mathscr{T} \in T} \mathscr{T} \) is the smallest of the topologies on \( X \) larger than every \( \mathscr{T} \in T \).
+
+		      Hence \( T \) has a greatest lower bound and a least upper bound, so the topologies on \(X\) with the partial ordering by inclusion form a complete lattice.
+		\item No. It is not true in general. However, \( \mathscr{T}_{1} \cap (\mathscr{T}_{2} \vee \mathscr{T}_{3}) \supset (\mathscr{T}_{1} \cap \mathscr{T}_{2}) \vee (\mathscr{T}_{1} \cap \mathscr{T}_{3}) \) always holds.
+
+		      For counterexamples, let \( X = \left\{ a, b, c \right\} \) and
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      \mathscr{T}_{1} & = \left\{ \varnothing, X, \left\{ a \right\}, \left\{ a, b \right\} \right\} \\
+			      \mathscr{T}_{2} & = \left\{ \varnothing, X, \left\{ a \right\}, \left\{ a, c \right\} \right\} \\
+			      \mathscr{T}_{3} & = \left\{ \varnothing, X, \left\{ b \right\}, \left\{ b, c \right\} \right\}
+		      \end{align*}
+		      \endgroup
+
+		      then
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      \mathscr{T}_{1} \cap (\mathscr{T}_{2} \vee \mathscr{T}_{3})                        & = \mathscr{T}_{1} \cap \left\{ \varnothing, X, \left\{ a \right\}, \left\{ b \right\}, \left\{ c \right\}, \left\{ a, b \right\}, \left\{ b, c \right\}, \left\{ a, c \right\} \right\} \\
+			                                                                                         & = \mathscr{T}_{1}                                                                                                                                                                       \\
+			                                                                                         & = \left\{ \varnothing, X, \left\{ a \right\}, \left\{ a, b \right\} \right\},                                                                                                           \\
+			      (\mathscr{T}_{1} \cap \mathscr{T}_{2}) \vee (\mathscr{T}_{1} \cap \mathscr{T}_{3}) & = \left\{ \varnothing, X, \left\{ a \right\} \right\} \vee \left\{ \varnothing, X \right\}                                                                                              \\
+			                                                                                         & = \left\{ \varnothing, X, \left\{ a \right\} \right\}.
+		      \end{align*}
+		      \endgroup
+		\item According to part (e) of Problem~\ref{problem:III.3.6} and part (a) of this problem, \( \mathscr{T}_{L} \vee \mathscr{T}_{R} \) is the discrete topology.
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{III.3.9}
+In the set \(\mathbb{R}\) of all real numbers, let \( \sigma \) consist of all sets of form \( \left\{ x \mid x > r \right\} \), \( \left\{ x \mid x < r \right\} \), where \( r, s \) are rational. Show that \( \mathscr{T}(\sigma) \) is the Euclidean topology of \( \mathbb{R} \). Is this still true if \( r, s \) are restricted to be numbers of the form \( k/2^{n} \) (\(k\) and \(n\) arbitrary {\color{red}integers})?
+\end{problem}
+
+\begin{proof}
+	The open sets in \( \mathscr{T}(\sigma) \) are the unions of finite intersections of sets of the forms \( \left\{ x \mid x > r \right\} \) and \( \left\{ x \mid x < s \right\} \) in which \( r, s \) are rational. Hence the open sets in \( \mathscr{T}(\sigma) \) are the unions of sets of the form \( \openinterval{r, s} \), \( \left\{ x \mid x > r \right\} \), \( \left\{ x \mid x < s \right\} \) in which \( r, s \) are rational. So the collection \( \mathscr{C} \) of \( \openinterval{r, s} \), \( \left\{ x \mid x > r \right\} \), \( \left\{ x \mid x < s \right\} \) in which \( r, s \) are rational is a basis for \( \mathscr{T}(\sigma) \). For each \( C \in \mathscr{C} \) and for each \( x \in C \) there are \( a, b \in \mathbb{R} \) such that \( x \in \openinterval{a, b} \subset C \).
+
+	The collection of open intervals is a basis for the Euclidean topology of \( \mathbb{R} \). Consider an open interval \( \openinterval{a, b} \) and an arbitrary \( x \in \openinterval{a, b} \). Since there is a rational number between two distinct real numbers, there exist rational numbers \( r \in \openinterval{a, x} \) and \( s \in \openinterval{x, b} \). Hence \( x \in \openinterval{r, s} \subset \openinterval{a, b} \).
+
+	Thus \( \mathscr{T}(\sigma) \) is the Euclidean topology of \( \mathbb{R} \).
+
+	The only property of rational numbers that we exploit in the above proof is that every open interval contains a rational number.
+
+	We show that if two real numbers \( a, b \) are such that \( a < b \) then there exists a rational number of the form \( \dfrac{k}{2^{n}} \) in \( \openinterval{a, b} \). There exists an integer \( n \) such that \( \dfrac{1}{2^{n}} < b - a \) so \( 2^{n}a < 2^{n}a + 1 < 2^{n}b \). Let \( k = \left\lfloor 2^{n}a \right\rfloor + 1 \) then \( 2^{n}a < k \le 2^{n}a + 1 < 2^{n}b \), which implies \( a < \dfrac{k}{2^{n}} < b \).
+
+	Hence every open interval contains a rational numbers of the form \( k/2^{n} \) (\(k\) and \(n\) are arbitrary integers). Thus the statement still holds if \( r, s \) are restricted to be numbers of the form \( k/2^{n} \) (\(k\) and \(n\) are arbitrary integers).
+\end{proof}
+
 \section{Topologizing of sets}
 
 \section{Elementary concepts}
