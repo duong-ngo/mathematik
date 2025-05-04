@@ -287,6 +287,56 @@ show that \( \prec \) is a well-order.
 \end{problem}
 
 \begin{proof}
+	\textbf{Partial order}
+
+	\( \prec \) is reflexive by definition.
+
+	Suppose that \( x \prec y \) and \( y \prec z \). The following cases are exhaustive:
+	\begin{itemize}[itemsep=0pt]
+		\item \( x = y, y = z \) then \( x = z \), so \( x \prec z \).
+		\item \( x = y, y \ne z \) then \( x \prec z \).
+		\item \( x \ne y, y = z \) then \( x \prec z \).
+		\item \( x \ne y, y \ne z \) then there exist \( A, B \in \mathscr{A} \) such that \( x \in A, y \notin A \) and \( y \in B, z \notin B \). Since \( \mathscr{A} \) is a chain, one has \( A \subset B \) or \( B \subset A \). Because \( y \notin A, y \in B \), we deduce that \( A \subset B \). From \( z \notin B \) and \( A \subset B \), it follows that \( z \notin A \). So \( x \in A \) and \( z \notin A \), which means \( x \prec z \).
+	\end{itemize}
+
+	In either cases, one has \( x \prec z \), so \( \prec \) is transitive.
+
+	Suppose that \( x \prec y \) and \( y \prec x \). If \( x \ne y \) then there exist \( A_{x}, A_{y} \in \mathscr{A} \) such that \( x \in A_{x} \), \( y \notin A_{x} \), \( y \in A_{y} \), \( y \notin A_{x} \). Therefore \( A_{x}, A_{y} \) are not related by inclusion, which is a contradiction since \( \mathscr{A} \) is a chain. Hence \( x = y \), which means \( \prec \) is antisymmetric.
+
+	Hence \( \prec \) is a partial order.
+
+	\textbf{Total order}
+
+	Let \( x \) be an element of \( X \) and define
+	\[
+		A_{x} = \bigcup \left\{ A \in \mathscr{A} \mid x \notin A \right\} \in \mathscr{P}(X).
+	\]
+
+	For each \( A \in \mathscr{A} \)
+	\begin{itemize}[itemsep=0pt]
+		\item either \( x \notin A \) --- This implies \( A \subset A_{x} \).
+		\item or \( x \in A \) --- This implies \( B \subset A \) whenever \( x \notin B \in \mathscr{A} \) as \( \mathscr{A} \) is totally ordered. Therefore \( A_{x} \subset A \).
+	\end{itemize}
+
+	Since \( \mathscr{A} \) is a maximal chain, we deduce that \( A_{x} \in \mathscr{A} \). Moreover, from its definition, it follows that \( A_{x} \) is the largest element of \( \mathscr{A} \) not containing \( x \).
+
+	Let \( x, y \) be two elements of \( X \) then \( A_{x}, A_{y} \in \mathscr{A} \), so \( A_{x} \subset A_{y} \) or \( A_{y} \subset A_{x} \). If \( A_{x} \ne A_{y} \) and \( A_{x} \subset A_{y} \) then \( x \prec y \). If \( A_{x} \ne A_{y} \) and \( A_{y} \subset A_{x} \) then \( y \prec x \).
+
+	If \( A_{x} = A_{y} \), assume for the sake of contradiction that \( x \ne y \). From the maximality of \( \mathscr{A} \), we deduce that \( A_{x} \cup \left\{ x \right\} \in \mathscr{A} \), because any element of \( \mathscr{A} \) containing \(x\) also contains \(A_{x}\). However, \( A_{x} = A_{y} \) is the largest element of \( \mathscr{A} \) not containing \( y \) and \( A_{x} \cup \left\{ x \right\} \) is an element of \( \mathscr{A} \) not containing \( y \) and strictly larger than \( A_{y} \), which is a contradiction. Hence \( x = y \).
+
+	Therefore \( \prec \) is a total order in \( X \).
+
+	\textbf{Well order}
+
+	Let \(S\) be a nonempty subset of \(X\).
+
+	Define a map \( f: X \to \mathscr{A} \) by \( f(x) = A_{x} \). According to the above proof, we show that \( f \) is injective and \( x \prec y \iff A_{x} \subset A_{y} \). Let \( \mathscr{B} = \left\{ A_{x} \mid x \in S \right\} \subset \mathscr{A} \) then \( A_{S} = \bigcap \left\{ A \mid A \in \mathscr{B} \right\} \in \mathscr{A} \). The set \( A_{S} \) is the largest element of \( \mathscr{A} \) that doesn't contain any element of \( S \).
+
+	Assume that there doesn't exist an element \( x\in X \) such that \( A_{S} \cup \left\{ x \right\} \in \mathscr{A} \) then for any \( A \in \mathscr{A} \) that is strictly larger than \( A_{S} \), \( A - A_{S} \) has more than one element, this contradicts the maximality of \( \mathscr{A} \) as we can add another set that is strictly between \( A_{S} \) and \( A \). Hence there exists \( s \in X \) such that \( A_{x} \cup \left\{ s \right\} \in \mathscr{A} \).
+
+	Since \( A_{x} \) is the largest element of \( \mathscr{A} \) that doesn't contain any element of \( S \) and \( A_{x} \subsetneq A_{x} \cup \left\{ s \right\} \in \mathscr{A} \), we conclude that \( s \in S \). Moreover, \( s \) is the smallest element of \( S \), as \( f(s) = A_{S} \subset A_{x} = f(x) \) for every \( x \in S \).
+
+	Thus \( S \) has a smallest element, so \( \prec \) is a well order in \(X\).
 \end{proof}
 
 \begin{problem}{II.2.4}
@@ -294,6 +344,24 @@ Let \(X\) be a partially ordered by \( R \subset X \times X \). Show that there 
 \end{problem}
 
 \begin{proof}
+	If \( R \) is already a total order in \( X \) then by picking \( R^{\prime} = R \), we are done.
+
+	Otherwise, there exist \( x, y \in X \) which are not comparable. Define
+	\[
+		S = R \cup \left\{ (x, y) \right\} \cup \left\{ (p, q) \mid pRx \land yRq \right\}
+	\]
+
+	then \( S \) is reflexive, anti-symmetric and transitive. So \( S \) is a proper extension of \( R \).
+
+	Let \( \mathcal{O} \) be the set of partial orders in \( X \) containing \( R \) and order \( \mathcal{O} \) by inclusion. Let \( \mathscr{C} \) be a chain in \( \mathcal{O} \) and \( B = \bigcup \left\{ A \mid A \in \mathscr{C} \right\} \). We show that \( B \in \mathcal{O} \).
+	\begin{itemize}[itemsep=0pt]
+		\item The union of reflexive relations is a reflexive relation, so \( B \) is reflexive.
+		\item If \( x, y \in B \) and \( x B y, y B x \) then there exist \( S_{1}, S_{2} \in \mathscr{C} \) such that \( x S_{1} y \) and \( y S_{2} x \). Since \( \mathscr{C} \) is totally ordered then \( S_{1} \subset S_{2} \) or \( S_{2} \subset S_{1} \). The first case implies \( (x S_{2} y) \land (y S_{2} x) \) so \( x = y \) and the latter implies \( (y S_{1} x) \land (x S_{1} y) \) so \( x = y \). Hence \( B \) is anti-symmetric.
+		\item If \( x, y, z \in B \) and \( x B y, y B z \) then there exist \( S_{1}, S_{2} \in \mathscr{C} \) such that \( x S_{1} y \) and \( y S_{2} z \). Since \( \mathscr{C} \) is totally ordered then \( S_{1} \subset S_{2} \) or \( S_{2} \subset S_{1} \). The first case implies \( x S_{2} z \) and the latter implies \( x S_{1} z \). Hence \( B \) is transitive.
+		\item \( B \) contains \( R \).
+	\end{itemize}
+
+	Hence \( B \in \mathcal{O} \) and \( B \) is an upper bound of \( \mathscr{C} \). According to Zorn's lemma, \( \mathcal{O} \) has a maximal element \( R^{\prime} \). The maximality of \( R^{\prime} \) means it is a total order in \( X \).
 \end{proof}
 
 \begin{problem}{II.2.5}
@@ -305,6 +373,43 @@ Let \( A \) be partially ordered. A set \( B \subset A \) is called cofinal in \
 Prove that every totally ordered set has a cofinal well-ordered subset.
 \end{problem}
 
+\begin{proof}
+	Let \( X \) be a totally ordered set by an order relation \(\prec\). Let \( \mathscr{A} \) be the set of well-ordered subset of \( X \). Define a relation \( \le \) in \( \mathscr{A} \) by \( A \le B \) if and only if \( A \) is an initial interval (segment) of \( B \). Consider a chain \( \mathscr{C} \) in \( \mathscr{A} \), the set \( \bigcup\left\{ C \mid C \in \mathscr{C} \right\} \) is also a well-ordered subset of \( X \). Hence \( \mathscr{C} \) has an upper bound in \( \mathscr{A} \). According to Zorn's lemma, \( \mathscr{A} \) has a maximal element \( A \).
+
+	Assume that \( A \) is not cofinal in \( X \) then there exists \( x \in X \) such that \( \neg (x \prec a) \) for every \( a \in A \), then \( A \cup \left\{ x \right\} \) is a well-ordered subset of \( X \) and this contradicts the maximality of \( A \). Hence \( A \) is a cofinal well-ordered subset of \( X \).
+\end{proof}
+
+\begin{problem}{II.2.6}
+A partially ordered set is ``of type \(\omega\)'' if each chain \(C\) has a cofinal sequence \( \left\{ c_{i} \mid i \in \mathbb{N} \right\} \). Prove that if, in a partially ordered set of type \(\omega\), each ascending sequence has an upper bound, then there is a maximal element.
+\end{problem}
+
+\begin{proof}
+	Let \(X\) be a partially ordered set of type \(\omega\) such that each ascending sequence in \(X\) has an upper bound.
+
+	Let \( C \) be a chain of \( X \) then \( C \) has a cofinal sequence \( \left\{ c_{i} \mid i \in \mathbb{N} \right\} \). We define recursively a sequence \( \left\{ d_{i} \mid i \in \mathbb{N} \right\} \) as follows:
+	\[
+		\begin{cases}
+			d_{0} = c_{0} \\
+			d_{n+1} = \max\left\{ d_{n}, c_{n+1} \right\}
+		\end{cases}
+	\]
+
+	then \( \left\{ d_{i} \mid i \in \mathbb{N} \right\} \) is an ascending sequence. This sequence is well-defined since \( C \) is totally ordered. Moreover, \( c_{n} \leq d_{n} \) for every \( n \in \mathbb{N} \) so \( \left\{ d_{i} \mid i \in \mathbb{N} \right\} \) is also an ascending cofinal sequence in \( C \). Since each ascending sequence in \( X \) has an upper bound and \( \left\{ d_{i} \mid i \in \mathbb{N} \right\} \) is a cofinal sequence in \( C \), we deduce that \( C \) has an upper bound. Hence every chain of \(X\) has an upper bound. According to Zorn's lemma,
+\end{proof}
+
+\begin{problem}{II.2.7}
+Let \(X\) be a preordered set, and assume that each chain in \(X\) has an upper bound. Let \(f: X \to X\) satisfy \( x \prec f(x) \) for each \( x \in X \). Prove: there exists at least one \(x_{0}\) such that \( f(x_{0}) \prec x_{0} \) also.
+\end{problem}
+
+\begin{proof}
+\end{proof}
+
+\begin{problem}{II.2.8}
+Let \( \mathbb{R} \) be the additive group of reals, and \( \mathbb{C} \) the additive group of complex numbers. Prove that the groups \( \mathbb{R} \) and \( \mathbb{C} \) are isomorphic.
+\end{problem}
+
+\begin{proof}
+\end{proof}
 
 \section{Ordinals}
 
