@@ -233,14 +233,14 @@ Prove the following extension of Zorn's lemma: If \( X \) is preordered and if e
 \end{problem}
 
 \begin{proof}
-	Define \( A = \left\{ x \in X \mid x_{0} \prec x \right\} \).
+	Define \( A = \left\{ x \in X \mid x_{0} \prec x \right\} \) then \( A \) is nonempty as \( x_{0} \in A \) then \( A \) is also preordered.
 
-	\( A \) is nonempty as it contains \( x_{0} \) and \( A \) is partially ordered by \( \prec \). Every chain in \( A \) is a chain in \( X \) hence it has an upper bound in \( X \). From the definition of \( A \) and the transitivity of \( \prec \), this upper bound is also in \( A \), so every chain in \( A \) has an upper bound in \( A \).
+    Let \( \mathscr{A} \) be the set of chains in \( A \). The set \( \mathscr{A} \) is partially ordered by inclusion. If \( \mathscr{C} \subset \mathscr{A} \) is a chain in \( \mathscr{A} \) then \( \bigcup \mathscr{C} \) is an upper bound of \( \mathscr{C} \) in \( \mathscr{A} \). According to Zorn's lemma, \( \mathscr{A} \) has a maximal element \( B \). Since \( B \) is a chain in \( A \) (hence a chain in \(X\)), it follows that \( B \) has an upper bound \( m \) in \( X \).
 
-	By Zorn's lemma, \( A \) has a maximal element \( m \). Because of the definition of \( A \), \( \neg (m \prec x) \) for every \( x \in X - A \). Hence \( m \) is a maximal element of \( X \) with \( x_{0} \prec m \).
+    Assume that \(m\) is not a maximal element of \(X\) then there exists \( n \ne m \) such that \( (m \prec n) \land \neg (n \prec m) \) then \( B \cup \left\{ n \right\} \) is a chain in \( A \) (due to the transitivity of \(\prec\)). Since \( B \) is a maximal chain in \(A\), it follows that \( B = B \cup \left\{ n \right\} \), which means \( n \in B \), and this implies \( n \prec m \) since \(m\) is an upper bound of \(B\), which is a contradiction. Hence \(m\) is a maximal element of \(X\) and \( x_{0} \prec m \).
 \end{proof}
 
-\begin{problem}{II.2.2}
+\begin{problem}{II.2.2}\label{problem:II.2.2}
 Prove the following equivalent to the axiom of choice.
 \begin{enumerate}[label={(\alph*)},leftmargin=*]
 	\item If \(X\) is a preordered set, and if each well-ordered subset has an upper bound, then \(X\) has at least one maximal element. [Hint: One way to prove this is to require that a \( \varphi \)-tower be well-ordered by inclusion, rather than merely totally ordered, and then modify the proofs in 2.1, 2.3 accordingly.]
@@ -402,6 +402,7 @@ Let \(X\) be a preordered set, and assume that each chain in \(X\) has an upper 
 \end{problem}
 
 \begin{proof}
+    \(X\) is a preordered set and each chain in \(X\) has an upper bound so each well-ordered subset of \(X\) (which is a chain) has an upper bound. From Hellmuth Kneser's form of Zorn's lemma (see Problem~\ref{problem:II.2.2}, part a), it follows that \(X\) has a maximal element \(x_{0}\). Due to the given property of \( f \), one has \( x_{0} \prec f(x_{0}) \). Because of the maximality of \(x_{0}\), we conclude that \( f(x_{0}) \prec x_{0} \).
 \end{proof}
 
 \begin{problem}{II.2.8}
