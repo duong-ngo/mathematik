@@ -355,6 +355,137 @@ In the set \(\mathbb{R}\) of all real numbers, let \( \sigma \) consist of all s
 
 \section{Elementary concepts}
 
+\begin{problem}{III.4.1}
+Determine the closure, derived set, interior, and boundary, of the following sets: (a) The rationals in \( E^{1} \); (b) the Cantor set in \(E^{1}\); (c) the set
+\[
+	\left\{ (r_{1}, r_{2}) \mid r_{1}, r_{2} \in \mathbb{Q} \right\} \subset E^{2};
+\]
+
+(d) \( \left\{ (x, 0) \mid 0 < x < 1 \right\} \subset E^{2} \).
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)},itemsep=0pt]
+		\item Let \( U \) be a nonempty open set of \( E^{1} \) then \( U \) contains an interval \( \openinterval{a, b} \) where \( a < b \). Since there is a rational number \( q \in \openinterval{a, b} \), we conclude that \( U \cap \mathbb{Q} \ne \varnothing \). Therefore \( \mathbb{Q} \) is dense in \( E^{1} \), which means the closure of \( \mathbb{Q} \) in \( E^{1} \) is \( \mathbb{R} \).
+
+		      For every \( x \in \mathbb{R} \), for every neighborhood \( U \) of \( x \), there exist \( a, b \in \mathbb{R} \) such that \( x \in \openinterval{a, b} \subset U \). The interval \( \openinterval{x, b} \subset \openinterval{a, b} \) contains a rational number and it is other than \( x \). Hence \( x \) is in the derived set of \( \mathbb{Q} \) in \( E^{1} \). Therefore the derived set of \( \mathbb{Q} \) in \( E^{1} \) is \( \mathbb{R} \).
+
+		      Let \( r \in \mathbb{Q} \). For every neighborhood \( U \) of \( r \), there exist \( a, b \in \mathbb{R} \) such that \( r \in \openinterval{a, b} \subset U \). However, \( \openinterval{a, b} \) intersects both \( \mathbb{Q} \) and \( \mathbb{R} - \mathbb{Q} \), which means \( \mathbb{Q} \) has empty interior. This implies that \( \mathbb{R} - \mathbb{Q} \) is dense in \( E^{1} \).
+
+		      The boundary of \( \mathbb{Q} \) is \( E^{1} \) is \( \overline{\mathbb{Q}} \cap \overline{\mathscr{C}\mathbb{Q}} = \overline{\mathbb{Q}} \cap \overline{\mathbb{R} - \mathbb{Q}} = \mathbb{R} \cap \mathbb{R} = \mathbb{R} \).
+		\item We repeat the definition of the Cantor set.
+
+		      Starting with \( \closedinterval{0, 1} \), we remove the middle-third open interval \( M_{1} = \openinterval{\frac{1}{3}, \frac{2}{3}} \).
+
+		      Then we remove the middle-third open intervals from the remaining intervals \( \closedinterval{0, \frac{1}{3}} \) and \( \closedinterval{\frac{2}{3}, 1} \).
+
+		      At the \( n \)-th stage, we remove the union \( M_{n} \) of the middle thirds of the remaining \( 2^{n-1} \) intervals.
+
+		      The Cantor set is \( C = \closedinterval{0, 1} - \bigcup^{\infty}_{1} M_{n} \).
+
+		      Since each \( M_{n} \) is open in \( E^{1} \), it follows that \( \bigcup^{\infty}_{1} M_{n} \) is open in \( E^{1} \), so \( C \) is closed in \( E^{1} \), which means the closure of \( C \) in \( E^{1} \) is \( C \).
+
+		      Because \( C \) is closed in \( E^{1} \), the derived set of \( C \) is contained in \( C \). We will show that every point of \( C \) is a cluster point of \( C \). Let \( x \in C \) and \( U \) be a neighborhood of \(x\). There exists an open interval \( \openinterval{a, b} \) such that \( x \in \openinterval{a, b} \subset U \).
+		      \[ C = \closedinterval{0, 1} - \bigcup^{\infty}_{1} M_{n} = \bigcap^{\infty}_{1}\left( \closedinterval{0, 1} - M_{n} \right) \]
+
+		      For each \( n \), there exists a closed interval \( I_{n} \) in \( \closedinterval{0, 1} - M_{n} \) containing \( x \). We can choose a sufficiently large number \( n \) such that the length of \( I_{n} \) is less than \( x - a \) and \( b - x \). Hence \( x \in I_{n} \subset \openinterval{a, b} \). The endpoints of \( I_{n} \) are in \( C \) and other than \( x \) so \( \openinterval{a, b} \cap (C - \left\{x\right\}) \ne \varnothing \). Hence \( x \) is a cluster point of \( C \).
+
+		      Thus the derived set of \( C \) is \( C \) itself.
+
+		      Let \( x \) be a point in \( C \) and \( U \) a neighborhood of \( x \). Since \( U \) is open, there exists an open interval \( \openinterval{a, b} \) such that \( x \in \openinterval{a, b} \subset U \). The total length of closed intervals in \( \closedinterval{0, 1} - M_{n} \) is \( {(2/3)}^{n} \) and can be arbitrarily small, so there exists \( n \) such that \( {(2/3)}^{n} < b - a \), which implies \( \openinterval{a, b} \not\subset \closedinterval{0, 1} - M_{n} \) so \( \openinterval{a, b} \) is not contained in the Cantor set. Therefore \( C \) has empty interior.
+
+		      The boundary of \( C \) is the complement of the interior of \( C \) in the closure of \( C \), so the boundary of \(C\) is \(C\) itself.
+		\item The given set is dense in \( E^{2} \) so its closure is \( \mathbb{R}^{2} \).
+
+		      Every point of \( E^{2} \) is a cluster point of the given set so its derived set is \( E^{2} \).
+
+		      The interior of the given set is empty.
+
+		      The boundary of the given set is \( \mathbb{R}^{2} \).
+		\item The closure of the given set is \( \left\{ (x, 0) \mid 0 \le x \le 1 \right\} \).
+
+		      The derived set of the given set is \( \left\{ (x, 0) \mid 0 \le x \le 1 \right\} \).
+
+		      The interior of the given set is empty.
+
+		      The boundary of the given set is \( \left\{ (x, 0) \mid 0 \le x \le 1 \right\} \).
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{III.4.2}
+Show that \( E^{s} \times 0 \subset E^{s} \times E^{t} = E^{s+t} \) is closed.
+\end{problem}
+
+\begin{proof}
+	Let \( x \in E^{s+t} - (E^{s}\times 0) \) and \( y \) be the orthogonal projection of \( x \) on \( E^{s} \times 0 \), then
+	\[
+		x \in B(x; \left\vert x - y \right\vert) \subset E^{s+t} - (E^{s}\times 0)
+	\]
+
+	which implies that \( E^{s+t} - (E^{s}\times 0) \) is open in \( E^{s+t} \). Hence \( E^{s}\times 0 \) is closed in \( E^{s+t} \).
+\end{proof}
+
+\begin{problem}{III.4.3}
+Let \( A \subset E^{1} \) be a bounded set. Show \( \sup A \in \overline{A} \). Under what condition is \( \sup A \in A^{\prime} \)\@?
+\end{problem}
+
+\begin{proof}
+	From the definition of supremum, any real number strictly less than \( \sup A \) is not an upper bound of \( A \). Let \( U \) be a neighborhood of \( \sup A \) then there exists an open interval \( \openinterval{a, b} \) such that \( \sup A \in \openinterval{a, b} \subset U \). Since \( a < \sup A \) then there exists \( x \in A \) such that \( a < x \), from which we deduce that \( a < x \le \sup A < b \). Hence \( U \cap A \ne \varnothing \), which means \( \sup A \in \overline{A} \).
+
+	\( \sup A \in A^{\prime} \) if and only if for every \( x < \sup A \), there exists \( y \in A \) such that \( x < y < \sup A \).
+\end{proof}
+
+\begin{problem}{III.4.4}
+Prove: \(G\) is open in \(X\) if and only if \( \overline{G \cap \overline{A}} = \overline{G \cap A} \) for every \( A \subset X \).
+\end{problem}
+
+\begin{proof}
+	\( G \) is open in \(X\) \( \implies \) \( \overline{G \cap \overline{A}} = \overline{G \cap A} \) for every \( A \subset X \).
+
+	\( G \cap A \subset G \cap \overline{A} \) implies \( \overline{G \cap A} \subset \overline{G \cap \overline{A}} \). Assume that there exists \( x \in \overline{G \cap \overline{A}} \) such that \( x \notin \overline{G \cap A} \) then there is a neighborhood \(V\) of \(x\) such that \( V \cap (G \cap \overline{A}) \ne \varnothing \) and \( V \cap (G \cap \overline{A}) = \varnothing \). This is a contradiction, as any open set that intersects \( \overline{A} \) must intersects \( A \). Hence \( \overline{G \cap \overline{A}} = \overline{G \cap A} \).
+
+	\( \overline{G \cap \overline{A}} = \overline{G \cap A} \) for every \( A \subset X \) \( \implies \)  \( G \) is open in \(X\).
+
+	Choose \( A = \mathscr{C}G \) then \( \overline{G \cap \overline{\mathscr{C}G}} = \overline{G \cap (\mathscr{C}G)} = \overline{\varnothing} = \varnothing \). Therefore \( G \cap \overline{\mathscr{C}G} = \varnothing \). Moreover, \( \mathscr{C}\overline{\mathscr{C}G} = \operatorname{Int} G \) so \( G \subset \operatorname{Int} G \) and it follows from the definition of interior that \( G = \operatorname{Int} G \). Hence \( G \) is open in \( X \).
+\end{proof}
+
+\begin{problem}{III.4.5}
+Show that \( (A^{\prime} = \varnothing) \implies (A \text{ is closed}) \).
+\end{problem}
+
+\begin{proof}
+	Since \( \overline{A} = A \cup A^{\prime} \) it follows that \( A^{\prime} = \varnothing \) implies \( \overline{A} = A \), which means \( A \) is closed.
+\end{proof}
+
+\begin{problem}{III.4.6}
+Let \(A = \left\{ 1/m + 1/n \mid m, n \in \mathbb{Z}^{+} \right\} \subset E^{1} \). Show that \( A^{\prime} = \left\{ 1/n \mid n \in \mathbb{Z}^{+} \right\} \cup \left\{ 0 \right\} \), \( A^{\prime\prime} = \left\{0\right\} \).
+\end{problem}
+
+\begin{proof}
+	Every number in \( \left\{ 1/n \mid n \in \mathbb{Z}^{+} \right\} \cup \left\{0\right\} \) is a cluster point of \(A\).
+
+	Let \(x\) be a real number such that there is no positive integer \(n\) such that \( x = \dfrac{1}{n} \). If \( x < 0 \) or \( x \ge 2 \), \( x \) is not a cluster point of \(A\). Consider \( x \in \openinterval{0, 2} \).
+
+	Let \(p\) be the largest positive integer such that \( x < \dfrac{1}{p} \) then \( \dfrac{1}{p+1} < x < \dfrac{1}{p} \). Hence there exists \( \varepsilon > 0 \) such that \( \openinterval{x - \varepsilon, x + \varepsilon} \) doesn't contain any rational number of the form \( \dfrac{1}{q} \).
+
+	We will show that \( \openinterval{x - \varepsilon/2, x + \varepsilon/2} \) has at most finitely many numbers of the form \( 1/m + 1/n \) in which \( m \le n \). Assume that \( \dfrac{1}{m} + \dfrac{1}{n} \in \openinterval{x - \varepsilon/2, x + \varepsilon/2} \). Because \( \openinterval{x - \varepsilon, x + \varepsilon} \) has no rational number of the form \(1/a\), then
+	\[ \dfrac{1}{n} \le \dfrac{1}{m} \le x - \varepsilon \]
+
+	and
+	\[ 0 < x - \dfrac{\varepsilon}{2} < \dfrac{1}{m} + \dfrac{1}{n} \le \dfrac{2}{m} \]
+
+	Moreover
+	\[
+		x - \dfrac{\varepsilon}{2} < \dfrac{1}{m} + \dfrac{1}{n} < x - \varepsilon + \dfrac{1}{n}
+	\]
+
+	which implies \( n < \dfrac{2}{\varepsilon} \).
+
+	Hence \( m < \dfrac{2}{x - \dfrac{\varepsilon}{2}} \) and \( n < \dfrac{2}{\varepsilon} \), which means there are at most finitely many rational numbers of the form \( 1/m + 1/n \) in \( \openinterval{x - \dfrac{\varepsilon}{2}, x + \dfrac{\varepsilon}{2}} \). Hence \( x \) is not a cluster point of \(A\), thus \( A^{\prime} = \left\{ 1/n \mid n \in \mathbb{Z}^{+} \right\} \cup \left\{0\right\} \).
+
+	The only cluster point of \(A^{\prime}\) is 0 so \( A^{\prime\prime} = \left\{0\right\} \).
+\end{proof}
+
 \section{Topologizing with preassigned elementary operations}
 
 \section{\( G_{\sigma}, F_{\sigma} \) and Borel sets}
