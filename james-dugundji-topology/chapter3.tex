@@ -486,6 +486,311 @@ Let \(A = \left\{ 1/m + 1/n \mid m, n \in \mathbb{Z}^{+} \right\} \subset E^{1} 
 	The only cluster point of \(A^{\prime}\) is 0 so \( A^{\prime\prime} = \left\{0\right\} \).
 \end{proof}
 
+\begin{problem}{III.4.7}
+Let \( \left\{ A_{\alpha} \mid \alpha \in \mathscr{A} \right\} \) be any family of sets in \(X\). Assue that \( \bigcup_{\alpha} \overline{A_{\alpha}} \) is closed. Prove \( \bigcup_{\alpha} \overline{A_{\alpha}} = \overline{\bigcup_{\alpha} A_{\alpha}} \).
+\end{problem}
+
+\begin{proof}
+	If \( x \in \bigcup_{\alpha} \overline{A_{\alpha}} \) then there exists \( \alpha \in \mathscr{A} \) such that \( x \in \overline{A_{\alpha}} \). From the definition of closure, every neighborhood of \(x\) intersects \( A_{\alpha} \), hence every neighborhood of \(x\) intersects \( \bigcup_{\alpha} A_{\alpha} \). Therefore \( x \in \overline{\bigcup_{\alpha} A_{\alpha}} \), so \( \bigcup_{\alpha} \overline{A_{\alpha}} \subset \overline{\bigcup_{\alpha} A_{\alpha}} \).
+
+	On the one hand, \( \bigcup_{\alpha} A_{\alpha} \) is a subset of \( \bigcup_{\alpha} \overline{A_{\alpha}} \) and \( \overline{\bigcup_{\alpha} A_{\alpha}} \). On the other hand, \( \overline{\bigcup_{\alpha} A_{\alpha}} \) is the smallest closed set containing \( \bigcup_{\alpha} A_{\alpha} \) and \( \bigcup_{\alpha} \overline{A_{\alpha}} \) is a closed set containing \( \bigcup_{\alpha} A_{\alpha} \). Therefore \( \bigcup_{\alpha} \overline{A_{\alpha}} = \overline{\bigcup_{\alpha} A_{\alpha}} \).
+\end{proof}
+
+\begin{problem}{III.4.8}
+Prove: \( \operatorname{Fr}(A) = \varnothing \) if and only if \(A\) is both open and closed.
+\end{problem}
+
+\begin{proof}
+	The complement of \( \overline{A} \) is \( \operatorname{Int}(\mathscr{C}A) \).
+
+	\( \operatorname{Fr}(A) = \varnothing \implies A \) is both open and closed.
+
+	From the definition of boundary, \( \varnothing = \operatorname{Fr}(A) = \overline{A} \cap \overline{\mathscr{C}A} \). On the other hand, \( \overline{A} \cup \overline{\mathscr{C}A} \supset \overline{A} \cup \mathscr{C}A \) so the complement of \( \overline{A} \) is \( \overline{\mathscr{C}A} \). Hence \( \overline{\mathscr{C}A} = \operatorname{Int}(\mathscr{C}A) \) so \( \mathscr{C}A \) is both open and closed as \( \operatorname{Int}(\mathscr{C}A) \subset \mathscr{C}A \subset \overline{\mathscr{C}A} \). Therefore \(A\) is both open and closed.
+
+	\( A \) is both open and closed \( \implies \operatorname{Fr}(A) = \varnothing \).
+
+	Then \( \mathscr{C}A \) is both open and closed. If \( x \in A \) then there exists a neighborhood of \(x\) contained in \(A\) as \(A\) is open and this neighborhood doesn't intersect \(\mathscr{C}A\), so \( x \notin \overline{\mathscr{C}A} \). Otherwise, \( x \in \mathscr{C}A \) then there exists a neighborhood of \(x\) contained in \(\mathscr{C}A\) as \( A \) is closed and this neighborhood doesn't intersect \(A\), so \( x \notin \overline{A} \). In either cases, \( x \notin \overline{A} \cap \overline{\mathscr{C}A} = \operatorname{Fr}(A) \). Thus \( \operatorname{Fr}(A) = \varnothing \).
+\end{proof}
+
+\begin{problem}{III.4.9}
+Prove the following formulas:
+\begin{enumerate}[label={(\alph*)},itemsep=0pt]
+	\item \( \operatorname{Fr}\left[ \operatorname{Fr}\left[ \operatorname{Fr}(A) \right] \right] = \operatorname{Fr}\left[ \operatorname{Fr}(A) \right] \);
+	\item \( \operatorname{Fr}\left[ \operatorname{Int}(A) \right] \subset \operatorname{Fr}(A) \);
+	\item \( \operatorname{Int}(A - B) \subset \operatorname{Int}(A) - \operatorname{Int}(B) \).
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	We use the following facts about the boundary of a set \(S\)
+	\begin{itemize}[leftmargin=*]
+		\item \( \operatorname{Fr}(S) = \overline{S} \cap \overline{\mathscr{C}S} \) so \( \operatorname{Fr}(S) \subset \overline{S} \).
+		\item \( \operatorname{Fr}(S) = \overline{S} \cap \overline{\mathscr{C}S} \) so every neighborhood of every point of \( \operatorname{Fr}(S) \) intersects both \( S \) and \( \mathscr{C}S \).
+		\item \( \operatorname{Fr}(S) = \overline{S} - \operatorname{Int}(S) = \overline{S} \cap \mathscr{C}\left[ \operatorname{Int}(S) \right] \) so \( \operatorname{Fr}(S) \) is a closed set.
+	\end{itemize}
+	\begin{enumerate}[label={(\alph*)},itemsep=0pt,leftmargin=*]
+		\item \( \operatorname{Fr}\left[\operatorname{Fr}\left[\operatorname{Fr}(A)\right]\right] = \overline{\operatorname{Fr}\left[\operatorname{Fr}(A)\right]} \cap \overline{\mathscr{C}\left[\operatorname{Fr}\left[\operatorname{Fr}(A)\right]\right]} = \operatorname{Fr}\left[\operatorname{Fr}(A)\right] \cap \overline{\mathscr{C}\left[\operatorname{Fr}\left[\operatorname{Fr}(A)\right]\right]} \subset \operatorname{Fr}\left[\operatorname{Fr}(A)\right] \).
+
+		      Let \(x\) be a point of \( \operatorname{Fr}\left[\operatorname{Fr}(A)\right] \) then every neighborhood of \(x\) intersects both \( \operatorname{Fr}(A) \) and \( \mathscr{C}\left[\operatorname{Fr}(A)\right] \).
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      \mathscr{C}\left[ \operatorname{Fr}\left[\operatorname{Fr}(A)\right] \right] & = \mathscr{C}\left[ \overline{\operatorname{Fr}(A)} \cap \overline{\mathscr{C}\left[ \operatorname{Fr}(A) \right]} \right]          \\
+			                                                                                   & = \mathscr{C}\left[ \operatorname{Fr}(A) \cap \overline{\mathscr{C}\left[\operatorname{Fr}(A)\right]} \right]                       \\
+			                                                                                   & = \mathscr{C}\left[\operatorname{Fr}(A)\right] \cup \mathscr{C}\left[\overline{\mathscr{C}\left[\operatorname{Fr}(A)\right]}\right]
+		      \end{align*}
+		      \endgroup
+
+		      so every neighborhood of \(x\) intersects both \( \operatorname{Fr}\left[\operatorname{Fr}(A)\right] \) and \( \mathscr{C}\left[\operatorname{Fr}\left[\operatorname{Fr}(A)\right]\right] \). Therefore \( x \in \operatorname{Fr}\left[\operatorname{Fr}\left[\operatorname{Fr}(A)\right]\right] \).
+
+		      Thus \( \operatorname{Fr}\left[\operatorname{Fr}\left[\operatorname{Fr}(A)\right]\right] = \operatorname{Fr}\left[\operatorname{Fr}(A)\right] \).
+		\item \( \operatorname{Fr}\left[ \operatorname{Int}(A) \right] = \overline{\operatorname{Int}(A)} - \operatorname{Int}(\operatorname{Int}(A)) = \overline{\operatorname{Int}(A)} - \operatorname{Int}(A) \subset \overline{A} - \operatorname{Int}(A) = \operatorname{Fr}(A) \)
+		\item \( \operatorname{Int}(A - B) \cup \operatorname{Int}(B) \subset (A - B) \cup B = A \) so \( \operatorname{Int}(A - B) \cup \operatorname{Int}(B) \) is an open set contained in \( A \). Because \( \operatorname{Int}(A) \) is the largest open set contained in \(A\), it follows that \( \operatorname{Int}(A - B) \cup \operatorname{Int}(B) \subset \operatorname{Int}(A) \).
+
+
+		      Moreover \( A - B \) and \( B \) are disjoint, \( \operatorname{Int}(A - B) \subset A - B \) and \( \operatorname{Int}(B) \subset B \) so \( \operatorname{Int}(A - B) \) and \( \operatorname{Int}(B) \) are disjoint. Therefore \( \operatorname{Int}(A - B) = (\operatorname{Int}(A - B) \cup \operatorname{Int}(B)) - \operatorname{Int}(B) \subset \operatorname{Int}(A) - \operatorname{Int}(B) \).
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{III.4.10}
+Assume that \( \operatorname{Fr}(A) \cap \operatorname{Fr}(B) = \varnothing \). Prove: \( \operatorname{Int}(A \cup B) = \operatorname{Int}(A) \cup \operatorname{Int}(B) \) and \( \operatorname{Fr}(A \cap B) = \left[ \overline{A} \cap \operatorname{Fr}(B) \right] \cup \left[ \operatorname{Fr}(A) \cap \overline{B} \right] \).
+\end{problem}
+
+\begin{proof}
+	We prove that \( \operatorname{Int}(A \cup B) = \operatorname{Int}(A) \cup \operatorname{Int}(B) \iff \operatorname{Fr}(A) \cap \operatorname{Fr}(B) \subset \operatorname{Fr}(A \cup B) \).
+
+	\( \operatorname{Int}(A) \cup \operatorname{Int}(B) \) is an open set contained in \( A \cup B \) and \( \operatorname{Int}(A \cup B) \) is the largest open set contained in \( A \cup B \). Hence \( \operatorname{Int}(A) \cup \operatorname{Int}(B) \subset \operatorname{Int}(A \cup B) \).
+
+	Suppose that \( \operatorname{Int}(A \cup B) = \operatorname{Int}(A) \cup \operatorname{Int}(B) \). Let \( x \in \operatorname{Fr}(A) \cap \operatorname{Fr}(B) \) then every neighborhood of \( x \) intersects \( A, B, \mathscr{C}A, \mathscr{C}B \) hence intersects \( A \cup B, \mathscr{C}\left[A \cup B\right] = \mathscr{C}A \cap \mathscr{C}B \). Therefore \( x \in \operatorname{Fr}(A \cup B) \), which means \( \operatorname{Fr}(A) \cap \operatorname{Fr}(B) \subset \operatorname{Fr}(A \cup B) \).
+
+	Conversely, suppose that \( \operatorname{Fr}(A) \cap \operatorname{Fr}(B) \subset \operatorname{Fr}(A \cup B) \). Let \( x \in \operatorname{Int}(A \cup B) \) then \( x \in \overline{A \cup B} - \operatorname{Fr}(A \cup B) \), which means \( x \notin \operatorname{Fr}(A \cup B) \) then \( x \notin \operatorname{Fr}(A) \cap \operatorname{Fr}(B) \). Without loss of generality, assume that \( x \notin \operatorname{Fr}(A) \) then either \( x \in \operatorname{Int}(A) \) or \( x \in \operatorname{Int}(\mathscr{C}A) \).
+
+	If \( x \in \operatorname{Int}(A) \) then \( x \in \operatorname{Int}(A) \cup \operatorname{Int}(B) \).
+
+	If \( x \in \operatorname{Int}(\mathscr{C}A) \).
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		x \in \operatorname{Int}(A \cup B) & \subset A \cup B \subset \overline{A} \cup \overline{B}                                                                          \\
+		                                   & = \left(\operatorname{Int}(A) \cup \operatorname{Fr}(A)\right) \cup \left(\operatorname{Int}(B) \cup \operatorname{Fr}(B)\right) \\
+		                                   & = \left(\operatorname{Int}(A) \cup \operatorname{Int}(B)\right) \cup \left(\operatorname{Fr}(A) \cup \operatorname{Fr}(B)\right)
+	\end{align*}
+	\endgroup
+
+	since \( x \notin \operatorname{Fr}(A) \cup \operatorname{Fr}(B) \), we deduce that \( x \in \operatorname{Int}(A) \cup \operatorname{Int}(B) \).
+
+	In either cases, \( x \in \operatorname{Int}(A) \cup \operatorname{Int}(B) \) so \( \operatorname{Int}(A \cup B) \subset \operatorname{Int}(A) \cup \operatorname{Int}(B) \). Hence \( \operatorname{Int}(A \cup B) = \operatorname{Int}(A) \cup \operatorname{Int}(B) \).
+
+	So if \( \operatorname{Fr}(A) \cap \operatorname{Fr}(B) = \varnothing \) then \( \operatorname{Int}(A \cup B) = \operatorname{Int}(A) \cup \operatorname{Int}(B) \).
+
+	\hrulefill%
+
+	If \( \operatorname{Fr}(A) \cap \operatorname{Fr}(B) = \varnothing \) then \( \overline{A \cap B} = \overline{A} \cap \overline{B} \) because
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\overline{A} \cap \overline{B} & = \left( A \cup \operatorname{Fr}(A) \right) \cap \left( B \cup \operatorname{Fr}(B) \right)                                                          \\
+		                               & = (A \cap B) \cup (A \cap \operatorname{Fr}(B)) \cup (\operatorname{Fr}(A) \cap B) \cup \left( \operatorname{Fr}(A) \cap \operatorname{Fr}(B) \right) \\
+		                               & = \overline{A \cap B} \cup \left( \operatorname{Fr}(A) \cap \operatorname{Fr}(B) \right).
+	\end{align*}
+	\endgroup
+
+	Therefore
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\operatorname{Fr}(A \cap B) & = \overline{A \cap B} - \operatorname{Int}(A \cap B)                                                                                                                                                         \\
+		                            & = \overline{A \cap B} - (\operatorname{Int}(A) \cap \operatorname{Int}(B))                                                                                                                                   \\
+		                            & = \overline{A \cap B} \cap \mathscr{C}\left[ \operatorname{Int}(A) \cap \operatorname{Int}(B) \right]                                                                                                        \\
+		                            & = \overline{A} \cap \overline{B} \cap \left( \mathscr{C}\left[ \operatorname{Int}(A) \right] \cup \mathscr{C}\left[ \operatorname{Int}(B) \right] \right)                                                    \\
+		                            & = \left( \overline{A} \cap \overline{B} \cap \mathscr{C}\left[ \operatorname{Int}(A) \right] \right) \cup \left( \overline{A} \cap \overline{B} \cap \mathscr{C}\left[ \operatorname{Int}(B) \right] \right) \\
+		                            & = \left( \operatorname{Fr}(A) \cap \overline{B} \right) \cup \left( \overline{A} \cap \operatorname{Fr}(B) \right).
+	\end{align*}
+	\endgroup
+
+	Hence \( \operatorname{Fr}(A) \cap \operatorname{Fr}(B) = \varnothing \) implies \( \operatorname{Fr}(A \cap B) = \left( \operatorname{Fr}(A) \cap \overline{B} \right) \cup \left( \overline{A} \cap \operatorname{Fr}(B) \right) \).
+\end{proof}
+
+\begin{problem}{III.4.11}
+For what spaces \(X\) is the only dense set \(X\) itself?
+\end{problem}
+
+\begin{proof}
+	Assume that \(X\) is the only dense set in \(X\) then for every \( x \in X \), \( X - \left\{ x \right\} \) is not dense in \( X \), which means the closure of \( X - \left\{ x \right\} \) in \(X\) is \( X - \left\{x\right\} \). Therefore \( X - \left\{x\right\} \) is closed, so \( \left\{ x \right\} \) is open in \(X\) for every \(x\in X\). Hence \(X\) is a discrete space.
+
+	Conversely, if \(X\) is a discrete space then \(X\) is the only dense set in \(X\).
+\end{proof}
+
+\begin{problem}{III.4.12}
+Let \(E\) and \(G\) be dense in \(X\). Prove: If \(E\) and \(G\) are open, then \(E \cap G\) is also dense in \(X\).
+\end{problem}
+
+\begin{proof}
+	\( E \) and \( G \) are dense open subsets of \(X\) so \( E \cap G \) is nonempty. Let \( A \) be a nonempty open subset of \( X \). Because \( E \) is dense in \( X \), \( A \cap E \) is nonempty. Moreover, \( A \cap E \) is open and \( G \) is dense so \( (A \cap E) \cap G \) is nonempty. Therefore \( A \cap (E \cap G) \) is nonempty. By the definition of dense set, we conclude that \( E \cap G \) is dense in \( X \).
+\end{proof}
+
+\begin{problem}{III.4.13}\label{problem:III.4.13}
+Let \(D\) be dense in \(X\). Prove: \( \overline{D \cap G} = \overline{G} \) for every open set \( G \subset X \).
+\end{problem}
+
+\begin{proof}
+	\( D \cap G \subset G \) so \( \overline{D \cap G} \subset \overline{G} \).
+
+	Let \( x \in \overline{G} \) then every neighborhood \(V\) of \(x\) intersects \( G \). Moreover, \( V \cap G \) is nonempty and it is open because \( V, G \) are open so \( V \cap G \) intersects \( D \) as \( D \) is dense in \( X \). Hence \( V \) intersects \( D \cap G \), which means \( x \in \overline{D \cap G} \). Therefore \( \overline{G} = \overline{D \cap G} \).
+\end{proof}
+
+\begin{problem}{III.4.14}
+Let \( \mathscr{B} \) be a subbasis for \(X\), and \(D \subset X\) such that \( U \cap D \ne \varnothing \) for each \( U \in \mathscr{B} \). Does this imply that \(D\) is dense in \(X\)?
+\end{problem}
+
+\begin{proof}
+	No. It is not necessarily true. Here is a counterexample.
+
+	\( \mathbb{Z} \subset \mathbb{R} \). A subbasis for the Euclidean topology on \( \mathbb{R} \) is the collection of set of the forms \( \left\{ x \mid x > b \right\} \) and \( \left\{ x \mid x < a \right\} \). The set \( \mathbb{Z} \) intersects every set in the given subbasis but \( \mathbb{Z} \) is not dense in \( \mathbb{R} \).
+\end{proof}
+
+\begin{problem}{III.4.15}
+In Problem~\ref{problem:III.3.6}, what is the closure of \( \left\{ x \right\} \) in \( \mathscr{T}_{L} \)? For what points is \( \left\{ x \right\} \) a closed set? An open set?
+\end{problem}
+
+\begin{proof}
+	The closure of \( \left\{ x \right\} \) in \( \mathscr{T}_{L} \) is the intersection of closed sets containing \( x \), hence the complement of the union of open sets not containing \(x\). Therefore the closure of \( \left\{ x \right\} \) is the complement of the union of \( U_{L}(y) \) in which \( x \notin U_{L}(y) \).
+
+	Assume that \( \left\{ x \right\} \) is a closed set then \( \mathscr{C}(\left\{ x \right\}) \) is open. Hence for every \( y \ne x \), \( x \notin U_{L}(y) \), which means for each such \( U_{L}(y) \), for every \( z \in U_{L}(y) \), either \( z \) and \( x \) are incomparable or \( (z \prec x) \land (z \ne x) \). This means \( x \) is a maximal element of \( X \). Conversely, if \( x \) is a maximal element of \( X \) then \( \left\{ x \right\} \) is a closed set.
+
+	\( \left\{ x \right\} \) is an open set if and only if \( \left\{ x \right\} = U_{L}(x) \), which precisely means \( x \) is a minimal element of \( X \).
+\end{proof}
+
+\begin{problem}{III.4.16}
+Assume \( (X, \mathscr{T}) \) a space with the properties: (a) The intersection of any family of open sets is open; (b) if \(x\ne y\), then there is at least one open set containing some of of \(x, y\), and not the other. Define \( x\le y \) if \( x \in \overline{\left\{y\right\}} \). Show that this is a partial ordering and that the topology \( \mathscr{T}_{R} \) (Problem~\ref{problem:III.3.6}) is precisely \( \mathscr{T} \).
+\end{problem}
+
+\begin{proof}
+	\( x \in \overline{\left\{ x \right\}} \) so \( x \le x \).
+
+	If \( x \in \overline{\left\{ y \right\}} \) and \( y \in \overline{ \left\{z\right\} } \) then \( \overline{\left\{ z\right\} } \) is a closed set containing \( \left\{ y \right\} \) so \( \overline{ \left\{ y \right\} } \subset \overline{ \left\{ z \right\} } \). Therefore \( x \in \overline{ \left\{ z \right\} } \) which precisely means \( x \le z \).
+
+	Suppose that \( x \le y \) and \( y \le x \). Assume for the sake of contradiction that \( x \ne y \) then there is a neighborhood \( U_{x} \) of \(x\) not containing \( y \) or there is a neighborhood \( U_{y} \) of \(y\) not containing \( x \). In the former case, \( x \in \operatorname{Ext}(\left\{y\right\}) \) and \( x \in \overline{ \left\{y\right\} } \). In the latter case, \( y \in \operatorname{Ext}(\left\{x\right\}) \) and \( y \in \overline{ \left\{x\right\} } \). In either cases, we obtain a contradiction. Hence \( x = y \).
+
+	Thus \( \le \) is a partial ordering.
+
+	\hrulefill%
+
+	We will show that \( \mathscr{T}_{R} = \mathscr{T} \).
+
+	Let \( G \in \mathscr{T} \) then for every \( x \in G, y \notin G \), one has \( \overline{ \left\{y\right\} } \subset \mathscr{C}(G) \) and \( x \notin \overline{ \left\{y\right\} } \), which means \( x \nleq y \), so \( y \notin U_{R}(x) \). Therefore \( \mathscr{C}(G) \subset \mathscr{C}(U_{R}(x)) \) whenever \( x \in G \), which implies \( U_{R}(x) \subset G \) whenever \( x \in G \).
+
+	Let \( N(x) \) be the intersection of all neighborhoods of \(X\) then \( N(x) \) is open as the intersection of any family of open sets is open. Hence \( N(x) \) is the smallest neighborhood of \(x\). In the above paragraph, we showed that \( U_{R}(x) \subset N(x) \). Conversely let \( y \in N(x) \). Assume that \( x \nleq y \) then \( x \notin \overline{\left\{ y \right\}} \) so there is a neighborhood of \( x \) not containing \( y \), which contradicts \( y \in N(x) \) and the definition of \(N(x)\). Hence \( x \le y \), which implies \( y \in U_{R}(x) \). Therefore \( N(x) \subset U_{R}(x) \). Thus \( U_{R}(x) = N(x) \), so \( U_{R}(x) \) is open in \( \mathscr{T} \).
+
+	\( \left\{ U_{R}(x) \right\} \subset \mathscr{T} \) and for every \( G \in \mathscr{T} \), every \( x \in G \), one has \( x \in U_{R}(x) \subset G \). This means \( \left\{ U_{R}(x) \right\} \) is a basis for \( \mathscr{T} \). Hence \( \mathscr{T} = \mathscr{T}_{R} \).
+\end{proof}
+
+\begin{problem}{III.4.17}
+In \(X\times Y\), show that \( \overline{A \times B} = \overline{A} \times \overline{B} \); \( \operatorname{Int}(A \times B) = \operatorname{Int}(A) \times \operatorname{Int}(B) \); \( \operatorname{Fr}(A \times B) = (\operatorname{Fr}(A) \times \overline{B}) \cup (\overline{A} \times \operatorname{Fr}(B)) \).
+\end{problem}
+
+\begin{proof}
+	Suppose that \( (x, y) \in \overline{A \times B} \). Let \( U \) be a neighborhood of \(x\) and \(V\) be a neighborhood of \(y\) then \( U \times V \) is a neighborhood of \( (x, y) \), so \( U \times V \) intersects \( A \times B \). Since \( (U \times V) \cap (A \times B) = (U \cap A) \times (V \cap B) \) so \( U \cap A \ne \varnothing \) and \( V \cap B \ne \varnothing \). Therefore \( x \in \overline{A} \) and \( y \in \overline{B} \), which implies \( (x, y) \in \overline{A} \times \overline{B} \), so \( \overline{A \times B} \subset \overline{A} \times \overline{B} \).
+
+	Suppose that \( (x, y) \in \overline{A} \times \overline{B} \). Let \( S \) be a neighborhood of \( (x, y) \) then there exists a basic open set \( U \times V \) such that \( (x, y) \in U \times V \subset S \). Because \( U \cap A \ne \varnothing \) and \( V \cap B \ne \varnothing \), it follows that \( U \times V \) intersects \( A \times B \), which means \( S \) intersects \( A \times B \). Hence \( (x, y) \in \overline{A \times B} \) and \( \overline{A} \times \overline{B} \subset \overline{A \times B} \).
+
+	Thus \( \overline{A \times B} = \overline{A} \times \overline{B} \).
+
+	\hrulefill%
+
+	Suppose that \( (x, y) \in \operatorname{Int}(A\times B) \) then there exists a neighborhood \(S\) of \( (x, y) \) contained in \( \operatorname{Int}(A\times B) \). There is a basic open set \( U\times V \) such that \( (x, y) \in U \times V \subset S \). Because \( U \times V \subset S \subset A \times B \) and \( U, V \) are nonempty, it follows that \( U \subset A \) and \( V \subset B \). So \( U \) is a neighborhood of \( x \) contained in \( A \) and \( V \) is a neighborhood of \(y\) contained in \(B\), therefore \( (x, y) \in \operatorname{Int}(A) \times \operatorname{Int}(B) \).
+
+	Suppose that \( (x, y) \in \operatorname{Int}(A) \times \operatorname{Int}(B) \) then there is a neighborhood \(U\) of \(x\) and a neighborhood \(V\) of \(y\) such that \( U \subset A \) and \( V \subset B \). Therefore \( (x, y) \in U\times V \subset A\times B \). Moreover, \( U\times V \) is a neighborhood of \( (x, y) \) so \( (x, y) \in U \times V \subset \operatorname{Int}(A \times B) \).
+
+	Thus \( \operatorname{Int}(A\times B) = \operatorname{Int}(A) \times \operatorname{Int}(B) \).
+
+	\hrulefill%
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\operatorname{Fr}(A \times B) & = \overline{A \times B} \cap \overline{\mathscr{C}(A \times B)}                                                                                                                                              \\
+		                              & = (\overline{A} \times \overline{B}) \cap \overline{\mathscr{C}(A) \times B \cup A \times \mathscr{C}(B)}                                                                                                    \\
+		                              & = (\overline{A} \times \overline{B}) \cap \left( \overline{\mathscr{C}(A) \times B} \cup \overline{A\times \mathscr{C}(B)} \right)                                                                           \\
+		                              & = (\overline{A} \times \overline{B}) \cap \left( \overline{\mathscr{C}(A)} \times \overline{B} \cup \overline{A} \times \overline{\mathscr{C}(B)} \right)                                                    \\
+		                              & = \left( \overline{A} \times \overline{B} \cap \overline{\mathscr{C}(A)} \times \overline{B} \right) \cup \left( \overline{A} \times \overline{B} \cap \overline{A} \times \overline{\mathscr{C}(B)} \right) \\
+		                              & = \left( \operatorname{Fr}(A) \times \overline{B} \right) \cup \left( \overline{A} \times \operatorname{Fr}(B) \right).
+	\end{align*}
+	\endgroup
+
+	Thus \( \operatorname{Fr}(A \times B) = \left( \operatorname{Fr}(A) \times \overline{B} \right) \cup \left( \overline{A} \times \operatorname{Fr}(B) \right) \).
+\end{proof}
+
+\begin{problem}{III.4.18}
+The exterior, \( \operatorname{Ext}(A) \), of a set \(A \subset X\) is defined by \( \operatorname{Ext}(A) = \operatorname{Int}(\mathscr{C}A) \). Prove: (a) \( \operatorname{Ext}(A \cup B) = \operatorname{Ext}(A) \cap \operatorname{Ext}(B) \); (b) \( A \cap \operatorname{Ext}(A) = \varnothing \); (c) \( X = \operatorname{Ext}(\varnothing) \); (d) \( \operatorname{Ext}(\mathscr{C}\operatorname{Ext}(A)) = \operatorname{Ext}(A) \).
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)},leftmargin=*,itemsep=0pt]
+		\item \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      \operatorname{Ext}(A \cup B) & = \operatorname{Int}(\mathscr{C}(A \cup B))                              \\
+			                                   & = \operatorname{Int}(\mathscr{C}(A) \cap \mathscr{C}(B))                 \\
+			                                   & = \operatorname{Int}(\mathscr{C}A) \cap \operatorname{Int}(\mathscr{C}B) \\
+			                                   & = \operatorname{Ext}(A) \cap \operatorname{Ext}(B).
+		      \end{align*}
+		      \endgroup
+		\item \( \operatorname{Ext}(A) = \operatorname{Int}(\mathscr{C}A) = \mathscr{C}\overline{A} \subset \mathscr{C}A \) so \( A \cap \operatorname{Ext}(A) \subset A \cap \mathscr{C}A = \varnothing \).
+
+		      Therefore \( A \cap \operatorname{Ext}(A) = \varnothing \).
+		\item \( \operatorname{Ext}(\varnothing) = \operatorname{Int}(\mathscr{C}\varnothing) = \operatorname{Int}(X) = X \).
+		\item \( \operatorname{Ext}(\mathscr{C}\operatorname{Ext}(A)) = \operatorname{Ext}(A) = \operatorname{Int}(\operatorname{Ext}(A)) = \operatorname{Ext}(A) \).
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{III.4.19}
+If every countable subset of a space is closed, is the topology necessarily discrete?
+\end{problem}
+
+\begin{proof}
+	No. It is not necessary. Here we provide a counterexample.
+
+	Let \(X\) be an uncountable set. We define
+	\[
+		\mathscr{T} = \left\{ \varnothing, X, \text{ all subsets of \(X\) whose complement is countable } \right\}
+	\]
+
+	If \( {(A_{\alpha})}_{\alpha\in \mathscr{A}} \) is a family of elements of \( \mathscr{T} \) then
+	\[
+		X - \bigcup_{\alpha\in\mathscr{A}} A_{\alpha} = \bigcap_{\alpha\in\mathscr{A}}(X - A_{\alpha}) \text{ is countable}
+	\]
+
+	so \( \bigcup_{\alpha\in\mathscr{A}} A_{\alpha} \in \mathscr{T} \). Moreover, if \( A, B \in \mathscr{T} \) then
+	\[
+		X - (A \cap B) = (X - A) \cup (X - B) \text{ is countable}
+	\]
+
+	so \( A \cap B \in \mathscr{T} \). Hence \( \mathscr{T} \) is a topology on \(X\).
+
+	Every singleton subset of \(X\) is closed. Let \(a, b\) be two distinct points of \(X\). There exist neighborhoods \(A \ni a\) and \(B \ni b\) such that \(b \notin A\) and \(a \notin B\). The complement \( X - (A \cap B) = (X - A) \cup (X - B) \) is countable so \( A \cap B \) is nonempty. Hence \( X \) is not discrete as any two distinct points doesn't have disjoint neighborhoods.
+\end{proof}
+
+\begin{problem}{III.4.20}
+A point \(a \in A\) is called isolated whenever \(a \in A - A^{\prime}\). A set is called perfect if it is closed and has no isolated points. Prove: (1) If \(A\) has no isolated points, then \(\overline{A}\) is perfect. (2) If a space \(X\) has no isolated points, then every open set in \(X\) also have no isolated points.
+\end{problem}
+
+\begin{quotation}
+	If a space \(X\) has no isolated points, then it is not necessary that every dense subset of \(X\) has no isolated points. A sufficient condition for this is \(X\) being a \(T_{1}\) space (for every pair of distinct points, each has a neighborhood not containing the other point).
+\end{quotation}
+
+\begin{proof}
+	\begin{enumerate}[label={(\arabic*)}]
+		\item \( \overline{A} \) is closed by definition. Let \( x \in \overline{A} \).
+
+		      If \( x \in A \) then \(x\) is not an isolated point of \(A\) hence not an isolated point of \(\overline{A}\).
+
+		      If \( x \notin A \) then \( x \in A^{\prime} \) so every neighborhood of \(x\) intersects \( A = A - \left\{x\right\} \), hence \(x\) is not an isolated point of \(\overline{A}\).
+
+		      Therefore \(\overline{A}\) doesn't have any isolated points, thus \(\overline{A}\) is perfect if \(A\) has no isolated points.
+		\item Let \(U\) be an open set of \(X\) and \(x\) an element of \(U\). For every neighborhood \(V\) of \(x\), one has \( (U \cap V) - \left\{x\right\} \ne \varnothing \) because \(X\) has no isolated points. Hence every neigborhood of \(x\) intersects \( U - \left\{x\right\} \), which means every element of \(U\) is a cluster point, hence \(U\) has no isolated point.
+	\end{enumerate}
+\end{proof}
+
 \section{Topologizing with preassigned elementary operations}
 
 \section{\( G_{\sigma}, F_{\sigma} \) and Borel sets}
