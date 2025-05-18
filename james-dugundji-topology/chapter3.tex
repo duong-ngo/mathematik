@@ -487,7 +487,7 @@ Let \(A = \left\{ 1/m + 1/n \mid m, n \in \mathbb{Z}^{+} \right\} \subset E^{1} 
 \end{proof}
 
 \begin{problem}{III.4.7}
-Let \( \left\{ A_{\alpha} \mid \alpha \in \mathscr{A} \right\} \) be any family of sets in \(X\). Assue that \( \bigcup_{\alpha} \overline{A_{\alpha}} \) is closed. Prove \( \bigcup_{\alpha} \overline{A_{\alpha}} = \overline{\bigcup_{\alpha} A_{\alpha}} \).
+Let \( \left\{ A_{\alpha} \mid \alpha \in \mathscr{A} \right\} \) be any family of sets in \(X\). Assume that \( \bigcup_{\alpha} \overline{A_{\alpha}} \) is closed. Prove \( \bigcup_{\alpha} \overline{A_{\alpha}} = \overline{\bigcup_{\alpha} A_{\alpha}} \).
 \end{problem}
 
 \begin{proof}
@@ -788,6 +788,125 @@ A point \(a \in A\) is called isolated whenever \(a \in A - A^{\prime}\). A set 
 
 		      Therefore \(\overline{A}\) doesn't have any isolated points, thus \(\overline{A}\) is perfect if \(A\) has no isolated points.
 		\item Let \(U\) be an open set of \(X\) and \(x\) an element of \(U\). For every neighborhood \(V\) of \(x\), one has \( (U \cap V) - \left\{x\right\} \ne \varnothing \) because \(X\) has no isolated points. Hence every neigborhood of \(x\) intersects \( U - \left\{x\right\} \), which means every element of \(U\) is a cluster point, hence \(U\) has no isolated point.
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{III.4.21}
+Call a set residual if its complement is dense, and call it nowhere dense if its closure has empty interior. Prove: (1) A nowhere dense set is a redisual set. (2) \(A\) is nowhere dense if and only if \( A \subset \overline{\mathscr{C}(\overline{A})} \). (3) The union of a residual and a nowhere dense set is a residual set. (4) The boundary of a closed (or open) set is nowhere dense. (5) For any set \(A\), both \(A \cap \overline{\mathscr{C}(A)}\) and \( \overline{A} \cap \mathscr{C}(A) \) are residual. (6) The boundary of any set is the union of two residual sets.
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\arabic*)},itemsep=0pt,leftmargin=*]
+		\item Let \(A\) be a nowhere dense subset of a topological space. From the definition of nowhere dense set, \( \operatorname{Int}(\overline{A}) = \varnothing \).
+
+		      The complement of \( \overline{\mathscr{C}(A)} \) is the interior of \(A\). Moreover, \( \operatorname{Int}(A) \subset \operatorname{Int}(\overline{A}) = \varnothing \) so \( \operatorname{Int}(A) = \varnothing \). Hence \( \overline{\mathscr{C}(A)} = X \), which means \(A\) is also a residual set.
+		\item If \(A\) is nowhere dense then \( \operatorname{Int}(\overline{A}) = \varnothing \). Since \( \overline{\mathscr{C}(\overline{A})} = \mathscr{C}(\operatorname{Int}(\overline{A})) \) then \( \overline{\mathscr{C}(\overline{A})} \) is the entire ambient space, which means \( A \subset \overline{\mathscr{C}(\overline{A})} \).
+
+		      Conversely, suppose that \( A \subset \overline{\mathscr{C}(\overline{A})} \). Because \( \overline{\mathscr{C}(\overline{A})} = \mathscr{C}(\operatorname{Int}(\overline{A})) \) then \( A \subset \mathscr{C}(\operatorname{Int}(\overline{A})) \), so \( \operatorname{Int}(\overline{A}) \subset \mathscr{C}A \), which means \( \operatorname{Int}(\overline{A}) \subset \operatorname{Int}(\mathscr{C}A) = \mathscr{C}(\overline{A}) \). Since \( \operatorname{Int}(\overline{A}) \subset \overline{A} \) and \( \mathscr{C}(\overline{A}) \) are disjoint, we deduce that \( \operatorname{Int}(\overline{A}) = \varnothing \). Hence \(A\) is nowhere dense.
+		\item Let \(A\) be a residual set and \(B\) a nowhere dense set.
+
+		      \( \mathscr{C}A \) is dense by definition.
+
+		      \( \varnothing = \operatorname{Int}(\overline{B}) = \mathscr{C}(\overline{\mathscr{C}(\overline{B})}) \) so \( \mathscr{C}(\overline{B}) \) is dense. Moreover, \( \mathscr{C}(B) \supset \mathscr{C}(\overline{B}) \) so \( \mathscr{C} \) is also dense.
+
+		      \( \mathscr{C}(A \cup B) = \mathscr{C}(A) \cap \mathscr{C}(B) \supset \mathscr{C}(A) \cap \mathscr{C}(\overline{B}) \). The set \( \mathscr{C}(\overline{B}) \) is open so according to Problem~\ref{problem:III.4.13}, \( \overline{\mathscr{C}(A) \cap \mathscr{C}(\overline{B})} = \overline{\mathscr{C}\overline{B}} \). Hence \(\mathscr{C}(A) \cap \mathscr{C}(\overline{B})\) is dense, which implies that \(\mathscr{C}(A) \cap \mathscr{C}(B)\) is dense. Therefore \(A \cup B\) is a residual set.
+		\item Let \(A\) be a subset of a topological space. Because \( \operatorname{Fr}(A) = \overline{A} \cap \overline{\mathscr{C}A} \), the boundary of \(A\) is a closed set.
+
+		      If \(A\) is closed then \( \operatorname{Fr}(A) \subset \overline{A} \). Every neighborhood of every point in \( \operatorname{Fr}(A) \) intersects \(A\) and \(\mathscr{C}A\). Moreover, \( \mathscr{C}A \) and \( A = \overline{A} \) are disjoint so \( \mathscr{C}A \) and \( \operatorname{Fr}(A) \subset \overline{A} \) are disjoint. Hence \( \operatorname{Fr}(A) \) has no interior point if \(A\) is closed.
+
+		      If \(A\) is open then \(\mathscr{C}A\) is closed and \(\operatorname{Fr}(A) = \operatorname{Fr}(\mathscr{C}A)\) so \( \operatorname{Fr}(A) \) has no interior point.
+
+		      Thus \( \operatorname{Fr}(A) \) has no interior point whenever \(A\) is closed (or open). Moreover, \( \operatorname{Fr}(A) \) is closed, so \( \operatorname{Int}(\overline{\operatorname{Fr}(A)}) = \operatorname{Int}(\operatorname{Fr}(A)) = \varnothing \), which means \( \operatorname{Fr}(A) \) is nowhere dense.
+		\item We will show that the complement of these sets are dense.
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      \overline{\mathscr{C}(A \cap \overline{\mathscr{C}(A)})} & = \overline{\mathscr{C}(A) \cup \mathscr{C}(\overline{\mathscr{C}(A)})}                            & \text{(De Morgan's law)}                   \\
+			                                                               & = \overline{\mathscr{C}A} \cup \overline{\mathscr{C}(\overline{\mathscr{C}A})}                     & \text{(closure and union are commutative)} \\
+			                                                               & = \overline{\mathscr{C}A} \cup \overline{\operatorname{Int}(A)}                                                                                 \\
+			                                                               & = \operatorname{Int(\mathscr{C}A)} \cup \operatorname{Fr}(A) \cup \overline{\operatorname{Int}(A)}                                              \\
+			                                                               & \supset \operatorname{Int}(\mathscr{C}A) \cup \operatorname{Fr}(A) \cup \operatorname{Int}(A) = X
+		      \end{align*}
+		      \endgroup
+
+		      so the complement of \( A \cap \overline{\mathscr{C}A} \) is dense, which means \( A \cap \overline{\mathscr{C}A} \) is residual.
+
+		      By interchanging \( A \) and \( \mathscr{C}A \), we deduce that \( \overline{A} \cap \mathscr{C}(A) \) is residual.
+		\item Let \(A\) be any set.
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      \operatorname{Fr}(A) & = \overline{A} \cap \overline{\mathscr{C}(A)}                                                                                                       \\
+			                           & = (\overline{A} \cap \overline{\mathscr{C}(A)}) \cap (A \cup \mathscr{C}(A))                                                                        \\
+			                           & = (\overline{A} \cap \overline{\mathscr{C}(A)} \cap A) \cup (\overline{A} \cap \overline{\mathscr{C}(A)} \cap \mathscr{C}(A))                       \\
+			                           & = \underbrace{(A \cap \overline{\mathscr{C}(A)})}_{\text{residual set}} \cup \underbrace{(\overline{A} \cap \mathscr{C}(A))}_{\text{residual set}}.
+		      \end{align*}
+		      \endgroup
+
+		      Hence \( \operatorname{Fr}(A) \) is a union of two residual sets.
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{III.4.22}
+An open set \(U\) is called regular if \(U = \operatorname{Int}(\overline{U})\); a closed set \(A\) is called regular if \(A = \overline{\operatorname{Int}(A)}\). Prove:
+\begin{enumerate}[leftmargin=*,label={(\alph*)},itemsep=0pt]
+	\item If \(A\) is closed, then \(\operatorname{Int}(A)\) is a regular open set.
+	\item If \(U\) is open, then \(\overline{U}\) is a regular closed set.
+	\item The complement of a regular open (closed) set is a regular closed (open) set.
+	\item If \(U, V\) are regular open sets, then \(U \subset V\) if and only if \( \overline{U} \subset \overline{V} \).
+	\item If \(A, B\) are regular closed set, then \( A \subset B \) if and only if \( \operatorname{Int}(A) \subset \operatorname{Int}(B) \).
+	\item If \(A, B\) are regular closed sets, so also is \(A \cup B\).
+	\item If \(U, V\) are regular open sets, so also is \(U \cap V\).
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[leftmargin=*,label={(\alph*)},itemsep=0pt]
+		\item Let \( B = \operatorname{Int}(A) \) then \(B\) is open.
+
+		      \( \operatorname{Int}(\overline{B}) \) is the largest open set contained in \( \overline{B} \) so \( B \subset \operatorname{Int}(\overline{B}) \).
+
+		      %   \( B = \operatorname{Int}(A) \subset A \) so \( \overline{B} \subset A \) (as \(A\) is closed), which implies \( \mathscr{C}(\overline{B}) \supset \mathscr{C}(A) \), therefore \( \overline{\mathscr{C}(\overline{B})} \supset \overline{\mathscr{C}(A)} \). Since \( \overline{\mathscr{C}(\overline{B})} = \mathscr{C}(\operatorname{Int}(\overline{B})) \) and \( \overline{\mathscr{C}A} = \mathscr{C}(\operatorname{Int}(A)) = \mathscr{C}(B) \), we deduce that \( \mathscr{C}(\operatorname{Int}(\overline{B})) \supset \mathscr{C}(B) \), which precisely means \( \operatorname{Int}(\overline{B}) \subset B \) (because larger sets have smaller complement and vice versa).
+
+		      \( B = \operatorname{Int}(A) \subset A \) so \( \overline{B} \subset A \) (as \(A\) is closed), which implies \( \operatorname{Int}(\overline{B}) \subset \operatorname{Int}(A) = B \).
+
+		      Thus \( B = \operatorname{Int}(\overline{B}) \), so \( B \) is a regular open set.
+		\item Let \( V = \overline{U} \) then \( V \) is closed.
+
+		      \( \overline{\operatorname{Int}(V)} \) is the smallest closed set containing \( \operatorname{Int}(V) \) and \( \operatorname{Int}(V) \subset V \) so \( \overline{\operatorname{Int}(V)} \subset V \).
+
+		      \( V = \overline{U} \supset U \) so \( \operatorname{Int}(V) \supset U \) (as \(U\) is open), which implies \( \overline{\operatorname{Int}(V)} \supset \overline{U} = V \).
+
+		      Hence \( V = \overline{\operatorname{Int}(V)} \), which means \( V \) is a regular closed set.
+		\item For any set \(S\), one has \( \mathscr{C}(\operatorname{Int}(\overline{S})) = \overline{\mathscr{C}(\overline{S})} = \overline{\operatorname{Int}(\mathscr{C}(S))} \).
+		      \[
+			      S = \operatorname{Int}(\overline{S}) \iff \mathscr{C}(S) = \mathscr{C}(\operatorname{Int}(\overline{S})) \iff \mathscr{C}(S) = \overline{\operatorname{Int}(\mathscr{C}(S))}
+		      \]
+
+		      so \( S \) is a regular open set if and only if its complement is a regular closed set.
+
+		      Therefore the complement of a regular open set is a regular closed set and vice versa.
+		\item \( U \subset V \) implies \( \overline{U} \subset \overline{V} \).
+
+		      Conversely, \( \overline{U} \subset \overline{V} \) implies \( U = \operatorname{Int}(\overline{U}) \subset \operatorname{Int}(\overline{V}) = V \).
+
+		\item \( A \subset B \) implies \( \operatorname{Int}(A) \subset \operatorname{Int}(B) \).
+
+		      Conversely, \( \operatorname{Int}(A) \subset \operatorname{Int}(B) \) implies \( A = \overline{\operatorname{Int}(A)} \subset \overline{\operatorname{Int}(B)} = B \).
+		\item If \( A, B \) are regular closed sets, then \( A \cup B \) is closed.
+
+		      \( A \cup B = \overline{\operatorname{Int}(A)} \cup \overline{\operatorname{Int}(B)} = \overline{\operatorname{Int}(A) \cup \operatorname{Int}(B)} \subset \overline{\operatorname{Int}(A \cup B)} \) since \( \operatorname{Int}(A) \cup \operatorname{Int}(B) \subset \operatorname{Int}(A \cup B) \).
+
+		      \( \operatorname{Int}(A \cup B) \subset A \cup B \) so \( \overline{\operatorname{Int}(A \cup B)} \subset \overline{A \cup B} = A \cup B \).
+
+		      Hence \( A \cup B = \overline{\operatorname{Int}(A \cup B)} \), which means \( A \cup B \) is a regular closed set.
+		\item If \( U, V \) are regular open sets, then \( U \cap V \) is open.
+
+		      \( U \cap V = \operatorname{Int}(\overline{U}) \cap \operatorname{Int}(\overline{V}) = \operatorname{Int}(\overline{U} \cap \overline{V}) \supset \operatorname{Int}(\overline{U \cap V}) \) since \( \overline{U} \cap \overline{V} \supset \overline{U \cap V} \).
+
+		      \( \overline{U \cap V} \supset U \cap V \) so \( \operatorname{Int}(\overline{U \cap V}) \supset \operatorname{Int}(U \cap V) = U \cap V \).
+
+		      Hence \( U \cap V = \operatorname{Int}(\overline{U \cap V}) \), which means \( U \cap V \) is a regular open set.
 	\end{enumerate}
 \end{proof}
 
