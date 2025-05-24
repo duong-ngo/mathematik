@@ -505,7 +505,7 @@ Prove: \( \operatorname{Fr}(A) = \varnothing \) if and only if \(A\) is both ope
 
 	\( \operatorname{Fr}(A) = \varnothing \implies A \) is both open and closed.
 
-	From the definition of boundary, \( \varnothing = \operatorname{Fr}(A) = \overline{A} \cap \overline{\mathscr{C}A} \). On the other hand, \( \overline{A} \cup \overline{\mathscr{C}A} \supset \overline{A} \cup \mathscr{C}A \) so the complement of \( \overline{A} \) is \( \overline{\mathscr{C}A} \). Hence \( \overline{\mathscr{C}A} = \operatorname{Int}(\mathscr{C}A) \) so \( \mathscr{C}A \) is both open and closed as \( \operatorname{Int}(\mathscr{C}A) \subset \mathscr{C}A \subset \overline{\mathscr{C}A} \). Therefore \(A\) is both open and closed.
+	From the definition of boundary, \( \varnothing = \operatorname{Fr}(A) = \overline{A} \cap \overline{\mathscr{C}A} \). On the other hand, \( \overline{A} \cup \overline{\mathscr{C}A} \supset A \cup \mathscr{C}A \) so the complement of \( \overline{A} \) is \( \overline{\mathscr{C}A} \). Hence \( \overline{\mathscr{C}A} = \operatorname{Int}(\mathscr{C}A) \) so \( \mathscr{C}A \) is both open and closed as \( \operatorname{Int}(\mathscr{C}A) \subset \mathscr{C}A \subset \overline{\mathscr{C}A} \). Therefore \(A\) is both open and closed.
 
 	\( A \) is both open and closed \( \implies \operatorname{Fr}(A) = \varnothing \).
 
@@ -911,6 +911,252 @@ An open set \(U\) is called regular if \(U = \operatorname{Int}(\overline{U})\);
 \end{proof}
 
 \section{Topologizing with preassigned elementary operations}
+
+\begin{proposition}{5.2}
+	Let \(X\) be a set, and \( \gamma: \mathscr{P}(X) \to \mathscr{P}(X) \) a map such that:
+	\begin{enumerate}[label={(\arabic*)}]
+		\item \( \gamma(\varnothing) = \varnothing \).
+		\item \( \gamma \circ \gamma (A) \subset A \cup \gamma(A) \).
+		\item \( \gamma(A \cup B) = \gamma(A) \cup \gamma(B) \).
+		\item For each \( x \in X, x \notin \gamma(\left\{x\right\}) \).
+	\end{enumerate}
+
+	Then \( \mathscr{T} = \left\{ \mathscr{C}(A \cup \gamma(A)) \mid A \in \mathscr{P}(X) \right\} \) is a topology, and \( A^{\prime} = \gamma(A) \).
+\end{proposition}
+
+\begin{proof}
+	Firstly, we show that
+	\[
+		A \subset B \implies \gamma(A) \subset \gamma(B).
+	\]
+
+	If \( A \subset B \) then \( B = A \cup B \), from which we deduce that \( \gamma(A) \subset \gamma(A) \cup \gamma(B) = \gamma(A \cup B) = \gamma(B) \).
+
+	Consequently,
+	\[ A \subset B \implies A \cup \gamma(A) \subset B \cup \gamma(B). \]
+
+	\begin{enumerate}[label={(\roman*)}]
+		\item \( X = \mathscr{C}(\varnothing \cup \gamma(\varnothing)) \) so \( X \in \mathscr{T} \).
+
+		      \( \varnothing = \mathscr{C}(X) = \mathscr{C}(X \cup \gamma(X)) \) so \( \varnothing \in \mathscr{T} \).
+		\item According to De Morgan's law,
+		      \[  \mathscr{C}(A \cup \gamma(A)) \cap \mathscr{C}(B \cup \gamma(B)) = \mathscr{C}((A \cup \gamma(A)) \cup (B \cup \gamma(B))) = \mathscr{C}((A \cup B) \cup \gamma(A \cup B)) \]
+
+		      Hence \(\mathscr{C}(A \cup \gamma(A)) \cap \mathscr{C}(B \cup \gamma(B)) \in \mathscr{T}\).
+		\item Let \( S = \bigcup_{\alpha} \mathscr{C}(A_{\alpha} \cup \gamma(A_{\alpha})) \) then \( \mathscr{C}S = \mathscr{C}\bigcup_{\alpha} \mathscr{C}(A_{\alpha} \cup \gamma(A_{\alpha})) = \bigcap_{\alpha}(A_{\alpha} \cup \gamma(A_{\alpha})) \).
+
+		      Hence \( \gamma(\mathscr{C}S) \subset \gamma(A_{\alpha} \cup \gamma(A_{\alpha})) \) for every \( \alpha \) as \( \mathscr{C}S \subset A_{\alpha} \cup \gamma(A_{\alpha}) \), which implies that
+		      \[
+			      \gamma(\mathscr{C}S) \subset \gamma(A_{\alpha} \cup \gamma(A_{\alpha})) = \gamma(A_{\alpha}) \cup \gamma\circ\gamma(A_{\alpha}) \subset \gamma(A_{\alpha}) \cup (A_{\alpha} \cup \gamma(A_{\alpha})) = A_{\alpha} \cup \gamma(A_{\alpha})
+		      \]
+
+		      for every \(\alpha\), so
+		      \[
+			      \gamma(\mathscr{C}S) \subset \bigcap_{\alpha} (A_{\alpha} \cup \gamma(A_{\alpha})) = \mathscr{C}S.
+		      \]
+
+		      Therefore \( \mathscr{C}S = \mathscr{C}(S) \cup \gamma(\mathscr{C}S) \), which means \( S = \mathscr{C}(\mathscr{C}(S) \cup \gamma(\mathscr{C}S)) \), so \( S \in \mathscr{T} \).
+	\end{enumerate}
+
+	Hence \( \mathscr{T} \) is a topology on \(X\).
+
+	According to Proposition 5.1, \( A \cup \gamma(A) = \overline{A} \).
+
+	If \( x \in A^{\prime} \) then \( x \in \overline{A - \left\{x\right\}} = (A - \left\{x\right\}) \cup \gamma(A - \left\{x\right\}) \), which means \( x \in \gamma(A - \left\{x\right\}) \subset \gamma(A) \). Hence \( A^{\prime} \subset \gamma(A) \).
+
+	Let \( x \in \gamma(A) \). Assume that there exists a neighborhood \(U\) of \(x\) such that \( U \cap (A - \left\{x\right\}) = \varnothing \). Therefore \( A - \left\{x\right\} \subset \mathscr{C}U \).
+	\[
+		\gamma(A) = \gamma((A - \left\{x\right\}) \cup \left\{x\right\}) = \gamma(A - \left\{x\right\}) \cup \gamma(\left\{x\right\})
+	\]
+
+	Since \( x \notin \gamma(\left\{x\right\}) \), it follows that \( x \in \gamma(A - \left\{ x \right\}) \subset \gamma(\mathscr{C}U) \). Moreover, \( \mathscr{C}U \) is closed so \( \gamma(\mathscr{C}U) \subset \overline{\mathscr{C}U} = \mathscr{C}U \), which means \( x \in \mathscr{C}U \), this is a contradiction as \( x \in U \).
+
+	Hence every neighborhood of \(x\) intersects \( A - \left\{x\right\} \) non-trivially, so \( \gamma(A) \subset A^{\prime} \).
+
+	Thus \( A^{\prime} = \gamma(A) \).
+\end{proof}
+
+\begin{proposition}{5.3}
+	Let \(X\) be a set, and \( \eta: \mathscr{P}(X) \to \mathscr{P}(X) \) a map such that:
+	\begin{enumerate}[label={(\arabic*)}]
+		\item \( \eta(X) = X \).
+		\item \( \eta(A) \subset A \).
+		\item \( \eta \circ \eta(A) = \eta(A) \).
+		\item \( \eta(A \cap B) = \eta(A) \cap \eta(B) \).
+	\end{enumerate}
+
+	Then \( \mathscr{T} = \left\{ \eta(A) \mid A \in \mathscr{P}(X) \right\} \) is a topology, and \( \operatorname{Int}(A) = \eta(A) \).
+\end{proposition}
+
+\begin{proof}
+	If \( A \subset B \) then
+	\[
+		\eta(A) = \eta(A \cap B) = \eta(A) \cap \eta(B) \subset \eta(B).
+	\]
+
+	Therefore \( A \subset B \implies \eta(A) \subset \eta(B) \).
+	\begin{enumerate}[label={(\roman*)}]
+		\item \( X = \eta(X) \) so \( X \in \mathscr{T} \).
+
+		      \( \eta(\varnothing) \subset \varnothing \) so \( \varnothing = \eta(\varnothing) \in \mathscr{T} \).
+		\item \( \eta(A) \cap \eta(B) = \eta(A \cap B) \in \mathscr{T} \).
+		\item Let \( S = \bigcup_{\alpha} \eta(A_{\alpha}) \) then
+		      \[
+			      \eta(S) = \eta\left( \bigcup_{\alpha} \eta(A_{\alpha}) \right) \supset \eta(\eta(A_{\alpha}))
+		      \]
+
+		      for every \(\alpha\), from which we obtain that
+		      \[
+			      \eta(S) \supset \bigcup_{\alpha}\eta(\eta(A_{\alpha})) = \bigcup_{\alpha} \eta(A_{\alpha}) = S.
+		      \]
+
+		      Since \( \eta(S) \subset S \), we conclude that \( S = \eta(S) \), which means \( S \in \mathscr{T} \).
+	\end{enumerate}
+
+	Hence \( \mathscr{T} \) is a topology on \(X\).
+
+	\( \operatorname{Int}(A) \) is the largest open set contained in \( A \) so \( \eta(A) \subset \operatorname{Int}(A) \).
+
+	\( \operatorname{Int}(A) \) is open in \(X\) so \( \operatorname{Int}(A) = \eta(B) \) for some \( B \subset X \). Since \( A \supset \operatorname{Int}(A) \)
+	\[
+		\eta(A) \supset \eta(\operatorname{Int}(A)) = \eta\circ\eta(B) = \eta(B) = \operatorname{Int}(A).
+	\]
+
+	Hence \( \operatorname{Int}(A) = \eta(A) \).
+\end{proof}
+
+\begin{proposition}{5.4}
+	Let \(X\) be a set, and \( \beta: \mathscr{P}(X) \to \mathscr{P}(X) \) a map such that:
+	\begin{enumerate}[label={(\arabic*)}]
+		\item \( \beta(\varnothing) = \varnothing \).
+		\item \( \beta(A) = \beta(\mathscr{C}A) \).
+		\item \( \beta \circ \beta(A) \subset \beta(A) \).
+		\item \( A \cap B \cap \beta(A \cap B) = A \cap B \cap \left[\beta(A) \cup \beta(B)\right] \).
+	\end{enumerate}
+
+	Then \( \mathscr{T} = \left\{ \mathscr{C}(A \cup \beta(A)) \mid A \in \mathscr{P}(X) \right\} \) is a topology, and \( \operatorname{Fr}(A) = \beta(A) \).
+\end{proposition}
+
+\begin{proof}
+	We show that \( U \in \mathscr{T} \) if and only if \( U \cap \beta(U) = \varnothing \).
+
+	If \( U \in \mathscr{T} \) then \( U = \mathscr{C}(A \cup \beta(A)) \) for some \( A \subset X \).
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		U \cap \beta(U) & = \mathscr{C}(A) \cap \mathscr{C}(\beta(A)) \cap \beta(\mathscr{C}(A) \cap \mathscr{C}(\beta(A)))                       \\
+		                & = \mathscr{C}(A) \cap \mathscr{C}(\beta(A)) \cap \left[ \beta(\mathscr{C}(A)) \cup \beta(\mathscr{C}(\beta(A))) \right] \\
+		                & = \mathscr{C}(A) \cap \mathscr{C}(\beta(A)) \cap \left[ \beta(A) \cup \beta(\beta(A)) \right]                           \\
+		                & = \mathscr{C}(A) \cap \mathscr{C}(\beta(A)) \cap \beta(A)                                                               \\
+		                & = \mathscr{C}(A) \cap \varnothing                                                                                       \\
+		                & = \varnothing.
+	\end{align*}
+	\endgroup
+
+	Conversely, \( U \cap \beta(U) = \varnothing \) implies \( \beta(U) \subset \mathscr{C}U \), so
+	\[
+		\mathscr{C}(\mathscr{C}(U) \cup \beta(\mathscr{C}U)) = \mathscr{C}(\mathscr{C}(U) \cup \beta(U)) = \mathscr{C}(\mathscr{C}(U)) = U
+	\]
+
+	which means \( U \in \mathscr{T} \).
+
+	Therefore \( \mathscr{T} = \left\{ U \subset X \mid U \cap \beta(U) = \varnothing \right\} \).
+
+	Also we use the following lemma: \textbf{ If \( A \cap \beta(A) = \varnothing \) then \( A \cap \beta(B) = \varnothing \) whenever \( A \subset B \). }
+
+	If \( A \subset B \) then \( A = A\cap B \) and
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\varnothing = A \cap \beta(A) & = A \cap B \cap \beta(A \cap B)                       \\
+		                              & = A \cap B \cap \left[ \beta(A) \cup \beta(B) \right] \\
+		                              & = A \cap B \cap \beta(A) \cup A \cap B \cap \beta(B)  \\
+		                              & = A \cap B \cap \beta(B)                              \\
+		                              & = A \cap \beta(B).
+	\end{align*}
+	\endgroup
+
+	\begin{enumerate}[label={(\roman*)}]
+		\item \( X = \mathscr{C}(\varnothing \cup \beta(\varnothing)) \) so \( X \in \mathscr{T} \).
+
+		      \( \varnothing = \mathscr{C}(X) = \mathscr{C}(X \cup \beta(X)) \) so \( \varnothing \in \mathscr{T} \).
+		\item Let \( U, V \in \mathscr{T} \).
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      U \cap V \cap \beta(U \cap V) & = U \cap V \cap \left[\beta(U) \cup \beta(V)\right]      \\
+			                                    & = (U \cap V \cap \beta(U)) \cup (U \cap V \cap \beta(V)) \\
+			                                    & = \varnothing \cup \varnothing                           \\
+			                                    & = \varnothing.
+		      \end{align*}
+		      \endgroup
+		\item Let \( \left\{ A_{\alpha} \right\} \) be a family of members of \( \mathscr{T} \) and \( A = \bigcup_{\alpha} A_{\alpha} \)
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      \left(\bigcup_{\alpha} A_{\alpha}\right) \cap \beta\left(\bigcup_{\alpha} A_{\alpha}\right) & = \left(\bigcup_{\alpha} A_{\alpha}\right) \cap \beta(A) \\
+			                                                                                                  & = \bigcup_{\alpha} (A_{\alpha} \cap \beta(A))            \\
+			                                                                                                  & = \bigcup_{\alpha} \varnothing                           \\
+			                                                                                                  & = \varnothing
+		      \end{align*}
+		      \endgroup
+
+		      Hence \( A \in \mathscr{T} \).
+	\end{enumerate}
+
+	Thus \( \mathscr{T} \) is a topology on \(X\).
+
+	\( \mathscr{C}(A \cup \beta(A)) \) is open so \( A \cup \beta(A) \) is closed, so \( \overline{A} \subset A \cup \beta(A) \) as \( \overline{A} \) is the smallest closed set containing \(A\).
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\operatorname{Fr}(A) & = \overline{A} \cap \overline{\mathscr{C}A}                            \\
+		                     & \subset (A \cup \beta(A)) \cap (\mathscr{C}A \cup \beta(\mathscr{C}A)) \\
+		                     & = (A \cup \beta(A)) \cap (\mathscr{C}A \cup \beta(A))                  \\
+		                     & = (A \cap \mathscr{C}A) \cup \beta(A)                                  \\
+		                     & = \beta(A)
+	\end{align*}
+	\endgroup
+
+	so \( \operatorname{Fr}(A) \subset \beta(A) \).
+
+	We prove \( \beta(A) \subset \operatorname{Fr}(A) \) using contradiction. Assume that there exists \( x \in \beta(A) \) and a neighborhood \( U \) of \( x \) such that \( U \cap A = \varnothing \) or \( U \cap \mathscr{C}A = \varnothing \).
+
+	\( U \) is open so \( U \cap \beta(U) = \varnothing \).
+
+	If \( U \cap A = \varnothing \) then \( U \subset \mathscr{C}A \) so \( U \cap \beta(A) = U \cap \beta(\mathscr{C}A) = \varnothing \).
+
+	If \( U \cap \mathscr{C}A = \varnothing \) then \( U \subset A \) so \( U \cap \beta(\mathscr{C}A) = U \cap \beta(A) = \varnothing \).
+
+	This is a contradiction since \( x \in \beta(A) \) and \( U \cap \beta(A) = \varnothing \).
+
+	Hence for every \( x \in \beta(A) \), for every neighborhood \( U \) of \(x\), one has \( U \cap A \ne \varnothing \) and \( U \cap \mathscr{C}A \ne \varnothing \), this means \( x \in \operatorname{Fr}(A) \). Therefore \( \beta(A) \subset \operatorname{Fr}(A) \).
+
+	So \( \operatorname{Fr}(A) = \beta(A) \).
+\end{proof}
+
+\begin{proposition}{5.5}
+	Let \(X\) be a set, and \(\mathscr{A} \subset \mathscr{P}(X)\) a family with the properties:
+	\begin{enumerate}[label={(\arabic*)}]
+		\item \( \varnothing, X \) belong to \(\mathscr{A}\).
+		\item The intersection of any family of members of \(\mathscr{A}\) is also a member of \(\mathscr{A}\).
+		\item The finite union of members of \(\mathscr{A}\) belongs to \(\mathscr{A}\).
+	\end{enumerate}
+
+	The \( \mathscr{T} = \left\{ \mathscr{C}A \mid A \in \mathscr{A} \right\} \) is a topology, in which \( \mathscr{A} \) is the complete family of closed sets.
+\end{proposition}
+
+\begin{proof}
+	\( \varnothing, X \in \mathscr{T} \).
+
+	\( \mathscr{C}A \cap \mathscr{C}B = \mathscr{C}(A \cup B) \) so \( \mathscr{C}A \cap \mathscr{C}B \in \mathscr{T} \) whenever \( A, B \in \mathscr{A} \).
+
+	\( \bigcup_{\alpha} \mathscr{C}A_{\alpha} = \mathscr{C}\bigcap_{\alpha}A_{\alpha} \in \mathscr{T} \) whenever \( A_{\alpha} \in \mathscr{A} \).
+
+	Hence \( \mathscr{T} \) is a topology.
+
+	By the definition of closed set, \( \mathscr{A} \) is the complete family of closed sets.
+\end{proof}
 
 \section{\( G_{\sigma}, F_{\sigma} \) and Borel sets}
 
