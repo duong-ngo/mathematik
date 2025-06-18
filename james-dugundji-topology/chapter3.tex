@@ -1062,7 +1062,7 @@ An open set \(U\) is called regular if \(U = \operatorname{Int}(\overline{U})\);
 
 	Therefore \( \mathscr{T} = \left\{ U \subset X \mid U \cap \beta(U) = \varnothing \right\} \).
 
-	Also we use the following lemma: \textbf{ If \( A \cap \beta(A) = \varnothing \) then \( A \cap \beta(B) = \varnothing \) whenever \( A \subset B \). }
+	Also we use the following lemma: \textbf{If \( A \cap \beta(A) = \varnothing \) then \( A \cap \beta(B) = \varnothing \) whenever \( A \subset B \). }
 
 	If \( A \subset B \) then \( A = A\cap B \) and
 	\begingroup
@@ -1158,9 +1158,170 @@ An open set \(U\) is called regular if \(U = \operatorname{Int}(\overline{U})\);
 	By the definition of closed set, \( \mathscr{A} \) is the complete family of closed sets.
 \end{proof}
 
+\begin{problem}{III.5.1}
+Let \(A \mapsto u(A)\) and \(A \mapsto v(A)\) be two closure operations. Assume that \( v\circ u(A) \) is \(u\)-closed. Prove that \( A \mapsto v\circ u(A) \) is a closure operation and that \(v\circ u(A)\) is in fact the intersection of all sets containing \(A\) that are closed in both \(u\) and \(v\). Finally, show that \(u\circ v(A) \subset v\circ u(A)\).
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\arabic*)}]
+		\item \( v\circ u(\varnothing) = v(u(\varnothing)) = v(\varnothing) = \varnothing \)
+		\item \( A \subset u(A) \subset v(u(A)) = v\circ u(A) \).
+		\item \( v\circ u \circ v\circ u(A) = v\circ v\circ u(A) \) because \( v\circ u(A) \) is \(u\)-closed. Because \( v\circ u(A) \) is \(v\)-closed, it follows that \( v\circ v\circ u(A) = v\circ u(A) \). Hence \( v\circ u \circ v\circ u(A) = v\circ u(A) \).
+		\item \( v\circ u(A \cup B) = v(u(A \cup B)) = v(u(A) \cup u(B)) = v(u(A)) \cup v(u(B)) = v\circ u(A) \cup v\circ u(B) \).
+	\end{enumerate}
+
+	Therefore \( v\circ u \) is a closure operation.
+
+	Let \(B\) be a superset of \(A\) that is closed in both \(u\) and \(v\), then \( v\circ u(A) \subset v\circ u(B) = B \), which means \( v\circ u(A) \) is the smallest set that is closed in both \(u\) and \(v\) and contains \(A\). Hence \( v\circ u(A) \) is the intersection of all sets containing \(A\) that are closed in both \(u\) and \(v\).
+
+	One has \( A \subset u(A) \) so \( v(A) \subset v\circ u(A) \). Therefore \( u \circ v(A) \subset u\circ v\circ u(A) \). Since \( v\circ u(A) \) is \(u\)-closed, we deduce that \( u\circ v\circ u(A) = v\circ u(A) \). Hence \( u\circ v(A) \subset v\circ u(A) \).
+\end{proof}
+
+\begin{problem}{III.5.2}
+Let \( \varphi: X \to \mathscr{P}(Y) \) be a map of a set \(X\) into the set \( \mathscr{P}(Y) \) \textcolor{red}{such that \( \varphi(x) \ne \varnothing \) for every \( x \in X \)}. For \( A \subset X \), let \( \varphi(A) := \bigcup \left\{ \varphi(x) \mid x \in A \right\} \); and for \( B \subset Y \), let \( \varphi^{-1}(B) := \left\{ x \mid (\varphi(x) \subset B) \land (\varphi(x) \ne \varnothing) \right\} \). Show that \( u(A) = \varphi^{-1}\circ\varphi(A) \) satisfies (1), (2), (3) and (i) of Proposition III.5.1.
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\arabic*)}]
+		\item \( \varphi(\varnothing) = \varnothing \) and \( \varphi^{-1}(\varnothing) = \varnothing \) by definition. Hence \( \varphi^{-1} \circ \varphi(\varnothing) = \varnothing \).
+		\item Let \( x \in A \) then \( \varphi(x) \subset \varphi(A) \) and \( \varphi(x) \ne \varnothing \) so \( x \in \varphi^{-1}\circ \varphi(A) = u(A) \).
+
+		      Hence \( A \subset \varphi^{-1} \circ \varphi(A) \).
+		\item From (2), it follows that \( u(A) \subset u \circ u(A) \).
+
+		      Let \( x \in u \circ u(A) = \varphi^{-1} \circ \varphi \circ \varphi^{-1} \circ \varphi(A) \) then \( \varphi(x) \subset \varphi \circ \varphi^{-1} \circ \varphi(A) \) and \( \varphi(x) \ne \varnothing \).
+
+		      \( \varphi(x) \subset \varphi \circ \varphi^{-1} \circ \varphi(A) \) means \( x \in \varphi^{-1} \circ \varphi(A) \) by definition.
+
+		      Therefore \( u \circ u(A) \subset u(A) \). Hence \( u \circ u(A) = u(A) \).
+	\end{enumerate}
+
+	Suppose that \( A_{1} \subset A_{2} \subset X \) then \( \varphi(A_{1}) \subset \varphi(A_{2}) \) by definition.
+
+	Therefore \( \varphi^{-1} \circ \varphi(A_{1}) \subset \varphi^{-1} \circ \varphi(A_{2}) \), which means \( u(A_{1}) \subset u(A_{2}) \).
+
+	Hence \( (A_{1} \subset A_{2}) \implies (u(A_{1}) \subset u(A_{2})) \).
+\end{proof}
+
+\begin{problem}{III.5.3}
+Let \(X\) be a space, and let \( \tau \) be an operation associating with each pair of subsets \(A\) and \(B\) a set \(\tau(A, B) \subset X\) subject to the conditions:
+\begin{enumerate}[label={\alph*.}]
+	\item \( \tau(A, B \cup C) \cup \tau(B, C\cup A) = \tau(A\cup B, C) \cup \tau(A, B) \).
+	\item \( \tau(\varnothing, X) = \varnothing \).
+	\item \( \tau(\overline{A}, \overline{\mathscr{C}A}) \subset \overline{A} \).
+	\item \( \tau(A, B) \subset A \cup B \).
+\end{enumerate}
+
+Show that, necessarily, \( \tau(A, B) = (A \cap \overline{B}) \cup (\overline{A} \cap B) \).
+\end{problem}
+
+\begin{proof}
+	% TODO
+\end{proof}
+
 \section{\( G_{\sigma}, F_{\sigma} \) and Borel sets}
 
+\begin{problem}{III.6.1}\label{problem:III.6.1}
+A set is bivalent if it is both an \(F_{\sigma}\) and a \(G_{\sigma}\). Show that the complements, finite unions, and finite intersections of bivalent sets are bivalent.
+\end{problem}
+
+\begin{proof}
+	Let \(B\) be a bivalent set then \(B\) is both an \(F_{\sigma}\) and a \(G_{\sigma}\) set. Since the complement of an \(F_{\sigma}\) is a \(G_{\sigma}\) and the complement of a \(G_{\sigma}\) is an \(F_{\sigma}\), it follows that the complement of \(B\) is bivalent.
+
+	Let \( B_{1}, \ldots, B_{n} \) be bivalent sets then \( \bigcup^{n}_{i=1}B_{i} \) is a bivalent, since the union of at most countable \(F_{\sigma}\)-sets is an \(F_{\sigma}\)-set and the union of finitely many \(G_{\sigma}\)-sets is a \(G_{\sigma}\)-set.
+\end{proof}
+
+For the remaining problems (in this section), we assume that all closed sets are \(G_{\delta}\)-sets.
+
+\begin{problem}{III.6.2}\label{problem:III.6.2}
+Prove: Every \(F_{\sigma}\) is the disjoint union of bivalent sets.
+\end{problem}
+
+\begin{proof}
+	Let \(F\) be an \(F_{\sigma}\)-set then \( F = \bigcup^{\infty}_{1} F_{i} \) in which each \(F_{i}\) is closed.
+
+	Define \(A_{1} = F_{1}\) and \(A_{n+1} = F_{n+1} - \bigcup^{n}_{1} F_{i}\) then \( A_{1}, A_{2}, \ldots \) are pairwise disjoint and
+	\[
+		\bigcup^{\infty}_{1} A_{i} = \bigcup^{\infty}_{1} F_{i}.
+	\]
+
+	Each \(F_{i}\) is bivalent (due to \(F_{i}\) being closed and the assumption after Problem~\ref{problem:III.6.1}) so each \(A_{i}\) is bivalent.
+\end{proof}
+
+\begin{problem}{III.6.3}\label{problem:III.6.3}
+Prove: For every sequence \( \left\{ F_{i} \right\} \) of \(F_{\sigma}\)-sets, there exists a pairwise disjoint sequence \( \left\{ H_{i} \right\} \) of \(F_{\sigma}\)-sets with \(H_{i} \subset F_{i}\) for every \(i\) and \( \bigcup H_{i} = \bigcup F_{i} \).
+\end{problem}
+
+\begin{proof}
+	According to Problem~\ref{problem:III.6.2}, \( F_{i} \) is a disjoint union of bivalent sets, \( F_{i} = \bigcup^{\infty}_{j=1} F_{i,j} \).
+
+	Define \( H_{i} = \bigcup^{\infty}_{j=1} \left(F_{i,j} - \bigcup_{(k,\ell) < (i,j)} F_{k,\ell}\right) \) in which \( (k,\ell) < (i,j) \) if \( k < i \) or \( k = i \) and \( \ell < j \) (the dictionary order).
+
+	Then \( H_{i} \subset \bigcup^{\infty}_{j=1} F_{i,j} = F_{i} \), \( \left\{ H_{i} \right\} \) are pairwise disjoint, and \( \bigcup H_{i} = \bigcup F_{i} \).
+\end{proof}
+
+\begin{problem}{III.6.4}\label{problem:III.6.4}
+Prove: If \( \left\{ G_{i} \right\} \) is any sequence of \(G_{\delta}\)-sets with \( \bigcap^{\infty}_{1} G_{i} = \varnothing \), there exists a sequence of bivalent sets \( \left\{ B_{i} \right\} \) with \(G_{i} \subset B_{i}\) and \( \bigcap^{\infty}_{1} B_{i} = \varnothing \).
+\end{problem}
+
+\begin{proof}
+	Let \( F_{i} = \mathscr{C}G_{i} \) then \( F_{i} \) is an \( F_{\sigma} \)-set.
+
+	According to Problem~\ref{problem:III.6.3}, there exists a pairwise disjoint sequence \( \left\{ H_{i} \right\} \) of \(F_{\sigma}\)-sets with \(H_{i} \subset F_{i}\) for every \(i\) and \( \bigcup H_{i} = \bigcup F_{i} \). Let \( B_{i} = \mathscr{C}H_{i} \) then \( G_{i} \subset B_{i} \) and \( \bigcap^{\infty}_{1} B_{i} = \bigcap^{\infty}_{i=1} G_{i} = \varnothing \).
+\end{proof}
+
+\begin{problem}{III.6.5}
+Prove: (a) If \(G, H\) are disjoint \(G_{\delta}\)-sets, there exists a bivalent set \(B\) with \(H \subset B\) and \( B \cap G = \varnothing \).
+
+(b) If \(G\) is a \(G_{\sigma}\) and \(F\) is an \(F_{\sigma}\) such that \(G \subset F\), there exists a bivalent \(B\) with \( G \subset B \subset F \).
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item Because
+		      \[
+			      H \cap G \cap \cdots \cap G \cap \cdots = \varnothing
+		      \]
+
+		      there exists a sequence of bivalent sets \( \left\{ B_{i} \right\} \) with \(G \subset B_{i}\) for \(i>1\) and \(H \subset B_{1}\) and \( \bigcap^{\infty}_{1} B_{i} = \varnothing \), according to Problem~\ref{problem:III.6.4}.
+
+		      \(B_{1}\) is a bivalent set, \( H \subset B_{1} \) and \( B_{1} \cap G = B_{1} \cap G \cap \cdots \cap G \cap \cdots \subset \bigcap^{\infty}_{i=1} B_{i} = \varnothing \).
+
+		      Let \( B = B_{1} \) then \(B\) is a bivalent, \( H \subset B \) and \( B \cap G = \varnothing \).
+		\item \( G \subset F \) so \( G \) and \( \mathscr{C}F \) are disjoint. Moreover, they are \( G_{\delta} \)-sets.
+
+		      According to part (a), there is a bivalent set \(B\) such that \( G \subset B \) and \( B \cap \mathscr{C}F = \varnothing \).
+
+		      \( B \cap \mathscr{C}F = \varnothing \) is equivalent to \( B \subset F \). Hence \( G \subset B \subset F \).
+	\end{enumerate}
+\end{proof}
+
 \section{Relativization}
+
+\begin{problem}{III.7.1}
+In \( {\bar{E}}^{1} \), show that for any \textcolor{red}{nonempty} set \(A\), \(\sup A \in \overline{A}\).
+\end{problem}
+
+\begin{proof}
+\end{proof}
+
+\begin{problem}{III.7.2}
+Describe the relative topology of \( \left\{ z \mid \left\vert{z}\right\vert = 1 \right\} \) as a subspace of \(E^{2}\).
+\end{problem}
+
+\begin{proof}
+	A basis for the relative topology of the given set is \( \left\{ \exp(\iota t) \mid t \in \openinterval{a,b} \right\} \)
+\end{proof}
+
+\begin{problem}{III.7.3}
+Show that the rationals, as a subspace of \(E^{1}\), do not have the discrete topology.
+\end{problem}
+
+\begin{proof}
+	Let \(U\) be a nonempty open subset of the rationals (the set of rationals is considered a subspace of \(E^{1}\)). From the definition of subspace topologies, there exists an open subset \(V \subset E^{1}\) such that \(U = V \cap \mathbb{Q}\). Since \(V\) is an open subset of \(E^{1}\), it contains some open interval \(\openinterval{a, b}\). Every open interval contains infinitely many rationals, hence \(U\) contains infinitely many rationals.
+
+	Therefore every nonempty open subset of the rationals is not a singleton, which means the rationals, as a subspace of \(E^{1}\), don't have the discrete topology.
+\end{proof}
 
 \section{Continuous maps}
 
@@ -1171,4 +1332,3 @@ An open set \(U\) is called regular if \(U = \operatorname{Int}(\overline{U})\);
 \section{Open maps and closed maps}
 
 \section{Homeomorphism}
-
