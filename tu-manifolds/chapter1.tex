@@ -7,217 +7,217 @@ Let \(g\colon\mathbb{R}\to\mathbb{R}\) be the function in Example 1.2(iii). Show
 \end{problem}
 
 \begin{proof}
-	\( g: \mathbb{R} \to \mathbb{R} \) is given by \( g(x) = \frac{3}{4}x^{4/3} \) so
-	\[
-		h(x) = \int^{x}_{0} g(t) dt = \int^{x}_{0} \frac{3}{4}t^{4/3} dt = \frac{3}{4}\cdot \left[\frac{3}{7} t^{7/3}\right]\Bigg{\vert}^{t=x}_{t=0} = \frac{9}{28} x^{7/3}.
-	\]
+    \( g: \mathbb{R} \to \mathbb{R} \) is given by \( g(x) = \frac{3}{4}x^{4/3} \) so
+    \[
+        h(x) = \int^{x}_{0} g(t) dt = \int^{x}_{0} \frac{3}{4}t^{4/3} dt = \frac{3}{4}\cdot \left[\frac{3}{7} t^{7/3}\right]\Bigg{\vert}^{t=x}_{t=0} = \frac{9}{28} x^{7/3}.
+    \]
 
-	Because \( g \) is \( C^{1} \) but not \( C^{2} \) at \( x = 0 \), it follows that \( h \) is \( C^{2} \) but not \( C^{3} \) at \( x = 0 \).
+    Because \( g \) is \( C^{1} \) but not \( C^{2} \) at \( x = 0 \), it follows that \( h \) is \( C^{2} \) but not \( C^{3} \) at \( x = 0 \).
 \end{proof}
 
 \begin{problem}{1.2}[A \(C^{\infty}\) function very flat at \(0\)]
 Let \(f(x)\) be the function on \(\mathbb{R}\) defined in Example 1.3.
 \begin{enumerate}[label={(\alph*)}]
-	\item Show by induction that for \(x>0\) and \(k\geq 0\), the \(k\)th derivative \(f^{(k)}(x)\) is of the form \(p_{2k}(1/x)e^{-1/x}\) for some polynomial \(p_{2k}(y)\) of degree \(2k\) in \(y\).
-	\item Prove that \(f\) is \(C^{\infty}\) on \(\mathbb{R}\) and that \(f^{(k)}(0)=0\) for all \(k\geq 0\).
+    \item Show by induction that for \(x>0\) and \(k\geq 0\), the \(k\)th derivative \(f^{(k)}(x)\) is of the form \(p_{2k}(1/x)e^{-1/x}\) for some polynomial \(p_{2k}(y)\) of degree \(2k\) in \(y\).
+    \item Prove that \(f\) is \(C^{\infty}\) on \(\mathbb{R}\) and that \(f^{(k)}(0)=0\) for all \(k\geq 0\).
 \end{enumerate}
 \end{problem}
 
 \begin{proof}
-	\begin{enumerate}[label={(\alph*)}]
-		\item For \( x > 0 \), \( f(x) = p_{0}(1/x)\cdot \exp(-1/x) \) in which \( p_{0}(t) = 1 \).
+    \begin{enumerate}[label={(\alph*)}]
+        \item For \( x > 0 \), \( f(x) = p_{0}(1/x)\cdot \exp(-1/x) \) in which \( p_{0}(t) = 1 \).
 
-		      Assume that for \( x > 0 \) and some nonnegative integer \( k \), the \(k\)th derivative \( f^{(k)}(x) \) is of the form \( p_{2k}(1/x) \exp(-1/x) \) for some polynomial \( p_{2k} \) of degree \( 2k \). Since \( p_{2k}(1/x) \) and \( \exp(-1/x) \) are smooth for \( x > 0 \) then \( p_{2k}(1/x)\exp(-1/x) \) is smooth and
-		      \[
-			      \frac{d}{dx} [p_{2k}(1/x)\exp(-1/x)] = \frac{-q_{2k-1}(1/x)}{x^{2}}\exp(-1/x) + \frac{p_{2k}(1/x)}{x^{2}}\exp(-1/x)
-		      \]
+              Assume that for \( x > 0 \) and some nonnegative integer \( k \), the \(k\)th derivative \( f^{(k)}(x) \) is of the form \( p_{2k}(1/x) \exp(-1/x) \) for some polynomial \( p_{2k} \) of degree \( 2k \). Since \( p_{2k}(1/x) \) and \( \exp(-1/x) \) are smooth for \( x > 0 \) then \( p_{2k}(1/x)\exp(-1/x) \) is smooth and
+              \[
+                  \frac{d}{dx} [p_{2k}(1/x)\exp(-1/x)] = \frac{-q_{2k-1}(1/x)}{x^{2}}\exp(-1/x) + \frac{p_{2k}(1/x)}{x^{2}}\exp(-1/x)
+              \]
 
-		      in which \( q_{2k-1} \) is the derivative of \( p_{2k} \). Define \( p_{2k+2}(t) = -t^{2}q_{2k-1}(t) + t^{2}p_{2k}(t) \) then \( p_{2k+2} \) is a polynomial of degree \( 2k + 2 \) and the \( (k+1) \)th derivative of \( f \) is \( p_{2k+2}(1/x)\exp(-1/x) \) for \( x > 0 \).
+              in which \( q_{2k-1} \) is the derivative of \( p_{2k} \). Define \( p_{2k+2}(t) = -t^{2}q_{2k-1}(t) + t^{2}p_{2k}(t) \) then \( p_{2k+2} \) is a polynomial of degree \( 2k + 2 \) and the \( (k+1) \)th derivative of \( f \) is \( p_{2k+2}(1/x)\exp(-1/x) \) for \( x > 0 \).
 
-		      Thus for \( x > 0 \) and \( k \ge 0 \), the \( k \)th derivative of \( f \) is of the form \( p_{2k}(1/x)\exp(-1/x) \) for some polynomial \( p_{2k} \) of degree \( 2k \).
-		\item  Moreover, for \( x < 0 \) and \( k \ge 0 \), the \( k \)th derivative of \( f \) is 0 and
-		      \[
-			      \lim\limits_{x\to 0^{+}} f^{(k)}(x) = \lim\limits_{x\to 0^{+}} \frac{p_{2k}(1/x)}{\exp(1/x)} = 0 = \lim\limits_{x\to 0^{-}} f^{(k)}(x)
-		      \]
+              Thus for \( x > 0 \) and \( k \ge 0 \), the \( k \)th derivative of \( f \) is of the form \( p_{2k}(1/x)\exp(-1/x) \) for some polynomial \( p_{2k} \) of degree \( 2k \).
+        \item  Moreover, for \( x < 0 \) and \( k \ge 0 \), the \( k \)th derivative of \( f \) is 0 and
+              \[
+                  \lim\limits_{x\to 0^{+}} f^{(k)}(x) = \lim\limits_{x\to 0^{+}} \frac{p_{2k}(1/x)}{\exp(1/x)} = 0 = \lim\limits_{x\to 0^{-}} f^{(k)}(x)
+              \]
 
-		      so \( f \) is \( C^{k} \) and \( f^{(k)}(0) = 0 \) for each nonnegative integer \( k \). Therefore \( f \) is \( C^{\infty} \)  at \( x = 0 \), since \( f \) is \( C^{\infty} \) for \( x > 0 \) and \( x < 0 \), we conclude that \( f \) is \( C^{\infty} \) on \( \mathbb{R} \).
-	\end{enumerate}
+              so \( f \) is \( C^{k} \) and \( f^{(k)}(0) = 0 \) for each nonnegative integer \( k \). Therefore \( f \) is \( C^{\infty} \)  at \( x = 0 \), since \( f \) is \( C^{\infty} \) for \( x > 0 \) and \( x < 0 \), we conclude that \( f \) is \( C^{\infty} \) on \( \mathbb{R} \).
+    \end{enumerate}
 \end{proof}
 
 \begin{problem}{1.3}[A diffeomorphism of an open interval with \(\mathbb{R}\)]
 Let \(U\subset\mathbb{R}^{n}\) and \(V\subset\mathbb{R}^{n}\) be open subsets. A \(C^{\infty}\) map \(F\colon U\to V\) is called a \textit{diffeomorphism} if it is bijective and has a \(C^{\infty}\) inverse \(F^{-1}\colon V\to U\).
 \begin{enumerate}[label={(\alph*)}]
-	\item Show that the function \(f\colon\openinterval{-\pi/2,\pi/2}\to\mathbb{R}, f(x)=\tan x\), is a diffeomorphism.
-	\item Let \(a,b\) be real numbers with \(a<b\). Find a linear function \(h\colon\openinterval{a,b} \to \openinterval{-1,1}\), thus proving that any two finite open intervals are diffeomorphic.
-	\item The exponential function \(\exp\colon\mathbb{R}\to\openinterval{0,\infty}\) is a diffeomorphism. Use it to show that for any real numbers \(a\) and \(b\), the intervals \(\mathbb{R}, \openinterval{a,\infty}\), and \(\openinterval{-\infty,b}\) are diffeomorphic.
+    \item Show that the function \(f\colon\openinterval{-\pi/2,\pi/2}\to\mathbb{R}, f(x)=\tan x\), is a diffeomorphism.
+    \item Let \(a,b\) be real numbers with \(a<b\). Find a linear function \(h\colon\openinterval{a,b} \to \openinterval{-1,1}\), thus proving that any two finite open intervals are diffeomorphic.
+    \item The exponential function \(\exp\colon\mathbb{R}\to\openinterval{0,\infty}\) is a diffeomorphism. Use it to show that for any real numbers \(a\) and \(b\), the intervals \(\mathbb{R}, \openinterval{a,\infty}\), and \(\openinterval{-\infty,b}\) are diffeomorphic.
 \end{enumerate}
 
 The composite \(f\circ h\colon\halfopenright{a,b}\to\mathbb{R}\) is then a diffeomorphism of an open interval with \(\mathbb{R}\).
 \end{problem}
 
 \begin{proof}
-	\begin{enumerate}[label={(\alph*)}]
-		\item \( f \) is bijective (look up the properties of the tangent function).
+    \begin{enumerate}[label={(\alph*)}]
+        \item \( f \) is bijective (look up the properties of the tangent function).
 
-		      \( f \) is continuous and \( f(x) = p_{1}(\tan x) \) where \( p_{1}(t) = t \). For every \( x_{0} \in \openinterval{-\pi/2,\pi/2} \)
-		      \begin{align*}
-			      \lim\limits_{x\to x_{0}}\frac{f(x) - f(x_{0})}{x - x_{0}} = \lim\limits_{x\to x_{0}}\frac{\tan(x) - \tan(x_{0})}{x - x_{0}} = \lim\limits_{x\to x_{0}}\frac{\sin(x - x_{0})}{(x - x_{0})\cos(x)\cos(x_{0})} = \frac{1}{{(\cos(x_{0}))}^{2}}
-		      \end{align*}
+              \( f \) is continuous and \( f(x) = p_{1}(\tan x) \) where \( p_{1}(t) = t \). For every \( x_{0} \in \openinterval{-\pi/2,\pi/2} \)
+              \begin{align*}
+                  \lim\limits_{x\to x_{0}}\frac{f(x) - f(x_{0})}{x - x_{0}} = \lim\limits_{x\to x_{0}}\frac{\tan(x) - \tan(x_{0})}{x - x_{0}} = \lim\limits_{x\to x_{0}}\frac{\sin(x - x_{0})}{(x - x_{0})\cos(x)\cos(x_{0})} = \frac{1}{{(\cos(x_{0}))}^{2}}
+              \end{align*}
 
-		      so \( f \) is \( C^{1} \).
+              so \( f \) is \( C^{1} \).
 
-		      Assume that for \( k \ge 0 \), \( f^{(k)}(x) \) is of the form \( p_{k+1}(\tan x) \) where \( p_{k+1} \) is a polynomial of degree \( k+1 \). Therefore \( p_{k+1}(\tan x) = p_{k+1}(f(x)) \) is \( C^{1} \) according to Leibniz's rule and because \( p_{k+1}, f \) are \( C^{1} \), it follows that \( f \) is \( C^{k+1} \) and
-		      \[
-			      f^{(k+1)}(x) = \frac{q_{k+1}(\tan x)}{{(\cos(x))}^{2}} = q_{k+1}(\tan x)(1 + {(\tan x)}^{2})
-		      \]
+              Assume that for \( k \ge 0 \), \( f^{(k)}(x) \) is of the form \( p_{k+1}(\tan x) \) where \( p_{k+1} \) is a polynomial of degree \( k+1 \). Therefore \( p_{k+1}(\tan x) = p_{k+1}(f(x)) \) is \( C^{1} \) according to Leibniz's rule and because \( p_{k+1}, f \) are \( C^{1} \), it follows that \( f \) is \( C^{k+1} \) and
+              \[
+                  f^{(k+1)}(x) = \frac{q_{k+1}(\tan x)}{{(\cos(x))}^{2}} = q_{k+1}(\tan x)(1 + {(\tan x)}^{2})
+              \]
 
-		      where \( q_{k+1} \) is the derivative of \( p_{k+1} \). So \( p_{k+2}(t) = q_{k+1}(t)\cdot (1 + t^{2}) \) is a polynomial of degree \( k + 2 \).
+              where \( q_{k+1} \) is the derivative of \( p_{k+1} \). So \( p_{k+2}(t) = q_{k+1}(t)\cdot (1 + t^{2}) \) is a polynomial of degree \( k + 2 \).
 
-		      Hence \( f \) is \( C^{k} \) for every nonnegative integer \( k \), which means \( f \) is \( C^{\infty} \). By the inverse function theorem, \( f \) has a \( C^{\infty} \) inverse. Thus \( f \) is a diffeomorphism.
-		\item Let \( h: \openinterval{-1, 1} \to \openinterval{a, b} \) and \( h(x) = \frac{2x - a - b}{b - a} \) then \( h \) is a \( C^{\infty} \) bijection and its inverse \( h^{-1}(y) = \frac{y(b - a) + a + b}{2} \) is \( C^{\infty} \). Therefore \( h \) is a diffeomorphism, so \( \openinterval{a, b} \) and \( \openinterval{-1, 1} \) are diffeomorphic. Consequently, any two finite open intervals are diffeomorphic.
-		\item Let \( g_{+} \) be the map \( g_{+}: \openinterval{0, \infty} \to \openinterval{a, \infty} \) given by \( g_{+}(x) = x + a \) and \( g_{-} \) be the map \( g_{-}: \openinterval{0, \infty} \to \openinterval{-\infty, b} \) given by \( g_{+}(x) = b - x \). The maps \( g_{+} \) and \( g_{-} \) are diffeomorphisms so \( \openinterval{0, \infty}, \openinterval{a, \infty}, \openinterval{-\infty, b} \) are diffeomorphic. Since \( \mathbb{R} \) and \( \openinterval{0, \infty} \) are diffeomorphic, it follows that \( \mathbb{R}, \openinterval{a, \infty}, \openinterval{-\infty, b} \) are diffeomorphic.
-	\end{enumerate}
+              Hence \( f \) is \( C^{k} \) for every nonnegative integer \( k \), which means \( f \) is \( C^{\infty} \). By the inverse function theorem, \( f \) has a \( C^{\infty} \) inverse. Thus \( f \) is a diffeomorphism.
+        \item Let \( h: \openinterval{-1, 1} \to \openinterval{a, b} \) and \( h(x) = \frac{2x - a - b}{b - a} \) then \( h \) is a \( C^{\infty} \) bijection and its inverse \( h^{-1}(y) = \frac{y(b - a) + a + b}{2} \) is \( C^{\infty} \). Therefore \( h \) is a diffeomorphism, so \( \openinterval{a, b} \) and \( \openinterval{-1, 1} \) are diffeomorphic. Consequently, any two finite open intervals are diffeomorphic.
+        \item Let \( g_{+} \) be the map \( g_{+}: \openinterval{0, \infty} \to \openinterval{a, \infty} \) given by \( g_{+}(x) = x + a \) and \( g_{-} \) be the map \( g_{-}: \openinterval{0, \infty} \to \openinterval{-\infty, b} \) given by \( g_{+}(x) = b - x \). The maps \( g_{+} \) and \( g_{-} \) are diffeomorphisms so \( \openinterval{0, \infty}, \openinterval{a, \infty}, \openinterval{-\infty, b} \) are diffeomorphic. Since \( \mathbb{R} \) and \( \openinterval{0, \infty} \) are diffeomorphic, it follows that \( \mathbb{R}, \openinterval{a, \infty}, \openinterval{-\infty, b} \) are diffeomorphic.
+    \end{enumerate}
 \end{proof}
 
 \begin{problem}{1.4}[A diffeomorphism of an open cube with \(\mathbb{R}^{n}\)]
 Show that the map
 \[
-	f\colon{\openinterval{-\frac{\pi}{2},\frac{\pi}{2}}}^{n}\to\mathbb{R}^{n}, \quad f(x_{1},\ldots,x_{n})=(\tan x_{1},\ldots,\tan x_{n}),
+    f\colon{\openinterval{-\frac{\pi}{2},\frac{\pi}{2}}}^{n}\to\mathbb{R}^{n}, \quad f(x_{1},\ldots,x_{n})=(\tan x_{1},\ldots,\tan x_{n}),
 \]
 
 is a diffeomorphism.
 \end{problem}
 
 \begin{proof}
-	\( f \) is a bijection and a \( C^{\infty} \) because each \( f^{i} \) is \( C^{\infty} \). Moreover, the Jacobian matrix of \( f \) at \( x \) is the diagonal matrix
-	\[
-		\operatorname{diag}\left(\frac{1}{{(\cos x^{1})}^{2}}, \ldots, \frac{1}{{(\cos x^{n})}^{2}}\right)
-	\]
+    \( f \) is a bijection and a \( C^{\infty} \) because each \( f^{i} \) is \( C^{\infty} \). Moreover, the Jacobian matrix of \( f \) at \( x \) is the diagonal matrix
+    \[
+        \operatorname{diag}\left(\frac{1}{{(\cos x^{1})}^{2}}, \ldots, \frac{1}{{(\cos x^{n})}^{2}}\right)
+    \]
 
-	which is invertible. According to the inverse function theorem, \( f \) has a \( C^{\infty} \) inverse. Therefore \( f \) is a diffeomorphism.
+    which is invertible. According to the inverse function theorem, \( f \) has a \( C^{\infty} \) inverse. Therefore \( f \) is a diffeomorphism.
 \end{proof}
 
 \begin{problem}{1.5}[A diffeomorphism of an open ball with \( \mathbb{R}^{n} \)]
 Let \( \mathbf{0} = (0, 0) \) be the origin and \( B(\mathbf{0}, 1) \) the open unit disk in \( \mathbb{R}^{2} \). To find a diffeomorphism between \( B(\mathbf{0}, 1) \) and \( \mathbb{R}^{2} \), we identify \( \mathbb{R}^{2} \) with the \( xy \)-plane in \( \mathbb{R}^{3} \) and introduce the lower open hemisphere
 \[
-	S: x^{2} + y^{2} + {(z - 1)}^{2} = 1, \quad z < 1,
+    S: x^{2} + y^{2} + {(z - 1)}^{2} = 1, \quad z < 1,
 \]
 
 in \( \mathbb{R}^{3} \) as an intermediate space. First note that the map
 \[
-	f: B(\mathbf{0}, 1) \to S, \qquad (a, b) \mapsto (a, b, 1 - \sqrt{1 - a^{2} - b^{2}})
+    f: B(\mathbf{0}, 1) \to S, \qquad (a, b) \mapsto (a, b, 1 - \sqrt{1 - a^{2} - b^{2}})
 \]
 
 is a bijection.
 \begin{enumerate}[label={(\alph*)}]
-	\item The \textit{stereographic projection} \( g: S \to \mathbb{R}^{2} \) from \( (0, 0, 1) \) is the map that sends a point \( (a, b, c) \in S \) to the intersection of the line through \( (0, 0, 1) \) and \( (a, b, c) \) with the \( xy \)-plane. Show that it is given by
-	      \[
-		      (a, b, c) \mapsto (u, v) = \left(\frac{a}{1-c}, \frac{b}{1-c}\right), \quad c = 1 - \sqrt{1 - a^{2} - b^{2}}
-	      \]
+    \item The \textit{stereographic projection} \( g: S \to \mathbb{R}^{2} \) from \( (0, 0, 1) \) is the map that sends a point \( (a, b, c) \in S \) to the intersection of the line through \( (0, 0, 1) \) and \( (a, b, c) \) with the \( xy \)-plane. Show that it is given by
+          \[
+              (a, b, c) \mapsto (u, v) = \left(\frac{a}{1-c}, \frac{b}{1-c}\right), \quad c = 1 - \sqrt{1 - a^{2} - b^{2}}
+          \]
 
-	      with inverse
-	      \[
-		      (u, v) \mapsto \left(\frac{u}{\sqrt{1 + u^{2} + v^{2}}}, \frac{v}{\sqrt{1 + u^{2} + v^{2}}}, 1 - \frac{1}{\sqrt{1 + u^{2} + v^{2}}}\right).
-	      \]
-	\item Composing the two maps \( f \) and \( g \) gives the map
-	      \[
-		      h = g\circ f: B(\mathbf{0}, 1) \to \mathbb{R}^{2},\qquad h(a, b) = \left(\frac{a}{\sqrt{1 - a^{2} - b^{2}}}, \frac{b}{\sqrt{1 - a^{2} - b^{2}}}\right).
-	      \]
+          with inverse
+          \[
+              (u, v) \mapsto \left(\frac{u}{\sqrt{1 + u^{2} + v^{2}}}, \frac{v}{\sqrt{1 + u^{2} + v^{2}}}, 1 - \frac{1}{\sqrt{1 + u^{2} + v^{2}}}\right).
+          \]
+    \item Composing the two maps \( f \) and \( g \) gives the map
+          \[
+              h = g\circ f: B(\mathbf{0}, 1) \to \mathbb{R}^{2},\qquad h(a, b) = \left(\frac{a}{\sqrt{1 - a^{2} - b^{2}}}, \frac{b}{\sqrt{1 - a^{2} - b^{2}}}\right).
+          \]
 
-	      Find a formula for \( h^{-1}(u, v) = {(f^{-1} \circ g^{-1})}(u, v) \) and conclude that \( h \) is a diffeomorphism of the open disk \( B(\mathbf{0}, 1) \) with \( \mathbb{R}^{2} \).
-	\item Generalize part (b) to \( \mathbb{R}^{n} \).
+          Find a formula for \( h^{-1}(u, v) = {(f^{-1} \circ g^{-1})}(u, v) \) and conclude that \( h \) is a diffeomorphism of the open disk \( B(\mathbf{0}, 1) \) with \( \mathbb{R}^{2} \).
+    \item Generalize part (b) to \( \mathbb{R}^{n} \).
 \end{enumerate}
 \end{problem}
 
 \begin{proof}
-	\begin{enumerate}[label={(\alph*)},leftmargin=*]
-		\item The intersection of the line through \( (0, 0, 1) \) and \( a, b, c \) with the \( xy \)-plane is of the form \( (1 - t)(0, 0, 1) + t(a, b, c) = (ta, tb, 1 - t + tc) \). Since \( (ta, tb, 1 - t + tc) \) lies on the \( xy \)-plane, \( 1 - t + tc = 0 \), which means \( t = \frac{1}{1 - c} \). Therefore \( g(a, b, c) = \left(\frac{a}{1 - c}, \frac{b}{1 - c}\right) \).
+    \begin{enumerate}[label={(\alph*)},leftmargin=*]
+        \item The intersection of the line through \( (0, 0, 1) \) and \( a, b, c \) with the \( xy \)-plane is of the form \( (1 - t)(0, 0, 1) + t(a, b, c) = (ta, tb, 1 - t + tc) \). Since \( (ta, tb, 1 - t + tc) \) lies on the \( xy \)-plane, \( 1 - t + tc = 0 \), which means \( t = \frac{1}{1 - c} \). Therefore \( g(a, b, c) = \left(\frac{a}{1 - c}, \frac{b}{1 - c}\right) \).
 
-		      Let \( (u, v, 0) \) be a point on the \( xy \)-plane of \( \mathbb{R}^{3} \). The intersection of \( S \) and the line through \( (0, 0, 1) \) and \( (u, v, 0) \) is of the form \( (1 - t)(0, 0, 1) + t(u, v, 0) = (tu, tv, 1 - t) \) in which \( 0 < t < 1 \). Since \( (tu, tv, 1 - t) \) lies on \( S \), it follows that \( t^{2}u^{2} + t^{2}v^{2} + {(-t)}^{2} = 1 \), which means \( t = \frac{1}{\sqrt{1 + u^{2} + v^{2}}} \). Hence the map \( (u, v) \mapsto \left(\frac{u}{\sqrt{1 + u^{2} + v^{2}}}, \frac{v}{\sqrt{1 + u^{2} + v^{2}}}, 1 - \frac{1}{\sqrt{1 + u^{2} + v^{2}}}\right) \) is the inverse of \( g \).
-		\item \( h = g\circ f \) and \( f, g \) are \( C^{\infty} \) bijections then so is \( h \). Moreover
-		      \begin{align*}
-			      h^{-1}(a, b) & = {(g\circ f)}^{-1}(a, b) = (f^{-1} \circ g^{-1}) (a, b)                                                                              \\
-			                   & = f^{-1}\left( \frac{a}{\sqrt{1 + a^{2} + b^{2}}}, \frac{b}{\sqrt{1 + a^{2} + b^{2}}}, 1 - \frac{1}{\sqrt{1 + a^{2} + b^{2}}} \right) \\
-			                   & = \left( \frac{a}{\sqrt{1 + a^{2} + b^{2}}}, \frac{b}{\sqrt{1 + a^{2} + b^{2}}} \right)
-		      \end{align*}
+              Let \( (u, v, 0) \) be a point on the \( xy \)-plane of \( \mathbb{R}^{3} \). The intersection of \( S \) and the line through \( (0, 0, 1) \) and \( (u, v, 0) \) is of the form \( (1 - t)(0, 0, 1) + t(u, v, 0) = (tu, tv, 1 - t) \) in which \( 0 < t < 1 \). Since \( (tu, tv, 1 - t) \) lies on \( S \), it follows that \( t^{2}u^{2} + t^{2}v^{2} + {(-t)}^{2} = 1 \), which means \( t = \frac{1}{\sqrt{1 + u^{2} + v^{2}}} \). Hence the map \( (u, v) \mapsto \left(\frac{u}{\sqrt{1 + u^{2} + v^{2}}}, \frac{v}{\sqrt{1 + u^{2} + v^{2}}}, 1 - \frac{1}{\sqrt{1 + u^{2} + v^{2}}}\right) \) is the inverse of \( g \).
+        \item \( h = g\circ f \) and \( f, g \) are \( C^{\infty} \) bijections then so is \( h \). Moreover
+              \begin{align*}
+                  h^{-1}(a, b) & = {(g\circ f)}^{-1}(a, b) = (f^{-1} \circ g^{-1}) (a, b)                                                                              \\
+                               & = f^{-1}\left( \frac{a}{\sqrt{1 + a^{2} + b^{2}}}, \frac{b}{\sqrt{1 + a^{2} + b^{2}}}, 1 - \frac{1}{\sqrt{1 + a^{2} + b^{2}}} \right) \\
+                               & = \left( \frac{a}{\sqrt{1 + a^{2} + b^{2}}}, \frac{b}{\sqrt{1 + a^{2} + b^{2}}} \right)
+              \end{align*}
 
-		      is a \( C^{\infty} \) map. Therefore \( h \) is a diffeomorphism of the open disk \( B(\mathbf{0}, 1) \) with \( \mathbb{R}^{2} \).
-		\item In \( \mathbb{R}^{2} \), consider the open ball \( B(\mathbf{0}, 1) \). Let \( S \) be the hemisphere \( x_{1}^{2} + \cdots + x_{n}^{2} + {(x_{n+1} - 1)}^{2} = 1 \) in \( \mathbb{R}^{n+1} \) in which \( x_{n+1} < 1 \). Define the maps \( f \) and \( g \) as follows:
-		      \begin{align*}
-			      f: B(\mathbf{0}, 1) \to S, & \qquad (x_{1}, \ldots, x_{n}) \mapsto \left(x_{1}, \ldots, x_{n}, 1 - \sqrt{1 - x_{1}^{2} - \cdots - x_{n}^{2}}\right)                                                                    \\
-			      g: S \to \mathbb{R}^{n},   & \qquad (x_{1}, \ldots, x_{n}, x_{n+1}) \mapsto \left(\frac{x_{1}}{1 - \sqrt{1 + x_{1}^{2} + \cdots + x_{n}^{2}}}, \ldots , \frac{x_{n}}{1 - \sqrt{x_{1}^{2} + \cdots + x_{n}^{2}}}\right)
-		      \end{align*}
+              is a \( C^{\infty} \) map. Therefore \( h \) is a diffeomorphism of the open disk \( B(\mathbf{0}, 1) \) with \( \mathbb{R}^{2} \).
+        \item In \( \mathbb{R}^{2} \), consider the open ball \( B(\mathbf{0}, 1) \). Let \( S \) be the hemisphere \( x_{1}^{2} + \cdots + x_{n}^{2} + {(x_{n+1} - 1)}^{2} = 1 \) in \( \mathbb{R}^{n+1} \) in which \( x_{n+1} < 1 \). Define the maps \( f \) and \( g \) as follows:
+              \begin{align*}
+                  f: B(\mathbf{0}, 1) \to S, & \qquad (x_{1}, \ldots, x_{n}) \mapsto \left(x_{1}, \ldots, x_{n}, 1 - \sqrt{1 - x_{1}^{2} - \cdots - x_{n}^{2}}\right)                                                                    \\
+                  g: S \to \mathbb{R}^{n},   & \qquad (x_{1}, \ldots, x_{n}, x_{n+1}) \mapsto \left(\frac{x_{1}}{1 - \sqrt{1 + x_{1}^{2} + \cdots + x_{n}^{2}}}, \ldots , \frac{x_{n}}{1 - \sqrt{x_{1}^{2} + \cdots + x_{n}^{2}}}\right)
+              \end{align*}
 
-		      The maps \( f, g \) are diffeomorphisms hence so is their composition \( g\circ f: B(\mathbf{0}, 1) \to \mathbb{R}^{n} \). Thus the open \(n\)-ball \( B(\mathbf{0}, 1) \) and \( \mathbb{R}^{n} \)
-	\end{enumerate}
+              The maps \( f, g \) are diffeomorphisms hence so is their composition \( g\circ f: B(\mathbf{0}, 1) \to \mathbb{R}^{n} \). Thus the open \(n\)-ball \( B(\mathbf{0}, 1) \) and \( \mathbb{R}^{n} \)
+    \end{enumerate}
 \end{proof}
 
 \begin{problem}{1.6}[Taylor's theorem with remainder to order 2]
 Prove that if \( f : \mathbb{R}^{2} \to \mathbb{R} \) is \( C^{\infty} \), then there exist \( C^{\infty} \) functions \( g_{11}, g_{12}, g_{22} \) on \( \mathbb{R}^{2} \) such that
 \begin{multline*}
-	f(x,y) = f(0,0) + \frac{\partial f}{\partial x} (0,0)x + \frac{\partial f}{\partial y} (0,0)y \\
-	+ x^{2} g_{11}(x,y) + xy g_{12}(x,y) + y^{2} g_{22}(x,y).
+    f(x,y) = f(0,0) + \frac{\partial f}{\partial x} (0,0)x + \frac{\partial f}{\partial y} (0,0)y \\
+    + x^{2} g_{11}(x,y) + xy g_{12}(x,y) + y^{2} g_{22}(x,y).
 \end{multline*}
 \end{problem}
 
 \begin{proof}
-	From Taylor's theorem with remainer to order 1,
-	\[
-		f(x, y) = f(0, 0) + xg_{1}(x, y) + yg_{2}(x, y)
-	\]
+    From Taylor's theorem with remainer to order 1,
+    \[
+        f(x, y) = f(0, 0) + xg_{1}(x, y) + yg_{2}(x, y)
+    \]
 
-	for some \( C^{\infty} \) functions \( g_{1}, g_{2}: \mathbb{R}^{2} \to \mathbb{R} \) such that \( g_{1}(0, 0) = \frac{\partial f}{\partial x}(0, 0) \) and \( g_{2}(0, 0) = \frac{\partial f}{\partial y}(0, 0) \). Apply Taylor's theorem for \( g_{1}, g_{2} \)
-	\[
-		\begin{split}
-			g_{1}(x, y) = g_{1}(0, 0) + xh_{11}(x, y) + yh_{12}(x, y) \\
-			g_{2}(x, y) = g_{2}(0, 0) + xh_{21}(x, y) + yh_{22}(x, y)
-		\end{split}
-	\]
+    for some \( C^{\infty} \) functions \( g_{1}, g_{2}: \mathbb{R}^{2} \to \mathbb{R} \) such that \( g_{1}(0, 0) = \frac{\partial f}{\partial x}(0, 0) \) and \( g_{2}(0, 0) = \frac{\partial f}{\partial y}(0, 0) \). Apply Taylor's theorem for \( g_{1}, g_{2} \)
+    \[
+        \begin{split}
+            g_{1}(x, y) = g_{1}(0, 0) + xh_{11}(x, y) + yh_{12}(x, y) \\
+            g_{2}(x, y) = g_{2}(0, 0) + xh_{21}(x, y) + yh_{22}(x, y)
+        \end{split}
+    \]
 
-	for some \( C^{\infty} \) functions \( h_{11}, h_{12}, h_{21}, h_{22} \). Therefore
-	\begin{align*}
-		f(x, y) & = f(0, 0) + xg_{1}(x, y) + yg_{2}(x, y)                                                                                                                            \\
-		        & = f(0, 0) + g_{1}(0, 0)x + x^{2}h_{11}(x, y) + xyh_{12}(x, y) + g_{2}(0, 0)y + xyh_{21}(x, y) + y^{2}h_{22}(x, y)                                                  \\
-		        & = f(0, 0) + \frac{\partial f}{\partial x}(0, 0)x + \frac{\partial f}{\partial y}(0, 0)y + x^{2}h_{11}(x, y) + xy(h_{12}(x, y) + h_{21}(x, y)) + y^{2}h_{22}(x, y).
-	\end{align*}
+    for some \( C^{\infty} \) functions \( h_{11}, h_{12}, h_{21}, h_{22} \). Therefore
+    \begin{align*}
+        f(x, y) & = f(0, 0) + xg_{1}(x, y) + yg_{2}(x, y)                                                                                                                            \\
+                & = f(0, 0) + g_{1}(0, 0)x + x^{2}h_{11}(x, y) + xyh_{12}(x, y) + g_{2}(0, 0)y + xyh_{21}(x, y) + y^{2}h_{22}(x, y)                                                  \\
+                & = f(0, 0) + \frac{\partial f}{\partial x}(0, 0)x + \frac{\partial f}{\partial y}(0, 0)y + x^{2}h_{11}(x, y) + xy(h_{12}(x, y) + h_{21}(x, y)) + y^{2}h_{22}(x, y).
+    \end{align*}
 
-	Let \( g_{11}(x, y) = h_{11}(x, y), g_{12}(x, y) = h_{12}(x, y) + h_{21}(x, y), g_{22}(x, y) = h_{22}(y, y) \) then \( g_{11}, g_{12}, g_{22} \) are \( C^{\infty} \) and
-	\[
-		f(x, y) = f(0, 0) + \frac{\partial f}{\partial x}(0, 0)x + \frac{\partial f}{\partial y}(0, 0)y + x^{2}g_{11}(x, y) + xyg_{12}(x, y) + y^{2}g_{22}(x, y). \qedhere
-	\]
+    Let \( g_{11}(x, y) = h_{11}(x, y), g_{12}(x, y) = h_{12}(x, y) + h_{21}(x, y), g_{22}(x, y) = h_{22}(y, y) \) then \( g_{11}, g_{12}, g_{22} \) are \( C^{\infty} \) and
+    \[
+        f(x, y) = f(0, 0) + \frac{\partial f}{\partial x}(0, 0)x + \frac{\partial f}{\partial y}(0, 0)y + x^{2}g_{11}(x, y) + xyg_{12}(x, y) + y^{2}g_{22}(x, y). \qedhere
+    \]
 \end{proof}
 
 \begin{problem}{1.7}[A function with a removable singularity]
 Let \( f : \mathbb{R}^{2} \to \mathbb{R} \) be a \( C^{\infty} \) function with \( f(0,0) = \dfrac{\partial f}{\partial x} (0,0) = \dfrac{\partial f}{\partial y} (0,0) = 0 \). Define
 
 \[
-	g(t,u) =
-	\begin{cases}
-		\dfrac{f(t, tu)}{t}, & \text{for } t \neq 0, \\
-		0,                   & \text{for } t = 0.
-	\end{cases}
+    g(t,u) =
+    \begin{cases}
+        \dfrac{f(t, tu)}{t}, & \text{for } t \neq 0, \\
+        0,                   & \text{for } t = 0.
+    \end{cases}
 \]
 
 Prove that \( g(t,u) \) is \( C^{\infty} \) for \( (t,u) \in \mathbb{R}^{2} \).\@\textit{(Hint: Apply Problem 1.6.)}
 \end{problem}
 
 \begin{proof}
-	Apply Problem 1.6 to \( f \), then there exist \( C^{\infty} \) maps \( g_{11}, g_{12}, g_{22}: \mathbb{R}^{2} \to \mathbb{R} \) such that
-	\[
-		f(x, y) = f(0, 0) + \frac{\partial f}{\partial x}(0, 0)x + \frac{\partial f}{\partial y}(0, 0)y + x^{2}g_{11}(x, y) + xyg_{12}(x, y) + y^{2}g_{22}(x, y).
-	\]
+    Apply Problem 1.6 to \( f \), then there exist \( C^{\infty} \) maps \( g_{11}, g_{12}, g_{22}: \mathbb{R}^{2} \to \mathbb{R} \) such that
+    \[
+        f(x, y) = f(0, 0) + \frac{\partial f}{\partial x}(0, 0)x + \frac{\partial f}{\partial y}(0, 0)y + x^{2}g_{11}(x, y) + xyg_{12}(x, y) + y^{2}g_{22}(x, y).
+    \]
 
-	Since \( f(0, 0) = \dfrac{\partial f}{\partial x} (0,0) = \dfrac{\partial f}{\partial y} (0,0) = 0 \), it follows that
-	\[
-		f(x, y) = x^{2}g_{11}(x, y) + xyg_{12}(x, y) + y^{2}g_{22}(x, y)
-	\]
+    Since \( f(0, 0) = \dfrac{\partial f}{\partial x} (0,0) = \dfrac{\partial f}{\partial y} (0,0) = 0 \), it follows that
+    \[
+        f(x, y) = x^{2}g_{11}(x, y) + xyg_{12}(x, y) + y^{2}g_{22}(x, y)
+    \]
 
-	and
-	\[
-		\frac{f(t, tu)}{t} = \frac{t^{2}g_{11}(t, tu) + t^{2}ug_{12}(t, tu) + t^{2}u^{2}g_{22}(t, tu)}{t} = tg_{11}(t, tu) + tug_{12}(t, tu) + tu^{2}g_{22}(t, tu).
-	\]
+    and
+    \[
+        \frac{f(t, tu)}{t} = \frac{t^{2}g_{11}(t, tu) + t^{2}ug_{12}(t, tu) + t^{2}u^{2}g_{22}(t, tu)}{t} = tg_{11}(t, tu) + tug_{12}(t, tu) + tu^{2}g_{22}(t, tu).
+    \]
 
-	The map \( (t, u) \mapsto tg_{11}(t, tu) + tug_{12}(t, tu) + tu^{2}g_{22}(t, tu) \) is \( C^{\infty} \) vanishes on \( \left\{ 0 \right\} \times \mathbb{R} \) so \( tg_{11}(t, tu) + tug_{12}(t, tu) + tu^{2}g_{22}(t, tu) = g(t, u) \) for \( (t, u) \in \mathbb{R}^{2} \). Hence \( g \) is \( C^{\infty} \).
+    The map \( (t, u) \mapsto tg_{11}(t, tu) + tug_{12}(t, tu) + tu^{2}g_{22}(t, tu) \) is \( C^{\infty} \) vanishes on \( \left\{ 0 \right\} \times \mathbb{R} \) so \( tg_{11}(t, tu) + tug_{12}(t, tu) + tu^{2}g_{22}(t, tu) = g(t, u) \) for \( (t, u) \in \mathbb{R}^{2} \). Hence \( g \) is \( C^{\infty} \).
 \end{proof}
 
 \begin{problem}{1.8}[Bijective \( C^{\infty} \) maps]
@@ -225,9 +225,9 @@ Define \( f : \mathbb{R} \to \mathbb{R} \) by \( f(x) = x^{3} \). Show that \( f
 \end{problem}
 
 \begin{proof}
-	\( f \) is continuous, \( \dfrac{df}{dx} = 3x^{2}, \dfrac{d^{2}f}{dxdx} = 6x, \dfrac{d^{3}f}{dxdxdx} = 6, \dfrac{d^{n}f}{dx\cdots dx} = 0 \) for \( n > 3 \). Therefore \( f \) is \( C^{\infty} \).
+    \( f \) is continuous, \( \dfrac{df}{dx} = 3x^{2}, \dfrac{d^{2}f}{dxdx} = 6x, \dfrac{d^{3}f}{dxdxdx} = 6, \dfrac{d^{n}f}{dx\cdots dx} = 0 \) for \( n > 3 \). Therefore \( f \) is \( C^{\infty} \).
 
-	\( f \) is bijective as its inverse is \( f^{-1} = g: \mathbb{R} \to \mathbb{R}, x \mapsto x^{1/3} \). However, \( f^{-1} \) is \( C^{0} \) but not \( C^{1} \) at \( x = 0 \). Therefore \( f^{-1} \) is not \( C^{\infty} \).
+    \( f \) is bijective as its inverse is \( f^{-1} = g: \mathbb{R} \to \mathbb{R}, x \mapsto x^{1/3} \). However, \( f^{-1} \) is \( C^{0} \) but not \( C^{1} \) at \( x = 0 \). Therefore \( f^{-1} \) is not \( C^{\infty} \).
 \end{proof}
 
 \section{Tangent Vectors in \( \mathbb{R}^{n} \) as Derivations}
@@ -237,7 +237,7 @@ Let \( X \) be the vector field \( x \partial/\partial x + y\partial/\partial y 
 \end{problem}
 
 \begin{proof}
-	\( Xf = x\dfrac{\partial f}{\partial x} + y\dfrac{\partial f}{\partial y} = x\cdot 2x + y\cdot 2y = 2(x^{2} + y^{2}) \).
+    \( Xf = x\dfrac{\partial f}{\partial x} + y\dfrac{\partial f}{\partial y} = x\cdot 2x + y\cdot 2y = 2(x^{2} + y^{2}) \).
 \end{proof}
 
 \begin{problem}{2.2}[Algebra structure on \( C^{\infty}_{p} \)]
@@ -245,76 +245,76 @@ Define carefully addition, multiplication, and scalar multiplication in \( C^{\i
 \end{problem}
 
 \begin{proof}
-	Let \( [(f, U)], [(g, V)] \in C^{\infty}_{p} \).
+    Let \( [(f, U)], [(g, V)] \in C^{\infty}_{p} \).
 
-	For every \( \lambda \in \mathbb{R} \), \( (f, U) \in [(f, U)] \) and \( (g, V) \in [(g, V)] \), we define the maps \( h, k, \lambda f \) by
-	\begin{align*}
-		h: U \cap V \to \mathbb{R},         & \qquad h(x) = f(x) + g(x),                      \\
-		k: U \cap V \to \mathbb{R},         & \qquad k(x) = f(x)g(x),                         \\
-		(\lambda\cdot f): U \to \mathbb{R}, & \qquad (\lambda\cdot f)(x) = \lambda \cdot f(x)
-	\end{align*}
+    For every \( \lambda \in \mathbb{R} \), \( (f, U) \in [(f, U)] \) and \( (g, V) \in [(g, V)] \), we define the maps \( h, k, \lambda f \) by
+    \begin{align*}
+        h: U \cap V \to \mathbb{R},         & \qquad h(x) = f(x) + g(x),                      \\
+        k: U \cap V \to \mathbb{R},         & \qquad k(x) = f(x)g(x),                         \\
+        (\lambda\cdot f): U \to \mathbb{R}, & \qquad (\lambda\cdot f)(x) = \lambda \cdot f(x)
+    \end{align*}
 
-	We define \( [(f, U)] + [(g, V)] \) to be the germ of \( h \) at \( p \), \(  [(f, U)]\cdot [(g, V)] \) to be the germ of \( k \) at \( p \), and \( \lambda\cdot [(f, U)] \) to be the germ of \( \lambda\cdot f \) at \( p \). It remains to show that this definition doesn't depend on the representatives.
+    We define \( [(f, U)] + [(g, V)] \) to be the germ of \( h \) at \( p \), \(  [(f, U)]\cdot [(g, V)] \) to be the germ of \( k \) at \( p \), and \( \lambda\cdot [(f, U)] \) to be the germ of \( \lambda\cdot f \) at \( p \). It remains to show that this definition doesn't depend on the representatives.
 
-	Consider \( (f_{0}, U_{0}) \in [(f, U)], (g_{0}, V_{0}) \in [(g, V)] \). The maps \( h_{0}, k_{0}, \lambda\cdot f_{0} \) are defined similarly as \( h, k, \lambda\cdot f \). There exists a neighborhood \( \mathbb{U} \) of \( p \) contained in \( U_{0} \cap U \), on which \( f, f_{0} \) agree, and a neighborhood \( \mathbb{V} \) of \( p \) contained in \( V_{0} \cap V \), on which \( g, g_{0} \) agree. Therefore, on the neighborhood \( \mathbb{U} \cap \mathbb{V} \subseteq (U \cap V) \cap (U_{0} \cap V_{0}) \) of \( p \), the maps \( h, h_{0} \) agree and \( k, k_{0} \) agree. Moreover, \( \lambda\cdot f \) and \( \lambda\cdot f_{0} \) agree on \( \mathbb{U} \). Hence \( [(f, U)] + [(g, V)] \), \( [(f, U)] \cdot [(g, V)] \) and \( \lambda\cdot[(f, U)] \) are well-defined.
+    Consider \( (f_{0}, U_{0}) \in [(f, U)], (g_{0}, V_{0}) \in [(g, V)] \). The maps \( h_{0}, k_{0}, \lambda\cdot f_{0} \) are defined similarly as \( h, k, \lambda\cdot f \). There exists a neighborhood \( \mathbb{U} \) of \( p \) contained in \( U_{0} \cap U \), on which \( f, f_{0} \) agree, and a neighborhood \( \mathbb{V} \) of \( p \) contained in \( V_{0} \cap V \), on which \( g, g_{0} \) agree. Therefore, on the neighborhood \( \mathbb{U} \cap \mathbb{V} \subseteq (U \cap V) \cap (U_{0} \cap V_{0}) \) of \( p \), the maps \( h, h_{0} \) agree and \( k, k_{0} \) agree. Moreover, \( \lambda\cdot f \) and \( \lambda\cdot f_{0} \) agree on \( \mathbb{U} \). Hence \( [(f, U)] + [(g, V)] \), \( [(f, U)] \cdot [(g, V)] \) and \( \lambda\cdot[(f, U)] \) are well-defined.
 
-	Let's verify the properties of an algebra
-	\begingroup
-	\allowdisplaybreaks%
-	\begin{align*}
-		\left([(f, U)] \cdot [(g, V)]\right) \cdot [(h, W)] & = [(f \cdot g, U \cap V)]\cdot [(h, W)]                                       \\
-		                                                    & = [((f \cdot g)\cdot h, (U \cap V) \cap W)]                                   \\
-		                                                    & = [(f \cdot (g \cdot h), U \cap (V \cap W))]                                  \\
-		                                                    & = [(f, U)]\cdot \left([(g, V)]\cdot [(h, W)]\right),                          \\
-		([(f, U)] + [(g, V)])\cdot [(h, W)]                 & = [(f + g, U\cap V)]\cdot [(h, W)]                                            \\
-		                                                    & = [((f + g)\cdot h, (U\cap V) \cap W)]                                        \\
-		                                                    & = [(f\cdot h + g\cdot h, (U\cap W) \cap (V\cap W))]                           \\
-		                                                    & = [(f\cdot h, U\cap W)] + [(g\cdot h, V\cap W)]                               \\
-		                                                    & = [(f, U)]\cdot [(h, W)] + [(g, V)]\cdot [(h, W)],                            \\
-		[(f, U)]\cdot ([(g, V)] + [(h, W)])                 & = [(f, U)]\cdot [(g + h, V\cap W)]                                            \\
-		                                                    & = [(f\cdot (g + h), U\cap (V\cap W))]                                         \\
-		                                                    & = [(f\cdot g + f\cdot h), (U\cap V) \cap (U\cap W)]                           \\
-		                                                    & = [(f\cdot g, U\cap V)] + [(f\cdot h), U\cap W]                               \\
-		                                                    & = [(f, U)]\cdot [(g, V)] + [(f, U)]\cdot [(h, W)],                            \\
-		\lambda([(f, U)]\cdot [(g, V)])                     & = \lambda\cdot[(f\cdot g, U\cap V)]                                           \\
-		                                                    & = [(\lambda(f\cdot g), U\cap V)]                                              \\
-		                                                    & = [((\lambda\cdot f)\cdot g, U\cap V)] = [(\lambda\cdot f, U)]\cdot [(g, V)]  \\
-		                                                    & = [(f\cdot (\lambda\cdot g), U\cap V)] = [(f, U)]\cdot [(\lambda\cdot g, V)].
-	\end{align*}
-	\endgroup
+    Let's verify the properties of an algebra
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+        \left([(f, U)] \cdot [(g, V)]\right) \cdot [(h, W)] & = [(f \cdot g, U \cap V)]\cdot [(h, W)]                                       \\
+                                                            & = [((f \cdot g)\cdot h, (U \cap V) \cap W)]                                   \\
+                                                            & = [(f \cdot (g \cdot h), U \cap (V \cap W))]                                  \\
+                                                            & = [(f, U)]\cdot \left([(g, V)]\cdot [(h, W)]\right),                          \\
+        ([(f, U)] + [(g, V)])\cdot [(h, W)]                 & = [(f + g, U\cap V)]\cdot [(h, W)]                                            \\
+                                                            & = [((f + g)\cdot h, (U\cap V) \cap W)]                                        \\
+                                                            & = [(f\cdot h + g\cdot h, (U\cap W) \cap (V\cap W))]                           \\
+                                                            & = [(f\cdot h, U\cap W)] + [(g\cdot h, V\cap W)]                               \\
+                                                            & = [(f, U)]\cdot [(h, W)] + [(g, V)]\cdot [(h, W)],                            \\
+        [(f, U)]\cdot ([(g, V)] + [(h, W)])                 & = [(f, U)]\cdot [(g + h, V\cap W)]                                            \\
+                                                            & = [(f\cdot (g + h), U\cap (V\cap W))]                                         \\
+                                                            & = [(f\cdot g + f\cdot h), (U\cap V) \cap (U\cap W)]                           \\
+                                                            & = [(f\cdot g, U\cap V)] + [(f\cdot h), U\cap W]                               \\
+                                                            & = [(f, U)]\cdot [(g, V)] + [(f, U)]\cdot [(h, W)],                            \\
+        \lambda([(f, U)]\cdot [(g, V)])                     & = \lambda\cdot[(f\cdot g, U\cap V)]                                           \\
+                                                            & = [(\lambda(f\cdot g), U\cap V)]                                              \\
+                                                            & = [((\lambda\cdot f)\cdot g, U\cap V)] = [(\lambda\cdot f, U)]\cdot [(g, V)]  \\
+                                                            & = [(f\cdot (\lambda\cdot g), U\cap V)] = [(f, U)]\cdot [(\lambda\cdot g, V)].
+    \end{align*}
+    \endgroup
 
-	Hence \( C^{\infty}_{p} \) is an algebra over the real field. The addition is commutative because for any \( [(f, U)], [(g, V)] \in C^{\infty}_{p} \), one has
-	\[
-		[(f, U)] + [(g, V)] = [(f + g, U\cap V)] = [(g + f, V\cap U)] = [(g, V)] + [(f, U)].\qedhere
-	\]
+    Hence \( C^{\infty}_{p} \) is an algebra over the real field. The addition is commutative because for any \( [(f, U)], [(g, V)] \in C^{\infty}_{p} \), one has
+    \[
+        [(f, U)] + [(g, V)] = [(f + g, U\cap V)] = [(g + f, V\cap U)] = [(g, V)] + [(f, U)].\qedhere
+    \]
 \end{proof}
 
 \begin{problem}{2.3}[Vector space structure on derivations at a point]
 Let \( D \) and \( D' \) be derivations at \( p \) in \( \mathbb{R}^{n} \), and \( c\in \mathbb{R} \). Prove that
 \begin{enumerate}[label={(\alph*)},leftmargin=*,itemsep=0pt]
-	\item the sum \( D + D' \) is a derivation at \( p \).
-	\item the scalar multiple \( cD \) is a derivation at \( p \).
+    \item the sum \( D + D' \) is a derivation at \( p \).
+    \item the scalar multiple \( cD \) is a derivation at \( p \).
 \end{enumerate}
 \end{problem}
 
 \begin{proof}
-	\( D, D' \) are linear maps from \( C^{\infty}_{p} \) to \( \mathbb{R} \) then so are \( D + D' \) and \( cD \).
+    \( D, D' \) are linear maps from \( C^{\infty}_{p} \) to \( \mathbb{R} \) then so are \( D + D' \) and \( cD \).
 
-	For any \( f, g \in C^{\infty}_{p} \), one has
-	\begingroup
-	\allowdisplaybreaks%
-	\begin{align*}
-		(D + D')(fg) & = D(fg) + D'(fg)                                  \\
-		             & = (D(f)g(p) + f(p)D(g)) + (D'(f)g(p) + f(p)D'(g)) \\
-		             & = (D(f) + D'(f))g(p) + f(p)(D(g) + D'(g))         \\
-		             & = (D + D')(f)g(p) + f(p)(D + D')(g),              \\
-		(cD)(fg)     & = c\cdot D(fg)                                    \\
-		             & = c\cdot (D(f)g(p) + f(p)D(g))                    \\
-		             & = (c\cdot D)(f)g(p) + f(p)(c\cdot D)(g),
-	\end{align*}
-	\endgroup
+    For any \( f, g \in C^{\infty}_{p} \), one has
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+        (D + D')(fg) & = D(fg) + D'(fg)                                  \\
+                     & = (D(f)g(p) + f(p)D(g)) + (D'(f)g(p) + f(p)D'(g)) \\
+                     & = (D(f) + D'(f))g(p) + f(p)(D(g) + D'(g))         \\
+                     & = (D + D')(f)g(p) + f(p)(D + D')(g),              \\
+        (cD)(fg)     & = c\cdot D(fg)                                    \\
+                     & = c\cdot (D(f)g(p) + f(p)D(g))                    \\
+                     & = (c\cdot D)(f)g(p) + f(p)(c\cdot D)(g),
+    \end{align*}
+    \endgroup
 
-	which means \( D + D' \) and \( cD \) satisfy the Leibniz rule. Hence \( D + D' \) and \( cD \) are derivations at \( p \).
+    which means \( D + D' \) and \( cD \) satisfy the Leibniz rule. Hence \( D + D' \) and \( cD \) are derivations at \( p \).
 \end{proof}
 
 \begin{problem}{2.4}[Product of derivations]
@@ -322,166 +322,166 @@ Let \( A \) be an algebra over a field \( K \). If \( D_{1} \) and \( D_{2} \) a
 \end{problem}
 
 \begin{proof}
-	Consider the algebra \( C^{\infty}_{p}(\mathbb{R}^{2}) \) over the real field, let \( D_{1} = \partial/\partial x, D_{2} = \partial/\partial y, D = D_{1} \circ D_{2} \).
-	\[
-		\left(\frac{\partial}{\partial x}\circ \frac{\partial}{\partial y}\right)(xy) = \frac{\partial}{\partial x} x = 1
-	\]
-	\[
-		D(x) p^{2} + p^{1}D(y) = 0 + 0 = 0
-	\]
+    Consider the algebra \( C^{\infty}_{p}(\mathbb{R}^{2}) \) over the real field, let \( D_{1} = \partial/\partial x, D_{2} = \partial/\partial y, D = D_{1} \circ D_{2} \).
+    \[
+        \left(\frac{\partial}{\partial x}\circ \frac{\partial}{\partial y}\right)(xy) = \frac{\partial}{\partial x} x = 1
+    \]
+    \[
+        D(x) p^{2} + p^{1}D(y) = 0 + 0 = 0
+    \]
 
-	which means \( D_{1} \circ D_{2} \) doesn't satisfy Leibniz rule, hence not a derivation. So \( D_{1} \circ D_{2} \) is not necessarily a derivation on \( A \).
+    which means \( D_{1} \circ D_{2} \) doesn't satisfy Leibniz rule, hence not a derivation. So \( D_{1} \circ D_{2} \) is not necessarily a derivation on \( A \).
 
-	On the other hand, \( D = D_{1}\circ D_{2} - D_{2}\circ D_{1} \) is a linear map and
-	\begin{align*}
-		D(ab) & = D_{1}(D_{2}(ab)) - D_{2}(D_{1}(ab))                                                               \\
-		      & = D_{1}((D_{2}a)b + aD_{2}b) - D_{2}((D_{1}a)b - aD_{1}b)                                           \\
-		      & = ((D_{1}\circ D_{2})a)b + (D_{2}a)(D_{1}b) + (D_{1}a)(D_{2}b) + a((D_{1}\circ D_{2})b)             \\
-		      & \phantom{=} - ((D_{2}\circ D_{1})a)b - (D_{1}a)(D_{2}b) - (D_{2}a)(D_{1}b) - a((D_{2}\circ D_{1})b) \\
-		      & = ((D_{1}\circ D_{2} - D_{2}\circ D_{1})a)b - a((D_{1}\circ D_{2} - D_{2}\circ D_{1})b)             \\
-		      & = (Da)b - aDb
-	\end{align*}
+    On the other hand, \( D = D_{1}\circ D_{2} - D_{2}\circ D_{1} \) is a linear map and
+    \begin{align*}
+        D(ab) & = D_{1}(D_{2}(ab)) - D_{2}(D_{1}(ab))                                                               \\
+              & = D_{1}((D_{2}a)b + aD_{2}b) - D_{2}((D_{1}a)b - aD_{1}b)                                           \\
+              & = ((D_{1}\circ D_{2})a)b + (D_{2}a)(D_{1}b) + (D_{1}a)(D_{2}b) + a((D_{1}\circ D_{2})b)             \\
+              & \phantom{=} - ((D_{2}\circ D_{1})a)b - (D_{1}a)(D_{2}b) - (D_{2}a)(D_{1}b) - a((D_{2}\circ D_{1})b) \\
+              & = ((D_{1}\circ D_{2} - D_{2}\circ D_{1})a)b - a((D_{1}\circ D_{2} - D_{2}\circ D_{1})b)             \\
+              & = (Da)b - aDb
+    \end{align*}
 
-	for all \( a, b \in A \) so \( D_{1}\circ D_{2} - D_{2}\circ D_{1} \) is a derivation of \( A \).
+    for all \( a, b \in A \) so \( D_{1}\circ D_{2} - D_{2}\circ D_{1} \) is a derivation of \( A \).
 \end{proof}
 
 \section{The Exterior Algebra of Multicovectors}
 
 \begin{exercise}{3.6}[Inversions]
-	Find the inversions in the permutation \( \tau = \begin{pmatrix}1 & 2 & 3 & 4 & 5\end{pmatrix} \) of Example 3.5.
+    Find the inversions in the permutation \( \tau = \begin{pmatrix}1 & 2 & 3 & 4 & 5\end{pmatrix} \) of Example 3.5.
 \end{exercise}
 
 \begin{proof}
-	Let's rewrite \( \tau \) using the two-line notations
-	\[
-		\tau = \begin{bmatrix}
-			1 & 2 & 3 & 4 & 5 \\
-			2 & 3 & 4 & 5 & 1
-		\end{bmatrix}.
-	\]
+    Let's rewrite \( \tau \) using the two-line notations
+    \[
+        \tau = \begin{bmatrix}
+            1 & 2 & 3 & 4 & 5 \\
+            2 & 3 & 4 & 5 & 1
+        \end{bmatrix}.
+    \]
 
-	The inversions end with \( 1 \) are \( (2,1), (3,1), (4,1), (5,1) \).
+    The inversions end with \( 1 \) are \( (2,1), (3,1), (4,1), (5,1) \).
 
-	There is no inversion end with \( 2, 3, 4, 5 \). Hence \( \tau \) has precisely 4 inversions.
+    There is no inversion end with \( 2, 3, 4, 5 \). Hence \( \tau \) has precisely 4 inversions.
 \end{proof}
 
 \begin{exercise}{3.13}[Symmetrizing operator]
-	Show that the \( k \)-linear function \( Sf \) is symmetric.
+    Show that the \( k \)-linear function \( Sf \) is symmetric.
 \end{exercise}
 
 \begin{proof}
-	For each \( \sigma \in S_{k} \)
-	\begingroup
-	\allowdisplaybreaks%
-	\begin{align*}
-		(Sf)(v_{\sigma(1)}, \ldots, v_{\sigma(k)}) & = \sum_{\tau \in S_{k}} f(v_{\tau(\sigma(1))}, \ldots, v_{\tau(\sigma(k))}) \\
-		                                           & = \sum_{\tau \in S_{k}} f(v_{(\tau\sigma)(1)}, \ldots, v_{(\tau\sigma)(k)}) \\
-		                                           & = \sum_{\tau \in S_{k}} f(v_{\tau(1)}, \ldots, v_{\tau(k)})                 \\
-		                                           & = (Sf)(v_{1}, \ldots, v_{k})
-	\end{align*}
-	\endgroup
+    For each \( \sigma \in S_{k} \)
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+        (Sf)(v_{\sigma(1)}, \ldots, v_{\sigma(k)}) & = \sum_{\tau \in S_{k}} f(v_{\tau(\sigma(1))}, \ldots, v_{\tau(\sigma(k))}) \\
+                                                   & = \sum_{\tau \in S_{k}} f(v_{(\tau\sigma)(1)}, \ldots, v_{(\tau\sigma)(k)}) \\
+                                                   & = \sum_{\tau \in S_{k}} f(v_{\tau(1)}, \ldots, v_{\tau(k)})                 \\
+                                                   & = (Sf)(v_{1}, \ldots, v_{k})
+    \end{align*}
+    \endgroup
 
-	in which line 3 follows from \( \sigma \mapsto \tau\sigma \) is a bijection from \( S_{k} \) onto \( S_{k} \). Hence \( Sf \) is symmetric.
+    in which line 3 follows from \( \sigma \mapsto \tau\sigma \) is a bijection from \( S_{k} \) onto \( S_{k} \). Hence \( Sf \) is symmetric.
 \end{proof}
 
 \begin{exercise}{3.16}[Alternating operator]
-	If \( f \) is a 3-linear function on a vector space \( V \) and \( v_{1}, \ldots, v_{3} \in V \), what is \( (Af)(v_{1}, v_{2}, v_{3}) \)?
+    If \( f \) is a 3-linear function on a vector space \( V \) and \( v_{1}, \ldots, v_{3} \in V \), what is \( (Af)(v_{1}, v_{2}, v_{3}) \)?
 \end{exercise}
 
 \begin{proof}
-	\( (Af)(v_{1}, v_{2}, v_{3}) = f(v_{1}, v_{2}, v_{3}) + f(v_{2}, v_{3}, v_{1}) + f(v_{3}, v_{1}, v_{2}) - f(v_{1}, v_{3}, v_{2}) - f(v_{3}, v_{2}, v_{1}) - f(v_{2}, v_{1}, v_{3}). \)
+    \( (Af)(v_{1}, v_{2}, v_{3}) = f(v_{1}, v_{2}, v_{3}) + f(v_{2}, v_{3}, v_{1}) + f(v_{3}, v_{1}, v_{2}) - f(v_{1}, v_{3}, v_{2}) - f(v_{3}, v_{2}, v_{1}) - f(v_{2}, v_{1}, v_{3}). \)
 \end{proof}
 
 \begin{exercise}{3.17}[Associativity of the tensor product]
-	Check that the tensor product of multilinear functions is associative: if \( f, g \), and \( h \) are multilinear functions on \( V \), then
-	\[
-		(f \otimes g)\otimes h = f\otimes (g\times h).
-	\]
+    Check that the tensor product of multilinear functions is associative: if \( f, g \), and \( h \) are multilinear functions on \( V \), then
+    \[
+        (f \otimes g)\otimes h = f\otimes (g\times h).
+    \]
 \end{exercise}
 
 \begin{proof}
-	Let \( f, g, h \) be a \( k_{f}, k_{g}, k_{h} \)-tensors on \( V \).
-	\begingroup
-	\allowdisplaybreaks%
-	\begin{align*}
-		 & \phantom{=} ((f \otimes g) \otimes h)(x_{1}, \ldots, x_{k_{f}}, y_{1}, \ldots, y_{k_{g}}, z_{1}, \ldots, z_{k_{h}}) \\
-		 & = (f \otimes g)(x_{1}, \ldots, x_{k_{f}}, y_{1}, \ldots, y_{k_{g}}) h(z_{1}, \ldots, z_{k_{h}})                     \\
-		 & = (f(x_{1}, \ldots, x_{k_{f}}) g(y_{1}, \ldots, y_{k_{g}}))  h(z_{1}, \ldots, z_{k_{h}})                            \\
-		 & = f(x_{1}, \ldots, x_{k_{f}}) (g(y_{1}, \ldots, y_{k_{g}}) h(z_{1}, \ldots, z_{k_{h}}))                             \\
-		 & = f(x_{1}, \ldots, x_{k_{f}}) (g \otimes h)(y_{1}, \ldots, y_{k_{g}}, z_{1}, \ldots, z_{k_{h}})                     \\
-		 & = (f \otimes (g \otimes h))(x_{1}, \ldots, x_{k_{f}}, y_{1}, \ldots, y_{k_{g}}, z_{1}, \ldots, z_{k_{h}})
-	\end{align*}
-	\endgroup
+    Let \( f, g, h \) be a \( k_{f}, k_{g}, k_{h} \)-tensors on \( V \).
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+         & \phantom{=} ((f \otimes g) \otimes h)(x_{1}, \ldots, x_{k_{f}}, y_{1}, \ldots, y_{k_{g}}, z_{1}, \ldots, z_{k_{h}}) \\
+         & = (f \otimes g)(x_{1}, \ldots, x_{k_{f}}, y_{1}, \ldots, y_{k_{g}}) h(z_{1}, \ldots, z_{k_{h}})                     \\
+         & = (f(x_{1}, \ldots, x_{k_{f}}) g(y_{1}, \ldots, y_{k_{g}}))  h(z_{1}, \ldots, z_{k_{h}})                            \\
+         & = f(x_{1}, \ldots, x_{k_{f}}) (g(y_{1}, \ldots, y_{k_{g}}) h(z_{1}, \ldots, z_{k_{h}}))                             \\
+         & = f(x_{1}, \ldots, x_{k_{f}}) (g \otimes h)(y_{1}, \ldots, y_{k_{g}}, z_{1}, \ldots, z_{k_{h}})                     \\
+         & = (f \otimes (g \otimes h))(x_{1}, \ldots, x_{k_{f}}, y_{1}, \ldots, y_{k_{g}}, z_{1}, \ldots, z_{k_{h}})
+    \end{align*}
+    \endgroup
 
-	for all \( x_{1}, \ldots, x_{k_{f}}, y_{1}, \ldots, y_{k_{g}}, z_{1}, \ldots, z_{k_{h}} \in V \). Therefore \( (f\otimes g)\otimes h = f\otimes (g\otimes h) \).
+    for all \( x_{1}, \ldots, x_{k_{f}}, y_{1}, \ldots, y_{k_{g}}, z_{1}, \ldots, z_{k_{h}} \in V \). Therefore \( (f\otimes g)\otimes h = f\otimes (g\otimes h) \).
 \end{proof}
 
 \begin{exercise}{3.20}[Wedge product of two \( 2 \)-covectors]
-	For \( f, g \in A_{2}(V) \), write out the definition of \( f \wedge g \) using \( (2, 2) \)-shuffles.
+    For \( f, g \in A_{2}(V) \), write out the definition of \( f \wedge g \) using \( (2, 2) \)-shuffles.
 \end{exercise}
 
 \begin{proof}
-	\begingroup
-	\allowdisplaybreaks%
-	\begin{align*}
-		(f \wedge g)(v_{1}, v_{2}, v_{3}, v_{4}) & = f(v_{1}, v_{2})g(v_{3}, v_{4}) - f(v_{1}, v_{3})g(v_{2}, v_{4}) + f(v_{1}, v_{4})g(v_{2}, v_{3})  \\
-		                                         & + f(v_{2}, v_{3})g(v_{1}, v_{4}) - f(v_{2}, v_{4})g(v_{1}, v_{3}) - f(v_{1}, v_{4})g(v_{2}, v_{3}).
-	\end{align*}
-	\endgroup
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+        (f \wedge g)(v_{1}, v_{2}, v_{3}, v_{4}) & = f(v_{1}, v_{2})g(v_{3}, v_{4}) - f(v_{1}, v_{3})g(v_{2}, v_{4}) + f(v_{1}, v_{4})g(v_{2}, v_{3})  \\
+                                                 & + f(v_{2}, v_{3})g(v_{1}, v_{4}) - f(v_{2}, v_{4})g(v_{1}, v_{3}) - f(v_{1}, v_{4})g(v_{2}, v_{3}).
+    \end{align*}
+    \endgroup
 \end{proof}
 
 \begin{exercise}{3.22}[Sign of a permutation]
-	Show that \( \operatorname{sgn}(\tau) = {(-1)}^{k\ell} \)
+    Show that \( \operatorname{sgn}(\tau) = {(-1)}^{k\ell} \)
 \end{exercise}
 
 \begin{proof}
-	\[
-		\tau = \begin{bmatrix}
-			1     & \cdots & \ell     & \ell + 1 & \cdots & \ell + k \\
-			k + 1 & \cdots & k + \ell & 1        & \cdots & k
-		\end{bmatrix}.
-	\]
+    \[
+        \tau = \begin{bmatrix}
+            1     & \cdots & \ell     & \ell + 1 & \cdots & \ell + k \\
+            k + 1 & \cdots & k + \ell & 1        & \cdots & k
+        \end{bmatrix}.
+    \]
 
-	\( (\sigma(i), \sigma(j)) \) is an inversion if and only if \( i \in \left\{ 1, \ldots, \ell \right\} \) and \( j \in \left\{ \ell + 1, \ldots, \ell + k \right\} \). So \( \sigma \) has \( k\ell \) inversions, which implies that \( \operatorname{sgn}(\tau) = {(-1)}^{k\ell} \).
+    \( (\sigma(i), \sigma(j)) \) is an inversion if and only if \( i \in \left\{ 1, \ldots, \ell \right\} \) and \( j \in \left\{ \ell + 1, \ldots, \ell + k \right\} \). So \( \sigma \) has \( k\ell \) inversions, which implies that \( \operatorname{sgn}(\tau) = {(-1)}^{k\ell} \).
 \end{proof}
 
 \begin{problem}{3.1}[Tensor product of covectors]
 Let \( e_{1}, \ldots, e_{n} \) be a basis for a vector space \( V \) and let \( \alpha^{1}, \ldots, \alpha^{n} \) be its dual basis in \( V^{\vee} \). Suppose \( [g_{ij}] \in \mathbb{R}^{n \times n} \) is an \( n \times n \) matrix. Define a bilinear function \( f \colon V \times V \to \mathbb{R} \) by
 
 \[
-	f(v, w) = \sum_{1 \leq i, j \leq n} g_{ij} v^{i} w^{j}
+    f(v, w) = \sum_{1 \leq i, j \leq n} g_{ij} v^{i} w^{j}
 \]
 
 for \( v = \sum v^{i} e_{i} \) and \( w = \sum w^{j} e_{j} \) in \( V \). Describe \( f \) in terms of the tensor products of \( \alpha^{i} \) and \( \alpha^{j} \), \( 1 \leq i, j \leq n \).
 \end{problem}
 
 \begin{proof}
-	\[
-		f(v, w) = \sum_{1\leq i, j\leq n} g_{ij}v^{i}w^{j} = \sum_{1\leq i, j\leq n} g_{ij} \alpha^{i}(v)\alpha^{j}(w) = \sum_{1\leq i, j\leq n} g_{ij} (\alpha^{i}\otimes \alpha^{j})(v, w).
-	\]
+    \[
+        f(v, w) = \sum_{1\leq i, j\leq n} g_{ij}v^{i}w^{j} = \sum_{1\leq i, j\leq n} g_{ij} \alpha^{i}(v)\alpha^{j}(w) = \sum_{1\leq i, j\leq n} g_{ij} (\alpha^{i}\otimes \alpha^{j})(v, w).
+    \]
 
-	Hence \( f = \sum_{1\leq i, j \leq n} g_{ij} (\alpha^{i} \otimes \alpha^{j}) \).
+    Hence \( f = \sum_{1\leq i, j \leq n} g_{ij} (\alpha^{i} \otimes \alpha^{j}) \).
 \end{proof}
 
 \begin{problem}{3.2}[Hyperplanes]
 \begin{enumerate}[label={(\alph*)},itemsep=0pt]
-	\item Let \( V \) be a vector space of dimension \( n \) and \( f \colon V \to \mathbb{R} \) a nonzero linear functional. Show that \( \dim \ker f = n - 1 \). A linear subspace of \( V \) of dimension \( n - 1 \) is called a \textit{hyperplane} in \( V \).
-	\item Show that a nonzero linear functional on a vector space \( V \) is determined up to a multiplicative constant by its kernel, a hyperplane in \( V \). In other words, if \( f \) and \( g \colon V \to \mathbb{R} \) are nonzero linear functionals and \( \ker f = \ker g \), then \( g = c f \) for some constant \( c \in \mathbb{R} \).
+    \item Let \( V \) be a vector space of dimension \( n \) and \( f \colon V \to \mathbb{R} \) a nonzero linear functional. Show that \( \dim \ker f = n - 1 \). A linear subspace of \( V \) of dimension \( n - 1 \) is called a \textit{hyperplane} in \( V \).
+    \item Show that a nonzero linear functional on a vector space \( V \) is determined up to a multiplicative constant by its kernel, a hyperplane in \( V \). In other words, if \( f \) and \( g \colon V \to \mathbb{R} \) are nonzero linear functionals and \( \ker f = \ker g \), then \( g = c f \) for some constant \( c \in \mathbb{R} \).
 \end{enumerate}
 \end{problem}
 
 \begin{proof}
-	\begin{enumerate}[label={(\alph*)}]
-		\item Since \( f \) is a nonzero linear functional, \( \operatorname{range}(f) = \mathbb{R} \). From rank-nullity theorem, \( \dim \ker(f) = \dim V - \dim \operatorname{range}(f) = n - 1 \).
-		\item Since \( \ker f = \ker g \) and \( \dim \ker f = n - 1 \), there exists a basis \( e_{1}, \ldots, e_{n-1} \) for \( \ker f \) (and \( \ker g \)). Because \( \dim V = n \), there exists a vector \( e_{n} \in V \) such that \( e_{1}, \ldots, e_{n} \) is a basis for \( V \).
+    \begin{enumerate}[label={(\alph*)}]
+        \item Since \( f \) is a nonzero linear functional, \( \operatorname{range}(f) = \mathbb{R} \). From rank-nullity theorem, \( \dim \ker(f) = \dim V - \dim \operatorname{range}(f) = n - 1 \).
+        \item Since \( \ker f = \ker g \) and \( \dim \ker f = n - 1 \), there exists a basis \( e_{1}, \ldots, e_{n-1} \) for \( \ker f \) (and \( \ker g \)). Because \( \dim V = n \), there exists a vector \( e_{n} \in V \) such that \( e_{1}, \ldots, e_{n} \) is a basis for \( V \).
 
-		      \( e_{n} \) is not in \( \ker f \) and \( \ker g \) so \( f(e_{n}), g(e_{n}) \ne 0 \). Hence there exists \( c \in \mathbb{R} \) such that \( g(e_{n}) = cf(e_{n}) \). Consider \( v = \sum v^{j}e_{j} \), one has
-		      \[
-			      g(v) = g\left(\sum v^{j}e_{j}\right) = \sum v^{j}g(e_{j}) = v^{n}g(e_{n}) = cv^{n}f(e_{n}) = c\sum v^{j}f(e_{j})
-		      \]
+              \( e_{n} \) is not in \( \ker f \) and \( \ker g \) so \( f(e_{n}), g(e_{n}) \ne 0 \). Hence there exists \( c \in \mathbb{R} \) such that \( g(e_{n}) = cf(e_{n}) \). Consider \( v = \sum v^{j}e_{j} \), one has
+              \[
+                  g(v) = g\left(\sum v^{j}e_{j}\right) = \sum v^{j}g(e_{j}) = v^{n}g(e_{n}) = cv^{n}f(e_{n}) = c\sum v^{j}f(e_{j})
+              \]
 
-		      so \( g = cf \).\qedhere
-	\end{enumerate}
+              so \( g = cf \).\qedhere
+    \end{enumerate}
 \end{proof}
 
 \begin{problem}{3.3}[A basis for \( k \)-tensors]
@@ -489,78 +489,78 @@ Let \( V \) be a vector space of dimension \( n \) with basis \( e_{1}, \ldots, 
 \end{problem}
 
 \begin{proof}
-	First, we show that \( \left\{ \alpha^{i_{1}} \otimes \cdots \otimes \alpha^{i_{k}} \right\} \) is linearly independent. Assume that
-	\[
-		\sum_{1\leq i_{1}, \ldots, i_{k} \leq n} c_{i_{1},\ldots, i_{k}}(\alpha^{i_{1}} \otimes \cdots \otimes \alpha^{i_{k}}) = 0.
-	\]
+    First, we show that \( \left\{ \alpha^{i_{1}} \otimes \cdots \otimes \alpha^{i_{k}} \right\} \) is linearly independent. Assume that
+    \[
+        \sum_{1\leq i_{1}, \ldots, i_{k} \leq n} c_{i_{1},\ldots, i_{k}}(\alpha^{i_{1}} \otimes \cdots \otimes \alpha^{i_{k}}) = 0.
+    \]
 
-	Apply the two functions to \( (e_{i_{1}}, \ldots, e_{i_{k}}) \), we obtain that \( c_{i_{1}, \ldots, i_{k}} = 0 \). Hence \( \left\{ \alpha^{i_{1}} \otimes \cdots \otimes \alpha^{i_{k}} \right\} \) is linearly independent.
+    Apply the two functions to \( (e_{i_{1}}, \ldots, e_{i_{k}}) \), we obtain that \( c_{i_{1}, \ldots, i_{k}} = 0 \). Hence \( \left\{ \alpha^{i_{1}} \otimes \cdots \otimes \alpha^{i_{k}} \right\} \) is linearly independent.
 
-	Now we show that  \( \left\{ \alpha^{i_{1}} \otimes \cdots \otimes \alpha^{i_{k}} \right\} \) span \( L_{k}(V) \). Let \( \alpha \in L_{k}(V) \) then
-	\begingroup
-	\allowdisplaybreaks%
-	\begin{align*}
-		\alpha(v_{1}, \ldots, v_{k}) & = \alpha\left(\sum v_{1}^{i_{1}}e_{i_{1}}, \ldots, \sum v_{k}^{i_{k}} e_{i_{k}}\right)                                                                       \\
-		                             & = \sum_{1\leq i_{1}, \ldots, i_{k} \leq n} v_{1}^{i_{1}}\cdots v_{k}^{i_{k}} \alpha(e_{i_{1}}, \ldots, e_{i_{k}})                                            \\
-		                             & = \sum_{1\leq i_{1}, \ldots, i_{k} \leq n} \alpha(e_{i_{1}}, \ldots, e_{i_{k}}) \alpha^{i_{1}}(v_{1})\cdots \alpha^{i_{k}}(v_{k})                            \\
-		                             & = \sum_{1\leq i_{1}, \ldots, i_{k} \leq n} \alpha(e_{i_{1}}, \ldots, e_{i_{k}}) (\alpha^{i_{1}} \otimes \cdots \otimes \alpha^{i_{k}})(v_{1}, \ldots, v_{k})
-	\end{align*}
-	\endgroup
+    Now we show that  \( \left\{ \alpha^{i_{1}} \otimes \cdots \otimes \alpha^{i_{k}} \right\} \) span \( L_{k}(V) \). Let \( \alpha \in L_{k}(V) \) then
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+        \alpha(v_{1}, \ldots, v_{k}) & = \alpha\left(\sum v_{1}^{i_{1}}e_{i_{1}}, \ldots, \sum v_{k}^{i_{k}} e_{i_{k}}\right)                                                                       \\
+                                     & = \sum_{1\leq i_{1}, \ldots, i_{k} \leq n} v_{1}^{i_{1}}\cdots v_{k}^{i_{k}} \alpha(e_{i_{1}}, \ldots, e_{i_{k}})                                            \\
+                                     & = \sum_{1\leq i_{1}, \ldots, i_{k} \leq n} \alpha(e_{i_{1}}, \ldots, e_{i_{k}}) \alpha^{i_{1}}(v_{1})\cdots \alpha^{i_{k}}(v_{k})                            \\
+                                     & = \sum_{1\leq i_{1}, \ldots, i_{k} \leq n} \alpha(e_{i_{1}}, \ldots, e_{i_{k}}) (\alpha^{i_{1}} \otimes \cdots \otimes \alpha^{i_{k}})(v_{1}, \ldots, v_{k})
+    \end{align*}
+    \endgroup
 
-	so
-	\[
-		\alpha = \sum_{1\leq i_{1}, \ldots, i_{k} \leq n} \alpha(e_{i_{1}}, \ldots, e_{i_{k}}) (\alpha^{i_{1}} \otimes \cdots \otimes \alpha^{i_{k}})
-	\]
+    so
+    \[
+        \alpha = \sum_{1\leq i_{1}, \ldots, i_{k} \leq n} \alpha(e_{i_{1}}, \ldots, e_{i_{k}}) (\alpha^{i_{1}} \otimes \cdots \otimes \alpha^{i_{k}})
+    \]
 
-	which means \( \left\{ \alpha^{i_{1}} \otimes \cdots \otimes \alpha^{i_{k}} \right\} \) span \( L_{k}(V) \).
+    which means \( \left\{ \alpha^{i_{1}} \otimes \cdots \otimes \alpha^{i_{k}} \right\} \) span \( L_{k}(V) \).
 \end{proof}
 
 \begin{problem}{3.4}[A characterization of alternating \( k \)-tensors]
 Let \( f \) be a \( k \)-tensor on a vector space \( V \). Prove that \( f \) is alternating if and only if \( f \) changes sign whenever two successive arguments are interchanged:
 
 \[
-	f(\ldots, v_{i+1}, v_{i}, \ldots) = -f(\ldots, v_{i}, v_{i+1}, \ldots)
+    f(\ldots, v_{i+1}, v_{i}, \ldots) = -f(\ldots, v_{i}, v_{i+1}, \ldots)
 \]
 
 for \( i = 1, \ldots, k-1 \).
 \end{problem}
 
 \begin{proof}
-	If \( f \) is alternating then
-	\[
-		f(\ldots, v_{i+1}, v_{i}, \ldots) = \operatorname{sgn}((i,i+1)) f(\ldots, v_{i}, v_{i+1}, \ldots) = -f(\ldots, v_{i}, v_{i+1}, \ldots)
-	\]
+    If \( f \) is alternating then
+    \[
+        f(\ldots, v_{i+1}, v_{i}, \ldots) = \operatorname{sgn}((i,i+1)) f(\ldots, v_{i}, v_{i+1}, \ldots) = -f(\ldots, v_{i}, v_{i+1}, \ldots)
+    \]
 
-	for \( i = 1, \ldots, k-1 \).
+    for \( i = 1, \ldots, k-1 \).
 
-	Conversely, assume \( f(\ldots, v_{i+1}, v_{i}, \ldots) = -f(\ldots, v_{i}, v_{i+1}, \ldots) \) for \( i = 1, \ldots, k-1 \). Consider \( \sigma \in S_{k} \)
-	\[
-		\sigma = \begin{bmatrix}
-			1         & \cdots & k         \\
-			\sigma(1) & \cdots & \sigma(k)
-		\end{bmatrix}
-	\]
+    Conversely, assume \( f(\ldots, v_{i+1}, v_{i}, \ldots) = -f(\ldots, v_{i}, v_{i+1}, \ldots) \) for \( i = 1, \ldots, k-1 \). Consider \( \sigma \in S_{k} \)
+    \[
+        \sigma = \begin{bmatrix}
+            1         & \cdots & k         \\
+            \sigma(1) & \cdots & \sigma(k)
+        \end{bmatrix}
+    \]
 
-	we will rearrange \( \sigma(1), \ldots, \sigma(k) \) to \( 1, \ldots, k \) by swapping adjacent elements as the following inductive procedure:
-	\begin{itemize}
-		\item Denote \( p_{1} = \sigma^{-1}(1) \). If \( p_{1} = 1 \), go to the next step. Otherwise, swap \( \sigma(p_{1}) \) and \( \sigma(p_{1} - 1) \) (this is the transposition \( \tau_{1} = (\sigma(p_{1}), \sigma(p_{1} - 1)) \)). Repeat this procedure recursively with \( \tau_{1} \circ \sigma \) until 1 is the 1st in the list. At the end of this process, we obtain the permutation \( \tau_{m_{1}}\circ \cdots \circ \tau_{1}\circ \sigma \) that fixes 1 (\( m_{1}\) can be 0)
-		\item Assume that we obtained a permutation \( \sigma \) that fixes \( 1, \ldots, i < k \). Let \( p_{i+1} = \sigma^{-1}(i + 1) \) and apply the previous step to \( \sigma(i+1), \ldots, \sigma(k) \).
-	\end{itemize}
+    we will rearrange \( \sigma(1), \ldots, \sigma(k) \) to \( 1, \ldots, k \) by swapping adjacent elements as the following inductive procedure:
+    \begin{itemize}
+        \item Denote \( p_{1} = \sigma^{-1}(1) \). If \( p_{1} = 1 \), go to the next step. Otherwise, swap \( \sigma(p_{1}) \) and \( \sigma(p_{1} - 1) \) (this is the transposition \( \tau_{1} = (\sigma(p_{1}), \sigma(p_{1} - 1)) \)). Repeat this procedure recursively with \( \tau_{1} \circ \sigma \) until 1 is the 1st in the list. At the end of this process, we obtain the permutation \( \tau_{m_{1}}\circ \cdots \circ \tau_{1}\circ \sigma \) that fixes 1 (\( m_{1}\) can be 0)
+        \item Assume that we obtained a permutation \( \sigma \) that fixes \( 1, \ldots, i < k \). Let \( p_{i+1} = \sigma^{-1}(i + 1) \) and apply the previous step to \( \sigma(i+1), \ldots, \sigma(k) \).
+    \end{itemize}
 
-	The procedure will end up with \( 1, \ldots, k \). Let \( \tau_{m} \circ \cdots \circ \tau_{1} \circ \sigma = \operatorname{Id} \) be the result obtained from the procedure, then \( \operatorname{sgn}(\sigma) = {(-1)}^{m} \) and
-	\begingroup
-	\allowdisplaybreaks%
-	\begin{align*}
-		f(v_{\sigma(1)}, \ldots, v_{\sigma(k)}) & = {(-1)}^{1} f(v_{(\tau_{1}\sigma)(1)}, \ldots, v_{(\tau_{1}\sigma)(k)})                             \\
-		                                        & = {(-1)}^{2} f(v_{(\tau_{2}\tau_{1}\sigma)(1)}, \ldots, v_{(\tau_{2}\tau_{1}\sigma)(k)})             \\
-		                                        & \cdots                                                                                               \\
-		                                        & = {(-1)}^{m} f(v_{(\tau_{m}\cdots\tau_{1}\sigma)(1)}, \ldots, v_{(\tau_{m}\cdots\tau_{1}\sigma)(k)}) \\
-		                                        & = {(-1)}^{m} f(v_{1}, \ldots, v_{k})                                                                 \\
-		                                        & = \operatorname{sgn}(\sigma) f(v_{1}, \ldots, v_{k})
-	\end{align*}
-	\endgroup
+    The procedure will end up with \( 1, \ldots, k \). Let \( \tau_{m} \circ \cdots \circ \tau_{1} \circ \sigma = \operatorname{Id} \) be the result obtained from the procedure, then \( \operatorname{sgn}(\sigma) = {(-1)}^{m} \) and
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+        f(v_{\sigma(1)}, \ldots, v_{\sigma(k)}) & = {(-1)}^{1} f(v_{(\tau_{1}\sigma)(1)}, \ldots, v_{(\tau_{1}\sigma)(k)})                             \\
+                                                & = {(-1)}^{2} f(v_{(\tau_{2}\tau_{1}\sigma)(1)}, \ldots, v_{(\tau_{2}\tau_{1}\sigma)(k)})             \\
+                                                & \cdots                                                                                               \\
+                                                & = {(-1)}^{m} f(v_{(\tau_{m}\cdots\tau_{1}\sigma)(1)}, \ldots, v_{(\tau_{m}\cdots\tau_{1}\sigma)(k)}) \\
+                                                & = {(-1)}^{m} f(v_{1}, \ldots, v_{k})                                                                 \\
+                                                & = \operatorname{sgn}(\sigma) f(v_{1}, \ldots, v_{k})
+    \end{align*}
+    \endgroup
 
-	which means \( f \) is alternating.
+    which means \( f \) is alternating.
 \end{proof}
 
 \begin{problem}{3.5}[Another characterization of alternating \( k \)-tensors]
@@ -568,39 +568,39 @@ Let \( f \) be a \( k \)-tensor on a vector space \( V \). Prove that \( f \) is
 \end{problem}
 
 \begin{proof}
-	If \( f \) is alternating then when \( v_{i} = v_{j} \) (where \( i < j \))
-	\begingroup
-	\allowdisplaybreaks%
-	\begin{align*}
-		f(\ldots, v_{i}, \ldots, v_{j}, \ldots) & = f(\ldots, v_{j}, \ldots, v_{i}, \ldots)                            \\
-		                                        & = \operatorname{sgn}((i, j)) f(\ldots, v_{i}, \ldots, v_{j}, \ldots) \\
-		                                        & = -f(\ldots, v_{i}, \ldots, v_{j}, \ldots)
-	\end{align*}
-	\endgroup
+    If \( f \) is alternating then when \( v_{i} = v_{j} \) (where \( i < j \))
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+        f(\ldots, v_{i}, \ldots, v_{j}, \ldots) & = f(\ldots, v_{j}, \ldots, v_{i}, \ldots)                            \\
+                                                & = \operatorname{sgn}((i, j)) f(\ldots, v_{i}, \ldots, v_{j}, \ldots) \\
+                                                & = -f(\ldots, v_{i}, \ldots, v_{j}, \ldots)
+    \end{align*}
+    \endgroup
 
-	so \( 2f(\cdots, v_{i}, \ldots, v_{j}, \ldots) = 0 \), which means \( f(\cdots, v_{i}, \ldots, v_{j}, \ldots) = 0 \).
+    so \( 2f(\cdots, v_{i}, \ldots, v_{j}, \ldots) = 0 \), which means \( f(\cdots, v_{i}, \ldots, v_{j}, \ldots) = 0 \).
 
-	Conversely, assume \( f(v_{1}, \ldots, v_{k}) = 0 \) whenever two of the vectors \( v_{1}, \ldots, v_{k} \) are equal. For \( 1 \leq i < j \leq n \)
-	\begingroup
-	\allowdisplaybreaks%
-	\begin{align*}
-		0 & = f(\ldots, v_{i} + v_{j}, \ldots, v_{i} + v_{j}, \ldots)                                                                                                               \\
-		  & = f(\ldots, v_{i}, \ldots, v_{i}, \ldots) + f(\ldots, v_{i}, \ldots, v_{j}, \ldots) + f(\ldots, v_{j}, \ldots, v_{i}, \ldots) + f(\ldots, v_{j}, \ldots, v_{j}, \ldots) \\
-		  & = f(\ldots, v_{i}, \ldots, v_{j}, \ldots) + f(\ldots, v_{j}, \ldots, v_{i}, \ldots)
-	\end{align*}
-	\endgroup
+    Conversely, assume \( f(v_{1}, \ldots, v_{k}) = 0 \) whenever two of the vectors \( v_{1}, \ldots, v_{k} \) are equal. For \( 1 \leq i < j \leq n \)
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+        0 & = f(\ldots, v_{i} + v_{j}, \ldots, v_{i} + v_{j}, \ldots)                                                                                                               \\
+          & = f(\ldots, v_{i}, \ldots, v_{i}, \ldots) + f(\ldots, v_{i}, \ldots, v_{j}, \ldots) + f(\ldots, v_{j}, \ldots, v_{i}, \ldots) + f(\ldots, v_{j}, \ldots, v_{j}, \ldots) \\
+          & = f(\ldots, v_{i}, \ldots, v_{j}, \ldots) + f(\ldots, v_{j}, \ldots, v_{i}, \ldots)
+    \end{align*}
+    \endgroup
 
-	which implies \( f(\ldots, v_{j}, \ldots, v_{i}, \ldots) = -f(\ldots, v_{i}, \ldots, v_{j}, \ldots) \). Let \( \sigma \in S_{k} \) then \( \sigma \) is the product of some transpositions \( \tau_{1}, \ldots, \tau_{m} \). So
-	\begingroup
-	\allowdisplaybreaks%
-	\begin{align*}
-		f(v_{\sigma(1)}, \ldots, v_{\sigma(k)}) & = f(v_{(\tau_{m}\cdots\tau_{1})(1)}, \ldots, v_{(\tau_{m}\cdots\tau_{1})(k)})            \\
-		                                        & = \operatorname{sgn}(\tau_{m})\cdots\operatorname{sgn}(\tau_{1}) f(v_{1}, \ldots, v_{k}) \\
-		                                        & = \operatorname{sgn}(\sigma) f(v_{1}, \ldots, v_{k})
-	\end{align*}
-	\endgroup
+    which implies \( f(\ldots, v_{j}, \ldots, v_{i}, \ldots) = -f(\ldots, v_{i}, \ldots, v_{j}, \ldots) \). Let \( \sigma \in S_{k} \) then \( \sigma \) is the product of some transpositions \( \tau_{1}, \ldots, \tau_{m} \). So
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+        f(v_{\sigma(1)}, \ldots, v_{\sigma(k)}) & = f(v_{(\tau_{m}\cdots\tau_{1})(1)}, \ldots, v_{(\tau_{m}\cdots\tau_{1})(k)})            \\
+                                                & = \operatorname{sgn}(\tau_{m})\cdots\operatorname{sgn}(\tau_{1}) f(v_{1}, \ldots, v_{k}) \\
+                                                & = \operatorname{sgn}(\sigma) f(v_{1}, \ldots, v_{k})
+    \end{align*}
+    \endgroup
 
-	which means \( f \) is alternating.
+    which means \( f \) is alternating.
 \end{proof}
 
 \begin{problem}{3.6}[Wedge product and scalars]
@@ -608,78 +608,78 @@ Let \( V \) be a vector space. For \( a, b \in \mathbb{R} \), \( f \in A_{k}(V) 
 \end{problem}
 
 \begin{proof}
-	According to the definition of wedge product
-	\begingroup
-	\allowdisplaybreaks%
-	\begin{align*}
-		(af \wedge bg)(v_{1}, \ldots, v_{k + \ell}) & = \frac{1}{k!\ell!}\sum_{\sigma \in S_{k + \ell}} \operatorname{sgn}(\sigma) (af)(v_{\sigma(1)}, \ldots, v_{\sigma(k)}) (bg)(v_{\sigma(k + 1)}, \ldots, v_{\sigma(k + \ell)}) \\
-		                                            & = \frac{ab}{k!\ell!}\sum_{\sigma \in S_{k + \ell}} \operatorname{sgn}(\sigma) f(v_{\sigma(1)}, \ldots, v_{\sigma(k)}) g(v_{\sigma(k + 1)}, \ldots, v_{\sigma(k + \ell)})      \\
-		                                            & = (ab) (f\wedge g)(v_{1}, \ldots, v_{k + \ell}).
-	\end{align*}
-	\endgroup
+    According to the definition of wedge product
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+        (af \wedge bg)(v_{1}, \ldots, v_{k + \ell}) & = \frac{1}{k!\ell!}\sum_{\sigma \in S_{k + \ell}} \operatorname{sgn}(\sigma) (af)(v_{\sigma(1)}, \ldots, v_{\sigma(k)}) (bg)(v_{\sigma(k + 1)}, \ldots, v_{\sigma(k + \ell)}) \\
+                                                    & = \frac{ab}{k!\ell!}\sum_{\sigma \in S_{k + \ell}} \operatorname{sgn}(\sigma) f(v_{\sigma(1)}, \ldots, v_{\sigma(k)}) g(v_{\sigma(k + 1)}, \ldots, v_{\sigma(k + \ell)})      \\
+                                                    & = (ab) (f\wedge g)(v_{1}, \ldots, v_{k + \ell}).
+    \end{align*}
+    \endgroup
 
-	Therefore \( af \wedge bg = (ab) f\wedge g \).
+    Therefore \( af \wedge bg = (ab) f\wedge g \).
 \end{proof}
 
 \begin{problem}{3.7}[Transformation rule for a wedge product of covectors]
 Suppose two sets of covectors on a vector space \( V \), \( \beta^{1}, \ldots, \beta^{k} \) and \( \gamma^{1}, \ldots, \gamma^{k} \), are related by
 
 \[
-	\beta^{i} = \sum_{j=1}^{k} a_{j}^{i} \gamma^{j}, \quad i = 1, \ldots, k,
+    \beta^{i} = \sum_{j=1}^{k} a_{j}^{i} \gamma^{j}, \quad i = 1, \ldots, k,
 \]
 
 for a \( k \times k \) matrix \( A = [a_{j}^{i}] \). Show that
 
 \[
-	\beta^{1} \wedge \cdots \wedge \beta^{k} = (\det A) \, \gamma^{1} \wedge \cdots \wedge \gamma^{k}.
+    \beta^{1} \wedge \cdots \wedge \beta^{k} = (\det A) \, \gamma^{1} \wedge \cdots \wedge \gamma^{k}.
 \]
 \end{problem}
 
 \begin{proof}
-	\begingroup
-	\allowdisplaybreaks%
-	\begin{align*}
-		(\beta^{1} \wedge \cdots \wedge \beta^{k})(v_{1}, \ldots, v_{k})   & = \det [\beta^{i}(v_{j})], \\
-		(\gamma^{1} \wedge \cdots \wedge \gamma^{k})(v_{1}, \ldots, v_{k}) & = \det[\gamma^{i}(v_{j})].
-	\end{align*}
-	\endgroup
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+        (\beta^{1} \wedge \cdots \wedge \beta^{k})(v_{1}, \ldots, v_{k})   & = \det [\beta^{i}(v_{j})], \\
+        (\gamma^{1} \wedge \cdots \wedge \gamma^{k})(v_{1}, \ldots, v_{k}) & = \det[\gamma^{i}(v_{j})].
+    \end{align*}
+    \endgroup
 
-	On the other hand, by the rule of matrix multiplication
-	\[
-		[\beta^{i}(v_{j})] = [a^{i}_{j}][\gamma^{i}(v_{j})]
-	\]
+    On the other hand, by the rule of matrix multiplication
+    \[
+        [\beta^{i}(v_{j})] = [a^{i}_{j}][\gamma^{i}(v_{j})]
+    \]
 
-	so \( \det[\beta^{i}(v_{j})] = \det[a^{i}_{j}] \times \det[\gamma^{i}(v_{j})] \) from which we conclude that
-	\[
-		\beta^{1} \wedge \cdots \wedge \beta^{k} = (\det A) \gamma^{1} \wedge \cdots \wedge \beta^{k}.\qedhere
-	\]
+    so \( \det[\beta^{i}(v_{j})] = \det[a^{i}_{j}] \times \det[\gamma^{i}(v_{j})] \) from which we conclude that
+    \[
+        \beta^{1} \wedge \cdots \wedge \beta^{k} = (\det A) \gamma^{1} \wedge \cdots \wedge \beta^{k}.\qedhere
+    \]
 \end{proof}
 
 \begin{problem}{3.8}[Transformation rule for \( k \)-covectors]
 Let \( f \) be a \( k \)-covector on a vector space \( V \). Suppose two sets of vectors \( u_{1}, \ldots, u_{k} \) and \( v_{1}, \ldots, v_{k} \) in \( V \) are related by
 
 \[
-	u_{j} = \sum_{i=1}^{k} a_{j}^{i} v_{i}, \quad j = 1, \ldots, k,
+    u_{j} = \sum_{i=1}^{k} a_{j}^{i} v_{i}, \quad j = 1, \ldots, k,
 \]
 
 for a \( k \times k \) matrix \( A = [a_{j}^{i}] \). Show that
 
 \[
-	f(u_{1}, \ldots, u_{k}) = (\det A) f(v_{1}, \ldots, v_{k}).
+    f(u_{1}, \ldots, u_{k}) = (\det A) f(v_{1}, \ldots, v_{k}).
 \]
 \end{problem}
 
 \begin{proof}
-	Because \( f \) is multilinear and alternating
-	\begingroup
-	\allowdisplaybreaks%
-	\begin{align*}
-		f(u_{1}, \ldots, u_{k}) & = \sum_{\sigma \in S_{k}} a^{\sigma(1)}_{1}\cdots a^{\sigma(k)}_{k} f(v_{\sigma(1)}, \ldots, v_{\sigma(k)})           \\
-		                        & = \sum_{\sigma \in S_{k}} \operatorname{sgn}(\sigma)a^{\sigma(1)}_{1}\cdots a^{\sigma(k)}_{k} f(v_{1}, \ldots, v_{k}) \\
-		                        & = \det(A^{\top}) f(v_{1}, \ldots, v_{k})                                                                              \\
-		                        & = \det(A) f(v_{1}, \ldots, v_{k}). \qedhere
-	\end{align*}
-	\endgroup
+    Because \( f \) is multilinear and alternating
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+        f(u_{1}, \ldots, u_{k}) & = \sum_{\sigma \in S_{k}} a^{\sigma(1)}_{1}\cdots a^{\sigma(k)}_{k} f(v_{\sigma(1)}, \ldots, v_{\sigma(k)})           \\
+                                & = \sum_{\sigma \in S_{k}} \operatorname{sgn}(\sigma)a^{\sigma(1)}_{1}\cdots a^{\sigma(k)}_{k} f(v_{1}, \ldots, v_{k}) \\
+                                & = \det(A^{\top}) f(v_{1}, \ldots, v_{k})                                                                              \\
+                                & = \det(A) f(v_{1}, \ldots, v_{k}). \qedhere
+    \end{align*}
+    \endgroup
 \end{proof}
 
 \begin{problem}{3.9}[Vanishing of a covector of top degree]\label{problem:3.9}
@@ -687,20 +687,20 @@ Let \( V \) be a vector space of dimension \( n \). Prove that if an \( n \)-cov
 \end{problem}
 
 \begin{proof}
-	Let \( v_{1}, \ldots, v_{n} \in V \) and \( v_{i} = \sum^{n}_{j_{i}=1} v_{i}^{j_{i}} e_{j_{i}} \).
-	\begingroup
-	\allowdisplaybreaks%
-	\begin{align*}
-		\omega(v_{1}, \ldots, v_{n}) & = \omega\left(\sum^{n}_{j_{1}=1} v_{1}^{j_{1}} e_{j_{1}}, \ldots, \sum^{n}_{j_{n}=1} v_{n}^{j_{n}} e_{j_{n}}\right)                                                                              \\
-		                             & = \sum_{1\leq i_{1}, \ldots, i_{n} \leq n} v_{1}^{j_{1}}\cdots v_{n}^{j_{n}}\omega(e_{j_{1}}, \ldots, e_{j_{n}})          & \text{(\(\omega\) is multilinear)}                                   \\
-		                             & = \sum_{\sigma\in S_{n}} v_{1}^{\sigma(1)}\cdots v_{n}^{\sigma(n)} \omega(e_{\sigma(1)}, \ldots, e_{\sigma(n)})           & \text{(\(\omega\) is alternating)}                                   \\
-		                             & = \sum_{\sigma\in S_{n}} v_{1}^{\sigma(1)}\cdots v_{n}^{\sigma(n)}\operatorname{sgn}(\sigma) \omega(e_{1}, \ldots, e_{n}) & \text{(\(\omega\) is alternating)}                                   \\
-		                             & = (\det[v_{i}^{j}])\omega(e_{1}, \ldots, e_{n})                                                                                                                                                  \\
-		                             & = 0.                                                                                                                      & \text{(\(\omega\) vanishes on the basis \( e_{1}, \ldots, e_{n} \))}
-	\end{align*}
-	\endgroup
+    Let \( v_{1}, \ldots, v_{n} \in V \) and \( v_{i} = \sum^{n}_{j_{i}=1} v_{i}^{j_{i}} e_{j_{i}} \).
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+        \omega(v_{1}, \ldots, v_{n}) & = \omega\left(\sum^{n}_{j_{1}=1} v_{1}^{j_{1}} e_{j_{1}}, \ldots, \sum^{n}_{j_{n}=1} v_{n}^{j_{n}} e_{j_{n}}\right)                                                                              \\
+                                     & = \sum_{1\leq i_{1}, \ldots, i_{n} \leq n} v_{1}^{j_{1}}\cdots v_{n}^{j_{n}}\omega(e_{j_{1}}, \ldots, e_{j_{n}})          & \text{(\(\omega\) is multilinear)}                                   \\
+                                     & = \sum_{\sigma\in S_{n}} v_{1}^{\sigma(1)}\cdots v_{n}^{\sigma(n)} \omega(e_{\sigma(1)}, \ldots, e_{\sigma(n)})           & \text{(\(\omega\) is alternating)}                                   \\
+                                     & = \sum_{\sigma\in S_{n}} v_{1}^{\sigma(1)}\cdots v_{n}^{\sigma(n)}\operatorname{sgn}(\sigma) \omega(e_{1}, \ldots, e_{n}) & \text{(\(\omega\) is alternating)}                                   \\
+                                     & = (\det[v_{i}^{j}])\omega(e_{1}, \ldots, e_{n})                                                                                                                                                  \\
+                                     & = 0.                                                                                                                      & \text{(\(\omega\) vanishes on the basis \( e_{1}, \ldots, e_{n} \))}
+    \end{align*}
+    \endgroup
 
-	Hence \( \omega \) is the zero \( n \)-covector on \( V \).
+    Hence \( \omega \) is the zero \( n \)-covector on \( V \).
 \end{proof}
 
 \begin{problem}{3.10}[Linear independence of covectors]\label{problem:3.10}
@@ -708,30 +708,30 @@ Let \( \alpha^{1}, \ldots, \alpha^{k} \) be 1-covectors on a vector space \( V \
 \end{problem}
 
 \begin{proof}
-	\( (\Longrightarrow) \) \( \alpha^{1} \land \cdots \land \alpha^{k} \neq 0 \).
+    \( (\Longrightarrow) \) \( \alpha^{1} \land \cdots \land \alpha^{k} \neq 0 \).
 
-	Assume that \( c_{1}\alpha^{1} + \cdots + c_{k}\alpha^{k} = 0 \) then
-	\[
-		\alpha^{1} \wedge \cdots \wedge (c_{1}\alpha^{1} + \cdots + c_{k}\alpha^{k}) \wedge \cdots \wedge \alpha^{n} = 0
-	\]
+    Assume that \( c_{1}\alpha^{1} + \cdots + c_{k}\alpha^{k} = 0 \) then
+    \[
+        \alpha^{1} \wedge \cdots \wedge (c_{1}\alpha^{1} + \cdots + c_{k}\alpha^{k}) \wedge \cdots \wedge \alpha^{n} = 0
+    \]
 
-	in which \( c_{1}\alpha^{1} + \cdots + c_{k}\alpha^{k} \) is at the \( j \)th position. Therefore \( c_{j} (\alpha^{1} \wedge \cdots \wedge \alpha^{k}) = 0 \). Because \( \alpha^{1} \wedge \cdots \wedge \alpha^{k} \ne 0 \), there exist \( v_{1}, \ldots, v_{k} \in V \) such that \( (\alpha^{1} \wedge \cdots \wedge \alpha^{k})(v_{1}, \ldots, v_{k}) \ne 0 \). Moreover, \( c_{j}(\alpha^{1} \wedge \cdots \wedge \alpha^{k})(v_{1}, \ldots, v_{k}) = 0 \) so \( c_{j} = 0 \). Hence \( \alpha^{1}, \ldots, \alpha^{k} \) are linearly independent in the dual space \( V^{\vee} \).
+    in which \( c_{1}\alpha^{1} + \cdots + c_{k}\alpha^{k} \) is at the \( j \)th position. Therefore \( c_{j} (\alpha^{1} \wedge \cdots \wedge \alpha^{k}) = 0 \). Because \( \alpha^{1} \wedge \cdots \wedge \alpha^{k} \ne 0 \), there exist \( v_{1}, \ldots, v_{k} \in V \) such that \( (\alpha^{1} \wedge \cdots \wedge \alpha^{k})(v_{1}, \ldots, v_{k}) \ne 0 \). Moreover, \( c_{j}(\alpha^{1} \wedge \cdots \wedge \alpha^{k})(v_{1}, \ldots, v_{k}) = 0 \) so \( c_{j} = 0 \). Hence \( \alpha^{1}, \ldots, \alpha^{k} \) are linearly independent in the dual space \( V^{\vee} \).
 
-	\( (\Longleftarrow) \) \( \alpha^{1}, \ldots, \alpha^{k} \) are linearly independent in the dual space \( V^{\vee} \).
+    \( (\Longleftarrow) \) \( \alpha^{1}, \ldots, \alpha^{k} \) are linearly independent in the dual space \( V^{\vee} \).
 
-	Let \( n = \dim V \), \( \alpha^{1}, \ldots, \alpha^{k}, \ldots, \alpha^{n} \) be a basis for \( V^{\vee} \) and \( v_{1}, \ldots, v_{n} \) a basis for \( V \). According to Problem~\ref{problem:3.9}, \( \det{[\alpha^{i}(v_{j})]}_{n\times n} \ne 0 \), so by Cramer's theorem, the following system of linear equations
-	\[
-		\begin{cases}
-			\alpha^{1}(x^{1}v_{1} + \cdots + x^{n}v_{n}) = 1 \\
-			\alpha^{2}(x^{1}v_{1} + \cdots + x^{n}v_{n}) = 0 \\
-			\cdots                                           \\
-			\alpha^{n}(x^{1}v_{1} + \cdots + x^{n}v_{n}) = 0
-		\end{cases}
-	\]
+    Let \( n = \dim V \), \( \alpha^{1}, \ldots, \alpha^{k}, \ldots, \alpha^{n} \) be a basis for \( V^{\vee} \) and \( v_{1}, \ldots, v_{n} \) a basis for \( V \). According to Problem~\ref{problem:3.9}, \( \det{[\alpha^{i}(v_{j})]}_{n\times n} \ne 0 \), so by Cramer's theorem, the following system of linear equations
+    \[
+        \begin{cases}
+            \alpha^{1}(x^{1}v_{1} + \cdots + x^{n}v_{n}) = 1 \\
+            \alpha^{2}(x^{1}v_{1} + \cdots + x^{n}v_{n}) = 0 \\
+            \cdots                                           \\
+            \alpha^{n}(x^{1}v_{1} + \cdots + x^{n}v_{n}) = 0
+        \end{cases}
+    \]
 
-	has a unique solution, which means there exists \( e_{1} \in V \) such that \( \alpha^{i}(e_{1}) = \delta^{i}_{1} \). Similarly, there exist \( e_{1}, \ldots, e_{n} \in V \) such that \( \alpha^{i}(e_{j}) = \delta^{i}_{j} \), which means \( \alpha^{1}, \ldots, \alpha^{n} \) is the dual basis of \( e_{1}, \ldots, e_{n} \).
+    has a unique solution, which means there exists \( e_{1} \in V \) such that \( \alpha^{i}(e_{1}) = \delta^{i}_{1} \). Similarly, there exist \( e_{1}, \ldots, e_{n} \in V \) such that \( \alpha^{i}(e_{j}) = \delta^{i}_{j} \), which means \( \alpha^{1}, \ldots, \alpha^{n} \) is the dual basis of \( e_{1}, \ldots, e_{n} \).
 
-	Hence \( (\alpha^{1} \wedge \cdots \wedge \alpha^{k})(e_{1}, \ldots, e_{k}) = \det{[\alpha^{i}(e_{j})]}_{k\times n} = 1 \) as \( [\alpha^{i}(e_{j})] \) is the identity matrix of \( k \) columns, so \( \alpha^{1} \wedge \cdots \wedge \alpha^{k} \ne 0 \).
+    Hence \( (\alpha^{1} \wedge \cdots \wedge \alpha^{k})(e_{1}, \ldots, e_{k}) = \det{[\alpha^{i}(e_{j})]}_{k\times n} = 1 \) as \( [\alpha^{i}(e_{j})] \) is the identity matrix of \( k \) columns, so \( \alpha^{1} \wedge \cdots \wedge \alpha^{k} \ne 0 \).
 \end{proof}
 
 \begin{problem}{3.11}[Exterior multiplication]
@@ -739,86 +739,86 @@ Let \( \alpha \) be a nonzero 1-covector and \( \gamma \) a \( k \)-covector on 
 \end{problem}
 
 \begin{proof}
-	If \( \gamma = \alpha \wedge \beta \) for some \( (k - 1) \)-covector \( \beta \) on \( V \) then
-	\[
-		\alpha \wedge \gamma = \alpha \wedge (\alpha \wedge \beta) = (\alpha \wedge \alpha) \wedge \beta = 0 \wedge \beta = 0.
-	\]
+    If \( \gamma = \alpha \wedge \beta \) for some \( (k - 1) \)-covector \( \beta \) on \( V \) then
+    \[
+        \alpha \wedge \gamma = \alpha \wedge (\alpha \wedge \beta) = (\alpha \wedge \alpha) \wedge \beta = 0 \wedge \beta = 0.
+    \]
 
-	Conversely, suppose that \( \alpha \wedge \gamma = 0 \). Let \( \alpha^{1} = \alpha \) and \( \alpha^{1}, \ldots, \alpha^{n} \) a basis for \( V^{\vee} \). From the proof of Problem~\ref{problem:3.10}, there exists a basis \( e_{1}, \ldots, e_{n} \) for \( V \) whose dual basis is \( \alpha^{1}, \ldots, \alpha^{n} \). A basis for \( A_{k}(V) \) is
-	\[
-		\alpha^{i_{1}} \wedge \cdots \wedge \alpha^{i_{k}}
-	\]
+    Conversely, suppose that \( \alpha \wedge \gamma = 0 \). Let \( \alpha^{1} = \alpha \) and \( \alpha^{1}, \ldots, \alpha^{n} \) a basis for \( V^{\vee} \). From the proof of Problem~\ref{problem:3.10}, there exists a basis \( e_{1}, \ldots, e_{n} \) for \( V \) whose dual basis is \( \alpha^{1}, \ldots, \alpha^{n} \). A basis for \( A_{k}(V) \) is
+    \[
+        \alpha^{i_{1}} \wedge \cdots \wedge \alpha^{i_{k}}
+    \]
 
-	in which \( 1 \leq i_{1} < \cdots < i_{k} \leq n \). The \( k \)-covector \( \gamma \) admits the linear combination
-	\[
-		\gamma = \sum_{1 \leq i_{1} < \cdots < i_{k} \leq n} c_{i_{1},\ldots,i_{k}} \alpha^{i_{1}} \wedge \cdots \wedge \alpha^{i_{k}}.
-	\]
+    in which \( 1 \leq i_{1} < \cdots < i_{k} \leq n \). The \( k \)-covector \( \gamma \) admits the linear combination
+    \[
+        \gamma = \sum_{1 \leq i_{1} < \cdots < i_{k} \leq n} c_{i_{1},\ldots,i_{k}} \alpha^{i_{1}} \wedge \cdots \wedge \alpha^{i_{k}}.
+    \]
 
-	Hence
-	\begingroup
-	\allowdisplaybreaks%
-	\begin{align*}
-		0 & = \alpha \wedge \gamma                                                                                                                    \\
-		  & = \alpha^{1} \wedge \sum_{1 \leq i_{1} < \cdots < i_{k} \leq n} c_{i_{1},\ldots,i_{k}} \alpha^{i_{1}} \wedge \cdots \wedge \alpha^{i_{k}} \\
-		  & = \sum_{1 \leq i_{1} < \cdots < i_{k} \leq n} c_{i_{1},\ldots,i_{k}} \alpha^{1}\wedge \alpha^{i_{1}} \wedge \cdots \wedge \alpha^{i_{k}}  \\
-		  & = \sum_{1 < i_{1} < \cdots < i_{k} \leq n} c_{i_{1},\ldots,i_{k}} \alpha^{1}\wedge \alpha^{i_{1}} \wedge \cdots \wedge \alpha^{i_{k}}.
-	\end{align*}
-	\endgroup
+    Hence
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+        0 & = \alpha \wedge \gamma                                                                                                                    \\
+          & = \alpha^{1} \wedge \sum_{1 \leq i_{1} < \cdots < i_{k} \leq n} c_{i_{1},\ldots,i_{k}} \alpha^{i_{1}} \wedge \cdots \wedge \alpha^{i_{k}} \\
+          & = \sum_{1 \leq i_{1} < \cdots < i_{k} \leq n} c_{i_{1},\ldots,i_{k}} \alpha^{1}\wedge \alpha^{i_{1}} \wedge \cdots \wedge \alpha^{i_{k}}  \\
+          & = \sum_{1 < i_{1} < \cdots < i_{k} \leq n} c_{i_{1},\ldots,i_{k}} \alpha^{1}\wedge \alpha^{i_{1}} \wedge \cdots \wedge \alpha^{i_{k}}.
+    \end{align*}
+    \endgroup
 
-	Since \( (\alpha^{1}\wedge \alpha^{i_{1}} \wedge \cdots \wedge \alpha^{i_{k}}) \) are linearly independent for \( 1 < i_{1} < \cdots < i_{k} \), it follows that \( c_{i_{1},\ldots,i_{k}} = 0 \) whenever \( 1 < i_{1} < \cdots < i_{k} \). Thus
-	\[
-		\gamma = \sum_{1 = i_{1} < \cdots < i_{k} \leq n} c_{i_{1},\ldots,i_{k}} \alpha^{i_{1}} \wedge \cdots \wedge \alpha^{i_{k}} = \alpha \wedge \left(\sum_{1 < i_{2} < \cdots < i_{k} \leq n} c_{i_{1},\ldots,i_{k}} \alpha^{i_{2}} \wedge \cdots \wedge \alpha^{i_{k}}\right).
-	\]
+    Since \( (\alpha^{1}\wedge \alpha^{i_{1}} \wedge \cdots \wedge \alpha^{i_{k}}) \) are linearly independent for \( 1 < i_{1} < \cdots < i_{k} \), it follows that \( c_{i_{1},\ldots,i_{k}} = 0 \) whenever \( 1 < i_{1} < \cdots < i_{k} \). Thus
+    \[
+        \gamma = \sum_{1 = i_{1} < \cdots < i_{k} \leq n} c_{i_{1},\ldots,i_{k}} \alpha^{i_{1}} \wedge \cdots \wedge \alpha^{i_{k}} = \alpha \wedge \left(\sum_{1 < i_{2} < \cdots < i_{k} \leq n} c_{i_{1},\ldots,i_{k}} \alpha^{i_{2}} \wedge \cdots \wedge \alpha^{i_{k}}\right).
+    \]
 
-	Let \( \beta = \sum_{1 < i_{2} < \cdots < i_{k} \leq n} c_{i_{1},\ldots,i_{k}} \alpha^{i_{2}} \wedge \cdots \wedge \alpha^{i_{k}} \) then \( \beta \) is a \( (k-1) \)-covector on \( V \) such that \( \gamma = \alpha \wedge \beta \).
+    Let \( \beta = \sum_{1 < i_{2} < \cdots < i_{k} \leq n} c_{i_{1},\ldots,i_{k}} \alpha^{i_{2}} \wedge \cdots \wedge \alpha^{i_{k}} \) then \( \beta \) is a \( (k-1) \)-covector on \( V \) such that \( \gamma = \alpha \wedge \beta \).
 \end{proof}
 
 \section{Differential Forms on \( \mathbb{R}^{n} \)}
 
 \begin{exercise}{4.3}[A basis for \(3\)-covectors]
-	Let \(x^{1}, x^{2}, x^{3}, x^{4}\) be the coordinates on \(\mathbb{R}^{4}\) and \(p\) a point in \(\mathbb{R}^{4}\). Write down a basis for the vector space \(A_{3}(T_{p}(\mathbb{R}^{4}))\).
+    Let \(x^{1}, x^{2}, x^{3}, x^{4}\) be the coordinates on \(\mathbb{R}^{4}\) and \(p\) a point in \(\mathbb{R}^{4}\). Write down a basis for the vector space \(A_{3}(T_{p}(\mathbb{R}^{4}))\).
 \end{exercise}
 
 \begin{proof}
-	A basis for the vector space \(A_{3}(T_{p}(\mathbb{R}^{4}))\) is
-	\[
-		(dx^{1} \wedge dx^{2} \wedge dx^{3})\vert_{p}, (dx^{1} \wedge dx^{3} \wedge dx^{4})\vert_{p}, (dx^{1} \wedge dx^{2} \wedge dx^{4})\vert_{p}, (dx^{2} \wedge dx^{3} \wedge dx^{4})\vert_{p}. \qedhere
-	\]
+    A basis for the vector space \(A_{3}(T_{p}(\mathbb{R}^{4}))\) is
+    \[
+        (dx^{1} \wedge dx^{2} \wedge dx^{3})\vert_{p}, (dx^{1} \wedge dx^{3} \wedge dx^{4})\vert_{p}, (dx^{1} \wedge dx^{2} \wedge dx^{4})\vert_{p}, (dx^{2} \wedge dx^{3} \wedge dx^{4})\vert_{p}. \qedhere
+    \]
 \end{proof}
 
 \begin{exercise}{4.4}[Wedge product of a \(2\)-form with a \(1\)-form]
-	Let \(\omega\) be a \(2\)-form and \(\tau\) a \(1\)-form on \(\mathbb{R}^{3}\). If \(X, Y, Z\) are vector fields on \(\mathbb{R}^{3}\), find an explicit formula for \((\omega \wedge \tau)(X, Y, Z)\) in terms of the values of \(\omega\) and \(\tau\) on the vector fields \(X, Y, Z\).
+    Let \(\omega\) be a \(2\)-form and \(\tau\) a \(1\)-form on \(\mathbb{R}^{3}\). If \(X, Y, Z\) are vector fields on \(\mathbb{R}^{3}\), find an explicit formula for \((\omega \wedge \tau)(X, Y, Z)\) in terms of the values of \(\omega\) and \(\tau\) on the vector fields \(X, Y, Z\).
 \end{exercise}
 
 \begin{proof}
-	\( (\omega \wedge \tau)(X, Y, Z) = \omega(X, Y)\tau(Z) - \omega(X, Z)\tau(Y) + \omega(Y, Z)\tau(X) \).
+    \( (\omega \wedge \tau)(X, Y, Z) = \omega(X, Y)\tau(Z) - \omega(X, Z)\tau(Y) + \omega(Y, Z)\tau(X) \).
 \end{proof}
 
 \begin{exercise}{4.9}[A closed \(1\)-form on the punctured plane]
-	Define a \(1\)-form \(\omega\) on \( \mathbb{R}^{2}\smallsetminus \left\{0\right\} \) by
-	\[
-		\omega = \frac{1}{x^{2} + y^{2}}(-ydx + xdy).
-	\]
+    Define a \(1\)-form \(\omega\) on \( \mathbb{R}^{2}\smallsetminus \left\{0\right\} \) by
+    \[
+        \omega = \frac{1}{x^{2} + y^{2}}(-ydx + xdy).
+    \]
 
-	Show that \(\omega\) is closed.
+    Show that \(\omega\) is closed.
 \end{exercise}
 
 \begin{proof}
-	Denote \(f(x,y) = \frac{-y}{x^{2} + y^{2}}, g(x,y) = \frac{x}{x^{2} + y^{2}}\).
-	\begingroup
-	\allowdisplaybreaks%
-	\begin{align*}
-		d\omega & = d\left(fdx + gdy\right)                                                                                                                                                             \\
-		        & = df \wedge dx + dg \wedge dy                                                                                                                                                         \\
-		        & = \left(\frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy\right) \wedge dx + \left(\frac{\partial g}{\partial x}dx + \frac{\partial g}{\partial y}dy\right) \wedge dy \\
-		        & = \frac{\partial f}{\partial y} dy\wedge dx + \frac{\partial g}{\partial x} dx\wedge dy                                                                                               \\
-		        & = \left(\frac{\partial g}{\partial x} - \frac{\partial f}{\partial y}\right) dx \wedge dy                                                                                             \\
-		        & = \left(\frac{y^{2} - x^{2}}{{(x^{2} + y^{2})}^{2}} - \frac{y^{2} - x^{2}}{{(x^{2} + y^{2})}^{2}}\right) dx \wedge dy                                                                 \\
-		        & = 0
-	\end{align*}
-	\endgroup
+    Denote \(f(x,y) = \frac{-y}{x^{2} + y^{2}}, g(x,y) = \frac{x}{x^{2} + y^{2}}\).
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+        d\omega & = d\left(fdx + gdy\right)                                                                                                                                                             \\
+                & = df \wedge dx + dg \wedge dy                                                                                                                                                         \\
+                & = \left(\frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy\right) \wedge dx + \left(\frac{\partial g}{\partial x}dx + \frac{\partial g}{\partial y}dy\right) \wedge dy \\
+                & = \frac{\partial f}{\partial y} dy\wedge dx + \frac{\partial g}{\partial x} dx\wedge dy                                                                                               \\
+                & = \left(\frac{\partial g}{\partial x} - \frac{\partial f}{\partial y}\right) dx \wedge dy                                                                                             \\
+                & = \left(\frac{y^{2} - x^{2}}{{(x^{2} + y^{2})}^{2}} - \frac{y^{2} - x^{2}}{{(x^{2} + y^{2})}^{2}}\right) dx \wedge dy                                                                 \\
+                & = 0
+    \end{align*}
+    \endgroup
 
-	so \( \omega \) is a closed \(1\)-form.
+    so \( \omega \) is a closed \(1\)-form.
 \end{proof}
 
 \begin{problem}{4.1}[A \(1\)-form on \(\mathbb{R}^{3}\)]
@@ -826,47 +826,47 @@ Let \(\omega\) be the \(1\)-form \(zdx - dz\) and let \(X\) be the vector field 
 \end{problem}
 
 \begin{proof}
-	For each \( p = \left\langle{p^{1}, p^{2}, p^{3}}\right\rangle \)
-	\begingroup
-	\allowdisplaybreaks%
-	\begin{align*}
-		{(\omega(X))}_{p} & = \omega_{p}(X_{p})                                                                                                                                                                                                                            \\
-		                  & = (p^{3}{(dx)}_{p} - {(dz)}_{p})\left(p^{2}\frac{\partial}{\partial x}\Bigg{\vert}_{p} + p^{1}\frac{\partial}{\partial y}\Bigg{\vert}_{p}\right)                                                                                               \\
-		                  & = (p^{3}{(dx)}_{p} - {(dz)}_{p})\left(p^{2}\frac{\partial}{\partial x}\Bigg{\vert}_{p}\right) + (p^{3}{(dx)}_{p} - {(dz)}_{p})\left(p^{1}\frac{\partial}{\partial y}\Bigg{\vert}_{p}\right) & \text{(linearity of \({(dx)}_{p}, {(dz)}_{p}\))} \\
-		                  & = p^{2}p^{3},                                                                                                                                                                                                                                  \\
-		d\omega           & = d\left( zdx - dz \right) = dz\wedge dx - d(1)dz = -dx\wedge dz
-	\end{align*}
-	\endgroup
+    For each \( p = \left\langle{p^{1}, p^{2}, p^{3}}\right\rangle \)
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+        {(\omega(X))}_{p} & = \omega_{p}(X_{p})                                                                                                                                                                                                                            \\
+                          & = (p^{3}{(dx)}_{p} - {(dz)}_{p})\left(p^{2}\frac{\partial}{\partial x}\Bigg{\vert}_{p} + p^{1}\frac{\partial}{\partial y}\Bigg{\vert}_{p}\right)                                                                                               \\
+                          & = (p^{3}{(dx)}_{p} - {(dz)}_{p})\left(p^{2}\frac{\partial}{\partial x}\Bigg{\vert}_{p}\right) + (p^{3}{(dx)}_{p} - {(dz)}_{p})\left(p^{1}\frac{\partial}{\partial y}\Bigg{\vert}_{p}\right) & \text{(linearity of \({(dx)}_{p}, {(dz)}_{p}\))} \\
+                          & = p^{2}p^{3},                                                                                                                                                                                                                                  \\
+        d\omega           & = d\left( zdx - dz \right) = dz\wedge dx - d(1)dz = -dx\wedge dz
+    \end{align*}
+    \endgroup
 \end{proof}
 
 \begin{problem}{4.2}[A \(2\)-form on \(\mathbb{R}^{3}\)]
 At each point \(p\in\mathbb{R}^{3}\), define a bilinear function \(\omega_{p}\) on \( T_{p}(\mathbb{R}^{3}) \) by
 \[
-	\omega_{p}(\mathbf{a}, \mathbf{b}) = \omega_{p}\left(\begin{bmatrix}a^{1} \\ a^{2} \\ a^{3}\end{bmatrix}, \begin{bmatrix}b^{1} \\ b^{2} \\ b^{3}\end{bmatrix}\right) = p^{3}\det\begin{bmatrix}a^{1} & b^{1} \\ a^{2} & b^{2}\end{bmatrix},
+    \omega_{p}(\mathbf{a}, \mathbf{b}) = \omega_{p}\left(\begin{bmatrix}a^{1} \\ a^{2} \\ a^{3}\end{bmatrix}, \begin{bmatrix}b^{1} \\ b^{2} \\ b^{3}\end{bmatrix}\right) = p^{3}\det\begin{bmatrix}a^{1} & b^{1} \\ a^{2} & b^{2}\end{bmatrix},
 \]
 
 for tangent vectors \( \mathbf{a}, \mathbf{b} \in T_{p}(\mathbb{R}^{3}) \), where \(p^{3}\) is the third component of \(p = (p^{1}, p^{2}, p^{3})\). Since \(\omega_{p}\) is an alternating bilinear function on \(T_{p}(\mathbb{R}^{3})\), \(\omega\) is a \(2\)-form on \(\mathbb{R}^{3}\). Write \(\omega\) in terms of the standard basis \( dx^{i} \wedge dx^{j} \) at each point.
 \end{problem}
 
 \begin{proof}
-	From the definition of \(\omega_{p}\), one has \(\omega_{p}(\mathbf{a}, \mathbf{b}) = p^{3}(a^{1}b^{2} - a^{2}b^{1})\).
+    From the definition of \(\omega_{p}\), one has \(\omega_{p}(\mathbf{a}, \mathbf{b}) = p^{3}(a^{1}b^{2} - a^{2}b^{1})\).
 
-	From the definition of wedge product
-	\[
-		{(dx^{i} \wedge dx^{j})}_{p}(\mathbf{a}, \mathbf{b}) = ({(dx^{i})}_{p} \wedge {(dx^{j})}_{p})(\mathbf{a}, \mathbf{b}) = {(dx^{i})}_{p}(\mathbf{a}) {(dx^{j})}_{p}(\mathbf{b}) - {(dx^{i})}_{p}(\mathbf{b}) {(dx^{j})}_{p}(\mathbf{a})
-	\]
+    From the definition of wedge product
+    \[
+        {(dx^{i} \wedge dx^{j})}_{p}(\mathbf{a}, \mathbf{b}) = ({(dx^{i})}_{p} \wedge {(dx^{j})}_{p})(\mathbf{a}, \mathbf{b}) = {(dx^{i})}_{p}(\mathbf{a}) {(dx^{j})}_{p}(\mathbf{b}) - {(dx^{i})}_{p}(\mathbf{b}) {(dx^{j})}_{p}(\mathbf{a})
+    \]
 
-	On the other hand, since we identify the tangent space \( T_{p}(\mathbb{R}^{3}) \) and the derivation space \( \mathscr{D}_{p}(\mathbb{R}^{3}) \)
-	\[
-		{(dx^{i})}_{p}(\mathbf{a}) = {(dx^{i})}_{p}\left(a^{1}\frac{\partial}{\partial x^{1}}\Bigg{\vert}_{p} + a^{2}\frac{\partial}{\partial x^{2}}\Bigg{\vert}_{p} + a^{3}\frac{\partial}{\partial x^{3}}\Bigg{\vert}_{p}\right) = a^{i}
-	\]
+    On the other hand, since we identify the tangent space \( T_{p}(\mathbb{R}^{3}) \) and the derivation space \( \mathscr{D}_{p}(\mathbb{R}^{3}) \)
+    \[
+        {(dx^{i})}_{p}(\mathbf{a}) = {(dx^{i})}_{p}\left(a^{1}\frac{\partial}{\partial x^{1}}\Bigg{\vert}_{p} + a^{2}\frac{\partial}{\partial x^{2}}\Bigg{\vert}_{p} + a^{3}\frac{\partial}{\partial x^{3}}\Bigg{\vert}_{p}\right) = a^{i}
+    \]
 
-	so
-	\[
-		{(dx^{i} \wedge dx^{j})}_{p}(\mathbf{a}, \mathbf{b}) = a^{i}b^{j} - a^{j}b^{i}
-	\]
+    so
+    \[
+        {(dx^{i} \wedge dx^{j})}_{p}(\mathbf{a}, \mathbf{b}) = a^{i}b^{j} - a^{j}b^{i}
+    \]
 
-	which means \( \omega_{p} = {(dx^{1})}_{p} \wedge {(dx^{2})}_{p} \) for each \(p\in \mathbb{R}^{3}\).
+    which means \( \omega_{p} = {(dx^{1})}_{p} \wedge {(dx^{2})}_{p} \) for each \(p\in \mathbb{R}^{3}\).
 \end{proof}
 
 \begin{problem}{4.3}[Exterior calculus]
@@ -874,23 +874,23 @@ Suppose the standard coordinates on \(\mathbb{R}^{2}\) are called \(r\) and \(\t
 \end{problem}
 
 \begin{proof}
-	\begingroup
-	\allowdisplaybreaks%
-	\begin{align*}
-		dx           & = d(r\cos\theta) = dr \wedge \cos\theta + r\wedge d(\cos\theta)                                                                 & \text{(antiderivation property)} \\
-		             & = \cos\theta dr + r d(\cos\theta)                                                                                                                                  \\
-		             & = \cos\theta dr + r \left(\frac{\partial \cos\theta}{\partial r} dr + \frac{\partial \cos\theta}{\partial \theta}d\theta\right)                                    \\
-		             & = \cos\theta dr - r\sin\theta d\theta,                                                                                                                             \\
-		dy           & = d(r\sin\theta) = dr \wedge \sin\theta + r\wedge d(\sin\theta)                                                                 & \text{(antiderivation property)} \\
-		             & = \sin\theta dr + r\left(\frac{\partial \sin\theta}{\partial r} dr + \frac{\partial \sin\theta}{\partial\theta} d\theta\right)                                     \\
-		             & = \sin\theta dr + r\cos\theta d\theta,                                                                                                                             \\
-		dx \wedge dy & = r{(\cos\theta)}^{2} dr \wedge d\theta - r{(\sin\theta)}^{2} d\theta \wedge dr                                                                                    \\
-		             & = r{(\cos\theta)}^{2} dr \wedge d\theta + r{(\sin\theta)}^{2} dr \wedge d\theta                                                                                    \\
-		             & = r dr \wedge d\theta.
-	\end{align*}
-	\endgroup
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+        dx           & = d(r\cos\theta) = dr \wedge \cos\theta + r\wedge d(\cos\theta)                                                                 & \text{(antiderivation property)} \\
+                     & = \cos\theta dr + r d(\cos\theta)                                                                                                                                  \\
+                     & = \cos\theta dr + r \left(\frac{\partial \cos\theta}{\partial r} dr + \frac{\partial \cos\theta}{\partial \theta}d\theta\right)                                    \\
+                     & = \cos\theta dr - r\sin\theta d\theta,                                                                                                                             \\
+        dy           & = d(r\sin\theta) = dr \wedge \sin\theta + r\wedge d(\sin\theta)                                                                 & \text{(antiderivation property)} \\
+                     & = \sin\theta dr + r\left(\frac{\partial \sin\theta}{\partial r} dr + \frac{\partial \sin\theta}{\partial\theta} d\theta\right)                                     \\
+                     & = \sin\theta dr + r\cos\theta d\theta,                                                                                                                             \\
+        dx \wedge dy & = r{(\cos\theta)}^{2} dr \wedge d\theta - r{(\sin\theta)}^{2} d\theta \wedge dr                                                                                    \\
+                     & = r{(\cos\theta)}^{2} dr \wedge d\theta + r{(\sin\theta)}^{2} dr \wedge d\theta                                                                                    \\
+                     & = r dr \wedge d\theta.
+    \end{align*}
+    \endgroup
 
-	Hence \( dx = \cos\theta dr - r\sin\theta d\theta, dy = \sin\theta dr + r\cos\theta d\theta, dx \wedge dy = rdr \wedge d\theta \).
+    Hence \( dx = \cos\theta dr - r\sin\theta d\theta, dy = \sin\theta dr + r\cos\theta d\theta, dx \wedge dy = rdr \wedge d\theta \).
 \end{proof}
 
 \begin{problem}{4.4}[Exterior calculus]
@@ -898,108 +898,108 @@ Suppose the standard coordinates on \(\mathbb{R}^{3}\) are called \(\rho\), \(\p
 \end{problem}
 
 \begin{proof}
-	\begingroup
-	\allowdisplaybreaks%
-	\begin{align*}
-		dx                     & = d(\rho\sin\phi\cos\theta) = \frac{\partial \rho\sin\phi\cos\theta}{\partial\rho} d\rho + \frac{\partial \rho\sin\phi\cos\theta}{\partial\phi} d\phi + \frac{\partial \rho\sin\phi\cos\theta}{\partial\theta} d\theta \\
-		                       & = \sin\phi\cos\theta d\rho + \rho\cos\phi\cos\theta d\phi - \rho\sin\phi\sin\theta d\theta,                                                                                                                            \\
-		dy                     & = d(\rho\sin\phi\sin\theta) = \frac{\partial \rho\sin\phi\sin\theta}{\partial\rho} d\rho + \frac{\partial \rho\sin\phi\sin\theta}{\partial\phi} d\phi + \frac{\partial \rho\sin\phi\sin\theta}{\partial\theta} d\theta \\
-		                       & = \sin\phi\sin\theta d\rho + \rho\cos\phi\sin\theta d\phi + \rho\sin\phi\cos\theta d\theta,                                                                                                                            \\
-		dz                     & = d(\rho\cos\phi) = \frac{\partial \rho\cos\phi}{\partial\rho} d\rho + \frac{\partial \rho\cos\phi}{\partial\phi} d\phi + \frac{\partial \rho\cos\phi}{\partial\theta} d\theta                                         \\
-		                       & = \cos\phi d\rho - \rho\sin\phi d\phi,                                                                                                                                                                                 \\
-		dx \wedge dy           & = (\sin\phi\cos\theta d\rho + \rho\cos\phi\cos\theta d\phi - \rho\sin\phi\sin\theta d\theta)                                                                                                                           \\
-		                       & \qquad \wedge (\sin\phi\sin\theta d\rho + \rho\cos\phi\sin\theta d\phi + \rho\sin\phi\cos\theta d\theta)                                                                                                               \\
-		                       & = (\rho \sin\phi\cos\phi\sin\theta\cos\theta - \rho\sin\phi\cos\phi\sin\theta\cos\theta) d\rho \wedge d\phi                                                                                                            \\
-		                       & \qquad + (\rho{(\sin\phi)}^{2}{(\cos\theta)}^{2} + \rho{(\sin\phi)}^{2}{(\sin\theta)}^{2}) d\rho \wedge d\theta                                                                                                        \\
-		                       & \qquad + (\rho^{2}\cos\phi\sin\phi{(\cos\theta)}^{2} + \rho^{2}\sin\phi\cos\phi{(\sin\theta)}^{2}) d\phi \wedge d\theta                                                                                                \\
-		                       & = \rho {(\sin\phi)}^{2} d\rho \wedge d\theta + \rho^{2}\sin\phi\cos\phi d\phi \wedge d\theta,                                                                                                                          \\
-		dx \wedge dy \wedge dz & = (\rho {(\sin\phi)}^{2} d\rho \wedge d\theta + \rho^{2}\sin\phi\cos\phi d\phi \wedge d\theta) \wedge (\cos\phi d\rho - \rho\sin\phi d\phi)                                                                            \\
-		                       & = -\rho^{2}{(\sin\phi)}^{3}d\rho \wedge d\theta \wedge d\phi + \rho^{2}\sin\phi{(\cos\phi)}^{2} d\phi \wedge d\theta \wedge d\rho                                                                                      \\
-		                       & = \rho^{2}{(\sin\phi)}^{3} d\rho \wedge d\phi \wedge d\theta + \rho^{2}\sin\phi {(\cos\phi)}^{2}d\rho \wedge d\phi \wedge d\theta                                                                                      \\
-		                       & = \rho^{2} \sin\phi d\rho \wedge d\phi \wedge d\theta.
-	\end{align*}
-	\endgroup
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+        dx                     & = d(\rho\sin\phi\cos\theta) = \frac{\partial \rho\sin\phi\cos\theta}{\partial\rho} d\rho + \frac{\partial \rho\sin\phi\cos\theta}{\partial\phi} d\phi + \frac{\partial \rho\sin\phi\cos\theta}{\partial\theta} d\theta \\
+                               & = \sin\phi\cos\theta d\rho + \rho\cos\phi\cos\theta d\phi - \rho\sin\phi\sin\theta d\theta,                                                                                                                            \\
+        dy                     & = d(\rho\sin\phi\sin\theta) = \frac{\partial \rho\sin\phi\sin\theta}{\partial\rho} d\rho + \frac{\partial \rho\sin\phi\sin\theta}{\partial\phi} d\phi + \frac{\partial \rho\sin\phi\sin\theta}{\partial\theta} d\theta \\
+                               & = \sin\phi\sin\theta d\rho + \rho\cos\phi\sin\theta d\phi + \rho\sin\phi\cos\theta d\theta,                                                                                                                            \\
+        dz                     & = d(\rho\cos\phi) = \frac{\partial \rho\cos\phi}{\partial\rho} d\rho + \frac{\partial \rho\cos\phi}{\partial\phi} d\phi + \frac{\partial \rho\cos\phi}{\partial\theta} d\theta                                         \\
+                               & = \cos\phi d\rho - \rho\sin\phi d\phi,                                                                                                                                                                                 \\
+        dx \wedge dy           & = (\sin\phi\cos\theta d\rho + \rho\cos\phi\cos\theta d\phi - \rho\sin\phi\sin\theta d\theta)                                                                                                                           \\
+                               & \qquad \wedge (\sin\phi\sin\theta d\rho + \rho\cos\phi\sin\theta d\phi + \rho\sin\phi\cos\theta d\theta)                                                                                                               \\
+                               & = (\rho \sin\phi\cos\phi\sin\theta\cos\theta - \rho\sin\phi\cos\phi\sin\theta\cos\theta) d\rho \wedge d\phi                                                                                                            \\
+                               & \qquad + (\rho{(\sin\phi)}^{2}{(\cos\theta)}^{2} + \rho{(\sin\phi)}^{2}{(\sin\theta)}^{2}) d\rho \wedge d\theta                                                                                                        \\
+                               & \qquad + (\rho^{2}\cos\phi\sin\phi{(\cos\theta)}^{2} + \rho^{2}\sin\phi\cos\phi{(\sin\theta)}^{2}) d\phi \wedge d\theta                                                                                                \\
+                               & = \rho {(\sin\phi)}^{2} d\rho \wedge d\theta + \rho^{2}\sin\phi\cos\phi d\phi \wedge d\theta,                                                                                                                          \\
+        dx \wedge dy \wedge dz & = (\rho {(\sin\phi)}^{2} d\rho \wedge d\theta + \rho^{2}\sin\phi\cos\phi d\phi \wedge d\theta) \wedge (\cos\phi d\rho - \rho\sin\phi d\phi)                                                                            \\
+                               & = -\rho^{2}{(\sin\phi)}^{3}d\rho \wedge d\theta \wedge d\phi + \rho^{2}\sin\phi{(\cos\phi)}^{2} d\phi \wedge d\theta \wedge d\rho                                                                                      \\
+                               & = \rho^{2}{(\sin\phi)}^{3} d\rho \wedge d\phi \wedge d\theta + \rho^{2}\sin\phi {(\cos\phi)}^{2}d\rho \wedge d\phi \wedge d\theta                                                                                      \\
+                               & = \rho^{2} \sin\phi d\rho \wedge d\phi \wedge d\theta.
+    \end{align*}
+    \endgroup
 \end{proof}
 
 \begin{problem}{4.5}[Wedge product]
 Let \(\alpha\) be a 1-form and \(\beta\) a 2-form on \(\mathbb{R}^{3}\). Then
 
 \[
-	\alpha = a_{1}\,dx^{1} + a_{2}\,dx^{2} + a_{3}\,dx^{3},
+    \alpha = a_{1}\,dx^{1} + a_{2}\,dx^{2} + a_{3}\,dx^{3},
 \]
 \[
-	\beta = b_{1}\,dx^{2} \wedge dx^{3} + b_{2}\,dx^{3} \wedge dx^{1} + b_{3}\,dx^{1} \wedge dx^{2}.
+    \beta = b_{1}\,dx^{2} \wedge dx^{3} + b_{2}\,dx^{3} \wedge dx^{1} + b_{3}\,dx^{1} \wedge dx^{2}.
 \]
 
 Simplify the expression \(\alpha \wedge \beta\) as much as possible.
 \end{problem}
 
 \begin{proof}
-	\begingroup
-	\allowdisplaybreaks%
-	\begin{align*}
-		\alpha \wedge \beta & = (a_{1}\,dx^{1} + a_{2}\,dx^{2} + a_{3}\,dx^{3}) \wedge (b_{1}\,dx^{2} \wedge dx^{3} + b_{2}\,dx^{3} \wedge dx^{1} + b_{3}\,dx^{1} \wedge dx^{2})  \\
-		                    & = a_{1}b_{1}\, dx^{1} \wedge dx^{2} \wedge dx^{3} + a_{2}b_{2} dx^{2} \wedge dx^{3} \wedge dx^{1} + a_{3}b_{3}\, dx^{3} \wedge dx^{1} \wedge dx^{2} \\
-		                    & = (a_{1}b_{1} + a_{2}b_{2} + a_{3}b_{3})\, dx^{1} \wedge dx^{2} \wedge dx^{3}.
-	\end{align*}
-	\endgroup
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+        \alpha \wedge \beta & = (a_{1}\,dx^{1} + a_{2}\,dx^{2} + a_{3}\,dx^{3}) \wedge (b_{1}\,dx^{2} \wedge dx^{3} + b_{2}\,dx^{3} \wedge dx^{1} + b_{3}\,dx^{1} \wedge dx^{2})  \\
+                            & = a_{1}b_{1}\, dx^{1} \wedge dx^{2} \wedge dx^{3} + a_{2}b_{2} dx^{2} \wedge dx^{3} \wedge dx^{1} + a_{3}b_{3}\, dx^{3} \wedge dx^{1} \wedge dx^{2} \\
+                            & = (a_{1}b_{1} + a_{2}b_{2} + a_{3}b_{3})\, dx^{1} \wedge dx^{2} \wedge dx^{3}.
+    \end{align*}
+    \endgroup
 \end{proof}
 
 \begin{problem}{4.6}[Wedge product and cross product]
 The correspondence between differential forms and vector fields on an open subset of \(\mathbb{R}^{3}\) in Subsection 4.6 also makes sense pointwise. Let \(V\) be a vector space of dimension 3 with basis \(e_{1}, e_{2}, e_{3}\), and dual basis \(\alpha^{1}, \alpha^{2}, \alpha^{3}\). To a 1-covector \(\alpha = a_{1} \alpha^{1} + a_{2} \alpha^{2} + a_{3} \alpha^{3}\) on \(V\), we associate the vector \(\mathbf{v}_{\alpha} = \langle a_{1}, a_{2}, a_{3} \rangle \in \mathbb{R}^{3}\). To the 2-covector
 \[
-	\gamma = c_{1} \alpha^{2} \wedge \alpha^{3} + c_{2} \alpha^{3} \wedge \alpha^{1} + c_{3} \alpha^{1} \wedge \alpha^{2}
+    \gamma = c_{1} \alpha^{2} \wedge \alpha^{3} + c_{2} \alpha^{3} \wedge \alpha^{1} + c_{3} \alpha^{1} \wedge \alpha^{2}
 \]
 
 on \(V\), we associate the vector \(\mathbf{v}_{\gamma} = \langle c_{1}, c_{2}, c_{3} \rangle \in \mathbb{R}^{3}\). Show that under this correspondence, the wedge product of 1-covectors corresponds to the cross product of vectors in \(\mathbb{R}^{3}\): if \(\alpha = a_{1} \alpha^{1} + a_{2} \alpha^{2} + a_{3} \alpha^{3}\) and \(\beta = b_{1} \alpha^{1} + b_{2} \alpha^{2} + b_{3} \alpha^{3}\), then \(\mathbf{v}_{\alpha \wedge \beta} = \mathbf{v}_{\alpha} \times \mathbf{v}_{\beta}\).
 \end{problem}
 
 \begin{proof}
-	\[ \alpha \wedge \beta = (a_{2}b_{3} - a_{3}b_{2})\, \alpha^{2} \wedge \alpha^{3} + (a_{3}b_{1} - a_{1}b_{3})\, \alpha^{3}\wedge \alpha^{1} + (a_{1}b_{2} - a_{2}b_{1})\, \alpha^{1} \wedge \alpha^{2} \]
+    \[ \alpha \wedge \beta = (a_{2}b_{3} - a_{3}b_{2})\, \alpha^{2} \wedge \alpha^{3} + (a_{3}b_{1} - a_{1}b_{3})\, \alpha^{3}\wedge \alpha^{1} + (a_{1}b_{2} - a_{2}b_{1})\, \alpha^{1} \wedge \alpha^{2} \]
 
-	so
-	\[
-		\mathbf{v}_{\alpha\wedge \beta} = (a_{2}b_{3} - a_{3}b_{2}, a_{3}b_{1} - a_{1}b_{3}, a_{1}b_{2} - a_{2}b_{1}) = \left\langle{a_{1}, a_{2}, a_{3}}\right\rangle \times \left\langle{b_{1}, b_{2}, b_{3}}\right\rangle = \mathbf{v}_{\alpha} \times \mathbf{v}_{\beta}.\qedhere
-	\]
+    so
+    \[
+        \mathbf{v}_{\alpha\wedge \beta} = (a_{2}b_{3} - a_{3}b_{2}, a_{3}b_{1} - a_{1}b_{3}, a_{1}b_{2} - a_{2}b_{1}) = \left\langle{a_{1}, a_{2}, a_{3}}\right\rangle \times \left\langle{b_{1}, b_{2}, b_{3}}\right\rangle = \mathbf{v}_{\alpha} \times \mathbf{v}_{\beta}.\qedhere
+    \]
 \end{proof}
 
 \begin{problem}{4.7}[Commutator of derivations and antiderivations]
 Let \(A = \bigoplus_{k=-\infty}^{\infty} A^{k}\) be a graded algebra over a field \(K\) with \(A^{k} = 0\) for \(k < 0\). Let \(m\) be an integer. A \textit{superderivation of \(A\) of degree \(m\)} is a \(K\)-linear map \(D\colon A \to A\) such that for all \(k\), \(D(A^{k}) \subset A^{k+m}\) and for all \(a \in A^{k}\) and \(b \in A^{\ell}\),
 
 \[
-	D(ab) = (Da)b + {(-1)}^{km} a(Db).
+    D(ab) = (Da)b + {(-1)}^{km} a(Db).
 \]
 
 If \(D_{1}\) and \(D_{2}\) are two superderivations of \(A\) of respective degrees \(m_{1}\) and \(m_{2}\), define their \textit{commutator} to be
 
 \[
-	[D_{1}, D_{2}] = D_{1} \circ D_{2} - {(-1)}^{m_{1} m_{2}} D_{2} \circ D_{1}.
+    [D_{1}, D_{2}] = D_{1} \circ D_{2} - {(-1)}^{m_{1} m_{2}} D_{2} \circ D_{1}.
 \]
 
 Show that \([D_{1}, D_{2}]\) is a superderivation of degree \(m_{1} + m_{2}\). (A superderivation is said to be \textit{even} or \textit{odd} depending on the parity of its degree. An even superderivation is a derivation; an odd superderivation is an antiderivation.)
 \end{problem}
 
 \begin{proof}
-	If \( a \in A^{k}, b \in A^{\ell} \) then
-	\begingroup
-	\allowdisplaybreaks%
-	\begin{align*}
-		D_{2}(ab)               & = (D_{2}a)b + {(-1)}^{km_{2}}a(D_{2}b)                                                      \\
-		(D_{1} \circ D_{2})(ab) & = ((D_{1} \circ D_{2})a)b + {(-1)}^{(k + m_{2})m_{1}} (D_{2}a)(D_{1}b)                      \\
-		                        & \qquad + {(-1)}^{km_{2}}(D_{1}a)(D_{2}b) + {(-1)}^{km_{2} + km_{1}} a((D_{1} \circ D_{2})b) \\
-		(D_{2} \circ D_{1})(ab) & = ((D_{2} \circ D_{1})a)b + {(-1)}^{(k + m_{1})m_{2}}(D_{1}a)(D_{2}b)                       \\
-		                        & \qquad + {(-1)}^{km_{1}}(D_{2}a)(D_{1}b) + {(-1)}^{km_{1} + km_{2}} a((D_{2} \circ D_{1})b) \\
-	\end{align*}
-	\endgroup
+    If \( a \in A^{k}, b \in A^{\ell} \) then
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+        D_{2}(ab)               & = (D_{2}a)b + {(-1)}^{km_{2}}a(D_{2}b)                                                      \\
+        (D_{1} \circ D_{2})(ab) & = ((D_{1} \circ D_{2})a)b + {(-1)}^{(k + m_{2})m_{1}} (D_{2}a)(D_{1}b)                      \\
+                                & \qquad + {(-1)}^{km_{2}}(D_{1}a)(D_{2}b) + {(-1)}^{km_{2} + km_{1}} a((D_{1} \circ D_{2})b) \\
+        (D_{2} \circ D_{1})(ab) & = ((D_{2} \circ D_{1})a)b + {(-1)}^{(k + m_{1})m_{2}}(D_{1}a)(D_{2}b)                       \\
+                                & \qquad + {(-1)}^{km_{1}}(D_{2}a)(D_{1}b) + {(-1)}^{km_{1} + km_{2}} a((D_{2} \circ D_{1})b) \\
+    \end{align*}
+    \endgroup
 
-	Therefore
-	\begingroup
-	\allowdisplaybreaks%
-	\begin{align*}
-		[D_{1}, D_{2}](ab) & = (D_{1} \circ D_{2})(ab) - {(-1)}^{m_{1}m_{2}} (D_{2} \circ D_{1})(ab) \\
-		                   & = {([D_{1}, D_{2}]a)b} + {(-1)}^{k(m_{1} + m_{2})} a{([D_{1}, D_{2}]b)}
-	\end{align*}
-	\endgroup
+    Therefore
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+        [D_{1}, D_{2}](ab) & = (D_{1} \circ D_{2})(ab) - {(-1)}^{m_{1}m_{2}} (D_{2} \circ D_{1})(ab) \\
+                           & = {([D_{1}, D_{2}]a)b} + {(-1)}^{k(m_{1} + m_{2})} a{([D_{1}, D_{2}]b)}
+    \end{align*}
+    \endgroup
 
-	which means \( [D_{1}, D_{2}] \) is a superderivation of degree \( m_{1} + m_{2} \).
+    which means \( [D_{1}, D_{2}] \) is a superderivation of degree \( m_{1} + m_{2} \).
 \end{proof}
