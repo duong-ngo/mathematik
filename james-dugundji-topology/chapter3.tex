@@ -1760,6 +1760,77 @@ Construct an example of a map \( f: X \times X \to E^{1} \) continuous in each v
 
 \section{Piecewise definition of maps}
 
+\begin{problem}{III.9.1}
+Let \( \left\{ A_{\lambda} \right\} \) be a nbd-finite closed covering of \(X\). Let \( x_{0} \in X \), and for each set \( A_{\lambda_{i}} (i = 1, \ldots, n) \) containing \( x_{0} \), let \( V_{i} \) be a nbd of \( x_{0} \) in \( A_{\lambda_{i}} \). Show that \( \bigcup^{n}_{1} V_{i} \) contains a nbd of \( x_{0} \) in \( X \).
+\end{problem}
+
+\begin{proof}
+	\( V_{i} \) is open in \( A_{\lambda_{i}} \) so there exists an open subset \( U_{i} \subset X \) such that \( V_{i} = A_{\lambda_{i}} \cap U_{i} \).
+	\[
+		B = \bigcup_{\lambda \ne \lambda_{1}, \ldots, \lambda_{n}} A_{\lambda}
+	\]
+
+	is closed as \( \left\{ A_{\lambda} \mid \lambda \ne \lambda_{1}, \ldots, \lambda_{n} \right\} \) is nbd-finite and each \( A_{\lambda} \) is closed. So \( X - B \) is open and a neighborhood of \( x_{0} \) and \( X - B \subset \bigcup^{n}_{1} A_{\lambda_{i}} \).
+
+	Let \( W = (X - B) \cap \bigcap^{n}_{1} U_{i} \) then \( W \) is open and a neighborhood of \( x_{0} \). If \( x \in W \) then \( x \in X - B \subset \bigcup^{n}_{1} A_{\lambda_{i}} \), which means \( x \in A_{\lambda_{j}} \) for some \( j \). Moreover, \( x \in W \subset \bigcap^{n}_{1} U_{i} \) so \( x \in U_{j} \). Therefore \( x \in U_{j} \cap A_{j} = V_{j} = \bigcup^{n}_{1} V_{i} \), which means \( W \subset \bigcup^{n}_{1} V_{i} \).
+
+	Thus \( W \) is a neighborhood of \( x_{0} \) which is contained in \( \bigcup^{n}_{1} V_{i} \).
+\end{proof}
+
+\begin{problem}{III.9.2}
+Let \(X\) be any space, and \( \left\{ A_{n} \mid n \in \mathbb{Z}^{+} \right\} \) a family of sets in \(X\) such that \( A_{n} \supset A_{n+1} \) for each \( n \in \mathbb{Z}^{+} \). Prove that, if \( \bigcap^{\infty}_{1} \overline{A_{n}} = \varnothing \), then the family \( \left\{ A_{n} \mid n \in \mathbb{Z}^{+} \right\} \) is nbd-finite.
+\end{problem}
+
+\begin{proof}
+	\( \bigcap^{\infty}_{1} \overline{A_{n}} = \varnothing \iff \bigcup^{\infty}_{1} \mathscr{C}\overline{A_{n}} = \mathscr{C}\varnothing = X \).
+
+	Let \( x \) be a point in \( X \). Since \( \bigcup^{\infty}_{1} \mathscr{C}\overline{A_{n}} = X \), there exists a smallest positive integer \( n \) such that \( x \in \mathscr{C}\overline{A_{n}} \). Because \( \mathscr{C}\overline{A_{n}} \subset \mathscr{C}\overline{A_{m}} \) for every positive integer \( m \ge n \) then \( \mathscr{C}\overline{A_{n}} \cap \overline{A_{m}} = \varnothing \) for every positive integer \( m \ge n \). Therefore, if \( \mathscr{C}\overline{A_{n}} \cap \overline{A_{m}} \ne \varnothing \) then \( 0 < m < n \), which means \( \left\{ \overline{A_{n}} \mid n \in \mathbb{Z}^{+} \right\} \) is nbd-finite. Consequently, \( \left\{ A_{n} \mid n \in \mathbb{Z}^{+} \right\} \) is nbd-finite.
+\end{proof}
+
+\begin{problem}{III.9.3}
+Prove:
+\begin{enumerate}[label={(\alph*)}]
+	\item Any open set in \(E^{1}\) is the union of a pairwise disjoint family of open intervals. Give an example to show that this is not true for \( E^{n}, n > 1 \), if ``open intervals'' is replaced by ``open cubes.\@''
+	\item Any open set in \( E^{n} \) is the union of at most countably many nonoverlapping closed cubes.
+	\item Show that a non-empty open set in \( E^{n} \) \textcolor{red}{(other than \( \mathbb{R}^{n} \))} cannot be the union of nbd-finite family of nonoverlapping closed cubes.
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item Let \( S \) be an open set in \( E^{1} \) and \( x \) a point in \( S \). There exists an open interval that contains \( x \) and is contained in \( S \). Let \( U_{x} \) be the union of all such open intervals then \( x \in U_{x} \) then \( U_{x} \) is a neighborhood of \( x \). Suppose that \( a < b \) and \( a, b \in U_{x} \).
+
+		      From the definition of \( U_{x} \), there exist open intervals \( \openinterval{a_{1}, a_{2}}, \openinterval{b_{1}, b_{2}} \) such that \( a, x \in \openinterval{a_{1}, a_{2}} \) and \( b, x \in \openinterval{b_{1}, b_{2}} \) then \( \openinterval{a, b} \subset \openinterval{a_{1}, a_{2}} \cup \openinterval{b_{1}, b_{2}} \subset U_{x} \). Hence \( U_{x} \) is an interval. Since \( U_{x} \) is open then it is of the form \( \openinterval{a, b}, \openinterval{a, \infty}, \openinterval{-\infty, b} \), or \( \mathbb{R} \). Each element \( x \) of \( S \) is contained in a maximal interval that is also an open set. Assume that \( U_{x} \cap U_{y} \ne \varnothing \) then \( U_{x} \cup U_{y} \) is an interval that is open. Due to the maximality of \( U_{x}, U_{y} \), it follows that \( U_{x} = U_{y} \). Hence \( S \) is the union of disjoint open intervals.
+
+		      For \( n > 1 \), the open ball \( B(0; 1) \) is not a union of pairwise disjoint open cubes. A direct proof for this makes use of connectedness, which is not covered in this chapter.
+		\item Let \(G\) be an open set in \( E^{n} \).
+
+		      In \( E^{n} \), let \( H_{k} \) be the grid formed by all the lines of the forms \( x_{1} = p_{1}/2^{k}, \ldots, x_{n} = p_{n}/2^{k} \) in which \( p_{1}, \ldots, p_{n} \in \mathbb{Z} \).
+
+		      Inductively, we define
+		      \begin{itemize}
+			      \item \( S_{1} \) is the union of closed cubes whose side lengths equal \( 1/2 \), vertices in \( H_{1} \) and these closed cubes are contained in \( G \).
+			      \item \( S_{n+1} \) is the union of closed cubes whose side lengths equal \( 1/2^{n+1} \), vertices in \( H_{n+1} \) and these closed cubes are contained in \( G - \bigcup^{n}_{1}S_{i} \).
+		      \end{itemize}
+
+		      From this construction, we deduce that \( \bigcup^{\infty}_{1} S_{i} \subset G \).
+
+		      Suppose that \( a = (a^{1}, \ldots, a^{n}) \in G \). There exists \( \delta > 0 \) such that \( B(a, \delta) \subset G \). Moreover, there exists a positive integer \(m\) such that \( \dfrac{\sqrt{n}}{2^{m}} \) (namely, the diameter of a closed cube in \(H_{m}\)) is strictly less than \( \delta \). There exists a closed cube in \(H_{m}\) that contains \( a \) and this closed cube is contained in \( B(x, \delta) \). Hence there is a positive integer \( m \) for which there exists a closed cube in \( H_{m} \) that contains \( a \) and is contained in \( G \).
+
+		      From the well-ordering principle, there is a minimal positive integer \( m_{0} \) such that there exists a closed cube in \( H_{m_{0}} \) that contains \( a \) and is contained in \( G \). Hence \( a \notin \bigcup^{m_{0} - 1}_{1} S_{i} \) but \( a \in \bigcup^{m_{0}}_{1} S_{i} \). Since we are working with an arbitrary point \( a \in G \), we conclude that \( G \subset \bigcup^{\infty}_{1} S_{i} \).
+
+		      Thus \( G = \bigcup^{\infty}_{1} S_{i} \), which means \( G \) is the union of countably many nonoverlapping closed cubes.
+		\item Assume for the sake of contrary that there is a non-empty open set \( U \) in \( E^{n} \) other than \( \mathbb{R}^{n} \) that is the union of nbd-finite family \( \mathscr{H} \) of nonoverlapping closed cubes. Since \( \mathscr{H} \) is nbd-finite and each member is closed, then
+		      \[
+			      \overline{U} = \overline{\bigcup_{H \in \mathscr{H}} H} = \bigcup_{H \in \mathscr{H}} \overline{H} = \bigcup_{H \in \mathscr{H}} H = U
+		      \]
+
+		      which means \( U \) is open and closed. Due to the connectedness of the Euclidean space, \( \varnothing, \mathbb{R}^{n} \) are the only two subsets that are both open and closed.
+
+		      Thus there is no open set other than \( \varnothing, \mathbb{R}^{n} \) that can be the union of of nbd-finite family of nonoverlapping closed cubes.
+	\end{enumerate}
+\end{proof}
+
 \section{Continuous maps into \( E^{1} \)}
 
 \section{Open maps and closed maps}
