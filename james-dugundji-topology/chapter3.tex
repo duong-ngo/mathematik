@@ -1219,16 +1219,16 @@ Show that, necessarily, \( \tau(A, B) = (A \cap \overline{B}) \cup (\overline{A}
 	% TODO
 \end{proof}
 
-\section{\( G_{\sigma}, F_{\sigma} \) and Borel sets}
+\section{\( G_{\delta}, F_{\sigma} \) and Borel sets}
 
 \begin{problem}{III.6.1}\label{problem:III.6.1}
-A set is bivalent if it is both an \(F_{\sigma}\) and a \(G_{\sigma}\). Show that the complements, finite unions, and finite intersections of bivalent sets are bivalent.
+A set is bivalent if it is both an \(F_{\sigma}\) and a \(G_{\delta}\). Show that the complements, finite unions, and finite intersections of bivalent sets are bivalent.
 \end{problem}
 
 \begin{proof}
-	Let \(B\) be a bivalent set then \(B\) is both an \(F_{\sigma}\) and a \(G_{\sigma}\) set. Since the complement of an \(F_{\sigma}\) is a \(G_{\sigma}\) and the complement of a \(G_{\sigma}\) is an \(F_{\sigma}\), it follows that the complement of \(B\) is bivalent.
+	Let \(B\) be a bivalent set then \(B\) is both an \(F_{\sigma}\) and a \(G_{\delta}\) set. Since the complement of an \(F_{\sigma}\) is a \(G_{\delta}\) and the complement of a \(G_{\delta}\) is an \(F_{\sigma}\), it follows that the complement of \(B\) is bivalent.
 
-	Let \( B_{1}, \ldots, B_{n} \) be bivalent sets then \( \bigcup^{n}_{i=1}B_{i} \) is a bivalent, since the union of at most countable \(F_{\sigma}\)-sets is an \(F_{\sigma}\)-set and the union of finitely many \(G_{\sigma}\)-sets is a \(G_{\sigma}\)-set.
+	Let \( B_{1}, \ldots, B_{n} \) be bivalent sets then \( \bigcup^{n}_{i=1}B_{i} \) is a bivalent, since the union of at most countable \(F_{\sigma}\)-sets is an \(F_{\sigma}\)-set and the union of finitely many \(G_{\delta}\)-sets is a \(G_{\delta}\)-set.
 \end{proof}
 
 For the remaining problems (in this section), we assume that all closed sets are \(G_{\delta}\)-sets.
@@ -1273,7 +1273,7 @@ Prove: If \( \left\{ G_{i} \right\} \) is any sequence of \(G_{\delta}\)-sets wi
 \begin{problem}{III.6.5}
 Prove: (a) If \(G, H\) are disjoint \(G_{\delta}\)-sets, there exists a bivalent set \(B\) with \(H \subset B\) and \( B \cap G = \varnothing \).
 
-(b) If \(G\) is a \(G_{\sigma}\) and \(F\) is an \(F_{\sigma}\) such that \(G \subset F\), there exists a bivalent \(B\) with \( G \subset B \subset F \).
+(b) If \(G\) is a \(G_{\delta}\) and \(F\) is an \(F_{\sigma}\) such that \(G \subset F\), there exists a bivalent \(B\) with \( G \subset B \subset F \).
 \end{problem}
 
 \begin{proof}
@@ -1832,6 +1832,293 @@ Prove:
 \end{proof}
 
 \section{Continuous maps into \( E^{1} \)}
+
+\begin{problem}{III.10.1}
+Let \( f: X \to E^{1} \) be such that for each rational \(r\), \( \left\{ x \mid f(x) > r \right\} \) is open. Show that \(f\) is lower semicontinuous.
+\end{problem}
+
+\begin{proof}
+	\( \left\lceil \cdot \right\rceil \) denotes the ceiling function.
+
+	Let \( b \) be a real number. The sequence \( {\left\{ a_{n} \right\}}_{n\in\mathbb{Z}^{+}} \), in which \( a_{n} = \dfrac{\left\lceil nb \right\rceil}{n} \), converges to \( b \). Moreover, \( b = \inf\limits_{n} \dfrac{\left\lceil nb \right\rceil}{n} \).
+
+	If \( b \) is rational, then \( \left\{ x \mid f(x) > b \right\} \) is open by the hypothesis. If \( b \) is irrational, we rewrite \( \left\{ x \mid f(x) > b \right\} \) as
+	\[
+		\left\{ x \mid f(x) > b \right\} = \bigcup_{n \in \mathbb{Z}^{+}} \left\{ x \mid f(x) > a_{n} \right\}
+	\]
+
+	so \( \left\{ x \mid f(x) > b \right\} \) is also open when \( b \) is irrational.
+
+	Thus \( \left\{ x \mid f(x) > b \right\} \) for any real number \( b \), which means \( f \) is lower semicontinuous.
+\end{proof}
+
+\begin{problem}{III.10.2}
+Let \( \mathscr{M} \) be a family of sets in \(X\) closed under countable unions and finite intersections. Call \(f: X \to E^{1} \) an \( \mathscr{M} \)-function if \( f^{-1}(U) \in \mathscr{M} \) for each subbasic \( U \) of \( E^{1} \). Show that \textbf{10.3} is true, with ``continuous'' replaced by ``\( \mathscr{M} \)-function.\@''
+\end{problem}
+
+\begin{quote}
+	The following is \textbf{10.3} with ``continuous'' replaced by ``\( \mathscr{M} \)-function.
+
+	Let \( f, g: X \to E^{1} \) be \( \mathscr{M} \)-functions, then
+	\begin{enumerate}[label={(\arabic*)}]
+		\item \( {\left\vert f \right\vert}^{\alpha} \) is a \( \mathscr{M} \)-function for each \( \alpha \ge 0 \).
+		\item \( af + bg \) is a \( \mathscr{M} \)-function for each pair of real constants, \( a, b \).
+		\item \( f\cdot g \) is a \( \mathscr{M} \)-function.
+		\item If \( f(x) \ne 0 \) on \(X\), then \( 1/f \) is a \( \mathscr{M} \)-function.
+	\end{enumerate}
+\end{quote}
+
+\begin{proof}
+	\begin{enumerate}[label={(\arabic*)}]
+		\item If \( b < 0 \) then \( \left\{ x \mid {\left\vert f(x) \right\vert}^{\alpha} > b \right\} = X \in \mathscr{M} \) (the intersection of the empty collection) and \( \left\{ x \mid {\left\vert f(x) \right\vert}^{\alpha} < b \right\} = \varnothing \in \mathscr{M} \) (the union of the empty collection).
+
+		      If \( b \ge 0 \) then
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      \left\{ x \mid {\left\vert f(x) \right\vert}^{\alpha} > b \right\} & = \left\{ x \mid f(x) > b^{1/\alpha} \right\} \cup \left\{ x \mid f(x) < -b^{1/\alpha} \right\} \in \mathscr{M} \\
+			      \left\{ x \mid {\left\vert f(x) \right\vert}^{\alpha} < b \right\} & = \left\{ x \mid f(x) < b^{1/\alpha} \right\} \cap \left\{ x \mid f(x) > -b^{1/\alpha} \right\} \in \mathscr{M}
+		      \end{align*}
+		      \endgroup
+
+		      since \( f \) is a \( \mathscr{M} \)-function. Hence \( {\left\vert f \right\vert}^{\alpha} \) is a \( \mathscr{M} \)-function.
+		\item If \( a = 0 \) then \( af \) is a \( \mathscr{M} \)-function.
+
+		      If \( a > 0 \) then
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      \left\{ x \mid af(x) > c \right\} & = \left\{ x \mid f(x) > c/a \right\} \in \mathscr{M}, \\
+			      \left\{ x \mid af(x) < c \right\} & = \left\{ x \mid f(x) < c/a \right\} \in \mathscr{M}.
+		      \end{align*}
+		      \endgroup
+
+		      If \( a < 0 \) then
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      \left\{ x \mid af(x) > c \right\} & = \left\{ x \mid f(x) < c/a \right\} \in \mathscr{M}, \\
+			      \left\{ x \mid af(x) < c \right\} & = \left\{ x \mid f(x) > c/a \right\} \in \mathscr{M}.
+		      \end{align*}
+		      \endgroup
+
+		      So \( af \) is a \( \mathscr{M} \)-function for every real number \( a \).
+
+		      Now we will show that
+		      \[
+			      \left\{ x \mid f(x) + g(x) > c \right\} = \bigcup_{\lambda \in \mathbb{Q}} \left( \left\{ x \mid f(x) > \lambda \right\} \cap \left\{ x \mid g(x) > c - \lambda \right\} \right).
+		      \]
+
+		      Evidently
+		      \[
+			      \bigcup_{\lambda \in \mathbb{Q}} \left( \left\{ x \mid f(x) > \lambda \right\} \cap \left\{ x \mid g(x) > c - \lambda \right\} \right) \subset \left\{ x \mid f(x) + g(x) > c \right\}.
+		      \]
+
+		      Let \( x \in \left\{ x \mid f(x) + g(x) > c \right\} \) then \( f(x) + g(x) = c + \delta \) for some \( \delta > 0 \). There exists a rational number \( \lambda \in \openinterval{f(x) - \delta, f(x)} \), so \( g(x) = c + \delta - f(x) > c - \lambda \). Hence \( f(x) > \lambda \) and \( g(x) > c - \lambda \). Because \( x \) is an arbitrary element of \(  \left\{ x \mid f(x) + g(x) > c \right\} \), we conclude that
+		      \[
+			      \left\{ x \mid f(x) + g(x) > c \right\} \subset \bigcup_{\lambda \in \mathbb{Q}} \left( \left\{ x \mid f(x) > \lambda \right\} \cap \left\{ x \mid g(x) > c - \lambda \right\} \right).
+		      \]
+
+		      Hence
+		      \[
+			      \left\{ x \mid f(x) + g(x) > c \right\} = \bigcup_{\lambda \in \mathbb{Q}} \underbrace{\left( \left\{ x \mid f(x) > \lambda \right\} \cap \left\{ x \mid g(x) > c - \lambda \right\} \right)}_{\in \mathscr{M}}.
+		      \]
+
+		      So \( \left\{ x \mid f(x) + g(x) > c \right\} \in \mathscr{M} \) for every real number \( c \). Analogously, \( \left\{ x \mid f(x) + g(x) < c \right\} \in \mathscr{M} \) for every real number \( c \). Hence \( f + g \) is a \( \mathscr{M} \)-function.
+
+		      Thus \( af + bg \) is a \( \mathscr{M} \)-function for any real numbers \( a, b \).
+		\item \( (f\cdot g)(x) = f(x)g(x) = {\left\vert f(x) + g(x) \right\vert}^{2} - {\left\vert f(x) - g(x) \right\vert}^{2} \) so \( f\cdot g \) is a \( \mathscr{M} \)-function.
+		\item For every real number \( b \)
+		      \[
+			      \left\{ x \mid 1/f(x) > b \right\} = (\left\{ x \mid f(x) > 0 \right\} \cap \left\{ x \mid bf(x) < 1 \right\}) \cup (\left\{ x \mid f(x) < 0 \right\} \cap \left\{ x \mid bf(x) > 1 \right\})
+		      \]
+
+		      so \( \left\{ x \mid 1/f(x) > b \right\} \in \mathscr{M} \). Analogously, \( \left\{ x \mid 1/f(x) > b \right\} \in \mathscr{M} \). Thus \( 1/f \) is a \( \mathscr{M} \)-function.
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{III.10.3}
+Let \(E\) be the space of real numbers with subbasis all sets of form \( \left\{ x \mid x > b \right\} \). Prove \( f: X \to E \) is continuous if and only if \(f\) is lower semicontinuous, as a map into \( E^{1} \).
+\end{problem}
+
+\begin{proof}
+	\( f: X \to E \) is continuous if and only if \( \left\{ x \mid f(x) > b \right\} \) is open in \( X \) for every real number \( b \).
+
+	\( f: X \to E^{1} \) is lower semicontinuous if and only if \( \left\{ x \mid f(x) > b \right\} \) is open in \( X \) for every real number \( b \).
+
+	Hence  \( f: X \to E \) is continuous if and only if \( f: X \to E^{1} \) is lower semicontinuous.
+\end{proof}
+
+\begin{problem}{III.10.4}\label{problem:III.10.4}
+Show that the sum, inf of finitely many, and sup of an arbitrary family, of lower semicontinuous is lower semicontinuous. Show that if \( f, g \) are \( \ge 0 \) and lower semicontinuous, so also is \( f \cdot g \).
+\end{problem}
+
+\begin{proof}
+	\textbf{Sum of finitely many lower semicontinuous is lower semicontinuous.}
+
+	Let \( f, g \) be lower-semicontinuous functions, then for every real number \( b \)
+	\[
+		\left\{ x \mid f(x) + g(x) > b \right\} = \bigcup_{\lambda \in \mathbb{R}} (\left\{ x \mid f(x) > \lambda \right\} \cap \left\{ x \mid g(x) > b - \lambda \right\})
+	\]
+
+	So \( \left\{ x \mid f(x) + g(x) > b \right\} \) is open for every real number \( b \), which means \( f + g \) is lower semi-continuous.
+
+	By mathematical induction, we can prove that the sum of finitely many lower semicontinuous is lower semicontinuous.
+
+	\textbf{Inf of finitely many lower semicontinuous is lower semicontinuous.}
+
+	Let \( f_{1}, \ldots, f_{n} \) be lower-semicontinuous functions and \( f(x) = \inf\left\{ f_{1}(x), \ldots, f_{n}(x) \right\} \). For every real number \( b \)
+	\[
+		\left\{ x \mid f(x) > b \right\} = \bigcap^{n}_{i=1} \left\{ x \mid f_{i}(x) > b \right\}
+	\]
+
+	is open so \( f \) is lower semicontinuous.
+
+	\textbf{Sup of an arbitrary family of lower semicontinuous is lower semicontinuous.}
+
+	Let \( {(f_{\alpha})}_{\alpha\in\mathscr{A}} \) be a family of lower semicontinuous and \( f(x) = \sup_{\alpha\in\mathscr{A}}\left\{ f_{\alpha}(x)  \right\} \) then
+	\[
+		\left\{ x \mid f(x) > b \right\} = \bigcup_{\alpha\in\mathscr{A}} \left\{ x \mid f_{\alpha}(x) > b \right\}
+	\]
+
+	so \( f \) is lower semicontinuous.
+
+	\textbf{If \( f, g \) are nonnegative and lower semicontinuous then also is \( f\cdot g \).}
+
+	\( f\cdot g \) is also nonnegative. If \( b < 0 \) then
+	\[
+		\left\{ x \mid f(x)g(x) > b \right\} = X.
+	\]
+
+	If \( b = 0 \) then
+	\[
+		\left\{ x \mid f(x)g(x) > 0 \right\} = \left\{ x \mid f(x) > 0 \right\} \cap \left\{ x \mid g(x) > 0 \right\}.
+	\]
+
+	If \( b > 0 \), let \( x \in \left\{ x \mid f(x)g(x) > b \right\} \) then \( f(x)g(x) = bc \) in which \( c > 1 \). Let \( \lambda > 0 \) be a number such that \( f(x)/c < \lambda < f(x) \) then \( g(x) = bc/f(x) > b/\lambda \). Therefore
+	\[
+		\left\{ x \mid f(x)g(x) > b \right\} \subset \bigcup_{\lambda \in \mathbb{R}_{> 0}} (\left\{ x \mid f(x) > \lambda \right\} \cap \left\{ x \mid g(x) > b/\lambda \right\})
+	\]
+
+	and
+	\[
+		\left\{ x \mid f(x)g(x) > b \right\} \supset \bigcup_{\lambda \in \mathbb{R}_{> 0}} (\left\{ x \mid f(x) > \lambda \right\} \cap \left\{ x \mid g(x) > b/\lambda \right\}).
+	\]
+
+	So \( \left\{ x \mid f(x)g(x) > b \right\} = \bigcup_{\lambda \in \mathbb{R}_{> 0}} (\left\{ x \mid f(x) > \lambda \right\} \cap \left\{ x \mid g(x) > b/\lambda \right\}) \).
+
+	Thus \( f\cdot g \) is lower semicontinuous.
+\end{proof}
+
+\begin{problem}{III.10.5}
+Prove: \(f\) is lower semicontinuous if and only if:
+\[
+	\forall \varepsilon > 0\; \forall x_{0}\; \exists U(x_{0}): x \in U(x_{0}) \implies f(x) > f(x_{0}) - \varepsilon
+\]
+
+\(f\) is upper semicontinuous if and only if:
+\[
+	\forall \varepsilon > 0\; \forall x_{0}\; \exists U(x_{0}): x \in U(x_{0}) \implies f(x) < f(x_{0}) + \varepsilon
+\]
+
+Equivalently, \(f\) is lower (upper) semicontinuous if and only if for each real \(b\), \( \left\{ x \mid f(x) \le b \right\} \) (\( \left\{ x \mid f(x) \ge b \right\} \)) is closed.
+\end{problem}
+
+\begin{proof}
+	Suppose that \( f \) is lower semicontinuous.
+
+	For every \( \varepsilon > 0 \) and every \( x_{0} \in X \), \( \left\{ x \mid f(x) > f(x_{0}) - \varepsilon \right\} \) is open. Since \( x_{0} \in \left\{ x \mid f(x) > f(x_{0}) - \varepsilon \right\} \) then there is a neighborhood \( U(x_{0}) \) of \( x_{0} \) such that \( U(x_{0}) \subset \left\{ x \mid f(x) > f(x_{0}) - \varepsilon \right\} \). Hence
+	\[
+		\forall \varepsilon > 0\; \forall x_{0}\; \exists U(x_{0}): x \in U(x_{0}) \implies f(x) > f(x_{0}) - \varepsilon.
+	\]
+
+	Conversely, suppose that \( \forall \varepsilon > 0\; \forall x_{0}\; \exists U(x_{0}): x \in U(x_{0}) \implies f(x) > f(x_{0}) - \varepsilon \).
+
+	Let \( b \) be a real number and \( U_{b} = \left\{ x \mid f(x) > b \right\} \). For each \( x_{0} \in U_{b} \), \( f(x_{0}) > b \). Let \( \varepsilon = f(x_{0}) - b \) then \( U_{b} = \left\{ x \mid f(x) > f(x_{0}) - \varepsilon \right\} \) so according to the hypothesis, there is a neighborhood of \( x_{0} \) that is contained in \( U_{b} \). Hence \( U_{b} \) is open for every real number \(b\). Hence \( f \) is lower semicontinuous.
+
+	\bigskip
+	\(f\) is upper semicontinuous iff \( -f \) is lower semicontinuous, and \( -f \) is lower semicontinuous iff
+	\[
+		\forall \varepsilon > 0\; \forall x_{0}\; \exists U(x_{0}): x \in U(x_{0}) \implies -f(x) > -f(x_{0}) - \varepsilon
+	\]
+
+	equivalently,
+	\[
+		\forall \varepsilon > 0\; \forall x_{0}\; \exists U(x_{0}): x \in U(x_{0}) \implies f(x) < f(x_{0}) + \varepsilon.
+	\]
+
+	\bigskip
+	\( f \) is lower (upper) semicontinuous iff for each real number \(b\), \( \left\{ x \mid f(x) > b \right\} \) (\( \left\{ x \mid f(x) < b \right\} \)) is open. Equivalently, \(  \left\{ x \mid f(x) \le b \right\} = X - \left\{ x \mid f(x) > b \right\} \) (\( \left\{ x \mid f(x) \ge b \right\} = X - \left\{ x \mid f(x) < b \right\} \)) is closed.
+\end{proof}
+
+\begin{problem}{III.10.6}
+Let \(C^{1}\) be the set of all continuous real-valued functions on \( \closedinterval{0,1} \) that have a continuous derivative on \( \closedinterval{0,1} \). Let \( \mathscr{T} \) be the topology having
+\[
+	U_{\varepsilon}(f) = \left\{ g \mid \forall x: \left\vert g(x) - f(x) \right\vert < \varepsilon \right\}
+\]
+
+as a basis. Define the length
+\[
+	\ell(f) = \int_{0}^{1} \sqrt{1 + {f^{\prime}(x)}^{2}}dx.
+\]
+
+Show that \( \ell: C^{1} \to E^{1} \) is lower semicontinuous.
+\end{problem}
+
+\begin{proof}
+	\( \mathscr{T} \) is a metric space, in which the metric function \( d \) is \( d(f, g) = \max\limits_{x\in\closedinterval{0,1}} \left\vert f(x) - g(x) \right\vert \). We can use \( \max \) instead of \( \sup \) due to the extremum value theorem.
+
+	\( \ell(f) = \sup\limits_{P} \ell_{P}(f) \) in which each \( P \) is a partition of \( \closedinterval{0,1} \) into finitely many nonoverlapping closed intervals. If \( P \) is determined by \( x_{0} = 0 < x_{1} < \cdots < x_{n-1} < x_{n} = 1 \) then
+	\[
+		\ell_{P}(f) = \sum^{n-1}_{i=0} \left\vert f(x_{i+1}) - f(x_{i}) \right\vert.
+	\]
+
+	Let's show that each function \( \Delta: C^{1} \to E^{1} \) given by \( \Delta(f) = \left\vert f(x) - f(y) \right\vert \) for some \( x, y \in \closedinterval{0,1} \) is continuous. For every \( \varepsilon > 0 \), for every \( f, g \in C^{1} \) such that \( d(f, g) < \varepsilon/2 \), then
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\left\vert \Delta(f) - \Delta(g) \right\vert & = \left\vert \left\vert f(x) - f(y) \right\vert - \left\vert g(x) - g(y) \right\vert \right\vert \\
+		                                             & \le \left\vert f(x) - f(y) - g(x) + g(y) \right\vert                                             \\
+		                                             & \le \left\vert f(x) - g(x) \right\vert + \left\vert f(y) - g(y) \right\vert                      \\
+		                                             & \le d(f, g) + d(f, g)                                                                            \\
+		                                             & < \varepsilon/2 + \varepsilon/2                                                                  \\
+		                                             & = \varepsilon
+	\end{align*}
+	\endgroup
+
+	So \( \Delta \) is continuous, which implies \( \ell_{P} \) is continuous, because the sum of finitely many continuous is continuous. Hence \( \ell_{P} \) is lower semicontinuous.
+
+	Each \( \ell_{P} \) is lower semicontinuous (because they are continuous) so \( \ell \) is lower semicontinuous, according to Problem~\ref{problem:III.10.4} (sup of an arbitrary family of lower semicontinuous is lower semicontinuous).
+\end{proof}
+
+\begin{problem}{III.10.7}
+Let \( \left\{ f_{n} \right\} \) be a sequence of continuous real-valued functions on a space \(X\). Show that the set of points \( x \in X \) for which the sequence \( \left\{ f_{n}(x) \right\} \) converges is an \( F_{\sigma\delta} \) (that is, a countable intersection of \( F_{\sigma} \)-sets).
+\end{problem}
+
+\begin{proof}
+	Let \( S \) be the set of points \( x \in X \) for which the sequence \( \left\{ f_{n}(x) \right\} \) converges.
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		S & = \left\{ x \mid \left\{ f_{n}(x) \right\}\text{ is a Cauchy sequence} \right\}                                                                               \\
+		  & = \left\{ x \mid \forall k \in \mathbb{Z}^{+}, \exists N \in \mathbb{Z}^{+}, m, n > N \implies \left\vert f_{m}(x) - f_{n}(x) \right\vert \le 1/k \right\}    \\
+		  & = \bigcap_{k \in \mathbb{Z}^{+}} \left\{ x \mid \exists N \in \mathbb{Z}^{+}, m, n > N \implies \left\vert f_{m}(x) - f_{n}(x) \right\vert \le 1/k \right\}   \\
+		  & = \bigcap_{k \in \mathbb{Z}^{+}} \bigcup_{N \in \mathbb{Z}^{+}} \bigcap_{m, n > N} \left\{ x \mid \left\vert f_{m}(x) - f_{n}(x) \right\vert \le 1/k \right\}
+	\end{align*}
+	\endgroup
+
+	The set \( \left\{ x \mid \left\vert f_{m}(x) - f_{n}(x) \right\vert \le 1/k \right\} = \left\{ x \mid \left\vert (f_{m} - f_{n})(x) \right\vert \le 1/k \right\} \) is closed as it is the preimage of \( \closedinterval{-1/k, 1/k} \) under the continuous function \( f_{m} - f_{n} \). Therefore
+	\[
+		\bigcap_{m, n > N} \left\{ x \mid \left\vert f_{m}(x) - f_{n}(x) \right\vert \le 1/k \right\}
+	\]
+
+	is closed. Hence
+	\[
+		S = \underbrace{\bigcap_{k \in \mathbb{Z}^{+}} \underbrace{\bigcup_{N \in \mathbb{Z}^{+}} \underbrace{\bigcap_{m, n > N} \left\{ x \mid \left\vert f_{m}(x) - f_{n}(x) \right\vert \le 1/k \right\}}_{\text{closed}}}_{F_{\sigma}}}_{F_{\sigma\delta}}
+	\]
+
+	which means \( S \) is a \( F_{\sigma\delta} \) set.
+\end{proof}
 
 \section{Open maps and closed maps}
 
