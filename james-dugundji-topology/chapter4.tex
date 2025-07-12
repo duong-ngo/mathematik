@@ -1,1 +1,111 @@
 \chapter{Cartesian products}
+
+\section{Cartesian product topology}
+
+\begin{problem}{IV.1.1}
+Let \( \left\{ Y_{\alpha} \mid \alpha \in \mathscr{A} \right\} \) be a family of spaces. Assume that each \( Y_{\alpha} \) has a basis of cardinal number \( \le \aleph \). What is the cardinal of a basis for \( \prod_{\alpha} Y_{\alpha} \)?
+\end{problem}
+
+\begin{proof}
+	% TODO
+	It is \( \aleph \cdot \aleph(\mathscr{A}) \).
+\end{proof}
+
+\begin{problem}{IV.1.2}
+Let \( \aleph(\mathscr{A}) \) be arbitrary and \( \prod_{\alpha} A_{\alpha} \subset \prod_{\alpha} Y_{\alpha} \). If all but at most finitely many factors \( A_{\alpha} = Y_{\alpha} \), prove \( \operatorname{Int}\left( \prod_{\alpha} A_{\alpha} \right) = \prod_{\alpha} \operatorname{Int}(A_{\alpha}) \).
+\end{problem}
+
+\begin{proof}
+	Let \( \beta \in \mathscr{A} \). We will show that \( \operatorname{Int}\left( \prod_{\alpha} A_{\alpha} \right) = \prod_{\alpha} \operatorname{Int}(A_{\alpha}) \) when \( A_{\alpha} = Y_{\alpha} \) for all \(\alpha \ne \beta\).
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\operatorname{Int}\left( \prod_{\alpha} A_{\alpha} \right) & = \mathscr{C}\overline{\prod_{\alpha} Y_{\alpha} - \prod_{\alpha}A_{\alpha}}                         \\
+		                                                           & = \mathscr{C}\overline{\mathscr{C}A_{\beta} \times \prod_{\alpha \ne \beta} Y_{\alpha}}              \\
+		                                                           & = \mathscr{C}\left( \overline{\mathscr{C}A_{\beta}} \times \prod_{\alpha\ne\beta} Y_{\alpha} \right) \\
+		                                                           & = \mathscr{C}\overline{\mathscr{C}A_{\beta}} \times \prod_{\alpha\ne\beta} Y_{\alpha}                \\
+		                                                           & = \operatorname{Int}(A_{\beta}) \times \prod_{\alpha\ne\beta} Y_{\alpha}                             \\
+		                                                           & = \prod_{\alpha} \operatorname{Int}(A_{\alpha}).
+	\end{align*}
+	\endgroup
+
+	Now let \( \mathscr{B} \) be a finite subset of \( \mathscr{A} \) and \( A_{\alpha} = Y_{\alpha} \) whenever \( \alpha \notin \mathscr{B} \). From the previous case, we deduce that
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\operatorname{Int}\left( \prod_{\alpha} A_{\alpha} \right) & = \operatorname{Int}\left( \bigcap_{\beta \in \mathscr{B}} A_{\beta} \times \prod_{\alpha\ne\beta} Y_{\alpha} \right) \\
+		                                                           & = \bigcap_{\beta \in \mathscr{B}} \operatorname{Int}\left( A_{\beta} \times \prod_{\alpha\ne\beta} Y_{\alpha} \right) \\
+		                                                           & = \bigcap_{\beta \in \mathscr{B}} \operatorname{Int}(A_{\beta}) \times \prod_{\alpha\ne\beta} Y_{\alpha}              \\
+		                                                           & = \prod_{\alpha} \operatorname{Int}(A_{\alpha}).
+	\end{align*}
+	\endgroup
+\end{proof}
+
+\begin{problem}{IV.1.3}
+Let \( R \) be the real numbers with upper-limit topology (Chapter III, Section 3, Example 4). Show that \( R \times R \) is not a discrete space, but that \( A = \left\{ (x, y) \mid x + y = 1 \right\} \), as a subspace of \( R \times R \), has the discrete topology.
+\end{problem}
+
+\begin{proof}
+	The singleton \( \left\{ (0, 0) \right\} \) is not open in \( R \times R \) as it doesn't contain any basic open set of the for \( \halfopenleft{a, b} \times \halfopenleft{c, d} \).
+
+	On the other hand, if \( (x, y) \in A \) then \( \left\{ (x, y) \right\} = A \cap (\halfopenleft{x - 1, x} \times \halfopenleft{y - 1, y}) \) so \( \left\{ (x, y) \right\} \) is open in \( A \). Thus \( A \) has the discrete topology.
+\end{proof}
+
+\begin{problem}{IV.1.4}
+Prove: \( \prod_{\alpha} A_{\alpha} \) is dense in \( \prod_{\alpha} Y_{\alpha} \) if and only if each \( A_{\alpha} \subset Y_{\alpha} \) is dense.
+\end{problem}
+
+\begin{proof}
+	Because \( \overline{\prod_{\alpha} A_{\alpha}} = \prod_{\alpha} \overline{A_{\alpha}} \), the result follows.
+\end{proof}
+
+\section{Continuity of maps}
+
+\begin{problem}{IV.2.1}
+Prove: The cartesian product topology in \( \prod_{\alpha} Y_{\alpha} \) is the smallest topology for which all projections \( p_{\beta}: \prod_{\alpha} Y_{\alpha} \to Y_{\beta} \) are continuous.
+\end{problem}
+
+\begin{proof}
+	Let \( \mathscr{T} \) be a topology on \( \prod_{\alpha} Y_{\alpha} \) such that all projections \( p_{\beta} \) are continuous. We need to show that \( \mathscr{T} \) contains the cartesian product topology.
+
+	For each open set \( U_{\beta} \subset Y_{\beta} \), \( \left\langle U_{\beta} \right\rangle = p_{\beta}^{-1}(U_{\beta}) \in \mathscr{T} \) because \( p_{\beta} \) is continuous. Therefore the cartesian product topology is contained in \( \mathscr{T} \).
+
+	Thus the cartesian product topology is the smallest topology for which all projections are continuous.
+\end{proof}
+
+\begin{problem}{IV.2.2}
+Let \( \left\{ Y_{\alpha} \mid \alpha \in \mathscr{A} \right\} \) be a family of spaces. For each \( \mathscr{B} \subset \mathscr{A} \), let
+\[
+	p_{\mathscr{B}}: \prod_{\alpha \in \mathscr{A}} Y_{\alpha} \to \prod_{\beta \in \mathscr{B}} Y_{\beta}
+\]
+
+be the projection. Let \( A \subset \prod_{\alpha} Y_{\alpha} \) be closed. Prove:
+\[
+	A = \bigcap_{\mathscr{B} \text{ finite}} p_{\mathscr{B}}^{-1}\left( p_{\mathscr{B}}(A) \right).
+\]
+\end{problem}
+
+\begin{proof}
+	For each \( \mathscr{B} \subset \mathscr{A} \), \( p_{\mathscr{B}}^{-1}\left( p_{\mathscr{B}}(A) \right) \supset A \) so
+	\[
+		\bigcap_{\mathscr{B} \text{ finite}} p_{\mathscr{B}}^{-1}\left( p_{\mathscr{B}}(A) \right) \supset A
+	\]
+
+	Let \( c \in \bigcap_{\mathscr{B} \text{ finite}} p_{\mathscr{B}}^{-1}\left( p_{\mathscr{B}}(A) \right) \). Suppose on the contrary that \( c \notin A \). Since \( A \) is closed, there exists a basic open set \( U = \left\langle U_{\alpha_{1}}, \ldots, U_{\alpha_{n}} \right\rangle \) that contains \( c \) and is contained in \( \mathscr{C}A \). Let \( \mathscr{B} = \left\{ \alpha_{1}, \ldots, \alpha_{n} \right\} \). Because \( c \in p_{\mathscr{B}}^{-1}(p_{\mathscr{B}}(A)) \), \( p_{\mathscr{B}}(c) \in p_{\mathscr{B}}(A) \), so there exists \( f \in A \) such that \( p_{\mathscr{B}}(c) = p_{\mathscr{B}}(f) \). This means \( p_{\alpha_{i}}(f) = f(\alpha_{i}) = c(\alpha_{i}) \in U_{\alpha_{i}} \) for each \( i = 1, \ldots, n \), so \( f \in \left\langle U_{\alpha_{i}} \right\rangle \), which means \( f \in U = \bigcap^{n}_{i=1} \left\langle U_{\alpha_{i}} \right\rangle \). Therefore \( f \in A \cap U \), which contradicts \( U \subset \mathscr{C}A \). Thus \( c \in A \) and we conclude that \( \bigcap_{\mathscr{B} \text{ finite}} p_{\mathscr{B}}^{-1}\left( p_{\mathscr{B}}(A) \right) \subset A \).
+
+	Hence \( A = \bigcap_{\mathscr{B} \text{ finite}} p_{\mathscr{B}}^{-1}\left( p_{\mathscr{B}}(A) \right) \).
+\end{proof}
+
+
+\section{Slices in Cartesian Products}
+
+\begin{problem}{IV.3.1}
+Let \( \mathscr{S} \) be the Sierpiński space, and \( \mathscr{S} \times \left\{ 0 \right\} \) the slice in \( \mathscr{S} \times \mathscr{S} \) parallel to the first factor. Is \( \mathscr{S} \times \left\{ 0 \right\} \) closed in \( \mathscr{S} \times \mathscr{S} \)?
+\end{problem}
+
+\begin{proof}
+	The complement of \( \mathscr{S} \times \left\{0\right\} \) in \( \mathscr{S} \times \mathscr{S} \) is \( \mathscr{S} \times \left\{1\right\} \), which is not open. Hence \( \mathscr{S} \times \left\{ 0 \right\} \) is not closed in \( \mathscr{S} \times \mathscr{S} \).
+\end{proof}
+
+\section{Peano curves}
+
