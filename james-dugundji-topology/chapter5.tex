@@ -1,1 +1,193 @@
 \chapter{Connectedness}
+
+\section{Connectedness}
+
+\begin{problem}{V.1.1}
+Show that a discrete space having more than one point is never connected and that a space having indiscrete topology is always connected.
+\end{problem}
+
+\begin{proof}
+	Let \( Y \) be a topological space.
+
+	Assume that \( Y \) has the discrete topology and has more than one point. Let \( y \) be a point in \( Y \) then \( \left\{ y \right\}, Y - \left\{ y \right\} \) are nonempty disjoint open sets in \( Y \) and \( Y = \left\{ y \right\} \cup (Y - \left\{ y \right\}) \). Hence \( Y \) is not connected.
+
+	Assume that \( Y \) has the indiscrete topology. If \( Y \) is empty then it is connected. Otherwise, let \( f: Y \to 2 \) be a continuous map and \( y \in Y \). Because \( f \) is continuous, the preimage \( f^{-1}(f(y)) \) is open in \( Y \). Moreover, \( f^{-1}(f(y)) \) is nonempty and \( Y \) has the indiscrete topology so \( f^{-1}(f(y)) = Y \), which means \( f \) is a constant map, hence not surjective. Thus \( Y \) is connected.
+\end{proof}
+
+\begin{problem}{V.1.2}
+Show that the extended real line \( \tilde{E}^{1} \) is connected.
+\end{problem}
+
+\begin{proof}
+	\( E^{1} \) as a subspace of \( \tilde{E}^{1} \) has the Euclidean topology, so \( E^{1} \) is connected. Moreover, the closure of \( E^{1} \) in \( \tilde{E}^{1} \) is \( \tilde{E}^{1} \) itself. Since the closure of a connected set is connected, we conclude that \( \tilde{E}^{1} \) is connected.
+\end{proof}
+
+\begin{problem}{V.1.3}
+Let \( X \) be an infinite set, with topology \( \mathscr{T} = \left\{ \varnothing \right\} \cup \left\{ A \mid \mathscr{C}A \text{ is finite} \right\} \). Show that \( X \) is connected.
+\end{problem}
+
+\begin{proof}
+	Assume that \( X \) is not connected then there is a nonempty open set \( U \subset X \) such that \( U \) is closed. According to the definition of \( \mathscr{T} \), \( \mathscr{C}U \) is finite and \( U \) is also finite, which means \( X \) is finite, which is a contradiction. Hence \( X \) is connected.
+\end{proof}
+
+\begin{problem}{V.1.4}
+Let \( (X, \mathscr{T}) \) be connected, and \( \mathscr{T}_{1} \subset \mathscr{T} \). Prove that \( (X, \mathscr{T}_{1}) \) is connected.
+\end{problem}
+
+\begin{proof}
+	Let \( f: (X, \mathscr{T}_{1}) \to 2 \) be a continuous map.
+
+	\( 1: (X, \mathscr{T}) \to (X, \mathscr{T}_{1}) \) is continuous, so \( f \circ 1 \) is continuous. If \( f \) is surjective then \( f \circ 1 \) is surjective. Since \( f \circ 1: (X, \mathscr{T}) \to 2 \) is continuous and \( (X, \mathscr{T}) \) is connected, \( f \circ 1 \) is not surjective. Hence \( f \) is not surjective.
+
+	Thus \( (X, \mathscr{T}_{1}) \) is connected.
+\end{proof}
+
+\begin{problem}{V.1.5}
+Let \( \left\{ A_{i} \mid i \in \mathbb{Z}^{+} \right\} \) be connected sets in \( Y \), with \( A_{i} \cap A_{i+1} \ne \varnothing \) for each \(i\). Prove: \( \bigcup_{i} A_{i} \) is connected.
+\end{problem}
+
+\begin{proof}
+	Let \( f: \bigcup_{i} A_{i} \to 2 \) be a continuous map and \( x \in A_{1} \)
+
+	\( A_{1} \) is connected so \( f\vert_{A_{1}} \) is not surjective, hence \( f(a_{1}) = f(x) \) for every \( a_{1} \in A_{1} \).
+
+	Assume that \( f(a_{n}) = f(x) \) for every \( a_{n} \in A_{n} \). Let \( a \) be a point in \( A_{n} \cap A_{n+1} \) then \( f(a) = f(x) \). Because \( f\vert_{A_{n+1}} \) is not surjective, it is a constant map, therefore, \( f(a_{n+1}) = f(x) \) for every \( a_{n+1} \in A_{n+1} \).
+
+	By the principle of mathematical induction, \( f\vert_{A_{n}} = f\vert_{\left\{x\right\}} \) for every positive integer \( n \). Thus \( f: \bigcup_{i} A_{i} \to 2 \) is a constant map, hence not surjective, which implies that \( \bigcup_{i} A_{i} \) is connected.
+\end{proof}
+
+\begin{problem}{V.1.6}\label{problem:V.1.6}
+Let \( \left\{ A_{\alpha} \mid \alpha \in \mathscr{A} \right\} \) be a family of connected subsets of \( Y \), and assume that there exists a connected set \(A\) with \( A \cap A_{\alpha} \ne \varnothing \) for each \( A_{\alpha} \). Show that \( A \cup \bigcup_{\alpha} A_{\alpha} \) is connected.
+\end{problem}
+
+\begin{proof}
+	\( A, A_{\alpha} \) are connected sets and intersecting so \( A \cup A_{\alpha} \) is a connected set for each \( \alpha \in \mathscr{A} \).
+
+	The connected sets \( A \cup A_{\alpha} \) have at least one common point so their union is a connected set. Hence \( A \cup \bigcup_{\alpha} A_{\alpha} \) is connected.
+\end{proof}
+
+\begin{problem}{V.1.7}
+Let \( \left\{ A_{\alpha} \mid \alpha \in \mathscr{A} \right\} \) be any family of connected sets. Assume that any two of them have nonempty intersection. Prove that \( \bigcup_{\alpha} A_{\alpha} \) is connected.
+\end{problem}
+
+\begin{proof}
+	Let \( \alpha_{0} \in \mathscr{A}, x_{0} \in A_{\alpha_{0}} \). Apply Problem~\ref{problem:V.1.6} to \( \left\{ A_{\alpha} \mid \alpha \in \mathscr{A}, \alpha \ne \alpha_{0} \right\} \) and \( A_{\alpha_{0}} \), it follows that \( \bigcup_{\alpha} A_{\alpha} \) is connected.
+\end{proof}
+
+\begin{problem}{V.1.8}
+Prove:
+\begin{enumerate}[label={(\alph*)}]
+	\item \(Y\) is connected if and only if every open covering \( \left\{ U_{\alpha} \mid \alpha \in \mathscr{A} \right\} \) of \(Y\) has the following property: For each pair of sets \( U_{\alpha_{1}}, U_{\alpha_{n}} \), there are finitely many \( U_{\alpha_{2}}, \ldots, U_{\alpha_{n-1}} \) such that \( U_{\alpha_{i}} \cap U_{\alpha_{i+1}} \ne \varnothing, i = 1, \ldots, n - 1 \).
+	\item \(Y\) is connected if and only if every nbd-finite closed covering has the same property as in (a).
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item Suppose \( Y \) is a connected space.
+
+		      Let \( \left\{ U_{\alpha} \mid \alpha \in \mathscr{A} \right\} \) be \textbf{an open covering} of \( Y \). We define a relation \( \sim \) on \( Y \) as follows: \( x \sim y \) if there are finitely many \( U_{\alpha_{1}}, \ldots, U_{\alpha_{n}} \) such that \( U_{\alpha_{i}} \cap U_{\alpha_{i+1}} \ne \varnothing, i = 1, \ldots, n - 1 \), \( x \in U_{\alpha_{1}}, y \in U_{\alpha_{n}} \). Evidently, \( \sim \) is an equivalence relation.
+
+		      Let \( a \in Y \) and \( {[a]}_{\sim} \) be the equivalence class containing \( a \). If \( b \in {[a]}_{\sim} \) then there are finitely many \( U_{\alpha_{1}}, \ldots, U_{\alpha_{n}} \) such that \( U_{\alpha_{i}} \cap U_{\alpha_{i+1}} \ne \varnothing, i = 1, \ldots, n - 1 \), \( a \in U_{\alpha_{1}}, b \in U_{\alpha_{n}} \). Hence \( b \in U_{\alpha_{n}} \subset {[a]}_{\sim} \) so the equivalence class \( {[a]}_{\sim} \) is open in \( Y \).
+
+		      Note that the set of equivalence classes constitutes a partition of \( Y \) so \( {[a]}_{\sim} \) is also closed in \( Y \) for each \( a \in Y \). Since \( Y \) is connected and \( {[a]}_{\sim} \) is open and closed in \( Y \), we conclude that \( Y = {[a]}_{\sim} \).
+
+		      Thus for each pair of sets \( U_{\alpha_{1}}, U_{\alpha_{n}} \) in \( \left\{ U_{\alpha} \mid \alpha \in \mathscr{A} \right\} \), there are finitely many \( U_{\alpha_{2}}, \ldots, U_{\alpha_{n-1}} \) such that \( U_{\alpha_{i}} \cap U_{\alpha_{i+1}} \ne \varnothing, i = 1, \ldots, n - 1 \).
+
+		      Suppose that \( Y \) is not connected then there exists a nonempty open set \( A \subset Y \) such that \( A \ne Y \) and \( Y - A \) is open in \( Y \). The open covering \( \left\{ A, Y - A \right\} \) doesn't have the mentioned property.
+		\item Suppose \( Y \) is a connected space.
+
+		      Let \( \left\{ U_{\alpha} \mid \alpha \in \mathscr{A} \right\} \) be \textbf{a nbd-finite closed} covering of \( Y \). We define a relation \( \sim \) on \( Y \) as follows: \( x \sim y \) if there are finitely many \( U_{\alpha_{1}}, \ldots, U_{\alpha_{n}} \) such that \( U_{\alpha_{i}} \cap U_{\alpha_{i+1}} \ne \varnothing, i = 1, \ldots, n - 1 \), \( x \in U_{\alpha_{1}}, y \in U_{\alpha_{n}} \). Evidently, \( \sim \) is an equivalence relation.
+
+		      Let \( a \in Y \) and \( {[a]}_{\sim} \) be the equivalence class containing \( a \). If \( b \in {[a]}_{\sim} \) then there are finitely many \( U_{\alpha_{1}}, \ldots, U_{\alpha_{n}} \) such that \( U_{\alpha_{i}} \cap U_{\alpha_{i+1}} \ne \varnothing, i = 1, \ldots, n - 1 \), \( a \in U_{\alpha_{1}}, b \in U_{\alpha_{n}} \). Hence \( b \in U_{\alpha_{n}} \subset {[a]}_{\sim} \) so the equivalence class \( {[a]}_{\sim} \) is the union of some closed sets in the given nbd-finite closed covering. Hence \( {[a]}_{\sim} \) is closed in \( Y \).
+
+		      The union of the equivalence classes other than \( {[a]}_{\sim} \) is closed in \( Y \) as any subcover of \( \left\{ U_{\alpha} \mid \alpha \in \mathscr{A} \right\} \) is nbd-finite and closed. Therefore \( {[a]}_{\sim} \) is open in \( Y \). Hence \( {[a]}_{\sim} = Y \), which means for each pair of sets \( U_{\alpha_{1}}, U_{\alpha_{n}} \) in \( \left\{ U_{\alpha} \mid \alpha \in \mathscr{A} \right\} \), there are finitely many \( U_{\alpha_{2}}, \ldots, U_{\alpha_{n-1}} \) such that \( U_{\alpha_{i}} \cap U_{\alpha_{i+1}} \ne \varnothing, i = 1, \ldots, n - 1 \).
+
+		      Suppose that \( Y \) is not connected then there exists a nonempty open set \( A \subset Y \) such that \( A \ne Y \) and \( Y - A \) is open in \( Y \). Hence \( A, Y - A \) are closed in \( Y \) and the nbd-finite closed covering \( \left\{ A, Y - A \right\} \) doesn't have the mentioned property.
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{V.1.9}
+\begin{enumerate}[label={(\alph*)}]
+	\item Let \(Y\) be a space and \(A \subset Y\) any subset. Let \(C \subset Y\) be connected, containing points of \(A\) and points not in \(A\). Prove: \(C\) must contain points of the boundary of \(A\).
+	\item Why is
+	      \[
+		      A = \left\{ (x, y, 0) \in E^{3} \mid x^{2} + y^{2} \le 1 \right\}
+	      \]
+
+	      and
+	      \[
+		      C = \left\{ (0, 0, z) \mid -1 \le z \le 1 \right\} \subset E^{3}
+	      \]
+
+	      \textit{not} a counterexample to this result?
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item Assume that \( C \cap \operatorname{Fr}(A) = \varnothing \) then
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      C & = C \cap Y                                                                                       \\
+			        & = C \cap (\operatorname{Int}(A) \cup \operatorname{Fr}(A) \cup \operatorname{Int}(\mathscr{C}A)) \\
+			        & = (C \cap \operatorname{Int}(A)) \cup (C \cap \operatorname{Int}(\mathscr{C}A))
+		      \end{align*}
+		      \endgroup
+
+		      Because \( C \cap A \ne \varnothing \) and \( C \cap \operatorname{Fr}(A) = \varnothing \), it follows that \( C \cap \operatorname{Int}(A) \ne \varnothing \). Similarly, \( C \cap \operatorname{Int}(\mathscr{C}A) \ne \varnothing \). Hence two open sets \( \operatorname{Int}(A) \) and \( \operatorname{Int}(\mathscr{C}A) \) disconnect \( C \), which contradicts connectedness of \(C\).
+
+		      Thus \( C \cap \operatorname{Fr}(A) \ne \varnothing \).
+		\item It is not a counterexample because every point of \(A\) is a boundary point of \(A\) and \( C \cap A \ne \varnothing \).
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{V.1.10}
+For each pair of positive integers \( a, b \), let \( U(a, b) = \left\{ an + b \mid n \in \mathbb{Z} \right\} \cap \mathbb{Z}^{+} \). Prove that \( \left\{ U(a, b) \mid \text{all } (a, b) \text{ such that } a \text{ is relatively prime to } b \right\} \) is a basis for a topology \( \mathscr{T} \) in \( \mathbb{Z}^{+} \). Using this topology, show:
+\begin{enumerate}[label={(\alph*)}]
+	\item For each prime \(p\), the set \( \left\{ kp \mid k \in \mathbb{Z}^{+}  \right\} \) is closed in \( \mathbb{Z}^{+} \).
+	\item If \(P\) is the set of all primes, then \( \operatorname{Int}(P) = \varnothing \).
+	\item \( (\mathbb{Z}^{+}, \mathscr{T}) \) is connected.
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	Assume that \( U(a, b) \cap U(c, d) \ne \varnothing \) in which \( a, b \)  are relatively prime and \( c, d \) are relatively prime. Let \( x_{0} \) be the smallest element of \( U(a, b) \cap U(c, d) \) then \( a, x_{0} \) are relatively prime and \( c, x_{0} \) are relatively prime, so \( \operatorname{lcm}(a, c), x_{0} \) are relatively prime. Moreover
+	\[
+		U(\operatorname{lcm}(a, c), x_{0}) = U(a, b) \cap U(c, d)
+	\]
+
+	so the given collection is indeed a basis for a topology \( \mathscr{T} \) in \( \mathbb{Z}^{+} \).
+
+	\begin{enumerate}[label={(\alph*)}]
+		\item For each prime \(p\), the sets
+		      \[
+			      \left\{ kp \mid k \in \mathbb{Z}^{+} \right\}, U(p, 1), \ldots, U(p, p - 1)
+		      \]
+
+		      constitute a partition of \( \mathbb{Z}^{+} \). Therefore \( \left\{ kp \mid k \in \mathbb{Z}^{+} \right\} \) is closed in \( \mathbb{Z}^{+} \).
+		\item Assume that there is a prime \( p \in \operatorname{Int}(P) \) then there exists \( U(a, b) \) such that
+		      \[
+			      p \in U(a, b) \subset \operatorname{Int}(P)
+		      \]
+
+		      then \( p + ap \in U(a, b) \subset \operatorname{Int}(P) \subset P \), which means \( p(1 + a) \) is a prime, which is a contradiction. Hence \( \operatorname{Int}(P) = \varnothing \).
+		\item Assume that \( (\mathbb{Z}^{+}, \mathscr{T}) \) is not connected, then there is a nonempty open set \( W \subset \mathbb{Z}^{+} \) such that the complement of \( W \) in \( \mathbb{Z}^{+} \) is also nonempty and open. So there exist \( U(a_{1}, b_{1}) \) such that \( W \cap U(a_{1}, b_{1}) = \varnothing \) and \( U(a_{2}, b_{2}) \) such that \( (\mathbb{Z}^{+} - W) \cap U(a_{2}, b_{2}) = \varnothing \).
+
+		      Suppose that there is a multiple \( ka_{1} \) of \( a_{1} \) in \( W \). Then there exists \( U(a_{2}, b_{2}) \subset W \) such that \( ka_{1} \in U(c, d) \) so there exists an integer \( n \) such that \( ka_{1} = cn + d \). Because \( \gcd(c, d) = 1 \), then \( \gcd(ka_{1}, c) = 1 \), so \( \gcd(a_{1}, c) = 1 \), which means \( U(a_{1}, b_{1}) \cap U(c, d) \ne \varnothing \) due to the Chinese remainder theorem. This is a contradiction since \( W \cap U(a_{1}, b_{1}) = \varnothing \).
+
+		      Hence \( W \) contains no multiple of \( a_{1} \). Similarly, \( \mathbb{Z}^{+} - W \) contains no multiple of \( a_{2} \). Hence every multiple of \( a_{1} \) is in \( \mathbb{Z}^{+} - W \) and every multiple of \( a_{2} \) is in \( W \). On the other hand, every common multiple of \( a_{1} \) and \( a_{2} \) is in \( W \) and \( \mathbb{Z}^{+} - W \), which is a contradiction.
+
+		      Thus \( (\mathbb{Z}^{+}, \mathscr{T}) \) is connected.
+	\end{enumerate}
+\end{proof}
+
+\section{Applications}
+
+\section{Components}
+
+\section{Local Connectedness}
+
+\section{Path-Connectedness}
+
