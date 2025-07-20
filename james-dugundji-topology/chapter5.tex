@@ -22,7 +22,7 @@ Show that the extended real line \( \tilde{E}^{1} \) is connected.
 	\( E^{1} \) as a subspace of \( \tilde{E}^{1} \) has the Euclidean topology, so \( E^{1} \) is connected. Moreover, the closure of \( E^{1} \) in \( \tilde{E}^{1} \) is \( \tilde{E}^{1} \) itself. Since the closure of a connected set is connected, we conclude that \( \tilde{E}^{1} \) is connected.
 \end{proof}
 
-\begin{problem}{V.1.3}
+\begin{problem}{V.1.3}\label{problem:V.1.3}
 Let \( X \) be an infinite set, with topology \( \mathscr{T} = \left\{ \varnothing \right\} \cup \left\{ A \mid \mathscr{C}A \text{ is finite} \right\} \). Show that \( X \) is connected.
 \end{problem}
 
@@ -184,6 +184,141 @@ For each pair of positive integers \( a, b \), let \( U(a, b) = \left\{ an + b \
 \end{proof}
 
 \section{Applications}
+
+\begin{problem}{V.2.1}
+Prove: \( S^{n} \) is connected for all \( n \ge 1 \).
+\end{problem}
+
+\begin{proof}
+	The map \( f: \closedinterval{0,1} \to S^{1} \) defined by \( f(x) = (\cos(2\pi x), \sin(2\pi x)) \) is continuous. Moreover, \( \closedinterval{0,1} \) is connected so \( S^{1} \) is connected.
+
+	Assume that \( S^{n} \) is connected. In \( \mathbb{R}^{n+2} \), the subspace
+	\[
+		S^{n+1} \cap \text{(hyperspace \( x_{n+1} = 0 \))} = \left\{ x \in \mathbb{R}^{n+2} \mid x_{n+2} = 0 \land \left\vert x \right\vert = 1 \right\} \cong S^{n}
+	\]
+
+	Let \( N = (0, 0, \ldots, 1) \in S^{n+1} \) and \( u \) is a unit vector such that \( u_{n+1} = 0 \) then \( \anglebracket{n, u} = 0 \). Let \( \mathcal{U} \) be the collection of such unit vectors then
+	\[
+		S^{n+1} \cap \text{(hyperplane \(\anglebracket{u, x} = 0\))} \cong S^{n}
+	\]
+
+	because an orthogonal transformation in \( \operatorname{O}(n+2) \) that sends \( N \) to \( u \) is a linear isomorphism (hence homeomorphism, with the Euclidean topology, since any linear map is continuous) and the restriction of \( f_{u} \) to \( S^{n+1} \cap \text{(hyperspace \( x_{n+1} = 0 \))} \) maps \( S^{n+1} \cap \text{(hyperspace \( x_{n+1} = 0 \))} \) to \( S^{n+1} \cap \text{(hyperplane \(\anglebracket{u, x} = 0\))} \).
+
+	Moreover \( S^{n+1} \cap \text{(hyperplane \(\anglebracket{u, x} = 0\))} \) passes through \( \pm n \), therefore the union of all \( S^{n+1} \cap \text{(hyperplane \(\anglebracket{u, x} = 0\))} \) is connected, which means \( S^{n+1} \) is connected.
+
+	By the principle of mathematical induction, \( S^{n} \) is connected for all \( n \ge 1 \).
+\end{proof}
+
+\begin{problem}{V.2.2}
+Prove: \( I \) is not homeomorphic to \( S^{1} \); and also \( \halfopenright{0, 2\pi} \) is not homeomorphic to \( S^{1} \).
+\end{problem}
+
+\begin{proof}
+	Assume that \( I \cong S^{1} \) then there exists a homeomorphism \( \varphi: I \cong S^{1} \). The restriction \( \varphi\vert_{I - \left\{ 1/2 \right\}}: \halfopenright{0, 1/2} \cup \halfopenleft{1/2, 1} \to S^{1} - \left\{ \varphi(1/2) \right\} \) is also a homeomorphism. However, \( \halfopenright{0, 1/2} \cup \halfopenleft{1/2, 1} \) is not connected and \( S^{1} - \left\{ \varphi(1/2) \right\} \) is connected, which is a contradiction. Thus \( I \) is not homeomorphic to \( S^{1} \).
+
+	Assume that \( \halfopenright{0, 2\pi} \cong S^{1} \) then there exists a homeomorphism \( \varphi: \halfopenright{0, 2\pi} \cong S^{1} \). The restriction \( \varphi\vert_{\halfopenright{0, 2\pi} - \left\{\pi\right\}}: \halfopenright{0, 2\pi} \cup \openinterval{\pi, 2\pi} \to S^{1} - \left\{ \varphi(\pi) \right\} \) is then a homeomorphism. However, \( \halfopenright{0, 2\pi} \cup \openinterval{\pi, 2\pi} \) is not connected and \( S^{1} - \left\{ \varphi(\pi) \right\} \) is connected, which is a contradiction. Thus \( \halfopenright{0, 2\pi} \) is not homeomorphic to \( S^{1} \).
+\end{proof}
+
+\begin{problem}{V.2.3}
+Show that \( E^{1} \) is not homeomorphic to \( \tilde{E}^{1} \).
+\end{problem}
+
+\begin{proof}
+	\( f: \tilde{E}^{1} \to \closedinterval{-1, 1} \) given by \( f(x) = \dfrac{x}{\left\vert x \right\vert + 1} \), \( f(\infty) = 1, f(-\infty) = -1 \) is a homeomorphism. Therefore \( \tilde{E}^{1} \cong \closedinterval{-1, 1} \) and \( E^{1} \cong \openinterval{-1, 1} \).
+
+	Assume that \( E^{1} \cong \tilde{E}^{1} \) then \( \openinterval{-1, 1} \cong \closedinterval{-1, 1} \). There exists a homeomorphism \( \varphi: \closedinterval{-1, 1} \cong \openinterval{-1, 1} \). The restriction of \( \varphi \) to \( \halfopenright{-1, 1} \) maps \( \halfopenright{-1, 1} \) to \( \openinterval{-1, \varphi(1)} \cup \openinterval{\varphi(1), 1} \). However, \( \halfopenright{-1, 1} \) is connected and \( \openinterval{-1, \varphi(1)} \cup \openinterval{\varphi(1), 1} \) is not connected, which is a contradiction. Thus \( E^{1} \) is not homeomorphic to \( \tilde{E}^{1} \).
+\end{proof}
+
+\begin{problem}{V.2.4}
+Prove that \( S^{n} \) and \( S^{1} \) are not homeomorphic \textcolor{red}{if \( n > 1 \)}.
+\end{problem}
+
+\begin{proof}
+	Let \( N = (0, 0, \ldots, 1) \in S^{n} \), we will show that \( S^{n} - \left\{ \pm N \right\} \) is connected. For each \( P \in S^{n} - \left\{ \pm N \right\} \), there is a unique point \( P_{0} \) on the equator such that \( P_{0}, \pm N, P \) are coplanar and \( P, P_{0} \) are on the same side of \( ON \). The line segment \( PP_{0} \) is connected. Define a map \( f_{P}: PP_{0} \to S^{n} - \left\{ \pm N \right\} \) by \( f_{P}(X) \) is the intersection of \( S^{n} \) and the ray \( OX \). This is a continuous map so \( f_{P}(PP_{0}) \) is connected and contains \( f_{P}(P_{0}) = P_{0} \). Hence
+	\[
+		S^{n} - \left\{\pm N\right\} = \bigcup_{P \in S^{n} - \left\{\pm N\right\}} (\text{the equator} \cup f_{P}(PP_{0}))
+	\]
+
+	is connected.
+
+	Assume that there is a homeomorphism \( \varphi: S^{n} \cong S^{1} \). Then \( S^{n} - \left\{ \pm N \right\} \) and \( S^{1} - \left\{ \varphi(N), \varphi(-N) \right\} \) are homeomorphic. However \( S^{n} - \left\{ \pm N \right\} \) is connected and \( S^{1} - \left\{ \varphi(N), \varphi(-N) \right\} \) is not connected.
+
+	Thus \( S^{n} \) and \( S^{1} \) are not homeomorphic if \( n > 1 \).
+\end{proof}
+
+\begin{problem}{V.2.5}
+Let \( n \ge 2 \), and in \( E^{n} \), show:
+\begin{enumerate}[label={(\alph*)}]
+	\item If \( A_{1} = \left\{ x \in E^{n} \mid \text{all coordinates of \(x\) are rational} \right\} \), then \( E^{n} - A_{1} \) is connected.
+	\item If \( A_{2} = \left\{ x \in E^{n} \mid \text{all coordinates of \(x\) are irrational} \right\} \), then \( A_{2} \) is not connected.
+	\item If \( A_{3} = \left\{ x \in E^{n} \mid \text{at least one coordinate is irrational} \right\} \), then \( A_{3} \) is connected.
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	If \( A \) is a countable subset of \( E^{n} \) then \( E^{n} - A \) is connected for \( n > 1 \).
+	\begin{enumerate}[label={(\alph*)}]
+		\item \( A_{1} \) is countable so \( E^{n} - A_{1} \) is connected.
+		\item Assume that \( A_{2} = \underbrace{(\mathbb{R} - \mathbb{Q}) \times \cdots \times (\mathbb{R} - \mathbb{Q})}_{n} \) is connected then \( p_{1}(A_{2}) = \mathbb{R} - \mathbb{Q} \) is connected, in which \( p_{1} \) is the canonical projection \( p_{1}: E^{n} \to E^{1} \). Let \( r \) be a rational number then \( \mathbb{R} - \mathbb{Q} = ((\mathbb{R} - \mathbb{Q}) \cap \openinterval{-\infty, r}) \cup ((\mathbb{R} - \mathbb{Q}) \cap \openinterval{r, \infty}) \), which means \( \mathbb{R} - \mathbb{Q} \) is not connected. Thus \( A_{2} \) is not connected.
+		\item Let \( x, y \) be two distinct points in \( A_{3} \) then either
+		      \begin{itemize}
+			      \item \( x, y \) have irrational coordinates at different positions.
+
+			            Without loss of generality, assume that \( x_{1}, y_{2} \) are irrational. Let \( z \in A_{3} \) such that \( z_{1} = x_{1}, z_{2} = y_{2} \) then the line segments \( xz, zy \subset A_{3} \), which means \( xz \cup zy \subset A_{3} \).
+			      \item \( x, y \) have irrational coordinates at the same position.
+
+			            Without loss of generality, assume that \( x_{1}, y_{1} \) are irrational. Let \( z \in A_{3} \) such that \( z_{2} \) is irrational. According to the previous case, there are a connected set containing \( x, z \), a connected set containing \( y, z \) and they are contained in \( A_{3} \). Hence there is a connected set containing \( x, y \) and contained in \( A_{3} \).
+		      \end{itemize}
+
+		      Fix a point \( x \in A_{3} \) then for every \( y \in A_{3} \), there is a connected set containing \( x, y \) and contained in \( A_{3} \). Hence \( A_{3} \) is connected.
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{V.2.6}
+Show: If \( A \subset E^{n} \) is connected and non-empty then \( \aleph(A) = \mathfrak{c} \) or \(1\).
+\end{problem}
+
+\begin{proof}
+	Either \( p_{i}(A) \) are singletons or at least one \( p_{i}(A) \) is not singleton.
+
+	If the former is the case then \( A \) is a singleton, which means \( \aleph(A) = 1 \).
+
+	Otherwise, \( p_{i}(A) \) is an interval for some \(i\) and \( \aleph(\pi_{i}(A)) = \mathfrak{c} \), which means \( \aleph(A) \ge \mathfrak{c} \). On the other hand, \( \aleph(A) \le \aleph(\mathbb{R}^{n}) = \mathfrak{c} \). Hence \( \aleph(A) = \mathfrak{c} \).
+
+	Thus \( \aleph(A) = \mathfrak{c} \) or \(1\).
+\end{proof}
+
+\begin{problem}{V.2.7}
+Let \( \mathscr{A} \subset \mathscr{P}(E^{2}) \) be the family of all connected sets. Find \( \aleph(\mathscr{A}) \).
+\end{problem}
+
+\begin{proof}
+	The set \( U = E^{2} - (\closedinterval{0, 1} \times \left\{0\right\}) \) is connected and so is its closure \( E^{2} \). For any subset \( S \) of \( \closedinterval{0,1} \), the set \( U \cup (S \times \left\{0\right\}) \) is connected as \( U \subset U \cup (S \times \left\{0\right\}) \subset \overline{U} \). Hence \( \aleph(\mathscr{A}) \ge 2^{\mathfrak{c}} \).
+
+	Moreover, \( \aleph(\mathscr{A}) \le \aleph(\mathscr{P}(E^{2})) = 2^{\mathfrak{c}} \) so \( \aleph(\mathscr{A}) = 2^{\mathfrak{c}} \), according to Bernstein-Schr\"{o}der theorem.
+
+	In general, the cardinality of the family of all connected sets in \( \mathbb{R}^{n} \) (for \(n > 1\)) is \( 2^{\mathfrak{c}} \).
+\end{proof}
+
+\begin{problem}{V.2.8}
+In Problem~\ref{problem:V.1.3}, show that the only continuous real-valued functions on \(X\) are constant functions.
+\end{problem}
+
+\begin{proof}
+	Assume that there is a continuous function \( f: X \to E^{1} \) that is nonconstant then there are \( x, y \in X \) such that \( f(x) \ne f(y) \). There are two disjoint open intervals containing \( f(x), f(y) \). The preimages of these open intervals are then nonempty and disjoint in \( X \), which is a contradiction since \( X \) is a connected space. Thus the only continuous real-valued functions on \(X\) are constant functions.
+\end{proof}
+
+\begin{problem}{V.2.9}
+Show that the analogue of the Bernstein-Schr\"{o}der theorem for topological spaces is not valid, by exhibiting two spaces \( X, Y \) such that \( X \) is homeomorphic to a subset of \( Y \) and \( Y \) is homeomorphic to a subset of \( X \), although \( X \) and \( Y \) are not homeomorphic.
+\end{problem}
+
+\begin{proof}
+	\( \openinterval{-1, 1} \) and \( \closedinterval{-1, 1} \) are not homeomorphic, however:
+
+	\( \openinterval{-1, 1} \) is homeomorphic to \( \openinterval{-1, 1} \), a proper subset of \( \closedinterval{-1, 1} \).
+
+	\( \closedinterval{-1, 1} \) is homeomorphic to \( \closedinterval{-1/2, 1/2} \), a proper subset of \( \openinterval{-1, 1} \).
+\end{proof}
 
 \section{Components}
 
