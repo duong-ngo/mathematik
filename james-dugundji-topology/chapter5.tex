@@ -322,6 +322,198 @@ Show that the analogue of the Bernstein-Schr\"{o}der theorem for topological spa
 
 \section{Components}
 
+\begin{problem}{V.3.1}
+In a space \(X\), define \( x \sim y \) if \( x \) and \( y \) are contained in a connected set. Show that this is an equivalence relation. What are the equivalence classes?
+\end{problem}
+
+\begin{proof}
+	\( \sim \) is reflexive and symmetric. If \( x \sim y \) and \( y \sim z \) then \( x, y \) are contained in a connected set \( U \) and \( y, z \) are contained in a connected set \( V \). Two connected sets \( U, V \) are not disjoint so \( U \cup V \) is connected, which implies \( x \sim z \) as \( x, z \in U \cup V \). Hence \( \sim \) is transitive, from which we conclude that \( \sim \) is an equivalence relation.
+
+	The equivalence classes are components of \(X\).
+\end{proof}
+
+\begin{problem}{V.3.2}
+Let \(A \subset Y\), where both \(A\) and \(Y\) are connected. Let \(U\) be any set both open and closed in \(Y - A\). Prove that \( A \cup U \) is connected.
+\end{problem}
+
+\begin{quotation}
+	We prove this lemma: Let \( X \) be a connected space, \( C \) a connected subset of \( X \). If \( M, N \) are separated sets such that \( X - C = M \cup N \) then \( C \cup M, C \cup N \) are connected. Moreover, if \( C \) is closed then \( C \cup M, C \cup N \) are closed.
+
+	\begin{proof}
+		Assume that \( C \cup M = A \cup B \) in which \( A, B \) are separated. Since \( C \subset A \cup B \) and \( C \) is connected, it follows that \( C \cap A = \varnothing \) or \( C \cap B = \varnothing \). Without loss of generality, assume that \( C \cap A = \varnothing \) then \( A \subset M \) since \( A \subset C \cup M \).
+
+		\( M \) and \( N \) are separated and \( A \subset M \) so \( A, N \) are separated. Therefore \( A, N \cup B \) are separated.
+		\[
+			X = C \cup M \cup N = A \cup B \cup N
+		\]
+
+		so \( A \) or \( B \cup N \) is empty, as \( X \) is connected. Hence \( A \) or \( B \) is empty, which means \( C \cup M \) is connnected. Similarly, \( C \cup N \) is connected.
+
+		If \( C \) is closed then
+		\[
+			\overline{C \cup M} = \overline{C} \cup \overline{M} = (C \cup \overline{M}) \cap (C \cup M \cup N) = C \cup M
+		\]
+
+		which means \( C \cup M \) is closed.
+	\end{proof}
+\end{quotation}
+
+\begin{proof}
+	Let \( V \) be the complement of \( U \) in \( Y - A \). Two sets \( U, V \) are closed in \( Y - A \) so
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		U & = \operatorname{cl}_{Y - A}(U) = \operatorname{cl}_{Y}(U) \cap (Y - A) \\
+		V & = \operatorname{cl}_{Y - A}(V) = \operatorname{cl}_{Y}(V) \cap (Y - A)
+	\end{align*}
+	\endgroup
+
+	Since \( U, V \subset Y - A \)
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		U \cap \operatorname{cl}_{Y}(V) & = U \cap (Y - A) \cap \operatorname{cl}_{Y}(V) = U \cap \operatorname{cl}_{Y - A}(V) = U \cap V = \varnothing, \\
+		\operatorname{cl}_{Y}(U) \cap V & = \operatorname{cl}_{Y}(U) \cap (Y - A) \cap V = \operatorname{cl}_{Y - A}(U) \cap V = U \cap V = \varnothing.
+	\end{align*}
+	\endgroup
+
+	Hence \( U, V \) are separated sets. According to the previous lemma, we conclude that \( A \cup U, A \cup V \) are connected sets.
+\end{proof}
+
+\begin{proof}[Another proof]
+	Assume that
+	\[
+		A\cup U = ((A \cup U) \cap V_{1}) \cup ((A \cup U) \cap V_{2}) = (A \cup U) \cap (V_{1} \cup V_{2})
+	\]
+
+	in which \( V_{1}, V_{2} \) are open in \(Y\) and \( V_{1} \cap V_{2} \cap (A \cup U) = \varnothing \).
+
+	Since \( A \subset A \cup U = ((A \cup U) \cap V_{1}) \cup ((A \cup U) \cap V_{2}) \), \( A \) is connected, and \( ((A \cup U) \cap V_{1}) \), \( ((A \cup U) \cap V_{2}) \) are disjoint, we deduce that either \( A \subset (A \cup U) \cap V_{1} \) or \( A \subset (A \cup U) \cap V_{2} \).
+
+	Without loss of generality, suppose that \( A \subset (A \cup U) \cap V_{2} \) then \( A \subset V_{2} \) since \( A \cap U = \varnothing \). Therefore
+	\[
+		\varnothing = A \cap (A \cup U) \cap V_{1} = (A \cap A \cap V_{1}) \cup (A \cap U \cap V_{1}) = A \cap V_{1}.
+	\]
+
+	\( U \) is open in \( Y - A \) so there exists an open set \( U_{0} \) in \(X\) such that \( U = U_{0} \cap (Y - A) \). So \( U = U_{0} - A \).
+
+	If \( x \in U_{0} \cap V_{1} \) then \( x \in U_{0} \) and \( x \in Y - A \), which implies \( x \in U_{0} \cap (Y - A) = U \). Hence \( U_{0} \cap V_{1} \subset U \).
+
+	\( U_{0} \cap V_{1} \) is an open set in \( X \) and
+	\[
+		(A \cup U) \cap (U_{0} \cap V_{1}) = U \cap U_{0} \cap V_{1} = U \cap V_{1} = (A \cup U) \cap V_{1}
+	\]
+
+	so we can assume that \( V_{1} \subset U \) by replacing \( V_{1} \) with \( U_{0} \cap V_{1} \).
+
+	\( U \) is also closed in \( Y - A \) so \( (Y - A) - U \) is open in \( Y - A \). Hence there exists an open set \( U_{1} \) in \( Y \) such that
+	\[
+		(Y - A) - U = (Y - A) \cap U_{1} = U_{1} - A.
+	\]
+
+	Moreover
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		(V_{2} \cup U_{1}) \cap (A \cup U) & = (V_{2} \cap A) \cup (U_{1} \cap A) \cup (V_{2} \cap U) \cup (U_{1} \cap U) \\
+		                                   & = A \cup (U_{1} \cap A) \cup (V_{2} \cap U) \cup \varnothing                 \\
+		                                   & = A \cup (V_{2} \cap U)                                                      \\
+		                                   & = (A \cup V_{2}) \cap (A \cup U)                                             \\
+		                                   & = V_{2} \cup (A \cup U)
+	\end{align*}
+	\endgroup
+
+	so we can replace \( V_{2} \) with \( V_{2} \cup U_{1} \).
+
+	\( (Y - A) - U \subset U_{1} \subset V_{2} \) so \( Y \subset (A \cup U) \cup V_{2} \). Besides, \( A \cup U = (A \cup U) \cap (V_{1} \cup V_{2}) \subset V_{1} \cup V_{2} \).
+
+	Therefore \( Y \subset V_{1} \cup V_{2} \), which means \( Y = V_{1} \cup V_{2} \). On the other hand, \( V_{1} \subset U \)
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\varnothing & = V_{1} \cap V_{2} \cap (A \cup U)                         \\
+		            & = (V_{1} \cap V_{2} \cap A) \cup (V_{1} \cap V_{2} \cap U) \\
+		            & = (V_{1} \cap V_{2} \cap A) \cup (V_{1} \cap V_{2})        \\
+		            & = V_{1} \cap V_{2}
+	\end{align*}
+	\endgroup
+
+	so \( Y \) is the union of disjoint open sets \( V_{1}, V_{2} \). Since \( Y \) is connected, either \( V_{1} \) or \( V_{2} \) is empty.
+
+	\bigskip
+
+	Now assume that there exist disjoint open sets \( W_{1}, W_{2} \) in \( A \cup U \) such that \( A\cup U = W_{1} \cup W_{2} \). There exist open sets \( V_{1}, V_{2} \) in \( Y \) such that \( W_{1} = (A\cup U) \cap V_{1} \) and \( W_{2} = (A\cup U) \cap V_{2} \). According to the previous paragraph, we can assume that \( V_{1} \cup V_{2} = Y \) and \( V_{1} \cap V_{2} = \varnothing \), from which we deduce that \( V_{1} = \varnothing \) or \( V_{2} = \varnothing \), which means \( W_{1} = \varnothing \) or \( W_{2} = \varnothing \). Hence \( A \cup U \) is connected.
+\end{proof}
+
+\begin{problem}{V.3.3}
+Let \( A \subset Y \) where both \( A \) and \( Y \) are connected. Let \( C \) be any component of \( Y - A \). Show that \( Y - C \) is connected.
+\end{problem}
+
+\begin{proof}
+	Assume that \( Y - C \) is the union of separated sets \( U, V \), which means
+	\[
+		Y - C = U \cup V,\qquad U \cap \overline{V} = \overline{U} \cap V = \varnothing.
+	\]
+
+	\( A \subset U \cup V \) and \( A \) is connected so either \( A \subset U \) or \( A \subset V \). Without loss of generality, assume that \( A \subset U \) then \( A \cap (C \cup V) = \varnothing \). Therefore \( C \subset C \cup V \subset Y - A \). According to the previous lemma, \( C \cup V \) is connected. Since \( C \) is a component in \( Y - A \), it follows that \( C = C \cup V \). As \( C \cap V = \varnothing \), we deduce that \( V = \varnothing \).
+
+	Thus \( Y - C \) is connected.
+\end{proof}
+
+\begin{problem}{V.3.4}\label{problem:V.3.4}
+Let \( B \subset Y \) be a \textcolor{red}{nonempty} connected set both open and closed in \( Y \). Prove: \(B\) is a component of \(Y\).
+\end{problem}
+
+\begin{proof}
+	\( B \) is connected so it is contained in a component \( C \) of \( Y \).
+
+	\( B = C \cap B \) is open and closed in \( C \) as \( B \) is open and closed in \( Y \). Because \( C \) is connected and \( B \) is nonempty, open and closed in \( C \), it follows that \( B = C \). Hence \( B \) is a component of \( Y \).
+\end{proof}
+
+\begin{problem}{V.3.5}
+In a space \(X\), define \( x \sim y \) if there is no decomposition of \(X\) into two disjoint open sets, one of which contains \(x\), and the other \(y\).
+\begin{enumerate}[label={(\alph*)}]
+	\item Prove that this is an equivalence relation in \(X\). The equivalence classes are called the quasi-component of \(X\).
+	\item Prove each quasi-component is the intersection of all the open closed sets containing a given element.
+	\item Prove: Each component is contained in a quasi-component.
+	\item In \(E^{2}\) let \(L_{1}\) be the line \( x = 1 \) and \(L_{2}\) the line \(x = -1\). For each \( n \in \mathbb{Z}^{+} \), let \( R_{n} \) be the rectangle \( \left\{ (x, y) \mid \left\vert x\right\vert \le n/(n + 1), \left\vert y\right\vert \le n \right\} \). Finally, let \(Y\) be the subspace \( L_{1} \cup L_{2} \cup \bigcup_{n} \operatorname{Fr}(R_{n}) \) of \( E^{2} \). Show: The component of \( (1, 0) \) is \( L_{1} \) and the quasi-component of \( (1, 0) \) is \( L_{1} \cup L_{2} \).
+	\item Show that if \( x_{1}, x_{2} \) (respectively, \( y_{1}, y_{2} \)) belong to a quasi-component of \(X\) (respectively, \(Y\)), then \( (x_{1}, y_{1}) \) and \( (x_{2}, y_{2}) \) belong to a quasi-component of \( X \times Y \).
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item From the definition, it follows that \( \sim \) is reflexive and symmetric.
+
+		      Assume that there exist \( x, y, z \in X \) such that \( x \sim y, y \sim z \) and there is a decomposition of \(X\) into two disjoint open sets \( U, V \) such that \( x \in U \) and \( z \in V \). Since \( x \sim y \) and \( y \sim z \), it follows that \( y \notin V \) and \( y \notin U \), which means \( y \notin X \), which is a contradiction. Therefore \( \sim \) is transitive.
+
+		      Thus \( \sim \) is an equivalence relation in \(X\).
+		\item Let \( Q \) be a quasi-component in \( X \), \( x \in Q \) and \( S \) be any open closed set containing \( x \). Suppose that \( x \sim y \) then \( y \in S \) by the definition of \( \sim \). Thus each quasi-component is the intersection of all the open closed sets containing an element.
+		\item Let \( C \) be a component of \( X \) and \( x, y \in C \). Assume that \( x, y \) are not in a quasi-component then there is a decomposition of \( X \) into two disjoint open sets \( U, V \) such that \( x \in U, y \in V \). Therefore \( C = (C \cap U) \cup (C \cap V) \), which contradicts the connectedness of \( C \). Hence each component is contained in a quasi-component.
+		\item Each \( \operatorname{Fr}(R_{n}) \) is connected, open and closed in \( Y \) so each \( \operatorname{Fr}(R_{n}) \) is a component of \( Y \), according to Problem~\ref{problem:V.3.4}.
+
+		      \( L_{1}, L_{2} \) are connected sets in \( Y \). From the previous paragraph, either \( L_{1}, L_{2} \) are two components of \( Y \) or \( L_{1} \cup L_{2} \) is a component of \( Y \).
+
+		      The induced topology for \( L_{1} \cup L_{2} \), as a subspace of \( Y \) is the same as the indcued topology for \( L_{1} \cup L_{2} \), as a subspace of \( E^{2} \). Since \( L_{1} \cup L_{2} \) is not connected in \( E^{2} \), we deduce that \( L_{1} \cup L_{2} \) is not a component of \( Y \).
+
+		      Hence \( L_{1}, L_{2} \) are two distinct components of \( Y \). Thus the components of \( Y \) are \( L_{1}, L_{2}, \operatorname{Fr}(R_{n}) \).
+
+		      \bigskip
+		      Each \( \operatorname{Fr}(R_{n}) \) is an open and closed component in \( Y \) so each \( \operatorname{Fr}(R_{n}) \) is a quasi-component in \( Y \).
+
+		      \( L_{1} \) is not open in \( Y \) as every neighborhood of any point in \( L_{1} \) intersects infinitely many \( \operatorname{Fr}(R_{n}) \). Therefore \( L_{1} \) is not a quasi-component of \( Y \). Since each quasi-component is a union of components, \( L_{1} \cup L_{2} \) is a quasi-component.
+		\item \( \left\{ x_{1} \right\} \times Y \) and \( Y \) are homeomorphic, \( X \) and \( X \times \left\{ y_{2} \right\} \) are homeomorphic.
+
+		      Let \( A, B \) be a clopen decomposition of \( X \times Y \) then \( A \cap (\left\{ x_{1} \right\} \times Y) \) and \( B \cap (\left\{ x_{1} \right\} \times Y) \) is a clopen decomposition of \( \left\{ x_{1} \right\} \times Y \).
+
+		      As \( y_{1}, y_{2} \) are in the same quasi-component of \( Y \), \( (x_{1}, y_{1}), (x_{1}, y_{2}) \) are in the same quasi-component of \( \left\{ x_{1} \right\} \times Y \), which means \( (x_{1}, y_{1}), (x_{1}, y_{2}) \) are both in \( C_{1} \) or \( C_{2} \). Without loss of generality, suppose that they are both in \( C_{1} \).
+
+		      Similarly, \( A \cap (X \times \left\{ y_{2} \right\}) \), \( B \cap (X \times \left\{ y_{2} \right\}) \) is a clopen decomposition of \( X \times \left\{ y_{2} \right\} \). Two points \( x_{1}, x_{2} \) are in the same quasi-component of \( X \), so \( (x_{1}, y_{2}) \) and \( (x_{2}, y_{2}) \) are in the same quasi-component of \( X \times \left\{ y_{2} \right\} \), which means \( (x_{1}, y_{2}) \) and \( (x_{2}, y_{2}) \) are both in \( C_{1} \) or \( C_{2} \). Since \( (x_{1}, y_{2}) \in C_{1} \), \( (x_{2}, y_{2}) \in C_{2} \).
+
+		      Hence whenever \( (x_{1}, y_{1}) \in H \) for some clopen set \( H \) in \( X \times Y \), one also has \( (x_{2}, y_{2}) \in H \). According to part (c), \( (x_{1}, y_{1}) \) and \( (x_{2}, y_{2}) \) are in the same quasi-component of \( X \times Y \).
+	\end{enumerate}
+\end{proof}
+
 \section{Local Connectedness}
 
 \section{Path-Connectedness}
