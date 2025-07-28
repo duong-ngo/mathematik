@@ -516,5 +516,136 @@ In a space \(X\), define \( x \sim y \) if there is no decomposition of \(X\) in
 
 \section{Local Connectedness}
 
+\begin{problem}{V.4.1}
+Prove that an open set in \( E^{n} \) can have at most countably many components. Give an example to show that this is no longer true for closed sets.
+\end{problem}
+
+\begin{proof}
+	\( E^{n} \) has a countable basis \( \mathscr{B} \). Let \( U \) be an open set in \( E^{n} \). Assume that \( U \) has uncountably many components \( C_{i}(x_{i}) \) for \( i \in I \).
+
+	\( E^{n} \) is locally connected so each component of the open set \( U \) is an open set. Therefore \( C_{i}(x_{i}) \) contains a basis element \( B_{i} \in \mathscr{B} \). Since the components \( C_{i}(x_{i}) \) of \( U \) are disjoint and there are uncountably many of them, then \( \left\{ B_{i} \right\} \) is uncountable, which contradicts the countability of \( \mathscr{B} \).
+
+	Thus every open set in \( E^{n} \) can have at most countably many components.
+
+	\bigskip
+
+	In \( E^{1} \), the Cantor ternary set \( C \) is uncountable, closed, and totally disconnected, hence it has uncountably many components.
+
+	In \( E^{n} \), the set \( C \times \underbrace{\left\{ 0 \right\} \times \cdots \times \left\{ 0 \right\}}_{n-1} \) is uncountable, closed, and totally disconnected, so it has uncountably many components.
+\end{proof}
+
+\begin{problem}{V.4.2}
+Let \( Y \) be locally connected and let \( U \) be a component of the open \( G \subset Y \). Show \( G \cap \operatorname{Fr}(U) = \varnothing \).
+\end{problem}
+
+\begin{proof}
+	\( Y \) is locally connected and \( G \subset Y \) is open so the component \( U \) of \( G \) is an open set in \( Y \). Since \( U \) is a component of \( G \), \( \operatorname{cl}_{G}(U) = U \).
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		G \cap \operatorname{Fr}(U) & = G \cap \operatorname{cl}_{Y}(U) \cap \operatorname{cl}_{Y}(Y - U)        \\
+		                            & = G \cap \operatorname{cl}_{Y}(U) \cap G \cap \operatorname{cl}_{Y}(Y - U) \\
+		                            & = \operatorname{cl}_{G}(U) \cap G \cap (Y - U)                             \\
+		                            & = U \cap G \cap (Y - U)                                                    \\
+		                            & = U \cap (Y - U)                                                           \\
+		                            & = \varnothing.
+	\end{align*}
+	\endgroup
+\end{proof}
+
+\begin{problem}{V.4.3}
+Let \( Y \) be locally connected and \( A \subset Y \) arbitrary. Let \( C \) be a component of \( A \). Prove:
+\begin{enumerate}[label={(\alph*)}]
+	\item \(\operatorname{Int}(C) = C \cap \operatorname{Int}(A)\),
+	\item \(\operatorname{Fr}(C) \subset \operatorname{Fr}(A)\),
+	\item If \( A \) is closed, then \(\operatorname{Fr}(C) = C \cap \operatorname{Fr}(A)\).
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item By the definition of interiors, \( \operatorname{Int}(C) \subset C \). Besides, \( \operatorname{Int}(C) \subset C \subset A \) and \( \operatorname{Int}(A) \) is the largest open set contained in \( A \), it follows that \( \operatorname{Int}(C) \subset \operatorname{Int}(A) \). Therefore \( \operatorname{Int}(C) \subset C \cap \operatorname{Int}(A) \). So far, we haven't used the local connectedness of \( Y \).
+
+		      For each \( y \in C \cap \operatorname{Int}(A) \), there is a (connected) basic open set \( U \) such that \( y \in U \subset \operatorname{Int}(A) \) because \( Y \) is locally connected. Since \( U \) is connected and \( y \in U \subset \operatorname{Int}(A) \subset A \), it follows that \( U \subset C \) as \( C \) is the component of \( y \) in \( A \). Moreover, \( U \) is open so \( y \in U \subset \operatorname{Int}(C) \). Hence \( C \cap \operatorname{Int}(A) \subset \operatorname{Int}(C) \).
+
+		      Thus \( \operatorname{Int}(C) = C \cap \operatorname{Int}(A) \).
+		\item Let \( y \in \operatorname{Fr}(C) \) then every neighborhood \( N \) of \( y \) intersects \( C \) and \( Y - C \). Since \( Y \) is locally connected, there is a connected basic open set \( B \) such that \( y \in B \subset N \). As \( y \) is a boundary point of \( C \), the connected open set \( B \) intersects \( C \) and \( Y - C \). If \( B \) is contained in \( A \) then it contradicts the maximality of the component \( C \) in \( A \) because \( C \cup B \) is connected. Therefore \( B \) intersects \( Y - A \), which means \( N \) intersects \( A \) (because \(N\) intersects \(A\)) and \( Y - A \). Hence \( y \in \operatorname{Fr}(A) \).
+
+		      Thus \( \operatorname{Fr}(C) \subset \operatorname{Fr}(A) \).
+		\item Let \( y \in C \cap \operatorname{Fr}(A) \). Let \( N \) be a neighborhood of \( y \). As \( Y \) is locally connected, there is a connected open set \( B \) such that \( y \in B \subset N \). This connected open set \( B \) intersects both \( A \) and \( Y - A \), hence \( B \) intersects \( Y - C \). Hence \( N \) intersects \( C \) and \( Y - C \). Thus \( y \in \operatorname{Fr}(C) \) and \( C \cap \operatorname{Fr}(A) \subset \operatorname{Fr}(C) \). Note that we haven't used the closedness of \(A\) yet.
+
+		      \( C \) is closed in \( A \) (because \(C\) is a component of \(A\)) and \( A \) is closed in \( Y \) so \( C \) is closed in \( Y \). Therefore \( \operatorname{Fr}(C) \subset C \), and together with part (b), we deduce that \( \operatorname{Fr}(C) \subset C \cap \operatorname{Fr}(A) \).
+
+		      Thus \( \operatorname{Fr}(C) = C \cap \operatorname{Fr}(A) \).
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{V.4.4}
+Let \( Y \) be locally connected, and \( A \subset Y \) arbitrary. If \(\operatorname{Fr}(A)\) is locally connected, prove that \( \overline{A} \) is locally connected.
+\end{problem}
+
+\begin{quotation}
+	In this problem and the next one, we use the following lemma: Let \( X \) be a topological space and \( A_{\alpha} \subset X \) are disjoint locally connected subspaces of \( X \). Then \( \bigcup_{\alpha\in\mathscr{A}} A_{\alpha} \) is locally connected (with the induced topology from \( X \)).
+
+	\begin{proof}
+		Let \( \mathscr{B}_{\alpha} \) be a basis for \( A_{\alpha} \) consisting of connected open sets in \( A_{\alpha} \). Define \( \mathscr{B} = \bigcup_{\alpha\in\mathscr{A}} \mathscr{B}_{\alpha} \).
+
+		Let \( U \) be an open set in \( \bigcup_{\alpha\in\mathscr{A}} A_{\alpha} \) then \( U \cap A_{\alpha} \) is open in \( A_{\alpha} \) and can be written as a union of members of \( \mathscr{B}_{\alpha} \), for each \( \alpha \in \mathscr{A} \). Hence \( \mathscr{B} \) is a basis for \( \bigcup_{\alpha\in\mathscr{A}} A_{\alpha} \) and \( \bigcup_{\alpha\in\mathscr{A}} A_{\alpha} \) is locally connected.
+	\end{proof}
+\end{quotation}
+
+\begin{proof}
+	\( \operatorname{Int}(A) \) is open in \( Y \) and \( Y \) is locally connected so \( \operatorname{Int}(A) \) is locally connected.
+
+	\( \overline{A} = \operatorname{Int}(A) \cup \operatorname{Fr}(A) \). Since \( \operatorname{Int}(A) \) and \( \operatorname{Fr}(A) \) are disjoint and locally connected, it follows from the above lemma that \( \overline{A} \) is locally connected.
+\end{proof}
+
+\begin{problem}{V.4.5}
+Let \( Y \) be locally connected, \( Y = A \cup B \), where \( A, B \) are closed and \( A \cap B \) is locally connected. Prove that both \( A \) and \( B \) are locally connected.
+\end{problem}
+
+\begin{quotation}
+	The following proof implicitly uses the transitivity of subspaces.
+\end{quotation}
+
+\begin{proof}
+	\( A, B \) are closed so \( A \cap B \) is closed.
+	\[
+		Y - A = (A \cup B) - A = B - A = B - (A \cap B)
+	\]
+
+	is open in \( Y \). Because \( Y \) is locally connected, then the open set \( Y - A \) (with the induced topology) is locally connected.
+	\[
+		B = (B - (A \cap B)) \cup (A \cap B) = (Y - A) \cup (A \cap B)
+	\]
+
+	and \( Y - A, A \cap B \) are disjoint, locally connected, so \( B \) is locally connected, according to the above lemma. Similarly, \( A \) is locally connected.
+\end{proof}
+
+\begin{problem}{V.4.6}
+Let \(Y\) be locally connected, \( A \subset Y \) arbitrary. Let \( S \subset A \) be connected and open in \(A\). Show \( S = A \cap U \), where \( U \) is connected and open in \( Y \).
+\end{problem}
+
+\begin{proof}
+	If \( S \) is the emptyset, let \( U = \varnothing \) then \( S = A \cap U \).
+
+	Assume that \( S \) is nonempty. As \( S \) is open in \( A \), there exists an open set \( U \) in \( Y \) such that \( S = A \cap U \). Because \( U \) is open in \( Y \) and \( Y \) is locally connected, \( U = \bigcup_{\alpha\in\mathscr{A}} B_{\alpha} \) in which each \( B_{\alpha} \) is a connected open set. Without loss of generality, we can assume that \( B_{\alpha} \cap S \ne \varnothing \) for every \( \alpha \in \mathscr{A} \).
+
+	\( S \cup B_{\alpha} \) is connected for each \( \alpha \in \mathscr{A} \) because \( S \) and \( B_{\alpha} \) are connected and intersecting. Since \( \varnothing \ne S \subset \bigcap_{\alpha\in\mathscr{A}} (S \cup B_{\alpha}) \) then \( \bigcup_{\alpha\in\mathscr{A}} (S \cup B_{\alpha}) \) is connected. Moreover
+	\[
+		\bigcup_{\alpha\in\mathscr{A}} (S \cup B_{\alpha}) = S \cup \bigcup_{\alpha\in\mathscr{A}} B_{\alpha} = S \cup U = U
+	\]
+
+	which implies that \( U \) is connected. Thus \( S = A \cap U \), in which \( U \) is connected and open in \( Y \).
+\end{proof}
+
+\begin{problem}{V.4.7}
+Let \( Y \) be locally connected, but not connected. Show that a decomposition of \( Y \) into two nonempty disjoint open sets can always be accomplished by taking any component as one of the sets and all the rest as the other set.
+\end{problem}
+
+\begin{proof}
+	Let \( C \) be a component of \( Y \) then \( C \) is closed in \( Y \). Because \( Y \) is locally connected, \( C \) is open in \( Y \). Since \( Y \) is not connected, \( Y - C \) is nonempty. Hence \( Y = C \cup (Y - C) \) which means \( Y \) can be decomposed into the union of two disjoint open sets, in which one is a component and the rest is the complement.
+\end{proof}
+
 \section{Path-Connectedness}
 
