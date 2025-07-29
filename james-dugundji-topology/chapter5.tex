@@ -649,3 +649,38 @@ Let \( Y \) be locally connected, but not connected. Show that a decomposition o
 
 \section{Path-Connectedness}
 
+\begin{problem}{V.5.1}
+Show: If any one of the conditions in Proposition 5.4 holds, then the path components of \(Y\) coincide with the components of \(Y\).
+\end{problem}
+
+\begin{quotation}
+	Proposition 5.4: The following two properties of a space \(Y\) are equivalent:
+	\begin{enumerate}[label={(\arabic*)}]
+		\item Each path component is open (and therefore also closed).
+		\item Each point of \(Y\) has a path-connected neighborhood.
+	\end{enumerate}
+\end{quotation}
+
+\begin{proof}
+	If any one of the conditions holds, then each path component of \( Y \) is open and closed.
+
+	Let \( P \) be a path component of \( Y \). Since \( P \) is open, closed, and connected (path-connectedness implies connected), we conclude that \( P \) is a component of \( Y \), according to Problem~\ref{problem:V.3.4}. Thus the path components of \(Y\) coincide with the components of \(Y\).
+\end{proof}
+
+\begin{problem}{V.5.2}
+Let \( \left\{ Y_{\alpha} \mid \alpha \in \mathscr{A} \right\} \) be a family of spaces. Show \( \prod_{\alpha} Y_{\alpha} \) is path-connected if and only if each \( Y_{\alpha} \) is path-connected.
+\end{problem}
+
+\begin{proof}
+	Suppose that \( \prod_{\alpha} Y_{\alpha} \) is path-connected. Since each canonical projection \( p_{\alpha}: \prod_{\alpha} Y_{\alpha} \to Y_{\alpha} \) is continuous, we conclude that each \( Y_{\alpha} \) is path-connected.
+
+	Conversely, suppose that each \( Y_{\alpha} \) is path-connected. Let \( y, \hat{y} \) be a point of \( \prod_{\alpha} Y_{\alpha} \). For each \( \alpha \), there is a path \( f_{\alpha}: \closedinterval{0, 1} \to Y_{\alpha} \) connecting \( y_{\alpha} \) and \( \hat{y}_{\alpha} \). Define \( f: \closedinterval{0, 1} \to \prod_{\alpha} Y_{\alpha} \) by \( p_{\alpha}(f(t)) = f_{\alpha}(t) \) for each \( t \in \closedinterval{0,1}, \alpha \) then \( f \) is continuous as \( p_{\alpha} \circ f \) is continuous for each \( \alpha \). Therefore \( f \) is a path connecting \( y_{\alpha} \) and \( \hat{y}_{\alpha} \).
+\end{proof}
+
+\begin{problem}{V.5.3}
+Let \(X\) be the connected set in Problem~\ref{problem:V.1.3} \textcolor{red}{and \( X \) is countable}. Show that \(X\) is totally pathwise disconnected.
+\end{problem}
+
+\begin{proof}
+	This is a consequence of Sierpiński's theorem on partitions of the unit interval into closed sets.
+\end{proof}
