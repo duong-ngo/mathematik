@@ -1,1 +1,131 @@
-\chapter{Identification topology; weak topology}
+\chapter{Identification Topology; Weak Topology}
+
+\section{Identification Topology}
+
+\begin{problem}{VI.1.1}\label{problem:VI.1.1}
+Reversing the situation treated in the text, let \(X\) be a set, \( (Y, \mathscr{T}) \) a space, and \( p: X \to Y \) a surjective map. Prove:
+\begin{enumerate}[label={(\alph*)}]
+	\item \( \mathscr{T}_{X} = \left\{ p^{-1}(U) \mid U \text{ open in } Y \right\} \) is a topology in \( X \).
+	\item \( p: (X, \mathscr{T}_{X}) \to (Y, \mathscr{T}) \) is continuous, open, and closed.
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item \( \mathscr{T}_{X} \) contains \( \varnothing, X \) as \( p^{-1}(\varnothing) = \varnothing \) and \( p^{-1}(Y) = X \).
+
+		      If \( {\left\{ U_{\alpha} \right\}}_{\alpha\in\mathscr{A}} \) is a collection of open sets in \( Y \), then
+		      \[
+			      \bigcup_{\alpha\in\mathscr{A}} p^{-1}(U_{\alpha}) = p^{-1}\left(\bigcup_{\alpha\in\mathscr{A}} U_{\alpha}\right)
+		      \]
+
+		      so \( \mathscr{T}_{X} \) is closed under arbitrary union.
+
+		      If \( U_{1}, \ldots, U_{n} \) are open sets in \( Y \) then
+		      \[
+			      \bigcap^{n}_{i=1} p^{-1}(U_{i}) = p^{-1}\left(\bigcap^{n}_{i=1} U_{i}\right)
+		      \]
+
+		      so \( \mathscr{T}_{X} \) is closed under finite intersection.
+
+		      Hence \( \mathscr{T}_{X} \) is a topology in \( X \).
+		\item For each open set \( U \) in \( Y \), \( p^{-1}(U) \in \mathscr{T}_{X} \) so \( p \) is continuous.
+
+		      Let \( V \) be an open set in \( X \). Then there is an open set \( U \) in \( Y \) such that \( V = p^{-1}(U) \). Hence \( p(V) = pp^{-1}(U) = U \) because \( p \) is surjective. So \( p \) is an open map.
+
+		      Let \( W \) be a closed set in \( X \) then \( X - W \) is open and there exists an open set \( U \) in \( Y \) such that \( X - W = p^{-1}(U) \). Therefore
+		      \[
+			      W = X - p^{-1}(U) = p^{-1}(Y) - p^{-1}(U) = p^{-1}(Y - U)
+		      \]
+
+		      which implies that \( p(W) = pp^{-1}(Y - U) = Y - U \), which is closed in \( Y \). So \( p \) is a closed map.
+
+		      Thus \( p \) is a continuous, open, and closed map.
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{VI.1.2}
+For each \( \alpha \in \mathscr{A} \), let \( p_{\alpha}: X_{\alpha} \to Y_{\alpha} \) be a continuous, open surjection. Show that \( \prod_{\alpha} p_{\alpha}: \prod_{\alpha} X_{\alpha} \to \prod_{\alpha} Y_{\alpha} \) is an identification.
+\end{problem}
+
+\begin{proof}
+	For the sake of brevity, denote \( p = \prod_{\alpha} p_{\alpha} \). By definition, \( p \) is surjective.
+
+	\( p_{Y_{\alpha}} \circ p \) is continuous for each projection \( p_{Y_{\alpha}}: \prod_{\alpha} Y_{\alpha} \to Y_{\alpha} \) so \( p \) is continuous.
+
+	Let \( \prod_{\alpha} U_{\alpha} \) be a basic open set in \( \prod_{\alpha} X_{\alpha} \), which means \( U_{\alpha} = X_{\alpha} \) for all but finitely many \( \alpha \) and \( U_{\alpha} \) is open in \( X_{\alpha} \) for every \( \alpha \). Because \( p_{\alpha} \) is an open surjection for each \( \alpha \), the image
+	\[
+		p\left( \prod_{\alpha} U_{\alpha} \right) = \prod_{\alpha} p_{\alpha}(U_{\alpha})
+	\]
+
+	is open in \( \prod_{\alpha} Y_{\alpha} \) as \( p_{\alpha}(U_{\alpha}) \) is open in \( Y_{\alpha} \) and \( p_{\alpha}(U_{\alpha}) = Y_{\alpha} \) for all but finitely many \( \alpha \). Hence \( p \) is an open map.
+
+	\( p \) is a continuous, open surjection so \( p \) is an identification.
+\end{proof}
+
+\begin{problem}{VI.1.3}
+Let \( X \) be a space and \( A \subset X \) a subspace. Assume that there exists a continuous \( r: X \to A \) such that \( r\vert_{A} = 1_{A} \) (such a map is called a \textit{retraction} of \(X\) onto \(A\)). Show that \( r \) is an identification.
+\end{problem}
+
+\begin{proof}
+	By definition, \( r \) is continuous and surjective. Let \( f: A \xhookrightarrow{} X \) be the inclusion map.
+
+	\( f \) is continuous and \( r \circ f = 1_{A} \) so \( r \) is an identification.
+\end{proof}
+
+\begin{problem}{VI.1.4}
+Let \( X \) be any set. Given any family \( \left\{ (Y_{\alpha}, \mathscr{T}_{\alpha}), f_{\alpha} \mid \alpha \in \mathscr{A} \right\} \) of spaces and maps \( f_{\alpha}: X \to Y_{\alpha} \), the ``projective limit topology of \(X\) determined by this family'' is \( \bigvee_{\alpha} f_{\alpha}^{-1}(\mathscr{T}_{\alpha}) \) (see Problem~\ref{problem:III.3.8}). Prove:
+\begin{enumerate}[label={(\alph*)}]
+	\item If \( j: X \to \prod_{\alpha} Y_{\alpha} \) is the map \( j(x) = \left\{ f_{\alpha}(x) \right\} \), then \( \bigvee_{\alpha} f_{\alpha}^{-1}(\mathscr{T}_{\alpha}) \) is the topology in \(X\) determined by \(j\) as in Problem~\ref{problem:VI.1.1}.
+	\item If whenever \( x \ne x^{\prime} \), there is some index \( \alpha \) such that \( f_{\alpha}(x) \ne f_{\alpha}(x^{\prime}) \), then \( j \) is an embedding.
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item Let \( \prod_{\alpha} U_{\alpha} \) be a subbasic open set in \( \prod_{\alpha} Y_{\alpha} \) then \( U_{\alpha} = Y_{\alpha} \) for every \( \alpha \) but one \( \beta \in \mathscr{A} \).
+		      \[
+			      j^{-1}\left( \prod_{\alpha} U_{\alpha} \right) = \bigcap_{\alpha} f_{\alpha}^{-1}(U_{\alpha}) = f_{\beta}^{-1}(U_{\beta}) \in \bigvee_{\alpha} f_{\alpha}^{-1}(\mathscr{T}_{\alpha})
+		      \]
+
+		      Hence \( j \) is continuous, which means if \( j^{-1}(U) \) is open whenever \( U \subset \prod_{\alpha} Y_{\alpha} \) is open.
+
+		      Let \( V \) be an open set in \( X \). According to the definition of the topology \( \bigvee_{\alpha} f_{\alpha}^{-1}(\mathscr{T}_{\alpha}) \), \( V \) can be written as a union of finite intersection of elements in \( \bigcup_{\alpha} f_{\alpha}^{-1}(\mathscr{T}_{\alpha}) \), which means
+		      \[
+			      V = \bigcup_{i\in I} V_{i}
+		      \]
+
+		      where each \( V_{i} \) is a finite intersection of elements in \( \bigcup_{\alpha} f_{\alpha}^{-1}(\mathscr{T}_{\alpha}) \).
+		      \[
+			      V_{i} = \bigcap^{n_{i}}_{1} f_{\alpha_{k_{i}}}^{-1}(U_{\alpha_{k_{i}}}) = \bigcap^{n_{i}}_{1} j^{-1}\left( U_{\alpha_{k_{i}}} \times \prod_{\alpha \ne \alpha_{k_{i}}} Y_{\alpha} \right) = j^{-1}\left( \bigcap^{n_{i}}_{1} U_{\alpha_{k_{i}}} \times \prod_{\alpha \ne \alpha_{k_{i}}} Y_{\alpha} \right) = j^{-1}(W_{i})
+		      \]
+
+		      where \( U_{\alpha_{k_{i}}} \) is open in \( Y_{\alpha_{k_{i}}} \). So
+		      \[
+			      V = \bigcup_{i\in I} j^{-1}(W_{i}) = j^{-1}\left( \bigcup_{i\in I} W_{i} \right)
+		      \]
+
+		      which means \( V \) is the preimage of an open set in \( \prod_{\alpha} Y_{\alpha} \).
+
+		      Thus \( \bigvee_{\alpha} f_{\alpha}^{-1}(\mathscr{T}_{\alpha}) \) is the same as the topology in \( X \) determined by \( j \) as in Problem~\ref{problem:VI.1.1}.
+		\item According to Problem~\ref{problem:VI.1.1}, \( j \) is continuous, open, and closed.
+
+		      Whenever \( x \ne x^{\prime} \), there is some index \( \alpha \) such that \( f_{\alpha}(x) \ne f_{\alpha}(x^{\prime}) \), then \( j(x) \ne j(x^{\prime}) \), which implies \( j \) is injective.
+
+		      A continuous, open, injective map is an embedding so \( j \) is an embedding.
+	\end{enumerate}
+\end{proof}
+
+\section{Subspaces}
+
+\section{General Theorems}
+
+\section{Spaces with Equivalence Relations}
+
+\section{Cones and Suspensions}
+
+\section{Attaching of Spaces}
+
+\section{The Relation \(K(f)\) of Continuous Maps}
+
+\section{Weak Topologies}
