@@ -73,7 +73,7 @@ Let \( X \) be a space and \( A \subset X \) a subspace. Assume that there exist
 	\( f \) is continuous and \( r \circ f = 1_{A} \) so \( r \) is an identification.
 \end{proof}
 
-\begin{problem}{VI.1.4}
+\begin{problem}{VI.1.4}\label{problem:VI.1.4}
 Let \( X \) be any set. Given any family \( \left\{ (Y_{\alpha}, \mathscr{T}_{\alpha}), f_{\alpha} \mid \alpha \in \mathscr{A} \right\} \) of spaces and maps \( f_{\alpha}: X \to Y_{\alpha} \), the ``projective limit topology of \(X\) determined by this family'' is \( \bigvee_{\alpha} f_{\alpha}^{-1}(\mathscr{T}_{\alpha}) \) (see Problem~\ref{problem:III.3.8}). Prove:
 \begin{enumerate}[label={(\alph*)}]
 	\item If \( j: X \to \prod_{\alpha} Y_{\alpha} \) is the map \( j(x) = \left\{ f_{\alpha}(x) \right\} \), then \( \bigvee_{\alpha} f_{\alpha}^{-1}(\mathscr{T}_{\alpha}) \) is the topology in \(X\) determined by \(j\) as in Problem~\ref{problem:VI.1.1}.
@@ -117,6 +117,49 @@ Let \( X \) be any set. Given any family \( \left\{ (Y_{\alpha}, \mathscr{T}_{\a
 \end{proof}
 
 \section{Subspaces}
+
+\begin{problem}{VI.2.1}
+Let \(X\) have the projective limit topology (Problem~\ref{problem:VI.1.4}) determined by
+\[
+	\left\{ Y_{\alpha}, f_{\alpha} \mid \alpha \in \mathscr{A} \right\}
+\]
+
+and let \( A \subset X \). Prove: The subspace topology of \(A\) is the projective limit topology determined by the maps \( f_{\alpha}\vert_{A} \).
+\end{problem}
+
+\begin{proof}
+	The projective limit topology on \( A \) determined by the maps \( f_{\alpha}\vert_{A} \) has subbasis
+	\[
+		\bigcup_{\alpha} {(f_{\alpha}\vert_{A})}^{-1}(\mathscr{T}_{\alpha})
+	\]
+
+	Let \( V \) be an open set in \( A \) (with the projective limit topology) then
+	\[
+		V = \bigcup_{i\in I} U_{i}
+	\]
+
+	in which each \( V_{i} \) is the intersection of finitely many elements of \( \bigcup_{\alpha} {(f_{\alpha}\vert_{A})}^{-1}(\mathscr{T}_{\alpha}) \). So there exist \( \alpha_{i_{1}}, \ldots, \alpha_{i_{n(i)}} \in \mathscr{A} \) such that
+	\[
+		V_{i} = \bigcap^{n(i)}_{k=1} {(f_{\alpha_{i_{k}}}\vert_{A})}^{-1}(U_{\alpha_{i_{k}}})
+	\]
+
+	Hence
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		V_{i} & = \bigcap^{n(i)}_{k=1} (A \cap f_{\alpha_{i_{k}}}^{-1}(U_{\alpha_{i_{k}}}))                                                             \\
+		      & = A \cap \bigcap^{n(i)}_{k=1} f_{\alpha_{i_{k}}}^{-1}(U_{\alpha_{i_{k}}})                                                               \\
+		      & = A \cap \bigcap^{n(i)}_{k=1} j^{-1}\left( U_{\alpha_{i_{k}}} \times \prod_{\alpha \ne \alpha_{i_{k}}} Y_{\alpha} \right)               \\
+		      & = A \cap j^{-1}\left( \bigcap^{n(i)}_{k=1} \left( U_{\alpha_{i_{k}}} \times \prod_{\alpha\ne\alpha_{i_{k}}} Y_{\alpha} \right) \right).
+	\end{align*}
+	\endgroup
+
+	Eventually, we obtain that \( V = A \cap j^{-1}(W) \) in which \( W \) is an open set in \( \prod_{\alpha} Y_{\alpha} \). Hence \( V \) is in the subspace topology of \( A \).
+
+	Conversely, one can show that if \( V \) is in the subspace topology of \( A \), then \( V \) is also in the projective limit topology on \( A \) determinded by the maps \( f_{\alpha}\vert_{A} \).
+
+	Thus the projective limit topology on \( A \) determinded by the maps \( f_{\alpha}\vert_{A} \) and the subspace topology on \( A \) coincide.
+\end{proof}
 
 \section{General Theorems}
 
