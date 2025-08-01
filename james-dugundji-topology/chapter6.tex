@@ -97,10 +97,10 @@ Let \( X \) be any set. Given any family \( \left\{ (Y_{\alpha}, \mathscr{T}_{\a
 
 		      where each \( V_{i} \) is a finite intersection of elements in \( \bigcup_{\alpha} f_{\alpha}^{-1}(\mathscr{T}_{\alpha}) \).
 		      \[
-			      V_{i} = \bigcap^{n_{i}}_{1} f_{\alpha_{k_{i}}}^{-1}(U_{\alpha_{k_{i}}}) = \bigcap^{n_{i}}_{1} j^{-1}\left( U_{\alpha_{k_{i}}} \times \prod_{\alpha \ne \alpha_{k_{i}}} Y_{\alpha} \right) = j^{-1}\left( \bigcap^{n_{i}}_{1} U_{\alpha_{k_{i}}} \times \prod_{\alpha \ne \alpha_{k_{i}}} Y_{\alpha} \right) = j^{-1}(W_{i})
+			      V_{i} = \bigcap^{n_{i}}_{k=1} f_{\alpha_{k}}^{-1}(U_{\alpha_{k}}) = \bigcap^{n_{i}}_{k=1} j^{-1}\left( U_{\alpha_{k}} \times \prod_{\alpha \ne \alpha_{k}} Y_{\alpha} \right) = j^{-1}\left( \bigcap^{n_{i}}_{k=1} U_{\alpha_{k}} \times \prod_{\alpha \ne \alpha_{k}} Y_{\alpha} \right) = j^{-1}(W_{i})
 		      \]
 
-		      where \( U_{\alpha_{k_{i}}} \) is open in \( Y_{\alpha_{k_{i}}} \). So
+		      where \( U_{\alpha_{k}} \) is open in \( Y_{\alpha_{k}} \). So
 		      \[
 			      V = \bigcup_{i\in I} j^{-1}(W_{i}) = j^{-1}\left( \bigcup_{i\in I} W_{i} \right)
 		      \]
@@ -135,26 +135,35 @@ and let \( A \subset X \). Prove: The subspace topology of \(A\) is the projecti
 
 	Let \( V \) be an open set in \( A \) (with the projective limit topology) then
 	\[
-		V = \bigcup_{i\in I} U_{i}
+		V = \bigcup_{i\in I} V_{i}
 	\]
 
 	in which each \( V_{i} \) is the intersection of finitely many elements of \( \bigcup_{\alpha} {(f_{\alpha}\vert_{A})}^{-1}(\mathscr{T}_{\alpha}) \). So there exist \( \alpha_{i_{1}}, \ldots, \alpha_{i_{n(i)}} \in \mathscr{A} \) such that
 	\[
-		V_{i} = \bigcap^{n(i)}_{k=1} {(f_{\alpha_{i_{k}}}\vert_{A})}^{-1}(U_{\alpha_{i_{k}}})
+		V_{i} = \bigcap^{n(i)}_{k=1} {(f_{\alpha_{k}}\vert_{A})}^{-1}(U_{\alpha_{k}})
 	\]
 
 	Hence
 	\begingroup
 	\allowdisplaybreaks%
 	\begin{align*}
-		V_{i} & = \bigcap^{n(i)}_{k=1} (A \cap f_{\alpha_{i_{k}}}^{-1}(U_{\alpha_{i_{k}}}))                                                             \\
-		      & = A \cap \bigcap^{n(i)}_{k=1} f_{\alpha_{i_{k}}}^{-1}(U_{\alpha_{i_{k}}})                                                               \\
-		      & = A \cap \bigcap^{n(i)}_{k=1} j^{-1}\left( U_{\alpha_{i_{k}}} \times \prod_{\alpha \ne \alpha_{i_{k}}} Y_{\alpha} \right)               \\
-		      & = A \cap j^{-1}\left( \bigcap^{n(i)}_{k=1} \left( U_{\alpha_{i_{k}}} \times \prod_{\alpha\ne\alpha_{i_{k}}} Y_{\alpha} \right) \right).
+		V_{i} & = \bigcap^{n(i)}_{k=1} (A \cap f_{\alpha_{k}}^{-1}(U_{\alpha_{k}}))                                                             \\
+		      & = A \cap \bigcap^{n(i)}_{k=1} f_{\alpha_{k}}^{-1}(U_{\alpha_{k}})                                                               \\
+		      & = A \cap \bigcap^{n(i)}_{k=1} j^{-1}\left( U_{\alpha_{k}} \times \prod_{\alpha \ne \alpha_{k}} Y_{\alpha} \right)               \\
+		      & = A \cap j^{-1}\left( \bigcap^{n(i)}_{k=1} \left( U_{\alpha_{k}} \times \prod_{\alpha\ne\alpha_{k}} Y_{\alpha} \right) \right).
 	\end{align*}
 	\endgroup
 
-	Eventually, we obtain that \( V = A \cap j^{-1}(W) \) in which \( W \) is an open set in \( \prod_{\alpha} Y_{\alpha} \). Hence \( V \) is in the subspace topology of \( A \).
+	Therefore
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		V & = A \cap \bigcup_{i\in I} j^{-1}\left( \bigcap^{n(i)}_{k=1} \left( U_{\alpha_{k}} \times \prod_{\alpha\ne\alpha_{k}} Y_{\alpha} \right) \right) \\
+		  & = A \cap j^{-1}\left( \bigcup_{i\in J} \bigcap^{n(i)}_{k=1} \left( U_{\alpha_{k}} \times \prod_{\alpha\ne\alpha_{k}} Y_{\alpha} \right) \right)
+	\end{align*}
+	\endgroup
+
+	Hence \( V \) is in the subspace topology of \( A \).
 
 	Conversely, one can show that if \( V \) is in the subspace topology of \( A \), then \( V \) is also in the projective limit topology on \( A \) determinded by the maps \( f_{\alpha}\vert_{A} \).
 
@@ -162,6 +171,171 @@ and let \( A \subset X \). Prove: The subspace topology of \(A\) is the projecti
 \end{proof}
 
 \section{General Theorems}
+
+\begin{problem}{VI.3.1}
+Let \( p: X \to Y \) be a continuous open (or closed) surjection, and assume that each fiber \( p^{-1}(y) \) is connected. For any \( F \subset Y \), show that \( F \) is connected if and only if \( p^{-1}(F) \) is connected.
+\end{problem}
+
+\begin{proof}
+	By Proposition 2.1, \( p\vert_{p^{-1}(F)}: p^{-1}(F) \to F \) is an identification because \( p \) is an identification which is also an open (or closed) map. Denote \( q = p\vert_{p^{-1}(F)} \).
+
+	If \( p^{-1}(F) \) is connected then \( F = p(p^{-1}(F)) \) is connected, as \( p \) is a continuous surjection.
+
+	If \( p^{-1}(F) \) is not connected then there is a continuous surjection \( h: p^{-1}(F) \to 2 \). As each fiber of \( q \) (each fiber of \(q \) is a fiber of \(p\)) is connected, the restriction of \( h \) to each fiber is a constant map. Therefore \( hq^{-1}: F \to 2 \) is a continuous surjection, according to the transgression property, which means \( F \) is not connected.
+\end{proof}
+
+\begin{problem}{VI.3.2}
+Let \( X \) have the projective limit topology \( \mathscr{T} \) determined by the family
+\[
+	\left\{ (Y_{\alpha}, \mathscr{T}_{\alpha}), f_{\alpha} \mid \alpha \in \mathscr{A} \right\}
+\]
+
+Assume that each \( \mathscr{T}_{\alpha} \) is the projective limit topology determined by a family
+\[
+	\left\{ (Z_{\alpha, \beta}, \mathscr{T}_{\alpha,\beta}), g_{\alpha,\beta} \mid \beta \in \mathscr{B} \right\}.
+\]
+
+Prove: \( \mathscr{T} \) is the projective limit topology determined by
+\[
+	\left\{ (Z_{\alpha,\beta}, \mathscr{T}_{\alpha,\beta}), g_{\alpha,\beta} \circ f_{\alpha} \mid (\alpha, \beta) \in \mathscr{A} \times \mathscr{B} \right\}.
+\]
+\end{problem}
+
+\begin{proof}
+	Denote by \( \widetilde{\mathscr{T}} \) the projective limit topology determined by
+	\[
+		\left\{ (Z_{\alpha,\beta}, \mathscr{T}_{\alpha,\beta}), g_{\alpha,\beta} \circ f_{\alpha} \mid (\alpha, \beta) \in \mathscr{A} \times \mathscr{B} \right\}.
+	\]
+
+	Let \( h: X \to \prod_{\alpha} Y_{\alpha} \) be the map \( h(x) = {\left\{ f_{\alpha}(x) \right\}}_{\alpha} \) then
+	\[
+		\mathscr{T} = \left\{ h^{-1}(U) \mid U \text{ open in } \prod_{\alpha}Y_{\alpha} \right\}
+	\]
+
+	according to Problem~\ref{problem:VI.1.4}.
+
+	For each \( \alpha \), let \( h_{\alpha}: Y_{\alpha} \to \prod_{\beta} Z_{\alpha,\beta} \) be the map \( h_{\alpha}(x) = {\left\{ g_{\alpha,\beta}(x) \right\}}_{\beta} \) then
+	\[
+		\mathscr{T}_{\alpha} = \left\{ h_{\alpha}^{-1}(U) \mid U \text{ open in } \prod_{\beta} Z_{\alpha,\beta} \right\}
+	\]
+
+	according to Problem~\ref{problem:VI.1.4}.
+
+	Let \( \ell: (X, \widetilde{\mathscr{T}}) \to \prod_{\alpha,\beta} Z_{\alpha,\beta} \) be the map \( \ell(x) = {\left\{ g_{\alpha,\beta}(f_{\alpha}(x)) \right\}}_{\alpha,\beta} \) then
+	\[
+		\widetilde{\mathscr{T}} = \left\{ \ell^{-1}(U) \mid U \text{ open in } \prod_{\alpha,\beta} Z_{\alpha,\beta} \right\}
+	\]
+
+	according to Problem~\ref{problem:VI.1.4}.
+
+	Note that \( f_{\alpha} = p_{\alpha} \circ h \) and \( g_{\alpha,\beta} = p_{\alpha,\beta} \circ h_{\alpha} \) in which \( p_{\alpha}: \prod_{\alpha} Y_{\alpha} \to Y_{\alpha} \) and \( p_{\alpha,\beta}: \prod_{\beta} Z_{\alpha,\beta} \to Z_{\alpha,\beta} \) are projection maps. Denote by \( q_{\alpha,\beta} \) the projection map \( \prod_{\alpha,\beta} W_{\alpha,\beta} \to W_{\alpha,\beta} \).
+	\[
+		\begin{tikzcd}
+			&& {\prod_{\alpha} Y_{\alpha}} \\
+			\\
+			X && {Y_{\alpha}} && {\prod_{\beta}Z_{\alpha,\beta}} && {Z_{\alpha,\beta}}
+			\arrow["{p_{\alpha}}", from=1-3, to=3-3]
+			\arrow["h", from=3-1, to=1-3]
+			\arrow["{f_{\alpha}}"', from=3-1, to=3-3]
+			\arrow["{h_{\alpha}}"', from=3-3, to=3-5]
+			\arrow["{g_{\alpha,\beta}}"', bend right, from=3-3, to=3-7]
+			\arrow["{p_{\alpha,\beta}}"', from=3-5, to=3-7]
+		\end{tikzcd}
+	\]
+
+	\[
+		\begin{tikzcd}
+			X && {\prod_{\alpha,\beta} Z_{\alpha,\beta}} && {Z_{\alpha,\beta}}
+			\arrow["\ell", from=1-1, to=1-3]
+			\arrow["{g_{\alpha,\beta} \circ f_{\alpha}}"', bend right, from=1-1, to=1-5]
+			\arrow["{q_{\alpha,\beta}}", from=1-3, to=1-5]
+		\end{tikzcd}
+	\]
+
+	Let \( U \in \mathscr{T} \) then there exists \( V \) open in \( \prod_{\alpha} Y_{\alpha} \) such that \( U = h^{-1}(V) \) (see Problem~\ref{problem:VI.1.4} and~\ref{problem:VI.1.1}). One can write \( V \) in terms of subbasic elements as follows
+	\[
+		V = \bigcup_{i\in I} \bigcap^{n(i)}_{k=1} p_{\alpha_{k}}^{-1}(V_{\alpha_{k}})
+	\]
+
+	in which \( V_{\alpha_{k}} \) is open in \( Y_{\alpha_{k}} \).
+
+	As \( \mathscr{T}_{\alpha} \) is the projective limit topology on \( Y_{\alpha} \) determined by the maps \( g_{\alpha,\beta}: Y_{\alpha} \to Z_{\alpha,\beta} \), there is an open set \( W_{\alpha_{k}} \) in \( \prod_{\beta} Z_{\alpha_{k},\beta} \) such that \( V_{\alpha_{k}} = h_{\alpha}^{-1}(W_{\alpha_{k}}) \). The open set \( W_{\alpha_{k}} \) can be written in terms of subbasic elements as follows
+	\[
+		W_{\alpha_{k}} = \bigcup_{j \in J} \bigcap^{n(j)}_{r=1} p_{\alpha_{k},\beta_{r}}^{-1}(W_{\alpha_{k}, \beta_{r}})
+	\]
+
+	in which \( W_{\alpha_{k}, \beta_{r}} \) is open in \( Z_{\alpha_{k}, \beta_{r}} \).
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		V             & = \bigcup_{i\in I} \bigcap^{n(i)}_{k=1} p_{\alpha_{k}}^{-1}(V_{\alpha_{k}})                                                                                                                         \\
+		              & = \bigcup_{i\in I} \bigcap^{n(i)}_{k=1} p_{\alpha_{k}}^{-1}\left( h^{-1}_{\alpha_{k}}(W_{\alpha_{k}}) \right)                                                                                       \\
+		              & = \bigcup_{i\in I} \bigcap^{n(i)}_{k=1} {(h_{\alpha_{k}} \circ p_{\alpha_{k}})}^{-1}(W_{\alpha_{k}})                                                                                                \\
+		              & = \bigcup_{i\in I} \bigcap^{n(i)}_{k=1} {(h_{\alpha_{k}} \circ p_{\alpha_{k}})}^{-1} \left( \bigcup_{j \in J} \bigcap^{n(j)}_{r=1} p_{\alpha_{k},\beta_{r}}^{-1}(W_{\alpha_{k}, \beta_{r}}) \right) \\
+		              & = \bigcup_{i\in I} \bigcap^{n(i)}_{k=1} \bigcup_{j\in J} \bigcap^{n(j)}_{r=1} {(p_{\alpha_{k},\beta_{r}} \circ h_{\alpha_{k}} \circ p_{\alpha_{k}})}^{-1}(W_{\alpha_{k},\beta_{r}})                 \\
+		U = h^{-1}(V) & = \bigcup_{i\in I} \bigcap^{n(i)}_{k=1} \bigcup_{j\in J} \bigcap^{n(j)}_{r=1} {(p_{\alpha_{k},\beta_{r}} \circ h_{\alpha_{k}} \circ p_{\alpha_{k}} \circ h)}^{-1}(W_{\alpha_{k},\beta_{r}})         \\
+		              & = \bigcup_{i\in I} \bigcap^{n(i)}_{k=1} \bigcup_{j\in J} \bigcap^{n(j)}_{r=1} {(g_{\alpha_{k},\beta_{r}} \circ f_{\alpha_{k}})}^{-1}(W_{\alpha_{k},\beta_{r}})                                      \\
+		              & = \bigcup_{i\in I} \bigcap^{n(i)}_{k=1} \bigcup_{j\in J} \bigcap^{n(j)}_{r=1} {(q_{\alpha_{k},\beta_{r}} \circ \ell)}^{-1}(W_{\alpha_{k},\beta_{r}})                                                \\
+		              & = \bigcup_{i\in I} \bigcap^{n(i)}_{k=1} \bigcup_{j\in J} \bigcap^{n(j)}_{r=1} \ell^{-1}q_{\alpha_{k},\beta_{r}}^{-1}(W_{\alpha_{k},\beta_{r}})                                                      \\
+		              & = \ell^{-1}\left( \bigcup_{i\in I} \bigcap^{n(i)}_{k=1} \bigcup_{j\in J} \bigcap^{n(j)}_{r=1} q_{\alpha_{k},\beta_{r}}^{-1}(W_{\alpha_{k},\beta_{r}}) \right) \in \widetilde{\mathscr{T}}
+	\end{align*}
+	\endgroup
+
+	Hence \( U \in \widetilde{\mathscr{T}} \), which means \( \mathscr{T} \subset \widetilde{\mathscr{T}} \).
+
+	\bigskip
+	Conversely, let \( U \in \widetilde{\mathscr{T}} \) then there exists \( W \) open in \( \prod_{\alpha,\beta} Z_{\alpha,\beta} \) such that \( U = \ell^{-1}(W) \).
+
+	\( W \) can be written in terms of subbasic elements.
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		U & = \ell^{-1}(W) = \ell^{-1}\left( \bigcup_{i\in I}\bigcap^{n(i)}_{r=1} q^{-1}_{\alpha_{r},\beta_{r}}(W_{\alpha_{r},\beta_{r}}) \right) \\
+		  & = \bigcup_{i\in I}\bigcap^{n(i)}_{r=1} \ell^{-1}q^{-1}_{\alpha_{r},\beta_{r}}(W_{\alpha_{r},\beta_{r}})                               \\
+		  & = \bigcup_{i\in I}\bigcap^{n(i)}_{r=1} {(q_{\alpha_{r},\beta_{r}}\circ \ell)}^{-1}(W_{\alpha_{r},\beta_{r}})                          \\
+		  & = \bigcup_{i\in I}\bigcap^{n(i)}_{r=1} {(g_{\alpha_{r},\beta_{r}}\circ f_{\alpha_{r}})}^{-1}(W_{\alpha_{r},\beta_{r}})                \\
+		  & = \bigcup_{i\in I}\bigcap^{n(i)}_{r=1} f_{\alpha_{r}}^{-1}(g_{\alpha_{r},\beta_{r}}^{-1}(W_{\alpha_{r},\beta_{r}})) \in \mathscr{T}
+	\end{align*}
+	\endgroup
+
+	so \( \widetilde{\mathscr{T}} \subset \mathscr{T} \).
+
+	Thus \( \mathscr{T} = \widetilde{\mathscr{T}} \).
+\end{proof}
+
+\begin{problem}{VI.3.3}
+Let \(X\) have the projective limit topology determined by \( \left\{ Y_{\alpha}, f_{\alpha} \mid \alpha \in \mathscr{A} \right\} \). Prove: \( f: Z \to X \) is continuous if and only if each \( f_{\alpha} \circ f \) is continuous.
+\end{problem}
+
+\begin{proof}
+	For each \( \alpha \), the map \( f_{\alpha}: X \to Y_{\alpha} \) is continuous.
+
+	If \( f \) is continuous then each \( f_{\alpha} \circ f \) is continuous.
+
+	Conversely, assume that each \( f_{\alpha} \circ f \) is continuous. Let \( U \) be an open set in \( X \).
+	\[
+		\bigcup_{\alpha} f_{\alpha}^{-1}(\mathscr{T}_{\alpha})
+	\]
+
+	is a subbasis for the projective limit topology on \( X \). Therefore \( U \) can be written as
+	\[
+		U = \bigcup_{\gamma} \bigcap^{n(\gamma)}_{k=1} f_{\gamma,k}^{-1}(U_{\gamma,k})
+	\]
+
+	in which \( U_{\gamma,k} \) is open in \( Y_{\gamma,k} \) so
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		f^{-1}(U) & = f^{-1}\left( \bigcup_{\gamma} \bigcap^{n(\gamma)}_{k=1} f_{\gamma,k}^{-1}(U_{\gamma,k}) \right) \\
+		          & = \bigcup_{\gamma} \bigcap^{n(\gamma)}_{k=1} f^{-1}(f_{\gamma,k}^{-1}(U_{\gamma,k}))              \\
+		          & = \bigcup_{\gamma} \bigcap^{n(\gamma)}_{k=1} {(f_{\gamma,k} \circ f)}^{-1}(U_{\gamma,k})
+	\end{align*}
+	\endgroup
+
+	\( {(f_{\gamma,k} \circ f)}^{-1}(U_{\gamma,k}) \) is open as \( U_{\gamma,k} \) is open in \( Y_{\gamma,k} \) and \( f_{\gamma,k} \circ f \) is continuous. Hence \( f^{-1}(U) \) is open (finite intersection then arbitrary union), so \( f \) is continuous.
+
+	Thus \( f \) is continuous if and only if each \( f_{\alpha} \circ f \) is continuous.
+\end{proof}
 
 \section{Spaces with Equivalence Relations}
 
