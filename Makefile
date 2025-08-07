@@ -112,6 +112,9 @@ greub-multilinear:
 dugundji-topology:
 	@$(MAKE) james-dugundji-topology/main.pdf
 
+willard-topology:
+	@$(MAKE) stephen-willard-general-topology/main.pdf
+
 mathematical-analysis:
 	@$(MAKE) vladimir-zorich-mathematical-analysis/main.pdf
 

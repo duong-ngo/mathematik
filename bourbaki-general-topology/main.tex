@@ -1,0 +1,123 @@
+\documentclass[12pt,oneside]{book}
+
+\usepackage[left=2cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage[unicode=true,colorlinks=true,linkcolor=blue]{hyperref}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{cases}
+\usepackage{pgf,tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{shapes}
+\usetikzlibrary{shapes.arrows}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{calc}
+\usetikzlibrary{math}
+\usetikzlibrary{decorations,
+    decorations.footprints,
+    decorations.fractals,
+    decorations.markings,
+    decorations.pathmorphing,
+    decorations.pathreplacing,
+    decorations.shapes,
+    decorations.shapes,
+    decorations.text}
+\usetikzlibrary{positioning}
+\usetikzlibrary{angles}
+\usetikzlibrary{matrix}
+\usepackage{tikz-cd}
+
+\usepackage{soul}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{indentfirst}
+\usepackage{chngcntr}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage[inline]{enumitem}
+\usepackage{setspace}
+
+\setstretch{1.4142}
+\setcounter{chapter}{0}
+\setcounter{section}{0}
+
+\captionsetup{labelfont={bf},labelsep=period}
+\counterwithin{figure}{chapter}
+\counterwithin{table}{chapter}
+
+\theoremstyle{definition}
+
+\newtheorem{exercise}{Exercise}
+\counterwithin{exercise}{section}
+\newenvironment{sqcases}{%
+    \matrix@check\sqcases\env@sqcases
+}{%
+    \endarray\right.%
+}
+\def\env@sqcases{%
+\let\@ifnextchar\new@ifnextchar
+\left\lbrack{}
+\def\arraystretch{1.2}%
+\array{@{}l@{\quad}l@{}}%
+}
+\newtheorem{innercustomgeneric}{\customgenericname}
+\providecommand{\customgenericname}{}
+\newcommand{\newcustomtheorem}[2]{%
+  \newenvironment{#1}[1]
+  {%
+   \renewcommand\customgenericname{#2}%
+   \renewcommand\theinnercustomgeneric{##1}%
+   \innercustomgeneric%
+  }
+  {\endinnercustomgeneric}
+}
+\newcustomtheorem{problem}{Problem}
+\newcustomtheorem{proposition}{Proposition}
+
+\newcommand{\tr}[1]{\left({#1}\right)}
+\newcommand{\card}[1]{\left\vert{#1}\right\vert}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\abs}[1]{\left\vert{#1}\right\vert}
+\newcommand{\norm}[1]{\left\Vert{#1}\right\Vert}
+\newcommand{\anglebracket}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\floor}[1]{\left\lfloor{#1}\right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil{#1}\right\rceil}
+\newcommand{\openinterval}[1]{\left\rbrack{#1}\right\lbrack}
+\newcommand{\closedinterval}[1]{\left\lbrack{#1}\right\rbrack}
+\newcommand{\halfopenleft}[1]{\left\rbrack{#1}\right\rbrack}
+\newcommand{\halfopenright}[1]{\left\lbrack{#1}\right\lbrack}
+\newcommand{\set}[1]{\left\{{#1}\right\}}
+\newcommand{\tuple}[1]{\left({#1}\right)}
+\newenvironment{section*}[1]{% \begin{section*}{section title}....\end{section*}
+  \section*{#1}
+  \renewcommand\thesection{\thechapter.S}
+  \setcounter{exercise}{0}}{}
+
+\title{Bourbaki's General Topology: Notes and Problems}
+\author{Ngo Quang Duong}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\input{chapter1.tex}
+\input{chapter2.tex}
+\input{chapter3.tex}
+\input{chapter4.tex}
+\input{chapter5.tex}
+\input{chapter6.tex}
+\input{chapter7.tex}
+\input{chapter8.tex}
+\input{chapter9.tex}
+\input{chapter10.tex}
+
+\end{document}
