@@ -1,1 +1,1015 @@
 \chapter{Complex Numbers}
+
+\section{The Algebra of Complex Numbers}
+
+\subsection{Arithmetic Operations}
+
+\begin{problem}{1.1.1.1}
+Find the values of
+\[
+	{(1 + 2\imath)}^{3}, \qquad \dfrac{5}{-3 + 4\imath}, \qquad {\left(\dfrac{2 + \imath}{3 - 2\imath}\right)}^{2}, \qquad {(1 + \imath)}^{n} + {(1 - \imath)}^{n}.
+\]
+\end{problem}
+
+\begin{proof}
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		{(1 + 2\imath)}^{3}                                & = 1^{3} + 3\cdot 1^{2} \cdot 2\imath + 3\cdot 1 \cdot {(2\imath)}^{2} + {(2\imath)}^{3}                   \\
+		                                                   & = 1 + 6\imath - 12 - 8\imath                                                                              \\
+		                                                   & = -11 - 2\imath,                                                                                          \\
+		\dfrac{5}{-3 + 4\imath}                            & = \dfrac{-3}{5} + \dfrac{-4}{5}\imath,                                                                    \\
+		{\left(\dfrac{2 + \imath}{3 - 2\imath}\right)}^{2} & = {\left(\dfrac{(2 + \imath)(3 + 2\imath)}{13}\right)}^{2}                                                \\
+		                                                   & = {\left(\dfrac{4 + 7\imath}{13}\right)}^{2}                                                              \\
+		                                                   & = \dfrac{-33 + 56\imath}{169},                                                                            \\
+		{(1 + \imath)}^{n} + {(1 - \imath)}^{n}            & = \sum^{n}_{k=0} \binom{n}{k} \imath^{k} + \sum^{n}_{k=1} \binom{n}{k} {(-1)}^{k}\imath^{k}               \\
+		                                                   & = \sum^{n}_{k=0} \binom{n}{k} \imath^{k} (1 + {(-1)}^{k})                                                 \\
+		                                                   & = \sum^{n}_{k=0, k \text{ even}} \binom{n}{k} 2\cdot\imath^{k}                                            \\
+		                                                   & = \sum^{n}_{k=0, k/2 \text{ even}} 2\binom{n}{k} - \sum^{n}_{k=0, k/2 \text{ odd}} 2\binom{n}{k}.\qedhere
+	\end{align*}
+	\endgroup
+\end{proof}
+
+\begin{problem}{1.1.1.2}
+If \( z = x + \imath y \) (\( x \) and \( y \) real), find the real and imaginary parts of
+\[
+	z^{4},\qquad \dfrac{1}{z}, \qquad \dfrac{z - 1}{z + 1}, \qquad \dfrac{1}{z^{2}}.
+\]
+\end{problem}
+
+\begin{proof}
+	\[
+		z^{4} = {(x + \imath y)}^{4} = x^{4} + 4x^{3}y\imath - 6x^{2}y^{2} + 4x {(\imath y)}^{3} + {(\imath y)}^{4} = (x^{4} - 6x^{2}y^{2} + y^{4}) + \imath (4x^{3}y - 4xy^{3})
+	\]
+
+	so
+	\[
+		\Re(z^{4}) = x^{4} - 6x^{2}y^{2} + y^{4}\qquad \Im(z^{4}) = 4x^{3}y - 4xy^{3}.
+	\]
+
+	\[
+		\dfrac{1}{z} = \dfrac{x}{x^{2} + y^{2}} + \imath\dfrac{-y}{x^{2} + y^{2}}
+	\]
+
+	so
+	\[
+		\Re\left( \dfrac{1}{z} \right) = \dfrac{x}{x^{2} + y^{2}} \qquad \Im\left( \dfrac{1}{z} \right) = \dfrac{-y}{x^{2} + y^{2}}.
+	\]
+
+	\[
+		\dfrac{z - 1}{z + 1} = \dfrac{(x - 1) + \imath y}{(x + 1) + \imath y} = \dfrac{(x^{2} + y^{2} - 1) + 2y \imath}{{(x + 1)}^{2} + y^{2}}
+	\]
+
+	so
+	\[
+		\Re\left( \dfrac{z - 1}{z + 1} \right) = \dfrac{x^{2} + y^{2} - 1}{{(x + 1)}^{2} + y^{2}} \qquad \Im\left( \dfrac{z - 1}{z + 1} \right) = \dfrac{2y}{{(x + 1)}^{2} + y^{2}}.
+	\]
+
+	\[
+		\dfrac{1}{z^{2}} = \dfrac{(x^{2} - y^{2}) - 2\imath xy}{{(x^{2} + y^{2})}^{2}}
+	\]
+
+	so
+	\[
+		\Re\left(\dfrac{1}{z^{2}}\right) = \dfrac{x^{2} - y^{2}}{{(x^{2} + y^{2})}^{2}} \qquad \Im\left(\dfrac{1}{z^{2}}\right) = \dfrac{-2xy}{{(x^{2} + y^{2})}^{2}}.
+	\]
+\end{proof}
+
+\begin{problem}{1.1.1.3}
+Show that
+\[
+	{\left( \dfrac{-1 \pm \imath\sqrt{3}}{2} \right)}^{3} = 1 \qquad \text{and} \qquad {\left( \dfrac{\pm 1 \pm \imath\sqrt{3}}{2} \right)}^{6} = 1
+\]
+
+for all combinations of signs.
+\end{problem}
+
+\begin{proof}
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		{\left( \dfrac{-1 \pm \imath\sqrt{3}}{2} \right)}^{3} & = \dfrac{{(-1)}^{3} \pm 3\cdot{(-1)}^{2}\cdot \imath\sqrt{3} + 3\cdot (-1)\cdot {(\imath\sqrt{3})}^{2} \pm {(\imath\sqrt{3})}^{3} }{8} \\
+		                                                      & = \dfrac{-1 + 9 \pm 3\imath\sqrt{3} \pm (-3\imath\sqrt{3})}{8}                                                                         \\
+		                                                      & = 1
+	\end{align*}
+	\endgroup
+
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		{\left( \dfrac{-1 + \imath\sqrt{3}}{2} \right)}^{6}                                                      & = 1 \\
+		{\left( \dfrac{-1 - \imath\sqrt{3}}{2} \right)}^{6}                                                      & = 1 \\
+		{\left( \dfrac{1 - \imath\sqrt{3}}{2} \right)}^{6} = {\left( \dfrac{-1 + \imath\sqrt{3}}{2} \right)}^{6} & = 1 \\
+		{\left( \dfrac{1 + \imath\sqrt{3}}{2} \right)}^{6} = {\left( \dfrac{-1 - \imath\sqrt{3}}{2} \right)}^{6} & = 1 \\
+	\end{align*}
+	\endgroup
+\end{proof}
+
+\subsection{Square Roots}
+
+\begin{problem}{1.1.2.1}
+Compute
+\[
+	\sqrt{\imath},\qquad \sqrt{-\imath}, \qquad \sqrt{1 + \imath}, \qquad \sqrt{\dfrac{1 - \imath\sqrt{3}}{2}}.
+\]
+\end{problem}
+
+\begin{proof}
+	Two square roots of \( \imath \) are \( \dfrac{\sqrt{2}}{2} + \imath\dfrac{\sqrt{2}}{2} \) and \( \dfrac{-\sqrt{2}}{2} + \imath\dfrac{-\sqrt{2}}{2} \).
+
+	Two square roots of \( -\imath \) are \( \dfrac{\sqrt{2}}{2} + \imath\dfrac{-\sqrt{2}}{2} \) and \( \dfrac{-\sqrt{2}}{2} + \imath\dfrac{\sqrt{2}}{2} \).
+
+	Two square roots of \( 1 + \imath \) are \( \dfrac{\sqrt{2 + 2\sqrt{2}}}{2} + \imath\dfrac{\sqrt{2\sqrt{2} - 2}}{2} \) and \( \dfrac{-\sqrt{2 + 2\sqrt{2}}}{2} + \imath\dfrac{-\sqrt{2\sqrt{2} - 2}}{2} \).
+
+	Two square roots of \( \dfrac{1 - \imath\sqrt{3}}{2} \) are \( \dfrac{\sqrt{3}}{2} + \imath\dfrac{-1}{2} \) and \( \dfrac{-\sqrt{3}}{2} + \imath\dfrac{1}{2} \).
+\end{proof}
+
+\begin{problem}{1.1.2.2}
+Find the four values of \( \sqrt[4]{-1} \).
+\end{problem}
+
+\begin{proof}
+	The four values of \( \sqrt[4]{-1} \) are
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\dfrac{\sqrt{2}}{2} + \imath\dfrac{\sqrt{2}}{2},   \\
+		\dfrac{-\sqrt{2}}{2} + \imath\dfrac{-\sqrt{2}}{2}, \\
+		\dfrac{-\sqrt{2}}{2} + \imath\dfrac{\sqrt{2}}{2},  \\
+		\dfrac{\sqrt{2}}{2} + \imath\dfrac{-\sqrt{2}}{2}.
+	\end{align*}
+	\endgroup
+\end{proof}
+
+\begin{problem}{1.1.2.3}
+Compute \( \sqrt[4]{\imath} \) and \( \sqrt[4]{-\imath} \).
+\end{problem}
+
+\begin{proof}
+	The four values of \( \sqrt[4]{\imath} \) are
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\dfrac{\sqrt{2 + \sqrt{2}}}{2} + \imath\dfrac{\sqrt{2 - \sqrt{2}}}{2},   \\
+		\dfrac{-\sqrt{2 + \sqrt{2}}}{2} + \imath\dfrac{-\sqrt{2 - \sqrt{2}}}{2}, \\
+		\dfrac{-\sqrt{2 - \sqrt{2}}}{2} + \imath\dfrac{\sqrt{2 + \sqrt{2}}}{2},  \\
+		\dfrac{\sqrt{2 - \sqrt{2}}}{2} + \imath\dfrac{-\sqrt{2 + \sqrt{2}}}{2}.
+	\end{align*}
+	\endgroup
+
+	The four values of \( \sqrt[4]{-\imath} \) are
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\dfrac{\sqrt{2 + \sqrt{2}}}{2} + \imath\dfrac{-\sqrt{2 - \sqrt{2}}}{2}, \\
+		\dfrac{-\sqrt{2 + \sqrt{2}}}{2} + \imath\dfrac{\sqrt{2 - \sqrt{2}}}{2}, \\
+		\dfrac{\sqrt{2 - \sqrt{2}}}{2} + \imath\dfrac{\sqrt{2 + \sqrt{2}}}{2},  \\
+		\dfrac{-\sqrt{2 - \sqrt{2}}}{2} + \imath\dfrac{-\sqrt{2 + \sqrt{2}}}{2}.
+	\end{align*}
+	\endgroup
+\end{proof}
+
+\begin{problem}{1.1.2.4}
+Solve the quadratic equation
+\[
+	z^{2} + (\alpha + \imath\beta) z + \gamma + \imath\delta = 0.
+\]
+\end{problem}
+
+\begin{proof}
+	The roots of the given equation are
+	\[
+		z = \dfrac{-(\alpha + \imath\beta) \pm \sqrt{\alpha^{2} - \beta^{2} - 4\gamma + \imath(2\alpha\beta - 4\gamma\delta)}}{2}.
+	\]
+\end{proof}
+
+\subsection{Justification}
+
+\begin{problem}{1.1.3.1}
+Show that the system of all matrices of the special form
+\[
+	\begin{pmatrix}
+		\alpha & \beta  \\
+		-\beta & \alpha
+	\end{pmatrix}
+\]
+
+combined by matrix addition and matrix multiplication, is isomorphic to the field of complex numbers.
+\end{problem}
+
+\begin{proof}
+	Let \( M \) be the set containing all matrices of such form and \( \varphi: \mathbb{C} \to M \) given by
+	\[
+		\varphi(\alpha + \imath\beta) = \begin{pmatrix}
+			\alpha & \beta  \\
+			-\beta & \alpha
+		\end{pmatrix}
+	\]
+
+	then \( \varphi \) is a bijection. Moreover
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\varphi(\alpha + \imath\beta) + \varphi(\gamma + \imath\delta) & = \begin{pmatrix}
+			                                                                   \alpha & \beta  \\
+			                                                                   -\beta & \alpha
+		                                                                   \end{pmatrix} + \begin{pmatrix}
+			                                                                                   \gamma  & \delta \\
+			                                                                                   -\delta & \gamma
+		                                                                                   \end{pmatrix}                            \\
+		                                                               & = \begin{pmatrix}
+			                                                                   \alpha + \gamma   & \beta + \delta  \\
+			                                                                   -(\beta + \delta) & \alpha + \gamma
+		                                                                   \end{pmatrix}                         \\
+		                                                               & = \varphi((\alpha + \gamma) + \imath(\beta + \delta)),        \\
+		\varphi(\alpha + \imath\beta)\varphi(\gamma + \imath\delta)    & = \begin{pmatrix}
+			                                                                   \alpha & \beta  \\
+			                                                                   -\beta & \alpha
+		                                                                   \end{pmatrix} \cdot \begin{pmatrix}
+			                                                                                       \gamma  & \delta \\
+			                                                                                       -\delta & \gamma
+		                                                                                       \end{pmatrix}                        \\
+		                                                               & = \begin{pmatrix}
+			                                                                   \alpha\gamma - \delta\gamma   & \delta\alpha + \beta\gamma  \\
+			                                                                   -(\delta\alpha + \beta\gamma) & \alpha\gamma - \delta\gamma
+		                                                                   \end{pmatrix} \\
+		                                                               & = \varphi((\alpha + \imath\beta)(\gamma + \imath\delta)).
+	\end{align*}
+	\endgroup
+
+	Thus \( \mathbb{C} \) and \( M \) are isomorphic.
+\end{proof}
+
+\begin{problem}{1.1.3.2}
+Show that the complex-number system can be thought of as the field of all polynomials with real coefficients modulo the irreducible polynomial \( x^{2} + 1 \).
+\end{problem}
+
+\begin{proof}
+	Let \( \varphi: \mathbb{C} \to \dfrac{\mathbb{R}[x]}{x^{2} + 1} \) be \( \varphi(\alpha + \imath\beta) = \alpha + \beta X \mod{x^{2} + 1} \).
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\varphi(\alpha + \imath\beta) + \varphi(\gamma + \imath\delta) & = (\alpha + \beta x) + (\gamma + \delta x) \mod{x^{2} + 1}                           \\
+		                                                               & = (\alpha + \gamma) + (\beta + \delta)x \mod{x^{2} + 1},                             \\
+		\varphi(\alpha + \imath\beta)\varphi(\gamma + \imath\delta)    & = (\alpha + \beta x)(\gamma + \delta x) \mod{x^{2} + 1}                              \\
+		                                                               & = (\alpha\gamma + \beta\delta x^{2}) + (\alpha\delta + \beta\gamma)x \mod{x^{2} + 1} \\
+		                                                               & = (\alpha\gamma - \beta\delta) + (\alpha\delta + \beta\gamma)x \mod{x^{2} + 1}       \\
+		                                                               & = \varphi((\alpha + \imath\beta)(\gamma + \imath\delta))
+	\end{align*}
+	\endgroup
+\end{proof}
+
+\subsection{Conjugation, Absolute Value}
+
+\begin{problem}{1.1.4.1}
+Verify by calculatoin that the values of
+\[
+	\dfrac{z}{z^{2} + 1}
+\]
+
+for \( z = x + \imath y \) and \( z = x - \imath y \) are conjugate.
+\end{problem}
+
+\begin{proof}
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\dfrac{z}{z^{2} + 1}             & = \dfrac{x + \imath y}{x^{2} - y^{2} + 1 + 2xy \imath}                                                \\
+		                                 & = \dfrac{(x + \imath y)(x^{2} - y^{2} + 1 - 2xy \imath)}{{(x^{2} - y^{2} + 1)}^{2} + 4x^{2}y^{2}}     \\
+		                                 & = \dfrac{x^{3} + xy^{2} + x + \imath (-x^{2}y - y^{3} + y)}{{(x^{2} - y^{2} + 1)}^{2} + 4x^{2}y^{2}}, \\
+		\dfrac{\bar{z}}{\bar{z}^{2} + 1} & = \dfrac{x - \imath y}{x^{2} - y^{2} + 1 - 2xy \imath}                                                \\
+		                                 & = \dfrac{(x - \imath y)(x^{2} - y^{2} + 1 + 2xy \imath)}{{(x^{2} - y^{2} + 1)}^{2} + 4x^{2}y^{2}}     \\
+		                                 & = \dfrac{x^{3} + xy^{2} + x - \imath(-x^{2}y - y^{3} + y)}{{(x^{2} - y^{2} + 1)}^{2} + 4x^{2}y^{2}}   \\
+		                                 & = \overline{\left( \dfrac{z}{z^{2} + 1} \right)}.
+	\end{align*}
+	\endgroup
+\end{proof}
+
+\begin{problem}{1.1.4.2}
+Find the absolute values of
+\[
+	-2\imath (3 + \imath)(2 + 4\imath)(1 + \imath) \qquad \text{and} \qquad \dfrac{(3 + 4\imath)(-1 + 2\imath)}{(-1 - \imath)(3 - \imath)}
+\]
+\end{problem}
+
+\begin{proof}
+	\[
+		\begin{split}
+			\left\vert -2\imath (3 + \imath)(2 + 4\imath)(1 + \imath) \right\vert = 2\cdot \sqrt{10} \cdot \sqrt{20}\cdot \sqrt{2} = 40, \\
+			\left\vert \dfrac{(3 + 4\imath)(-1 + 2\imath)}{(-1 - \imath)(3 - \imath)} \right\vert = \dfrac{5\cdot \sqrt{5}}{\sqrt{2}\cdot\sqrt{10}} = \dfrac{5}{2}.
+		\end{split}
+	\]
+\end{proof}
+
+\begin{problem}{1.1.4.3}
+Prove that
+\[
+	\left\vert \dfrac{a - b}{1 - \bar{a}b} \right\vert = 1
+\]
+
+if either \( \left\vert a \right\vert = 1 \) or \( \left\vert b \right\vert = 1 \). What exception must be made if \( \left\vert a \right\vert = \left\vert b \right\vert = 1 \)?
+\end{problem}
+
+\begin{proof}
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\left\vert \dfrac{a - b}{1 - \bar{a}b} \right\vert = 1 & \iff \dfrac{(a - b)\overline{(a - b)}}{(1 - \bar{a}b)(1 - a\bar{b})} = 1                               \\
+		                                                       & \iff \dfrac{a\bar{a} + b\bar{b} - a\bar{b} - \bar{a}b}{1 + a\bar{a}b\bar{b} - a\bar{b} - \bar{a}b} = 1
+	\end{align*}
+	\endgroup
+
+	Hence if either \( \left\vert a \right\vert = 1 \) or \( \left\vert b \right\vert = 1 \) then \( \left\vert \dfrac{a - b}{1 - \bar{a}b} \right\vert = 1 \).
+
+	If \( \left\vert a \right\vert = \left\vert b \right\vert = 1 \), we need \( a \ne b \) so that \( \left\vert \dfrac{a - b}{1 - \bar{a}b} \right\vert = 1 \).
+\end{proof}
+
+\begin{problem}{1.1.4.4}
+Find the conditions under which the equation \( az + b\bar{z} + c = 0 \) in one complex unknown has exactly one solution, and compute that solution.
+\end{problem}
+
+\begin{proof}
+	Let \( z = x + \imath y, a = a_{x} + \imath a_{y}, b = b_{x} + \imath b_{y}, c = c_{x} + \imath c_{y} \) then the equation \( az + b\bar{z} + c = 0 \) is equivalent to
+	\[
+		\begin{cases}
+			(a_{x} + b_{x})x + (-a_{y} + b_{y})y + c_{x} = 0 \\
+			(a_{y} + b_{y})x + (a_{x} - b_{x})y + c_{y} = 0
+		\end{cases}
+	\]
+
+	This system equation has exactly one solution if and only if
+	\[
+		\begin{vmatrix}
+			a_{x} + b_{x} & -a_{y} + b_{y} \\
+			a_{y} + b_{y} & a_{x} - b_{x}
+		\end{vmatrix} \ne 0
+	\]
+
+	In other words, \( a_{x}^{2} + a_{y}^{2} \ne b_{x}^{2} + b_{y}^{2} \) or \( \left\vert a \right\vert \ne \left\vert b \right\vert \).
+
+	If \( \left\vert a \right\vert \ne \left\vert b \right\vert \), then
+	\[
+		\begin{cases}
+			x = \dfrac{-a_{x}c_{x} - a_{y}c_{y} + b_{x}c_{x} + b_{y}c_{y}}{a\bar{a} - b\bar{b}} \\
+			y = \dfrac{-a_{x}c_{y} + a_{y}c_{x} - b_{x}c_{y} + b_{y}c_{x}}{a\bar{a} - b\bar{b}}
+		\end{cases}
+	\]
+
+	and
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		z & = x + \imath y                                                                                                                           \\
+		  & = \dfrac{c_{x}(-a_{x} + \imath a_{y} + b_{x} + \imath b_{y}) + c_{y}(-a_{y} - \imath a_{x} + b_{y} - \imath b_{x})}{a\bar{a} - b\bar{b}} \\
+		  & = \dfrac{c_{x}(-\bar{a} + b) + c_{y}(-\imath\bar{a} - \imath b)}{a\bar{a} - b\bar{b}}                                                    \\
+		  & = \dfrac{\bar{c}b - c\bar{a}}{a\bar{a} - b\bar{b}}
+	\end{align*}
+	\endgroup
+
+	in which \( c_{x} = \dfrac{c + \bar{c}}{2} \) and \( c_{y} = \dfrac{c - \bar{c}}{2\imath} \).
+\end{proof}
+
+\begin{problem}{1.1.4.5}
+Prove Lagrange's identity in the complex form
+\[
+	{\left\vert \sum^{n}_{i=1} a_{i}b_{i} \right\vert}^{2} = \sum^{n}_{i=1} {\left\vert a_{i} \right\vert}^{2} \sum^{n}_{i=1} {\left\vert b_{i} \right\vert}^{2} - \sum_{1\le i < j \le n} {\left\vert a_{i}\overline{b_{j}} - a_{j}\overline{b_{i}} \right\vert}^{2}.
+\]
+\end{problem}
+
+\begin{proof}
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		{\left\vert \sum^{n}_{i=1} a_{i}b_{i} \right\vert}^{2} & = \left( \sum^{n}_{i=1} a_{i}b_{i} \right)\left( \sum^{n}_{j=1} \overline{a_{j}}\overline{b_{j}} \right)                                                                                                                                                                                                                                                                                                                                                \\
+		                                                       & = \sum^{n}_{i=1} a_{i}b_{i}\overline{a_{i}}\overline{b_{i}} + \sum_{1\le i \ne j \le n}a_{i}b_{i}\overline{a_{j}}\overline{b_{j}}                                                                                                                                                                                                                                                                                                                       \\
+		                                                       & = \sum^{n}_{i=1} {\left\vert a_{i} \right\vert}^{2}{\left\vert b_{i} \right\vert}^{2} + \sum_{1\le i \ne j \le n} {\left\vert a_{i} \right\vert}^{2}{\left\vert b_{j} \right\vert}^{2} - \sum_{1\le i < j \le n}({\left\vert a_{i} \right\vert}^{2}{\left\vert b_{j} \right\vert}^{2} - a_{i}b_{i}\overline{a_{j}}\overline{b_{j}} - a_{j}b_{j}\overline{a_{i}}\overline{b_{i}} + {\left\vert a_{j} \right\vert}^{2}{\left\vert b_{i} \right\vert}^{2}) \\
+		                                                       & = \sum^{n}_{i=1} {\left\vert a_{i} \right\vert}^{2} \sum^{n}_{i=1} {\left\vert b_{i} \right\vert}^{2} -  \sum_{1\le i < j \le n} (a_{i}\overline{b_{j}} - a_{j}\overline{b_{i}})(\overline{a_{i}}b_{j} - \overline{a_{j}}b_{i})                                                                                                                                                                                                                         \\
+		                                                       & = \sum^{n}_{i=1} {\left\vert a_{i} \right\vert}^{2} \sum^{n}_{i=1} {\left\vert b_{i} \right\vert}^{2} - \sum_{1\le i < j \le n} {\left\vert a_{i}\overline{b_{j}} - a_{j}\overline{b_{i}} \right\vert}^{2}. \qedhere
+	\end{align*}
+	\endgroup
+\end{proof}
+
+\subsection{Inequalities}
+
+\begin{problem}{1.1.5.1}
+Prove that
+\[
+	\left\vert \dfrac{a - b}{1 - \bar{a}b} \right\vert < 1
+\]
+
+if \( \left\vert a \right\vert < 1 \) and \( \left\vert b \right\vert < 1 \).
+\end{problem}
+
+\begin{proof}
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\left\vert \dfrac{a - b}{1 - \bar{a}b} \right\vert < 1 & \iff \left\vert a - b \right\vert < \left\vert 1 - \bar{a}b \right\vert                     \\
+		                                                       & \iff (a - b)(\bar{a} - \bar{b}) < (1 - \bar{a}b)(1 - a\bar{b})                              \\
+		                                                       & \iff a\bar{a} + b\bar{b} - a\bar{b} - \bar{a}b < 1 + a\bar{a}b\bar{b} - a\bar{b} - \bar{a}b \\
+		                                                       & \iff a\bar{a} + b\bar{b} < 1 + a\bar{a}b\bar{b}                                             \\
+		                                                       & \iff 0 < (1 - a\bar{a})(1 - b\bar{b})
+	\end{align*}
+	\endgroup
+
+	Hence if \( \left\vert a \right\vert < 1 \) and \( \left\vert b \right\vert < 1 \) then \( \left\vert \dfrac{a - b}{1 - \bar{a}b} \right\vert < 1 \).
+\end{proof}
+
+\begin{problem}{1.1.5.2}
+Prove Cauchy's inequality by induction.
+\end{problem}
+
+\begin{proof}
+	Cauchy's inequality is true for \( n = 1 \).
+
+	Assume that it is true for \( n = k \). Let \( a_{1}, \ldots, a_{k+1}, b_{1}, \ldots, b_{k+1} \) be \( 2k + 2 \) complex numbers.
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		{\left\vert \sum^{k+1}_{i=1} a_{i}b_{i} \right\vert}^{2} & \le {\left(\left\vert \sum^{k}_{i=1} a_{i}b_{i} \right\vert + \left\vert a_{k+1}b_{k+1} \right\vert \right)}^{2}                                                                                                          \\
+		                                                         & \le {\left( \sqrt{\sum^{k}_{i=1} {\left\vert a_{i} \right\vert}^{2}} \sqrt{\sum^{k}_{i=1} {\left\vert b_{i} \right\vert}^{2}} + \left\vert a_{k+1}b_{k+1} \right\vert \right)}^{2}                                        \\
+		                                                         & \le {\left( \sqrt{ {\left\vert a_{k+1} \right\vert}^{2} + \sum^{k}_{i=1} {\left\vert a_{i} \right\vert}^{2}} \sqrt{{\left\vert b_{k+1} \right\vert}^{2} + \sum^{k}_{i=1} {\left\vert b_{i} \right\vert}^{2}} \right)}^{2} \\
+		                                                         & = \sum^{k+1}_{i=1} {\left\vert a_{i} \right\vert}^{2} \sum^{k+1}_{i=1} {\left\vert b_{i} \right\vert}^{2}.
+	\end{align*}
+	\endgroup
+
+	Hence Cauchy's inequality is true for any positive integer \( n \).
+\end{proof}
+
+\begin{problem}{1.1.5.3}
+If \( \left\vert a_{i} \right\vert < 1, \lambda_{i} \ge 0 \) for \( i = 1, \ldots, n \) and \( \lambda_{1} + \cdots + \lambda_{n} = 1 \), show that
+\[
+	\left\vert \lambda_{1}a_{1} + \cdots + \lambda_{n}a_{n} \right\vert < 1.
+\]
+\end{problem}
+
+\begin{proof}
+	\[
+		\left\vert \lambda_{1}a_{1} + \cdots + \lambda_{n}a_{n} \right\vert \le \lambda_{1} \left\vert a_{1} \right\vert + \cdots + \lambda_{n} \left\vert a_{n} \right\vert \le \lambda_{1} + \cdots + \lambda_{n} = 1
+	\]
+
+	But the inequality doesn't hold because \( \lambda_{i} \) are not all zero. Thus \( \left\vert \lambda_{1}a_{1} + \cdots + \lambda_{n}a_{n} \right\vert < 1 \).
+\end{proof}
+
+\begin{problem}{1.1.5.4}
+Show that there are complex numbers \( z \) satisfying
+\[
+	\left\vert z - a \right\vert + \left\vert z + a \right\vert = 2\left\vert c \right\vert
+\]
+
+if and only if \( \left\vert a \right\vert \le \left\vert c \right\vert \). If this condition is fulfilled, what are the smallest and largest values of \( \left\vert z \right\vert \)?
+\end{problem}
+
+\begin{proof}
+	If there are complex numbers \( z \) satisfying \( \left\vert z - a \right\vert + \left\vert z + a \right\vert = 2\left\vert c \right\vert \) then
+	\[
+		2\left\vert c \right\vert = \left\vert z - a \right\vert + \left\vert z + a \right\vert \ge \left\vert a - z + z + a \right\vert = 2 \left\vert a \right\vert
+	\]
+
+	which means \( \left\vert c \right\vert \ge \left\vert a \right\vert \).
+
+	Conversely, assume that \( \left\vert a \right\vert \le \left\vert c \right\vert \).
+
+	If \( a = 0 \) then \( z = c \) satisfies.
+
+	If \( a \ne 0 \), let \( t = \dfrac{1}{2}\left( 1 + \dfrac{\left\vert c \right\vert}{\left\vert a \right\vert} \right) \) and \( z = ta + (1 - t)(-a) = (2t - 1)a = a\dfrac{\left\vert c\right\vert}{\left\vert a\right\vert} \), then
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\left\vert z - a \right\vert + \left\vert z + a \right\vert & = 2 \left\vert (t - 1)a \right\vert + 2 \left\vert ta \right\vert \\
+		                                                            & = 2(t - 1) \left\vert a \right\vert + 2t \left\vert a \right\vert \\
+		                                                            & = 2(2t - 1) \left\vert a \right\vert                              \\
+		                                                            & = 2\left\vert c \right\vert.
+	\end{align*}
+	\endgroup
+
+	Thus there are complex numbers \( z \) satisfying \( \left\vert z - a \right\vert + \left\vert z + a \right\vert = 2\left\vert c \right\vert \) if and only if \( \left\vert a \right\vert \le \left\vert c \right\vert \).
+
+	\bigskip
+	If \( \left\vert a \right\vert \le \left\vert c \right\vert \) then
+	\[
+		2\left\vert c \right\vert = \left\vert z - a \right\vert + \left\vert z + a \right\vert \ge \left\vert (z - a) + (z + a) \right\vert = 2 \left\vert z \right\vert
+	\]
+
+	which implies \( \left\vert z \right\vert \le \left\vert c \right\vert \), the inequality holds if \( z = a\dfrac{\left\vert c\right\vert}{\left\vert a\right\vert} \).
+	\[
+		4({\left\vert z \right\vert}^{2} + {\left\vert a \right\vert}^{2}) = 2({\left\vert z - a \right\vert}^{2} + {\left\vert z + a \right\vert}^{2}) \ge {(\left\vert z - a\right\vert + \left\vert z + a\right\vert)}^{2} = 4{\left\vert c \right\vert}^{2}
+	\]
+
+	so \( \left\vert z \right\vert \ge \sqrt{{\left\vert c\right\vert}^{2} - {\left\vert a\right\vert}^{2}} \), the inequality holds if \( z = \iota\dfrac{a}{\left\vert a \right\vert}\sqrt{{\left\vert c\right\vert}^{2} - {\left\vert a\right\vert}^{2}} \).
+\end{proof}
+
+\section{The Geometric Representation of Complex Numbers}
+
+\subsection{Geometric Addition and Multiplication}
+
+\begin{problem}{1.2.1.1}
+Find the symmetric points of \(a\) with respect to the lines which bisect the angles between the coordinate axes.
+\end{problem}
+
+\begin{proof}
+	The two points are \( \imath\bar{a} \) and \( -\imath\bar{a} \).
+\end{proof}
+
+\begin{problem}{1.2.1.2}
+Prove that the points \( a_{1}, a_{2}, a_{3} \) are vertices of an equilateral triangle if and only if \( a_{1}^{2} + a_{2}^{2} + a_{3}^{2} = a_{1}a_{2} + a_{2}a_{3} + a_{3}a_{1} \).
+\end{problem}
+
+\begin{proof}
+	The points \( a_{1}, a_{2}, a_{3} \) are vertices of an equilateral triangle iff two triangles \( a_{1}, a_{2}, a_{3} \) and \( a_{2}, a_{3}, a_{1} \) are directly similar, which means
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\dfrac{a_{1} - a_{2}}{a_{1} - a_{3}} = \dfrac{a_{2} - a_{3}}{a_{2} - a_{1}} & \iff {(a_{1} - a_{2})}^{2} + (a_{3} - a_{1})(a_{3} - a_{1}) = 0                        \\
+		                                                                            & \iff a_{1}^{2} + a_{2}^{2} + a_{3}^{2} = a_{1}a_{2} + a_{2}a_{3} + a_{3}a_{1}.\qedhere
+	\end{align*}
+	\endgroup
+\end{proof}
+
+\begin{problem}{1.2.1.3}
+Suppose that \( a \) and \( b \) are two vertices of a square. Find the two other vertices in all possible cases.
+\end{problem}
+
+\begin{proof}
+	If \( a \) and \( b \) are adjacent vertices of a square then the other two vertices are \( a + (a - b)\imath \) and \( b + (a - b)\imath \) or \( a + (b - a)\imath \) and \( b + (b - a)\imath \).
+
+	If \( a \) and \( b \) are vertices on a diagonal of a square then the other two vertices are \( \dfrac{a + b + \imath(a - b)}{2} \) and \( \dfrac{a + b + \imath(b - a)}{2} \).
+\end{proof}
+
+\begin{problem}{1.2.1.4}
+Find the center and the radius of the circle which circumscribes the triangle with vertices \( a_{1}, a_{2}, a_{3} \). Express the result in symmetric form.
+\end{problem}
+
+\begin{proof}
+	Let \( z \) be the circumcenter of triangle \( a_{1}a_{2}a_{3} \). The reflection of \( a_{1} \) in the line \( a_{2}a_{3} \) is \( w \) and triangles \( wa_{2}a_{3}, a_{1}a_{2}a_{3} \) are inversely similar
+	\[
+		\dfrac{w - a_{2}}{a_{3} - a_{2}} = \dfrac{\overline{a_{1} - a_{2}}}{\overline{a_{3} - a_{2}}}
+	\]
+
+	so \( w = a_{2} + \overline{a_{1} - a_{2}}\dfrac{a_{3} - a_{2}}{\overline{a_{3} - a_{2}}} \). Moreover, triangles \( a_{1}a_{2}w \) and \( a_{1}za_{3} \) are directly similar, therefore
+	\[
+		\dfrac{a_{1} - w}{a_{1} - a_{2}} = \dfrac{a_{1} - a_{3}}{a_{1} - z}
+	\]
+
+	which means
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		z & = a_{1} - \dfrac{(a_{1} - a_{2})(a_{1} - a_{3})}{a_{1} - w}                                                                                                                                                                       \\
+		  & = a_{1} - \dfrac{(a_{1} - a_{2})(a_{1} - a_{3})\overline{a_{3} - a_{2}}}{(a_{1} - a_{2})\overline{a_{3} - a_{2}} - \overline{a_{1} - a_{2}}(a_{3} - a_{2})}                                                                       \\
+		  & = \dfrac{a_{3}(a_{1} - a_{2})\overline{a_{3} - a_{2}} - a_{1}(a_{3} - a_{2})\overline{a_{1} - a_{2}}}{(a_{1} - a_{2})\overline{a_{3} - a_{2}} - \overline{a_{1} - a_{2}}(a_{3} - a_{2})}                                          \\
+		  & = \dfrac{a_{3}(a_{1} - a_{2})\overline{a_{3}} + a_{1}(a_{2} - a_{3})\overline{a_{1}} + a_{2}(a_{3} - a_{1})\overline{a_{2}}}{(a_{1} - a_{2})\overline{a_{3}} + (a_{2} - a_{3})\overline{a_{1}} + (a_{3} - a_{1})\overline{a_{2}}}
+	\end{align*}
+	\endgroup
+
+	and the circumradius of triangle \( a_{1}a_{2}a_{3} \) is
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\left\vert z - a_{1} \right\vert & = \left\vert \dfrac{(a_{1} - a_{2})(a_{1} - a_{3})}{a_{1} - w}  \right\vert                                                                                                                  \\
+		                                 & = \left\vert \dfrac{(a_{1} - a_{2})(a_{1} - a_{3})\overline{a_{3} - a_{2}}}{(a_{1} - a_{2})\overline{a_{3} - a_{2}} - \overline{a_{1} - a_{2}}(a_{3} - a_{2})} \right\vert                   \\
+		                                 & = \left\vert \dfrac{(a_{1} - a_{2})(a_{2} - a_{3})(a_{3} - a_{1})}{(a_{1} - a_{2})\overline{a_{3}} + (a_{2} - a_{3})\overline{a_{1}} + (a_{3} - a_{1})\overline{a_{2}}} \right\vert.\qedhere
+	\end{align*}
+	\endgroup
+\end{proof}
+
+\subsection{The Binomial Equation}
+
+\begin{problem}{1.2.2.1}
+Express \( \cos(3\varphi), \cos(4\varphi) \), and \( \sin(5\varphi) \) in terms of \( \cos(\varphi) \) and \( \sin(\varphi) \).
+\end{problem}
+
+\begin{proof}
+	According to the de Moivre's formula
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\cos(3\varphi) + \imath\sin(3\varphi) & = {(\cos(\varphi) + \imath\sin(\varphi))}^{3}                                                                                            \\
+		                                      & = {(\cos(\varphi))}^{3} + 3{(\cos(\varphi))}^{2}\imath \sin(\varphi) - 3\cos(\varphi){(\sin(\varphi))}^{2} - \imath{(\sin(\varphi))}^{3} \\
+		                                      & = ( {(\cos(\varphi))}^{3} - 3\cos(\varphi){(\sin(\varphi))}^{2}) + \imath(3{(\cos(\varphi))}^{2}\sin(\varphi) - {(\sin(\varphi))}^{3})   \\
+		                                      & = (4{(\cos(\varphi))}^{3} - 3\cos(\varphi)) + \imath (3\sin(\varphi) - 4{(\sin(\varphi))}^{3})
+	\end{align*}
+	\endgroup
+
+	so \( \cos(3\varphi) = 4{(\cos(\varphi))}^{3} - 3\cos(\varphi) \).
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\cos(4\varphi) + \imath\sin(4\varphi) & = {(\cos(\varphi) + \imath\sin(\varphi))}^{4}                                                                                                                                         \\
+		                                      & = {(\cos(\varphi))}^{4} + 4{(\cos(\varphi))}^{3}\imath\sin(\varphi) - 6{(\cos(\varphi))}^{2}{(\sin(\varphi))}^{2} - 4\imath\cos(\varphi){(\sin(\varphi))}^{3} + {(\sin(\varphi))}^{4} \\
+		                                      & = ({(\cos(\varphi))}^{4} - 6{(\cos(\varphi))}^{2}{(\sin(\varphi))}^{2} + {(\sin(\varphi))}^{4}) + \imath(4{(\cos(\varphi))}^{3}\sin(\varphi) - 4\cos(\varphi){(\sin(\varphi))}^{3})
+	\end{align*}
+	\endgroup
+
+	so \( \cos(4\varphi) = {(\cos(\varphi))}^{4} - 6{(\cos(\varphi))}^{2}{(\sin(\varphi))}^{2} + {(\sin(\varphi))}^{4} = 8{(\cos(\varphi))}^{4} - 8{(\cos(\varphi))}^{2} + 1 \).
+
+	And
+	\[
+		\sin(5\varphi) = \sin(4\varphi)\cos(\varphi) + \cos(4\varphi)\sin(\varphi) = 16{(\sin(\varphi))}^{5} - 20{(\sin(\varphi))}^{3} + 5\sin(\varphi).\qedhere
+	\]
+\end{proof}
+
+\begin{problem}{1.2.2.2}
+Simplify \( 1 + \cos(\varphi) + \cos(2\varphi) + \cdots + \cos(n\varphi) \) and \( \sin(\varphi) + \sin(2\varphi) + \cdots + \sin(n\varphi) \).
+\end{problem}
+
+\begin{proof}
+
+	Let \( c_{n} =  1 + \cos(\varphi) + \cos(2\varphi) + \cdots + \cos(n\varphi) \) and \( s_{n} = \sin(\varphi) + \sin(2\varphi) + \cdots + \sin(n\varphi) \).
+
+	If \( z = \cos(\varphi) + \imath\sin(\varphi) = 1 \) then \( c_{n} = n + 1 \) and \( s_{n} = 0 \). Otherwise
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		c_{n} + \imath s_{n} & = 1 + (\cos(\varphi) + \imath\sin(\varphi)) + \cdots + {(\cos(n\varphi) + \imath\sin(n\varphi))}   \\
+		                     & = 1 + (\cos(\varphi) + \imath\sin(\varphi)) + \cdots + {(\cos(\varphi) + \imath\sin(\varphi))}^{n} \\
+		                     & = 1 + z + \cdots + z^{n}                                                                           \\
+		                     & = \dfrac{1 - z^{n+1}}{1 - z}                                                                       \\
+		c_{n} - \imath s_{n} & = 1 + (\cos(\varphi) - \imath\sin(\varphi)) + \cdots + {(\cos(n\varphi) - \imath\sin(n\varphi))}   \\
+		                     & = 1 + \bar{z} + \cdots + \bar{z}^{n}                                                               \\
+		                     & = \dfrac{1 - \bar{z}^{n+1}}{1 - \bar{z}}
+	\end{align*}
+	\endgroup
+
+	so
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		c_{n} & = \dfrac{1}{2}\left( \dfrac{1 - z^{n+1}}{1 - z} + \dfrac{1 - \bar{z}^{n+1}}{1 - \bar{z}} \right)                    \\
+		      & = \dfrac{(1 - z^{n+1})(1 - \bar{z}) + (1 - \bar{z}^{n+1})(1 - z)}{2(1 - (z + \bar{z}) + z\bar{z})}                  \\
+		      & = \dfrac{2 - (z^{n+1} + \bar{z}^{n+1}) - (z + \bar{z}) + (z^{n} + \bar{z}^{n})}{2(1 - (z + \bar{z}) + z\bar{z})}    \\
+		      & = \dfrac{1 - \cos((n + 1)\varphi) - \cos(\varphi) + \cos(n\varphi)}{2(1 - \cos(\varphi))},                          \\
+		s_{n} & = \dfrac{1}{2\imath}\left( \dfrac{1 - z^{n+1}}{1 - z} - \dfrac{1 - \bar{z}^{n+1}}{1 - \bar{z}} \right)              \\
+		      & = \dfrac{(1 - z^{n+1})(1 - \bar{z}) - (1 - \bar{z}^{n+1})(1 - z)}{2\imath(1 - (z + \bar{z}) + z\bar{z})}            \\
+		      & = \dfrac{-(z^{n+1} - \bar{z}^{n+1}) + (z - \bar{z}) + (z^{n} - \bar{z}^{n})}{2\imath(1 - (z + \bar{z}) + z\bar{z})} \\
+		      & = \dfrac{-\sin((n+1)\varphi) + \sin(\varphi) + \sin(n\varphi)}{2(1 - \cos(\varphi))}. \qedhere
+	\end{align*}
+	\endgroup
+\end{proof}
+
+\begin{problem}{1.2.2.3}
+Express the fifth and tenth roots of unity in algebraic form.
+\end{problem}
+
+\begin{proof}
+	The fifth roots of unity are
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		1,                                                                                \\
+		\dfrac{\sqrt{5} - 1}{4} + \imath \dfrac{\sqrt{10 + 2\sqrt{5}}}{4},                \\
+		\dfrac{-\sqrt{5} - 1}{4} + \imath \dfrac{(\sqrt{5} - 1)\sqrt{10 + 2\sqrt{5}}}{8}, \\
+		\dfrac{-\sqrt{5} - 1}{4} + \imath \dfrac{(1 - \sqrt{5})\sqrt{10 + 2\sqrt{5}}}{8}, \\
+		\dfrac{\sqrt{5} - 1}{4} + \imath \dfrac{-\sqrt{10 + 2\sqrt{5}}}{4}.
+	\end{align*}
+	\endgroup
+
+	The tenth roots of unity are
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		1,                                                                   \\
+		\dfrac{\sqrt{5} + 1}{4} + \imath\dfrac{\sqrt{10 - 2\sqrt{5}}}{4},    \\
+		\dfrac{\sqrt{5} - 1}{4} + \imath \dfrac{\sqrt{10 + 2\sqrt{5}}}{4},   \\
+		\dfrac{-\sqrt{5} + 1}{4} + \imath \dfrac{\sqrt{10 + 2\sqrt{5}}}{4},  \\
+		\dfrac{-\sqrt{5} - 1}{4} + \imath \dfrac{\sqrt{10 - 2\sqrt{5}}}{4},  \\
+		-1,                                                                  \\
+		\dfrac{-\sqrt{5} - 1}{4} + \imath \dfrac{-\sqrt{10 - 2\sqrt{5}}}{4}, \\
+		\dfrac{-\sqrt{5} + 1}{4} + \imath \dfrac{-\sqrt{10 + 2\sqrt{5}}}{4}, \\
+		\dfrac{\sqrt{5} - 1}{4} + \imath \dfrac{-\sqrt{10 + 2\sqrt{5}}}{4},  \\
+		\dfrac{\sqrt{5} + 1}{4} + \imath\dfrac{-\sqrt{10 - 2\sqrt{5}}}{4}.
+	\end{align*}
+	\endgroup
+\end{proof}
+
+\begin{problem}{1.2.2.4}
+If \( \omega = \cos\dfrac{2\pi}{n} + \imath\sin\dfrac{2\pi}{n} \), prove that
+\[
+	1 + \omega^{h} + \omega^{2h} + \cdots + \omega^{(n-1)h} = 0
+\]
+
+for any integer \(h\) which is not a multiple of \(n\).
+\end{problem}
+
+\begin{proof}
+	If \( h \) is not a multiple of \( n \) then \( 1 - \omega^{h} \ne 0 \) and
+	\[
+		1 + \omega^{h} + \omega^{2h} + \cdots + \omega^{(n-1)h} = \dfrac{1 - \omega^{nh}}{1 - \omega^{h}} = \dfrac{0}{1 - \omega^{h}} = 0.\qedhere
+	\]
+\end{proof}
+
+\begin{problem}{1.2.2.5}
+What is the value of
+\[
+	1 - \omega^{h} + \omega^{2h} - \cdots + {(-1)}^{n-1}\omega^{(n-1)h} ?
+\]
+\end{problem}
+
+\begin{proof}
+	If \( \omega^{h} = -1 \) then the value of the given expression is \( n \).
+
+	If \( \omega^{h} \ne -1 \) then
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		1 - \omega^{h} + \omega^{2h} - \cdots + {(-1)}^{n-1}\omega^{(n-1)h} & = 1 + {(-\omega^{h})} + {(-\omega^{h})}^{2} + \cdots + {(-\omega^{h})}^{n-1} \\
+		                                                                    & = \dfrac{1 - {(-\omega^{h})}^{n}}{1 - {(-\omega^{h})}}                       \\
+		                                                                    & = 0.\qedhere
+	\end{align*}
+	\endgroup
+\end{proof}
+
+\subsection{Analytic Geometry}
+
+\begin{problem}{1.2.3.1}
+When does \( az + b\bar{z} + c = 0 \) represent a line?
+\end{problem}
+
+\begin{proof}
+	\( az + b\bar{z} + c = 0 \) represents a line if and only if \( a, b \) are not all zero and the system
+	\[
+		\begin{cases}
+			(a_{x} + b_{x})x + (-a_{y} + b_{y})y + c_{x} = 0 \\
+			(a_{y} + b_{y})x + (a_{x} - b_{x})y + c_{y} = 0
+		\end{cases}
+	\]
+
+	has infinitely many solutions, equivalently
+	\[
+		\begin{vmatrix}
+			a_{x} + b_{x} & -a_{y} + b_{y} \\
+			a_{y} + b_{y} & a_{x} - b_{x}
+		\end{vmatrix}
+		=
+		\begin{vmatrix}
+			c_{x} & a_{x} + b_{x} \\
+			c_{y} & a_{y} + b_{y}
+		\end{vmatrix}
+		=
+		\begin{vmatrix}
+			-a_{y} + b_{y} & c_{x} \\
+			a_{x} - b_{x}  & c_{y}
+		\end{vmatrix}
+		= 0
+	\]
+
+	These are equivalent to
+	\[
+		\begin{cases}
+			a\bar{a} = b\bar{b}                      \\
+			c\overline{(a + b)} - \bar{c}(a + b) = 0 \\
+			c\overline{(a - b)} + \bar{c}(a - b) = 0
+		\end{cases}
+		\iff
+		\begin{cases}
+			a\bar{a} = b\bar{b}     \\
+			c\bar{a} - \bar{c}b = 0 \\
+			c\bar{b} - \bar{c}a = 0
+		\end{cases}
+		\iff
+		\begin{cases}
+			a\bar{a} = b\bar{b} \\
+			c\bar{a} - \bar{c}b = 0
+		\end{cases}
+	\]
+\end{proof}
+
+\begin{problem}{1.2.3.2}
+Write the equation of an ellipse, hyperbola, parabola in complex form.
+\end{problem}
+
+\begin{proof}
+	The equation of an ellipse with foci \( c_{1}, c_{2} \) and \( a \) is a positive real number such that \( 2a > \left\vert c_{1} - c_{2} \right\vert \) is
+	\[
+		\left\vert z - c_{1} \right\vert + \left\vert z - c_{2} \right\vert = 2a.
+	\]
+
+	The equation of a hyperbola with foci \( c_{1}, c_{2} \) and \( a \) is a positive real number such that \( 2a < \left\vert c_{1} - c_{2} \right\vert \) is
+	\[
+		\left\vert \left\vert z - c_{1} \right\vert - \left\vert z - c_{2} \right\vert \right\vert = 2a.
+	\]
+
+	The equation of a parabola with focus \( f \) and directrix \( p + qt (t \in \mathbb{R}) \) is
+	\[
+		\left\vert z - f \right\vert = \dfrac{{\left\vert q \right\vert}^{2} {\left\vert z - p \right\vert}^{2} - {(\bar{q}z + q\bar{z} - \bar{q}p - q\bar{p})}^{2}}{{\left\vert q \right\vert}^{4}}
+	\]
+
+	where the left-hand side is the distance from \( z \) to \( f \) and the right-hand side is the distance from \( z \) to the line \( p + qt \).
+\end{proof}
+
+\begin{problem}{1.2.3.3}
+Prove that the diagonals of a parallelogram bisect each other and that the diagonals of a rhombus are orthogonal.
+\end{problem}
+
+\begin{proof}
+	Let \( ABCD \) be a parallelogram and the coordinates of \( A, B, C, D \) are \( a, b, c, d \).
+
+	As \( \overrightarrow{AB} = \overrightarrow{DC} \), it follows that \( b - a = c - d \), which means \( b + d = a + c \). The midpoint of \( AC \) is \( \dfrac{a + c}{2} \) and the midpoint of \( BD \) is \( \dfrac{b + d}{2} \) so \( AC \) and \( BD \) bisect each other.
+
+	If \( ABCD \) is a rhombus then \( a + c = b + d \) and \( \left\vert a - b \right\vert = \left\vert b - c \right\vert \).
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\dfrac{a - c}{b - d} & = \dfrac{a - c}{b - (a + c) + b}                                                           \\
+		                     & = \dfrac{a - c}{2b - a - c}                                                                \\
+		                     & = \dfrac{(b - c) - (b - a)}{(b - c) + (b - a)}                                             \\
+		                     & = \dfrac{1/\overline{b - c} - 1/\overline{b - a}}{1/\overline{b - c} + 1/\overline{b - a}} \\
+		                     & = \dfrac{\overline{b - a} - \overline{b - c}}{\overline{b - a} + \overline{b - c}}         \\
+		                     & = \dfrac{\overline{c - a}}{\overline{2b - a - c}}                                          \\
+		                     & = -\overline{\left(\dfrac{a - c}{b - d}\right)}
+	\end{align*}
+	\endgroup
+
+	so \( \dfrac{a - c}{b - d} \) is pure imaginary, which implies that \( AC \) and \( BD \) are perpendicular.
+\end{proof}
+
+\begin{problem}{1.2.3.4}
+Prove analytically that the midpoints of parallel chords to a circle lie on a diameter perpendicular to the chords.
+\end{problem}
+
+\begin{proof}
+	Let \( \left\vert z - a \right\vert = r \) be a circle and \( q \) a vector.
+
+	A straight line which is parallel to \( q \) has parametrized equation of the form \( p + qt (t \in \mathbb{R}) \) in which \( p \) is some complex number. Assume that this line intersects the given circle at two points then the following quadratic equation
+	\[
+		(p + qt - a)(\bar{p} + \bar{q}t - \bar{a}) = r^{2}
+	\]
+
+	has two distinct solutions.
+
+	The quadratic equation is equivalent to
+	\[
+		t^{2} {\left\vert q \right\vert}^{2} + t(q\overline{(p - a)} + \bar{q}(p - a)) + {\left\vert p - a\right\vert}^{2} - r^{2} = 0.
+	\]
+
+	Let the two intersections be \( p + qt_{1} \) and \( p + qt_{2} \) then the midpoint is
+	\[
+		z = p + \dfrac{q(t_{1} + t_{2})}{2} = p - \dfrac{q(q\overline{(p - a)} + \bar{q}(p - a))}{2{\left\vert q\right\vert}^{2}}
+	\]
+
+	Moreover
+	\[
+		\dfrac{z - a}{q} = \dfrac{p - a}{q} - \dfrac{q\overline{(p - a)} + \bar{q}(p - a)}{2{\left\vert q\right\vert}^{2}} = \dfrac{p - a}{2q} - \frac{\overline{(p - a)}}{2\bar{q}}
+	\]
+
+	is pure imaginary. Thus the midpoints of parallel chords to a circle lie on a diameter perpendicular to the chords.
+\end{proof}
+
+\begin{problem}{1.2.3.5}
+Show that all circles that pass through \( a \) and \( 1/\bar{a} \) intersect the circle \( \left\vert z \right\vert = 1 \) at right angles.
+\end{problem}
+
+\begin{proof}
+	Two circles \( (O_{1}, r_{1}) \) and \( (O_{2}, r_{2}) \) are intersecting at right angles if and only if \( r_{1}^{2} + r_{2}^{2} = {\left\vert O_{1}O_{2} \right\vert}^{2} \).
+
+	Assume that \( z \) is the center of a circle passing through \( a, 1/\bar{a} \).
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\left\vert z - a \right\vert = \left\vert z - 1/\bar{a} \right\vert & \iff (z - a)\overline{(z - a)} = (z - 1/\bar{a})\overline{(z - 1/\bar{a})}                                                                      \\
+		                                                                    & \iff z\bar{z} + a\bar{a} - z\bar{a} - \bar{z}a = z\bar{z} - \dfrac{1}{a\bar{a}} - \dfrac{z}{a} - \dfrac{\bar{z}}{\bar{a}} + \dfrac{1}{a\bar{a}} \\
+		                                                                    & \iff z\dfrac{1 - a\bar{a}}{a} + \bar{z}\dfrac{1 - a\bar{a}}{\bar{a}} = \dfrac{1 - {(a\bar{a})}^{2}}{a\bar{a}}                                   \\
+		                                                                    & \iff \dfrac{z}{a} + \dfrac{\bar{z}}{\bar{a}} = 1 + \dfrac{1}{a\bar{a}}                                                                          \\
+		                                                                    & \iff \bar{a}z + a\bar{z} = a\bar{a} + 1                                                                                                         \\
+		                                                                    & \iff z\bar{z} = z\bar{z} - \bar{a}z - a\bar{z} + a\bar{a} + 1                                                                                   \\
+		                                                                    & \iff {\left\vert z \right\vert}^{2} = {\left\vert z - a \right\vert}^{2} + 1
+	\end{align*}
+	\endgroup
+
+	This means the distance between \( z \) and the origin squared is equal to the sum of squares of the radii of the unit circle and the circle passing through \( a, 1/\bar{a} \). Hence the circle passing through \( a, 1/\bar{a} \) intersects the unit circle at right angles.
+\end{proof}
+
+\subsection{The Spherical Representation}
+
+\begin{problem}{1.2.4.1}
+Show that \( z \) and \( w \) correspond to diametrically opposites points on the Riemann sphere if and only if \( \Re{(z\bar{w})} = -1 \).
+\end{problem}
+
+\begin{proof}
+	The projections of \( z \) and \( w \) on the unit sphere are
+	\[
+		Z = \left( \dfrac{z + \bar{z}}{{\left\vert z \right\vert}^{2} + 1}, \dfrac{z - \bar{z}}{\imath ({\left\vert z \right\vert}^{2} + 1)}, \dfrac{{\left\vert z \right\vert}^{2} - 1}{{\left\vert z \right\vert}^{2} + 1} \right) \qquad
+		W = \left( \dfrac{w + \bar{w}}{{\left\vert w \right\vert}^{2} + 1}, \dfrac{w - \bar{w}}{\imath ({\left\vert w \right\vert}^{2} + 1)}, \dfrac{{\left\vert w \right\vert}^{2} - 1}{{\left\vert w \right\vert}^{2} + 1} \right)
+	\]
+
+	\( ZW \) is a diameter of the Riemann sphere if and only if \( NZ \perp NW \), in which \( N = (0,0,1) \). The chords \( NZ \) and \( NW \) are perpendicular iff
+	\[
+		\dfrac{(z + \bar{z})(w + \bar{w})}{({\left\vert z \right\vert}^{2} + 1)({\left\vert w \right\vert}^{2} + 1)} - \dfrac{(z - \bar{z})(w - \bar{w})}{({\left\vert z \right\vert}^{2} + 1)({\left\vert w \right\vert}^{2} + 1)} + \dfrac{4}{({\left\vert z \right\vert}^{2} + 1)({\left\vert w \right\vert}^{2} + 1)} = 0
+	\]
+
+	which is equivalent to
+	\[
+		\bar{z}w + z\bar{w} + 2 = 0
+	\]
+
+	or \( \Re{(z\bar{w})} = -1 \).
+\end{proof}
+
+\begin{problem}{1.2.4.2}
+A cube has its vertices on the sphere \( S \) and its edges parallel to the coordinate axes. Find the stereographic projections of the vertices.
+\end{problem}
+
+\begin{proof}
+	The 8 vertices of the cubes and their stereographic projections are
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\left( \dfrac{1}{\sqrt{3}}, \dfrac{1}{\sqrt{3}}, \dfrac{1}{\sqrt{3}} \right)    & \longmapsto \dfrac{\sqrt{3} + 1}{2} + \imath\dfrac{\sqrt{3} + 1}{2}   \\
+		\left( \dfrac{-1}{\sqrt{3}}, \dfrac{1}{\sqrt{3}}, \dfrac{1}{\sqrt{3}} \right)   & \longmapsto \dfrac{-\sqrt{3} - 1}{2} + \imath\dfrac{\sqrt{3} + 1}{2}  \\
+		\left( \dfrac{1}{\sqrt{3}}, \dfrac{-1}{\sqrt{3}}, \dfrac{1}{\sqrt{3}} \right)   & \longmapsto \dfrac{\sqrt{3} + 1}{2} + \imath\dfrac{-\sqrt{3} - 1}{2}  \\
+		\left( \dfrac{-1}{\sqrt{3}}, \dfrac{-1}{\sqrt{3}}, \dfrac{1}{\sqrt{3}} \right)  & \longmapsto \dfrac{-\sqrt{3} - 1}{2} + \imath\dfrac{-\sqrt{3} - 1}{2} \\
+		\left( \dfrac{-1}{\sqrt{3}}, \dfrac{-1}{\sqrt{3}}, \dfrac{-1}{\sqrt{3}} \right) & \longmapsto \dfrac{-\sqrt{3} + 1}{2} + \imath\dfrac{-\sqrt{3} + 1}{2} \\
+		\left( \dfrac{1}{\sqrt{3}}, \dfrac{-1}{\sqrt{3}}, \dfrac{-1}{\sqrt{3}} \right)  & \longmapsto \dfrac{\sqrt{3} - 1}{2} + \imath\dfrac{-\sqrt{3} + 1}{2}  \\
+		\left( \dfrac{-1}{\sqrt{3}}, \dfrac{1}{\sqrt{3}}, \dfrac{-1}{\sqrt{3}} \right)  & \longmapsto \dfrac{-\sqrt{3} + 1}{2} + \imath\dfrac{\sqrt{3} - 1}{2}  \\
+		\left( \dfrac{1}{\sqrt{3}}, \dfrac{1}{\sqrt{3}}, \dfrac{-1}{\sqrt{3}} \right)   & \longmapsto \dfrac{\sqrt{3} - 1}{2} + \imath\dfrac{\sqrt{3} - 1}{2}
+	\end{align*}
+	\endgroup
+\end{proof}
+
+\begin{problem}{1.2.4.3}
+Same problem for a regular tetrahedron in general position.
+\end{problem}
+
+\begin{proof}
+	The solution would involves the 3D rotation formula.
+\end{proof}
+
+\begin{problem}{1.2.4.4}
+Let \( Z, W \) denote the stereographic projections of \( z, w \), and let \( N \) be the north pole. Show that the triangles \( NZW \) and \( Nzw \) are similar, and use this to derive the distance between the stereographic projections of \( z  \) and \( w \)
+\[
+	d(z, w) = \dfrac{2\left\vert z - w\right\vert}{\sqrt{\left(1 + {\left\vert z \right\vert}^{2}\right)\left(1 + {\left\vert w \right\vert}^{2}\right)}}.
+\]
+\end{problem}
+
+\begin{proof}
+	\( N, Z, z \) are collinear and \( \overrightarrow{NZ}, \overrightarrow{Nz} \) have the same direction.
+
+	\( N, W, w \) are collinear and \( \overrightarrow{NW}, \overrightarrow{Nw} \) have the same direction.
+
+	\( \left\vert NZ \right\vert \cdot \left\vert Nz \right\vert = \left\vert NW \right\vert \cdot \left\vert Nw \right\vert = 2 \) and \( \angle ZNW = \angle zNw \) so the triangles \( NZW \) and \( Nzw \) are similar. Therefore
+	\[
+		d(z, w) = \left\vert ZW \right\vert = \dfrac{2 \left\vert z - w \right\vert}{\left\vert Nz\right\vert \cdot \left\vert Nw\right\vert} = \dfrac{2 \left\vert z - w \right\vert}{\sqrt{\left( 1 + {\left\vert z \right\vert}^{2} \right)\left( 1 + {\left\vert w \right\vert}^{2} \right)}}.\qedhere
+	\]
+\end{proof}
+
+\begin{problem}{1.2.4.5}
+Find the radius of the spherical image of the circle in the plane whose center is \( a \) and radius \( R \).
+\end{problem}
+
+\begin{proof}
+	Assume that the spherical image of the circle is the intersection of the sphere and a plane \( \alpha_{1}x_{1} + \alpha_{2}x_{2} + \alpha_{3}x_{3} = \alpha_{0} \). Without loss of generality, we can assume that \( \alpha_{1}^{2} + \alpha_{2}^{2} + \alpha_{3}^{2} = 1 \) and \( \left\vert \alpha_{0} \right\vert < 1 \) as the plane intersects the unit sphere. Moreover, the coefficients are unique by this assumption.
+
+	The image of the plane under the stereographic projection has complex equation
+	\[
+		\alpha_{1}\dfrac{z + \bar{z}}{1 + z\bar{z}} + \alpha_{2}\dfrac{z - \bar{z}}{\imath(1 + z\bar{z})} + \alpha_{3}\dfrac{z\bar{z} - 1}{1 + z\bar{z}} = \alpha_{0}
+	\]
+
+	Let \( z = x + \imath y \) then the equation becomes
+	\[
+		(\alpha_{3} - \alpha_{0})(x^{2} + y^{2}) + 2\alpha_{1}x + 2\alpha_{2}y - \alpha_{3} - \alpha_{0} = 0
+	\]
+
+	For this equation to represent the circle \( \left\vert z - a \right\vert = R \), it must be the case that
+	\[
+		\begin{cases}
+			a = -\dfrac{\alpha_{1} + \imath \alpha_{2}}{\alpha_{3} - \alpha_{0}} \\
+			R^{2} = \dfrac{\alpha_{1}^{2} + \alpha_{2}^{2}}{{(\alpha_{3} - \alpha_{0})}^{2}} + \dfrac{\alpha_{3} + \alpha_{0}}{\alpha_{3} - \alpha_{0}} = \dfrac{1 - \alpha_{0}^{2}}{{(\alpha_{3} - \alpha_{0})}^{2}}
+		\end{cases}
+	\]
+
+	From this system, we deduce that \( {\left\vert a \right\vert}^{2} = \dfrac{\alpha_{1}^{2} + \alpha_{2}^{2}}{{(\alpha_{3} - \alpha_{0})}^{2}} = \dfrac{1 - \alpha_{3}^{2}}{{(\alpha_{3} - \alpha_{0})}^{2}} \).
+	\[
+		R^{2} - {\left\vert a \right\vert}^{2} = \dfrac{\alpha_{3}^{2} - \alpha_{0}^{2}}{{(\alpha_{3} - \alpha_{0})}^{2}} = \dfrac{\alpha_{3} + \alpha_{0}}{\alpha_{3} - \alpha_{0}}
+	\]
+
+	Therefore
+	\[
+		\begin{cases}
+			R^{2} - {\left\vert a \right\vert}^{2} + 1 = \dfrac{2\alpha_{3}}{\alpha_{3} - \alpha_{0}} \\
+			R^{2} - {\left\vert a \right\vert}^{2} - 1 = \dfrac{2\alpha_{0}}{\alpha_{3} - \alpha_{0}}
+		\end{cases}
+	\]
+
+	so
+	\[
+		\begin{cases}
+			\alpha_{3} = (R^{2} - {\left\vert a \right\vert}^{2} + 1)t \\
+			\alpha_{0} = (R^{2} - {\left\vert a \right\vert}^{2} - 1)t
+		\end{cases}
+	\]
+
+	for some real number \( t \). Substitute to \( R^{2} = \dfrac{1 - \alpha_{0}^{2}}{{(\alpha_{3} - \alpha_{0})}^{2}} \) and solve for \( t \), we obtain
+	\[
+		t^{2} = \dfrac{1}{4R^{2} + {(R^{2} - {\left\vert a \right\vert}^{2} - 1)}^{2}}.
+	\]
+
+	Hence \( \alpha_{0} = \pm\dfrac{R^{2} - {\left\vert a \right\vert}^{2} - 1}{\sqrt{4R^{2} + {(R^{2} - {\left\vert a \right\vert}^{2} - 1)}^{2}}} \). The distance from the origin to the plane \( \alpha_{1}x_{1} + \alpha_{2}x_{2} + \alpha_{3}x_{3} = \alpha_{0} \) is equal to
+	\[
+		\left\vert \alpha_{0} \right\vert = \dfrac{\left\vert R^{2} - {\left\vert a \right\vert}^{2} - 1\right\vert}{\sqrt{4R^{2} + {(R^{2} - {\left\vert a \right\vert}^{2} - 1)}^{2}}}
+	\]
+
+	so the radius of the spherical image is
+	\[
+		\sqrt{1 - \alpha_{0}^{2}} = \dfrac{2R}{\sqrt{4R^{2} + {(R^{2} - {\left\vert a \right\vert}^{2} - 1)}^{2}}}. \qedhere
+	\]
+\end{proof}
