@@ -2,6 +2,382 @@
 
 \section{Hausdorff Spaces}
 
+\begin{problem}{VII.1.1}
+Let \( Y \) be Hausdorff. Prove:
+\begin{enumerate}[label={(\alph*)}]
+	\item \( \bigcap \left\{ F \mid (p \in F) \land (F\text{ is closed}) \right\} = \left\{ p \right\} \).
+	\item \( \bigcap \left\{ U \mid (p \in U) \land (U\text{ is open}) \right\} = \left\{ p \right\} \).
+\end{enumerate}
+
+Given examples to show that \textit{neither} of these two properties is equivalent to ``Hausdorff.\@''
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item \( Y \) is Hausdorff so \( \left\{ p \right\} \) is closed. Hence \( \bigcap \left\{ F \mid (p \in F) \land (F\text{ is closed}) \right\} = \left\{ p \right\} \).
+		\item Obviously, \( \bigcap \left\{ U \mid (p \in U) \land (U\text{ is open}) \right\} \supset \left\{ p \right\} \).
+
+		      For each \( q \ne p \), there exist disjoint open sets \( U_{q} \ni q \) and \( U_{q,p} \ni p \). Therefore \( q \notin \bigcap \left\{ U \mid (p \in U) \land (U\text{ is open}) \right\} \), which means \( \bigcap \left\{ U \mid (p \in U) \land (U\text{ is open}) \right\} = \left\{ p \right\} \)
+	\end{enumerate}
+
+	\bigskip
+	Here is an example. Let \( X \) be an infinite set with the cofinite topology. Let \( a, b \) be two distinct points of \( X \) and \( U, V \) be any neighborhood of \( a, b \). Two sets \( U, V \) are nonempty and open hence infinite.
+	\[
+		\mathscr{C}(U \cap V) = \mathscr{C}U \cup \mathscr{C}V
+	\]
+
+	is finite as \( \mathscr{C}U, \mathscr{C}V \) are finite. Hence \( U \cap V \) is infinite, which means it is nonempty. Therefore \( X \) is not Hausdorff.
+	\begin{enumerate}[label={(\alph*)}]
+		\item For every point \( p \in X \), the singleton \( \left\{ p \right\} \) is closed, so \( \bigcap \left\{ F \mid (p \in F) \land (F\text{ is closed}) \right\} = \left\{ p \right\} \).
+		\item For every point \( p \in X \), for every \( q \ne p \), \( X - \left\{ q \right\} \) is a neighborhood of \( p \), so
+		      \[
+			      q \notin \bigcap \left\{ U \mid (p \in U) \land (U\text{ is open}) \right\}
+		      \]
+
+		      Hence \( \bigcap \left\{ U \mid (p \in U) \land (U\text{ is open}) \right\} = \left\{ p \right\} \).
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{VII.1.2}\label{problem:VII.1.2}
+Let \( \left\{ x_{1}, \ldots, x_{n} \right\} \) be a finite subset of a Hausdorff space. Show that there exist pairwise disjoint neighborhoods \( U(x_{1}), \ldots, U(x_{n}) \).
+\end{problem}
+
+\begin{proof}
+	The given topological space is Hausdorff so the statement is true for \( n = 1, 2 \).
+
+	Assume that it is true for some positive integer \( n \ge 2 \). Let \( \left\{ x_{1}, \ldots, x_{n+1} \right\} \) be a finite subset in the given Hausdorff space. According to the inductive hypothesis, there exist pairwise disjoint neighborhoods \( V(x_{1}), \ldots, V(x_{n}) \).
+
+	For each \( i \in \left\{ 1, \ldots, n \right\} \), there exists a pair of disjoint open neighborhoods \( B(x_{i}), V_{i}(x_{n+1}) \).
+
+	Hence \( U(x_{1}) = V(x_{1}) \cap B(x_{1}), \ldots, U(x_{n}) = V(x_{n}) \cap B(x_{n}) \) and \( U(x_{n+1}) = \bigcap^{n}_{i=1} V_{i}(x_{n+1}) \) are pairwise disjoint neighborhoods.
+
+	By the principle of mathematical induction, there exist pairwise disjoint neighborhoods
+	\[
+		U(x_{1}), \ldots, U(x_{n})
+	\]
+
+	for each finite subset \( \left\{ x_{1}, \ldots, x_{n} \right\} \) of a Hausdorff space.
+\end{proof}
+
+\begin{problem}{VII.1.3}\label{problem:VII.1.3}
+Let \( X \) be a finite set. Prove that the only Hausdorff topology \( \mathscr{T} \) in \( X \) is the discrete topology.
+\end{problem}
+
+\begin{proof}
+	If \( \mathscr{T} \) is the discrete topology then it is Hausdorff.
+
+	Let \( X = \left\{ x_{1}, \ldots, x_{n} \right\} \) and suppose that \( \mathscr{T} \) is Hausdorff. According to Problem~\ref{problem:VII.1.2}, there exist pairwise disjoint neighborhoods \( U(x_{1}), \ldots, U(x_{n}) \). Hence \( U(x_{i}) = \left\{ x_{i} \right\} \) for each \( i \in \left\{ 1, \ldots, n \right\} \). Therefore every singleton subset of \( X \) is open, which means \( \mathscr{T} \) is the discrete topology.
+
+	Hence the only Hausdorff topology on a finite set is the discrete topology.
+\end{proof}
+
+\begin{problem}{VII.1.4}
+Prove that in Hausdorff spaces: (a) \( A^{\prime} \) is always closed; (b) \( {(A^{\prime})}^{\prime} \subset A^{\prime} \); and (c) \( {(\overline{A})}^{\prime} = A^{\prime} \).
+\end{problem}
+
+\begin{proof}
+	Let \( Y \) be a Hausdorff space and \( A \subset Y \).
+
+	\begin{enumerate}[label={(\alph*)}]
+		\item Let \( y \in Y - A^{\prime} \). According to the definition of derived sets, there exists a neighborhood \( U \) of \( y \) such that \( (U - \left\{ y \right\}) \cap A = \varnothing \). For each \( z \in U - \left\{ y \right\} \), \( U - \left\{ y \right\} \) is a neighborhood of \( z \), because
+		      \[
+			      U - \left\{ y \right\} = U \cap (Y - \left\{ y \right\})
+		      \]
+
+		      is open, as \( \left\{ y \right\} \) is closed in \( Y \) (because \( Y \) is Hausdorff).
+
+		      Hence \( y \in U \subset Y - A^{\prime} \), which means \( Y - A^{\prime} \) is open, so \( A^{\prime} \) is closed.
+		\item As \( A^{\prime} \) is closed, its derived set is contained in \( A^{\prime} \). Therefore \( {(A^{\prime})}^{\prime} \subset A^{\prime} \).
+		\item \( A \subset \overline{A} \) so \( A^{\prime} \subset {(\overline{A})}^{\prime} \).
+
+		      Let \( x \in {(\overline{A})}^{\prime} \) and \( U \) a neighborhood of \( x \). According to the definition of derived sets
+		      \[
+			      (U - \left\{ x \right\}) \cap \overline{A} \ne \varnothing.
+		      \]
+
+		      Since \( U - \left\{ x \right\} \) is open (as \( Y \) is Hausdorff), then \( (U - \left\{ x \right\}) \cap A \ne \varnothing \) (the closure of a set is the set of adherent points of that set). Therefore \( x \in A^{\prime} \), which means \( {(\overline{A})}^{\prime} \subset A^{\prime} \).
+
+		      Thus \( A^{\prime} = {(\overline{A})}^{\prime} \).
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{VII.1.5}
+Let \( f: X \to Y, g: Y \to X \) be continuous, with \( g \circ f = 1_{X} \). Prove: If \( Y \) is Hausdorff so also is \( X \), and \( f(X) \) is closed in \( Y \).
+\end{problem}
+
+\begin{proof}
+	Let \( x_{1}, x_{2} \) be distinct points in \( X \) then \( g(f(x_{1})) \ne g(f(x_{2})) \), which means \( f(x_{1}) \ne f(x_{2}) \), so \( f \) is injective.
+
+	\( Y \) is Hausdorff so there exist disjoint neighborhood \( U(f(x_{1})), V(f(x_{2})) \). Therefore \( f^{-1}(U), f^{-1}(V) \) are disjoint neighborhoods of \( x_{1}, x_{2} \). Thus \( X \) is Hausdorff.
+
+	\bigskip
+	If \( y \in Y - f(X) \) then \( (f \circ g)(y) \ne y \) as \( f(g(y)) \in f(X) \). Otherwise, \( y \in f(X) \) then there exists \( x \in X \) such that \( f(x) = y \), so
+	\[
+		(f \circ g)(y) = (f \circ g \circ f)(x) = (f \circ 1_{X})(x) = f(x) = y.
+	\]
+
+	Hence \( \left\{ y \mid (f \circ g)(y) = 1_{Y}(y) \right\} = f(X) \). Moreover, \( Y \) is Hausdorff and \( f\circ g, 1_{Y}: Y \to Y \) are continuous maps, so \( f(X) \) is closed in \( Y \), according to Proposition 1.5 (1).
+\end{proof}
+
+\begin{problem}{VII.1.6}
+Let \( Y = I \cup \left\{ \xi \right\} \), where \( \xi \notin I \), with the identification topology determined by \( p: \closedinterval{-1, 1} \to Y \), where \( x \mapsto \left\vert x \right\vert, x \ne -1 \), and \( p(-1) = \xi \). Show that (a) \( p \) is an open map; (b) \( Y \) is not Hausdorff; (c) the relation \( K(p) \) is not closed in \( X \times X \).
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item The collection \( \left\{ \openinterval{a, b} \cap \closedinterval{-1, 1} \mid a < b \right\} \) is a basis for \( \closedinterval{-1, 1} \).
+		      \begin{itemize}
+			      \item \( \openinterval{a, b} \subset \closedinterval{-1, 1} \) and \( 0 \notin \openinterval{a, b} \) then
+			            \[
+				            p^{-1}(p(\openinterval{a, b} \cap \closedinterval{-1, 1})) = p^{-1}(p(\openinterval{a, b})) = \openinterval{-\left\vert a \right\vert, \left\vert a \right\vert} \cup \openinterval{-\left\vert b \right\vert, \left\vert b \right\vert}
+			            \]
+
+			            is open in \( \closedinterval{-1, 1} \) so \( p(\openinterval{a, b} \cap \closedinterval{-1, 1}) \) is open in \( Y \).
+			      \item If \( -1 \in \openinterval{a, b} \) and \( 1 \notin \openinterval{a, b} \) then
+			            \[
+				            p^{-1}(p(\openinterval{a, b} \cap \closedinterval{-1, 1})) = p^{-1}(p(\halfopenright{-1, b})) = \halfopenright{-1, 1}
+			            \]
+
+			            is open in \( \closedinterval{-1, 1} \) so \( p(\openinterval{a, b} \cap \closedinterval{-1, 1}) \) is open in \( Y \).
+			      \item If \( 1 \in \openinterval{a, b} \) and \( -1 \notin \openinterval{a, b} \) then
+			            \[
+				            p^{-1}(p(\openinterval{a, b} \cap \closedinterval{-1, 1})) = \halfopenleft{-1, 1}
+			            \]
+
+			            is open in \( \closedinterval{-1, 1} \) so \( p(\openinterval{a, b} \cap \closedinterval{-1, 1}) \) is open in \( Y \).
+			      \item If \( 1, -1 \in \closedinterval{a, b} \) then
+			            \[
+				            p^{-1}(p(\openinterval{a, b} \cap \closedinterval{-1, 1})) = p^{-1}(p(\closedinterval{-1, 1})) = \closedinterval{-1, 1}
+			            \]
+
+			            is open in \( \closedinterval{-1, 1} \) so \( p(\openinterval{a, b} \cap \closedinterval{-1, 1}) \) is open in \( Y \).
+		      \end{itemize}
+
+		      Hence \( p \) is an open map.
+		\item Let \( U \) be a neighborhood of \( 1 \) and \( V \) a neighborhood of \( \xi \) then \( p^{-1}(U) \) is a \(p\)-saturated neighborhood of \( 1 \) and \( p^{-1}(V) \) is a \( p \)-saturated neighborhood of \( -1 \).
+
+		      \( p^{-1}(U) \) contains \( \openinterval{a, 1} \cup \openinterval{-1, a} \) for some \( 0 < a < 1 \).
+
+		      \( p^{-1}(V) \) contains \( \openinterval{-1, b} \cup \openinterval{b, 1} \) for some \( b > -1 \).
+
+		      This means \( p^{-1}(U) \) and \( p^{-1}(V) \) are intersecting, so \( U, V \) are intersecting. Thus any neighborhoods of \( 1, \xi \) are intersecting, which means \( Y \) is not Hausdorff.
+		\item \( Y \) is not Hausdorff so the diagonal \( \Delta_{Y} \) is not closed in \( Y \times Y \).
+
+		      The map \( p \times p: X \times X \to Y \times Y \) given by \( p\times p(x_{1}, x_{2}) = (p(x_{1}), p(x_{2})) \) is an identification, according to Problem~\ref{problem:VI.1.2} since \( p \) is an open continous surjection.
+
+		      Since \( K(p) = {(p \times p)}^{-1}(\Delta_{Y}) \), \( \Delta_{Y} \) is not closed, and \( p \times p \) is an identification, we deduce that \( K(p) \) is not closed in \( X \times X \).
+	\end{enumerate}
+\end{proof}
+
+\begin{problem}{VII.1.7}\label{problem:VII.1.7}
+Prove: A necessary and sufficient condition that points be closed sets is that the topology be \( T_{1} \).
+\end{problem}
+
+\begin{proof}
+	Let \( X \) be a topological space.
+
+	If every singletion subset of \( X \) is closed then for each pair of distinct points \( a, b \), \( X - \left\{ b \right\} \) is a neighborhood of \( a \) not containing \( b \) and \( X - \left\{ a \right\} \) is a neighborhood of \( b \) not containing \( a \). Therefore \( X \) is \( T_{1} \).
+
+	Conversely, suppose that \( X \) is \( T_{1} \). Let \( a \in X \) then for every \( b \ne a \), there exists a neighborhood \( U_{b} \) of \( b \) not containing \( a \), which means \( X - \left\{ a \right\} = \bigcup_{b\ne a} U_{b} \) is open, so \( \left\{ a \right\} \) is closed. Hence every singleton subset of \( X \) is closed.
+\end{proof}
+
+\begin{problem}{VII.1.8}
+Prove: \( X/R \) is \( T_{1} \) if and only if each equivalent class is closed in \( X \).
+\end{problem}
+
+\begin{proof}
+	This proof makes use of Problem~\ref{problem:VII.1.7}.
+
+	Let \( p: X \to X/R \) be the corresponding quotient map.
+
+	\( X/R \) is \( T_{1} \) iff each \( p(x) \) is closed in \( X/R \). Because \( p \) is a quotient map, \( Rx = p^{-1}(p(x)) \) is closed in \( X \) if and only if \( p(x) \) is closed in \( X/R \).
+
+	Hence \( X/R \) is \( T_{1} \) iff each equivalent class is closed in \( X \).
+\end{proof}
+
+\begin{problem}{VII.1.9}
+A point \( y_{0} \) of a connected \st{Hausdorff} space \( Y \) is called a \textit{dispersion point} if \( Y - \left\{ y_{0} \right\} \) is totally disconnected. Prove: \( Y \) can have at most one dispersion point.
+\end{problem}
+
+\begin{proof}
+	Suppose on the contrary that a connected space \( Y \) has two distinct dispersion point \( p, q \).
+
+	\( Y - \left\{ p \right\} = A_{1} \cup A_{2} \) in which \( A_{1}, A_{2} \) are disjoint nonempty open sets in \( Y - \left\{ p \right\} \). Without loss of generality, assume that \( q \in A_{1} \) and \( q \notin A_{2} \).
+
+	\( Y - \left\{ q \right\} = B_{1} \cup B_{2} \) in which \( B_{1}, B_{2} \) are disjoint nonempty open sets in \( Y - \left\{ q \right\} \). Without loss of generality, assume that \( p \in B_{1} \) and \( p \notin B_{2} \).
+
+	\( B_{2} \cup \left\{ q \right\} \) is a subset of \( Y - \left\{ p \right\} \), it contains more than one point so it is not connected (because \( Y - \left\{ p \right\} \) is totally disconnected).
+
+	\( B_{2} \cup \left\{ q \right\} \) is not connected so \( B_{2} \cup \left\{ q \right\} = H_{1} \cup H_{2} \) in which \( H_{1}, H_{2} \) are disjoint nonempty open sets in \( B_{2} \cup \left\{ q \right\} \). Without loss of generality, assume that \( q \in H_{1} \).
+	\begin{itemize}
+		\item \( H_{1} \) is open in \( B_{2} \cup \left\{ q \right\} \) and \( B_{1} \) is open in \( B_{1} \) so \( H_{1} \sqcup H_{2} \) is open in \( B_{2} \cup \left\{ q \right\} \sqcup B_{1} = Y \).
+		\item \( H_{2} \) is open in \( B_{2} \cup \left\{ q \right\} \) and \( B_{2} \cup \left\{ q \right\} \) is open in \( Y \) so \( H_{2} \) is open in \( Y \).
+		\item Moreover \( (H_{1} \cup B_{1}) \cup H_{2} = Y \) and \( (H_{1} \cup B_{1}) \cap H_{2} = \varnothing \).
+	\end{itemize}
+
+	so \( H_{1} \cup B_{1} \) and \( H_{2} \) is a disconnection of \( Y \), which is a contradiction since \( Y \) is connected.
+
+	Thus a connected space can have at most one dispersion point.
+\end{proof}
+
+\begin{problem}{VII.1.10}\label{problem:VII.1.10}
+Let \( X \) be Hausdorff, let \( f: X \to Y \) be continuous, and let \( D \subset X \) be dense. Assume \( f\vert_{D} \) is a homeomorphism onto \( f(D) \). Prove: \( f(X - D) \subset Y - f(D) \).
+\end{problem}
+
+\begin{quotation}
+	This result still holds if \( X \) is \( T_{1} \).
+\end{quotation}
+
+\begin{proof}
+	Suppose on the contrary that there exists \( x \in X - D \) such that \( f(x) \in f(D) \). Because \( f\vert_{D}: D \cong f(D) \), there exists \( d \in D \) such that \( f(x) = f(d) \).
+
+	Let \( W \) be a neighborhood of \( f(x) \) in \( Y \) then \( f^{-1}(W) \) is a neighborhood of \( x \) and \( d \).
+
+	\( x \) and \( d \) are distinct so they are contained in disjoint neighborhoods \( U, V \). Since \( D \) is dense in \( X \) and \( x \notin D \), \( x \) is a limit point of \( D \). Therefore \( U \cap f^{-1}(W) \) (which is a neighborhood of \(x\) not containing \(d\)) intersects \( D \). Let \( z \) be a point in \( U \cap f^{-1}(W) \cap D \) then \( z \ne d \). This is a contradiction as \( z, d \in D, z \ne d \), \( f(z) = f(d) \) and \( f\vert_{D} \) is a homeomorphism onto \( f(D) \).
+
+	Hence there doesn't exist any point \( x \in X - D \) such that \( f(x) \in f(D) \), which means \( f(X - D) \cap f(D) = \varnothing \), from which we deduce that \( f(X - D) \subset Y - f(D) \).
+\end{proof}
+
+\begin{problem}{VII.1.11}
+Let \( X \) be Hausdorff and \( f: X \to X \) be continuous. Prove: \( \left\{ x \mid f(x) = x \right\} \) is closed in \( X \).
+\end{problem}
+
+\begin{quotation}
+	This problem says: The set of fixed points of a continuous map from a Hausdorff space to itself is closed.
+\end{quotation}
+
+\begin{proof}
+	\( 1: X \to X \) is a homeomorphism. Define \( g: X \to X \times X \) by \( g(x) = (f(x), 1(x)) \) then \( g \) is continuous.
+	\[
+		\left\{ x \mid f(x) = x \right\} = \left\{ x \mid f(x) = 1(x) \right\} = g^{-1}(\Delta_{X})
+	\]
+
+	\( \Delta_{X} \) is closed in \( X \times X \) because \( X \) is Hausdorff. The map \( g \) is continuous so \( g^{-1}(\Delta_{X}) \) is closed in \( X \). Hence \( \left\{ x \mid f(x) = x \right\} \) is closed in \( X \).
+\end{proof}
+
+\begin{problem}{VII.1.12}
+Prove: Every infinite Hausdorff space contains a countably infinite discrete subspace.
+\end{problem}
+
+\begin{proof}
+	Let \( X \) be an infinite Hausdorff space.
+
+	Let \( x_{1} \) be a point in \( X \) then \( \left\{ x_{1} \right\} \subset X \) is a discrete subspace.
+
+	Suppose that we have distinct \( n \) points \( x_{1}, \ldots, x_{n} \) then \( \left\{ x_{1}, \ldots, x_{n} \right\} \subset X \) is a discrete subspace.
+
+	Let \( x_{n+1} \) be a point in \( X - \left\{ x_{1}, \ldots, x_{n} \right\} \) then \( \left\{ x_{1}, \ldots, x_{n+1} \right\} \subset X \) is a discrete subspace, according to Problem~\ref{problem:VII.1.3}.
+
+	Thus \( X \) contains a countably infinite discrete subspace according to the principle of mathematical induction and the axiom of dependent choice.
+\end{proof}
+
+\begin{problem}{VII.1.13}
+Let \( D \) be a dense subset in each of the two Hausdorff spaces \(X\) and \(Y\). Let \( 1: D \to D \) be extendable to a continuous \( f: X \to Y \) and also to a continuous \( g: Y \to X \). Prove that \( f \) and \( g \) are homeomorphisms and that \( f = g^{-1} \).
+\end{problem}
+
+\begin{proof}
+	For each \( d \in D \)
+	\[
+		\begin{split}
+			(g \circ f)(d) = g(f(d)) = g(d) = d = 1_{X}(d) \\
+			(f \circ g)(d) = f(g(d)) = f(d) = d = 1_{Y}(d)
+		\end{split}
+	\]
+
+	so \( g \circ f: X \to X \) and \( 1_{X}: X \to X \) agree on a dense subset \( D \) of \( X \), \( f \circ g: Y \to Y \) and \( 1_{Y}: Y \to Y \) agree on a dense subset \( D \) of \( Y \).
+
+	According to Proposition 1.5 (2), \( g \circ f = 1_{X} \) and \( f \circ g = 1_{Y} \).
+
+	Thus \( f \) and \( g \) are homeomorphisms and \( f = g^{-1} \).
+\end{proof}
+
+\begin{problem}{VII.1.14}
+Let \( Y \) be Hausdorff. Prove that the cone \( TY \) is Hausdorff.
+\end{problem}
+
+\begin{proof}
+	\( Y, I = \closedinterval{0,1} \) are Hausdorff so \( Y \times I \) is Hausdorff.
+
+	Let \( p: Y \times I \to (Y \times I)/(Y \times \left\{ 1 \right\}) \) be the identification map.
+
+	Consider two distinct points \( p(a, s) \) and \( p(b, t) \) in \( TY \). The following cases are exhaustive
+	\begin{itemize}
+		\item \( a \ne b \) and \( s \ne t \) and \( s, t \ne 1 \)
+
+		      \( I \) is Hausdorff so there exist disjoint open sets \( U, V \) such that \( s \in U, t \in V \). Since \( s \ne t \) and they are not equal to \( 1 \), we can assume that \( 1 \notin U, V \).
+		      \[
+			      \begin{split}
+				      p^{-1}(p(Y \times U)) = Y \times U, \\
+				      p^{-1}(p(Y \times V)) = Y \times V.
+			      \end{split}
+		      \]
+
+		      So \( p(Y \times U) \) and \( p(Y \times V) \) are disjoint neighborhoods of \( p(a, s) \) and \( p(b, t) \).
+		\item \( a \ne b \) and \( s \ne t \) and \( s = 1 \)
+
+		      \( I \) is Hausdorff so there exist disjoint open sets \( U, V \) such that \( s \in U, t \in V \). Note that \( 1 \notin U \) and \( 1 \in V \).
+		      \[
+			      \begin{split}
+				      p^{-1}(p(Y \times U)) = Y \times U, \\
+				      p^{-1}(p(Y \times V)) = Y \times V.
+			      \end{split}
+		      \]
+
+		      So \( p(Y \times U) \) and \( p(Y \times V) \) are disjoint neighborhoods of \( p(a, s) \) and \( p(b, t) \).
+		\item \( a \ne b \) and \( s \ne t \) and \( t = 1 \)
+
+		      Similar to the previous case.
+		\item \( a = b \) and \( s \ne t \) and \( s, t \ne 1 \)
+
+		      \( I \) is Hausdorff so there exist disjoint open sets \( U, V \) such that \( s \in U, t \in V \). Since \( s \ne t \) and they are not equal to \( 1 \), we can assume that \( 1 \notin U, V \).
+		      \[
+			      \begin{split}
+				      p^{-1}(p(Y \times U)) = Y \times U, \\
+				      p^{-1}(p(Y \times V)) = Y \times V.
+			      \end{split}
+		      \]
+
+		      So \( p(Y \times U) \) and \( p(Y \times V) \) are disjoint neighborhoods of \( p(a, s) \) and \( p(b, t) \).
+		\item \( a = b \) and \( s \ne t \) and \( s = 1 \)
+
+		      \( I \) is Hausdorff so there exist disjoint open sets \( U, V \) such that \( s \in U, t \in V \). Note that \( 1 \in U \) and \( 1 \notin V \).
+		      \[
+			      \begin{split}
+				      p^{-1}(p(Y \times U)) = Y \times U, \\
+				      p^{-1}(p(Y \times V)) = Y \times V.
+			      \end{split}
+		      \]
+
+		      So \( p(Y \times U) \) and \( p(Y \times V) \) are disjoint neighborhoods of \( p(a, s) \) and \( p(b, t) \).
+		\item \( a = b \) and \( s \ne t \) and \( t = 1 \)
+
+		      Similar to the previous case.
+		\item \( a \ne b \) and \( s = t \ne 1 \)
+
+		      \( Y \) is Hausdorff so there exist disjoint neighborhoods \( A, B \) such that \( a \in A, b \in B \).
+
+		      Let \( U \) be a neighborhood of \( s \) not containing \( 1 \).
+		      \[
+			      \begin{split}
+				      p^{-1}(p(A \times U)) = A \times U, \\
+				      p^{-1}(p(B \times U)) = B \times U.
+			      \end{split}
+		      \]
+
+		      So \( p(A \times U) \) and \( p(B \times U) \) are disjoint neighborhoods of \( p(a, s) \) and \( p(b, t) \).
+	\end{itemize}
+
+	Thus \( TY \) is Hausdorff.
+\end{proof}
+
+\begin{problem}{VII.1.15}
+Show that the space \( (\mathbb{Z}^{+}, \mathscr{T}) \) of Problem~\ref{problem:V.1.10} is Hausdorff.
+\end{problem}
+
+\begin{proof}
+	Let \( x, y \) be two distinct positive integers. The basic open sets \( U(xy + 1, x) \) and \( U(xy + 1, y) \) are disjoint neighborhoods of \( x, y \). Therefore \( (\mathbb{Z}^{+}, \mathscr{T}) \) is Hausdorff.
+\end{proof}
+
 \section{Regular Spaces}
 
 \section{Normal Spaces}
