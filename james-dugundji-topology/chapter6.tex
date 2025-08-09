@@ -339,7 +339,179 @@ Let \(X\) have the projective limit topology determined by \( \left\{ Y_{\alpha}
 
 \section{Spaces with Equivalence Relations}
 
+\begin{problem}{VI.4.1}
+Let \( p: X \to X/R \) be an open (or closed) map, and \( B \subset X/R \) any subset. Show that \( B \) is homeomorphic to \( p^{-1}(B)/R_{0} \), where \( R_{0} \) is the restriction of \( R \) on \( p^{-1}(B) \).
+\end{problem}
+
+\begin{proof}
+	Let \( q = p\vert_{p^{-1}(B)}: p^{-1}(B) \to B \) and \( r: p^{-1}(B) \to p^{-1}(B)/R_{0} \).
+
+	\( p \) is an open (or closed) identification so \( q \) is an identification. Also, \( r \) is an identification.
+	\[
+		\begin{tikzcd}
+			{p^{-1}(B)} && B \\
+			\\
+			{p^{-1}(B)/R_{0}}
+			\arrow["q", from=1-1, to=1-3]
+			\arrow["r"', from=1-1, to=3-1]
+			\arrow["{rq^{-1}}", from=1-3, to=3-1]
+			\arrow["{qr^{-1}}"{description}, shift left=3, from=3-1, to=1-3]
+		\end{tikzcd}
+	\]
+
+	\( q \) is constant on each fiber of \( r \) and \( r \) is constant on each fiber of \( q \). Therefore the induced maps \( qr^{-1} \) and \( rq^{-1} \) are continuous. On the other hand, \( qr^{-1} \) and \( rq^{-1} \) are inverses of each other so they are homeomorphisms, which implies \( B \cong p^{-1}(B)/R_{0} \).
+\end{proof}
+
+\begin{problem}{VI.4.2}
+Give an example showing that if \( A \subset X \) is not open or closed, then \( X - A \) need not be homeomorphic to the complement of \( [A] \) in \( X/A \).
+\end{problem}
+
+\begin{proof}
+	Let \( X = \mathbb{R} \) and \( A = \mathbb{Q} \) then \( A \) is not open or closed in \( X \).
+
+	The restriction of \( q: X \to X/A \) to \( q\vert_{X - A}: X - A \to X/A - \left\{ [A] \right\} \) is a continuous bijection. Let \( O = \openinterval{0, 1} \cap (\mathbb{R} - \mathbb{Q}) = \openinterval{0, 1} \cap (X - A) \) then \( O \) is open in \( X - A \). We will show that \( q(O) \) is not open in \( q(X - A) \).
+
+	Assume that \( q(O) \) is open in \( q(X - A) \) then there exists an open set \( U \subset X/A \) such that \( q(O) = q(X - A) \cap U \).
+
+	If \( U \) doesn't contain \( [A] \) then the preimage \( q^{-1}(U) \) doesn't contain any rational numbers, hence not open, which is a contradiction since \( U \) is open in \( X/A \) and \( q \) is continuous. Therefore \( U \) contains \( [A] \), so \( q^{-1}(U) \) contains \( \mathbb{Q} \), and
+	\[
+		q^{-1}(U) = q^{-1}(\left\{ [A] \right\} \cup q(O)) = q^{-1}(\left\{ [A] \right\}) \cup q^{-1}(q(O)) = \mathbb{Q} \cup O
+	\]
+
+	which is not open in \( X = \mathbb{R} \). This is a contradiction as \( q^{-1}(U) \) is simutaneously open and non-open.
+
+	Thus \( q \) is not an open map, so it is not a homeomorphism.
+\end{proof}
+
+\begin{problem}{VI.4.3}
+These problems will be much easier after studying compactness. (Use now Problem~\ref{problem:III.9.1}.)
+\begin{enumerate}[label={(\alph*)}]
+	\item In \( I^{2} \), let \( (0, y) \sim (1, y) \). Show \( I^{2}/R \cong \) the cylinder \( S^{1} \times I \).
+	\item In \( I^{2} \), let \( (0, y) \sim (1, 1 - y) \). Show \( I^{2}/R \cong \) M\"{o}bius band.
+	\item In \( I^{2} \), let \( \operatorname{Fr}(I^{2}) \sim (0, 0) \). Show \( I^{2}/R \cong S^{2} \).
+	\item In \( I^{2} \), let \( (0, y) \sim (1, y), (x, 0) \sim (x, 1) \). Show \( I^{2}/R \cong \) the torus \( S^{1} \times S^{1} \).
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	I have no idea other than using compactness and the closed map lemma.
+\end{proof}
+
+\begin{problem}{VI.4.4}
+Let \( R \) be an equivalence relation in \( X \). For each \( A \subset X \) define \( C(A) = \left\{ x \in X \mid \exists a \in A: x R a \right\} \). Show that \( p(U) \) is open in \( X/R \) if and only if \( C(U) \) is open in \( X \).
+\end{problem}
+
+\begin{proof}
+	According to the definition of \( C \), \( C(U) = p^{-1}(p(U)) \). Due to the definition of identification maps, \( p(U) \) is open in \( X/R \) if and only if \( p^{-1}(p(U)) \) is open in \( X \).
+
+	Thus \( p(U) \) is open in \( X/R \) if and only if \( C(U) \) is open in \( X \).
+\end{proof}
+
+\begin{problem}{VI.4.5}
+Let \( R, S \) be two equivalence relations in \( X \), and such that \( S \subset R \) (see Problem~\ref{problem:I.7.6}). Prove that \( (X/S)/(R/S) \cong X/R \).
+\end{problem}
+
+\begin{proof}
+	Let \( p_{R}: X \to X/R \), \( p_{S}: X \to X/S \), and \( p: X/S \to (X/S)/(R/S) \) be projection maps.
+
+	According to the transgression property, there is an induced continuous map \( q = p_{R}p_{S}^{-1} \) such that \( q \circ p_{S} = p_{R} \). According to Chapter I, section 7, there exists a unique map \( q \) that commutes the following diagram.
+	\[
+		\begin{tikzcd}
+			X && X \\
+			\\
+			{X/S} && {X/R}
+			\arrow["1", from=1-1, to=1-3]
+			\arrow["{p_{S}}"', from=1-1, to=3-1]
+			\arrow["{p_{R}}", from=1-3, to=3-3]
+			\arrow["q"', from=3-1, to=3-3]
+		\end{tikzcd}
+	\]
+
+	For each subset \( U \subset X/R \), \( p_{R}^{-1}(U) \) is \( p_{S} \)-saturated because \( S \subset R \). If \( U \) is open then \( p_{R}^{-1}(U) \) is open in \( X \) and \( p_{S} \)-saturated so \( p_{S}(p_{R}^{-1}(U)) \) is open in \( X/S \). Conversely, if \( q^{-1}(U) \) is open in \( X/S \) then \( p_{S}^{-1}(q^{-1}(U)) = {(q \circ p_{S})}^{-1}(U) = p_{R}^{-1}(U) \) is open in \( X \), which means \( U \) is open in \( X/R \). Hence \( q \) is an identification.
+
+	According to the definition of \( R/S \) (see Problem~\ref{problem:I.7.5} and~\ref{problem:I.7.6})
+	\[
+		p(Sa) = p(Sb) \iff (Sa)R/S(Sb) \iff q(Sa) = q(Sb)
+	\]
+
+	which means \( q \) is constant on each fiber of \( p \) and \( p \) is constant on each fiber of \( q \)
+	\[
+		\begin{tikzcd}
+			{X/S} && {X/R} \\
+			\\
+			{(X/S)/(R/S)}
+			\arrow["q", from=1-1, to=1-3]
+			\arrow["p"', from=1-1, to=3-1]
+			\arrow["\cong"', from=3-1, to=1-3]
+		\end{tikzcd}
+	\]
+
+	so \( (X/S)/(R/S) \cong X/R \).
+\end{proof}
+
+\begin{problem}{VI.4.6}
+Let \( 0 \) be the origin in \( E^{3} \). In \( E^{3} - \left\{ 0 \right\} \), define \( x R y \) if \( x \) and \( y \) lie on a line through the origin. Show that \( R \) is an equivalence relation; \( (E^{3} - \left\{ 0 \right\})/R \) is called the projective plane \( P^{2} \). Call \textit{line} in \( P^{2} \) any set \( A \) such that \( p^{-1}(A) \) is a plane in \( E^{3} - \left\{ 0 \right\} \) going through the origin. Show that a line in \( P^{2} \) is homeomorphic to \( S^{1} \).
+\end{problem}
+
+\begin{proof}
+	We will show that \( p: E^{3} - \left\{ 0 \right\} \to (E^{3} - \left\{ 0 \right\})/R \) an open map. Let \( U \) be an open set in \( E^{3} - \left\{ 0 \right\} \). The image \( p(U) \) is open in \( P^{2} \) if and only if \( p^{-1}(p(U)) \) is open in \( E^{3} - \left\{ 0 \right\} \).
+	\[
+		p^{-1}(p(U)) = \bigcup_{t \in E^{1} - \left\{ 0 \right\}} \left\{ tu \mid u \in U \right\}
+	\]
+
+	is open as \( \left\{ tu \mid u \in U \right\} \) is homeomorphic to \( U \) for each \( t \in E^{1} - \left\{ 0 \right\} \). Hence \( p \) is an open map.
+
+	Let \( A \) be any line in \( P^{2} \) then \( p^{-1}(A) \) is a plane in \( E^{3} - \left\{ 0 \right\} \) going through the origin. Because \( p \) is an open map, \( p\vert_{p^{-1}(A)}: p^{-1}(A) \to A \) is an identification.
+
+	Let's define \( f: E^{3} - \left\{ 0 \right\} \to E^{3} - \left\{ 0 \right\} \) by \( f(x) = x/\left\vert x \right\vert \) is continuous and open, so \( f: p^{-1}(A) \to f(p^{-1}(A)) \) is an identification. Moreover, \( f(p^{-1}(A)) \cong S^{1} \). The map \( g: S^{1} \to S^{1}/\left\{ x \sim -x \right\} \) is an open continuous surjection.
+
+	The identifications \( g \circ (f\vert_{p^{-1}(A)}) \) and \( p\vert_{p^{-1}(A)} \) are constant on each fiber of the other map so \( A \) and \( S^{1}/\left\{ x \sim -x \right\} \) are homeomorphic.
+
+	The homeomorphism of \( S^{1} \) and \( S^{1}/\left\{ x \sim -x \right\} \) follows from the map \( z \to z^{2} \).
+
+	Thus \( A \cong S^{1} \).
+\end{proof}
+
+\begin{problem}{VI.4.7}
+Let \( V^{2} = \left\{ x \in E^{2} \mid \left\vert x \right\vert \le 1 \right\} \). Generate an equivalence relation by \( x R y \) if \( \left\vert x \right\vert = \left\vert y \right\vert = 1 \), and \( x, y \) are diametrically opposite. Show \( V^{2}/R \) is homeomorphic to \( P^{2} \).
+\end{problem}
+
+\begin{proof}
+	\( P^{2} \) is homeomorphic to \( S^{2}/\left\{ x \sim -x \right\} \).
+
+	Let \( US^{2} \) be the upper hemisphere (\( x_{3} \ge 0 \)) then \( V^{2} \cong US^{2} \) and \( US^{2}/\left\{ x \sim -x \right\} \cong V^{2}/R \).
+
+	Thus \( P^{2} \cong S^{2}/\left\{ x \sim -x \right\} \cong US^{2}/\left\{ x \sim -x \right\} \cong V^{2}/R \).
+\end{proof}
+
 \section{Cones and Suspensions}
+
+\begin{problem}{VI.5.1}
+If \( A \subset X \) is closed, prove that \( TA \) is homeomorphic to a closed subspace of \( TX \).
+\end{problem}
+
+\begin{proof}
+	Denote \( q: X \times I \to TX \) and \( p: A \times I \to TA \).
+
+	We will show that \( q(A \times I) \) is closed in \( TX \).
+	\[
+		q^{-1}(q(A \times I)) = (A \times I) \cup (X \times \left\{ 1 \right\})
+	\]
+
+	and \( A \times I, X \times \left\{ 1 \right\} \) are closed in \( X \times I \) so \( q(A \times I) \) is closed in \( TX \).
+
+	Let \( p(a, t) \) be a point in \( TA \) then \( q(p^{-1}(p(a, t))) = \left\{ q(a, t) \right\} \), hence we can define a map \( f: TA \to q(A \times I) \) by \( f(p(a, t)) = q(a, t) \). This map \( f \) is bijective and \( f \circ p = q, p = f^{-1} \circ q \). As \( f^{-1} \circ q \) is continuous, we deduce that \( f^{-1} \) is continuous (Theorem 3.1). Besides, \( q \) is constant on each fiber of \( p \) so \( f \) is continuous (Theorem 3.2 on Transgression). Therefore \( f \) is a homeomorphism.
+
+	Thus \( TA \) is homeomorphic to \( q(A\times I) \), which is a closed subspace of \( TX \).
+\end{proof}
+
+\begin{problem}{VI.5.2}
+Let \( i: \operatorname{Int}(I) \to I \) be the inclusion map. Show that the map \( Ti: T[\operatorname{Int}(I)] \to TI \) is not an embedding.
+\end{problem}
+
+\begin{proof}
+	% TODO
+\end{proof}
 
 \section{Attaching of Spaces}
 
