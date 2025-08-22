@@ -176,7 +176,7 @@ Let \( X = \openinterval{0, 1} \subset E^{1} \). Show:
 \begin{enumerate}[label={(\alph*)}]
 	\item \( d(x, y) = \left\vert x^{-1} - y^{-1} \right\vert \) is a metric on \( X \).
 	\item \( d \) is equivalent to the usual metric \( d_{0}(x, y) = \left\vert x - y \right\vert \) on \( X \).
-	\item There exists no metric on \( E^{1} \) that coincides with metric \( d \) on \( X \).
+	\item There exists no metric on \( E^{1} \) that \textcolor{red}{induces the usual topology and} coincides with metric \( d \) on \( X \).
 \end{enumerate}
 \end{problem}
 
@@ -196,7 +196,13 @@ Let \( X = \openinterval{0, 1} \subset E^{1} \). Show:
 		      \end{itemize}
 
 		      Therefore \( d \sim d_{0} \).
-		\item % TODO
+		\item Assume that there is a metric \( \rho \) on \( E^{1} \) that coincides with the metric \( d \) on \( X \).
+
+		      Consider the sequence \( x_{n} = 1/n \). Since \( x_{n} \to 0 \), then \( \rho(x_{n}, 0) = 0 \).
+
+		      \( \rho(x_{n}, 1/2) = \left\vert n - 2 \right\vert \le \rho(x_{n}, 0) + \rho(0, 1/2) \). As \( n \to +\infty \), \( \rho(x_{n}, 1/2) \to +\infty \) and \( \rho(x_{n}, 0) + \rho(0, 1/2) \to \rho(0, 1/2) \), which is a contradiction.
+
+		      Hence there is no metric on \( E^{1} \) that induces the usual topology and coincides with the metric \( d \) on \( X \).
 	\end{enumerate}
 \end{proof}
 
