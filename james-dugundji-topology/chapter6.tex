@@ -486,6 +486,10 @@ Let \( V^{2} = \left\{ x \in E^{2} \mid \left\vert x \right\vert \le 1 \right\} 
 
 \section{Cones and Suspensions}
 
+\begin{quotation}
+	The following two problems show that: The cone functor \( T \) takes closed embeddings to closed embeddings but doesn't necessarily take embeddings to embeddings.
+\end{quotation}
+
 \begin{problem}{VI.5.1}
 If \( A \subset X \) is closed, prove that \( TA \) is homeomorphic to a closed subspace of \( TX \).
 \end{problem}
@@ -510,7 +514,24 @@ Let \( i: \operatorname{Int}(I) \to I \) be the inclusion map. Show that the map
 \end{problem}
 
 \begin{proof}
-	% TODO
+	This idea is from \href{https://math.stackexchange.com/a/4879627}{Thorgott on Math StackExchange}.
+
+	\( Ti \) is injective and continuous.
+
+	I don't want to make confusion so I introduce new notations: \( X = I \) and \( U = \operatorname{Int}(I) \).
+
+	\( p: X \times I \to TX \) and \( q: U \times I \to TU \) are identification maps that induce the cones.
+
+	The set \( A = \left\{ (s, t): s < t, s \in U, t \in I \right\} \) is open in \( U \times I \) and \( q \)-saturated (because \( A \) contains \( U \times \left\{ 1 \right\} \)) so \( B = q(A) \) is open in \( TU \). We will show that \( Ti(B) \) is not open in \( Ti(TU) \).
+
+	Assume that \( Ti(B) \) is open in \( Ti(TU) \) then there exists an open set \( W \subset TX \) such that \( Ti(B) = Ti(TU) \cap W \).
+	\[
+		q^{-1}(Ti(B)) = (U \times I) \cap q^{-1}(W) = (U \times I) \cap p^{-1}(W).
+	\]
+
+	\( p^{-1}(W) \) is open in \( X \times I \) and contains \( X \times \left\{ 1 \right\} \) so \( p^{-1}(W) \) contains \( U \times \halfopenleft{1 - \varepsilon, 1} \) for some \( \varepsilon \in \openinterval{0, 1} \). Therefore \( q^{-1}(Ti(B)) \) contains \( U \times \halfopenleft{1 - \varepsilon, 1} \) and \( A \) contains \( U \times \halfopenleft{1 - \varepsilon, 1} \), which contradicts the definition of \( A \).
+
+	Thus \( Ti \) is not an embedding.
 \end{proof}
 
 \section{Attaching of Spaces}
