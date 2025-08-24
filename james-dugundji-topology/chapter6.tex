@@ -536,6 +536,106 @@ Let \( i: \operatorname{Int}(I) \to I \) be the inclusion map. Show that the map
 
 \section{Attaching of Spaces}
 
+\begin{proposition}{6.2}
+	Let \( p: X + Y \to X \cup_{f} Y \) be the projection, and let \( C \subset X + Y \) be such that \( C \cap X \) is closed in \( X \). Then \( p(C) \) is closed in \( X \cup_{f} Y \) if and only if \( (C \cap Y) \cup f(C \cap A) \) is closed in \( Y \).
+\end{proposition}
+
+\begin{proof}
+	\( f: A \to Y \) is the continuous in which \( A \subset X \) is closed.
+
+	Suppose that \( x \in p^{-1}(p(C)) \) then \( p(x) \in p(C) \). Either
+	\begin{itemize}
+		\item \( x \in X \).
+
+		      If this is the case then \( x \in C \cap X \) or \( x \in f^{-1}(C \cap Y) \) or \( x \in f^{-1}(f(C \cap A)) \).
+		\item \( x \in Y \).
+
+		      If this is the case then \( x \in f(C \cap A) \) or \( C \cap Y \).
+	\end{itemize}
+
+	Conversely, if \( x \in (C \cap X) \cup f^{-1}(C \cap Y) \cup f^{-1}(f(C \cap A)) \cup f(C \cap A) \) then \( x \in p^{-1}(p(C)) \). Hence
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		p^{-1}(p(C)) & = \underbrace{(C \cap X) \cup f^{-1}(C \cap Y) \cup f^{-1}(f(C \cap A))}_{\subset X} \cup \underbrace{(C \cap Y) \cup f(C \cap A)}_{\subset Y} \\
+		             & = \underbrace{(C \cap X) \cup f^{-1}[(C \cap Y) \cup f(C \cap A)]}_{\subset X} \cup \underbrace{(C \cap Y) \cup f(C \cap A)}_{\subset Y}
+	\end{align*}
+	\endgroup
+
+	So
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\textcolor{blue}{p^{-1}(p(C)) \cap Y} & = (C \cap Y) \cup f(C \cap A)                                    \\
+		p^{-1}(p(C)) \cap X                   & = (C \cap X) \cup f^{-1}[(C \cap Y) \cup f(C \cap A)]            \\
+		                                      & = (C \cap X) \cup f^{-1}[\textcolor{blue}{p^{-1}(p(C)) \cap Y}].
+	\end{align*}
+	\endgroup
+
+	If \( p(C) \) is closed in \( X \cup_{f} Y \) then \( (C \cap Y) \cup f(C \cap A) \) is closed in \( Y \).
+
+	If \( (C \cap Y) \cup f(C \cap A) \) is closed in \( Y \) then \( p^{-1}(p(C)) \cap Y \) is closed in \( Y \). Since \( f \) is continuous
+	\[
+		f^{-1}[p^{-1}(p(C)) \cap Y] \operatorname{\subset}\limits_{\text{closed}} A \operatorname{\subset}\limits_{\text{closed}} X
+	\]
+
+	then \( p^{-1}(p(C)) \cap X \) is closed in \( X \). Hence \( p^{-1}(p(C)) \) is closed in \( X + Y \), which means \( p(C) \) is closed in \( X \cup_{f} Y \).
+\end{proof}
+
+\begin{proposition}{6.4}
+	Let \( X \) be attached to \( Y \) by \( f: A \to Y \). Let \( X_{1} \subset X \) and \( Y_{1} \subset Y \) be closed subsets such that \( f(A \cap X_{1}) \subset Y_{1} \), and attach \( X_{1} \) to \( Y_{1} \) by \( f_{1} = f\vert_{A \cap X_{1}} \). Then \( X_{1} \cup_{f_{1}} Y_{1} \) is homeomorphic to a closed subset of \( X \cup_{f} Y \).
+\end{proposition}
+
+\begin{proof}
+	Let \( p: X + Y \to X \cup_{f} Y \) and \( p_{1}: X_{1} + Y_{1} \to X_{1} \cup_{f_{1}} Y_{1} \) and \( i: X_{1} + Y_{1} \to X + Y \) the inclusion map. The map \( p \circ i \circ p_{1}^{-1} \) is single-valued and the following diagram commutes
+	\begin{figure}[htp]
+		\centering
+		\begin{tikzcd}
+			{X_{1} + Y_{1}} &&& {X + Y} \\
+			\\
+			{X_{1} \cup_{f_{1}} Y_{1}} &&& {X \cup_{f} Y}
+			\arrow["i", from=1-1, to=1-4]
+			\arrow["{p_{1}}"', from=1-1, to=3-1]
+			\arrow["p", from=1-4, to=3-4]
+			\arrow["{p\circ i\circ p_{1}^{-1}}"', from=3-1, to=3-4]
+		\end{tikzcd}
+	\end{figure}
+
+	Because \( i \) is continuous and relation-preserving, we deduce that \( p \circ i \circ p_{1}^{-1} \) is continuous. Evidently, \( p \circ i \circ p_{1}^{-1} \) is injective. We will show that this map is also a closed map.
+
+	Every closed set in \( X_{1} \cup_{f_{1}} Y_{1} \) is the image of a closed and saturated set \( C_{1} \) under the map \( p_{1} \) (\(p_{1}(C_{1})\) is closed in \( X_{1} \cup_{f_{1}} Y_{1} \) and \(C_{1}\) is \(p_{1}\)-saturated).
+
+	\( C_{1} \subset X_{1} + Y_{1} \) and is closed so \( C_{1} \cap X_{1} \) is closed. Moreover \( C_{1} \cap X = C_{1} \cap X_{1} \subset X_{1} \subset X \) is closed in \( X_{1} \) and \( X \). According to Proposition 6.2, \( p_{1}(C_{1}) \) is closed in \( X_{1} \cup_{f_{1}} Y_{1} \) so \( (C_{1} \cap Y_{1}) \cup f_{1}(C_{1} \cap A) \) is closed in \( Y_{1} \), hence closed in \( Y \). Moreover
+	\[
+		(C_{1} \cap Y_{1}) \cup f_{1}(C_{1} \cap A) = (C_{1} \cap Y) \cup f(C_{1} \cap A)
+	\]
+
+	is closed in \( Y \) so according to Proposition 6.2, \( p(C_{1}) \) is closed in \( X \cup_{f} Y \).
+	\[
+		(p \circ i \circ p_{1}^{-1})(p_{1}(C_{1})) = (p \circ i)(C_{1}) = p(C_{1}).
+	\]
+
+	Hence \( p \circ i \circ p_{1}^{-1} \) is a closed map, so it is a homeomorphism onto its image.
+
+	Thus \( X_{1} \cup_{f_{1}} Y_{1} \) is embedded as a closed set of \( X \cup_{f} Y \).
+\end{proof}
+
+\begin{problem}{VI.6.1}
+Let \( A \subset X \) and \( B \subset Y \) be closed. Show that \( A \ast B \) can be identified with a closed subspace of \( X \ast Y \) (it is a convention that \( \varnothing \ast Y = Y, X \ast \varnothing = X \)).
+\end{problem}
+
+\begin{problem}{VI.6.2}
+Prove: \( X \ast Y \cong Y \ast X \).
+\end{problem}
+
+\begin{problem}{VI.6.3}
+Use 6.4 to prove that \( TX \) can be considered a closed subspace of \( SX \).
+\end{problem}
+
+\begin{problem}{VI.6.4}
+Attach \( TX \) to \( TX \) by \( f\left\langle x, 0\right\rangle = \left\langle x, 0\right\rangle \). Show that \( TX \cup_{f} TX \cong SX \).
+\end{problem}
+
 \section{The Relation \(K(f)\) of Continuous Maps}
 
 \section{Weak Topologies}

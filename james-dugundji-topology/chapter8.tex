@@ -2,6 +2,95 @@
 
 \section{Covering of Spaces}
 
+\begin{problem}{VIII.1.1}
+Call a covering of a space \textit{star-finite} if each set of the covering intersects at most finitely many others. Show that the concepts of star-finiteness and nbd-finiteness are independent, but that for open coverings, star-finiteness implies nbd-finiteness.
+\end{problem}
+
+\begin{proof}
+	\textbf{Star-finiteness doesn't imply nbd-finiteness.}
+
+	Let \( X = E^{1} \) and \( \left\{ \left\{ x \right\} \mid x \in E^{1} \right\} \) is a closed and star-finite covering. However, this is not a nbd-finite covering as any neighborhood of any point in \( X \) intersects uncountably (infinite) many sets in the covering.
+
+	\textbf{Nbd-finiteness doesn't imply star-finiteness.}
+
+	Let \( X = E^{1} \) and \( \left\{ \openinterval{n, n + 2} \mid n \in \mathbb{Z} \right\} \cup \left\{ \mathbb{R} \right\} \) is an open and nbd-finite covering. But this is not star-finite because \( \mathbb{R} \) intersects infinitely many other sets in the covering.
+
+	\textbf{For open coverings, star-finiteness implies nbd-finiteness.}
+
+	Let \( X \) be a topological space and \( \left\{ A_{\alpha} \mid \alpha \in \mathscr{A} \right\} \) is an open and star-finite covering. Let \( x \) be a point in \( X \) then there exists \( A_{\alpha} \) such that \( x \in A_{\alpha} \). This set \( A_{\alpha} \) is a neighborhood of \( x \) and it intersects at most finitely many sets in the given covering. Hence the given covering is nbd-finite.
+\end{proof}
+
+\begin{problem}{VIII.1.2}
+Let \( X \) be Hausdorff, \( Y \) arbitrary, and \( f: X \to Y \) surjective. Prove that \( f \) is a bijective open map if and only if for each open covering \( \left\{ U \right\} \) of \( X \) there exists an open covering \( \left\{ V \right\} \) of \( Y \) such that \( \left\{ f^{-1}(V) \right\} \) refines \( \left\{ U \right\} \).
+\end{problem}
+
+\begin{proof}
+	\textbf{\( f \) is a bijective open map.}
+
+	Let \( \left\{ U \right\} \) be an open covering of \( X \) then \( \left\{ f(U) \right\} \) is a covering of \( Y \). For each \( f(U) \), its preimage \( f^{-1}(f(U)) = U \subset U \) refines \( \left\{ U \right\} \).
+
+	\textbf{For each open covering \( \left\{ U \right\} \) of \( X \) there exists an open covering \( \left\{ V \right\} \) of \( Y \) such that \( \left\{ f^{-1}(V) \right\} \) refines \( \left\{ U \right\} \).}
+
+	Assume that \( f \) is not injective then there exist \( x_{1} \ne x_{2} \) in \( X \) such that \( f(x_{1}) = f(x_{2}) = y \). Because \( X \) is Hausdorff, there are disjoint neighborhoods \( U_{1} \ni x_{1} \) and \( U_{2} \ni x_{2} \). For each \( x \ne x_{1}, x_{2} \), there is a neighborhood \( U_{x} \) not containing \( x_{1}, x_{2} \). The collection \( \mathcal{U} = \left\{ U_{x} \mid x \ne x_{1}, x_{2} \right\} \cup \left\{ U_{1}, U_{2} \right\} \) is an open covering of \( X \). There is an open covering \( \mathcal{V} \) of \( Y \) such that the preimage of each set in \( \mathcal{V} \) is contained in some set of \( \mathcal{U} \). There is \( V \in \mathcal{V} \) such that \( y \in V \). The preimage \( f^{-1}(V) \) contains \( x_{1} \) and \( x_{2} \) so it is contained in \( U_{1} \) or \( U_{2} \). If \( f^{-1}(V) \subset U_{1} \) then \( x_{2} \in U_{1} \cap U_{2} \), if \( f^{-1}(V) \subset U_{2} \) then \( x_{1} \in U_{1} \cap U_{2} \), hence the contradiction because \( U_{1}, U_{2} \) are disjoint. Thus \( f \) is injective.
+
+	\( f \) is injective and surjective so \( f \) is bijective.
+
+	Consider the map \( f^{-1}: Y \to X \). Let \( y_{0} \in Y \) and \( U_{0} \) a neighborhood of \( f^{-1}(y_{0}) \). For each \( x \ne f^{-1}(y_{0}) \) there is a neighborhood \( U_{x} \) not containing \( f^{-1}(y_{0}) \). The collection \( \mathcal{U} = \left\{ U_{x} \mid x \ne f^{-1}(y_{0}) \right\} \cup \left\{ U_{0} \right\} \) is an open covering of \( X \). There exists an open covering \( \mathcal{V} \) of \( Y \) such that the preimage of each set in \( \mathcal{V} \) is contained in some set of \( \mathcal{U} \). Let \( V_{0} \) be a set in \( \mathcal{V} \) such that \( y_{0} \in V_{0} \). The set \( f^{-1}(V_{0}) \) is contained in some set of \( \mathcal{U} \). Due to the definition of sets in \( \mathcal{U} \), we deduce that \( f^{-1}(V_{0}) \subset U_{0} \). Hence \( f^{-1} \) is continuous at every point \( y_{0} \) in \( Y \), which means \( f^{-1} \) is continuous. Therefore \( f \) is an open map.
+
+	Thus \( f \) is a bijective open map.
+\end{proof}
+
+\begin{problem}{VIII.1.3}\label{problem:VIII.1.3}
+Let \( Y \) be any space, and \( \left\{ A_{\alpha} \mid \alpha \in \mathscr{A} \right\} \) a covering of \( Y \) having a nbd-finite closed refinement. Show that \( \left\{ A_{\alpha} \mid \alpha \in \mathscr{A} \right\} \) has a precise nbd-finite closed refinement.
+\end{problem}
+
+\begin{quotation}
+	This problem is an addition to Theorem 1.4: If a covering has a point-finite (nbd-finite) refinement then it also has a precise point-finite (nbd-finite) refinement. Furthermore, if there is an open refinement then the precise refinement can be chosen to contain only open sets.
+\end{quotation}
+
+\begin{proof}
+	Let \( \left\{ F_{\beta} \mid \beta \in \mathscr{B} \right\} \) be a nbd-finite closed refinement of \( \left\{ A_{\alpha} \mid \alpha \in \mathscr{A} \right\} \). For convenience, define \( \varphi: \mathscr{B} \to \mathscr{A} \) by assigning each \( \beta \in \mathscr{B} \) to some \( \alpha \in \mathscr{A} \) such that \( F_{\beta} \subset A_{\alpha} \) (axiom of choice).
+
+	For each \( \alpha \), define \( C_{\alpha} = \bigcup \left\{ F_{\beta} \mid \varphi(\beta) = \alpha \right\} \) then \( C_{\alpha} \subset A_{\alpha} \) and \( C_{\alpha} \) is closed (the union of a closed nbd-finite collection is a closed set). As \( \varphi \) is single-valued, each \( F_{\beta} \) is contained in only one \( C_{\alpha} \). Note that some \( C_{\alpha} \) can be empty.
+
+	\( \left\{ C_{\alpha} \mid \alpha \in \mathscr{A} \right\} \) is a closed covering of \( Y \) because each point \( y \in Y \) is contained in some \( F_{\beta} \subset C_{\varphi(\beta)} \). For each \( y \in Y \), there is a neighborhood \( U \) of \( y \) that intersects only finitely many sets in \( \left\{ F_{\beta} \mid \beta \in \mathscr{B} \right\} \). Assume that \( F_{\beta_{1}}, \ldots, F_{\beta_{n}} \in \mathscr{B} \) are the sets in \( \left\{ F_{\beta} \mid \beta \in \mathscr{B} \right\} \) that intersects \( U \) then \( U \) intersects \( C_{\varphi(\beta_{1})}, \ldots, C_{\varphi(\beta_{n})} \). If \( U \) interesects \( C_{\alpha} \) then \( U \) intersects some \( F \in \left\{ F_{\beta} \mid \beta \in \mathscr{B} \right\} \) and \( F = F_{\beta_{k}} \) for some \( k \in \left\{ 1, \ldots, n \right\} \), so \( \alpha = \varphi(\beta_{k}) \), which means \( U \) intersects only finitely many sets in \( \left\{ C_{\alpha} \mid \alpha \in \mathscr{A} \right\} \).
+
+	Thus \( \left\{ C_{\alpha} \mid \alpha \in \mathscr{A} \right\} \) is a precise nbd-finite closed refinement of \( \left\{ A_{\alpha} \mid \alpha \in \mathscr{A} \right\} \).
+\end{proof}
+
+\begin{problem}{VIII.1.4}
+Let \( Y \) be any space, let \( \Delta = \left\{ (y, y) \mid y \in Y \right\} \) be the diagonal in \( Y \times Y \), and let \( U \supset \Delta \) be any set open in \( Y \times Y \). For each \( y \in Y \), let \( U[y] = \left\{ z \mid (y, z) \in U \right\} \). Prove:
+\begin{enumerate}[label={(\alph*)}]
+	\item \( \Delta(U) = \left\{ U[y] \mid y \in Y \right\} \) is an open covering of \( Y \).
+	\item If \( \mathfrak{B} = \left\{ V_{\alpha} \mid \alpha \in \mathscr{A} \right\} \) is an open covering of \( Y \) that has a nbd-finite closed refinement, then there is a nbd \( U \) of the diagonal \( \Delta \) such that \( \Delta(U) \) refines \( \mathfrak{B} \).
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+	\begin{enumerate}[label={(\alph*)}]
+		\item For each \( y \in Y \), \( y \in U[y] \) so \( \Delta(U) \) is a covering of \( Y \). The map \( i_{y}: Y \to Y \times Y \) given by \( i_{y}(z) = (y, z) \) is continuous so \( i_{y}^{-1}(U) = \left\{ z \mid (y, z) \in U \right\} = U[y] \) is open in \( Y \). Hence \( \Delta(U) \) is an open covering of \( Y \).
+		\item According to Problem~\ref{problem:VIII.1.3}, the open covering \( \mathfrak{B} \) has a precise nbd-finite closed refinement \( \left\{ F_{\alpha} \mid \alpha \in \mathscr{A} \right\} \). For each \( \alpha \), let \( W_{\alpha} = (V_{\alpha} \times V_{\alpha}) \cup (\mathscr{C}F_{\alpha} \times \mathscr{C}F_{\alpha}) \) is open in \( Y \times Y \) and contains \( \Delta \). Define \( U = \operatorname{Int}\left( \bigcap_{\alpha\in\mathscr{A}} W_{\alpha} \right) \) then \( U \) is open.
+
+		      Let \( y \in Y \). As \( \left\{ F_{\alpha} \mid \alpha \in \mathscr{A} \right\} \) is nbd-finite, there is a neighborhood \( N \) of \( y \) that intersects only finitely many \( F_{\alpha} \), namely, \( F_{\alpha_{1}}, \ldots, F_{\alpha_{n}} \). Let \( J = \left\{ \alpha_{1}, \ldots, \alpha_{n} \right\} \) and \( J_{\text{in}} = \left\{ \alpha \in J \mid y \in F_{\alpha} \right\}, J_{\text{out}} = \left\{ \alpha \in J \mid y \notin F_{\alpha} \right\} \).
+
+		      For each \( \alpha \in J_{\text{out}} \), \( y \notin F_{\alpha} \). Because \( F_{\alpha} \) is closed, there is a neighborhood \( U_{\alpha} \) of \( y \) such that \( U_{\alpha} \subset \mathscr{C}F_{\alpha} \). Define
+		      \[
+			      N_{0} = N \cap \bigcap_{\alpha \in J_{\text{in}}} V_{\alpha} \cap \bigcap_{\alpha \in J_{\text{out}}} U_{\alpha}
+		      \]
+
+		      then \( N_{0} \) is a neighborhood of \( y \). Hence for every \( \alpha \in \mathscr{A} \), \( (y, y) \in N_{0} \times N_{0} \subset W_{\alpha} \), which means
+		      \[
+			      (y, y) \in N_{0} \times N_{0} \subset \operatorname{Int}\left(\bigcap_{\alpha\in\mathscr{A}} W_{\alpha}\right)
+		      \]
+
+		      Hence \( U \) is nonempty and is a neighborhood of \( \Delta \). It is remained to show that \( \Delta(U) \) refines \( \mathfrak{B} \).
+
+		      For each \( y \in Y \) then there is \( \alpha \) such that \( y \in F_{\alpha} \subset V_{\alpha} \). We will prove that \( U[y] \subset V_{\alpha} \). Let \( z \in U[y] \) then \( (y, z) \in U \subset W_{\alpha} = (V_{\alpha} \times V_{\alpha}) \cup (\mathscr{C}F_{\alpha} \times \mathscr{C}F_{\alpha}) \). The tuple \( (y, z) \) is in \( V_{\alpha} \times V_{\alpha} \) or \( \mathscr{C}F_{\alpha} \times \mathscr{C}F_{\alpha} \). Since \( y \notin \mathscr{C}F_{\alpha} \), we deduce that \( (y, z) \in V_{\alpha} \times V_{\alpha} \), which means \( z \in V_{\alpha} \). Hence \( U[y] \subset V_{\alpha} \).
+
+		      Thus \( \Delta(U) \) refines \( \mathfrak{B} \).
+	\end{enumerate}
+\end{proof}
+
 \section{Paracompact Spaces}
 
 \section{Types of Refinements}
