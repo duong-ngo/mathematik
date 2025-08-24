@@ -1,0 +1,98 @@
+\documentclass[12pt]{book}
+
+\usepackage[left=2cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage[unicode=true,colorlinks=true,linkcolor=blue]{hyperref}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amscd}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{cases}
+
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{indentfirst}
+\usepackage{chngcntr}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage[inline]{enumitem}
+
+\setcounter{chapter}{0}
+\counterwithin{subsection}{chapter}
+\renewcommand\thesection{\thechapter.\Alph{section}}
+
+\pagestyle{fancy}
+\setlength{\headheight}{16pt}
+\lhead{}
+\rhead{\leftmark}
+\lfoot{}
+\cfoot{\thepage}
+\rfoot{}
+
+\titleformat{\chapter}[display]{\flushright\bf\huge}{\chaptertitlename\,\thechapter}{10pt}{}
+\titleformat{\section}{\bf\Large}{\thesection}{10pt}{}
+\titleformat{\subsection}{\bf\large}{\thesubsection}{10pt}{}
+\titleformat{\subsubsection}{\bf\large}{\thesubsubsection}{10pt}{}
+
+\captionsetup{labelfont={bf},labelsep=period}
+\counterwithin{figure}{chapter}
+\counterwithin{table}{chapter}
+
+\newenvironment{sqcases}{%
+    \matrix@check\sqcases\env@sqcases
+}{%
+    \endarray\right.%
+}
+\def\env@sqcases{%
+\let\@ifnextchar\new@ifnextchar
+\left\lbrack{}
+\def\arraystretch{1.2}%
+\array{@{}l@{\quad}l@{}}%
+}
+\newtheorem{innercustomgeneric}{\customgenericname}
+\providecommand{\customgenericname}{}
+\newcommand{\newcustomtheorem}[2]{%
+  \newenvironment{#1}[1]
+  {%
+   \renewcommand\customgenericname{#2}%
+   \renewcommand\theinnercustomgeneric{##1}%
+   \innercustomgeneric%
+  }
+  {\endinnercustomgeneric}
+}
+\newcustomtheorem{problem}{Problem}
+
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\kernel}[1]{\operatorname{null}\,{#1}}
+\newcommand{\range}[1]{\operatorname{range}\,{#1}}
+\newcommand{\lmap}[1]{\mathcal{L}\left({#1}\right)}
+\newcommand{\abs}[1]{\left\vert{#1}\right\vert}
+\newcommand{\norm}[1]{\left\Vert{#1}\right\Vert}
+\newcommand{\innerprod}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\conj}[1]{\overline{#1}}
+
+\title{Paul Matthews' Vector Calculus: Notes and Exercises}
+\author{Ngo Quang Duong}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\input{./chapter1.tex}
+\input{./chapter2.tex}
+\input{./chapter3.tex}
+\input{./chapter4.tex}
+\input{./chapter5.tex}
+\input{./chapter6.tex}
+\input{./chapter7.tex}
+\input{./chapter8.tex}
+
+\end{document}

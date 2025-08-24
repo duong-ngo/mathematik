@@ -111,6 +111,14 @@ greub:
 james-dugundji-topology:
 	@$(MAKE) james-dugundji-topology/main.pdf
 
+.PHONY: vector-calculus
+vector-calculus:
+	@$(MAKE) vector-calculus/main.pdf
+
+.PHONY: multivariable-mathematics
+multivariable-mathematics:
+	@$(MAKE) multivariable-mathematics/main.pdf
+
 mathematical-analysis:
 	@$(MAKE) vladimir-zorich-mathematical-analysis/main.pdf
 
