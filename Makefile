@@ -103,11 +103,9 @@ linear-algebra:
 real-and-functional:
 	@$(MAKE) real-and-functional-analysis/main.pdf
 
-greub-linear:
-	@$(MAKE) greub-linear-algebra/main.pdf
-
-greub-multilinear:
-	@$(MAKE) greub-multilinear-algebra/main.pdf
+.PHONY: greub
+greub:
+	@$(MAKE) greub/main.pdf
 
 .PHONY: james-dugundji-topology
 james-dugundji-topology:
