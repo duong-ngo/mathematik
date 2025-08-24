@@ -109,12 +109,9 @@ greub-linear:
 greub-multilinear:
 	@$(MAKE) greub-multilinear-algebra/main.pdf
 
-dugundji-topology:
+.PHONY: james-dugundji-topology
+james-dugundji-topology:
 	@$(MAKE) james-dugundji-topology/main.pdf
-
-.PHONY: engelking-sieklucki-topology
-engelking-sieklucki-topology:
-	@$(MAKE) engelking-sieklucki-topology/main.pdf
 
 mathematical-analysis:
 	@$(MAKE) vladimir-zorich-mathematical-analysis/main.pdf
