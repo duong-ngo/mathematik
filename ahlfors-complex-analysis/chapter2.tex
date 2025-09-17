@@ -1,1 +1,325 @@
 \chapter{Complex Functions}
+
+\section{Introduction to the Concept of Analytic Function}
+
+\subsection{Limits and Continuity}
+
+\subsection{Analytic Functions}
+
+\begin{problem}{2.1.2.1}
+If \( g(w) \) and \( f(z) \) are analytic functions, show that \( g(f(z)) \) is also analytic.
+\end{problem}
+
+\begin{proof}
+	\( f, g \) are analytic so
+	\[
+		\begin{split}
+			f(z + h) - f(z) = f^{\prime}(z)h + \varepsilon_{f}(h)h \\
+			g(z + h) - g(z) = g^{\prime}(z)h + \varepsilon_{g}(h)h
+		\end{split}
+	\]
+
+	where \( \lim\limits_{h\to 0} \varepsilon_{f}(h) = \lim\limits_{h\to 0} \varepsilon_{g}(h) = 0 \).
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		g(f(z + h)) - g(f(z))                                 & = g(f(z) + f^{\prime}(z)h + \varepsilon_{f}(h)h) - g(f(z))                                                                                            \\
+		                                                      & = g^{\prime}(f(z)) (f^{\prime}(z)h + \varepsilon_{f}(h)h) + \varepsilon_{g}(f^{\prime}(z)h + \varepsilon_{f}(h)h)f^{\prime}(z)h + \varepsilon_{f}(h)h \\
+		\lim\limits_{h\to 0} \dfrac{g(f(z + h)) - g(f(z))}{h} & = g^{\prime}(f(z)) f^{\prime}(z).
+	\end{align*}
+	\endgroup
+
+	Hence \( g\circ f \) is also analytic.
+\end{proof}
+
+\begin{problem}{2.1.2.2}
+Verify Cauchy-Riemann's equations for the functions \( z^{2} \) and \( z^{3} \).
+\end{problem}
+
+\begin{proof}
+	I skip this problem.
+\end{proof}
+
+\begin{problem}{2.1.2.3}
+Find the most general harmonic polynomial of the form
+\[
+	ax^{3} + bx^{2}y + cxy^{2} + dy^{3}.
+\]
+
+Determine the conjugate harmonic function and the corresponding analytic function by integration and by the formal method.
+\end{problem}
+
+\begin{proof}
+	\( f(x, y) = ax^{3} + bx^{2}y + cxy^{2} + dy^{3} \). The function \( f \) is harmonic if and only if
+	\[
+		\dfrac{\partial^{2}f}{\partial x^{2}} + \dfrac{\partial^{2}f}{\partial y^{2}} = 0 \iff (6ax + 2by) + (2cx + 6dy) = 0 \iff (6a + 2c)x + (2b + 6d)y = 0.
+	\]
+
+	\( f \) is harmonic iff it is of the form \( f(x, y) = ax^{3} - 3dx^{2}y - 3axy^{2} + dy^{3} \). A conjugate harmonic function \( g \) of \( f \) satisfies
+	\[
+		\begin{cases}
+			\dfrac{\partial g}{\partial y} = \dfrac{\partial f}{\partial x} = 3ax^{2} - 6dxy - 3ay^{2} \\
+			\dfrac{\partial g}{\partial x} = -\dfrac{\partial f}{\partial y} = 3dx^{2} + 6axy - 3dy^{2}
+		\end{cases}
+	\]
+
+	so \( g(x, y) = dx^{3} + 3ax^{2}y - 3dxy^{2} - ay^{3} \).
+\end{proof}
+
+\begin{problem}{2.1.2.4}
+Show that an analytic function cannot have a constant absolute value without reducing to a constant.
+\end{problem}
+
+\begin{proof}
+	Let \( f \) be an analytic function whose absolute value is a constant.
+	\[
+		f(x, y) = u(x, y) + \imath v(x, y)
+	\]
+
+	so \( f(x, y)\overline{f(x, y)} = {(u(x, y))}^{2} + {(v(x, y))}^{2} = C \) is a constant. Therefore
+	\[
+		\begin{split}
+			0 = \dfrac{\partial}{\partial x}\left( {(u(x, y))}^{2} + {(v(x, y))}^{2} \right) = 2u(x, y) \dfrac{\partial u}{\partial x} + 2v(x, y) \dfrac{\partial v}{\partial x} \\
+			0 = \dfrac{\partial}{\partial y}\left( {(u(x, y))}^{2} + {(v(x, y))}^{2} \right) = 2u(x, y) \dfrac{\partial u}{\partial y} + 2v(x, y) \dfrac{\partial v}{\partial y}
+		\end{split}
+	\]
+
+	According to the Cauchy-Riemann's equations
+	\[
+		\begin{split}
+			0 = 2u(x, y) \dfrac{\partial u}{\partial x} + 2v(x, y) \dfrac{\partial v}{\partial x} = 2u(x, y) \dfrac{\partial u}{\partial x} - 2u(x, y) \dfrac{\partial u}{\partial y} \\
+			0 = 2u(x, y) \dfrac{\partial u}{\partial y} + 2v(x, y) \dfrac{\partial v}{\partial y} = 2u(x, y) \dfrac{\partial u}{\partial y} + 2u(x, y) \dfrac{\partial u}{\partial x} \\
+		\end{split}
+	\]
+
+	If \( C = 0 \) then \( u(x, y) = v(x, y) = 0 \). Otherwise, by the Cramer's rule, we obtain that \( \dfrac{\partial u}{\partial x} = \dfrac{\partial u}{\partial y} = \dfrac{\partial v}{\partial x} = \dfrac{\partial v}{\partial y} = 0 \), which means \( u(x, y), v(x, y) \) are constant functions.
+
+	Hence \( f \) is a constant function.
+\end{proof}
+
+\begin{problem}{2.1.2.5}
+Prove rigorously that the functions \( f(z) \) and \( \overline{f(\bar{z})} \) are simultaneously analytic.
+\end{problem}
+
+\begin{proof}
+	\( (\implies) \) \( f(z) \) is analytic.
+
+	\( f(x, y) = u(x, y) + \imath v(x, y) \) where \( u, v \) are conjugate harmonic functions.
+
+	\( \overline{f(x, -y)} = u(x, -y) + \imath (-v(x, -y)) \) and \( u(x, -y), -v(x, -y) \) are conjugate harmonic functions.
+
+	Therefore \( \overline{f(\bar{z})} \) is analytic.
+
+	\( (\Longleftarrow) \) \( \overline{f(\bar{z})} \) is analytic.
+
+	Let \( g(z) = \overline{f(\bar{z})} \) then \( \overline{g(\bar{z})} = f(z) \). According to the previous part, \( f \) is analytic.
+\end{proof}
+
+\begin{problem}{2.1.2.6}
+Prove that the functions \( u(z) \) and \( u(\overline{z}) \) are simultaneously harmonic.
+\end{problem}
+
+\begin{proof}
+	This is a direct consequence of the previous problem.
+\end{proof}
+
+\begin{problem}{2.1.2.7}
+Show that a harmonic function satisfies the formal differential equation
+\[
+	\frac{\partial^{2} u}{\partial z \, \partial \overline{z}} = 0.
+\]
+\end{problem}
+
+\begin{proof}
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\dfrac{\partial}{\partial z}\left( \dfrac{\partial u}{\partial \bar{z}} \right) & = \dfrac{\partial}{\partial z}\left( \dfrac{1}{2}\dfrac{\partial u}{\partial x} + \dfrac{1}{2}\imath\dfrac{\partial u}{\partial y} \right)                                                                                                                                                                          \\
+		                                                                                & = \dfrac{1}{2}\left( \dfrac{1}{2}\dfrac{\partial^{2} u}{\partial x\partial x} - \dfrac{1}{2}\imath \dfrac{\partial^{2}u}{\partial y\partial x} \right) + \dfrac{1}{2}\imath \left( \dfrac{1}{2}\dfrac{\partial^{2} u}{\partial x\partial y} - \dfrac{1}{2}\imath\dfrac{\partial^{2}u}{\partial y\partial y} \right) \\
+		                                                                                & = \dfrac{1}{4}\left( \dfrac{\partial^{2} u}{\partial x\partial x} + \dfrac{\partial^{2}u}{\partial y\partial y}\right)                                                                                                                                                                                              \\
+		                                                                                & = \dfrac{1}{4}\Delta u = 0.
+	\end{align*}
+	\endgroup
+\end{proof}
+
+\subsection{Polynomials}
+
+\subsection{Rational Functions}
+
+\begin{problem}{2.1.4.1}
+Use the method of the text to develop
+\[
+	\frac{z^{4}}{z^{3} - 1} \quad \text{and} \quad \frac{1}{z{(z+1)}^{2}{(z+2)}^{3}}
+\]
+in partial fractions.
+\end{problem}
+
+\begin{proof}
+	Let \( \omega = \dfrac{-1}{2} + \imath\dfrac{\sqrt{3}}{2} \) then \( z^{3} - 1 = (z - 1)(z - \omega)(z - \omega^{2}) \).
+	\[
+		\frac{z^{4}}{z^{3} - 1} = z + \dfrac{z}{z^{3} - 1} = z + \dfrac{1}{z - 1} + \dfrac{\omega^{2}}{z - \omega} + \dfrac{\omega}{z - \omega^{2}}.
+	\]
+
+	\[
+		\dfrac{1}{z{(z + 1)}^{2}{(z + 2)}^{3}} = - \frac{17}{8 (z + 2)} - \frac{5}{4 {\left(z + 2\right)}^{2}} - \frac{1}{2 {\left(z + 2\right)}^{3}} + \frac{2}{z + 1} - \frac{1}{{\left(z + 1\right)}^{2}} + \frac{1}{8 z}.
+	\]
+\end{proof}
+
+\begin{problem}{2.1.4.2}
+If \( Q \) is a polynomial with distinct roots \( \alpha_{1}, \ldots, \alpha_{n} \), and if \( P \) is a polynomial of degree \( < n \), show that
+\[
+	\frac{P(z)}{Q(z)} = \sum_{k=1}^{n} \frac{P(\alpha_{k})}{Q'(\alpha_{k})(z - \alpha_{k})}.
+\]
+\end{problem}
+
+\begin{proof}
+	Let \( Q(z) = \alpha(z - \alpha_{1}) \cdots (z - \alpha_{n}) \).
+
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\dfrac{P(\alpha_{k} + 1/\zeta)}{Q(\alpha_{k} + 1/\zeta)} & = \dfrac{P(\alpha_{k}) + P^{(1)}(\alpha_{k})(1/\zeta) + \cdots + (P^{(n)}(\alpha_{k})/n!){(1/\zeta)}^{n}}{\alpha \prod^{n}_{j=1}(\alpha_{k} - \alpha_{j} + 1/\zeta)}                                                                                                                      \\
+		                                                         & = \dfrac{P(\alpha_{k})\zeta^{n} + P^{(1)}(\alpha_{k})\zeta^{n-1} + \cdots + (P^{(n)}(\alpha_{k})/n!)}{\alpha \prod_{j\ne k}(\alpha_{k} - \alpha_{j}) \times \prod_{j\ne k}(\zeta + 1/(\alpha_{k} - \alpha_{j}))}                                                                          \\
+		                                                         & = \dfrac{P(\alpha_{k})\zeta}{\alpha\prod_{j\ne k}(\alpha_{j} - \alpha_{k})}                                                                                                                                                                                                               \\
+		                                                         & + \dfrac{P(\alpha_{k})\zeta^{n} - P(\alpha_{k})\zeta \prod_{j\ne k}(\zeta + 1/(\alpha_{k} - \alpha_{j})) + P^{(1)}(\alpha_{k})\zeta^{n-1} + \cdots + (P^{(n)}(\alpha_{k})/n!)}{\alpha \prod_{j\ne k}(\alpha_{k} - \alpha_{j}) \times \prod_{j\ne k}(\zeta + 1/(\alpha_{k} - \alpha_{j}))}
+	\end{align*}
+	\endgroup
+
+	Hence \( G_{k}(z) = \dfrac{P(\alpha_{k})}{\alpha (z - \alpha_{k}) \prod_{j\ne k}(\alpha_{j} - \alpha_{k})} \).
+
+	Thus \( \dfrac{P(z)}{Q(z)} = \displaystyle\sum_{k=1}^{n} \dfrac{P(\alpha_{k})}{Q'(\alpha_{k})(z - \alpha_{k})} \).
+\end{proof}
+
+\begin{problem}{2.1.4.3}
+Use the formula in the preceding exercise to prove that there exists a unique polynomial \( P \) of degree \( < n \) with given values \( c_{k} \) at the points \( \alpha_{k} \) (Lagrange's interpolation polynomial).
+\end{problem}
+
+\begin{proof}
+	The polynomial \( P(z) = \displaystyle\sum_{k=1}^{n} c_{k}\prod_{j\ne k}\dfrac{z - \alpha_{j}}{\alpha_{k} - \alpha_{j}} \) satisfies.
+
+	If \( P(z) \) and \( Q(z) \) satisfy then the equation \( P(z) = Q(z) \) has \( n \) distinct zeros, which means \( P(z) = Q(z) \).
+
+	Hence there exists a unique polynomial \( P \) of degree less than \( n \) with given values \( c_{k} \) at the points \( \alpha_{k} \).
+\end{proof}
+
+\begin{problem}{2.1.4.4}
+What is the general form of a rational function which has absolute value \( 1 \) on the circle \( |z| = 1 \)? In particular, how are the zeros and poles related to each other?
+\end{problem}
+
+\begin{proof}
+	Let \( f \) be such a rational function.
+
+	If \( 0 \) is either a zero or a pole of \( z \) then there exists an integer \( k \) such that \( 0 \) is not a zero or a pole of \( z^{-k}f(z) \). Moreover, \( \left\vert z^{-k}f(z) \right\vert = 1 \) whenever \( \left\vert z \right\vert = 1 \). So without loss of generality, assume that \( 0 \) is not a zero or a pole of \( f(z) \).
+
+	\( f \) is of the form
+	\[
+		z_{0} \dfrac{(z - \alpha_{1}) \cdots (z - \alpha_{n})}{(z - \beta_{1}) \cdots (z - \beta_{m})}
+	\]
+
+	where \( \alpha_{j}, \beta_{k} \ne 0 \) and \( \left\{ \alpha_{j} \mid j = 1, \ldots, n \right\} \cap \left\{ \beta_{k} \mid k = 1, \ldots, m \right\} = \varnothing \).
+
+	If \( \left\vert z \right\vert = 1 \) then \( \bar{z} = 1/z \) and
+	\[
+		1 = f(z) \overline{f(z)} = z_{0} \dfrac{(z - \alpha_{1}) \cdots (z - \alpha_{n})}{(z - \beta_{1}) \cdots (z - \beta_{m})} \overline{z_{0}} \dfrac{(1/z - \overline{\alpha_{1}}) \cdots (1/z - \overline{\alpha_{n}})}{(1/z - \overline{\beta_{1}}) \cdots (1/z - \overline{\beta_{m}})}
+	\]
+
+	which means
+	\[
+		z_{0} \dfrac{(z - \alpha_{1}) \cdots (z - \alpha_{n})}{(z - \beta_{1}) \cdots (z - \beta_{m})} = \dfrac{1}{\overline{z_{0}}} \dfrac{(1/z - \overline{\beta_{1}}) \cdots (1/z - \overline{\beta_{m}})}{(1/z - \overline{\alpha_{1}}) \cdots (1/z - \overline{\alpha_{n}})}.
+	\]
+
+	Therefore
+	\[
+		z_{0} \dfrac{(z - \alpha_{1}) \cdots (z - \alpha_{n})}{(z - \beta_{1}) \cdots (z - \beta_{m})} = \dfrac{{(-z)}^{n-m}}{\overline{z_{0}}}\dfrac{(\overline{\beta_{1}}z - 1)\cdots (\overline{\beta_{m}}z - 1)}{(\overline{\alpha_{1}}z - 1)\cdots (\overline{\alpha_{n}}z - 1)}
+	\]
+
+	so
+	\[
+		{(-z)}^{m}z_{0} \dfrac{(z - \alpha_{1}) \cdots (z - \alpha_{n})}{(z - \beta_{1}) \cdots (z - \beta_{m})} = \dfrac{{(-z)}^{n}}{\overline{z_{0}}} \dfrac{\overline{\beta_{1} \cdots \beta_{m}}}{\overline{\alpha_{1} \cdots \alpha_{n}}} \dfrac{(z - 1/\overline{\beta_{1}}) \cdots (z - 1/\overline{\beta_{m}})}{(z - 1/\overline{\alpha_{1}}) \cdots (z - 1/\overline{\alpha_{n}})}
+	\]
+
+	for every \( z \) of modulus \( 1 \). Hence \( m = n \),  for each \( \alpha_{k} \), there is a \( j \) such that \( \alpha_{k} = 1/\overline{\beta_{j}} \). By re-indexing, we can assume that \( \alpha_{k} = 1/\overline{\beta_{k}} \). Moreover
+	\[
+		\dfrac{\beta_{1} \cdots \beta_{n}}{z_{0}\overline{z_{0}} \alpha_{1} \cdots \alpha_{n}} = 1
+	\]
+
+	which implies that \( z_{0}\overline{z_{0}} = \dfrac{\beta_{1} \cdots \beta_{n}}{\alpha_{1} \cdots \alpha_{n}} = \dfrac{1}{\alpha_{1}\overline{\alpha_{1}} \cdots \alpha_{n}\overline{\alpha_{n}}} \).
+
+	Thus \( f(z) = \displaystyle{z^{k}} z_{0} \prod^{n}_{i=1} \dfrac{z - \alpha_{i}}{z - 1/\overline{\alpha_{i}}} \).
+\end{proof}
+
+\begin{problem}{2.1.4.5}
+If a rational function is real on \( |z| = 1 \), how are the zeros and poles situated?
+\end{problem}
+
+\begin{proof}
+	Let \( f \) be such a rational function then \( f(z) \) is of the form
+	\[
+		z^{p}\dfrac{(z - \alpha_{1}) \cdots (z - \alpha_{n})}{(z - \beta_{1})\cdots (z - \beta_{m})}
+	\]
+
+	where \( \left\{ \alpha_{j} \mid j = 1, \ldots, n \right\} \cap \left\{ \beta_{k} \mid k = 1, \ldots, m \right\} = \varnothing \) and \( \alpha_{j}, \beta_{k} \ne 0 \).
+
+	Assume that \( \left\vert z \right\vert = 1 \) then \( f(z) = \overline{f(z)} \), which means
+	\[
+		z^{p}\dfrac{(z - \alpha_{1}) \cdots (z - \alpha_{n})}{(z - \beta_{1})\cdots (z - \beta_{m})} = z^{-p} \dfrac{(1/z - \overline{\alpha_{1}}) \cdots (1/z - \overline{\alpha_{n}})}{(1/z - \overline{\beta_{1}}) \cdots (1/z - \overline{\beta_{m}})}.
+	\]
+
+	Therefore
+	\[
+		z^{p}\dfrac{(z - \alpha_{1}) \cdots (z - \alpha_{n})}{(z - \beta_{1})\cdots (z - \beta_{m})} = z^{-p} \dfrac{\overline{\alpha_{1} \cdots \alpha_{n}}}{\overline{\beta_{1}\cdots \beta_{m}}} {(-1)}^{m-n} z^{m-n} \dfrac{(z - 1/\overline{\alpha_{1}}) \cdots (z - 1/\overline{\alpha_{n}})}{(z - 1/\overline{\beta_{1}}) \cdots (z - 1/\overline{\beta_{m}})}
+	\]
+
+	for infinitely many values of \( z \).
+
+	Hence the set of non-zero, finite zeros of \( f \) and the set of non-zero, finite poles of \( f \) are invariant under the map \( z \mapsto 1/\bar{z} \).
+\end{proof}
+
+\begin{problem}{2.1.4.6}
+If \( R(z) \) is a rational function of order \( n \), how large and how small can the order of \( R^{\prime}(z) \) be?
+\end{problem}
+
+\begin{proof}
+	\( R(z) = \dfrac{P(z)}{Q(z)} \) in which \( P, Q \) have no common factors and zeros. The order of \( R \) is \( n \) so \( n = \max\left\{ \deg P, \deg Q \right\} \).
+
+	\( R(z) \) and \( R^{\prime}(z) \) have the same finite poles. If \( \alpha \) is a pole of order \( k \) of \( R(z) \) then it is a pole of order \( k + 1 \) of \( R^{\prime}(z) \).
+
+	Let \( R_{1}(z) = R(1/z) \). By the chain rule, one has \( R_{1}^{\prime}(z) = \dfrac{-1}{z^{2}} R^{\prime}(1/z) \), so \( R^{\prime}(z) = -z^{2} R_{1}^{\prime}(1/z) \). If \( \infty \) is a pole of order \( k > 1 \) of \( R \) then it is a pole of order \( k - 1 \) of \( R^{\prime} \). If \( \infty \) is a pole of order \( 1 \) of \( R \) then it is not a pole of \( R^{\prime} \).
+
+	If \( n = 0 \) then \( R(z) \) is a constant and \( R^{\prime}(z) \) is of order \( 0 \).
+
+	If \( n > 0 \), the following cases are exhaustive.
+	\begin{itemize}
+		\item \( \deg P = n, \deg Q = m < n \).
+
+		      \( \infty \) is a pole of \( R \) of order \( n - m \). Hence \( \operatorname{order} R^{\prime} = \operatorname{order} R + \#\text{distinct finite poles} - 1. \)
+		\item \( \deg P = m \le n, \deg Q = n \).
+
+		      \( \infty \) is not a pole of \( R \). Hence \( \operatorname{order} R^{\prime} = \operatorname{order} R + \#\text{distinct finite poles}. \)
+	\end{itemize}
+
+	Hence \( \operatorname{order} R^{\prime} \le \operatorname{order} R \) (the equality occurs when \( \deg P = \deg Q = \operatorname{order} R \) and \( Q \) has \( \operatorname{order} R \) distinct zeros) and \( \operatorname{order} R^{\prime} \ge (\operatorname{order} R) - 1 \) (the equality occurs when \(R\) has no finite pole but infinite pole).
+\end{proof}
+
+\section{Elementary Theory of Power Series}
+
+\subsection{Sequences}
+
+\subsection{Series}
+
+\subsection{Uniform Convergence}
+
+\subsection{Power Series}
+
+\subsection{Abel's Limit Theorem}
+
+\section{The Exponential and Trigonometric Functions}
+
+\subsection{The Exponential}
+
+\subsection{The Trigonometric Functions}
+
+\subsection{The Periodicity}
+
+\subsection{The Logarithm}
+
