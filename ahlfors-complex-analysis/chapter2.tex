@@ -619,9 +619,248 @@ No problems.
 
 \subsection{The Exponential}
 
+No problems.
+
 \subsection{The Trigonometric Functions}
+
+\begin{problem}{2.3.2.1}
+Find the values of \( \sin \imath \), \( \cos \imath \), \( \tan(1+\imath) \).
+\end{problem}
+
+\begin{proof}
+	I skip this problem.
+\end{proof}
+
+\begin{problem}{2.3.2.2}
+The hyperbolic cosine and sine are defined by
+\[
+	\cosh z = \frac{e^{z} + e^{-z}}{2}, \quad \sinh z = \frac{e^{z} - e^{-z}}{2}.
+\]
+
+Express them through \( \cos \imath z \), \( \sin \imath z \). Derive the addition formulas, and formulas for \( \cosh 2z \), \( \sinh 2z \).
+\end{problem}
+
+\begin{proof}
+	\( \cosh(z) = \cos(\imath z) \) and \( \sinh(z) = \imath \sin(\imath z) \).
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\cosh(a + b) & = \cosh(a)\cosh(b) + \sinh(a)\sinh(b),                                              \\
+		\sinh(a + b) & = \sinh(a)\cosh(b) + \cosh(a)\sinh(b),                                              \\
+		\cosh(2z)    & = {(\cosh z)}^{2} + {(\sinh z)}^{2} = 2{(\cosh z)}^{2} - 1 = 1 + 2 {(\sinh z)}^{2}, \\
+		\sinh(2z)    & = 2\sinh(z) \cosh(z).
+	\end{align*}
+	\endgroup
+\end{proof}
+
+\begin{problem}{2.3.2.3}
+Use the addition formulas to separate \( \cos(x+\imath y) \), \( \sin(x+\imath y) \) in real and imaginary parts.
+\end{problem}
+
+\begin{proof}
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\cos(x + \imath y) & = \cos(x)\cos(\imath y) - \sin(x)\sin(\imath y) \\
+		                   & = \cos(x)\cosh(y) - \imath\sin(x)\sinh(y),      \\
+		\sin(x + \imath y) & = \sin(x)\cos(\imath y) + \cos(x)\sin(\imath y) \\
+		                   & = \sin(x)\cosh(y) + \imath \cos(x)\sinh(y).
+	\end{align*}
+	\endgroup
+\end{proof}
+
+\begin{problem}{2.3.2.4}
+Show that
+\[
+	{|\cos z|}^{2} = {(\sinh y)}^{2} + {(\cos x)}^{2} = {(\cosh y)}^{2} - {(\sin x)}^{2} = \dfrac{1}{2} (\cosh 2y + \cos 2x),
+\]
+
+and
+\[
+	{|\sin z|}^{2} = {(\sinh y)}^{2} + {(\sin x)}^{2} = {(\cosh y)}^{2} - {(\cos x)}^{2} = \dfrac{1}{2} (\cosh 2y - \cos 2x).
+\]
+\end{problem}
+
+\begin{proof}
+	This follows from the previous two problems and the formulas
+	\[
+		{(\cosh z)}^{2} - {(\sinh z)}^{2} = {(\cos z)}^{2} + {(\sin z)}^{2} = 1.
+	\]
+\end{proof}
 
 \subsection{The Periodicity}
 
 \subsection{The Logarithm}
 
+\begin{problem}{2.3.4.1}
+For real \( y \), show that every remainder in the series for \( \cos y \) and \( \sin y \) has the same sign as the leading term (this generalizes the inequalities used in the periodicity proof, Sec. 3.3).
+\end{problem}
+
+\begin{proof}
+	It suffices to prove for the case \( y > 0 \).
+
+	\( \sin(y) < y \) so \( \int_{0}^{y} \sin(y) dy < \int_{0}^{y} y dy \), which is equivalent to \( \cos(y) > 1 - \dfrac{y^{2}}{2!} \). Continue with this process, we deduce that
+	\[
+		\begin{split}
+			\sum_{n=0}^{2q + 2} \dfrac{{(-1)}^{n} x^{2n+1}}{(2n+1)!} < \sin(y) < \sum_{n=0}^{2p + 1} \dfrac{{(-1)}^{n} x^{2n+1}}{(2n+1)!} \\
+			\sum_{n=0}^{2q + 2} \dfrac{{(-1)}^{n} x^{2n}}{(2n)!} < \cos(y) < \sum_{n=0}^{2p+1} \dfrac{{(-1)}^{n} x^{2n}}{(2n)!}
+		\end{split}
+	\]
+
+	for any nonnegative integers \( p, q \).
+
+	This means
+	\[
+		\cos(y) - \sum_{n=0}^{m} \dfrac{{(-1)}^{n} x^{2n}}{(2n)!} \quad \text{and} \quad \dfrac{{(-1)}^{m+1}x^{2m+2}}{(2m + 2)!}
+	\]
+
+	have the same sign, and
+	\[
+		\sin(y) - \sum_{n=0}^{m} \dfrac{{(-1)}^{n} x^{2n+1}}{(2n+1)!} \quad \text{and} \quad \dfrac{{(-1)}^{m+1}x^{2m+3}}{(2m+3)!}
+	\]
+
+	have the same sign.
+\end{proof}
+
+\begin{problem}{2.3.4.2}
+Prove, for instance, that \( 3 < \pi < 2\sqrt{3} \).
+\end{problem}
+
+\begin{proof}
+	\[
+		\cos\sqrt{3} < 1 - \dfrac{\sqrt{3}^{2}}{2!} + \dfrac{\sqrt{3}^{4}}{4!} < 0
+	\]
+
+	and
+	\[
+		\cos\dfrac{3}{2} > 1 - \dfrac{{(3/2)}^{2}}{2!} + \dfrac{{(3/2)}^{4}}{4!} - \dfrac{{(3/2)}^{6}}{6!} > 0
+	\]
+
+	so there exists \( 3/2 < y_{0} < \sqrt{3} \) such that \( \cos(y_{0}) = 0 \).
+
+	Repeat the periodicity proof, we deduce that \( 4y_{0} \) is the smallest positive period of \( \exp(\imath z) \). Therefore \( 4y_{0} = 2\pi \), so \( 3 < \pi < 2\sqrt{3} \).
+\end{proof}
+
+\begin{problem}{2.3.4.3}
+Find the value of \( e^{z} \) for \( z = -\dfrac{\pi \imath}{2}, \dfrac{3}{4}\pi \imath, \dfrac{2}{3}\pi \imath \).
+\end{problem}
+
+\begin{proof}
+	I skip this problem.
+\end{proof}
+
+\begin{problem}{2.3.4.4}
+For what values of \( z \) is \( e^{z} \) equal to \( 2, -1, \imath, -\imath/2, -1 - \imath, 1 + 2\imath \)?
+\end{problem}
+
+\begin{proof}
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		e^{z} = 2           & \iff z \in \left\{ \ln(2) +  2n\imath \pi \mid n \in \mathbb{Z} \right\},                                                                                                   \\
+		e^{z} = -1          & \iff z \in \left\{ \pi + 2n\imath \pi \mid n \in \mathbb{Z} \right\},                                                                                                       \\
+		e^{z} = \imath      & \iff z \in \left\{ \imath\dfrac{\pi}{2} + 2n\imath \pi \mid n \in \mathbb{Z} \right\},                                                                                      \\
+		e^{z} = -\imath/2   & \iff z \in \left\{ -\ln(2) + \dfrac{-\imath \pi}{2} + 2n\imath \pi \mid n \in \mathbb{Z} \right\},                                                                          \\
+		e^{z} = -1 - \imath & \iff z \in \left\{ \ln(\sqrt{2}) + \dfrac{-3\imath\pi}{4} + 2n\imath\pi \mid n \in \mathbb{Z} \right\},                                                                     \\
+		e^{z} = 1 + 2\imath & \iff z \in \left\{ \ln(\sqrt{5}) + \imath\alpha + 2n\imath \pi \mid n \in \mathbb{Z}, \alpha \in \mathbb{R}, \cos(\alpha) = 1/\sqrt{5}, \sin(\alpha) = 2/\sqrt{5} \right\}.
+	\end{align*}
+	\endgroup
+\end{proof}
+
+\begin{problem}{2.3.4.5}
+Find the real and imaginary parts of \( \exp(e^{z}) \).
+\end{problem}
+
+\begin{proof}
+	Let \( z = x + \imath y \).
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\exp(e^{z}) & = \exp(e^{x}(\cos y + \imath \sin y))                                 \\
+		            & = \exp(e^{x}\cos(y))\exp(\imath e^{x} \sin y)                         \\
+		            & = \exp(e^{x}\cos(y)) (\cos(e^{x}\sin(y)) + \imath \sin(e^{x}\sin(y)))
+	\end{align*}
+	\endgroup
+
+	Hence
+	\[
+		\begin{split}
+			\Re(\exp(e^{z})) = \exp(e^{x}\cos(y)) \cos(e^{x}\sin(y)) \\
+			\Im(\exp(e^{z})) = \exp(e^{x}\cos(y)) \sin(e^{x}\sin(y))
+		\end{split}
+	\]
+\end{proof}
+
+\begin{problem}{2.3.4.6}
+Determine all values of \( 2^{\imath}, \imath^{\imath}, {(-1)}^{2\imath} \).
+\end{problem}
+
+\begin{proof}
+	\[
+		\begin{split}
+			2^{\imath} = e^{\imath (\ln(2) + 2\imath n\pi)} = \left\{ e^{\imath \ln(2)} e^{-2n\pi} \mid n \in \mathbb{Z} \right\},         \\
+			\imath^{\imath} = e^{\imath (\imath (\pi / 2) + 2\imath n\pi)} = \left\{ e^{-\pi/2} e^{-2n\pi} \mid n \in \mathbb{Z} \right\}, \\
+			{(-1)}^{2\pi} = e^{2\pi (\imath \pi + 2\imath n\pi)} = \left\{ e^{\imath (2\pi^{2} + 4n\pi^{2})} \mid n \in \mathbb{Z} \right\}.
+		\end{split}
+	\]
+\end{proof}
+
+\begin{problem}{2.3.4.7}
+Determine the real and imaginary parts of \( z^{\imath} \).
+\end{problem}
+
+\begin{proof}
+	\( z^{\imath} = e^{\imath (\ln\left\vert z\right\vert + \imath \arg z)} = e^{-\arg z + \imath \ln\left\vert z\right\vert} \)
+
+	Hence \( \Re(z^{\imath}) = e^{-\arg z} \cos(\ln\left\vert z \right\vert) \) (this is a set) and \( \Im(z^{\imath}) = e^{-\arg z} \sin(\ln\left\vert z \right\vert) \) (this is a set).
+\end{proof}
+
+\begin{problem}{2.3.4.8}
+Express \( \arctan w \) in terms of the logarithm.
+\end{problem}
+
+\begin{proof}
+	If \( z = \arctan w \) then \( \tan z = w \). Moreover \( w = \tan z = \dfrac{-\imath (\exp(\imath z) - \exp(-\imath z))}{\exp(\imath z) + \exp(-\imath z)} \).
+
+	Solve for \( \exp(\imath z) \), we obtain \( \exp(2\imath z) = \dfrac{1 + \imath w}{1 - \imath w} \), so
+	\[
+		2\imath z = \log\dfrac{1 + \imath w}{1 - \imath w}
+	\]
+
+	which means
+	\[
+		\arctan w = z = \dfrac{-\imath}{2}\log\dfrac{1 + \imath w}{1 - \imath w}. \qedhere
+	\]
+\end{proof}
+
+\begin{problem}{2.3.4.9}
+Show how to define the ``angles'' in a triangle, bearing in mind that they should lie between \( 0 \) and \( \pi \). With this definition, prove that the sum of the angles is \( \pi \).
+\end{problem}
+
+\begin{proof}
+	Let \( a, b, c \) be three complex numbers which are geometric representations of three vertices \(A, B, C \) of a triangle.
+
+	Define \( m\angle (AB, AC) \) to be the smallest positive value in the set \( \arg\dfrac{a - b}{a - c} \).
+
+	Because
+	\[
+		\arg\dfrac{a - b}{a - c} + \arg\dfrac{b - c}{b - a} + \arg\dfrac{c - a}{c - b} = \arg \dfrac{(a - b)(b - c)(c - a)}{(a - c)(b - a)(c - b)} = \arg (-1)
+	\]
+
+	it follows that \( m\angle (AB, AC) + m\angle(BC, BA) + m\angle(CA, CB) = \pi + 2n\pi \) where \( n \) is some nonnegative integer.
+
+	On the other hand, \( 0 \le m\angle (AB, AC), m\angle(BC, BA), m\angle(CA, CB) \le \pi \) so \( n = 0 \) or \( n = 1 \). Suppose on the contrary that \( n = 1 \) then \( m\angle (AB, AC) = m\angle(BC, BA) = m\angle(CA, CB) = \pi \). It follows that \( \dfrac{a - b}{a - c} = \dfrac{b - c}{b - a} = \dfrac{c - a}{c - b} = -1 \) and \( 2a = b + c, 2b = c + a, 2c = a + b \), which implies \( a = b = c \), which is a contradiction. Hence \( n = 0 \) and the sum of the angles is \( \pi \).
+\end{proof}
+
+\begin{problem}{2.3.4.10}
+Show that the roots of the binomial equation \( z^{n} = a \) are the vertices of a regular polygon (equal sides and angles).
+\end{problem}
+
+\begin{proof}
+	The roots are
+	\[
+		\sqrt[n]{\left\vert a \right\vert}\left(\cos\dfrac{\arg a + 2k\pi}{n} + \imath\sin\dfrac{\arg a + 2k\pi}{n}\right)
+	\]
+
+	where \( k \in \left\{ 0, 1, \ldots, n - 1 \right\} \) and they are the vertices of a regular \( n \)-gon.
+\end{proof}
