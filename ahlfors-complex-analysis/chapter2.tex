@@ -4,6 +4,8 @@
 
 \subsection{Limits and Continuity}
 
+No problems.
+
 \subsection{Analytic Functions}
 
 \begin{problem}{2.1.2.1}
@@ -143,6 +145,8 @@ Show that a harmonic function satisfies the formal differential equation
 \end{proof}
 
 \subsection{Polynomials}
+
+No problems.
 
 \subsection{Rational Functions}
 
@@ -305,13 +309,311 @@ If \( R(z) \) is a rational function of order \( n \), how large and how small c
 
 \subsection{Sequences}
 
+No problems.
+
 \subsection{Series}
+
+No problems.
 
 \subsection{Uniform Convergence}
 
+\begin{problem}{2.2.3.1}
+Prove that a convergent sequence is bounded.
+\end{problem}
+
+\begin{proof}
+	I skip this problem.
+\end{proof}
+
+\begin{problem}{2.2.3.2}
+If \( \lim_{n \to \infty} z_{n} = A \), prove that
+\[
+	\lim\limits_{n \to \infty} \frac{1}{n}(z_{1} + z_{2} + \cdots + z_{n}) = A.
+\]
+\end{problem}
+
+\begin{proof}
+	The sequence \( z_{n} - A \) converges to \( 0 \) so it is bounded. There exists \( m > 0 \) such that \( \left\vert z_{n} - A \right\vert < M \) for all \( n \).
+
+	Let \( \varepsilon > 0 \) and \( n_{0} \) is a positive integer. For every \( n \ge n_{0} \) one has
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\left\vert \dfrac{z_{1} + \cdots + z_{n}}{n} - A \right\vert & = \left\vert \dfrac{(z_{1} - A) + \cdots + (z_{n} - A)}{n} \right\vert                                                                                                                            \\
+		                                                             & \le \dfrac{\left\vert z_{1} - A \right\vert + \cdots + \left\vert z_{n_{0}} - A \right\vert}{n} + \dfrac{\left\vert z_{n_{0} + 1} - A \right\vert + \cdots + \left\vert z_{n} - A \right\vert}{n} \\
+		                                                             & < \dfrac{n_{0}m}{n} + \dfrac{\left\vert z_{n_{0} + 1} - A \right\vert + \cdots + \left\vert z_{n} - A \right\vert}{n}
+	\end{align*}
+	\endgroup
+
+	Because \( \lim_{n \to \infty} z_{n} = A  \), we can choose \( n_{0} \) such that whenevery \( n \ge n_{0} \), one has
+	\[
+		\left\vert z_{n} - A \right\vert < \varepsilon_{0} = \dfrac{\varepsilon m}{(\varepsilon + 1)(m + 1)}.
+	\]
+
+	Therefore
+	\[
+		\left\vert \dfrac{z_{1} + \cdots + z_{n}}{n} - A \right\vert < \dfrac{n_{0}m}{n} + \dfrac{(n - n_{0})\varepsilon_{0}}{n}.
+	\]
+
+	There exists a positive \( n_{1} \) such that \( n_{1} > \dfrac{n_{0}m - \varepsilon_{0}n_{0}}{\varepsilon - \varepsilon_{0}} \). For every \( n \ge n_{1} \), one has
+	\[
+		\left\vert \dfrac{z_{1} + \cdots + z_{n}}{n} - A \right\vert < \dfrac{n_{0}m}{n} + \dfrac{(n - n_{0})\varepsilon_{0}}{n} < \varepsilon.
+	\]
+
+	Thus \( \lim\limits_{n\to\infty} \dfrac{1}{n}(z_{1} + \cdots + z_{n}) = A \).
+\end{proof}
+
+\begin{problem}{2.2.3.3}
+Show that the sum of an absolutely convergent series does not change if the terms are rearranged.
+\end{problem}
+
+\begin{proof}
+	Let \( \sum_{1}^{\infty} z_{n} \) be an absolutely convergent series and \( \sigma \) a bijection from \( \mathbb{Z}^{+} \) onto \( \mathbb{Z}^{+} \).
+
+	Let \( \sum_{1}^{\infty} z_{n} = A \), \( \sum_{1}^{\infty} \left\vert z_{n} \right\vert = B \) and \( \varepsilon > 0 \).
+
+	There exist \( n_{0}, n_{1} \) such that \( \left\vert \sum_{k=1}^{n} z_{k} - A \right\vert < \dfrac{\varepsilon}{2} \) whenever \( n \ge n_{0} \) and \( \left\vert \sum_{k=1}^{n} \left\vert z_{k} \right\vert - B \right\vert < \dfrac{\varepsilon}{2} \) whenever \( n \ge n_{1} \). Let \( m = \max\left\{ n_{0}, n_{1} \right\} \).
+
+	Let \( n_{2} = \max\left\{ \sigma^{-1}(1), \ldots, \sigma^{-1}(m) \right\} \) then \( \sigma(\left\{ 1, \ldots, n_{2} \right\}) \supset \left\{ 1, \ldots, m \right\} \).
+
+	If \( n \ge n_{2} \) then \( \sigma(\left\{ 1, \ldots, n \right\}) \supset \left\{ 1, \ldots, m \right\} \) and
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\left\vert z_{\sigma(1)} + \cdots + z_{\sigma(n)} - A \right\vert & = \left\vert \sum_{k=1}^{m} z_{k} - A + \sum_{\sigma(k) > m} z_{\sigma(k)} \right\vert                           \\
+		                                                                  & \le \left\vert  \sum_{k=1}^{m} z_{k} - A \right\vert + \sum_{\sigma(k) > m} \left\vert z_{\sigma(k)} \right\vert \\
+		                                                                  & \le \left\vert  \sum_{k=1}^{m} z_{k} - A \right\vert + \sum_{k=m+1}^{\infty} \left\vert z_{k} \right\vert        \\
+		                                                                  & < \dfrac{\varepsilon}{2} + \dfrac{\varepsilon}{2} = \varepsilon.
+	\end{align*}
+	\endgroup
+
+	Hence \( \sum_{1}^{\infty} z_{\sigma(n)} \) converges to \( A \).
+\end{proof}
+
+\begin{problem}{2.2.3.4}
+Discuss completely the convergence and uniform convergence of the sequence \( {\{ nz^{n} \}}_{1}^{\infty} \).
+\end{problem}
+
+\begin{proof}
+	If \( \left\vert z \right\vert \ge 1 \) then
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\left\vert (n + 1)z^{n+1} - nz^{n} \right\vert & \ge \left\vert \left\vert (n + 1)z^{n+1}\right\vert - \left\vert nz^{n} \right\vert \right\vert \\
+		                                               & = \left\vert (n + 1)z^{n+1}\right\vert - \left\vert nz^{n} \right\vert                          \\
+		                                               & = \left\vert z^{n}\right\vert (\left\vert (n + 1)z\right\vert - n)                              \\
+		                                               & \ge 1
+	\end{align*}
+	\endgroup
+
+	which means the given sequence is not Cauchy.
+
+	If  \( \left\vert z \right\vert < 1 \) then there exists \( \alpha > 0 \) such that \( \left\vert z \right\vert < \dfrac{1}{1 + \alpha} < 1 \). Let \( \varepsilon > 0 \), if \( n > \dfrac{2}{\varepsilon\alpha^{2}} - \dfrac{2}{\alpha} + 1 \) and \( n > 1 \)  then
+	\[
+		\left\vert nz^{n} \right\vert < \dfrac{n}{{(1 + \alpha)}^{n}} \le \dfrac{n}{n\alpha + \dfrac{n(n-1)}{2}\alpha^{2}} = \dfrac{1}{\alpha + \dfrac{(n - 1)\alpha^{2}}{2}} < \varepsilon
+	\]
+
+	which means \( \lim\limits_{n\to\infty} nz^{n} = 0 \).
+
+	However, the sequence doesn't converge uniformly on \( \left\vert z \right\vert < 1 \) because for \( \varepsilon_{0} = 1 \), for every \( N \), choose \( n = N + 1 \) and \( z = \dfrac{1}{\sqrt[n]{n}} \), one has \( \left\vert nz^{n} \right\vert = 1 \ge \varepsilon_{0} \).
+\end{proof}
+
+\begin{problem}{2.2.3.5}
+Discuss the uniform convergence of the series
+\[
+	\sum_{n=1}^{\infty} \frac{x}{n(1+nx^{2})}
+\]
+for real values of \( x \).
+\end{problem}
+
+\begin{proof}
+	For every \( n \), \( \left\vert\dfrac{x}{1 + nx^{2}}\right\vert \le \dfrac{1}{2n^{3/2}} \). Since \( \sum_{1}^{\infty} \dfrac{1}{n^{3/2}} \) converges, we conclude that the series \( \sum_{n=1}^{\infty} \dfrac{x}{n(1 + nx^{2})} \) converges uniformly, according to Weiertra\ss's M-test.
+\end{proof}
+
+\begin{problem}{2.2.3.6}
+If \( U = u_{1} + u_{2} + \cdots \), \( V = v_{1} + v_{2} + \cdots \) are convergent series, prove that
+\[
+	UV = u_{1}v_{1} + (u_{1}v_{2} + u_{2}v_{1}) + (u_{1}v_{3} + u_{2}v_{2} + u_{3}v_{1}) + \cdots
+\]
+provided that at least one of the series is absolutely convergent. (It is easy if both series are absolutely convergent. Try to arrange the proof so economically that the absolute convergence of the second series is not needed.)
+\end{problem}
+
+\begin{proof}
+	Suppose that \( \sum_{1}^{\infty} u_{n} \) is absolutely convergent.
+
+	Let \( \varepsilon > 0 \) and \( w_{n} = \sum_{k=1}^{n} u_{k}v_{n+1-k} \). We aim to show that \( \sum_{n=1}^{\infty} w_{n} = UV \).
+
+	There exists a positive integer \( N \) such that for all \( n \ge N \)
+	\[
+		\left\vert v_{1} + \cdots + v_{n} - V \right\vert < \dfrac{\varepsilon}{3\left(1 + \sum_{1}^{\infty} \left\vert u_{n} \right\vert \right)}
+	\]
+
+	\( \lim\limits_{n\to\infty} u_{n} = 0 \) so there exists a positive integer \( M \) such that for all \( n \ge M \)
+	\[
+		\left\vert u_{n} \right\vert < \dfrac{\varepsilon}{3N(1 + \max\left\{ \left\vert v_{1} - V \right\vert, \ldots, \left\vert v_{1} + \cdots + v_{N-1} - V \right\vert \right\})}
+	\]
+
+	There exists a positive integer \( L \) such that for all \( n \ge L \)
+	\[
+		\left\vert u_{1} + \cdots + u_{n} - L \right\vert < \dfrac{\varepsilon}{3(1 + \left\vert V \right\vert)}
+	\]
+
+	For every \( n \ge \max\left\{ L, N + M \right\} \)
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		w_{1} + \cdots + w_{n} & = u_{1}(v_{1} + \cdots + v_{n}) + \cdots + u_{n}v_{1}                                       \\
+		                       & = u_{1}(v_{1} + \cdots + v_{n} - V) + \cdots + u_{n}(v_{1} - V) + (u_{1} + \cdots + u_{n})V \\
+		                       & = u_{1}(v_{1} + \cdots + v_{n} - V) + \cdots + u_{n-N}(v_{1} + \cdots + v_{N} - V)          \\
+		                       & \qquad + u_{n-N+1}(v_{1} + \cdots + v_{N-1} - V) + \cdots + u_{n}(v_{1} - V)                \\
+		                       & \qquad + (u_{1} + \cdots + u_{n})V
+	\end{align*}
+	\endgroup
+
+	so
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\left\vert w_{1} + \cdots + w_{n} - UV \right\vert & \le \left\vert u_{1} \right\vert \left\vert v_{1} + \cdots + v_{n} - V \right\vert + \cdots + \left\vert u_{n-N} \right\vert \left\vert v_{1} + \cdots + v_{N} - V\right\vert \\
+		                                                   & \qquad + \left\vert u_{n-N+1}\right\vert \left\vert v_{1} + \cdots + v_{N-1} - V\right\vert + \cdots + \left\vert u_{n}\right\vert \left\vert v_{1} - V\right\vert            \\
+		                                                   & \qquad + \left\vert u_{1} + \cdots + u_{n} - U \right\vert \left\vert V \right\vert                                                                                           \\
+		                                                   & < \dfrac{\varepsilon}{3} + \dfrac{\varepsilon}{3} + \dfrac{\varepsilon}{3} = \varepsilon.
+	\end{align*}
+	\endgroup
+
+	Thus \( \sum_{1}^{\infty} w_{n} = UV \).
+\end{proof}
+
 \subsection{Power Series}
 
+\begin{problem}{2.2.4.1}
+Expand \( {(1 - z)}^{-m} \), \( m \) a positive integer, in powers of \( z \).
+\end{problem}
+
+\begin{proof}
+	I skip this problem.
+\end{proof}
+
+\begin{problem}{2.2.4.2}
+Expand \( \dfrac{2z+3}{z+1} \) in powers of \( z - 1 \). What is the radius of convergence?
+\end{problem}
+
+\begin{proof}
+	I skip this problem.
+\end{proof}
+
+\begin{problem}{2.2.4.3}
+Find the radius of convergence of the following power series:
+\[
+	\sum n^{p} z^{n}, \quad \sum \frac{z^{n}}{n!}, \quad \sum n! z^{n}, \quad \sum q^{n^{2}} z^{n} \; (|q|<1), \quad \sum z^{n!}.
+\]
+\end{problem}
+
+\begin{proof}
+	I skip this problem.
+\end{proof}
+
+\begin{problem}{2.2.4.4}
+If \( \sum a_{n} z^{n} \) has radius of convergence \( R \), what is the radius of convergence of \( \sum a_{n} z^{2n} \)? of \( \sum a_{n}^{2} z^{n} \)?
+\end{problem}
+
+\begin{proof}
+	The radius of convergence of \( \sum a_{n} z^{2n} \) is \( \sqrt{R} \). The radius of convergence of \( \sum a_{n}^{2} z^{n} \) is \( R^{2} \).
+\end{proof}
+
+\begin{problem}{2.2.4.5}
+If \( f(z) = \sum a_{n} z^{n} \), what is \( \sum n^{3} a_{n} z^{n} \)?
+\end{problem}
+
+\begin{proof}
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		f(z)            & = \sum_{n=0}^{\infty} a_{n}z^{n}                                                           \\
+		zf^{(1)}(z)     & = \sum_{n=1}^{\infty} na_{n}z^{n} = \sum_{n=0}^{\infty} na_{n}z^{n}                        \\
+		z^{2}f^{(2)}(z) & = \sum_{n=2}^{\infty} n(n - 1)z^{n} = \sum_{n=0}^{\infty} n(n - 1)a_{n}z^{n}               \\
+		z^{3}f^{(3)}(z) & = \sum_{n=3}^{\infty} n(n - 1)(n - 2)z^{n} = \sum_{n=0}^{\infty} n(n - 1)(n - 2)a_{n}z^{n}
+	\end{align*}
+	\endgroup
+
+	Thus \( \sum n^{3}a_{n}z^{n} = z^{3}f^{(3)}(z) + 3z^{2}f^{(2)}(z) + zf^{(1)}(z) \).
+\end{proof}
+
+\begin{problem}{2.2.4.6}
+If \( \sum a_{n} z^{n} \) and \( \sum b_{n} z^{n} \) have radii of convergence \( R_{1} \) and \( R_{2} \), show that the radius of convergence of \( \sum a_{n} b_{n} z^{n} \) is at least \( R_{1} R_{2} \).
+\end{problem}
+
+\begin{proof}
+	\[
+		\limsup\limits_{n\to\infty} \sqrt[n]{\left\vert a_{n}b_{n} \right\vert} \le \left(  \limsup\limits_{n\to\infty} \sqrt[n]{\left\vert a_{n} \right\vert} \right) \left( \limsup\limits_{n\to\infty} \sqrt[n]{\left\vert b_{n} \right\vert}\right) = (1/R_{1})(1/R_{2})
+	\]
+
+	So \( \limsup\limits_{n\to\infty} \sqrt[n]{\left\vert a_{n}b_{n} \right\vert} \le 1/(R_{1}R_{2}) \), which implies that the radius of convergence of \( \sum a_{n} b_{n} z^{n} \) is at least \( R_{1} R_{2} \).
+\end{proof}
+
+\begin{problem}{2.2.4.7}
+If \( \lim_{n \to \infty} |a_{n}|/|a_{n+1}| = R \), prove that \( \sum a_{n} z^{n} \) has radius of convergence \( R \).
+\end{problem}
+
+\begin{proof}
+	For every positive sequence \( (c_{n}) \)
+	\[
+		\liminf\limits_{n\to\infty} \dfrac{c_{n+1}}{c_{n}} \le \liminf\limits_{n\to\infty} \sqrt[n]{c_{n}} \le \limsup\limits_{n\to\infty} \sqrt[n]{c_{n}} \le \limsup\limits_{n\to\infty} \dfrac{c_{n+1}}{c_{n}}
+	\]
+
+	so \( \lim\limits_{n\to\infty} \sqrt[n]{\left\vert a_{n} \right\vert} = 1/R \), which means the given series has radius of convergence \( R \).
+\end{proof}
+
+\begin{problem}{2.2.4.8}
+For what values of \( z \) is
+\[
+	\sum_{0}^{\infty} {\left( \frac{z}{1+z} \right)}^{n}
+\]
+
+convergent?
+\end{problem}
+
+\begin{proof}
+	The series is convergent iff \( \left\vert \dfrac{z}{1 + z} \right\vert < 1 \), which means \( \Re(z) > \dfrac{-1}{2} \).
+\end{proof}
+
+\begin{problem}{2.2.4.9}
+Same question for
+\[
+	\sum_{0}^{\infty} \frac{z^{n}}{1+z^{2n}}.
+\]
+\end{problem}
+
+\begin{proof}
+	If \( z = 0 \), the series converges.
+
+	If \( \left\vert z \right\vert > 1 \)
+	\[
+		\lim\limits_{n\to\infty} \left\vert \dfrac{z^{n+1}}{1 + z^{2n+2}} \dfrac{1 + z^{2n}}{z^{n}} \right\vert = \lim\limits_{n\to\infty} \left\vert \dfrac{z + z^{2n+1}}{1 + z^{2n+2}} \right\vert = 0
+	\]
+
+	so the series is convergent according to the ratio test.
+
+	If \( 0 < \left\vert z \right\vert < 1 \) then
+	\[
+		\lim\limits_{n\to\infty} \left\vert \dfrac{z^{n+1}}{1 + z^{2n+2}} \dfrac{1 + z^{2n}}{z^{n}} \right\vert = \lim\limits_{n\to\infty} \left\vert \dfrac{z + z^{2n+1}}{1 + z^{2n+2}} \right\vert = \lim\limits_{n\to\infty} \left\vert \dfrac{{(1/z)}^{2n+1} + (1/z)}{{(1/z)}^{2n+2} + 1} \right\vert = 0
+	\]
+
+	so the series is convergent according to the ratio test.
+
+	If \( \left\vert z \right\vert = 1 \) then
+	\[
+		\left\vert \dfrac{z^{n}}{1 + z^{2n}} \right\vert = \dfrac{1}{\left\vert 1 + z^{2n}\right\vert} \ge \dfrac{1}{1 + \left\vert z^{2n}\right\vert} = \dfrac{1}{2}
+	\]
+
+	which means the series doesn't converge according to the term test.
+
+	Thus the series converges if and only if \( \left\vert z \right\vert \ne 1 \).
+\end{proof}
+
 \subsection{Abel's Limit Theorem}
+
+No problems.
 
 \section{The Exponential and Trigonometric Functions}
 
