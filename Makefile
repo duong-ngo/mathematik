@@ -100,8 +100,9 @@ updatecls: cleanaux
 linear-algebra:
 	@$(MAKE) sheldon-axler-linear-algebra-done-right/main.pdf
 
-real-and-functional:
-	@$(MAKE) real-and-functional-analysis/main.pdf
+.PHONY: kreyszig-functional-analysis
+kreyszig-functional-analysis:
+	@$(MAKE) kreyszig-functional-analysis/main.pdf
 
 .PHONY: greub
 greub:
@@ -134,14 +135,5 @@ lee-topological-manifolds:
 lee-smooth-manifolds:
 	@$(MAKE) lee-smooth-manifolds/main.pdf
 
-hirsch-smale-ode:
-	@$(MAKE) hirsch-smale-de-ds-la/main.pdf
-
 tu-manifolds:
 	@$(MAKE) tu-manifolds/main.pdf
-
-topology-a-geometric-approach:
-	@$(MAKE) topology-a-geometric-approach/main.pdf
-
-probability-and-statistics:
-	@$(MAKE) a-modern-introduction-to-probability-and-statistics/main.pdf
