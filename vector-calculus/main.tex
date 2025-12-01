@@ -11,6 +11,7 @@
 \usepackage{mathtools}
 \usepackage{mathrsfs}
 \usepackage{cases}
+\usepackage{esint}
 
 \usepackage{fancyhdr}
 \usepackage{xcolor}
@@ -22,9 +23,16 @@
 \usepackage{booktabs}
 \usepackage[inline]{enumitem}
 
+\usepackage{pgf,tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{decorations}
+\usetikzlibrary{math}
+
 \setcounter{chapter}{0}
 \counterwithin{subsection}{chapter}
-\renewcommand\thesection{\thechapter.\Alph{section}}
 
 \pagestyle{fancy}
 \setlength{\headheight}{16pt}
@@ -65,7 +73,7 @@
   }
   {\endinnercustomgeneric}
 }
-\newcustomtheorem{problem}{Problem}
+\newcustomtheorem{exercise}{Exercise}
 
 \newcommand{\rank}{\operatorname{rank}}
 \newcommand{\kernel}[1]{\operatorname{null}\,{#1}}

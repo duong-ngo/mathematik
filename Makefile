@@ -120,9 +120,6 @@ vector-calculus:
 multivariable-mathematics:
 	@$(MAKE) multivariable-mathematics/main.pdf
 
-mathematical-analysis:
-	@$(MAKE) vladimir-zorich-mathematical-analysis/main.pdf
-
 complex-analysis:
 	@$(MAKE) ahlfors-complex-analysis/main.pdf
 

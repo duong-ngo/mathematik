@@ -1,0 +1,199 @@
+\chapter{Line, Surface, and Volume Integrals}
+
+\section{Applications and metho\; dS of integration}
+
+\section{Line integrals}
+
+\begin{exercise}{2.1}
+	Evaluate the line integral
+	\[
+		\int_{C} \mathbf{F} \cdot \mathbf{dr} \qquad\text{where}\qquad \mathbf{F} = (5z^{2}, 2x, x + 2y)
+	\]
+
+	and the curve \( C \) is given by \( x = t, y = t^{2}, z = t^{2}, 0 \le t \le 1 \).
+\end{exercise}
+
+\begin{proof}
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\int_{C} \mathbf{F} \cdot \mathbf{dr} & = \int_{0}^{1} (5t^{4}, 2t, t + 2t^{2})\cdot (1, 2t, 2t) dt                      \\
+		                                      & = \int_{0}^{1} (5t^{4} + 4t^{2} + 2t^{2} + 4t^{3})dt                             \\
+		                                      & = \left.\left\lbrack t^{5} + 2t^{3} + t^{4} \right\rbrack\right\vert_{t=0}^{t=1} \\
+		                                      & = 4.
+	\end{align*}
+	\endgroup
+\end{proof}
+
+\begin{exercise}{2.2}
+	Evaluate the line integral of the same vector field \( \mathbf{F} \) given in the previous exercise along the straight line joining the points \( (0,0,0) \) and \( (1,1,1) \). Is \( \mathbf{F} \) a conservative vector field?
+\end{exercise}
+
+\begin{proof}
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\int_{C} \mathbf{F} \cdot \mathbf{dr} & = \int_{0}^{1} (5t^{2}, 2t, t + 2t) \cdot (1, 1, 1) dt                          \\
+		                                      & = \int_{0}^{1} (5t^{2} + 5t)dt                                                  \\
+		                                      & = \left.\left\lbrack 5/3 t^{3} + 5/2 t^{2} \right\rbrack\right\vert_{t=0}^{t=1} \\
+		                                      & = 5/3 + 5/2 = 25/6 \ne 4.
+	\end{align*}
+	\endgroup
+
+	Hence \( \mathbf{F} \) is not a conservative vector field.
+\end{proof}
+
+\begin{exercise}{2.3}
+	Find the line integral of the vector field \( \mathbf{u} = (y^{2}, x, z) \) along the curve given by \( z = y = \exp(x) \) from \( x = 0 \) to \( x = 1 \).
+\end{exercise}
+
+\begin{proof}
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\int_{C} \mathbf{u} \cdot \mathbf{dr} & = \int_{0}^{1} (\exp(2x), x, \exp(x)) \cdot (1, \exp(x), \exp(x)) dx                    \\
+		                                      & = \int_{0}^{1} (2\exp(2x) + x\exp(x)) dx                                                \\
+		                                      & = \left.\left\lbrack \exp(2x) + x\exp(x) - \exp(x) \right\rbrack\right\vert_{t=0}^{t=1} \\
+		                                      & = (\exp(2) + \exp(1) - \exp(1)) - (\exp(0) + 0 - \exp(0))                               \\
+		                                      & = \exp(2) = \mathrm{e}^{2}.
+	\end{align*}
+	\endgroup
+\end{proof}
+
+\begin{exercise}{2.4}
+	Find the line integral \( \oint_{C} \mathbf{r} \times \mathbf{dr} \) where the curve \( C \) is the ellipse \( x^{2}/a^{2} + y^{2}/b^{2} = 1 \) taken in an anticlockwise direction. What do you notice about the magnitude of the answer?
+\end{exercise}
+
+\begin{proof}
+	The parametric equation of the ellipse is \( x = a\cos(\phi), y = b\sin(\phi), 0 \le \phi \le 2\pi \).
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\oint_{C} \mathbf{r} \times \mathbf{dr} & = \int_{0}^{2\pi} (a\cos(\phi), b\sin(\phi), 0) \times (-a\sin(\phi), b\cos(\phi), 0) d\phi \\
+		                                        & = \int_{0}^{2\pi} (0, 0, ab {(\cos(\phi))}^{2} + ab{(\sin(\phi))}^{2}) d\phi                \\
+		                                        & = \int_{0}^{2\pi} (0, 0, ab) d\phi                                                          \\
+		                                        & = 2\pi ab \mathbf{e_{3}}.
+	\end{align*}
+	\endgroup
+
+	The magnitude of the answer is twice the area of the ellipse.
+\end{proof}
+
+\section{Surface integrals}
+
+\section{Volume integrals}
+
+\begin{exercise}{2.5}
+	Evaluate the surface integral of \( \mathbf{u} = (xy, x, x + y) \) over the surface \( S \) defined by \( z = 0 \) with \( 0 \le x \le 1 \), \( 0 \le y \le 2 \), with the normal \( \mathbf{n} \) directed in the positive \( z \) direction.
+\end{exercise}
+
+\begin{proof}
+	The normal \( \mathbf{n} \) is \( (0, 0, 1) \), so
+	\[
+		\iint_{S} \mathbf{u}\cdot\mathbf{n} \; dS = \int_{0}^{2}\left(\int_{0}^{1} (x + y) dx\right)dy = \int_{0}^{2} \left(\dfrac{1}{2} + y\right) dy = \left.\left( \dfrac{1}{2}y + \dfrac{1}{2}y^{2} \right)\right\vert_{y=0}^{y=2} = 3.
+	\]
+\end{proof}
+
+\begin{exercise}{2.6}
+	Find the surface integral of \( \mathbf{u} = \mathbf{r} \) over the surface of the unit cube \( 0 \le x, y, z \le 1 \), with \( \mathbf{n} \) pointing outward.
+\end{exercise}
+
+\begin{proof}
+	\( S_{1} \) is the surface formed by \( (0,0,0), (1,0,0), (0,1,0), (1,1,0) \).
+	\[
+		\iint_{S_{1}} (x, y, 0)\cdot (0, 0, -1) \; dS = \int_{0}^{1}\left(\int_{0}^{1} 0 dx\right)dy = 0.
+	\]
+
+	\( S_{2} \) is the surface formed by \( (0,0,1), (1,0,1), (0,1,1), (1,1,1) \).
+	\[
+		\iint_{S_{2}} (x, y, 1)\cdot (0, 0, 1) \; dS = \int_{0}^{1}\left(\int_{0}^{1} 1 dx\right)dy = 1.
+	\]
+
+	\( S_{3} \) is the surface formed by \( (0,0,0), (1,0,0), (1,0,1), (0,0,1) \).
+	\[
+		\iint_{S_{3}} (x, 0, z)\cdot (0, -1, 0) \; dS = \int_{0}^{1}\left(\int_{0}^{1} 0 dx\right)dz = 0.
+	\]
+
+	\( S_{4} \) is the surface formed by \( (0,1,0), (1,1,0), (1,1,1), (0,1,1) \).
+	\[
+		\iint_{S_{4}} (x, 1, z)\cdot (0, 1, 0) \; dS = \int_{0}^{1}\left(\int_{0}^{1} 1 dx\right)dz = 1.
+	\]
+
+	\( S_{5} \) is the surface formed by \( (0,0,0), (0,1,0), (0,0,1), (0,1,1)  \).
+	\[
+		\iint_{S_{5}} (0, y, z)\cdot (-1, 0, 0) \; dS = \int_{0}^{1}\left(\int_{0}^{1} 0 dy\right)dz = 0.
+	\]
+
+	\( S_{6} \) is the surface formed by \( (1,0,0), (1,1,0), (1,0,1), (1,1,1) \).
+	\[
+		\iint_{S_{6}} (1, y, z)\cdot (1, 0, 0) \; dS = \int_{0}^{1}\left(\int_{0}^{1} 1 dy\right)dz = 1.
+	\]
+
+	Thus \( \displaystyle\oiint_{\text{cube surface}} \mathbf{u}\cdot\mathbf{n}\; dS = 0 + 1 + 0 + 1 + 0 + 1 = 3 \).
+\end{proof}
+
+\begin{exercise}{2.7}
+	The surface \( S \) is defined to be that part of the plane \( z = 0 \) lying between the curves \( y = x^{2} \) and \( x = y^{2} \). Find the surface integral of \( \mathbf{u} \cdot \mathbf{n} \) over \( S \) where \( \mathbf{u} = (z, xy, x^{2}) \) and \( \mathbf{n} = (0, 0, 1) \).
+\end{exercise}
+
+\begin{proof}
+	\[
+		\iint_{S} \mathbf{u}\cdot\mathbf{n}\; dS = \int_{0}^{1}\left(\int_{y^{2}}^{\sqrt{y}} x^{2} dx \right)dy = \int_{0}^{1}\left( \dfrac{y^{3/2} - y^{6}}{3} \right) dy = \left.\left(\dfrac{2}{15}y^{5/2} - \dfrac{1}{21}y^{7}\right)\right\vert_{y=0}^{y=1} = \dfrac{3}{35}.
+	\]
+\end{proof}
+
+\begin{exercise}{2.8}
+	Find the surface integral of \( \mathbf{u}\cdot\mathbf{n} \) over \( S \) where \( S \) is the part of the surface \( z = x + y^{2} \) with \( z < 0 \) and \( x > -1 \), \( \mathbf{u} \) is the vector field \( \mathbf{u} = (2y + x, -1, 0) \) and \( \mathbf{n} \) has a negative \( z \) component.
+\end{exercise}
+
+\begin{proof}
+	The points on the surface \( z = x + y^{2} \) are parametrized by \( (x, y, x + y^{2}) \).
+
+	The normal vectors of the given surface are be given by
+	\[
+		(0, 1, 2y) \times (1, 0, 1) = (1, 2y, -1).
+	\]
+
+	Hence
+	\[
+		\iint_{S} \mathbf{u}\cdot\mathbf{n}\; dS = \int_{-1}^{1}\left( \int_{-1}^{-y^{2}} (2y + x - 2y) dx \right)dy = \dfrac{-4}{5}.
+	\]
+\end{proof}
+
+\begin{exercise}{2.9}
+	Find the volume integral of the scalar field \( \phi = x^{2} + y^{2} + z^{2} \) over the region \( V \) specified by \( 0 \le x \le 1, 1 \le y \le 2, 0 \le z \le 3 \).
+\end{exercise}
+
+\begin{proof}
+	\[
+		\iiint_{V} (x^{2} + y^{2} + z^{2})dV = \int_{0}^{3}\left( \int_{0}^{2} \left( \int_{0}^{1} (x^{2} + y^{2} + z^{2}) dx \right)dy \right) dz = 28.
+	\]
+\end{proof}
+
+\begin{exercise}{2.10}
+	Find the volume of the section of the cylinder \( x^{2} + y^{2} = 1 \) that lies between the planes \( z = x + 1 \) and \( z = -x - 1 \).
+\end{exercise}
+
+\begin{proof}
+	\[
+		\iiint_{V} dz\; dy\; dx = \int_{-1}^{1}\left( \int_{-\sqrt{1-x^{2}}}^{\sqrt{1-x^{2}}} \left( \int_{-x-1}^{x+1} dz \right) dy \right) dx = \int_{-1}^{1} 4(x+1)\sqrt{1-x^{2}}\; dx = 2\pi.
+	\]
+\end{proof}
+
+\begin{exercise}{2.11}
+	A circular pond with radius 1 m and a maximum depth of 1 m has the shape of a paraboloid, so that its depth \( z \) is \( z = 1 - x^{2} - y^{2} \). What is the total volume of the pond? How does this compare with the case where the pond has the same radius and depth but has the shape of a hemisphere?
+\end{exercise}
+
+\begin{proof}
+	When the pond has the shape of a paraboloid, its volume is
+	\[
+		\int_{0}^{1}\int_{0}^{2\pi}\int_{0}^{1-r^{2}} r\; dz\; d\theta\; dr = \dfrac{\pi}{2}.
+	\]
+
+	When the pond has the shape of a hemisphere, its volume is
+	\[
+		\int_{0}^{1}\int_{0}^{2\pi}\int_{0}^{\sqrt{1-r^{2}}} r\; dz\; d\theta\; dr = \dfrac{2\pi}{3}.
+	\]
+
+	So in the case of a hemisphere, the volume is greater by a factor of \( \dfrac{4}{3} \).
+\end{proof}
