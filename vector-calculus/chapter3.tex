@@ -4,6 +4,306 @@
 
 \section{Gradient of a scalar field}
 
+\begin{exercise}{3.1}
+	Find the gradient of the scalar field \( f = xyz \), and evaluate it at the point \( (1,2,3) \). Hence find the directional derivative of \( f \) at this point in the direction of the vector \( (1, 1, 0) \).
+\end{exercise}
+
+\begin{proof}
+	\( \nabla f = (yz, xz, xy) \) so the gradient at \( (1,2,3) \) is \( (6, 3, 2) \).
+
+	The directional derivative of \( f \) at \( (1,2,3) \) in the direction of \( (1,1,0) \) is \( (6, 3, 2) \cdot (1, 1, 0) = 9 \).
+\end{proof}
+
+\begin{exercise}{3.2}
+	Find the unit normal to the surface \( y = x + z^{3} \) at the point \( (1, 2, 1) \).
+\end{exercise}
+
+\begin{proof}
+	Define \( f(x, y, z) = x - y + z^{3} \) then the surface has equation \( f(x, y, z) = 0 \).
+
+	\( \nabla f = (1, -1, 3z^{2}) \) so the unit normal to the surface at \( (1, 2, 1) \) is \( (1/\sqrt{11}, -1/\sqrt{11}, 3/\sqrt{11}) \).
+\end{proof}
+
+\begin{exercise}{3.3}
+	Show that the gradient of the scalar field \( \phi = r = \abs{\mathbf{r}} \) is \( \mathbf{r}/r \) and interpret this result geometrically.
+\end{exercise}
+
+\begin{proof}
+	\( \phi(x, y, z) = \sqrt{x^{2} + y^{2} + z^{2}} \) so
+
+	\[ \nabla\phi = \left( \dfrac{x}{\sqrt{x^{2} + y^{2} + z^{2}}}, \dfrac{y}{\sqrt{x^{2} + y^{2} + z^{2}}}, \dfrac{z}{\sqrt{x^{2} + y^{2} + z^{2}}} \right) = \mathbf{r}/r. \]
+
+	At each point \( \mathbf{r} \), the gradient vector points at the same direction as the position vector.
+\end{proof}
+
+\begin{exercise}{3.4}
+	Find the angle between the surfaces of the sphere \( x^{2} + y^{2} + z^{2} = 2 \) and the cylinder \( x^{2} + y^{2} = 1 \) at a point where they intersect.
+\end{exercise}
+
+\begin{proof}
+	Let \( (a, b, c) \) be an intersection point of the two surfaces.
+
+	Define \( \phi(x, y, z) = x^{2} + y^{2} + z^{2} - 2 \) and \( \psi(x, y, z) = x^{2} + y^{2} - 1 \). The cosine of the angle between the two surfaces at \( (a, b, c) \) is
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\dfrac{\nabla\phi \cdot \nabla\psi}{ \norm{\nabla\phi}\norm{\nabla\psi} } & = \dfrac{(2a, 2b, 2c)\cdot (2a, 2b, 0)}{2\sqrt{a^{2} + b^{2} + c^{2}}\cdot 2\sqrt{a^{2} + b^{2}}} \\
+		                                                                          & = \dfrac{(a, b, c) \cdot (a, b, 0)}{\sqrt{a^{2} + b^{2} + c^{2}}\sqrt{a^{2} + b^{2}}}             \\
+		                                                                          & = \dfrac{a^{2} + b^{2}}{\sqrt{a^{2} + b^{2} + c^{2}}\sqrt{a^{2} + b^{2}}} = \dfrac{1}{\sqrt{2}}.
+	\end{align*}
+	\endgroup
+
+	Thus the angle is \( \pi/4 \) radian.
+\end{proof}
+
+\begin{exercise}{3.5}
+	Find the gradient of the scalar field \( f = yx^{2} + y^{3} - y \) and hence find the minima and maxima of \( f \). Sketch the contours \( f = \text{constant} \) and the vector field \( \nabla f \).
+\end{exercise}
+
+\begin{proof}
+	\( \nabla f = (2xy, x^{2} + 3y^{2} - 1) \) so \( \nabla f = \mathbf{0} \) iff \( 2xy = x^{2} + 3y^{2} - 1 = 0 \).
+
+	The critical points are \( (0, 1/\sqrt{3}) \), \( (0, -1/\sqrt{3}) \), \( (1, 0) \), \( (-1, 0) \), where \( (0, 1/\sqrt{3}) \) is the minimum, \( (0, -1/\sqrt{3}) \) is the maximum, and the others are saddle points.
+\end{proof}
+
+\begin{exercise}{3.6}
+	If \( \mathbf{a} \) is a constant vector, find the gradient of \( f = \mathbf{a} \cdot \mathbf{r} \) and interpret this result geometrically.
+\end{exercise}
+
+\begin{proof}
+	\( \nabla f = \mathbf{a} \), this means the gradient is constant.
+\end{proof}
+
+\begin{exercise}{3.7}
+	Determine whether or not the vector field \( \mathbf{F} = (\sin y, x, 0) \) is conservative.
+\end{exercise}
+
+\begin{proof}
+	Assume that there exists a scalar field \( \phi \) such that \( \mathbf{F} = \nabla\phi \) then \( \dfrac{\partial\phi}{\partial x} = \sin y, \dfrac{\partial\phi}{\partial y} = x, \dfrac{\partial\phi}{\partial z} = 0 \). Hence \( \phi \) doesn't depend on \( z \).
+
+	\( \phi(x, y, z) = x\sin y + f(y) \) and \( \phi(x, y, z) = xy + g(x) \). Therefore \( \phi(x, 0, z) = f(0) = g(x) \), which means \( g(x) \) is a constant. Moreover, \( f(0, y, z) = f(y) = g(0) \), which means \( f(y) \) is a constant. So \( x\sin y + f(y) \) and \( xy + g(x) \) are not identical as one is periodic and one isn't.
+
+	Thus \( \mathbf{F} \) is not a conservative vector field.
+\end{proof}
+
+\begin{exercise}{3.8}
+	Consider the vector field \( \mathbf{F} = \left(\dfrac{y}{x^{2} + y^{2}}, -\dfrac{x}{x^{2} + y^{2}}, 0\right) \). Show that \( \mathbf{F} \) can be written as the gradient of a potential \( \phi \). Show also that the line integral of \( \mathbf{F} \) around the unit circle \( x^{2} + y^{2} = 1 \) is non-zero. Explain why this result does not contradict Theorem 3.1.
+\end{exercise}
+
+\begin{proof}
+	Let \( \phi(x, y, z) = \arctan\dfrac{x}{y} \) then \( \mathbf{F} = \nabla\phi \).
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\oint_{C} \mathbf{F}\cdot \mathbf{dr} = \int_{0}^{2\pi} (\sin\theta, -\cos\theta, 0) \cdot (-\sin\theta, \cos\theta, 0) d\theta = \int_{0}^{2\pi} -1 d\theta = -2\pi \ne 0.
+	\end{align*}
+	\endgroup
+
+	This result does not contradict Theorem 3.1 because the vector field is undefined at the origin, any closed curve passing through the origin is not included.
+\end{proof}
+
 \section{Divergence of a vector field}
 
 \section{Curl of a vector field}
+
+\begin{exercise}{3.9}
+	Find the gradient \(\nabla \phi\) and the Laplacian \(\nabla^{2} \phi\) for the scalar field \(\phi = x^{2} + xy + yz^{2}\).
+\end{exercise}
+
+\begin{proof}
+	\[
+		\nabla\phi = \left( 2x + y, x + z^{2}, 2yz \right).
+	\]
+
+	\[
+		\nabla^{2}\phi = 2 + 0 + 2y = 2 + 2y.
+	\]
+\end{proof}
+
+\begin{exercise}{3.10}
+	Find the gradient and Laplacian of \(\phi = \sin(kx) \sin(\ell y) \exp\left(\sqrt{k^{2} + \ell^{2}} \, z\right)\).
+\end{exercise}
+
+\begin{proof}
+	\[
+		\nabla\phi = \begin{pmatrix}
+			k\cos(kx)\sin(\ell y)\exp(\sqrt{k^{2} + \ell^{2}}z)     \\
+			\ell\sin(kx)\cos(\ell y)\exp(\sqrt{k^{2} + \ell^{2}} z) \\
+			\sqrt{k^{2} + \ell^{2}}\sin(kx) \sin(\ell y) \exp\left(\sqrt{k^{2} + \ell^{2}} \, z\right)
+		\end{pmatrix}.
+	\]
+
+	\[
+		\nabla^{2}\phi = \exp\left(\sqrt{k^{2} + \ell^{2}}z\right) \left( -k^{2}\sin(kx) \sin(\ell y) - \ell^{2}\sin(kx)\sin(\ell y) + (k^{2} + \ell^{2})\sin(kx)\sin(\ell y) \right) = 0.
+	\]
+\end{proof}
+
+\begin{exercise}{3.11}
+	Find the unit normal to the surface \(xy^{2} + 2yz = 4\) at the point \((-2, 2, 3)\).
+\end{exercise}
+
+\begin{proof}
+	Let \( f(x, y, z) = xy^{2} + 2yz \). The given surface is \( f(x, y, z) = 4 \).
+
+	A normal to the given surface at \( (x, y, z) \) is \( (y^{2}, 2xy + 2z, 2y) \).
+
+	The unit normal to the given surface at \( (-2, 2, 3) \) is \( (2/3, -1/3, 2/3) \).
+\end{proof}
+
+\begin{exercise}{3.12}
+	For \(\phi(x, y, z) = x^{2} + y^{2} + z^{2} + xy - 3x\), find \(\nabla \phi\) and find the minimum value of \(\phi\).
+\end{exercise}
+
+\begin{proof}
+	\( \nabla\phi = (2x + y - 3, 2y + x, 2z) \). So \( \nabla\phi = \mathbf{0} \) iff \( (x, y, z) = (2, -1, 0) \).
+
+	The Hessian matrix of \( \phi \) is
+	\[
+		\begin{pmatrix}
+			2 & 1 & 0 \\
+			1 & 2 & 0 \\
+			0 & 0 & 2
+		\end{pmatrix}
+	\]
+
+	which is positive definite (this Hessian matrix has three distinct positive eigenvalues \( 1, 2, 3 \), so it is diagonalizable).
+
+	Hence \( (2, -1, 0) \) is the minimum of \( \phi \). Thus the minimum value of \( \phi \) is \( -3 \).
+\end{proof}
+
+\begin{exercise}{3.13}
+	Find the equation of the plane which is tangent to the surface \(x^{2} + y^{2} - 2z^{3} = 0\) at the point \((1, 1, 1)\).
+\end{exercise}
+
+\begin{proof}
+	The gradient of \( f(x, y, z) = x^{2} + y^{2} - 2z^{3} \) at \( (1, 1, 1) \) is a normal vector of the tangent at \( (1, 1, 1) \).
+	\[
+		\nabla f = (2x, 2y, -6z^{2})
+	\]
+
+	so the normal vector of the tangent at \( (1, 1, 1) \) is \( (2, 2, -6) \). Therefore the tangent to the surface at \( (1, 1, 1) \) has equation
+	\[
+		2(x - 1) + 2(y - 1) - 6(z - 1) = 0.
+	\]
+
+	Simplify the left-hand side, we obtain the equation \( x + y - 3z + 2 = 0 \).
+\end{proof}
+
+\begin{exercise}{3.14}
+	Find both the divergence and the curl of the vector fields
+	\begin{enumerate}
+		\item[(a)] \(\mathbf{u} = (y, z, x)\);
+		\item[(b)] \(\mathbf{v} = (xyz, z^{2}, x - y)\).
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\[
+		\nabla\cdot\mathbf{u} = \dfrac{\partial y}{\partial x} + \dfrac{\partial z}{\partial y} + \dfrac{\partial x}{\partial z} = 0.
+	\]
+
+	\[
+		\nabla\times\mathbf{u} = (-1, -1, -1).
+	\]
+
+	\[
+		\nabla\cdot\mathbf{v} = yz + 0 + 0 = yz.
+	\]
+
+	\[
+		\nabla\times\mathbf{v} = (-1 - 2z, xy - 1, -xz).
+	\]
+\end{proof}
+
+\begin{exercise}{3.15}
+	Show that both the divergence and the curl are linear operators, i.e.
+	\[
+		\nabla \cdot (c\mathbf{u} + d\mathbf{v}) = c \nabla \cdot \mathbf{u} + d \nabla \cdot \mathbf{v}
+	\]
+	and
+	\[
+		\nabla \times (c\mathbf{u} + d\mathbf{v}) = c \nabla \times \mathbf{u} + d \nabla \times \mathbf{v},
+	\]
+	where \(\mathbf{u}\) and \(\mathbf{v}\) are vector fields and \(c\) and \(d\) are constants.
+\end{exercise}
+
+\begin{proof}
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\nabla\cdot(c\mathbf{u} + d\mathbf{v}) & = \dfrac{\partial (cu_{1} + dv_{1})}{\partial x} + \dfrac{\partial (cu_{2} + dv_{2})}{\partial y} + \dfrac{\partial (cu_{3} + dv_{3})}{\partial z}                                                                                  \\
+		                                       & = \dfrac{\partial cu_{1}}{\partial x} + \dfrac{\partial cu_{2}}{\partial y} + \dfrac{\partial cu_{3}}{\partial z} + \dfrac{\partial cv_{1}}{\partial x} + \dfrac{\partial cv_{2}}{\partial y} + \dfrac{\partial cv_{3}}{\partial z} \\
+		                                       & = c (\nabla\cdot\mathbf{u}) + d(\nabla\cdot\mathbf{v}).
+	\end{align*}
+	\endgroup
+
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\nabla\times (c\mathbf{u} + d\mathbf{v}) & = \begin{vmatrix} \mathbf{e_{1}} & \mathbf{e_{2}} & \mathbf{e_{3}} \\ \dfrac{\partial}{\partial x} & \dfrac{\partial}{\partial y} & \dfrac{\partial}{\partial z} \\ cu_{1} + dv_{1} & cu_{2} + dv_{2} & cu_{3} + dv_{3} \end{vmatrix}                                                                                                                                                                                                                                                            \\
+		                                         & = \begin{vmatrix} \mathbf{e_{1}} & \mathbf{e_{2}} & \mathbf{e_{3}} \\ \dfrac{\partial}{\partial x} & \dfrac{\partial}{\partial y} & \dfrac{\partial}{\partial z} \\ cu_{1} & cu_{2} & cu_{3} \end{vmatrix} + \begin{vmatrix} \mathbf{e_{1}} & \mathbf{e_{2}} & \mathbf{e_{3}} \\ \dfrac{\partial}{\partial x} & \dfrac{\partial}{\partial y} & \dfrac{\partial}{\partial z} \\ dv_{1} & dv_{2} & dv_{3} \end{vmatrix} \\
+		                                         & =  c\nabla\times \mathbf{u} + d\nabla\times \mathbf{v}.
+	\end{align*}
+	\endgroup
+\end{proof}
+
+\begin{exercise}{3.16}
+	For what values, if any, of the constants \(a\) and \(b\) is the vector field
+	\[
+		\mathbf{u} = (y \cos x + axz, \, b \sin x + z, \, x^{2} + y)
+	\]
+	irrotational?
+\end{exercise}
+
+\begin{proof}
+	\[
+		\nabla\times\mathbf{u} = (0, (a - 2)x, (b - 1)\cos x)
+	\]
+
+	so the given vector field is irrotational if and only if \( a = 2 \) and \( b = 1 \).
+\end{proof}
+
+\begin{exercise}{3.17}
+	\begin{enumerate}[label={(\alph*)}]
+		\item Show that
+		      \[
+			      \mathbf{u} = (y^{2} z, \, -z^{2} \sin y + 2xyz, \, 2z \cos y + y^{2} x)
+		      \]
+		      is irrotational.
+		\item Find the corresponding potential function.
+		\item Hence find the value of the line integral of \(\mathbf{u}\) along the curve
+		      \[
+			      x = \sin \frac{\pi t}{2}, \quad y = t^{2} - t, \quad z = t^{4}, \quad 0 \leq t \leq 1.
+		      \]
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\nabla\times\mathbf{u} & = \begin{pmatrix} \dfrac{\partial(2z\cos y + y^{2}x)}{\partial y} - \dfrac{\partial(-z^{2}\sin y + 2xyz)}{\partial z} \\ \dfrac{\partial(y^{2}z)}{\partial z} - \dfrac{\partial(2z\cos y + y^{2}x)}{\partial x} \\ \dfrac{\partial(-z^{2}\sin y + 2xyz)}{\partial x} - \dfrac{\partial(y^{2}z)}{\partial y} \end{pmatrix} \\
+		                       & = \begin{pmatrix} -2z\sin y + 2xy - (-2z\sin y + 2xy) \\ y^{2} - y^{2} \\ 2yz - 2yz \end{pmatrix}                                                                                                                                                                                                                   \\
+		                       & = \mathbf{0}.
+	\end{align*}
+	\endgroup
+
+	Hence \( \mathbf{u} \) is irrotational.
+
+	\bigskip
+
+	A potential function of \( \mathbf{u} \) is \( \phi(x, y, z) = xy^{2}z + z^{2}\cos y \).
+
+	\bigskip
+
+	Two endpoints of the given curve are \( (0, 0, 0) \) and \( (1, 0, 1) \).
+
+	\( \mathbf{u} = \nabla\phi \) so \( \mathbf{u} \) is a conservative vector field, so instead of using the given curve, we can use the straight line connecting two endpoints. This straight line is parametrized by \( x = t, y = 0, z = t \).
+
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\int_{C} \mathbf{u}\cdot \mathbf{ds} = \int_{0}^{1} (0, 0, 2t)\cdot (1, 0, 1) dt = \int_{0}^{1} 2t\; dt = 1.
+	\end{align*}
+	\endgroup
+\end{proof}
