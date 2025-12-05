@@ -8,8 +8,435 @@
 
 \section{Relation between \(\epsilon_{ijk}\) and \(\delta_{ij}\)}
 
+\begin{exercise}{4.1}
+	Write the vector equation \(\mathbf{a} \times \mathbf{b} + (\mathbf{a} \cdot \mathbf{d})\mathbf{c} = \mathbf{e}\) in suffix notation.
+\end{exercise}
+
+\begin{proof}
+	In suffix notation, the given vector equation is equivalent to
+	\[
+		\epsilon_{ijk}a_{j}b_{k} + c_{i}a_{\ell}d_{\ell} = e_{i}. \qedhere
+	\]
+\end{proof}
+
+\begin{exercise}{4.2}
+	Translate the suffix notation equation \(\delta_{ij} c_{j} + \epsilon_{kji} a_{k} b_{j} = d_{\ell} e_{m} c_{i} b_{\ell} c_{m}\) into ordinary vector notation.
+\end{exercise}
+
+\begin{proof}
+	In ordinary vector notation, the given suffix notation equation is equivalent to
+	\[
+		\mathbf{c} + \mathbf{a} \times \mathbf{b} = (\mathbf{b}\cdot\mathbf{d})(\mathbf{c}\cdot\mathbf{e}) \mathbf{c}. \qedhere
+	\]
+\end{proof}
+
+\begin{exercise}{4.3}
+	Use suffix notation to show that \(\mathbf{a} \times \mathbf{b} = -\mathbf{b} \times \mathbf{a}\).
+\end{exercise}
+
+\begin{proof}
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		{(\mathbf{a} \times \mathbf{b})}_{i} & = \epsilon_{ijk}a_{j}b_{k}                                                             \\
+		                                     & = -\epsilon_{ikj}b_{k}a_{j}                                                            \\
+		                                     & = -\epsilon_{ijk}b_{j}a_{k}              & \text{(relabeling \(j \leftrightarrow k\))} \\
+		                                     & = {(-\mathbf{b} \times \mathbf{a})}_{i}.
+	\end{align*}
+	\endgroup
+
+	Hence \(\mathbf{a} \times \mathbf{b} = -\mathbf{b} \times \mathbf{a}\).
+\end{proof}
+
+\begin{exercise}{4.4}
+	Simplify the suffix notation expressions
+	\begin{enumerate}
+		\item[(a)] \(\delta_{ij} \epsilon_{ijk}\);
+		\item[(b)] \(\epsilon_{ijk} \epsilon_{i\ell m}\);
+		\item[(c)] \(\epsilon_{ijk} \epsilon_{ijm}\);
+		\item[(d)] \(\epsilon_{ijk} \epsilon_{ijk}\).
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\begin{enumerate}
+		\item[(a)] \( \delta_{ij} \epsilon_{ijk} = \sum_{i=1}^{3}\sum_{j=1}^{3}\delta_{ij}\epsilon_{ijk} = \delta_{11}\epsilon_{11k} + \delta_{22}\epsilon_{22k} + \delta_{33}\epsilon_{33k} = 0 \).
+		\item[(b)] \( \epsilon_{ijk} \epsilon_{i\ell m} = \epsilon_{jki} \epsilon_{i\ell m} = \delta_{j\ell}\delta_{km} - \delta_{jm}\delta_{k\ell} \).
+		\item[(c)] \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      \epsilon_{ijk}\epsilon_{ijm} & = \sum_{i=1}^{3}\sum_{j=1}^{3} \epsilon_{ijk}\epsilon_{ijm}                                                                                                                               \\
+			                                   & = \epsilon_{12k}\epsilon_{12m} + \epsilon_{21k}\epsilon_{21m} + \epsilon_{23k}\epsilon_{23m} + \epsilon_{32k}\epsilon_{32m} + \epsilon_{13k}\epsilon_{13m} + \epsilon_{31k}\epsilon_{31m} \\
+			                                   & = 2(\epsilon_{12k}\epsilon_{12m} + \epsilon_{23k}\epsilon_{23m} + \epsilon_{13k}\epsilon_{13m})                                                                                           \\
+			                                   & = 2\delta_{km}.
+		      \end{align*}
+		      \endgroup
+		\item[(d)] \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      \epsilon_{ijk} \epsilon_{ijk} & = \sum_{i=1}^{3}\sum_{j=1}^{3}\sum_{k=1}^{3}\epsilon_{ijk}\epsilon_{ijk}                                                                                                                  \\
+			                                    & = \epsilon_{123}\epsilon_{123} + \epsilon_{132}\epsilon_{132} + \epsilon_{213}\epsilon_{213} + \epsilon_{231}\epsilon_{231} + \epsilon_{312}\epsilon_{312} + \epsilon_{321}\epsilon_{321} \\
+			                                    & = 1 + 1 + 1 + 1 + 1 + 1                                                                                                                                                                   \\
+			                                    & = 6.
+		      \end{align*}
+		      \endgroup
+	\end{enumerate}
+\end{proof}
+
+\begin{exercise}{4.5}
+	Using suffix notation, find an alternative expression (involving no cross products) for \(\mathbf{a} \times \mathbf{b} \cdot \mathbf{c} \times \mathbf{d}\).
+\end{exercise}
+
+\begin{proof}
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\mathbf{a}\times\mathbf{b} \cdot \mathbf{c}\times\mathbf{d} & = {(\mathbf{a}\times\mathbf{b})}_{i} {(\mathbf{c}\times\mathbf{d})}_{i}                                                     \\
+		                                                            & = \epsilon_{ijk}a_{j}b_{k}\epsilon_{i\ell m}c_{\ell}d_{m}                                                                   \\
+		                                                            & = \epsilon_{ijk}\epsilon_{i\ell m} a_{j}b_{k}c_{\ell}d_{m}                                                                  \\
+		                                                            & = (\delta_{j\ell}\delta_{km} - \delta_{jm}\delta_{k\ell})a_{j}b_{k}c_{\ell}d_{m}                                            \\
+		                                                            & = \delta_{j\ell}\delta_{km} a_{j}b_{k}c_{\ell}d_{m} - \delta_{jm}\delta_{k\ell}a_{j}b_{k}c_{\ell}d_{m}                      \\
+		                                                            & = (\delta_{j\ell}a_{j}c_{\ell})(\delta_{km}b_{k}d_{m}) - (\delta_{jm}a_{j}d_{m})(\delta_{k\ell}b_{k}e_{\ell})               \\
+		                                                            & = (\mathbf{a}\cdot\mathbf{c})(\mathbf{b}\cdot\mathbf{d}) - (\mathbf{a}\cdot\mathbf{d})(\mathbf{b}\cdot\mathbf{c}). \qedhere
+	\end{align*}
+	\endgroup
+\end{proof}
+
+\begin{exercise}{4.6}
+	If \(A\) and \(B\) are two \(N \times N\) matrices, show that \({(AB)}^{\top} = B^{\top}A^{\top}\), where \(A^{\top}\) is the transpose of \(A\) defined by interchanging the rows and columns of \(A\).
+\end{exercise}
+
+\begin{proof}
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		{({(AB)}^{\top})}_{ij} & = {(AB)}_{ji}                        \\
+		                       & = A_{jk}B_{ki}                       \\
+		                       & = {(B^{\top})}_{ik}{(A^{\top})}_{kj} \\
+		                       & = {(B^{\top}A^{\top})}_{ij}.
+	\end{align*}
+	\endgroup
+
+	Thus \( {(AB)}^{\top} = B^{\top}A^{\top} \).
+\end{proof}
+
+\begin{exercise}{4.7}
+	Verify the formulae (4.9) and (4.10) for the determinant of a \(3 \times 3\) matrix.
+\end{exercise}
+
+\begin{proof}
+	The formulae (4.9) is \( \det M = \epsilon_{ijk}M_{1i}M_{2j}M_{3k} \).
+
+	According to Leibniz's formulae
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\det M & = \sum_{\sigma \in S_{3}} \operatorname{sign}(\sigma)M_{1\sigma(1)}M_{2\sigma(2)}M_{3\sigma(3)}                               \\
+		       & = \sum_{\sigma \in S_{3}} \epsilon_{\sigma(1)\sigma(2)\sigma(3)}M_{1\sigma(1)}M_{2\sigma(2)}M_{3\sigma(3)}                    \\
+		       & = \sum_{i=1}^{3}\sum_{j=1}^{3}\sum_{k=1}^{3} \epsilon_{\sigma(1)\sigma(2)\sigma(3)}M_{1\sigma(1)}M_{2\sigma(2)}M_{3\sigma(3)} \\
+		       & = \epsilon_{ijk}M_{1i}M_{2j}M_{3k}.
+	\end{align*}
+	\endgroup
+
+	The formulae (4.10) is \( \epsilon_{pqr}\det M = \epsilon_{ijk}M_{pi}M_{qj}M_{rk} \).
+
+	If \( p = q \) then
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\epsilon_{ijk}M_{pi}M_{qj}M_{rk} & = \epsilon_{ijk} M_{pi}M_{pj}M_{rk}                                                                \\
+		                                 & = \sum_{k=1}^{3}\sum_{i=1}^{3}\sum_{j=1}^{3} \epsilon_{ijk} M_{pi}M_{pj}M_{rk}                     \\
+		                                 & = \sum_{k=1}^{3}\sum_{i < j} (\epsilon_{ijk}M_{pi}M_{pj}M_{rk} + \epsilon_{jik}M_{pj}M_{pi}M_{rk}) \\
+		                                 & = 0 = \epsilon_{pqr}\det M.
+	\end{align*}
+	\endgroup
+
+	If \( p, q, r \) are pairwise distinct then there is a substitution \( \sigma \in S_{3} \) such that \( \sigma(1) = p, \sigma(2) = q, \sigma(3) = r \). We have \( \epsilon_{ijk}M_{pi}M_{qj}M_{rk} = \operatorname{sign}(\sigma)\epsilon_{ijk}M_{1i}M_{2j}M_{3k} = \epsilon_{pqr}\det M \).
+
+	Hence \( \epsilon_{pqr}\det M = \epsilon_{ijk}M_{pi}M_{qj}M_{rk} \).
+\end{proof}
+
+\begin{exercise}{4.8}
+	Use the formula (4.10) for the determinant of a \(3 \times 3\) matrix \(M\) to show that
+	\begin{enumerate}
+		\item[(a)] \(6|M| = \epsilon_{pqr} \epsilon_{ijk} M_{pi} M_{qj} M_{rk}\);
+		\item[(b)] \(|M^{\top}| = |M|\);
+		\item[(c)] \(|MN| = |M||N|\).
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\epsilon_{pqr} \epsilon_{ijk} M_{pi} M_{qj} M_{rk} & = \epsilon_{pqr} \epsilon_{pqr} \det M = 6\det M,                                                                    \\
+		\det(M^{\top})                                     & = \epsilon_{ijk}M_{i1}M_{j2}M_{k3}                                                                                   \\
+		                                                   & = \sum_{\sigma \in S_{3}} \operatorname{sign}(\sigma) M_{\sigma(1)1}M_{\sigma(2)2}M_{\sigma(3)3}                     \\
+		                                                   & = \sum_{\sigma \in S_{3}} \operatorname{sign}(\sigma^{-1}) M_{1\sigma^{-1}(1)}M_{2\sigma^{-1}(2)}M_{3\sigma^{-1}(3)} \\
+		                                                   & = \epsilon_{ijk}M_{1i}M_{2j}M_{3k}                                                                                   \\
+		                                                   & = \det(M),                                                                                                           \\
+		\det(MN)                                           & = \epsilon_{ijk} {(MN)}_{1i}{(MN)}_{2j}{(MN)}_{3k}                                                                   \\
+		                                                   & = \epsilon_{ijk} M_{1p}N_{pi} M_{2q}N_{qj} M_{3r}N_{rk}                                                              \\
+		                                                   & = M_{1p}M_{2q}M_{3r} \epsilon_{ijk} N_{pi}N_{qj}N_{rk}                                                               \\
+		                                                   & = M_{1p}M_{2q}M_{3r} \epsilon_{pqr} \det(N)                                                                          \\
+		                                                   & = \det(M)\det(N).
+	\end{align*}
+	\endgroup
+\end{proof}
+
 \section{Grad, div and curl in suffix notation}
 
 \section{Combinations of grad, div, and curl}
 
 \section{Grad, div and curl applied to products of functions}
+
+\begin{exercise}{4.9}
+	Write in suffix notation the vector equation \(\mathbf{a} \times \mathbf{b} + \mathbf{c} = (\mathbf{a} \cdot \mathbf{b})\mathbf{b} - \mathbf{d}\).
+\end{exercise}
+
+\begin{proof}
+	The suffix notation version of the given vector equation is
+	\[
+		\epsilon_{ijk}a_{j}b_{k} + c_{i} = a_{\ell}b_{\ell} b_{i} - d_{i}.
+	\]
+\end{proof}
+
+\begin{exercise}{4.10}
+	Simplify the suffix notation expressions
+	\begin{enumerate}
+		\item[(a)] \(\delta_{ij} \delta_{jk} \delta_{ki}\);
+		\item[(b)] \(\epsilon_{ijk} \epsilon_{k\ell m} \epsilon_{mn\ell}\).
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\begin{enumerate}
+		\item[(a)] \( \displaystyle \delta_{ij} \delta_{jk} \delta_{ki} = \sum_{k=1}^{3}\sum_{j=1}^{3}\sum_{i=1}^{3} \delta_{ij} \delta_{jk} \delta_{ki} = \delta_{11}\delta_{11}\delta_{11} + \delta_{22}\delta_{22}\delta_{22} + \delta_{33}\delta_{33}\delta_{33} = 3 \);
+		\item[(b)] \( \displaystyle \epsilon_{ijk} \epsilon_{k\ell m} \epsilon_{mn\ell} = \epsilon_{ijk}\epsilon_{\ell mk}\epsilon_{\ell mn} = 2\epsilon_{ijk}\delta_{kn} = 2\sum_{k=1}^{3}\epsilon_{ijk}\delta_{kn} = 2\epsilon_{ijn} \).
+	\end{enumerate}
+\end{proof}
+
+\begin{exercise}{4.11}
+	Simplify the suffix notation expression \(\delta_{ij} a_{j} b_{\ell} c_{k} \delta_{\ell i}\) and write the result in vector form.
+\end{exercise}
+
+\begin{proof}
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\delta_{ij} a_{j}b_{\ell} c_{k} \delta_{\ell i} & = a_{i} c_{k} \delta_{\ell i} b_{\ell} \\
+		                                                & = a_{i} c_{k} b_{i}                    \\
+		                                                & = a_{i}b_{i} c_{k}                     \\
+		                                                & = (\mathbf{a}\cdot\mathbf{b}) c_{k}.
+	\end{align*}
+	\endgroup
+
+	In vector form, the expression is \( (\mathbf{a}\cdot\mathbf{b})\mathbf{c} \).
+\end{proof}
+
+\begin{exercise}{4.12}
+	\begin{enumerate}
+		\item[(a)] Show that \(\boldsymbol\nabla \times (f \boldsymbol\nabla f) = 0\).
+		\item[(b)] Evaluate \(\boldsymbol\nabla \cdot (f \boldsymbol\nabla f)\).
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\[
+		\boldsymbol\nabla \times (f \boldsymbol\nabla f) = \boldsymbol\nabla f \times \boldsymbol\nabla f + f\boldsymbol\nabla \times (\boldsymbol\nabla f) = 0 + 0 = 0.
+	\]
+
+	\[
+		\boldsymbol\nabla \cdot (f\boldsymbol\nabla f) = \boldsymbol\nabla f \cdot \boldsymbol\nabla f + f \boldsymbol\nabla \cdot (\boldsymbol\nabla f) = {\left\vert \boldsymbol\nabla f \right\vert}^{2} + f \nabla^{2} f.
+	\]
+\end{proof}
+
+\begin{exercise}{4.13}
+	Show that the vector \(\mathbf{u} = \boldsymbol\nabla f \times \boldsymbol\nabla g\) is solenoidal.
+\end{exercise}
+
+\begin{proof}
+	1st approach.
+
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\boldsymbol\nabla \cdot (\boldsymbol\nabla f \times \boldsymbol\nabla g) & = \epsilon_{ijk} \dfrac{\partial}{\partial x_{i}}\left( \dfrac{\partial f}{\partial x_{j}} \dfrac{\partial g}{\partial x_{k}} \right)                                                       \\
+		                                                                         & = \epsilon_{ikj} \dfrac{\partial}{\partial x_{i}}\left( \dfrac{\partial f}{\partial x_{k}} \dfrac{\partial g}{\partial x_{j}} \right)  & \text{(relabeling \( j \leftrightarrow k \))}      \\
+		                                                                         & = -\epsilon_{ijk} \dfrac{\partial}{\partial x_{i}}\left( \dfrac{\partial f}{\partial x_{k}} \dfrac{\partial g}{\partial x_{j}} \right)                                                      \\
+		                                                                         & = -\epsilon_{ijk}\dfrac{\partial}{\partial x_{i}}\left( \dfrac{\partial f}{\partial x_{j}} \dfrac{\partial g}{\partial x_{k}} \right)  & \text{(The expression is symmetric with \(f, g\))} \\
+		                                                                         & = 0.
+	\end{align*}
+	\endgroup
+
+	2nd approach.
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\boldsymbol\nabla \cdot (\boldsymbol\nabla f \times \boldsymbol\nabla g) & = (\boldsymbol\nabla \times (\boldsymbol\nabla f)) \cdot \boldsymbol\nabla g + (\boldsymbol\nabla \times (\boldsymbol\nabla g)) \cdot \boldsymbol\nabla f \\
+		                                                                         & = 0 + 0 = 0.
+	\end{align*}
+	\endgroup
+
+	Thus \( \mathbf{u} \) is solenoidal.
+\end{proof}
+
+\begin{exercise}{4.14}
+	Verify the formula (4.34) for \(\mathbf{u} \cdot \boldsymbol\nabla \mathbf{u}\) by using (4.35).
+\end{exercise}
+
+\begin{proof}
+	According to (4.35)
+	\[
+		\mathbf{u} \cdot \boldsymbol\nabla \mathbf{v} = \dfrac{1}{2}\left( \boldsymbol\nabla(\mathbf{u}\cdot\mathbf{v}) - \boldsymbol\nabla \times (\mathbf{u} \times \mathbf{v}) - \mathbf{u} \times (\boldsymbol\nabla \times \mathbf{v}) - \mathbf{v} \times (\boldsymbol\nabla \times \mathbf{u}) + \mathbf{u}(\boldsymbol\nabla\cdot \mathbf{v}) - \mathbf{v}(\boldsymbol\nabla \cdot \mathbf{u}) \right).
+	\]
+
+	Therefore
+	\[
+		\mathbf{u}\cdot \boldsymbol\nabla \mathbf{u} = \dfrac{1}{2}\left( \boldsymbol\nabla ({\left\vert \mathbf{u} \right\vert}^{2}) - 2 \mathbf{u} \times (\boldsymbol\nabla \times \mathbf{u}) \right) = \boldsymbol\nabla({\left\vert \mathbf{u} \right\vert}^{2}/2) - \mathbf{u} \times (\boldsymbol\nabla \times \mathbf{u}). \qedhere
+	\]
+\end{proof}
+
+\begin{exercise}{4.15}
+	Show that \(\boldsymbol\nabla \cdot \nabla^{2} \mathbf{u} = \nabla^{2} \boldsymbol\nabla \cdot \mathbf{u}\),
+	\begin{enumerate}
+		\item[(a)] using suffix notation;
+		\item[(b)] using (4.24).
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\begin{enumerate}
+		\item[(a)] \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      \boldsymbol\nabla \cdot \nabla^{2} \mathbf{u} & = \boldsymbol\nabla \cdot \left( \dfrac{\partial^{2} \mathbf{u}}{\partial x_{i}\partial x_{i}} \right)    \\
+			                                                    & = \dfrac{\partial}{\partial x_{j}}\left( \dfrac{\partial^{2} u_{j}}{\partial x_{i}\partial x_{i}} \right) \\
+			                                                    & = \dfrac{\partial^{2}}{\partial x_{i}\partial x_{i}}\left( \dfrac{\partial u_{j}}{\partial x_{j}} \right) \\
+			                                                    & = \dfrac{\partial^{2}}{\partial x_{i}\partial x_{i}} \boldsymbol\nabla \cdot \mathbf{u}                   \\
+			                                                    & = \nabla^{2}\boldsymbol\nabla \cdot \mathbf{u}.
+		      \end{align*}
+		      \endgroup
+		\item[(b)] According to (4.24)
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      \boldsymbol\nabla \cdot \nabla^{2} \mathbf{u} & = \boldsymbol\nabla \cdot (\boldsymbol\nabla(\boldsymbol\nabla \cdot \mathbf{u}) - \boldsymbol\nabla \times (\boldsymbol\nabla \times \mathbf{u}))                         \\
+			                                                    & = \boldsymbol\nabla \cdot \boldsymbol\nabla(\boldsymbol\nabla \cdot \mathbf{u}) - \boldsymbol\nabla \cdot (\boldsymbol\nabla \times (\boldsymbol\nabla \times \mathbf{u})) \\
+			                                                    & = \boldsymbol\nabla \cdot \boldsymbol\nabla(\boldsymbol\nabla \cdot \mathbf{u})                                                                                            \\
+			                                                    & = \nabla^{2}\boldsymbol\nabla \cdot \mathbf{u}.
+		      \end{align*}
+		      \endgroup
+	\end{enumerate}
+\end{proof}
+
+\begin{exercise}{4.16}
+	The vector fields \(\mathbf{u}\) and \(\mathbf{w}\) and the scalar field \(\phi\) are related by the equation
+	\[
+		\mathbf{u} + \boldsymbol\nabla \times \mathbf{w} = \nabla \phi + \nabla^{2} \mathbf{u},
+	\]
+	and \(\mathbf{u}\) is solenoidal. Show that \(\phi\) obeys Laplace's equation.
+\end{exercise}
+
+\begin{proof}
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\nabla^{2} \phi & = \boldsymbol\nabla \cdot (\mathbf{u} + \boldsymbol\nabla \times \mathbf{w} - \nabla^{2} \mathbf{u})                                                                                                            \\
+		                & = \underbrace{\boldsymbol\nabla \cdot \mathbf{u}}_{0} + \underbrace{\boldsymbol\nabla \cdot (\boldsymbol\nabla \times \mathbf{w})}_{0} - \boldsymbol\nabla \cdot \nabla^{2} \mathbf{u}                          \\
+		                & = -\boldsymbol\nabla \cdot \nabla^{2} \mathbf{u}                                                                                                                                                                \\
+		                & = -\nabla^{2} \underbrace{\boldsymbol\nabla \cdot \mathbf{u}}_{0}                                                                                                                      & \text{(Exercise 4.15)} \\
+		                & = 0.
+	\end{align*}
+	\endgroup
+
+	Hence \( \phi \) is a harmonic scalar field (obeys Laplace's equation).
+\end{proof}
+
+\begin{exercise}{4.17}
+	Show that \(\boldsymbol\nabla f(r) = f^{\prime}(r)\mathbf{r}/r\), where \(\mathbf{r}\) is the position vector \(\mathbf{r} = (x_{1}, x_{2}, x_{3})\) and \(r = |\mathbf{r}|\).
+\end{exercise}
+
+\begin{proof}
+	According to the chain rule
+	\[
+		{[\boldsymbol\nabla f(r)]}_{i} = \dfrac{df}{dr}\dfrac{\partial r}{\partial x_{i}} = f^{\prime}(r) \dfrac{x_{i}}{r}.
+	\]
+
+	Therefore \( \boldsymbol\nabla f(r) = f^{\prime}(r)\mathbf{r}/r \).
+\end{proof}
+
+\begin{exercise}{4.18}
+	The vector field \(\mathbf{u}\) is defined by \(\mathbf{u} = h(r)\mathbf{r}\), where \(h(r)\) is an arbitrary differentiable function.
+	\begin{enumerate}
+		\item[(a)] Show that \(\boldsymbol\nabla \times \mathbf{u} = \mathbf{0}\).
+		\item[(b)] If \(\boldsymbol\nabla \cdot \mathbf{u} = 0\), find the differential equation satisfied by \(h\).
+		\item[(c)] Solve this differential equation.
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\begin{enumerate}
+		\item[(a)] \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      \boldsymbol\nabla \times \mathbf{u} & = \boldsymbol\nabla \times (h(r) \mathbf{r})                                                           \\
+			                                          & = \boldsymbol\nabla h(r) \times \mathbf{r} + h(r) \underbrace{\boldsymbol\nabla \times \mathbf{r}}_{0} \\
+			                                          & = (h^{\prime}(r)\mathbf{r}/r) \times \mathbf{r}                                                        \\
+			                                          & = \mathbf{0}.
+		      \end{align*}
+		      \endgroup
+		\item[(b)] \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      \boldsymbol\nabla \cdot \mathbf{u} & = \boldsymbol\nabla \cdot (h(r) \mathbf{r})                                          \\
+			                                         & = \boldsymbol\nabla(h(r)) \cdot \mathbf{r} + h(r) \boldsymbol\nabla \cdot \mathbf{r} \\
+			                                         & = (h^{\prime}(r)\mathbf{r}/r) \cdot \mathbf{r} + 3h(r)                               \\
+			                                         & = h^{\prime}(r) r + 3h(r).
+		      \end{align*}
+		      \endgroup
+
+		      If \( \boldsymbol\nabla \cdot \mathbf{u} = 0 \) then \( h^{\prime}(r) r + 3h(r) = 0 \).
+		\item[(c)] Solve this differential equation.
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			           & h^{\prime}(r) r + 3h(r) = 0           \\
+			      \iff & h^{\prime}(r) r^{3} + 3r^{2} h(r) = 0 \\
+			      \iff & {(h(r) r^{3})}^{\prime} = 0           \\
+			      \iff & h(r) = C r^{-3}
+		      \end{align*}
+		      \endgroup
+
+		      in which \( C \) is a constant.
+	\end{enumerate}
+\end{proof}
+
+\begin{exercise}{4.19}
+	A vector field \(\mathbf{u}\) with the property that \(\mathbf{u} = c \boldsymbol\nabla \times \mathbf{u}\), where \(c\) is a constant, is called a Beltrami field.
+	\begin{enumerate}
+		\item[(a)] Show that a Beltrami field is solenoidal.
+		\item[(b)] Show that the curl of a Beltrami field is a Beltrami field.
+		\item[(c)] A Beltrami field has the form \(\mathbf{u} = (\sin y, f, g)\). Find the functions \(f\) and \(g\) and the possible values of \(c\) if it is given that \(g\) does not depend on \(x\).
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\begin{enumerate}
+		\item[(a)] \( \boldsymbol\nabla \cdot \mathbf{u} = c\boldsymbol\nabla \cdot \boldsymbol\nabla \times \mathbf{u} = 0 \), so a Beltrami vector field is solenoidal.
+		\item[(b)] Let \( \mathbf{u} \) be a Beltrami vector field, then there exists a constant \( c \) such that \(\mathbf{u} = c \boldsymbol\nabla \times \mathbf{u}\).
+
+		      If \( c = 0 \) then \( \mathbf{u} = \mathbf{0} \), so the curl of \( \mathbf{u} \) is also a Beltrami vector field.
+
+		      If \( c \ne 0 \) then
+		      \[ \boldsymbol\nabla \times (\boldsymbol\nabla \times \mathbf{u}) = c \boldsymbol\nabla \times \mathbf{u} \]
+
+		      which means
+		      \[
+			      \boldsymbol\nabla \times \mathbf{u} = (1/c) \boldsymbol\nabla \times (\boldsymbol\nabla \times \mathbf{u}).
+		      \]
+
+		      Hence \( \boldsymbol\nabla \times \mathbf{u} \) is also a Beltrami vector field.
+		\item[(c)] \( f(x, y, z) = 0 \), \( g(x, y, z) = -\cos(y) \), and \( c = 1 \).
+	\end{enumerate}
+\end{proof}
