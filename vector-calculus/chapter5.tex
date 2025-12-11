@@ -2,4 +2,272 @@
 
 \section{Divergence theorem}
 
+\begin{exercise}{5.1}
+	Use the divergence theorem to evaluate the surface integral
+	\[
+		\iint_{S} \mathbf{u} \cdot \mathbf{n} \, dS
+	\]
+	where \(\mathbf{u} = (x \sin y, \cos^{2} x, y^{2} - z \sin y)\) and \(S\) is the surface of the sphere \(x^{2} + y^{2} + {(z - 2)}^{2} = 1\).
+\end{exercise}
+
+\begin{proof}
+	\[
+		\iint_{S} \mathbf{u} \cdot \mathbf{n} \, dS = \iiint_{V} \bnabla \cdot \mathbf{u}\, dV = \iiint_{V} (\sin y + 0 - \sin y) dV = 0.
+	\]
+\end{proof}
+
+\begin{exercise}{5.2}
+	Verify the divergence theorem, by calculating both the volume integral and the surface integral, for the vector field \(\mathbf{u} = (y, x, z - x)\) and the volume \(V\) given by the unit cube \(0 \leq x, y, z \leq 1\).
+\end{exercise}
+
+\begin{proof}
+	\[
+		\iiint_{V} \bnabla\cdot\mathbf{u}\, dV = \iiint_{V} 1\, dV = 1.
+	\]
+
+	\[
+		\oiint_{S} \mathbf{u}\cdot \mathbf{n}\, dS = \frac{1}{2} + \frac{1}{2} + \frac{-1}{2} + \frac{1}{2} + \frac{-1}{2} + \frac{1}{2} = 1.
+	\]
+\end{proof}
+
+\begin{exercise}{5.3}
+	An incompressible fluid is contained within a volume \(V\) with surface \(S\) and \(\mathbf{u} \cdot \mathbf{n} = 0\) on \(S\). Using the divergence theorem, show that
+	\[
+		\iiint_{V} \mathbf{u} \cdot \bnabla \phi \, dV = 0
+	\]
+	for any differentiable scalar field \(\phi\).
+\end{exercise}
+
+\begin{proof}
+	Since the fluid is incompressible, its vector field is solenoidal, which means \( \bnabla\cdot \mathbf{u} = 0 \).
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\iiint_{V} \mathbf{u} \cdot \bnabla\phi\, dV & = \iiint_{V} \bnabla \cdot (\phi\mathbf{u})\, dV - \iiint_{V} \phi \bnabla\cdot\mathbf{u}\, dV                                  \\
+		                                             & = \oiint_{S} \phi\underbrace{\mathbf{u}\cdot \mathbf{n}}_{0}\, dS - \iiint_{V} \phi\underbrace{\bnabla\cdot\mathbf{u}}_{0}\, dV \\
+		                                             & = 0 - 0 = 0. \qedhere
+	\end{align*}
+	\endgroup
+\end{proof}
+
+\begin{exercise}{5.4}
+	Two scalar fields \(f\) and \(g\) are related by Poisson's equation, \(\nabla^{2} f = g\). Show that
+	\[
+		\iiint_{V} g \, dV = \oiint_{S} \bnabla f \cdot \mathbf{n} \, dS.
+	\]
+\end{exercise}
+
+\begin{proof}
+	\[
+		\iiint_{V} g\, dV = \iiint_{V} \nabla^{2} f\, dV = \iiint_{V} \bnabla \cdot \bnabla f\, dV = \oiint_{S} \bnabla f \cdot \mathbf{n}\, dS.
+	\]
+\end{proof}
+
+\begin{exercise}{5.5}
+	Use the divergence theorem to evaluate the surface integral
+	\[
+		\iint_{S} \mathbf{v} \cdot \mathbf{n} \, dS
+	\]
+	where \(\mathbf{v} = (x + y, z^{2}, x^{2})\) and \(S\) is the surface of the hemisphere \(x^{2} + y^{2} + z^{2} = 1\) with \(z > 0\) and \(\mathbf{n}\) is the upward-pointing normal. Note that the surface \(S\) is not closed.
+\end{exercise}
+
+\begin{proof}
+	Let \( S_{1} \) be the disk \( x^{2} + y^{2} \leq 1, z = 0 \). The surface \( S \cup S_{1} \) is closed. The normal on the disk is \( (0, 0, -1) \).
+	\[
+		\iint_{S_{1}} \mathbf{v} \cdot \mathbf{n}\, dS = \iint_{S_{1}} -x^{2}\, dS = \frac{-\pi}{4}.
+	\]
+
+	According to the divergence theorem
+	\[
+		\iint_{S} \mathbf{v}\cdot\mathbf{n}\, dS + \iint_{S_{1}} \mathbf{v}\cdot\mathbf{n}\, dS = \iiint_{V} \bnabla\cdot\mathbf{v}\, dV = \iiint_{V} 1\, dV = V = \dfrac{2\pi}{3}.
+	\]
+
+	Thus \( \displaystyle\iint_{S} \mathbf{v}\cdot\mathbf{n}\, dS = \dfrac{11\pi}{12} \).
+\end{proof}
+
+\begin{exercise}{5.6}
+	Following the argument of Section 5.1.1, obtain the equation for conservation of electric charge relating the charge density \(q\) and the electric current density \(\mathbf{j}\).
+\end{exercise}
+
+\begin{proof}
+	Consider a volume \( V \). The electric charge in \( V \) is equal to
+	\[
+		\iiint_{V} q\, dV
+	\]
+
+	and the rate of electric flow into \( V \) is equal to
+	\[
+		-\oiint_{S} q\mathbf{j}\cdot\mathbf{n}\, dS.
+	\]
+
+	Therefore
+	\[
+		\frac{d}{dt}\iiint_{V} q\, dV = -\oiint_{S} q\mathbf{j}\cdot\mathbf{n}\, dS = -\iiint_{V} \bnabla\cdot (q\mathbf{j})\, dS.
+	\]
+
+	Hence
+	\[
+		\iiint_{V}\left( \dfrac{\partial q}{\partial t} + \bnabla\cdot (q\mathbf{j}) \right)\, dS = 0.
+	\]
+
+	Since \( V \) is arbitrary, we conclude that
+	\[
+		\dfrac{\partial q}{\partial t} + \bnabla\cdot (q\mathbf{j}) = 0. \qedhere
+	\]
+\end{proof}
+
+\begin{exercise}{5.7}
+	Use (5.13) to obtain a definition for \(\bnabla f\) as the limit of an integral, similar to the definitions of div and curl.
+\end{exercise}
+
+\begin{proof}
+	(5.13)
+	\[
+		\iiint_{V} \bnabla f \, dV = \oiint_{S} f\mathbf{n}\, dS.
+	\]
+
+	Such a definition is as follows:
+	\[
+		\bnabla f = \lim\limits_{\delta V \to 0} \dfrac{1}{\delta V} \oiint_{S} f\mathbf{n}\, dS. \qedhere
+	\]
+\end{proof}
+
 \section{Stokes's theorem}
+
+\begin{exercise}{5.8}
+	Show that
+	\[
+		\oint_{C} \mathbf{r} \cdot d\mathbf{r} = 0
+	\]
+	for any closed curve \( C \).
+\end{exercise}
+
+\begin{proof}
+	Let \( S \) be a surface whose boundary is \( C \). According to the Stokes's theorem
+	\[
+		\oint_{C} \mathbf{r} \cdot d\mathbf{r} = \iint_{S} (\bnabla \times \mathbf{r})\cdot \mathbf{n}\, dS = \iint_{S} \mathbf{0} \cdot \mathbf{n}\, dS = 0.
+	\]
+\end{proof}
+
+\begin{exercise}{5.9}
+	Verify Stokes's theorem by evaluating both the line and surface integrals for the vector field \(\mathbf{u} = (2x - y, -y^{2}, -y^{2}z)\) and the surface \(S\) given by the disk \(z = 0, x^{2} + y^{2} \leq 1\).
+\end{exercise}
+
+\begin{proof}
+	\[
+		\iint_{S} (\bnabla \times \mathbf{u})\cdot \mathbf{n}\, dS = \iint_{S} (-2yz, 0, 1)\cdot (0, 0, 1)\, dS = \iint_{S} 1\, dS = \pi.
+	\]
+
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\oint_{C} \mathbf{u} \cdot d\mathbf{r} & = \int_{0}^{2\pi} (2\cos\theta - \sin\theta, -{(\sin\theta)}^{2}, 0)\cdot (-\sin\theta, \cos\theta, 0) d\theta \\
+		                                       & = \int_{0}^{2\pi} (-\sin(2\theta) + {(\sin\theta)}^{2} - {(\sin\theta)}^{2}\cos\theta)\, d\theta               \\
+		                                       & = \pi.
+	\end{align*}
+	\endgroup
+\end{proof}
+
+\begin{exercise}{5.10}
+	Use Stokes's theorem to show that
+	\[
+		\oint_{C} f \bnabla g \cdot d\mathbf{r} = -\oint_{C} g \bnabla f \cdot d\mathbf{r}
+	\]
+	for any closed curve \(C\) and differentiable scalar fields \(f\) and \(g\).
+\end{exercise}
+
+\begin{proof}
+	\[
+		\bnabla \times (f \bnabla g) = \bnabla f \times \bnabla g + f\bnabla \times (\bnabla g) = \bnabla f \times \bnabla g.
+	\]
+
+	\[
+		\bnabla \times (g \bnabla f) = \bnabla g \times \bnabla f + g\bnabla \times (\bnabla f) = \bnabla g \times \bnabla f.
+	\]
+
+	Therefore \( \bnabla \times (f \bnabla g) = -\bnabla \times (g \bnabla f) \).
+
+	Let \( S \) be a surface whose boundary is \( C \). According to the Stokes's theorem
+	\[
+		\oint_{C} f \bnabla g \cdot d\mathbf{r} = \iint_{S} (\bnabla \times (f \bnabla g)) \cdot \mathbf{n} \, dS = -\iint_{S} (\bnabla \times (g\bnabla f)) \cdot \mathbf{n}\, dS = -\oint_{C} g\bnabla f\cdot d\mathbf{r}.
+	\]
+\end{proof}
+
+\begin{exercise}{5.11}
+	If \(\mathbf{u}\) is irrotational, express the surface integral
+	\[
+		\iint_{S} \mathbf{u} \times \bnabla f \cdot \mathbf{n} \, dS
+	\]
+
+	as a line integral.
+\end{exercise}
+
+\begin{proof}
+	Since \( \mathbf{u} \) is irrotational, \( \bnabla \times \mathbf{u} = \mathbf{0} \).
+
+	\( \bnabla \times (f\mathbf{u}) = \bnabla f \times \mathbf{u} + f\bnabla \times \mathbf{u} = \bnabla f \times \mathbf{u} \). Hence
+	\[
+		\iint_{S} \mathbf{u} \times \bnabla f \cdot \mathbf{n} \, dS = -\iint_{S} \bnabla \times (f\mathbf{u}) \cdot \mathbf{n} \, dS = -\oint_{C} f\mathbf{u} \cdot d\mathbf{r}.
+	\]
+\end{proof}
+
+\begin{exercise}{5.12}
+	The magnetic field \(\mathbf{B}\) in an electrically conducting fluid moving with velocity \(\mathbf{u}\) obeys the magnetic induction equation
+	\[
+		\frac{\partial \mathbf{B}}{\partial t} = \bnabla \times (\mathbf{u} \times \mathbf{B}).
+	\]
+
+	Show that the total flux of magnetic field through a surface enclosed by a streamline of the flow (a closed curve which is everywhere parallel to \(\mathbf{u}\)) is independent of time.
+\end{exercise}
+
+\begin{proof}
+	The total magnetic flux through a closed simply connected surface \( S \) is equal to
+	\[
+		\Phi = \iint_{S} \mathbf{B} \cdot \mathbf{n}\, dS.
+	\]
+
+	The rate of magnetic flux through \( S \) is equal to
+	\[
+		\dfrac{d\Phi}{dt} = \dfrac{d}{dt} \iint_{S} \mathbf{B} \cdot \mathbf{n}\, dS = \iint_{S} \bnabla \times (\mathbf{u} \times \mathbf{B})\, dS = \oint_{C} \mathbf{u} \times \mathbf{B} \cdot d\mathbf{r}.
+	\]
+
+	Since \( C \) is a streamline, then \( d\mathbf{r} \) is parallel to \( \mathbf{u} \), which means \( \displaystyle\oint_{C} \mathbf{u} \times \mathbf{B} \cdot d\mathbf{r} = 0 \). Therefore \( \dfrac{d\Phi}{dt} = 0 \).
+
+	Hence the total magnetic flux through a surface enclosed by a streamline of the flow is independent of time.
+\end{proof}
+
+\begin{exercise}{5.13}
+	Use (5.18) to show that the area \(A\) of a flat surface \(S\) enclosed by a curve \(C\) is
+	\[
+		A = \frac{1}{2} \left\vert \oint_{C} \mathbf{r} \times d\mathbf{r} \right\vert.
+	\]
+\end{exercise}
+
+\begin{proof}
+	Without loss of generality, assume that \( S \) is in the plane \( z = 0 \).
+
+	Let \( \mathbf{n} = (0,0,1) \) then \( \mathbf{n} \) is the normal of \( S \).
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\left( \oint_{C} \mathbf{r} \times d\mathbf{r} \right)\cdot \mathbf{n} & = \oint_{C} \mathbf{r} \times d\mathbf{r} \cdot \mathbf{n}                       \\
+		                                                                       & = \oint_{C} \mathbf{n} \times \mathbf{r} \cdot d\mathbf{r}                       \\
+		                                                                       & = \iint_{S} \bnabla \times (\mathbf{n} \times \mathbf{r}) \cdot \mathbf{n}\, dS.
+	\end{align*}
+	\endgroup
+
+	On the other hand, in the plane \( z = 0 \)
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\bnabla \times (\mathbf{n} \times \mathbf{r}) = \mathbf{n} (\bnabla \times \mathbf{r}) + \mathbf{r} \cdot \bnabla\mathbf{n} - \mathbf{n}\cdot \bnabla\mathbf{r} - \mathbf{r}(\bnabla\cdot\mathbf{n}) = -2\mathbf{n}.
+	\end{align*}
+	\endgroup
+
+	Therefore
+	\[
+		\abs{\oint_{C} \mathbf{r} \times d\mathbf{r}} = \abs{\oint_{C} \mathbf{r} \times d\mathbf{r} \cdot \mathbf{n}} = \abs{\iint_{S} -2\mathbf{n} \cdot \mathbf{n}\, dS} = \abs{\iint_{S} 2\, dS} = 2A.
+	\]
+
+	Thus \( A = \displaystyle\frac{1}{2}\abs{\oint_{C} \mathbf{r} \times d\mathbf{r}} \).
+\end{proof}
