@@ -1,1 +1,1507 @@
 \chapter{Review of Topology}
+
+\section*{Topological Spaces}
+
+\begin{exercise}{A.1}
+	Let \( F: X \to Y \) be a map between topological spaces. Prove that each of the following properties is equivalent to continuity of \( F \):
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item For every subset \( A \subseteq X, F(\overline{A}) \subseteq \overline{F(A)} \).
+		\item For every subset \( B \subseteq Y, F^{-1}(\operatorname{Int} B) \subseteq \operatorname{Int} F^{-1}(B) \).
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item Assume \( F \) is continuous.
+
+		      Let \( y = F(x) \) be an element of \( F(\overline{A}) \), in which \( x \in \overline{A} \). For every neighborhood \( V \) of \( y \), the preimage \( F^{-1}(V) \ni x \) is open, as \( F \) is continuous, so \( F^{-1}(V) \) intersects \( A \). Therefore \( V \supseteq F(F^{-1}(V)) \) intersects \( F(A) \), so \( y \in \overline{F(A)} \). Hence \( F(\overline{A}) \subseteq \overline{F(A)} \) for every subset \( A \subseteq X \).
+
+		      Conversely, assume \( F(\overline{A}) \subseteq \overline{F(A)} \) for every subset \( A \subseteq X \).
+
+		      Remind that \( F \) is continuous iff \( F^{-1}(K) \subseteq X \) is closed for every closed subset \( K \subseteq Y \).
+
+		      Let \( K \subseteq Y \) be a closed subset.
+		      \[
+			      F(\overline{F^{-1}(K)}) \subseteq \overline{F(F^{-1}(K))} \subseteq \overline{K} = K.
+		      \]
+
+		      Therefore
+		      \[
+			      \overline{F^{-1}(K)} \subseteq F^{-1}(F(\overline{F^{-1}(K)})) \subseteq F^{-1}(K).
+		      \]
+
+		      This implies \( \overline{F^{-1}(K)} = F^{-1}(K) \), which means \( F^{-1}(K) \) is closed in \( X \). Hence \( F \) is continuous.
+		\item Assume \( F \) is continuous.
+
+		      \( F^{-1}(\operatorname{Int} B) \) is open in \( X \). Moreover, \( F^{-1}(\operatorname{Int} B) \subseteq F^{-1}(B) \) so \( F^{-1}(\operatorname{Int} B) \subseteq \operatorname{Int} F^{-1}(B) \).
+
+		      Conversely, assume \( F^{-1}(\operatorname{Int} B) \subseteq \operatorname{Int} F^{-1}(B) \) for every subset \( B \subseteq Y \).
+
+		      Let \( V \) be an open subset of \( Y \), then \( F^{-1}(V) = F^{-1}(\operatorname{Int} V) \subseteq \operatorname{Int} F^{-1}(V) \), which implies \( F^{-1}(V) = \operatorname{Int} F^{-1}(V) \). Hence \( F^{-1}(V) \) is open in \( X \), so \( F \) is continuous.
+	\end{enumerate}
+\end{proof}
+
+\begin{exercise}{A.2}
+	Let \( X, Y \), and \( Z \) be topological spaces. Show that the following maps are continuous:
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item The identity map \( \operatorname{Id}_{X}: X \to X \), defined by \( \operatorname{Id}_{X}(x) = x \) for all \( x \in X \).
+		\item Any constant map \( F: X \to Y \) (i.e., a map such that \( F(x) = F(y) \)) for all \( x, y \in X \).
+		\item Any composition \( G \circ F \) of continuous maps \( F: X \to Y \) and \( G: Y \to Z \).
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item For every open subset \( U \subseteq X \), \( \operatorname{Id}_{X}^{-1}(U) = U \) is open in \( X \), so the identity map is continuous.
+		\item For every open subset \( V \subseteq Y \), \( F^{-1}(V) = \varnothing \) if \( V \cap F(X) = \varnothing \) and \( F^{-1}(V) = X \) if \( V \cap F(X) \ne \varnothing \). Since \( \varnothing, X \) are open in \( X \), we conclude that \( F \) is continuous.
+		\item Let \( W \) be an open subset of \( Z \). We have \( {(G \circ F)}^{-1}(W) = F^{-1}(G^{-1}(W)) \). Since \( F, G \) are continuous, \( G^{-1}(W) \) is open in \( Y \) and \( F^{-1}(G^{-1}(W)) \) is open in \( X \). Therefore \( {(G \circ F)}^{-1}(W) \) is open in \( X \) for every subset \( W \subseteq Z \), so \( G \circ F \) is continuous.
+	\end{enumerate}
+\end{proof}
+
+\begin{exercise}{A.3}
+	Let \( X \) and \( Y \) be topological spaces. Suppose \( F: X \to Y \) is continuous and \( p_{i} \to p \) in \( X \). Show that \( F(p_{i}) \to F(p) \) in \( Y \).
+\end{exercise}
+
+\begin{proof}
+	Let \( V \) be an open subset of \( Y \) containing \( F(p) \). Since \( F \) is continuous, \( F^{-1}(V) \ni p \) is open in \( X \). As \( p_{i} \to p \), there exists a positive integer \( N \) such that \( p_{i} \in F^{-1}(V) \) whenever \( i \ge N \). So \( F(p_{i}) \in V \) whenever \( i \ge N \). Thus \( F(p_{i}) \to F(p) \) in \( Y \).
+\end{proof}
+
+\subsection*{Hausdorff Spaces}
+
+\begin{exercise}{A.9}
+	Let \( X \) be any set. Show that \( \left\{ X, \varnothing \right\} \) is a topology on \( X \), called the trivial topology. Show that when \( X \) is endowed with this topology, every sequence in \( X \) converges to every point of \( X \), and every map from a topological space into \( X \) is continuous.
+\end{exercise}
+
+\begin{proof}
+	Let's check if this is indeed a topology on \( X \):
+	\begin{itemize}
+		\item \( X, \varnothing \in \left\{ X, \varnothing \right\} \).
+		\item If \( U_{\alpha} \in \left\{ X, \varnothing \right\} \) for every \( \alpha \in \mathscr{A} \) then \( \bigcup_{\alpha\in\mathscr{A}} U_{\alpha} \) is either \( \varnothing \) or \( X \).
+		\item If \( U_{1}, \ldots, U_{n} \in \left\{ X, \varnothing \right\} \) then \( \bigcap_{i=1}^{n} U_{i} \) is either \( \varnothing \) or \( X \).
+	\end{itemize}
+
+	Hence \( \left\{ X, \varnothing \right\} \) is a topology on \( X \).
+
+	Let \( {(x_{i})}_{i\in\mathbb{N}} \) be a sequence in \( X \) and \( x \) an arbitrary point in \( X \). The only neighborhood of \( x \) is the entire \( X \), which contains \( x_{i} \) for every positive integer \( i \). Therefore \( x_{i} \to x \) for every sequence \( {(x_{i})}_{i\in\mathbb{N}} \) and every \( x \in X \).
+\end{proof}
+
+\begin{exercise}{A.10}
+	Show that every metric space is Hausdorff in the metric topology.
+\end{exercise}
+
+\begin{proof}
+	Let \( (M, d) \) be a metric space and \( p, q \) two distinct points of \( M \).
+
+	Define \( r = \frac{1}{2} d(x, y) \). We have \( B_{r}(p) \cap B_{r}(q) = \varnothing \). Hence \( M \) is Hausdorff.
+\end{proof}
+
+\begin{exercise}{A.11}
+	Let \( X \) be a Hausdorff space. Show that each finite subset of \( X \) is closed, and that each convergent sequence in \( X \) has a unique limit.
+\end{exercise}
+
+\begin{proof}
+	Let \( K \) be a finite subset of \( X \).
+
+	Let \( x \) be a point in \( X \smallsetminus K \). As \( X \) is Hausdorff, for every \( x_{n} \in K \), there exists an open ball \( B_{r_{n}}(x) \) not containing \( x_{n} \). The open set
+	\[
+		\bigcap_{r_{n}} B_{r_{n}}(x)
+	\]
+
+	is a neighborhood of \( x \) that is disjoint from \( K \). Hence \( X \smallsetminus K \) is open, which implies \( K \) is closed.
+
+	\hrulefill%
+
+	Assume there exists a convergent sequence \( {(x_{i})}_{i \in \mathbb{N}} \) that has two distinct limits \( a, b \).
+
+	Because \( X \) is Hausdorff, there exist two disjoint open sets \( U, V \) such that \( a \in U, b \in V \).
+
+	Moreover, there exist two positive integers \( M, N \) such that \( i \ge M \implies x_{i} \in U \) and \( i \ge N \implies x_{i} \in V \). So if \( i \ge \max\left\{ M, N \right\} \), we obtain that \( x_{i} \in U, V \), which contradicts \( U \cap V = \varnothing \).
+
+	Thus every convergent sequence in a Hausdorff space has a unique limit.
+\end{proof}
+
+\subsection*{Bases and Countability}
+
+\begin{exercise}{A.13}
+	Prove the sequence lemma.
+
+	Let \( X \) be a first-countable space, let \( A \subseteq X \) be any subset, and let \( x \in X \).
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item \( x \in \overline{A} \) if and only if \( x \) is a limit of a sequence of points in \( A \).
+		\item \( x \in \operatorname{Int} A \) if and only if every sequence in \( X \) converging to \( x \) is eventually in \( A \).
+		\item \( A \) is closed in \( X \) if and only if \( A \) contains every limit of every convergent sequence of points in \( A \).
+		\item \( A \) is open in \( X \) if and only if every sequence in \( X \) converging to a point of \( A \) is eventually in \( A \).
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	Since \( X \) is first-countable, \( x \) has a countable neighborhood basis \( {(B_{i})}_{i\in\mathbb{N}} \). Let \( V_{i} = \bigcap_{j=1}^{i} B_{j} \) then \( {(V_{i})}_{i\in\mathbb{N}} \) is a countable neighborhood basis of \( x \).
+
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item Assume \( x \in \overline{A} \).
+
+		      According to the axiom of countable choice, there is a choice function \( f: \mathbb{N} \to X \) such that \( f(i) \in V_{i} \cap A \). Let \( x_{i} = f(i) \) then \( x_{i} \to x \).
+
+		      Conversely, assume there exists a sequence \( x_{i} \) of points in \( A \) such that \( x_{i} \to x \).
+
+		      For every neighborhood \( U \) of \( x \), there exists a positive integer \( N \) such that \( x_{i} \in U \) whenever \( i \ge N \). Therefore \( U \cap A \ne \varnothing \), so \( x \in \overline{A} \).
+		\item Assume \( x \in \operatorname{Int} A \).
+
+		      Let \( x_{i} \) be a sequence converging to \( x \). As \( \operatorname{Int} A \) is a neighborhood of \( x \), there exists a positive integer \( N \) such that \( i \ge N \) implies \( x_{i} \in \operatorname{Int} A \subseteq A \). Therefore \( x_{i} \) is eventually in \( A \).
+
+		      Assume every sequence in \( X \) converging to \( x \) is eventually in \( A \).
+
+		      The constant sequence \( {(x)}_{i\in\mathbb{N}} \) converges to \( x \) so \( x \in A \).
+
+		      Suppose that every neighborhood of \( x \) is not contained in \( A \), then for each \( V_{i} \), there exists \( y_{i} \in V_{i} \) such that \( y_{i} \notin A \). The sequence \( {(y_{i})}_{i\in\mathbb{N}} \) converges to \( x \) so it is eventually in \( A \), which is a contradiction.
+
+		      Hence there exists a neighborhood of \( x \) contained in \( A \), which implies \( x \in \operatorname{Int} A \)
+		\item Assume \( A \) is closed in \( X \).
+
+		      Let \( {(x_{i})}_{i\in\mathbb{N}} \) be a convergent sequence of points in \( A \). Let \( x \) be a limit of this sequence then \( x \in \overline{A} \), according to part (a). Since \( A \) is closed, \( A = \overline{A} \). Therefore \( A \) contains every limit of every convergent sequence of points in \( A \).
+
+		      Conversely, assume \( A \) contains every limit of every convergent sequence of points in \( A \).
+
+		      Let \( x \in \overline{A} \) then according to part (a), there is a sequence \( {(x_{i})}_{i\in\mathbb{N}} \) of points in \( A \) converging to \( x \). So \( x \in A \), hence \( \overline{A} \subseteq A \), which means \( A \) is closed.
+		\item Assume \( A \) is open.
+
+		      Let \( x \in A \) and \( {(x_{i})}_{i\in\mathbb{N}} \) be a sequence in \( X \) converging to \( x \). As \( A \) is open, \( A = \operatorname{Int} A \). According to part (b), \( {(x_{i})}_{i\in\mathbb{N}} \) is eventually in \( A \).
+
+		      Conversely, assume every sequence in \( X \) converging to a point of \( A \) is eventually in \( A \).
+
+		      Let \( x \in A \). According to part (b), \( x \in \operatorname{Int} A \), so \( A \subseteq \operatorname{Int} A \). Hence \( A \) is open.
+	\end{enumerate}
+\end{proof}
+
+\begin{exercise}{A.14}
+	Show that every metric space is first-countable.
+\end{exercise}
+
+\begin{proof}
+	Let \( (M, d) \) be a metric space.
+
+	Let \( x \in M \). Consider the countable collection \( {(B_{q}(x))}_{q\in \mathbb{Q}_{> 0}} \). For every neighborhood \( U \) of \( x \), there exists an open ball \( B_{r}(x) \) contained in \( U \). Moreover, there exists a positive rational number \( q \) such that \( q < r \), so \( x \in B_{q}(x) \subseteq B_{r}(x) \). Hence \( {(B_{q}(x))}_{q\in \mathbb{Q}_{> 0}} \) is a countable neighborhood basis of \( x \).
+
+	Thus every metric space is first-countable.
+\end{proof}
+
+\begin{exercise}{A.15}
+	Show that the set of all open balls in \( \mathbb{R}^{n} \) whose radii are rational and whose centers have rational coordinates is a countable basis for the Euclidean topology, and thus \( \mathbb{R}^{n} \) is second-countable.
+\end{exercise}
+
+\begin{proof}
+	The union of all open balls in \( \mathbb{R}^{n} \) whose radii are rational and whose centers have rational coordinates is \( \mathbb{R}^{n} \).
+
+	Let \( B_{r}(x), B_{s}(y) \) be two such open balls and they are intersecting, then \( \abs{r - s} < \abs{x - y} < r + s \). Let \( z \) be a point in \( B_{r}(x) \cap B_{s}(y) \).
+
+	Let \( t \) be a positive number such that \( t < \min\left\{ r - d(x,z), s - d(y, z) \right\} \) then \( B_{t}(z) \subseteq B_{r}(x) \cap B_{s}(y) \).
+
+	Let \( q \) be a positive rational number such that \( q < t \). For each \( 1 \le i \le n \), there exists a rational number \( a^{i} \) such that
+	\[
+		z^{i} - \dfrac{q}{\sqrt{n}} < a^{i} < z^{i} + \dfrac{q}{\sqrt{n}}
+	\]
+
+	then \( d(a, z) < q \). Moreover, one can show that \( z \in B_{q}(a) \subseteq B_{t}(z) \subseteq B_{r}(x) \cap B_{s}(y) \).
+
+	Thus the set of all open balls in \( \mathbb{R}^{n} \) whose radii are rational and whose centers have rational coordinates is a countable basis for the Euclidean topology, hence \( \mathbb{R}^{n} \) is second-countable.
+\end{proof}
+
+\section*{Subspaces, Products, Disjoint Unions, and Quotients}
+
+\subsection*{Subspaces}
+
+\begin{exercise}{A.18}
+	Prove the preceding proposition.
+
+	Let \( X \) be a topological space and let \( S \) be a subspace of \( X \).
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item \textsc{Characteristic Property:} If \( Y \) is a topological space, a map \( F: Y \to S \) is continuous if and only if \( \iota_{S} \circ F: Y \to X \) is continuous, where \( \iota_{S}: S \xhookrightarrow{} X \) is the inclusion map (the restriction of the identity map of \(X\) to \(S\)).
+		\item The subspace topology is the unique topology on \( S \) for which the characteristic property holds.
+		\item A subset \( K \subseteq S \) is closed in \( S \) if and only if there exists a closed subset \( L \subseteq X \) such that \( K = L \cap S \).
+		\item The inclusion map \( \iota_{S}: S \xhookrightarrow{} X \) is a topological embedding.
+		\item If \( Y \) is a topological space and \( F: X \to Y \) is continuous, then \( F\vert_{S}: S \to Y \) (the restriction of \(F\) to \(S\)) is continuous.
+		\item If \( \mathcal{B} \) is a basis for the topology of \( X \), then \( \mathcal{B}_{S} = \left\{ B \cap S : B \in \mathcal{B} \right\} \) is a basis for the subspace topology on \( S \).
+		\item If \( X \) is Hausdorff, then so is \( S \).
+		\item If \( X \) is first-countable, then so is \( S \).
+		\item If \( X \) is second-countable, then so is \( S \).
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item Assume \( F \) is continuous.
+
+		      Let \( U \) be an open subset of \( X \), then \( {(\iota_{S} \circ F)}^{-1}(U) = F^{-1}(\iota_{S}^{-1}(U)) = F^{-1}(U \cap S) \). As \( F \) is continuous and \( U \cap S \) is open in \( S \), it follows that \( {(\iota_{S} \circ F)}^{-1}(U) \) is open in \( Y \). So \( \iota_{S} \circ F \) is continuous.
+
+		      Conversely, assume \( \iota_{S} \circ F \) is continuous.
+
+		      Let \( U \cap S \) be an open subset of \( S \) (where \( U \) is an open subset of \(X\), we can assume so because every open subset of \(S\) is of this form). On the other hand
+		      \[
+			      {(\iota_{S} \circ F)}^{-1}(U \cap S) = F^{-1}(\iota_{S}^{-1}(U \cap S)) = F^{-1}(U \cap S)
+		      \]
+
+		      and \(  {(\iota_{S} \circ F)}^{-1}(U \cap S) \) is open in \( Y \) as \( \iota_{S} \circ F \) is continuous. Hence \( F^{-1}(U \cap S) \) is open in \( Y \), so \( F \) is continuous.
+		\item Suppose that \( S_{\tau} \), which is \( S \) with some topology, satisfies the characteristic property. Let \( \iota_{S^{\prime}} = \operatorname{Id}_{X}\vert_{S_{\tau}} \) and \( f: S \to S_{\tau} \) such that \( f(x) = x \). The map \( f \) is bijective.
+
+		      We apply the result in part (a) four times as follows.
+
+		      \( \operatorname{Id}_{S} \) is continuous so \( \iota_{S} \circ \operatorname{Id}_{S} = \iota_{S} \) and \( \iota_{S_{\tau}} \circ \operatorname{Id}_{S} = \iota_{S_{\tau}} \) are continuous.
+
+		      \( \iota_{S_{\tau}} \circ f = \iota_{S} \) is continuous so \( f \) is continuous.
+
+		      \( \iota_{S_{\tau}} = \iota_{S} \circ f^{-1} \) is continuous so \( f^{-1} \) is continuous.
+
+		      Hence \( f \) is a homeomorphism, which means \( S \) and \( S_{\tau} \) have the same topology.
+		\item The following statement are equivalent.
+		      \begin{itemize}
+			      \item \( K \subseteq S \) is closed in \( S \).
+			      \item \( S \smallsetminus K \subseteq S \) is open in \( S \).
+			      \item There exists an open set \( U \subseteq X \) such that \( S \smallsetminus K = U \cap S \).
+			      \item There exists an open set \( U \subseteq X \) such that \( K = (X \smallsetminus U) \cap S \).
+			      \item There exists a closed set \( L \subseteq X \) such that \( K = L \cap S \).
+		      \end{itemize}
+		\item For every open subset \( U \subseteq X \), \( \iota_{S}^{-1}(U) = U \cap S \) is an open subset of \( S \), so \( \iota_{S} \) is continuous.
+
+		      \( \iota_{S} \) is a continuous injective map and \( \iota_{S}: S \to S \) is the identity map of \( S \), which is a homeomorphism, so \( \iota_{S} \) is a topological embedding.
+		\item \( F\vert_{S} = F \circ \iota_{S} \) is the composition of two continuous maps \( \iota_{S} \) and \( F \). Therefore \( F\vert_{S} \) is continuous.
+		\item Let \( U \cap S \) be an open subset of \( S \). As \( \mathcal{B} \) is a basis for the topology of \( X \), there exists a collection \( {\left\{B_{\alpha}\right\}}_{\alpha\in\mathscr{A}} \) such that \( B_{\alpha} \in \mathcal{B} \) for every \( \alpha\in\mathscr{A} \) and \( U = \bigcup_{\alpha\in\mathscr{A}} B_{\alpha} \). Hence
+		      \[
+			      U \cap S = \left(\bigcup_{\alpha\in\mathscr{A}} B_{\alpha}\right) \cap S = \bigcup_{\alpha\in\mathscr{A}} (B_{\alpha} \cap S)
+		      \]
+
+		      which means \( \mathcal{B}_{S} \) is a basis for the subspace topology on \( S \).
+		\item Let \( p, q \) be two distinct points in \( S \subseteq X \). Since \( X \) is Hausdorff, there exist two disjoint open subsets \( U, V \subseteq X \) such that \( p \in U, q \in V \). Moreover, \( p \in U \cap S, q \in V \cap S \) and \( U \cap S, V \cap S \) are disjoint open subsets in \( S \) so \( S \) is Hausdorff.
+		\item Let \( p \) be a point in \( S \subseteq X \) and \( {\left\{ B_{i} \right\}}_{i\in\mathbb{N}} \) a countable neighborhood basis of \( p \) in \( X \). Let \( V \) be a neighborhood of \( p \) in \( S \) then there is an open subset \(U\) in \(X\) such that \( V = U \cap S \). There exists a positive integer \( n \) such that \( B_{n} \subseteq U \). Hence \( B_{n} \cap S \subseteq U \cap S \), which means \( {\left\{ B_{i} \cap S \right\}}_{i\in\mathbb{N}} \) is a countable neighborhood basis of \( p \) in \( S \).
+		\item This follows directly from part (f).
+	\end{enumerate}
+\end{proof}
+
+\begin{exercise}{A.21}
+	\textbf{Continuity Is Local.} Continuity is a local property, in the following sense: if \( F: X \to Y \) is a map between topological spaces such that every point \( p \in X \) has a neighborhood \( U \) on which the restriction \( F\vert_{U} \) is continuous, then \( F \) is continuous.
+
+	\textbf{Gluing Lemma for Continuous Maps.} Let \( X \) and \( Y \) be topological spaces, and suppose one of the following conditions holds:
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item \( B_{1}, \ldots, B_{n} \) are finitely many closed subsets of \( X \) whose union is \( X \).
+		\item \( {\left\{ B_{i} \right\}}_{i\in A} \) is a collection of open subsets of \( X \) whose union is \( X \).
+	\end{enumerate}
+
+	Suppose that for all \( i \) we are given continuous maps \( F_{i}: B_{i} \to Y \) that agree on overlaps: \( F_{i}\vert_{B_{i} \cap B_{j}} = F_{j}\vert_{B_{i} \cap B_{j}} \). Then there exists a unique continuous map \( F: X \to Y \) whose restriction to each \( B_{i} \) is equal to \( F_{i} \).
+\end{exercise}
+
+\begin{proof}
+	Let \( V \) be an open subset of \( Y \). For each point \( p \in X \), there is a neighborhood \( U_{p} \) such that \( f\vert_{U_{p}} \) is continuous. The set
+	\[
+		F^{-1}(V) = \bigcup_{p\in X} (F^{-1}(V) \cap U_{p}) = \bigcup_{p\in X} {(F\vert_{U_{p}})}^{-1}(V)
+	\]
+
+	is open as \( F\vert_{U_{p}} \) is continuous. Therefore \( F \) is continuous.
+
+	\hrulefill%
+
+	There exists a unique map \( F: X \to Y \) whose restriction to each \( B_{i} \) is equal to \( F_{i} \). It remains to prove that \( F \) is continuous.
+
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item Let \( G \) be a closed subset of \( Y \). The set
+		      \[
+			      F^{-1}(G) = F^{-1}(G \cap F(X)) = F^{-1}\left( G \cap \bigcup_{i=1}^{n} F(B_{i}) \right) = \bigcup_{i=1}^{n} F^{-1}(G \cap F(B_{i})) = \bigcup_{i=1}^{n} F_{i}^{-1}(G)
+		      \]
+
+		      is closed in \( X \), as \( F_{i}^{-1}(G) \) is closed in \( B_{i} \) and \( B_{i} \) is closed in \( X \). Hence \( F \) is continuous.
+		\item Let \( V \) be an open subset of \( Y \). The set
+		      \[
+			      F^{-1}(V) = \bigcup_{i \in A} F_{i}^{-1}(V)
+		      \]
+
+		      is open in \( X \), as \( F_{i}^{-1}(V) \) is open in \( B_{i} \) and \( B_{i} \) is open in \( X \). Hence \( F \) is continuous.
+	\end{enumerate}
+\end{proof}
+
+\begin{exercise}{A.22}
+	Let \( X \) be a topological space, and suppose \( X \) admits a countable open cover \( \left\{ U_{i} \right\} \) such that each set \( U_{i} \) is second-countable in the subspace topology. Show that \( X \) is second-countable.
+\end{exercise}
+
+\begin{proof}
+	Let \( \mathcal{B}_{i} \) be a countable basis for the topology on \( U_{i} \) and \( \mathcal{B} = \bigcup_{i} \mathcal{B}_{i} \). Then \( \mathcal{B} \) is countable.
+
+	Let \( V \) be an open set in \( X \). We have \( V = \bigcup_{i} V \cap U_{i} \) and \( V \cap U_{i} \) is the union of some open sets in \( \mathcal{B}_{i} \). Therefore \( V \) is the union of some open sets in \( \mathcal{B} \). Hence \( \mathcal{B} \) is a countable basis for the topology on \( X \).
+
+	Thus \( X \) is second-countable.
+\end{proof}
+
+\subsection*{Product Spaces}
+
+\begin{exercise}{A.23}
+	Suppose \( X_{1}, \ldots, X_{k} \) are topological spaces, and let \( X_{1} \times \cdots \times X_{k} \) be their product space.
+
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item \textsc{Characteristic Property:} If \( B \) is a topological space, a map \( F: B \to X_{1} \times \cdots \times X_{k} \) is continuous if and only if each of its component functions \( F_{i} = \pi_{i} \circ F : B \to X_{i} \) is continuous.
+
+		\item The product topology is the unique topology on \( X_{1} \times \cdots \times X_{k} \) for which the characteristic property holds.
+
+		\item Each projection map \( \pi_{i} : X_{1} \times \cdots \times X_{k} \to X_{i} \) is continuous.
+
+		\item Given any continuous maps \( F_{i} : X_{i} \to Y_{i} \) for \( i = 1, \ldots, k \), the \textbf{product map}
+		      \[
+			      F_{1} \times \cdots \times F_{k} : X_{1} \times \cdots \times X_{k} \to Y_{1} \times \cdots \times Y_{k}
+		      \]
+
+		      is continuous, where
+		      \[
+			      F_{1} \times \cdots \times F_{k}(x_{1}, \ldots, x_{k}) = (F_{1}(x_{1}), \ldots, F_{k}(x_{k})).
+		      \]
+
+		\item If \( S_{i} \) is a subspace of \( X_{i} \) for \( i = 1, \ldots, n \), the product topology and the subspace topology on \( S_{1} \times \cdots \times S_{n} \subseteq X_{1} \times \cdots \times X_{n} \) coincide.
+
+		\item For any \( i \in \{1, \ldots, k\} \) and any choices of points \( a_{j} \in X_{j} \) for \( j \neq i \), the map
+		      \[
+			      x \mapsto (a_{1}, \ldots, a_{i-1}, x, a_{i+1}, \ldots, a_{k})
+		      \]
+		      is a topological embedding of \( X_{i} \) into the product space \( X_{1} \times \cdots \times X_{k} \).
+
+		\item If \( \mathcal{B}_{i} \) is a basis for the topology of \( X_{i} \) for \( i = 1, \ldots, k \), then the collection
+		      \[
+			      \mathcal{B} = \{B_{1} \times \cdots \times B_{k} : B_{i} \in \mathcal{B}_{i}\}
+		      \]
+		      is a basis for the topology of \( X_{1} \times \cdots \times X_{k} \).
+
+		\item Every finite product of Hausdorff spaces is Hausdorff.
+
+		\item Every finite product of first-countable spaces is first-countable.
+
+		\item Every finite product of second-countable spaces is second-countable.
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item Assume \( F \) is continuous.
+
+		      For each \( i \), let \( U_{i} \subseteq X_{i} \) be an open subset. The set
+		      \[
+			      F_{i}^{-1}(U_{i}) = {(\pi_{i} \circ F)}^{-1}(U_{i}) = F^{-1}(\pi_{i}^{-1}(U_{i})) = F^{-1}(\underbrace{X_{1} \times \cdots \times U_{i} \times \cdots \times X_{n}}_{\text{open in } X_{1} \times \cdots \times X_{n}})
+		      \]
+
+		      is open in \( Y \). Therefore \( F_{i} \) is continuous.
+
+		      Conversely, assume each \( F_{i} \) is continuous.
+
+		      Since each open set in \( X_{1} \times \cdots \times X_{n} \) can be written as a union of product open sets (and they are open) and the preimage operator commutes with the union operator, it suffices to show that the preimage of product open sets are open to conclude that \( F \) is continuous.
+
+		      Let \( U_{1} \times \cdots \times U_{n} \) be a product open subset of \( X_{1} \times \cdots \times X_{n} \), then
+		      \[
+			      U_{1} \times \cdots \times U_{n} = \bigcap_{i=1}^{n} \pi_{i}^{-1}(U_{i})
+		      \]
+
+		      so
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      F^{-1}(U_{1} \times \cdots \times U_{n}) & = F^{-1}\left( \bigcap_{i=1}^{n} \pi_{i}^{-1}(U_{i}) \right) \\
+			                                               & = \bigcap_{i=1}^{n} F^{-1}(\pi_{i}^{-1}(U_{i}))              \\
+			                                               & = \bigcap_{i=1}^{n} {(\pi_{i} \circ F)}^{-1}(U_{i})          \\
+			                                               & = \bigcap_{i=1}^{n} F_{i}^{-1}(U_{i})
+		      \end{align*}
+		      \endgroup
+
+		      is open in \( Y \). Hence \( F \) is continuous.
+		\item Let \( \mathscr{T}_{1}, \mathscr{T}_{2} \) be two topologies on \( X_{1} \times \cdots \times X_{n} \) for which the characteristic property holds.
+
+		      Let \( f: (X_{1} \times \cdots \times X_{n}, \mathscr{T}_{1}) \to (X_{1} \times \cdots \times X_{n}, \mathscr{T}_{2}) \) be a map such that \( f(x) = x \), then \( f \) is bijective.
+
+		      Denote by \( \pi_{i,j}: (X_{1} \times \cdots \times X_{n}, \mathscr{T}_{j}) \to X_{i} \) the projection maps.
+
+		      Apply the characteristic property ``four'' times.
+
+		      \( \operatorname{Id}_{\mathscr{T}_{1}} \) and \( \operatorname{Id}_{\mathscr{T}_{2}} \) are continuous so \( \pi_{i,2} = \pi_{i,2} \circ \operatorname{Id}_{\mathscr{T}_{1}} \) is continuous and \( \pi_{i,1} = \pi_{i,1} \circ \operatorname{Id}_{\mathscr{T}_{2}} \) is continuous.
+
+		      \( \pi_{i,2} \circ f = \pi_{i,1} \) is continuous for each \( i \), so \( f \) is continuous.
+
+		      \( \pi_{i,1} \circ f^{-1} = \pi_{i,2} \) is continuous for each \( i \), so \( f^{-1} \) is continuous.
+
+		      Hence \( f \) is a homeomorphism, so \( \mathscr{T}_{1} = \mathscr{T}_{2} \), which means the product topology is the only topology on \( X_{1} \times \cdots \times X_{n} \) for which the characteristic property holds.
+		\item The identity map on \( X = X_{1} \times \cdots \times X_{n} \) is continuous. According to the characteristic property, \( \pi_{i} = \pi_{i} \circ \operatorname{Id}_{X} \) is continuous, for each \( i \).
+		\item For each \( i \), denote by \( \pi_{i} \) the projection map from \( Y_{1} \times \cdots \times Y_{k} \) onto \( Y_{i} \).
+
+		      Since \( F_{i} = \pi_{i} \circ (F_{1} \times \cdots \times F_{k}) \) is continuous for each \( i \), it follows that \( F_{1} \times \cdots \times F_{k} \) is continuous.
+		\item Let \( A \) be \( S_{1} \times \cdots \times S_{n} \) with the subspace topology and \( B \) be \( S_{1} \times \cdots \times S_{n} \) with the product topology. Let \( f: A \to B \) be the map such that \( f(x) = x \). The following diagram commutes
+		      \[
+			      \begin{tikzcd}
+				      A && B \\
+				      \\
+				      {X_{1} \times \cdots \times X_{n}} && {X_{i}} && {S_{i}}
+				      \arrow["f", from=1-1, to=1-3]
+				      \arrow["\iota"', from=1-1, to=3-1]
+				      \arrow["{f^{-1}}", shift left=3, from=1-3, to=1-1]
+				      \arrow["{\iota_{S_{i}} \circ \tau_{i}}"', from=1-3, to=3-3]
+				      \arrow["{\tau_{i}}", from=1-3, to=3-5]
+				      \arrow["{\pi_{i}}"', from=3-1, to=3-3]
+				      \arrow["{\iota_{S_{i}}}", from=3-5, to=3-3]
+			      \end{tikzcd}
+		      \]
+
+		      \( \pi_{i} \circ \iota \circ f^{-1} = \iota_{S_{i}} \circ \tau_{i} \) is continuous, from which it follows that \( \iota \circ f^{-1} \) is continuous, according to the characteristic property of product topology. According to the characteristic property of subspace topology, \( f^{-1} \) is continuous.
+
+		      \( \iota_{S_{i}} \circ \tau_{i} \circ f = \pi_{i} \circ \iota \) is continuous, so \( \tau_{i} \circ f \) is continuous, according to the characteristic property of subspace topology. According to the characteristic property of product topology, \( f \) is continuous.
+
+		      Hence \( f \) is a homeomorphism, which means \( A \) and \( B \) are identical.
+		\item Denote the given map by \( g \). Evidently, \( g \) is injective and \( \pi_{i} \circ g \) is continuous for each \( i \). According to the characteristic property of product topology, \( g \) is continuous.
+		      \[
+			      \begin{tikzcd}
+				      {X_{i}} && {g(X_{i})} \\
+				      \\
+				      && {X_{1} \times \cdots \times X_{n}}
+				      \arrow["h"', from=1-3, to=1-1]
+				      \arrow["\iota", from=1-3, to=3-3]
+				      \arrow["{\pi_{i}}", from=3-3, to=1-1]
+			      \end{tikzcd}
+		      \]
+
+		      \( g(X_{i}) = \left\{ a_{1} \right\} \times \cdots \times X_{i} \times \cdots \times \left\{ a_{n} \right\} \) and the open sets of \( g(X_{i}) \) are of the form \( \left\{ a_{1} \right\} \times \cdots \times U_{i} \times \cdots \times \left\{ a_{n} \right\} \) where \( U_{i} \subseteq X_{i} \) is open.
+
+		      The map \( h: g(X_{i}) \to X_{i} \) defined by \( h(a_{1}, \ldots, x_{i}, \ldots, a_{n}) = x_{i} \) is the inverse of \( g: X_{i} \to g(X_{i}) \). Let \( \iota \) be the inclusion map from \( g(X_{i}) \) to \( X_{1} \times \cdots \times X_{n} \). Since \( h = \iota \circ \pi_{i} \) and \( \pi_{i} \) is continuous, we obtain that \( h \) is continuous, according to the characteristic property of subspace topology. Hence \( g \) is a topological embedding.
+		\item Evidently, each element of \( \mathcal{B} \) is a product open set.
+
+		      Consider a product open set \( U_{1} \times \cdots \times U_{n} \) and a point \( (x_{1}, \ldots, x_{n}) \) in it. For each \( i \), there exists \( B_{i} \in \mathcal{B}_{i} \) such that \( x_{i} \in B_{i} \), so
+		      \[
+			      (x_{1}, \ldots, x_{n}) \in B_{1} \times \cdots \times B_{n} \subseteq U_{1} \times \cdots \times U_{n}.
+		      \]
+
+		      Hence \( \mathcal{B} \) is also a basis for the product topology on \( X_{1} \times \cdots \times X_{n} \).
+		\item Assume that \( X_{1}, \ldots, X_{n} \) are Hausdorff spaces. Let \( p, q \) be two distinct points of \( X_{1} \times \cdots \times X_{n} \).
+
+		      Since \( p \ne q \), there exists \( i \) such that \( \pi_{i}(p) \ne \pi_{i}(q) \). As \( X_{i} \) is Hausdorff, there exist two disjoint open sets \( U, V \subseteq X_{i} \) such that \( \pi_{i}(p) \in U, \pi_{i}(q) \in V \). Therefore \( p \in \pi_{i}^{-1}(U), q \in \pi_{i}^{-1}(V) \) and \( \pi_{i}^{-1}(U), \pi_{i}^{-1}(V) \) are disjoint open subsets of \( X_{1} \times \cdots \times X_{n} \). Hence \( X_{1} \times \cdots \times X_{n} \) is Hausdorff.
+		\item Assume that \( X_{1}, \ldots, X_{n} \) are first-countable spaces.
+
+		      Let \( p \) be a point in \( X_{1} \times \cdots \times X_{n} \). Let \( \mathcal{N}_{i} \) be a countable neighborhood basis of \( \pi_{i}(p) \) in \( X_{i} \). Define \( \mathcal{N} = \mathcal{N}_{1} \times \cdots \times \mathcal{N}_{n} \), then \( \mathcal{N} \) is a countable set of neighborhoods of \( p \).
+
+		      For every neighborhood \( V \) of \( p \), there exists a product open set \( U_{1} \times \cdots \times U_{n} \) such that \( p \in U_{1} \times \cdots \times U_{n} \subseteq V \). Each \( U_{i} \) contains some element of \( \mathcal{N}_{i} \), which means \( U_{1} \times \cdots \times U_{n} \) (hence \( V \)) contains some element of \( \mathcal{N} \).
+
+		      Thus \( X_{1} \times \cdots \times X_{n} \) is first-countable.
+		\item The result follows immediately from part (g).
+	\end{enumerate}
+\end{proof}
+
+\subsection*{Disjoint Union Spaces}
+
+\begin{exercise}{A.26}
+	Suppose \({(X_{\alpha})}_{\alpha \in A}\) is an indexed family of topological spaces, and \(\coprod_{\alpha \in A} X_{\alpha}\) is endowed with the disjoint union topology.
+
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item \textsc{Characteristic Property:} If \(Y\) is a topological space, a map
+		      \[
+			      F : \coprod_{\alpha \in A} X_{\alpha} \to Y
+		      \]
+		      is continuous if and only if \(F \circ \iota_{\alpha}: X_{\alpha} \to Y\) is continuous for each \(\alpha \in A\).
+
+		\item The disjoint union topology is the unique topology on \(\coprod_{\alpha \in A} X_{\alpha}\) for which the characteristic property holds.
+
+		\item A subset of \(\coprod_{\alpha \in A} X_{\alpha}\) is closed if and only if its intersection with each \(X_{\alpha}\) is closed.
+
+		\item Each injection \(\iota_{\alpha}: X_{\alpha} \to \coprod_{\alpha \in A} X_{\alpha}\) is a topological embedding.
+
+		\item Every disjoint union of Hausdorff spaces is Hausdorff.
+
+		\item Every disjoint union of first-countable spaces is first-countable.
+
+		\item Every disjoint union of countably many second-countable spaces is second-countable.
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item Assume \( F \) is continuous.
+
+		      Let \( U \) be an open subset of \( Y \). For each \( \alpha \in A \)
+		      \[
+			      {(F \circ \iota_{\alpha})}^{-1}(U) = \iota_{\alpha}^{-1}(F^{-1}(U)) = F^{-1}(U) \cap X_{\alpha}
+		      \]
+
+		      is open in \( X_{\alpha} \) so \( F \circ \iota_{\alpha} \) is continuous.
+
+		      Conversely, assume \( F \circ \iota_{\alpha} \) is continuous for each \( \alpha \in A \).
+
+		      Let \( U \) be an open subset of \( Y \). For each \( \alpha \in A \), the set
+		      \[
+			      F^{-1}(U) \cap X_{\alpha} = \iota_{\alpha}^{-1}(F^{-1}(U)) = {(F \circ \iota_{\alpha})}^{-1}(U)
+		      \]
+
+		      is open in \( X_{\alpha} \), so \( F^{-1}(U) \) is open in \( \coprod_{\alpha} X_{\alpha} \).
+		\item Let \( \mathscr{T}_{1}, \mathscr{T}_{2} \) be two topologies on \( \coprod_{\alpha\in A} X_{\alpha} \) for which the characteristic property holds. Let \( \iota_{\alpha,i}: X_{\alpha} \to \left(\coprod_{\alpha\in A} X_{\alpha}, \mathscr{T}_{i}\right) \) be inclusion maps. The following diagram commutes
+
+		      \[
+			      \begin{tikzcd}
+				      {X_{\alpha}} && {\left(\displaystyle\coprod_{\alpha\in A} X_{\alpha}, \mathscr{T}_{1}\right)} \\
+				      \\
+				      && {\left(\displaystyle\coprod_{\alpha\in A} X_{\alpha}, \mathscr{T}_{2}\right)}
+				      \arrow["{\iota_{\alpha,1}}", from=1-1, to=1-3]
+				      \arrow["{\iota_{\alpha,2}}"', from=1-1, to=3-3]
+				      \arrow["f", from=1-3, to=3-3]
+				      \arrow["{f^{-1}}", shift left=3, from=3-3, to=1-3]
+			      \end{tikzcd}
+		      \]
+
+		      Apply the characteristic property for disjoint union topology ``four'' times.
+
+		      The identity maps of \( \left(\displaystyle\coprod_{\alpha\in A} X_{\alpha}, \mathscr{T}_{1}\right) \) and \( \left(\displaystyle\coprod_{\alpha\in A} X_{\alpha}, \mathscr{T}_{2}\right) \) so the maps \( \iota_{\alpha,i} \) are continuous.
+
+		      \( \iota_{\alpha,2} = f\circ \iota_{\alpha,1} \) is continuous for each \( \alpha \in A \) so \( f \) is continuous.
+
+		      \( \iota_{\alpha,1} = f^{-1}\circ \iota_{\alpha,2} \) is continuous for each \( \alpha \in A \) so \( f^{-1} \) is continuous.
+
+		      Hence \( f \) is a homeomorphism, so \( \mathscr{T}_{1} \) and \( \mathscr{T}_{2} \) are identical.
+		\item The following statements are equivalent.
+		      \begin{itemize}
+			      \item \( U \subseteq \coprod_{\alpha\in A} X_{\alpha} \) is closed.
+			      \item \( \left(\coprod_{\alpha\in A} X_{\alpha}\right) \smallsetminus U \subseteq \coprod_{\alpha\in A} X_{\alpha} \) is open.
+			      \item \( \coprod_{\alpha\in A} (X_{\alpha} \smallsetminus U) \subseteq \coprod_{\alpha\in A} X_{\alpha} \) is open.
+			      \item \( X_{\alpha} \cap \coprod_{\alpha\in A} (X_{\alpha} \smallsetminus U) \) is open in \( X_{\alpha} \) for each \( \alpha \in A \).
+			      \item \( X_{\alpha} \smallsetminus U \) is open in \( X_{\alpha} \) for each \( \alpha \in A \).
+			      \item \( U \) is closed in \( X_{\alpha} \) for each \( \alpha \in A \).
+		      \end{itemize}
+		\item Let \( f: Y \to X_{\alpha} \) be an arbitrary map.
+
+		      If \( f \) is continuous then for each open subset \( U \subseteq \coprod_{\alpha\in A} X_{\alpha} \), the set
+		      \[
+			      {(\iota_{\alpha} \circ f)}^{-1}(U) = f^{-1}(\iota_{\alpha}^{-1}(U)) = f^{-1}(U \cap X_{\alpha})
+		      \]
+
+		      is open. So \( \iota_{\alpha} \circ f \) is continuous.
+
+		      If \( \iota_{\alpha} \circ f \) is continuous then for each open subset \( V \subseteq X_{\alpha} \), the set
+		      \[
+			      f^{-1}(V) = f^{-1}(\iota_{\alpha}^{-1}(V)) = {(\iota_{\alpha} \circ f)}^{-1}(V)
+		      \]
+
+		      is open. So \( f \) is continuous.
+
+		      Hence \( X_{\alpha} \) has the subspace topology inherited from \( \coprod_{\alpha\in A} X_{\alpha} \), which means \( \iota_{\alpha} \) is a topological embedding.
+		\item Assume \( X_{\alpha} \) is Hausdorff for each \( \alpha \in A \).
+
+		      Let \( p, q \) be two distinct points in \( \coprod_{\alpha\in A} X_{\alpha} \).
+
+		      If \( p \in X_{\alpha}, q \in X_{\beta} \) for some \( \alpha \ne \beta \) then \( X_{\alpha}, X_{\beta} \) are disjoint open subsets of \( \coprod_{\alpha\in A} X_{\alpha} \) containing \( p, q \).
+
+		      If there exists \( \alpha \in A \) such that \( p, q \in X_{\alpha} \) then there exist disjoint open subsets \( U, V \) of \( X_{\alpha} \) such that \( p \in U, q \in V \). Moreover, \( U, V \) are open in \( \coprod_{\alpha\in A} X_{\alpha} \) by the definition of disjoint union topology.
+
+		      Hence \( \coprod_{\alpha\in A} X_{\alpha} \) is Hausdorff.
+		\item Assume \( X_{\alpha} \) is first-countable for each \( \alpha \in A \).
+
+		      Let \( p \) be a point in \( \coprod_{\alpha\in A} X_{\alpha} \) then there exists \( \alpha \in A \) such that \( p \in X_{\alpha} \). Let \( \mathcal{N}_{\alpha} \) be a countable neighborhood basis of \( p \) in \( X_{\alpha} \), then each member of \( \mathcal{N}_{\alpha} \) is also a neighborhood of \( p \) in \( \coprod_{\alpha\in A} X_{\alpha} \).
+
+		      Let \( U \) be a neighborhood of \( p \) in \( \coprod_{\alpha\in A} X_{\alpha} \) then \( U \cap X_{\alpha} \) is open in \( X_{\alpha} \). Therefore \( U \cap X_{\alpha} \) contains a member of \( \mathcal{N}_{\alpha} \). This implies \( \mathcal{N}_{\alpha} \) is a countable neighborhood basis of \( p \) in \( \coprod_{\alpha\in A} X_{\alpha} \).
+
+		      Thus \( \coprod_{\alpha\in A} X_{\alpha} \) is first-countable.
+		\item Assume \( X_{\alpha} \) is second-countable for each \( \alpha \in A \) and \( A \) is countable.
+
+		      Let \( \mathcal{B}_{\alpha} \) be a countable basis for \( X_{\alpha} \) and
+		      \[
+			      \mathcal{B} = \left\{ \iota_{\alpha}(B_{\alpha}) \mid B_{\alpha} \in \mathcal{B}_{\alpha}, \alpha \in A \right\}.
+		      \]
+
+		      The set \( \mathcal{B} \) is also countable as it is the union of countably many countable sets. Moreover, each member of \( \mathcal{B} \) is open in \( \coprod_{\alpha\in A} X_{\alpha} \).
+
+		      Let \( U \) be an open set in \( \coprod_{\alpha\in A} X_{\alpha} \) then \( U = \coprod_{\alpha\in A} (U \cap X_{\alpha}) \). Since \( U \cap X_{\alpha} \) is open in \( X_{\alpha} \), it can be written as the union of some members of \( \mathcal{B}_{\alpha} \), for each \( \alpha \in A \). So \( \mathcal{B} \) is a countable basis for \( \coprod_{\alpha\in A} X_{\alpha} \).
+
+		      Thus \( \coprod_{\alpha\in A} X_{\alpha} \) is second-countable.
+	\end{enumerate}
+\end{proof}
+
+\subsection*{Quotient Spaces and Quotient Maps}
+
+\begin{exercise}{A.28}
+	Let \(\pi: X \to Y\) be a quotient map.
+
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item \textsc{Characteristic Property:} If \(B\) is a topological space, a map \(F: Y \to B\) is continuous if and only if \(F \circ \pi: X \to B\) is continuous.
+
+		\item The quotient topology is the unique topology on \(Y\) for which the characteristic property holds.
+
+		\item A subset \(K \subseteq Y\) is closed if and only if \(\pi^{-1}(K)\) is closed in \(X\).
+
+		\item If \(\pi\) is injective, then it is a homeomorphism.
+
+		\item If \(U \subseteq X\) is a saturated open or closed subset, then the restriction \(\pi|_{U}: U \to \pi(U)\) is a quotient map.
+
+		\item Any composition of \(\pi\) with another quotient map is again a quotient map.
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item Assume \( F \) is continuous.
+
+		      \( \pi \) is continuous then so is \( F \circ \pi \).
+
+		      Assume \( F \circ \pi \) is continuous.
+
+		      Let \( U \) be an open subset of \( B \), then \( \pi^{-1}(F^{-1}(U)) = {(F \circ \pi)}^{-1}(U) \) is open. According to the definition of quotient map, \( F^{-1}(U) \) is open in \( Y \). Hence \( F \) is continuous.
+		\item Assume that \( \mathscr{T}_{1}, \mathscr{T}_{2} \) are two topologies on \( Y \) for which the characteristic property holds.
+
+		      Let \( \pi_{i}: X \to (Y, \mathscr{T}_{i}) \) be the quotient maps for \( i \in \left\{ 1, 2 \right\} \). Let \( f: (Y, \mathscr{T}_{1}) \to (Y, \mathscr{T}_{2}) \) be the map such that \( f(y) = y \) then \( f \) is bijective.
+
+		      The following diagram commutes
+		      \[
+			      \begin{tikzcd}
+				      X && {(Y, \mathscr{T}_{1})} \\
+				      \\
+				      && {(Y, \mathscr{T}_{2})}
+				      \arrow["{\pi_{1}}", from=1-1, to=1-3]
+				      \arrow["{\pi_{2}}"', from=1-1, to=3-3]
+				      \arrow["f", from=1-3, to=3-3]
+				      \arrow["{f^{-1}}", shift left=3, from=3-3, to=1-3]
+			      \end{tikzcd}
+		      \]
+
+		      \( \pi_{2} = f \circ \pi_{1} \) is continuous and \( \pi_{1} = f^{-1} \circ \pi_{2} \) so \( f, f^{-1} \) are continuous, according to the characteristic property of quotient maps.
+
+		      Hence \( f \) is a homeomorphism, which means \( \mathscr{T}_{1}, \mathscr{T}_{2} \) are identical.
+		\item The following statements are equivalent.
+		      \begin{itemize}
+			      \item \( K \subseteq Y \) is closed.
+			      \item \( Y \smallsetminus K \subseteq Y \) is open.
+			      \item \( \pi^{-1}(Y \smallsetminus K) \subseteq X \) is open.
+			      \item \( X \smallsetminus \pi^{-1}(K) \subseteq X \) is open.
+			      \item \( \pi^{-1}(K) \subseteq X \) is closed.
+		      \end{itemize}
+		\item If \( \pi \) is injective then \( \pi \) is bijective. Moreover, \( \pi^{-1}(U) \subseteq X \) is open if and only if \( U \subseteq Y \) is open so \( \pi, \pi^{-1} \) are continuous. Hence the quotient map \( \pi \) is a homeomorphism if it is injective.
+		\item If \( U \) is a saturated open (closed) subset of \( X \), then \( \pi(U) \) is open (closed) in \( Y \). For each \( V \subseteq \pi(U) \), we have \( {(\pi\vert_{U})}^{-1}(V) = \pi^{-1}(V) \subseteq U \) and the following statements are equivalent.
+		      \begin{itemize}
+			      \item \( V \subseteq \pi(U) \) is open (closed) in \( \pi(U) \).
+			      \item \( V \subseteq Y \) is open (closed) in \( Y \).
+			      \item \( \pi^{-1}(V) \subseteq X \) is open (closed) in \( X \).
+			      \item \( \pi^{-1}(V) \subseteq U \) is open (closed) in \( U \).
+			      \item \( {(\pi\vert_{U})}^{-1}(V) \subseteq U \) is open (closed) in \( U \).
+		      \end{itemize}
+
+		      Hence \( \pi\vert_{U} \) is a quotient map.
+		\item Let \( q: Y \to Z \) be a quotient map and \( U \subseteq Z \). The following statements are equivalent.
+		      \begin{itemize}
+			      \item \( U \) is open in \( Z \).
+			      \item \( q^{-1}(U) \) is open in \( Y \).
+			      \item \( \pi^{-1}(q^{-1}(U)) \) is open in \( X \).
+			      \item \( {(q \circ \pi)}^{-1}(U) \) is open in \( X \).
+		      \end{itemize}
+
+		      Hence \( q \circ \pi \) is a quotient map.
+	\end{enumerate}
+\end{proof}
+
+\begin{exercise}{A.29}
+	Let \( X \) and \( Y \) be topological spaces, and suppose that \( F: X \to Y \) is a surjective continuous map. Show that the following are equivalent:
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item \( F \) is a quotient map.
+		\item \( F \) takes saturated open subsets to open subsets.
+		\item \( F \) takes saturated closed subsets to closed subsets.
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	(a) implies (b)
+
+	Let \( U \) be a saturated open set in \( X \), then \( U = F^{-1}(F(U)) \). Since \( F \) is a quotient map, \( F(U) \) is open. Hence \( F \) takes saturated open subsets to open subsets.
+
+	(b) implies (c)
+
+	Let \( G \) be a saturated closed set in \( X \), then \( G = F^{-1}(F(G)) \). The set
+	\[
+		X\smallsetminus G = X \smallsetminus F^{-1}(F(G)) = F^{-1}(Y) \smallsetminus F^{-1}(F(G)) = F^{-1}(Y \smallsetminus F(G))
+	\]
+
+	is a saturated open subset of \( X \). Hence \( Y \smallsetminus F(G) \) is open in \( Y \), so \( F(G) \) is closed in \( Y \). Therefore \( F \) takes saturated closed subsets to closed subsets.
+
+	(c) implies (a)
+
+	If \( G \) is closed in \( Y \) then \( F^{-1}(G) \) is closed in \( X \) as \( F \) is continous.
+
+	If \( F^{-1}(G) \) is closed in \( X \) then \( F(F^{-1}(G)) = G \) is closed in \( Y \).
+
+	Hence \( G \subseteq Y \) is closed iff \( F^{-1}(G) \subseteq X \) is closed, so \( F \) is a quotient map.
+\end{proof}
+
+\subsection*{Open and Closed Maps}
+
+\begin{exercise}{A.32}
+	Suppose \(X_{1}, \dots, X_{k}\) are topological spaces. Show that each projection \(\pi_{i}\colon X_{1} \times \cdots \times X_{k} \to X_{i}\) is an open map.
+\end{exercise}
+
+\begin{proof}
+	It suffices to prove that \( \pi_{i} \) takes basic open sets (which are product open sets in this situation) to open sets.
+
+	Let \( U_{1} \times \cdots \times U_{k} \) be a basic open set in \( X_{1} \times \cdots \times X_{k} \) then \( \pi_{i}(U_{1} \times \cdots \times U_{k}) = U_{i} \), which is open in \( U_{i} \).
+
+	Hence each projection \( \pi_{i} \) is an open map.
+\end{proof}
+
+\begin{exercise}{A.33}
+	Let \({(X_{\alpha})}_{\alpha \in A}\) be an indexed family of topological spaces.
+
+	Show that each injection \(\iota_{\alpha}\colon X_{\alpha} \rightarrow \coprod_{\alpha \in A} X_{\alpha}\) is both open and closed.
+\end{exercise}
+
+\begin{proof}
+	Let \( F_{\alpha} \) be an open susbet of \( X_{\alpha} \) and \( G_{\alpha} \) a closed subset of \( X_{\alpha} \).
+
+	\( \iota_{\alpha}(F_{\alpha}) \cap X_{\alpha} = F_{\alpha} \) and \( \iota_{\alpha}(F_{\alpha}) \cap X_{\beta} = \varnothing \) for every \( \beta \in A \) such that \( \beta \ne \alpha \). Therefore \( \iota_{\alpha}(F_{\alpha}) \) is open in \( \coprod_{\alpha \in A} X_{\alpha} \), which means \( \iota_{\alpha} \) is an open map.
+
+	\( \iota_{\alpha}(G_{\alpha}) \cap X_{\alpha} = G_{\alpha} \) and \( \iota_{\alpha}(G_{\alpha}) \cap X_{\beta} = \varnothing \) for every \( \beta \in A \) such that \( \beta \ne \alpha \). Therefore \( \iota_{\alpha}(G_{\alpha}) \) is closed in \( \coprod_{\alpha \in A} X_{\alpha} \), which means \( \iota_{\alpha} \) is a closed map.
+
+	Thus each injection \( \iota_{\alpha} \) is both open and closed.
+\end{proof}
+
+\begin{exercise}{A.34}
+	Show that every local homeomorphism is an open map.
+\end{exercise}
+
+\begin{proof}
+	Let \( F: X \to Y \) be a local homeomorphism and \( U \) an open subset of \( X \).
+
+	For each \( p \in U \), there exists a neighborhood \( U_{p} \ni p \) such that \( F\vert_{U_{p}}: U_{p} \stackrel{\cong}{\to} F(U_{p}) \) and \( F(U_{p}) \) is open in \( Y \). The intersection \( U \cap U_{p} \) is open in \( U \) so \( F\vert_{U_{p}}(U \cap U_{p}) \) is open in \( F(U_{p}) \), hence \( F\vert_{U_{p}}(U \cap U_{p}) \) is open in \( Y \). The set
+	\[
+		F(U) = F\left( \bigcup_{p\in U} U \cap U_{p} \right) = \bigcup_{p\in U} \underbrace{F(U \cap U_{p})}_{\text{open in } Y}
+	\]
+
+	is open in \( Y \). Thus \( F \) is an open map.
+\end{proof}
+
+\begin{exercise}{A.35}
+	Show that every bijective local homeomorphism is a homeomorphism.
+\end{exercise}
+
+\begin{proof}
+	Every local homeomorphism is an open map. Therefore every bijective local homeomorphism is bijective, continuous, and open, hence every bijective local homeomorphism is a homeomorphism.
+\end{proof}
+
+\begin{exercise}{A.36}
+	Suppose \(q\colon X \to Y\) is an open quotient map.
+	Prove that \(Y\) is Hausdorff if and only if the set
+	\(\mathcal{R} = \{(x_{1}, x_{2}) : q(x_{1}) = q(x_{2})\}\) is closed in \(X \times X\).
+\end{exercise}
+
+\begin{proof}
+	Assume \( Y \) is Hausdorff.
+
+	Let \( (x_{1}, x_{2}) \in X \times X \smallsetminus \mathcal{R} \) then \( x_{1}, x_{2} \) are two distinct points in \( X \). Since \( Y \) is Hausdorff and \( q(x_{1}) \ne q(x_{2}) \) then there exist two disjoint open sets \( V_{1}, V_{2} \subseteq Y \) such that \( q(x_{1}) \in V_{1}, q(x_{2}) \in V_{2} \). Therefore \( q^{-1}(V_{1}) \) and \( q^{-1}(V_{2}) \) are disjoint neighborhoods of \( x_{1}, x_{2} \) and \( q^{-1}(V_{1}) \times q^{-1}(V_{2}) \subseteq X \times X \smallsetminus \mathcal{R} \). Hence for each \( (x_{1}, x_{2}) \in X \times X \smallsetminus \mathcal{R} \), there is a neighborhood of \( (x_{1}, x_{2}) \) contained in \( X \times X \smallsetminus \mathcal{R} \), so \( X \times X \smallsetminus \mathcal{R} \) is open in \( X \times X \). Thus \( \mathcal{R} \) is closed in \( X \times X \).
+
+	Assume \( \mathcal{R} \) is closed in \( X \times X \).
+
+	Let \( y_{1}, y_{2} \) be two distinct points of \( Y \). There exist \( x_{1}, x_{2} \in X \) such that \( q(x_{1}) = y_{1}, q(x_{2}) = y_{2} \) then \( (x_{1}, x_{2}) \in X \times X \smallsetminus \mathcal{R} \). As \( X \times X \smallsetminus \mathcal{R} \) is open in \( X \times X \), there exists a basic open set \( U_{1} \times U_{2} \) containing \( (x_{1}, x_{2}) \) such that \( U_{1} \times U_{2} \subseteq X \times X \smallsetminus \mathcal{R} \). Therefore \( q(U_{1}), q(U_{2}) \) are disjoint neighborhoods of \( y_{1}, y_{2} \) (note that \(q\) is an open map). Thus \( Y \) is Hausdorff.
+\end{proof}
+
+\begin{exercise}{A.37}
+	Let \(X\) and \(Y\) be topological spaces, and let \(F\colon X \to Y\) be a map.
+	Prove the following:
+
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item \(F\) is closed if and only if for every \(A \subseteq X\), \(F(\overline{A}) \supseteq \overline{F(A)}\).
+		\item \(F\) is open if and only if for every \(B \subseteq Y\), \(F^{-1}(\operatorname{Int} B) \supseteq \operatorname{Int} F^{-1}(B)\).
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item Assume \( F \) is closed.
+
+		      For each \( A \subseteq X \), \( F(\overline{A}) \) is closed in \( Y \) and containing \( F(A) \). Therefore \( F(\overline{A}) \supseteq \overline{F(A)} \).
+
+		      Conversely, assume for every \(A \subseteq X\), \(F(\overline{A}) \supseteq \overline{F(A)}\).
+
+		      Let \( K \) be a closed subset of \( X \). We have \( F(K) = F(\overline{K}) \supseteq \overline{F(K)} \). Since \( F(K) \subseteq \overline{F(K)} \), we conclude that \( F(K) = \overline{F(K)} \), which means \( F(K) \) is closed in \( Y \). So \( F \) is closed.
+		\item Assume \( F \) is open.
+
+		      For each \( B \subseteq Y \), \( F(\operatorname{Int} F^{-1}(B)) \) is open in \( Y \).
+		      \[
+			      F(\operatorname{Int} F^{-1}(B)) \subseteq F(F^{-1}(B)) \subseteq B
+		      \]
+
+		      so \( F(\operatorname{Int} F^{-1}(B)) \subseteq \operatorname{Int} B \). Therefore
+		      \[
+			      \operatorname{Int} F^{-1}(B) \subseteq F^{-1}(F(\operatorname{Int} F^{-1}(B))) \subseteq F^{-1}(\operatorname{Int} B).
+		      \]
+
+		      Conversely, assume for every \(B \subseteq Y\), \(F^{-1}(\operatorname{Int} B) \supseteq \operatorname{Int} F^{-1}(B)\).
+
+		      Let \( U \) be an open subset of \( X \). We have
+		      \[
+			      \operatorname{Int} F(U) \supseteq F(F^{-1}(\operatorname{Int} F(U))) \supseteq F(\operatorname{Int} F^{-1}(F(U))) \supseteq F(U).
+		      \]
+
+		      Moreover, \( \operatorname{Int} F(U) \subseteq F(U) \) so \( \operatorname{Int} F(U) = F(U) \), which means \( F(U) \) is open in \( Y \). So \( F \) is open.
+	\end{enumerate}
+\end{proof}
+
+\section*{Connectedness and Compactness}
+
+\begin{exercise}{A.40}
+	Let \( X \) and \( Y \) be topological spaces.
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item If \( F: X \to Y \) is continuous and \( X \) is connected, then \( F(X) \) is connected.
+		\item Every {\color{red}{nonmepty}} connected subset of \( X \) is contained in a single component of \( X \).
+		\item A union of connected subspaces of \( X \) with a point in common is connected.
+		\item The components of \( X \) are disjoint nonempty closed subsets whose union is \( X \), and thus they form a partition of \( X \).
+		\item If \( S \) is a subset of \( X \) that is both open and closed, then \( S \) is a union of components of \( X \).
+		\item Every finite product of connected spaces is connected.
+		\item Every quotient space of a connected space is connected.
+	\end{enumerate}
+\end{exercise}
+
+\begin{quotation}
+	To simplify some proofs, we will make use of this result: A topological space \( X \) is connected iff every continuous map \( f: X \to 2 \) is not surjective, where \( 2 = \left\{ 0, 1 \right\} \) and is endowed the discrete topology.
+
+	(b) must come after (c) and (d).
+\end{quotation}
+
+\begin{proof}
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item For every continuous map \( f: F(X) \to 2 \), the map \( f \circ F: X \to 2 \) is not surjective, hence a constant map. Therefore \( f \) is not surjective, so \( F(X) \) is connected.
+		\item Let \( A \) be a nonempty connected subset of \( X \). According to part (d), \( A \) must intersect some component \( C \). Due to part (c), \( A \cup C \) is connected. Since \( C \) is a maximal connected subset of \( X \), we obtain that \( A \cup C = C \), which implies \( A \subseteq C \). Moreover, the components of \( X \) form a partition of \( X \) so \( A \) is contained in a single component of \( X \).
+		\item Let \( {\left( S_{\alpha} \right)}_{\alpha \in A} \) be a collection of connected subspaces of \( X \) with a common point \( x_{0} \).
+
+		      Let \( f: \bigcup_{\alpha \in A} S_{\alpha} \to 2 \) be a continuous map then \( f\vert_{S_{\alpha}}: S_{\alpha} \to 2 \) is continuous for every \( \alpha \in A \). Because \( S_{\alpha} \) is connected, it follows that \( f\vert_{S_{\alpha}} \) is not surjective, hence \( f(x) = f(x_{0}) \) for every \( x \in S_{\alpha} \). This is true for every \( \alpha \in A \) so \( f \) is not surjective. Hence \( \bigcup_{\alpha \in A} S_{\alpha} \) is connected.
+		\item Firstly, we show that every component of \( X \) is closed.
+
+		      Let \( C \) be a component of \( X \). Consider a continuous map \( f: \overline{C} \to 2 \). Since \( C \) is connected, \( f\vert_{C} \) is not surjective, so without loss of generality, suppose that \( f\vert_{C}(x) = 0 \). Let \( x_{0} \in \overline{C} \) then \( f^{-1}(f(x_{0})) \) is an open subset of \( \overline{C} \) and a neighborhood of \( x_{0} \). Since every neighborhood of any point in \( \overline{C} \) intersects \( C \), then \( f(x_{0}) = f(a) = 0 \), where \( a \in C \cap f^{-1}(f(x_{0})) \). So \( f \) is not surjective, which means \( \overline{C} \) is connected. Due to the maximality of components, \( C = \overline{C} \), so every component is closed.
+
+		      Secondly, we show that any two distinct components are disjoint.
+
+		      Let \( C_{1}, C_{2} \) be two components of \( X \). If \( C_{1} \) and \( C_{2} \) are not disjoint then \( C_{1} \cup C_{2} \) is connected, according to (b). However, the maximality of \( C_{1}, C_{2} \) implies \( C_{1} \cup C_{2} = C_{1} = C_{2} \). So any two distinct components are disjoint.
+
+		      Thirdly, we show that every point belongs to a single component.
+
+		      Let's pick a point \( x_{0} \). The union of all connected subspaces of \( X \) containing \( x_{0} \) is connected, according to (b), and is a maximal connected set. Therefore \( x_{0} \) belongs to a component of \( X \). Due to the disjointness of components of \( X \), we conclude that \( x_{0} \) belongs to a single component.
+
+		      Thus the components of \( X \) are disjoint nonempty closed subsets whose union is \( X \).
+		\item Assume \( S \) is nonempty. Let \( C \) be a component of \( X \) intersecting \( S \), then \( C \cap S \) is both open and closed in \( C \) with the subspace topology. Since \( C \) is connected and \( C \cap S \) is nonempty, it follows that \( C \cap S = C \), hence \( C \subseteq S \). Therefore \( S \) is a union of components of \( X \).
+		\item Firstly, we show that the product of two connected spaces is connected. Let \( X_{1}, X_{2} \) be connected spaces and \( (x_{1}, x_{2}), (y_{1}, y_{2}) \in X_{1} \times X_{2} \).
+
+		      If \( x_{1} = y_{1} \) then \( (x_{1}, x_{2}) \) and \( (y_{1}, y_{2}) \) are in a same connected set \( \left\{ x_{1} \right\} \times X_{2} \).
+
+		      If \( x_{1} \ne y_{1} \) and \( y_{1} = y_{2} \) then \( (x_{1}, x_{2}) \) and \( (y_{1}, y_{2}) \) are in a same connected set \( X_{1} \times \left\{ y_{2} \right\} \).
+
+		      If \( x_{1} \ne y_{1} \) and \( y_{1} \ne y_{2} \) then \( (x_{1}, x_{2}) \) and \( (x_{1}, y_{2}) \) are in a same connected set, \( (x_{1}, y_{2}) \) and \( (y_{1}, y_{2}) \) are in a same connected set. Therefore \( (x_{1}, x_{2}) \) and \( (y_{1}, y_{2}) \) are in a same connected set.
+
+		      Hence \( X_{1} \times X_{2} \) is connected. By the principle of mathematical induction, if \( X_{1}, \ldots, X_{k} \) are connected space then so is the product space \( X_{1} \times \cdots \times X_{k} \).
+		\item Every quotient map is continuous and surjective so this result follows directly from part (a).
+	\end{enumerate}
+\end{proof}
+
+\begin{exercise}{A.42}
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item Proposition A.39 holds with ``connected'' replaced by ``path-connected'' and ``component'' by ``path component'' throughout.
+		\item Every path-connected space is connected.
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item \begin{itemize}
+			      \item If \( F: X \to Y \) is continuous and \( X \) is path-connected, then \( F(X) \) is path-connected.
+
+			            Let \( p, q \in F(X) \) then there exist \( a, b \in X \) such that \( F(a) = p, F(b) = q \). As \( X \) is path-connected, there exists a path \( f: [0, 1] \to X \) such that \( f(0) = a, f(1) = b \). Hence \( F \circ f \) is continuous and \( F \circ f(0) = p, F \circ f(1) = q \). Therefore \( F \circ f: [0, 1] \to F(X) \) is a path connecting \( p \) and \( q \), so \( F(X) \) is path-connected.
+			      \item A union of path-connected subspaces of \( X \) with a point in common is path-connected.
+
+			            Let \( {(U_{\alpha})}_{\alpha \in A} \) be a family of path-connected subspaces of \( X \) and \( x_{0} \in U_{\alpha} \) for every \( \alpha \in A \). Let \( p, q \) be two points of \( \bigcup_{\alpha \in A} U_{\alpha} \).
+
+			            If there exists \( \alpha \in A \) such that \( U_{\alpha} \ni p, q \) then there is a path connecting \( p, q \) as \( U_{\alpha} \) is path-connected. Otherwise, there exist \( \alpha, \beta \in A \) such that \( p \in U_{\alpha}, q \in U_{\beta} \). Because \( U_{\alpha}, U_{\beta} \) are path-connected, there exists a path in \( U_{\alpha} \) from \( p \) to \( x_{0} \) and one in \( U_{\beta} \) from \( x_{0} \) to \( q \), hence there is a path in \( \bigcup_{\alpha \in A} U_{\alpha} \) from \( p \) to \( q \).
+
+			            Thus \( \bigcup_{\alpha \in A} U_{\alpha} \) is path-connected.
+			      \item The path components of \( X \) are disjoint nonempty subsets whose union is \( X \), and thus they form a partition of \( X \).
+
+			            Firstly, we prove that the path components of \( X \) are pairwise disjoint.
+
+			            Let \( C_{1}, C_{2} \) be path components of \( X \) such that \( C_{1} \cap C_{2} \ne \varnothing \). According to the second result in this list, \( C_{1} \cup C_{2} \) is path-connected. From the maximality of path components, we deduce that \( C_{1} \cup C_{2} = C_{1} = C_{2} \). Therefore the path components of \( X \) are pairwise disjoint.
+
+			            Secondly, we prove that each point is contained in a single path component.
+
+			            Let \( x_{0} \) be a point of \( X \) and \( C \) the union of every path-connected subset containing \( x_{0} \). According to the second result in this list, \( C \) is path-connected. Moreover, \( C \) is a maximal path-connected.
+
+			            Therefore the path components of \( X \) form a partition of \( X \).
+			      \item Every nonempty path-connected subset of \( X \) is contained in a single path component of \( X \).
+
+			            Let \( A \) be a nonempty path-connected subset of \( X \). According to the above result, \( A \) must intersect some path component \( C \) of \( X \). Moreover, \( A \cup C \) is also path-connected, so \( A \cup C = C \), as \( C \) is a maximal path-connected subset of \( X \). Hence \( A \subseteq C \).
+			      \item If \( S \) is a subset of \( X \) that is both open and closed, then \( S \) is a union of path components of \( X \).
+
+			            Let \( p \) be a point of \( S \). The point \( p \) is contained in a single path component \( C \) of \( X \). Since \( C \) is path-connected, it is also connected. Therefore \( C \subseteq S \), according to the previous exercise. Hence \( S \) is a union of path components of \( X \).
+			      \item Every finite product of path-connected spaces is path-connected.
+
+			            Let \( X_{1}, \ldots, X_{k} \) be path-connected spaces and \( p, q \in X_{1} \times \cdots \times X_{k} \). For every \( i \), there is a continuous map \( f_{i}: [0, 1] \to X_{i} \) such that \( f_{i}(0) = p_{i}, f_{i}(1) = q_{i} \).
+
+			            Define \( f: [0, 1] \to X_{1} \times \cdots \times X_{k} \) by \( f(t) = (f_{1}(t), \ldots, f_{k}(t)) \). The map \( f \) is continuous as \( \pi_{i} \circ f = f_{i} \) is continuous for each \( i \), according to the characteristic property of product topology. Since \( f(0) = p, f(1) = q \), we conclude that \( f \) is a path connecting \( p \) and \( q \). Hence \( X_{1} \times \cdots \times X_{k} \) is path-connected.
+			      \item Every quotient space of a path-connected space is path-connected.
+
+			            This follows directly from (a) as every quotient map is continuous and surjective.
+		      \end{itemize}
+		\item Let \( X \) be a path-connected space and \( x_{0} \in X \).
+
+		      For each \( y \in X \), there is a continuous map \( f_{y}: [0, 1] \to X \) such that \( f_{y}(0) = x_{0}, f_{y}(1) = y \). Since \( [0, 1] \) is connected, \( f_{y}([0, 1]) \) is also connected. Moreover, \( X = \bigcup_{y \in X} f_{y}([0, 1]) \) and \( x_{0} \in \bigcap_{y\in X} f_{y}([0, 1]) \) so \( X \) is connected.
+	\end{enumerate}
+\end{proof}
+
+\begin{exercise}{A.44}
+	Let \( X \) be a locally path-connected topological space.
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item The components of \( X \) are open in \( X \).
+		\item The path components of \( X \) are equal to its components.
+		\item \( X \) is connected if and only if it is path-connected.
+		\item Every open subset of \( X \) is locally path-connected.
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item The statement still holds for path components and we can prove these simultaneously as follows.
+
+		      Let \( C \) be a (path) component of \( X \) and \( p \in C \). As \( X \) is locally path-connected, there exists a path-connected open set \( B \) such that \( p \in B \). Moreover, \( B \) is path-connected so \( C \cup B \) is connected, since \( C \cap B \ne \varnothing \) and \( C, B \) are (path) connected. Hence \( p \in B \subseteq C \), which means \( C \) is open in \( X \).
+		\item Let \( P \) be a path component of \( X \) then \( P \) is contained in a component \( C \) of \( X \).
+
+		      Since \( X \) is locally path-connected, \( P \) is open in \( X \). Since \( X \smallsetminus P \) is the union of path components of \( X \) other than \( P \), it follows that \( X \smallsetminus P \) is open, so \( P \) is closed. Hence \( P \) is both open and closed in \( C \). As \( C \) is connected, the only nonempty open and closed subset of it is the entire \( C \), so \( P = C \).
+		\item This follows directly from (b).
+		\item Let \( \mathcal{B} \) be a basis for the topology on \( X \) consisting of path-connected open sets. Let \( U \) be an open subset of \( X \) and \( \mathcal{B}_{U} = \left\{ B \in \mathcal{B} \mid B \subseteq U \right\} \).
+
+		      For every open subset \( V \) of \( U \), \( V \) is also open in \( X \). For every \( p \in V \), there exists \( B \in \mathcal{B} \) such that \( p \in B \subseteq V \). Moreover, \( B \in \mathcal{B}_{U} \), so \( \mathcal{B}_{U} \) is a basis for the subspace topology on \( U \) and it consists of locally path-connected open sets. Hence \( U \) is locally path-connected.
+	\end{enumerate}
+\end{proof}
+
+\begin{exercise}{A.46}
+	Let \(X\) and \(Y\) be topological spaces.
+
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item If \(F: X \to Y\) is continuous and \(X\) is compact, then \(F(X)\) is compact.
+
+		\item If \(X\) is compact and \(f: X \to \mathbb{R}\) is continuous, then \(f\) is bounded and attains its maximum and minimum values on \(X\).
+
+		\item Any union of finitely many compact subspaces of \(X\) is compact.
+
+		\item If \(X\) is Hausdorff and \(K\) and \(L\) are disjoint compact subsets of \(X\), then there exist disjoint open subsets \(U, V \subseteq X\) such that \(K \subseteq U\) and \(L \subseteq V\).
+
+		\item Every closed subset of a compact space is compact.
+
+		\item Every compact subset of a Hausdorff space is closed.
+
+		\item Every compact subset of a metric space is bounded.
+
+		\item Every finite product of compact spaces is compact.
+
+		\item Every quotient of a compact space is compact.
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item Let \( {(U_{\alpha})}_{\alpha\in A} \) be an open cover of \( F(X) \), then \( {(F^{-1}(U_{\alpha}))}_{\alpha\in A} \) is an open cover of \( X \). Since \( X \) is compact, \( {(F^{-1}(U_{\alpha}))}_{\alpha\in A} \) has a finite subcover. Let such a finite subcover be \( \left\{ F^{-1}(U_{\alpha_{1}}), \ldots, F^{-1}(U_{\alpha_{n}}) \right\} \), then \( \left\{ U_{\alpha_{1}}, \ldots, U_{\alpha_{n}} \right\} \) is a finite subcover of \( F(X) \). Therefore \( F(X) \) is compact.
+		\item According to part (a), \( f(X) \) is a compact subset of \( \mathbb{R} \). Due to the Heine-Borel theorem, \( f(X) \) is closed and bounded, so \( f(X) \) has a supremum and an infimum, according to the axiom of completeness of the real numbers. Since \( f(X) \) is closed, it contains all of its limit points, including its supremum and infimum. Hence \( f \) attains its maximum and minimum values on \( X \).
+		\item Let \( C_{1}, \ldots, C_{k} \) be compact subspaces of \( X \) and \( {(U_{\alpha})}_{\alpha \in A} \) an open cover of \( \bigcup_{i=1}^{k} C_{i} \).
+
+		      For each \( i \), there exists \( \alpha(i,1), \ldots, \alpha(i, n_{i}) \) such that \( U_{\alpha(i,1)} \cup \cdots \cup U_{\alpha(i,n_{i})} \) is an open cover of \( C_{i} \).
+
+		      Hence \( {(U_{\alpha})}_{\alpha \in A} \) has a finite subcover, so \( \bigcup_{i=1}^{k} C_{i} \) is compact.
+		\item Let \( x \) be a point of \( K \). For each \( y \in L \), there exist disjoint open sets \( B_{x,y} \) and \( B_{y} \) such that \( x \in B_{x,y}, y \in B_{y} \). The family \( {(B_{y})}_{y \in L} \) is an open cover of \( L \) and it has a finite subcover \( {\left\{ B_{y_{i}} \right\}}_{i=1}^{n} \) as \( L \) is compact. Two open sets \( \bigcap_{i=1}^{n} B_{x,y_{i}} \) and \( \bigcup_{i=1}^{n} B_{y_{i}} \) are disjoint. Denote \( \bigcap_{i=1}^{n} B_{x,y_{i}} \) by \( U_{x} \) and \( \bigcup_{i=1}^{n} B_{y_{i}} \) by \( V_{x} \).
+
+		      \( {(U_{x})}_{x\in K} \) is an open cover of \( K \) so it has a finite subcover \( {\left\{ U_{x_{i}} \right\}}_{i=1}^{m} \) as \( K \) is compact. The open sets \( U = \bigcup_{i=1}^{m} U_{x_{i}} \) and \( V = \bigcap_{i=1}^{m} V_{x_{i}} \) are disjoint and \( K \subseteq U, L \subseteq V \).
+		\item Let \( X \) be a compact space and \( S \) a closed subset of \( X \).
+
+		      Let \( {(U_{\alpha})}_{\alpha\in A} \) be an open cover of \( S \), then \( {(U_{\alpha})}_{\alpha\in A} \) together with \( X \smallsetminus S \) is an open cover of \( X \). Since \( X \) is compact, this open cover has a finite subcover. This finite subcover together with \( X \smallsetminus S \) is still a finite subcover of \( X \). Let the members of the subcover be \( U_{\alpha_{1}}, \ldots, U_{\alpha_{n}}, X \smallsetminus S \) then \( \bigcup_{i=1}^{n} U_{\alpha_{i}} \) covers \( S \), which means the open cover \( {(U_{\alpha})}_{\alpha\in A} \) of \( S \) has a finite subcover. Hence \( S \) is compact.
+		\item (d) provides a quick proof for this, but I think the following is more meaningful, as it can be considered a part of the proof of (d).
+
+		      Let \( K \) be a compact subset of a Hausdorff space \( X \).
+
+		      If \( K = X \) then \( K \) is closed. Otherwise, \( X \smallsetminus K \) is nonempty. Let \( y \) be an arbitrary point of \( X \smallsetminus K \). For each \( x \in K \), there exist disjoint open sets \( U_{x}, V_{x} \) such that \( x \in U_{x}, y \in V_{x} \). The family \( {(U_{x})}_{x\in K} \) is an open cover of \( K \) so it has a finite subcover \( {\left\{ U_{x_{i}} \right\}}_{i=1}^{n} \). The open sets \( U = \bigcup_{i=1}^{n} U_{x_{i}} \) and \( V = \bigcap_{i=1}^{n} V_{x_{i}} \) are disjoint. Hence \( y \in V \subseteq X \smallsetminus K \), which means \( X \smallsetminus K \) is open. Therefore \( K \) is closed.
+		\item Let \( K \) be a compact subset of a matric space \( (M, d) \).
+
+		      If \( K \) is empty then it is bounded. Otherwise, let \( x \) be a point of \( K \). The collection \( {(B_{r}(x))}_{r \in \mathbb{R}_{> 0}} \) is an open cover of \( K \) as \( \bigcup_{r > 0} B_{r}(x) = M \). Since \( K \) is compact, the given open cover has a finite subcover \( B_{r_{1}}(x), \ldots B_{r_{n}}(x) \). Let \( s = \max\left\{ r_{1}, \ldots r_{n} \right\} \) then \( K \subseteq B_{s}(x) \), which means \( K \) is bounded.
+		\item We will prove the so called ``Tube Lemma'' first.
+
+		      \textbf{Tube Lemma.} If \( A, B \) are compact subsets of \( X, Y \) and \( N \) is an open set in \( X \times Y \) containing \( A \times B \) then there exist open sets \( U \subseteq X, V \subseteq Y \) such that \( A \times B \subseteq U \times V \subseteq N \).
+
+		      \textit{Proof.} For each \( (a, b) \in A \times B \subseteq N \), there exists a basic open set \( U_{a,b} \times V_{a, b} \subseteq N \). For every \( a \), \( {(V_{a,b})}_{b\in B} \) is an open cover of \( B \) so it has a finite subcover \( V_{a,b_{1}}, \ldots, V_{a,b_{m}} \). Denote \( V_{a} = \bigcup_{i=1}^{m} V_{a,b_{i}} \). The intersection \( U_{a} = \bigcap_{i=1}^{m} U_{a,b_{i}} \) is an open subset of \( X \) containing \( a \). The family \( {(U_{a})}_{a\in A} \) is an open cover for \( A \) so it has a finite subcover \( U_{a_{1}}, \ldots, U_{a_{n}} \). Let \( U = \bigcup_{i=1}^{n} U_{a_{i}} \) and \( V = \bigcap_{i=1}^{n} V_{a_{i}} \) then \( A \times B \subseteq U \times V \subseteq N \).
+
+		      Back to the main result. Denote by \( \pi_{X}, \pi_{Y} \) the canonical projections from \( X \times Y \) onto \( X, Y \).
+
+		      Let \( X, Y \) be compact spaces and \( {(B_{\alpha})}_{\alpha \in A} \) an open cover of \( X \times Y \). Let \( y \in Y \) then \( \bigcup_{y \in \pi_{Y}(B_{\alpha})} B_{\alpha} \) covers \( X \times \left\{ y \right\} \). Because \( X \cong X\times \left\{y\right\} \), \( X\times \left\{y\right\} \) is compact, so \( {(B_{\alpha})}_{y \in \pi_{Y}(B_{\alpha})} \) has a finite subcover \( {(B_{y,\alpha_{i}})}_{i=1}^{m(y)} \).
+
+		      According to the tube lemma, there exist open sets \( V_{y} \subseteq Y \) such that \( X \times \left\{ y \right\} \subseteq X \times V_{y} \subseteq \bigcup_{i=1}^{m(y)} B_{y,\alpha_{i}} \). The family \( {(V_{y})}_{y\in Y} \) is an open cover of \( Y \) so it has a finite subcover \( V_{y_{1}}, \ldots, V_{y_{n}} \). Therefore \( {(B_{y_{j},\alpha_{i}})}_{1 \le i \le m(y_{j}), 1 \le j \le n} \) is a finite subcover of \( {(B_{\alpha})}_{\alpha \in A} \), so \( X \times Y \) is compact.
+
+		      From this, by the principle of mathematical induction, one can deduce that the finite product of compact spaces is compact.
+		\item Since every quotient map is continuous then it follows directly from part (a) that every quotient of a compact space is compact.
+	\end{enumerate}
+\end{proof}
+
+\begin{exercise}{A.47}
+	For maps between metric spaces, show that Lipschitz continuous \( \implies \) uniformly continuous \( \implies \) continuous, and Lipschitz continuous \( \implies \) locally Lipschitz continuous \( \implies \) continuous.
+\end{exercise}
+
+\begin{proof}
+	Lipschitz continuity \( \implies \) Uniform continuity.
+
+	Let \( f: M_{1} \to M_{2} \) be a Lipschitz continuous map then there exists \( C \) such that \( d_{2}(F(x), F(y)) < C d_{1}(x, y) \) for every \( x, y \). So for every \( \varepsilon > 0 \), let \( \delta = \dfrac{\varepsilon}{\left\vert C \right\vert + 1} \) then \( d_{1}(x, y) < \delta \) implies \( d_{2}(F(x), F(y)) < C d_{1}(x, y) < \varepsilon \). Hence \( f \) is uniformly continuous.
+
+	Uniform continuity \( \implies \) Continuity.
+
+	Let \( f: M_{1} \to M_{2} \) be a uniformly continuous map then for every \( \varepsilon > 0 \), there exists \( \delta > 0 \) such that \( d_{1}(x, y) < \delta \) implies \( d_{2}(F(x), F(y)) < \varepsilon \).
+
+	For every \( x_{0} \in M_{1} \), for every \( \varepsilon > 0 \), there exists \( \delta > 0 \) such that \( F(B_{\delta}(x_{0}, d_{1})) \subseteq B_{\varepsilon}(F(x_{0}), d_{2}) \). Hence \( F \) is continuous.
+
+	Lipschitz continuity \( \implies \) Local Lipschitz continuity.
+
+	Let \( f: M_{1} \to M_{2} \) be a Lipschitz continuous map, then there exists \( C \) such that \( d_{2}(F(x), F(y)) < C d_{1}(x, y) \) for every \( x, y \). For each point \( x \in M_{1} \), \( M_{1} \) is a neighborhood of \( x \) such that \( f\vert_{M_{1}} \) is Lipschitz continuous, so \( f \) is locally Lipschitz continuous.
+
+	Local Lipschitz continuity \( \implies \) Continuity.
+
+	Let \( f: M_{1} \to M_{2} \) be a locally Lipschitz continuous map. For each \( x \in M_{1} \), there exists a neighborhood \( U_{x} \) on which \( f \) is Lipschitz continuous, hence continuous.
+
+	Let \( V \) be an open subset of \( M_{2} \) then
+	\[
+		f^{-1}(V) = \bigcup_{x \in M_{1}} f^{-1}(V) \cap U_{x} = \bigcup_{x \in M_{1}} {(f\vert_{U_{x}})}^{-1}(V)
+	\]
+
+	is open in \( M_{1} \) as \( {(f\vert_{U_{x}})}^{-1}(V) \subseteq U \subseteq X \) for every \( x \in X \).
+\end{proof}
+
+\begin{exercise}{A.49}
+	Let \( f, g: \halfopenright{0, \infty} \to \mathbb{R} \) be defined by \( f(x) = \sqrt{x} \) and \( g(x) = x^{2} \). Show that \( f \) is uniformly continuous but not locally or globally Lipschitz continuous, and \( g \) is locally Lipschitz continuous but not uniformly continuous or globally Lipschitz continuous.
+\end{exercise}
+
+\begin{proof}
+	For every \( \varepsilon > 0 \), let \( \delta = \epsilon^{2} \) then \( \left\vert x - y \right\vert < \delta \) implies \( \left\vert \sqrt{x} - \sqrt{y} \right\vert < \varepsilon \) because
+	\[
+		{\left\vert \sqrt{x} - \sqrt{y} \right\vert}^{2} \le \left\vert \sqrt{x} - \sqrt{y} \right\vert \left\vert \sqrt{x} + \sqrt{y} \right\vert = \left\vert x - y \right\vert = \varepsilon^{2}.
+	\]
+
+	Therefore \( f \) is uniformly continuous.
+
+	Assume for the sake of contrary that \( f \) is locally Lipschitz continuous then there exist a neighborhood \( U \) of \( 0 \) and a constant \( C \) such that \( \left\vert \sqrt{x} - \sqrt{y} \right\vert \le C \left\vert x - y \right\vert \) for every \( x, y \in U \), so \( C > 0 \). Therefore, it \( x \ne y \), we have \( \dfrac{1}{\sqrt{x} + \sqrt{y}} \le C \). The open set \( U \) contains an open set \( \halfopenright{0, r} \subseteq \halfopenright{0, \infty} \), so \( \dfrac{1}{\sqrt{0} + \sqrt{1/(C^{2} + r^{2})}} > C \), which is a contradiction. Hence \( f \) is not locally Lipschitz continuous, hence not globally Lipschitz continuous.
+
+	For each \( x \in \halfopenright{0, \infty} \), consider the neighborhood \( \halfopenright{0, a} \) where \( x < a \). Let \( C = 2a \) then for every \( x, y \in \halfopenright{0, a} \), one has \( \left\vert x^{2} - y^{2} \right\vert \le C \left\vert x - y \right\vert \). Hence \( g \) is locally Lipschitz continuous.
+
+	However, for every \( \delta > 0 \), let \( x = \dfrac{1}{\delta} + \dfrac{\delta}{2}, y = \dfrac{1}{\delta} \) then \( \left\vert x^{2} - y^{2} \right\vert = \dfrac{\delta}{2}\left( \dfrac{2}{\delta} + \delta \right) = 1 + \dfrac{\delta^{2}}{2} > 1 \), so \( g \) is not uniformly continuous, hence not globally Lipschitz continuous.
+\end{proof}
+
+\begin{exercise}{A.51}
+	Show that every compact metric space is complete.
+\end{exercise}
+
+\begin{proof}
+	Let \( (M, d) \) be a compact metric space and \( {(p_{i})}_{i \in \mathbb{N}} \) a Cauchy sequence in \( (M, d) \).
+
+	In a metric space, compactness is equivalent to sequential compactness. Therefore the Cauchy sequence \( {(p_{i})}_{i \in \mathbb{N}} \) has a convergent subsequence, which means \( {(p_{i})}_{i \in \mathbb{N}} \) is convergent.
+\end{proof}
+
+\begin{exercise}{A.54}
+	Suppose \(X\) and \(Y\) are topological spaces, and \(F : X \to Y\) is a continuous map.
+
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item If \(X\) is compact and \(Y\) is Hausdorff, then \(F\) is proper.
+
+		\item If \(F\) is a closed map with compact fibers, then \(F\) is proper.
+
+		\item If \(F\) is a topological embedding with closed image, then \(F\) is proper.
+
+		\item If \(Y\) is Hausdorff and \(F\) has a continuous left inverse (i.e., a continuous map \(G : Y \to X\) such that \(G \circ F = \operatorname{Id}_{X}\)), then \(F\) is proper.
+
+		\item If \(F\) is proper and \(A \subseteq X\) is a subset that is saturated with respect to \(F\), then \(F\vert_{A} : A \to F(A)\) is proper.
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item Let \( K \) be a compact subset of \( Y \) then \( K \) is closed in \( Y \) as \( Y \) is Hausdorff. Since \( F \) is continuous, \( F^{-1}(K) \) is closed in \( X \). Because \( X \) is compact and \( F^{-1}(K) \subseteq X \) is closed, \( F^{-1}(K) \) is a compact subset of \( X \). Thus \( F \) is proper.
+		\item Here we don't need the continuity of \( F \).
+
+		      Let \( K \) be a compact subset of \( Y \) and \( {(U_{\alpha})}_{\alpha \in A} \) an open cover of \( F^{-1}(K) \). The preimage \( F^{-1}(K) \) is the union of fibers \( f^{-1}(\left\{ y \right\}) \) in which \( y \in K \).
+
+		      For each \( y \in K \), there is a finite subset \( S(y) \subseteq A \) such that \( F^{-1}(\left\{ y \right\}) \subseteq \bigcup_{\alpha \in S(y)} U_{\alpha} \) because \( F^{-1}(\left\{ y \right\}) \) is compact.
+
+		      Let \( V_{y} = Y \smallsetminus F\left( X \smallsetminus \bigcup_{\alpha \in S(y)} U_{\alpha} \right) \) then \( V_{y} \) is an open subset of \( Y \) (this is where we use the closedness of \( F \)). The family \( {(V_{y})}_{y\in K} \) is an open cover of \( K \) because \( y \in V_{y} \) and \( V_{y} \) is open. So there is a finite subset \( S \subseteq Y \) such that \( \bigcup_{y \in S} V_{y} \supseteq K \).
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      F^{-1}(K) & \subseteq F^{-1}\left( \bigcup_{y \in S} V_{y} \right)                                                                          \\
+			                & = \bigcup_{y\in S} F^{-1}\left( Y \smallsetminus F\left( X \smallsetminus \bigcup_{\alpha \in S(y)} U_{\alpha} \right) \right)  \\
+			                & = \bigcup_{y \in S} X \smallsetminus F^{-1}\left( F\left( X \smallsetminus \bigcup_{\alpha \in S(y)} U_{\alpha} \right) \right) \\
+			                & \subseteq \bigcup_{y\in S} X \smallsetminus (X \smallsetminus \bigcup_{\alpha \in S(y)} U_{\alpha})                             \\
+			                & = \bigcup_{y \in S} \bigcup_{\alpha \in S(y)} U_{\alpha}.
+		      \end{align*}
+		      \endgroup
+
+		      Hence \( {(U_{\alpha})}_{\alpha \in A} \) has a finite subcover, so \( F^{-1}(K) \) is a compact subset of \( X \). Thus \( F \) is proper.
+		\item Let \( K \) be a compact subset of \( Y \). Since \( F(X) \) is closed in \( Y \), \( F(X) \cap K \) is closed in \( K \). Therefore \( F(X) \cap K \) is compact. Because \( F^{-1}(K) = F^{-1}(F(X) \cap K) \) and \( F: X \to F(X) \) is a homeomorphism, \( F^{-1}(K) \) is compact. Hence \( F \) is proper.
+		\item Let \( K \) be a compact subset of \( Y \) then \( K \) is closed in \( Y \) since \( Y \) is Hausdorff. The map \( G \) is continuous, so \( G(K) \) is a compact subset of \( X \). The preimage \( F^{-1}(K) \) is closed in \( X \) and
+		      \[
+			      F^{-1}(K) = G \circ F(F^{-1}(K)) \subseteq G(K)
+		      \]
+
+		      so \( F^{-1}(K) \) is closed in the compact set \( G(K) \). Hence \( F^{-1}(K) \) is compact. Thus \( F \) is proper.
+		\item Here we don't need the continuity of \( F \).
+
+		      Let \( K \) be a compact subset of \( F(A) \) then \( K \) is also a compact subset of \( Y \). The preimage \( F^{-1}(K) \) is a compact subset of \( X \). Moreover, \( {(F\vert_{A})}^{-1}(K) = F^{-1}(K) \cap A = F^{-1}(K) \cap F^{-1}(F(A)) = F^{-1}(K \cap F(A)) = F^{-1}(K) \), so \( {(F\vert_{A})}^{-1}(K) \) is a compact subset of \( A \). Therefore \( F \) is proper.
+	\end{enumerate}
+\end{proof}
+
+\subsection*{Locally Compact Hausdorff Spaces}
+
+\begin{exercise}{A.55}
+	For a Hausdorff space \( X \), show that the following are equivalent:
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item \( X \) is locally compact.
+		\item Each point of \( X \) has a precompact neighborhood.
+		\item \( X \) has a basis of precompact open subsets.
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	(a) \( \implies \) (b)
+
+	Let \( p \) be a point of \( X \). Since \( X \) is locally compact, there exist an open subset \( U \) and a compact subset \( K \) of \( X \) such that \( p \in U \subseteq K \). Since \( X \) is Hausdorff, \( K \) is closed, so \( \overline{U} \subseteq K \), which means \( U \) is a precompact neighborhood of \( p \).
+
+	(b) \( \implies \) (c)
+
+	Let \( U \) be an open subset of \( X \) and \( p \in U \). The point \( p \) has a precompact neighborhood \( V \).
+
+	\( \overline{U \cap V} \) is a closed subset of \( \overline{V} \) so \( U \cap V \) is a precompact open set. Hence every neighborhood of \( p \) contains a precompact open subset, which means \( X \) has a basis of precompact open subsets.
+
+	(c) \( \implies \) (a)
+
+	For each \( p \), there is a precompact open subset \( U \) containing \( p \), which means \( p \in U \subseteq \overline{U} \) where \( \overline{U} \) is compact. Hence \( X \) is locally compact.
+\end{proof}
+
+\begin{exercise}{A.56}
+	Prove that every open or closed subspace of a locally compact Hausdorff space is itself a locally compact Hausdorff space.
+\end{exercise}
+
+\begin{quotation}
+	The following lemma will simplify the proof.
+
+	\textbf{Lemma.} In a locally compact Hausdorff space, for every point \( x \) and every neighborhood \( U \) of it, there exists a precompact open set \( V \) such that \( x \in V \subseteq \overline{V} \subseteq U \).
+
+	\begin{proof}
+		\( x \) is a point of a locally compact Hausdorff space \( X \) so \( x \) has a precompact neighborhood \( B \). The set \( \overline{B} \smallsetminus U \) is a closed subset of the compact set \( \overline{B} \) so \( \overline{B} \smallsetminus U \) is compact. Two disjoint compact sets in a Hausdorff space are separated by disjoint neighborhoods so there exist disjoint open sets \( Y_{1}, Y_{2} \) such that \( \left\{ x \right\} \subseteq Y_{1} \) and \( \overline{B} \smallsetminus U \subseteq Y_{2} \).
+
+		Let \( V = Y_{1} \cap B \) then \( \overline{V} \subseteq \overline{Y_{1} \cap B} \subseteq \overline{B} \) so \( \overline{V} \) is compact. Moreover, \( \overline{V} \subseteq \overline{Y_{1}} \subseteq \overline{X \smallsetminus Y_{2}} = X \smallsetminus Y_{2} \) so \( \overline{V} \subseteq \overline{B} \cap (X \smallsetminus Y_{2}) = \overline{B} \smallsetminus Y_{2} \subseteq U \).
+
+		Hence \( V \) is a precompact neighborhood of \( x \) such that \( x \in V \subseteq \overline{V} \subseteq U \).
+	\end{proof}
+\end{quotation}
+
+\begin{proof}
+	Let \( X \) be a Hausdorff space and \( S \subseteq X \). Every subspace of a Hausdorff space is Hausdorff so \( S \) is Hausdorff. Let \( p \in S \).
+
+	If \( S \) is open in \( X \) then there is a precompact neighborhood \( U \) such that \( p \in U \subseteq \overline{U} \subseteq S \). Therefore \( S \) is locally compact.
+
+	If \( S \) is closed in \( X \), let \( U \) be a precompact neighborhood of \( p \) in \( X \). Because \( \overline{U \cap S} \subseteq \overline{U} \), \( \overline{U \cap S} \) is compact. Moreover, \( \overline{U \cap S} \subseteq \overline{S} = S \), so \( U \cap S \) is a precompact neighborhood of \( p \) in \( S \). Therefore \( S \) is locally compact.
+\end{proof}
+
+\section*{Homotopy and the Fundamental Group}
+
+\begin{exercise}{A.61}
+	Let \( X \) be a path-connected topological space. Show that \( X \) is simply connected if and only if every pair of paths in \( X \) with the same starting and ending points are path-homotopic.
+\end{exercise}
+
+\begin{proof}
+	Assume \( X \) is simply connected.
+
+	Let \( f, g \) be paths in \( X \) with the same starting and ending points then \( f \cdot \bar{g} \sim c_{p} \), where \( \bar{g} \) is the reverse path of \( g \) and \( c_{p} \) is the constant map at \( p \). Therefore
+	\[
+		[f] = [f] \cdot [c_{p}] = [f] \cdot ([\bar{g}] \cdot [g]) = ([f] \cdot [\bar{g}]) \cdot [g] = [c_{p}] \cdot [g] = [g]
+	\]
+
+	which means \( f \sim g \).
+
+	Assume every pair of paths in \( X \) with the same starting and ending points are path-homotopic.
+
+	Let \( p \) be a point in \( X \) and \( \gamma \) a loop at \( p \) then \( \gamma \) and \( c_{p} \) are path-homotopic, which means \( \pi_{1}(X, p) \) is the trivial group, so \( X \) is simply connected.
+\end{proof}
+
+\begin{exercise}{A.62}
+	If \( F_{0}, F_{1}: X \to Y \) and \( G_{0}, G_{1}: Y \to Z \) are continuous maps with \( F_{0} \simeq F_{1} \) and \( G_{0} \simeq G_{1} \), then \( G_{0} \circ F_{0} \simeq G_{1} \circ F_{1} \). Similarly, if \( f_{0}, f_{1}: I \to X  \) are path-homotopic and \( F: X \to Y \) is a continuous map, then \( F \circ f_{0} \sim F \circ f_{1} \).
+\end{exercise}
+
+\begin{proof}
+	Let \( H_{F} \) be a homotopy from \( F_{0} \) to \( F_{1} \) and \( H_{G} \) be a homotopy from \( G_{0} \) to \( G_{1} \).
+
+	Let \( H: X \times I \to Z \) be the map given by \( H(s, t) = H_{G}(H_{F}(s, t), t) \) then \( H \) is continuous.
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		H(s, 0) & = H_{G}(H_{F}(s, 0), 0) = H_{G}(F_{0}(s), 0) = G_{0}(F_{0}(s)) = (G_{0} \circ F_{0})(s), \\
+		H(s, 1) & = H_{G}(H_{F}(s, 1), 1) = H_{G}(F_{1}(s), 1) = G_{1}(F_{1}(s)) = (G_{1} \circ F_{1})(s).
+	\end{align*}
+	\endgroup
+
+	Therefore \( H \) is a homotopy from \( G_{0} \circ F_{0} \) to \( G_{1} \circ F_{1} \), which means \( G_{0} \circ F_{0} \simeq G_{1} \circ F_{1} \).
+
+	\hrulefill%
+
+	Let \( H \) be a homotopy from \( f_{0} \) to \( f_{1} \).
+
+	Let \( H^{\prime}: I \times I \to Y \) be the map given by \( H^{\prime}(s, t) = F(H(s, t)) \) then \( H^{\prime} \) is continuous.
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		H^{\prime}(s, 0) & = F(H(s, 0)) = F(f_{0}(s)),               \\
+		H^{\prime}(s, 1) & = F(H(s, 1)) = F(f_{1}(s)),               \\
+		H^{\prime}(0, t) & = F(H(0, t)) = F(f_{0}(0)) = F(f_{1}(0)), \\
+		H^{\prime}(1, t) & = F(H(1, t)) = F(f_{0}(1)) = F(f_{1}(1)).
+	\end{align*}
+	\endgroup
+
+	Therefore \( H^{\prime} \) is a path homotopy from \( F \circ f_{0} \) to \( F \circ f_{1} \), which means \( F \circ f_{0} \sim F \circ f_{1} \).
+\end{proof}
+
+\begin{exercise}{A.66}
+	Prove the two preceding propositions.
+
+	\textbf{Proposition A.64.} If \( X \) and \( Y \) are topological spaces and \( F: X \to Y \) is a continuous map, then \( F_{\ast}: \pi_{1}(X, q) \to \pi_{1}(Y, F(q)) \) is a group homomorphism, known as the \textbf{homomorphism induced by \(F\)}.
+
+	\textbf{Proposition A.65 (Properties of the Induced Homomorphisms).}
+
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item Let \( F: X \to Y \) and \( G: Y \to Z \) be continuous maps. Then for each \( q \in X \), \( {(G \circ F)}_{\ast} = G_{\ast} \circ F_{\ast}: \pi_{1}(X, q) \to \pi_{1}(Z, G(F(q))) \).
+		\item For each space \( X \) and each \( q \in X \), the homomorphism induced by the identity map \( \operatorname{Id}_{X}: X \to X \) is the identity map of \( \pi_{1}(X, q) \).
+		\item If \( F: X \to Y \) is a homeomorphism, then \( F_{\ast}: \pi_{1}(X, q) \to \pi_{1}(Y, F(q)) \) is an isomorphism. Thus, homeomorphic spaces have isomorphic fundamental groups.
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\textbf{Proposition A.64.}
+
+	Let \( f, g \) be two loops in \( X \) based at \( q \).
+
+	\( [F \circ f], [F \circ g] \) are class paths at \( F(q) \).
+	\[
+		F \circ (f \cdot g)(s) = \begin{cases}
+			F(f(2s)) = (F \circ f) \cdot (F \circ g)(s)     & (0 \le s \le 1/2) \\
+			F(g(2s - 1)) = (F \circ f) \cdot (F \circ g)(s) & (1/2 \le s \le 1)
+		\end{cases} \\
+	\]
+
+	so \( F \circ (f \cdot g) = (F \circ f) \cdot (F \circ g) \). Hence
+	\[
+		F_{\ast}([f] \cdot [g]) = F_{\ast}([f \cdot g]) = [F \circ (f \cdot g)] = [(F \circ f) \cdot (F \circ g)] = [F \circ f] \cdot [F \circ g] = F_{\ast}[f] \cdot F_{\ast}[g]
+	\]
+
+	so \( F_{\ast} \) is a group homomorphism.
+
+	\textbf{Proposition A.65.}
+
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item For every loop \( f \) in \( X \) based at \( q \)
+		      \[
+			      {(G \circ F)}_{\ast}([f]) = [G \circ F \circ f] = G_{\ast}[F \circ f] = G_{\ast}(F_{\ast}([f])) = G_{\ast} \circ F_{\ast}(f).
+		      \]
+		\item For every loop \( f \) in \( X \) based at \( q \)
+		      \[
+			      {(\operatorname{Id}_{X})}_{\ast}[f] = [\operatorname{Id}_{X} \circ f] = [f]
+		      \]
+
+		      so the induced homomorphism \( {(\operatorname{Id}_{X})}_{\ast} \) is the identity map of \( \pi_{1}(X, q) \).
+		\item Let \( G = F^{-1} \) then \( G_{\ast} \circ F_{\ast} = {(G \circ F)}_{\ast} = {(\operatorname{Id}_{X})}_{\ast} \) and \( F_{\ast} \circ G_{\ast} = {(F \circ G)}_{\ast} = {(\operatorname{Id}_{Y})}_{\ast} \). Therefore \( F_{\ast} \) is a group isomorphism.
+	\end{enumerate}
+\end{proof}
+
+\begin{exercise}{A.67}
+	A subset \( U \subseteq \mathbb{R}^{n} \) is said to be \textbf{star-shaped} if there is a point \( c \in U \) such that for each \( x \in U \), the line segment from \( c \) to \( x \) is contained in \( U \). Show that every star-shaped set is simply connected.
+\end{exercise}
+
+\begin{proof}
+	Let \( U \) be a star-shaped subset of \( \mathbb{R}^{n} \) and \( c \in U \) such that for each \( x \in U \), the line segment from \( c \) to \( x \) is contained in \( U \).
+
+	Let \( f \) be a loop in \( X \) based at \( c \) and \( g \) the constant map at \( c \). Let \( H: I \times I \to U \) such that \( H(s, t) = (1 - t)\cdot f(s) + t\cdot g(t) = (1 - t)\cdot f(s) + t\cdot c \) then \( H \) is well-defined and continuous.
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		H(s, 0) & = f(s),                                                   \\
+		H(s, 1) & = g(s) = c,                                               \\
+		H(0, t) & = (1 - t)\cdot f(0) + t\cdot c = (1 - t)c + t\cdot c = c, \\
+		H(1, t) & = (1 - t)\cdot f(1) + t\cdot c = (1 - t)c + t\cdot c = c.
+	\end{align*}
+	\endgroup
+
+	so \( H \) is a path homotopy from \( f \) to \( g \). Hence the fundamental group of \( U \) based at \( c \) is the trivial group, which means \( U \) is simply connected.
+\end{proof}
+
+\begin{exercise}{A.70}
+	Prove the two preceding propositions.
+
+	\textbf{Proposition A.68 (Fundamental Groups of Spheres).}
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item \( \pi_{1}(\mathbb{S}^{1}, (1, 0)) \) is the infinite cyclic group generated by the path class of the loop \( \omega: I \to \mathbb{S}^{1} \) given by \( \omega(s) = (\cos (2\pi s), \sin (2\pi s)) \).
+		\item If \( n > 1 \), \( \mathbb{S}^{n} \) is simply connected.
+	\end{enumerate}
+
+	\textbf{Proposition A.69 (Fundamental Groups of Product Spaces).} Suppose \( X_{1}, \ldots, X_{k} \) are topological spaces, and let \( p_{i}: X_{1} \times \cdots \times X_{k} \to X_{i} \) denote the \( i \) th projection map. For any point \( q_{i} \in X_{i}, i = 1, \ldots, k \), define a map
+	\[
+		P: \pi_{1}(X_{1} \times \cdots \times X_{k}, (q_{1}, \ldots, q_{k})) \to \pi_{1}(X_{1}, q_{1}) \times \cdots \times \pi_{1}(X_{k}, q_{k})
+	\]
+
+	by
+	\[
+		P[f] = (p_{1\ast}[f], \ldots, p_{k\ast}[f]).
+	\]
+
+	Then \( P \) is an isomorphism.
+\end{exercise}
+
+\begin{proof}
+	\textbf{Proposition A.68 (Fundamental Groups of Spheres).}
+
+	The proof requires more tools like covering maps or Seifert-Van Kampen theorem, please see Lee's Introduction to Topological Manifolds.
+
+	\textbf{Proposition A.69 (Fundamental Groups of Product Spaces).}
+
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		P([f] \cdot [g]) & = P([f\cdot g]) = (p_{1\ast}([f\cdot g]), \ldots, p_{k\ast}([f\cdot g]))          \\
+		                 & = (p_{1\ast}[f] \cdot p_{1\ast}[g], \ldots, p_{1\ast}[f]\cdot p_{k\ast}[g])       \\
+		                 & = (p_{1\ast}[f], \ldots, p_{k\ast}[f]) \cdot (p_{1\ast}[g], \ldots, p_{k\ast}[g]) \\
+		                 & = P[f] \cdot P[g].
+	\end{align*}
+	\endgroup
+
+	Therefore \( P \) is a group homomorphism.
+
+	Let \( [f_{i}] \in \pi_{1}(X_{i}, q_{i}) \) for every \( i \). Define \( f = (f_{1}, \ldots, f_{k}): I \to X_{1} \times \cdots \times X_{k} \) by \( f(t) = (f_{1}(t), \ldots, f_{k}(t)) \). We will show that \( (f_{1}, \ldots, f_{k}) \sim (g_{1}, \ldots, g_{k}) \) if \( f_{i} \sim f_{i}^{\prime} \) for every \( i \).
+
+	Let \( H_{i} \) be a path homotopy from \( f_{i} \) to \( f_{i}^{\prime} \) and \( H: I \times I \to X_{1} \times \cdots \times X_{k} \) a map such that
+	\[
+		H(s, t) = (H_{1}(s, t), \ldots, H_{k}(s, t)).
+	\]
+
+	We have
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		H(s, 0) & = (H_{1}(s, 0), \ldots, H_{k}(s, 0)) = (f_{1}(s), \ldots, f_{k}(s)),                                                  \\
+		H(s, 1) & = (H_{1}(s, 1), \ldots, H_{k}(s, 1)) = (f_{1}^{\prime}(s), \ldots, f_{k}^{\prime}(s)),                                \\
+		H(0, t) & = (H_{1}(0, t), \ldots, H_{k}(0, t)) = (f_{1}(0), \ldots, f_{k}(0)) = (f_{1}^{\prime}(0), \ldots, f_{k}^{\prime}(0)), \\
+		H(1, t) & = (H_{1}(1, t), \ldots, H_{k}(1, t)) = (f_{1}(1), \ldots, f_{k}(1)) = (f_{1}^{\prime}(1), \ldots, f_{k}^{\prime}(1)),
+	\end{align*}
+	\endgroup
+
+	so \( H \) is a path homotopy from \( (f_{1}, \ldots, f_{k}) \) to \( (f_{1}^{\prime}, \ldots, f_{k}^{\prime}) \).
+
+	If \( f_{1} \cdot g_{1}, \ldots, f_{k}\cdot g_{k} \) are well-defined then \( (f_{1}, \ldots, f_{k}) \cdot (g_{1}, \ldots, g_{k}) \) is also well-defined.
+
+	Therefore the following map is well-defined
+	\[
+		M: \pi_{1}(X_{1}, q_{1}) \times \cdots \times \pi_{1}(X_{k}, q_{k}) \to \pi_{1}(X_{1} \times \cdots \times X_{k}, q_{1} \times \cdots \times q_{k})
+	\]
+
+	where
+	\[
+		M([f_{1}], \ldots, [f_{k}]) = [(f_{1}, \ldots, f_{k})].
+	\]
+
+	We have
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		M(([f_{1}], \ldots, [f_{k}]) \cdot ([g_{1}], \ldots, [g_{k}])) & = M([f_{1}] \cdot [g_{1}], \ldots, [f_{k}] \cdot [g_{k}])       \\
+		                                                               & = M([f_{1} \cdot g_{1}], \ldots, [f_{k} \cdot g_{k}])           \\
+		                                                               & = [(f_{1}\cdot g_{1}, \ldots, f_{k} \cdot g_{k})]               \\
+		                                                               & = [(f_{1}, \ldots, f_{k}) \cdot (g_{1}, \ldots, g_{k})]         \\
+		                                                               & = [(f_{1}, \ldots, f_{k})] \cdot [(g_{1}, \ldots, g_{k})]       \\
+		                                                               & = M([f_{1}], \ldots, [f_{k}]) \cdot M([g_{1}], \ldots, [g_{k}])
+	\end{align*}
+	\endgroup
+
+	then \( M \) is a group homomorphism. Moreover
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		M \circ P[f]                        & = M(p_{1\ast}[f], \ldots, p_{k\ast}[f])                                                \\
+		                                    & = M([p_{1} \circ f], \ldots, [p_{k} \circ f])                                          \\
+		                                    & = [(p_{1} \circ f, \ldots, p_{k} \circ f)] = [f],                                      \\
+		P \circ M([f_{1}], \ldots, [f_{k}]) & = P[(f_{1}, \ldots, f_{k})]                                                            \\
+		                                    & = (p_{1\ast}[(f_{1}, \ldots, f_{k})], \ldots, p_{k\ast}[(f_{1}, \ldots, f_{k})])       \\
+		                                    & = ([p_{1} \circ (f_{1}, \ldots, f_{k})], \ldots, [p_{k} \circ (f_{1}, \ldots, f_{k})]) \\
+		                                    & = ([f_{1}], \ldots, [f_{k}]).
+	\end{align*}
+	\endgroup
+
+	This means \( P \) is an isomorphism.
+\end{proof}
+
+\section*{Covering Maps}
+
+\begin{exercise}{A.72}
+	Show that every covering map is a local homeomorphism, an open map, and a quotient map.
+\end{exercise}
+
+\begin{proof}
+	Let \( \pi: E \to X \) be a covering map.
+
+	For each \( a \in E \), \( \pi(a) \) has a neighborhood \( U \) such that each component of \( \pi^{-1}(U) \) is mapped homeomorphically onto \( U \) by \( \pi \). Let \( C \) be a component of \( \pi^{-1}(U) \) containing \( a \) then \( C \) is open as \( E \) is locally path-connected. According to the definition of a covering map, \( \pi\vert_{C}: C \to U \) is a homeomorphism, so \( \pi \) is a local homeomorphism.
+
+	According to Exercise A.34, every local homeomorphism is also an open map, so \( \pi \) is an open map.
+
+	\( \pi \) is continuous, surjective, and open so \( \pi \) is a quotient map.
+\end{proof}
+
+\begin{exercise}{A.73}
+	Show that an injective covering map is a homeomorphism.
+\end{exercise}
+
+\begin{proof}
+	An injective covering map is bijective, continuous, and open, hence it is a homeomorphism.
+\end{proof}
+
+\begin{exercise}{A.74}
+	Show that all fibers of a covering map have the same cardinality, called the \textbf{number of sheets of the covering}.
+\end{exercise}
+
+\begin{proof}
+	The relation \( x \sim x^{\prime} \) defined by \( \pi^{-1}(x), \pi^{-1}(x^{\prime}) \) having the same cardinality is an equivalence relation.
+
+	Let \( V \) be an equivalence class of \( (X, \sim) \) and \( x \in V \). By the definition of a covering map, there is a neighborhood \( U \) of \( x \) evenly covered by \( \pi \). Each component of \( \pi^{-1}(U) \) is mapped homeomorphically onto \( U \) by \( \pi \), this means the fibers of all points in \( U \) have the same cardinality as the number of components of \( \pi^{-1}(U) \). Therefore \( x \subseteq U \subseteq V \), this means \( V \) is open in \( X \). Since the equivalence classes of \( (X, \sim) \) form a partition of \( X \) and \( X \) is connected, it follows that there is exactly one equivalence class. Therefore all fibers of a covering map have the same cardinality.
+\end{proof}
+
+\begin{exercise}{A.75}
+	Show that a covering map is a proper map if and only if it is finite-sheeted.
+\end{exercise}
+
+\begin{proof}
+	Let \( \pi: E \to X \) be a covering map.
+
+	Assume \( \pi \) is finite-sheeted.
+
+	Let \( A \subseteq E \) be a closed set and \( x \notin \pi(A) \). As \( \pi^{-1}(x) \) is finite, let \( \pi^{-1}(x) = \left\{ e_{1}, \ldots, e_{n} \right\} \) then \( e_{i} \notin A \) for every \( i = 1, \ldots, n \). Since \( A \) is closed, there is a neighborhood \( U_{i} \) of \( e_{i} \) disjoint from \( A \) for each \( i = 1, \ldots, n \) such that \( U_{i} \) is mapped homeomorphically onto \( \pi(U_{i}) \). Therefore \( \pi(U_{i}) \) is a neighborhood of \( x \) for each \( i = 1, \ldots, n \) as \( \pi \) is an open map. Let \( O = \bigcap_{i=1}^{n} \pi(U_{i}) \) then \( O \) is a neighborhood of \( x \).
+
+	\( V_{i} = \pi^{-1}(O) \cap U_{i} \) is mapped homeomorphically onto \( O \), and \( V_{1}, \ldots, V_{n} \) form a partition of \( \pi^{-1}(O) \).
+
+	\( V_{i}  \) is disjoint from \( A \) for each \( i = 1, \ldots, n \). Therefore
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\varnothing & = \bigcup_{i=1}^{n} V_{i} \cap A                  \\
+		            & = \bigcup_{i=1}^{n} \pi^{-1}(O) \cap A \cap V_{i} \\
+		            & = \pi^{-1}(O) \cap A \cap \bigcup_{i=1}^{n} V_{i} \\
+		            & = \pi^{-1}(O) \cap A \cap \pi^{-1}(O)             \\
+		            & = \pi^{-1}(O) \cap A
+	\end{align*}
+	\endgroup
+
+	which means \( O \cap \pi(A) = \pi(\pi^{-1}(O) \cap A) = \varnothing \). So \( O \) is a neighborhood of \( x \) which is disjoint from \( \pi(A) \). Hence \( \pi(A) \) is closed and \( \pi \) is a closed map.
+
+	\( \pi \) is closed and has compact fibers (because each fiber of \(\pi\) is finite) so \( \pi \) is a proper map.
+
+	\hrulefill%
+
+	Assume \( \pi \) is a proper map.
+
+	For each \( p \in X \), the fiber \( \pi^{-1}(p) \) is compact. Let \( U_{p} \) be a neighborhood of \( p \) evenly covered by \( \pi \). Then each \( a \in \pi^{-1}(p) \) is contained in a component of \( \pi^{-1}(U_{p}) \), which is mapped homeomorphically onto \( U_{p} \) by \( \pi \). Moreover, each component of \( \pi^{-1}(U_{p}) \) is open as \( E, \pi^{-1}(U_{p}) \) are locally path-connected. This implies that the subspace topology on \( \pi^{-1}(p) \) is discrete, hence \( \pi^{-1}(p) \) is finite. Thus \( \pi \) is finite-sheeted.
+\end{proof}
+
+\begin{exercise}{A.76}
+	Show that every finite product of covering maps is a covering map.
+\end{exercise}
+
+\begin{proof}
+	Let \( f_{i}: E_{i} \to X_{i} \) be covering maps for every \( i = 1, \ldots, k \). The product map \( f_{1} \times \cdots \times f_{k} \) is continuous and surjective.
+
+	\( E_{1} \times \cdots \times E_{k}, X_{1} \times \cdots \times X_{k} \) are both connected and locally path-connected.
+
+	Let \( p = (p_{1}, \ldots, p_{k}) \in X_{1} \times \cdots \times X_{k} \) then for each \( i = 1, \ldots, k \), there is a neighborhood \( U_{i} \) of \( v_{i} \) which is evenly covered by \( f_{i} \). Therefore \( U_{1} \times \cdots \times U_{k} \) is a neighborhood of \( p \) which is evenly covered by \( f_{1} \times \cdots \times f_{k} \).
+
+	Thus \( f_{1} \times \cdots \times f_{k} \) is a covering map.
+\end{proof}
+
