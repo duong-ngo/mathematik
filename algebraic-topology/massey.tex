@@ -101,6 +101,86 @@
 
 \tableofcontents
 
+\chapter{Two-Dimensional Manifolds}
+
+\chapter{The Fundamental Group}
+
+\chapter{Free Groups and Free Products of Groups}
+
+\chapter{Seifert and Van Kampen Theorem on the Fundamental Group of the Union of Two Spaces. Applications}
+
+\chapter{Covering Spaces}
+
+\chapter{The Fundamental Group and Covering Spaces of a Graph. Applications to Group Theory}
+
+\chapter{The Fundamental Group of Higher Dimensional Spaces}
+
+\chapter{Epilogue}
+
+\appendix
+
+\chapter{The Quotient Space or Identification Space Topology}
+
+\begin{exercise}{5.1}
+	Let \( X \) and \( Y \) be topological spaces, and let \( f: X \to Y, g: Y \to X \) be continuous maps such that \( fg \) is the identity map of \( Y \) onto itself. Prove the following statements:
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item \( f \) is onto and \( g \) is one-to-one.
+		\item \( Y \) has the quotient topology determined by \( f \).
+		\item \( g \) maps \( Y \) homeomorphically onto a subspace of \( X \) (i.e., \(Y\) has the subspace topology determined by \(g\)).
+		\item If \( X \) is a Hausdorff space, then so is \( Y \).
+	\end{enumerate}
+\end{exercise}
+
+\begin{quotation}
+	The result in (d) means: If a continuous map \( f: X \to Y \) has a right continuous inverse and \( X \) is Hausdorff then \( Y \) is Hausdorff.
+\end{quotation}
+
+\begin{proof}
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item Let \( y \in Y \) and \( x = g(y) \) then \( f(x) = fg(y) = y \), which implies \( f \) is onto. If \( y_{1} \ne y_{2} \) then \( fg(y_{1}) \ne fg(y_{2}) \), which means \( g(y_{1}) \ne g(y_{2}) \), so \( g \) is one-to-one.
+		\item If \( U \subseteq Y \) is open then \( f^{-1}(U) \) is open in \( X \) for \( f \) is continuous.
+
+		      Conversely, if \( f^{-1}(U) \) is open in \( X \) then \( U = {(fg)}^{-1}(U) = g^{-1}(f^{-1}(U)) \) is open in \( Y \) as \( g \) is continuous.
+
+		      Hence \( Y \) has the quotient topology determined by \( f \).
+		\item Let \( S = g(Y) \) then \( S \subseteq X \).
+
+		      If \( U \subseteq S \) is open then \( g^{-1}(U) \) is open in \( Y \) for \( g \) is continuous.
+
+		      Conversely, if \( V \subseteq Y \) is open then \( f^{-1}(V) \) is open in \( X \). Therefore \( g(V) = f^{-1}(V) \cap S \), which means \( g(V) \) is open in \( S \).
+
+		      Hence \( Y \) has the subspace topology determined by \( g \).
+		\item Let \( y_{1}, y_{2} \) be two distinct points of \( Y \) then \( g(y_{1}) \ne g(y_{2}) \) as \( g \) is one-to-one. Since \( X \) is Hausdorff, there are disjoint open subsets \( U_{1}, U_{2} \subseteq X \) such that \( g(y_{1}) \subseteq U_{1}, g(y_{2}) \subseteq U_{2} \). Moreover, \( g^{-1}(U_{1}), g^{-1}(U_{2}) \) are neighborhoods of \( y_{1}, y_{2} \) and
+		      \[
+			      g^{-1}(U_{1}) \cap g^{-1}(U_{2}) = g^{-1}(U_{1} \cap U_{2}) = \varnothing.
+		      \]
+
+		      Hence \( Y \) is Hausdorff.
+	\end{enumerate}
+\end{proof}
+
+\chapter{Permutation Groups or Transformation Groups}
+
+\begin{exercise}{1.1}
+	Assume that \( E \) is a left \( G \)-space. For any \( x \in E \) and \( g \in G \), define \( x \cdot g = (g^{-1}) \cdot x \).
+
+	With this definition, prove that \( E \) is a right \( G \)-space.
+\end{exercise}
+
+\begin{proof}
+	\( x \cdot 1 = {(1^{-1})} \cdot x = 1 \cdot x = x \) for every \( x \in E \).
+
+	For every \( x \in E \) and \( g_{1}, g_{2} \in G \)
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		x \cdot (g_{1}g_{2}) & = {(g_{1}g_{2})}^{-1} \cdot x = (g_{2}^{-1}g_{1}^{-1}) \cdot x = g_{2}^{-1} \cdot (g_{1}^{-1} \cdot x) \\
+		                     & = (g_{1}^{-1} \cdot x) \cdot g_{2} = (x \cdot g_{1}) \cdot g_{2}.
+	\end{align*}
+	\endgroup
+
+    Hence \( E \) is a right \( G \)-space.
+\end{proof}
 
 
 \end{document}
