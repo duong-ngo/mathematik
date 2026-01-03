@@ -835,7 +835,7 @@
 	Let \( X \) and \( Y \) be topological spaces.
 	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
 		\item If \( F: X \to Y \) is continuous and \( X \) is connected, then \( F(X) \) is connected.
-		\item Every {\color{red}{nonmepty}} connected subset of \( X \) is contained in a single component of \( X \).
+		\item Every {\color{red}{nonempty}} connected subset of \( X \) is contained in a single component of \( X \).
 		\item A union of connected subspaces of \( X \) with a point in common is connected.
 		\item The components of \( X \) are disjoint nonempty closed subsets whose union is \( X \), and thus they form a partition of \( X \).
 		\item If \( S \) is a subset of \( X \) that is both open and closed, then \( S \) is a union of components of \( X \).
@@ -1104,7 +1104,7 @@
 \begin{proof}
 	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
 		\item Let \( K \) be a compact subset of \( Y \) then \( K \) is closed in \( Y \) as \( Y \) is Hausdorff. Since \( F \) is continuous, \( F^{-1}(K) \) is closed in \( X \). Because \( X \) is compact and \( F^{-1}(K) \subseteq X \) is closed, \( F^{-1}(K) \) is a compact subset of \( X \). Thus \( F \) is proper.
-		\item Here we don't need the continuity of \( F \).
+		\item Here we don't need the continuity of \( F \). The idea was given by Henno Brandsma.
 
 		      Let \( K \) be a compact subset of \( Y \) and \( {(U_{\alpha})}_{\alpha \in A} \) an open cover of \( F^{-1}(K) \). The preimage \( F^{-1}(K) \) is the union of fibers \( f^{-1}(\left\{ y \right\}) \) in which \( y \in K \).
 
@@ -1285,7 +1285,7 @@
 	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
 		\item For every loop \( f \) in \( X \) based at \( q \)
 		      \[
-			      {(G \circ F)}_{\ast}([f]) = [G \circ F \circ f] = G_{\ast}[F \circ f] = G_{\ast}(F_{\ast}([f])) = G_{\ast} \circ F_{\ast}(f).
+			      {(G \circ F)}_{\ast}([f]) = [G \circ F \circ f] = G_{\ast}[F \circ f] = G_{\ast}(F_{\ast}([f])) = G_{\ast} \circ F_{\ast}([f]).
 		      \]
 		\item For every loop \( f \) in \( X \) based at \( q \)
 		      \[
@@ -1343,7 +1343,7 @@
 \begin{proof}
 	\textbf{Proposition A.68 (Fundamental Groups of Spheres).}
 
-	The proof requires more tools like covering maps or Seifert-Van Kampen theorem, please see Lee's Introduction to Topological Manifolds.
+	The proof requires more tools like covering maps and its lift properties, please see Lee's Introduction to Topological Manifolds.
 
 	\textbf{Proposition A.69 (Fundamental Groups of Product Spaces).}
 
