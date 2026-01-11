@@ -63,7 +63,7 @@ For each \( \alpha \in \mathscr{A} \), let \( p_{\alpha}: X_{\alpha} \to Y_{\alp
 	\( p \) is a continuous, open surjection so \( p \) is an identification.
 \end{proof}
 
-\begin{problem}{VI.1.3}
+\begin{problem}{VI.1.3}\label{problem:VI.1.3}
 Let \( X \) be a space and \( A \subset X \) a subspace. Assume that there exists a continuous \( r: X \to A \) such that \( r\vert_{A} = 1_{A} \) (such a map is called a \textit{retraction} of \(X\) onto \(A\)). Show that \( r \) is an identification.
 \end{problem}
 
@@ -495,18 +495,44 @@ If \( A \subset X \) is closed, prove that \( TA \) is homeomorphic to a closed 
 \end{problem}
 
 \begin{proof}
-	Denote \( q: X \times I \to TX \) and \( p: A \times I \to TA \).
+	Denote \( q: X \times I \to TX \) the identification map that defines \( TX \) and \( p: A \times I \to TA \) the identification map that defines \( TA \).
 
-	We will show that \( q(A \times I) \) is closed in \( TX \).
+	Consider the set \( q(A \times I) \).
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		q^{-1}(q(A \times I)) & = q^{-1}(q(A \times \halfopenright{0, 1} \cup A \times 1))    \\
+		                      & = q^{-1}(q(A \times \halfopenright{0, 1}) \cup q(A \times 1)) \\
+		                      & = A \times \halfopenright{0, 1} \cup X \times 1               \\
+		                      & = A \times I \cup X \times 1
+	\end{align*}
+	\endgroup
+
+	is closed in \( X \times I \). Therefore \( q(A \times I) \) is closed in \( TX \).
+
+	Let \( f: A \to X \) be the inclusion map then \( \bar{f}: A \times I \to X \times I \) is also an inclusion map. Pass to the quotient, we get a continuous injection \( Tf: TA \to TX \).
+
+	Let \( C \subseteq TA \) be a closed subset then \( p^{-1}(C) \) is closed in \( A \times I \), hence \( p^{-1}(C) \) is closed in \( X \times I \).
+
+	Note that \( p^{-1}(C) \subseteq_{\text{closed}} A \times I \subseteq_{\text{closed}} X \times I \) and \( q^{-1}(Tf(C)) = q^{-1}(q(p^{-1}(C))) \).
+
+	If \( C \) doesn't contain any point of the form \( \left\langle x, 1 \right\rangle \) then
 	\[
-		q^{-1}(q(A \times I)) = (A \times I) \cup (X \times \left\{ 1 \right\})
+		q^{-1}(Tf(C)) = p^{-1}(C)
 	\]
 
-	and \( A \times I, X \times \left\{ 1 \right\} \) are closed in \( X \times I \) so \( q(A \times I) \) is closed in \( TX \).
+	which means \( Tf(C) \) is closed in \( TX \).
 
-	Let \( p(a, t) \) be a point in \( TA \) then \( q(p^{-1}(p(a, t))) = \left\{ q(a, t) \right\} \), hence we can define a map \( f: TA \to q(A \times I) \) by \( f(p(a, t)) = q(a, t) \). This map \( f \) is bijective and \( f \circ p = q, p = f^{-1} \circ q \). As \( f^{-1} \circ q \) is continuous, we deduce that \( f^{-1} \) is continuous (Theorem 3.1). Besides, \( q \) is constant on each fiber of \( p \) so \( f \) is continuous (Theorem 3.2 on Transgression). Therefore \( f \) is a homeomorphism.
+	If \( C \) contains some point of the form \( \left\langle x, 1 \right\rangle \) then
+	\[
+		q^{-1}(Tf(C)) = p^{-1}(C) \cup X \times 1
+	\]
 
-	Thus \( TA \) is homeomorphic to \( q(A\times I) \), which is a closed subspace of \( TX \).
+	this implies \( Tf(C) \) is closed in \( TX \).
+
+	Moreover, \( Tf(C) \subseteq TA \) so \( Tf(C) \) is also closed in \( TA \).
+
+	Hence \( Tf: TA \to TX \) is a closed embedding.
 \end{proof}
 
 \begin{problem}{VI.5.2}
@@ -535,6 +561,45 @@ Let \( i: \operatorname{Int}(I) \to I \) be the inclusion map. Show that the map
 \end{proof}
 
 \section{Attaching of Spaces}
+
+\begin{example}{3}
+	Attaching \( X \times I \times Y \) to the free union \( X + Y \) by \( (x, 0, y) \mapsto x, (x, 1, y) \mapsto y \) gives a space called the join \( X \ast Y \) of \( X \) and \( Y \). Prove that \( X \ast y_{0} \cong TX \) and \( X \ast S^{0} \cong SX \).
+\end{example}
+
+\begin{proof}
+	\( TX = (X \times I)/(X \times \left\{ 1 \right\}) \) and let \( T: X \to TX \) be the identification map.
+
+	Let \( J: X \times I \times y_{0} \to X \ast y_{0} \) be the identification map.
+	\[\begin{tikzcd}
+			{X\times I} && TX \\
+			\\
+			{X \times I \times \left\{ y_{0} \right\} } && {X \ast \left\{ y_{0} \right\}}
+			\arrow["T", from=1-1, to=1-3]
+			\arrow["f"', from=1-1, to=3-1]
+			\arrow["{J \circ f}"', from=1-1, to=3-3]
+			\arrow["J"', from=3-1, to=3-3]
+		\end{tikzcd}\]
+
+	\( f: X \times I \to X \times I \times y_{0} \) given by \( f(x, t) = (x, t, y_{0}) \) is a homeomorphism, so \( J \circ f \) is an identification map.
+	\[
+		T(x, t) = T(x^{\prime}, t^{\prime})\iff \left\lbrack\begin{array}{ll} x = x^{\prime}, t = t^{\prime} \ne 1 \\
+			t = t^{\prime} = 1\end{array}\right. \iff J \circ f(x, t) = J \circ f(x^{\prime}, t^{\prime})
+	\]
+
+	so \( TX \cong X \ast y_{0} \).
+
+	\bigskip
+
+	Let \( S^{0} = \left\{ -1; 1 \right\} \) (the 1-sphere) then
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		X \ast S^{0} & \cong (X \ast \left\{1\right\}) \cup_{f} (X \ast \left\{-1\right\}) \cong SX
+	\end{align*}
+	\endgroup
+
+	where \( f: X \times \left\{0\right\} \to X \times \left\{0\right\} \) is the identity map.
+\end{proof}
 
 \begin{proposition}{6.2}
 	Let \( p: X + Y \to X \cup_{f} Y \) be the projection, and let \( C \subset X + Y \) be such that \( C \cap X \) is closed in \( X \). Then \( p(C) \) is closed in \( X \cup_{f} Y \) if and only if \( (C \cap Y) \cup f(C \cap A) \) is closed in \( Y \).
@@ -624,18 +689,318 @@ Let \( i: \operatorname{Int}(I) \to I \) be the inclusion map. Show that the map
 Let \( A \subset X \) and \( B \subset Y \) be closed. Show that \( A \ast B \) can be identified with a closed subspace of \( X \ast Y \) (it is a convention that \( \varnothing \ast Y = Y, X \ast \varnothing = X \)).
 \end{problem}
 
+\begin{proof}
+	The join \( X \ast Y \) is obtained from attaching \( X \times I \times Y \) to \( X + Y \) by the continuous map \( f: X \times \left\{0, 1\right\} \times Y \to X + Y \) given by \( f(x, 0, y) = x, f(x, 1, y) = y \).
+
+	Let \( p: X \times I \times Y + (X + Y) \to X \ast Y \) and \( q: A \times I \times B + (A + B) \to A \ast B \) be the identification maps.
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		p^{-1}(p(A \times I \times B)) & = p^{-1}(p(A \times \openinterval{0,1} \times B) \cup p(A \times \left\{0\right\} \times B) \cup p(A \times \left\{1\right\} \times B)) \\
+		                               & = A \times \openinterval{0, 1} \cup A \times \left\{0\right\} \times Y \cup X \times \left\{1\right\} \times B                          \\
+		                               & = A \times I \times B \cup A \times \left\{0\right\} \times Y \cup X \times \left\{1\right\} \times B
+	\end{align*}
+	\endgroup
+
+	is closed in \( X \times I \times Y + (X + Y) \) so \( p(A \times I \times B) \) is closed in \( X \ast Y \).
+
+	The inclusion maps \( \iota_{A}: A \to X \) and \( \iota_{B}: B \to Y \) induce the continuous map \( f: A \ast B \to X \ast Y \). The map \( f \) is also injective.
+
+	Let \( C \subseteq A \ast B \) be a closed subset then \( q^{-1}(C) \) is closed in \( A \times I \times B + (A + B) \). Moreover \( A \times I \times B + (A + B) \) is closed in \( X \times I \times Y + (X + Y) \) so \( q^{-1}(C) \) is closed in \( X \times I \times Y + (X + Y) \), and \( q^{-1}(C) \cap X \times I \times Y \) is closed in \( X \times I \times Y \) so \( p(q^{-1}(C)) \) is closed in \( X \ast Y \), according to Theorem VI.6.2.
+
+	On the other hand, \( f(C) = p(q^{-1}(C)) \) so \( f \) is a closed map. Therefore \( f \) is an embedding.
+
+	Thus \( A \ast B \) is homeomorphic to a closed subset of \( X \ast Y \).
+\end{proof}
+
 \begin{problem}{VI.6.2}
 Prove: \( X \ast Y \cong Y \ast X \).
 \end{problem}
+
+\begin{proof}
+	\( X \ast Y \) is a quotient space of \( X \times I \times Y + (X + Y) \); \( Y \ast X \) is a quotient space of \( Y \times I \times X + (X + Y) \).
+
+	The map \( f: X \times I \times Y + (X + Y) \to Y \times I \times X + (X + Y) \) defined by
+	\[
+		\begin{cases}
+			f(x, t, y) = (x, t, y) & (x, t, y) \in X \times I \times Y, \\
+			f(x) = x               & x \in X,                           \\
+			f(y) = y               & y \in Y,
+		\end{cases}
+	\]
+
+	is a homeomorphism. Two homeomorphisms \( f, f^{-1} \) preserve relations, so \( X \ast Y \cong Y \ast X \).
+
+	\bigskip
+\end{proof}
+
+%
 
 \begin{problem}{VI.6.3}
 Use 6.4 to prove that \( TX \) can be considered a closed subspace of \( SX \).
 \end{problem}
 
+\begin{proof}
+	Remind the definitions of \( SX \) and \( TX \)
+	\[
+		SX = (X \times \left\lbrack -1, 1 \right\rbrack) \cup_{f} \left\{ y_{0}, y_{1} \right\}
+	\]
+
+	where \( f: X \times \left\{ -1; 1 \right\} \to \left\{ y_{0}, y_{1} \right\} \), \( f(x, -1) = y_{0}, f(x, 1) = y_{1} \).
+
+	\[
+		TX = (X \times \left\lbrack 0, 1 \right\rbrack) \cup_{f_{1}} \left\{ y_{1} \right\}
+	\]
+
+	where \( f_{1} = f\vert_{X \times \left\{ 1 \right\}} \) and \( f_{1}: X \times \left\{ 1 \right\} \to \left\{ y_{1} \right\} \).
+
+	According to Theorem VI.6.4, \( TX \) is homeomorphic to a closed subspace of \( SX \).
+\end{proof}
+
 \begin{problem}{VI.6.4}
 Attach \( TX \) to \( TX \) by \( f\left\langle x, 0\right\rangle = \left\langle x, 0\right\rangle \). Show that \( TX \cup_{f} TX \cong SX \).
 \end{problem}
 
+\begin{quotation}
+	One can show that \( U \subseteq X \times [-1, 1] \) is closed if and only if \( U \cap X \times [-1, 0] \) is closed in \( X \times [-1, 0] \) and \( U \cap X \times [0, 1] \) is closed in \( X \times [0, 1] \). From this, one can deduce that \( X \times \left\lbrack -1, 1 \right\rbrack \cong X \times \left\lbrack -1, 0 \right\rbrack \cup_{f} X \times \left\lbrack 0, 1 \right\rbrack \). In general, any topological space is coherent with any locally finite closed cover (particularly, any finite closed cover).
+\end{quotation}
+
+\begin{proof}
+	To avoid ambiguity, define
+	\[
+		\begin{cases}
+			TX_{+} = (X \times \left\lbrack 0, 1 \right\rbrack)/(X \times \left\{1\right\}) \\
+			TX_{-} = (X \times \left\lbrack -1, 0 \right\rbrack)/(X \times \left\{-1\right\})
+		\end{cases}
+	\]
+
+	then \( TX, TX_{+}, TX_{-} \) are homeomorphic.
+
+	\( TX_{-} \cup_{f} TX_{+} \) is a quotient space of \( TX_{-} + TX_{+} \).
+
+	\( TX_{-} + TX_{+} \) is a quotient space of \( X \times \left\lbrack -1, 0 \right\rbrack + X \times \left\lbrack 0, 1 \right\rbrack \).
+
+	\( SX \) is a quotient space of \( X \times \left\lbrack -1, 1 \right\rbrack \).
+
+	\( X \times \left\lbrack -1, 1 \right\rbrack \cong X \times \left\lbrack -1, 0 \right\rbrack \cup_{f} X \times \left\lbrack 0, 1 \right\rbrack \) is a quotient space of \( X \times \left\lbrack -1, 0 \right\rbrack + X \times \left\lbrack 0, 1 \right\rbrack \).
+
+	Moreover, two identification maps \( X \times \left\lbrack -1, 0 \right\rbrack + X \times \left\lbrack 0, 1 \right\rbrack \to TX_{-} \cup_{f} TX_{+} \) and \( X \times \left\lbrack -1, 0 \right\rbrack + X \times \left\lbrack 0, 1 \right\rbrack \to SX \) have the same identifications so \( TX_{-} \cup_{f} TX_{+} \cong SX \).
+\end{proof}
+
+\begin{problem}{VI.6.5}
+Let \(X\) be attached to \(Y\) by \(f: A \to Y\). Let \( V \subset Y \) be open, and let \( U \subset X \) be open, such that \( f^{-1}(V) = U \cap A \). Prove: \( p(V \cup U) \) is open in \( X \cup_{f} Y \).
+\end{problem}
+
+\begin{quotation}
+	\( p: X + Y \to X \cup_{f} Y \) is the identification map that induces the attaching space.
+\end{quotation}
+
+\begin{proof}
+	In Proposition 6.2, we showed that
+	\[
+		p^{-1}p(C) = C \cup f(C \cap A) \cup f^{-1}[f(C \cap A)] \cup f^{-1}(C \cap Y)
+	\]
+
+	so
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		p^{-1}(p(U \cup V)) & = (U \cup V) \cup f(U \cap A) \cup f^{-1}[f(U \cap A)] \cup f^{-1}(V) \\
+		                    & = U \cup V \cup f(U \cap A) \cup f^{-1}[f(U \cap A)] \cup (U \cap A)  \\
+		                    & = U \cup V \cup f(U \cap A) \cup f^{-1}[f(U \cap A)].
+	\end{align*}
+	\endgroup
+
+	On the other hand
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		f(U \cap A)         & = f(f^{-1}(V) \cap A) = V \cap f(A) \subset V, \\
+		f^{-1}[f(U \cap A)] & \subseteq f^{-1}(V) = U \cap A \subset U.
+	\end{align*}
+	\endgroup
+
+	Therefore \( p^{-1}p(U \cup V) = U \cup V \cup f(U \cap A) \cup f^{-1}[f(U \cap A)] = U \cup V \), which means \( p^{-1}p(U \cup V) \) is open. Because \( p \) is an identifcaton map, \( p(U \cup V) \) is open in \( X \cup_{f} Y \).
+\end{proof}
+
+\begin{problem}{VI.6.6}
+Let \( F \subset X \cup_{f} Y \) be a given set. Assume that \( V \subset Y, U \subset X \) are open and satisfy: (a) \( Y \cap p^{-1}(F) \subset V \); (b) \( X \cap p^{-1}[F \cup p(V)] \subset U \). Show that \( p[(U - A) \cup V] \) is open in \( X \cup_{f} Y \) and contains \( F \).
+\end{problem}
+
+\begin{quotation}
+	I couldn't prove that \( p[(U - A) \cup V] \) is open in \( X \cup_{f} Y \).
+\end{quotation}
+
+\begin{proof}
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		p(Y) \cap F     & = p(Y \cap p^{-1}(F)) \subset p(V),                                                          \\
+		p(X - A) \cap F & \subset p(X - A) \cap (F \cup p(V)) = p[(X - A) \cap p^{-1}(F \cup p(V))] \subseteq p(U - A)
+	\end{align*}
+	\endgroup
+
+	so \( F = (p(Y) \cap F) \cup (p(X - A) \cap F) \subset p(V) \cup p(U - A) = p((U - A) \cup V) \).
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		p^{-1}p[(U - A) \cup V] \cap Y & = (((U - A) \cup V) \cap Y) \cup f[((U - A) \cup V) \cap A] = V,     \\
+		p^{-1}p[(U - A) \cup V] \cap X & = (((U - A) \cup V) \cap X) \cup f^{-1}(V) = (U - A) \cup f^{-1}(V).
+	\end{align*}
+	\endgroup
+
+	% TODO
+\end{proof}
+
 \section{The Relation \(K(f)\) of Continuous Maps}
 
-\section{Weak Topologies}
+\begin{problem}{VI.7.1}
+Show that \( I^{n} \) is a quotient space of the Cantor set.
+\end{problem}
+
+\begin{quotation}
+	The following proof makes use of the closed map lemma, which uses compactness, which is not yet introduced.
+\end{quotation}
+
+\begin{proof}
+	Let \( C \) be the Cantor set.
+
+	According to Proposition IV.4.3, there exists a continuous surjection \( p: C \to I^{n} \).
+
+	Because \( C \) is compact and \( I^{n} \) and Hausdorff so \( p \) is closed, according to the closed map lemma. Therefore \( p \) is an identification map, which means \( I^{n} \) is a quotient space of the Cantor set.
+\end{proof}
+
+\begin{problem}{VI.7.2}
+If \( Y \) is a quotient space \( X \), and \( Z \) is a quotient space of \( Y \), prove that \( Z \) is homeomorphic to a quotient space of \( X \).
+\end{problem}
+
+\begin{proof}
+	Let \( p: X \to Y \) and \( q: Y \to Z \) be the identification maps.
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		U \subseteq_{\text{open}} Z & \iff q^{-1}(U) \subseteq_{\text{open}} Y             \\
+		                            & \iff p^{-1}[q^{-1}(U)] \subseteq_{\text{open}} X     \\
+		                            & \iff {(q \circ p)}^{-1}(U) \subseteq_{\text{open}} X
+	\end{align*}
+	\endgroup
+
+	so \( q \circ p \) is a quotient map, which means \( Z \) is a quotient space of \( X \).
+\end{proof}
+
+\begin{problem}{VI.7.3}
+Let \( R_{1}, R_{2} \) be two relations in a space \( X \) such that \( x R_{1} x^{\prime} \implies x R_{2} x^{\prime} \) for every pair \( x, x^{\prime} \). Show that \( X/R_{2} \) is a quotient space of \( X/R_{1} \).
+\end{problem}
+
+\begin{proof}
+	Let \( f: X \to X \) be the identity map of \( X \).
+	\[
+		\begin{tikzcd}
+			X && X \\
+			\\
+			{X/R_{1}} && {X/R_{2}}
+			\arrow["f", from=1-1, to=1-3]
+			\arrow["{p_{1}}"', from=1-1, to=3-1]
+			\arrow["{p_{2}}", from=1-3, to=3-3]
+			\arrow["{f_{\ast}}"', from=3-1, to=3-3]
+		\end{tikzcd}
+	\]
+
+	\( f \) preserves relation so there exists an induce map \( f_{\ast} \) that commutes the above diagram. Since \( f \) is an identification (because it is a homeomorphism), \( f_{\ast} \) is also an identification. Hence \( X/R_{2} \) is a quotient space of \( X/R_{1} \).
+\end{proof}
+
+\begin{problem}{VI.7.4}
+Let \( A \subset X \) be a retract of \( X \), and let \( r: X \to A \) be the map in Problem~\ref{problem:VI.1.3}. Show \( A \cong X/K(r) \).
+\end{problem}
+
+\begin{proof}
+	In Problem~\ref{problem:VI.1.3}, we proved that \( r \) is an identification, so \( A \cong X/K(r) \).
+\end{proof}
+
+\section{Weak Topologies (Coherent Topologies)}
+
+\begin{problem}{VI.8.1}
+If we drop both requirements in VI.8.1, does the process still determine a topology?
+\end{problem}
+
+\begin{quotation}
+	Yes. However, the requirements allow us to prove more fruitful results.
+\end{quotation}
+
+\begin{proof}
+	Assume that the process drops both requirements.
+
+	If \( U_{i} \in \mathscr{T}(\mathfrak{A}) \) for every \( i \in I \) then
+	\[
+		A_{\alpha} \cap \bigcup_{i \in I} U_{i} = \bigcup_{i\in I} A_{\alpha} \cap U_{i}
+	\]
+
+	is open in \( A_{\alpha} \) for every \( \alpha \in \mathscr{A} \). Therefore \( \bigcup_{i \in I} U_{i} \in \mathscr{T}(\mathfrak{A}) \).
+
+	If \( U, V \in \mathscr{T}(\mathfrak{A}) \) then
+	\[
+		U \cap V \cap A_{\alpha} = (U \cap A_{\alpha}) \cap (V \cap A_{\alpha})
+	\]
+
+	is open in \( A_{\alpha} \) for every \( \alpha \in \mathscr{A} \). Therefore \( U \cap V \in \mathscr{T}(\mathfrak{A}) \).
+
+	Hence the process still determine a topology even if we drop both requirements in VI.8.1.
+\end{proof}
+
+\begin{problem}{VI.8.2}\label{problem:VI.8.2}
+Let both \( X \) and \( Y \) have weak topology, with that for \( X \) determined by \( \left\{ A_{\alpha} \mid \alpha \in \mathscr{A} \right\} \) and that for \( Y \) determined by \( \left\{ B_{\beta} \mid \beta \in \mathscr{B} \right\} \). Let \( X \times Y \) be the Cartesian product topology, and let \( (X \times Y, \mathscr{T}) \) be the weak topology in \( X \times Y \) determined by \( \left\{ A_{\alpha} \times B_{\beta} \mid (\alpha, \beta) \in \mathscr{A} \times \mathscr{B} \right\} \). Show that the map \( \ell: (X \times Y, \mathscr{T}) \to X \times Y \) is continuous.
+\end{problem}
+
+\begin{proof}
+	Let \( U \times Y, X \times V \) be subbasic open sets in \( X \times Y \).
+	\[
+		\begin{split}
+			\ell^{-1}(U \times Y) \cap A_{\alpha} \times B_{\beta} = (U \cap A_{\alpha}) \times B_{\beta} \subseteq_{\text{open}} A_{\alpha} \times B_{\beta}, \\
+			\ell^{-1}(X \times V) \cap A_{\alpha} \times B_{\beta} = A_{\alpha} \times (V \cap B_{\beta}) \subseteq_{\text{open}} A_{\alpha} \times B_{\beta}.
+		\end{split}
+	\]
+
+	Therefore the preimages of subbasic open sets in \( X \times Y \) are open in \( (X \times Y, \mathscr{T}) \), which means \( \ell \) is continuous.
+\end{proof}
+
+\begin{problem}{VI.8.3}
+In Problem~\ref{problem:VI.8.2}, let both \( \left\{ A_{\alpha} \mid \alpha \in \mathscr{A} \right\} \) and \( \left\{ B_{\beta} \mid \beta \in \mathscr{B} \right\} \) be open coverings or nbd-finite closed coverings. Show that \( \ell \) is then always a homeomorphism.
+\end{problem}
+
+\begin{proof}
+	If \( \left\{ A_{\alpha} \mid \alpha \in \mathscr{A} \right\} \) and \( \left\{ B_{\beta} \mid \beta \in \mathscr{B} \right\} \) are open coverings (nbd-finite closed coverings) then \( \left\{ A_{\alpha} \times B_{\beta} \mid (\alpha, \beta) \in \mathscr{A} \times \mathscr{B} \right\} \) is also an open covering (nbd-finite closed covering). Therefore the topology of \( X \times Y \) is exactly the weak topology induced by \( \left\{ A_{\alpha} \times B_{\beta} \mid (\alpha, \beta) \in \mathscr{A} \times \mathscr{B} \right\} \), according to Theorem III.9.3.
+\end{proof}
+
+\begin{problem}{VI.8.4}
+In Problem~\ref{problem:VI.8.2}, assume that each \( x \in X \) is in the interior of some \( A_{\alpha} \) and also that each \( y \in Y \) is in the interior of some \( B_{\beta} \). Show that the map \( \ell: (X \times Y, \mathscr{T}) \to X \times Y \) is a homeomorphism.
+\end{problem}
+
+\begin{proof}
+	For each \( (x, y) \in (X \times Y, \mathscr{T}) \), there exist \( A_{\alpha}, B_{\beta} \) such that
+	\[
+		x \in \operatorname{Int}(A_{\alpha}), y \in \operatorname{Int}(B_{\beta}).
+	\]
+
+	The product \( \operatorname{Int} A_{\alpha} \times \operatorname{Int} B_{\beta} \) is open in \( (X \times Y, \mathscr{T}) \) and \( X \times Y \).
+
+	If \( U \subseteq_{\text{open}} \operatorname{Int} A_{\alpha} \times \operatorname{Int} B_{\beta} \) then \( \ell(U) \subseteq_{\text{open}} \operatorname{Int} A_{\alpha} \times \operatorname{Int} B_{\beta} \). Hence \( \ell \) is a local homeomorphism, hence an open map.
+
+	Thus \( \ell \) is a homeomorphism.
+\end{proof}
+
+\begin{problem}{VI.8.5}
+Let \( \left\{ Y_{\alpha} \mid \alpha \in \mathscr{A} \right\} \) be any family of spaces, and \( \left\{ b_{\alpha}^{0} \right\} \) a fixed point in \( \prod_{\alpha} Y_{\alpha} \). Let \( PY_{\alpha} \) be the subset of all points in the set \( \prod_{\alpha} Y_{\alpha} \) having at most finitely many coordinates different from \( \left\{ b_{\alpha}^{0} \right\} \). For each finite \( \mathscr{F} \subset \mathscr{A} \), let \( s(\mathscr{F}) \) be the slice through \( \left\{ b_{\alpha}^{0} \right\} \) parallel to \( \prod_{\alpha\in\mathscr{F}} Y_{\alpha} \). Take each \( s(\mathscr{F}) \) with the Cartesian product topology, and let \( PY_{\alpha} \) be given the weak topology determined by the family \( \left\{ s(\mathscr{F}) \right\} \). Prove:
+\begin{enumerate}[itemsep=0pt,label={(\arabic*)}]
+	\item Each projection \( p_{\beta}\vert_{PY_{\alpha}}: PY_{\alpha} \to Y_{\beta} \) is a continuous open map.
+	\item If \( s(b; a) \) is the slice in \( \prod_{\alpha} Y_{\alpha} \) through \( \left\{ b_{\alpha} \right\} \) parallel to \( Y_{\alpha} \), the map \( s_{\alpha}: Y_{\alpha} \to s(b; \alpha) \) is continuous.
+	\item This type of Cartesian product is in general not associative (hint: use Dowker's example).
+\end{enumerate}
+\end{problem}
+
+\begin{quotation}
+	I skipped this problem.
+\end{quotation}
+
+\begin{proof}
+	% TODO
+\end{proof}
