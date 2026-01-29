@@ -1,0 +1,755 @@
+\chapter{Point Set Topology}
+
+\section{Topological Spaces}
+
+\subsection*{Exercises}
+
+\begin{enumerate}[itemsep=0pt,label={\textbf{\arabic*.}}]
+	\item If \( \operatorname{card}(X) \ge 2 \), there is a topology on \( X \) that is \( \mathrm{T}_{0} \) but not \( \mathrm{T}_{1} \).
+	      \begin{proof}
+		      \( X \) can be well-ordered by an ordering \( \le \). Let \( \mathcal{T} \) be the collection of initial segments of \( X \) then \( \mathcal{T} \) is a topology on \( X \). This topology is \( \mathrm{T}_{1} \).
+
+		      However, \( \mathcal{T} \) is not \( \mathrm{T}_{1} \) if \( \operatorname{card}(X) \ge 2 \) for the only closed singleton is one containing the first element of \( X \).
+	      \end{proof}
+	\item If \( X \) is an infinite set, the cofinite topology on \( X \) is \( \mathrm{T}_{1} \) but not \( \mathrm{T}_{2} \), and is first countable iff \( X \) is countable.
+	      \begin{proof}
+		      For every \( x_{0} \in X \), \( X \setminus \left\{ x_{0} \right\} \) is open in \( X \), since its complement is finite. Therefore every singleton in \( X \) is closed, which means the cofinite topology on \( X \) is \( \mathrm{T}_{1} \).
+
+		      If \( A, B \) are any two nonempty open sets in \( X \) then \( {(A \cap B)}^{\complement} = A^{\complement} \cup B^{\complement} \) is finite, so \( A \cap B \) is infinite, hence nonempty. Therefore any two nonempty open sets in \( X \) are intersecting, which means the cofinite topology on \( X \) is not \( \mathrm{T}_{2} \).
+
+		      Assume \( X \) is countable. For every \( x_{0} \in X \), let \( \mathcal{N} \) be the collection of open neighborhoods of \( x_{0} \). The complement of every element of \( \mathcal{N} \) is finite and the collection of finite subsets of \( X \) is countable. Therefore \( \mathcal{N} \) is countable, which implies the cofinite topology on \( X \) is first countable.
+
+		      Conversely, assume the cofinite topology on \( X \) is first countable. Suppose on the contrary that \( X \) is uncountable. Let \( x_{0} \in X \) and \( \mathcal{N} \) a countable open neighborhood basis of \( x_{0} \). The union \( \left\{ x_{0} \right\} \cup \bigcup_{U \in \mathcal{N}} U^{\complement} \) is countable. Since \( X \) is uncountable, there exists \( y \notin \left\{ x_{0} \right\} \cup \bigcup_{U \in \mathcal{N}} U^{\complement} \). The set \( U = X \setminus \left\{ y \right\} \) is a neighborhood of \( x_{0} \) but it doesn't contain \( U_{n} \) for any \( n \in \mathbb{N} \), which contracts \( \mathcal{N} \) being a neighborhood basis of \( x_{0} \). Therefore \( X \) is countable.
+	      \end{proof}
+	\item Every metric space is normal.
+	      \begin{proof}
+		      Let \( (M, d) \) be a metric space. For every subset \( A \subseteq X \) and \( x \in A \), define \( d(x, A) = \inf\left\{ d(x, y) : y \in A \right\} \).
+
+		      \( d(x, A) = 0 \) if and only if \( x \in \overline{A} \).
+
+		      Let \( F, G \) be nonempty disjoint closed sets in \( M \). For every \( x \in F \), \( d(x, G) > 0 \) for \( x \notin G = \overline{G} \), so the open ball \( B_{d(x, G)/2}(x) \) is disjoint from \( B \). Hence the union \( \bigcup_{x \in F} B_{d(x, G)/2}(x) \) is an open neighborhood of \( F \) and disjoint from \( G \). Similarly, the union \( \bigcup_{y \in G} B_{d(y, G)/2}(y) \) is an open neighborhood of \( G \) and disjoint from \( F \).
+
+		      Assume there exists \( z \in \bigcup_{x \in F} B_{d(x, G)/2}(x) \cap \bigcup_{y \in G} B_{d(y, G)/2}(y) \) then there exist \( x \in F, y \in G \) such that \( z \in B_{d(x, G)/2}(x) \cap B_{d(y, G)/2}(y) \). According to the triangle inequality
+		      \[
+			      d(x, y) \le d(x, z) + d(z, y) < d(x, G)/2 + d(y, G)/2 \le d(x, y)/2 + d(y, x)/2 = d(x, y)
+		      \]
+
+		      which is a contradiction. Therefore \( \bigcup_{x \in F} B_{d(x, G)/2}(x) \) and \( \bigcup_{y \in G} B_{d(y, G)/2}(y) \) are disjoint open neighborhoods of \( F \) and \( G \).
+
+		      On the other hand, each singleton of \( M \) is closed so \( M \) is \( \mathrm{T}_{1} \).
+
+		      Thus \( M \) is normal.
+	      \end{proof}
+	\item Let \( X = \mathbb{R} \), and let \( \mathcal{T} \) be the family of all subsets of \( \mathbb{R} \) of the form \( U \cup (V \cap \mathbb{Q}) \) where \( U, V \) are open in the usual sense. Then \( \mathcal{T} \) is a topology that is Hausdorff but not regular. (In the view of Exercise 3, this shows that a topology finer (larger) than a normal topology need not be normal or even regular.)
+	      \begin{proof}
+		      \[
+			      \bigcup_{\alpha \in A} U_{\alpha} \cup (V_{\alpha} \cap \mathbb{Q}) = \left( \bigcup_{\alpha \in A} U_{\alpha} \right) \cup \left( \left( \bigcup_{\alpha \in A} V_{\alpha} \right) \cap \mathbb{Q} \right)
+		      \]
+
+		      so \( \mathcal{T} \) is closed under unions.
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      (U_{1} \cup (V_{1} \cap \mathbb{Q})) \cap (U_{2} \cup (V_{2} \cap \mathbb{Q})) & = (U_{1} \cup V_{1}) \cap (U_{1} \cup \mathbb{Q}) \cap (U_{2} \cup V_{2}) \cap (U_{2} \cup \mathbb{Q}) \\
+			                                                                                     & = (U_{1} \cup U_{2} \cup V_{1} \cup V_{2}) \cap (U_{1} \cup U_{2} \cup \mathbb{Q})                     \\
+			                                                                                     & = (U_{1} \cup U_{2}) \cup ((V_{1} \cup V_{2}) \cap \mathbb{Q})
+		      \end{align*}
+		      \endgroup
+
+		      so \( \mathcal{T} \) is closed under finite intersections.
+
+		      Therefore \( \mathcal{T} \) is a topology for \( X \).
+
+		      \( \mathcal{T} \) contains the Euclidean topology on \( X \) so \( \mathcal{T} \) is Hausdorff.
+
+		      \( \varnothing, \mathbb{R} \) are open in the Euclidean topology so \( \varnothing \cup (\mathbb{R} \cap \mathbb{Q}) = \mathbb{Q} \) is open in \( \mathcal{T} \), which means \( \mathbb{R}\setminus \mathbb{Q} \) is closed in \( \mathcal{T} \).
+
+		      Let \( q \in \mathbb{Q} \) then \( q \) and \( \mathbb{R} \setminus \mathbb{Q} \) are disjoint. Let \( U \cup (V \cap \mathbb{Q}) \) be a neighborhood of \( q \) then
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      (U \cup (V \cap \mathbb{Q})) \cap (\mathbb{R} \setminus \mathbb{Q}) & = (U \cap (\mathbb{R} \setminus \mathbb{Q})) \cup (V \cap \mathbb{Q} \cap (\mathbb{R} \setminus \mathbb{Q})) \\
+			                                                                          & = U \cap (\mathbb{R} \setminus \mathbb{Q}).
+		      \end{align*}
+		      \endgroup
+
+		      Moreover, \( U \cap (\mathbb{R} \setminus \mathbb{Q}) \ne \varnothing \) because \( \mathbb{R} \setminus \mathbb{Q} \) is dense in \( \mathbb{R} \) (with the Euclidean topology).
+
+		      Hence there are no disjoint open sets \( B_{1} \ni q \) and \( B_{2} \ni \mathbb{R} \setminus \mathbb{Q} \), which means \( \mathcal{T} \) is not regular.
+	      \end{proof}
+	\item Every separable metric space is second countable.
+	      \begin{proof}
+		      Let \( (M, d) \) be a separable metric space and \( S \) a countable dense subset of \( M \).
+
+		      Let \( \mathcal{B} = \left\{ B_{q}(a) : q \in \mathbb{Q} \text{ and } a \in S \right\} \) then \( \mathcal{B} \) is countable.
+
+		      Consider an arbitrary nonempty open set \( U \) in \( M \) and \( x \in M \). There exists \( \varepsilon > 0 \) such that \( B_{\varepsilon}(x) \subseteq U \). Since \( S \) is dense in \( M \), there exists \( y \in B_{\varepsilon/2}(x) \cap S \). There is a rational number \( r \) such that \( d(x, y) < r < \varepsilon/2 \). For every \( z \in B_{r}(y) \)
+		      \[
+			      d(x, z) \le d(x, y) + d(y, z) < 2r < \varepsilon
+		      \]
+
+		      which means \( x \in B_{r}(y) \subseteq B_{\varepsilon}(x) \subseteq U \). Hence for every open set \( U \), for every \( x \in U \), there exists \( B \in \mathcal{B} \) such that \( x \in B \subseteq U \), which implies \( \mathcal{B} \) is a basis for \( M \).
+
+		      Thus \( M \) is second countable.
+	      \end{proof}
+	\item Let \( \mathcal{E} = \left\{ \left\rbrack a, b \right\rbrack: -\infty < a < b < \infty \right\} \).
+	      \begin{enumerate}[itemsep=0pt,label={\textbf{\alph*.}}]
+		      \item \( \mathcal{E} \) is a base for a topology \( \mathcal{T} \) on \( \mathbb{R} \) in which the members of \( \mathcal{E} \) are both open and closed.
+		      \item \( \mathcal{T} \) is first countable but not second countable. (If \( x \in \mathbb{R} \), every neighborhood base at \(x\) contains a set whose supremum is \(x\).)
+		      \item \( \mathbb{Q} \) is dense in \( \mathbb{R} \) with respect to \( \mathcal{T} \).
+	      \end{enumerate}
+	      \begin{proof}
+		      \begin{enumerate}[itemsep=0pt,label={\textbf{\alph*.}}]
+			      \item For every \( x \in \mathbb{R} \), \( x \in \left\rbrack x - 1, x \right\rbrack \) and \(  \left\rbrack x - 1, x \right\rbrack \in \mathcal{E} \).
+
+			            For every \( x \in \left\rbrack a_{1}, b_{1} \right\rbrack \cap \left\rbrack a_{2}, b_{2} \right\rbrack \), \( x \in \left\rbrack a, x \right\rbrack \subseteq \left\rbrack a_{1}, b_{1} \right\rbrack \cap \left\rbrack a_{2}, b_{2} \right\rbrack \) where \( a = \max\left\{ a_{1}, a_{2} \right\} \).
+
+			            Therefore \( \mathcal{E} \) is a base for a topology \( \mathcal{T} \) on \( \mathbb{R} \).
+
+			            Evidently, \( \left\rbrack a, b \right\rbrack \) is open in \( \mathcal{T} \). The complement of \( \left\rbrack a, b \right\rbrack \) is
+			            \[
+				            \left\rbrack -\infty, a \right\rbrack \cup \left\rbrack b, \infty \right\lbrack = \bigcup_{n \in \mathbb{N}} \left\rbrack a - n, a \right\rbrack \cup \bigcup_{n \in \mathbb{N}} \left\rbrack b, b + n \right\rbrack
+			            \]
+
+			            and is open in \( \mathcal{T} \) so \( \left\rbrack a, b \right\rbrack \) is closed in \( \mathcal{T} \).
+
+			            Thus every member of \( \mathcal{E} \) is open and closed in \( \mathcal{T} \).
+			      \item For every \( x \in \mathbb{R} \), consider the countable collection
+			            \[
+				            \mathcal{N}_{x} = \left\{ \left\rbrack a, x \right\rbrack : a < x \text{ and } a \in \mathbb{Q} \right\}.
+			            \]
+
+			            For every neighborhood \( N \) of \( x \), there exist \( \left\rbrack r, s \right\rbrack \in \mathcal{E} \) such that \( x \in \left\rbrack r, s \right\rbrack \subseteq N \).
+
+			            There exists a rational number \( a \) such that \( r < a < x \), so \( \left\rbrack a, x \right\rbrack \subseteq \left\rbrack r, s \right\rbrack \subseteq N \), which means \( N \) contains an element of \( \mathcal{N}_{x} \). Hence \( \mathcal{N}_{x} \) is a countable neighborhood base at \( x \), which implies \( \mathcal{T} \) is first countable.
+
+			            \bigskip
+
+			            Let \( \mathcal{B} \) be a base for \( \mathcal{T} \) then \( \mathcal{B}_{x} = \left\{ B \in \mathcal{B} : x \in B \right\} \) is a neighborhood base at \( x \). Any neighborhood base at \( x \) contains an interval of the form \( \left\rbrack a, x \right\rbrack \). So for every \( x \), there exists an interval \( \left\rbrack a, x \right\rbrack \in \mathcal{B} \), which implies \( \mathcal{B} \) is uncountable. Thus \( \mathcal{T} \) is not second countable.
+			      \item Let \( U \) be a nonempty open set in \( \mathcal{T} \). Let \( x \in U \), then there exists \( \left\rbrack a, b \right\rbrack \) such that \( x \in \left\rbrack a, b \right\rbrack \subseteq U \).
+
+			            Because any open interval contains a rational number, there exists a rational number \( q \in \left\rbrack a, b \right\lbrack \subseteq \left\rbrack a, b \right\rbrack \) so \( U \cap \mathbb{Q} \ne \varnothing \).
+
+			            Thus \( \mathbb{Q} \) is dense in \( \mathbb{R} \) with respect to \( \mathcal{T} \).
+		      \end{enumerate}
+	      \end{proof}
+	\item If \( X \) is a topological space, a point \( x \in X \) is called a \textbf{cluster point} of the sequence \( \left\{ x_{j} \right\} \) if for every neighborhood \( U \) of \( x \), \( x_{j} \in U \) for infinitely many \( j \). If \( X \) is first countable, \( x \) is a cluster point of \( \left\{ x_{j} \right\} \) iff some subsequence of \( \left\{ x_{j} \right\} \) converges to \( x \).
+	      \begin{proof}
+		      Let \( X \) be a first countable space and \( x \) a cluster point of \( \left\{ x_{j} \right\} \).
+
+		      Assume \( x \) is a cluster point of the sequence. Since \( X \) is a first countable space, there exists a countable neighborhood \( {\left\{ V_{j} \right\}}_{1}^{\infty} \) at \( x \) such that \( V_{j} \supseteq V_{j+1} \) for every \( j \in \mathbb{N} \).
+
+		      We define a strictly monotonic function \( f: \mathbb{N} \to \mathbb{N} \) as follows:
+		      \begin{itemize}
+			      \item \( f(1) \) is such that \( x_{f(1)} \in V_{1} \).
+			      \item \( f(n) \) is such that \( f(n) > f(n - 1) \) and \( x_{f(n)} \in V_{n} \).
+		      \end{itemize}
+
+		      The subsequence \( \left\{ x_{f(j)} \right\} \) is well-defined for \( x \) is a cluster point of the given sequence. For every neighborhood \( U \) of \( x \), there exists \( N \) such that \( U \supseteq V_{N} \) so \( x_{f(j)} \in U \) for every \( j \ge N \). Hence \( \left\{ x_{f(j)} \right\} \) converges to \( x \).
+
+		      Conversely, assume there is a subsequence of \( \left\{ x_{j} \right\} \) converges to \( x \). Let such a subsequence be \( \left\{ x_{f(j)} \right\} \). For every neighborhood \( U \) of \( x \), there exists \( N \) such that \( x_{f(j)} \in U \) whenever \( j \ge N \). Hence \( x \) is a cluster point of the sequence \( \left\{ x_{j} \right\} \).
+	      \end{proof}
+	\item If \( X \) is an infinite set with the cofinite topology and \( \left\{ x_{j} \right\} \) is a sequence of distinct points in \( X \), then \( x_{j} \to x \) for every \( x \in X \).
+	      \begin{proof}
+		      Let \( x \) be a point of \( X \) and \( U \) a neighborhood of \( x \). Let \( S = \left\{ x_{j} : j \in \mathbb{N} \right\} \) then \( S \) is infinite since \( \left\{ x_{j} \right\} \) is a sequence of distinct points in \( X \).
+
+		      Since \( U \) contains an open set \( V \) containing \( x \) and \( V^{\complement} \) is finite. So \( V^{\complement} \) contains only finitely many elements of \( S \), which is infinite.
+
+		      If \( V^{\complement} \cap S = \varnothing \) then \( V \) contains the entire \( S \). Otherwise, there exists a largest natural number \( N \) such that \( x_{N} \in V^{\complement} \), so \( x_{j} \in V \) for every \( j \ge N+1 \). Hence \( x_{j} \to x \) for every \( x \in X \).
+	      \end{proof}
+	\item If \( X \) is a linearly ordered set, the topology \( \mathcal{T} \) generated by the sets \( \left\{ x: x < a \right\} \) and \( \left\{ x: x > a \right\} \) \( (a \in X) \) is called the \textbf{order topology}.
+	      \begin{enumerate}[itemsep=0pt,label={\textbf{\alph*.}}]
+		      \item If \( a, b \in X \) and \( a < b \), there exists \( U, V \in \mathcal{T} \) with \( a \in U, b \in V \), and \( x < y \) for all \( x \in U \) and \( y \in V \). The order topology is the coarsest topology with this property.
+		      \item If \( Y \subseteq X \), the order topology on \( Y \) is never finer than, but may be coarser than, the relative topology on \( Y \) induced by the order topology on \( X \).
+		      \item The order topology on \( \mathbb{R} \) is the usual topology.
+	      \end{enumerate}
+
+	      \begin{proof}
+		      \begin{enumerate}[itemsep=0pt,label={\textbf{\alph*.}}]
+			      \item If there exists \( c \in X \) such that \( a < c < b \) then \( U = \left\{ x: x < c \right\} \) and \( V = \left\{ x: x > c \right\} \) satisfy. Otherwise, \( U = \left\{ x: x < b \right\} \) and \( V = \left\{ x: x > a \right\} \) satisfy.
+
+			            Let \( \mathcal{T}^{\prime} \) be a topology for \( X \) with this property.
+
+			            Let \( a \) be a point of \( X \), then or every \( b > a \), there exist \( U_{b}, V_{b} \in \mathcal{T}^{\prime} \) such that \( a \in U_{b}, b \in V_{b} \) and \( x < y \) for all \( x \in U_{b} \) and \( y \in V_{b} \). Hence \( \left\{ x: x > a \right\} = \bigcup_{b > a} V_{b} \).
+
+			            For every \( b < a \), there exist \( U_{b}, V_{b} \in \mathcal{T}^{\prime} \) such that \( a \in U_{b}, b \in V_{b} \) and \( x > y \) for all \( x \in U_{b} \) and \( y \in V_{b} \). Hence \( \left\{ x: x < a \right\} = \bigcup_{b < a} V_{b} \).
+
+			            Therefore the sets of the forms \( \left\{ x: x > a \right\}, \left\{ x: x < a \right\} \) are in \( \mathcal{T}^{\prime} \), which means \( \mathcal{T} \subseteq \mathcal{T}^{\prime} \).
+
+			            Thus the order topology \( \mathcal{T} \) is the coarsest topology with the given property.
+			      \item Consider the sets \( \left\{ x \in Y : x < a \right\} \) and \( \left\{ x \in Y : x > a \right\} \) where \( a \in Y \) then
+			            \begingroup
+			            \allowdisplaybreaks%
+			            \begin{align*}
+				            \left\{ x \in Y : x < a \right\} = \left\{ x : x < a \right\} \cap Y, \\
+				            \left\{ x \in Y : x > a \right\} = \left\{ x : x > a \right\} \cap Y
+			            \end{align*}
+			            \endgroup
+
+			            so these sets are open in the relative topology on \( Y \) induced by the order topology on \( X \). Therefore the order topology on \( Y \) is not finer than the relative topology on \( Y \) induced by the order topology on \( X \).
+
+			            \bigskip
+
+			            Let's consider the order topology on \( X = \mathbb{R} \) and \( Y = \left\rbrack -\infty, -1 \right\rbrack \cup \left\lbrack 0, \infty \right\lbrack \). A base for the order topology on \( X \) is the collection of \( \left\{ x: x > a, x < b \right\} \).
+
+			            The set \( \left\rbrack -\infty, -1 \right\rbrack \) is open in the relative topology on \( Y \) induced by the order topology on \( X \). However it is not open in the order topology on \( Y \) for \( -1 \) is not an interior point of \( \left\rbrack -\infty, -1 \right\rbrack \). So in this example, the order topology on \( Y \) is coarser than the relative topology on \( Y \) induced by the order topology on \( X \).
+			      \item The usual topology on \( \mathbb{R} \) is generated by the sets \( \left\rbrack -\infty, a \right\lbrack \) and \( \left\rbrack a, \infty \right\lbrack \) so it coincides with the order topology on \( \mathbb{R} \).
+		      \end{enumerate}
+	      \end{proof}
+	\item A topological space \( X \) is called \textbf{disconnected} if there exist nonempty open sets \( U, V \) such that \( U \cap V = \varnothing \) and \( U \cup V = X \); otherwise \( X \) is \textbf{connected}. When we speak of connected or disconnected subsets of \( X \), we refer to the relative topology on them.
+	      \begin{enumerate}[itemsep=0pt,label={\textbf{\alph*.}}]
+		      \item \( X \) is connected iff \( \varnothing \) and \( X \) are the only subsets of \( X \) that are both open and closed.
+		      \item If \( {\left\{ E_{\alpha} \right\}}_{\alpha \in A} \) is a collection of connected subsets of \( X \) such that \( \bigcap_{\alpha \in A} E_{\alpha} \ne \varnothing \), then \( \bigcup_{\alpha \in A} E_{\alpha} \) is connected.
+		      \item If \( A \subseteq X \) is connected, then \( \overline{A} \) is connected.
+		      \item Every point \( x \in X \) is contained in a unique maximal connected subset of \( X \), and this subset is closed. (It is called the \textbf{connected component} of \(x\).)
+	      \end{enumerate}
+
+	      \begin{proof}
+		      \begin{enumerate}[itemsep=0pt,label={\textbf{\alph*.}}]
+			      \item Assume \( X \) is disconnected, then there exist nonempty disjoint open sets \( U, V \) such that \( U \cup V = X \), so \( U, V \) are both open and closed. Moreover, they are other than \( \varnothing, X \).
+
+			            Conversely, if there exists a subset \( A \) other than \( \varnothing \) and \( X \), which is both open and closed then \( X = A \cup (X\setminus A) \), which implies \( X \) is disconnected.
+			      \item Let \( p \) be a point in \( \bigcap_{\alpha \in A} E_{\alpha} \). Suppose that \( \bigcup_{\alpha \in A} E_{\alpha} = U \cup V \) where \( U, V \) are disjoint open subsets of \( \bigcup_{\alpha \in A} E_{\alpha} \).
+
+			            Without loss of generality, assume \( p \in U \). Since \( E_{\alpha} = (E_{\alpha} \cap U) \cup (E_{\alpha} \cap V) \) and \( E_{\alpha} \) is connected for every \( \alpha \in A \), it follows that \( E_{\alpha} \subseteq U \) for every \( \alpha \in A \), for \( (E_{\alpha} \cap U) \) and \( (E_{\alpha} \cap V) \) are disjoint open sets in \( E_{\alpha} \). Thus \( U = \bigcup_{\alpha \in A} E_{\alpha} \) and \( V = \varnothing \), from which we conclude that the union of \( E_{\alpha} \) is connected.
+			      \item Suppose \( \overline{A} = U \cup V \) where \( U, V \) are disjoint open sets in \( \overline{A} \).
+
+			            \( A \cap U, A \cap V \) are disjoint open sets in \( A \) and their union is \( A \). Together with \( A \) being connected, we deduce that \( A \cap U = \varnothing \) or \( A \cap V = \varnothing \). Without loss of generality, suppose \( A \cap U = \varnothing \), then \( A \subseteq V \). Every neighborhood of a point in the closure of \( A \) intersects \( A \), from this result, we deduce that \( U \) is empty, as \( U \) is an open set in \( \overline{A} \) and doesn't intersect \( A \).
+
+			            Hence \( \overline{A} \) is connected.
+			      \item Let \( \mathcal{A} \) be the collection of all connected sets containing \( x \). This collection is nonempty for it contains \( \left\{ x \right\} \). According to part (b), \( C = \bigcup_{A \in \mathscr{A}} A \) is connected. Any connected set containing \( x \) is contained in \( C \) so \( C \) is a maximal connected set containing \( x \).
+
+			            If \( C^{\prime} \) is a maximal connected set containing \( x \) then \( C \cup C^{\prime} \) is also a connected set containing \( x \). From the maximality of \( C, C^{\prime} \), we conclude that \( C = C \cup C^{\prime} = C^{\prime} \), which implies \( C \) is the unique maximal connected set containing \( x \).
+
+			            According to part (c), \( \overline{C} \) is connected. From the maximality of \( C \), \( C = \overline{C} \), which means \( C \) is closed.
+		      \end{enumerate}
+	      \end{proof}
+	\item If \( E_{1}, \ldots, E_{n} \) are subsets of a topological space, the closure of \( \bigcup_{1}^{n} E_{j} \) is \( \bigcup_{1}^{n} \overline{E_{j}} \).
+	      \begin{proof}
+		      \( \bigcup_{1}^{n} \overline{E_{j}} \) is a closed set containing \(  \bigcup_{1}^{n} E_{j} \) so it contains the closure of \( \bigcup_{1}^{n} E_{j} \).
+
+		      If \( x \in \bigcup_{1}^{n} \overline{E_{j}} \) then there is \( j \) such that \( x \in \overline{E_{j}} \). Hence every neighborhood of \( x \) intersects \( E_{j} \), which means every neighborhood of \( x \) intersects \( \bigcup_{1}^{n} E_{j} \). So \( x \in \bigcup_{1}^{n} \overline{E_{j}} \).
+
+		      Thus \( \bigcup_{1}^{n} \overline{E_{j}} = \overline{\bigcup_{1}^{n} E_{j}} \).
+	      \end{proof}
+	\item Let \( X \) be a set. A \textbf{Kuratowski closure operator} on \( X \) is a map \( A \mapsto A^{\ast} \) from \( \mathcal{P}(X) \) to itself satisfying (i) \( \varnothing^{\ast} = \varnothing \), (ii) \( A \subseteq A^{\ast} \) for all \( A \), (iii) \( {(A^{\ast})}^{\ast} = A^{\ast} \) for all \( A \), and (iv) \( {(A \cup B)}^{\ast} = A^{\ast} \cup B^{\ast} \) for all \( A, B \).
+	      \begin{enumerate}[itemsep=0pt,label={\textbf{\alph*.}}]
+		      \item If \( X \) is a topological space, the map \( A \mapsto \overline{A} \) is a Kuratowski closure operator.
+		      \item Conversely, given a Kuratowski closure operator, let \( \mathcal{F} = \left\{ A \subseteq X: A = A^{\ast} \right\} \) and \( \mathcal{T} = \left\{ U \subseteq X : U^{\complement} \in \mathcal{F} \right\} \). Then \( \mathcal{T} \) is a topology, and for any set \( A \subseteq X \), \( A^{\ast} \) is its closure with respect to \( \mathcal{T} \).
+	      \end{enumerate}
+
+	      \begin{proof}
+		      \begin{enumerate}[itemsep=0pt,label={\textbf{\alph*.}}]
+			      \item \( \overline{\varnothing} = \varnothing \); \( A \subseteq \overline{A} \) for all \( A \); \( \overline{\overline{A}} = \overline{A} \) for all \( A \) because \( \overline{A} \) is closed; \( \overline{A \cup B} = \overline{A} \cup \overline{B} \) according to Exercise 11. Therefore \( A \mapsto \overline{A} \) is a Kuratowski closure operator.
+			      \item If \( U_{1}, \ldots, U_{n} \in \mathcal{T} \) then \( U_{i}^{\complement} = A_{i} \) for some \( A_{i} \in \mathcal{F} \) for every \( i \).
+			            \[
+				            {\left(\bigcap_{i=1}^{n} U_{i}\right)}^{\complement} = \bigcup_{i=1}^{n} U_{i}^{\complement} = \bigcup_{i=1}^{n} A_{i} = \bigcup_{i=1}^{n} A_{i}^{\ast} = {\left(\bigcup_{i=1}^{n} A_{i}\right)}^{\ast}
+			            \]
+
+			            so \( \bigcap_{i=1}^{n} U_{i} \in \mathcal{T} \).
+
+			            If \( A \subseteq B \) then \( A^{\ast} \subseteq A^{\ast} \cup B^{\ast} = {(A \cup B)}^{\ast} = B^{\ast} \).
+
+			            If \( {(U_{\alpha})}_{\alpha \in \mathscr{A}} \subseteq \mathcal{T} \) then for every \( \alpha \), there is \( A_{\alpha} \in \mathcal{F} \) such that \( U_{\alpha}^{\complement} = A_{\alpha} \).
+			            \[
+				            {\left(\bigcup_{\alpha \in \mathscr{A}} U_{\alpha} \right)}^{\complement} = \bigcap_{\alpha \in \mathscr{A}} U_{\alpha}^{\complement} = \bigcap_{\alpha \in \mathscr{A}} A_{\alpha} = \bigcap_{\alpha \in \mathscr{A}} A_{\alpha}^{\ast}.
+			            \]
+
+			            On the other hand
+			            \[
+				            \bigcap_{\alpha \in \mathscr{A}} A_{\alpha} \subseteq {\left(\bigcap_{\alpha \in \mathscr{A}} A_{\alpha} \right)}^{\ast}
+			            \]
+
+			            and
+			            \[
+				            {\left(\bigcap_{\alpha \in \mathscr{A}} A_{\alpha} \right)}^{\ast} \subseteq A_{\alpha}^{\ast} = A_{\alpha}
+			            \]
+
+			            for every \( \alpha \) so
+			            \[
+				            {\left(\bigcap_{\alpha \in \mathscr{A}} A_{\alpha} \right)}^{\ast} \subseteq \bigcap_{\alpha \in \mathscr{A}} A_{\alpha}.
+			            \]
+
+			            Hence
+			            \[
+				            \bigcap_{\alpha \in \mathscr{A}} A_{\alpha} = {\left(\bigcap_{\alpha \in \mathscr{A}} A_{\alpha} \right)}^{\ast}
+			            \]
+
+			            which means \( \bigcup_{\alpha \in \mathscr{A}} U_{\alpha} \in \mathcal{T} \). Therefore \( \mathcal{T} \) is a topology on \( X \).
+
+			            \bigskip
+
+			            If \( K \) is a closed set containing \( A \) then \( A^{\ast} \subseteq A^{\ast} \cup K^{\ast} = {(A \cup K)}^{\ast} = K^{\ast} = K \). Hence \( A^{\ast} \) is the smallest closed set containing \( A \), which means \( A^{\ast} \) is the closure of \( A \) with respect to \( \mathcal{T} \).
+		      \end{enumerate}
+	      \end{proof}
+	\item If \( X \) is a topological space, \( U \) is open in \( X \), and \( A \) is dense in \( X \), then \( \overline{U} = \overline{U \cap A} \).
+	      \begin{proof}
+		      If \( x \in \overline{U \cap A} \) the every neighborhood of \( x \) intersects \( U \cap A \), which means every neighborhood of \( x \) intersects \( U \). So \( x \in \overline{U} \).
+
+		      Conversely, if \( x \in \overline{U} \) then every open set \( V \) containing \( x \) intersects \( U \). Since \( U \) is open, \( U \cap V \) is nonempty, and \( A \) is dense in \( X \), \( U \cap V \) intersects \( A \). Hence \( V \) intersects \( U \cap A \) for every open set \( V \) containing \( x \), which means \( x \in \overline{U \cap A} \).
+
+		      Thus \( \overline{U} = \overline{U \cap A} \).
+	      \end{proof}
+\end{enumerate}
+
+\section{Continuous Maps}
+
+\subsection*{Exercises}
+
+\begin{enumerate}[itemsep=0pt,label={\textbf{\arabic*.}}]
+	\setcounter{enumi}{13}
+	\item If \( X \) and \( Y \) are topological spaces, \( f: X \to Y \) is continuous iff \( f(\overline{A}) \subseteq \overline{f(A)} \) for all \( A \subseteq X \), iff \( \overline{f^{-1}(B)} \subseteq f^{-1}(\overline{B}) \) for all \( B \subseteq Y \).
+	      \begin{proof}
+		      Assume \( f \) is continuous.
+
+		      \( f^{-1}(\overline{f(A)}) \) is closed and \( f^{-1}(\overline{f(A)}) \supseteq f^{-1}(f(A)) \supseteq A \), so \( f^{-1}(\overline{f(A)}) \supseteq \overline{A} \). Therefore
+		      \[
+			      f(\overline{A}) \subseteq f(f^{-1}(\overline{f(A)})) \subseteq \overline{f(A)}.
+		      \]
+
+		      \( f^{-1}(\overline{B}) \) is closed in \( X \) and contains \( f^{-1}(B) \). So \( \overline{f^{-1}(B)} \subseteq f^{-1}(\overline{B}) \).
+
+		      Assume \( f(\overline{A}) \subseteq \overline{f(A)} \) for all \( A \subseteq X \) for all \( A \subseteq X \).
+
+		      Let \( K \) be a closed subset of \( Y \) then
+		      \[
+			      f(\overline{f^{-1}(K)}) \subseteq \overline{f(f^{-1}(K))} \subseteq \overline{K} = K
+		      \]
+
+		      which means \( \overline{f^{-1}(K)} \subseteq f^{-1}(f(\overline{f^{-1}(K)})) \subseteq f^{-1}(K) \), so \( f^{-1}(K) \) is closed in \( X \), hence \( f \) is continuous.
+
+		      Assume \( \overline{f^{-1}(B)} \subseteq f^{-1}(\overline{B}) \) for all \( B \subseteq Y \).
+
+		      Let \( K \) be a closed subset of \( Y \) then
+		      \[
+			      \overline{f^{-1}(K)} \subseteq f^{-1}(\overline{K}) = f^{-1}(K)
+		      \]
+
+		      so \( f^{-1}(K) \) is closed in \( X \). Therefore \( f \) is continuous.
+	      \end{proof}
+	\item If \( X \) is a topological space, \( A \subseteq X \) is closed, and \( g \in C(A) \) satisfies \( g = 0 \) on \( \partial A \), then the extension of \( g \) to \( X \) defined by \( g(x) = 0 \) for \( x \in A^{\complement} \) is continuous.
+	      \begin{proof}
+		      \( A \) is closed so \( A \) is the disjoint union of \( A^{\circ} \) and \( \partial A \). Denote by \( f \) the extension of \( g \) to \( X \).
+
+		      Let \( K \) be a closed set in \( \mathbb{R} \) then
+		      \[
+			      f^{-1}(K) = (f^{-1}(K) \cap A) \cup (f^{-1}(K) \cap (X\setminus A^{\circ})) = {(f\vert_{A})}^{-1}(K) \cup {(f\vert_{X \setminus A^{\circ}})}^{-1}(K).
+		      \]
+
+		      \( {(f\vert_{A})}^{-1}(K) \) is closed in \( A \) and \( A \) is closed in \( X \) so \( {(f\vert_{A})}^{-1}(K) \) is closed in \( X \).
+
+		      \( {(f\vert_{X \setminus A^{\circ}})}^{-1}(K) \) is closed in \( X\setminus A^{\circ} \) and \( X\setminus A^{\circ} \) is closed in \( X \) so \( {(f\vert_{X \setminus A^{\circ}})}^{-1}(K) \) is closed in \( X \).
+
+		      Therefore \( f^{-1}(K) \) is closed in \( X \). Thus \( f \) is continuous.
+	      \end{proof}
+	\item Let \( X \) be a topological space, \( Y \) a Hausdorff space, and \( f, g \) continuous maps from \( X \) to \( Y \).
+	      \begin{enumerate}[itemsep=0pt,label={\textbf{\alph*.}}]
+		      \item \( \left\{ x : f(x) = g(x) \right\} \) is closed.
+		      \item If \( f = g \) on a dense subset of \( X \), then \( f = g \) on all of \( X \).
+	      \end{enumerate}
+
+	      \begin{proof}
+		      \begin{enumerate}[itemsep=0pt,label={\textbf{\alph*.}}]
+			      \item \( Y \) is Hausdorff so the diagonal \( \Delta_{Y} = \left\{ (y, y): y \in Y \right\} \) is closed in \( Y \times Y \).
+
+			            The map \( h: X \to Y \times Y \) defined by \( h(x) = (f(x), g(x)) \) is continuous because \( f, g \) are continuous so \( \left\{ x : f(x) = g(x) \right\} = h^{-1}(\Delta_{Y}) \) is closed.
+			      \item \( f = g \) on a dense subset \( D \) of \( X \).
+
+			            \( \left\{ x : f(x) = g(x) \right\} \) is closed and contains \( D \). Therefore \( X = \overline{D} \subseteq \left\{ x : f(x) = g(x) \right\} \), which means \( X = \left\{ x : f(x) = g(x) \right\} \). Hence \( f = g \) on all of \( X \).
+		      \end{enumerate}
+	      \end{proof}
+	\item If \( X \) is a set, \( \mathcal{F} \) a collection of real-valued functions on \( X \), and \( \mathcal{T} \) the weak topology generated by \( \mathcal{F} \), then \( \mathcal{T} \) is Hausdorff iff for every \( x, y \in X \) with \( x \ne y \) there exists \( f \in \mathcal{F} \) with \( f(x) \ne f(y) \).
+	      \begin{quotation}
+		      The hypothesis ``real-valued functions on \( X \)'' can be replaced with ``functions from \( X \) to a non-singleton Hausdorff space \( Y \)''.
+	      \end{quotation}
+	      \begin{proof}
+		      Assume for every \( x, y \in X \) with \( x \ne y \), there exists \( f \in \mathcal{F} \) such that \( f(x) \ne f(y) \).
+
+		      There exist disjoint open sets \( O_{x}, O_{y} \) in \( \mathbb{R} \) such that \( f(x) \in O_{x}, f(y) \in O_{y} \), so \( f^{-1}(O_{x}), f^{-1}(O_{y}) \) are disjoint open sets in \( X \) and \( x \in f^{-1}(O_{x}), y \in f^{-1}(O_{y}) \). Hence \( X \) is Hausdorff.
+
+		      Assume there exist \( x, y \in X \) with \( x \ne y \), for every \( f \in \mathcal{F}, f(x) = f(y) \). Let \( U \) be an open set containing \( x \) then there is a basic open set \( V \) such that \( x \in V \subseteq U \). From the definition of a weak topology
+		      \[
+			      V = \bigcap_{i=1}^{n} f_{i}^{-1}(V_{i})
+		      \]
+
+		      for some \( f_{1}, \ldots, f_{n} \in \mathcal{F} \) and open sets \( V_{1}, \ldots, V_{n} \subseteq \mathbb{R} \).
+
+		      \( x \in V \) so \( f_{i}(x) = f_{i}(y) \in V_{i} \) for every \( i \), which means \( y \in f_{i}^{-1}(V_{i}) \) for every \( i \), so \( y \in V \subseteq U \). Hence \( X \) is not Hausdorff.
+	      \end{proof}
+	\item If \( X \) and \( Y \) are topological spaces and \( y_{0} \in Y \), then \( X \) is homeomorphic to \( X \times \left\{ y_{0} \right\} \) where the latter has the relative topology as a subset of \( X \times Y \).
+	      \begin{proof}
+		      Consider the map \( f: X \to X \times \left\{ y_{0} \right\}, x \mapsto (x, y_{0}) \).
+
+		      \( f \) is bijective and continuous. Moreover, if \( U \) is open in \( X \) then \( f(U) = U \times \left\{ y_{0} \right\} \), which is open in \( X \times \left\{ y_{0} \right\} \) because \( U \times \left\{ y_{0} \right\} = U \times Y \cap X \times \left\{ y_{0} \right\} \). Hence \( f \) is a homeomorphism.
+	      \end{proof}
+	\item If \( \left\{ X_{\alpha} \right\} \) is a family of topological spaces, \( X = \prod_{\alpha} X_{\alpha} \) (with the product topology) is uniquely determined up to homeomorphism by the following property: There exist continuous maps \( \pi_{\alpha}: X \to X_{\alpha} \) such that if \( Y \) is any topological space and \( f_{\alpha} \in C(Y, X_{\alpha}) \) for each \( \alpha \), there is a unique \( F \in C(Y, X) \) such that \( f_{\alpha} = \pi_{\alpha} \circ F \). (Thus \(X\) is the category-theoretic product of the \( X_{\alpha} \)'s in the category of topological spaces.)
+	      \begin{proof}
+		      \( X \) with the product topology satisfies the given property by the since it has the coarsest topology on \( X \) for each \( \pi_{\alpha} \) is continuous.
+
+		      Suppose \( X^{\prime} \) is a topological space satisfying the property. There exist continuous maps \( \pi_{\alpha}^{\prime}: X^{\prime} \to X_{\alpha} \) for every \( \alpha \). There is a unique map \( F: X^{\prime} \to X \) such that \( \pi_{\alpha}^{\prime} = \pi_{\alpha} \circ F \) for every \( \alpha \). It remains to prove that \( F \) is continuous.
+
+		      It suffices to check whether \( F^{-1}(U) \) is open for every subbasic open set \( U \) in \( X \). A subbasic open set in \( X \) is of the form \( \pi_{\alpha}^{-1}(U_{\alpha}) \) where \( U_{\alpha} \) is open in \( X_{\alpha} \). On the other hand
+		      \[
+			      F^{-1}(\pi_{\alpha}^{-1}(U_{\alpha})) = {(\pi_{\alpha} \circ F)}^{-1}(U_{\alpha}) = {(\pi_{\alpha}^{\prime})}^{-1}(U_{\alpha})
+		      \]
+
+		      is open in \( X^{\prime} \) for \( \pi_{\alpha}^{\prime} \) is continuous. Hence \( F \) is continuous.
+
+		      Thus \( X \) is uniquely determined up to isomorphism (homeomorphism) by the given property.
+	      \end{proof}
+	\item If \( A \) is a countable set and \( X_{\alpha} \) is a first (resp.\@ second) countable space for each \( \alpha \in A \), then \( \prod_{\alpha \in A} X_{\alpha} \) is a first (resp.\@ second) countable.
+	      \begin{proof}
+		      Suppose \( X_{\alpha} \) is first countable for each \( \alpha \in A \).
+
+		      Let \( x \in \prod_{\alpha \in A} X_{\alpha} \). For each \( \alpha \in A \), let \( \mathcal{N}_{\alpha}(x_{\alpha}) \) be a countable neighborhood base at \( x_{\alpha} \). Define \( \mathcal{N}_{\alpha} = \left\{ \pi^{-1}_{\alpha}(U) : U \in \mathcal{N}_{\alpha}(x_{\alpha}) \right\} \) and \( \mathcal{N} \) is the collection of finite intersections in \( \bigcup_{\alpha \in A} \mathcal{N}_{\alpha} \). Since \( A \) is countable and each \( \mathcal{N}_{\alpha} \) is countable, \( \mathcal{N} \) is countable.
+
+		      Let \( U \) be an open set containing \( x \). There exists a basic open set \( B \) such that \( x \in B \subseteq U \). The open set \( B \) is of the form \( \prod_{\alpha \in F} V_{\alpha} \times \prod_{\alpha \in A \setminus F} X_{\alpha} \) where \( F \subseteq A \) is finite and \( V_{\alpha} \subseteq X_{\alpha} \) is open for each \( \alpha \in A \).
+
+		      \( V_{\alpha} \) contains in some \( U_{\alpha} \in \mathcal{N}_{\alpha}(x_{\alpha}) \) for each \( \alpha \in F \), so
+		      \[
+			      x \in \bigcap_{\alpha \in F} \pi_{\alpha}^{-1}(U_{\alpha}) \subseteq \prod_{\alpha \in F} V_{\alpha} \times \prod_{\alpha \in A \setminus F} X_{\alpha} = B \subseteq U
+		      \]
+
+		      where \( \bigcap_{\alpha \in F} \pi_{\alpha}^{-1}(U_{\alpha}) \in \mathcal{N} \). Hence \( \mathcal{N} \) is a countable neighborhood base at \( x \). Thus \( X \) is first countable.
+
+		      \bigskip
+		      Suppose \( X_{\alpha} \) is second countable for each \( \alpha \in A \).
+
+		      For each \( \alpha \in A \), let \( \mathcal{B}_{\alpha} \) be a countable basis for \( X_{\alpha} \). Let \( \mathcal{B} \) be the collection of finite intersections \( \bigcap_{i=1}^{n} \pi_{\alpha_{i}}^{-1}(U_{\alpha_{i}}) \) where \( U_{\alpha_{i}} \in \mathcal{B}_{\alpha_{i}} \) then \( \mathcal{B} \) is countable.
+
+		      Let \( U \) be an open set in \( X \). For each \( x \in X \), there exists a basic open set \( \bigcap_{i=1}^{m} \pi_{\alpha_{i}}^{-1}(V_{\alpha_{i}}) \) such that
+		      \[
+			      x \in \bigcap_{i=1}^{m} \pi_{\alpha_{i}}^{-1}(V_{\alpha_{i}}) \subseteq U.
+		      \]
+
+		      For each \( i \), there exists \( U_{\alpha_{i}} \in \mathcal{B}_{\alpha_{i}} \) such that \( x_{\alpha_{i}} \in U_{\alpha_{i}} \subseteq V_{\alpha_{i}} \), so
+		      \[
+			      x \in \bigcap_{i=1}^{m} \pi_{\alpha_{i}}^{-1}(U_{\alpha_{i}}) \subseteq \bigcap_{i=1}^{m} \pi_{\alpha_{i}}^{-1}(V_{\alpha_{i}}) \subseteq U.
+		      \]
+
+		      Thus \( \mathcal{B} \) is a countable basis, which means \( X \) is second countable.
+	      \end{proof}
+	\item If \( X \) is an infinite set with the cofinite topology, then every \( f \in C(X) \) is constant.
+	      \begin{proof}
+		      Let \( f \in C(X) \) and \( x, y \in X \).
+
+		      Let \( U_{x}, U_{y} \) be open neighborhoods of \( f(x), f(y) \), respectively, then \( f^{-1}(U_{x}), f^{-1}(U_{y}) \) are open neighborhoods of \( x, y \).
+
+		      From the definition of the cofinite topology, the complements of \( f^{-1}(U_{x}), f^{-1}(U_{y}) \) are finite, so their intersection is nonempty, according to De Morgan's formulae. Hence \( U_{x} \) and \( U_{y} \) are intersecting. Since \( U_{x}, U_{y} \) are arbitrary open neighborhoods of \( f(x), f(y) \) and \( \mathbb{R} \) is Hausdorff, we deduce that \( f(x) = f(y) \).
+
+		      Thus every \( f \in C(X) \) is constant.
+	      \end{proof}
+	\item Let \( X \) be a topological space, \( (Y, \rho) \) a complete metric space, and \( \left\{ f_{n} \right\} \) a sequence in \( Y^{X} \) such that \( \sup_{x \in X} \rho(f_{n}(x), f_{m}(x)) \to 0 \) as \( m, n \to \infty \). Prove that there is a unique \( f \in Y^{X} \) such that \( \sup_{x \in X} \rho(f_{n}(x), f(x)) \to 0 \) as \( n \to \infty \). If each \( f_{n} \) is continuous, so is \( f \).
+	      \begin{proof}
+		      For each \( x \in X \), \( \rho(f_{n}(x), f_{m}(x)) \to 0 \) as \( m, n \to \infty \) so the sequence \( \left\{ f_{n}(x) \right\} \) is Cauchy. Moreover, \( (Y, \rho) \) is a complete metric space, so \( \left\{ f_{n}(x) \right\} \) converges to a unique point \( p_{x} \).
+
+		      Define \( f \in Y^{X} \) by \( f(x) = p_{x} \) then \( \sup_{x\in X} \rho(f_{n}(x), f(x)) \to 0 \) as \( n \to \infty \). The uniqueness of \( f \) is evident.
+
+		      Suppose each \( f_{n} \) is continuous.
+
+		      For every \( x_{0} \in X \), for every \( \varepsilon \), there exist \( N_{1} \in \mathbb{N} \) such that \( \rho(f(x), f_{n}(x)) < \varepsilon/3 \) whenever \( n \ge N_{1} \), for \( \sup_{x \in X} \rho(f_{n}(x), f(x)) \to 0 \) as \( n \to \infty \).
+
+		      There exists a neighborhood of \( U \) for which \( \rho(f_{N_{1}}(x), f_{N_{1}}(x_{0})) < \varepsilon/3 \) whenever \( x \in U \).
+
+		      For every \( x \in U \), we have
+		      \[
+			      \rho(f(x), f(x_{0})) \le \rho(f(x), f_{N_{1}}(x)) + \rho(f_{N_{1}}(x), f_{N_{1}}(x_{0})) + \rho(f_{N_{1}}(x_{0}), f(x_{0})) < 3\cdot \dfrac{\varepsilon}{3} = \varepsilon.
+		      \]
+
+		      Hence \( f \) is continuous.
+	      \end{proof}
+	\item Given an elementary proof of the Tietze extension theorem for the case \( X = \mathbb{R} \).
+	      \begin{proof}
+		      Let \( A \) be a closed subset of \( \mathbb{R} \) then \( A^{\complement} \) is open in \( \mathbb{R} \).
+
+		      Let \( f \in C(A, [0, 1]) \). We define \( F: X \to [0, 1] \) as follows.
+
+		      \( F\vert_{A} = f \).
+
+		      From Lindel\"{o}f's lemma, \( A^{\complement} \) is a disjoint union of countably many open intervals, they are also the connected components of \( A^{\complement} \).
+
+		      If \( \left\rbrack a, b \right\lbrack \) is a connected component of \( A^{\complement} \) then
+		      \[
+			      F(x) = f(b)\dfrac{x - a}{b - a} + f(a)\dfrac{b - x}{b - a}
+		      \]
+
+		      is continuous on \( \left\lbrack a, b \right\rbrack \).
+
+		      If \( \left\rbrack -\infty, a \right\lbrack \) is a connected component of \( A^{\complement} \) then \( F(x) = f(a) \) for every \( x < a \).
+
+		      If \( \left\rbrack a, \infty \right\lbrack \) is a connected component of \( A^{\complement} \) then \( F(x) = f(a) \) for every \( x > a \).
+
+		      The collection of \( A \), the closures of components of \( A^{\complement} \) is a locally finite closed cover of \( \mathbb{R} \), so \( F \) is continuous, according to the gluing lemma.
+	      \end{proof}
+	\item A topological space \( X \) is normal iff \( X \) satisfies the conclusion of Urysohn's lemma, iff \( X \) satisfies the conclusion of the Tietze extension theorem.
+	      \begin{proof}
+		      From Urysohn's lemma, the normality of \( X \) implies the conclusion of Urysohn's lemma.
+
+		      From the Tietze extension theorem, if \( X \) satisfies the conclusion of Urysohn's lemma then it satisfies the conclusion of the Tietze extension theorem.
+
+		      Assume \( X \) satisfies the conclusion of Tietze extension theorem. Let \( A, B \) be two disjoint closed subsets of \( X \) then \( K = A \cup B \) is closed in \( X \). Also, the function \( g: K \to [0, 1] \) given by
+		      \[
+			      g(x) = \begin{cases}
+				      0 & x \in A \\
+				      1 & x \in B
+			      \end{cases}
+		      \]
+
+		      is continuous. From the Tietze extension theorem, it follows that there is \( F \in C(X, [0, 1]) \) such that \( F\vert_{K} = g \). The open sets \( F^{-1}(\left\lbrack 0, 1/2 \right\lbrack) \) and \( F^{-1}(\left\rbrack 1/2, 1 \right\rbrack) \) are disjoint and contain \( A, B \), respectively. Hence \( X \) is normal.
+	      \end{proof}
+	\item If \( (X, \mathcal{T}) \) is completely regular, then \( \mathcal{T} \) is the weak topology generated by \( C(X) \).
+	      \begin{proof}
+		      Let \( U \in \mathcal{T} \) and \( x_{0} \in U \) then \( x_{0} \notin A = U^{\complement} \) and \( A \) is closed in \( X \).
+
+		      \( \mathcal{T} \) is completely regular so there exists \( f \in C(X, [0, 1]) \) such that \( f(x_{0}) = 1 \) and \( f\vert_{A} \equiv 0 \). Because \( [0, 1] \) is closed in \( \mathbb{C} \), we also have \( f \in C(X, \mathbb{C}) = C(X) \).
+
+		      \( f^{-1}\left( \left\rbrack -\infty, 1/2 \right\lbrack \right) \) and \( f^{-1}\left( \left\rbrack 1/2, \infty \right\lbrack \right) \) are disjoint open neighborhoods of \( A \) and \( x_{0} \). Therefore
+		      \[
+			      x_{0} \in f^{-1}\left( \left\rbrack 1/2, \infty \right\lbrack \right) \subseteq X \setminus f^{-1}\left( \left\rbrack -\infty, 1/2 \right\lbrack \right) \subseteq X \setminus A = U.
+		      \]
+
+		      Note that \( f^{-1}\left( \left\rbrack 1/2, \infty \right\lbrack \right) \) is a subbasic element of the weak topology generated by \( C(X) \). Therefore \( \mathcal{T} \) is not finer than the weak topology generated by \( C(X) \).
+
+		      Conversely, \( g^{-1}(U) \) is a subbasic element and \( x_{0} \in g^{-1}(U) \). Let \( A = X \setminus g^{-1}(U) \) then \( A \) is closed in \( X \). Because \( X \) is completely regular, there exists \( f \in C(X, [0, 1]) \) such that \( f(x_{0}) = 1 \) and \( f\vert_{A} \equiv 0 \). Let \( V, W \) be disjoint neighborhoods of \( 1 \) and \( 0 \) then \( f^{-1}(V), f^{-1}(W) \) are disjoint neighborhoods of \( x_{0} \) and \( A \).
+		      \[
+			      x_{0} \in f^{-1}(V) \subseteq X \setminus f^{-1}(W) \subseteq X \setminus A = g^{-1}(U).
+		      \]
+
+		      Hence \( g^{-1}(U) \in \mathcal{T} \). Therefore the weak topology generated by \( C(X) \) is not finer than \( \mathcal{T} \).
+
+		      Thus \( \mathcal{T} \) is the weak topology generated by \( C(X) \).
+	      \end{proof}
+	\item Let \( X \) and \( Y \) be topological spaces.
+	      \begin{enumerate}[itemsep=0pt,label={\textbf{\alph*.}}]
+		      \item If \( X \) is connected (see Exercise 10) and \( f \in C(X, Y) \), then \( f(X) \) is connected.
+		      \item \( X \) is called \textbf{arcwise connected} if for all \( x_{0}, x_{1} \in X \) there exists \( f \in C([0, 1], X) \) with \( f(0) = x_{0} \) and \( f(1) = x_{1} \). Every arcwise connected space is connected.
+		      \item Let \( X = \left\{ (s, t) \in \mathbb{R}^{2} : t = \sin(1/s) \right\} \cup \left\{ (0, 0) \right\} \), with the relative topology induced from \( \mathbb{R}^{2} \). Then \( X \) is connected but not arcwise connected.
+	      \end{enumerate}
+
+	      \begin{proof}
+		      \begin{enumerate}[itemsep=0pt,label={\textbf{\alph*.}}]
+			      \item Assume \( f(X) = U \cup V \) with \( U, V \) are disjoint open sets in \( f(X) \) then \( X = f^{-1}(U) \cup f^{-1}(V) \) and \( f^{-1}(U) \) and \( f^{-1}(V) \) are disjoint open sets. Since \( X \) is connected, \( f^{-1}(U) = \varnothing \) or \( f^{-1}(V) = \varnothing \). Hence \( U = \varnothing \) or \( V = \varnothing \), which means \( f(X) \) is connected.
+			      \item The unit interval \( [0, 1] \) is connected.
+
+			            Pick a point \( x_{0} \in X \). For every \( x \in X \), there exists \( f_{x} \in C([0, 1], X) \) such that \( f_{x}(0) = x_{0} \) and \( f_{x}(1) = x \). Moreover each \( f_{x}([0, 1]) \) is connected and
+			            \[
+				            X = \bigcup_{x \in X} f_{x}([0, 1])
+			            \]
+
+			            so \( X \) is connected for the sets \( f_{x}([0, 1]) \) has a point \( x_{0} \) in common.
+			      \item \( (0, 0) \) is an accumulation point of \( \left\{ (s, t) \in \mathbb{R}^{2} : t = \sin(1/s) \right\} \) and \( \left\{ (s, t) \in \mathbb{R}^{2} : t = \sin(1/s) \right\} \) is connected so \( X \) is connected.
+
+			            Consider a map \( f: [0, 1] \to X \) such that \( f(0) = (0, 0) \) and \( f(1) = (1/\pi, 0) \). Let \( p_{2}: \mathbb{R}^{2} \to \mathbb{R} \) be the canonical projection \( p_{2}(x_{1}, x_{2}) = x_{2} \).
+
+			            \( p_{2} \circ f(0) = 0 \). Consider a neighborhood \( \left\rbrack -1/2, 1/2 \right\lbrack \) at \( 0 \). For every \( \delta > 0 \), \( p_{2} \circ f\vert_{\left\lbrack 0, \delta \right\lbrack} \) can attain any values in \( [-1, 1] \) so \( p_{2} \circ f(\left\lbrack 0, \delta \right\lbrack) \) is not contained in \( \left\rbrack -1/2, 1/2 \right\lbrack \). So \( p_{2} \circ f \) is not continuous, which means \( f \) is not continuous.
+
+			            Thus \( X \) is not arcwise connected.
+		      \end{enumerate}
+	      \end{proof}
+	\item If \( X_{\alpha} \) is connected for each \( \alpha \in A \) (see Exercise 10), then \( X = \prod_{\alpha \in A} X_{\alpha} \) is connected. (Fix \( x \in X \) and let \(Y\) be the connected component of \(x\) in \(X\). Show that \(Y\) includes \( \left\{ y \in X : \pi_{\alpha}(y) = \pi_{\alpha}(x) \text{ for all but finitely many \(\alpha\)} \right\} \) and that the latter set is dense in \( X \). Use Exercises 10 and 18.)
+	      \begin{proof}
+		      We will prove by mathematical induction that: Any two distinct points \( x, y \) which differ by only finitely many coordinates are in the same connected set.
+
+		      If \( x, y \) differ by only \( 1 \) coordinate \( \alpha \) then \( X_{\alpha} \times \prod_{\beta \ne \alpha} \left\{ x_{\alpha} \right\} \) is a connected set containing \( x \) and \( y \).
+
+		      Assume the statement holds for \( n - 1 \). Consider two distinct points \( x, y \) which differ by only \( n \) coordinates. Let \( z \) be a point which differs to \( x \) by only \( n - 1 \) coordinates and differs to \( y \) by only \( 1 \) coordinate. Then \( x, z \) are in a same connected set \( C_{x} \) and \( y, z \) are in a same connected set \( C_{y} \). Hence \( x, y \) are in the same connected set \( C_{x} \cup C_{y} \).
+
+		      Let \( Y \) be the set of points which differ from \( x \) by only finitely many coordinates, then \( Y \) is contained in the connected component of \( x \).
+
+		      Let \( U = \bigcap_{i=1}^{m}\pi_{\alpha_{i}}^{-1}(U_{\alpha_{i}}) \) be a nonempty basic open set in \( X \). Let's fix a point \( x \in X \).
+
+		      If \( X \) is singleton then it is connected. Otherwise, \( m \) is the cardinality of \( A \) or not.
+
+		      If \( m \) is the cardinality of \( A \) then there exists a point \( y \) differs from \( x \) by only one coordinate, then \( U \cap Y \ne \varnothing \).
+
+		      If \( m \) is not the cardinality of \( A \) then there exists a point \( y \) and \( \beta \in A \) such that \( \pi_{\alpha}(y) = \pi_{\alpha}(x) \) for all \( \alpha \ne \beta \) and \( \pi_{\beta}(y) \ne \pi_{\beta}(x) \). Evidently, \( y \in U \) so \( U \cap Y \ne \varnothing \).
+
+		      Therefore \( Y \) is dense in \( X \). Since \( Y \subseteq C(x) \) then \( X = \overline{Y} \subseteq \overline{C(x)} = C(x) \), where \( C(x) \) is the connected component of \( x \). Hence \( X \) is connected.
+	      \end{proof}
+	\item Let \( X \) be a topological space equipped with an equivalence relation, \( \widetilde{X} \) the set of equivalence classes, \( \pi: X \to \widetilde{X} \) the map taking each \( x \in X \) to its equivalence class, and \( \mathcal{T} = \left\{ U \subseteq \widetilde{X} : \pi^{-1}(U) \text{ is open in \(X\)} \right\} \).
+	      \begin{enumerate}[itemsep=0pt,label={\textbf{\alph*.}}]
+		      \item \( \mathcal{T} \) is a topology on \( \widetilde{X} \). (It is called the \textbf{quotient topology}.)
+		      \item If \( Y \) is a topological space, \( f: \widetilde{X} \to Y \) is continuous iff \( f \circ \pi \) is continuous.
+		      \item \( \widetilde{X} \) is \( \mathrm{T}_{1} \) iff every equivalence class is closed.
+	      \end{enumerate}
+	      \begin{proof}
+		      \begin{enumerate}[itemsep=0pt,label={\textbf{\alph*.}}]
+			      \item If \( U_{\alpha} \in \mathcal{T} \) for every \( \alpha \in A \) then
+			            \[
+				            \pi^{-1}\left( \bigcup_{\alpha} U_{\alpha} \right) = \bigcup_{\alpha \in A} \pi^{-1}(U_{\alpha})
+			            \]
+
+			            is open in \( X \), so \( \mathcal{T} \) is closed under unions.
+
+			            If \( U_{1}, \ldots, U_{n} \in \mathcal{T} \) then
+			            \[
+				            \pi^{-1}\left( \bigcap_{i=1}^{n} U_{i} \right) = \bigcap_{i=1}^{n} \pi^{-1}(U_{i})
+			            \]
+
+			            is open in \( X \), so \( \mathcal{T} \) is closed under finite intersections.
+
+			            Thus \( \mathcal{T} \) is a topology on \( \widetilde{X} \).
+			      \item Evidently, \( \pi \) is continuous.
+
+			            If \( f \) is continuous then \( f \circ \pi \) is continuous.
+
+			            Conversely, if \( f \circ \pi \) is continuous then for every open set \( U \subseteq Y \), \( {(f \circ \pi)}^{-1}(U) = \pi^{-1}(f^{-1}(U)) \) is open, so \( f^{-1}(U) \) is open. Hence \( f \) is continuous.
+			      \item Note that \( K \subseteq \widetilde{X} \) is closed iff \( \pi^{-1}(K) \subseteq X \) is closed.
+
+			            The result follows from the following chain of equivalences:
+			            \begin{itemize}
+				            \item \( \widetilde{X} \) is \( \mathrm{T}_{1} \).
+				            \item \( \{ \pi(x) \} \) is closed in \( \widetilde{X} \) for every \( x \in X \).
+				            \item \( \pi^{-1}(\pi(x)) \) is closed in \( X \) for every \( x \in X \).
+				            \item Every equivalence class in \( X \) is closed.
+			            \end{itemize}
+		      \end{enumerate}
+	      \end{proof}
+	\item If \( X \) is a topological space and \( G \) is a group of homeomorphisms from \( X \) to itself, \( G \) induces an equivalence relation on \( X \), namely, \( x \sim y \) iff \( y = g(x) \) for some \( g \in G \). Let \( X = \mathbb{R}^{2} \); describe the quotient space \( \widetilde{X} \) and the quotient topology on it for each of the following groups of invertible linear maps. In particular, show that in (a) the quotient space is homeomorphic to \( \left\lbrack 0, \infty \right\lbrack \); in (b) it is \( \mathrm{T}_{1} \) but not Hausdorff; in (c) it is \( \mathrm{T}_{0} \) but not \( \mathrm{T}_{1} \), and in (d) it is not \( \mathrm{T}_{0} \). (In fact, in (d) \( \widetilde{X} \) is uncountable, but there are only six open sets and there are points \( p \in \widetilde{X} \) such that \( \overline{\{p\}} = \widetilde{X} \).)
+	      \begin{enumerate}[itemsep=0pt,label={\textbf{\alph*.}}]
+		      \item \(
+		            \left\{
+		            \begin{pmatrix}
+			            \cos\theta & -\sin\theta \\
+			            \sin\theta & \cos\theta
+		            \end{pmatrix}
+		            : \theta \in \mathbb{R}
+		            \right\}
+		            \)
+		      \item \(
+		            \left\{
+		            \begin{pmatrix}
+			            1 & a \\
+			            0 & 1
+		            \end{pmatrix}
+		            : a \in \mathbb{R}
+		            \right\}
+		            \)
+		      \item \(
+		            \left\{
+		            \begin{pmatrix}
+			            a & b \\
+			            0 & 1
+		            \end{pmatrix}
+		            : a > 0, \, b \in \mathbb{R}
+		            \right\}
+		            \)
+		      \item \(
+		            \left\{
+		            \begin{pmatrix}
+			            a & 0 \\
+			            0 & b
+		            \end{pmatrix}
+		            : a, b \in \mathbb{Q} \setminus \{0\}
+		            \right\}
+		            \)
+	      \end{enumerate}
+
+	      \begin{proof}
+		      \begin{enumerate}[itemsep=0pt,label={\textbf{\alph*.}}]
+			      \item \( q: \mathbb{R}^{2} \to \left\lbrack 0, \infty \right\lbrack, q(x) = \left\vert x \right\vert \) is a continuous map. Let \( U \subseteq \mathbb{R}^{2} \) be an open set.
+			            \[
+				            q^{-1}(q(U)) = \bigcup_{g \in G} g(U)
+			            \]
+
+			            is open for the left actions of \( G \) on \( \mathbb{R}^{2} \) are homeomorphisms. Hence \( q^{-1}(q(U)) \) is open in \( \mathbb{R}^{2} \). Therefore \( q(U) = q(q^{-1}(q(U))) \) is open in \( \left\lbrack 0, \infty \right\lbrack \), which means \( q \) is an open map. Hence \( q \) is a quotient map for it is an open and continuous surjection.
+
+			            \( q \) and \( \pi \) are quotient maps on \( \mathbb{R}^{2} \) and have the same identifications so \( \widetilde{X} \) is homeomorphic to \( \left\lbrack 0, \infty \right\lbrack \).
+			      \item The equivalence class of \( (x, y) \) is \( \left\{ (x + ay, y) : a \in \mathbb{R} \right\} \), which is closed in \( \mathbb{R}^{2} \). Therefore \( \widetilde{X} \) is \( \mathrm{T}_{1} \).
+
+			            Particularly, if \( y = 0 \), the equivalence class if \( (x, 0) \) consists of \( (x, 0) \). Otherwise, it is \( \mathbb{R} \times \left\{ y \right\} \).
+
+			            Let \( U_{1} \) be an open neighborhood of \( \pi(1, 0) \) and \( U_{2} \) an open neighborhood of \( \pi(2, 0) \).
+
+			            \( \pi^{-1}(U_{i}) \) is an open neighborhood of \( (i, 0) \) so there exists an open ball \( B_{r_{i}}((i, 0)) \) contained in \( \pi^{-1}(U_{i}) \). Let \( r = \min\left\{ r_{1}, r_{2} \right\} \) then \( \pi(1, r/2) \in U_{1} \cap U_{2} \), which means \( \widetilde{X} \) is not Hausdorff.
+			      \item The equivalence class of \( (1, 0) \) is \( \mathbb{R}_{> 0} \times \left\{ 0 \right\} \) and isn't closed in \( \mathbb{R}^{2} \). Therefore \( \widetilde{X} \) is not \( \mathrm{T}_{1} \).
+
+			            If \( x = 0, y = 0 \), \( [(x, y)] = \left\{ (0, 0) \right\} \).
+
+			            If \( x > 0, y = 0 \), \( [(x, y)] = \mathbb{R}_{> 0} \times \left\{ 0 \right\} \).
+
+			            If \( x < 0, y = 0 \), \( [(x, y)] = \mathbb{R}_{< 0} \times \left\{ 0 \right\} \).
+
+			            If \( y \ne 0 \), \( [(x, y)] = \mathbb{R} \times \left\{ y \right\} \).
+
+			            Consider two distinct points \( \pi(x_{1}, y_{1}) \) and \( \pi(x_{2}, y_{2}) \). The following cases are exhaustive:
+			            \begin{itemize}
+				            \item \( y_{1} = y_{2} \ne 0 \). In this case, \( \pi(x_{1}, y_{1}) = \pi(x_{2}, y_{2}) \).
+				            \item \( y_{1} = 0, y_{2} \ne 0 \). In this case, \( \pi^{-1}(\pi(x_{2}, y_{2})) \subseteq \mathbb{R} \times \left\rbrack y_{2} - \varepsilon, y_{2} + \varepsilon \right\lbrack \) for some \( \varepsilon > 0 \). The set \( \mathbb{R} \times \left\rbrack y_{2} - \varepsilon, y_{2} + \varepsilon \right\lbrack \) is open, saturated under \( \pi \) and its image doesn't contain \( \pi(x_{1}, y_{1}) \).
+				            \item \( y_{1} \ne 0, y_{2} = 0 \). Similar to the previous case.
+				            \item \( y_{1} = y_{2} = 0, x_{1}, x_{2} \ne 0 \). Because \( \pi(x_{1}, y_{1}) \ne \pi(x_{2}, y_{2}) \), \( x_{1}x_{2} < 0 \). Without loss of generality, suppose \( x_{1} > 0, x_{2} < 0 \). There exist \( x_{1} > \varepsilon > 0 \) such that
+				                  \[
+					                  \pi^{-1}(\pi(x_{1}, y_{1})) \subseteq \mathbb{R}_{> 0} \times \left\rbrack x_{1} - \varepsilon, x_{1} + \varepsilon \right\lbrack.
+				                  \]
+
+				                  \( \mathbb{R}_{> 0} \times \left\rbrack x_{1} - \varepsilon, x_{1} + \varepsilon \right\lbrack \) is open, saturated under \( \pi \) and its image doesn't contain \( \pi(x_{2}, y_{2}) \).
+				            \item \( y_{1} = y_{2} = 0, x_{1} \ne 0, x_{2} = 0 \). Similar to the previous case.
+			            \end{itemize}
+
+			            Hence \( \widetilde{X} \) is \( \mathrm{T}_{0} \).
+			      \item \( [(x, y)] = \left\{ (ax, by): a, b \in \mathbb{Q}\setminus \left\{0\right\} \right\} \).
+
+			            If \( x, y \in \mathbb{Q}\setminus \left\{ 0 \right\} \) then \( [(x, y)] = (\mathbb{Q}\setminus \left\{ 0 \right\}) \times (\mathbb{Q}\setminus \left\{ 0 \right\}) \).
+
+			            If \( x \in \mathbb{Q}\setminus \left\{ 0 \right\}, y = 0 \) then \( [(x, y)] = (\mathbb{Q}\setminus \left\{ 0 \right\}) \times \left\{ 0 \right\} \).
+
+			            Consider two point \( \pi(\sqrt{2}, 0) \) and \( \pi(0, 0) \). Let \( U \) be a neighborhood of \( \pi(0, 0) \) then \( \pi^{-1}(U) \) contains \( (0, 0) \). There exist rational numbers \( r_{1}, r_{2} > 0 \) such that \( (0, 0) \in \left\rbrack -r_{1}, r_{1} \right\lbrack \times \left\rbrack -r_{2}, r_{2} \right\lbrack \subseteq \pi^{-1}(U) \). Moreover, there exists a rational number \( q \) such that \( \sqrt{2} < q \), then \( \sqrt{2} \cdot \dfrac{r_{1}}{q} < r_{1} \). This means \( U \) contains \( \pi(\sqrt{2}, 0) \).
+
+			            Thus \( \widetilde{X} \) is not \( \mathrm{T}_{0} \).
+		      \end{enumerate}
+	      \end{proof}
+\end{enumerate}
+
+\section{Nets}
+
+\subsection*{Exercises}
+
+\begin{enumerate}[itemsep=0pt,label={\textbf{\arabic*.}}]
+	\setcounter{enumi}{29}
+	\item If \( A \) is a directed set, a subset \( B \) of \( A \) is called \textbf{cofinal} in \( A \) if for each \( \alpha \in A \) there exists \( \beta \in B \) such that \( \beta \succsim \alpha \).
+	      \begin{enumerate}[itemsep=0pt,label={\textbf{\alph*.}}]
+		      \item If \( B \) is cofinal in \( A \) and \( {\left\langle x_{\alpha} \right\rangle}_{\alpha \in A} \) is a net, the inclusion map \( B \to A \) makes \( {\left\langle x_{\beta} \right\rangle}_{\beta \in B} \) a subnet of \( {\left\langle x_{\alpha} \right\rangle}_{\alpha \in A} \).
+		      \item If \( {\left\langle x_{\alpha} \right\rangle}_{\alpha \in A} \) is a net in a topological space, then \( {\left\langle x_{\alpha} \right\rangle} \) converges to \( x \) iff for every cofinal \( B \subseteq A \) there is a cofinal \( C \subseteq B \) such that \( {\left\langle x_{\gamma} \right\rangle}_{\gamma \in C} \) converges to \( x \).
+	      \end{enumerate}
+	      \begin{proof}
+		      \begin{enumerate}[itemsep=0pt,label={\textbf{\alph*.}}]
+			      \item
+			      \item
+		      \end{enumerate}
+	      \end{proof}
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+\end{enumerate}
+
+\section{Compact Spaces}
+
+\subsection*{Exercises}
+
+\begin{enumerate}[itemsep=0pt,label=\textbf{\arabic*.}]
+	\setcounter{enumi}{36}
+	\item
+	\item
+	\item Every sequentially compact space is countably compact.
+	\item
+	\item
+	\item
+	\item
+	\item If \( X \) is countably compact and \( f: X \to Y \) is continuous, then \( f(X) \) is countably compact.
+	      \begin{proof}
+		      Let \( {\left\{ U_{n} \right\}}_{1}^{\infty} \) be a countable open cover of \( f(X) \), then \( {\left\{ f^{-1}(U_{n})\right\}}_{1}^{\infty} \) is a countable open cover of \( X \). Since \( X \) is countably compact, there exists a finite subset \( F \subseteq \mathbb{N} \) such that \( \bigcup_{n \in F} f^{-1}(U_{n}) \supseteq X \). Therefore \( f(X) \subseteq f\left(\bigcup_{n \in F} f^{-1}(U_{n})\right) = \bigcup_{n \in F} f(f^{-1}(U_{n})) \subseteq \bigcup_{n \in F} U_{n} \), which means \( {(U_{n})}_{1}^{\infty} \) has a finite subcover. Hence \( f(X) \) is countably compact.
+	      \end{proof}
+	\item
+\end{enumerate}
+
+\section{Locally Compact Hausdorff Spaces}
+
+\section{Two Compactness Theorems}
+
+\section{The Stone-Weierstrass Theorem}
+
+\section{Embeddings in Cubes}
+

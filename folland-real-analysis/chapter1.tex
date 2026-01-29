@@ -1,0 +1,687 @@
+\chapter{Measures}
+
+\section{Introduction}
+
+\section{\(\sigma\)-algebras}
+
+\subsection*{Exercises}
+
+\begin{enumerate}[itemsep=0pt]
+	\item A family of set \( \mathcal{R} \subseteq \mathcal{P}(X) \) is called a \textbf{ring} if it is closed under finite unions and differences. A ring that is closed under countable unions is called a \textbf{\(\sigma\)-ring}.
+	      \begin{enumerate}[itemsep=0pt,label={\alph*.}]
+		      \item Rings (resp\@. \(\sigma\)-rings) are closed under finite (resp\@. countable) intersections.
+		      \item If \( \mathcal{R} \) is a ring (resp.\@ \(\sigma\)-ring), then \( \mathcal{R} \) is an algebra (resp.\@ \(\sigma\)-algebra) iff \( X \in \mathcal{R} \).
+		      \item If \( \mathcal{R} \) is a \( \sigma \)-ring, then \( \left\{ E \subseteq X : E \in \mathcal{R} \text{ or } E^{\complement} \in \mathcal{R} \right\} \) is a \( \sigma \)-algebra.
+		      \item If \( \mathcal{R} \) is a \( \sigma \)-ring, then \( \left\{ E \subseteq X: E \cap F \in \mathcal{R} \text{ for all } F \in \mathcal{R} \right\} \) is a \( \sigma \)-algebra.
+	      \end{enumerate}
+
+	      \begin{proof}
+		      \begin{enumerate}[itemsep=0pt,label={\alph*.}]
+			      \item Assume \( \mathcal{R} \) is a ring.
+
+			            If \( A_{1}, A_{2} \in \mathcal{R} \) then \( A_{1} \cup A_{2}, A_{1} - A_{2}, A_{2} - A_{1}, \varnothing \in \mathcal{R} \) for \( \mathcal{R} \) is closed under finite unions and differences. Since
+			            \[
+				            A_{1} \cap A_{2} = A_{1} \cup A_{2} \setminus [(A_{1} \setminus A_{2}) \cup (A_{2} \setminus A_{1})]
+			            \]
+
+			            then \( A_{1} \cap A_{2} \in \mathcal{R} \). Thus \( \mathcal{R} \) is closed under finite intersections.
+
+			            Assume \( \mathcal{R} \) is a \( \sigma \)-ring.
+
+			            If \( A_{n} \in \mathcal{R} \) for every \( n \in \mathbb{N} \) then \( A = \bigcup_{n=1}^{\infty} A_{n} \in \mathcal{R} \). According to the De Morgan's formulae
+			            \[
+				            A \setminus \bigcap_{n=1}^{\infty} A_{n} = \bigcup_{n=1}^{\infty} A \setminus A_{n}
+			            \]
+
+			            is an element of \( \mathcal{R} \), so the countable intersection \( \bigcap_{n=1}^{\infty} A_{n} \) is in \( \mathcal{R} \). Thus \( \mathcal{R} \) is closed under countable intersections.
+			      \item Assume \( \mathcal{R} \) is a ring (resp\@. \(\sigma\)-ring).
+
+			            If \( \mathcal{R} \) is an algebra (resp\@. \(\sigma\)-algebra) then it is closed under complements. Since \( \varnothing \in \mathcal{R} \), it follows that \( X \in \mathcal{R} \).
+
+			            Conversely, if \( X \in \mathcal{R} \) then \( \mathcal{R} \) is closed under complements since it contains \( X \) and is closed under differences. So \( \mathcal{R} \) is an algebra (resp\@. \(\sigma\)-algebra).
+			      \item Let \( \mathcal{S} = \left\{ E \subseteq X : E \in \mathcal{R} \text{ or } E^{\complement} \in \mathcal{R} \right\} \).
+
+			            \( \varnothing \in \mathcal{R} \) so \( \varnothing, X \in \mathcal{S} \).
+
+			            If \( E \in \mathcal{S} \) then \( E \in \mathcal{R} \) (this implies \( E^{\complement} \in \mathcal{S} \) because \( E = {(E^{\complement})}^{\complement} \)) or \( E^{\complement} \in \mathcal{R} \) (so \( E^{\complement} \in \mathcal{S} \)). Therefore \( \mathcal{S} \) is closed under complements.
+
+			            If \( E, F \in \mathcal{S} \), there are precisely 4 following cases.
+			            \begin{enumerate}[itemsep=0pt,label={\textbf{Case \arabic*.}},itemindent=1cm]
+				            \item \( E, F \in \mathcal{R} \) then \( E \cup F \in \mathcal{R} \), so \( E \cup F \in \mathcal{S} \).
+				            \item \( E^{\complement}, F^{\complement} \in \mathcal{R} \) then \( {(E \cup F)}^{\complement} = E^{\complement} \cap F^{\complement} \in \mathcal{R} \), so \( E \cup F \in \mathcal{S} \).
+				            \item \( E \in \mathcal{R}, F^{\complement} \in \mathcal{R} \) then \( {(E \cup F)}^{\complement} = E^{\complement} \cap F^{\complement} = (X \setminus E) \cap F^{\complement} = F^{\complement} \setminus E \in \mathcal{R} \), so \( E \cup F \in \mathcal{S} \).
+				            \item \( E^{\complement} \in \mathcal{R}, F \in \mathcal{R} \) then \( {(E \cup F)}^{\complement} = E^{\complement} \cap F^{\complement} = E^{\complement} \cap (X \setminus F) = E^{\complement} \setminus F \in \mathcal{R} \), so \( E \cup F \in \mathcal{S} \).
+			            \end{enumerate}
+
+			            Let \( {\left\{ E_{n} \right\}}_{1}^{\infty} \) be a sequence of elements of \( \mathcal{S} \). Let \( W = \left\{ n \in \mathbb{N} : E_{n} \in \mathcal{R} \right\} \) then
+			            \[
+				            \bigcup_{n\in\mathbb{N}} E_{n} = \bigcup_{n \in W} E_{n} \cup \bigcup_{n \in \mathbb{N}\setminus W} E_{n}.
+			            \]
+
+			            Since \( \mathcal{R} \) is closed under countable unions and intersections, then
+			            \[
+				            \bigcup_{n \in W} E_{n} \in \mathcal{R}\qquad\text{and}\qquad {\left(\bigcup_{n \in \mathbb{N}\setminus W} E_{n}\right)}^{\complement} = \bigcap_{n\in \mathbb{N}\setminus W} E_{n}^{\complement} \in \mathcal{R}.
+			            \]
+
+			            Therefore
+			            \[
+				            \bigcup_{n \in W} E_{n} \in \mathcal{S} \qquad\text{and}\qquad \bigcup_{n \in \mathbb{N}\setminus W} E_{n} \in \mathcal{S}
+			            \]
+
+			            from which we conclude that \( \bigcup_{n\in\mathbb{N}} E_{n} \) according to Case 3.
+
+			            \( \mathcal{S} \) is closed under countable unions and complements so it is a \( \sigma \)-algebra.
+			      \item Let \( \mathcal{S} = \left\{ E \subseteq X: E \cap F \in \mathcal{R} \text{ for all } F \in \mathcal{R} \right\} \).
+
+			            \( \varnothing \cap F = \varnothing \in \mathcal{R} \) for every \( F \in \mathcal{R} \) so \( \varnothing \in \mathcal{S} \).
+
+			            \( X \cap F = F \in \mathcal{R} \) for every \( F \in \mathcal{R} \) so \( X \in \mathcal{S} \).
+
+			            Let \( {\left\{ E_{n} \right\}}_{1}^{\infty} \) be a sequence of elements of \( \mathcal{S} \).
+			            \[
+				            \left(\bigcup_{n\in\mathbb{N}} E_{n}\right) \cap F = \bigcup_{n\in\mathbb{N}} (E_{n} \cap F) \in \mathcal{R}
+			            \]
+
+			            for every \( F \in \mathcal{R} \) because \( \mathcal{R} \) is a \( \sigma \)-ring and \( E_{n} \cap F \in \mathcal{R} \) for every \( n \in \mathbb{N} \). Therefore \( \bigcup_{n\in\mathbb{N}} E_{n} \in \mathcal{S} \). So \( \mathcal{S} \) is closed under countable unions.
+
+			            If \( E \in \mathcal{S} \) then
+			            \[
+				            E^{\complement} \cap F = F - (E \cap F) \in \mathcal{R}
+			            \]
+
+			            for every \( F \in \mathcal{R} \), so \( \mathcal{S} \) is closed under complements.
+
+			            Hence \( \mathcal{S} \) is a \( \sigma \)-algebra.
+		      \end{enumerate}
+	      \end{proof}
+	\item Complete the proof of Proposition 1.2.
+	      \begin{proof}
+		      \( \mathcal{B}_{\mathbb{R}} \) is generated by each of the following:
+		      \begin{enumerate}[itemsep=0pt]
+			      \item[(b)] \( \mathcal{E}_{2} = \left\{ \left\lbrack a, b \right\rbrack : a < b \right\} \),
+			      \item[(c)] \( \mathcal{E}_{3} = \left\{ \left\rbrack a, b\right\rbrack : a < b \right\} \) or \( \mathcal{E}_{4} = \left\{ \left\lbrack a, b\right\lbrack : a < b \right\} \),
+			      \item[(d)] \( \mathcal{E}_{5} = \left\{ \left\rbrack a, \infty \right\lbrack: a \in \mathbb{R} \right\} \) or \( \mathcal{E}_{6} = \left\{ \left\rbrack -\infty, a \right\lbrack : a \in \mathbb{R} \right\} \),
+			      \item[(e)] \( \mathcal{E}_{7} = \left\{ \left\lbrack a, \infty \right\lbrack: a \in \mathbb{R} \right\} \) or \( \mathcal{E}_{8} = \left\{ \left\rbrack -\infty, a \right\rbrack : a \in \mathbb{R} \right\} \).
+		      \end{enumerate}
+
+		      \begin{enumerate}[itemsep=0pt]
+			      \item[(b)] Because \( {\left\lbrack a, b \right\rbrack}^{\complement} = \left\rbrack -\infty, a \right\lbrack \cup \left\rbrack b, \infty \right\lbrack \) then \( \left\lbrack a, b \right\rbrack \in \mathcal{B}_{\mathbb{R}} \). Therefore \( \mathcal{M}(\mathcal{E}_{2}) \subseteq \mathcal{B}_{\mathbb{R}} \).
+			            \[
+				            \left\rbrack a, b \right\lbrack = \bigcup_{n \in \mathbb{N}} \left\lbrack a + 1/n, b - 1/n \right\rbrack
+			            \]
+
+			            so \( \mathcal{E}_{1} \subseteq \mathcal{M}(\mathcal{E}_{2}) \), which means \( \mathcal{B}_{\mathbb{R}} = \mathcal{M}(\mathcal{E}_{1}) \subseteq \mathcal{M}(\mathcal{E}_{2}) \). Thus \( \mathcal{B}_{\mathbb{R}} = \mathcal{M}(\mathcal{E}_{2}) \).
+			      \item[(c)] Because
+			            \begingroup
+			            \allowdisplaybreaks%
+			            \begin{align*}
+				            \left\rbrack a, b \right\rbrack & = \bigcup_{n \in \mathbb{N}} \left\lbrack a + 1/n, b \right\rbrack, \\
+				            \left\lbrack a, b \right\lbrack & = \bigcup_{n \in \mathbb{N}} \left\lbrack a, b - 1/n \right\rbrack,
+			            \end{align*}
+			            \endgroup
+
+			            then \( \mathcal{M}(\mathcal{E}_{2}) \subseteq \mathcal{M}(\mathcal{E}_{3}) \) and \( \mathcal{M}(\mathcal{E}_{2}) \subseteq \mathcal{M}(\mathcal{E}_{4}) \) and \( \mathcal{M}(\mathcal{E}_{2}) \supseteq \mathcal{M}(\mathcal{E}_{3}) \) and \( \mathcal{M}(\mathcal{E}_{2}) \supseteq \mathcal{M}(\mathcal{E}_{4}) \).
+
+			            Thus \( \mathcal{B}_{\mathbb{R}} = \mathcal{M}(\mathcal{E}_{3}) = \mathcal{M}(\mathcal{E}_{4}) \).
+			      \item[(d)] Because
+			            \begingroup
+			            \allowdisplaybreaks%
+			            \begin{align*}
+				            \left\rbrack a, \infty \right\lbrack  & = \bigcup_{n \in \mathbb{N}} \left\rbrack a, a + n \right\lbrack, \\
+				            \left\rbrack -\infty, a \right\lbrack & = \bigcup_{n \in \mathbb{N}} \left\rbrack a - n, a \right\lbrack,
+			            \end{align*}
+			            \endgroup
+
+			            then \( \mathcal{E}_{5} \subseteq \mathcal{M}(\mathcal{E}_{1}) \) and \( \mathcal{E}_{6} \subseteq \mathcal{M}(\mathcal{E}_{1}) \). Therefore \( \mathcal{M}(\mathcal{E}_{5}), \mathcal{M}(\mathcal{E}_{6}) \subseteq \mathcal{B}_{\mathbb{R}} \).
+
+			            Moreover, the two formulas also mean \( \mathcal{M}(\mathcal{E}_{1}) \subseteq \mathcal{M}(\mathcal{E}_{5}) \) and \( \mathcal{M}(\mathcal{E}_{1}) \subseteq \mathcal{M}(\mathcal{E}_{6}) \).
+
+			            Thus \( \mathcal{B}_{\mathbb{R}} = \mathcal{M}(\mathcal{E}_{5}) = \mathcal{M}(\mathcal{E}_{6}) \).
+			      \item[(e)] Because
+			            \begingroup
+			            \allowdisplaybreaks%
+			            \begin{align*}
+				            \left\lbrack a, \infty \right\lbrack  & = \bigcup_{n \in \mathbb{N}} \left\lbrack a, a + n \right\rbrack, \\
+				            \left\rbrack -\infty, a \right\rbrack & = \bigcup_{n \in \mathbb{N}} \left\lbrack a - n, a \right\rbrack,
+			            \end{align*}
+			            \endgroup
+
+			            then \( \mathcal{E}_{7} \subseteq \mathcal{M}(\mathcal{E}_{2}) \) and \( \mathcal{E}_{8} \subseteq \mathcal{M}(\mathcal{E}_{2}) \). Therefore \( \mathcal{M}(\mathcal{E}_{7}), \mathcal{M}(\mathcal{E}_{8}) \subseteq \mathcal{B}_{\mathbb{R}} \).
+
+			            Moreover, the two formulas also mean \( \mathcal{M}(\mathcal{E}_{2}) \subseteq \mathcal{M}(\mathcal{E}_{7}) \) and \( \mathcal{M}(\mathcal{E}_{2}) \subseteq \mathcal{M}(\mathcal{E}_{8}) \).
+
+			            Thus \( \mathcal{B}_{\mathbb{R}} = \mathcal{M}(\mathcal{E}_{7}) = \mathcal{M}(\mathcal{E}_{8}) \).
+		      \end{enumerate}
+	      \end{proof}
+	\item Let \( \mathcal{M} \) be an infinite \( \sigma \)-algebra.
+	      \begin{enumerate}[itemsep=0pt,label={\alph*.}]
+		      \item \( \mathcal{M} \) contains an infinite sequence of disjoint nonempty sets.
+		      \item \( \operatorname{card}(\mathcal{M}) \ge \mathfrak{c} \).
+	      \end{enumerate}
+	      \begin{proof}
+		      \( \mathcal{M} \) is a \( \sigma \)-algebra on some set \( X \).
+		      \begin{enumerate}[itemsep=0pt,label={\alph*.}]
+			      \item For every \( E \in \mathcal{M} \)
+			            \[
+				            \mathcal{M}_{E} = \left\{ E \cap S : S \in \mathcal{M} \right\}
+			            \]
+
+			            is a \( \sigma \)-algebra on \( E \). Moreover, \( \mathcal{M}_{E} \subseteq \mathcal{M} \).
+
+			            Assume that there doesn't exist \( E \in \mathcal{M} \) such that \( \mathcal{M}_{E^{\complement}} \) is infinite and \( \varnothing \subsetneq E \subsetneq X \).
+
+			            Pick \( E \in \mathcal{M} \) such that \( \varnothing \subsetneq E \subsetneq X \) then \( \mathcal{M}_{E^{\complement}} \) is finite. Also, \( \mathcal{M}_{E} \) is finite, for \( E^{\complement} \in \mathcal{M} \). Therefore \( \mathcal{M} \) is finite, which is a contradiction.
+
+			            Hence there exists \( A_{1} \in \mathcal{M} \) such that \( \mathcal{M}_{A_{1}^{\complement}} \) is infinite.
+
+			            For each \( n > 1 \), there exists \( A_{n} \in \mathcal{M}_{A_{n-1}^{\complement}} \) such that \( \mathcal{M}_{A_{n-1}^{\complement} \cap A_{n}^{\complement}} \) is infinite.
+
+			            Hence \( {(A_{n})}_{1}^{\infty} \) is an infinite sequence of disjoint nonempty sets in \( \mathcal{M} \).
+			      \item Let \( {(A_{n})}_{1}^{\infty} \) be an infinite sequence of disjoint nonempty sets in \( \mathcal{M} \) then \( \bigcup_{i} A_{i \in S} \) where \( S \subseteq \mathbb{N} \) are distinct sets in \( \mathcal{M} \). Because the cardinality of \( \mathcal{P}(\mathbb{N}) \) is \( \mathfrak{c} \), we conclude that \( \operatorname{card}(\mathcal{M}) \ge \mathfrak{c} \).
+		      \end{enumerate}
+	      \end{proof}
+	\item An algebra \( \mathcal{A} \) is a \( \sigma \)-algebra iff \( \mathcal{A} \) is closed under countable increasing unions.
+	      \begin{proof}
+		      If the algebra \( \mathcal{A} \) is a \( \sigma \)-algebra then \( \mathcal{A} \) is closed under countable increasing unions.
+
+		      Conversely, suppose the algebra \( \mathcal{A} \) is closed under countable increasing unions.
+
+		      Let \( {(E_{n})}_{1}^{\infty} \) be a sequence of sets in \( \mathcal{A} \). For every \( n \in \mathbb{N} \), \( A_{n} = \bigcup_{i=1}^{n} E_{i} \in \mathcal{A} \). Moreover, \( A_{1} \subseteq A_{2} \subseteq A_{3} \subseteq \cdots \) so \( {(A_{n})}_{1}^{\infty} \) is an increasing sequence, which means \( \bigcup_{n \in \mathbb{N}} A_{n} \in \mathcal{A} \). On the other hand, \( \bigcup_{n \in \mathbb{N}} E_{n} = \bigcup_{n \in \mathbb{N}} A_{n} \), so \( \mathcal{A} \) is closed under countable unions. Thus \( \mathcal{A} \) is a \( \sigma \)-algebra.
+	      \end{proof}
+	\item If \( \mathcal{M} \) is the \( \sigma \)-algebra generated by \( \mathcal{E} \), then \( \mathcal{M} \) is the union of the \( \sigma \)-algebras generated by \( \mathcal{F} \) as \( \mathcal{F} \) ranges over all countable subsets of \( \mathcal{E} \). (Hint: Show that the latter object is a \( \sigma \)-algebra.)
+	      \begin{proof}
+		      Consider \( \bigcup_{\mathcal{F} \subseteq \mathcal{E}} \mathcal{M}(\mathcal{F}) \) where \( \mathcal{F} \) is countable. Evidently, \( \bigcup_{\mathcal{F} \subseteq \mathcal{E}} \mathcal{M}(\mathcal{F}) \subseteq \mathcal{M} \).
+
+		      If \( E \in \bigcup_{\mathcal{F} \subseteq \mathcal{E}} \mathcal{M}(\mathcal{F}) \) then there exists \( \mathcal{F} \subseteq \mathcal{E} \) such that \( E \in \mathcal{M}(\mathcal{F}) \), which means \( E^{\complement} \in \mathcal{M}(\mathcal{F}) \subseteq \bigcup_{\mathcal{F} \subseteq \mathcal{E}} \mathcal{M}(\mathcal{F}) \). Therefore \( \bigcup_{\mathcal{F} \subseteq \mathcal{E}} \mathcal{M}(\mathcal{F}) \) is closed under complements.
+
+		      Let \( {(E_{n})}_{1}^{\infty} \) be an infinite sequence of sets in \( \bigcup_{\mathcal{F} \subseteq \mathcal{E}} \mathcal{M}(\mathcal{F}) \). For every \( E_{n} \), there exists \( \mathcal{F}_{n} \subseteq \mathcal{E} \) such that \( E_{n} \in \mathcal{M}(\mathcal{F}_{n}) \). Since every \( \mathcal{F}_{n} \) is a countable subset of \( \mathcal{E} \), the union \( \bigcup_{n \in \mathbb{N}} \mathcal{F}_{n} \) is also a countable subset of \( \mathcal{E} \). Therefore \( E_{n} \in \mathcal{M}\left( \bigcup_{n \in \mathbb{N}} \mathcal{F}_{n} \right) \) for every \( n \in \mathcal{N} \). Hence \( \bigcup_{n \in \mathbb{N}} E_{n} \in \mathcal{M}\left( \bigcup_{n \in \mathbb{N}} \mathcal{F}_{n} \right) \subseteq \bigcup_{\mathcal{F} \subseteq \mathcal{E}} \mathcal{M}(\mathcal{F}) \). So \( \bigcup_{\mathcal{F} \subseteq \mathcal{E}} \mathcal{M}(\mathcal{F}) \) is closed under countable unions.
+
+		      Hence \( \bigcup_{\mathcal{F} \subseteq \mathcal{E}} \mathcal{M}(\mathcal{F}) \) is a \( \sigma \)-algebra containing \( \mathcal{E} \). Since \( \mathcal{E} \) generates \( \mathcal{M} \) and \( \bigcup_{\mathcal{F} \subseteq \mathcal{E}} \mathcal{M}(\mathcal{F}) \subseteq \mathcal{M} \), we conclude that \( \bigcup_{\mathcal{F} \subseteq \mathcal{E}} \mathcal{M}(\mathcal{F}) = \mathcal{M} \), where \( \mathcal{F} \) ranges over all countable subsets of \( \mathcal{E} \).
+	      \end{proof}
+\end{enumerate}
+
+\section{Measures}
+
+\subsection*{Exercises}
+
+\begin{enumerate}[itemsep=0pt,label=\textbf{\arabic*.}]
+	\setcounter{enumi}{5}
+	\item Complete the proof of Theorem 1.9.
+	      \begin{proof}
+		      It remains to show that \( \overline{\mu} \) is a complete measure and \( \overline{\mu} \) is the only measure on \( \overline{\mathcal{M}} \) that extends \( \mu \).
+
+		      Because \( \overline{\mathcal{M}} = \left\{ E \cup F : E \in \mathcal{M}, F \subseteq N \text{ for some } N \in \mathcal{N} \right\} \) where \( \mathcal{N} = \left\{ N \in \mathcal{M} : \mu(N) = 0 \right\} \), it follows that \( F = \varnothing \cup F \) where \( F \subseteq N \) for some \( N \in \mathcal{N} \) is in \( \overline{\mathcal{M}} \). Hence \( \overline{\mu} \) is a complete measure as its domain includes all subsets of null sets.
+
+		      Assume that \( \mu^{\ast} \) is a measure on \( \overline{\mathcal{M}} \) that extends \( \mu \). For every \( E \cup F \in \overline{\mathcal{M}} \), where \( E \in \mathcal{M} \) and \( F \subseteq N \) for some \( N \in \mathcal{N} \)
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      \overline{\mu}(E \cup F) & = \mu(E) = \mu^{\ast}(E) \le \mu^{\ast}(E \cup F) \le \mu^{\ast}(E \cup N) \le \mu^{\ast}(E) + \mu^{\ast}(N) \\
+			                               & = \mu(E) + \mu(N) = \mu(E) = \overline{\mu}(E \cup F).
+		      \end{align*}
+		      \endgroup
+
+		      So \( \mu^{\ast} = \overline{\mu} \), hence the result follows.
+	      \end{proof}
+	\item If \( \mu_{1}, \ldots, \mu_{n} \) are measures on \( (X, \mathcal{M}) \) and \( a_{1}, \ldots, a_{n} \in \left\lbrack 0, \infty \right\lbrack \), then \( \sum_{1}^{n} a_{j}\mu_{j} \) is a measure on \( (X, \mathcal{M}) \).
+	      \begin{proof}
+		      Let \( \mu = \sum_{1}^{n} a_{j}\mu_{j} \)
+
+		      If \( {\left\{E_{j}\right\}}_{1}^{\infty} \) are pairwise disjoint measurable sets then
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      \mu(\varnothing)                              & = \sum_{1}^{n} a_{j}\mu_{j}(\varnothing) = \sum_{1}^{n} 0 = 0,                                                                                          \\
+			      \mu \left(\bigcup_{k=1}^{\infty} E_{k}\right) & = \sum_{j=1}^{n} a_{j}\mu_{j}\left( \sum_{k=1}^{\infty} E_{k} \right) = \sum_{j=1}^{n} a_{j}\sum_{k=1}^{\infty}\mu_{j}(E_{k})                           \\
+			                                                    & = \sum_{j=1}^{n}\sum_{k=1}^{\infty} a_{j}\mu_{j}(E_{k}) = \sum_{j=1}^{n} \lim\limits_{m \to \infty} \sum_{k=1}^{m} a_{j}\mu_{j}(E_{k})                  \\
+			                                                    & = \lim\limits_{m\to\infty} \sum_{j=1}^{n}\sum_{k=1}^{m} a_{j}\mu_{j}(E_{k}) = \lim\limits_{m\to\infty} \sum_{k=1}^{m}\sum_{j=1}^{n} a_{j}\mu_{j}(E_{k}) \\
+			                                                    & = \lim\limits_{m\to\infty} \sum_{k=1}^{m} \mu(E_{k}) = \sum_{k=1}^{\infty} \mu(E_{k}).
+		      \end{align*}
+		      \endgroup
+
+		      Thus \( \mu \) is a measure on \( (X, \mathcal{M}) \).
+	      \end{proof}
+	\item If \( (X, \mathcal{M}, \mu) \) is a measure space and \( {\left\{ E_{j} \right\}}_{1}^{\infty} \subseteq \mathcal{M} \), then \( \mu(\liminf E_{j}) \le \liminf \mu(E_{j}) \). Also, \( \mu(\limsup E_{j}) \ge \limsup \mu(E_{j}) \) provided that \( \mu\left( \bigcup_{1}^{\infty} E_{j} \right) < \infty \).
+	      \begin{proof}
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      \mu(\liminf E_{j}) & = \mu\left( \bigcup_{j=1}^{\infty} \bigcap_{k\ge j} E_{k} \right) = \lim\limits_{j\to\infty} \mu\left(\bigcap_{k\ge j} E_{k}\right) & \text{continuity from below}                                               \\
+			                         & \le \lim\limits_{j\to \infty} \inf\limits_{k\ge j} \mu(E_{k}) = \liminf \mu(E_{j})                                                  & \mu\left(\bigcap_{k\ge j} E_{k}\right) \le \inf\limits_{k\ge j} \mu(E_{k})
+		      \end{align*}
+		      \endgroup
+
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      \mu(\limsup E_{j}) & = \mu\left( \bigcap_{j=1}^{\infty} \bigcup_{k \ge j} E_{k} \right) = \lim\limits_{j\to\infty} \mu\left(\bigcup_{k\ge j} E_{k}\right) & \text{continuity from above}                                               \\
+			                         & \ge \lim\limits_{j\to\infty} \sup\limits_{k\ge j} \mu(E_{k}) = \limsup \mu(E_{j})                                                    & \mu\left(\bigcup_{k\ge j} E_{k}\right) \ge \sup\limits_{k\ge j} \mu(E_{k})
+		      \end{align*}
+		      \endgroup
+	      \end{proof}
+	\item If \( (X, \mathcal{M}, \mu) \) is a measure space and \( E, F \in \mathcal{M} \), then \( \mu(E) + \mu(F) = \mu(E \cup F) + \mu(E \cap F) \).
+	      \begin{proof}
+		      \( F \) is the disjoint union of \( F \setminus E \) and \( E \cap F \) so \( \mu(F) = \mu(F \setminus E) + \mu(E \cap F) \).
+
+		      \( E \cup F \) is the disjoint union of \( E \) and \( F \setminus E \) so \( \mu(E \cup F) = \mu(E) + \mu(F \setminus E) \).
+
+		      Hence
+		      \[ \mu(E) + \mu(F) = \mu(E) + \mu(F \setminus E) + \mu(E \cap F) = \mu(E \cup F) + \mu(E \cap F). \qedhere \]
+	      \end{proof}
+	\item Given a measure space \( (X, \mathcal{M}, \mu) \) and \( E \in \mathcal{M} \), define \( \mu_{E}(A) = \mu(A \cap E) \) for \( A \in \mathcal{M} \). Then \( \mu_{E} \) is a measure.
+	      \begin{proof}
+		      From the definition of \( \mu_{E} \), \( \mu_{E}(\varnothing) = \mu(\varnothing \cap E) = \mu(\varnothing) = 0 \).
+
+		      Let \( { \left\{ A_{n} \right\} }_{1}^{\infty} \) be an infinite sequence of pairwise disjoint measurable sets. Then \( { \left\{ E \cap A_{n} \right\} }_{1}^{\infty} \) is also n infinite sequence of pairwise disjoint measurable sets.
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      \mu_{E}\left(\bigcup_{1}^{\infty} A_{n}\right) & = \mu\left( E \cap \bigcup_{1}^{\infty} A_{n} \right) = \mu\left(\bigcup_{1}^{\infty} (E \cap A_{n})\right) \\
+			                                                     & = \sum_{1}^{\infty} \mu(E \cap A_{n}) = \sum_{1}^{\infty} \mu_{E}(A_{n}).
+		      \end{align*}
+		      \endgroup
+
+		      Thus \( \mu_{E} \) is also a measure on the measurable space \( (X, \mathcal{M}) \).
+	      \end{proof}
+	\item A finitely additive measure \( \mu \) is a measure iff it is continuous from below as in Theorem 1.8c. If \( \mu(X) < \infty \), \( \mu \) is a measure iff it is continuous from above as in Theorem 1.8d.
+	      \begin{proof}
+		      If the finitely additive measure \( \mu \) is a measure then it is continuous from below.
+
+		      Conversely, assume the finitely additive measure \( \mu \) is continuous from below.
+
+		      Let \( {\left\{ E_{n} \right\}}_{1}^{\infty} \) be an infinite sequence of pairwise disjoint measurable sets in the domain of \( \mu \).
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      \mu\left(\bigcup_{1}^{\infty} E_{j}\right) & = \lim\limits_{n\to \infty} \mu\left(\bigcup_{1}^{n} E_{j}\right) & \text{continuity from below} \\
+			                                                 & = \lim\limits_{n\to\infty} \sum_{1}^{n} \mu(E_{j})                & \text{finite additivity}     \\
+			                                                 & = \sum_{1}^{\infty} \mu(E_{j}).
+		      \end{align*}
+		      \endgroup
+
+		      Hence \( \mu \) is a measure.
+
+		      \hrulefill%
+
+		      If the finitely additive measure \( \mu \) is a measure then it is continuous from above.
+
+		      Conversely, assume the finitely additive measure \( \mu \) is continuous from above.
+
+		      Because \( \mu(X) \) is finite, the measure of any measurable set in the domain of \( \mu \) is finite.
+
+		      Let \( {\left\{ E_{n} \right\}}_{1}^{\infty} \) be an infinite sequence of pairwise disjoint measurable sets in the domain of \( \mu \).
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      \mu\left(X \setminus \bigcup_{1}^{\infty} E_{j}\right) & = \mu\left(\bigcap_{1}^{\infty} X \setminus E_{j}\right) = \lim\limits_{n\to\infty} \mu\left(\bigcap_{j=1}^{n} X\setminus E_{j}\right)                         & \text{continuity from above} \\
+			                                                             & = \lim\limits_{n\to\infty} \mu\left( X \setminus \bigcup_{j=1}^{n} E_{j} \right) = \mu(X) - \lim\limits_{n\to\infty} \mu\left( \bigcup_{j=1}^{n} E_{j} \right)                                \\
+			                                                             & = \mu(X) - \lim\limits_{n\to\infty} \sum_{j=1}^{n} \mu(E_{j})                                                                                                  & finite additivity            \\
+			                                                             & = \mu(X) - \sum_{1}^{\infty} \mu(E_{j})
+		      \end{align*}
+		      \endgroup
+
+		      so \( \mu\left(\bigcup_{1}^{\infty} E_{j}\right) = \sum_{1}^{\infty} \mu(E_{j}) \). Hence \( \mu \) is a measure.
+	      \end{proof}
+	\item Let \( (X, \mathcal{M}, \mu) \) be a finite measure space.
+	      \begin{enumerate}[itemsep=0pt,label={\textbf{\alph*.}}]
+		      \item If \( E, F \in \mathcal{M} \) and \( \mu(E \Delta F) = 0 \), then \( \mu(E) = \mu(F) \).
+		      \item Say that \( E \sim F \) if \( \mu(E \Delta F) = 0 \); then \( \sim \) is an equivalence relation on \( \mathcal{M} \).
+		      \item For \( E, F \in \mathcal{M} \), define \( \rho(E, F) = \mu(E \Delta F) \). Then \( \rho(E, G) \le \rho(E, F) + \rho(F, G) \), and hence \( \rho \) defines a metric on the space \( \mathcal{M}/{\sim} \) of equivalence classes.
+	      \end{enumerate}
+	      \begin{proof}
+		      The finiteness is implicitly used in \textbf{c.}
+		      \begin{enumerate}[itemsep=0pt,label={\textbf{\alph*.}}]
+			      \item \( E \Delta F \) is the disjoint union of \( E \setminus F \) and \( F \setminus E \) so \( \mu(E \Delta F) = \mu(E \setminus F) + \mu(F \setminus E) \).
+
+			            If \( \mu(E \Delta F) = 0 \), then \( \mu(E \setminus F) = \mu(F \setminus E) = 0 \) and
+			            \[
+				            \mu(E) = \mu(E \cap F) + \mu(E \setminus F) = \mu(E \cap F) + \mu(F \setminus E) = \mu(F).
+			            \]
+			      \item \( \mu(E \Delta E) = \mu(\varnothing) = 0 \) so \( E \sim E \) for all \( E \in \mathcal{M} \).
+
+			            \( \mu(E \Delta F) = 0 \iff \mu(F \Delta E) = 0 \) because \( E \Delta F = F \Delta E \). Therefore \( \sim \) is symmetric.
+
+			            If \( \mu(E \Delta F) = 0 \) and \( \mu(F \Delta G) = 0 \) then
+			            \begingroup
+			            \allowdisplaybreaks%
+			            \begin{align*}
+				            \mu(E \Delta G) & = \mu(E \setminus G) + \mu(G \setminus E)                                             \\
+				                            & \le \mu(E \setminus F) + \mu(F \setminus G) + \mu(G \setminus F) + \mu(F \setminus E) \\
+				                            & = \mu(E \Delta F) + \mu(F \Delta G) = 0
+			            \end{align*}
+			            \endgroup
+
+			            which means \( E \sim G \), so \( \sim \) is transitive.
+
+			            Hence \( \sim \) is an equivalence relation on \( \mathcal{M} \).
+			      \item \( E \setminus G \subseteq (E \setminus F) \cup (F \setminus G) \) and \( G \setminus E \subseteq (G \setminus F) \cup (F \setminus E) \).
+			            \begingroup
+			            \allowdisplaybreaks%
+			            \begin{align*}
+				            \rho(E, G) & = \mu(E \Delta G) = \mu(E \setminus G) + \mu(G \setminus E)                               \\
+				                       & \le \mu((E \setminus F) \cup (F \setminus G)) + \mu((G \setminus F) \cup (F \setminus E)) \\
+				                       & = \mu(E \setminus F) + \mu(F \setminus G) + \mu(G \setminus F) + \mu(F \setminus E)       \\
+				                       & = \mu(E \Delta F) + \mu(F \Delta G)                                                       \\
+				                       & = \rho(E, F) + \rho(F, G).
+			            \end{align*}
+			            \endgroup
+		      \end{enumerate}
+	      \end{proof}
+	\item Every \( \sigma \)-finite measure is semifinite.
+	      \begin{proof}
+		      Let \( (X, \mathcal{M}, \mu) \) be a measure space where \( \mu \) is \( \sigma \)-finite.
+
+		      Because \( \mu \) is \( \sigma \)-finite, there exists an infinite sequence \( {\left\{ E_{j} \right\}}_{1}^{\infty} \) of measurable sets in \( \mathcal{M} \) such that \( \mu(E_{j}) \) is finite for all \( j \) and \( X = \bigcup_{1}^{\infty} E_{j} \).
+
+		      If \( E \in \mathcal{M} \) and \( \mu(E) = \infty \). If \( \mu(E \cap E_{j}) = 0 \) for all \( j \) then \( \mu(E) = \mu\left( E \cap \bigcup_{1}^{\infty} E_{j} \right) = \mu\left( \bigcup_{1}^{\infty} (E \cap E_{j}) \right) \le \sum_{1}^{\infty} \mu(E \cap E_{j}) = 0 \), which is a contradiction. Hence there exists \( j \in \mathbb{N} \) such that \( 0 < \mu(E \cap E_{j}) \). Because \( \mu(E \cap E_{j}) \le \mu(E_{j}) \) and \( \mu(E_{j}) \) is finite, it follows that \( \mu(E \cap E_{j}) \) is finite. Choose \( F = E \cap E_{j} \) then \( F \subseteq E \) and \( 0 < \mu(F) < \infty \).
+
+		      Thus \( \mu \) is semifinite.
+	      \end{proof}
+	\item If \( \mu \) is a semifinite measure and \( \mu(E) = \infty \), for any \( C > 0 \), there exists \( F \subseteq E \) with \( C < \mu(F) < \infty \).
+	      \begin{proof}
+		      Let \( \mathcal{A} = \left\{ F : F \subseteq E, 0 < \mu(F) < \infty \right\} \). Since \( \mu \) is a semifinite measure, the set \( A \) is nonempty. Let \( s = \sup \left\{ \mu(F) : F \in \mathcal{A} \right\} \).
+
+		      For \( s \) being the supremum of \( A \), there exists a sequence \( {\left\{ E_{n} \right\}}_{1}^{\infty} \) of measurable sets \( E_{n} \in \mathcal{A} \) such that \( \lim\limits_{n\to\infty} \mu(E_{n}) = s \).
+
+		      For every \( n \in \mathbb{N} \), let \( G_{n} = \bigcup_{j=1}^{n} E_{j} \) then \( \mu(G_{n}) \le \sum_{j=1}^{n} \mu(E_{j}) \) is finite, so \( G_{n} \in \mathcal{A} \). The infinite sequence \( {\left\{ F_{n} \right\}}_{1}^{\infty} \) is nondecreasing. Let \( G = \bigcup_{j=1}^{\infty} G_{j} \).
+
+		      From the ``continuity from below'' property
+		      \[
+			      \mu(G) = \lim\limits_{n \to \infty} \mu(G_{n}) \ge \lim\limits_{n\to\infty} \mu(E_{n}) = s.
+		      \]
+
+		      Moreover, \( \mu(G_{n}) \le s \) for every \( n \in \mathbb{N} \) because \( G_{n} \in \mathcal{A} \) so \( \lim\limits_{n \to \infty} \mu(G_{n}) \le s \). Therefore \( \mu(F) = s \).
+
+		      Assume \( s \) is finite, then \( \mu(E \setminus G) = \infty \). Due to semifiniteness of \( \mu \), there exists \( G^{\prime} \subseteq E \setminus G \) such that \( 0 < \mu(G^{\prime}) < \infty \), which implies \( \mu(G \cup G^{\prime}) = \mu(G) + \mu(G^{\prime}) \) is finite and exceeds \( s \), which is a contradiction to \( s \) being the supremum. Hence \( s = \infty \).
+
+		      From the definition of a supremum, for any \( C > 0 \), there exists \( F \subseteq E \) such that \( C < \mu(F) < \infty \).
+	      \end{proof}
+	\item Given a measure \( \mu \) on \( (X, \mathcal{M}) \), define \( \mu_{0} \) on \( \mathcal{M} \) by \( \mu_{0}(E) = \sup\left\{ \mu(F): F \subseteq E \text{ and } \mu(F) < \infty \right\} \).
+	      \begin{enumerate}[itemsep=0pt,label=\textbf{\alph*.}]
+		      \item \( \mu_{0} \) is a semifinite measure. It is called the \textbf{semifinite part} of \( \mu \).
+		      \item If \( \mu \) is semifinite, then \( \mu = \mu_{0} \). (Use Exercise 14.)
+		      \item There is a measure \( \nu \) on \( \mathcal{M} \) (in general, not unique) which assumes only the values \( 0 \) and \( \infty \) such that \( \mu = \mu_{0} + \nu \).
+	      \end{enumerate}
+	      \begin{proof}
+		      See \href{https://math.stackexchange.com/questions/1788830/real-analysis-folland-problem-1-3-15-measures}{Ramiro's answer}.
+
+		      \begin{enumerate}[itemsep=0pt,label=\textbf{\alph*.}]
+			      \item From the definition of \( \mu_{0} \), \( \mu_{0}(E) = \mu(E) \) if \( \mu(E) \) is finite. Therefore \( \mu_{0}(\varnothing) = 0 \).
+
+			            Let \( {\left\{ E_{j} \right\}}_{1}^{\infty} \) be an infinite sequence of pairwise disjoint sets in \( \mathcal{M} \).
+
+			            Let \( F \subseteq \bigcup_{1}^{\infty} E_{j} \) such that \( \mu(F) < \infty \) then \( \mu(F \cap E_{j}) < \infty \) for every \( j \in \mathbb{N} \).
+			            \[
+				            \mu(F) = \mu\left(\sum_{1}^{\infty} F \cap E_{j} \right) = \sum_{1}^{\infty} \mu(F \cap E_{j}) \le \sum_{1}^{\infty} \mu_{0}(E_{j})
+			            \]
+
+			            so
+			            \[
+				            \mu_{0}\left( \bigcup_{1}^{\infty} E_{j} \right) \le \sum_{1}^{\infty} \mu_{0}(E_{j}).
+			            \]
+
+			            If \( \mu_{0}\left( \bigcup_{1}^{\infty} E_{j} \right) = \infty \)  then \( \mu_{0}\left( \bigcup_{1}^{\infty} E_{j} \right) = \sum_{1}^{\infty} \mu_{0}(E_{j}) \).
+
+			            If \( \mu_{0}\left( \bigcup_{1}^{\infty} E_{j} \right) < \infty \), then for every subset of finite measure of \( E_{j} \) is also a subset of finite measure of \( \bigcup_{1}^{\infty} E_{j} \). Therefore \( \mu_{0}(E_{n}) \le \mu_{0}\left( \bigcup_{1}^{\infty} E_{j} \right) \) for every \( n \in \mathbb{N} \), hence \( \mu_{0}(E_{n}) < \infty \) for every \( n \in \mathbb{N} \).
+
+			            Let \( \varepsilon > 0 \).
+
+			            For every \( j \), let \( F_{j} \subseteq E_{j} \) such that \( \mu_{0}(E_{j}) - \dfrac{\varepsilon}{2^{j}} \le \mu(F_{j}) \) (possible due to a property of supremum), then
+			            \[
+				            \sum_{1}^{n} \mu_{0}(E_{j}) \le \varepsilon + \sum_{1}^{n} \mu(F_{j}) = \varepsilon + \mu\left(\bigcup_{1}^{n} F_{j}\right) = \varepsilon + \mu\left(\bigcup_{1}^{n} F_{j}\right) \le \varepsilon + \mu_{0}\left(\bigcup_{1}^{\infty} E_{j}\right).
+			            \]
+
+			            Therefore
+			            \[
+				            \sum_{1}^{\infty} \mu_{0}(E_{j}) \le \varepsilon + \mu_{0}\left(\bigcup_{1}^{\infty} E_{j}\right)
+			            \]
+
+			            which means
+			            \[
+				            \sum_{1}^{\infty} \mu_{0}(E_{j}) \le \mu_{0}\left(\bigcup_{1}^{\infty} E_{j}\right).
+			            \]
+
+			            Hence \( \sum_{1}^{\infty} \mu_{0}(E_{j}) = \mu_{0}\left(\bigcup_{1}^{\infty} E_{j}\right) \), so \( \mu_{0} \) is a measure on \( (X, \mathcal{M}) \).
+
+			            Suppose \( E \in \mathcal{M} \) and \( \mu_{0}(E) = \infty \) then \( \sup\left\{ \mu(F) : F \subseteq E \text{ and } \mu(F) < \infty \right\} = \infty \). So there is a subset \( F \subseteq E \) such that \( 0 < \mu(F) < \infty \). By the definition of \( \mu_{0} \), \( 0 < \mu_{0}(F) = \mu(F) < \infty \). Therefore \( \mu_{0} \) is semifinite.
+			      \item Suppose \( \mu \) is semifinite.
+
+			            If \( \mu(E) = \infty \), for every \( C > 0 \), there is \( F \subseteq E \) such that \( C < \mu(F) < \infty \) (Exercise 14). Hence \( \sup\left\{ \mu(F) : F \subseteq E, 0 < \mu(F) < \infty \right\} = \infty \), which means \( \mu_{0}(E) = \infty = \mu(E) \).
+
+			            If \( \mu(E) < \infty \) then \( \mu_{0}(E) = \mu(E) \). Therefore \( \mu_{0}(E) = \mu(E) \) for every \( E \in \mathcal{M} \).
+
+			            Hence \( \mu = \mu_{0} \).
+			      \item Let \( E \in \mathcal{M} \). From the definition of \( \mu_{0} \), \( \mu_{0}(E) \le \mu(E) \). Moreover, if \( \mu(E) \) is finite then \( \mu_{0}(E) = \mu(E) \).
+
+			            We define a function \( \nu \) on \( \mathcal{M} \) as follows:
+			            \[
+				            \nu(E) = \begin{cases}
+					            0      & \text{\( E \) is \( \sigma \)-finite with respect to \( \mu \)}, \\
+					            \infty & \text{otherwise.}
+				            \end{cases}
+			            \]
+
+			            From this definition, \( \nu(\varnothing) = 0 \) and \( \nu(E) \ge 0 \) for every \( E \in \mathcal{M} \).
+
+			            Let \( {\left\{ E_{j} \right\}}_{1}^{\infty} \) be an infinite sequence of pairwise disjoint measurable sets.
+
+			            If \( \bigcup_{1}^{\infty} E_{j} \) is \( \sigma \)-finite then \( E_{j} \) is \( \sigma \)-finite for every \( j \in \mathbb{N} \), so
+			            \[
+				            \nu\left(\bigcup_{1}^{\infty} E_{j}\right) = 0 = \sum_{1}^{\infty} \nu(E_{j}).
+			            \]
+
+			            If \( \bigcup_{1}^{\infty} E_{j} \) is not \( \sigma \)-finite then there exists \( j \in \mathbb{N} \) such that \( E_{j} \) is not \( \sigma \)-finite (otherwise, \( \bigcup_{1}^{\infty} E_{j} \) is \(\sigma\)-finite), hence
+			            \[
+				            \nu\left(\bigcup_{1}^{\infty} E_{j}\right) = \infty = \sum_{1}^{\infty} \nu(E_{j}).
+			            \]
+
+			            Therefore \( \nu \) is a measure on \( (X, \mathcal{M}) \).
+
+			            If \( E \in \mathcal{M} \) is \( \sigma \)-finite then \( E \) is decomposed into the union of countably many disjoint measurable sets \( E_{j} \) of finite  \( \mu \)-measure.
+			            \[
+				            \mu(E) = \mu\left( \bigcup_{1}^{\infty}E_{j} \right) = \sum_{1}^{\infty} \mu(E_{j}) = \sum_{1}^{\infty} \mu_{0}(E_{j}) = \mu_{0}\left(\bigcup_{1}^{\infty} E_{j}\right) = \mu_{0}(E) = \mu_{0}(E) + \nu(E).
+			            \]
+
+			            If \( E \in \mathcal{M} \) is not \( \sigma \)-finite then \( \mu(E) = \infty \). Therefore \( \mu(E) = \mu_{0}(E) + \nu(E) \).
+
+			            Thus \( \mu = \mu_{0} + \nu \).
+		      \end{enumerate}
+	      \end{proof}
+	\item Let \( (X, \mathcal{M}, \mu) \) be a measure space. A set \( E \subseteq X \) is called \textbf{locally measurable} if \( E \cap A \in \mathcal{M} \) for all \( A \in \mathcal{M} \) such that \( \mu(A) < \infty \). Let \( \widetilde{\mathcal{M}} \) be the collection of all locally measurable sets. Clearly \( \mathcal{M} \subseteq \widetilde{\mathcal{M}} \); if \( \mathcal{M} = \widetilde{\mathcal{M}} \), then \( \mu \) is called \textbf{saturated}.
+	      \begin{enumerate}[itemsep=0pt,label=\textbf{\alph*.}]
+		      \item If \( \mu \) is \( \sigma \)-finite, then \( \mu \) is saturated.
+		      \item \( \widetilde{\mathcal{M}} \) is a \( \sigma \)-algebra.
+		      \item Define \( \widetilde{\mu} \) on \( \widetilde{\mathcal{M}} \) by \( \widetilde{\mu}(E) = \mu(E) \) if \( E \in \mathcal{M} \) and \( \widetilde{\mu}(E) = \infty \) otherwise. Then \( \widetilde{\mu} \) is a saturated measure on \( \widetilde{\mathcal{M}} \), called the \textbf{saturation} of \( \mu \).
+		      \item If \( \mu \) is complete, so is \( \widetilde{\mu} \).
+		      \item Suppose that \( \mu \) is semifinite. For \( E \in \widetilde{\mathcal{M}} \), define \( \underline{\mu}(E) = \sup\left\{ \mu(A) : A \in \mathcal{M}, A \subseteq E \right\} \). Then \( \underline{\mu} \) is a saturated measure on \( \widetilde{\mathcal{M}} \) that extends \( \mu \).
+		      \item Let \( X_{1}, X_{2} \) be disjoint uncountable sets, \( X = X_{1} \cup X_{2} \), and \( \mathcal{M} \) the \( \sigma \)-algebra of countable or co-countable sets in \( X \). Let \( \mu_{0} \) be counting measure on \( \mathcal{P}(X_{1}) \) and define \( \mu \) on \( \mathcal{M} \) by \( \mu(E) = \mu_{0}(E \cap X_{1}) \). Then \( \mu \) is a measure on \( \mathcal{M} \), \( \widetilde{\mathcal{M}} = \mathcal{P}(X) \), and in the notation of parts (c) and (e), \( \widetilde{\mu} \ne \underline{\mu} \).
+	      \end{enumerate}
+	      \begin{proof}
+		      \begin{enumerate}[itemsep=0pt,label=\textbf{\alph*.}]
+			      \item Every measurable set is locally measurable so \( \mathcal{M} \subseteq \widetilde{\mathcal{M}} \).
+
+			            Suppose \( \mu \) is \( \sigma \)-finite and \( E \) is a locally measurable set.
+
+			            Because \( \mu \) is \( \sigma \)-finite, there exists an infinite sequence \( {\left\{ E_{j} \right\}}_{1}^{\infty} \) of finite measure measurable sets with \( X = \bigcup_{1}^{\infty} E_{j} \). Since \( E \) is locally measurable, \( E \cap E_{j} \in \mathcal{M} \) for every \( j \), so
+			            \[
+				            E = E \cap X = E \cap \bigcup_{1}^{\infty} E_{j} = \bigcup_{1}^{\infty} E \cap E_{j}
+			            \]
+
+			            is measurable. Hence \( \mathcal{M} = \widetilde{\mathcal{M}} \), which means \( \mu \) is saturated.
+			      \item Suppose \( E \) is locally measurable.
+
+			            Let \( A \in \mathcal{M} \) with \( \mu(A) < \infty \). From the definition of locally measurability, \( E \cap A \in \mathcal{M} \). Therefore \( E^{\complement} \cap A = A \setminus (E \cap A) \in \mathcal{M} \). Hence \( E^{\complement} \) is also locally measurable.
+
+			            Suppose \( {\left\{ E_{j} \right\}}_{1}^{\infty} \) is an infinite sequence of locally measurable sets.
+
+			            Let \( A \in \mathcal{M} \) with \( \mu(A) < \infty \). From the definition of locally measurability, \( E_{j} \cap A \in \mathcal{M} \) for every \( j \in \mathbb{N} \). Therefore \( \left(\bigcup_{1}^{\infty} E_{j}\right) \cap A = \bigcup_{1}^{\infty} (E_{j} \cap A) \in \mathcal{M} \) for every \( A \) of finite measure. Hence \( \bigcup_{1}^{\infty} E_{j} \) is locally measurable.
+
+			            \( \widetilde{\mathcal{M}} \) is closed under complements and countably unions so it is a \( \sigma \)-algebra.
+			      \item Suppose \( E \subseteq X \) is locally measurable with respect to \( \widetilde{\mu} \).
+
+			            Let \( A \) be a measurable set with respect to \( \mu \) with \( \mu(A) < \infty \), then \( A \) is locally measurable with respect to \( \mu \) and \( \widetilde{\mu} \). From the definition of \( \widetilde{\mu} \), \( \widetilde{\mu}(A) = \mu(A) \).
+
+			            From the local measurability of \( E \) with respect to \( \widetilde{\mu} \), \( E \cap A \in \widetilde{\mathcal{M}} \). Because \( E \cap A \subseteq A \), \( \widetilde{\mu}(E \cap A) \le \widetilde{\mu}(A) \). Besides, \( \widetilde{\mu}(A) < \infty \) so \( \widetilde{\mu}(E \cap A) < \infty \). From the defintion of \( \widetilde{\mu} \), it is not the case that \( E \cap A \notin \mathcal{M} \) because if so, then \( \widetilde{\mu}(E \cap A) = \infty \). Hence \( E \cap A \in \mathcal{M} \), which means \( E \in \widetilde{\mathcal{M}} \).
+
+			            Hence every locally measurable set with respect to \( \widetilde{\mathcal{M}} \) is necessarily locally measurable with respect to \( \mathcal{M} \). This means \( \widetilde{\widetilde{M}} = \widetilde{M} \) and \( \widetilde{\mu} \) is saturated.
+			      \item Suppose \( \mu \) is a complete measure.
+
+			            Let \( N \in \widetilde{\mathcal{M}} \) such that \( \widetilde{\mu}(N) = 0 \). From the definition of \( \widetilde{\mu} \), \( N \in \mathcal{M} \) (otherwise, \( \widetilde{\mu}(N) = \infty \)) and \( \mu(N) = \widetilde{\mu}(N) = 0 \).
+
+			            \( \mu \) is a complete measure so every subset of \( N \) is a null set with respect to \( \mu \). Again, from the definition of \( \widetilde{\mu} \), every subset of \( N \) is a null set with respect to \( \widetilde{\mu} \). Hence \( \widetilde{\mu} \) is a complete measure.
+			      \item Firstly, we prove that \( \underline{\mu} \) is a measure on \( (X, \widetilde{\mathcal{M}}) \).
+
+			            From the definition of \( \underline{\mu} \)
+			            \[
+				            \underline{\mu}(E) = \sup\left\{ \mu(A) : A \in \mathcal{M}, A \subseteq E \right\} \ge 0
+			            \]
+
+			            because \( \varnothing \in \mathcal{M} \) and \( \varnothing \subseteq E \). Moreover, \( \underline{\mu}(\varnothing) = 0 \).
+
+			            If \( E, E^{\prime} \in \widetilde{\mathcal{M}} \) and \( E \subseteq E^{\prime} \) then
+			            \[
+				            \left\{ A : A \in \mathcal{M}, A \subseteq E \right\} \subseteq \left\{ A : A \in \mathcal{M}, A \subseteq E^{\prime} \right\}
+			            \]
+
+			            which implies \( \underline{\mu}(E) \le \underline{\mu}(E^{\prime}) \).
+
+			            Let \( {\left\{ E_{j} \right\}}_{1}^{\infty} \) be an infinite sequence of pairwise disjoint measurable sets in \( \widetilde{\mathcal{M}} \).
+
+			            If \( \underline{\mu}\left( \bigcup_{1}^{\infty} E_{j} \right) = \infty \) then for every \( C > 0 \), there exists \( A \in \mathcal{M} \) such that \( \mu(A) > C \) and \( A \subseteq \bigcup_{1}^{\infty} E_{j} \).
+
+			            If \( \mu(A) < \infty \), \( E_{j} \cap A \in \mathcal{M} \) and
+			            \[
+				            C < \mu(A) = \mu\left( A \cap \bigcup_{1}^{\infty} E_{j} \right) = \sum_{1}^{\infty} \mu(A \cap E_{j}) \le \sum_{1}^{\infty} \underline{\mu}(E_{j})
+			            \]
+
+			            which means \( \sum_{1}^{\infty} \underline{\mu}(E_{j}) = \infty \).
+
+			            Otherwise, \( \mu(A) = \infty \) then there exists \( F \subseteq A \) with \( F \in \mathcal{M} \) and \( 0 < \mu(F) < \infty \), because \( \mu \) is semifinite. Because \( E_{j} \) is locally measurable with respect to \( \mu \), \( F \cap E_{j} \in \mathcal{M} \) and
+			            \[
+				            \mu(F) = \mu\left( F \cap \bigcup_{1}^{\infty} E_{j} \right) = \sum_{1}^{\infty} \mu(F \cap E_{j}) \le \sum_{1}^{\infty} \underline{\mu}(E_{j})
+			            \]
+
+
+			            According to Exercise 14, we can choose \( F \subseteq A \) such that \( \mu(F) \) is arbitrarily large, so \( \sum_{1}^{\infty} \underline{\mu}(E_{j}) = \infty \).
+
+			            Hence \( \sum_{1}^{\infty} \underline{\mu}(E_{j}) = \infty = \underline{\mu}\left( \bigcup_{1}^{\infty} E_{j} \right) \).
+
+			            \bigskip
+
+			            If \( \underline{\mu}\left( \bigcup_{1}^{\infty} E_{j} \right) < \infty \) then \( \underline{\mu}(E_{j}) < \infty \) for every \( j \in \mathbb{N} \).
+
+			            Let \( A \subseteq \bigcup_{1}^{\infty} E_{j} \) with \( A \in \mathcal{M} \) then \( \mu(A) < \infty \) and \( E_{j} \cap A \in \mathcal{M} \) (because \( E_{j} \) is locally measurable with respect to \( \mu \)).
+			            \[
+				            \mu(A) = \mu\left( A \cap \bigcup_{1}^{\infty} E_{j} \right) = \sum_{1}^{\infty} \mu(A \cap E_{j}) \le \sum_{1}^{\infty} \underline{\mu}(E_{j}).
+			            \]
+
+			            By passage to supremum, we get
+			            \[
+				            \underline{\mu}\left( \bigcup_{1}^{\infty} E_{j} \right) \le \sum_{1}^{\infty} \underline{\mu}(E_{j}).
+			            \]
+
+			            Pick an arbitrary \( \varepsilon > 0 \). For every \( j \in \mathbb{N} \), there exists \( F_{j} \subseteq E_{j} \) with \( F_{j} \in \mathcal{M} \) such that
+			            \[
+				            \underline{\mu}(E_{j}) - \varepsilon/2^{j} < \mu(F_{j}).
+			            \]
+
+			            Therefore
+			            \[
+				            \sum_{1}^{n} \underline{\mu}(E_{j}) < \sum_{1}^{n}\varepsilon/2^{j} + \sum_{1}^{n} \mu(F_{j}) < \varepsilon + \mu\left( \bigcup_{1}^{n} F_{j} \right) \le \varepsilon + \underline{\mu}\left(\bigcup_{1}^{\infty} E_{j}\right)
+			            \]
+
+			            for every \( n \in \mathbb{N} \), so
+			            \[
+				            \sum_{1}^{\infty} \underline{\mu}(E_{j}) \le \varepsilon + \underline{\mu}\left( \bigcup_{1}^{\infty} E_{j} \right)
+			            \]
+
+			            for every \( \varepsilon > 0 \), which means
+			            \[
+				            \sum_{1}^{\infty} \underline{\mu}(E_{j}) \le \underline{\mu}\left( \bigcup_{1}^{\infty} E_{j} \right).
+			            \]
+
+			            Hence \( \sum_{1}^{\infty} \underline{\mu}(E_{j}) = \underline{\mu}\left( \bigcup_{1}^{\infty} E_{j} \right) \).
+
+			            In conclusion, \( \underline{\mu} \) is a measure on \( (X, \widetilde{\mathcal{M}}) \).
+
+			            \bigskip
+
+			            If \( E \in \mathcal{M} \) then according to the definition of \( \underline{\mu} \), \( \underline{\mu}(E) = \mu(E) \), so \( \underline{\mu} \) extends \( \mu \).
+
+			            \bigskip
+
+			            Suppose \( E \) is locally measurable with respect to \( \underline{\mu} \).
+
+			            Let \( A \in \mathcal{M} \) with \( \mu(A) < \infty \) then \( A \in \widetilde{\mathcal{M}} \) for \( \mathcal{M} \subseteq \widetilde{\mathcal{M}} \) and \( \underline{\mu}(A) = \mu(A) < \infty \). Because \( E \) is locally measurable with respect to \( \underline{\mu} \), \( E \cap A \in \widetilde{\mathcal{M}} \). Moreover,  \( E \cap A \in \widetilde{\mathcal{M}} \) implies  \( E \cap A \in \widetilde{\mathcal{M}} \) being locally measurable with respect to \( \mu \), so \( (E \cap A) \cap A \in \mathcal{M} \), which means \( E \cap A \in \mathcal{M} \) for every \( A \in \mathcal{M} \) with finite measure. Hence \( E \) is locally measurable with respect to \( \mu \), and \( E \in \widetilde{\mathcal{M}} \). Therefore \( \underline{\mu} \) is saturated.
+
+			            \bigskip
+
+			            Thus \( \underline{\mu} \) is a saturated measure on \( (X, \widetilde{\mathcal{M}}) \) and \( \underline{\mu} \) extends \( \mu \).
+			      \item \begin{itemize}
+				            \item Prove that \( \mu \) is a measure on \( \mathcal{M} \).
+
+				                  For every \( E \in \mathcal{M} \), \( \mu(E) = \mu_{0}(E \cap X_{1}) \ge 0 \).
+
+				                  \( \mu(\varnothing) = \mu_{0}(\varnothing \cap X_{1}) = \mu_{0}(\varnothing) = 0 \).
+
+				                  Let \( {\left\{ E_{j} \right\}}_{1}^{\infty} \) be an infinite sequence of pairwise disjoint measurable sets in \( \mathcal{M} \). Then
+				                  \[
+					                  \mu\left(\bigcup_{1}^{\infty} E_{j}\right) = \mu_{0}\left( \bigcup_{1}^{\infty} E_{j} \cap X_{1} \right) = \sum_{1}^{\infty} \mu_{0}(E_{j} \cap X_{1}) = \sum_{1}^{\infty} \mu(E_{j}).
+				                  \]
+
+				                  Hence \( \mu \) is a measure on \( \mathcal{M} \).
+				            \item Prove that \( \mu \) is semifinite. (We need this step in order to make sense of \( \underline{\mu} \).)
+
+				                  If \( \mu(E) = \infty \) then \( E \cap X_{1} \) is infinite. Therefore \( E \cap X_{1} \) contains a nonempty measurable subset \( F \) which has finitely many elements, then \( \mu(F) = \mu_{0}(F \cap X_{1}) = \mu_{0}(F) \in \left\rbrack 0, \infty \right\lbrack \). Thus \( \mu \) is semifinite.
+				            \item Prove that \( \widetilde{\mathcal{M}} = \mathcal{P}(X) \).
+
+				                  Let \( E \) be a subset of \( X \).
+
+				                  Let \( A \in \mathcal{M} \) such that \( \mu(A) < \infty \), then \( A \cap X_{1} \) is finite and \( A \) is not co-countable. Therefore \( A \) is countable and \( E \cap A \) is countable, which means \( E \cap A \in \mathcal{M} \).
+
+				                  Hence \( E \) is locally measurable with respect to \( \mu \). Due to the arbitrariness of \( E \), we conclude that \( \widetilde{\mathcal{M}} = \mathcal{P}(X) \).
+				            \item Prove that \( \widetilde{\mu} \ne \underline{\mu} \).
+
+				                  \( \widetilde{\mu}(X_{2}) = \infty \) because \( X_{2} \notin \mathcal{M} \).
+
+				                  \( \underline{\mu}(X_{2}) = \sup\left\{ \mu(A) : A \in \mathcal{M}, A \subseteq X_{2} \right\} = 0 \).
+
+				                  Thus \( \widetilde{\mu} \ne \underline{\mu} \).
+			            \end{itemize}
+		      \end{enumerate}
+	      \end{proof}
+\end{enumerate}
+
+\section{Outer Measures}
+
+\subsection*{Exercises}
+
+\begin{enumerate}[itemsep=0pt,label=\textbf{\arabic*.}]
+	\setcounter{enumi}{16}
+	\item If \( \mu^{\ast} \) is an outer measure on \( X \) and \( {\left\{ A_{j} \right\}}_{1}^{\infty} \) is a sequence of disjoint \( \mu^{\ast} \)-measurable sets, then \( \mu^{\ast}\left( E \cap \left( \bigcup_{1}^{\infty} A_{j} \right) \right) = \sum_{1}^{\infty} \mu^{\ast}(E \cap A_{j}) \) for any \( E \subseteq X \).
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+\end{enumerate}
+
+\section{Borel Measures on the Real Line}
+
+\subsection*{Exercises}
+
+\begin{enumerate}[itemsep=0pt,label=\textbf{\arabic*.}]
+	\setcounter{enumi}{24}
+    \item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+	\item
+\end{enumerate}
