@@ -11,7 +11,6 @@
 \usepackage{mathtools}
 \usepackage{mathrsfs}
 \usepackage{cases}
-\usepackage{esint}
 
 \usepackage{fancyhdr}
 \usepackage{xcolor}
@@ -22,16 +21,12 @@
 \usepackage{subcaption}
 \usepackage{booktabs}
 \usepackage[inline]{enumitem}
-
 \usepackage{pgf,tikz}
-\usetikzlibrary{calc}
-\usetikzlibrary{arrows}
-\usetikzlibrary{arrows.meta}
-\usetikzlibrary{decorations}
-\usetikzlibrary{math}
+\usepackage{tikz-cd}
+\usepackage{tocloft}
+\renewcommand{\cftsecpresnum}{\S}
 
-\setcounter{chapter}{0}
-\counterwithin{subsection}{chapter}
+% \renewcommand\thesection{\thechapter.\Alph{section}}
 
 \pagestyle{fancy}
 \setlength{\headheight}{16pt}
@@ -42,7 +37,7 @@
 \rfoot{}
 
 \titleformat{\chapter}[display]{\flushright\bf\huge}{\chaptertitlename\,\thechapter}{10pt}{}
-\titleformat{\section}{\bf\Large}{\thesection}{10pt}{}
+\titleformat{\section}{\bf\Large}{\S\thesection}{10pt}{}
 \titleformat{\subsection}{\bf\large}{\thesubsection}{10pt}{}
 \titleformat{\subsubsection}{\bf\large}{\thesubsubsection}{10pt}{}
 
@@ -72,7 +67,7 @@
   }
   {\endinnercustomgeneric}
 }
-\newcustomtheorem{exercise}{Exercise}
+\newcustomtheorem{problem}{Problem}
 
 \newcommand{\rank}{\operatorname{rank}}
 \newcommand{\kernel}[1]{\operatorname{null}\,{#1}}
@@ -82,9 +77,8 @@
 \newcommand{\norm}[1]{\left\Vert{#1}\right\Vert}
 \newcommand{\innerprod}[1]{\left\langle{#1}\right\rangle}
 \newcommand{\conj}[1]{\overline{#1}}
-\newcommand{\bnabla}{\boldsymbol\nabla}
 
-\title{Theodore Shifrin's Multivariable Mathematics: Notes and Exercises}
+\title{Martin Schechter's Principles of Functional Analysis: Notes and Exercises}
 \author{Ngo Quang Duong}
 \date{\today}
 
@@ -93,5 +87,9 @@
 \maketitle
 
 \tableofcontents
+
+\input{./principles-of-functional-analysis/chapter1.tex}
+\input{./principles-of-functional-analysis/chapter2.tex}
+\input{./principles-of-functional-analysis/chapter3.tex}
 
 \end{document}

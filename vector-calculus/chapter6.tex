@@ -4,6 +4,173 @@
 
 \section{Grad, div and curl in orthogonal curvilinear coordinate systems}
 
+\begin{exercise}{6.1}
+	Verify that for Cartesian coordinates the scale factors are all equal to \( 1 \).
+\end{exercise}
+
+\begin{proof}
+	\( h_{i} = \abs{ \left( \dfrac{\partial x_{1}}{\partial x_{i}}, \dfrac{\partial x_{2}}{\partial x_{i}}, \dfrac{\partial x_{3}}{\partial x_{i}} \right) } = \abs{(\delta_{1i}, \delta_{2i}, \delta_{3i})} = 1 \).
+
+	Hence all the scale factors of the Cartesian coordinate system are equal to \( 1 \).
+\end{proof}
+
+\begin{exercise}{6.2}
+	A coordinate system \( (u, v, w) \) is related to Cartesian coordinates \( (x_{1}, x_{2}, x_{3}) \) by
+	\[
+		x_{1} = uvw,\quad x_{2} = uv {(1 - w^{2})}^{1/2},\quad x_{3} = (u^{2} - v^{2})/2.
+	\]
+
+	\begin{enumerate}[label={(\alph*)}]
+		\item Find the scale factors \( h_{u}, h_{v}, h_{w} \).
+		\item Confirm that the \( (u, v, w) \) system is orthogonal.
+		\item Find the volume element in the \( (u, v, w) \) system.
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		h_{u} & = \abs{\left( \dfrac{\partial x_{1}}{\partial u}, \dfrac{\partial x_{2}}{\partial u}, \dfrac{\partial x_{3}}{\partial u} \right)} = \abs{\left( vw, v{(1 - w^{2})}^{1/2}, u \right)} = \sqrt{ v^{2}w^{2} + v^{2}(1 - w^{2}) + u^{2} } = \sqrt{u^{2} + v^{2}}, \\
+		h_{v} & = \abs{\left( \dfrac{\partial x_{1}}{\partial v}, \dfrac{\partial x_{2}}{\partial v}, \dfrac{\partial x_{3}}{\partial v} \right)} = \abs{\left( uw, u{(1 - w^{2})}^{1/2}, -v \right)} = \sqrt{u^{2}w^{2} + u^{2}(1 - w^{2}) + v^{2}} = \sqrt{u^{2} + v^{2}},  \\
+		h_{w} & = \abs{\left( \dfrac{\partial x_{1}}{\partial w}, \dfrac{\partial x_{2}}{\partial w}, \dfrac{\partial x_{3}}{\partial w} \right)} = \abs{\left( uv, \dfrac{-uvw}{{(1 - w^{2})}^{1/2}}, 0 \right)} = \abs{\dfrac{uv}{{(1 - w^{2})}^{1/2}}}.
+	\end{align*}
+	\endgroup
+
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		\mathbf{e_{u}} & = (vw, v{(1 - w^{2})}^{1/2}, u)/\sqrt{u^{2} + v^{2}},  \\
+		\mathbf{e_{v}} & = (uw, u{(1-  w^{2})}^{1/2}, -v)/\sqrt{u^{2} + v^{2}}, \\
+		\mathbf{e_{w}} & = \left( {(1 - w^{2})}^{1/2}, -w, 0 \right).
+	\end{align*}
+	\endgroup
+
+	This is an orthogonal system.
+
+	The volume element in the \( (u, v, w) \) system is
+	\[
+		dV = h_{1}h_{2}h_{3}\, du\, dv\, dw = \abs{\dfrac{uv(u^{2} + v^{2})}{\sqrt{1 - w^{2}}}}\, du\, dv\, dw.
+	\]
+\end{proof}
+
+\begin{exercise}{6.3}
+	Find the scale factors and hence the volume element for the coordinate system \( (u, v, \theta) \) defined by
+	\[
+		x_{1} = uv\cos\theta,\quad x_{2} = uv\sin\theta,\quad x_{3} = (u^{2} - v^{2})/2,
+	\]
+
+	in which \( u \) and \( v \) are positive and \( 0 \le \theta < 2\pi \). Hence find the volume of the region enclosed by the curved surfaces \( u = 1 \) and \( v = 1 \).
+\end{exercise}
+
+\begin{proof}
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		h_{u}      & = \abs{\left( \dfrac{\partial x_{1}}{\partial u}, \dfrac{\partial x_{2}}{\partial u}, \dfrac{\partial x_{3}}{\partial u} \right)} = \abs{ \left( v\cos\theta, v\sin\theta, u \right) } = \sqrt{u^{2} + v^{2}} \\
+		h_{v}      & = \abs{\left( \dfrac{\partial x_{1}}{\partial v}, \dfrac{\partial x_{2}}{\partial v}, \dfrac{\partial x_{3}}{\partial v} \right)} = \abs{\left( u\cos\theta, u\sin\theta, -v \right)} = \sqrt{u^{2} + v^{2}}, \\
+		h_{\theta} & = \abs{\left( \dfrac{\partial x_{1}}{\partial \theta}, \dfrac{\partial x_{2}}{\partial \theta}, \dfrac{\partial x_{3}}{\partial \theta} \right)} = \abs{\left( -uv\sin\theta, uv\cos\theta, 0 \right)} = uv.
+	\end{align*}
+	\endgroup
+
+	So the volume element in the \( (u, v, \theta) \) system is
+	\[
+		uv(u^{2} + v^{2})\, du\, dv\, d\theta.
+	\]
+
+	The curved surface \( u = 0 \) has equation
+	\[
+		x_{3} = \dfrac{1 - x_{1}^{2} - x_{2}^{2}}{2}.
+	\]
+
+	The curved surface \( v = 0 \) has equation
+	\[
+		x_{3} = \dfrac{x_{1}^{2} + x_{2}^{2} - 1}{2}.
+	\]
+
+	The volume of the region is equal to
+	\[
+		\int_{0}^{2\pi} \int_{0}^{1}\int_{0}^{1} uv(u^{2} + v^{2})\, du\, dv\, d\theta = \dfrac{\pi}{2}.
+	\]
+\end{proof}
+
+\begin{exercise}{6.4}
+	Find the formula for \( \bnabla f \) in a general orthogonal curvilinear coordinate system by writing \( \bnabla f \) in Cartesian coordinates and then finding the component of \( \bnabla f \) in the \( \mathbf{e_{1}} \) direction.
+\end{exercise}
+
+\begin{proof}
+	In the Cartesian coordinate system
+
+	\( \bnabla f = \left( \dfrac{\partial f}{\partial x_{1}}, \dfrac{\partial f}{\partial x_{2}}, \dfrac{\partial f}{\partial x_{3}} \right) \) and \( \mathbf{e_{1}} = \dfrac{1}{h_{1}} \left( \dfrac{\partial x_{1}}{\partial u_{1}}, \dfrac{\partial x_{2}}{\partial u_{1}}, \dfrac{\partial x_{3}}{\partial u_{1}} \right) \).
+
+	The component of \( \bnabla f \) in the \( \mathbf{e_{1}} \) direction is
+	\[
+		\dfrac{1}{h_{1}}\dfrac{\partial f}{\partial x_{1}}\dfrac{\partial x_{1}}{\partial u_{1}} = \dfrac{1}{h_{1}}\dfrac{\partial f}{\partial u_{1}}
+	\]
+
+	according to the chain rule. Similarly, we can find the components of \( \bnabla f \) in the \( \mathbf{e_{2}} \) and \( \mathbf{e_{3}} \) directions. Thus
+	\[
+		\bnabla f = \dfrac{1}{h_{1}}\dfrac{\partial f}{\partial u_{1}} \mathbf{e_{1}} + \dfrac{1}{h_{2}}\dfrac{\partial f}{\partial u_{2}} \mathbf{e_{2}} + \dfrac{1}{h_{3}}\dfrac{\partial f}{\partial u_{3}} \mathbf{e_{3}}. \qedhere
+	\]
+\end{proof}
+
 \section{Cylindrical polar coordinates}
 
 \section{Spherical polar coordinates}
+
+\begin{exercise}{6.5}
+	A cylindrical apple corer of radius \( a \) cuts through a spherical apple of radius \( b \). How much of the apple does it remove?
+\end{exercise}
+
+\begin{proof}
+	Using the cylindrical polar coordinate system
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		V & = \int_{0}^{a}\int_{-\sqrt{b^{2} - r^{2}}}^{\sqrt{b^{2} - r^{2}}}\int_{0}^{2\pi} r\, d\phi\, dz\, dr \\
+		  & = \int_{0}^{a}\int_{-\sqrt{b^{2} - r^{2}}}^{\sqrt{b^{2} - r^{2}}} 2\pi r\, dz\, dr                   \\
+		  & = \int_{0}^{a} 4\pi r\sqrt{b^{2} - r^{2}}\, dr                                                       \\
+		  & = \left.{\left( -2\pi\dfrac{{(b^{2} - r^{2})}^{3/2}}{3} \right)}\right\vert_{0}^{a}                  \\
+		  & = \dfrac{2\pi}{3}(b^{3} - {(b^{2} - a^{2})}^{3/2}). \qedhere
+	\end{align*}
+	\endgroup
+\end{proof}
+
+\begin{exercise}{6.6}
+	Find the proportion of the Earth's volume that is less than 30 degree away from the Equator.
+\end{exercise}
+
+\begin{proof}
+	Let \( R \) be the Earth's radius.
+
+	Using the spherical polar coordinate system
+	\[
+		V = \int_{0}^{2\pi}\int_{\pi/3}^{2\pi/3}\int_{0}^{R} r^{2}\sin\theta \, dr\, d\theta\, d\phi = \dfrac{2\pi R^{3}}{3}.
+	\]
+
+	Hence the proportion of the Earth's volume that is less than 30 degree away from the Equator is
+	\[
+		\dfrac{2\pi R^{3}/3}{4\pi R^{3}/3} = \dfrac{1}{2}.
+	\]
+\end{proof}
+
+\begin{exercise}{6.7}
+	Find the divergence and curl of the unit vector \( \mathbf{e_{\phi}} \) in spherical polar coordinate.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{6.8}
+    Find \( \mathbf{u} \cdot \bnabla\mathbf{u} \) for the vector \( \mathbf{u} = \mathbf{e_{\phi}} \) in cylindrical polar coordinates.
+\end{exercise}
+
+\begin{proof}
+\end{proof}
+
+\begin{exercise}{6.9}
+    Find a formula for the \( r \) component of the Laplacian of a vector field, \( \nabla^{2} \mathbf{v} \), in cylindrical polar coordinates. Verify that the components of the Laplacian of \( \mathbf{v} \) are not equal to the Laplacians of the components of \( \mathbf{v} \).
+\end{exercise}
+
+\begin{proof}
+\end{proof}

@@ -50,6 +50,8 @@
 \captionsetup{labelfont={bf},labelsep=period}
 \counterwithin{figure}{chapter}
 \counterwithin{table}{chapter}
+\counterwithout{section}{chapter}
+\renewcommand{\thesubsection}{\thesection\Alph{subsection}}
 
 \theoremstyle{definition}
 

@@ -1,0 +1,234 @@
+\chapter{Tensor Products}
+
+\section*{Multilinear Mappings}
+
+\section{Bilinear Mappings}
+
+\section{Bilinear Mappings of Subspaces and Factor Spaces}
+
+\section{Multilinear Mappings}
+
+\section*{Problems}\addcontentsline{toc}{section}{Problems}
+
+\begin{enumerate}[itemsep=0pt]
+	\item Establish natural isomorphisms
+	      \[
+		      B(E, F; G) \cong L(E; L(F; G)) \cong L(F; L(E; G)).
+	      \]
+
+	      \begin{proof}
+		      For every \( \varphi \in B(E, F; G) \), we define \( \varphi_{E}: E \to G^{F} \) and \( \varphi_{F}: F \to G^{E} \) as follows:
+		      \begin{itemize}
+			      \item \( \varphi_{E}(x)(y) = \varphi(x, y) \),
+			      \item \( \varphi_{F}(y)(x) = \varphi(x, y) \).
+		      \end{itemize}
+
+		      For every \( x_{1}, x_{2} \in E, \lambda^{1}, \lambda^{2} \in \Gamma, y \in F \)
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      \varphi_{E}(\lambda^{1} x_{1} + \lambda^{2} x_{2})(y) & = \varphi(\lambda^{1}x_{1} + \lambda^{2}x_{2}, y)                        \\
+			                                                            & = \lambda^{1} \varphi(x_{1}, y) + \lambda^{2} \varphi(x_{2}, y)          \\
+			                                                            & = \lambda^{1} \varphi_{E}(x_{1})(y) + \lambda^{2} \varphi_{E}(x_{2})(y).
+		      \end{align*}
+		      \endgroup
+
+		      For every \( x \in E, \mu^{1}, \mu^{2} \in \Gamma, y_{1}, y_{2} \in F \)
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      \varphi_{E}(x)(\mu^{1}y_{1} + \mu^{2}y_{2}) & = \varphi(x, \mu^{1}y_{1} + \mu^{2}y_{2})                      \\
+			                                                  & = \mu^{1}\varphi(x, y_{1}) + \mu^{2}\varphi(x, y_{2})          \\
+			                                                  & = \mu^{1}\varphi_{E}(x)(y_{1}) + \mu^{2}\varphi_{E}(x)(y_{2}).
+		      \end{align*}
+		      \endgroup
+
+		      So \( \varphi_{E} \in L(E; L(F; G)) \), which implies \( \mathcal{E}: B(E, F; G) \to L(E; L(F, G)) \) where \( \mathcal{E}(\varphi) = \varphi_{E} \) is a well-defined mapping.
+
+		      For every \( x \in E, y \in F \)
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      \mathcal{E}(\lambda\varphi + \mu\psi)(x)(y) & = (\lambda\varphi + \mu\psi)(x, y)                                 \\
+			                                                  & = \lambda\varphi(x, y) + \mu\psi(x, y)                             \\
+			                                                  & = \lambda \mathcal{E}(\varphi)(x)(y) + \mu \mathcal{E}(\psi)(x)(y)
+		      \end{align*}
+		      \endgroup
+
+		      so \( \mathcal{E}(\lambda\varphi + \mu\psi) = \lambda\mathcal{E}(\varphi) + \mu\mathcal{E}(\psi) \), whence \( \mathcal{E} \) is a linear mapping.
+
+		      If \( \mathcal{E}(\varphi) = 0 \) then \( \varphi(x, y) = 0 \) for every \( x \in E, y \in F \), which means \( \varphi = 0 \), so \( \mathcal{E} \) is injective.
+
+		      If \( f \in L(E; L(F, G)) \) then \( \mathcal{E}(\varphi) = f \), where \( \varphi \) is a mapping such that \( \varphi(x, y) := f(x)(y) \), so \( \mathcal{E} \) is surjective.
+
+		      Thus \( \mathcal{E} \) is an isomorphism from \( B(E, F; G) \) onto \( L(E; L(F; G)) \).
+
+		      An isomorphism from \( B(E, F; G) \) onto \( L(F; L(E; G)) \) is constructed similarly.
+	      \end{proof}
+	\item Given a bilinear mapping \( \varphi: E \times F \to G \), define a mapping \( \psi: E \times F \to G \) by
+	      \[
+		      \psi z = \varphi(\pi_{1}z, \pi_{2}z) \qquad z \in E \times F
+	      \]
+
+	      where \( \pi_{1}: E \times F \to E \) and \( \pi_{2}: E \times F \to F \) are the canonical projections. Show that \( \psi \) satisfies the relations
+	      \[
+		      \psi(z_{1} + z_{2}) + \psi(z_{1} - z_{2}) = 2\psi(z_{1}) + 2\psi(z_{2})
+	      \]
+
+	      and
+	      \[
+		      \psi(\lambda z) = \lambda^{2}\psi(z).
+	      \]
+	      \begin{proof}
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      \psi(z_{1} + z_{2}) + \psi(z_{1} - z_{2}) & = \varphi(\pi_{1}(z_{1} + z_{2}), \pi_{2}(z_{1} + z_{2})) + \varphi(\pi_{1}(z_{1} - z_{2}), \pi_{2}(z_{1} - z_{2}))                                                     \\
+			                                                & = \varphi(\pi_{1}(z_{1}), \pi_{2}(z_{1})) + \varphi(\pi_{1}(z_{2}), \pi_{2}(z_{1})) + \varphi(\pi_{1}(z_{1}), \pi_{2}(z_{2})) + \varphi(\pi_{1}(z_{2}), \pi_{2}(z_{2})) \\
+			                                                & + \varphi(\pi_{1}(z_{1}), \pi_{2}(z_{1})) - \varphi(\pi_{1}(z_{2}), \pi_{2}(z_{1})) - \varphi(\pi_{1}(z_{1}), \pi_{2}(z_{2})) + \varphi(\pi_{1}(z_{2}), \pi_{2}(z_{2})) \\
+			                                                & = 2\varphi(\pi_{1}(z_{1}), \pi_{2}(z_{1})) + 2\varphi(\pi_{1}(z_{2}), \pi_{2}(z_{2}))                                                                                   \\
+			                                                & = 2\psi(z_{1}) + 2\psi(z_{2});                                                                                                                                          \\
+			      \psi(\lambda z)                           & = \varphi(\pi_{1}(\lambda z), \pi_{2}(\lambda z)) = \varphi(\lambda \pi_{1}z, \lambda \pi_{2}z)                                                                         \\
+			                                                & = \lambda\varphi(\pi_{1}z, \lambda \pi_{2}z) = \lambda^{2} \varphi(\pi_{1}z, \pi_{2}z) = \lambda^{2} \psi(z).
+		      \end{align*}
+		      \endgroup
+	      \end{proof}
+	\item Let \( E \) and \( F \) be arbitrary vector spaces. Show that the mapping \( \beta: L(E; F) \times E \to F \) defined by \( (\varphi, x) \mapsto \varphi x \) is billinear. Prove that \( \operatorname{Im} \beta = F \).
+	      \begin{proof}
+		      For every \( \varphi_{1}, \varphi_{2} \in L(E; F), \lambda^{1}, \lambda^{2} \in \Gamma, x \in E \)
+		      \[
+			      \beta(\lambda^{1}\varphi_{1} + \lambda^{2}\varphi_{2}, x) = (\lambda^{1}\varphi_{1} + \lambda^{2}\varphi_{2})(x) = \lambda^{1}\varphi_{1}(x) + \lambda^{2}\varphi_{2}(x) = \lambda^{1}\beta(\varphi_{1}, x) + \lambda^{2}\beta(\varphi_{2}, x).
+		      \]
+
+		      For every \( \varphi \in L(E; F), x_{1}, x_{2} \in E, \mu^{1}, \mu^{2} \in \Gamma \)
+		      \[
+			      \beta(\varphi, \mu^{1}x_{1} + \mu^{2}x_{2}) = \varphi(\mu^{1}x_{1} + \mu^{2}x_{2}) = \mu^{1}\varphi(x_{1}) + \mu^{2}\varphi(x_{2}) = \mu^{1} \beta(\varphi, x_{1}) + \mu^{2} \beta(\varphi, x_{2}).
+		      \]
+
+		      Hence \( \beta \) is bilinear.
+
+		      \bigskip
+
+		      Let \( {(x_{\alpha})}_{\alpha \in A} \) be a basis for \( E \).
+
+		      For every \( y \in F \), there exists \( \varphi \in L(E; F) \) with \( \varphi(x_{\alpha}) = y \) for every \( \alpha \in A \). Hence every \( y \in F \) is of the form \( \varphi x \), from which we deduce that \( \operatorname{Im} \beta = F \).
+	      \end{proof}
+	\item Let \( E, F, G \) be finite-dimensional real vector spaces with the natural topology. Show that every bilinear mapping \( \varphi: E \times F \to G \) is continuous. Conclude that the mapping \( L(E; F) \times E \to F \) defined by \( (\varphi, x) \mapsto \varphi x \) is continuous.
+	      \begin{proof}
+		      Let \( (e_{1}, \ldots, e_{n}) \) be a basis for \( E \) and \( (f_{1}, \ldots, f_{m}) \) be a basis for \( F \).
+
+		      For every \( x \in E \), \( x = \sum_{i=1}^{n} \lambda^{i}(x) e_{i} \), where each \( \lambda^{i}: E \to \Gamma \) is the \( i^{th} \) coordinate function.
+
+		      For every \( y \in F \), \( y = \sum_{j=1}^{m} \mu^{j}(x) f_{j} \), where each \( \mu^{j}: G \to \Gamma \) is the \( j^{th} \) coordinate function.
+
+		      We have
+		      \[
+			      \varphi(x, y) = \sum_{i=1}^{n}\sum_{j=1}^{m} \lambda^{i}(x)\mu^{j}(y) \varphi(e_{i}, f_{j}).
+		      \]
+
+		      Since the coordinate functions \( \lambda^{i}, \mu^{j} \) are continuous (because are linear functions of a real topological vector space), and \( G \) is a real topological vector space, each \( (x, y) \mapsto \lambda^{i}(x)\mu^{j}(y) \varphi(e_{i}, f_{j}) \) is continuous. This means \( \varphi \) is continuous.
+	      \end{proof}
+	\item Given a bilinear mapping \( \varphi: E \times F \to G \) define the \textit{null-spaces} \( N_{1}(\varphi) \subseteq E \) and \( N_{2}(\varphi) \subseteq F \) as follows:
+	      \[
+		      N_{1}(\varphi) = \left\{ x : \varphi(x, y) = 0\; \forall y \in F \right\}
+	      \]
+
+	      and
+	      \[
+		      N_{2}(\varphi) = \left\{ y : \varphi(x, y) = 0\; \forall x \in E \right\}
+	      \]
+
+	      \begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		      \item Consider the induced bilinear mapping
+		            \[
+			            \widetilde{\varphi}: E/N_{1}(\varphi) \times F/N_{2}(\varphi) \to G
+		            \]
+
+		            Show that \( N_{1}(\widetilde{\varphi}) = 0 \) and \( N_{2}(\widetilde{\varphi}) = 0 \).
+		      \item {\color{red}{(The claim is false.)}} Conversely, let \( \psi: E \times F \to H \) be a bilinear mapping such that \( N_{1}(\varphi) \subseteq N_{1}(\psi) \) and \( N_{2}(\varphi) \subseteq N_{2}(\psi) \). Prove that there exists a linear map \( f: G \to H \) such that
+		            \[
+			            \psi(x, y) = f\varphi(x, y).
+		            \]
+
+		            Consider the space \( L \) of linear maps \( f: G \to H \) satisfying this condition. Establish a linear isomorphism
+		            \[
+			            L \stackrel{\cong}{\to} L(G/\operatorname{Im}\varphi; H).
+		            \]
+
+		            Conclude that \( f \) is uniquely determined by \( \psi \) if and only if \( \operatorname{Im} \varphi = G \).
+	      \end{enumerate}
+
+	      \begin{proof}
+		      Denote by \( \rho: E \to E/N_{1}(\varphi) \) and \( \sigma: F \to F/N_{2}(\varphi) \).
+
+		      \begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+			      \item The induced bilinear mapping is given by \( \widetilde{\varphi}(\rho x, \sigma y) = \varphi(x, y) \). From the definitions of \( N_{1} \) and \( N_{2} \)
+			            \[
+				            \rho x \in N_{1}(\widetilde{\varphi}) \iff \varphi(x, y) = 0 \; \forall y \in F \iff x \in N_{1}(\varphi) \iff \rho x = 0
+			            \]
+
+			            so \( N_{1}(\widetilde{\varphi}) = 0 \).
+			            \[
+				            \sigma y \in N_{2}(\widetilde{\varphi}) \iff \varphi(x, y) = 0\; \forall x \in E \iff y \in N_{2}(\varphi) \iff \sigma y = 0
+			            \]
+
+			            so \( N_{2}(\widetilde{\varphi}) = 0 \).
+			      \item The claim is false, according to the errata.
+		      \end{enumerate}
+	      \end{proof}
+	\item Let \( E \) be a vector space and \( F \) be the space of all functions \( h: E \to \Gamma \). Define a bilinear mapping \( \varphi: L(E) \times L(E) \to F \) by
+	      \[
+		      \varphi(f, g)(x) = f(x)g(x)\qquad x \in E.
+	      \]
+
+	      Show that \( N_{1}(\varphi) = 0 \) and \( N_{2}(\varphi) = 0 \).
+	      \begin{proof}
+		      \[ f \in N_{1}(\varphi) \iff \varphi(f, g)(x) = 0 \;\forall g \in L(E), \forall x \in E \iff f(x)g(x) = 0\; \forall g \in L(E), \forall x \in E \iff f = 0 \]
+
+		      so \( N_{1}(\varphi) = 0 \).
+		      \[
+			      g \in N_{2}(\varphi) \iff \varphi(f, g)(x) = 0 \;\forall f \in L(E), \forall x \in E \iff f(x)g(x) = 0\; \forall f \in L(E), \forall x \in E \iff g = 0
+		      \]
+
+		      so \( N_{2}(\varphi) = 0 \).
+	      \end{proof}
+	\item Let \( E, E^{\ast} \) be a pair of dual spaces and assume that \( \Phi: E^{\ast} \times E \to \Gamma \) is a bilinear function such that
+	      \[
+		      \Phi(\tau^{\ast -1} x^{\ast}, \tau x) = \Phi(x^{\ast}, x)
+	      \]
+
+	      for every pair of dual automorphisms. Prove that \( \Phi(x^{\ast}, x) = \lambda \left\langle x^{\ast}, x \right\rangle \) where \( \lambda \) is a scalar.
+	      \begin{proof}
+		      This proof assumes \( E \) is finite-dimensional.
+
+		      Let \( {(e_{i})}_{i=1}^{n} \) be a basis for \( E \) and \( {(e_{i}^{\ast})}_{i=1}^{n} \) be its dual basis. There exists a unique \( \varphi \in L(E; E) \) such that
+		      \[
+			      \varphi(e_{j}) = \sum_{i=1}^{n} \Phi(e_{i}^{\ast}, e_{j}) e_{i}
+		      \]
+
+		      for every \( 1 \le j \le n \). If \( x = \sum_{i=1}^{n} x_{i}e_{i} \) and \( f = \sum_{j=1}^{n} y_{j}e_{j}^{\ast} \) then
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      \Phi(f, x) & = \Phi\left( \sum_{j=1}^{n}  y_{j} e_{j}^{\ast}, \sum_{i=1}^{n} x_{i} e_{i} \right) = \sum_{j=1}^{n}\sum_{i=1}^{n} y_{j} x_{i} \Phi(e_{j}^{\ast}, e_{i}) = \sum_{j=1}^{n}\sum_{i=1}^{n} y_{j} x_{i} \Phi(e_{j}^{\ast}, e_{i}) e_{j}^{\ast}(e_{j}) \\
+                  & = \sum_{j=1}^{n}\sum_{i=1}^{n} y_{j} x_{i} e_{j}^{\ast}(\varphi(e_{i})) = \sum_{j=1}^{n} y_{j} e_{j}^{\ast}(\varphi(x)) = f(\varphi(x))
+		      \end{align*}
+		      \endgroup
+		      Hence there exists \( \varphi \in L(E; E) \) such that \( \Phi(f, x) = f(\varphi(x)) \).
+		      \[
+			      f(\varphi(x)) = \Phi(f, x) = \Phi(\tau^{\ast-1}f, \tau x) = \tau^{\ast-1}f(\varphi(\tau x)) = f(\tau^{-1} \circ \varphi \circ \tau(x))
+		      \]
+
+		      for every \( x \in E \). So \( \varphi = \tau^{-1} \circ \varphi \circ \tau \) for every \( \tau \in \operatorname{GL}(E) \), which means \( \varphi = \lambda \operatorname{id}_{E} \) for some \( \lambda \in \Gamma \). Thus \( \Phi(f, x) = f(\varphi(x)) = f(\lambda x) = \lambda f(x) = \lambda \left\langle f, x \right\rangle \).
+	      \end{proof}
+\end{enumerate}
+
+\section*{The Tensor Product}
+
+\section{The Universal Property}
+
+\section{Elementary Properties}
+
+\section{Uniqueness}
+
+\section*{Problems}\addcontentsline{toc}{section}{Problems}

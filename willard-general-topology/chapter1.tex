@@ -1,0 +1,34 @@
+\chapter{Set Theory and Metric Spaces}
+
+\section{Set theory}
+
+\subsection{Russell's Paradox}
+
+The phenomenon to be presented here was first exhibited by Russell in 1901, and consequently is known as Russell's Paradox.
+
+Suppose we allow as sets things \(A\) for which \( A \in A \). Let \( P \) be the set of all sets. Then \( P \) can be divided into two nonempty subsets, \( P_{1} = \left\{ A \in P \mid A \notin A \right\} \) and \( P_{2} = \left\{ A \in P \mid A \in A \right\} \). Show that this results in the contradiction: \( P_{1} \in P_{1} \iff P_{1} \notin P_{1} \). Does our (na{\i}ve) restriction on sets given in 1.1 eliminate the contradiction?
+
+\hrulefill%
+
+If \( P_{1} \in P_{1} \) then \( P_{1} \notin P_{1} \), according to the definition of \( P_{1} \). Conversely, if \( P_{1} \notin P_{1} \) then \( P_{1} \in P_{1} \).
+
+Our na{\i}ve restriction on sets (no aggregation shall be a set which would be an element of itself) does not eliminate the contradiction.
+
+\subsection*{1B. De Morgan's laws and the distributive laws}
+
+\begin{enumerate}[itemsep=0pt]
+    \item \( A - \left( \bigcap_{\lambda \in \Lambda} B_{\lambda} = \bigcup_{\lambda \in \Lambda} (A - B_{\lambda}) \right) \)
+    \item \( A - \left( \bigcap_{\lambda \in \Lambda} B_{\lambda} = \bigcup_{\lambda \in \Lambda} (A - B_{\lambda}) \right) \)
+    \item If \( A_{nm} \) is a subset of \( A \) for \( n = 1, 2, \ldots \) and \( m = 1, 2, \ldots \) is it necessarily true that
+    \[
+        \bigcup_{n=1}^{\infty} \left\lbrack \bigcap_{m=1}^{\infty} A_{nm} \right\rbrack = \bigcap_{n=1}^{\infty} \left\lbrack \bigcup_{m=1}^{\infty} A_{nm} \right\rbrack?
+    \]
+\end{enumerate}
+
+\subsection*{1C. Ordered pairs}
+
+Show that, if \( (x_{1}, x_{2}) \) is defined to be \( \left\{ \left\{ x_{1} \right\}, \left\{ x_{1}, x_{2} \right\} \right\} \), then \( (x_{1}, x_{2}) = (y_{1}, y_{2}) \) iff \( x_{1} = y_{1} \) and \( x_{2} = y_{2} \).
+
+\subsection*{1D. Cartesian products}
+
+\section{Metric spaces}

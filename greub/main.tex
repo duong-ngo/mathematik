@@ -21,10 +21,12 @@
 \usepackage{subcaption}
 \usepackage{booktabs}
 \usepackage[inline]{enumitem}
+\usepackage{pgf,tikz}
+\usepackage{tikz-cd}
+\usepackage{tocloft}
+\renewcommand{\cftsecpresnum}{\S}
 
-\setcounter{chapter}{0}
-\counterwithin{subsection}{chapter}
-\renewcommand\thesection{\thechapter.\Alph{section}}
+% \renewcommand\thesection{\thechapter.\Alph{section}}
 
 \pagestyle{fancy}
 \setlength{\headheight}{16pt}
@@ -35,13 +37,20 @@
 \rfoot{}
 
 \titleformat{\chapter}[display]{\flushright\bf\huge}{\chaptertitlename\,\thechapter}{10pt}{}
-\titleformat{\section}{\bf\Large}{\thesection}{10pt}{}
+\titleformat{\section}{\bf\Large}{\S\thesection}{10pt}{}
 \titleformat{\subsection}{\bf\large}{\thesubsection}{10pt}{}
 \titleformat{\subsubsection}{\bf\large}{\thesubsubsection}{10pt}{}
 
 \captionsetup{labelfont={bf},labelsep=period}
 \counterwithin{figure}{chapter}
 \counterwithin{table}{chapter}
+\counterwithout{subsection}{section}
+\counterwithin{subsection}{chapter}
+\counterwithout{section}{chapter}
+\makeatletter
+\@addtoreset{chapter}{part}
+\@addtoreset{section}{chapter}
+\makeatother
 
 \newenvironment{sqcases}{%
     \matrix@check\sqcases\env@sqcases
@@ -76,7 +85,7 @@
 \newcommand{\innerprod}[1]{\left\langle{#1}\right\rangle}
 \newcommand{\conj}[1]{\overline{#1}}
 
-\title{Werner Hildbert Greub: Notes and Exercises}
+\title{Werner Hildbert Greub's Linear Algebra and Multilinear Algebra: Notes and Exercises}
 \author{Ngo Quang Duong}
 \date{\today}
 
@@ -88,6 +97,8 @@
 
 \part{Linear Algebra}
 
+\setcounter{chapter}{-1}
+\input{./linear/chapter0.tex}
 \input{./linear/chapter1.tex}
 \input{./linear/chapter2.tex}
 \input{./linear/chapter3.tex}
@@ -104,6 +115,7 @@
 
 \part{Multilinear Algebra}
 
+\setcounter{chapter}{0}
 \input{./multilinear/chapter1.tex}
 \input{./multilinear/chapter2.tex}
 \input{./multilinear/chapter3.tex}

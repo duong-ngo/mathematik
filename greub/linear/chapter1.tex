@@ -1,0 +1,938 @@
+\chapter{Vector spaces}
+
+\section{Vector spaces}
+
+\subsection{Definition}
+
+\subsection{Examples}
+
+\subsection{Linear combinations}
+
+\subsection{Linear dependence}
+
+\subsection{Basis}
+
+\subsection{The free vector space over a set}
+
+\subsection*{Problems}\addcontentsline{toc}{subsection}{Problems}
+
+\begin{enumerate}[itemsep=0pt,label=\textbf{\arabic*.}]
+	\item Show that axiom II.3 can be replaced by the following one: The equation \( \lambda x = 0 \) holds only if \( \lambda = 0 \) or \( x = 0 \).
+	      \begin{proof}
+		      Axiom II.3. \( 1\cdot x = x \) for all \( x \in E \).
+
+		      Let \( y = 1\cdot x - x \). For every \( \lambda \in \Gamma \)
+		      \[
+			      \lambda\cdot y = \lambda \cdot (1 \cdot x - x) = \lambda \cdot (1 \cdot x) - \lambda \cdot x = (\lambda \cdot 1) \cdot x - \lambda \cdot x = \lambda \cdot x - \lambda \cdot x = 0
+		      \]
+
+		      so \( y = 0 \), which means \( 1\cdot x = x \).
+	      \end{proof}
+	\item Given a system of linearly independent vectors \( (x_{1}, \ldots, x_{p}) \), prove that the system \( (x_{1}, \ldots, x_{i} + \lambda x_{j}, \ldots, x_{p}), i \ne j \) with arbitrary \( \lambda \) is again linearly independent.
+	      \begin{proof}
+		      Suppose \( \mu_{1} x_{1} + \cdots + \mu_{i} (x_{i} + \lambda x_{j}) + \cdots + \mu_{p} x_{p} = 0 \) then \( \sum_{k \ne j}^{p} \mu_{k} x_{k} + (\mu_{j} + \mu_{i}\lambda) x_{j} = 0 \).
+
+		      From the linear independence of \( (x_{1}, \ldots, x_{p}) \), it follows that \( \mu_{k} = 0 \) for all \( k \ne j \) and \( \mu_{j} + \mu_{i}\lambda = 0 \). Hence \( \mu_{k} = 0 \) for all \( k \), which means \( (x_{1}, \ldots, x_{i} + \lambda x_{j}, \ldots, x_{p}), i \ne j \) be linearly independence.
+	      \end{proof}
+	\item Show that the set of all solutions of the homogeneous linear differential equation
+	      \[
+		      \dfrac{d^{2}y}{dt^{2}} + p \dfrac{dy}{dt} + qy = 0
+	      \]
+
+	      where \( p, q \) are fixed functions of \( t \), is a vector space.
+
+	      \begin{proof}
+		      Let \( E \) be the set of all solutions of the given homogeneous linear differential equation.
+
+		      The zero function \( 0 \) is a solution so \( 0 \in E \).
+
+		      If \( x, y \in E \) then
+		      \[
+			      \dfrac{d^{2}(x + y)}{dt^{2}} + p \dfrac{d(x + y)}{dt} + q(x + y) = \dfrac{d^{2}x}{dt^{2}} + p \dfrac{dx}{dt} + qx + \dfrac{d^{2}y}{dt^{2}} + p \dfrac{dy}{dt} + qy = 0.
+		      \]
+
+		      If \( x \in E, \lambda \in \mathbb{R} \) then
+		      \[
+			      \dfrac{d^{2}(\lambda x)}{dt^{2}} + p \dfrac{d(\lambda x)}{dt} + q(\lambda x) = \lambda \dfrac{d^{2}x}{dt^{2}} + \lambda p \dfrac{dx}{dt} + \lambda qx = 0.
+		      \]
+
+		      So \( E \) is closed under addition and scalar multiplication.
+
+		      For every \( x \in E \), \( x + 0 = 0 + x = x \) and \( x + (-x) = (-x) + x = 0 \) and
+		      \[
+			      \dfrac{d^{2}(-x)}{dt^{2}} + p \dfrac{d(-x)}{dt} + q(-x) = -\left(\dfrac{d^{2}x}{dt^{2}} + p \dfrac{dx}{dt} + qx \right) = 0
+		      \]
+
+		      so \( -x \in E \).
+
+		      The remaining axioms are evidently true.
+	      \end{proof}
+	\item I skip this problem.
+	\item Let \( E \) be a real linear space. Consider the set \( E \times E \) of ordered pairs \( (x, y) \) with \( x \in E \) and \( y \in E \). Show that the set \( E \times E \) becomes a complex vector space under the operations:
+	      \[
+		      (x_{1}, y_{1}) + (x_{2}, y_{2}) = (x_{1} + x_{2}, y_{1} + y_{2})
+	      \]
+
+	      and
+	      \[
+		      (\alpha + i\beta)(x, y) = (\alpha x - \beta y, \alpha y + \beta x) \quad (\alpha, \beta \in \mathbb{R}).
+	      \]
+	      \begin{quotation}
+		      This process is called \textit{complexification}.
+	      \end{quotation}
+	      \begin{proof}
+		      I.1. The associative law holds.
+		      \[
+			      ((x_{1}, y_{1}) + (x_{2}, y_{2})) + (x_{3}, y_{3}) = (x_{1} + x_{2}, y_{1} + y_{2}) + (x_{3}, y_{3}).
+		      \]
+
+		      I.2. The commutative law holds.
+		      \[
+			      (x_{1}, y_{1}) + (x_{2}, y_{2}) = (x_{1} + x_{2}, y_{1} + y_{2}) = (x_{2} + x_{1}, y_{2} + y_{1}) = (x_{2}, y_{2}) + (x_{1}, y_{1}).
+		      \]
+
+		      I.3. For every \( (x, y) \in E \times E \), \( (x, y) + (0, 0) = (x, y) = (0, 0) + (x, y) \).
+
+		      I.4. For every \( (x, y) \in E \times E \), \( (x, y) + (-x, -y) = (0, 0) = (-x, -y) + (x, y) \).
+
+		      II.1. The associative law holds.
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			       & \phantom{=} ((\alpha_{1} + i\beta_{1})(\alpha_{2} + i\beta_{2})) (x, y)                                                                                                                      \\
+			       & = (\alpha_{1}\alpha_{2} - \beta_{1}\beta_{2} + i(\alpha_{1}\beta_{2} + \beta_{1}\alpha_{2})) (x, y)                                                                                          \\
+			       & = ((\alpha_{1}\alpha_{2} - \beta_{1}\beta_{2})x - (\alpha_{1}\beta_{2} + \beta_{1}\alpha_{2})y, (\alpha_{1}\alpha_{2} - \beta_{1}\beta_{2})y + (\alpha_{1}\beta_{2} + \beta_{1}\alpha_{2})x) \\
+			       & = (\alpha_{1}(\alpha_{2}x - \beta_{2}y) - \beta_{1}(\beta_{2}x + \alpha_{2}y), \alpha_{1}(\alpha_{2}y + \beta_{2}x) + \beta_{1}(\alpha_{2}x - \beta_{2}y))                                   \\
+			       & = (\alpha_{1} + i\beta_{1}) (\alpha_{2}x - \beta_{2}y, \beta_{2}x + \alpha_{2}y)                                                                                                             \\
+			       & = (\alpha_{1} + i\beta_{1}) ((\alpha_{2} + i\beta_{2}) (x, y)).
+		      \end{align*}
+		      \endgroup
+
+		      II.2. The distributive laws hold.
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      ((\alpha_{1} + i\beta_{1}) + (\alpha_{2} + i\beta_{2}))(x, y) & = ((\alpha_{1} + \alpha_{2}) + i(\beta_{1} + \beta_{2}))(x, y)                                                        \\
+			                                                                    & = ((\alpha_{1} + \alpha_{2})x - (\beta_{1} + \beta_{2})y, (\beta_{1} + \beta_{2})x + (\alpha_{1} + \alpha_{2})y)      \\
+			                                                                    & = (\alpha_{1} x - \beta_{1} y, \beta_{1} x + \alpha_{1} y) + (\alpha_{2} x - \beta_{2} y, \beta_{2}x + \alpha_{2}y)   \\
+			                                                                    & = (\alpha_{1} + i\beta_{1})(x, y) + (\alpha_{2} + i\beta_{2})(x, y);                                                  \\
+			      (\alpha + i\beta)((x_{1}, y_{1}) + (x_{2}, y_{2}))            & = (\alpha + i\beta)(x_{1} + x_{2}, y_{1} + y_{2})                                                                     \\
+			                                                                    & = (\alpha(x_{1} + x_{2}) - \beta(y_{1} + y_{2}), \beta(x_{1} + x_{2}) + \alpha(y_{1} + y_{2}))                        \\
+			                                                                    & = (\alpha x_{1} - \beta y_{1}, \beta x_{1} + \alpha y_{1}) + (\alpha x_{2} - \beta y_{2}, \beta x_{2} + \alpha y_{2}) \\
+			                                                                    & = (\alpha + i\beta)(x_{1}, y_{1}) + (\alpha + i\beta)(x_{2}, y_{2}).
+		      \end{align*}
+		      \endgroup
+
+		      II.3. For every \( (x, y) \in E \times E \), \( 1 \cdot (x, y) = (1 \cdot x - 0 \cdot y, 0 \cdot x + 1 \cdot y) = (x, y) \).
+	      \end{proof}
+	\item I skip this problem.
+	\item I skip this problem.
+	\item Recall that an \( n \)-tuple \( (\lambda_{1}, \ldots, \lambda_{n}) \) is defined by a map \( f: \left\{ 1, \ldots, n \right\} \to \Gamma \) given by
+	      \[
+		      f(i) = \lambda_{i} \quad (i = 1, \ldots, n).
+	      \]
+
+	      Show that the vector spaces \( C\left\{ 1, \ldots, n \right\} \) and \( \Gamma^{n} \) are equal. Show further that the basis \( f_{i} \) defined in sec. 1.7 coincides with the basis \( x_{i} \) defined in sec. 1.6.
+	      \begin{proof}
+		      From the definition of a free vector space over a set, \( C\left\{ 1, \ldots, n \right\} \) consists of all maps \( f: \left\{ 1, \ldots, n \right\} \to \Gamma \) such that \( f(x) \ne 0 \) for finitely many \( x \). Therefore \( C\left\{ 1, \ldots, n \right\} = \Gamma^{n} \).
+
+		      Let \( f_{i} \in C\left\{ 1, \ldots, n \right\} \) such that \( f_{i}(j) = \delta_{i}^{j} \). For every \( f \in C\left\{ 1, \ldots, n \right\} \), \( f(x) = \sum_{i=1}^{n} f(i) f_{i}(x) \) for every \( x \in \left\{ 1, \ldots, n \right\} \). Therefore \( f = \sum_{i=1}^{n} f(i) f_{i} \), which means \( \left\{ f_{i} \right\} \) is a generator for \( C\left\{ 1, \ldots, n \right\} \). Moreover, \( \sum_{i=1}^{n} \lambda^{i} f_{i} = 0 \) if and only if \( \lambda^{i} = 0 \) for every \( 1 \le \i \le n \), hence \( \left\{ f_{i} \right\} \) is linearly independent. Thus \( \left\{ f_{i} \right\} \) is a basis for \( C\left\{ 1, \ldots, n \right\} \).
+	      \end{proof}
+	\item Let \( S \) be any set and consider the set of maps
+	      \[
+		      f: S \to \Gamma^{n}
+	      \]
+
+	      such that \( f(x) = 0 \) for all but finitely many \( x \in S \). In a manner similar to that of sec. 1.7, make this set into a vector space (denoted by \( C(S, \Gamma^{n}) \)). Construct a basis for this vector space.
+	      \begin{proof}
+		      If \( f, g \) are two such maps, we define \( (f + g)(x) = f(x) + g(x) \) then \( (f + g)(x) = 0 \) for all but finitely many \( x \in S \). If \( f \) is such a map, we define \( (\lambda f)(x) = \lambda f(x) \) then \( (\lambda f)(x) = 0 \) for all but finitely many \( x \in S \). Together with these two operations, \( C(S, \Gamma^{n}) \) is a vector space.
+
+		      Let \( e_{i} \in \Gamma^{n} \) such that \( e_{i}(j) = \delta_{i}^{j} \) then \( \left\{ e_{i} \right\} \) is a basis for \( \Gamma \).
+
+		      For every \( a \in S \), define \( f_{a} \in C(S) \) by \( f_{a}(x) = 1 \) if \( x = a \) and \( f_{a}(x) = 0 \) otherwise.
+
+		      For every \( a \in S, 1 \le i \le n \), define \( f_{a,i} \in C(S, \Gamma^{n}) \) by \( f_{a,i}(x) = f_{a}(x) e_{i} \).
+
+		      For every \( 1 \le i \le n \), \( \pi_{i}: \Gamma^{n} \to \Gamma \) given by \( \pi_{i}(x_{1}, \ldots, x_{n}) = x_{i} \) is a linear map.
+
+		      For every \( f \in C(S, \Gamma^{n}) \), \( 1 \le i \le n \), \( \pi_{i} \circ f \in C(S) \)
+		      \[
+			      f(x) = \sum_{i=1}^{n} \pi_{i}(f(x)) e_{i} = \sum_{i=1}^{n} \sum_{a \in S} \pi_{i}(f(a))f_{a}(x) e_{i} = \sum_{i=1}^{n} \sum_{a \in S} \pi_{i}(f(a)) f_{a,i}(x).
+		      \]
+
+		      Therefore the collection \( {\left\{ f_{a,i} \right\}}_{a \in S, 1\le i \le n} \) is a generator of \( C(S, \Gamma^{n}) \).
+
+		      Assume the linear relation \( \sum_{a, i} \lambda^{a, i} f_{a, i} = 0 \) then
+		      \[
+			      0 = \sum_{a, i} \lambda^{a, i} f_{a, i}(b) = \sum_{i} \lambda^{b, i} e_{i} \implies \lambda^{b,i} = 0.
+		      \]
+
+		      So \( {\left\{ f_{a,i} \right\}}_{a \in S, 1\le i \le n} \) is linearly independent.
+
+		      In conclusion, \( {\left\{ f_{a,i} \right\}}_{a \in S, 1\le i \le n} \) is a basis for \( C(S, \Gamma^{n}) \).
+	      \end{proof}
+	\item Let \( {(x_{\alpha})}_{\alpha \in A} \) be a basis for a vector space \( E \) and consider a vector
+	      \[
+		      a = \sum_{\alpha} \xi^{\alpha} x_{\alpha}.
+	      \]
+
+	      Suppose that for some \( \beta \in A \), \( \xi^{\beta} \ne 0 \). Show that the vectors \( {\left( x_{\alpha} \right)}_{\alpha \ne \beta} \) together with \( a \) form again a basis for \( E \).
+	      \begin{proof}
+		      Let \( y \in E \) then there exist \( {(\eta^{\alpha})}_{\alpha \in A} \) such that \( y = \sum_{\alpha} \eta^{\alpha} x_{\alpha} \).
+
+		      Since \( \xi^{\beta} \ne 0 \)
+		      \[
+			      x_{\beta} = (1/\xi^{\beta})a - \sum_{\alpha \ne \beta} (\xi^{\alpha}/\xi^{\beta})x_{\alpha}
+		      \]
+
+		      so
+		      \[
+			      y = \eta^{\beta} x_{\beta} + \sum_{\alpha \ne \beta} \eta^{\alpha} x_{\alpha} = (\eta^{\beta}/\xi^{\beta})a - \sum_{\alpha \ne \beta} (\xi^{\alpha}/\xi^{\beta})x_{\alpha} + \sum_{\alpha \ne \beta} \eta^{\alpha} x_{\alpha}
+		      \]
+
+		      which means \( {\left( x_{\alpha} \right)}_{\alpha \ne \beta} \cup \left\{ a \right\} \) is a generator of \( E \).
+
+		      Assume the linear relation
+		      \[
+			      \lambda^{\beta} a + \sum_{\alpha \ne \alpha} \lambda^{\alpha} x_{\alpha} = 0
+		      \]
+
+		      then
+		      \[
+			      0 = \lambda^{\beta} \sum_{\alpha} \xi^{\alpha} x_{\alpha} + \sum_{\alpha \ne \beta} \lambda^{\alpha} x_{\alpha} = \lambda^{\beta}\xi^{\beta} x_{\alpha} + \sum_{\alpha\ne\beta} (\lambda^{\alpha} + \lambda^{\beta}\xi^{\alpha}) x_{\alpha}
+		      \]
+
+		      from which and the linear independence of \( {(x_{\alpha})}_{\alpha \in A} \), we deduce that \( \lambda^{\beta}\xi^{\beta} = 0 \) and \( \lambda^{\alpha} + \lambda^{\beta}\xi^{\alpha} = 0 \) for every \( \alpha \ne \beta \). Because \( \xi^{\beta} \ne 0 \), \( \lambda^{\beta} = 0 \), so \( \lambda^{\alpha} = 0 \) for every \( \alpha \ne \beta \). Hence \( {\left( x_{\alpha} \right)}_{\alpha \ne \beta} \cup \left\{ a \right\} \) is linearly independent.
+
+		      Thus \( {\left( x_{\alpha} \right)}_{\alpha \ne \beta} \cup \left\{ a \right\} \) is again a basis for \( E \).
+	      \end{proof}
+	\item Prove the following \textit{exchange theorem of Steinitz:} Let \( {(x_{\alpha})}_{\alpha \in A} \) be a basis of \( E \) and \( a_{i} (i = 1, \ldots, p) \) be a system of linearly independent vectors. Then it is possible to exchange certain \( p \) of the vectors \( x_{\alpha} \) by the vectors \( a_{i} \) such that the new system is again a basis of \( E \). \textit{Hint: Use problem 10.}
+	      \begin{proof}
+		      According to Problem 10, the statement is true for \( p = 1 \).
+
+		      Assume the statement is true for \( p = n \).
+
+		      Consider a system of \( n + 1 \) linearly independent vectors \( a_{1}, \ldots, a_{n+1} \). Due to the inductive hypothesis, there exists a subset \( B \subseteq A \) of \( n \) elements such that \( \left\{ a_{1}, \ldots, a_{n} \right\} \cup {(x_{\alpha})}_{\alpha \in A \setminus B} \) is a basis for \( E \), so \( a_{n+1} \) admits a linear combination
+		      \[
+			      a_{n+1} = \sum_{i=1}^{n} \lambda^{i} a_{i} + \sum_{\alpha \in A \setminus B} \lambda^{\alpha} x_{\alpha}.
+		      \]
+
+		      It is not the case that \( \lambda^{\alpha} = 0 \) for every \( \alpha \in A \setminus B \) because it means \( a_{1}, \ldots, a_{n+1} \) is linearly dependent. So there exists \( \alpha \in A\setminus B \) such that \( \lambda^{\alpha} \ne 0 \). From Problem 10, we can exchange \( a_{n+1} \) with \( x_{\alpha} \) for some \( \alpha \in A \setminus B \) to obtain a basis for \( E \).
+
+		      From the principle of mathematical induction, the statement is true for every natural number \( p \).
+	      \end{proof}
+	\item Consider the set of polynomial functions \( f: \mathbb{R} \to \mathbb{R} \),
+	      \[
+		      f(x) = \sum_{i=0}^{n} \alpha_{i} x^{i}.
+	      \]
+
+	      Make this set into a vector space as in Example 3, and construct a natural basis.
+	      \begin{proof}
+		      If \( f, g \) are two polynomial functions then \( f + g \) where \( (f + g)(x) = f(x) + g(x) \) is also a polynomial function. If \( f \) is a polynomial function, then \( \lambda f \) where \( (\lambda f)(x) = \lambda\cdot f(x) \) is also a polynomial function. With these two operations, the set of polynomial functions is a real vector space.
+
+		      The collection \( {(f_{n})}_{n \ge 0} \) is a basis for the vector space of polynomial functions, where \( f_{n}(x) = x^{n} \).
+	      \end{proof}
+\end{enumerate}
+
+\section{Linear mappings}
+
+\subsection{Definition}
+
+\subsection{Examples}
+
+\subsection{Composition}
+
+\subsection{Generator and basis}
+
+\subsection*{Problems}\addcontentsline{toc}{subsection}{Problems}
+
+\begin{enumerate}[itemsep=0pt]
+	\item Consider the vector space of all real-valued continuous functions defined in the interval \( a \le t \le b \). Show that the mapping \( \varphi \) given by
+	      \[
+		      \varphi: x(t) \mapsto t x(t)
+	      \]
+
+	      is linear.
+	      \begin{proof}
+		      For all real-valued continuous functions \( x, y \) and \( \lambda, \mu \in \mathbb{R} \)
+		      \[
+			      \varphi(\lambda x + \mu y)(t) = t (\lambda x + \mu y)(t) = \lambda \cdot t x(t) + \mu \cdot t y(t) = \lambda \varphi(x)(t) + \mu \varphi(y)(t)
+		      \]
+
+		      so \( \varphi \) is a linear map.
+	      \end{proof}
+	\item I skip this problem.
+	\item Let \( E \) be a vector space over \( \Gamma \), and let \( f_{1}, \ldots, f_{r} \) be linear functions in \( E \). Show that the mapping \( \varphi: E \to \Gamma^{r} \) given by
+	      \[
+		      \varphi(x) = (f_{1}(x), \ldots, f_{r}(x))
+	      \]
+
+	      is linear.
+	      \begin{proof}
+		      For all \( x, y \in E \), \( \lambda, \mu \in \Gamma \)
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      \varphi(\lambda x + \mu y) & = (f_{1}(\lambda x + \mu y), \ldots, f_{r}(\lambda x + \mu y))               \\
+			                                 & = (\lambda f_{1}(x) + \mu f_{1}(y), \ldots, \lambda f_{r}(x) + \mu f_{r}(y)) \\
+			                                 & = \lambda (f_{1}(x), \ldots, f_{r}(x)) + \mu (f_{1}(y), \ldots, f_{r}(y))    \\
+			                                 & = \lambda \varphi(x) + \mu \varphi(y)
+		      \end{align*}
+		      \endgroup
+
+		      so \( \varphi \) is a linear map.
+	      \end{proof}
+	\item Suppose \( \varphi: E \to \Gamma^{r} \) is a linear map, and write
+	      \[
+		      \varphi(x) = (f_{1}(x), \ldots, f_{r}(x))
+	      \]
+
+	      Show that the mappings \( f_{i}: E \to \Gamma \) are linear functions in \( E \).
+	      \begin{proof}
+		      The canonical projections \( \pi_{i}: \Gamma^{r} \to \Gamma \) given by \( \pi_{i}(\lambda_{1}, \ldots, \lambda_{r}) = \lambda_{i} \) are linear maps.
+
+		      The composition of two linear maps is a linear map, therefore \( f_{i} = \pi_{i} \circ \varphi \) are linear maps (linear functions because they are mappings into \( \Gamma \)).
+	      \end{proof}
+	\item \textit{The universal property of \( C(X) \).} Let \( X \) be any set and consider the free vector space, \( C(X) \), generated by \( X \).
+	      \begin{enumerate}[itemsep=0pt,label={(\roman*)}]
+		      \item Show that if \( f: X \to F \) is a set map from \( X \) into a vector space \( F \) then there is a unique linear map \( \varphi: C(X) \to F \) such that \( \varphi \circ i_{X} = f \) where \( i_{X}: X \hookrightarrow C(X) \) is the inclusion map.
+		      \item Let \( \alpha: X \to Y \) be a set map. Show that there is a unique linear map \( \alpha_{\ast}: C(X) \to C(Y) \) such that the diagram
+		            \[
+			            \begin{tikzcd}
+				            X && Y \\
+				            \\
+				            {C(X)} && {C(Y)}
+				            \arrow["\alpha", from=1-1, to=1-3]
+				            \arrow["{i_{X}}"', from=1-1, to=3-1]
+				            \arrow["{i_{Y}}", from=1-3, to=3-3]
+				            \arrow["{\alpha_{\ast}}"', from=3-1, to=3-3]
+			            \end{tikzcd}
+		            \]
+
+		            commutes. If \( \beta: Y \to Z \) is a second set map, prove the composition formula
+		            \[
+			            {(\beta \circ \alpha)}_{\ast} = \beta_{\ast} \circ \alpha_{\ast}.
+		            \]
+		      \item Let \( E \) be a vector space. Forget the linear structure of \( E \) and form the space \( C(E) \). Show that there is a unique linear map \( \pi_{E}: C(E) \to E \) such that \( \pi_{E} \circ i_{E} = \operatorname{id}_{E} \).
+		      \item Let \( E \) and \( F \) be vector spaces and let \( \varphi: E \to F \) be a map between the underlying sets. Show that \( \varphi \) is a linear map if and only if
+		            \[
+			            \pi_{F} \circ \varphi_{\ast} = \varphi \circ \pi_{E}.
+		            \]
+		      \item Denote by \( N(E) \) the subspace of \( C(E) \) generated by the elements of the form
+		            \[
+			            f_{\lambda a + \mu b} - \lambda f_{a} - \mu f_{b}\qquad a, b \in E, \quad \lambda, \mu \in \Gamma.
+		            \]
+
+		            Show that \( \ker\pi_{E} = N(E) \).
+	      \end{enumerate}
+	      \begin{proof}
+		      \begin{enumerate}[itemsep=0pt,label={(\roman*)}]
+			      \item Let's remind ``the basis'' for the free vector space \( C(X) \). It is the collection of set maps \( f_{a}: X \to \Gamma \) where \( f_{a}(x) = 1 \) if \( x = a \) and \( f_{a}(x) = 0 \) otherwise. The inclusion \( i_{X}: X \hookrightarrow C(X) \) is defined by \( i_{X}(a) = f_{a} \).
+
+			            There exists a linear map \( \varphi \) from \( C(X) \) to \( F \) such that \( \varphi(f_{a}) = f(a) \) for every \( a \in X \). This means \( \varphi(i_{X}(a)) = f(a) \) for every \( a \in X \), so \( \varphi \circ i_{X} = f \).
+
+			            If \( \psi \) is a linear map from \( C(X) \) to \( F \) with \( \psi \circ i_{X} = f \) then \( \varphi, \psi \) agree on a basis for \( C(X) \), which implies \( \varphi = \psi \), hence the uniqueness of \( \varphi \).
+			      \item \( i_{Y} \circ \alpha: X \to C(Y) \) is a set map into a vector space, so there exists a unique linear map \( \alpha_{\ast} \) such that \( \alpha_{\ast} \circ i_{X} = i_{Y} \circ \alpha \).
+			            \begingroup
+			            \allowdisplaybreaks%
+			            \begin{align*}
+				            (\beta_{\ast} \circ \alpha_{\ast}) \circ i_{X} & = \beta_{\ast} \circ (\alpha_{\ast} \circ i_{X}) = \beta_{\ast} \circ (i_{Y} \circ \alpha)                      \\
+				                                                           & = (\beta_{\ast} \circ i_{Y}) \circ \alpha = (i_{Z} \circ \beta) \circ \alpha = i_{Z} \circ (\beta \circ \alpha) \\
+				                                                           & = {(\beta \circ \alpha)}_{\ast} \circ i_{X}
+			            \end{align*}
+			            \endgroup
+
+			            so \( \beta_{\ast} \circ \alpha_{\ast} = {(\beta \circ \alpha)}_{\ast} \).
+			      \item Apply part (i) to the identity map \( \operatorname{id}_{E}: E \to E \), there exists a unique linear map \( \pi_{E}: C(E) \to E \) such that \( \pi_{E} \circ i_{E} = \operatorname{id}_{E} \).
+			      \item If \( \varphi \) is linear then \( \varphi \circ \pi_{E} \) is linear. For every \( f_{a} \in C(E) \)
+			            \[
+				            (\pi_{F} \circ \varphi^{\ast})(f_{a}) = (\pi_{F} \circ \varphi^{\ast} \circ i_{E})(a) = (\pi_{F} \circ i_{F} \circ \varphi)(a) = \varphi(a) = (\varphi \circ \pi_{E})(f_{a}).
+			            \]
+
+			            Hence \( \varphi \circ \pi_{E} \) and \( \pi_{F} \circ \varphi^{\ast} \) agree on a basis for \( C(E) \), which means \( \varphi \circ \pi_{E} = \pi_{F} \circ \varphi^{\ast} \).
+
+			            Conversely, if \( \varphi \circ \pi_{E} = \pi_{F} \circ \varphi^{\ast} \) then \( \varphi(0) = \varphi(\pi_{E}(0)) = \pi_{F}(\varphi_{\ast}(0)) = 0 \).
+
+			            \( \pi_{F} \circ \varphi_{\ast} \) is a linear map. For every \( a, b \in E, \lambda, \mu \in \Gamma \)
+			            \begingroup
+			            \allowdisplaybreaks%
+			            \begin{align*}
+				            \varphi(\lambda a + \mu b) - \lambda \varphi(a) - \mu \varphi(b) & = \varphi(\pi_{E}(f_{\lambda a + \mu b})) - \lambda \varphi(\pi_{E}(f_{a})) - \mu \varphi(\pi_{E}(f_{b}))                      \\
+				                                                                             & = \pi_{F}(\varphi_{\ast}(f_{\lambda a + \mu b})) - \lambda \pi_{F}(\varphi_{\ast}(f_{a})) - \mu \pi_{F}(\varphi_{\ast}(f_{n})) \\
+				                                                                             & = \pi_{F}(\varphi_{\ast}(f_{\lambda a + \mu b} - \lambda f_{a} - \mu f_{b}))                                                   \\
+				                                                                             & = \varphi(\pi_{E}(f_{\lambda a + \mu b} - \lambda f_{a} - \mu f_{b}))                                                          \\
+				                                                                             & = \varphi(\lambda a + \mu b - \lambda a - \mu b)                                                                               \\
+				                                                                             & = \varphi(0) = 0.
+			            \end{align*}
+			            \endgroup
+
+			            Hence \( \varphi \) is linear.
+			      \item By mathematical induction, one can prove that
+			            \[
+				            f_{\sum_{i=1}^{n} \lambda_{i} a_{i}} - \sum_{i=1}^{n} \lambda_{i} f_{a_{i}}
+			            \]
+
+			            is a linear combination of vectors of the form \( f_{\lambda a + \mu b} - \lambda f_{a} - \mu f_{b} \).
+
+			            For every \( f_{\lambda a + \mu b} - \lambda f_{a} - \mu f_{b} \)
+			            \[
+				            \pi_{E}(f_{\lambda a + \mu b} - \lambda f_{a} - \mu f_{b}) = \pi_{E}(f_{\lambda a + \mu b}) - \lambda \pi_{E}(f_{a}) - \mu \pi_{E}(f_{b}) = \lambda a + \mu b - \lambda a - \mu b = 0
+			            \]
+
+			            so \( f_{\lambda a + \mu b} - \lambda f_{a} - \mu f_{b} \in \ker\pi_{E} \), therefore \( N(E) \subseteq \ker\pi_{E} \).
+
+			            Assume \( f = \sum_{i=1}^{n} \lambda_{i} f_{a_{i}} \in \ker \pi_{E} \) then \( 0 = \pi_{E}(f) = \sum_{i=1}^{n} \lambda_{i} a_{i} = \pi_{E}(f_{\sum_{i=1}^{n} \lambda_{i} a_{i}}) \), which implies \( f - f_{\sum_{i=1}^{n} \lambda_{i} a_{i}} \in \ker\pi_{E} \).
+
+			            There exist \( b_{1}, \ldots, b_{m} \) such that
+			            \[
+				            f - f_{\sum_{i=1}^{n} \lambda_{i} a_{i}} = \sum_{j=1}^{m} \mu_{j} f_{b_{j}}
+			            \]
+
+			            so
+			            \[
+				            f = \sum_{i=1}^{n} \lambda_{i} f_{a_{i}} = f_{\sum_{i=1}^{n} \lambda_{i} a_{i}} + \sum_{j=1}^{m} \mu_{j} f_{b_{j}}.
+			            \]
+
+			            If \( n = 0 \) then \( f = 0 \).
+
+			            If \( n = 1 \) then \( f = \lambda_{1} f_{a_{1}} = f_{\lambda_{1} a_{1}} \), which implies \( \lambda_{1} = 0 \) or \( a_{1} = 0 \). When \( \lambda_{1} = 0 \) or \( a_{1} = 0 \), \( f = f_{0} - 0\cdot f_{0} - 0\cdot f_{0} \).
+
+			            If \( n > 1 \) then by relabeling \( \lambda_{i} \), we deduce that
+			            \begin{itemize}
+				            \item \( n = 1 + m \);
+				            \item \( \lambda_{1} = 1 \) and \( a_{1} = \sum_{i=1}^{n} \lambda_{i} a_{i} \);
+				            \item \( \lambda_{i} = \mu_{i-1} \) and \( a_{i} = b_{i-1} \) if \( i > 1 \).
+			            \end{itemize}
+
+			            Therefore \( 0 = \sum_{i=1}^{n} \lambda_{i} a_{i} + \sum_{i > 1}\lambda_{i} a_{i} = a_{1} + \sum_{i > 1}\lambda_{i} a_{i} \) and
+			            \[
+				            f = f_{\sum_{i > 1}(-\lambda_{i}) a_{i}} - \sum_{i > 1}(-\lambda_{i}) f_{a_{i}}
+			            \]
+
+			            which means \( f \) is a linear combination of some vectors of the form \( f_{\lambda a + \mu b} - \lambda f_{a} - \mu f_{b} \), hence \( f \in N(E) \).
+
+			            Thus \( \ker\pi_{E} = N(E) \).
+		      \end{enumerate}
+	      \end{proof}
+	\item Let
+	      \[
+		      P = \sum_{\nu=0}^{n} \alpha_{v} t^{\nu} \qquad \alpha_{\nu} \in \Gamma
+	      \]
+
+	      be a fixed polynomial and let \( f \) be any linear function in a vector space \( E \). Define a function \( P(f): E \to \Gamma \) by
+	      \[
+		      P(f)x = \sum_{\nu=0}^{n} \alpha_{\nu}{f(x)}^{\nu}.
+	      \]
+
+	      Find necessary and sufficient conditions on \( P \) that \( P(f) \) be again a linear function.
+	      \begin{proof}
+		      Assume \( P(f) \) is a linear function, then \( P(f)0 = 0 \), which means
+		      \[
+			      0 = \sum_{\nu=0}^{n} \alpha_{\nu} {f(0)}^{\nu} = \alpha_{0}.
+		      \]
+
+		      If \( x \in E \) and \( f \ne 0 \) then \( f(x) \) can attain any value in \( \Gamma \). For every \( \lambda \in \Gamma \)
+		      \[
+			      \lambda \sum_{\nu=0}^{n} \alpha_{\nu}{f(x)}^{\nu} = P(f)(\lambda x) = \sum_{\nu=0}^{n} \alpha_{\nu} \lambda^{\nu}{f(x)}^{\nu}.
+		      \]
+
+		      Together with \( \alpha_{0} = 0 \), we get
+		      \[
+			      \sum_{\nu=1}^{n} \alpha_{\nu}(\lambda - \lambda^{\nu}){(f(x))}^{\nu} = 0
+		      \]
+
+		      for every \( x \in E \). Therefore \( \alpha_{\nu}(\lambda - \lambda^{\nu}) = 0 \) for every \( \nu > 0, \lambda \in \Gamma \). Because \( \Gamma \) is a field of characteristic zero, it can be the case that \( \lambda \ne \lambda^{\nu} \) for every \( \nu > 1 \), so \( \alpha_{\nu} = 0 \) for every \( \nu > 1 \).
+
+		      Hence \( \alpha_{\nu} = 0 \) for every \( \nu \ne 1 \).
+
+		      Conversely, if \( \alpha_{\nu} = 0 \) for every \( \nu \ne 1 \)
+		      \[
+			      P(f)(\lambda x + \mu y) = \alpha_{1} f(\lambda x + \mu y) = \alpha_{1} \lambda f(x) + \alpha_{1} \mu f(y) = \lambda P(f)(x) + \mu P(f)(y)
+		      \]
+
+		      so \( P(f) \) is a linear function.
+	      \end{proof}
+\end{enumerate}
+
+\section{Subspaces and factor spaces}
+
+\subsection{Subspaces}
+
+\subsection{Intersections and sums}
+
+\subsection{Arbitrary families of subspaces}
+
+\subsection{Complementary subspaces}
+
+\subsection{Factor spaces}
+
+\subsection{Linear dependence mod a subspace}
+
+\subsection{Basis of a factor space}
+
+\subsection*{Problems}\addcontentsline{toc}{subsection}{Problems}
+
+\begin{enumerate}[itemsep=0pt]
+	\item I skip this problem.
+	\item I skip this problem.
+	\item I skip this problem.
+	\item I skip this problem.
+	\item I skip this problem.
+	\item Let \( S \) be an arbitrary subset of \( E \) and let \( E_{S} \) be its linear closure. Show that \( E_{S} \) is the intersection of all subspaces of \( E \) containing \( S \).
+	      \begin{proof}
+		      Let \( F = \bigcap \left\{ V: V \text{ is a subspace of } E \text{ and contains } S \right\} \). Therefore \( F \) is the smallest subspace containing \( S \). Moreover, the subspace \( E_{S} \) (it contains \( S \)) is contained in every subspace containing \( S \), so \( E_{S} = F \).
+	      \end{proof}
+	\item Assume a direct composition \( E = E_{1} \oplus E_{2} \). Show that in each class \( E \) with respect to \( E_{1} \) (i.e.\@ in each coset \( \bar{x} \in E/E_{1} \)) there is exactly one vector of \( E_{2} \).
+	      \begin{proof}
+		      Evidently, \( x \in \bar{x} \). From the defintion of a direct sum, \( x \) admits the linear decomposition \( x = x_{1} + x_{2} \) where \( x_{1} \in E_{1}, x_{2} \in E_{2} \). Therefore \( x - x_{2} \in E_{1} \), which means \( x_{2} \in \bar{x} \).
+
+		      Assume \( y_{2} \in E_{2} \) and \( x - y_{2} \in E_{1} \) then according to the definition of a direct sum, \( y_{2} = x_{2} \).
+
+		      Thus each coset of \( E_{1} \) in \( E \) contains exactly one vector of \( E_{2} \).
+	      \end{proof}
+	\item Let \( E \) be a plane and let \( E_{1} \) be a straight line through the origin. What is the geometrical meaning of the equivalence classes with respect to \( E_{1} \)? Give a geometrical interpretation of the fact that \( x \sim x^{\prime} \) and \( y \sim y^{\prime} \) implies that \( x + y \sim x^{\prime} + y^{\prime} \).
+	      \begin{proof}
+		      The equivalence classes with respect to \( E_{1} \) are affine hyperspaces parallel to \( E_{1} \).
+
+		      A geometrical interpretation of the fact:
+		      \begin{itemize}
+			      \item Let \( A, A^{\prime}, B, B^{\prime}, C, C^{\prime} \) be points representing \( x, x^{\prime}, y, y^{\prime}, x + y, x^{\prime} + y^{\prime} \).
+			      \item There exists an affine hyperspace passing through the midpoints of \( AB, A^{\prime}B^{\prime} \) and parallel to \( AA^{\prime}, BB^{\prime} \).
+			      \item From the midpoint and parallelogram law, the image of the above affine hyperplane under the homothety of factor \( 2 \) is an affine hyperspace through \( C, C^{\prime} \) and parallel to \( AA^{\prime}, BB^{\prime} \).
+		      \end{itemize}
+	      \end{proof}
+	\item Suppose \( S \) is a set of linearly independent vectors in \( E \), and suppose \( T \) is a basis of \( E \). Prove that there is a subset of \( T \) which, together with \( S \), is again a basis of \( E \).
+	      \begin{proof}
+		      Consider the set
+		      \[
+			      \mathcal{F} = \left\{ U \subseteq T : S \cup U \text{ is linearly independent and } U \cap S = \varnothing \right\}
+		      \]
+
+		      and order it by inclusion, then \( \mathcal{F} \) is a partially ordered set. The set \( \mathcal{F} \) is nonempty because \( \varnothing \in \mathcal{F} \).
+
+		      Assume \( {(U_{\alpha})}_{\alpha \in A} \) is a chain in \( \mathcal{F} \). Consider \( V = \bigcup_{\alpha \in A} U_{\alpha} \). For every finite subset \( \left\{ x_{1}, \ldots, x_{n} \right\} \) of \( S \cup V \), there exist \( U_{\alpha_{1}}, \ldots, U_{\alpha_{n}} \in \mathcal{F} \) such that
+		      \[ S\cup U_{\alpha_{1}} \ni x_{1}, \ldots, S \cup U_{\alpha_{n}} \ni x_{n}. \]
+
+		      Let \( W \) be the largest in \( S \cup U_{\alpha_{1}}, \ldots, S \cup U_{\alpha_{n}} \) (this is possible due to \( {(S \cup U_{\alpha})}_{\alpha \in A} \) being a chain), so \( x_{1}, \ldots, x_{n} \in W \), which means they are linearly independent. Hence \( S \cup V \) is linearly independent, so every chain in \( \mathcal{F} \) has an upper bound. According to Zorn's lemma, \( \mathcal{F} \) has a maximal element \( S^{\prime} \).
+
+		      Assume \( S \cup S^{\prime} \) is not a basis of \( E \) then there exists \( v \in T \) such that \( v \) is not in the linear closure of \( S \cup S^{\prime} \), then \( S^{\prime} \cup \left\{ v \right\} \in \mathcal{F} \), which contradicts the maximality of \( S^{\prime} \). So \( S \cup S^{\prime} \) is a basis of \( E \).
+
+		      Thus there is a subset \( S^{\prime} \subseteq T \) which, together with \( S \), is a basis of \( E \).
+	      \end{proof}
+	\item Let \( \omega \) be an involution {\color{red}{linear map}} in \( E \). Show that the sets \( E_{+} \) and \( E_{-} \) defined by
+	      \[
+		      E_{+} = \left\{ x \in E : \omega x = x \right\}, \quad E_{-} = \left\{ x \in E : \omega x = -x \right\}
+	      \]
+
+	      are subspaces of \( E \) and that
+	      \[
+		      E = E_{+} \oplus E_{-}.
+	      \]
+
+	      \begin{proof}
+		      \( 0 \in E_{+} \) and \( 0 \in E_{-} \) because \( \omega 0 = 0 = -0 \).
+
+		      If \( x, y \in E_{+} \) then \( \omega(x + y) = \omega(x) + \omega(y) = x + y \), so \( x + y \in E_{+} \).
+
+		      If \( x, y \in E_{-} \) then \( \omega(x + y) = \omega(x) + \omega(y) = (-x) + (-y) = -(x + y) \), so \( x + y \in E_{-} \).
+
+		      If \( x \in E_{+} \) then for every \( \lambda \in \Gamma \), \( \omega(\lambda x) = \lambda \omega(x) = \lambda x \), so \( \lambda x \in E_{+} \).
+
+		      If \( x \in E_{-} \) then for every \( \lambda \in \Gamma \), \( \omega(\lambda x) = \lambda \omega(x) = -\lambda x \), so \( \lambda x \in E_{-} \).
+
+		      Hence \( E_{+}, E_{-} \) are subspaces of \( E \).
+
+		      If \( x \in E \) then \( x = \underbrace{\dfrac{1}{2}(x + \omega x)}_{\in E_{+}} + \underbrace{\dfrac{1}{2}(x - \omega x)}_{\in E_{-}} \) so \( E = E_{+} + E_{-} \). On the other hand, if \( x = x_{1} + x_{2} \) with \( x_{1} \in E_{+}, x_{2} \in E_{-} \) then \( \omega x = \omega x_{1} + \omega x_{2} = x_{1} - x_{2} \), so \( x_{1} = \dfrac{1}{2}(x + \omega x) \) and \( x_{2} = \dfrac{1}{2}(x - \omega x) \). Therefore \( x \) can be decomposed into a sum of a vector in \( E_{+} \) and a vector in \( E_{-} \) in a unique way, which means \( E = E_{+} \oplus E_{-} \).
+	      \end{proof}
+	\item Let \( E_{1}, E_{2} \) be subspaces of \( E \). Show that \( E_{1} + E_{2} \) is the linear closure of \( E_{1} \cup E_{2} \). Prove that
+	      \[
+		      E_{1} + E_{2} = E_{1} \cup E_{2}
+	      \]
+
+	      if and only if
+	      \[
+		      E_{1} \supseteq E_{2} \text{  or  } E_{2} \supseteq E_{1}.
+	      \]
+
+	      \begin{proof}
+		      Let \( x_{1}, \ldots, x_{n} \in E_{1} \cup E_{2} \) and \( \lambda_{1}, \ldots, \lambda_{n} \in \Gamma \). Let \( I_{1} = \left\{ i : x_{i} \in E_{1}, x_{i} \right\} \) and \( I_{2} = \left\{ 1, \ldots, n \right\} \setminus I_{1} \) then
+		      \[
+			      \sum_{i=1}^{n} \lambda_{i}x_{i} = \underbrace{\sum_{i \in I_{1}} \lambda_{i} x_{i}}_{\in E_{1}} + \underbrace{\sum_{i \in I_{2}} \lambda_{i} x_{i}}_{\in E_{2}} \in E_{1} + E_{2}.
+		      \]
+
+		      Therefore the linear closure of \( E_{1} \cup E_{2} \) is contained in \( E_{1} + E_{2} \). On the other hand, every element of \( E_{1} + E_{2} \) is in the linear closure of \( E_{1} \cup E_{2} \). Therefore \( E_{1} + E_{2} \) is the linear closure of \( E_{1} \cup E_{2} \).
+
+		      \bigskip
+
+		      If \( E_{1} \supseteq E_{2} \) or \( E_{2} \supseteq E_{1} \) then \( E_{1} \cup E_{2} = E_{1} = E_{1} + E_{2} \) or \( E_{1} \cup E_{2} = E_{2} = E_{1} + E_{2} \).
+
+		      Conversely, suppose \( E_{1} + E_{2} = E_{1} \cup E_{2} \). Assume \( E_{1} \nsupseteq E_{2} \) and \( E_{2} \nsupseteq E_{1} \) then there exist \( x_{1} \in E_{1}\setminus E_{2} \) and \( x_{2} \in E_{2} \setminus E_{1} \). Then \( x_{1} + x_{2} \notin E_{1} \) and \( x_{1} + x_{2} \notin E_{2} \) (proved by contradiction), hence \( E_{1} \cup E_{2} \) is not closed under addition, which is a contradiction. Hence \( E_{1} \supseteq E_{2} \) or \( E_{2} \supseteq E_{1} \).
+	      \end{proof}
+	\item Find subspaces \( E_{1}, E_{2}, E_{3} \) of \( \Gamma^{3} \) such that
+	      \begin{enumerate}[itemsep=0pt,label={(\roman*)}]
+		      \item \( E_{i} \cap E_{j} = 0 \quad (i \ne j) \)
+		      \item \( E_{1} + E_{2} + E_{3} = \Gamma^{3} \)
+		      \item the sum in (ii) is not direct.
+	      \end{enumerate}
+
+	      \begin{proof}
+		      Let \( E_{1} \) be the linear closure of \( (0, 0, 1) \), \( E_{2} \) the linear closure of \( (0, 1, 1) \), \( E_{3} \) the linear closure of \( \left\{ (1, 0, 0), (0, 1, 0) \right\} \).
+
+		      These subspaces satisfy the three given conditions.
+	      \end{proof}
+\end{enumerate}
+
+\section{Dimension}
+
+\subsection{Finitely generated vector spaces}
+
+\subsection{Dimension}
+
+\subsection{Subspaces and factor spaces}
+
+\subsection*{Problems}
+
+\begin{enumerate}[itemsep=0pt]
+	\item Let \( (x_{1}, x_{2}) \) be a basis of a 2-dimensional vector space. Show that the vectors
+	      \[
+		      \bar{x}_{1} = x_{1} + x_{2}, \qquad \bar{x}_{2} = x_{1} - x_{2}
+	      \]
+
+	      again form a basis. Let \( (\xi^{1}, \xi^{2}) \) and \( (\bar{\xi}^{1}, \bar{\xi}^{2}) \) be the components of a vector \( x \) relative to the bases \( (x_{1}, x_{2}) \) and \( (\bar{x}_{1}, \bar{x}_{2}) \), resp. Express the components \( (\bar{\xi}^{1}, \bar{\xi}^{2}) \) in terms of the components \( (\xi^{1}, \xi^{2}) \).
+	      \begin{proof}
+		      \( x_{1} = \dfrac{1}{2}(\bar{x}_{1} + \bar{x}_{2}) \) and \( x_{2} = \dfrac{1}{2}(\bar{x}_{1} - \bar{x}_{2}) \) so \( (\bar{x}_{1}, \bar{x}_{2}) \) is a generator of the same vector space.
+
+		      If \( \lambda_{1}\bar{x}_{1} + \lambda_{2}\bar{x}_{2} = 0 \) then
+		      \[
+			      0 = \lambda_{1}(x_{1} + x_{2}) + \lambda_{2}(x_{1} - x_{2}) = (\lambda_{1} + \lambda_{2})x_{1} + (\lambda_{1} - \lambda_{2})x_{2}
+		      \]
+
+		      which implies \( \lambda_{1} + \lambda_{2} = \lambda_{1} - \lambda_{2} = 0 \) for \( (x_{1}, x_{2}) \) is linearly independent. Therefore \( \lambda_{1} = \lambda_{2} = 0 \), so \( (\bar{x}_{1}, \bar{x}_{2}) \) is linearly independent.
+
+		      Hence \( (\bar{x}_{1}, \bar{x}_{2}) \) is a basis of the same vector space as \( (x_{1}, x_{2}) \).
+		      \bigskip
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      x & = \xi^{1} x_{1} + \xi^{2} x_{2} = \dfrac{1}{2}(\xi^{1} + \xi^{2})\bar{x}_{1} + \dfrac{1}{2}(\xi^{1} - \xi^{2})\bar{x}_{2},             \\
+			      x & = \bar{\xi}^{1} \bar{x}_{1} + \bar{\xi}^{2} \bar{x}_{2} = (\bar{\xi}_{1} + \bar{\xi}_{2})x_{1} + (\bar{\xi}_{1} - \bar{\xi}_{2})x_{2}.
+		      \end{align*}
+		      \endgroup
+
+		      So \( \bar{\xi}_{1} = \dfrac{1}{2}(\xi^{1} + \xi^{2}) \) and \( \bar{x}_{2} = \dfrac{1}{2}(\xi^{1} - \xi^{2}) \).
+	      \end{proof}
+	\item Consider an \( n \)-dimensional complex vector space \( E \). Since the multiplication with real coefficients in particular is defined in \( E \), this space may also be considered as a \textit{real} vector space. Let \( (z_{1}, \ldots, z_{n}) \) be a basis of \( E \). Prove that the vectors \( z_{1}, \ldots, z_{n}, iz_{1}, \ldots, iz_{n} \) form a basis of \( E \) if \( E \) is considered as a real vector space.
+	      \begin{proof}
+		      Regard \( E \) as a real vector space.
+
+		      Let \( z \in E \) then there exist complex numbers \( w_{1}, \ldots, w_{n} \) such that \( z = \sum_{j=1}^{n} w_{j} z_{j} \). For every \( j \), let \( a_{j} = \Re w_{j} \) and \( b_{j} = \Im w_{j} \) then
+		      \[
+			      z = \sum_{j=1}^{n} a_{j} z_{j} + \sum_{j=1}^{n} b_{j} iz_{j}
+		      \]
+
+		      so \( z_{1}, \ldots, z_{n}, iz_{1}, \ldots, iz_{n} \) is a generator of \( E \).
+
+		      Assume the linear relation \( \sum_{j=1}^{n} \lambda_{j} z_{j} + \sum_{j=1}^{n} \mu_{j} iz_{j} = 0 \) then \( \sum_{j=1}^{n} (\lambda_{j} + i\mu_{j}) z_{j} = 0 \). Because \( z_{1}, \ldots, z_{n} \) is a basis of \( E \) (as a complex vector space), then \( \lambda_{j} + i\mu_{j} = 0 \) for every \( j \), which means \( \lambda_{j} = \mu_{j} = 0 \) for every \( j \). Hence \( z_{1}, \ldots, z_{n}, iz_{1}, \ldots, iz_{n} \) is linearly independent.
+
+		      Thus \( z_{1}, \ldots, z_{n}, iz_{1}, \ldots, iz_{n} \) is a basis of \( E \) (as a real vector space).
+	      \end{proof}
+	\item Let \( E \) be an \( n \)-dimensional real vector space and \( C \) the complexification of \( E \) as constructed in \S 1, Problem 5. If \( {(x_{\nu})}_{\nu=1}^{n} \) is a basis of \( E \), prove that the vectors \( {(x_{\nu}, 0)}_{\nu=1}^{n} \) form a basis of \( C \).
+	      \begin{proof}
+		      Assume the linear relation
+		      \[
+			      \sum_{\nu=1}^{n} (\alpha_{\nu} + i\beta_{\nu}) (x_{\nu}, 0) = (0, 0)
+		      \]
+
+		      which is equivalent to
+		      \[
+			      (0, 0) = \sum_{\nu=1}^{n} (\alpha_{\nu} x_{\nu}, \beta_{\nu} x_{\nu}) = \left( \sum_{\nu=1}^{n} \alpha_{\nu} x_{\nu}, \sum_{\nu=1}^{n} \beta_{\nu} x_{\nu} \right).
+		      \]
+
+		      Therefore \( \alpha_{\nu} = \beta_{\nu} = 0 \) for every \( \nu \). Hence \( {(x_{\nu}, 0)}_{\nu=1}^{n} \) is linearly independent.
+
+		      For every \( (x, y) \in C \), there exist real numbers \( {(\alpha_{\nu})}_{\nu=1}^{n} \) and \( {(\beta_{\nu})}_{\nu=1}^{n} \) such that \( x = \sum_{\nu=1}^{n} \alpha_{\nu} x_{\nu} \) and \( y = \sum_{\nu=1}^{n} \beta_{\nu} x_{\nu} \), so
+		      \[
+			      (x, y) = \sum_{\nu=1}^{n} (\alpha_{\nu} x_{\nu}, \beta_{\nu} x_{\nu}) = \sum_{\nu=1}^{n} (\alpha_{\nu} + i\beta_{\nu})(x_{\nu}, 0)
+		      \]
+
+		      which means \( {(x_{\nu}, 0)}_{\nu=1}^{n} \) is a generator of \( C \).
+
+		      Thus \( {(x_{\nu}, 0)}_{\nu=1}^{n} \) is a basis of \( C \).
+	      \end{proof}
+	\item Consider the space \( \Gamma^{n} \) of \( n \)-tuples of scalars \( \lambda \in \Gamma \). Choose as basis the vectors
+	      \begingroup
+	      \allowdisplaybreaks%
+	      \begin{align*}
+		      e_{1}  & = (1, 1, \ldots, 1, 1)  \\
+		      e_{2}  & = (0, 1, \ldots, 1, 1)  \\
+		      \vdots &                         \\
+		      e_{n}  & = (0, 0, \ldots, 0, 1).
+	      \end{align*}
+	      \endgroup
+
+	      Compute the components \( \eta^{1}, \eta^{2}, \ldots, \eta^{n} \) of the vector \( x = (\eta^{1}, \eta^{2}, \ldots, \eta^{n}) \) relative to the above basis. For which basis in \( \Gamma^{n} \) is the connection between the components of \( x \) and the scalars \( \xi^{1}, \xi^{2}, \ldots, \xi^{n} \) particularly simple?
+	      \begin{proof}
+		      \[
+			      x = \sum_{i=1}^{n-1} \eta_{i} (e_{i} - e_{i+1}) + \eta_{n} e_{n} = \eta_{1}e_{1} + \sum_{i=2}^{n} (\eta_{i} - \eta_{i-1}) e_{i}.
+		      \]
+
+		      When the basis consists of vectors \( f_{i} \) where \( f_{i} = (\underbrace{0, \ldots, 1}_{i}, 0, \ldots, 0) \) then the connection between the components of \( x \) and the scalars in the linear combination is particularly simple.
+	      \end{proof}
+	\item I skip this problem.
+	\item I skip this problem.
+	\item In the space \( P \) of all polynomials of degree \( \le n - 1 \) consider the two bases \( p_{\nu} \) and \( q_{\nu} \) defined by
+	      \begingroup
+	      \allowdisplaybreaks%
+	      \begin{align*}
+		      p_{\nu}(t) & = t^{\nu}                                                          \\
+		      q_{\nu}(t) & = {(t - a)}^{\nu} & (a, \text{ constant}; \nu = 0, \ldots, n - 1).
+	      \end{align*}
+	      \endgroup
+
+	      Express the vectors \( q_{\nu} \) explicitly in terms of the vectors \( p_{\nu} \).
+	      \begin{proof}
+		      According to the binomial theorem
+		      \[
+			      q_{\nu}(t) = \sum_{k=0}^{\nu} \binom{\nu}{k} t^{\nu - k}{(-a)}^{k} = \sum_{k=0}^{\nu} \binom{\nu}{k} {(-a)}^{k} p_{\nu - k}(t). \qedhere
+		      \]
+	      \end{proof}
+	\item A subspace \( E_{1} \) of a vector space \( E \) is said to have \textit{co-dimension} \( n \) if the factor space \( E/E_{1} \) has dimension \( n \). Let \( E_{1} \) and \( F_{1} \) be subspaces of finite codimension, and let \( E_{2}, F_{2} \) be complementary subspaces,
+	      \[
+		      E_{1} \oplus E_{2} = E, \quad F_{1} \oplus F_{2} = E.
+	      \]
+
+	      Show that
+	      \[
+		      \dim E_{2} = \operatorname{codim} E_{1}, \quad \dim F_{2} = \operatorname{codim} F_{1}.
+	      \]
+
+	      Prove that \( E_{1} \cap F_{1} \) has finite codimension, and that
+	      \[
+		      \operatorname{codim}(E_{1} \cap F_{1}) \le \dim E_{2} + \dim F_{2}.
+	      \]
+
+	      \begin{proof}
+		      Consider the canonical projection \( \pi_{E}: E \to E/E_{1} \). According to Problem 7, chapter 1, section 3, each coset of \( E_{1} \) in \( E \) consists of exactly one vector in \( E_{2} \). Define the map \( h: E/E_{1} \to E_{2} \) by \( h(\bar{x}) = x_{2} \) where \( x_{2} \in \bar{x} \) and \( x_{2} \in E_{2} \). Also from Problem 7, chapter 1, section 3, we deduce that \( h \) is bijective.
+
+		      For every \( \bar{x}, \bar{y} \in E/E_{1} \), let \( x = x_{1} + x_{2}, y = y_{1} + y_{2} \) be the direct sum decompositions of \( x, y \), then \( \lambda x + \mu y = (\lambda x_{1} + \mu y_{1}) + (\lambda x_{2} + \mu y_{2}) \). The canonical projection is linear, so \( \overline{\lambda x + \mu y} = \lambda\bar{x} + \mu\bar{y} \). Therefore \( h(\lambda\bar{x} + \mu\bar{y}) = \lambda x_{2} + \mu y_{2} = \lambda h(\bar{x}) + \mu h(\bar{y}) \), which means \( h \) is linear.
+
+		      Hence \( h \) is a linear isomorphism, which implies \( \dim E_{2} = \operatorname{codim} E_{1} \). Analogously, \( \dim F_{2} = \operatorname{codim} F_{1} \).
+
+		      \bigskip
+
+		      See \href{https://math.stackexchange.com/questions/2369325/codimension-of-intersection}{egreg's answer on Math StackExchange}.
+
+		      The map \( f: E \to (E/E_{1}) \oplus (E/F_{1}) \) defined by \( f(x) = (x + E_{1}, x + F_{1}) \) is a linear map and \( \ker f = E_{1} \cap F_{1} \), so the induced linear map \( \bar{f}: E/\ker f \to (E/E_{1}) \oplus (E/F_{1}) \) defined by \( \bar{f}(x + \ker f) = (x + E_{1}, x + E_{2}) \) is injective. Because \( (E/E_{1}) \oplus (E/F_{1}) \) is finite dimensional, it follows that \( E/\ker f = E/(E_{1} \cap F_{1}) \) is finite dimensional and
+		      \[
+			      \operatorname{codim}(E_{1} \cap F_{1}) \le \dim E/E_{1} + \dim E/F_{1} = \operatorname{codim} E_{1} + \operatorname{codim} F_{1} = \dim E_{2} + \dim F_{2}. \qedhere
+		      \]
+	      \end{proof}
+	\item Under the hypothesis of problem 8, construct a decomposition \( E = H_{1} \oplus H_{2} \) such that \( H_{1} \) has finite codimension and
+	      \begin{enumerate}[itemsep=0pt,label={(\roman*)}]
+		      \item \( H_{1} \subseteq E_{1} \cap F_{1} \)
+		      \item \( H_{2} \supseteq E_{2} + F_{2} \).
+	      \end{enumerate}
+
+	      Show that
+	      \[
+		      H_{2} = E_{2} \oplus (E_{1} \cap H_{2})
+	      \]
+
+	      and
+	      \[
+		      H_{2} = F_{2} \oplus (F_{1} \cap H_{2}).
+	      \]
+
+	      \begin{proof}
+		      To construct such subspaces, we make use of the following lemma:
+		      \begin{quotation}
+			      \textbf{Lemma.} If \( V_{1}, V_{2}, W_{1}, W_{2} \) are subspaces of a vector space \( V \) such that
+			      \[
+				      (V_{1} \cap V_{2}) \oplus W_{1} = V_{1}, \qquad (V_{1} \cap V_{2}) \oplus W_{2} = V_{2}
+			      \]
+
+			      then \( W_{1} + W_{2} \) is a direct sum.
+			      \begin{proof}[Proof of the lemma]
+				      Assume \( w \in W_{1} \cap W_{2} \) then for every \( v \in V_{1} \cap V_{2} \), \( v + w \in V_{1} \) and \( v + w \in V_{2} \), which means \( v + w \in V_{1} \cap V_{2} \), so \( w \in V_{1} \cap V_{2} \). Therefore \( w = 0 \), which implies \( W_{1} \cap W_{2} = \left\{ 0 \right\} \). Thus \( W_{1} + W_{2} \) is a direct sum.
+			      \end{proof}
+		      \end{quotation}
+
+		      \( X = (E_{2} + F_{2}) \cap (E_{1} \cap F_{1}) \) is finite dimensional.
+
+		      Let \( H_{1} \) be a linear complement of \( X \) in \( E_{1} \cap F_{1} \) then \( H_{1} \) is finite codimensional in \( E \).
+
+		      Let \( V \) be a linear complement of \( X \) in \( E_{2} + F_{2} \) then \( V \cap H_{1} = \left\{ 0 \right\} \) according to the lemma.
+
+		      Let \( Y \) be a linear complement of \( H_{1} \oplus X \oplus V \) in \( E \) then \( H_{1} \oplus X \oplus V \oplus Y = E \). Let \( H_{2} = X \oplus V \oplus Y \) then \( E = H_{1} \oplus H_{2} \).
+
+		      \bigskip
+		      \( E = E_{1} \oplus E_{2} \) and \( H_{2} \supseteq E_{2} \) so \( H_{2} = E \cap H_{2} = (E_{1} \cap H_{2}) \oplus (E_{2} \cap H_{2}) = (E_{1} \cap H_{2}) \oplus E_{2} \).
+
+		      \( E = F_{1} \oplus F_{2} \) and \( H_{2} \supseteq F_{2} \) so \( H_{2} = E \cap H_{2} = (F_{1} \cap H_{2}) \oplus (F_{2} \cap H_{2}) = (F_{1} \cap H_{2}) \oplus F_{2} \).
+	      \end{proof}
+	\item Let \( {(x_{\alpha})}_{\alpha \in A} \) and \( {(y_{\beta})}_{\beta \in B} \) be two bases of a vector space \( E \). Establish a \( 1 - 1 \) correspondence between the sets \( A \) and \( B \).
+	      \begin{proof}
+		      Give \( A, B \) well orderings.
+
+		      We define \( f: A \to B \) as follows.
+
+		      Let \( \alpha_{0} \) be the first element of \( A \) then there exists \( \beta_{0} \in B \) such that \( {(y_{\beta})}_{\beta \in B, \beta \ne \beta_{0}} \cup \left\{ x_{\alpha_{0}} \right\} \) is a basis of \( E \), according problem 10, chapter 1, section 1. Let \( f(\alpha_{0}) = \beta_{0} \).
+
+		      If \( f\vert_{S}: S \to B \) is injective, where \( S \) is an initial segment of \( A \), i.e. \( S = \left\{ \alpha \in A : \alpha < \alpha^{\ast} \right\} \) for some \( \alpha^{\ast} \in A \), then there exists \( \beta^{\ast} \) such that \( \beta^{\ast} \notin \left\{ f(\alpha): \alpha < \alpha^{\ast} \right\} \) and \( {(x_{\alpha})}_{\alpha \le \alpha^{\ast}} \cup {(y_{\beta})}_{\beta \notin \left\{ f(\alpha): \alpha < \alpha^{\ast} \right\}} \) is a basis.
+
+		      By the principle of transfinite induction, we construct an injection \( f: A \to B \). Analogously, there exists an injection \( g: B \to A \).
+
+		      According to the Cantor-Schr\"{o}der-Bernstein theorem, there is a bijection between \( A \) and \( B \).
+	      \end{proof}
+	\item Let \( E \) be an \( n \)-dimensional real vector space and \( E_{1} \) be an \( (n - 1) \)-dimensional subspace. Denote by \( E^{1} \) the set of all vectors \( x \in E \) which are not contained in \( E_{1} \). Define an equivalence relation in \( E^{1} \) as follows: Two vectors \( x \in E^{1} \) and \( y \in E^{1} \) are equivalent, if the straight line segment
+	      \[
+		      f(t) = (1 - t)x + t y\qquad 0 \le t \le 1
+	      \]
+
+	      is disjoint to \( E_{1} \). Prove that there are precisely two equivalence classes.
+	      \begin{proof}
+		      Let \( (e_{1}, \ldots, e_{n}) \) be a basis for \( E \) such that \( (e_{1}, \ldots, e_{n-1}) \) is a basis for \( E_{1} \).
+
+		      If \( x \in E^{1} \) then there exist scalars \( \lambda_{i} \) such that \( x = \sum_{i=1} \lambda^{i}e_{i} \) and \( \lambda_{n} \ne 0 \).
+
+		      Define \( S_{+} = \left\{ x \in E^{1} : \lambda_{n} > 0 \right\} \) and \( S_{-} = \left\{ x \in E^{1} : \lambda_{n} < 0 \right\} \).
+
+		      Any two points in \( S_{+} \) are equivalent, any two points in \( S_{-} \) are equivalent.
+
+		      If \( x \in S_{+}, y \in S_{-} \), let \( x = \sum_{i=1}^{n} \lambda^{i} e_{i} \) and \( y = \sum_{j=1}^{n} \mu^{j} e_{j} \). The straight line segment connecting \( x \) and \( y \) is not disjoint from \( E_{1} \) because
+		      \[
+			      \dfrac{(-\mu_{n}) x + \lambda_{n} y}{-\mu_{n} + \lambda_{n}} \in E_{1}
+		      \]
+
+		      hence \( S_{+}, S_{-} \) are the two equivalence classes.
+	      \end{proof}
+	\item Show that a vector space is not the union of finitely many proper subspaces.
+	      \begin{proof}
+		      Assume that \( \sum_{k=1}^{n} E_{k} = \bigcup_{k=1}^{n} E_{k} \) where
+		      \begin{itemize}
+			      \item \( n > 1 \),
+			      \item \( E_{k} \)'s are subspaces of a vector space \( E \),
+			      \item \( E_{k} \)'s are proper subspaces of \( \sum_{k=1}^{n} E_{k} \).
+		      \end{itemize}
+
+		      Without loss of generality, we can assume that: No subspace is contained in some union of other subspaces, because discarding such subspace doesn't change the union or sum.
+
+		      For every \( k \), there exists \( v_{k} \in E_{k} \) such that \( v_{k} \notin \bigcup_{j\ne k} V_{j} \).
+
+		      The set \( S = \left\{ t v_{1} + (1 - t) v_{2} : t \in \Gamma \right\} \) is infinite because \( v_{1}, v_{2} \ne 0 \) and \( \Gamma \) is infinite, so there exists \( k \notin \left\{ 1, 2 \right\} \) such that \( V_{k} \) contains infinitely many elements of \( S \). Then \( V_{k} \supseteq S \), therefore \( V_{k} \supseteq V_{1} + V_{2} \), which is a contradiction.
+
+		      Hence a vector space is not a union of finitely many proper subspaces.
+	      \end{proof}
+	\item Let \( E \) be an \( n \)-dimensional vector space. Let \( F_{i} (i = 1, \ldots, k) \) be subspaces such that
+	      \[
+		      \dim F_{i} \le r \qquad (i = 1, \ldots, k)
+	      \]
+
+	      where \( r < n \) is a given integer. Show that there is a subspace \( F \subseteq E \) of dimension \( n - r \) such that \( F \cap F_{i} = 0 (i = 1, \ldots, k) \). \textit{Hint: Use Problem 12.}
+
+	      \begin{proof}
+		      \( \bigcup_{i=1}^{k} F_{i} \) is not a subspace of \( E \) so there exists \( v_{1} \) such that \( v_{1} \notin \bigcup_{i=1}^{k} F_{i} \).
+
+		      Assume that there exists a subspace \( U \) of dimension \( s < n - r \) such that \( U + F_{i} \) is a direct sum for every \( i \). Because \( U + F_{i} \)'s are proper subspaces of \( E \), \( \bigcup_{i=1}^{k} (U + F_{i}) \) is not a subspace of \( E \), so there exists \( v \in E \) such that \( v \notin \bigcup_{i=1}^{k} (U + F_{i}) \). Hence the linear closure \( V \) of \( U \cup \left\{ v \right\} \) is a subspace of dimension \( s + 1 \) such that \( V \cap F_{i} = \left\{ 0 \right\} \) for every \( i \).
+
+		      Thus, by the principle of mathematical induction, there exists a subspace \( F \) of dimension \( n - r \) such that \( F \cap F_{i} = \left\{ 0 \right\} \) for every \( i \).
+	      \end{proof}
+\end{enumerate}
+
+\section{The topology of a real finite dimensional vector space}
+
+\subsection*{Problems}\addcontentsline{toc}{subsection}{Problems}
+
+\begin{enumerate}[itemsep=0pt,label=\textbf{\arabic*.}]
+	\item Let \( f \) be a real-valued continuous function in the real \( n \)-dimensional linear space \( E \) such that
+	      \[
+		      f(x + y) = f(x) + f(y)\qquad x, y \in E.
+	      \]
+
+	      Prove that \( f \) is linear.
+	      \begin{proof}
+		      \( f(0) = f(0 + 0) = f(0) + f(0) \) so \( f(0) = 0 \).
+
+		      For every \( x \in E \), \( f(0x) = f(0) = 0 \).
+
+		      If \( n \in \mathbb{N} \), \( f(nx) = f((n-1)x) + f(x) \) so by mathematical induction, we deduce that \( f(nx) = n\cdot f(x) \). On the other hand
+		      \[
+			      f((-n)x) + f(nx) = f(((-n) + n)x) = f(0) = 0
+		      \]
+
+		      so \( f((-n)x) = -f(nx) = (-n) f(x) \). Hence \( f(px) = p\cdot f(x) \) for every \( p \in \mathbb{Z} \).
+
+		      Let \( \dfrac{p}{q} \in \mathbb{Q} \) where \( p, q \in \mathbb{Z} \). For every \( x \in E \), \( p\cdot f(x) = f(px) = q\cdot f((p/q)x) \) so \( f((p/q)x) = (p/q) f(x) \), which means \( f(rx) = r\cdot f(x) \) for every \( r \in \mathbb{Q} \).
+
+		      Let \( \alpha \in \mathbb{R} \) then the sequence \( {(r_{n})}_{n \in \mathbb{N}} \) defined by \( r_{n} = \left\lfloor n\alpha \right\rfloor/n \) converges to \( \alpha \). Because \( f(r_{n}x) = r_{n}f(x) \) and \( f \) is continuous, \( E \) is a real topological vector space, then
+		      \[
+			      f(\alpha x) = \lim\limits_{n\to\infty} f(r_{n}x) = \lim\limits_{n\to\infty} r_{n}\cdot f(x) = \alpha\cdot f(x).
+		      \]
+
+		      Thus \( f(\alpha x) = \alpha\cdot f(x) \) for every \( \alpha \in \mathbb{R}, x \in E \). Together with \( f(x + y) = f(x) + f(y) \) for every \( x, y \in E \), we conclude that \( f \) is a linear map.
+	      \end{proof}
+	\item Let \( \varphi: E_{1} \to E_{2} \) be a surjective linear map of finite dimensional real vector spaces. Show that \( \varphi \) is open.
+	      \begin{proof}
+		      % TODO
+
+		      This is a particular case of the open mapping theorem from functional analysis.
+	      \end{proof}
+	\item Let \( \pi: E \to E/F \) be the canonical projection, where \( E \) is a real finite dimensional vector space, and \( F \) is a subspace. Then the topology in \( E \) determines a topology in \( E/F \) (a subset \( U \subseteq E/F \) is open if and only if \( \pi^{-1}U \) is open in \(E\)).
+	      \begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		      \item Prove that this topology coincides with the natural topology in the vector space \( E/F \).
+		      \item Prove that the subspace topology of \( F \) coincides with the natural topology of \( F \).
+	      \end{enumerate}
+	      \begin{proof}
+		      \begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+			      \item \( \pi \) is a quotient map. For every open subset \( V \subseteq E \)
+			            \[
+				            \pi^{-1}(\pi(V)) = \bigcup_{x \in \ker\pi} x + V
+			            \]
+
+			            is open in \( E \). Therefore \( \pi(V) \) is open in \( E/F \), so \( \pi \) is open.
+
+			            Let \( q: E \to E/F \) be the map where \( q(x) = \pi(x) \) and \( E/F \) has the natural topology. The surjective map \( q \) is continuous and open (according to Problem 2) so \( q \) is also a quotient map.
+
+			            \( q, \pi \) are quotient maps with the same identifications so the quotient topology on \( E/F \) and the natural topology on \( E/F \) are identical.
+			      \item Let \( F_{1} \) be \( F \) with the subspace topology and \( F_{2} \) be \( F \) with the natural topology. Let \( i_{\alpha}: F_{\alpha} \to E \) be the inclusion maps and \( \pi_{\alpha}: E \to F_{\alpha} \) be projection maps (\( F \) has a linear complement \( F^{\prime} \) and every \( x \in E \) admits a unique decomposition \( x = y + y^{\prime} \) where \( y \in F \) and \( y^{\prime} \in F^{\prime} \)).
+
+			            Let \( f_{1\to 2}: F_{1} \to F_{2} \) and \( f_{2\to 1}: F_{2} \to F_{1} \) be the identity maps. From the definition of these maps, \( f_{1\to 2} = \pi_{2} \circ i_{1} \), so \( f_{1 \to 2} \) is continuous. On the other hand, \( f_{2\to 1} \circ i_{1} = i_{2} \) and \( i_{2} \) is continuous, so \( f_{2\to 1} \) is continuous, according to the universal property of subspace topology.
+
+			            Hence \( F_{1}, F_{2} \) are homeomorphic, which means the natural topology and the subspace topology on \( F \) agree.
+		      \end{enumerate}
+	      \end{proof}
+	\item Show that every subspace of a finite dimensional real vector space is a closed set.
+	      \begin{proof}
+		      Let \( F \) be a subspace of a finite dimensional real vector space \( E \). The canonical projection \( \pi: E \to E/F \) is continuous and \( \pi^{-1}(0) = F \). Since \( E/F \) with the natural topology is Hausdorff (the Euclidean topology is Hausdorff), the singleton \( \left\{ 0 \right\} \subseteq E/F \) is closed, therefore \( F \) is closed in \( E \).
+	      \end{proof}
+	\item Construct a topology for finite dimensional real vector spaces that satisfies \( T_{1} \) but not \( T_{2} \), and a topology that satisfies \( T_{2} \) but not \( T_{1} \).
+	      \begin{proof}
+		      Let \( E \) has the trivial topology. The maps \( +: E \times E \to E \) and \( \cdot: \mathbb{R} \times E \to E \) are continuous (the preimage of every open subset of \( E \) is open). However, every linear function \( f: E \to \mathbb{R} \) is not continuous (if \( \dim E > 0 \)) because the preimage of \( \left\{ 0 \right\} \) is not closed in \( E \). Hence the trivial topology satisfies \( T_{1} \) but not \( T_{2} \).
+
+		      Let \( E \) has the discrete topology, then the map \( \cdot: \mathbb{R} \times E \to E \) is not continuous because the preimage of the open set \( \left\{ 0 \right\} \) is \( \mathbb{R} \times \left\{ 0 \right\} \cup \left\{ 0 \right\} \times E \) is not open in \( \mathbb{R} \times E \). Every linear function \( f: E \to \mathbb{R} \) is continuous because \( E \) has the discrete topology. Hence the discrete topology satisfies \( T_{2} \) but not \( T_{1} \).
+	      \end{proof}
+	\item Let \( E \) be a real vector space. Then every finite dimensional subspace of \( E \) carries a natural topology. Let \( E_{1} \) be any finite dimensional subspace of \( E \), and let \( U_{1} \subseteq E_{1} \) be an open set. Moreover let \( E_{2} \) be a complementary subspace in \( E, E = E_{1} \oplus E_{2} \). Then \( U_{1} \) and \( E_{2} \) determine a set \( O \) given by
+	      \begin{equation}\label{eq:1.34}
+		      O = \left\{ x + y: x \in U_{1}, y \in E_{2} \right\}. \tag{1.34}
+	      \end{equation}
+
+	      Suppose that
+	      \begin{equation*}
+		      O^{\prime} = \left\{ x + y : x \in U_{1}, u \in E_{2}^{\prime} \right\}
+	      \end{equation*}
+
+	      is a second set of this form. Prove that \( O \cap O^{\prime} \) is again a set of this form. \textit{Hint: Use problems 8 and 9, \S 4.}
+
+	      Conclude that the sets \( O \subseteq E \) of the form~\ref{eq:1.34} form a basis for a topology in \( E \).
+	      \begin{proof}
+
+	      \end{proof}
+	\item Prove that the topology defined in problem 6 satisfies \( T_{1} \) and \( T_{2} \).
+	      \begin{proof}
+
+	      \end{proof}
+	\item Prove that the topology of problem 7 is regular. Show that \( E \) is not metrizable if it has infinite dimension.
+	      \begin{proof}
+
+	      \end{proof}
+\end{enumerate}
