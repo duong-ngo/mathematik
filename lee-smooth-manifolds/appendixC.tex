@@ -2,7 +2,268 @@
 
 \section*{Total and Partial Derivatives}
 
+\begin{exercise}{C.1}
+	Suppose \( F: U \to W \) is differentiable at \( a \in U \). Show that the linear map \( L \) satisfying
+	\[
+		\lim\limits_{v \to 0} \dfrac{\left\vert F(a + v) - F(a) - Lv \right\vert}{\left\vert v \right\vert} = 0
+	\]
+
+	is unique.
+\end{exercise}
+
+\begin{proof}
+	Assume there are two linear maps \( L, K: V \to W \) satisfying that. (Note that \( U \) is an open subset of \( V \)).
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		0 = \lim\limits_{v \to 0} \dfrac{\left\vert F(a + v) - F(a) - Lv \right\vert + \left\vert F(a + v) - F(a) - Kv \right\vert}{\left\vert v \right\vert} \ge \lim\limits_{v \to 0} \dfrac{\left\vert Kv - Lv \right\vert}{\left\vert v \right\vert}
+	\end{align*}
+	\endgroup
+
+	so
+	\[
+		\lim\limits_{v \to 0} \dfrac{\left\vert Kv - Lv \right\vert}{\left\vert v \right\vert} = 0.
+	\]
+
+	Since \( K, L, K - L \) are linear maps, then for every nonzero vector \( v \in V \) and \( \lambda \in \mathbb{R} \)
+	\[
+		\dfrac{\left\vert K(\lambda v) - L(\lambda v) \right\vert}{\left\vert \lambda v \right\vert} = \dfrac{\left\vert Kv - Lv \right\vert}{\left\vert v \right\vert}
+	\]
+
+	which means
+	\[
+		\dfrac{\left\vert Kv - Lv \right\vert}{\left\vert v \right\vert} = \lim\limits_{\lambda \to 0} \dfrac{\left\vert K(\lambda v) - L(\lambda v) \right\vert}{\left\vert \lambda v \right\vert} = 0.
+	\]
+
+	Hence \( Kv = Lv \) for every nonzero vector \( v \). Thus \( K = L \).
+\end{proof}
+
+\begin{exercise}{C.2}
+	Suppose \( V, W, X \) are finite-dimensional vector spaces, \( U \subseteq V \) is an open subset, \( a \) is a point in \( U \), and \( F, G: U \to W \) and \( f, g: U \to \mathbb{R} \) are maps. Prove the following statements.
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item If \( F \) is differentiable at \( a \), then it is continuous at \( a \).
+		\item If \( F \) is a constant map, then \( F \) is differentiable at \( a \) and \( DF(a) = 0 \).
+		\item If \( F \) and \( G \) are differentiable at \( a \), then \( F + G \) is also, and
+		      \[
+			      D(F + G)(a) = DF(a) + DG(a).
+		      \]
+		\item If \( f \) and \( g \) are differentiable at \( a \), then \( fg \) is also, and
+		      \[
+			      D(fg)(a) = f(a)Dg(a) + g(a)Df(a).
+		      \]
+		\item If \( f \) and \( g \) are differentiable at \( a \) and \( g(a) \ne 0 \), then \( f/g \) is differentiable at \( a \), and
+		      \[
+			      D(f/g)(a) = \dfrac{g(a)Df(a) - f(a)Dg(a)}{{g(a)}^{2}}.
+		      \]
+		\item If \( T: V \to W \) is a linear map, then \( T \) is differentiable at every point \( v \in V \), with total derivative equal to \( T \) itself: \( DT(v) = T \).
+		\item If \( B: V \times W \to X \) is bilinear map, then \( B \) is differentiable at every point \( (v, w) \in V \times W \), and
+		      \[
+			      DB(v, w)(x, y) = B(v, y) + B(x, w).
+		      \]
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item \( F \) is differentiable at \( a \) so there exist a linear map \( D(F): V \to W \) and a map \( R: U \to W \) such that \( F(a + v) = F(a) + DF(a)(v) + R(v) \) for every \( v \in V \) and \( \lim\limits_{v\to 0} \dfrac{\left\vert Rv \right\vert}{\left\vert v \right\vert} = 0 \).
+
+		      \( \lim\limits_{v\to 0} \dfrac{\left\vert Rv \right\vert}{\left\vert v \right\vert} = 0 \) implies \( \lim\limits_{v\to 0} \left\vert Rv \right\vert = \lim\limits_{v\to 0} \dfrac{\left\vert Rv \right\vert}{\left\vert v \right\vert} \times \lim\limits_{v\to 0} \left\vert v \right\vert = 0 \).
+
+		      \( DF(a) \) is a linear map from \( V \) to \( W \), which are finite-dimensional so \( DF(a) \) is continuous, then \( \lim\limits_{v \to 0} \left\vert DF(a)(v) \right\vert = 0 \).
+
+		      For every nonzero vector \( v \in V \), \( 0 \le \left\vert DF(a)(v) + R(v) \right\vert \le \left\vert DF(a)(v) \right\vert +  \left\vert R(v) \right\vert \). According to the squeeze theorem
+		      \[
+			      \lim\limits_{v \to 0} \left\vert F(a + v) - F(a) \right\vert = \lim\limits_{v \to 0} \left\vert DF(a)(v) + R(v) \right\vert = 0
+		      \]
+
+		      this means \( F \) is continuous at \( a \).
+		\item If \( F \) is a constant map then
+		      \[
+			      \lim\limits_{v \to 0} \dfrac{\left\vert F(a + v) - F(a) - 0v \right\vert}{\left\vert v \right\vert} = 0
+		      \]
+
+		      so \( F \) is differentiable at \( a \) and \( DF(a) = 0 \).
+		\item We have
+		      \[
+			      \lim\limits_{v\to 0} \dfrac{\left\vert F(a + v) - F(a) - DF(a)v \right\vert}{\left\vert v \right\vert} = \lim\limits_{v\to 0} \dfrac{\left\vert G(a + v) - G(a) - DF(a)v \right\vert}{\left\vert v \right\vert} = 0
+		      \]
+
+		      and
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			      0 & \le \dfrac{\left\vert (F + G)(a + v) - (F + G)(a) - DF(a)v - DG(a)v \right\vert}{\left\vert v \right\vert}                                                                \\
+			        & \le \dfrac{\left\vert F(a + v) - F(a) - DF(a)v \right\vert}{\left\vert v \right\vert} + \dfrac{\left\vert G(a + v) - G(a) - DF(a)v \right\vert}{\left\vert v \right\vert}
+		      \end{align*}
+		      \endgroup
+
+		      so \( \lim\limits_{v \to 0} \dfrac{\left\vert (F + G)(a + v) - (F + G)(a) - DF(a)v - DG(a)v \right\vert}{\left\vert v \right\vert} = 0 \). Hence \( F + G \) is differentiable at \( a \) and \( D(F + G)(a) = DF(a) + DG(a) \).
+		\item Let \( R_{f}(v) = f(a + v) - f(a) - Df(a) \) and \( R_{g}(v) = g(a + v) - g(a) - Dg(a) \).
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			       & \phantom{=} f(a + v)g(a + v) - f(a)g(a) - f(a)Dg(a)v - g(a)Df(a)v    \\
+			       & = f(a + v)g(a + v) - f(a)g(a + v) - g(a + v)Df(a)v                   \\
+			       & + g(a + v)Df(a)v + f(a)g(a + v) - f(a)g(a) - f(a)Dg(a)v - g(a)Df(a)v \\
+			       & = g(a + v) R_{f}(v) + (g(a + v) - g(a))Df(a)v + f(a) R_{g}(v).
+		      \end{align*}
+		      \endgroup
+
+		      According to the squeeze theorem
+		      \[
+			      \lim\limits_{v \to 0} \dfrac{\left\vert f(a + v)g(a + v) - f(a)g(a) - f(a)Dg(a)v - g(a)Df(a)v \right\vert}{\left\vert v \right\vert} = 0.
+		      \]
+
+		      So \( fg \) is differentiable at \( a \) and \( D(fg)(a) = f(a)Dg(a) + g(a)Df(a) \).
+		\item Let \( R_{f}(v) = f(a + v) - f(a) - Df(a) \) and \( R_{g}(v) = g(a + v) - g(a) - Dg(a) \).
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			       & \phantom{=} \dfrac{f(a + v)}{g(a + v)} - \dfrac{f(a)}{g(a)} - \dfrac{g(a)Df(a) - f(a)Dg(a)}{{g(a)}^{2}}v                                                                            \\
+			       & = \dfrac{f(a + v)g(a)g(a) - f(a)g(a + v)g(a) - g(a + v)g(a)Df(a)v - g(a + v)f(a)Dg(a)v}{{g(a)}^{2}}                                                                                 \\
+			       & = \dfrac{R_{f}(v)}{g(a + v)} + \left(\dfrac{1}{g(a + v)} - \dfrac{1}{g(a)}\right) Df(a)v + f(a)\left( \dfrac{1}{g(a + v)} - \dfrac{1}{g(a)} + \dfrac{Dg(a)}{{g(a)}^{2}} \right)v    \\
+			       & = \dfrac{R_{f}(v)}{g(a + v)} + \left(\dfrac{1}{g(a + v)} - \dfrac{1}{g(a)}\right) Df(a)v + f(a)\left( \dfrac{R_{g}(v) - Dg(a)v}{g(a + v)g(a)} + \dfrac{Dg(a)}{{g(a)}^{2}}v \right).
+		      \end{align*}
+		      \endgroup
+
+		      Since
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			       & \lim\limits_{v \to 0} \dfrac{\left\vert R_{f}(v)/g(a + v) \right\vert}{\left\vert v \right\vert} = 0,                                                                      \\
+			       & \lim\limits_{v \to 0} \dfrac{\left\vert \left(\dfrac{1}{g(a + v)} - \dfrac{1}{g(a)}\right) Df(a)v\right\vert}{\left\vert v \right\vert} = 0,                               \\
+			       & \lim\limits_{v\to 0} \dfrac{\left\vert f(a)\left( \dfrac{R_{g}(v) - Dg(a)v}{g(a + v)g(a)} + \dfrac{Dg(a)}{{g(a)}^{2}}v \right) \right\vert}{\left\vert v \right\vert} = 0,
+		      \end{align*}
+		      \endgroup
+
+		      then according to the squeeze theorem
+		      \[
+			      \lim\limits_{v \to 0} \dfrac{\left\vert \dfrac{f(a + v)}{g(a + v)} - \dfrac{f(a)}{g(a)} - \dfrac{g(a)Df(a) - f(a)Dg(a)}{{g(a)}^{2}} \right\vert}{\left\vert v \right\vert} = 0.
+		      \]
+
+		      Thus \( f/g \) is differentiable at \( a \) and \( D(f/g)(a) = \dfrac{g(a)Df(a) - f(a)Dg(a)}{{g(a)}^{2}} \).
+		\item \( T \) is a linear map so \( T(a + v) = T(a) + T(v) \).
+		      \[
+			      \lim\limits_{v \to 0}\dfrac{\left\vert T(a + v) - T(a) - T(v) \right\vert}{\left\vert v \right\vert} = 0
+		      \]
+
+		      so \( T \) is differentiable at \( a \) and \( DT(a) = T \).
+		\item Let \( B_{V}: V \to X \) be defined by \( B_{V}(a) = B(v, a) \) for every \( a \in V \) and \( B_{W}: W \to X \) defined by \( B_{W}(a) = B(a, w) \) for every \( a \in W \). We have
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			        & B(v + h, w + k) - B(v, w) - B(v, k) - B(h, w)                       \\
+			      = & B(v, w) + B(v, k) + B(h, w) + B(h, k) - B(v, w) - B(v, k) - B(h, w) \\
+			      = & B(h, k)
+		      \end{align*}
+		      \endgroup
+
+		      and \( B \) is a bilinear map on finite-dimensional vector spaces so \( B \) is bounded, hence
+		      \[
+			      \lim\limits_{(h, k) \to (0, 0)} \dfrac{\left\vert B(h, k) \right\vert}{\left\vert (h, k) \right\vert} = 0
+		      \]
+
+		      which means \( B \) is differentiable and \( DB(v, w)(x, y) = B(v, y) + B(x, w) \).
+	\end{enumerate}
+\end{proof}
+
 \subsection*{Partial Derivatives}
+
+\begin{exercise}{C.5}
+	Let \( U \subseteq \mathbb{R}^{n} \) be an open subset, and suppose \( f, g \in C^{\infty}(U) \) and \( c \in \mathbb{R} \).
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item Show that \( f + g, c f, \) and \( fg \) are smooth.
+		\item Show that these operations turn \( C^{\infty}(U) \) into a commutative ring and a commutative and associative algebra over \( \mathbb{R} \).
+		\item Show that if \( g \) never vanishes on \( U \), then \( f/g \) is smooth.
+	\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+	\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+		\item For every \( 1 \le j \le n \)
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			        & \lim\limits_{h \to 0} \dfrac{(f + g)(\ldots, x^{j} + h, \ldots) - (f + g)(\ldots, x^{j}, \ldots)}{h}                                                                                \\
+			      = & \lim\limits_{h \to 0} \left( \dfrac{f(\ldots, x^{j} + h, \ldots) - f(\ldots, x^{j}, \ldots)}{h} + \dfrac{g(\ldots, x^{j} + h, \ldots) - g(\ldots, x^{j}, \ldots)}{h} \right)        \\
+			      = & \lim\limits_{h \to 0} \dfrac{f(\ldots, x^{j} + h, \ldots) - f(\ldots, x^{j}, \ldots)}{h} + \lim\limits_{h \to 0} \dfrac{g(\ldots, x^{j} + h, \ldots) - g(\ldots, x^{j}, \ldots)}{h} \\
+			      = & \dfrac{\partial f}{\partial x^{j}} + \dfrac{\partial g}{\partial x^{j}};                                                                                                            \\
+			        & \lim\limits_{h \to 0} \dfrac{c f(\ldots, x^{j} + h, \ldots) - c f(\ldots, x^{j}, \ldots)}{h}                                                                                        \\
+			      = & c\lim\limits\dfrac{f(\ldots, x^{j} + h, \ldots) - f(\ldots, x^{j}, \ldots)}{h}                                                                                                      \\
+			      = & c\dfrac{\partial f}{\partial x^{j}}.
+		      \end{align*}
+		      \endgroup
+
+		      Inductively
+		      \[
+			      \dfrac{\partial}{\partial x^{i_{k}}}\left( \dfrac{\partial^{k-1} f}{\partial x^{i_{k-1}} \cdots \partial x^{i_{1}}} + \dfrac{\partial^{k-1} g}{\partial x^{i_{k-1}} \cdots \partial x^{i_{1}}} \right) = \dfrac{\partial^{k} f}{\partial x^{i_{k}} \cdots \partial x^{i_{1}}} + \dfrac{\partial^{k} g}{\partial x^{i_{k}} \cdots \partial x^{i_{1}}}
+		      \]
+
+		      and
+		      \[
+			      \dfrac{\partial^{k}(cf)}{\partial x^{i_{k}} \cdots \partial x^{i_{1}}} = c \dfrac{\partial^{k} f}{\partial x^{i_{k}} \cdots \partial x^{i_{1}}}
+		      \]
+
+		      so \( f + g, c f \) is smooth.
+
+		      For every \( 1 \le j \le n \)
+		      \begingroup
+		      \allowdisplaybreaks%
+		      \begin{align*}
+			        & \lim\limits_{h \to 0} \dfrac{f(\ldots, x^{j} + h, \ldots)g(\ldots, x^{j} + h, \ldots) - f(\ldots, x^{j}, \ldots)g(\ldots, x^{j}, \ldots)}{h}     \\
+			      = & \lim\limits_{h \to 0} \dfrac{f(\ldots, x^{j} + h, \ldots)g(\ldots, x^{j} + h, \ldots) - f(\ldots, x^{j} + h, \ldots)g(\ldots, x^{j}, \ldots)}{h} \\
+			        & + \lim\limits_{h \to 0} \dfrac{f(\ldots, x^{j} + h, \ldots)g(\ldots, x^{j}, \ldots) - f(\ldots, x^{j}, \ldots)g(\ldots, x^{j}, \ldots)}{h}       \\
+			      = & f\dfrac{\partial g}{\partial x^{j}} + g\dfrac{\partial f}{\partial x^{j}}.
+		      \end{align*}
+		      \endgroup
+
+		      Therefore \( fg \in C^{1} \). In general, for every \( k \)
+		      \[
+			      \dfrac{\partial^{k} fg}{\partial x^{i_{k}} \cdots \partial x^{i_{1}}} = \sum \dfrac{\partial^{m} f}{\partial x^{i_{a(m)}} \cdots \partial x^{i_{a(1)}}} \dfrac{\partial^{k-m}g}{\partial x^{i_{b(k-m)}}\cdots \partial x^{i_{b(1)}}}
+		      \]
+
+		      where \( a(1) < \cdots < a(m); b(1) < \cdots < b(k - m) \) and
+		      \[
+			      \left\{ a(1), \ldots, a(m), b(1), \ldots, b(k-m) \right\} = \left\{ 1, \ldots, k \right\}.
+		      \]
+
+		      Thus \( fg \) is smooth.
+		\item \( C^{\infty}(U) \) is indeed a commutative ring and real vector space with the given operations. The map \( B: C^{\infty}(U) \times C^{\infty}(U) \to C^{\infty}(U) \) defined by \( B(f, g) = fg \) is a bilinear map, which is commutative and associative. Hence \( C^{\infty}(U) \) is also a commutative and associative algebra over \( \mathbb{R} \).
+		\item According to the Fa\`{a} di Bruno's formula, \( 1/g \) is a smooth function. According to part (a), \( f/g \) is smooth.
+	\end{enumerate}
+\end{proof}
+
+
+\begin{exercise}{C.9}
+	Suppose \( U \subseteq \mathbb{R}^{n} \) is open. Show that a function \( F: U \to \mathbb{R}^{m} \) is differentiable at \( a \in U \) if and only if each of its component functions \( F^{1}, \ldots, F^{m} \) are differentiable at \( a \). Show that if this is the case, then
+	\[
+		DF(a) = \begin{pmatrix} DF^{1}(a) \\ \vdots \\ DF^{m}(a) \end{pmatrix}.
+	\]
+\end{exercise}
+
+\begin{proof}
+	Suppose \( F \) is differentiable at \( a \). Every projection function \( p^{j}: \mathbb{R}^{m} \to \mathbb{R} \) defined by \( p^{j}(x) = x^{j} \) is a linear map, hence differentiable everywhere. Therefore the composition \( p^{j} \circ F = F^{j} \) is differentiable at \( a \).
+
+	Conversely, suppose \( F^{1}, \ldots, F^{m} \) are differentiable at \( a \) then
+	\begingroup
+	\allowdisplaybreaks%
+	\begin{align*}
+		    & \dfrac{\left\vert {(F^{1}(a + v), \ldots, F^{m}(a + v))} - {(F^{1}(a), \ldots, F^{m}(a))} - {(DF^{1}(a)v, \ldots, DF^{m}(a)v)} \right\vert}{\left\vert v \right\vert} \\
+		=   & \dfrac{\left\vert (F^{1}(a + v) - F^{1}(a) - DF^{1}(a)v, \ldots, F^{m}(a + v) - F^{m}(a) - DF^{m}(a)) \right\vert}{\left\vert v \right\vert}                          \\
+		\le & \sum_{j=1}^{m} \dfrac{\left\vert F^{j}(a + v) - F^{j}(a) - DF^{j}(a)v \right\vert}{\left\vert v \right\vert}.
+	\end{align*}
+	\endgroup
+
+	According to the squeeze theorem
+	\[
+		\lim\limits_{v \to 0} \dfrac{\left\vert {(F^{1}(a + v), \ldots, F^{m}(a + v))} - {(F^{1}(a), \ldots, F^{m}(a))} - {(DF^{1}(a)v, \ldots, DF^{m}(a)v)} \right\vert}{\left\vert v \right\vert} = 0.
+	\]
+
+	Hence
+	\[
+		DF(a) = \begin{pmatrix} DF^{1}(a) \\ \vdots \\ DF^{m}(a) \end{pmatrix}. \qedhere
+	\]
+\end{proof}
 
 \section*{Multiple Integrals}
 
