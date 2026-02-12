@@ -1,0 +1,127 @@
+\documentclass[12pt]{book}
+
+\usepackage[left=2cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage[unicode=true,colorlinks=true,linkcolor=blue]{hyperref}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amscd}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{cases}
+\usepackage{esint}
+
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{indentfirst}
+\usepackage{chngcntr}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage[inline]{enumitem}
+
+\usepackage{pgf,tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{decorations}
+\usetikzlibrary{math}
+
+\setcounter{chapter}{0}
+\counterwithout{section}{chapter}
+
+\pagestyle{fancy}
+\setlength{\headheight}{16pt}
+\lhead{}
+\rhead{\leftmark}
+\lfoot{}
+\cfoot{\thepage}
+\rfoot{}
+
+\titleformat{\chapter}[display]{\flushright\bf\huge}{\chaptertitlename\,\thechapter}{10pt}{}
+\titleformat{\section}{\bf\Large}{\thesection}{10pt}{}
+\titleformat{\subsection}{\bf\large}{\thesubsection}{10pt}{}
+\titleformat{\subsubsection}{\bf\large}{\thesubsubsection}{10pt}{}
+
+\captionsetup{labelfont={bf},labelsep=period}
+\counterwithin{figure}{chapter}
+\counterwithin{table}{chapter}
+
+\newenvironment{sqcases}{%
+    \matrix@check\sqcases\env@sqcases
+}{%
+    \endarray\right.%
+}
+\def\env@sqcases{%
+\let\@ifnextchar\new@ifnextchar
+\left\lbrack{}
+\def\arraystretch{1.2}%
+\array{@{}l@{\quad}l@{}}%
+}
+\newtheorem{innercustomgeneric}{\customgenericname}
+\providecommand{\customgenericname}{}
+\newcommand{\newcustomtheorem}[2]{%
+  \newenvironment{#1}[1]
+  {%
+   \renewcommand\customgenericname{#2}%
+   \renewcommand\theinnercustomgeneric{##1}%
+   \innercustomgeneric%
+  }
+  {\endinnercustomgeneric}
+}
+\newcustomtheorem{exercise}{Exercise}
+
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\kernel}[1]{\operatorname{null}\,{#1}}
+\newcommand{\range}[1]{\operatorname{range}\,{#1}}
+\newcommand{\lmap}[1]{\mathcal{L}\left({#1}\right)}
+\newcommand{\abs}[1]{\left\vert{#1}\right\vert}
+\newcommand{\norm}[1]{\left\Vert{#1}\right\Vert}
+\newcommand{\innerprod}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\conj}[1]{\overline{#1}}
+\newcommand{\bnabla}{\boldsymbol\nabla}
+
+\title{Jon Pierre Fortney's A Visual Introduction to Differential Forms and Calculus on Manifolds: Notes and Exercises}
+\author{Ngo Quang Duong}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\chapter{Background Material}
+
+\chapter{An Introduction to Differential Forms}
+
+\chapter{The Wedgeproduct}
+
+\chapter{Exterior Differentiation}
+
+\chapter{Visualizing One-, Two-, and Three-Forms}
+
+\chapter{Push-Forwards and Pull-Backs}
+
+\chapter{Changes of Variables and Integration of Forms}
+
+\chapter{Poincar\'e Lemma}
+
+\chapter{Vector Calculus and Differential Forms}
+
+\chapter{Manifolds and Forms on Manifolds}
+
+\chapter{Generalized Stokes' Theorem}
+
+\chapter{An Example: Electromagnetism}
+
+\appendix
+
+\chapter{Introduction to Tensors}
+
+\chapter{Some Applications of Differential Forms}
+
+\end{document}
