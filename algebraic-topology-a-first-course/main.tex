@@ -67,7 +67,31 @@
 \counterwithin{figure}{chapter}
 \counterwithin{table}{chapter}
 
-\title{Tammo tom Dieck's ``Algebraic Topology'': Notes, Exercises, and Problems}
+\newenvironment{sqcases}{%
+    \matrix@check\sqcases\env@sqcases
+}{%
+    \endarray\right.%
+}
+\def\env@sqcases{%
+\let\@ifnextchar\new@ifnextchar
+\left\lbrack{}
+\def\arraystretch{1.2}%
+\array{@{}l@{\quad}l@{}}%
+}
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\innerprod}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\anglebracket}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\abs}[1]{\left\vert{#1}\right\vert}
+\newcommand{\openinterval}[1]{\left\rbrack{#1}\right\lbrack}
+\newcommand{\closedinterval}[1]{\left\lbrack{#1}\right\rbrack}
+\newcommand{\halfopenleft}[1]{\left\rbrack{#1}\right\rbrack}
+\newcommand{\halfopenright}[1]{\left\lbrack{#1}\right\lbrack}
+\newcommand{\set}[1]{\left\{{#1}\right\}}
+\newcommand{\tuple}[1]{\left({#1}\right)}
+\newcommand{\openball}[2]{B_{#1}\left({#2}\right)}
+\newcommand{\closedball}[2]{\overline{B}_{#1}\left({#2}\right)}
+
+\title{William Fulton's ``Algebraic Topology: A First Course'': Notes, Exercises, and Problems}
 \author{Ngo Quang Duong}
 \date{\today}
 
@@ -77,6 +101,6 @@
 
 \tableofcontents
 
-\input{./algebraic-topology/chapter1.tex}
+
 
 \end{document}
