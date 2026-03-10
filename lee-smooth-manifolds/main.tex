@@ -11,7 +11,6 @@
 \usepackage{mathtools}
 \usepackage{mathrsfs}
 \usepackage{cases}
-
 \usepackage{fancyhdr}
 \usepackage{xcolor}
 \usepackage{titlesec}
@@ -78,18 +77,6 @@
 \def\arraystretch{1.2}%
 \array{@{}l@{\quad}l@{}}%
 }
-\renewcommand{\emptyset}{\varnothing}
-\newcommand{\innerprod}[1]{\left\langle{#1}\right\rangle}
-\newcommand{\anglebracket}[1]{\left\langle{#1}\right\rangle}
-\newcommand{\abs}[1]{\left\vert{#1}\right\vert}
-\newcommand{\openinterval}[1]{\left\rbrack{#1}\right\lbrack}
-\newcommand{\closedinterval}[1]{\left\lbrack{#1}\right\rbrack}
-\newcommand{\halfopenleft}[1]{\left\rbrack{#1}\right\rbrack}
-\newcommand{\halfopenright}[1]{\left\lbrack{#1}\right\lbrack}
-\newcommand{\set}[1]{\left\{{#1}\right\}}
-\newcommand{\tuple}[1]{\left({#1}\right)}
-\newcommand{\openball}[2]{B_{#1}\left({#2}\right)}
-\newcommand{\closedball}[2]{\overline{B}_{#1}\left({#2}\right)}
 
 \title{John M.\@ Lee's ``Introduction to Smooth Manifolds'': Notes, Exercises, and Problems}
 \author{Ngo Quang Duong}
@@ -101,6 +88,7 @@
 
 \tableofcontents
 
+\input{./lee-smooth-manifolds/chapter1.tex}
 \appendix
 \input{./lee-smooth-manifolds/appendixA.tex}
 \input{./lee-smooth-manifolds/appendixB.tex}

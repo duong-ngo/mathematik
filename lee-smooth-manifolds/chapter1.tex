@@ -1,2 +1,680 @@
 \chapter{Smooth Manifolds}
 
+The book is about \emph{smooth manifolds}. These are topological spaces that locally look like some Euclidean space \( \mathbb{R}^{n} \), and on which one can do calculus (differentiation, integration). Some familiar examples of smooth manifolds are: \( \mathbb{R}^{n} \), smooth curves such as circles, conics like parabolas, smooth surfaces such as spheres, tori, quadrics, \( n \)-sphere and graphs of smooth maps between Euclidean spaces.
+
+The most basic manifolds are the topological manifolds, which are special topological spaces. They are studied intensively by topologists. Most important applications of manifolds involve calculus. For example, applications of manifold theory to geometry involve volume (typically computed by integration) and curvature (typically computed by differentiation). Therefore we need to make sense of integration and differentiation on manifolds to extend the ideas of calculus. To do so, one must adapt the notion of ``smoothness''. A curve is called ``smooth'' if it has a tangent line that continuously varies from point to point. Similarly, a ``smooth'' surface has a tangent plane that continuous varies. However, in these examples, curves and surfaces live in some ambient Euclidean spaces, which might not have anything to do with the problem at hand. It is a tremendous advantage to be able to work with manifolds as abstract topological spaces, without using an ambient Euclidean space.
+
+It is easy to convince one that ``smoothness'' cannot be defined as a purely topological invariance. For example, a circle and a square are homeomorphic, but the circle is smooth, while the square is not. Hence topological manifolds will not suffice for our purposes. Instead, we will use smooth manifolds, which have two structures: a topology like any topological manifolds, and a smooth structure.
+
+The first section of this chapter will introduce topological manifolds with some important facts about them. After that, we will move on to define smooth structures, examples, and smooth manifolds with boundary.
+
+\section{Topological Manifolds}
+
+\begin{exercise}{1.1}
+    Show that equivalent definitions of manifolds are obtained if instead of allowing \( U \) to be homeomorphic to \textit{any} open subset of \( \mathbb{R}^{n} \), we require it to be homeomorphic to an open ball in \( \mathbb{R}^{n} \), or to \( \mathbb{R}^{n} \) itself.
+\end{exercise}
+
+\begin{proof}
+    The given definition of manifolds is that:
+    \begin{quotation}
+        A Hausdorff topological space \( M \) is an \( n \)-manifold if it is second-countable and every point of \( M \) has a neighborhood \( U \) which is homeomorphic to an open subset of \( \mathbb{R}^{n} \).
+    \end{quotation}
+
+    Since any open ball in \( \mathbb{R}^{n} \) and \( \mathbb{R}^{n} \) itself are open subsets of \( \mathbb{R}^{n} \) then a manifold (in open ball sense) or a manifold (in \( \mathbb{R}^{n} \) sense) are manifolds (in the original definition sense).
+
+    It suffices to show that
+    \begin{quotation}
+        If \( M \) is an \( n \)-manifold then
+        \begin{itemize}
+            \item every point of \( M \) has a neighborhood which is homeomorphic to an open ball in \( \mathbb{R}^{n} \),
+            \item every point of \( M \) has a neighborhood which is homeomorphic to \( \mathbb{R}^{n} \).
+        \end{itemize}
+    \end{quotation}
+
+    Let \( x \in M \). Since \( M \) is an \( n \)-manifold, \( U \) a neighborhood of \( x \) such that \( U \) is homeomorphic to an open subset of \( \mathbb{R}^{n} \). There exists a topological embedding \( \phi: U \to \mathbb{R}^{n} \) such that \( \phi(U) \subseteq \mathbb{R}^{n} \) is open. As \( \phi(U) \subseteq \mathbb{R}^{n} \) is open, there exists an open ball \( B_{r}(\phi(x)) \subseteq \phi(U) \). So \( B_{r}(\phi(x)) \) and its preimage under \( \phi \) (it is open in \( M \)) are homeomorphic. Thus we have shown the existence of a neighborhood of \( x \) which is homeomorphic to an open ball in \( \mathbb{R}^{n} \).
+
+    Now we will show that
+    \begin{quotation}
+        Any open ball in \( \mathbb{R}^{n} \) is homeomorphic to \( \mathbb{R}^{n} \).
+    \end{quotation}
+
+    Since dilatations and translations are homeomorphisms, it suffices to show that the open unit ball \( B_{1}(0) \subseteq \mathbb{R}^{n} \) is homeomorphic to \( \mathbb{R}^{n} \). Note that the map
+    \[
+        \varphi: B_{1}(0) \to \mathbb{R}^{n}; \qquad \varphi(x) = \dfrac{x}{1 - \left\Vert x \right\Vert}
+    \]
+
+    is continuous and its inverse
+    \[
+        \varphi^{-1}: \mathbb{R}^{n} \to B_{1}(0); \qquad \varphi^{-1}(y) = \dfrac{y}{1 + \left\Vert y \right\Vert}
+    \]
+
+    is continuous. Hence \( B_{1}(0) \approx \mathbb{R}^{n} \). It follows from the previous paragraph that there exists a neighborhood of \( x \) which is homeomorphic to \( \mathbb{R}^{n} \).
+\end{proof}
+
+\subsection{Coordinate Charts}
+
+\subsection{Examples of Topological Manifolds}
+
+\begin{exercise}{1.6}
+    Show that \( \mathbb{RP}^{n} \) is Hausdorff and second-countable, and is therefore a topological \( n \)-manifold.
+\end{exercise}
+
+\begin{proof}
+    We will show that the quotient map \( \pi: \mathbb{R}^{n+1}\smallsetminus\left\{0\right\} \to \mathbb{RP}^{n} \) is open.
+
+    If \( U \subseteq \mathbb{R}^{n+1}\smallsetminus\left\{0\right\} \) is open then
+    \[
+        \pi^{-1}(\pi(U)) = \bigcup_{a \in \mathbb{R} \smallsetminus \left\{ 0 \right\}} a U
+    \]
+
+    where \( a U \) is the image of \( U \) under the dilatation \( x \mapsto a x \), which is a homeomorphism. Therefore \( \pi^{-1}(\pi(U)) \) is open in \( \mathbb{R}^{n+1} \smallsetminus \left\{ 0 \right\} \), so \( \pi(U) \) is open in \( \mathbb{RP}^{n} \), for \( \pi \) is a quotient map. Hence \( \pi \) is open.
+
+    We prove that: The set \( \mathcal{R} = \left\{ (x, y) : x, y \in \mathbb{R}^{n+1}\smallsetminus\left\{0\right\} \land x \sim y \right\} \) is closed.
+
+    If \( (x, y) \notin \mathcal{R} \), let \( \bar{x} = x/\left\Vert x \right\Vert \) and \( \bar{y} = y/\left\Vert y \right\Vert \) and \( r = \dfrac{1}{2} \min \left\{ \left\Vert  \bar{x} - \bar{y} \right\Vert, \left\Vert \bar{x} + \bar{y} \right\Vert \right\} \). Two open balls \( B_{r}(\bar{x}) \) and \( B_{r}(\bar{y}) \) are disjoint and don't contain the origin. Let \( a \in B_{r}(\bar{x}) \) then for every \( t \in \mathbb{R} \smallsetminus \left\{ 0 \right\} \).
+
+    The distance from \( \bar{x} \) to the 1-dimensional subspace spanned by \( a \) is
+    \[
+        \min\limits_{t \in \mathbb{R}} \left\Vert ta - \bar{x} \right\Vert = \left\Vert \dfrac{\left\langle a, \bar{x} \right\rangle}{{\left\Vert a \right\Vert}^{2}}a - \bar{x} \right\Vert < \left\Vert x - a \right\Vert < r
+    \]
+    \[
+        \left\Vert ta - \bar{y} \right\Vert \ge \left\Vert \dfrac{\left\langle a, \bar{y} \right\rangle}{{\left\Vert a\right\Vert}^{2}}a - \bar{y} \right\Vert \ge \left\Vert x - y \right\Vert - \left\Vert \dfrac{\left\langle a, \bar{y} \right\rangle}{{\left\Vert a\right\Vert}^{2}}a - \bar{x} \right\Vert \ge 2r - \left\Vert \dfrac{\left\langle a, \bar{x} \right\rangle}{{\left\Vert a \right\Vert}^{2}}a - \bar{x} \right\Vert > r
+    \]
+
+    which means the 1-dimensional subspace spanned by \( a \) doesn't intersect \( B_{r}(\bar{y}) \). Hence \( B_{r}(\bar{x}) \times B_{r}(\bar{y}) \) and \( B_{r\left\Vert x \right\Vert}(x) \times B_{r\left\Vert y \right\Vert}(y) \) are disjoint from \( \mathcal{R} \).
+
+    Together with \( \pi \) being an open quotient map, we conclude that \( \mathbb{RP}^{n} \) is Hausdorff, according to Exercise A.36.
+
+    \( \mathbb{R}^{n+1} \smallsetminus \left\{ 0 \right\} \) is second-countable and \( \pi \) is an open quotient map so \( \mathbb{RP}^{n} \) is second-countable.
+\end{proof}
+
+\begin{exercise}{1.7}
+    Show that \( \mathbb{RP}^{n} \) is compact. [Hint: show that the restriction of \( \pi \) to \( \mathbb{S}^{n} \) is surjective.]
+\end{exercise}
+
+\begin{proof}
+    Since \( \dfrac{x}{\left\Vert x \right\Vert} \in \pi^{-1}(\pi(x)) \), then the restriction of \( \pi \) to the \( n \)-sphere \( \mathbb{S}^{n} \) is surjective. Moreover, \( \mathbb{S}^{n} \) is compact so \( \mathbb{RP}^{n} \) is compact.
+\end{proof}
+
+\subsection{Topological Properties of Manifolds}
+
+\subsection{Connectivity}
+
+\subsection{Local Compactness and Paracompactness}
+
+\begin{exercise}{1.14}
+    Prove the preceding lemma.
+
+    Suppose \( \mathcal{X} \) is a locally finite collection of subsets of a topological space \( M \).
+    \begin{enumerate}[topsep=0pt,itemsep=0pt,label={(\alph*)}]
+        \item The collection \( \left\{ \overline{X} : X \in \mathcal{X} \right\} \) is also locally finite.
+        \item \( \overline{\bigcup_{X \in \mathcal{X}} X} = \bigcup_{X \in \mathcal{X}} \overline{X} \).
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+        \item Let \( p \) be an arbitrary point in \( M \).
+
+              As \( \mathcal{X} \) is locally finite, there exists a neighborhood \( N \) of \( x \) such that \( N \) intersect only finitely many sets in the collection \( \mathcal{X} \). In other words, \( \left\{ X \in \mathcal{X} : X \cap N \ne \varnothing \right\} \) is finite. Evidently, if \( X \cap N \ne \varnothing \) then \( \overline{X} \cap N \ne \varnothing \).
+
+              If \( X^{\prime} \in \mathcal{X} \) such that \( \overline{X^{\prime}} \cap N \ne \varnothing \) then \( X^{\prime} \cap N \ne \varnothing \) (this is a property of the closure), which means \( X^{\prime} \in \left\{ X \in \mathcal{X} : X \cap N \ne \varnothing \right\} \). Hence \( \left\{ \overline{X}: \overline{X} \cap N \ne \varnothing \right\} \) is finite. Thus the collection \( \left\{ \overline{X} : X \in \mathcal{X} \right\} \) is locally finite.
+        \item If \( p \in \bigcup_{X \in \mathcal{X}} \overline{X} \) then there exists \( X \in \mathcal{X} \) such that \( p \in \overline{X} \). Hence every neighborhood of \( p \) intersects \( X \), which means every neighborhood of \( p \) intersects \( \bigcup_{X \in \mathcal{X}} X \), so \( p \in \overline{\bigcup_{X \in \mathcal{X}} X} \). Therefore \( \overline{\bigcup_{X \in \mathcal{X}} X} \supseteq \bigcup_{X \in \mathcal{X}} \overline{X} \).
+
+              Next, we will prove \( \bigcup_{X \in \mathcal{X}} \overline{X} \) is closed in \( M \).
+
+              Suppose \( p \notin \bigcup_{X \in \mathcal{X}} \overline{X} \). Since the collection \( \left\{ \overline{X} : X \in \mathcal{X} \right\} \) is locally finite, there exists a neighborhood \( N \) of \( x \) such that \( \left\{ \overline{X} : X \in \mathcal{X} \land \overline{X} \cap N \ne \varnothing \right\} \) is finite. Denote the sets \( \overline{X} \) satisfying \( \overline{X} \cap N \ne \varnothing \) by \( \overline{X_{1}}, \ldots, \overline{X_{k}} \). For every \( 1 \le j \le k \), there exists a neighborhood \( U_{k} \) of \( x \) with \( U_{k} \cap \overline{X_{k}} \). The intersection \( U = N \cap \bigcap_{j=1}^{k} U_{j} \) is a neighborhood of \( p \) and \( U \) is disjoint from \( \bigcup_{X \in \mathcal{X}} \overline{X} \). Hence \( \bigcup_{X \in \mathcal{X}} \overline{X} \) is closed in \( M \).
+
+              The closure of a set \( S \) is the smallest closed set containing \( S \) and \( \bigcup_{X \in \mathcal{X}} \overline{X} \) contains \( \bigcup_{X \in \mathcal{X}} X \) so \( \overline{\bigcup_{X \in \mathcal{X}} X} = \bigcup_{X \in \mathcal{X}} \overline{X} \).
+    \end{enumerate}
+\end{proof}
+
+\subsection{Fundamental Groups of Manifolds}
+
+\section{Smooth Structures}
+
+\begin{prop}{1.17}
+    Let \( M \) be a topological manifold.
+    \begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+        \item Every smooth atlas \( \mathcal{A} \) for \( M \) is contained in a unique maximal smooth atlas, called the \textbf{\emph{smooth structure determined by \( \boldsymbol{\mathcal{A}} \)}}.
+        \item Two smooth atlases for \( M \) determine the same smooth structure if and only if their union is a smooth atlas.
+    \end{enumerate}
+\end{prop}
+
+\begin{proof}
+    \begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+        \item Let \( \overline{\mathcal{A}} \) be the collection of all charts that are smoothly compatible with every chart in \( \mathcal{A} \). We will show that any two charts \( (U, \phi), (V, \psi) \) in \( \overline{\mathcal{A}} \) are smoothly compatible.
+
+              If \( U \cap V = \varnothing \) then \( (U, \phi), (V, \psi) \) are smoothly compatible. If \( U \cap V \ne \varnothing \), let \( p \in U \cap V \). As \( \mathcal{A} \) covers \( M \), there is a chart \( (W, \theta) \in \mathcal{A} \) containing \( p \). Because \( (U, \phi), (W, \theta) \) are smoothly compatible and \( (W, \theta), (V, \psi) \) are smoothly compatible, the maps \( \theta \circ \phi^{-1}: \phi(U \cap W) \to \theta(U \cap W) \) and \( \psi \circ \theta^{-1}: \theta(V \cap W) \to \psi(V \cap W) \) are smooth. The set \( U \cap V \cap W \) is an open neighborhood of \( p \) and \( \phi(U \cap V \cap W) \) is a neighborhood of \( \phi(p) \), so \( (\psi \circ \theta^{-1}) \circ (\theta \circ \phi^{-1}) \) is smooth on \( \phi(U \cap V \cap W) \). Therefore \( \psi \circ \phi^{-1} \) is smooth on an open neighborhood of \( \phi(p) \), for every \( p \in U \cap V \), so \( \psi \circ \phi^{-1} \) is smooth on \( \phi(U \cap V) \). This means \( \overline{\mathcal{A}} \) is a smooth atlas.
+
+              If \( (N, \tau) \) is a chart that is smoothly compatible with every chart in \( \overline{\mathcal{A}} \) then it is smoothly compatible with every chart in \( \mathcal{A} \), which means \( (N, \tau) \in \overline{\mathcal{A}} \). Therefore \( \overline{\mathcal{A}} \) is maximal.
+
+              If \( \mathcal{B} \) is a maximal smooth atlas containing \( \mathcal{A} \) then according to the definition of \( \overline{\mathcal{A}} \), \( \mathcal{B} \subseteq \overline{\mathcal{A}} \). Due to the maximality of \( \mathcal{B} \), \( \mathcal{B} = \overline{\mathcal{A}} \).
+        \item Assume two smooth atlases \( \mathcal{A}_{1}, \mathcal{A}_{2} \) determine the same smooth structure \( \mathcal{A} \) then \( \mathcal{A}_{1} \subseteq \mathcal{A}, \mathcal{A}_{2} \subseteq \mathcal{A} \), which implies \( \mathcal{A}_{1} \cup \mathcal{A}_{2} \subseteq \mathcal{A} \). As \( \mathcal{A} \) is a smooth atlas, \( \mathcal{A}_{1} \cup \mathcal{A}_{2} \subseteq \mathcal{A} \) and \( \mathcal{A}_{1} \cup \mathcal{A}_{2} \) covers \( M \), it follows that \( \mathcal{A}_{1} \cup \mathcal{A}_{2} \) is a smooth atlas.
+    \end{enumerate}
+\end{proof}
+
+\subsection{Local Coordinate Representations}
+
+\begin{prop}{1.19}
+    Every smooth manifold has a countable basis of regular coordinate balls.
+\end{prop}
+
+\begin{proof}
+    Let \( M \) be a smooth manifold with a smooth atlas \( \mathcal{A} \). As \( M \) is second-countable, \( M \) is covered by countably many coordinate balls in \( \mathcal{A} \). Without loss of generality, assume \( \mathcal{A} = {\left\{ (U_{i}, \varphi_{i}) \right\}}_{i \in \mathbb{N}} \).
+
+    Let \( \mathcal{B}_{i} \) be the collection of all open balls \( B_{r}(p) \) with \( p \) has rational coordinates, \( r \) is rational and there exists \( r^{\prime} \) such that \( B_{r}(p) \subseteq B_{r^{\prime}}(p) \subseteq \varphi_{i}(U_{i}) \). These balls are precompact in \( \varphi_{i}(U_{i}) \). The collection \( \mathcal{B}_{i} \) is countable and a basis for the topology on \( \varphi_{i}(U_{i}) \).
+
+    \( (U_{i}, \varphi_{i}) \) and \( (U_{j}, \varphi_{j}) \) (\(i, j\) can be either identical or not) are smoothly compatible so any coordinate subcharts of them are also smoothly compatible. The collection \( \mathcal{B} = \bigcup_{i \in \mathbb{N}} \mathcal{B}_{i} \) is then a smooth atlas.
+
+    If \( (V, \psi) \in \mathcal{B} \) then \( V \subseteq U_{i} \) for some \( i \). The closure of \( \psi(V) \) is contained in \( \varphi_{i}(U_{i}) \) and compact, so the closure of \( V \) in \( U_{i} \) is compact. Since \( M \) is Hausdorff, the closure of \( V \) in \( U_{i} \) (which is compact) is closed in \( M \), hence it coincides with the closure of \( V \) in \( M \), so \( V \) is precompact in \( M \). Hence every coordinate domain of charts in \( \mathcal{B} \) is a regular coordinate ball.
+
+    Thus \( M \) has a countable basis of regular coordinate balls, which are smoothly compatible.
+\end{proof}
+
+\section{Examples of Smooth Manifolds}
+
+\subsection{The Einstein Summation Convention}
+
+\subsection{More Examples}
+
+\section{Manifolds with Boundary}
+
+\begin{prop}{1.38}
+    Let \( M \) be a topological \( n \)-manifold with boundary.
+    \begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+        \item \( \operatorname{Int} M \) is an open subset of \( M \) and a topological \( n \)-manifold without boundary.
+        \item \( \partial M \) is a closed subset of \( M \) and a topological \( (n - 1) \)-manifold without boundary.
+        \item \( M \) is a topological manifold if and only if \( \partial M = \varnothing \).
+        \item If \( n = 0 \), then \( \partial M = \varnothing \) and \( M \) is a \( 0 \)-manifold.
+    \end{enumerate}
+
+    For this proof, you may use the theorem on topological invariance of the boundary when necessary. Which parts require it?
+\end{prop}
+
+\begin{proof}
+    \begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+        \item For every \( p \in \operatorname{Int} M \), there exists a coordinate chart \( (U, \varphi) \) with \( p \in U \) and \( \varphi(U) \) is an open subset of \( \mathbb{R}^{n} \). Moreover, every point in \( U \) is an interior point of \( M \), so \( U \subseteq \operatorname{Int} M \). Hence \( \operatorname{Int} M \) is an open subset of \( M \) is locally Euclidean of dimension \( n \).
+
+              With the subspace topology, \( \operatorname{Int} M \) is Hausdorff and second-countable. Thus \( \operatorname{Int} M \) is an open subset of \( M \) and a topological \( n \)-manifold without boundary.
+        \item \( \partial M \) is the set of boundary points of \( M \). According to the theorem on the topological invariance of the boundary, \( M \) is the disjoint union of \( \operatorname{Int} M \) and \( \partial M \). From (a), it follows that \( \partial M \) is a closed subset of \( M \).
+
+              For every \( p \in \partial M \), there exists a coordinate chart \( (U, \varphi) \) with \( p \in U \) and \( \varphi(U) \) is an open subset of \( \mathbb{H}^{n} \) with \( \varphi(p) \in \partial \mathbb{H}^{n} \). From the definition of a boundary point and the theorem on the topological invariance of the boundary, every point in \( U \cap \partial M \) is a boundary point of \( M \) and its image under \( \varphi \) is in \( \partial \mathbb{H}^{n} \). In other words, \( \varphi(U \cap \partial M) \subseteq \partial \mathbb{H}^{n} \).
+
+              Let \( V = U \cap \partial M \) then \( V \) is an open subset of \( \partial M \). We have \( \varphi(U \cap \partial M) = \varphi(U) \cap \partial \mathbb{H}^{n} \) and \( \varphi\vert_{V}: V \to \varphi(U \cap \partial M) \) is a homeomorphism. Let \( \psi = \varphi\vert_{V} \). The set \( \varphi(U) \cap \partial \mathbb{H}^{n} \) is an open subset of \( \partial \mathbb{H}^{n} \). Since \( \partial \mathbb{H}^{n} \) is homeomorphic to \( \mathbb{R}^{n-1} \), then \( \varphi(U) \cap \partial \mathbb{H}^{n} \) is homeomorphic to an open subset of \( \mathbb{R}^{n-1} \). Hence \( (V, \psi) \) is a coordinate chart of \( \partial M \).
+
+              Thus \( \partial M \) is a topological \( (n - 1) \)-manifold without boundary.
+        \item \( M \) is a topological manifold iff every point of \( M \) is an interior point of \( M \), which means \( \partial M = \varnothing \).
+        \item If \( n = 0 \) then every singleton subset of \( M \) is open in \( M \) and homeomorphic to \( \mathbb{R}^{0} \), so every point of \( M \) is an interior point of \( M \). Hence \( M \) is a \( 0 \)-manifold.
+    \end{enumerate}
+
+    Parts (b) and (c) use (explicitly and implicitly) the theorem on the topological invariance of the boundary.
+\end{proof}
+
+\begin{prop}{1.40}
+    Let \( M \) be a topological \( n \)-manifold with boundary.
+    \begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+        \item \( M \) has a countable basis of precompact coordinate balls and half-balls.
+        \item \( M \) is locally compact.
+        \item \( M \) is paracompact.
+        \item \( M \) is locally path-connected.
+        \item \( M \) has countably many components, each of which is an open subset of \( M \) and a connected topological manifold with boundary.
+        \item The fundamental group of \( M \) is countable.
+    \end{enumerate}
+\end{prop}
+
+\begin{proof}
+    \begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+        \item Let \( (U, \varphi) \) be a coordinate chart of \( M \) then it is either an interior chart or a boundary chart.
+
+              If \( (U, \varphi) \) is an interior chart then \( \varphi(U) \) is an open subset of \( \mathbb{R}^{n} \). Let \( \mathcal{B} \) be the collection of all open balls \( B_{r}(p) \) such that \( p \in \varphi(U) \) has rational coordinates, \( r \) is rational and there exists \( r^{\prime} > r \) with \( B_{r^{\prime}}(p) \subseteq \varphi(U) \). Every open ball in \( \mathcal{B} \) is precompact and \( \mathcal{B} \) is a countable basis for the topology on \( \varphi(U) \).
+
+              If \( (U, \varphi) \) is a boundary chart then \( \varphi(U) \) is a relatively open subset of \( \mathbb{H}^{n} \) and \( \varphi(U) \cap \partial \mathbb{H}^{n} \ne \varnothing \). We define a collection \( \mathcal{B} \) consisting of the following:
+              \begin{itemize}[itemsep=0pt]
+                  \item All open balls \( B_{r}(p) \) such that \( p \) has rational coordinates, \( p \notin \partial \mathbb{H}^{n} \), \( r \) is rational and there exists \( r^{\prime} > r \) with \( B_{r^{\prime}}(p) \subseteq \varphi(U) \).
+                  \item All open half-balls \( B_{r}(p) \cap \mathbb{H}^{n} \) such that  \( p \) has rational coordinates, \( p \in \partial \mathbb{H}^{n} \), \( r \) is rational and there exists \( r^{\prime} > r \) with \( B_{r^{\prime}}(p) \cap \mathbb{H}^{n} \subseteq \varphi(U) \).
+              \end{itemize}
+
+              Every open ball and open half-ball in \( \mathcal{B} \) is precompact and \( \mathcal{B} \) is a countable basis for the topology on \( \varphi(U) \).
+
+              Let \( B \in \mathcal{B} \) then \( (\varphi^{-1}(B), \varphi) \) is a coordinate chart. The closure of \( \varphi^{-1}(B) \) in \( U \) is the preimage of \( \overline{B} \), which is compact, so \( \varphi^{-1}(B) \) is precompact in \( U \). Since \( M \) is Hausdorff, the closure of \( \varphi^{-1}(B) \) in \( U \) (which is compact, according to the previous sentence) is closed in \( M \). Hence the closure of \( \varphi^{-1}(B) \) in \( M \) is compact, so \( \varphi^{-1}(B) \) is precompact in \( M \).
+
+              \( M \) is second-countable so it is covered by countably many coordinate domains. Let the collection of the corresponding coordinate charts be \( {\left\{ (U_{n}, \varphi_{n}) \right\}}_{n \in \mathbb{N}} \). From the previous paragraphs in this proof, \( U_{n} \) has a countable basis consisting of precompact coordinate balls and half-balls. Therefore \( M \) has a countable basis consisting of precompact coordinate balls and half-balls.
+        \item \( M \) has a basis consisting of precompact coordinate balls and half-balls so \( M \) is locally compact.
+        \item We will prove a more general result: A second-countable locally compact Hausdorff space \( X \) is paracompact.
+
+              \( X \) is locally compact Hausdorff so \( X \) has a basis of precompact open subsets (Exercise A.55). From this basis, we can extract a countable subcover \( {(U_{i})}_{i \in \mathbb{N}} \), due to the second-countability.
+
+              Let \( K_{1} = \overline{U_{1}} \). Assume that we have a collection of compact sets \( {(K_{i})}_{i=1}^{n} \) with \( K_{i} \subseteq \operatorname{Int} K_{i+1} \) for every \( 1 \le i \le n - 1 \) and \( U_{i} \subseteq K_{i} \) for every \( 1 \le i \le n \). Because \( K_{n} \) is compact, there exist \( m \ge n + 1 \) such that \( K_{n} \subseteq \bigcup_{i=1}^{m} \overline{U_{i}} \). Define \( K_{n+1} = \bigcup_{i=1}^{m} \overline{U_{i}} \) then \( K_{n+1} \) is compact and \( U_{n+1} \subseteq K_{n+1} \) and \( \operatorname{Int} K_{n+1} \supseteq \bigcup_{i=1}^{m} U_{i} \supseteq K_{n} \).
+
+              Hence there exists a collection of compact sets \( {(K_{n})}_{n \in \mathbb{N}} \) with \( K_{i} \subseteq \operatorname{Int} K_{i+1} \) for every \( i \in \mathbb{N} \) and \( X = \bigcup_{n \in \mathbb{N}} K_{n} \), which means \( X \) admits an exhaustion by compact sets.
+
+              Let \( \mathcal{O} \) be an open covering of \( X \) and \( \mathcal{B} \) a basis for the topology on \( X \). For every \( i \in \mathbb{N} \), define \( V_{i} = K_{i+1} \smallsetminus \operatorname{Int} K_{i} \) and \( W_{i} = \operatorname{Int} K_{i+2} \smallsetminus K_{i-1} \). We convention that \( K_{i} = \varnothing \) for \( i < 1 \). Every \( V_{i} \) is compact and every \( W_{i} \) is open and \( V_{i} \subseteq W_{i} \).
+
+              For every point \( p \in V_{i} \), there exists \( O \in \mathcal{O} \) and some \( W_{n} \) such that \( p \in O \cap W_{n} \). Moreover, there exists \( B_{p} \in \mathcal{B} \) with \( p \in B_{p} \subseteq O \cap W_{n} \). By ranging \( p \) over \( V_{i} \), we obtain an open covering for \( V_{i} \). Because \( V_{i} \) is compact, this open covering contains a finite open subcovering \( \mathcal{U}_{i} \). The collection \( \bigcup_{i \in \mathbb{N}} \mathcal{U}_{i} \subseteq \mathcal{B} \) is an open refinement of \( \mathcal{O} \).
+
+              Moreover, consider \( j, j^{\prime} \in \mathbb{N} \). Without loss of generality, suppose \( j \ge j^{\prime} \).
+              \[
+                  W_{j} \cap W_{j^{\prime}} \ne \varnothing \iff \operatorname{Int} K_{j^{\prime} + 2} \smallsetminus K_{j-1} \ne \varnothing \implies j^{\prime} + 2 \ge j.
+              \]
+
+              So \( W_{j} \cap W_{j^{\prime}} \ne \varnothing \) only if \( \left\vert j - j^{\prime} \right\vert \le 2 \). Together with each \( \mathcal{U}_{i} \) being finite, we deduce that \( \bigcup_{i \in \mathbb{N}} \mathcal{U}_{i} \) is locally finite. Hence \( X \) is paracompact.
+
+              From this result, we conclude that \( M \) is paracompact.
+        \item \( M \) has a basis of coordinate balls and half-balls and every coordinate ball and half-ball is path-connected so \( M \) is locally path-connected.
+        \item \( M \) is locally path-connected so every connected component of \( M \) is open and also a path-connected component. Let \( \mathcal{B} \) be a countable basis for the topology on \( M \). For every connected component \( C \) of \( M \), there exists \( B_{C} \subseteq C \) with \( B_{C} \in \mathcal{B} \). As \( \mathcal{B} \) is countable, we deduce that \( M \) has countably many components.
+
+              Let \( C \) be a connected component of \( M \) then \( C \) is an open subset of \( M \). The set \( C \) with the subspace topology is Hausdorff and second-countable. For every \( p \in C \), there exists a coordinate chart \( (U, \varphi) \) with \( p \in U \), then \( (U \cap C, \varphi\vert_{U \cap C}) \) is a coordinate chart of which domain is contained in \( U \), so \( C \) is locally Euclidean of dimension \( n \) (the same as \( M \)). Hence \( C \) is a connected topological \(n\)-manifold with boundary.
+        \item The proof is identical to that of Proposition 1.16.
+    \end{enumerate}
+\end{proof}
+
+\subsection{Smooth Structures on Manifolds with Boundary}
+
+\begin{exercise}{1.42}
+    Show that every smooth manifold with boundary has a countable basis consisting of regular coordinate balls and half-balls.
+\end{exercise}
+
+\begin{proof}
+    Let \( M \) be a smooth \(n\)-manifold. The following is adapted from the proof of Proposition 1.40a.
+
+    Let \( (U, \varphi) \) be a coordinate chart of \( M \) then it is either an interior chart or a boundary chart.
+
+    If \( (U, \varphi) \) is an interior chart then \( \varphi(U) \) is an open subset of \( \mathbb{R}^{n} \). Let \( \mathcal{B} \) be the collection of all open balls \( B_{r}(p) \) such that \( p \in \varphi(U) \) has rational coordinates, \( r \) is rational and there exists \( r^{\prime} > r \) with \( B_{r^{\prime}}(p) \subseteq \varphi(U) \). Every open ball in \( \mathcal{B} \) is precompact and \( \mathcal{B} \) is a countable basis for the topology on \( \varphi(U) \).
+
+    If \( (U, \varphi) \) is a boundary chart then \( \varphi(U) \) is a relatively open subset of \( \mathbb{H}^{n} \) and \( \varphi(U) \cap \partial \mathbb{H}^{n} \ne \varnothing \). We define a collection \( \mathcal{B} \) consisting of the following:
+    \begin{itemize}[itemsep=0pt]
+        \item All open balls \( B_{r}(p) \) such that \( p \) has rational coordinates, \( p \notin \partial \mathbb{H}^{n} \), \( r \) is rational and there exists \( r^{\prime} > r \) with \( B_{r^{\prime}}(p) \subseteq \varphi(U) \).
+        \item All open half-balls \( B_{r}(p) \cap \mathbb{H}^{n} \) such that  \( p \) has rational coordinates, \( p \in \partial \mathbb{H}^{n} \), \( r \) is rational and there exists \( r^{\prime} > r \) with \( B_{r^{\prime}}(p) \cap \mathbb{H}^{n} \subseteq \varphi(U) \).
+    \end{itemize}
+
+    Every open ball and open half-ball in \( \mathcal{B} \) is precompact and \( \mathcal{B} \) is a countable basis for the topology on \( \varphi(U) \).
+
+    Let \( B \in \mathcal{B} \) then \( (\varphi^{-1}(B), \varphi) \) is a coordinate chart. The closure of \( \varphi^{-1}(B) \) in \( U \) is the preimage of \( \overline{B} \), which is compact, so \( \varphi^{-1}(B) \) is precompact in \( U \). Since \( M \) is Hausdorff, the closure of \( \varphi^{-1}(B) \) in \( U \) (which is compact, according to the previous sentence) is closed in \( M \). Hence the closure of \( \varphi^{-1}(B) \) in \( M \) is compact, so \( \varphi^{-1}(B) \) is precompact in \( M \).
+
+    \( M \) is second-countable so it is covered by countably many smooth coordinate domains. Let the collection of the corresponding smooth coordinate charts be \( {\left\{ (U_{n}, \varphi_{n}) \right\}}_{n \in \mathbb{N}} \). From the previous paragraphs in this proof, \( U_{n} \) has a countable basis consisting of precompact coordinate balls and half-balls. Moreover, any coordinate subcharts of \( (U_{i}, \varphi_{i}), (U_{j}, \varphi_{j}) \) are smoothly compatible.
+
+    Therefore \( M \) has a countable basis consisting of precompact coordinate balls and half-balls, which are smoothly compatible.
+\end{proof}
+
+\begin{exercise}{1.43}
+    Show that the smooth manifold chart lemma (Lemma 1.35) holds with ``\( \mathbb{R}^{n} \)'' replaced by `` \( \mathbb{R}^{n} \) or \( \mathbb{H}^{n} \) '' and ``smooth manifold'' replaced by ``smooth manifold with boundary.\@''
+\end{exercise}
+
+\begin{proof}
+    We state the smooth manifold with boundary chart lemma.
+    \begin{quotation}
+        Let \( M \) be a set, and suppose we are given a collection \( \left\{ U_{\alpha} \right\} \) of subsets of \( M \) together with maps \( \varphi_{\alpha}: U_{\alpha} \to \mathbb{R}^{n} \), such that the following properties are satisfied:
+        \begin{enumerate}[itemsep=0pt,label={(\roman*)}]
+            \item For each \( \alpha \), \( \varphi_{\alpha} \) is a bijection between \( U_{\alpha} \) and an open subset \( \varphi_{\alpha}(U_{\alpha}) \subseteq \mathbb{R}^{n} \) or \( \mathbb{H}^{n} \).
+            \item For each \( \alpha \) and \( \beta \), the sets \( \varphi_{\alpha}(U_{\alpha} \cap U_{\beta}) \) and \( \varphi_{\beta}(U_{\alpha} \cap U_{\beta}) \) are open in \( \mathbb{R}^{n} \) or \( \mathbb{H}^{n} \).
+            \item Whenever \( U_{\alpha} \cap U_{\beta} \ne \varnothing \), the map \( \varphi_{\beta} \circ \varphi_{\alpha}^{-1}: \varphi_{\alpha}(U_{\alpha} \cap U_{\beta}) \to \varphi_{\beta}(U_{\alpha} \cap U_{\beta}) \) is smooth.
+            \item Countably many of the sets \( U_{\alpha} \) cover \( M \).
+            \item Whenever \( p, q \) are distinct points in \( M \), either there exists some \( U_{\alpha} \) containing both \(p\) and \(q\) or there exist disjoint sets \( U_{\alpha}, U_{\beta} \) with \( p \in U_{\alpha} \) and \( q \in U_{\beta} \).
+        \end{enumerate}
+
+        Then \( M \) has a unique smooth manifold with boundary structure such that each \( (U_{\alpha}, \varphi_{\alpha}) \) is a smooth chart.
+    \end{quotation}
+
+    Let \( \mathcal{B}_{\alpha} = \left\{ \varphi_{\alpha}^{-1}(V) : V \subseteq \varphi_{\alpha}(U_{\alpha}), V \text{ is open} \right\} \) and \( \mathcal{B} = \bigcup_{\alpha} \mathcal{B}_{\alpha} \). Then the collection \( \mathcal{B} \) covers \( M \).
+
+    According to (iii) and (ii), \( {(\varphi_{\beta} \circ \varphi_{\alpha}^{-1})}^{-1}(W) \) is open in \( \varphi_{\alpha}(U_{\alpha} \cap U_{\beta}) \) and open in \( \mathbb{R}^{n} \) or \( \mathbb{H}^{n} \).
+    \begingroup
+    \allowdisplaybreaks
+    \begin{align*}
+        \varphi_{\alpha}^{-1}(V) \cap \varphi_{\beta}^{-1}(W) & = \varphi_{\alpha}^{-1}(V) \cap \varphi_{\alpha}^{-1}(\varphi_{\alpha}(\varphi_{\beta}^{-1}(W)))               \\
+                                                              & = \varphi_{\alpha}^{-1}(V) \cap \varphi_{\alpha}^{-1}({(\varphi_{\beta} \circ \varphi_{\alpha}^{-1})}^{-1}(W)) \\
+                                                              & = \varphi_{\alpha}^{-1}(V \cap {(\varphi_{\beta} \circ \varphi_{\alpha}^{-1})}^{-1}(W)) \in \mathcal{B}.
+    \end{align*}
+    \endgroup
+
+    Hence \( \mathcal{B} \) is a basis for a topology on \( M \). (iv) and the second-countability of \( \mathbb{R}^{n} \) and \( \mathbb{H}^{n} \) and Proposition A.22 imply \( M \) is second-countable. (v) implies \( M \) is Hausdorff. (i) and the topology given by the basis \( \mathcal{B} \) imply \( \varphi_{\alpha} \) is a homeomorphism from \( U_{\alpha} \) onto its image. Therefore \( M \) is a topological \( n \)-manifold with boundary. Moreover, (iii) implies \( M \) is a smooth \(n\)-manifold with boundary.
+
+    Suppose \( \mathcal{A} \) is smooth structure on \( M \) for which each \( (U_{\alpha}, \varphi_{\alpha}) \) is a smooth chart. Let \( U \) be an open subset of \( M \) then \( U \cap U_{\alpha} \) is an open subset of \( U_{\alpha} \), so \( U \cap U_{\alpha} \in \mathcal{B}_{\alpha} \). It follows that \( U \in \mathcal{B} \). Hence the topology on \( M \) is the same as which is induced by the basis \( \mathcal{B} \). Because \( \{(U_{\alpha}, \varphi_{\alpha})\} \) is a smooth atlas then it is contained in a unique smooth structure.
+\end{proof}
+
+\begin{exercise}{1.44}
+    Suppose \( M \) is a smooth \( n \)-manifold with boundary and \( U \) is an open subset of \( M \). Prove the following statements:
+    \begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+        \item \( U \) is a topological \( n \)-manifold with boundary, and the atlas consisting of all smooth charts \( (V, \varphi) \) for \( M \) such that \( V \subseteq U \) defines a smooth structure on \( U \). With this topology and smooth structure, \( U \) is called an \textbf{\emph{open submanifold with boundary}}.
+        \item If \( U \subseteq \operatorname{Int} M \), then \( U \) is actually a smooth manifold (without boundary); in this case we call it an \textbf{\emph{open submanifold of \( M \)}}.
+        \item \( \operatorname{Int} M \) is an open submanifold of \( M \) (without boundary).
+    \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+        \item With the subspace topology, \( U \) is Hausdorff and second-countable.
+
+              All smooth charts \( (V, \varphi) \) for \( M \) such that \( V \subseteq U \) are smoothly compatible. For every \( p \in U \), there is a smooth chart \( (W, \psi) \) for \( M \) such that \( p \in W \). The restriction \( (U \cap W, \psi\vert_{U \cap W}) \) is a chart for \( M \), its coordinate domain is a subset of \( U \). Thus the atlas consisting of all smooth charts \( (V, \varphi) \) for \( M \) such that \( V \subseteq U \) is a smooth atlas, hence defines a smooth structure on \( U \).
+        \item Let \( (V, \varphi) \) be a smooth chart for \( M \) such that \( V \subseteq U \). Then \( V \subseteq \operatorname{Int} M \).
+
+              If \( \varphi(V) \cap \partial \mathbb{H}^{n} \ne \varnothing \) then \( V \) contains a boundary point, which is a contradiction for \( \operatorname{Int} M \) consists of interior points of \( M \) and the theorem on the topological invariance of boundary. Therefore \( \varphi(V) \cap \partial \mathbb{H}^{n} = \varnothing \) and \( \varphi(V) \) is an open subset of \( \mathbb{R}^{n} \).
+
+              Thus \( U \) is a smooth \(n\)-manifold.
+        \item This is a direct consequence of (b) for \( \operatorname{Int} M \subseteq \operatorname{Int} M \) and \( \operatorname{Int} M \) is an open subset of \( M \).
+    \end{enumerate}
+\end{proof}
+
+\section{Problems}
+
+\begin{problem}{1-1}
+Let \( X \) be the set of all points \( (x, y) \in \mathbb{R}^{2} \) such that \( y = \pm 1 \), and let \( M \) be the quotient of \( X \) by the equivalence relation generated by \( (x, -1) \sim (x, 1) \) for all \( x \ne 0 \). Show that \( M \) is locally Euclidean and second-countable, but not Hausdorff. (This space is called the \textbf{\emph{line with two origins}}.)
+\end{problem}
+
+\begin{proof}
+    Let \( q: \mathbb{R} \times \left\{ \pm 1 \right\} \to M \) be the quotient map that induces \( M \).
+
+    We will show that \( q \) is also an open map.
+
+    Let \( U \subseteq \mathbb{R} \) be an open set, then \( U \times \left\{ 1 \right\} \) and \( U \times \left\{ -1 \right\} \) are open in \( \mathbb{R} \times \left\{ \pm 1 \right\} \). If \( 0 \notin U \) then
+    \[
+        q^{-1}(q(U \times \left\{ 1 \right\})) = U \times \left\{ \pm 1 \right\}; \qquad q^{-1}(q(U \times \left\{ -1 \right\})) = U \times \left\{ \pm 1 \right\}
+    \]
+
+    which are open in \( \mathbb{R} \times \left\{ \pm 1 \right\} \), so \( q(U \times \left\{ 1 \right\}) \) and \( q(U \times \left\{ -1 \right\}) \) are open as \( q \) is a quotient map. Otherwise, \( 0 \in U \), then the sets
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+        q^{-1}(q(U \times \left\{ 1 \right\}))  & = U \times \left\{ 1 \right\} \cup (U \setminus \left\{ 0 \right\}) \times \left\{ -1 \right\}, \\
+        q^{-1}(q(U \times \left\{ -1 \right\})) & = U \times \left\{ -1 \right\} \cup (U \setminus \left\{ 0 \right\}) \times \left\{ 1 \right\}
+    \end{align*}
+    \endgroup
+
+    are open in \( \mathbb{R} \times \left\{ \pm 1 \right\} \). As \( q \) is a quotient map, \( q(U \times \left\{ 1 \right\}), q(U \times \left\{ -1 \right\}) \) are open.
+
+    Now let \( V \) be an open subset of \( \mathbb{R} \times \left\{ \pm 1 \right\} \) then \( V \cap (\mathbb{R} \times \left\{ 1 \right\}) \) and \( V \cap (\mathbb{R} \times \left\{ -1 \right\}) \) are open. The canonical projection \( p_{1}: \mathbb{R}^{2} \to \mathbb{R} \) is an open map so
+    \[
+        V_{+} = p_{1}(V \cap (\mathbb{R} \times \left\{ 1 \right\})); \qquad V_{-} = p_{1}(V \cap (\mathbb{R} \times \left\{ -1 \right\}))
+    \]
+
+    are open in \( \mathbb{R} \). We have \( V = V_{+} \times \left\{ 1 \right\} \cup V_{-} \times \left\{ -1 \right\} \) so \( q(V) \) is open in \( M \). Hence \( q \) is an open map.
+
+    \( X = \mathbb{R} \times \left\{ \pm 1 \right\} \) is second-countable, \( q \) is an open quotient map, so \( M = q(X) \) is also second-countable.
+
+    For every \( x \in \mathbb{R} \), \( q((x, 1)) \) has a neighborhood \( q(\mathbb{R} \times \left\{ 1 \right\}) \), which is homeomorphic to \( \mathbb{R}^{1} \). Similarly, \( q((x, -1)) \) has a neighborhood \( q(\mathbb{R} \times \left\{ -1 \right\}) \), which is homeomorphic to \( \mathbb{R}^{1} \). Hence \( M \) is locally Euclidean of dimension \( 1 \).
+
+    Consider two points \( q((0, 1)) \) and \( q((0, -1)) \). Let \( U_{+} \) be a neighborhood of \( q((0, 1)) \) and \( U_{-} \) be a neighborhood of \( q((0, -1)) \), then \( q^{-1}(U_{+}) \) is a neighborhood of \( (0, \pm 1) \) and so is \( q^{-1}(U_{-}) \). Hence \( q^{-1}(U_{+} \cap U_{-}) = q^{-1}(U_{+}) \cap q^{-1}(U_{-}) \ne \varnothing \), which means \( U \cap U_{-} \ne \varnothing \). Therefore \( M \) is not Hausdorff.
+\end{proof}
+
+\begin{problem}{1-2}
+Show that a disjoint union of uncountably many copies of \( \mathbb{R} \) is locally Euclidean and Hausdorff, but not second-countable.
+\end{problem}
+
+\begin{proof}
+    Let \( \mathscr{A} \) be an uncountable set, then \( \biguplus_{a \in \mathscr{A}} \mathbb{R} \times \left\{ a \right\} \) is a disjoint union of uncountably many copies of \( \mathbb{R} \).
+
+    The disjoint union of Hausdorff spaces is again Hausdorff, so \( \biguplus_{a \in \mathscr{A}} \mathbb{R} \times \left\{ a \right\} \) is Hausdorff.
+
+    For every \( x \in \biguplus_{a \in \mathscr{A}} \mathbb{R} \times \left\{ a \right\} \), there exists \( a \in \mathscr{A} \) such that \( x \in \mathbb{R} \times \left\{ a \right\} \). The set \( \mathbb{R} \times \left\{ a \right\} \) is a neighborhood of \( x \) and it is homeomorphic to \( \mathbb{R}^{1} \) so \( \biguplus_{a \in \mathscr{A}} \mathbb{R} \times \left\{ a \right\} \) is locally Euclidean of dimension \( 1 \).
+
+    Let \( \mathscr{B} \) be a basis for the topology of \( \biguplus_{a \in \mathscr{A}} \mathbb{R} \times \left\{ a \right\} \). For every \( a \in \mathscr{A} \), \( \mathbb{R} \times \left\{ a \right\} \) contains an element \( B_{a} \) of \( \mathscr{B} \). Therefore \( \mathscr{B} \) is uncountable, so \( \biguplus_{a \in \mathscr{A}} \mathbb{R} \times \left\{ a \right\} \) is not second-countable.
+\end{proof}
+
+\begin{problem}{1-3}
+A topological space is said to be \textbf{\emph{\( \boldsymbol\sigma \)-compact}} if it can be expressed as a union of countably many compact subspaces. Show that a locally Euclidean Hausdorff space is a topological manifold if and only if it is \( \sigma \)-compact.
+\end{problem}
+
+\begin{proof}
+    Let \( M \) be a locally Euclidean Hausdorff space of dimension \( n \).
+
+    Suppose \( M \) is a topological manifold. Then \( M \) has a countable basis of precompact open sets, hence \( M \) is \( \sigma \)-compact.
+
+    Suppose \( M \) is \( \sigma \)-compact then there exists a countable collection \( \mathscr{K} \) of compact subspaces of which union is \( M \). Every point \( p \) of \( M \) has an open neighborhood \( B_{p} \) which is a coordinate ball. Let \( \mathscr{B} \) be the collection of \( B_{p} \)'s. For every \( K \in \mathscr{K} \), there are finitely many coordinate domains in \( \mathscr{B} \) which cover \( K \), denote the collection of such coordinate domains by \( \mathscr{B}_{K} \). Hence \( \bigcup_{K \in \mathscr{K}} \mathscr{B}_{K} \) is a countable collection of coordinate domains. Moreover, \textit{every coordinate domain is second-countable}, so \( M \) is second-countable, according to Exercise A.22 (see Appendix A). Thus \( M \) is a topological manifold.
+\end{proof}
+
+\begin{problem}{1-4}
+Let \( M \) be a topological manifold, and let \( \mathcal{U} \) be an open cover of \( M \).
+\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+    \item Assuming that each set in \( \mathcal{U} \) intersects only finitely many others, show that \( \mathcal{U} \) is locally finite.
+    \item Give an example to show that the converse to (a) may be false.
+    \item Now assume that the sets in \( \mathcal{U} \) are precompact in \( M \), and prove the converse: if \( \mathcal{U} \) is locally finite, then each set in \( \mathcal{U} \) intersects only finitely many others.
+\end{enumerate}
+\end{problem}
+
+\begin{quotation}
+    We don't use the hypothesis that \( M \) be a topological manifold. A topological space is sufficient.
+
+    The property in (a) is called \textbf{\emph{star-finiteness}}.
+\end{quotation}
+
+\begin{proof}
+    \begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+        \item For every point \( p \) in \( M \), there exists \( U \) in \( \mathcal{U} \) containing \( p \). Moreover, \( U \) intersects only finitely many other open sets in \( \mathcal{U} \). By this virtue of the open cover \( \mathcal{U} \), we deduce that it is locally finite.
+        \item In \( \mathbb{R}^{n} \), define \( U_{k} = \mathbb{R}^{n-1} \times \left\rbrack -\infty, k \right\lbrack \), then \( {\left\{U_{k}\right\}}_{k=1}^{\infty} \) is a locally finite open cover. However, each \( U_{k} \) intersects infinitely many others (in fact, all the others).
+        \item Let \( A \in \mathcal{U} \) then \( \overline{A} \) is compact. For every \( p \in \overline{A} \), there exists a neighborhood \( N_{p} \) that intersects only finitely many sets in \( \mathcal{U} \). The collection \( {\left\{ N_{p} \right\}}_{p \in \overline{A}} \) is an open cover of the compact set \( \overline{A} \) so it has a finite subcover. Hence there are \( p_{1}, \ldots, p_{k} \in \overline{A} \) such that \( \bigcup_{i=1}^{k} N_{p_{i}} \) contains \( \overline{A} \). Since \( \bigcup_{i=1}^{k} N_{p_{i}} \) intersects only finitely many sets in \( \mathcal{U} \) then so do \( \overline{A} \) and \( A \). Thus \( \mathcal{U} \) is star-finite.
+    \end{enumerate}
+\end{proof}
+
+\begin{problem}{1-5}
+Suppose \( M \) is a locally Euclidean Hausdorff space. Show that \( M \) is second-countable if and only if it is paracompact and has countably many connected components. [Hint: assuming \( M \) is paracompact, show that each component of \( M \) has a locally finite cover by precompact coordinate domains, and extract from this a countable subcover.]
+\end{problem}
+
+\begin{proof}
+    Suppose \( M \) is second-countable, then \( M \) is a topological manifold. According to Proposition 1.11 (d), \( M \) has countably many connected components. According to Theorem 1.15, \( M \) is paracompact.
+
+    Conversely, suppose \( M \) is paracompact and has countably many connected components. \( M \) is locally path-connected so every connected component of \( M \) is open.
+
+    Let \( C \) be a connected component of \( M \). Every point \( p \) of \( C \) is contained in the domain of some coordinate chart \( (U, \varphi) \). In \( \varphi(U) \), there exists an open ball \( B_{r^{\prime}}(\varphi(p)) \subseteq \varphi(U) \). Let \( r \) be a positive number that is strictly less than \( r^{\prime} \), then \( \varphi^{-1}(B_{r}(\varphi(p))) \) is mapped homeomorphically onto \( B_{r}(\varphi(p)) \). Because \( B_{r}(\varphi(p)) \) is precompact in \( \varphi(U) \), its preimage under the homeomorphism \( \varphi \) is precompact in \( U \). Moreover, \( M \) is Hausdorff so every compact subset of it is closed, from this, we deduce that \( \varphi^{-1}(B_{r}(\varphi(p))) \) is precompact in \( M \). Therefore every point \( p \) is in a precompact coordinate domain.
+
+    We show that \( C \) is paracompact. Every connected component of a topological space is closed so \( C \) is closed in \( M \). Let \( {(U_{\alpha})}_{\alpha \in \mathscr{A}} \) be an open covering of \( C \). Since \( U_{\alpha} \) is open in \( C \) then there exists \( V_{\alpha} \) open in \( M \) such that \( U_{\alpha} = C \cap V_{\alpha} \). The collection \( {(V_{\alpha})}_{\alpha \in \mathscr{A}} \cup (M \smallsetminus C) \) is an open covering of \( M \) so it has a locally finite open refinement \( {(W_{\beta})}_{\beta \in \mathscr{B}} \). By omitting open sets in \( {(W_{\beta})}_{\beta \in \mathscr{B}} \) which are contained in \( M \smallsetminus C \) and then take the intersections one-by-one with \( C \), we obtain a locally finite open refimement of \( {(U_{\alpha})}_{\alpha \in \mathscr{A}} \). Hence \( C \) is paracompact.
+
+    \( C \) has a covering consisting of precompact coordinate domains and \( C \) is paracompact so this covering has a locally finite open refinement. This locally finite open refinement also consists of precompact coordinate domains. According to Problem 1-4, this refinement is also star-finite. Denote the star-finite covering by \( \mathcal{B} \).
+
+    Now we prove two properties of the open covering \( \mathcal{B} \):
+    \begin{itemize}
+        \item If \( \mathcal{B} \) is an open covering of a connected topological space \( M \) then for every \( B, B^{\prime} \in \mathcal{B} \), there exists a finite sequence \( B_{0}, B_{1}, \ldots, B_{n} \) in \( \mathcal{B} \) such that \( B = B_{0}, B^{\prime} = B_{n} \) and \( B_{i-1} \cap B_{i} \ne \varnothing \) for every \( 1 \le i \le n \).
+
+              On \( \mathcal{B} \), we define a relation \( \sim \) that \( B \sim B^{\prime} \) iff there exists a finite sequence \( B_{0}, B_{1}, \ldots, B_{n} \) in \( \mathcal{B} \) such that \( B = B_{0}, B^{\prime} = B_{n} \) and \( B_{i-1} \cap B_{i} \ne \varnothing \) for every \( 1 \le i \le n \). Evidently, this is an equivalence relation. If this equivalence relation has multiple equivalence classes then the topological space \( M \) is not connected as it is the disjoint union of open sets, each of which is the union of an equivalence class. Hence there is exactly one equivalence class, and the result follows.
+        \item If \( \mathcal{B} \) is a star-finite open covering of a connected space \( M \) then \( \mathcal{B} \) is countable.
+
+              Pick an arbitrary \( U \in \mathcal{B} \) and let \( \mathcal{V}_{1} = \left\{ U \right\} \).
+
+              For every integer \( j > 1 \), let \( \mathcal{V}_{j} = \left\{ B \in \mathcal{B} : B \cap V \ne \varnothing \text{ for some } V \in \mathcal{V}_{j-1} \right\} \).
+
+              By induction, \( \mathcal{V}_{j} \) is finite for every positive integer \( j \), so \( \bigcup_{j=1}^{\infty} \mathcal{V}_{j} \) is countable.
+
+              Let \( B \in \mathcal{B} \). According to the previous property, there exists a finite sequence \( B_{0}, B_{1}, \ldots, B_{n} \) such that \( U = B_{0}, B = B_{n} \) and \( B_{i-1} \cap B_{i} \ne \varnothing \) for every \( 1 \le i \le n \). Therefore \( B = B_{n} \in \mathcal{V}_{n} \), which means \( B \in \bigcup_{j=1}^{\infty} \mathcal{V}_{j} \). Hence \( \mathcal{B} \subseteq \bigcup_{j=1}^{\infty} \mathcal{V}_{j} \).
+
+              Together with \( \bigcup_{j=1}^{\infty} \mathcal{V}_{j} \subseteq \mathcal{B} \), we conclude that \( \mathcal{B} = \bigcup_{j=1}^{\infty} \mathcal{V}_{j} \), so \( \mathcal{B} \) is countable.
+    \end{itemize}
+
+    Using the above two properties, we deduce that \( \mathcal{B} \) is countable, so \( C \) has a countable open covering of precompact sets. \( M \) has countably many components so it has a countable open covering of precompact sets, which implies \( M \) is \( \sigma \)-compact. According to Problem 1-3, \( M \) is a topological manifold, hence second-countable.
+\end{proof}
+
+\begin{problem}{1-6}
+Let \( M \) be a nonempty topological manifold of dimension \( n \ge 1 \). If \( M \) has a smooth structure, show that it has uncountably many distinct ones. [Hint: first show that for any \( s > 0 \), \( F_{s}(x) = {\left\Vert x \right\Vert}^{s-1} x \) defines a homeomorphism from \( \mathbb{B}^{n} \) to itself, which is a diffeomorphism if and only if \( s = 1 \). Interpret the formula for \( F_{s} \) to mean \( F_{s}(0) = 0 \).]
+\end{problem}
+
+\begin{proof}
+    For every \( s > 0 \), we define \( F_{s}: \mathbb{B}^{n} \to \mathbb{B}^{n} \) as follows:
+    \[
+        F_{s}(x) = \begin{cases}
+            {\left\Vert x \right\Vert}^{s-1} x & x \ne 0 \\
+            0                                  & x = 0
+        \end{cases}
+    \]
+
+    The map \( F_{s} \) is continuous on \( \mathbb{B}^{n} \smallsetminus \left\{0\right\} \). Moreover
+    \[
+        \lim\limits_{\left\Vert x \right\Vert \to 0} {\left\Vert x \right\Vert}^{s-1} x = 0
+    \]
+
+    because for every \( \varepsilon > 0, 0 < \left\Vert x \right\Vert < \varepsilon^{1/s} \implies \left\Vert {\left\Vert x \right\Vert}^{s-1} x \right\Vert = {\left\Vert x \right\Vert}^{s} < \varepsilon \). So \( F_{s} \) is continuous at \( 0 \), hence it is continuous.
+
+    We can also verify that \( F_{1} = \operatorname{Id}_{\mathbb{B}^{n}}, F_{t} \circ F_{s} = F_{ts} \) and \( F_{s}^{-1} = F_{1/s} \) for every \( s, t > 0 \), so \( F_{s} \) is a homeomorphism for every \( s > 0 \). Not only that, \( F_{s} \) is smooth everywhere but \( 0 \), for every \( s \ne 1 \).
+
+    According to Proposition 1.17, \( M \) has a \emph{basis} consisting of smooth coordinate domains, which is also a smooth atlas \( \mathcal{A} \).
+
+    Let \( (U, \phi) \) be a smooth coordinate chart in \( \mathcal{A} \). For every \( x \in \phi(U) \), there is an open ball \( B_{\varepsilon}(x) \subseteq \phi(U) \) so \( (\widetilde{U}, \widetilde{\phi}) \) is a coordinate chart where \( \widetilde{U} \) is the preimage of \( B_{\varepsilon}(x) \) under \( \phi \) and \( \widetilde{\phi} \) is the restriction of \( \phi \) to \( \widetilde{U} \).
+
+    We can assume without loss of generality that \( B_{\varepsilon}(x) = B_{1}(0) \) because translations and homotheties in Euclidean spaces are smooth functions. Denote \( p = \phi^{-1}(0) \) then \( M \smallsetminus \left\{ p \right\} \) is open as the manifold is Hausdorff. For every \( q \ne p \), there is a smooth coordinate chart \( (V_{q}, \psi_{q}) \in \mathcal{A} \) such that \( V \subseteq M \smallsetminus \left\{ p \right\} \). The new collection of charts \( (V_{q}, \psi_{q}) \)'s and \( (\widetilde{U}, \widetilde{\phi}) \) is a smooth atlas \( \widetilde{\mathcal{A}} \) that determines the same smooth structure as \( \mathcal{A} \).
+
+    For every \( s > 0 \), replace \( (\widetilde{U}, \widetilde{\phi}) \) with \( (\widetilde{U}, F_{s} \circ \widetilde{\phi}) \), we obtain another smooth atlas \( \widetilde{\mathcal{A}}_{s} \). The chart \( (\widetilde{U}, F_{s} \circ \widetilde{\phi}) \) is smoothly compatible with \( (V_{q}, \psi_{q}) \) because \( F_{s} \) is smooth on \( \mathbb{B}^{n} \smallsetminus \left\{0\right\} \).
+
+    However, \( \widetilde{\mathcal{A}}_{s} \) and \( \widetilde{\mathcal{A}}_{t} \) determine that same smooth structure iff \( (\widetilde{U}, F_{s} \circ \widetilde{\phi}) \) and \( (\widetilde{U}, F_{t} \circ \widetilde{\phi}) \) are smoothly compatible, which means \( (F_{t} \circ \widetilde{\phi}) \circ {(F_{s} \circ \widetilde{\phi})}^{-1} = F_{t/s} \) and \( (F_{s} \circ \widetilde{\phi}) \circ {(F_{t} \circ \widetilde{\phi})}^{-1} = F_{s/t} \) are smooth, which is the case if and only if \( s = t \). Besides, \( \widetilde{\mathcal{A}}_{1} \) and \( \widetilde{\mathcal{A}} \) determine the same smooth structure.
+
+    As \( \left\{ s > 0 \right\} \) is uncountable, there are uncountably many different smooth structures on the smooth manifold \( M \).
+\end{proof}
+
+\begin{problem}{1-7}
+Let \( N \) denote the \textbf{\emph{north pole}} \( (0, \ldots, 0, 1) \in \mathbb{S}^{n} \subseteq \mathbb{R}^{n+1} \), and let \( S \) denote the \textbf{\emph{south pole}} \( (0, \ldots, 0, -1) \). Define the \textbf{\emph{stereographic projection}} \( \sigma: \mathbb{S}^{n} \smallsetminus \left\{N\right\} \to \mathbb{R}^{n} \) by
+\[
+    \sigma(x^{1}, \ldots, x^{n+1}) = \dfrac{(x^{1}, \ldots, x^{n})}{1 - x^{n+1}}.
+\]
+
+Let \( \widetilde{\sigma}(x) = -\sigma(-x) \) for \( x \in \mathbb{S}^{n} \smallsetminus \left\{S\right\} \).
+
+\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+    \item For any \( x \in \mathbb{S}^{n} \smallsetminus \left\{N\right\} \), show that \( \sigma(x) = u \), where \( (u, 0) \) is the point where the line through \( N \) and \( x \) intersects the linear subspace where \( x^{n+1} = 0 \). Similarly, show that \( \widetilde{\sigma}(x) \) is the point where the line through \( S \) and \( x \) intersects the same subspace. (For this reason, \( \widetilde{\sigma} \) is called \textbf{\emph{stereographic projection from the south pole}}.)
+    \item Show that \( \sigma \) is bijective, and
+          \[
+              \sigma^{-1}(u^{1}, \ldots, u^{n}) = \dfrac{(2u^{1}, \ldots, 2u^{n}, {\left\Vert u \right\Vert}^{2} - 1)}{{\left\Vert u \right\Vert}^{2} + 1}.
+          \]
+    \item Compute the transition map \( \widetilde{\sigma} \circ \sigma^{-1} \) and verify that the atlas consisting of two charts \( (\mathbb{S}^{n} \smallsetminus \left\{N\right\}, \sigma) \) and \( (\mathbb{S}^{n} \smallsetminus \left\{S\right\}, \widetilde{\sigma}) \) defines a smooth structure on \( \mathbb{S}^{n} \). (The coordinates defined by \( \sigma \) or \( \widetilde{\sigma} \) are called \textbf{\emph{stereographic coordinates}}.)
+    \item Show that this smooth structure is the same as the one defined in Example 1.31.
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+    \begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+        \item The points on the line through \( N \) and \( x \) are parametrized by \( (1 - t) N + t x \). The intersection of this line and the linear subspace \( x^{n+1} = 0 \) satisfies \( (1 - t) 1 + t x^{n+1} = 0 \). Solving for \( t \), we obtain \( t = \dfrac{1}{1 - x^{n+1}} \). Hence the intersection has coordinates
+              \[
+                  \left( \dfrac{x^{1}}{1 - x^{n+1}}, \ldots, \dfrac{x^{n}}{1 - x^{n+1}}, 0 \right) = (\sigma(x), 0).
+              \]
+
+              Now we turn to \( \widetilde{\sigma} \).
+              \[
+                  \widetilde{\sigma}(x) = -\sigma(-x) = -\dfrac{(-x^{1}, \ldots, -x^{n})}{1 + x^{n+1}} = \dfrac{(x^{1}, \ldots, x^{n})}{1 + x^{n+1}} = (1 - t) S + tx
+              \]
+
+              where \( t = \dfrac{1}{1 + x^{n+1}} \) so \( S, x, (\widetilde{\sigma}(x), 0) \) are collinear.
+        \item Let \( (u, 0) \in \mathbb{R}^{n+1} \), we will find \( x \in \mathbb{S}^{n} \smallsetminus \left\{ N \right\} \) such that \( N, x, (u, 0) \) are collinear. This is the case if and only if the two vectors \( (x^{1}, \ldots, x^{n}, x^{n+1} - 1) \) and \( (u^{1}, \ldots, u^{n}, -1) \) are proportional, in other words
+              \[
+                  u^{1} = \dfrac{x^{1}}{1 - x^{n+1}}, \ldots, u^{n} = \dfrac{x^{n}}{1 - x^{n+1}}.
+              \]
+
+              We have
+              \[
+                  {\left\Vert u \right\Vert}^{2} = \sum_{i=1}^{n} {(u^{i})}^{2} = \sum_{i=1}^{n} \dfrac{{(x^{i})}^{2}}{{(1 - x^{n+1})}^{2}} = \dfrac{1 - {(x^{n+1})}^{2}}{{(1 - x^{n+1})}^{2}} = \dfrac{1 + x^{n+1}}{1 - x^{n+1}}
+              \]
+
+              so
+              \[
+                  x^{n+1} = \dfrac{{\left\Vert u \right\Vert}^{2} - 1}{{\left\Vert u \right\Vert}^{2} + 1}; x^{i} = \dfrac{2u^{i}}{{\left\Vert u \right\Vert}^{2} + 1} \text{ if } 1 \le i \le n.
+              \]
+
+              Hence \( \sigma \) is bijective and
+              \[
+                  \sigma^{-1}(u) = \dfrac{(2u^{1}, \ldots, 2u^{n}, {\left\Vert u \right\Vert}^{2} - 1)}{{\left\Vert u \right\Vert}^{2} + 1}.
+              \]
+
+              Similarly, \( \widetilde{\sigma} \) is bijective and
+              \[
+                  \widetilde{\sigma}^{-1}(u) = \dfrac{(2u^{1}, \ldots, 2u^{n}, 1 - {\left\Vert u \right\Vert}^{2})}{{\left\Vert u \right\Vert}^{2} + 1}.
+              \]
+
+              Two maps \( \sigma, \widetilde{\sigma} \) are homeomorphisms.
+        \item The transition maps \( \widetilde{\sigma} \circ \sigma^{-1} \) and \( \sigma \circ \widetilde{\sigma}^{-1} \) are homeomorphisms from \( \mathbb{R}^{n} \smallsetminus \left\{0\right\} \) onto \( \mathbb{R}^{n} \smallsetminus \left\{0\right\} \). The transition maps
+              \[
+                  \widetilde{\sigma} \circ \sigma^{-1}(u) = \dfrac{u}{{\left\Vert u \right\Vert}^{2}} \qquad \sigma \circ \widetilde{\sigma}^{-1}(u) = \dfrac{u}{{\left\Vert u \right\Vert}^{2}}
+              \]
+
+              are smooth. Hence the two charts \( (\mathbb{S}^{n} \smallsetminus \left\{N\right\}, \sigma), (\mathbb{S}^{n} \smallsetminus \left\{S\right\}, \widetilde{\sigma}) \) comprises a smooth atlas for \( \mathbb{S}^{n} \).
+        \item Let's remind the smooth structure defined in Example 1.31.
+
+              For every \( 1 \le i \le n \), we define \( U_{i}^{+} = \left\{ x \in \mathbb{S}^{n}: x^{i} > 0 \right\} \), \( U_{i}^{-} = \left\{ x \in \mathbb{S}^{n}: x^{i} < 0 \right\} \) and
+              \begingroup
+              \allowdisplaybreaks
+              \begin{align*}
+                  \varphi_{i}^{+}: & \, U_{i}^{+} \to \mathbb{B}^{n}                              \\
+                                   & x \mapsto (x^{1}, \ldots, \widehat{x^{i}}, \ldots, x^{n+1}); \\
+                  \varphi_{i}^{-}: & \, U_{i}^{-} \to \mathbb{B}^{n}                              \\
+                                   & x \mapsto (x^{1}, \ldots, \widehat{x^{i}}, \ldots, x^{n+1}).
+              \end{align*}
+              \endgroup
+
+              The charts \( \left\{ (U_{i}^{\pm}, \varphi_{i}^{\pm}) \right\} \) comprise a smooth atlas for \( \mathbb{S}^{n} \). We will check whether \( (\mathbb{S}^{n} \smallsetminus \left\{ N \right\}, \sigma) \) and \( (\mathbb{S}^{n} \smallsetminus \left\{ S \right\}, \widetilde{\sigma}) \) are smoothly compatible with the given smooth charts in Example 1.31.
+
+              If \( i < n + 1 \)
+              \begingroup
+              \allowdisplaybreaks
+              \begin{align*}
+                  \varphi_{i}^{\pm} \circ \sigma^{-1}(u)                 & = \varphi_{i}^{\pm}\left( \dfrac{2 u^{1}}{{\left\Vert u \right\Vert}^{2} + 1}, \ldots, \dfrac{2 u^{n}}{{\left\Vert u \right\Vert}^{2} + 1}, \dfrac{{\left\Vert u \right\Vert}^{2} - 1}{{\left\Vert u \right\Vert}^{2} + 1} \right) = \dfrac{(2 u^{1}, \ldots, \widehat{2 u^{i}}, \ldots, 2 u^{n}, {\left\Vert u \right\Vert}^{2} - 1)}{{\left\Vert u \right\Vert}^{2} + 1} \\
+                  \varphi_{i}^{\pm} \circ \widetilde{\sigma}^{-1}(u)     & = \varphi_{i}^{\pm}\left( \dfrac{2 u^{1}}{{\left\Vert u \right\Vert}^{2} + 1}, \ldots, \dfrac{2 u^{n}}{{\left\Vert u \right\Vert}^{2} + 1}, \dfrac{1 - {\left\Vert u \right\Vert}^{2}}{{\left\Vert u \right\Vert}^{2} + 1} \right) = \dfrac{(2 u^{1}, \ldots, \widehat{2 u^{i}}, \ldots, 2 u^{n}, 1 - {\left\Vert u \right\Vert}^{2})}{{\left\Vert u \right\Vert}^{2} + 1} \\
+                  \sigma \circ {(\varphi_{i}^{\pm})}^{-1}(u)             & = \sigma\left(\underbrace{u^{1}, \ldots, \pm\sqrt{1 - {\left\Vert u \right\Vert}^{2}}}_{i}, u^{i}, \ldots, u^{n}\right) = \dfrac{\left(\underbrace{u^{1}, \ldots, \pm\sqrt{1 - {\left\Vert u \right\Vert}^{2}}}_{i}, u^{i}, \ldots, u^{n-1}\right)}{1 - u^{n}}                                                                                                             \\
+                  \widetilde{\sigma} \circ {(\varphi_{i}^{\pm})}^{-1}(u) & = \widetilde{\sigma}\left(\underbrace{u^{1}, \ldots, \pm\sqrt{1 - {\left\Vert u \right\Vert}^{2}}}_{i}, u^{i}, \ldots, u^{n}\right) = \dfrac{\left(\underbrace{u^{1}, \ldots, \pm\sqrt{1 - {\left\Vert u \right\Vert}^{2}}}_{i}, u^{i}, \ldots, u^{n-1}\right)}{1 + u^{n}}
+              \end{align*}
+              \endgroup
+
+              and if \( i = n + 1 \)
+              \begingroup
+              \allowdisplaybreaks
+              \begin{align*}
+                  \varphi_{n+1}^{\pm} \circ \sigma^{-1}(u)                 & = \varphi_{n+1}^{\pm} \left( \dfrac{2 u^{1}}{{\left\Vert u \right\Vert}^{2} + 1}, \ldots, \dfrac{2 u^{n}}{{\left\Vert u \right\Vert}^{2} + 1}, \dfrac{{\left\Vert u \right\Vert}^{2} - 1}{{\left\Vert u \right\Vert}^{2} + 1} \right) = \dfrac{(2 u^{1}, \ldots, 2 u^{n})}{{\left\Vert u \right\Vert}^{2} + 1} \\
+                  \varphi_{n+1}^{\pm} \circ \widetilde{\sigma}^{-1}(u)     & = \varphi_{n+1}^{\pm} \left( \dfrac{2 u^{1}}{{\left\Vert u \right\Vert}^{2} + 1}, \ldots, \dfrac{2 u^{n}}{{\left\Vert u \right\Vert}^{2} + 1}, \dfrac{1 - {\left\Vert u \right\Vert}^{2}}{{\left\Vert u \right\Vert}^{2} + 1} \right) = \dfrac{(2 u^{1}, \ldots, 2 u^{n})}{{\left\Vert u \right\Vert}^{2} + 1} \\
+                  \sigma \circ {(\varphi_{n+1}^{\pm})}^{-1}(u)             & = \sigma\left(u^{1}, \ldots, u^{n}, \pm\sqrt{1 - {\left\Vert u \right\Vert}^{2}}\right) = \dfrac{(u^{1}, \ldots, u^{n})}{1 - \pm\sqrt{1 - {\left\Vert u \right\Vert}^{2}}}                                                                                                                                     \\
+                  \widetilde{\sigma} \circ {(\varphi_{n+1}^{\pm})}^{-1}(u) & = \sigma\left(u^{1}, \ldots, u^{n}, \pm\sqrt{1 - {\left\Vert u \right\Vert}^{2}}\right) = \dfrac{(u^{1}, \ldots, u^{n})}{1 + \pm\sqrt{1 - {\left\Vert u \right\Vert}^{2}}}
+              \end{align*}
+              \endgroup
+
+              All these transition maps are smooth, so \( (\mathbb{S}^{n} \smallsetminus \left\{ N \right\}, \sigma), (\mathbb{S}^{n} \smallsetminus \left\{ S \right\}, \widetilde{\sigma}) \) are smoothly compatible with every chart in \( {\left\{ (U_{i}^{\pm}, \varphi_{i}^{\pm}) \right\}} \). Thus this smooth structure is the same as the one defined in Example 1.31.
+    \end{enumerate}
+\end{proof}
+
+\begin{problem}{1-8}
+By identifying \( \mathbb{R}^{2} \) with \( \mathbb{C} \), we can think of the unit circle \( \mathbb{S}^{1} \) as a subset of the complex plane. An \textbf{\emph{angle function}} on a subset \( U \subseteq \mathbb{S}^{1} \) is a continuous function \( \theta: U \to \mathbb{R} \) such that \( \exp(i \theta(z)) = z \) for all \( z \in U \). Show that there exists an angle function \( \theta \) on an open subset \( U \subseteq \mathbb{S}^{1} \) if and only if \( U \ne \mathbb{S}^{1} \). For any such angle function, show that \( (U, \theta) \) is a smooth coordinate chart for \( \mathbb{S}^{1} \) with its standard smooth structure.
+\end{problem}
+
+\begin{proof}
+    % TODO
+\end{proof}
+
+\begin{problem}{1-9}
+\textbf{\emph{Complex projective \( n \)-space}}, denoted by \( \mathbb{CP}^{n} \), is the set of all \( 1 \)-dimensional complex-linear subspaces of \( \mathbb{C}^{n+1} \), with the quotient topology inherited from the natural projection \( \pi: \mathbb{C}^{n+1} \smallsetminus \left\{0\right\} \to \mathbb{CP}^{n} \). Show that \( \mathbb{CP}^{n} \) is a compact \( 2n \)-dimensional topological manifold, and show how to give it a smooth structure analogous to the one we constructed for \( \mathbb{RP}^{n} \). (We use the correspondence
+\[
+    (x^{1} + i y^{1}, \ldots, x^{n+1} + i y^{n+1}) \leftrightarrow (x^{1}, y^{1}, \ldots, x^{n+1}, y^{n+1})
+\]
+
+\noindent to identify \( \mathbb{C}^{n+1} \) with \( \mathbb{R}^{2n+2} \).)
+\end{problem}
+
+\begin{proof}
+\end{proof}
+
+\begin{problem}{1-10}
+Let \( k \) and \( n \) be integers satisfying \( 0 < k < n \), and let \( P, Q \subseteq \mathbb{R}^{n} \) be the linear subspaces spanned by \( (e_{1}, \ldots, e_{k}) \) and \( (e_{k+1}, \ldots, e_{n}) \) respectively, where \( e_{i} \) is the \(i\) th standard basis vector for \( \mathbb{R}^{n} \). For any \(k\)-dimensional subspace \( S \subseteq \mathbb{R}^{n} \) that has trivial intersection with \( Q \), show that the coordinate representation \( \varphi(S) \) constructed in Example 1.36 is the unique \( (n - k) \times k \) matrix \( B \) such that \( S \) is spanned by the columns of the matrix \( \dbinom{I_{k}}{B} \), where \( I_{k} \) denotes the \( k \times k \) identity matrix.
+\end{problem}
+
+\begin{proof}
+\end{proof}
+
+\begin{problem}{1-11}
+Let \( M = \overline{\mathbb{B}}^{n} \), the closed unit ball \( \mathbb{R}^{n} \). Show that \( M \) is a topological manifold with boundary in which each point in \( \mathbb{S}^{n-1} \) is a boundary point and each point in \( \mathbb{B}^{n} \) is an interior point. Show how to give it a smooth structure such that every smooth interior chart is a smooth chart for the standard smooth structure on \( \mathbb{B}^{n} \). [Hint: consider the map \( \pi \circ \sigma^{-1}: \mathbb{R}^{n} \to \mathbb{R}^{n} \), where \( \sigma: \mathbb{S}^{n} \to \mathbb{R}^{n} \) is the stereographic projection (Problem 1-7) and \( \pi \) is a projection from \( \mathbb{R}^{n+1} \) to \( \mathbb{R}^{n} \) that omits some coordinate other than the last.]
+\end{problem}
+
+\begin{proof}
+\end{proof}
+
+\begin{problem}{1-12}
+Prove Proposition 1.45. Suppose \( M_{1}, \ldots, M_{k} \) are smooth manifolds and \( N \) is a smooth manifold with boundary. Then \( M_{1} \times \cdots \times M_{k} \times N \) is a smooth manifold with boundary, and \( \partial (M_{1} \times \cdots \times M_{k} \times N) = M_{1} \times \cdots \times M_{k} \times \partial N \).
+\end{problem}
+
+\begin{proof}
+    Let \( \dim M_{i} = d_{i} \) and \( \dim N = d \).
+
+    \( M_{1} \times N \) is Hausdorff and second-countable. For every \( (p_{1}, p) \in M_{1} \times N \), there exist a smooth chart \( (U, \varphi) \) for \( M \) and a smooth chart \( (V, \psi) \) for \( N \) such that \( p_{1} \in U, p \in V \). Then \( (U \times V, \varphi \times \psi) \) is a coordinate chart for \( M_{1} \times N \).
+
+    Let \( (U_{\alpha}, \varphi_{\alpha}), (U_{\beta}, \varphi_{\beta}) \) be smooth charts for \( M \) and \( (V_{\alpha}, \psi_{\varphi}), (V_{\beta}, \psi_{\beta}) \) smooth charts for \( N \). Then the transition map \( (\varphi_{\beta} \times \psi_{\beta}) \circ {(\varphi_{\alpha} \times \psi_{\alpha})}^{-1} \) is smooth. Therefore \( M_{1} \times N \) is a smooth manifold with boundary.
+
+    Suppose \( x \) is a boundary point of \( M_{1} \times N \) then there exists a smooth boundary chart \( (U, \varphi) \) such that \( \varphi(U) \) is a relatively open subset of \( \mathbb{H}^{d_{1} + d} \), \( \varphi(U) \cap \partial \mathbb{H}^{d_{1} + d} \ne \varnothing \), and \( \varphi(p) \in \partial \mathbb{H}^{d_{1} + d} \). There exists a basic open set \( V \times W \) with \( V \subseteq M_{1}, W \subseteq N \) are smooth coordinate domains such that \( x \in V \times W \subseteq U \). Let \( (V, \psi) \) and \( (W, \theta) \) be the corresponding charts and \( x = (y_{1}, y) \). If \( (W, \theta) \) is an interior chart then \( x \) is an interior point with interior chart \( (V \times W, \psi \times \theta) \), which is a contradiction, so \( (W, \theta) \) is a boundary chart. If \( \theta(y) \notin \partial \mathbb{H}^{d} \) then \( y \) is an interior point, so \( x \) is an interior point, which is a contradiction. Hence \( \theta(y) \in \partial \mathbb{H}^{d} \), so \( x \in M_{1} \times \partial N \).
+
+    Conversely, if \( x = (y_{1}, y) \in M_{1} \times \partial N \) then there exist a smooth chart \( (U, \varphi) \) for \( M_{1} \) and \( (V, \psi) \) for \( N \) such that \( x \in U \times V \). Because \( \varphi(U) \) is an open subset of \( \mathbb{R}^{d_{1}} \) and \( \psi(V) \) is an open subset of \( \mathbb{H}^{d} \), then \( \varphi(U) \times \psi(V) \) is an open subset of \( \mathbb{R}^{d_{1}} \times \mathbb{H}^{d} \approx \mathbb{H}^{d_{1} + d} \). Moreover, \( \psi(y) \in \partial \mathbb{H}^{d} \) so \( (\varphi(y_{1}), \psi(y)) \in \partial \mathbb{H}^{d_{1} + d} \), hence \( x \) is a boundary point of \( M_{1} \times N \), which means \( x \in \partial (M_{1} \times N) \).
+
+    Hence \( \partial (M_{1} \times N) = M_{1} \times \partial N \).
+
+    \bigskip
+
+    Note that \( M_{1} \times \cdots \times M_{k} \) is a smooth manifold, so \( M_{1} \times \cdots \times M_{k} \times N \) is a smooth manifold with boundary and \( \partial (M_{1} \times \cdots \times M_{k} \times N) = M_{1} \times \cdots \times M_{k} \times \partial N \).
+\end{proof}
+
