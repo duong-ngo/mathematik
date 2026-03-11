@@ -11,6 +11,7 @@
 \usepackage{mathtools}
 \usepackage{mathrsfs}
 \usepackage{cases}
+\usepackage{appendix}
 
 \usepackage{fancyhdr}
 \usepackage{xcolor}
@@ -55,29 +56,6 @@
 \counterwithin{figure}{chapter}
 \counterwithin{table}{chapter}
 
-\newenvironment{sqcases}{%
-    \matrix@check\sqcases\env@sqcases
-}{%
-    \endarray\right.%
-}
-\def\env@sqcases{%
-\let\@ifnextchar\new@ifnextchar
-\left\lbrack{}
-\def\arraystretch{1.2}%
-\array{@{}l@{\quad}l@{}}%
-}
-\newcommand{\innerprod}[1]{\left\langle{#1}\right\rangle}
-\newcommand{\anglebracket}[1]{\left\langle{#1}\right\rangle}
-\newcommand{\abs}[1]{\left\vert{#1}\right\vert}
-\newcommand{\openinterval}[1]{\left\rbrack{#1}\right\lbrack}
-\newcommand{\closedinterval}[1]{\left\lbrack{#1}\right\rbrack}
-\newcommand{\halfopenleft}[1]{\left\rbrack{#1}\right\rbrack}
-\newcommand{\halfopenright}[1]{\left\lbrack{#1}\right\lbrack}
-\newcommand{\set}[1]{\left\{{#1}\right\}}
-\newcommand{\tuple}[1]{\left({#1}\right)}
-\newcommand{\openball}[2]{B_{#1}\left({#2}\right)}
-\newcommand{\closedball}[2]{\overline{B}_{#1}\left({#2}\right)}
-
 \title{Freitag and Busam's ``Complex Analysis'': Notes and Exercises}
 \author{Ngo Quang Duong}
 \date{\today}
@@ -88,16 +66,9 @@
 
 \tableofcontents
 
-\chapter{Differential Calculus in the Complex Plane \(\mathbb{C}\)}
-
-\section{Complex Numbers}
-
-\section{Convergent Sequences and Series}
-
-\section{Continuity}
-
-\section{Complex Derivatives}
-
-\section{The \textsc{Cauchy-Riemann} Differential Equations}
+\input{./freitag-busam-complex-analysis/chapter1.tex}
+\input{./freitag-busam-complex-analysis/chapter2.tex}
+\input{./freitag-busam-complex-analysis/chapter3.tex}
+\input{./freitag-busam-complex-analysis/chapter4.tex}
 
 \end{document}
