@@ -258,7 +258,7 @@ The first section of this chapter will introduce topological manifolds with some
                   W_{j} \cap W_{j^{\prime}} \ne \varnothing \iff \operatorname{Int} K_{j^{\prime} + 2} \smallsetminus K_{j-1} \ne \varnothing \implies j^{\prime} + 2 \ge j.
               \]
 
-              So \( W_{j} \cap W_{j^{\prime}} \ne \varnothing \) only if \( \left\vert j - j^{\prime} \right\vert \le 2 \). Together with each \( \mathcal{U}_{i} \) being finite, we deduce that \( \bigcup_{i \in \mathbb{N}} \mathcal{U}_{i} \) is locally finite. Hence \( X \) is paracompact.
+              So \( W_{j} \cap W_{j^{\prime}} \ne \varnothing \) only if \( \left\vert j - j^{\prime} \right\vert \le 2 \). Together with each \( \mathcal{U}_{i} \) being finite, we deduce that \( \bigcup_{i \in \mathbb{N}} \mathcal{U}_{i} \) is locally finite (in fact, it is star finite). Hence \( X \) is paracompact.
 
               From this result, we conclude that \( M \) is paracompact.
         \item \( M \) has a basis of coordinate balls and half-balls and every coordinate ball and half-ball is path-connected so \( M \) is locally path-connected.
@@ -640,6 +640,71 @@ By identifying \( \mathbb{R}^{2} \) with \( \mathbb{C} \), we can think of the u
 \end{problem}
 
 \begin{proof}
+    We will show that \( \mathbb{CP}^{n} \) is a compact \(n\)-dimensional complex manifold.
+
+    \textbf{Compactness.} Consider the set \( \mathbb{S}^{2n+1} = \left\{ z \in \mathbb{C}^{n+1} : \left\Vert z \right\Vert = 1 \right\} \). This is a compact set in \( \mathbb{C}^{n+1} \) according to the Heine-Borel's theorem. Moreover, \( \pi(\mathbb{S}^{2n+1}) = \mathbb{CP}^{n} \) and \( \pi \) is continuous so \( \mathbb{CP}^{n} \) is compact.
+
+    \textbf{Second-countability.} Let \( U \) be an open subset of \( \mathbb{C}^{n+1} \smallsetminus \left\{0\right\} \) then
+    \[
+        \pi^{-1}(\pi(U)) = \bigcup_{x \in \mathbb{C} \smallsetminus \left\{0\right\}} h_{x}(U)
+    \]
+
+    where \( h_{x}: \mathbb{C}^{n+1} \smallsetminus \left\{0\right\} \to \mathbb{C}^{n+1} \smallsetminus \left\{0\right\} \) is the mapping given by \( h_{x}(z^{1}, \ldots, z^{n+1}) = (xz^{1}, \ldots, xz^{n+1}) \), which is a homeomorphism. Hence \( \pi^{-1}(\pi(U)) \) is open and \( \pi(U) \) is open for \( \pi \) being a quotient map, so \( \pi \) is an open quotient map. From this, we deduce that \( \mathbb{CP}^{n} \) is second-countable as \( \mathbb{C}^{n+1} \smallsetminus \left\{0\right\} \) is second-countable.
+
+    \textbf{Hausdorff property.} We will use Exercise A.36 to show that \( \mathbb{CP}^{n} \) is Hausdorff.
+
+    Let \( \mathcal{R} = \left\{ (z, w) \in (\mathbb{C}^{n+1} \smallsetminus \left\{0\right\}) \times (\mathbb{C}^{n+1} \smallsetminus \left\{0\right\}) : z = xw \text{  for some } x \in \mathbb{C} \right\} \). This space is homeomorphic to the following space
+    \[
+        \left\{ \begin{bmatrix} z^{1} & w^{1} \\ \vdots & \vdots \\ z^{n+1} & w^{n+1} \end{bmatrix} : z, w \in \mathbb{C}^{n+1} \smallsetminus \left\{0\right\}, z = xw \text{ for some } x \in \mathbb{C} \right\}
+    \]
+
+    of \((n+1)\)-by-2 matrices with entries in \( \mathbb{C} \) and rank one. Such a matrix is of rank one if and only if any of its sub-2-by-2 matrix has determinant zero. Since the determinant mapping is continuous, we conclude that the given matrix space is a closed subset of \( (\mathbb{C}^{n+1} \smallsetminus \left\{0\right\}) \times (\mathbb{C}^{n+1} \smallsetminus \left\{0\right\}) \). According to Exercise A.36, \( \mathbb{CP}^{n} \) is Hausdorff.
+
+    \textbf{Locally Euclidean.} We denote \( \pi(z) \) by \( [z] \).
+
+    \( \widetilde{U_{i}} = \left\{ z \in \mathbb{C}^{n+1} \smallsetminus \left\{0\right\} : z^{i} \ne 0 \right\} \) is a saturated open subset of \( \mathbb{C}^{n+1} \smallsetminus \left\{0\right\} \). Denote \( U_{i} = \pi(\widetilde{U_{i}}) \). As \( \pi \) is a quotient map, then so is \( \pi\vert_{\widetilde{U_{i}}}: \widetilde{U_{i}} \to U_{i} \).
+
+    Let \( z \in \mathbb{C}^{n+1} \smallsetminus \left\{ 0 \right\} \) then there exists \( 1 \le i \le n + 1 \) with \( z^{i} \ne 0 \). Define \( \psi_{i}: U_{i} \to \mathbb{C}^{n} \) by
+    \[
+        \psi_{i}([z]) = \left( \dfrac{z^{1}}{z^{i}}, \ldots, \dfrac{z^{i-1}}{z^{i}}, \dfrac{z^{i+1}}{z^{i}}, \ldots, \dfrac{z^{n+1}}{z^{i}} \right)
+    \]
+
+    (this map is well-defined, which means it is independent of the choice of elements in \([z]\).)
+
+    We will prove that \( \psi_{i} \) is indeed a homeomorphism.
+
+    If \( V \subseteq \mathbb{C}^{n} \) is open then
+    \[
+        \pi\vert_{\widetilde{U_{i}}}^{-1}(\psi_{i}^{-1}(V)) = {(\psi_{i} \circ \pi)}^{-1}(V) \approx V \times (\mathbb{C} \smallsetminus \left\{0\right\}) \subseteq_{\text{open}} \mathbb{C}^{n+1} \smallsetminus \left\{0\right\}
+    \]
+
+    so \( \psi_{i}^{-1}(V) \) is open in \( U_{i} \) for \( \pi\vert_{\widetilde{U_{i}}} \) is a quotient map. Therefore \( \psi_{i} \) is continuous.
+
+    \( \psi_{i} \) has an inverse given by
+    \[
+        \psi_{i}^{-1}(u) = [u^{1}, \ldots, u^{i-1}, 1, u^{i+1}, \ldots, u^{n}].
+    \]
+
+    which is continuous as it is the composition of two continuous maps. Hence \( \psi_{i} \) is a homeomorphism.
+
+    \textbf{Holomorphic transition maps.} Consider the transition map \( \psi_{i} \circ \psi_{j}^{-1}: \psi_{j}(U_{j} \cap U_{i}) \to \psi_{i}(U_{j} \cap U_{i}) \).
+
+    If \( i = j \) then \( \psi_{i} \circ \psi_{i}^{-1} \) is the identity map on \( U_{i} \), which is holomorphic.
+
+    If \( i \ne j \), without loss of generality, suppose \( i < j \), then
+    \begingroup
+    \allowdisplaybreaks
+    \begin{align*}
+        \psi_{i} \circ \psi_{j}^{-1}(u^{1}, \ldots, u^{n}) & = \psi_{i}[u^{1}, \ldots, u^{j-1}, 1, u^{j}, \ldots, u^{n}]                                                                                                                                            \\
+                                                           & = \left( \dfrac{u^{1}}{u^{i}}, \ldots, \dfrac{u^{i-1}}{u^{i}}, \dfrac{u^{i+1}}{u^{i}}, \ldots, \dfrac{u^{j-1}}{u^{i}}, \dfrac{1}{u^{i}}, \dfrac{u^{j+1}}{u^{i}}, \ldots, \dfrac{u^{n}}{u^{i}} \right), \\
+        \psi_{j} \circ \psi_{i}^{-1}(u^{1}, \ldots, u^{n}) & = \psi_{j}[u^{1}, \ldots, u^{i-1}, 1, u^{i+1}, \ldots, u^{n}]                                                                                                                                          \\
+                                                           & = \left( \dfrac{u^{1}}{u^{j}}, \ldots, \dfrac{u^{i-1}}{u^{j}}, \dfrac{1}{u^{j}}, \dfrac{u^{j+1}}{u^{j}}, \ldots, \dfrac{u^{j-1}}{u^{j}}, \dfrac{u^{j+1}}{u^{j}}, \ldots, \dfrac{u^{n}}{u^{j}} \right).
+    \end{align*}
+    \endgroup
+
+    So the transition maps are holomorphic. Hence the coordinate charts are holomorphically compatible, which means \( \mathbb{CP}^{n} \) is an \( n \)-dimensional complex manifold.
+
+    Thus \( \mathbb{CP}^{n} \) is a compact \(2n\)-dimensional smooth manifold.
 \end{proof}
 
 \begin{problem}{1-10}
@@ -647,6 +712,7 @@ Let \( k \) and \( n \) be integers satisfying \( 0 < k < n \), and let \( P, Q 
 \end{problem}
 
 \begin{proof}
+    % TODO
 \end{proof}
 
 \begin{problem}{1-11}
@@ -654,6 +720,42 @@ Let \( M = \overline{\mathbb{B}}^{n} \), the closed unit ball \( \mathbb{R}^{n} 
 \end{problem}
 
 \begin{proof}
+    The identity map \( \operatorname{Id}_{\mathbb{B}^{n}} \) is a homeomorphism from \( \mathbb{B}^{n} \subseteq \overline{\mathbb{B}}^{n} \) onto \( \mathbb{B}^{n} \subseteq \mathbb{R}^{n} \), so every point in \( \mathbb{B}^{n} \) is an interior point of \( \overline{\mathbb{B}}^{n} \).
+
+    We will show that each point in \( \mathbb{S}^{n-1} \) is a boundary point by constructing charts as follows.
+
+    For every \( 1 \le i \le n \), let \( U_{i}^{+} = \left\{ x \in \overline{\mathbb{B}}^{n} : x^{i} > 0 \right\} \) and \( U_{i}^{-} = \left\{ x \in \overline{\mathbb{B}}^{n} : x^{i} < 0 \right\} \). Also we define points \( N_{i}^{\pm} \) by \( N_{i}^{+} = (0, \ldots, \underbrace{1}_{i\text{th position}}, \ldots, 0) \) and \( N_{i}^{-} = (0, \ldots, \underbrace{-1}_{i\text{th position}}, \ldots, 0) \). The sets \( U_{i}^{\pm} \) are open subsets of \( \overline{\mathbb{B}}^{n} \).
+
+    The maps \( \varphi_{i}^{\pm}: U_{i}^{\pm} \to \mathbb{R}^{n} \) are inversions centered at \( N_{i}^{\mp} \) with power \( 2 \) (radius \(\sqrt{2}\)). To be more specific
+    \begingroup
+    \allowdisplaybreaks
+    \begin{align*}
+        \varphi_{i}^{+}(u^{1}, \ldots, u^{i}, \ldots, u^{n}) = \dfrac{(2u^{1}, \ldots, 1 - {\left\Vert u \right\Vert}^{2}, \ldots, 2u^{n})}{{\left\Vert u \right\Vert}^{2} + 2u^{i} + 1}, \\
+        \varphi_{i}^{-}(u^{1}, \ldots, u^{i}, \ldots, u^{n}) = \dfrac{(2u^{1}, \ldots, {\left\Vert u \right\Vert}^{2} - 1, \ldots, 2u^{n})}{{\left\Vert u \right\Vert}^{2} - 2u^{i} + 1}.
+    \end{align*}
+    \endgroup
+
+    Each map \( \varphi_{i}^{\pm} \) is injective and continuous.
+
+    The image of the map \( \varphi_{i}^{+} \) is \( \left\{ x \in \mathbb{R}^{n} : \left\Vert x \right\Vert < 1, x^{i} \ge 0 \right\} \), which is homeomorphic to the open half-ball \( \mathbb{H}^{n} \cap \mathbb{B}^{n} \). Moreover, if \( y \in U_{i}^{+} \cap \mathbb{S}^{n-1} \) then \( y \) is mapped to \( \left\{ x \in \mathbb{R}^{n} : \left\Vert x \right\Vert < 1, x^{i} = 0 \right\} \).
+
+    Similarly, the image of the map \( \varphi_{i}^{+} \) is \( \left\{ x \in \mathbb{R}^{n} : \left\Vert x \right\Vert < 1, x^{i} \le 0 \right\} \), which is homeomorphic to the open half-ball \( \mathbb{H}^{n} \cap \mathbb{B}^{n} \). Moreover, if \( y \in U_{i}^{-} \cap \mathbb{S}^{n-1} \) then \( y \) is mapped to \( \left\{ x \in \mathbb{R}^{n} : \left\Vert x \right\Vert < 1, x^{i} = 0 \right\} \).
+
+    The inverse of \( \varphi_{i}^{+}: U_{i}^{+} \to \varphi_{i}^{+}(U_{i}^{+}) \) is
+    \[
+        {(\varphi_{i}^{+})}^{-1}(u^{1}, \ldots, u^{i}, \ldots, u^{n}) = \dfrac{(2u^{1}, \ldots, 1 - {\left\Vert u \right\Vert}^{2}, \ldots, 2u^{n})}{{\left\Vert u \right\Vert}^{2} + 2u^{i} + 1}
+    \]
+
+    and that of \( \varphi_{i}^{-}: U_{i}^{-} \to \varphi_{i}^{-}(U_{i}^{-}) \) is
+    \[
+        {(\varphi_{i}^{-})}^{-1}(u^{1}, \ldots, u^{i}, \ldots, u^{n}) = \dfrac{(2u^{1}, \ldots, {\left\Vert u \right\Vert}^{2} - 1, \ldots, 2u^{n})}{{\left\Vert u \right\Vert}^{2} - 2u^{i} + 1}.
+    \]
+
+    Hence \( (U_{i}^{\pm}, \varphi_{i}^{\pm}: U_{i}^{\pm} \to \varphi_{i}^{\pm}(U_{i}^{\pm})) \) are boundary charts of \( \overline{\mathbb{B}}^{n} \).
+
+    Finally, for every \( 1 \le i \le n \), the transition maps \( \varphi_{i}^{\pm} \circ \operatorname{Id}_{\mathbb{B}^{n}}^{-1} \) and \( \operatorname{Id}_{\mathbb{B}^{n}} \circ {(\varphi_{i}^{\pm})}^{-1} \) are smooth. For every \( 1 \le i, j \le n \), the transition map \( \varphi_{i}^{\pm} \circ {(\varphi_{j}^{\pm})}^{-1} \) is smooth.
+
+    Thus \( \overline{\mathbb{B}}^{n} \) is a smooth \(n\)-manifold with boundary, where its boundary is \( \mathbb{S}^{n-1} \).
 \end{proof}
 
 \begin{problem}{1-12}
