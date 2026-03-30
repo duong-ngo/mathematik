@@ -1,17 +1,210 @@
 \chapter{Review of Linear Algebra}
 
-\section*{Vector Spaces}
+\section{Vector Spaces}
 
-\subsection*{Bases and Dimension}
+\subsection{Bases and Dimension}
 
-\section*{Linear Maps}
+\begin{exercise}{B.1}
+    Let \( V \) be a vector space. Prove the following statements.
+    \begin{enumerate}[label={(\alph*)}]
+        \item If \( S \subseteq V \) is linearly independent, then every subset of \( S \) is linearly independent.
+        \item If \( S \subseteq V \) is linearly dependent or spans \( V \), then every subset of \( V \) that properly contains \( S \) is linearly dependent.
+        \item A subset \( S \subseteq V \) containing more than one element is linearly dependent if and only if some element \( v \in S \) can be expressed as a linear combination of elements of \( S \setminus \{v\} \).
+        \item If \( (v_{1}, \dots, v_{k}) \) is a linearly dependent \( k \)-tuple in \( V \) with \( v_{1} \neq 0 \), then some \( v_{i} \) can be expressed as a linear combination of the \emph{preceding} vectors \( (v_{1}, \dots, v_{i-1}) \).
+    \end{enumerate}
+\end{exercise}
 
-\subsection*{Change of Basis}
+\begin{exercise}{B.4}
+    Suppose \( V \) is a finite-dimensional vector space.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that every set that spans \( V \) contains a basis, and every linearly independent subset of \( V \) is contained in a basis.
+        \item Show that every subspace \( S \subseteq V \) is finite-dimensional and satisfies \( \dim S \le \dim V \), with equality if and only if \( S = V \).
+        \item Show that \( \dim V = 0 \) if and only if \( V = \{0\} \).
+    \end{enumerate}
+\end{exercise}
 
-\section*{The Determinant}
+\begin{exercise}{B.5}
+    Suppose \( V \) is an infinite-dimensional vector space.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Use Zorn’s lemma to show that every linearly independent subset of \( V \) is contained in a basis.
+        \item Show that any two bases for \( V \) have the same cardinality. [Hint: assume that \( S \) and \( T \) are bases such that \( S \) has larger cardinality than \( T \). Each element of \( T \) can be expressed as a linear combination of elements of \( S \), and the hypothesis guarantees that some element of \( S \) does not appear in any of the expressions for elements of \( T \). Show that this element can be expressed as a linear combination of other elements of \( S \), contradicting the hypothesis that \( S \) is linearly independent.]
+    \end{enumerate}
+\end{exercise}
 
-\section*{Inner Products and Norms}
+\begin{exercise}{B.8}
+    Suppose \( S \) and \( T \) are subspaces of a finite-dimensional vector space \( V \).
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that \( S \cap T \) is a subspace of \( V \).
+        \item Show that \( \dim(S + T) = \dim S + \dim T - \dim(S \cap T) \).
+        \item Suppose \( V = S + T \). Show that \( V = S \oplus T \) if and only if \( \dim V = \dim S + \dim T \).
+    \end{enumerate}
+\end{exercise}
 
-\subsection*{Norms}
+\begin{exercise}{B.9}
+    Let \( V \) be a finite-dimensional vector space. Show that every subspace \( S \subseteq V \) has a complementary subspace in \( V \). In fact, given an arbitrary basis \( (E_{1}, \ldots, E_{n}) \) for \( V \), show that there is some subset \( \{i_{1}, \ldots, i_{k}\} \) of the integers \( \{1, \ldots, n\} \) such that \( \operatorname{span}(E_{i_{1}}, \ldots, E_{i_{k}}) \) is a complement to \( S \). [Hint: choose a basis \( (F_{1}, \ldots, F_{m}) \) for \( S \), and apply Exercise B.1(d) to the ordered \( (m + n) \)-tuple \( (F_{1}, \ldots, F_{m}, E_{1}, \ldots, E_{n}) \).]
+\end{exercise}
 
-\section*{Direct Products and Direct Sums}
+\begin{exercise}{B.10}
+    Let \( V \) be a vector space, and let \( v + S \) be an affine subspace of \( V \) parallel to \( S \).
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that \( v + S \) is a linear subspace if an only if it contains \( 0 \), which is true if and only if \( v \in S \).
+        \item Show that \( v + S = \widetilde{v} + \widetilde{S} \) if and only if \( S = \widetilde{S} \) and \( v - \widetilde{v} \in S \).
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}{B.11}
+    Suppose \( V \) is a vector space and \( S \) is a linear subspace of \( V \). Define vector addition and scalar multiplication of cosets by
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+        (v + S) + (w + S) & = (v + w) + S; \\
+                 c(v + S) & = (cv) + S.
+    \end{align*}
+    \endgroup
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that the quotient \( V/S \) is a vector space under these operations.
+        \item Show that if \( V \) is finite-dimensional, then \( \dim V/S = \dim V - \dim S \).
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}{B.13}
+    Let \( V \) and \( W \) be vector spaces, and let \( (E_{1}, \dots, E_{n}) \) be a basis for \( V \). For any \( n \) elements \( w_{1}, \dots, w_{n} \in W \), show that there is a unique linear map \( T : V \to W \) satisfying \( T(E_{i}) = w_{i} \) for \( i = 1, \dots, n \).
+\end{exercise}
+
+\begin{exercise}{B.14}
+    Let \( S : V \to W \) and \( T : W \to X \) be linear maps.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that \( \operatorname{Ker} S \) and \( \operatorname{Im} S \) are subspaces of \( V \) and \( W \), respectively.
+        \item Show that \( S \) is injective if and only if \( \operatorname{Ker} S = \{0\} \).
+        \item Show that if \( S \) is an isomorphism, then \( \dim V = \dim W \) (in the sense that these dimensions are either both infinite or both finite and equal).
+        \item Show that if \( S \) and \( T \) are both injective or both surjective, then \( T \circ S \) has the same property.
+        \item Show that if \( T \circ S \) is surjective, then \( T \) is surjective; give an example to show that \( S \) might not be.
+        \item Show that if \( T \circ S \) is injective, then \( S \) is injective; give an example to show that \( T \) might not be.
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}{B.15}
+    Suppose \( V \) is a vector space and \( S \) is a subspace of \( V \), and let \( \pi : V \to V/S \) denote the projection defined by \( \pi(v) = v + S \).
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that \( \pi \) is a surjective linear map with kernel equal to \( S \).
+        \item Given a linear map \( T : V \to W \), show that there exists a linear map \( \widetilde{T} : V/S \to W \) such that \( \widetilde{T} \circ \pi = T \) if and only if \( S \subseteq \operatorname{Ker} T \).
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}{B.16}
+    Suppose \( F : V \to W \) is an affine map. Show that \( F(V) \) is an affine subspace of \( W \), and the sets \( F^{-1}(z) \) for \( z \in W \) are parallel affine subspaces of \( V \).
+\end{exercise}
+
+\begin{exercise}{B.17}
+    Suppose \( V \) is a finite-dimensional vector space. Show that every affine subspace of \( V \) is of the form \( F^{-1}(z) \) for some affine map \( F : V \to W \) and some \( z \in W \).
+\end{exercise}
+
+\begin{exercise}{B.18}
+    Show that matrix multiplication turns both \( M(n; \mathbb{R}) \) and \( M(n; \mathbb{C}) \) into associative algebras over \( \mathbb{R} \). Show that they are noncommutative unless \( n = 1 \).
+\end{exercise}
+
+\begin{exercise}{B.19}
+    Suppose \( A \) is an \( n \times n \) matrix. Prove the following statements.
+    \begin{enumerate}[label={(\alph*)}]
+        \item If \( A \) is nonsingular, then there is a \emph{unique} \( n \times n \) matrix \( B \) such that \( AB = BA = I_{n} \). This matrix is denoted by \( A^{-1} \) and is called the \emph{inverse of} \( A \).
+        \item If \( A \) is the matrix of a linear map \( T : V \to W \) with respect to some bases for \( V \) and \( W \), then \( T \) is invertible if and only if \( A \) is invertible, in which case \( A^{-1} \) is the matrix of \( T^{-1} \) with respect to the same bases.
+        \item If \( B \) is an \( n \times n \) matrix such that either \( AB = I_{n} \) or \( BA = I_{n} \), then \( A \) is nonsingular and \( B = A^{-1} \).
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}{B.22}
+    Suppose \( V, W, X \) are finite-dimensional vector spaces, and \( S : V \to W \) and \( T : W \to X \) are linear maps. Prove the following statements.
+    \begin{enumerate}[label={(\alph*)}]
+        \item \( \operatorname{rank} S \le \dim V \), with equality if and only if \( S \) is injective.
+        \item \( \operatorname{rank} S \le \dim W \), with equality if and only if \( S \) is surjective.
+        \item If \( \dim V = \dim W \) and \( S \) is either injective or surjective, then it is an isomorphism.
+        \item \( \operatorname{rank}(T \circ S) \le \operatorname{rank} S \), with equality if and only if \( \operatorname{Im} S \cap \operatorname{Ker} T = \{0\} \).
+        \item \( \operatorname{rank}(T \circ S) \le \operatorname{rank} T \), with equality if and only if \( \operatorname{Im} S + \operatorname{Ker} T = W \).
+        \item If \( S \) is an isomorphism, then \( \operatorname{rank}(T \circ S) = \operatorname{rank} T \).
+        \item If \( T \) is an isomorphism, then \( \operatorname{rank}(T \circ S) = \operatorname{rank} S \).
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}{B.23}
+    Show that if \( A \) and \( B \) are matrices of dimensions \( m \times n \) and \( n \times k \), respectively, then \( {(AB)}^{\top} = B^{\top} A^{\top} \).
+\end{exercise}
+
+\begin{exercise}{B.27}
+    Prove (or look up) Proposition B.26 (Properties of the Symmetric Group).
+\end{exercise}
+
+\begin{exercise}{B.29}
+    Show that replacing one column of a matrix by \( c \) times that same column is equivalent to multiplying on the right by a matrix whose determinant is \( c \); interchanging two columns is equivalent to multiplying on the right by a matrix whose determinant is \( -1 \); and adding a multiple of one column to another is equivalent to multiplying on the right by a matrix of determinant \( 1 \). Matrices of these three types are called \emph{elementary matrices}.
+\end{exercise}
+
+\begin{exercise}{B.30}
+    Suppose \( A \) is a nonsingular \( n \times n \) matrix.
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that \( A \) can be reduced to the identity \( I_{n} \) by a sequence of elementary column operations.
+        \item Show that \( A \) is equal to a product of elementary matrices.
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}{B.39}
+    Let \( V \) be an inner product space. Show that the length function associated with the inner product satisfies \( \left\vert v \right\vert > 0; v \in V; v \neq 0 \); \( \left\vert cv \right\vert = \left\vert c \right\vert \left\vert v \right\vert; c \in \mathbb{R}; v \in V \); \( \left\vert v + w \right\vert \le \left\vert v \right\vert + \left\vert w \right\vert; v, w \in V \); and the \emph{Cauchy–Schwarz inequality}: \( \left\vert \left\langle v, w \right\rangle \right\vert \le \left\vert v \right\vert \left\vert w \right\vert; v, w \in V \).
+\end{exercise}
+
+\begin{exercise}{B.41}
+    For \( w = (w^{1}, \dots, w^{n}) \) and \( z = (z^{1}, \dots, z^{n}) \in \mathbb{C}^{n} \), define the \emph{Hermitian dot product} by \( w \cdot z = \sum_{j=1}^{n} w^{j} \bar{z}^{j} \), where, for any complex number \( z = x + iy \), the notation \( \overline{z} \) denotes the \emph{complex conjugate}: \( \overline{z} = x - iy \). A basis \( (E_{1}, \dots, E_{n}) \) for \( \mathbb{C}^{n} \) (over \( \mathbb{C} \)) is said to be \emph{orthonormal} if \( E_{i} \cdot E_{i} = 1 \) and \( E_{i} \cdot E_{j} = 0 \) for \( i \neq j \). Show that the statement and proof of Proposition B.40 hold for the Hermitian dot product.
+\end{exercise}
+
+\begin{exercise}{B.42}
+    Show that every linear isometry between inner product spaces is a homeomorphism that preserves lengths, angles, and orthogonality, and takes orthonormal bases to orthonormal bases.
+\end{exercise}
+
+\begin{exercise}{B.43}
+    Given any basis \( (E_{i}) \) for a finite-dimensional vector space \( V \), show that there is a unique inner product on \( V \) for which \( (E_{i}) \) is orthonormal.
+\end{exercise}
+
+\begin{exercise}{B.44}
+    Suppose \( V \) is a finite-dimensional inner product space and \( E : \mathbb{R}^{n} \to V \) is the basis map determined by some orthonormal basis. Show that \( E \) is a linear isometry when \( \mathbb{R}^{n} \) is endowed with the Euclidean inner product.
+\end{exercise}
+
+\begin{exercise}{B.45}
+    Let \( V \) be a finite-dimensional inner product space and let \( S \subseteq V \) be a subspace. Show that \( S^{\perp} \) is a subspace and \( V = S \oplus S^{\perp} \).
+\end{exercise}
+
+\begin{exercise}{B.48}
+    For any matrices \( A \in M(m \times n; \mathbb{R}) \) and \( B \in M(n \times k; \mathbb{R}) \), show that \[ \left\vert AB \right\vert \le \left\vert A \right\vert \left\vert B \right\vert. \]
+\end{exercise}
+
+\begin{exercise}{B.49}
+    Show that equivalent norms determine the same topology.
+\end{exercise}
+
+\begin{exercise}{B.50}
+    Show that any two norms on a finite-dimensional vector space are equivalent. [Hint: first do the case in which \( V = \mathbb{R}^{n} \) and one of the norms is the Euclidean norm, and consider the restriction of the other norm to the unit sphere.]
+\end{exercise}
+
+\begin{exercise}{B.51}
+    Show that a linear map between normed linear spaces is continuous if and only if it is bounded. [Hint: to show that continuity of \( T \) implies boundedness, first show that there exists \( \delta > 0 \) such that \( \left\vert x \right\vert < \delta \implies \left\vert T(x) \right\vert < 1 \).]
+\end{exercise}
+
+\begin{exercise}{B.52}
+    Show that every linear map between finite-dimensional normed linear spaces is bounded and therefore continuous.
+\end{exercise}
+
+\begin{exercise}{B.54}
+    Prove the preceding proposition (Proposition B.53, Characteristic Property of the Direct Product).
+\end{exercise}
+
+\begin{exercise}{B.56}
+    Prove the preceding proposition (Proposition B.55, Characteristic Property of the Direct Sum).
+\end{exercise}
+
+\section{Linear Maps}
+
+\subsection{Change of Basis}
+
+\section{The Determinant}
+
+\section{Inner Products and Norms}
+
+\subsection{Norms}
+
+\section{Direct Products and Direct Sums}

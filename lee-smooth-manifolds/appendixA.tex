@@ -1,6 +1,6 @@
 \chapter{Review of Topology}
 
-\section*{Topological Spaces}
+\section{Topological Spaces}
 
 \begin{exercise}{A.1}
     Let \( F: X \to Y \) be a map between topological spaces. Prove that each of the following properties is equivalent to continuity of \( F \):
@@ -66,7 +66,7 @@
     Let \( V \) be an open subset of \( Y \) containing \( F(p) \). Since \( F \) is continuous, \( F^{-1}(V) \ni p \) is open in \( X \). As \( p_{i} \to p \), there exists a positive integer \( N \) such that \( p_{i} \in F^{-1}(V) \) whenever \( i \ge N \). So \( F(p_{i}) \in V \) whenever \( i \ge N \). Thus \( F(p_{i}) \to F(p) \) in \( Y \).
 \end{proof}
 
-\subsection*{Hausdorff Spaces}
+\subsection{Hausdorff Spaces}
 
 \begin{exercise}{A.9}
     Let \( X \) be any set. Show that \( \left\{ X, \varnothing \right\} \) is a topology on \( X \), called the trivial topology. Show that when \( X \) is endowed with this topology, every sequence in \( X \) converges to every point of \( X \), and every map from a topological space into \( X \) is continuous.
@@ -120,7 +120,7 @@
     Thus every convergent sequence in a Hausdorff space has a unique limit.
 \end{proof}
 
-\subsection*{Bases and Countability}
+\subsection{Bases and Countability}
 
 \begin{exercise}{A.13}
     Prove the sequence lemma.
@@ -206,9 +206,9 @@
     Thus the set of all open balls in \( \mathbb{R}^{n} \) whose radii are rational and whose centers have rational coordinates is a countable basis for the Euclidean topology, hence \( \mathbb{R}^{n} \) is second-countable.
 \end{proof}
 
-\section*{Subspaces, Products, Disjoint Unions, and Quotients}
+\section{Subspaces, Products, Disjoint Unions, and Quotients}
 
-\subsection*{Subspaces}
+\subsection{Subspaces}
 
 \begin{exercise}{A.18}
     Prove the preceding proposition.
@@ -328,7 +328,7 @@
     Thus \( X \) is second-countable.
 \end{proof}
 
-\subsection*{Product Spaces}
+\subsection{Product Spaces}
 
 \begin{exercise}{A.23}
     Suppose \( X_{1}, \ldots, X_{k} \) are topological spaces, and let \( X_{1} \times \cdots \times X_{k} \) be their product space.
@@ -481,7 +481,7 @@
     \end{enumerate}
 \end{proof}
 
-\subsection*{Disjoint Union Spaces}
+\subsection{Disjoint Union Spaces}
 
 \begin{exercise}{A.26}
     Suppose \({(X_{\alpha})}_{\alpha \in A}\) is an indexed family of topological spaces, and \(\coprod_{\alpha \in A} X_{\alpha}\) is endowed with the disjoint union topology.
@@ -606,7 +606,7 @@
     \end{enumerate}
 \end{proof}
 
-\subsection*{Quotient Spaces and Quotient Maps}
+\subsection{Quotient Spaces and Quotient Maps}
 
 \begin{exercise}{A.28}
     Let \(\pi: X \to Y\) be a quotient map.
@@ -718,7 +718,7 @@
     Hence \( G \subseteq Y \) is closed iff \( F^{-1}(G) \subseteq X \) is closed, so \( F \) is a quotient map.
 \end{proof}
 
-\subsection*{Open and Closed Maps}
+\subsection{Open and Closed Maps}
 
 \begin{exercise}{A.32}
     Suppose \(X_{1}, \dots, X_{k}\) are topological spaces. Show that each projection \(\pi_{i}\colon X_{1} \times \cdots \times X_{k} \to X_{i}\) is an open map.
@@ -829,7 +829,7 @@
     \end{enumerate}
 \end{proof}
 
-\section*{Connectedness and Compactness}
+\section{Connectedness and Compactness}
 
 \begin{exercise}{A.40}
     Let \( X \) and \( Y \) be topological spaces.
@@ -1136,7 +1136,7 @@
     \end{enumerate}
 \end{proof}
 
-\subsection*{Locally Compact Hausdorff Spaces}
+\subsection{Locally Compact Hausdorff Spaces}
 
 \begin{exercise}{A.55}
     For a Hausdorff space \( X \), show that the following are equivalent:
@@ -1189,7 +1189,7 @@
     If \( S \) is closed in \( X \), let \( U \) be a precompact neighborhood of \( p \) in \( X \). Because \( \overline{U \cap S} \subseteq \overline{U} \), \( \overline{U \cap S} \) is compact. Moreover, \( \overline{U \cap S} \subseteq \overline{S} = S \), so \( U \cap S \) is a precompact neighborhood of \( p \) in \( S \). Therefore \( S \) is locally compact.
 \end{proof}
 
-\section*{Homotopy and the Fundamental Group}
+\section{Homotopy and the Fundamental Group}
 
 \begin{exercise}{A.61}
     Let \( X \) be a path-connected topological space. Show that \( X \) is simply connected if and only if every pair of paths in \( X \) with the same starting and ending points are path-homotopic.
@@ -1421,7 +1421,7 @@
     This means \( P \) is an isomorphism.
 \end{proof}
 
-\section*{Covering Maps}
+\section{Covering Maps}
 
 \begin{exercise}{A.72}
     Show that every covering map is a local homeomorphism, an open map, and a quotient map.

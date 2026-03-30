@@ -1,3 +1,4 @@
+% chktex-file 8
 \chapter{Smooth Manifolds}
 
 The book is about \emph{smooth manifolds}. These are topological spaces that locally look like some Euclidean space \( \mathbb{R}^{n} \), and on which one can do calculus (differentiation, integration). Some familiar examples of smooth manifolds are: \( \mathbb{R}^{n} \), smooth curves such as circles, conics like parabolas, smooth surfaces such as spheres, tori, quadrics, \( n \)-sphere and graphs of smooth maps between Euclidean spaces.
@@ -320,7 +321,7 @@ The first section of this chapter will introduce topological manifolds with some
 
     According to (iii) and (ii), \( {(\varphi_{\beta} \circ \varphi_{\alpha}^{-1})}^{-1}(W) \) is open in \( \varphi_{\alpha}(U_{\alpha} \cap U_{\beta}) \) and open in \( \mathbb{R}^{n} \) or \( \mathbb{H}^{n} \).
     \begingroup
-    \allowdisplaybreaks
+    \allowdisplaybreaks%
     \begin{align*}
         \varphi_{\alpha}^{-1}(V) \cap \varphi_{\beta}^{-1}(W) & = \varphi_{\alpha}^{-1}(V) \cap \varphi_{\alpha}^{-1}(\varphi_{\alpha}(\varphi_{\beta}^{-1}(W)))               \\
                                                               & = \varphi_{\alpha}^{-1}(V) \cap \varphi_{\alpha}^{-1}({(\varphi_{\beta} \circ \varphi_{\alpha}^{-1})}^{-1}(W)) \\
@@ -328,7 +329,7 @@ The first section of this chapter will introduce topological manifolds with some
     \end{align*}
     \endgroup
 
-    Hence \( \mathcal{B} \) is a basis for a topology on \( M \). (iv) and the second-countability of \( \mathbb{R}^{n} \) and \( \mathbb{H}^{n} \) and Proposition A.22 imply \( M \) is second-countable. (v) implies \( M \) is Hausdorff. (i) and the topology given by the basis \( \mathcal{B} \) imply \( \varphi_{\alpha} \) is a homeomorphism from \( U_{\alpha} \) onto its image. Therefore \( M \) is a topological \( n \)-manifold with boundary. Moreover, (iii) implies \( M \) is a smooth \(n\)-manifold with boundary.
+    Hence \( \mathcal{B} \) is a basis for a topology on \( M \); (iv) and the second-countability of \( \mathbb{R}^{n} \) and \( \mathbb{H}^{n} \) and Proposition A.22 imply \( M \) is second-countable; (v) implies \( M \) is Hausdorff; (i) and the topology given by the basis \( \mathcal{B} \) imply \( \varphi_{\alpha} \) is a homeomorphism from \( U_{\alpha} \) onto its image. Therefore \( M \) is a topological \( n \)-manifold with boundary. Moreover, (iii) implies \( M \) is a smooth \(n\)-manifold with boundary.
 
     Suppose \( \mathcal{A} \) is smooth structure on \( M \) for which each \( (U_{\alpha}, \varphi_{\alpha}) \) is a smooth chart. Let \( U \) be an open subset of \( M \) then \( U \cap U_{\alpha} \) is an open subset of \( U_{\alpha} \), so \( U \cap U_{\alpha} \in \mathcal{B}_{\alpha} \). It follows that \( U \in \mathcal{B} \). Hence the topology on \( M \) is the same as which is induced by the basis \( \mathcal{B} \). Because \( \{(U_{\alpha}, \varphi_{\alpha})\} \) is a smooth atlas then it is contained in a unique smooth structure.
 \end{proof}
@@ -356,10 +357,44 @@ The first section of this chapter will introduce topological manifolds with some
     \end{enumerate}
 \end{proof}
 
+\begin{theorem}{1.46}[Smooth Invariance of the Boundary]
+    Suppose \( M \) is a smooth manifold with boundary and \( p \in M \). If there is some smooth chart \( (U, \phi) \) for \( M \) such that \( \phi(U) \subseteq \mathbb{H}^{n} \) and \( \phi(p) \in \partial \mathbb{H}^{n} \), then the same is true for every smooth chart whose domain contains \( p \).
+\end{theorem}
+
+\begin{quotation}
+    In other words, if \( p \) is a boundary point then any smooth chart \( (U, \phi) \) whose domain contains \( p \) satisfies \( \phi(U) \subseteq \mathbb{H}^{n} \) is open and \( \phi(p) \in \partial \mathbb{H}^{n} \).
+
+    Consequently, this theorem implies: On a smooth manifold with boundary, the set of boundary points and the set of interior points are disjoint.
+\end{quotation}
+
+\begin{proof}
+    According to the hypothesis, there is a smooth chart \( (U, \phi) \) for \( M \) such that \( \phi(U) \subseteq \mathbb{H}^{n} \) and \( \phi(p) \in \partial \mathbb{H}^{n} \). Suppose on the contrary that there is a smooth interior chart \( (V, \psi) \) whose domain contains \( p \).
+
+    The transition maps
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+        \tau = \psi \circ \phi^{-1}: \phi(U \cap V) \to \psi(U \cap V), \\
+        \tau^{-1} = \phi \circ \psi^{-1}: \psi(U \cap V) \to \phi(U \cap V)
+    \end{align*}
+    \endgroup
+
+    are smooth and homeomorphisms. Let \( x_{0} = \phi(p) \) and \( y_{0} = \psi(p) = \tau^{-1}(x_{0}) \).
+
+    \( \phi(U \cap V) \) is an open subset of \( \mathbb{H}^{n} \) and intersects \( \partial \mathbb{H}^{n} \). According to Emile Borel's lemma (see the first paragraph on ``Smooth Structures on Manifolds with Boundary'' in the book.), there exists a smooth function \( \eta: W \to \mathbb{R}^{n} \) defined on a neighborhood \( W \) of \( x_{0} \) in \( \mathbb{R}^{n} \) such that \( \eta \) and \( \tau \) agree on \( W \cap \phi(U \cap V) \).
+
+    \( W \cap \phi(U \cap V) \) is open in \( \phi(U \cap V) \) so
+    \[
+        \tau(W \cap \phi(U \cap V)) \subseteq_{\text{open}} \psi(U \cap V) \subseteq_{\text{open}} \mathbb{R}^{n}.
+    \]
+
+    There exists an open ball \( B \subseteq \mathbb{R}^{n} \) such that \( y_{0} \in B \subseteq \tau(W \cap \phi(U \cap V)) \). One has \( \eta \circ \tau^{-1}\vert_{B} = \tau \circ \tau^{-1}\vert_{B} = \operatorname{Id}_{B} \). According to the chain rule, for every \( y \in B \), \( D \eta(\tau^{-1}(y)) \circ D\tau^{-1}(y) \) is the identity map, which means \( D\tau^{-1}(y) \) is invertible for every \( y \in B \). By Corollary C.36, \( \tau^{-1}\vert_{B} \) maps \( B \) onto an open subset of \( \mathbb{R}^{n} \). Therefore \( x_{0} \) is contained in \( \tau^{-1}(B) \), which is an open set in \( \mathbb{R}^{n} \), which contradicts the assumption that \( \phi(U) \subseteq \mathbb{H}^{n} \) and \( x_{0} \in \partial \mathbb{H}^{n} \).
+\end{proof}
+
 \section{Problems}
 
 \begin{problem}{1-1}
-Let \( X \) be the set of all points \( (x, y) \in \mathbb{R}^{2} \) such that \( y = \pm 1 \), and let \( M \) be the quotient of \( X \) by the equivalence relation generated by \( (x, -1) \sim (x, 1) \) for all \( x \ne 0 \). Show that \( M \) is locally Euclidean and second-countable, but not Hausdorff. (This space is called the \textbf{\emph{line with two origins}}.)
+    Let \( X \) be the set of all points \( (x, y) \in \mathbb{R}^{2} \) such that \( y = \pm 1 \), and let \( M \) be the quotient of \( X \) by the equivalence relation generated by \( (x, -1) \sim (x, 1) \) for all \( x \ne 0 \). Show that \( M \) is locally Euclidean and second-countable, but not Hausdorff. (This space is called the \textbf{\emph{line with two origins}}.)
 \end{problem}
 
 \begin{proof}
@@ -398,7 +433,7 @@ Let \( X \) be the set of all points \( (x, y) \in \mathbb{R}^{2} \) such that \
 \end{proof}
 
 \begin{problem}{1-2}
-Show that a disjoint union of uncountably many copies of \( \mathbb{R} \) is locally Euclidean and Hausdorff, but not second-countable.
+    Show that a disjoint union of uncountably many copies of \( \mathbb{R} \) is locally Euclidean and Hausdorff, but not second-countable.
 \end{problem}
 
 \begin{proof}
@@ -412,7 +447,7 @@ Show that a disjoint union of uncountably many copies of \( \mathbb{R} \) is loc
 \end{proof}
 
 \begin{problem}{1-3}
-A topological space is said to be \textbf{\emph{\( \boldsymbol\sigma \)-compact}} if it can be expressed as a union of countably many compact subspaces. Show that a locally Euclidean Hausdorff space is a topological manifold if and only if it is \( \sigma \)-compact.
+    A topological space is said to be \textbf{\emph{\( \boldsymbol\sigma \)-compact}} if it can be expressed as a union of countably many compact subspaces. Show that a locally Euclidean Hausdorff space is a topological manifold if and only if it is \( \sigma \)-compact.
 \end{problem}
 
 \begin{proof}
@@ -424,12 +459,12 @@ A topological space is said to be \textbf{\emph{\( \boldsymbol\sigma \)-compact}
 \end{proof}
 
 \begin{problem}{1-4}
-Let \( M \) be a topological manifold, and let \( \mathcal{U} \) be an open cover of \( M \).
-\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
-    \item Assuming that each set in \( \mathcal{U} \) intersects only finitely many others, show that \( \mathcal{U} \) is locally finite.
-    \item Give an example to show that the converse to (a) may be false.
-    \item Now assume that the sets in \( \mathcal{U} \) are precompact in \( M \), and prove the converse: if \( \mathcal{U} \) is locally finite, then each set in \( \mathcal{U} \) intersects only finitely many others.
-\end{enumerate}
+    Let \( M \) be a topological manifold, and let \( \mathcal{U} \) be an open cover of \( M \).
+    \begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+        \item Assuming that each set in \( \mathcal{U} \) intersects only finitely many others, show that \( \mathcal{U} \) is locally finite.
+        \item Give an example to show that the converse to (a) may be false.
+        \item Now assume that the sets in \( \mathcal{U} \) are precompact in \( M \), and prove the converse: if \( \mathcal{U} \) is locally finite, then each set in \( \mathcal{U} \) intersects only finitely many others.
+    \end{enumerate}
 \end{problem}
 
 \begin{quotation}
@@ -447,7 +482,7 @@ Let \( M \) be a topological manifold, and let \( \mathcal{U} \) be an open cove
 \end{proof}
 
 \begin{problem}{1-5}
-Suppose \( M \) is a locally Euclidean Hausdorff space. Show that \( M \) is second-countable if and only if it is paracompact and has countably many connected components. [Hint: assuming \( M \) is paracompact, show that each component of \( M \) has a locally finite cover by precompact coordinate domains, and extract from this a countable subcover.]
+    Suppose \( M \) is a locally Euclidean Hausdorff space. Show that \( M \) is second-countable if and only if it is paracompact and has countably many connected components. [Hint: assuming \( M \) is paracompact, show that each component of \( M \) has a locally finite cover by precompact coordinate domains, and extract from this a countable subcover.]
 \end{problem}
 
 \begin{proof}
@@ -483,7 +518,7 @@ Suppose \( M \) is a locally Euclidean Hausdorff space. Show that \( M \) is sec
 \end{proof}
 
 \begin{problem}{1-6}
-Let \( M \) be a nonempty topological manifold of dimension \( n \ge 1 \). If \( M \) has a smooth structure, show that it has uncountably many distinct ones. [Hint: first show that for any \( s > 0 \), \( F_{s}(x) = {\left\Vert x \right\Vert}^{s-1} x \) defines a homeomorphism from \( \mathbb{B}^{n} \) to itself, which is a diffeomorphism if and only if \( s = 1 \). Interpret the formula for \( F_{s} \) to mean \( F_{s}(0) = 0 \).]
+    Let \( M \) be a nonempty topological manifold of dimension \( n \ge 1 \). If \( M \) has a smooth structure, show that it has uncountably many distinct ones. [Hint: first show that for any \( s > 0 \), \( F_{s}(x) = {\left\Vert x \right\Vert}^{s-1} x \) defines a homeomorphism from \( \mathbb{B}^{n} \) to itself, which is a diffeomorphism if and only if \( s = 1 \). Interpret the formula for \( F_{s} \) to mean \( F_{s}(0) = 0 \).]
 \end{problem}
 
 \begin{proof}
@@ -518,22 +553,22 @@ Let \( M \) be a nonempty topological manifold of dimension \( n \ge 1 \). If \(
 \end{proof}
 
 \begin{problem}{1-7}
-Let \( N \) denote the \textbf{\emph{north pole}} \( (0, \ldots, 0, 1) \in \mathbb{S}^{n} \subseteq \mathbb{R}^{n+1} \), and let \( S \) denote the \textbf{\emph{south pole}} \( (0, \ldots, 0, -1) \). Define the \textbf{\emph{stereographic projection}} \( \sigma: \mathbb{S}^{n} \smallsetminus \left\{N\right\} \to \mathbb{R}^{n} \) by
-\[
-    \sigma(x^{1}, \ldots, x^{n+1}) = \dfrac{(x^{1}, \ldots, x^{n})}{1 - x^{n+1}}.
-\]
+    Let \( N \) denote the \textbf{\emph{north pole}} \( (0, \ldots, 0, 1) \in \mathbb{S}^{n} \subseteq \mathbb{R}^{n+1} \), and let \( S \) denote the \textbf{\emph{south pole}} \( (0, \ldots, 0, -1) \). Define the \textbf{\emph{stereographic projection}} \( \sigma: \mathbb{S}^{n} \smallsetminus \left\{N\right\} \to \mathbb{R}^{n} \) by
+    \[
+        \sigma(x^{1}, \ldots, x^{n+1}) = \dfrac{(x^{1}, \ldots, x^{n})}{1 - x^{n+1}}.
+    \]
 
-Let \( \widetilde{\sigma}(x) = -\sigma(-x) \) for \( x \in \mathbb{S}^{n} \smallsetminus \left\{S\right\} \).
+    Let \( \widetilde{\sigma}(x) = -\sigma(-x) \) for \( x \in \mathbb{S}^{n} \smallsetminus \left\{S\right\} \).
 
-\begin{enumerate}[itemsep=0pt,label={(\alph*)}]
-    \item For any \( x \in \mathbb{S}^{n} \smallsetminus \left\{N\right\} \), show that \( \sigma(x) = u \), where \( (u, 0) \) is the point where the line through \( N \) and \( x \) intersects the linear subspace where \( x^{n+1} = 0 \). Similarly, show that \( \widetilde{\sigma}(x) \) is the point where the line through \( S \) and \( x \) intersects the same subspace. (For this reason, \( \widetilde{\sigma} \) is called \textbf{\emph{stereographic projection from the south pole}}.)
-    \item Show that \( \sigma \) is bijective, and
-          \[
-              \sigma^{-1}(u^{1}, \ldots, u^{n}) = \dfrac{(2u^{1}, \ldots, 2u^{n}, {\left\Vert u \right\Vert}^{2} - 1)}{{\left\Vert u \right\Vert}^{2} + 1}.
-          \]
-    \item Compute the transition map \( \widetilde{\sigma} \circ \sigma^{-1} \) and verify that the atlas consisting of two charts \( (\mathbb{S}^{n} \smallsetminus \left\{N\right\}, \sigma) \) and \( (\mathbb{S}^{n} \smallsetminus \left\{S\right\}, \widetilde{\sigma}) \) defines a smooth structure on \( \mathbb{S}^{n} \). (The coordinates defined by \( \sigma \) or \( \widetilde{\sigma} \) are called \textbf{\emph{stereographic coordinates}}.)
-    \item Show that this smooth structure is the same as the one defined in Example 1.31.
-\end{enumerate}
+    \begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+        \item For any \( x \in \mathbb{S}^{n} \smallsetminus \left\{N\right\} \), show that \( \sigma(x) = u \), where \( (u, 0) \) is the point where the line through \( N \) and \( x \) intersects the linear subspace where \( x^{n+1} = 0 \). Similarly, show that \( \widetilde{\sigma}(x) \) is the point where the line through \( S \) and \( x \) intersects the same subspace. (For this reason, \( \widetilde{\sigma} \) is called \textbf{\emph{stereographic projection from the south pole}}.)
+        \item Show that \( \sigma \) is bijective, and
+              \[
+                  \sigma^{-1}(u^{1}, \ldots, u^{n}) = \dfrac{(2u^{1}, \ldots, 2u^{n}, {\left\Vert u \right\Vert}^{2} - 1)}{{\left\Vert u \right\Vert}^{2} + 1}.
+              \]
+        \item Compute the transition map \( \widetilde{\sigma} \circ \sigma^{-1} \) and verify that the atlas consisting of two charts \( (\mathbb{S}^{n} \smallsetminus \left\{N\right\}, \sigma) \) and \( (\mathbb{S}^{n} \smallsetminus \left\{S\right\}, \widetilde{\sigma}) \) defines a smooth structure on \( \mathbb{S}^{n} \). (The coordinates defined by \( \sigma \) or \( \widetilde{\sigma} \) are called \textbf{\emph{stereographic coordinates}}.)
+        \item Show that this smooth structure is the same as the one defined in Example 1.31.
+    \end{enumerate}
 \end{problem}
 
 \begin{proof}
@@ -585,7 +620,7 @@ Let \( \widetilde{\sigma}(x) = -\sigma(-x) \) for \( x \in \mathbb{S}^{n} \small
 
               For every \( 1 \le i \le n \), we define \( U_{i}^{+} = \left\{ x \in \mathbb{S}^{n}: x^{i} > 0 \right\} \), \( U_{i}^{-} = \left\{ x \in \mathbb{S}^{n}: x^{i} < 0 \right\} \) and
               \begingroup
-              \allowdisplaybreaks
+              \allowdisplaybreaks%
               \begin{align*}
                   \varphi_{i}^{+}: & \, U_{i}^{+} \to \mathbb{B}^{n}                              \\
                                    & x \mapsto (x^{1}, \ldots, \widehat{x^{i}}, \ldots, x^{n+1}); \\
@@ -598,7 +633,7 @@ Let \( \widetilde{\sigma}(x) = -\sigma(-x) \) for \( x \in \mathbb{S}^{n} \small
 
               If \( i < n + 1 \)
               \begingroup
-              \allowdisplaybreaks
+              \allowdisplaybreaks%
               \begin{align*}
                   \varphi_{i}^{\pm} \circ \sigma^{-1}(u)                 & = \varphi_{i}^{\pm}\left( \dfrac{2 u^{1}}{{\left\Vert u \right\Vert}^{2} + 1}, \ldots, \dfrac{2 u^{n}}{{\left\Vert u \right\Vert}^{2} + 1}, \dfrac{{\left\Vert u \right\Vert}^{2} - 1}{{\left\Vert u \right\Vert}^{2} + 1} \right) = \dfrac{(2 u^{1}, \ldots, \widehat{2 u^{i}}, \ldots, 2 u^{n}, {\left\Vert u \right\Vert}^{2} - 1)}{{\left\Vert u \right\Vert}^{2} + 1} \\
                   \varphi_{i}^{\pm} \circ \widetilde{\sigma}^{-1}(u)     & = \varphi_{i}^{\pm}\left( \dfrac{2 u^{1}}{{\left\Vert u \right\Vert}^{2} + 1}, \ldots, \dfrac{2 u^{n}}{{\left\Vert u \right\Vert}^{2} + 1}, \dfrac{1 - {\left\Vert u \right\Vert}^{2}}{{\left\Vert u \right\Vert}^{2} + 1} \right) = \dfrac{(2 u^{1}, \ldots, \widehat{2 u^{i}}, \ldots, 2 u^{n}, 1 - {\left\Vert u \right\Vert}^{2})}{{\left\Vert u \right\Vert}^{2} + 1} \\
@@ -609,7 +644,7 @@ Let \( \widetilde{\sigma}(x) = -\sigma(-x) \) for \( x \in \mathbb{S}^{n} \small
 
               and if \( i = n + 1 \)
               \begingroup
-              \allowdisplaybreaks
+              \allowdisplaybreaks%
               \begin{align*}
                   \varphi_{n+1}^{\pm} \circ \sigma^{-1}(u)                 & = \varphi_{n+1}^{\pm} \left( \dfrac{2 u^{1}}{{\left\Vert u \right\Vert}^{2} + 1}, \ldots, \dfrac{2 u^{n}}{{\left\Vert u \right\Vert}^{2} + 1}, \dfrac{{\left\Vert u \right\Vert}^{2} - 1}{{\left\Vert u \right\Vert}^{2} + 1} \right) = \dfrac{(2 u^{1}, \ldots, 2 u^{n})}{{\left\Vert u \right\Vert}^{2} + 1} \\
                   \varphi_{n+1}^{\pm} \circ \widetilde{\sigma}^{-1}(u)     & = \varphi_{n+1}^{\pm} \left( \dfrac{2 u^{1}}{{\left\Vert u \right\Vert}^{2} + 1}, \ldots, \dfrac{2 u^{n}}{{\left\Vert u \right\Vert}^{2} + 1}, \dfrac{1 - {\left\Vert u \right\Vert}^{2}}{{\left\Vert u \right\Vert}^{2} + 1} \right) = \dfrac{(2 u^{1}, \ldots, 2 u^{n})}{{\left\Vert u \right\Vert}^{2} + 1} \\
@@ -623,7 +658,7 @@ Let \( \widetilde{\sigma}(x) = -\sigma(-x) \) for \( x \in \mathbb{S}^{n} \small
 \end{proof}
 
 \begin{problem}{1-8}
-By identifying \( \mathbb{R}^{2} \) with \( \mathbb{C} \), we can think of the unit circle \( \mathbb{S}^{1} \) as a subset of the complex plane. An \textbf{\emph{angle function}} on a subset \( U \subseteq \mathbb{S}^{1} \) is a continuous function \( \theta: U \to \mathbb{R} \) such that \( \exp(i \theta(z)) = z \) for all \( z \in U \). Show that there exists an angle function \( \theta \) on an open subset \( U \subseteq \mathbb{S}^{1} \) if and only if \( U \ne \mathbb{S}^{1} \). For any such angle function, show that \( (U, \theta) \) is a smooth coordinate chart for \( \mathbb{S}^{1} \) with its standard smooth structure.
+    By identifying \( \mathbb{R}^{2} \) with \( \mathbb{C} \), we can think of the unit circle \( \mathbb{S}^{1} \) as a subset of the complex plane. An \textbf{\emph{angle function}} on a subset \( U \subseteq \mathbb{S}^{1} \) is a continuous function \( \theta: U \to \mathbb{R} \) such that \( \exp(i \theta(z)) = z \) for all \( z \in U \). Show that there exists an angle function \( \theta \) on an open subset \( U \subseteq \mathbb{S}^{1} \) if and only if \( U \ne \mathbb{S}^{1} \). For any such angle function, show that \( (U, \theta) \) is a smooth coordinate chart for \( \mathbb{S}^{1} \) with its standard smooth structure.
 \end{problem}
 
 \begin{proof}
@@ -631,12 +666,12 @@ By identifying \( \mathbb{R}^{2} \) with \( \mathbb{C} \), we can think of the u
 \end{proof}
 
 \begin{problem}{1-9}
-\textbf{\emph{Complex projective \( n \)-space}}, denoted by \( \mathbb{CP}^{n} \), is the set of all \( 1 \)-dimensional complex-linear subspaces of \( \mathbb{C}^{n+1} \), with the quotient topology inherited from the natural projection \( \pi: \mathbb{C}^{n+1} \smallsetminus \left\{0\right\} \to \mathbb{CP}^{n} \). Show that \( \mathbb{CP}^{n} \) is a compact \( 2n \)-dimensional topological manifold, and show how to give it a smooth structure analogous to the one we constructed for \( \mathbb{RP}^{n} \). (We use the correspondence
-\[
-    (x^{1} + i y^{1}, \ldots, x^{n+1} + i y^{n+1}) \leftrightarrow (x^{1}, y^{1}, \ldots, x^{n+1}, y^{n+1})
-\]
+    \textbf{\emph{Complex projective \( n \)-space}}, denoted by \( \mathbb{CP}^{n} \), is the set of all \( 1 \)-dimensional complex-linear subspaces of \( \mathbb{C}^{n+1} \), with the quotient topology inherited from the natural projection \( \pi: \mathbb{C}^{n+1} \smallsetminus \left\{0\right\} \to \mathbb{CP}^{n} \). Show that \( \mathbb{CP}^{n} \) is a compact \( 2n \)-dimensional topological manifold, and show how to give it a smooth structure analogous to the one we constructed for \( \mathbb{RP}^{n} \). (We use the correspondence
+    \[
+        (x^{1} + i y^{1}, \ldots, x^{n+1} + i y^{n+1}) \leftrightarrow (x^{1}, y^{1}, \ldots, x^{n+1}, y^{n+1})
+    \]
 
-\noindent to identify \( \mathbb{C}^{n+1} \) with \( \mathbb{R}^{2n+2} \).)
+    \noindent to identify \( \mathbb{C}^{n+1} \) with \( \mathbb{R}^{2n+2} \).)
 \end{problem}
 
 \begin{proof}
@@ -689,11 +724,11 @@ By identifying \( \mathbb{R}^{2} \) with \( \mathbb{C} \), we can think of the u
 
     \textbf{Holomorphic transition maps.} Consider the transition map \( \psi_{i} \circ \psi_{j}^{-1}: \psi_{j}(U_{j} \cap U_{i}) \to \psi_{i}(U_{j} \cap U_{i}) \).
 
-    If \( i = j \) then \( \psi_{i} \circ \psi_{i}^{-1} \) is the identity map on \( U_{i} \), which is holomorphic.
+    If \( i = j \) then \( \psi_{i} \circ \psi_{i}^{-1} \) is the identity map on \( \psi_{i}(U_{i}) \), which is holomorphic.
 
     If \( i \ne j \), without loss of generality, suppose \( i < j \), then
     \begingroup
-    \allowdisplaybreaks
+    \allowdisplaybreaks%
     \begin{align*}
         \psi_{i} \circ \psi_{j}^{-1}(u^{1}, \ldots, u^{n}) & = \psi_{i}[u^{1}, \ldots, u^{j-1}, 1, u^{j}, \ldots, u^{n}]                                                                                                                                            \\
                                                            & = \left( \dfrac{u^{1}}{u^{i}}, \ldots, \dfrac{u^{i-1}}{u^{i}}, \dfrac{u^{i+1}}{u^{i}}, \ldots, \dfrac{u^{j-1}}{u^{i}}, \dfrac{1}{u^{i}}, \dfrac{u^{j+1}}{u^{i}}, \ldots, \dfrac{u^{n}}{u^{i}} \right), \\
@@ -702,13 +737,13 @@ By identifying \( \mathbb{R}^{2} \) with \( \mathbb{C} \), we can think of the u
     \end{align*}
     \endgroup
 
-    So the transition maps are holomorphic. Hence the coordinate charts are holomorphically compatible, which means \( \mathbb{CP}^{n} \) is an \( n \)-dimensional complex manifold.
+    The transition maps are holomorphic, hence the coordinate charts are holomorphically compatible, which means \( \mathbb{CP}^{n} \) is an \( n \)-dimensional complex manifold.
 
-    Thus \( \mathbb{CP}^{n} \) is a compact \(2n\)-dimensional smooth manifold.
+    Thus \( \mathbb{CP}^{n} \) is a compact \(2n\)-dimensional smooth manifold and a compact \(n\)-dimensional complex manifold.
 \end{proof}
 
 \begin{problem}{1-10}
-Let \( k \) and \( n \) be integers satisfying \( 0 < k < n \), and let \( P, Q \subseteq \mathbb{R}^{n} \) be the linear subspaces spanned by \( (e_{1}, \ldots, e_{k}) \) and \( (e_{k+1}, \ldots, e_{n}) \) respectively, where \( e_{i} \) is the \(i\) th standard basis vector for \( \mathbb{R}^{n} \). For any \(k\)-dimensional subspace \( S \subseteq \mathbb{R}^{n} \) that has trivial intersection with \( Q \), show that the coordinate representation \( \varphi(S) \) constructed in Example 1.36 is the unique \( (n - k) \times k \) matrix \( B \) such that \( S \) is spanned by the columns of the matrix \( \dbinom{I_{k}}{B} \), where \( I_{k} \) denotes the \( k \times k \) identity matrix.
+    Let \( k \) and \( n \) be integers satisfying \( 0 < k < n \), and let \( P, Q \subseteq \mathbb{R}^{n} \) be the linear subspaces spanned by \( (e_{1}, \ldots, e_{k}) \) and \( (e_{k+1}, \ldots, e_{n}) \) respectively, where \( e_{i} \) is the \(i\) th standard basis vector for \( \mathbb{R}^{n} \). For any \(k\)-dimensional subspace \( S \subseteq \mathbb{R}^{n} \) that has trivial intersection with \( Q \), show that the coordinate representation \( \varphi(S) \) constructed in Example 1.36 is the unique \( (n - k) \times k \) matrix \( B \) such that \( S \) is spanned by the columns of the matrix \( \dbinom{I_{k}}{B} \), where \( I_{k} \) denotes the \( k \times k \) identity matrix.
 \end{problem}
 
 \begin{proof}
@@ -716,7 +751,7 @@ Let \( k \) and \( n \) be integers satisfying \( 0 < k < n \), and let \( P, Q 
 \end{proof}
 
 \begin{problem}{1-11}
-Let \( M = \overline{\mathbb{B}}^{n} \), the closed unit ball \( \mathbb{R}^{n} \). Show that \( M \) is a topological manifold with boundary in which each point in \( \mathbb{S}^{n-1} \) is a boundary point and each point in \( \mathbb{B}^{n} \) is an interior point. Show how to give it a smooth structure such that every smooth interior chart is a smooth chart for the standard smooth structure on \( \mathbb{B}^{n} \). [Hint: consider the map \( \pi \circ \sigma^{-1}: \mathbb{R}^{n} \to \mathbb{R}^{n} \), where \( \sigma: \mathbb{S}^{n} \to \mathbb{R}^{n} \) is the stereographic projection (Problem 1-7) and \( \pi \) is a projection from \( \mathbb{R}^{n+1} \) to \( \mathbb{R}^{n} \) that omits some coordinate other than the last.]
+    Let \( M = \overline{\mathbb{B}}^{n} \), the closed unit ball \( \mathbb{R}^{n} \). Show that \( M \) is a topological manifold with boundary in which each point in \( \mathbb{S}^{n-1} \) is a boundary point and each point in \( \mathbb{B}^{n} \) is an interior point. Show how to give it a smooth structure such that every smooth interior chart is a smooth chart for the standard smooth structure on \( \mathbb{B}^{n} \). [Hint: consider the map \( \pi \circ \sigma^{-1}: \mathbb{R}^{n} \to \mathbb{R}^{n} \), where \( \sigma: \mathbb{S}^{n} \smallsetminus \left\{ N \right\} \to \mathbb{R}^{n} \) is the stereographic projection (Problem 1-7) and \( \pi \) is a projection from \( \mathbb{R}^{n+1} \) to \( \mathbb{R}^{n} \) that omits some coordinate other than the last.]
 \end{problem}
 
 \begin{proof}
@@ -728,7 +763,7 @@ Let \( M = \overline{\mathbb{B}}^{n} \), the closed unit ball \( \mathbb{R}^{n} 
 
     The maps \( \varphi_{i}^{\pm}: U_{i}^{\pm} \to \mathbb{R}^{n} \) are inversions centered at \( N_{i}^{\mp} \) with power \( 2 \) (radius \(\sqrt{2}\)). To be more specific
     \begingroup
-    \allowdisplaybreaks
+    \allowdisplaybreaks%
     \begin{align*}
         \varphi_{i}^{+}(u^{1}, \ldots, u^{i}, \ldots, u^{n}) = \dfrac{(2u^{1}, \ldots, 1 - {\left\Vert u \right\Vert}^{2}, \ldots, 2u^{n})}{{\left\Vert u \right\Vert}^{2} + 2u^{i} + 1}, \\
         \varphi_{i}^{-}(u^{1}, \ldots, u^{i}, \ldots, u^{n}) = \dfrac{(2u^{1}, \ldots, {\left\Vert u \right\Vert}^{2} - 1, \ldots, 2u^{n})}{{\left\Vert u \right\Vert}^{2} - 2u^{i} + 1}.
@@ -759,7 +794,7 @@ Let \( M = \overline{\mathbb{B}}^{n} \), the closed unit ball \( \mathbb{R}^{n} 
 \end{proof}
 
 \begin{problem}{1-12}
-Prove Proposition 1.45. Suppose \( M_{1}, \ldots, M_{k} \) are smooth manifolds and \( N \) is a smooth manifold with boundary. Then \( M_{1} \times \cdots \times M_{k} \times N \) is a smooth manifold with boundary, and \( \partial (M_{1} \times \cdots \times M_{k} \times N) = M_{1} \times \cdots \times M_{k} \times \partial N \).
+    Prove Proposition 1.45. Suppose \( M_{1}, \ldots, M_{k} \) are smooth manifolds and \( N \) is a smooth manifold with boundary. Then \( M_{1} \times \cdots \times M_{k} \times N \) is a smooth manifold with boundary, and \( \partial (M_{1} \times \cdots \times M_{k} \times N) = M_{1} \times \cdots \times M_{k} \times \partial N \).
 \end{problem}
 
 \begin{proof}
@@ -779,4 +814,3 @@ Prove Proposition 1.45. Suppose \( M_{1}, \ldots, M_{k} \) are smooth manifolds 
 
     Note that \( M_{1} \times \cdots \times M_{k} \) is a smooth manifold, so \( M_{1} \times \cdots \times M_{k} \times N \) is a smooth manifold with boundary and \( \partial (M_{1} \times \cdots \times M_{k} \times N) = M_{1} \times \cdots \times M_{k} \times \partial N \).
 \end{proof}
-

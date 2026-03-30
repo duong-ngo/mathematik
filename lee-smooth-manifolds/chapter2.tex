@@ -1,1 +1,1251 @@
+% chktex-file 8
 \chapter{Smooth Maps}
+
+\section{Smooth Functions and Smooth Maps}
+
+\subsection{Smooth Functions on Manifolds}
+
+\begin{exercise}{2.1}
+    Let \( M \) be a smooth manifold with or without boundary. Show that pointwise multiplication turns \( C^{\infty}(M) \) into a commutative ring and a commutative and associative algebra over \( \mathbb{R} \).
+\end{exercise}
+
+\begin{proof}
+    Suppose \( f, g \in C^{\infty}(M) \). For every \( p \in M \), there exist smooth charts \( (U, \phi), (V, \psi) \) such that \( f \circ \phi^{-1} \) and \( g \circ \psi^{-1} \) are smooth.
+
+    \( (U \cap V, \phi\vert_{U \cap V}) \) is also a smooth chart for \( M \) and
+    \[
+        g \circ \phi\vert_{U \cap V}^{-1} = g \circ \psi^{-1} \circ (\psi \circ \phi^{-1})
+    \]
+
+    is smooth. Moreover, for every \( x \in \phi(U \cap V) \)
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+        (f + g) \circ \phi^{-1}(x) = f \circ \phi^{-1}(x) + g \circ \phi^{-1}(x) \\
+        (f \cdot g) \circ \phi^{-1}(x) = (f \circ \phi^{-1}(x)) \cdot (g \circ \phi^{-1}(x))
+    \end{align*}
+    \endgroup
+
+    so \( (f + g) \circ \phi\vert_{U \cap V}^{-1} \) and \( (f \cdot g) \circ \phi\vert_{U \cap V}^{-1} \) are smooth. Hence \( f + g, f \cdot g \in C^{\infty}(U) \).
+
+    Suppose \( f \in C^{\infty}(M), \lambda \in \mathbb{R} \). For every \( p \in M \), there exists a smooth chart \( (U, \phi) \) such that \( f \circ \phi^{-1} \) is smooth. Moreover, for every \( x \in \phi(U) \)
+    \[
+        (\lambda f) \circ \phi^{-1}(x) = \lambda \cdot (f \circ \phi^{-1}(x))
+    \]
+
+    so \( (\lambda f) \circ \phi^{-1} \) is smooth. Hence \( \lambda f \in C^{\infty}(U) \).
+
+    Thus \( C^{\infty} \) is a real vector space, a commutative ring and an associative and commutative algebra over \( \mathbb{R} \).
+\end{proof}
+
+\begin{exercise}{2.2}
+    Let \( U \) be an open submanifold of \( \mathbb{R}^{n} \) with its standard smooth manifold structure. Show that a function \( f: U \to \mathbb{R}^{k} \) is smooth in the sense just defined if and only if it is smooth in the sense of ordinary calculus. Do the same for an open submanifold with boundary in \( \mathbb{H}^{n} \) (see Exercise 1.44).
+\end{exercise}
+
+\begin{proof}
+    The standard smooth manifold structure for \( U \) is provided by the single chart \( (U, \operatorname{Id}_{U}) \).
+
+    Suppose \( f \) is smooth in the sense just defined in this chapter.
+
+    According to the definition of a smooth function in this chapter, for every \( p \in U \), there exists a smooth coordinate chart \( (V, \psi) \) for \( U \) such that \( p \in V \) and \( f \circ \psi^{-1}: \psi(V) \to \mathbb{R}^{k} \) is smooth. Two smooth charts \( (V, \psi), (U, \operatorname{Id}_{U}) \) are smoothly compatible so the transition map
+    \[
+        \psi = \psi \circ \operatorname{Id}_{U}^{-1}: \underbrace{U \cap V}_{= V} \to \underbrace{\psi(U \cap V)}_{= \psi(V)}
+    \]
+
+    is smooth. Therefore \( f\vert_{V} = (f \circ \psi^{-1}) \circ \psi \) is smooth, which means \( f \) is locally smooth in the sense of ordinary calculus. Therefore \( f \) is smooth in the sense of ordinary calculus.
+
+    Suppose \( f \) is smooth in the sense of ordinary calculus.
+
+    Every point \( p \in U \) is contained in \( U \), which is the domain of the smooth coordinate chart \( (U, \operatorname{Id}_{U}) \). Then \( f \circ \operatorname{Id}_{U}^{-1} \) is smooth in the sense of ordinary calculus. Moreover, \( f = f \circ \operatorname{Id}_{U}^{-1} \) so \( f \) is smooth in the sense just defined in this chapter.
+
+    \bigskip
+
+    Assume \( U \) is relatively open in \( \mathbb{H}^{n} \). The standard smooth manifold structure for \( U \) is also given by the single chart \( (U, \operatorname{Id}_{U}) \).
+
+    Suppose \( f \) is smooth in the sense just defined in this chapter.
+
+    Note that \( F: U \to \mathbb{R}^{k} \), where \( U \subseteq \mathbb{H}^{n} \) is open, is smooth if and only if it is continuous and its restriction to \( U \cap \operatorname{Int} \mathbb{H}^{n} \) is smooth and all partial derivatives of its restriction have continuous extension to \( U \).
+
+    For every \( p \in U \), there exists a smooth coordinate chart \( (V, \psi) \) for \( U \) such that \( p \in V \) and \( f \circ \psi^{-1}: \psi(V) \to \mathbb{R}^{k} \) is smooth. Two smooth charts \( (V, \psi), (U, \operatorname{Id}_{U}) \) are smoothly compatible so the transition map
+    \[
+        \psi = \psi \circ \operatorname{Id}_{U}^{-1}: \underbrace{U \cap V}_{= V} \to \underbrace{\psi(U \cap V)}_{= \psi(V)}
+    \]
+
+    is smooth. Therefore \( f\vert_{V} = (f \circ \psi^{-1}) \circ \psi \) is smooth, so \( f \) is locally smooth. Hence \( f \) is smooth in the sense of ordinary calculus.
+
+    Suppose \( f \) is smooth in the sense of ordinary calculus.
+
+    There exist an open subset \( \widetilde{U} \subseteq \mathbb{R}^{n} \) and a smooth function \( \widetilde{f}: \widetilde{U} \to \mathbb{R}^{k} \) for which \( U = \widetilde{U} \cap \mathbb{H}^{n} \) and \( g\vert_{U} = f \). The function \( f \circ \operatorname{Id}_{U}^{-1} \) has extension \( g \circ \operatorname{Id}_{\widetilde{U}}^{-1} \), which is smooth, so \( f \circ \operatorname{Id}_{\widetilde{U}}^{-1} \) is smooth. Hence \( f \) is smooth in the sense just defined in this chapter.
+\end{proof}
+
+\begin{exercise}{2.3}
+    Let \( M \) be a smooth manifold with or without boundary, and suppose \( f: M \to \mathbb{R}^{k} \) is a smooth function. Show that \( f \circ \phi^{-1}: \phi(U) \to \mathbb{R}^{k} \) is smooth for \textit{every} smooth chart \( (U, \phi) \) for \( M \).
+\end{exercise}
+
+\begin{proof}
+    \( (U, \phi) \) is a smooth chart for \( M \), so \( \phi(U) \) is an open submanifold of \( \mathbb{R}^{n} \) (if \(M\) is a manifold without boundary) or \( \mathbb{H}^{n} \) (if \(M\) is a manifold with boundary).
+
+    \( f: M \to \mathbb{R}^{k} \) is a smooth function so at every point \( p \in U \subseteq M \), there exists some smooth coordinate chart \( (V, \psi) \) for which \( f \circ \psi^{-1}: \psi(V) \to \mathbb{R}^{k} \) is smooth.
+
+    For every smooth chart \( (U, \phi) \) for \( M \), \( (U, \phi) \) and \( (V, \psi) \) are smoothly compatible, so the transition map \( \psi \circ \phi^{-1}: \phi(U \cap V) \to \psi(U \cap V) \) is smooth.
+
+    Therefore the composition \( (f \circ \psi^{-1}) \circ (\psi \circ \phi^{-1}) = f \circ \phi^{-1}: \phi(U \cap V) \to \mathbb{R}^{k} \) is smooth.
+
+    Hence \( f \circ \phi^{-1} \) is locally smooth (at every point in \(U\), there is a neighborhood to which the restriction of \( f \circ \phi^{-1} \) is smooth), which means \( f \circ \phi^{-1} \) is smooth. Thus \( f \circ \phi^{-1} \) is smooth for every smooth coordinate chart \( (U, \phi) \).
+\end{proof}
+
+\subsection{Smooth Maps Between Manifolds}
+
+\begin{prop}{2.5}[Equivalent Characterizations of Smoothness]
+    Suppose \( M \) and \( N \) are smooth manifolds with or without boundary, and \( F: M \to N \) is a map. Then \( F \) is smooth if and only if either of the following conditions is satisfied:
+    \begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+        \item For every \( p \in M \), there exist smooth charts \( (U, \phi) \) containing \( p \) and \( (V, \psi) \) containing \( F(p) \) such that \( U \cap F^{-1}(V) \) is open in \( M \) and the composite map \( \psi \circ F \circ \phi^{-1} \) is smooth from \( \phi(U \cap F^{-1}(V)) \) to \( \psi(V) \).
+        \item \( F \) is continuous and there exist smooth atlases \( {\left\{ (U_{\alpha}, \phi_{\alpha}) \right\}} \) and \( {\left\{ (V_{\beta}, \psi_{\beta}) \right\}} \) for \( M \) and \( N \), respectively, such that for each \( \alpha \) and \( \beta \), \( \psi_{\beta} \circ F \circ \phi_{\alpha}^{-1} \) is a smooth map from \( \phi_{\alpha}(U_{\alpha} \cap F^{-1}(V_{\beta})) \) to \( \psi_{\beta}(V_{\beta}) \).
+    \end{enumerate}
+\end{prop}
+
+\begin{proof}
+    We repeat the definition of a smooth map:
+    \begin{quotation}
+        A map \( F: M \to N \) between smooth manifolds with or without boundary is a smooth map if for every \( p \in M \), there exist smooth charts \( (U, \phi) \) containing \( p \) and \( (V, \psi) \) containing \( F(p) \) such that \( F(U) \subseteq V \) and \( \psi \circ F \circ \phi^{-1} \) is a smooth function from \( \phi(U) \) to \( \psi(V) \).
+    \end{quotation}
+
+    \textbf{The definition implies (a).}
+
+    Let \( p \in M \). From the definition of a smooth map between manifolds, there are smooth charts \( (U, \phi) \) containing \( p \) and \( (V, \psi) \) containing \( F(p) \) with \( F(U) \subseteq V \) and \( \psi \circ F \circ \phi^{-1} \) being smooth from \( \phi(U) \) to \( \psi(V) \).
+
+    \( F \) is continuous (Proposition 2.4) so \( U \cap F^{-1}(V) \) is open in \( M \) and \( \phi(U \cap F^{-1}(V)) \) is an open subset of \( \phi(U) \). Therefore \( \psi \circ F \circ \phi^{-1} \) is smooth from \( \phi(U \cap F^{-1}(V)) \) to \( \psi(V) \).
+
+    \textbf{(a) implies the definition.}
+
+    Let \( p \in M \), then there exist smooth charts \( (U, \phi) \) containing \( p \) and \( (V, \psi) \) containing \( F(p) \) such that \( U \cap F^{-1}(V) \) is open in \( M \) and the composite map \( \psi \circ F \circ \phi^{-1} \) is smooth from \( \phi(U \cap F^{-1}(V)) \) to \( \psi(V) \).
+
+    Let \( \widetilde{U} = U \cap F^{-1}(V) \) and \( \widetilde{\phi} \) the restriction of \( \phi \) to \( \widetilde{U} \) and onto \( \phi(\widetilde{U}) \). Then \( (\widetilde{U}, \widetilde{\phi}) \) is a smooth chart for \( M \). Moreover, \( F(\widetilde{U}) \subseteq F(F^{-1}(V)) \subseteq V \) and \( \psi \circ F \circ \widetilde{\phi}^{-1} \) is a smooth function from \( \widetilde{\phi}(\widetilde{U}) \) to \( \psi(V) \) so \( F \) is a smooth map between manifolds.
+
+    \textbf{(b) implies (a).}
+
+    Let \( p \in M \). There exists a smooth chart \( (U, \phi) \) containing \( p \) and \( (U, \phi) \in \left\{ (U_{\alpha}, \phi_{\alpha}) \right\} \). There is a smooth chart \( (V, \psi) \in \left\{ (V_{\beta}, \phi_{\beta}) \right\} \) such that \( U \cap F^{-1}(V) \ne \varnothing \) then \( U \cap F^{-1}(V) \) is open in \( M \) and \( \psi \circ F \circ \phi^{-1} \) is a smooth function from \( \phi(U \cap F^{-1}(V)) \) to \( \psi(V) \).
+
+    \textbf{(a) implies (b).}
+
+    Let \( p \in M \). There exist smooth charts \( (U_{p}, \phi_{p}) \) containing \( p \) and \( (V_{p}, \psi_{p}) \) containig \( F(p) \) such that \( U_{p} \cap F^{-1}(V_{p}) \) is open in \( M \) and \( \psi_{p} \circ F \circ \phi_{p}^{-1} \) is smooth from \( \phi_{p}(U_{p} \cap F^{-1}(V_{p})) \) to \( \psi_{p}(V_{p}) \).
+
+    Hence \( \psi_{p} \circ F \circ \phi_{p}^{-1}: \phi_{p}(U_{p} \cap F^{-1}(V_{p})) \to \psi_{p}(V_{p}) \) is continuous. On the other hand
+    \begin{itemize}
+        \item \( \phi_{p}: U_{p} \cap F^{-1}(V_{p}) \to \phi_{p}(U_{p} \cap F^{-1}(V_{p})) \) is continuous (it is a homeomorphism).
+        \item \( \psi_{p}^{-1}: \psi_{p}(V_{p}) \to V_{p} \) is continuous (it is a homeomorphism).
+    \end{itemize}
+
+    Hence \( \psi_{p}^{-1} \circ (\psi_{p} \circ F \circ \phi_{p}^{-1}) \circ \phi_{p} = F\vert_{U_{p} \cap F^{-1}(V_{p})} \) is continuous. By ranging \( p \) over \( M \), we deduce that \( F \) is continuous.
+
+    Let \( {\left\{ (U_{\alpha}, \phi_{\alpha}) \right\}} \) be the collection of smooth charts of the type \( (U_{p} \cap F^{-1}(V_{p}), \phi_{p}\vert_{U_{p} \cap F^{-1}(V_{p})}) \) then this is a smooth atlas for \( M \).
+
+    Let \( \left\{ (V_{\beta}, \psi_{\beta}) \right\} \) be a smooth atlas for \( N \) that contains \( \left\{ (V_{p}, \psi_{p}) \right\} \).
+
+    Pick \( (U_{\alpha}, \phi_{\alpha}) \) and \( (V_{\beta}, \psi_{\beta}) \) out of these two smooth atlases.
+
+    \( U_{\alpha} = U_{p} \cap F^{-1}(V_{p}) \) for some \( p \in M \) and \( V_{\beta} = V_{q} \) for some \( q \in M \). So
+    \[
+        U_{\alpha} \cap F^{-1}(V_{\beta}) = U_{p} \cap F^{-1}(V_{p}) \cap F^{-1}(V_{q}) = U_{p} \cap F^{-1}(V_{p} \cap V_{q}).
+    \]
+
+    Because \( \psi_{p} \circ F \circ \phi_{p}^{-1} \) is smooth from \( U_{p} \cap F^{-1}(V_{p}) \) to \( \psi_{p}(V_{p}) \) then it is also smooth from \( U_{p} \cap F^{-1}(V_{p} \cap V_{q}) \) to \( \psi_{p}(V_{p} \cap V_{q}) \).
+
+    From the definition of smooth manifolds, the transition map \( \psi_{q} \circ \psi_{p}^{-1}: \psi_{p}(V_{p} \cap V_{q}) \to \psi_{q}(V_{p} \cap V_{q}) \) is smooth. Hence
+    \[
+        \psi_{\beta} \circ F \circ \phi_{\alpha}^{-1} = \psi_{q} \circ F \circ \phi_{p}^{-1} = (\psi_{q} \circ \psi_{p}^{-1}) \circ (\psi_{p} \circ F \circ \phi_{p}^{-1})
+    \]
+
+    is smooth from \( U_{\alpha} \cap F^{-1}(V_{\beta}) \) to \( \psi_{q}(V_{p} \cap V_{q}) \subseteq \psi_{q}(V_{q}) = \psi_{\beta}(V_{\beta}) \).
+\end{proof}
+
+\begin{prop}{2.6}[Smoothness Is Local]
+    Let \( M \) and \( N \) be smooth manifolds with or without boundary, and let \( F: M \to N \) be a map.
+    \begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+        \item If every point \( p \in M \) has a neighborhood \( U \) such that the restriction \( F\vert_{U} \) is smooth, then \( F \) is smooth.
+        \item Conversely, if \( F \) is smooth, then its restriction to every open subset is smooth.
+    \end{enumerate}
+\end{prop}
+
+\begin{quotation}
+    On an open subset \( U \) of a smooth manifold with or without boundary \( M \), we convention to use the standard smooth structure defined by smooth charts \( (V, \phi) \) for \( M \) such that \( V \subseteq U \).
+
+    We will show that any smooth chart for \( U \) is also a smooth chart for \( M \). By using this result, we don't need to depend on the choice of smooth atlases, just a smooth structure.
+
+    Let \( (V, \phi) \) be a smooth chart for \( U \) and \( (W, \psi) \) be a smooth chart for \( M \). Note that \( V \) is open in \( M \) so \( (V, \phi) \) is a chart on \( M \). The restriction \( (W \cap U, \psi\vert_{W \cap U}) \) is also a smooth chart for \( U \). The transition maps
+    \[
+        \psi\vert_{U \cap W} \circ \phi^{-1}: \underbrace{\phi(V \cap U \cap W)}_{= \phi(V \cap W)} \to \underbrace{= \psi(V \cap U \cap W)}_{\psi(V \cap W)}
+    \]
+
+    and
+    \[
+        \phi \circ \psi_{U \cap W}^{-1}: \underbrace{\psi(U \cap W \cap V)}_{= \psi(V \cap W)} \to \underbrace{\phi(U \cap W \cap V)}_{= \phi(V \cap W)}
+    \]
+
+    are smooth, so \( \psi \circ \phi^{-1}: \phi(V \cap W) \to \psi(V \cap W) \) and \( \phi \circ \psi^{-1}: \psi(V \cap W) \to \phi(V \cap W) \) are smooth. Hence \( (V, \phi) \) and \( (W, \psi) \) are smoothly compatible charts for \( M \), which means \( (V, \phi) \) is a smooth chart for \( M \).
+\end{quotation}
+
+\begin{proof}
+    \begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+        \item Let \( p \in M \) and \( U \) a neighborhood of \( p \) with \( F\vert_{U} \) being smooth.
+
+              The standard smooth atlas for \( U \) is the collection of smooth chart \( (V, \phi) \) for \( M \) with \( V \subseteq U \) (see Example 1.26).
+
+              According to Proposition 2.5(a), \( F\vert_{U} \) is smooth so there exist smooth charts \( (V, \phi) \) for \( U \) and \( (W, \psi) \) such that \( V \cap {(F\vert_{U})}^{-1}(W) \) is open in \( U \) and \( \psi \circ {(F\vert_{U})} \circ \phi^{-1} \) is smooth from \( \phi(V \cap {(F\vert_{U})}^{-1}(W)) \) to \( \psi(W) \).
+              \[
+                  V \cap {(F\vert_{U})}^{-1}(W) = V \cap U \cap F^{-1}(W) = V \cap F^{-1}(W)
+              \]
+
+              is open in \( U \), hence open in \( M \). Note that \( (V, \phi) \) is also a smooth chart for \( M \). The composition \( \psi \circ F \circ \phi^{-1} \) is smooth from \( \phi(V \cap F^{-1}(W)) \) to \( \psi(W) \).
+
+              According to Proposition 2.5(a), \( F \) is smooth.
+        \item Let \( U \) be an open subset of \( M \).
+
+              \( F \) is a smooth map so, according to Proposition 2.5, for every \( p \in U \), there exist smooth charts \( (V, \phi) \) for \( M \) and \( (W, \psi) \) for \( N \) with \( p \in V, F(p) \in W \) and \( \psi \circ F \circ \phi^{-1} \) is smooth from \( \phi(V \cap F^{-1}(W)) \) to \( \psi(W) \).
+
+              Let \( \widetilde{V} = U \cap V \) and \( \widetilde{\phi} \) be the restriction of \( \phi \) to \( \widetilde{V} \) and onto \( \phi(\widetilde{V}) \) then \( (\widetilde{V}, \widetilde{\phi}) \) is a smooth chart for \( U \).
+
+              The composition \( \psi \circ F\vert_{U} \circ \widetilde{\phi}^{-1} \) is smooth from \( \widetilde{\phi}(\widetilde{V} \cap F^{-1}(W)) \) to \( \psi(W) \).
+
+              Once again, by Proposition 2.5(a), we deduce that \( F\vert_{U} \) is smooth. Due to the arbitrariness of \( U \), we conclude that the restriction of \( F \) to every open subset of \( M \) is smooth.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}{2.9}
+    Suppose \( F: M \to N \) is a smooth map between smooth manifolds with or without boundary. Show that the coordinate representation of \( F \) with respect to \emph{every} pair of smooth charts for \( M \) and \( N \) is smooth.
+\end{exercise}
+
+\begin{proof}
+    \( F \) is smooth so according to Proposition 2.5(b), \( F \) is continuous and there exist smooth atlases \( \left\{ (U_{\alpha}, \phi_{\alpha}) \right\} \) and \( \left\{ (V_{\beta}, \psi_{\beta}) \right\} \) such that \( \psi_{\beta} \circ F \circ \phi_{\alpha}^{-1} \) is smooth from \( \phi_{\alpha}(U_{\alpha} \cap F^{-1}(V_{\beta})) \) to \( \psi_{\beta}(V_{\beta}) \).
+
+    Let \( (U, \phi) \) be a smooth chart for \( M \) and \( (V, \psi) \) a smooth chart for \( N \). We must prove that the coordinate representation \( \psi \circ F \circ \phi^{-1}: \phi(U \cap F^{-1}(V)) \to \psi(V) \) is smooth.
+
+    The transition maps \( \phi_{\alpha} \circ \phi^{-1}: \phi(U \cap U_{\alpha}) \to \phi_{\alpha}(U \cap U_{\alpha}) \) and \( \psi \circ \psi_{\beta}^{-1}: \psi_{\beta}(V \cap V_{\beta}) \to \psi(V \cap V_{\beta}) \) are smooth. Therefore
+    \[
+        (\psi \circ \psi_{\beta}^{-1}) \circ (\psi_{\beta} \circ F \circ \phi_{\alpha}^{-1}) \circ (\phi_{\alpha} \circ \phi^{-1}) = \psi \circ F \circ \phi^{-1}
+    \]
+
+    is smooth from \( \phi(U \cap U_{\alpha} \cap F^{-1}(V) \cap F^{-1}(V_{\beta})) \) to \( \phi(V) \).
+
+    Moreover, the collection
+    \[
+        {\left\{ \phi(U \cap F^{-1}(V) \cap U_{\alpha} \cap F^{-1}(V_{\beta})) \right\}}_{\alpha, \beta}
+    \]
+
+    is an open covering of \( \phi(U \cap F^{-1}(V)) \) so \( \psi \circ F \circ \phi^{-1} \) is smooth on some neighborhood of every point \( x \in \phi(U \cap F^{-1}(V)) \) (according to Proposition 2.6(b)).
+
+    Thus the coordinate representation of \( F \) with respect to every pair of smooth charts for \( M \) and \( N \) is smooth.
+\end{proof}
+
+\begin{prop}{2.10}
+    Let \( M, N \), and \( P \) be smooth manifolds with or without boundary.
+    \begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+        \item Every constant map \( c: M \to N \) is smooth.
+        \item The identity map of \( M \) is smooth.
+        \item If \( U \subseteq M \) is an open submanifold with or without boundary, then the inclusion map \( U \hookrightarrow M \) is smooth.
+        \item If \( F: M \to N \) and \( G: N \to P \) are smooth, then so is \( G \circ F: M \to P \).
+    \end{enumerate}
+\end{prop}
+
+\begin{proof}
+    \begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+        \item Let \( (U, \phi) \) be a smooth chart containing \( p \) and \( (V, \psi) \) a smooth chart containing \( c(p) \).
+
+              The coordinate representation \( \psi \circ c \circ \phi^{-1} \) of \( F \) with respect to \( (U, \phi), (V, \psi) \) is a constant map, hence smooth. Moreover, \( c(U) \subseteq V \) so \( c \) is smooth, according to the definition of smoothness.
+        \item Let \( (U, \phi) \) be a smooth chart for \( M \), then \( \phi \circ \operatorname{Id}_{M} \circ \phi^{-1}: \phi(U) \to \phi(U) \) is smooth for it is the identity map on \( \phi(U) \). Moreover, \( \operatorname{Id}_{M}(U) = U \). Therefore \( \operatorname{Id}_{M} \) is smooth, according to the definition of smoothness.
+        \item Let \( (V, \phi) \) be a smooth chart for \( U \) then it is also a smooth chart for \( M \). Denote the inclusion map by \( \iota \) then \( \iota(V) \subseteq V \). Moreover, the composition \( \phi \circ \iota \circ \phi^{-1}: \phi(V) \to \phi(V) \) is the identity map on \( \phi(V) \) hence smooth. Therefore \( \iota \) is smooth, according to the definition of smoothness.
+        \item Let \( p \in M \). By definition of smoothness of \( G \), there exist smooth charts \( (V, \psi) \) for \( N \) and \( (W, \theta) \) for \( P \) such that \( F(p) \in V, G(F(p)) \in W \) and \( G(V) \subseteq W \) and the composition \( \theta \circ G \circ \psi^{-1}: \psi(V) \to \theta(W) \) is smooth.
+
+              \( F^{-1}(V) \) is a neighborhood of \( p \) so there is a smooth chart \( (U, \phi) \) for \( M \) such that \( p \in U \subseteq F^{-1}(V) \). Therefore \( F(U) \subseteq V \). By Exercise 2.9, the composition \( \psi \circ F \circ \phi^{-1}: \phi(U) \to \psi(V) \) is smooth. Moreover, \( (G \circ F)(U) \subseteq G(V) \subseteq W \).
+
+              Hence \( \theta \circ (G \circ F) \circ \phi^{-1} = (\theta \circ G \circ \psi^{-1}) \circ (\psi \circ F \circ \phi^{-1}) \) is smooth from \( \phi(U) \) to \( \theta(W) \) for it is the composition of two smooth functions between Euclidean spaces.
+
+              By definition of smoothness, \( G \circ F \) is smooth.
+    \end{enumerate}
+\end{proof}
+
+\subsection{Diffeomorphisms}
+
+\begin{quotation}
+    On a smooth manifold with or without boundary, every smooth coordinate function and transition map are diffeomorphisms. Indeed, let \( M \) be a smooth manifold with or without boundary and \( (U, \phi), (V, \psi) \) be any two smooth charts for \( M \).
+
+    \( \operatorname{Id}_{\phi(U)} \circ \phi \circ \phi^{-1}\vert_{\phi(U)} = \operatorname{Id}_{\phi(U)} \) and \( \phi \circ \phi^{-1} \circ \operatorname{Id}_{\phi(U)}^{-1} = \operatorname{Id}_{\phi(U)}^{-1} \) are smooth so \( \phi \) is a diffeomorphism.
+
+    \( \psi \circ \phi^{-1}: \phi(U \cap V) \to \psi(U \cap V) \) is bijective and smooth. Its inverse \( \phi \circ \psi^{-1}: \psi(U \cap V) \to \phi(U \cap V) \) is smooth. Therefore \( \psi \circ \phi^{-1} \) is a diffeomorphism.
+\end{quotation}
+
+\begin{prop}{2.15}[Properties of Diffeomorphisms]
+    \begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+        \item Every composition of diffeomorphisms is a diffeomorphism.
+        \item Every finite product of diffeomorphisms between smooth manifolds is a diffeomorphism.
+        \item Every diffeomorphism is a homeomorphism and an open map.
+        \item The restriction of a diffeomorphism to an open submanifold with or without boundary is a diffeomorphism onto its image.
+        \item ``Diffeomorphic'' is an equivalence relation on the class of all smooth manifolds with or without boundary.
+    \end{enumerate}
+\end{prop}
+
+\begin{proof}
+    \begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+        \item Suppose \( F: M \to N \) and \( G: N \to P \) are diffeomorphisms between smooth manifolds with or without boundary.
+
+              \( F, G \) are bijective, so \( G \circ F \) is bijective. \( F, G \) are smooth, so \( G \circ F \) is smooth, according to Proposition 2.10(d). \( G^{-1}, F^{-1} \) are smooth (because \(F, G\) are diffeomorphisms), so \( F^{-1} \circ G^{-1} = {(G \circ F)}^{-1} \) is smooth, according to Proposition 2.10(d). Hence \( G \circ F \) is a diffeomorphism.
+        \item Suppose for every \( 1 \le i \le k \), \( F_{i}: M_{i} \to N_{i} \) is a smooth map between smooth manifolds. We will show that the product map \( F = \prod_{i=1}^{k} F_{i}: \prod_{i=1}^{k} M_{i} \to \prod_{i=1}^{k} N_{i} \) is smooth.
+
+              For every \( p = (p_{1}, \ldots, p_{k}) \in \prod_{i=1}^{k} M_{i} \), by definition of smoothness, for every \( 1 \le i \le k \), there exist smooth charts \( (U_{i}, \phi_{i}) \) for \( M_{i} \) and \( (V_{i}, \psi_{i}) \) for \( N_{i} \) with \( F_{i}(U_{i}) \subseteq V_{i} \) and \( \psi_{i} \circ F_{i} \circ \phi_{i}^{-1} \) is smooth from \( \phi_{i}(U_{i}) \) to \( \psi_{i}(V_{i}) \).
+
+              On the other hand, for every \( 1 \le i \le k \), \( \left( U := \prod_{i=1}^{k} U_{i}, \phi := \prod_{i=1}^{k} \phi_{i} \right) \) is a smooth chart for \( \prod_{i=1}^{k} M_{i} \) and \( \left( V := \prod_{i=1}^{k} V_{i}, \psi := \prod_{i=1}^{k} \psi_{i} \right) \) is a smooth chart for \( \prod_{i=1}^{k} N_{i} \) and
+              \[
+                  F\left( \prod_{i=1}^{k} U_{i} \right) = \prod_{i=1}^{k} F_{i}(U_{i}) \subseteq \prod_{i=1}^{k} V_{i}
+              \]
+
+              so the composition \( \psi \circ F \circ \phi^{-1} \) is smooth from \( \phi(U) \) to \( \psi(V) \). Hence \( F \) is smooth by definition of smoothness.
+        \item Suppose \( F: M \to N \) is a diffeomorphism between smooth manifolds with or without boundary. \( F \) is bijective, \( F, F^{-1} \) are smooth. According to Proposition 2.4, \( F \) and \( F^{-1} \) are continuous. Therefore \( F \) is a homeomorphism and particularly, it is an open map.
+        \item Let \( F: M \to N \) be a diffeomorphism and \( U \) is an open submanifold of \( M \). By (c), \( F(U) \) is an open subset of \( N \), hence an open submanifold with or without boundary of \( N \).
+
+              The restriction map \( F\vert_{U}: U \to F(U) \) is bijective. At every point \( p \in U \subseteq M \), there are smooth charts \( (V, \phi) \) for \( M \) and \( (W, \psi) \) for \( N \) with \( p \in V, F(p) \in W \) and \( F(V) \subseteq W \) and the composition \( \psi \circ F \circ \phi^{-1} \) is smooth from \( \phi(V) \) to \( \psi(W) \).
+
+              \( (U \cap V, \phi\vert_{U \cap V}) \) is a smooth chart for \( U \) and \( (F(U) \cap W, \psi\vert_{F(U) \cap W}) \) is a smooth chart for \( F(U) \) and \( F\vert_{U}(U \cap V) \subseteq F(U) \cap F(V) \subseteq F(U) \cap W \).
+
+              Hence \( \psi\vert_{F(U) \cap W}^{-1} \circ F\vert_{U} \circ \phi_{U \cap V}^{-1} \) is smooth from \( \phi(U \cap V) \) to \( \psi(F(U) \cap W) \). By definition of smoothness, \( F\vert_{U}: U \to F(U) \) is smooth.
+
+              Analogously, \( F\vert_{U}^{-1}: F(U) \to U \) is smooth. Thus \( F\vert_{U}: U \to F(U) \) is a diffeomorphism.
+        \item (a) implies ``Diffeomorphic'' is a transitive relation.
+
+              Proposition 2.10(b) implies ``Diffeomorphic'' is a reflexive relation.
+
+              If \( F: M \to N \) is a diffeomorphism then so is its inverse \( F^{-1}: N \to M \), hence ``Diffeomorphic'' is a symmetric relation.
+
+              Thus ``Diffeomorphic'' is an equivalence relation of the class of smooth manifolds with or without boundary.
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}{2.18}[Diffeomorphism Invariance of the Boundary]
+    Suppose \( M \) and \( N \) are smooth manifolds with boundary and \( F: M \to N \) is a diffeomorphism. Then \( F(\partial M) = \partial N \), and \( F \) restricts to a diffeomorphism from \( \operatorname{Int} M \) to \( \operatorname{Int} N \).
+
+    Use Theorem 1.46 to prove this.
+\end{theorem}
+
+\begin{proof}
+    Theorem 2.17 asserts that \( \dim M = \dim N \). Let \( n = \dim M = \dim N \).
+
+    From Theorem 1.46, we deduce that \( M \) is the disjoint union of \( \operatorname{Int} M \) and \( \partial M \), \( N \) is the disjoint union of \( \operatorname{Int} N \) and \( \partial N \).
+
+    It suffices to prove \( F(\partial M) \subseteq \partial N \). Assume there is some \( p \in \partial M  \) for which \( F(p) \in \operatorname{Int} N \). Let \( (U, \phi) \) be a smooth chart whose domain contains \( p \) and \( (V, \psi) \) a smooth chart whose domain contains \( F(p) \). Moreover, since \( p \in \partial M \), we can assume \( \phi(U) \subseteq \mathbb{H}^{n}  \) and \( \phi(p) \in \partial \mathbb{H}^{n} \).
+
+    The coordinate representation of \( F \) with respect to \( (U, \phi) \) and \( (V, \psi) \) is \( \psi \circ F \circ \phi^{-1}: \phi(U \cap F^{-1}(V)) \to \psi(V) \), a smooth function. Moreover, since \( F \) is bijective
+    \[
+        \psi \circ F \circ \phi^{-1}(\phi(U \cap F^{-1}(V))) = \psi \circ F (U \cap F^{-1}(V)) = \psi(F(U) \cap V)
+    \]
+
+    so \( \psi \circ F \circ \phi^{-1} \) is smooth from \( \phi(U \cap F^{-1}(V)) \) onto \( \psi(F(U) \cap V) \).
+
+    \( F^{-1} \) is also a diffeomorphism, hence \( \phi \circ F^{-1} \circ \psi^{-1} \) is smooth from \( \psi(F(U) \cap V) \) onto \( \phi(U \cap F^{-1}(V)) \). So \( \psi \circ F \circ \phi^{-1} \) and \( \phi \circ F^{-1} \circ \psi^{-1} \) are diffeomorphisms, therefore
+    \[
+        (F(U) \cap V, \phi \circ F^{-1} = \phi \circ F^{-1} \circ \psi^{-1} \circ \psi)
+    \]
+
+    is a smooth boundary chart for \( N \) whose domain contains \( F(p) \). Hence \( F(p) \) is a boundary point of \( N \), which means \( F(p) \in \partial N \). So \( F(\partial M) \subseteq \partial N \). By swapping \( M \) and \( N \) (they are diffeomorphic), one obtains \( F^{-1}(\partial N) \subseteq \partial M \), so \( F(\partial M) = F(\partial N) \).
+
+    Finally, since \( F \) is bijective, \( F(\operatorname{Int} M) = F(M \smallsetminus \partial M) = F(M) \smallsetminus F(\partial M) = N \smallsetminus \partial N = \operatorname{Int} N \), then by Proposition 2.15(d), \( F \) restricts to a diffeomorphism from \( \operatorname{Int} M \) onto \( \operatorname{Int} N \).
+\end{proof}
+
+\section{Partitions of Unity}
+
+\begin{lemma}{2.20, 2.21, 2.22}
+    \begin{itemize}
+        \item[2.20] The function \( f: \mathbb{R} \to \mathbb{R} \) defined by
+              \[
+                  f(t) = \begin{cases}
+                      \exp(-1/t), & t > 0,  \\
+                      0           & t \le 0
+                  \end{cases}
+              \]
+
+              is smooth.
+        \item[2.21] If \( r_{1} < r_{2} \) then there exists a smooth function \( h: \mathbb{R} \to \mathbb{R} \) for which \( h(t) = 1 \) when \( t \le r_{1} \), \( 0 < h(t) < 1 \) when \( r_{1} < t < r_{2} \), \( h(t) = 0 \) when \( t \ge r_{2} \).
+        \item[2.22] If \( 0 < r_{1} < r_{2} \) then there exists a smooth function \( H: \mathbb{R}^{n} \to \mathbb{R} \) for which \( H(x) = 1 \) when \( x \in \overline{B}_{r_{1}}(0) \), \( 0 < H(x) < 1 \) when \( x \in B_{r_{2}}(0) \smallsetminus \overline{B}_{r_{1}}(x) \), \( H(x) = 0 \) when \( x \in \mathbb{R}^{n} \smallsetminus B_{r_{2}}(0) \).
+
+              Moreover, there exists a smooth function \( \widetilde{H}: \mathbb{H}^{n} \to \mathbb{R} \) for which \( \widetilde{H}(x) = 1 \) when \( x \in \overline{B}_{r_{1}}(0) \cap \mathbb{H}^{n} \), \( 0 < \widetilde{H}(x) < 1 \) when \( x \in B_{r_{2}}(0) \smallsetminus \overline{B}_{r_{1}}(0) \), \( \widetilde{H}(x) = 0 \) when \( x \notin \overline{B}_{r_{2}}(0) \).
+    \end{itemize}
+\end{lemma}
+
+\begin{proof}
+    \( f \) is evidently smooth on \( \mathbb{R}_{< 0} \) for it is a constant function on this region. On \( \mathbb{R}_{> 0} \), the \(n\) th derivative of \( f \) is given by
+    \[
+        f^{(n)}(t) = \exp(-1/t)\dfrac{p_{n}(t)}{t^{2n}}
+    \]
+
+    where \( p_{n} \) are polynomial functions defined recursively by
+    \[
+        p_{1}(t) = 1 \qquad p_{k+1}(t) = p_{k}(t) + t^{2} p_{k}^{\prime}(t).
+    \]
+
+    By induction, one can prove that \( \deg p_{n} \le n \). It remains to prove that \( f \) is smooth at \( 0 \).
+    \[
+        \lim\limits_{t \uparrow 0} \dfrac{f(t) - f(0)}{t} = 0 \qquad \lim\limits_{t \downarrow 0} \dfrac{f(t) - f(0)}{t} = \lim\limits_{t \downarrow 0} \dfrac{\exp(-1/t)}{t} = 0.
+    \]
+
+    so \( f \in C^{1} \). Assume \( f \in C^{k} \) then
+    \[
+        \lim\limits_{t \uparrow 0} f^{(k)}(t) = 0 \qquad \lim\limits_{t \downarrow 0} f^{(k)}(t) = \lim\limits_{t \downarrow 0} \dfrac{p_{k}(t)/t^{2k}}{\exp(1/t)} = 0
+    \]
+
+    and
+    \[
+        \lim\limits_{t \uparrow 0} \dfrac{f^{(k)}(t) - f^{(k)}(0)}{t} = 0 \qquad \lim\limits_{t \downarrow 0} \dfrac{f^{(k)}(t) - f^{(k)}(0)}{t} = \lim\limits_{t \downarrow 0} \dfrac{p_{n}(t)/t^{2n+1}}{\exp(1/t)} = 0.
+    \]
+
+    So \( f \in C^{k+1} \), hence \( f \) is smooth.
+
+    \bigskip
+
+    Let \( h(t) = \dfrac{f(r_{2} - t)}{f(r_{2} - t) + f(t - r_{1})} \) then \( h(t) = 1 \) if \( t \le r_{1} \), \( 0 < h(t) < 1 \) if \( r_{1} < t < r_{2} \), \( h(t) = 0 \) if \( t \ge r_{2} \).
+
+    \bigskip
+
+    Let \( H(x) = h(\left\vert x \right\vert) \). On \( \mathbb{R}^{n} \smallsetminus \left\{0\right\} \), \( H \) is smooth for it is the composition of two smooth functions. On \( B_{r_{1}}(0) \), \( H \) is a constant function, hence it is smooth on this neighborhood of \( 0 \). Thus \( H \) is smooth. Let \( \widetilde{H} = H\vert_{\mathbb{H}^{n}} \) then \( \widetilde{H} \) is smooth.
+\end{proof}
+
+\begin{exercise}{2.24}
+    Show how the preceding proof (Existence of Partitions of Unity) needs to be modified for the case in which \( M \) has nonempty boundary.
+\end{exercise}
+
+\begin{proof}
+    Firstly, we state the theorem for manifolds with boundary:
+    \begin{quotation}
+        Let \( M \) be a smooth \(n\)-manifold with boundary and \( \mathcal{X} = {(X_{\alpha})}_{\alpha \in A} \) is an indexed open cover of \( M \). Then there is a smooth partition of unity subordinate to \( \mathcal{X} \).
+    \end{quotation}
+
+    Since every \( X_{\alpha} \) is an open subset of \( M \), \( X_{\alpha} \) is an smooth \(n\)-manifold with or without boundary. Every \( X_{\alpha} \) has a countable basis \( \mathcal{B}_{\alpha} \) consisting of smooth regular coordinate balls or half-balls, then \( \mathcal{B} = \bigcup_{\alpha \in A} \mathcal{B}_{\alpha} \) is a basis for \( M \) consisting of smooth regular coordinate balls or half-balls for \( M \). By the proof of Proposition 1.40 (c), we can extract from \( \mathcal{B} \) a countable locally finite open refinement for \( \mathcal{X} \). Let's denote this refinement by \( \left\{ B_{i} \right\} \).
+
+    Each \( B_{i} \) is a regular coordinate ball or half-ball of some \( X_{\alpha} \).
+    \begin{itemize}
+        \item If \( B_{i} \) is a regular coordinate ball then there is a smooth coordinate chart \( (B_{i}^{\prime}, \phi_{i}) \) for \( X_{\alpha} \) and \( r_{i}^{\prime} > r_{i} > 0 \) with \( \overline{B_{i}} \subseteq B_{i}^{\prime} \) and \( \phi_{i}(B_{i}) = B_{r_{i}}(0), \phi_{i}(\overline{B_{i}}) = \overline{B}_{r_{i}}(0), \phi_{i}(B_{i}^{\prime}) = B_{r_{i}^{\prime}}(0) \).
+
+
+              By Lemma 2.22, there is a smooth function \( H_{i}: \mathbb{R}^{n} \to \mathbb{R} \) such that \( H_{i} \equiv 1 \) on \( \overline{B}_{r_{i}/2}(0) \), \( 0 < H_{i}(x) < 1 \) on \( B_{r_{i}}(0) \smallsetminus \overline{B}_{r_{i}/2}(0) \), \( H_{i} \equiv 0 \) on \( \mathbb{R}^{n} \smallsetminus B_{r_{i}}(0) \). Let's define \( f_{i}: M \to \mathbb{R} \) by
+              \[
+                  f_{i}(p) = \begin{cases}
+                      H_{i} \circ \phi_{i}(p) & p \in B_{i}^{\prime},                   \\
+                      0                       & p \in M \smallsetminus \overline{B_{i}}
+                  \end{cases}
+              \]
+
+              then the \( f_{i} \) is well-defined and smooth, for it is zero on the overlap \( B_{i}^{\prime} \smallsetminus \overline{B_{i}} \).
+        \item If \( B_{i} \) is a regular coordinate half-ball then there is a smooth coordinate chart \( (B_{i}^{\prime}, \phi_{i}) \) for \( X_{\alpha} \) and \( r_{i}^{\prime} > r_{i} > 0 \) with \( \overline{B_{i}} \subseteq B_{i}^{\prime} \) and \( \phi_{i}(B_{i}) = B_{r_{i}}(0) \cap \mathbb{H}^{n}, \phi_{i}(\overline{B_{i}}) \cap \mathbb{H}^{n} = \overline{B}_{r_{i}}(0), \phi_{i}(B_{i}^{\prime}) = B_{r_{i}^{\prime}}(0) \cap \mathbb{H}^{n} \).
+
+              By Lemma 2.22, there is a smooth function \( H_{i}: \mathbb{R}^{n} \to \mathbb{R} \) such that \( H_{i} \equiv 1 \) on \( \overline{B}_{r_{i}/2}(0) \), \( 0 < H_{i}(x) < 1 \) on \( B_{r_{i}}(0) \smallsetminus \overline{B}_{r_{i}/2}(0) \), \( H_{i} \equiv 0 \) on \( \mathbb{R}^{n} \smallsetminus B_{r_{i}}(0) \). Let's define \( f_{i}: M \to \mathbb{R} \) by
+              \[
+                  f_{i}(p) = \begin{cases}
+                      H_{i}\vert_{\mathbb{H}^{n}} \circ \phi_{i}(p) & p \in B_{i}^{\prime},                   \\
+                      0                                             & p \in M \smallsetminus \overline{B_{i}}
+                  \end{cases}
+              \]
+
+              then the \( f_{i} \) is well-defined and smooth.
+    \end{itemize}
+
+    Note that \( \operatorname{supp} f_{i} = \overline{B_{i}} \) and \( \left\{ B_{i} \right\} \) is locally finite so \( \left\{ \overline{B_{i}} \right\} \) is also locally finite. Then the function \( f = \sum_{i} f_{i} \) is smooth. As \( \left\{ B_{i} \right\} \) covers \( M \), \( f \) is positive everywhere. Define \( g_{i} = f_{i}/f \) then \( g = \sum_{i} g_{i} \equiv 1 \) on \( M \).
+
+    Now we will reindex these functions. For every \( i \), there exists some \( \alpha \in A \) for which \( B_{i}^{\prime} \subseteq X_{\alpha} \). By the axiom of choice, there is a function \( \gamma \) from the index set of \( \left\{ B_{i} \right\} \) to the index set \( A \) of \( \mathcal{X} \) such that \( B_{i}^{\prime} \subseteq X_{\gamma(i)} \). The smooth function \( \psi_{\alpha}: M \to \mathbb{R} \) is defined by
+    \[
+        \psi_{\alpha} = \sum_{i \in \gamma^{-1}(\alpha)} g_{i}
+    \]
+
+    if \( \gamma^{-1}(\alpha) \ne \varnothing \) and \( \psi_{\alpha} \equiv 0 \) otherwise. Since \( {\left\{ B_{i} \right\}}_{i \in \gamma^{-1}(\alpha)} \) is locally finite, then
+    \[
+        \operatorname{supp} \psi_{\alpha} = \overline{ \bigcup_{i \in \gamma^{-1}(\alpha)} B_{i} } = \bigcup_{i \in \gamma^{-1}(\alpha)} \overline{B_{i}} \subseteq \bigcup_{i \in \gamma^{-1}(\alpha)} B_{i}^{\prime} \subseteq X_{\alpha}.
+    \]
+
+    The family \( {(\operatorname{supp} \psi_{\alpha})}_{\alpha \in A} \) is also locally finite. Hence \( {(\psi_{\alpha})}_{\alpha \in A} \) is a smooth partition of unity subordinate to \( \mathcal{X} \).
+\end{proof}
+
+\subsection{Applications of Partitions of Unity}
+
+The first application is the existence of smooth bump functions.
+
+\begin{prop}{2.25}[Existence of Smooth Bump Functions]
+    Suppose \( M \) is a smooth manifold with or without boundary. For every closed subset \( A \) of \( M \) and every open neighborhood \( U \) of \( A \), there is a smooth bump function for \( A \) supported in \( U \).
+\end{prop}
+
+\begin{proof}
+    Two open sets \( X_{1} =  U \) and \( X_{2} = M \smallsetminus A \) comprise an open cover for \( M \). Let \( \psi_{1}, \psi_{2} \) be a smooth partition of unity subordinate to \( X_{1}, X_{2} \). Because \( \psi_{2} \equiv 0 \) on \( A \), \( \psi_{1} \equiv 1 \) on \( A \). Thus \( \psi_{1} \) is a smooth bump function for \( A \) supported in \( U \).
+\end{proof}
+
+The second application is the extension of a smooth map on a closed subset. Suppose \( M, N \) are smooth manifolds with or without boundary and \( A \subseteq M \) is an arbitrary subset. If \( \partial N = \varnothing \), we say that a map \( F: A \to N \) is \emph{\textbf{smooth on \(A\)}} if it has a smooth extension in a neighborhood of each point: that is, if for every \( p \in A \) there exist an open subset \( W \subseteq M \) containing \( p \) and a smooth map \( \widetilde{F}: W \to N \) whose restriction to \( W \cap A \) agrees with \( F \). When \( \partial N \ne \varnothing \), we say \( F: A \to N \) is smooth on \( A \) if for every \( p \in A \), there exist an open subset \( W \subseteq M \) containing \( p \) and a smooth chart \( (V, \psi) \) for \( N \) whose domain contains \( F(p) \), such that \( F(W \cap A) \subseteq V \) and \( \psi \circ F\vert_{W \cap A} \) is smooth as a map into \( \mathbb{R}^{\dim N} \) in the sense defined above.
+
+\begin{lemma}{2.26}[Extension Lemma for Smooth Functions]
+    Suppose \(M\) is a smooth manifold with or without boundary, \(A \subseteq M\) is a closed subset, and \(f: A \to \mathbb{R}^{k}\) is a smooth function. For any open subset \(U\) containing \(A\), there exist a smooth function \(\widetilde{f}: M \to \mathbb{R}^{k}\) such that \(\widetilde{f}\vert_{A} = f\) and \( \operatorname{supp} \widetilde{f} \subseteq U\).
+\end{lemma}
+
+\begin{proof}
+    For every \(p \in A\), there exist an open subset \(W_{p} \subseteq M\) and a smooth function \(\widetilde{f}_{p}: W_{p} \to \mathbb{R}^{k}\) with \( \widetilde{f}_{p}\vert_{W_{p} \cap A} = f\vert_{W_{p} \cap A} \). Moreover \( \widetilde{f}_{p}\vert_{W_{p} \cap U \cap A} = f\vert_{W_{p} \cap U \cap A} \). So without loss of generality, we can assume \( W_{p} \subseteq U \).
+
+    The family \( \left\{ W_{p} : p \in A \right\} \cup \left\{ W_{0} = M \smallsetminus A \right\} \) is an open cover for \( M \). According to Exercise 2.24, there is a smooth partition of unity \( \left\{ \psi_{p} : p \in A \right\} \cup \left\{ \psi_{0} \right\} \) subordinate to \( \left\{ W_{p} : p \in A \right\} \cup \left\{ W_{0} = M \smallsetminus A \right\} \). We define \( g_{p}: M \to \mathbb{R}^{k} \) as follows:
+    \[
+        g_{p}(x) = \begin{cases}
+            \psi_{p}(x) \widetilde{f}_{p}(x) & x \in W_{p}                                         \\
+            0                                & x \in M \smallsetminus \operatorname{supp} \psi_{p}
+        \end{cases}.
+    \]
+
+    The two definitions agree on \( W_{p} \smallsetminus \operatorname{supp} \psi_{p} \) and \( g_{p} \equiv 0 \) there. Hence \( g_{p} \) is smooth. Define \( \widetilde{f}: M \to \mathbb{R}^{k} \) by
+    \[
+        \widetilde{f}(x) = \sum_{p \in A} \psi_{p}(x)\widetilde{f}_{p}(x).
+    \]
+
+    Since \( \left\{ \operatorname{supp} \psi_{p}: p \in A \right\} \) is locally finite, \( \widetilde{f} \) is smooth on some neighborhood of any point \( x \in M \), so \( \widetilde{f} \) is smooth. If \( x \in A \) then \( \psi_{0}(x) = 0 \) and \( \widetilde{f}_{p}(x) = f(x) \), so
+    \[
+        \widetilde{f}(x) = \sum_{p \in A} \psi_{p}(x) f(x) = \left( \psi_{0}(x) + \sum_{p \in A} \psi_{p}(x) \right) f(x) = f(x).
+    \]
+
+    Hence \( \widetilde{f}\vert_{A} = f \). On the other hand
+    \[
+        x \in \left\{ x: \widetilde{f}(x) \ne 0 \right\} \iff \widetilde{f}(x) \ne 0 \implies (\exists p \in A)( \psi_{p}(x) \ne 0 ) \iff x \in \bigcup_{p \in A} \left\{ x: \psi_{p}(x) \ne 0 \right\}
+    \]
+
+    and the family \( {(\left\{ x: \psi_{p}(x) \ne 0 \right\})}_{p \in A} \) is locally finite because \( {\left\{ \operatorname{supp} \psi_{p} \right\}}_{p \in A} \) is locally finite, so
+    \[
+        \operatorname{supp} \widetilde{f} \subseteq \overline{\bigcup_{p \in A} \left\{ x: \psi_{p}(x) \ne 0 \right\}} = \bigcup_{p \in A} \overline{\left\{ x: \psi_{p}(x) \ne 0 \right\}} = \bigcup_{p \in A} \operatorname{supp} \psi_{p} \subseteq U. \qedhere
+    \]
+\end{proof}
+
+\begin{exercise}{2.27}
+    Give a counterexample to show that the conclusion of the extension lemma can be false if \( A \) is not closed.
+\end{exercise}
+
+\begin{proof}
+    \( A = \mathbb{R}^{n} \smallsetminus \left\{ 0 \right\} \) is not closed in \( M = \mathbb{R}^{n} \). The function \( f: A \to \mathbb{R} \) defined by \( f(x) = \dfrac{1}{{\left\Vert x \right\Vert}^{2}} \) is smooth. However, it doesn't extend to \( M \) because \( \lim\limits_{x \to 0} f(x) = \infty \). This example shows that the conclusion of the extension lemma can be false if \(A\) is not closed.
+\end{proof}
+
+A continuous function \( f: M \to \mathbb{R} \) from a topological space \( M \) is called an \emph{\textbf{exhaustion function for \( M \)}} if \( f^{-1}(\left\rbrack -\infty, c\right\rbrack) \) (this is called a \emph{\textbf{sublevel set of \( f \)}}) is compact for every \( c \in \mathbb{R} \). This name stems from the fact that such a function provides an exhaustion by compact sets, namely, \( \left\{ f^{-1}(\left\rbrack -\infty, n \right\rbrack) \right\} \) for \( n \in \mathbb{N} \). Evidently, any continuous function on a compact space is an exhaustion function for the space, so exhaustion functions are only interesting for non-compact spaces. Particularly, every exhaustion function is a proper map due to the Heine-Borel theorem on compactness in Euclidean spaces.
+
+\begin{theorem}{2.28}[Existence of Smooth Exhaustion Functions]
+    Every smooth manifold with or without boundary admits a smooth positive exhaustion function.
+\end{theorem}
+
+\begin{proof}
+    Suppose \( M \) is a smooth manifold with or without boundary. As \( M \) has a countable basis consisting of regular coordinate balls and half-balls, then \( M \) has an open cover consisting of precompact open sets and let it be \( {(V_{j})}_{j=1}^{\infty} \). According to Lemma 2.24, there is a smooth partition of unity \( {(\psi_{j})}_{j=1}^{\infty} \) subordinate to \({(V_{j})}_{j=1}^{\infty} \). We define \( f: M \to \mathbb{R} \) by
+    \[
+        f(x) = \sum_{j=1}^{\infty} j \cdot \psi_{j}(x).
+    \]
+
+    Since \( {\left\{ \operatorname{supp} \psi_{j} \right\}}_{j=1}^{\infty} \) is locally finite, the sum above is actually made of finitely many summands for each \( x \in M \) and \( f \) is smooth. Moreover, \( f \) is positive because \( \sum_{j=1}^{\infty} j \cdot \psi_{j}(x) \ge \sum_{j=1}^{\infty} \psi_{j}(x) = 1 \).
+
+    For every \( c \in \mathbb{N} \), there exists a positive integer \( N \) such that \( N > c \). If \( p \notin \bigcup_{j=1}^{N} \overline{V_{j}} \) then \( \psi_{j}(p) = 0 \) for \( 1 \le j \le N \) and
+    \[
+        f(x) = \sum_{j=N+1}^{\infty} j \cdot \psi_{j}(x) \ge \sum_{j=N+1}^{\infty} N \cdot \psi_{j}(x) = N > c
+    \]
+
+    so \( x \notin f^{-1}(\left\rbrack -\infty, c \right\rbrack) \). Contrapositively, \( f^{-1}(\left\rbrack -\infty, c \right\rbrack) \subseteq \bigcup_{j=1}^{N} \overline{V_{j}} \). The preimage \( f^{-1}(\left\rbrack -\infty, c \right\rbrack) \) is a closed subset of \( M \) contained in a compact set so it is compact. Thus \( f \) is a positive smooth exhaustion function for \( M \).
+\end{proof}
+
+\begin{theorem}{2.29}[Level Sets of Smooth Functions]
+    Let \( M \) be a smooth manifold {\color{red}with and without boundary}. If \( K \) is any closed subset of \( M \), there is a smooth nonnegative function \( f: M \to \mathbb{R} \) such that \( f^{-1}(0) = K \).
+\end{theorem}
+
+The book states and proves the above theorem for smooth manifolds only. I extend it to smooth manifolds with boundary.
+
+\begin{proof}
+    The proof is twofold.
+
+    \textbf{When \( M = \mathbb{R}^{n} \).}
+
+    \( M \smallsetminus K \) is open in \( \mathbb{R}^{n} \). For every \( x \in M \smallsetminus K \), there exists \( 0 < r \le 1 \) with \( B_{r}(x) \subseteq M \smallsetminus K \). Because \( M \smallsetminus K \) is second-countable, it admits an open cover consisting of countably many such open balls \( {\left\{ B_{r_{i}}(x_{i}) \right\}}_{i=1}^{\infty}  \).
+
+    Let \( h: \mathbb{R}^{n} \to \mathbb{R} \) be a smooth bump function for \( \overline{B}_{1/2}(0) \) supported in \( B_{1}(0) \) (see Lemma 2.21). Since \( h \) is zero on \( \mathbb{R}^{n} \smallsetminus \overline{B}_{1}(0) \) then all its partial derivatives of any order vanish there. Moreover, \( h \) and all its partial derivatives of any order are continuous on the compact set \( \overline{B}_{1}(0) \) so they are bounded (from the extrememum value theorem). For every positive integer \( i \), there exist an upper bound \( C_{i} \) for the absolute values of \( h \) and all its partial derivatives up through order \( i \) (there are only finitely many of them). Consider the following series of functions
+    \[
+        \sum_{i=1}^{\infty} \dfrac{{(r_{i})}^{i}}{2^{i} C_{i}} h\left( \dfrac{x - x_{i}}{r_{i}} \right).
+    \]
+
+    Because \( \left\vert \dfrac{{(r_{i})}^{i}}{2^{i} C_{i}} h\left( \dfrac{x - x_{i}}{r_{i}} \right) \right\vert \le \dfrac{1}{2^{i}} \) and \( \sum_{i=1}^{\infty} \dfrac{1}{2^{i}} \) converges then it follows from Weierstra\ss{} M-test that the given series of functions converges uniformly to a continuous function \( f \). We will show that \( f \) is smooth by using Theorem C.31. By induction, we prove
+    \[
+        \sum_{i=1}^{\infty} \dfrac{{(r_{i})}^{i}}{2^{i} C_{i}} D^{n} h\left( \dfrac{x - x_{i}}{r_{i}} \right)
+    \]
+
+    converges uniformly to \( D^{n}f \) for every \( n \) and \( f \in C^{n} \), where \( D^{n} \) is any partial derivative of order \( n \).
+
+    The statement is true for \( n = 0 \). Assume it is true for \( n = k \). Since
+    \[
+        \left\vert \dfrac{{(r_{i})}^{i}}{2^{i} C_{i}} D^{k+1} h\left(\dfrac{x - x_{i}}{r_{i}}\right) \right\vert \le \dfrac{{(r_{i})}^{i-k-1}}{2^{i}}
+    \]
+
+    then
+    \[
+        \sum_{i=1}^{\infty} \dfrac{{(r_{i})}^{i}}{2^{i} C_{i}} D^{k+1} h\left( \dfrac{x - x_{i}}{r_{i}} \right)
+    \]
+
+    converges uniformly. By Theorem C.31, \( D^{k+1}f \) exists and the series converges uniformly to it, and it is continuous. Therefore \( f \in C^{k+1} \), so \( f \) is smooth by the principle of mathematical induction.
+
+    \( f(x) = 0 \) if and only if \( x \ge x_{i} \) for every \( i \in \mathbb{Z}^{+} \), which means \( f(x) = 0 \) if and only if \( x \in K \). Therefore \( f^{-1}(0) = K \).
+
+    \textbf{When \( M = \mathbb{H}^{n} \).}
+
+    By restricting \( f \) to \( \mathbb{H}^{n} \) and use a countable collection of open balls and half-balls, we obtain a function whose zero set is \( K \).
+
+    \textbf{When \( M \) is a smooth \(n\)-manifold with boundary.}
+
+    \( M \) admits an open cover consisting of smooth coordinate balls and half-balls \( {\left\{ B_{\alpha} \right\}}_{\alpha \in A} \). Let \( {\left\{ \psi_{\alpha} \right\}}_{\alpha \in A} \) be a smooth partition of unity subordinate to \( {\left\{ B_{\alpha} \right\}}_{\alpha \in A} \). For every \( \alpha \in A \), let \( \phi_{\alpha} \) be the smooth coordinate map associating with \( B_{\alpha} \). As \( \phi_{\alpha}(B_{\alpha})  \) is an open ball (open half-ball) and every open ball (open half-ball) is diffeomorphic with \( \mathbb{R}^{n} \) (\(\mathbb{H}^{n}\)), we can assume \( \phi_{\alpha}(B_{\alpha}) \) is \( \mathbb{R}^{n} \) (\( \mathbb{H}^{n} \)). Now we will use the function \( f_{\alpha} \) as in the previous argument: \( f_{\alpha} \) is a smooth function on \( \mathbb{R}^{n} \) (\(\mathbb{H}^{n}\)) whose zero set is \( \phi_{\alpha}(K \cap B_{\alpha}) \).
+
+    Let \( f = \sum_{\alpha \in A} \psi_{\alpha} \cdot (f_{\alpha} \circ \phi_{\alpha}) \) then \( f \) is smooth and \( f^{-1}(0) = K \).
+\end{proof}
+
+\section{Problems}
+
+\begin{problem}{2-1}
+    Define \( f: \mathbb{R} \to \mathbb{R} \) by
+    \[
+        f(x) = \begin{cases}
+            1, & x \ge 0, \\
+            0, & x < 0.
+        \end{cases}
+    \]
+
+    Show that for every \( x \in \mathbb{R} \), there are smooth coordinate charts \( (U, \phi) \) containing \( x \) and \( (V, \psi) \) containing \( f(x) \) such that \( \psi \circ f \circ \phi^{-1} \) is smooth as a map from \( \phi(U \cap f^{-1}(V)) \) to \( \psi(V) \), but \( f \) is not smooth in the sense we have defined in this chapter.
+\end{problem}
+
+\begin{proof}
+    If \( x \ge 0 \), let \( U = \mathbb{R}, \phi = \operatorname{Id} \) and \( V = \mathbb{R}_{> 0}, \psi = \operatorname{Id} \).
+
+    We have \( \phi(U \cap f^{-1}(V)) = \phi(f^{-1}(V)) = f^{-1}(V) = \mathbb{R}_{\ge 0} \), so \( \psi \circ f \circ \phi^{-1} \) is a constant function (it takes on the value \(1\)), hence smooth from \( \phi(U \cap f^{-1}(V)) \) to \( \psi(V) \).
+
+    If \( x < 0 \), let \( U = \mathbb{R}, \phi = \operatorname{Id} \) and \( V = \mathbb{R}_{< 1} , \psi = \operatorname{Id} \).
+
+    We have \( \phi(U \cap f^{-1}(V)) = U \cap f^{-1}(V) = f^{-1}(V) = \mathbb{R}_{< 0} \) so \( \psi \circ f \circ \phi^{-1} \) is a constant function (it takes on the value \(0\)), hence smooth from \( \phi(U \cap f^{-1}(V)) \) to \( \psi(V) \).
+
+    Hence for every \( x \in \mathbb{R} \), there are smooth charts \( (U, \phi) \) containing \( x \) and \( (V, \psi) \) containing \( f(x) \) such that \( \psi \circ f \circ \phi^{-1} \) is smooth from \( \phi(U \cap f^{-1}(V)) \) to \( \psi(V) \).
+
+    However, \( f \) is not continuous, because it is not continuous at \( x = 0 \). On the other hand, every smooth map is continuous, so \( f \) is not smooth in the sense we defined in this chapter.
+\end{proof}
+
+\begin{problem}{2-2}
+    Suppose \( M_{1}, \ldots, M_{k} \) and \( N \) are smooth manifolds with or without boundary, such that at most one of \( M_{1}, \ldots, M_{k} \) has nonempty boundary. For each \( i \), let \( \pi_{i}: M_{1} \times \cdots \times M_{k} \to M_{i} \) denote the projection onto the \( M_{i} \) factor. A map \( F: N \to M_{1} \times \cdots \times M_{k} \) is smooth if and only if each of the composition maps \( F_{i} = \pi_{i} \circ F: N \to M_{i} \) is smooth.
+\end{problem}
+
+\begin{proof}
+    At most one of \( M_{1}, \ldots, M_{k} \) has nonempty boundary then by Proposition 1.45 (Problem 1-12), \( M_{1} \times \cdots \times M_{k} \) is a smooth manifold with or without boundary.
+
+    Denote \( n = \dim N, m_{i} = \dim M_{i} \) for every \( 1 \le i \le k \).
+
+    Firstly, we prove that each projection \( \pi_{i} \) is smooth.
+
+    Let \( p = (p_{1}, \ldots, p_{k}) \in M_{1} \times \cdots \times M_{k} \). There exists a smooth chart \( (U_{i}, \phi_{i}) \) for every \( 1 \le i \le k \) with \( p_{i} \in U_{i} \). Then \( \left( U := \prod_{i=1}^{k} U_{i}, \phi := \prod_{i=1}^{k} \phi_{i} \right) \) is a smooth chart for \( \prod_{i=1}^{k} M_{i} \). Moreover, \( \pi_{i}\left( \prod_{i=1}^{k} M_{i} \right) = M_{i} \). Then the composition \( \phi_{i} \circ \pi_{i} \circ \phi^{-1} \) is smooth from \( \phi\left( \prod_{i=1}^{k} M_{i} \right) \) to \( \phi_{i}(U_{i}) \). By definition of smoothness, \( \pi_{i} \) is smooth.
+
+    Suppose \( F \) is smooth, then \( F_{i} = \pi_{i} \circ F \) is smooth for every \( 1 \le i \le k \).
+
+    Conversely, suppose \( F_{i} = \pi_{i} \circ F \) is smooth for every \( 1 \le i \le k \). Let \( q \in N \) and \( p_{i} = F_{i}(q) \).
+
+    \( F_{i} \) is smooth so there exist smooth charts \( (V_{i}, \psi_{i}) \) for \( N \) and \( (U_{i}, \phi_{i}) \) for \( M_{i} \) with \( q \in V_{i}, F_{i}(q) = p_{i} \in U_{i} \) and \( F_{i}(V_{i}) \subseteq U_{i} \) and \( \phi_{i} \circ F_{i} \circ \psi_{i}^{-1} \) is smooth from \( \psi_{i}(V_{i}) \) to \( \phi_{i}(U_{i}) \).
+
+    Let \( \phi = \prod_{i=1}^{k} \phi_{i}: \prod_{i=1}^{k} U_{i} \to \prod_{i=1}^{k} \phi_{i}(U_{i}) \) be the product map of \( \phi_{1}, \ldots, \phi_{k} \) and \( U = \prod_{i=1}^{k} U_{i} \). Then \( (U, \phi) \) is a smooth chart for \( \prod_{i=1}^{k} M_{i} \).
+
+    The intersection \( \bigcap_{i=1}^{k} V_{i} \) is an open neighborhood of \( q \). Since any smooth manifold with or without boundary has a basis consisting of smooth coordinate charts, there exists a smooth chart \( (V, \psi) \) such that \( q \in V \subseteq \bigcap_{i=1}^{k} V_{i} \).
+
+    \( \phi_{i} \circ F_{i} \circ \psi_{i}^{-1} \) is smooth from \( \psi_{i}(V_{i}) \) to \( \phi_{i}(U_{i}) \), the transition map \( \psi_{i} \circ \psi^{-1}: \psi(\underbrace{V \cap V_{i}}_{= V})  \to \psi_{i}(V) \) is smooth. Therefore \( \phi_{i} \circ F_{i} \circ \psi^{-1} = \phi_{i} \circ \pi_{i} \circ F \circ \psi^{-1}: \psi(V) \to \phi_{i}(U_{i}) \) is smooth.
+
+    Since \( F(V) \subseteq \prod_{i=1}^{k} U_{i} = U \) then \( \phi \circ F \circ \psi^{-1}: \psi(V) \to \phi(U) \) is well-defined. Moreover, \( p_{i} \circ \phi \circ F \circ \psi^{-1}: \psi(V) \to p_{i}(\phi(U)) \) is smooth for every projection \( p_{i}: \mathbb{R}^{m_{1}} \times \cdots \times \mathbb{R}^{m_{k}} \to \mathbb{R}^{m_{i}} \) and \( p_{i} \circ \phi \circ F \circ \psi^{-1} = \phi_{i} \circ \pi_{i} \circ F \circ \psi^{-1} \) on \( \psi(V) \). Hence the every component of the function \( \phi \circ F \circ \psi^{-1} \) is smooth, which means \( \phi \circ F \circ \psi^{-1}: \psi(V) \to \phi(U) \) is smooth.
+
+    Thus \( F \) is smooth.
+\end{proof}
+
+\begin{problem}{2-3}
+    For each of the following maps between spheres, compute sufficiently many
+    coordinate representations to prove that it is smooth.
+    \begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+        \item \( p_{n}: \mathbb{S}^{1} \to \mathbb{S}^{1} \) is the \textbf{\emph{nth power map}} for \( n \in \mathbb{Z} \), given in complex notation by \( p_{n}(z) = z^{n} \).
+        \item \( \alpha: \mathbb{S}^{n} \to \mathbb{S}^{n} \) is the \textbf{\emph{antipodal map}} \( \alpha(x) = -x \).
+        \item \( F: \mathbb{S}^{3} \to \mathbb{S}^{2} \) is given by \( F(w, z) = (z\overline{w} + w\overline{z}, i w\overline{z} - i z\overline{w}, z\overline{z} - w\overline{w}) \), where we think of \( \mathbb{S}^{3} \) as the subset \( \left\{ (w, z) : {\left\vert w \right\vert}^{2} + {\left\vert z \right\vert}^{2} = 1 \right\} \) of \( \mathbb{C}^{2} \).
+    \end{enumerate}
+\end{problem}
+
+\begin{proof}
+    \begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+        \item \( p_{n} \) is continuous for it is a restriction of the polynomial function \( z \mapsto z^{n} \).
+
+              \( p_{0} \) is smooth for it is a constant map between smooth manifolds. Note that \( p_{-1}(z) = 1/z = \overline{z} \). We show that \( p_{-1} \) is smooth and \( p_{n} \) is smooth for \( n > 0 \).
+
+              The standard smooth atlas for \( \mathbb{S}^{1} \) consists of the following four smooth charts
+              \begingroup
+              \allowdisplaybreaks%
+              \begin{align*}
+                  (U_{1}^{+}, \phi_{1}^{+}); \quad U_{1}^{+} = \left\{ (x^{1}, x^{2}) \in \mathbb{S}^{1}: x^{1} > 0 \right\}; \quad \phi_{1}^{+}(x^{1}, x^{2}) = x^{2}, \\
+                  (U_{1}^{-}, \phi_{1}^{-}); \quad U_{1}^{-} = \left\{ (x^{1}, x^{2}) \in \mathbb{S}^{1}: x^{1} < 0 \right\}; \quad \phi_{1}^{-}(x^{1}, x^{2}) = x^{2}, \\
+                  (U_{2}^{+}, \phi_{2}^{+}); \quad U_{2}^{+} = \left\{ (x^{1}, x^{2}) \in \mathbb{S}^{1}: x^{2} > 0 \right\}; \quad \phi_{2}^{+}(x^{1}, x^{2}) = x^{1}, \\
+                  (U_{2}^{-}, \phi_{2}^{-}); \quad U_{2}^{+} = \left\{ (x^{1}, x^{2}) \in \mathbb{S}^{1}: x^{2} < 0 \right\}; \quad \phi_{2}^{+}(x^{1}, x^{2}) = x^{1}.
+              \end{align*}
+              \endgroup
+
+              We will show that every coordinate representation of \( p_{-1}, p_{n} \) with respect to any pair of smooth charts from this list is smooth.
+              \begingroup
+              \allowdisplaybreaks%
+              \begin{align*}
+                  \phi_{1}^{+} \circ p_{-1} \circ {\left(\phi_{1}^{+}\right)}^{-1}(u) & = -u,                \\
+                  \phi_{1}^{-} \circ p_{-1} \circ {\left(\phi_{1}^{+}\right)}^{-1}(u) & = -u,                \\
+                  \phi_{2}^{+} \circ p_{-1} \circ {\left(\phi_{1}^{+}\right)}^{-1}(u) & = \sqrt{1 - u^{2}},  \\
+                  \phi_{2}^{-} \circ p_{-1} \circ {\left(\phi_{1}^{+}\right)}^{-1}(u) & = \sqrt{1 - u^{2}},  \\
+                  \phi_{1}^{+} \circ p_{-1} \circ {\left(\phi_{1}^{-}\right)}^{-1}(u) & = -u,                \\
+                  \phi_{1}^{-} \circ p_{-1} \circ {\left(\phi_{1}^{-}\right)}^{-1}(u) & = -u,                \\
+                  \phi_{2}^{+} \circ p_{-1} \circ {\left(\phi_{1}^{-}\right)}^{-1}(u) & = \sqrt{1 - u^{2}},  \\
+                  \phi_{2}^{-} \circ p_{-1} \circ {\left(\phi_{1}^{-}\right)}^{-1}(u) & = \sqrt{1 - u^{2}},  \\
+                  \phi_{1}^{+} \circ p_{-1} \circ {\left(\phi_{2}^{+}\right)}^{-1}(u) & = -\sqrt{1 - u^{2}}, \\
+                  \phi_{1}^{-} \circ p_{-1} \circ {\left(\phi_{2}^{+}\right)}^{-1}(u) & = -\sqrt{1 - u^{2}}, \\
+                  \phi_{2}^{+} \circ p_{-1} \circ {\left(\phi_{2}^{+}\right)}^{-1}(u) & = u,                 \\
+                  \phi_{2}^{-} \circ p_{-1} \circ {\left(\phi_{2}^{+}\right)}^{-1}(u) & = u,                 \\
+                  \phi_{1}^{+} \circ p_{-1} \circ {\left(\phi_{2}^{-}\right)}^{-1}(u) & = \sqrt{1 - u^{2}},  \\
+                  \phi_{1}^{-} \circ p_{-1} \circ {\left(\phi_{2}^{-}\right)}^{-1}(u) & = \sqrt{1 - u^{2}},  \\
+                  \phi_{2}^{+} \circ p_{-1} \circ {\left(\phi_{2}^{-}\right)}^{-1}(u) & = u,                 \\
+                  \phi_{2}^{-} \circ p_{-1} \circ {\left(\phi_{2}^{-}\right)}^{-1}(u) & = u
+              \end{align*}
+              \endgroup
+
+              are smooth so \( p_{-1} \) is smooth.
+              \[
+                  p_{n}(z) = p_{n}(\cos(\theta), \sin(\theta)) = (\cos(n\theta), \sin(n\theta)) = (T_{n}(\cos(\theta)), \sin(\theta) U_{n-1}(\cos(\theta))).
+              \]
+              \begingroup
+              \allowdisplaybreaks%
+              \begin{align*}
+                  \phi_{1}^{+} \circ p_{n} \circ {\left(\phi_{1}^{+}\right)}^{-1}(u) & = u U_{n-1}(\sqrt{1 - u^{2}}),  \\
+                  \phi_{1}^{-} \circ p_{n} \circ {\left(\phi_{1}^{+}\right)}^{-1}(u) & = u U_{n-1}(\sqrt{1 - u^{2}}),  \\
+                  \phi_{2}^{+} \circ p_{n} \circ {\left(\phi_{1}^{+}\right)}^{-1}(u) & = T_{n}(\sqrt{1 - y^{2}}),      \\
+                  \phi_{2}^{-} \circ p_{n} \circ {\left(\phi_{1}^{+}\right)}^{-1}(u) & = T_{n}(\sqrt{1 - u^{2}}),      \\
+                  \phi_{1}^{+} \circ p_{n} \circ {\left(\phi_{1}^{-}\right)}^{-1}(u) & = u U_{n-1}(-\sqrt{1 - u^{2}}), \\
+                  \phi_{1}^{-} \circ p_{n} \circ {\left(\phi_{1}^{-}\right)}^{-1}(u) & = u U_{n-1}(-\sqrt{1 - u^{2}}), \\
+                  \phi_{2}^{+} \circ p_{n} \circ {\left(\phi_{1}^{-}\right)}^{-1}(u) & = T_{n}(-\sqrt{1 - u^{2}}),     \\
+                  \phi_{2}^{-} \circ p_{n} \circ {\left(\phi_{1}^{-}\right)}^{-1}(u) & = T_{n}(-\sqrt{1 - u^{2}}),     \\
+                  \phi_{1}^{+} \circ p_{n} \circ {\left(\phi_{2}^{+}\right)}^{-1}(u) & = \sqrt{1 - u^{2}} U_{n-1}(u),  \\
+                  \phi_{1}^{-} \circ p_{n} \circ {\left(\phi_{2}^{+}\right)}^{-1}(u) & = \sqrt{1 - u^{2}} U_{n-1}(u),  \\
+                  \phi_{2}^{+} \circ p_{n} \circ {\left(\phi_{2}^{+}\right)}^{-1}(u) & = T_{n}(u),                     \\
+                  \phi_{2}^{-} \circ p_{n} \circ {\left(\phi_{2}^{+}\right)}^{-1}(u) & = T_{n}(u),                     \\
+                  \phi_{1}^{+} \circ p_{n} \circ {\left(\phi_{2}^{-}\right)}^{-1}(u) & = -\sqrt{1 - u^{2}}U_{n-1}(u),  \\
+                  \phi_{1}^{-} \circ p_{n} \circ {\left(\phi_{2}^{-}\right)}^{-1}(u) & = -\sqrt{1 - u^{2}}U_{n-1}(u),  \\
+                  \phi_{2}^{+} \circ p_{n} \circ {\left(\phi_{2}^{-}\right)}^{-1}(u) & = T_{n}(u),                     \\
+                  \phi_{2}^{-} \circ p_{n} \circ {\left(\phi_{2}^{-}\right)}^{-1}(u) & = T_{n}(u)
+              \end{align*}
+              \endgroup
+
+              are smooth so \( p_{n} \) is smooth for every positive integer \( n \), where \( T_{n} \) is the nth Chebyshev polynomial of first kind and \( U_{n} \) is the Chebyshev polynomial of second kind.
+
+              Moreover, \( p_{-n} = p_{n} \circ p_{-1} \) so \( p_{-n} \) is smooth for every positive integer. Thus \( p_{n} \) is smooth for every \( n \in \mathbb{Z} \).
+        \item The standard smooth atlas for \( \mathbb{S}^{n} \) consists of
+              \[
+                  \begin{split}
+                      (U_{i}^{+}, \phi_{i}^{+}); \quad U_{i}^{+} = \left\{ x \in \mathbb{S}^{n} : x^{i} > 0 \right\}; \quad \phi_{i}^{+}(x^{1}, \ldots, x^{i}, \ldots, x^{n+1}) = (x^{1}, \ldots, \widehat{x^{i}}, \ldots, x^{n+1}), \\
+                      (U_{i}^{-}, \phi_{i}^{-}); \quad U_{i}^{-} = \left\{ x \in \mathbb{S}^{n} : x^{i} < 0 \right\}; \quad \phi_{i}^{-}(x^{1}, \ldots, x^{i}, \ldots, x^{n+1}) = (x^{1}, \ldots, \widehat{x^{i}}, \ldots, x^{n+1}),
+                  \end{split}
+              \]
+
+              for every \( 1 \le i \le n+1 \).
+
+              If \( x \in U_{i}^{+} \) then \( -x = \alpha(x) \in U_{i}^{-} \) and vice versa. The coordinate representation of \( \alpha \) with respect to \( (U_{i}^{+}, \phi_{i}^{+}) \) and \( (U_{i}^{-}, \phi_{i}^{-}) \) is
+              \[
+                  \phi_{i}^{-} \circ \alpha \circ {(\phi_{i}^{+})}^{-1}(u^{1}, \ldots, u^{n}) = (-u^{1}, \ldots, -u^{n})
+              \]
+
+              and it is smooth for every \( 1 \le i \le n + 1 \). Thus \( \alpha \) is smooth. Moreover, \( \alpha \) is a diffeomorphism as it is involutive.
+        \item \( F \) is continuous.
+              \[
+                  F(x^{1}, x^{2}, x^{3}, x^{4}) = (2(x^{1}x^{3} + x^{2}x^{4}), 2(x^{1}x^{4} - x^{2}x^{3}), {(x^{3})}^{2} + {(x^{4})}^{2} - {(x^{1})}^{2} - {(x^{2})}^{2}).
+              \]
+
+              We use the following smooth atlas for \( \mathbb{S}^{3} \)
+              \[
+                  \begin{split}
+                      (U^{+}, \phi^{+}); \quad U^{+} = \left\{ x \in \mathbb{S}^{3} : x^{4} \ne 1 \right\}; \quad \phi^{+}(x^{1}, x^{2}, x^{3}, x^{4}) = \dfrac{(x^{1}, x^{2}, x^{3})}{1 - x^{4}}, \\
+                      (U^{-}, \phi^{-}); \quad U^{-} = \left\{ x \in \mathbb{S}^{3} : x^{4} \ne -1 \right\}; \quad \phi^{-}(x^{1}, x^{2}, x^{3}, x^{4}) = \dfrac{(x^{1}, x^{2}, x^{3})}{1 + x^{4}},
+                  \end{split}
+              \]
+
+              and the following for \( \mathbb{S}^{2} \)
+              \[
+                  \begin{split}
+                      (V^{+}, \psi^{+}); \quad V^{+} = \left\{ x \in \mathbb{S}^{2} : x^{3} \ne 1 \right\}; \quad \phi^{+}(x^{1}, x^{2}, x^{3}) = \dfrac{(x^{1}, x^{2})}{1 - x^{3}}, \\
+                      (V^{-}, \psi^{-}); \quad V^{-} = \left\{ x \in \mathbb{S}^{2} : x^{3} \ne -1 \right\}; \quad \phi^{-}(x^{1}, x^{2}, x^{3}) = \dfrac{(x^{1}, x^{2})}{1 + x^{3}}.
+                  \end{split}
+              \]
+
+              The following coordinate representations of \( F \)
+              \begingroup
+              \allowdisplaybreaks%
+              \begin{align*}
+                  \psi^{+} \circ F \circ {(\phi^{+})}^{-1}(u^{1}, u^{2}, u^{3}) & = \dfrac{\left(2u^{1}u^{3} - u^{2} (1 - {\left\Vert u \right\Vert}^{2}), -2u^{2}u^{3} + u^{1}(1 - {\left\Vert u \right\Vert}^{2})\right)}{2({(u^{1})}^{2} + {(u^{2})}^{2})},                                                               \\
+                  \psi^{-} \circ F \circ {(\phi^{+})}^{-1}(u^{1}, u^{2}, u^{3}) & = \dfrac{\left( 4(2u^{1}u^{3} + u^{2}(1 - {\left\Vert u \right\Vert}^{2})), 4(-2u^{2}u^{3} + u^{1}(1 - {\left\Vert u \right\Vert}^{2})) \right)}{-4({(u^{1})}^{1} + {(u^{2})}^{2} - {(u^{3})}^{2}) + 2{\left\Vert u \right\Vert}^{2} + 2}, \\
+                  \psi^{+} \circ F \circ {(\phi^{-})}^{-1}(u^{1}, u^{2}, u^{3}) & = \dfrac{\left( 2u^{1}u^{3} + u^{2}({\left\Vert u \right\Vert}^{2} - 1), -2u^{2}u^{3} + u^{1}({\left\Vert u \right\Vert}^{2} - 1) \right)}{2({(u^{1})}^{2} + {(u^{2})}^{2})},                                                              \\
+                  \psi^{-} \circ F \circ {(\phi^{-})}^{-1}(u^{1}, u^{2}, u^{3}) & = \dfrac{\left( 4(2u^{1}u^{3} + u^{2}({\left\Vert u \right\Vert}^{2} - 1)), 4(u^{1}({\left\Vert u \right\Vert}^{2} - 1) - 2u^{2}u^{3}) \right)}{-4({(u^{1})}^{2} + {(u^{2})}^{2} - {(u^{3})}^{2}) + 2{\left\Vert u \right\Vert}^{2} + 2}
+              \end{align*}
+              \endgroup
+
+              are smooth, so \( F \) is smooth.
+    \end{enumerate}
+\end{proof}
+
+\begin{problem}{2-4}
+    Show that the inclusion map \( {\overline{\mathbb{B}}}^{n} \hookrightarrow \mathbb{R}^{n} \) is smooth when \( {\overline{\mathbb{B}}^{n}} \) is regarded as a smooth manifold with boundary.
+\end{problem}
+
+\begin{proof}
+    Denote the inclusion map by \( \iota \).
+
+    According to Problem 1-11, the following smooth atlas is for \( \overline{\mathbb{B}}^{n} \)
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+         & (U_{i}^{+}, \phi_{i}^{+}); \quad U_{i}^{+} = \left\{ x \in \overline{\mathbb{B}}^{n} : x^{i} > 0 \right\}; \quad \phi_{i}^{+}(u^{1}, \ldots, u^{i}, \ldots, u^{n}) = \dfrac{(2u^{1}, \ldots, 1 - {\left\Vert u \right\Vert}^{2}, \ldots, u^{2})}{{\left\Vert u \right\Vert}^{2} + 1 + 2u^{i}}, \\
+         & (U_{i}^{-}, \phi_{i}^{-}); \quad U_{i}^{-} = \left\{ x \in \overline{\mathbb{B}}^{n} : x^{i} < 0 \right\}; \quad \phi_{i}^{-}(u^{1}, \ldots, u^{i}, \ldots, u^{n}) = \dfrac{(2u^{1}, \ldots, {\left\Vert u \right\Vert}^{2} - 1, \ldots, u^{2})}{{\left\Vert u \right\Vert}^{2} + 1 - 2u^{i}}, \\
+         & (\mathbb{B}^{n}, \operatorname{Id}_{\mathbb{B}^{n}}).
+    \end{align*}
+    \endgroup
+
+    Note that
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+        \phi_{i}^{+}(U_{i}^{+}) & = \left\{ x \in \mathbb{H}^{n} : {\left\Vert x \right\Vert} < 1, x^{i} \ge 0 \right\}, \\
+        \phi_{i}^{-}(U_{i}^{-}) & = \left\{ x \in \mathbb{H}^{n} : {\left\Vert x \right\Vert} < 1, x^{i} \le 0 \right\}.
+    \end{align*}
+    \endgroup
+
+    If \( p \in \mathbb{B}^{n} \) then \( \operatorname{Id}_{\mathbb{R}^{n}} \circ \iota \circ \operatorname{Id}_{\mathbb{B}^{n}}^{-1} \) is the identity map on \( \mathbb{B}^{n} \subseteq \mathbb{R}^{n} \), hence smooth.
+
+    If \( p \notin \mathbb{B}^{n} \) then \( p \in U_{i}^{+} \) or \( U_{i}^{-} \) for some \( i \).
+
+    If \( p \notin \mathbb{B}^{n} \) and \( p \in U_{i}^{+} \) then \( \operatorname{Id}_{\mathbb{R}^{n}} \circ \iota \circ {(\phi_{i}^{+})}^{-1} = {(\phi_{i}^{+})}^{-1} \) is smooth for it extends to the inversion centered at \( N_{i}^{-} \) with power \( 2 \).
+
+    If \( p \notin \mathbb{B}^{n} \) and \( p \in U_{i}^{-} \) then \( \operatorname{Id}_{\mathbb{R}^{n}} \circ \iota \circ {(\phi_{i}^{-})}^{-1} = {(\phi_{i}^{-})}^{-1} \) is smooth for it extends to the inversion centered at \( N_{i}^{+} \) with power \( 2 \).
+
+    Hence the inclusion map \( \iota \) is smooth.
+\end{proof}
+
+\begin{problem}{2-5}
+    Let \( \mathbb{R} \) be the real line with its standard smooth structure, and let \( \widetilde{\mathbb{R}} \) denote the same topological manifold with the smooth structure defined by the single chart \( (\mathbb{R}, x \mapsto x^{3}) \) (see Example 1.23). Let \( f: \mathbb{R} \to \mathbb{R} \) be a function that is smooth in the usual sense.
+    \begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+        \item Show that \( f \) is also smooth as a map from \( \mathbb{R} \) to \( \widetilde{\mathbb{R}} \).
+        \item Show that \( f \) is smooth as a map from \( \widetilde{\mathbb{R}} \) to \( \mathbb{R} \) if and only if \( f^{(n)}(0) = 0 \) whenever \( n \) is not an integral multiple of 3.
+    \end{enumerate}
+\end{problem}
+
+\begin{proof}
+    Let \( c \) denote the cube function.
+    \begin{enumerate}[itemsep=0pt,label={(\alph*)}]
+        \item We have \( c \circ f \circ \operatorname{Id}_{\mathbb{R}}^{-1} = c \circ f \) is smooth as it is a composition of two smooth functions. Hence \( f \) is a smooth map from \( \mathbb{R} \) to \( \widetilde{\mathbb{R}} \).
+        \item We use the following two lemmas.
+              \begin{quotation}
+                  \textbf{Lemma 1.} For every \( m, n \in \mathbb{Z}_{\ge 0} \), if \( g \in C^{m}(\mathbb{R}) \) then \( x^{m + n/3} g(x^{1/3}) \in C^{m}(\mathbb{R}) \).
+                  \begin{proof}
+                      If \( m = 0 \) and \( g \in C^{0}(\mathbb{R}) \) then \( x^{n/3} g(x^{1/3}) \in C^{0}(\mathbb{R}) \) for every \( n \in \mathbb{Z}_{\ge 0} \).
+
+                      Suppose the statement is true for \( k = m - 1 \). On \( \mathbb{R} \smallsetminus \left\{ 0 \right\} \)
+                      \[
+                          \dfrac{d}{dx}\left\lbrack x^{m + n/3} g(x^{1/3}) \right\rbrack = \left( m + \dfrac{n}{3} \right) x^{(m - 1) + n/3} g(x^{1/3}) + \dfrac{1}{3} x^{m - 1 + (n + 1)/3} g^{(1)}(x^{1/3})
+                      \]
+
+                      and the limit
+                      \[
+                          \lim\limits_{x \to 0} \left\lbrack x^{m + n/3} g(x^{1/3}) \right\rbrack
+                      \]
+
+                      exists. Hence \( x^{m + n/3} g(x^{1/3}) \in C^{m}(\mathbb{R}) \) for every \( n \in \mathbb{Z}_{\ge 0} \).
+                  \end{proof}
+              \end{quotation}
+
+              \begin{quotation}
+                  \textbf{Lemma 2.} If \( f \) is smooth at \( x_{0} \) then
+                  \[
+                      f(x) = \sum_{i=0}^{k} \dfrac{f^{(i)}(x_{0})}{i!} {(x - x_{0})}^{i} + \int_{x_{0}}^{x} \dfrac{{(x - t)}^{k}}{k!} f^{(k+1)}(t) dt = \sum_{i=0}^{k} \dfrac{f^{(i)}(0)}{i!} x^{i} + g_{k+1}(x) {(x - x_{0})}^{k+1}
+                  \]
+
+                  where \( g_{k+1} \) is smooth at \( x_{0} \).
+                  \begin{proof}
+                      The formula
+                      \[ f(x) = \sum_{i=0}^{k} \dfrac{f^{(i)}(x_{0})}{i!} {(x - x_{0})}^{i} + \int_{x_{0}}^{x} \dfrac{{(x - t)}^{k}}{k!} f^{(k+1)}(t) dt \]
+
+                      can be proven using mathematical induction and integration by parts.
+
+                      Substitute \( s = \dfrac{t - x_{0}}{x - x_{0}} \), we have
+                      \begingroup
+                      \allowdisplaybreaks%
+                      \begin{align*}
+                          \int_{x_{0}}^{x} \dfrac{{(x - t)}^{k}}{k!} f^{(k+1)}(t) dt = {(x - x_{0})}^{k+1} \int_{0}^{1} \dfrac{{(1 - s)}^{k}}{k!} f^{(k+1)}(x_{0} + s(x - x_{0})) ds
+                      \end{align*}
+                      \endgroup
+
+                      where \( g_{n+1}(x) = {(x - x_{0})}^{k+1} \int_{0}^{1} \dfrac{{(1 - s)}^{k}}{k!} f^{(k+1)}(x_{0} + s(x - x_{0})) ds \) is smooth.
+                  \end{proof}
+              \end{quotation}
+
+              Suppose \( f(x^{1/3}) \) is smooth. Lemma 2 allows us to represent \( f(x^{1/3}) \) as
+              \[
+                  f(x^{1/3}) = f(0) + \dfrac{f^{(1)}(0)}{1!}x^{1/3} + \dfrac{f^{(2)}(0)}{2!} x^{2/3} + \dfrac{f^{(3)}(0)}{3!} x^{3} + h_{4}(x^{1/3}) x^{4/3}
+              \]
+
+              where \( h_{4} \) is smooth. By Lemma 1, \( \dfrac{f^{(1)}(0)}{1!}x^{1/3} + \dfrac{f^{(2)}(0)}{2!} x^{2/3} \) is smooth, so \( f^{(1)}(0) = f^{(2)}(0) = 0 \). Assume \( f^{(3n - 1)}(0) = f^{(3n - 2)}(0) = 0 \) for \( n \le m \). By Lemma 2, we can write
+              \[
+                  f(x^{1/3}) = \sum_{i=0}^{m} \dfrac{f^{(3i)}(0)}{(3i)!} x^{i} + \dfrac{f^{(3m+1)}(0)}{(3m+1)!}x^{m+1/3} + \dfrac{f^{(3m+2)}(0)}{(3m+2)!} x^{m+2/3} + \dfrac{f^{(3m+3)}(0)}{(3m + 3)!} x^{m+1} + h_{3m+3}(x) x^{m + 4/3}
+              \]
+
+              for some smooth function \( h_{3m+3} \). By Lemma 1, \( \dfrac{f^{(3m+1)}(0)}{(3m+1)!}x^{m+1/3} + \dfrac{f^{(3m+2)}(0)}{(3m+2)!} x^{m+2/3} \) is smooth, so \( f^{(3m+1)}(0) = f^{(3m+2)}(0) = 0 \). Thus \( f^{(n)}(0) = 0 \) whenever \( n \) is not divisible by 3.
+
+              Conversely, suppose \( f^{(n)}(0) = 0 \) whenever \( n \) is not divisible by 3.
+
+              By Lemma 2, we can write
+              \[
+                  f(x) = \sum_{k=0}^{n} \dfrac{f^{(3k)}(0)}{(3k)!} x^{3k} + h_{3n+1}(x) x^{3n+1}
+              \]
+
+              for some smooth function \( h_{3n+1} \). Then
+              \[
+                  f(x^{1/3}) = \sum_{k=0}^{n} \dfrac{f^{(3k)}(0)}{(3k)!} x^{k} + h_{3n+1}(x^{1/3}) x^{n + 1/3}.
+              \]
+
+              By Lemma 1, we deduce that \( f(x^{1/3}) \) is smooth.
+
+              Thus \( f \) is a smooth map from \( \widetilde{\mathbb{R}} \) to \( \mathbb{R} \) if and only if \( f^{(n)}(0) = 0 \) whenever \( n \) is not divisible by 3.
+    \end{enumerate}
+\end{proof}
+
+\begin{problem}{2-6}
+    Let \( P: \mathbb{R}^{n+1} \smallsetminus \left\{0 \right\} \to \mathbb{R}^{k+1} \smallsetminus \left\{0\right\} \) be a smooth function, and suppose that for some \( d \in \mathbb{Z} \), \( P(\lambda x) = \lambda^{d} P(x) \) for all \( \lambda \in \mathbb{R} \smallsetminus \left\{ 0 \right\} \) and \( x \in \mathbb{R}^{n+1} \smallsetminus \left\{0\right\} \). (Such a function is said to be \textbf{\emph{homogeneous of degree \(d\)}}.) Show that the map \( \widetilde{P}: \mathbb{RP}^{n} \to \mathbb{RP}^{k} \) defined by \( \widetilde{P}([x]) = [P(x)] \) is well-defined and smooth.
+\end{problem}
+
+\begin{proof}
+    \( \mathbb{RP}^{n} \) is induced by the quotient map \( p_{n+1} \), \( \mathbb{RP}^{k} \) is induced by the quotient map \( p_{k+1} \).
+
+    Assume \( [x] = [y] \), then there exists \( \lambda \in \mathbb{R} \smallsetminus \left\{ 0 \right\} \) such that \( x = \lambda y \).
+    \[
+        \widetilde{P}([x]) = [P(x)] = [P(\lambda y)] = [\lambda^{d} P(y)] = [P(y)] = \widetilde{P}([y])
+    \]
+
+    so \( \widetilde{P} \) is well-defined.
+
+    \( P \) is continuous and \( [P(x)] = [P(y)] \) if \( x \sim y \) so by passing to quotient, \( \widetilde{P} \) is continuous.
+
+    The following smooth charts comprise a smooth atlas for \( \mathbb{RP}^{n} \)
+    \[
+        U_{i}^{n} = \left\{ [x^{1}, \ldots, x^{n+1}]: x^{i} \ne 0 \right\}, \qquad \phi_{i}^{n}([x^{1}, \ldots, x^{n+1}]) = \left( \dfrac{x^{1}}{x^{i}}, \ldots, \widehat{\dfrac{x^{i}}{x^{i}}}, \ldots, \dfrac{x^{n+1}}{x^{i}} \right)
+    \]
+
+    where \( 1 \le i \le n + 1 \).
+
+    The following smooth charts comprise a smooth atlas for \( \mathbb{RP}^{k} \)
+    \[
+        V_{i}^{n} = \left\{ [x^{1}, \ldots, x^{k+1}]: x^{i} \ne 0 \right\}, \qquad \psi_{i}^{k}([x^{1}, \ldots, x^{k+1}]) = \left( \dfrac{x^{1}}{x^{i}}, \ldots, \widehat{\dfrac{x^{i}}{x^{i}}}, \ldots, \dfrac{x^{k+1}}{x^{i}} \right)
+    \]
+
+    where \( 1 \le i \le k + 1 \).
+
+    Let \( P(x) = (P_{1}(x), \ldots, P_{k+1}(x)) \) where \( P_{1}, \ldots, P_{k+1} \) are some real-valued smooth functions on \( \mathbb{R}^{n+1} \smallsetminus \left\{ 0 \right\} \). For every \( x \in U_{i}^{n} \cap \widetilde{P}^{-1}(V_{j}^{k}) \)
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+        \psi_{j}^{k} \circ \widetilde{P} \circ {(\phi_{i}^{n})}^{-1}(x^{1}, \ldots, x^{n}) & = \psi_{j}^{k} \circ \widetilde{P}([x^{1}, \ldots, x^{i-1}, 1, x^{i+1}, \ldots, x^{n}])                                                                                                                                                                                           \\
+                                                                                           & = \psi_{j}^{k}([P(x^{1}, \ldots, x^{i-1}, 1, x^{i+1}, \ldots, x^{n})])                                                                                                                                                                                                            \\
+                                                                                           & = \left( \dfrac{P_{1}(x^{1}, \ldots, x^{i-1}, 1, x^{i+1}, \ldots, x^{n})}{P_{j}(x^{1}, \ldots, x^{i-1}, 1, x^{i+1}, \ldots, x^{n})}, \ldots, \dfrac{P_{k+1}(x^{1}, \ldots, x^{i-1}, 1, x^{i+1}, \ldots, x^{n})}{P_{j}(x^{1}, \ldots, x^{i-1}, 1, x^{i+1}, \ldots, x^{n})} \right)
+    \end{align*}
+    \endgroup
+
+    so \( \psi_{j}^{k} \circ \widetilde{P} \circ {(\phi_{i}^{n})}^{-1} \) is a smooth function from \( U_{i}^{n} \cap \widetilde{P}^{-1}(V_{j}^{k}) \) to \( \mathbb{R}^{k} \).
+
+    Hence \( \widetilde{P} \) is smooth.
+\end{proof}
+
+\begin{problem}{2-7}
+    Let \( M \) be a nonempty smooth \(n\)-manifold with or without boundary, and suppose \( n \ge 1 \). Show that the vector space \( C^{\infty}(M) \) is infinite-dimensional. [Hint: show that if \( f_{1}, \ldots, f_{k} \) are elements of \( C^{\infty}(M) \) with nonempty disjoint supports, then they are linearly independent.]
+\end{problem}
+
+\begin{proof}
+    Firstly, we show that for every \( k \ge 1 \), there are \( k \) smooth bump functions on \( M \) whose supports are nonempty and pairwise disjoint.
+
+    Let \( (U, \phi) \) be a smooth interior chart for \( M \) and \( p_{1}, \ldots, p_{k} \) be \( k \) distinct points in \( \phi(U) \). By induction on \( k \), one can prove that there are \( r_{1}, \ldots, r_{k} > 0 \) such that the open balls \( B_{r_{i}}(p_{i}) \) are pairwise disjoint. For each \( i \), there is a smooth bump function \( f_{i} \) for \( \phi^{-1}(\overline{B}_{r_{i}/2}(p_{i})) \) supported in \( \phi^{-1}(B_{r_{i}}(p_{i})) \). Hence \( f_{1}, \ldots, f_{k} \in C^{\infty}(M) \) and they have pairwise disjoint supports.
+
+    If \( f_{1}, \ldots, f_{k} \in C^{\infty}(M) \) with nonempty disjoint supports and \( \lambda_{1}f_{1} + \cdots + \lambda_{k}f_{k} = 0 \) for some \( \lambda_{1}, \ldots, \lambda_{k} \in \mathbb{R} \). Then if \( p \in f_{i}^{-1}(1) \), we deduce \( \lambda_{i} = 0 \). So \( f_{1}, \ldots, f_{k} \) are linearly independent. Thus the vector space \( C^{\infty}(M) \) is infinite-dimensional.
+\end{proof}
+
+\begin{problem}{2-8}
+    Define \( F: \mathbb{R}^{n} \to \mathbb{RP}^{n} \) by \( F(x^{1}, \ldots, x^{n}) = [x^{1}, \ldots, x^{n}, 1] \). Show that \( F \) is a diffeomorphism onto a dense open subset of \( \mathbb{RP}^{n} \). Do the same for \( G: \mathbb{C}^{n} \to \mathbb{CP}^{n} \) defined by \( G(z^{1}, \ldots, z^{n}) = [z^{1}, \ldots, z^{n}, 1] \) (see Problem 1-9).
+\end{problem}
+
+\begin{proof}
+    Firstly, we prove that \( F(\mathbb{R}^{n}) \) is an open dense subset of \( \mathbb{RP}^{n} \).
+
+    Let \( U \) be a nonempty open subset of \( \mathbb{RP}^{n} \). Denote by \( \pi \) the quotient map that induces \( \mathbb{RP}^{n} \). The preimage \( \pi^{-1}(U) \) is open in \( \mathbb{R}^{n+1} \smallsetminus \left\{ 0 \right\} \) then \( \pi^{-1}(U) \) is open in \( \mathbb{R}^{n+1} \). There exists a basic open set \( I_{1} \times \cdots \times I_{n+1} \) with \( I_{1} \times \cdots \times I_{n+1} \subseteq \pi^{-1}(U) \). Since \( I_{n+1} \cap (\mathbb{R} \smallsetminus \left\{ 0 \right\}) \ne \varnothing \) then \( \pi^{-1}(U) \) contains some \( (x^{1}, \ldots, x^{n+1}) \) with \( x^{n+1} \), therefore \( U \cap F(\mathbb{R}^{n}) \ne \varnothing \). Hence \( F(\mathbb{R}^{n}) \) is dense in \( \mathbb{RP}^{n} \). Moreover, \( \pi^{-1}(F(\mathbb{R}^{n})) = \left\{ (x^{1}, \ldots, x^{n+1}): x^{n+1} \ne 0 \right\} \) is open in \( \mathbb{R}^{n+1} \smallsetminus \left\{ 0 \right\} \) so \( F(\mathbb{R}^{n}) \) is an open subset of \( \mathbb{RP}^{n} \).
+
+    \( \phi_{n+1}^{n}: F(\mathbb{R}^{n}) \to \mathbb{R}^{n} \) is defined by \( \phi_{n+1}^{n}([x^{1}, \ldots, x^{n+1}]) = \left( \dfrac{x^{1}}{x^{n+1}}, \ldots, \dfrac{x^{n}}{x^{n+1}} \right) \). Since \( (F(\mathbb{R}^{n}), \phi_{n+1}^{n}) \) is a smooth chart for \( \mathbb{RP}^{n} \) then \( \phi_{n+1}^{n} \) is a diffeomorphism. Moreover, \( F: \mathbb{R}^{n} \to F(\mathbb{R}^{n}) \) is the inverse of \( \phi_{n+1}^{n} \) so \( F \) is a diffeomorphism onto a dense open subset of \( \mathbb{RP}^{n} \).
+
+    Similarly, \( G(\mathbb{C}^{n}) \) is a dense open subset of \( \mathbb{CP}^{n} \).
+
+    \( \psi_{n+1}^{n}: G(\mathbb{C}^{n}) \to \mathbb{C}^{n} \) is defined by \( \phi_{n+1}^{n}([z^{1}, \ldots, z^{n+1}]) = \left( \dfrac{z^{1}}{z^{n+1}}, \ldots, \dfrac{z^{n}}{z^{n+1}} \right) \). Since \( (G(\mathbb{C}^{n}), \psi_{n+1}^{n}) \) is a smooth chart for \( \mathbb{CP}^{n} \) then \( \psi_{n+1}^{n} \) is a diffeomorphism. Moreover, \( G: \mathbb{C}^{n} \to G(\mathbb{C}^{n}) \) is the inverse of \( \psi_{n+1}^{n} \) so \( G \) is a diffeomorphism onto a dense open subset of \( \mathbb{CP}^{n} \).
+\end{proof}
+
+\begin{problem}{2-9}
+    Given a polynomial \( p \) in one variable with complex coefficients, not identically zero, show that there is a unique smooth map \( \widetilde{p}: \mathbb{CP}^{1} \to \mathbb{CP}^{1} \) that makes the following diagram commute, where \( \mathbb{CP}^{1} \) is 1-dimensional complex projective space and \( G: \mathbb{C} \to \mathbb{CP}^{1} \) is the map of Problem 2-8:
+    \[\begin{tikzcd}
+            {\mathbb{C}} & {\mathbb{CP}^{1}} \\
+            {\mathbb{C}} & {\mathbb{CP}^{1}}
+            \arrow["G", from=1-1, to=1-2] % chktex 18
+            \arrow["p"', from=1-1, to=2-1] % chktex 18
+            \arrow["{\widetilde{p}}", from=1-2, to=2-2] % chktex 18
+            \arrow["G"', from=2-1, to=2-2] % chktex 18
+        \end{tikzcd}\]
+\end{problem}
+
+\begin{proof}
+    Denote the quotient map that determines \( \mathbb{CP}^{1} \) by \( \pi: \mathbb{C}^{2} \smallsetminus \left\{ 0 \right\} \to \mathbb{CP}^{1} \). Remind that \( \pi \) is also an open quotient map.
+
+    We prove this result first: \( z_{n} \to \infty \) if and only if \( G(z_{n}) \to [1, 0] \).
+
+    \begin{quotation}
+        Suppose \( z_{n} \to \infty \).
+
+        Fix \( \varepsilon > 0 \) then there exists \( N \) such that \( \left\vert z_{n} \right\vert > \varepsilon \) whenever \( n \ge N \).
+
+        Let \( V \) be an open neighborhood of \( [1, 0] \) in \( \mathbb{CP}^{1} \). The preimage \( \pi^{-1}(V) \) is open in \( \mathbb{C}^{2} \smallsetminus \left\{ 0 \right\} \). Since \( (1, 0) \in \pi^{-1}(V) \subseteq \mathbb{C}^{2} \smallsetminus \left\{ 0 \right\} \), there exists a basic open set \( B_{1} \times B_{2} \) such that \( (1, 0) \in B_{1} \times B_{2} \subseteq \pi^{-1}(V) \). Because \( B_{2} \) is an open neighborhood of \( 0 \), there is \( r > 0 \) such that \( B_{r}(0) \subseteq B_{2} \). Without loss of generality, assume \( r < 1/\varepsilon \). Then \( (1, 1/z_{n}) \in B_{1} \times B_{2} \subseteq \pi^{-1}(V) \) whenever \( n \ge N \), which implies \( G(z_{n}) = [z_{n}, 1] \in V \) whenever \( n \ge N \). Hence \( G(z_{n}) \to [1, 0] \).
+
+        Conversely, suppose \( G(z_{n}) \to [1, 0] \).
+
+        \( \pi( \left\{ z : \left\vert z \right\vert > \varepsilon \right\} \times \left\{ z : \left\vert z \right\vert < 1 \right\} ) \) is a neighborhood of \( [1, 0] \) so there is \( N \) such that \( G(z_{n}) \in \pi( \left\{ z : \left\vert z \right\vert > \varepsilon \right\} \times \left\{ z : \left\vert z \right\vert < 1 \right\}) \) whenever \( n \ge N \). So there is \( a, b \) such that \( [z_{n}, 1] = [a, b] \) and \( \left\vert a \right\vert > \varepsilon \) and \( \left\vert b \right\vert < 1 \), this implies \( \left\vert z_{n} \right\vert > \varepsilon \). Therefore \( z_{n} \to \infty \).
+    \end{quotation}
+
+    \( \mathbb{CP}^{1} \) has a smooth atlas consisting of the following two charts
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+        V_{1} = \left\{ [z^{1}, z^{2}]: z^{1} \ne 0 \right\}, & \psi_{1}: V_{1} \to \mathbb{C}, \psi_{1}([1, z]) = z, \\
+        V_{2} = \left\{ [z^{1}, z^{2}]: z^{2} \ne 0 \right\}, & \psi_{2}: V_{2} \to \mathbb{C}, \psi_{2}([z, 1]) = z.
+    \end{align*}
+    \endgroup
+
+    We define \( q \) by
+    \[
+        \begin{cases}
+            q([z, 1]) = [p(z), 1] \\
+            q([1, 0]) = [1, 0]
+        \end{cases}
+    \]
+
+    then \( q \circ G = G \circ p \). With the result at the beginning of this proof, we can prove that \( q \) is continuous using the converging sequences.
+
+    We have
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+        q^{-1}(V_{1}) & = \left\{ [1, 0] \right\} \cup \left\{ [z, 1]: p(z) \ne 0 \right\} \\
+        q^{-1}(V_{2}) & = V_{2}.
+    \end{align*}
+    \endgroup
+
+    Consider the following coordinate representation of \( q \).
+    \begin{itemize}[itemsep=0pt]
+        \item \( \psi_{1} \circ q \circ \psi_{1}^{-1}: \psi_{1}(V_{1} \cap q^{-1}(V_{1})) \to \mathbb{C} \).
+
+              Because \( \psi_{1}(V_{1} \cap q^{-1}(V_{1})) = \left\{ [1, 0] \right\} \cup \left\{ [1, z]: p(1/z) \ne 0, z \ne 0 \right\} \) then
+              \[
+                  \psi_{1} \circ q \circ \psi_{1}^{-1}(z) = \begin{cases} \dfrac{1}{p(1/z)} & z \ne 0 \\ 0 & z = 0 \end{cases}
+              \]
+
+              is a holomorphic function.
+        \item \( \psi_{2} \circ q \circ \psi_{1}^{-1}: \psi_{1}(V_{1} \cap q^{-1}(V_{2})) \to \mathbb{C} \).
+
+              Because \( \psi_{1}(V_{1} \cap q^{-1}(V_{2})) = \left\{ z: z \ne 0 \right\} \) then
+              \[
+                  \psi_{2} \circ q \circ \psi_{1}^{-1}(z) = p(1/z)
+              \]
+
+              is a holomorphic function.
+        \item \( \psi_{1} \circ q \circ \psi_{2}^{-1}: \psi_{2}(V_{2} \cap q^{-1}(V_{1})) \to \mathbb{C} \).
+
+              Because \( \psi_{2}(V_{2} \cap q^{-1}(V_{1})) = \left\{ z: p(z) \ne 0 \right\} \) then
+              \[
+                  \psi_{1} \circ q \circ \psi_{2}^{-1}(z) = \dfrac{1}{p(z)}
+              \]
+
+              is a holomorphic function.
+        \item \( \psi_{2} \circ q \circ \psi_{2}^{-1}: \psi_{2}(V_{2}) \to \mathbb{C} \).
+              \[
+                  \psi_{2} \circ q \circ \psi_{2}^{-1}(z) = p(z)
+              \]
+
+              is a holomorphic function.
+    \end{itemize}
+
+    Hence \( q \) is a holomorphic map between complex manifolds, hence a smooth map between smooth manifolds.
+
+    Assume that there are two smooth maps \( q_{1}, q_{2}: \mathbb{CP}^{1} \to \mathbb{CP}^{1} \) that commute the given diagram. Then \( q_{1}, q_{2} \) are continuous maps that agree on a dense subset of \( \mathbb{CP}^{1} \). Since \( \mathbb{CP}^{1} \) (the codomain) is Hausdorff, we conclude that \( q_{1} = q_{2} \).
+
+    Thus there is a unique smooth map from \( \mathbb{CP}^{1} \) to \( \mathbb{CP}^{1} \) that commutes the given diagram.
+\end{proof}
+
+\begin{problem}{2-10}
+    For any topological space \( M \), let \( C(M) \) denote the algebra of continuous functions \( f: M \to \mathbb{R} \). Given a continuous map \( F: M \to N \), define \( F^{\ast}: C(N) \to C(M) \) by \( F^{\ast}(f) = f \circ F \).
+    \begin{enumerate}[label={(\alph*)}]
+        \item Show that \( F^{\ast} \) is a linear map.
+        \item Suppose \( M \) and \( N \) are smooth manifolds. Show that \( F: M \to N \) is smooth if and only if \( F^{\ast}(C^{\infty}(N)) \subseteq C^{\infty}(M) \).
+        \item Suppose \( F: M \to N \) is a homeomorphism between smooth manifolds. Show that it is a diffeomorphism if and only if \( F^{\ast} \) restricts to {\color{red}{a bijection}} from \( C^{\infty}(N) \) to \( C^{\infty}(M) \).
+    \end{enumerate}
+    [Remark: this result shows that in a certain sense, the entire smooth structure of \(M\) is encoded in the subset \( C^{\infty}(M) \subseteq C(M) \). In fact, some authors \emph{define} a smooth structure on a topological manifold \(M\) to be a subalgebra of \(C(M)\) with certain properties.]
+\end{problem}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)}]
+        \item If \( f_{1}, f_{2} \in C(N) \) and \( \lambda_{1}, \lambda_{2} \in \mathbb{R} \) then for every \( x \in M \)
+              \begingroup
+              \allowdisplaybreaks%
+              \begin{align*}
+                  F^{\ast}(\lambda_{1} f_{1} + \lambda_{2} f_{2})(x) & = (\lambda_{1} f_{1} + \lambda_{2} f_{2}) \circ F (x)              \\
+                                                                     & = (\lambda_{1} f_{1} + \lambda_{2} f_{2})(F(x))                    \\
+                                                                     & = \lambda_{1} f_{1}(F(x)) + \lambda_{2} f_{2}(F(x))                \\
+                                                                     & = \lambda_{1} (f_{1} \circ F)(x) + \lambda_{2} (f_{2} \circ F)(x)  \\
+                                                                     & = \lambda_{1} F^{\ast}(f_{1})(x) + \lambda_{2} F^{\ast}(f_{2})(x).
+              \end{align*}
+              \endgroup
+
+              Hence \( F^{\ast}(\lambda_{1} f_{1} + \lambda_{2} f_{2}) = \lambda_{1} F^{\ast}(f_{1}) + \lambda_{2} F^{\ast}(f_{2}) \), so \( F^{\ast} \) is indeed a linear map.
+        \item Note that \( F \) is continuous.
+
+              Suppose \( F: M \to N \) is smooth. If \( f \in C^{\infty}(N) \) then \( f \circ F \) is smooth, which means \( f \circ F \in C^{\infty}(M) \). Hence \( F^{\ast}(C^{\infty}(N)) \subseteq C^{\infty}(M) \).
+
+              Conversely, suppose \( F^{\ast}(C^{\infty}(N)) \subseteq C^{\infty}(M) \). Let \( (V, \psi) \) be a smooth chart for \( N \) and \( (U, \phi) \) a smooth chart for \( M \). Since \( F^{\ast}(C^{\infty}(N)) \subseteq C^{\infty}(M) \), then \( \psi \circ F\vert_{U \cap F^{-1}(V)} \) is a smooth map as it is a product of real-valued smooth functions on \( C^{\infty}(M) \).
+
+              \( \psi \circ F\vert_{U \cap F^{-1}(V)} \) is smooth so \( \psi \circ F\vert_{U \cap F^{-1}(V)} \circ \phi^{-1}\vert_{\phi(U \cap F^{-1}(V))} \) is smooth, according to Exercise 2.3. Hence the coordinate representation of \( F \) with respect to \( (U, \phi) \) and \( (V, \psi) \) is smooth. Thus \( F \) is smooth.
+        \item Let \( G \) be the inverse of \( F \). Similarly, we define \( G^{\ast}: C(M) \to C(N) \) by \( G^{\ast}(g) = g \circ G \), so \( G^{\ast} \) is a linear map. We have
+              \begingroup
+              \allowdisplaybreaks%
+              \begin{align*}
+                  G^{\ast} \circ F^{\ast}(f) & = G^{\ast}(f \circ F) = (f \circ F) \circ G = f \circ (F \circ G) = f, \\
+                  F^{\ast} \circ G^{\ast}(g) & = F^{\ast}(g \circ G) = (g \circ G) \circ F = g \circ (G \circ F) = g
+              \end{align*}
+              \endgroup
+
+              so \( F^{\ast} \) is a bijection (in fact, a linear isomorphism).
+
+              Suppose \( F \) is a diffeomorphism then so is \( G \). According to (b), \( F^{\ast}(C^{\infty}(N)) \subseteq C^{\infty}(M) \) and \( G^{\ast}(C^{\infty}(M)) \subseteq C^{\infty}(N) \), which means \( F^{\ast}(C^{\infty}(N)) = C^{\infty}(M) \). Hence \( F^{\ast}(C^{\infty}(N)) = C^{\infty}(M) \), and \( F^{\ast} \) restricts to a bijection between \( C^{\infty}(N) \) and \( C^{\infty}(M) \).
+
+              Conversely, suppose \( F^{\ast} \) restricts to a bijection between \( C^{\infty}(N) \) and \( C^{\infty}(M) \). By (b), \( F \) and \( G \) are smooth. Hence \( F \) is a diffeomorphism.
+    \end{enumerate}
+\end{proof}
+
+\begin{problem}{2-11}
+    Suppose \( V \) is a real vector space of dimension \( n \ge 1 \). Define the \textbf{\emph{projectivization of \(V\)}}, denoted by \( \mathbb{P}(V) \), to be the set of 1-dimensional linear subspaces of \( V \), with the quotient topology induced by the map \( \pi: V \smallsetminus \left\{ 0 \right\} \to \mathbb{P}(V) \) that sends \( x \) to its span. Show that \( \mathbb{P}(V) \) is a topological \( (n - 1) \)-manifold, and has a unique smooth structure with the property that for each basis \( (E_{1}, \ldots, E_{n}) \) for \( V \), the map \( E: \mathbb{RP}^{n-1} \to \mathbb{P}(V) \) defined by \( E[v^{1}, \ldots, v^{n}] = [v^{i}E_{i}] \)  (where brackets denote equivalence classes) is a diffeomorphism.
+\end{problem}
+
+\begin{proof}
+    \( V \) is a real topological vector space of dimension \( n \) and \( V \) is isomorphic (as a topological vector space) with \( \mathbb{R}^{n} \). Let \( f \) be a linear isomorphism from \( \mathbb{R}^{n} \) onto \( V \), which is also a homeomorphism. The two subsets \( \mathbb{R}^{n} \smallsetminus \left\{ 0 \right\} \) and \( V \smallsetminus \left\{ 0 \right\} \) are homeomorphic.
+
+    Let \( p_{n}: \mathbb{R}^{n} \smallsetminus \left\{ 0 \right\} \to \mathbb{RP}^{n-1} \) be the quotient map that defines the real projective space \( \mathbb{RP}^{n-1} \). The composition \( \pi \circ f \) is a quotient map from \( \mathbb{R}^{n} \smallsetminus \left\{ 0 \right\} \) onto \( \mathbb{P}(V) \). If \( x, y \in \mathbb{R}^{n} \smallsetminus \left\{ 0 \right\} \)
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+        \pi(f(x)) = \pi(f(y)) & \iff f(x), f(y) \text{ are linearly dependent} \\
+                              & \iff x, y \text{ are linearly dependent}       \\
+                              & \iff p_{n}(x) = p_{n}(y)
+    \end{align*}
+    \endgroup
+
+    so \( p_{n} \) and \( \pi \circ f \) are quotient maps from \( \mathbb{R}^{n} \smallsetminus \left\{ 0 \right\} \) which have the same identifications. Hence \( \mathbb{P}(V) \) and \( \mathbb{RP}^{n-1} \) are homeomorphic, which means \( \mathbb{P}(V) \) is a topological \( (n - 1) \)-manifold.
+
+    Let \( (e_{1}, \ldots, e_{n}) \) be the standard basis for \( \mathbb{R}^{n} \) and \( (E_{1}, \ldots, E_{n}) \) be a basis for \( V \). For every \( 1 \le k \le n \), define
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+        U_{k} = \left\{ [x^{1}, \ldots, x^{n}]: x^{k} \ne 0 \right\}, & \qquad \phi_{k}: U_{k} \to \mathbb{R}^{n-1}, & \qquad \phi_{k}([x^{i}e_{i}]) = \left( \dfrac{x^{1}}{x^{k}}, \ldots, \widehat{\dfrac{x^{k}}{x^{k}}}, \ldots, \dfrac{x^{n}}{x^{k}} \right),  \\
+        V_{k} = \left\{ [v^{i} E_{i}]: v^{k} \ne 0 \right\},          & \qquad \psi_{k}: V_{k} \to \mathbb{R}^{n-1}, & \qquad \psi_{k}([v^{i} E_{i}]) = \left( \dfrac{v^{1}}{v^{k}}, \ldots, \widehat{\dfrac{v^{k}}{v^{k}}}, \ldots, \dfrac{v^{n}}{v^{k}} \right).
+    \end{align*}
+    \endgroup
+
+    \( {\left\{ (U_{k}, \phi_{k}) \right\}}_{k=1}^{n} \) are smooth coordinate charts for \( \mathbb{RP}^{n-1} \) and \( {\left\{ (V_{k}, \psi_{k}) \right\}}_{k=1}^{n} \) are coordinate charts for \( \mathbb{P}(V) \).
+
+    Note that if \( j < k \), the transition maps
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+        \psi_{j} \circ \psi_{k}^{-1}(u^{1}, \ldots, u^{n-1}) & = \psi_{j}([u^{1}E_{1} + \cdots + 1E_{k} + u^{k}E_{k+1} + \cdots + u^{n-1}E_{n}])                                                        \\
+                                                             & = \left( \dfrac{u^{1}}{u^{j}}, \ldots, \widehat{\dfrac{u^{j}}{u^{j}}}, \ldots, \dfrac{1}{u^{j}}, \ldots, \dfrac{u^{n-1}}{u^{j}} \right), \\
+        \psi_{k} \circ \psi_{j}^{-1}(u^{1}, \ldots, u^{n-1}) & = \psi_{k}([u^{1}E_{1} + \cdots + 1E_{j} + u^{j}E_{j+1} + \cdots + u^{n-1}E_{n}])                                                        \\
+                                                             & = \left( \dfrac{u^{1}}{u^{k}}, \ldots, \dfrac{1}{u^{k}}, \ldots, \widehat{\dfrac{u^{k}}{u^{k}}}, \ldots, \dfrac{u^{n-1}}{u^{k}} \right)
+    \end{align*}
+    \endgroup
+
+    are smooth. Hence \( {\left\{ (V_{k}, \psi_{k}) \right\}}_{k=1}^{n} \) defines a smooth structure for \( \mathbb{P}(V) \).
+
+    Let \( (\widetilde{E}_{1}, \ldots, \widetilde{E}_{n}) \) be another basis for \( V \). Similarly, we define
+    \[
+        \widetilde{V}_{k} = \left\{ [v^{i}\widetilde{E}_{i}]: v^{k} \ne 0 \right\}, \qquad \widetilde{\psi}_{k}: \widetilde{V}_{k} \to \mathbb{R}^{n-1}, \qquad \psi_{k}([v^{i}\widetilde{E}_{i}]) = \left( \dfrac{v^{1}}{v^{k}}, \ldots, \widehat{\dfrac{v^{k}}{v^{k}}}, \ldots, \dfrac{v^{n}}{v^{k}} \right)
+    \]
+
+    \( {\left\{ (\widetilde{V}_{k}, \widetilde{\psi}_{k}) \right\}}_{k=1}^{n} \) are smooth coordinate charts for \( \mathbb{P}(V) \) and they define a smooth structure for \( \mathbb{P}(V) \). Now we will prove that \( {\left\{ (V_{k}, \psi_{k}) \right\}}_{k=1}^{n} \) and \( {\left\{ (\widetilde{V}_{k}, \widetilde{\psi}_{k}) \right\}}_{k=1}^{n} \) define the same smooth structure for \( \mathbb{P}(V) \).
+
+    Let \( A \) be the change-of-basis matrix that carries \( (E_{1}, \ldots, E_{n}) \) to \( (\widetilde{E}_{1}, \ldots, \widetilde{E}_{n}) \) and \( B \) be the inverse of \( A \).
+
+    For every \( 1 \le k, \ell \le n \)
+    \begingroup
+    \allowdisplaybreaks%
+    \scriptsize
+    \begin{align*}
+         & \phantom{=\quad} \psi_{k} \circ \widetilde{\psi}_{\ell}^{-1}(u^{1}, \ldots, u^{n-1})                                                                                                                                                                                                                                                                                                                                                                                                                               \\
+         & = \psi_{k}([u^{1}\widetilde{E}_{1} + \cdots + 1\widetilde{E}_{\ell} + \cdots + u^{n-1}\widetilde{E}_{n}])                                                                                                                                                                                                                                                                                                                                                                                                          \\
+         & = \psi_{k}([u^{1} B_{1}^{j}E_{j} + \cdots + 1 B_{\ell}^{j}E_{j} + \cdots + u^{n-1} B_{n}^{j}E_{j}])                                                                                                                                                                                                                                                                                                                                                                                                                \\
+         & = \left( \dfrac{u^{1} B_{1}^{1} + \cdots + 1 B_{\ell}^{1} + \cdots + u^{n-1} B_{n}^{1}}{u^{1} B_{1}^{k} + \cdots + 1 B_{\ell}^{k} + \cdots + u^{n-1} B_{n}^{k}}, \ldots, \widehat{\dfrac{u^{1} B_{1}^{k} + \cdots + 1 B_{\ell}^{k} + \cdots + u^{n-1} B_{n}^{k}}{u^{1} B_{1}^{k} + \cdots + 1 B_{\ell}^{k} + \cdots + u^{n-1} B_{n}^{k}}}, \ldots, \dfrac{u^{1} B_{1}^{n} + \cdots + 1 B_{\ell}^{n} + \cdots + u^{n-1} B_{n}^{n}}{u^{1} B_{1}^{k} + \cdots + 1 B_{\ell}^{k} + \cdots + u^{n-1} B_{n}^{k}} \right), \\
+         & \phantom{=\quad} \widetilde{\psi}_{\ell} \circ \psi_{k}^{-1}(u^{1}, \ldots, u^{n-1})                                                                                                                                                                                                                                                                                                                                                                                                                               \\
+         & = \widetilde{\psi}_{\ell}([u^{1}E_{1} + \cdots + 1E_{k} + \cdots + u^{n-1}E_{n}])                                                                                                                                                                                                                                                                                                                                                                                                                                  \\
+         & = \widetilde{\psi}_{\ell}([u^{1}A_{1}^{j}\widetilde{E}_{j} + \cdots + 1 A_{k}^{j}E_{j} + \cdots + u^{n-1} A_{n}^{j}\widetilde{E}_{j}])                                                                                                                                                                                                                                                                                                                                                                             \\
+         & = \left( \dfrac{u^{1}A_{1}^{1} + \cdots + 1A_{k}^{1} + \cdots + u^{n-1}A_{n}^{1}}{u^{1}A_{1}^{\ell} + \cdots + 1A_{k}^{\ell} + \cdots + u^{n-1}A_{n}^{\ell}}, \ldots, \widehat{\dfrac{u^{1}A_{1}^{\ell} + \cdots + 1A_{k}^{\ell} + \cdots + u^{n-1}A_{n}^{\ell}}{u^{1}A_{1}^{\ell} + \cdots + 1A_{k}^{\ell} + \cdots + u^{n-1}A_{n}^{\ell}}}, \ldots, \dfrac{u^{1}A_{1}^{n} + \cdots + 1A_{k}^{n} + \cdots + u^{n-1}A_{n}^{n}}{u^{1}A_{1}^{\ell} + \cdots + 1A_{k}^{\ell} + \cdots + u^{n-1}A_{n}^{\ell}} \right).
+    \end{align*}
+    \endgroup
+
+    This means two smooth atlases \( {\left\{ (V_{k}, \psi_{k}) \right\}}_{k=1}^{n} \) and \( {\left\{ (\widetilde{V}_{k}, \widetilde{\psi}_{k}) \right\}}_{k=1}^{n} \) are smoothly compatible, so they define the same smooth structure on \( \mathbb{P}(V) \).
+
+    Consider the map \( E: \mathbb{RP}^{n-1} \to \mathbb{P}(V) \) defined by \( E[v^{1}, \ldots, v^{n}] = [v^{i}E_{i}] \) where \( (E_{1}, \ldots, E_{n}) \) is an arbitrary basis for \( V \). This map is a bijection.
+
+    For every \( 1 \le k \le n \), \( E(U_{k}) = V_{k} \) and
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+        \psi_{k} \circ E \circ \phi_{k}^{-1}(u^{1}, \ldots, u^{n-1})      & = (u^{1}, \ldots, u^{n-1}), \\
+        \phi_{k} \circ E^{-1} \circ \psi_{k}^{-1}(u^{1}, \ldots, u^{n-1}) & = (u^{1}, \ldots, u^{n-1})
+    \end{align*}
+    \endgroup
+
+    so \( E, E^{-1} \) are smooth maps, which means \( E \) is a diffeomorphism.
+
+    \bigskip
+
+    Now suppose that \( \mathbb{P}(V) \) has a smooth structure for which for every basis \( (E_{1}, \ldots, E_{n}) \), the map \( E: \mathbb{RP}^{n-1} \to \mathbb{P}(V) \) defined by \( E[v^{1}, \ldots, v^{n}] = [v^{i}E_{i}] \) is a diffeomorphism. Then \( {\left\{ E(U_{k}) \right\}}_{k=1}^{n} \) is a smooth atlas for \( \mathbb{P}(V) \). Moreover each domain \( E(U_{k}) \) is in fact \( \left\{ [v^{i}E_{i}]: v^{k} \ne 0 \right\} \) which means these smooth coordinate charts are contained in the previously defined smooth structure on \( \mathbb{P}(V) \).
+
+    Thus there is a unique smooth structure on \( \mathbb{P}(V) \) satisfying the given properties.
+\end{proof}
+
+\begin{problem}{2-12}
+    State and prove an analogue of Problem 2-11 for complex vector spaces.
+\end{problem}
+
+\begin{proof}
+    The complex analogue of Problem 2-11 is as follows:
+    \begin{quotation}
+        Suppose \( V \) is a complex vector space of dimension  \( n \ge 1 \). The set \( \mathbb{P}(V) \) consists of all 1-dimensional linear subspaces of \( V \). The topology on \( \mathbb{P}(V) \) is given by the quotient map \( \pi: V \smallsetminus \left\{ 0 \right\} \to \mathbb{P}(V) \) that sens each vector to its span. Then \( \mathbb{P}(V) \) is a topological \( (2n - 2) \)-manifold, and has a unique structure with the property that for each basis \( (E_{1}, \ldots, E_{n}) \) for \( V \), the map \( E: \mathbb{CP}^{n-1} \to \mathbb{P}(V) \) defined by \( E[v^{1}, \ldots, v^{n}] = [v^{i}E_{i}] \).
+    \end{quotation}
+
+    The proof is similar. Note that \( \mathbb{P}(V) \) is now a \( (n-1) \)-dimensional complex manifold, hence a \( (2n - 2) \)-dimensional manifold.
+\end{proof}
+
+\begin{problem}{2-13}
+    Suppose \( M \) is a topological space with the property that for every indexed open cover \( \mathcal{X} \) of \( M \), there exists a partition of unity subordinate to \( \mathcal{X} \). Show that \( M \) is paracompact.
+\end{problem}
+
+\begin{proof}
+    Let \( \mathcal{X} = {\left( X_{\alpha} \right)}_{\alpha \in A} \) and \( {\left( \psi_{\alpha} \right)}_{\alpha \in A} \) a partition of unity subordinate to \( \mathcal{X} \). Being a parition of unity subordinate to \( \mathcal{X} \) means each function \( \psi_{\alpha}: M \to \mathbb{R} \) is continuous and
+    \begin{enumerate}[itemsep=0pt,label={(\roman*)}]
+        \item \( 0 \le \psi_{\alpha}(x) \le 1 \) for all \( \alpha \in A \) and \( x \in M \).
+        \item \( \operatorname{supp} \psi_{\alpha} \subseteq X_{\alpha}  \).
+        \item \( {(\operatorname{supp} \psi_{\alpha})}_{\alpha \in A} \) is locally finite. In other words, each point in \( M \) has a neighborhood that intersects \( \operatorname{supp} \psi_{\alpha} \) for only finitely many \( \alpha \in A \).
+        \item \( \sum_{\alpha \in A} \psi_{\alpha}(x) = 1 \) for every \( x \in M \).
+    \end{enumerate}
+
+    For each \( \alpha \), let \( U_{\alpha} = \psi_{\alpha}^{-1}( \left\rbrack 0, \infty \right\lbrack ) \) then \( U_{\alpha} \) is an open subset of \( M \) and \( U_{\alpha} \subseteq \operatorname{supp} \psi_{\alpha} \subseteq X_{\alpha} \). Then \( {\left\{ U_{\alpha} \right\}}_{\alpha \in A} \) is also locally finite. For every \( x \in M \), \( \sum_{\alpha \in A} \psi_{\alpha}(x) = 1 \) so there exists some \( \alpha \in A \) for which \( \psi_{\alpha}(x) \ne 0 \), which means \( x \in U_{\alpha} \). Therefore \( {\left\{ U_{\alpha} \right\}}_{\alpha \in A} \) is an open cover of \( M \). Thus \( {\left\{ U_{\alpha} \right\}}_{\alpha \in A} \) is a locally finite open refinement of \( \mathcal{X} \), from which we conclude that \( M \) is paracompact.
+\end{proof}
+
+\begin{problem}{2-14}
+    Suppose \( A \) and \( B \) are disjoint closed subsets of a smooth manifold {\color{red}with and without boundary} \( M \). Show that there exists \( f \in C^{\infty}(M) \) such that \( 0 \le f(x) \le 1 \) for all \( x \in M \), \( f^{-1}(0) = A \), and \( f^{-1}(1) = B \).
+\end{problem}
+
+\begin{proof}
+    According to Theorem 2.29, there are smooth nonnegative functions \( u, v: M \to \mathbb{R} \) such that \( u^{-1}(0) = A \) and \( v^{-1}(0) = B \). Define a function \( f: M \to \mathbb{R} \) by \( f(x) = \dfrac{u(x)}{u(x) + v(x)} \) then \( f \) is a smooth function such that \( 0 \le f(x) \le 1 \) for all \( x \in M \) and \( f^{-1}(0) = A \) and \( f^{-1}(1) = B \).
+\end{proof}
