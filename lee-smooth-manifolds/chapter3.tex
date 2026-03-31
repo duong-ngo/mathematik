@@ -1,1 +1,218 @@
+% chktex-file 8
 \chapter{Tangent Vectors}
+
+\section{Tangent Vectors}
+
+To be able to do calculus on smooth manifolds, we need a notion of tangent spaces. However, due to the abstract definition of smooth manifolds, it is not very simple to define such spaces. It is easy to define tangent spaces of the sphere \( \mathbb{S}^{n-1} \) in \( \mathbb{R}^{n} \) for it has the convenient ambient space \( \mathbb{R}^{n} \), but this is not the case for every smooth manifold as it might not reside in any given ambient space. Before giving a definition of tangent spaces for smooth manifolds, we work on the more intuitive Euclidean spaces first.
+
+\subsection{Geometric Tangent Vectors}
+
+For every point \( a \in \mathbb{R}^{n} \), we define the \emph{\textbf{geometric tangent space to \( \mathbb{R}^{n} \) at \( a \)}} to be \( \mathbb{R}_{a}^{n} := \left\{ a \right\} \times \mathbb{R}^{n} = \left\{ (a, v): v \in \mathbb{R}^{n} \right\} \). A \emph{\textbf{geometric tangent vector}} in \( \mathbb{R}^{n} \) is an element of \( \mathbb{R}_{a}^{n} \) for some \( a \in \mathbb{R}^{n} \). We will abbreviate \( (a, v) \) as \( v_{a} \) or \( v\vert_{a} \). The book uses both notations but this note will adopt only the latter for consistency as it is clearer in all cases (like, when the vector \( v \) has a subscript). On \( \mathbb{R}_{a}^{n} \) we define the natural operations
+\[
+    v\vert_{a} + w\vert_{a} = {(v + w)}\vert_{a}, \qquad c(v\vert_{a}) = {(cv)}\vert_{a}
+\]
+
+to make it a vector space. Essentially, the vector space \( \mathbb{R}_{a}^{n} \) is the same as \( \mathbb{R}^{n} \). In fact, \( \mathbb{R}^{n} \cong \mathbb{R}_{a}^{n} \) by the natural isomorphism. We add the index \( a \) only to distinguish the geometric tangent spaces at different points and make them disjoint sets.
+
+Every geometric tangent vector \( v\vert_{a} \) yields a map \( D_{v}\vert_{a}: C^{\infty}(\mathbb{R}^{n}) \to \mathbb{R} \) which computes the directional derivative in the direction \( v \) at \( a \):
+\[
+    D_{v}\vert_{a}(f) = D_{v}f(a) = \left.\dfrac{d}{dt}\right\vert_{t=0} f(a + tv).
+\]
+
+This operation is linear over \( \mathbb{R} \)
+\[
+    D_{\lambda_{1}v_{1} + \lambda_{2}v_{2}}\vert_{a} = \lambda_{1} D_{v_{1}}\vert_{a} + \lambda_{2} D_{v_{2}}\vert_{a}
+\]
+
+and it satisfies the product rule
+\[
+    D_{v}\vert_{a}(fg) = (D_{v}f(a)) g(a) + f(a) D_{v}g(a).
+\]
+
+If \( v\vert_{a} = v^{i} e_{i}\vert_{a} \), then by the chain rule, we can rewrite \( D_{v}\vert_{a}f \) in a more concise form with Einstein summation convention
+\[
+    D_{v}\vert_{a}f = v^{i}\dfrac{\partial f}{\partial x^{i}}(a).
+\]
+
+Particularly, if \( v\vert_{a} = e_{i}\vert_{a} \) then
+\[
+    D_{v}\vert_{a}f = \dfrac{\partial f}{\partial x^{i}}(a).
+\]
+
+If \( a \in \mathbb{R}^{n} \), a map \( w: C^{\infty}(\mathbb{R}^{n}) \to \mathbb{R} \) is called a \emph{\textbf{derivation at \(a\)}} if it is linear over \( \mathbb{R} \) and satisfies the product rule:
+\[
+    w(fg) = f(a) wg + g(a) wf.
+\]
+
+Let \( T_{a}\mathbb{R}^{n} \) denote the set of all derivations of \( C^{\infty}(\mathbb{R}^{n}) \) at \( a \). With the operations
+\[
+    (w_{1} + w_{2})(f) = w_{1}f + w_{2}f, \qquad (cw)f = c(wf)
+\]
+
+we make \( T_{a}\mathbb{R}^{n} \) a vector space. Surprisingly, \( T_{a}\mathbb{R}^{n} \) is finite-dimensional. In fact, it is isomorphic to the geometric tangent space at \( a \), as the following results show.
+
+\begin{lemma}{3.1}[Properties of Derivations]
+    Suppose \( a \in \mathbb{R}^{n}, w \in T_{a}\mathbb{R}^{n} \), and \( f, g \in C^{\infty}(\mathbb{R}^{n}) \).
+    \begin{enumerate}[label={(\alph*)},itemsep=0pt]
+        \item If \( f \) is a constant function, then \( wf = 0 \).
+        \item If \( f(a) = g(a) = 0 \), then \( w(fg) = 0 \).
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)},itemsep=0pt]
+        \item Let \( 1 \in C^{\infty}(\mathbb{R}^{n}) \) be the constant function that maps everything to \( 1\). Then \( w(1) = w(1 \cdot 1) = 1\cdot w(1) + 1\cdot w(1) = 2\cdot w(1) \) so \( w(1) = 0 \). If \( f \in C^{\infty}(\mathbb{R}^{n}) \) and \( f \) maps everything to a real number \( c \) then by the linearity of \( w \), we have \( w(f) = c(w(1)) = 0 \).
+        \item By the product rule, \( w(fg) = f(a) wg + g(a) wf = 0 + 0 = 0 \).
+    \end{enumerate}
+\end{proof}
+
+\begin{prop}{3.2}
+    Let \( a \in \mathbb{R}^{n} \).
+    \begin{enumerate}[label={(\alph*)},itemsep=0pt,topsep=0pt]
+        \item For each geometric tangent vector \( v\vert_{a} \in \mathbb{R}_{a}^{n} \), the map \( D_{v}\vert_{a}: C^{\infty}(\mathbb{R}^{n}) \to \mathbb{R} \) defined above is a derivation at \( a \).
+        \item The map \( v\vert_{a} \mapsto D_{v}\vert_{a} \) is an isomorphism from \( \mathbb{R}_{a}^{n} \) onto \( T_{a}\mathbb{R}^{n} \).
+    \end{enumerate}
+\end{prop}
+
+\begin{proof}
+    \( D_{v}\vert_{a} \) is a linear map. Also, we have already proven above that \( D_{v}\vert_{a} \) satisfies the product rule so it is indeed a derivation at \( a \).
+
+    Let's check the linearity of the map \( v\vert_{a} \mapsto D_{v}\vert_{a} \). For every \( f \in C^{\infty}(\mathbb{R}^{n}) \), we have
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+        D_{v + w}\vert_{a}(f) & = (v + w)\cdot Df(a) = v\cdot Df(a) + w\cdot Dg(a) = D_{v}\vert_{a}(f) + D_{w}\vert_{a}(f), \\
+        D_{cv}\vert_{a}(f)    & = (cv)\cdot Df(a) = c\cdot (v\cdot Df(a)) = c\cdot D_{v}\vert_{a}(f).
+    \end{align*}
+    \endgroup
+
+    Suppose \( v\vert_{a} \) has the property that \( D_{v}\vert_{a} \) is the zero derivation. Let \( v\vert_{a} = v^{i}e_{i}\vert_{a} \) then
+    \[
+        0 = D_{v}\vert_{a}f = v^{i}\dfrac{\partial f}{\partial x^{i}}(a).
+    \]
+
+    Substitute \( f \) with the \(j\) th projection map \( x^{j} \), we obtain \( 0 = D_{v}\vert_{a}x^{j} = v^{j} \). Therefore \( v = 0 \), so the linear map \( v\vert_{a} \mapsto D_{v}\vert_{a} \) is injective.
+
+    To show that this map is also surjective, we use Taylor's theorem. Let \( w \in T_{a}\mathbb{R}^{n} \) and define \( v^{i} = w(x^{i}) \) for each \( i \). By Theorem C.15, for every \( f \in C^{\infty}(\mathbb{R}^{n}) \)
+    \[
+        f(x) = f(a) + \sum_{i=1}^{n}\dfrac{\partial f}{\partial x^{i}}(a) (x^{i} - a^{i}) + \sum_{i,j=1}^{n}(x^{i} - a^{i})(x^{j} - a^{j}) \int_{0}^{1}(1 - t)\dfrac{\partial^{2}f}{\partial x^{i}\partial x^{j}}(a + t(x - a)) dt.
+    \]
+
+    By Lemma 3.1(b) applied to \( x^{i} - a^{i} \) and \( (x^{j} - a^{j}) \int_{0}^{1}(1 - t)\dfrac{\partial^{2}f}{\partial x^{i}\partial x^{j}}(a + t(x - a)) dt \)
+    \[
+        w\left((x^{i} - a^{i})(x^{j} - a^{j}) \int_{0}^{1}(1 - t)\dfrac{\partial^{2}f}{\partial x^{i}\partial x^{j}}(a + t(x - a)) dt\right) = 0
+    \]
+
+    so
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+        w(f) & = w(f(a)) + w\left(\sum_{i=1}^{n}\dfrac{\partial f}{\partial x^{i}}(a) (x^{i} - a^{i}) \right) \\
+             & = 0 + \sum_{i=1}^{n} \dfrac{\partial f}{\partial x^{i}}(a) w(x^{i} - a^{i})                    \\
+             & = \sum_{i=1}^{n} v^{i}\dfrac{\partial f}{\partial x^{i}}(a)                                    \\
+             & = D_{v}\vert_{a}(f).
+    \end{align*}
+    \endgroup
+
+    Hence \( w = D_{v}\vert_{a} \), which means the map is surjective. Thus \( v\vert_{a} \mapsto D_{v}\vert_{a} \) is a linear isomorphism.
+\end{proof}
+
+Consequently, the operations
+\[
+    \left.\dfrac{\partial}{\partial x^{i}}\right\vert_{a} := D_{e_{i}}\vert_{a}
+\]
+
+form a basis for \( T_{a}\mathbb{R}^{n} \) and \( \dim T_{a}\mathbb{R}^{n} = n \).
+
+\subsection{Tangent Vectors on Manifolds}
+
+Now we can define tangent vectors on manifolds and manifolds with boundary. Suppose \( M \) is a smooth manifold with or without boundary and \( p \in M \). A linear map \( v: C^{\infty}(M) \to \mathbb{R} \) is called a \emph{\textbf{derivation at \( p \)}} if it satisfies the ``product rule''
+\[
+    v(fg) = f(p)vg + g(p)vf
+\]
+
+for all \( f, g \in C^{\infty}(M) \). The set of all derivations of \( C^{\infty}(M) \) at \( p \) is called the \emph{\textbf{tangent space to \( M \) at \( p \)}}, which is denoted by \( T_{p}M \). An element of \( T_{p}M \) is called a \emph{\textbf{tangent vector at \( p \)}}.
+
+\begin{lemma}{3.4}[Properties of Tangent Vectors on Manifolds]
+    Suppose \( M \) is a smooth manifold with or without boundary, \( p \in M, v \in T_{p}M \), and \( f, g \in C^{\infty}(M) \).
+    \begin{enumerate}[label={(\alph*)},itemsep=0pt,topsep=0pt]
+        \item If \( f \) is a constant function, then \( vf = 0 \).
+        \item If \( f(p) = g(p) = 0 \), then \( v(fg) = 0 \).
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    Let \( 1 \in C^{\infty}(M) \) be the function that maps every point on \( M \) to \( 1 \). By the product rule, \( v(1) = v(1 \cdot 1) = 1\cdot v(1) + 1\cdot v(1) = v(1) + v(1) \), which implies \( v(1) = 0 \). If \( f \) is a constant function on \( M \) that maps every point on \( M \) to a real number \( c\) then by the linearity of \( v \), we have \( v(f) = v(c\cdot 1) = c \cdot v(1) = c \cdot 0 = 0 \).
+
+    If \( f(p) = g(p) = 0 \) then also by the product rule, \( v(fg) = f(p)v(g) + g(p)v(f) = 0\cdot v(g) + 0\cdot v(f) = 0 \).
+\end{proof}
+
+This definition makes tangent vectors to smooth manifolds (with or without boundary) similar to geometric tangent vectors. Also this allows us to visualize tangent vectors to \( M \) as ``arrows'' whose base points are attached to the tangent point and guide us in our study. This intuition helps us think geometrically about tangent vectors of abstract smooth manifolds (with or without boundary).
+
+% \section{The Differential of a Smooth Map}
+
+% \section{Computations in Coordinates}
+
+% \subsection{The Differential in Coordinates}
+
+% \subsection{Change of Coordinates}
+
+% \section{The Tangent Bundle}
+
+% \section{Velocity Vectors of Curves}
+
+% \section{Alternative Definition of the Tangent Space}
+
+% \subsection{Tangent Vectors as Derivations of the Space of Germs}
+
+% \subsection{Tangent Vectors as Equivalence Classes of Curves}
+
+% \subsection{Tangent Vectors as Equivalence Classes of \(n\)-tuples}
+
+% \section{Categories and Functors}
+
+% \begin{exercise}{3.27}
+%     Show that any (covariant or contravariant) functor from \( \mathrm{C} \) to \( \mathrm{D} \) takes isomorphisms in \( \mathrm{C} \) to isomorphisms in \( \mathrm{D} \).
+% \end{exercise}
+
+\section{Problems}
+
+\begin{problem}{3-1}
+    Suppose \( M \) and \( N \) are smooth manifolds with or without boundary, and \( F: M \to N \) is a smooth map. Show that \( dF_{p}: T_{p}M \to T_{F(p)}N \) is the zero map for each \( p \in M \) if and only if \( F \) is constant on each component of \( M \).
+\end{problem}
+
+\begin{problem}{3-2}
+    Prove Proposition 3.14 (the tangent space to a product manifold).
+
+    Let \( M_{1}, \ldots, M_{k} \) be smooth manifolds, and for each \( j \), let \( \pi_{j}: M_{1} \times \cdots \times M_{k} \to M_{j} \) be the projection onto the \( M_{j} \) factor. For any point \( p = (p_{1}, \ldots, p_{k}) \in M_{1} \times \cdots \times M_{k} \), the map
+    \[
+        \alpha: T_{p}(M_{1} \times \cdots \times M_{k}) \to T_{p_{1}}M_{1} \oplus \cdots \oplus T_{p_{k}}M_{k}
+    \]
+
+    defined by
+    \[
+        \alpha(v) = (d{(\pi_{1})}_{p}(v), \ldots, d{(\pi_{k})}_{p}(v))
+    \]
+
+    is an isomorphism. The same is true if one of the spaces \( M_{i} \) is a smooth manifold with boundary.
+\end{problem}
+
+\begin{problem}{3-3}
+    Prove that if \( M \) and \( N \) are smooth manifolds, then \( T(M \times N) \) is diffeomorphic to \( TM \times TN \).
+\end{problem}
+
+\begin{problem}{3-4}
+    Show that \( T\mathbb{S}^{1} \) is diffeomorphic to \( \mathbb{S}^{1} \times \mathbb{R} \).
+\end{problem}
+
+\begin{problem}{3-5}
+\end{problem}
+
+\begin{problem}{3-6}
+\end{problem}
+
+\begin{problem}{3-7}
+\end{problem}
+
+\begin{problem}{3-8}
+\end{problem}
