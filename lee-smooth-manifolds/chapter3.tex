@@ -149,7 +149,76 @@ for all \( f, g \in C^{\infty}(M) \). The set of all derivations of \( C^{\infty
 
 This definition makes tangent vectors to smooth manifolds (with or without boundary) similar to geometric tangent vectors. Also this allows us to visualize tangent vectors to \( M \) as ``arrows'' whose base points are attached to the tangent point and guide us in our study. This intuition helps us think geometrically about tangent vectors of abstract smooth manifolds (with or without boundary).
 
-% \section{The Differential of a Smooth Map}
+\section{The Differential of a Smooth Map}
+
+\begin{prop}{3.6}[Properties of Differentials]
+    Let \( M, N, \) and \( P \) be smooth manifolds with or without boundary, and let \( F: M \to N \) and \( G: N \to P \) be smooth maps, and let \( p \in M \).
+    \begin{enumerate}[label={(\alph*)},itemsep=0pt]
+        \item \( dF_{p}: T_{p}M \to T_{F(p)}N \) is linear.
+        \item \( d{(G \circ F)}_{p} = dG_{F(p)} \circ dF_{p}: T_{p}M \to T_{G \circ F(p)}P \).
+        \item \( d{(\operatorname{Id}_{M})}_{p} = \operatorname{Id}_{T_{p}M}: T_{p}M \to T_{p}M \).
+        \item If \( F \) is a diffeomorphism, then \( dF_{p}: T_{p}M \to T_{F(p)}N \) is an isomorphism and \( {(dF_{p})}^{-1} = d{(F^{-1})}_{F(p)} \).
+    \end{enumerate}
+\end{prop}
+
+\begin{proof}
+    \begin{enumerate}[label={(\alph*)},itemsep=0pt]
+        \item For every \( \lambda, \mu \in \mathbb{R} \) and \( v, w \in T_{p}M \) and \( f \in C^{\infty}(N) \)
+              \begingroup
+              \allowdisplaybreaks%
+              \begin{align*}
+                  dF_{p}(\lambda v + \mu w)(f) & = (\lambda v + \mu w)(f \circ F)          \\
+                                               & = \lambda v(f \circ F) + \mu w(f \circ F) \\
+                                               & = \lambda dF_{p}(v)(f) + \mu dF_{p}(w)(f)
+              \end{align*}
+              \endgroup
+
+              so \( dF_{p}(\lambda v + \mu w) = \lambda dF_{p}(v) + \mu dF_{p}(w) \). Therefore the differential \( dF_{p} \) is linear.
+        \item For every \( v \in T_{p}M \) and \( f \in C^{\infty}(P) \)
+              \begingroup
+              \allowdisplaybreaks%
+              \begin{align*}
+                  d{(G \circ F)}_{p}(v)(f) & = v(f \circ G \circ F)         \\
+                                           & = dF_{p}(v)(f \circ G)         \\
+                                           & = dG_{F(p)}(dF_{p}(v))(f)      \\
+                                           & = dG_{F(p)} \circ dF_{p}(v)(f)
+              \end{align*}
+              \endgroup
+
+              so \( d{(G \circ F)}_{p} = dG_{F(p)} \circ dF_{p} \).
+        \item For every \( v \in T_{p}M \) and \( f \in C^{\infty}(M) \)
+              \[
+                  d{(\operatorname{Id}_{M})}_{p}(v)(f) = v(f \circ \operatorname{Id}_{M}) = v(f) = \operatorname{Id}_{T_{p}M}(v)(f)
+              \]
+
+              so \( d{(\operatorname{Id}_{M})}_{p} = \operatorname{Id}_{T_{p}M} \).
+        \item According to part (b)
+              \begingroup
+              \allowdisplaybreaks%
+              \begin{align*}
+                  \operatorname{Id}_{T_{p}M}    & = d{(\operatorname{Id}_{M})}_{p} = d{(F^{-1} \circ F)}_{p} = d{(F^{-1})}_{F(p)} \circ dF_{p},       \\
+                  \operatorname{Id}_{T_{F(p)}N} & = d{(\operatorname{Id}_{N})}_{F(p)} = d{(F \circ F^{-1})}_{F(p)} = dF_{p} \circ d{(F^{-1})}_{F(p)}.
+              \end{align*}
+              \endgroup
+
+              So \( dF_{p} \) is an isomorphism and \( {(dF_{p})}^{-1} = d{(F^{-1})}_{F(p)} \).
+    \end{enumerate}
+\end{proof}
+
+\begin{prop}{3.8}[Tangent Vectors Act Locally]
+    Let \( M \) be a smooth manifold with or without boundary, and let \( p \in M \) and \( v \in T_{p}M \). If \( f, g \in C^{\infty}(M) \) agree on some neighborhood of \( p \), then \( vf = vg \).
+\end{prop}
+
+\begin{proof}
+    Let \( U \) be a neighborhood of \( p \) on which \( f\vert_{U} = g\vert_{U} \) and \( h = f - g \).
+
+    \( p \in U \subseteq h^{-1}(0) \) implies \( h^{-1}(\mathbb{R} \smallsetminus \left\{0\right\}) \subseteq M \smallsetminus U \subseteq M \smallsetminus \left\{ p \right\} \). Therefore
+    \[
+        \operatorname{supp} h = \overline{h^{-1}(\mathbb{R} \smallsetminus \left\{0\right\})} \subseteq \overline{M \smallsetminus U} = M \smallsetminus U \subseteq M \smallsetminus \left\{ p \right\}.
+    \]
+
+    Let \( \psi: M \to \mathbb{R} \) be a smooth bump function for \( \operatorname{supp} h \) supported in \( M \smallsetminus \left\{p\right\} \). Because \( \psi \equiv 1 \) when \( h \) is nonzero then \( h(x) = \psi(x) h(x) \) for all \( x \in M \). By the product rule and Lemma 3.4(b), \( v(h) = v(\psi h) = \psi(p) v(h) + h(p) v(\psi) = 0 \). Therefore \( vf = vg \).
+\end{proof}
 
 % \section{Computations in Coordinates}
 
@@ -161,19 +230,45 @@ This definition makes tangent vectors to smooth manifolds (with or without bound
 
 % \section{Velocity Vectors of Curves}
 
-% \section{Alternative Definition of the Tangent Space}
+\section{Alternative Definition of the Tangent Space}
 
-% \subsection{Tangent Vectors as Derivations of the Space of Germs}
+\subsection{Tangent Vectors as Derivations of the Space of Germs}
 
-% \subsection{Tangent Vectors as Equivalence Classes of Curves}
+\subsection{Tangent Vectors as Equivalence Classes of Curves}
 
-% \subsection{Tangent Vectors as Equivalence Classes of \(n\)-tuples}
+\subsection{Tangent Vectors as Equivalence Classes of \(n\)-tuples}
 
-% \section{Categories and Functors}
+\section{Categories and Functors}
 
-% \begin{exercise}{3.27}
-%     Show that any (covariant or contravariant) functor from \( \mathrm{C} \) to \( \mathrm{D} \) takes isomorphisms in \( \mathrm{C} \) to isomorphisms in \( \mathrm{D} \).
-% \end{exercise}
+\begin{exercise}{3.27}
+    Show that any (covariant or contravariant) functor from \( \mathsf{C} \) to \( \mathsf{D} \) takes isomorphisms in \( \mathsf{C} \) to isomorphisms in \( \mathsf{D} \).
+\end{exercise}
+
+\begin{proof}
+    Suppose \( \mathscr{F} \) is a covariant functor from \( \mathsf{C} \) to \( \mathsf{D} \) and \( g \in \mathsf{Hom}_{\mathsf{C}}(X, Y) \) is an isomorphism. There exists \( h \in \mathsf{Hom}_{\mathsf{C}}(Y, X) \) such that \( h \circ g = \operatorname{Id}_{X} \) and \( g \circ h = \operatorname{Id}_{Y} \). Then
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+        \mathscr{F}(g) \circ \mathscr{F}(h) & = \mathscr{F}(g \circ h) = \mathscr{F}(\operatorname{Id}_{Y}) = \operatorname{Id}_{\mathscr{F}(Y)} \\
+        \mathscr{F}(h) \circ \mathscr{F}(g) & = \mathscr{F}(h \circ g) = \mathscr{F}(\operatorname{Id}_{X}) = \operatorname{Id}_{\mathscr{F}(X)}
+    \end{align*}
+    \endgroup
+
+    hence \( \mathscr{F}(g) \) is an isomorphism in \( \mathsf{D} \), which means \( \mathscr{F} \) takes isomorphisms in \( \mathsf{C} \) to isomorphisms in \( \mathsf{D} \).
+
+    Suppose \( \mathscr{F} \) is a contravariant functor from \( \mathsf{C} \) to \( \mathsf{D} \) and \( g \in \mathsf{Hom}_{\mathsf{C}}(X, Y) \) is an isomorphism. There exists \( h \in \mathsf{Hom}_{\mathsf{C}}(Y, X) \) such that \( h \circ g = \operatorname{Id}_{X} \) and \( g \circ h = \operatorname{Id}_{Y} \). Then
+    \begingroup
+    \allowdisplaybreaks%
+    \begin{align*}
+        \mathscr{F}(g) \circ \mathscr{F}(h) & = \mathscr{F}(h \circ g) = \mathscr{F}(\operatorname{Id}_{X}) = \operatorname{Id}_{\mathscr{F}(X)} \\
+        \mathscr{F}(h) \circ \mathscr{F}(g) & = \mathscr{F}(g \circ h) = \mathscr{F}(\operatorname{Id}_{Y}) = \operatorname{Id}_{\mathscr{F}(Y)}
+    \end{align*}
+    \endgroup
+
+    hence \( \mathscr{F}(g) \) is an isomorphism in \( \mathsf{D} \), which means \( \mathscr{F} \) takes isomorphisms in \( \mathsf{C} \) to isomorphisms in \( \mathsf{D} \).
+
+    Thus any (covariant or contravariant) functor from \( \mathsf{C} \) to \( \mathsf{D} \) takes isomorphisms in \( \mathsf{C} \) to isomorphisms in \( \mathsf{D} \).
+\end{proof}
 
 \section{Problems}
 
